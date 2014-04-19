@@ -1,0 +1,38 @@
+<%= form_for(@trigger) do |f| %>
+  <% if @trigger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
+
+      <ul>
+      <% @trigger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br>
+   <%= f.select :category, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'None'} %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :mood %><br>
+    <%= f.select :mood, Mood.all.collect {|m| [ m.name, m.id ] }, {include_blank: 'None'} %>
+  </div>
+  <div class="field">
+    <%= f.label :why %><br>
+    <%= f.text_field :why %>
+  </div>
+  <div class="field">
+    <%= f.label :fix %><br>
+    <%= f.text_field :fix %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :userid, :value => current_user.id %>  
+    <%= f.submit %>
+  </div>
+<% end %>

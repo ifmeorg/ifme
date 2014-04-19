@@ -1,0 +1,26 @@
+<%= form_for(@mood) do |f| %>
+  <% if @mood.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mood.errors.count, "error") %> prohibited this mood from being saved:</h2>
+
+      <ul>
+      <% @mood.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :userid, :value => current_user.id %>
+    <%= f.submit %>
+  </div>
+<% end %>

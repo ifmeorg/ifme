@@ -1,0 +1,174 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Fonts */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,300);
+
+/* Text */
+
+body, html {
+	margin: 0 auto;
+	font: 18px 'Lato', sans-serif;
+	font-weight: 400;
+}
+
+/* Divs */
+
+.align_left {
+	float: left;
+	display: inline-block;
+}
+
+.align_right {
+	float: right;
+	display: inline-block;
+}
+
+.clear {
+	clear: both;
+}
+
+#container {
+	margin: 0 auto;
+	padding: 0;
+}
+
+/* Header */
+
+#header {
+	padding: 40px;
+	background-color: #6D0839;
+}
+
+#header a.nav_link:link, #header a.nav_link:visited {
+	text-decoration: none;
+	color: #ffffff;
+	margin-right: 20px;
+	padding-bottom: 20px;
+	border: none;
+}
+
+#header a.nav_link:hover {
+	color: #ffffff;
+	text-decoration: none;
+	margin-right: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ffffff;
+}
+
+#header > #title {
+	color: #ffffff;
+	text-transform: lowercase;
+	font-size: 40px;
+	font-weight: 100;
+}
+
+/* Page Title */
+
+#page_title {
+	width: 100%;
+	background-color: #D0E799;
+}
+
+#page_title > #page_title_content {
+	padding: 40px;
+	font-size: 30px;
+	font-weight: 300;
+}
+
+/* Content */
+
+#content {
+	padding: 40px;
+}
+
+/* Footer */
+
+#footer {
+	padding: 40px;
+}
+
+#footer > #footer_content {
+	border-top: 1px solid #6D0839;
+	padding-top: 40px;
+	font-size: 16px;
+	color: #6D0839;
+	text-align: right;
+}
+
+/* Links */
+
+a:link, a:visited {
+	text-decoration: none;
+	color: #02779E;
+	border-bottom: 1px dotted #02779E;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #02779E;
+	border-bottom: 1px dotted #02779E;
+	opacity: 0.8;
+}
+
+/* Input Fields */
+
+input, textarea, select, fieldset {
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	box-shadow: 0 0 10px #CCCCCC inset;
+	font: 18px 'Lato', sans-serif;
+}
+
+input[type="submit"] {
+	background-color: #A2122F;
+	color: #ffffff;
+	box-shadow: none;
+	border: none;
+}
+
+input[type="submit"]:hover {
+	background-color: #A2122F;
+	color: #ffffff;
+	box-shadow: none;
+	border: none;
+	opacity: 0.8;
+}
+
+.field, .actions {
+	margin-bottom: 40px;
+}
+
+/* Tables */
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	padding: 20px 0px 20px 20px;
+	border: 1px solid #6D0839;
+}
+
+table td {
+	padding-right: 20px;
+}
+
+table th {
+	text-align: left;
+	font-weight: bold;
+	color: #6D0839;
+}
+

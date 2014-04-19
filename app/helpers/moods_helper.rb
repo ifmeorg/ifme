@@ -1,0 +1,2 @@
+module MoodsHelper
+end

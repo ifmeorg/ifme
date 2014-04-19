@@ -1,0 +1,27 @@
+<p>
+  <strong>Category:</strong>
+  <%= Category.where(:id => @trigger.category).first.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trigger.name %>
+</p>
+
+<p>
+  <strong>Mood:</strong>
+  <%= Mood.where(:id => @trigger.mood).first.name %>
+</p>
+
+<p>
+  <strong>Why:</strong>
+  <%= @trigger.why %>
+</p>
+
+<p>
+  <strong>Fix:</strong>
+  <%= @trigger.fix %>
+</p>
+
+<%= link_to 'Edit', edit_trigger_path(@trigger) %> |
+<%= link_to 'Back', triggers_path %>

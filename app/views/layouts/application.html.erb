@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>if me - <%= @page_title %></title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+
+	<body>
+
+		<% if current_page?(new_user_session_path) %>
+		  	<style>
+			  	#header a#signin_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			  	}
+			</style>
+		<% elsif current_page?(edit_user_registration_path) %>
+		  	<style>
+			  	#header a#settings_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			  	}
+			</style>		
+		<% elsif current_page?(:controller => 'categories') %>
+			<style>
+		  		#header a#categories_link:link {
+		    		border-bottom: 1px solid #ffffff;
+		    		opacity: 0.8;
+		  		}
+			</style>
+		<% elsif current_page?(:controller => 'moods') %>
+		  	<style>
+				#header a#moods_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			  	}
+			</style>
+		<% elsif current_page?(:controller => 'triggers') %>
+		  	<style>
+			  	#header a#triggers_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			 	}
+			</style>	
+		<% end %>	
+
+		<div id="container">
+			<div id="header">
+				<div class="align_left">
+					<% if user_signed_in? %>
+					  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>     
+					  	<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
+					  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
+					 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
+					 	<%= link_to('Settings', edit_user_registration_path, class: 'nav_link', id: 'settings_link') %>      
+					 	<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'nav_link') %>    
+					<% else %>
+						<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
+					  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>  
+					<% end %>
+				</div>
+				<div class="align_right" id="title">
+					If Me
+				</div>
+				<div class="clear"></div>	
+			</div>
+
+			<div id="page_title">
+				<div id="page_title_content">
+					<% if current_page?(new_user_session_path) %>
+						Sign in
+					<% elsif current_page?(new_user_registration_path) %>
+						Sign up
+					<% elsif current_page?(new_user_password_path) %>
+						Forgot your password?
+					<% elsif current_page?(edit_user_registration_path) %>
+						Settings
+					<% else %>
+						<%= @page_title %>
+					<% end %>
+				</div>
+			</div>
+
+			<div id="content">
+
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+
+				<%= yield %>
+
+			</div>
+
+			<div id="footer">
+				<div id="footer_content">
+					if me &#169; 2014
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
