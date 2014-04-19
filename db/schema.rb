@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419025804) do
+ActiveRecord::Schema.define(version: 20140419194712) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20140419025804) do
   end
 
   create_table "triggers", force: true do |t|
-    t.integer  "category"
+    t.string   "category"
     t.string   "name"
-    t.integer  "mood"
+    t.string   "mood"
     t.string   "why"
     t.string   "fix"
     t.datetime "created_at"

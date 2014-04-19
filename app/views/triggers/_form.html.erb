@@ -12,23 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category %><br>
-    <%= f.select :category, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'Please select'} %>
+    <%= f.label :category %>
+    <% Category.all.each do |item| %>
+      <br />
+      <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category == item.id}, item.id, nil) %>
+      <%= item.name %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :mood %><br>
-    <%= f.select :mood, Mood.all.collect {|m| [ m.name, m.id ] }, {include_blank: 'Please select'} %>
+    <%= f.label :mood %>
+    <% Mood.all.each do |item| %>
+      <br />
+      <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood == item.id}, item.id, nil) %>
+      <%= item.name %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :why %><br>
+    <%= f.label :why %><br />
     <%= f.text_field :why %>
   </div>
   <div class="field">
-    <%= f.label :fix %><br>
+    <%= f.label :fix %><br />
     <%= f.text_field :fix %>
   </div>
   <div class="actions">

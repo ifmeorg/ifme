@@ -1,6 +1,11 @@
 <p>
   <strong>Category:</strong>
-  <%= Category.where(:id => @trigger.category).first.name %>
+  <% @trigger.category.each do |item| %>
+    <%= Category.where(:id => item.to_i).first.name %>
+    <% if item != @trigger.category.last %>
+      <%= ', ' %>
+    <% end %>
+  <% end %>
 </p>
 
 <p>
@@ -10,7 +15,12 @@
 
 <p>
   <strong>Mood:</strong>
-  <%= Mood.where(:id => @trigger.mood).first.name %>
+  <% @trigger.mood.each do |item| %>
+    <%= Mood.where(:id => item.to_i).first.name %>
+    <% if item != @trigger.mood.last %>
+      <%= ', ' %>
+    <% end %>
+  <% end %>
 </p>
 
 <p>

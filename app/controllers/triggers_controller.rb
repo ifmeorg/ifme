@@ -29,7 +29,6 @@ class TriggersController < ApplicationController
   # POST /triggers.json
   def create
     @trigger = Trigger.new(trigger_params)
-
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to @trigger, notice: 'Trigger was successfully created.' }
@@ -73,6 +72,6 @@ class TriggersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trigger_params
-      params.require(:trigger).permit(:category, :name, :mood, :why, :fix, :userid)
+      params.require(:trigger).permit(:name, :why, :fix, :userid, {:category => []}, {:mood => []})
     end
 end
