@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>if me - <%= @page_title %></title>
+		<title>
+			if me 
+			<% if current_page?(new_user_session_path) %>
+				- Sign in
+			<% elsif current_page?(new_user_registration_path) %>
+				- Sign up
+			<% elsif current_page?(new_user_password_path) %>
+				- Forgot your password?
+			<% elsif current_page?(edit_user_registration_path) %>
+				- Settings
+			<% else %>
+				- <%= @page_title %>
+			<% end %>
+		</title>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
 
 	<body>
-
 		<% if current_page?(new_user_session_path) %>
 		  	<style>
 			  	#header a#signin_link:link {
@@ -23,21 +36,21 @@
 			    	opacity: 0.8;
 			  	}
 			</style>		
-		<% elsif current_page?(:controller => 'categories') %>
+		<% elsif params[:controller] == "categories" %>
 			<style>
 		  		#header a#categories_link:link {
 		    		border-bottom: 1px solid #ffffff;
 		    		opacity: 0.8;
 		  		}
 			</style>
-		<% elsif current_page?(:controller => 'moods') %>
+		<% elsif params[:controller] == "moods" %>
 		  	<style>
 				#header a#moods_link:link {
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			  	}
 			</style>
-		<% elsif current_page?(:controller => 'triggers') %>
+		<% elsif params[:controller] == "triggers" %>
 		  	<style>
 			  	#header a#triggers_link:link {
 			    	border-bottom: 1px solid #ffffff;

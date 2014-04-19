@@ -99,7 +99,7 @@ body, html {
 /* Footer */
 
 #footer {
-	padding: 40px;
+	padding: 0px 40px 40px 40px;
 }
 
 #footer > #footer_content {
@@ -135,17 +135,17 @@ input, textarea, select, fieldset {
 }
 
 input[type="submit"] {
-	background-color: #A2122F;
-	color: #ffffff;
+	border: 1px solid #02779E;
+	color: #02779E;
+	background: none;
 	box-shadow: none;
-	border: none;
 }
 
 input[type="submit"]:hover {
-	background-color: #A2122F;
-	color: #ffffff;
+	border: 1px solid #02779E;
+	color: #02779E;
+	background: none;
 	box-shadow: none;
-	border: none;
 	opacity: 0.8;
 }
 
@@ -157,18 +157,25 @@ input[type="submit"]:hover {
 
 table {
 	width: 100%;
-	table-layout: fixed;
-	padding: 20px 0px 20px 20px;
+	table-layout: auto;
+	padding: 20px 0px 0px 20px;
 	border: 1px solid #6D0839;
 }
 
 table td {
-	padding-right: 20px;
+	padding: 0px 20px 20px 0px;
+	vertical-align: top;
 }
 
 table th {
 	text-align: left;
 	font-weight: bold;
 	color: #6D0839;
+	padding-bottom: 20px;
+}
+
+.action {
+	color: #02779E;
+	margin-right: 10px;
 }
 
