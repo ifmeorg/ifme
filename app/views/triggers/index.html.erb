@@ -1,31 +1,17 @@
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Name</th>
-      <th>Mood</th>
-      <th>Why</th>
-      <th>Fix</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="align_right" style="margin-bottom: 40px">
+  <i class="fa fa-plus-square-o action"></i><%= link_to 'New Trigger', new_trigger_path %>
+</div>
+<div class="clear"></div>
 
-  <tbody>
-    <% @triggers.each do |trigger| %>
-      <tr>
-        <td><%= Category.where(:id => trigger.category).first.name %></td>
-        <td><%= trigger.name %></td>
-        <td><%= Category.where(:id => trigger.mood).first.name %></td>
-        <td><%= trigger.why %></td>
-        <td><%= trigger.fix %></td>
-        <td><%= link_to 'Show', trigger %></td>
-        <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
-        <td><%= link_to 'Destroy', trigger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @triggers.each do |trigger| %>
+  <div class="trigger">
+    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+    Category: <%= Category.where(:id => trigger.category).first.name %>
+    <br />Mood: <%= Category.where(:id => trigger.mood).first.name %>
+    <div style="margin-top: 20px">
+      <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
+      <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to 'New Trigger', new_trigger_path %>

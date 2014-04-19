@@ -128,24 +128,24 @@ a:hover {
 /* Input Fields */
 
 input, textarea, select, fieldset {
-	border: 1px solid #CCCCCC;
+	border: 1px solid #000000;
 	padding: 10px;
-	box-shadow: 0 0 10px #CCCCCC inset;
+	box-shadow: 0 0 2px #000000 inset;
 	font: 18px 'Lato', sans-serif;
 }
 
 input[type="submit"] {
 	border: 1px solid #02779E;
+	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: none;
-	box-shadow: none;
 }
 
 input[type="submit"]:hover {
 	border: 1px solid #02779E;
+	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: none;
-	box-shadow: none;
 	opacity: 0.8;
 }
 
@@ -160,6 +160,7 @@ table {
 	table-layout: auto;
 	padding: 20px 0px 0px 20px;
 	border: 1px solid #6D0839;
+	box-shadow: 0 0 2px #6D0839 inset;
 }
 
 table td {
@@ -172,10 +173,34 @@ table th {
 	font-weight: bold;
 	color: #6D0839;
 	padding-bottom: 20px;
+	font-size: 20px;
 }
 
 .action {
 	color: #02779E;
 	margin-right: 10px;
+}
+
+/* Triggers */
+
+.trigger {
+	padding: 20px;
+	border: 1px solid #6D0839;
+	box-shadow: 0 0 2px #6D0839 inset;
+	margin-bottom: 40px;
+}
+
+.trigger > h1.trigger_name {
+	font-weight: 300;
+	font-size: 26px;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+	color: #6D0839;
+}
+
+h1.trigger_name a:link, h1.trigger_name a:visited {
+	color: #6D0839;
+	text-decoration: none;
+	border: none;
 }
 
