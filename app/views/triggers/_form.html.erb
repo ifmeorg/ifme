@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :category %><br>
-   <%= f.select :category, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'None'} %>
+    <%= f.select :category, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'Please select'} %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :mood %><br>
-    <%= f.select :mood, Mood.all.collect {|m| [ m.name, m.id ] }, {include_blank: 'None'} %>
+    <%= f.select :mood, Mood.all.collect {|m| [ m.name, m.id ] }, {include_blank: 'Please select'} %>
   </div>
   <div class="field">
     <%= f.label :why %><br>
