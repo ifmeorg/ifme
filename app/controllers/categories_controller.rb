@@ -58,6 +58,15 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
+    # Remove categories from existing triggers
+    @triggers = Trigger.where(:userid => current_user.id).all
+
+    @triggers.each do |item|
+      new_category = item.category.delete(@category.id.to_s)
+      the_trigger = Trigger.find_by(id: item.id)
+      the_trigger.update(category: item.category)
+    end
+
     @category.destroy
     respond_to do |format|
       format.html { redirect_to categories_url }

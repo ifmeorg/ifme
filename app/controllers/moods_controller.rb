@@ -58,6 +58,15 @@ class MoodsController < ApplicationController
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
+    # Remove moods from existing triggers
+    @triggers = Trigger.where(:userid => current_user.id).all
+
+    @triggers.each do |item|
+      new_category = item.mood.delete(@mood.id.to_s)
+      the_trigger = Trigger.find_by(id: item.id)
+      the_trigger.update(mood: item.mood)
+    end
+
     @mood.destroy
     respond_to do |format|
       format.html { redirect_to moods_url }

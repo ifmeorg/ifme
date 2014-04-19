@@ -15,7 +15,7 @@
     <% end %>
     <br />Mood: 
     <% trigger.mood.each do |item| %>
-      <%= Category.where(:id => item.to_i).first.name %>
+      <%= Mood.where(:id => item.to_i).first.name %>
       <% if item != trigger.mood.last %>
         <%= ', ' %>
       <% end %>
