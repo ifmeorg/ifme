@@ -43,7 +43,14 @@
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
-			</style>	
+			</style>
+		<% elsif current_page?(root_path) %>
+		  	<style>
+			  	#header a#home_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			 	}
+			</style>		
 		<% end %>	
 
 		<div id="container">
