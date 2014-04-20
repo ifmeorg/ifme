@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :dosage %><br>
+    <%= f.label :dosage %><br />
     <%= f.text_field :dosage %>
   </div>
   <div class="field">
-    <%= f.label :refill %><br>
+    <%= f.label :refill %><br />
     <%= f.text_field :refill %>
   </div>
   <div class="actions">
+    <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
 <% end %>

@@ -14,10 +14,9 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
+        <td><%= link_to category.name, category %></td>
         <td>
           <%= truncate(category.description, :length => 80) %> 
-          <br /><%= link_to 'View more', category %>
         </td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>

@@ -14,10 +14,9 @@
   <tbody>
     <% @moods.each do |mood| %>
       <tr>
-        <td><%= mood.name %></td>
+        <td><%= link_to mood.name, mood %></td>
         <td>
           <%= truncate(mood.description, :length => 80) %> 
-          <br /><%= link_to 'View more', mood %>
         </td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>

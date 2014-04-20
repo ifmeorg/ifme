@@ -1,22 +1,27 @@
 <p>
-  <strong>Userid:</strong>
-  <%= @alert.userid %>
-</p>
-
-<p>
-  <strong>Trigger:</strong>
-  <%= @alert.trigger %>
-</p>
-
-<p>
-  <strong>Medication:</strong>
-  <%= @alert.medication %>
+  <strong>Name:</strong>
+  <%= @alert.name %>
 </p>
 
 <p>
   <strong>Message:</strong>
   <%= @alert.message %>
 </p>
+
+
+<% if !@alert.trigger.blank? %>
+  <p>
+    <strong>Trigger:</strong>
+    <%= Trigger.where(:id => @alert.trigger, :userid => current_user.id).first.name %>
+  </p>
+<% end %>
+
+<% if !@alert.medication.blank? %>
+  <p>
+    <strong>Medication:</strong>
+    <%= Medication.where(:id => @alert.medication, :userid => current_user.id).first.name %>
+  </p>
+<% end %>
 
 <p>
   <strong>Means:</strong>
@@ -30,7 +35,7 @@
 
 <p>
   <strong>Time:</strong>
-  <%= @alert.time %>
+  <%= @alert.times %>
 </p>
 
 <%= link_to 'Edit', edit_alert_path(@alert) %> |

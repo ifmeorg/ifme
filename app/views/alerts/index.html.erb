@@ -1,35 +1,29 @@
-<table>
-  <thead>
-    <tr>
-      <th>Userid</th>
-      <th>Trigger</th>
-      <th>Medication</th>
-      <th>Message</th>
-      <th>Means</th>
-      <th>Days</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="align_right" style="margin-bottom: 40px">
+  <i class="fa fa-plus-square-o action"></i><%= link_to 'New Alert', new_alert_path %>
+</div>
+<div class="clear"></div>
 
-  <tbody>
-    <% @alerts.each do |alert| %>
-      <tr>
-        <td><%= alert.userid %></td>
-        <td><%= alert.trigger %></td>
-        <td><%= alert.medication %></td>
-        <td><%= alert.message %></td>
-        <td><%= alert.means %></td>
-        <td><%= alert.days %></td>
-        <td><%= alert.time %></td>
-        <td><%= link_to 'Show', alert %></td>
-        <td><%= link_to 'Edit', edit_alert_path(alert) %></td>
-        <td><%= link_to 'Destroy', alert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @alerts.each do |alert| %>
+  <div class="the_alert">
+    <h1 class="alert_name"><%= link_to alert.name, alert %></h1>
+    For:
+    <% if !alert.trigger.blank? %>
+      <%= Trigger.where(:id => alert.trigger, :userid => current_user.id).first.name %>
+      <%= ' (Trigger)' %>
     <% end %>
-  </tbody>
-</table>
+    <% if !alert.trigger.blank? && !alert.medication.blank? %>
+      <%= ' and ' %>
+    <% end %>
+    <% if !alert.medication.blank? %>
+      <%= Medication.where(:id => alert.medication, :userid => current_user.id).first.name %>
+      <%= ' (Medication)' %>
+    <% end %>
+    <br />By: <%= alert.means %>
+    <br />When: <%= alert.days %> at <%= alert.times %>
+    <div style="margin-top: 20px">
+      <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_alert_path(alert) %>
+      <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', alert, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
 
-<br>
-
-<%= link_to 'New Alert', new_alert_path %>

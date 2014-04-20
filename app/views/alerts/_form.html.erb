@@ -12,34 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :userid %><br>
-    <%= f.number_field :userid %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :trigger %><br>
-    <%= f.number_field :trigger %>
-  </div>
-  <div class="field">
-    <%= f.label :medication %><br>
-    <%= f.number_field :medication %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
+    <%= f.label :message %><br />
     <%= f.text_field :message %>
   </div>
   <div class="field">
-    <%= f.label :means %><br>
-    <%= f.text_field :means %>
+    <%= f.label :trigger %><br />
+    <%= f.select :trigger, Trigger.where(:userid => current_user.id).all.collect {|item| [ item.name, item.id ] }, {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    <%= f.label :days %><br>
+    <%= f.label :medication %><br />
+    <%= f.select :medication, Medication.where(:userid => current_user.id).all.collect {|item| [ item.name, item.id ] }, {include_blank: 'Please select'} %>
+  </div>
+  <div class="field">
+    <%= f.label :means %><br />
+    <%= f.select :means, [['Email', 'email'], ['SMS', 'sms'], ['Calendar', 'calendar']], {include_blank: 'Please select'} %>
+  </div>
+  <div class="field">
+    <%= f.label :days %><br />
     <%= f.text_field :days %>
   </div>
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <%= f.label :times %><br />
+    <%= f.text_field :times %>
   </div>
   <div class="actions">
+     <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
 <% end %>

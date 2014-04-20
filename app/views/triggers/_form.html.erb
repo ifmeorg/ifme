@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :category %>
-    <% Category.all.each do |item| %>
+    <% Category.where(:userid => current_user.id).all.each do |item| %>
       <br />
       <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id.to_s)}, item.id, nil) %>
       <%= item.name %>
@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :mood %>
-    <% Mood.all.each do |item| %>
+    <% Mood.where(:userid => current_user.id).all.each do |item| %>
       <br />
       <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id.to_s)}, item.id, nil) %>
       <%= item.name %>
