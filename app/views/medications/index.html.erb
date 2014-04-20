@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dosage</th>
+      <th>Refill</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medications.each do |medication| %>
+      <tr>
+        <td><%= medication.name %></td>
+        <td><%= medication.dosage %></td>
+        <td><%= medication.refill %></td>
+        <td><%= link_to 'Show', medication %></td>
+        <td><%= link_to 'Edit', edit_medication_path(medication) %></td>
+        <td><%= link_to 'Destroy', medication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medication', new_medication_path %>
