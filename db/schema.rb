@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420023617) do
+ActiveRecord::Schema.define(version: 20140420025520) do
+
+  create_table "alerts", force: true do |t|
+    t.integer  "userid"
+    t.integer  "trigger"
+    t.integer  "medication"
+    t.string   "message"
+    t.string   "means"
+    t.string   "days"
+    t.string   "times"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"

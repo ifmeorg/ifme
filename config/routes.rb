@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :alerts
+
   resources :medications
 
   resources :moods

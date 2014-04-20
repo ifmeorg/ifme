@@ -1,0 +1,37 @@
+<p>
+  <strong>Userid:</strong>
+  <%= @alert.userid %>
+</p>
+
+<p>
+  <strong>Trigger:</strong>
+  <%= @alert.trigger %>
+</p>
+
+<p>
+  <strong>Medication:</strong>
+  <%= @alert.medication %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @alert.message %>
+</p>
+
+<p>
+  <strong>Means:</strong>
+  <%= @alert.means %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @alert.days %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @alert.time %>
+</p>
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

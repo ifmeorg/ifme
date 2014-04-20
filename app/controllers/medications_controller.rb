@@ -11,6 +11,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
+    @page_title = @medication.name
   end
 
   # GET /medications/new
@@ -72,6 +73,6 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill)
+      params.require(:medication).permit(:name, :dosage, :refill, :userid)
     end
 end

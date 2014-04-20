@@ -1,0 +1,2 @@
+module AlertsHelper
+end

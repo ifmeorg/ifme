@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>Trigger</th>
+      <th>Medication</th>
+      <th>Message</th>
+      <th>Means</th>
+      <th>Days</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alerts.each do |alert| %>
+      <tr>
+        <td><%= alert.userid %></td>
+        <td><%= alert.trigger %></td>
+        <td><%= alert.medication %></td>
+        <td><%= alert.message %></td>
+        <td><%= alert.means %></td>
+        <td><%= alert.days %></td>
+        <td><%= alert.time %></td>
+        <td><%= link_to 'Show', alert %></td>
+        <td><%= link_to 'Edit', edit_alert_path(alert) %></td>
+        <td><%= link_to 'Destroy', alert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alert', new_alert_path %>
