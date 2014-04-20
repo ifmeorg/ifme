@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>Allies</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @allies.each do |ally| %>
+      <tr>
+        <td><%= ally.userid %></td>
+        <td><%= ally.allies %></td>
+        <td><%= link_to 'Destroy', ally, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ally', new_ally_path %>

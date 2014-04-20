@@ -1,0 +1,2 @@
+module AlliesHelper
+end

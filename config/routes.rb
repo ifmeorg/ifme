@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :allies
+
   resources :alerts
 
   resources :medications

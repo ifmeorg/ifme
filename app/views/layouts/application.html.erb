@@ -71,6 +71,13 @@
 			    	opacity: 0.8;
 			 	}
 			</style>
+		<% elsif params[:controller] == "allies" %>
+		  	<style>
+			  	#header a#allies_link:link {
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.8;
+			 	}
+			</style>
 		<% elsif current_page?(root_path) %>
 		  	<style>
 			  	#header a#home_link:link {
@@ -90,6 +97,7 @@
 					 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
 					 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
 					 	<%= link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
+					 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
 					 	<%= link_to('Settings', edit_user_registration_path, class: 'nav_link', id: 'settings_link') %>      
 					 	<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'nav_link') %>    
 					<% else %>

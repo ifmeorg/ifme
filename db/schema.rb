@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420070158) do
+ActiveRecord::Schema.define(version: 20140420074037) do
 
   create_table "alerts", force: true do |t|
     t.integer  "userid"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20140420070158) do
     t.string   "name"
     t.string   "time_minute"
     t.string   "time_period"
+  end
+
+  create_table "allies", force: true do |t|
+    t.integer  "userid"
+    t.string   "allies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", force: true do |t|
