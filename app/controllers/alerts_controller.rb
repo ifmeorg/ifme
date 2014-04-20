@@ -73,6 +73,6 @@ class AlertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alert_params
-      params.require(:alert).permit(:userid, :trigger, :medication, :message, :means, :days, :times, :name)
+      params.require(:alert).permit(:userid, :trigger, :medication, :message, :means, :days, :name, :time_hour, :time_minute, :time_period)
     end
 end

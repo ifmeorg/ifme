@@ -33,11 +33,15 @@
   </div>
   <div class="field">
     <%= f.label :days %><br />
-    <%= f.text_field :days %>
+    <%= f.select :days, [['Everyday', 'everyday']], {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    <%= f.label :times %><br />
-    <%= f.text_field :times %>
+    Time <br />
+    <%= f.select :time_hour, (1..12).to_a, {include_blank: 'Hour'} %> 
+    <%= ':' %>
+    <% the_time = ["01","02","03","04","05","06","07","08","09"].concat (10..59).to_a %>
+    <%= f.select :time_minute, the_time, {include_blank: 'Minute'} %>
+    <%= f.select :time_period, ['am','pm'], {include_blank: 'Period'} %>
   </div>
   <div class="actions">
      <%= f.hidden_field :userid, :value => current_user.id %>

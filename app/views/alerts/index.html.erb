@@ -19,7 +19,7 @@
       <%= ' (Medication)' %>
     <% end %>
     <br />By: <%= alert.means %>
-    <br />When: <%= alert.days %> at <%= alert.times %>
+    <br />When: <%= alert.days %> at <%= alert.time_hour %>:<%= alert.time_minute %> <%= alert.time_period %>
     <div style="margin-top: 20px">
       <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_alert_path(alert) %>
       <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', alert, method: :delete, data: { confirm: 'Are you sure?' } %>
