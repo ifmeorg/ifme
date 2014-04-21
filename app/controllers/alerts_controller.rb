@@ -32,6 +32,8 @@ class AlertsController < ApplicationController
 
     respond_to do |format|
       if @alert.save
+
+        AlertMailer.alert_email(current_user).deliver
         format.html { redirect_to @alert, notice: 'Alert was successfully created.' }
         format.json { render :show, status: :created, location: @alert }
       else

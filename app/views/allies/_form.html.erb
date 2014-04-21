@@ -12,14 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :userid %><br>
-    <%= f.number_field :userid %>
-  </div>
-  <div class="field">
     <%= f.label :allies %><br>
     <%= f.text_field :allies %>
   </div>
   <div class="actions">
+    <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
 <% end %>

@@ -12,12 +12,12 @@
       <tr>
         <td><%= ally.userid %></td>
         <td><%= ally.allies %></td>
-        <td><%= link_to 'Destroy', ally, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', ally, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Ally', new_ally_path %>
+<br />[Invite people by email to signup, once they do they are added on your ally list]
+<br />
+<br />[Search from all existing accounts and send invites]
