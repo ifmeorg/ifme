@@ -11,18 +11,48 @@ class TriggersController < ApplicationController
   # GET /triggers/1
   # GET /triggers/1.json
   def show
-    @page_title = @trigger.name
+    if hide_page && @trigger.userid != current_user.id
+      respond_to do |format|
+        format.html { redirect_to triggers_url }
+        format.json { head :no_content }
+      end
+    else 
+      @page_title = @trigger.name
+    end 
   end
 
   # GET /triggers/new
   def new
+    @viewers = Array.new
+    if Ally.where(:userid => current_user.id).exists?
+      User.where.not(:id => current_user.id).all.each do |item|
+        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(item.id.to_s)
+          @viewers.push(item.id)
+        end
+      end
+    end 
     @trigger = Trigger.new
     @page_title = "New Trigger"
   end
 
   # GET /triggers/1/edit
   def edit
-    @page_title = "Edit " + @trigger.name
+    if @trigger.userid == current_user.id
+      @viewers = Array.new
+      if Ally.where(:userid => current_user.id).exists?
+        User.where.not(:id => current_user.id).all.each do |item|
+          if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(item.id.to_s)
+            @viewers.push(item.id)
+          end
+        end
+      end 
+      @page_title = "Edit " + @trigger.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to triggers_url }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   # POST /triggers
@@ -72,6 +102,17 @@ class TriggersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trigger_params
-      params.require(:trigger).permit(:name, :why, :fix, :userid, {:category => []}, {:mood => []})
+      params.require(:trigger).permit(:name, :why, :fix, :userid, {:category => []}, {:mood => []}, {:viewers => []})
     end
+
+    def hide_page 
+      if Trigger.where(:userid => @trigger.userid).exists?
+        Trigger.where(:userid => @trigger.userid).all.each do |item|
+          if item.viewers.include?(current_user.id.to_s) 
+            return false
+          end
+        end
+      end
+      return true
+    end 
 end
