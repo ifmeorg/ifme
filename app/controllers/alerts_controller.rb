@@ -4,7 +4,7 @@ class AlertsController < ApplicationController
   # GET /alerts
   # GET /alerts.json
   def index
-    @alerts = Alert.all
+    @alerts = Alert.where(:userid => current_user.id).all
     @page_title = "Alerts"
   end
 

@@ -1,0 +1,6 @@
+[Profile Info Here]
+
+<% if @profile.id != current_user.id %>
+	<br />
+	<br /><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %>
+<% end %>

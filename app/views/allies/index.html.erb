@@ -1,22 +1,31 @@
-<table>
-  <thead>
-    <tr>
-      <th>Userid</th>
-      <th>Allies</th>
-      <th></th>
-    </tr>
-  </thead>
+<% if !@ally_requests.empty? %>
+  <strong>Requests</strong>
+  <br />
+  <br />
+  <% @ally_requests.each do |ally| %>
+       <%= link_to User.where(:id => ally).first.firstname + " " + User.where(:id => ally).first.lastname, profile_index_path(:userid => ally) %>
+       <br />
+       <%= link_to 'Accept', add_allies_path(:userid => ally), :method => :post %>
+       <br />
+  <% end %>
+<% end %>
 
-  <tbody>
-    <% @allies.each do |ally| %>
-      <tr>
-        <td><%= ally.userid %></td>
-        <td><%= ally.allies %></td>
-        <td><%= link_to 'Delete', ally, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% if !@allies.empty? %>
+  <% @allies.each do |ally| %>
+    <% ally.allies.each do |ally_item| %>
+      <%= link_to User.where(:id => ally_item).first.firstname + " " + User.where(:id => ally_item).first.lastname, profile_index_path(:userid => ally_item) %>
+      <% if !Ally.where(:userid => ally_item).exists? || !Ally.where(:userid => ally_item).first.allies.include?(current_user.id.to_s) %>
+        (Pending Request)
+        <br />
+        <%= link_to 'Cancel Request', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
+      <% else %>
+        <br />
+        <%= link_to 'Remove as Ally', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <br />
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+<% end %>
 
 <br />[Invite people by email to signup, once they do they are added on your ally list]
 <br />

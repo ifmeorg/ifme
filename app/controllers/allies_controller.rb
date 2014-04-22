@@ -1,39 +1,52 @@
 class AlliesController < ApplicationController
-  before_action :set_ally, only: [:destroy]
-
   # GET /allies
   # GET /allies.json
   def index
-    @allies = Ally.all
+    @ally_requests = Array.new
+    # Requests
+    Ally.all.each do |item|
+      if item.allies.include?(current_user.id.to_s) && (!Ally.where(:userid => current_user.id).exists? || common_friends(item.allies))
+        @ally_requests.push(item.userid)
+      end  
+    end
+    @allies = Ally.where(:userid => current_user.id).all
     @page_title = "Allies"
   end
 
-  # GET /allies/new
-  def new
-    @ally = Ally.new
-    @page_title = "New Ally"
-  end
+  def add
+    if Ally.where(:userid => current_user.id).exists?
+      the_allies = Ally.where(:userid => current_user.id).first.allies
 
-  # POST /allies
-  # POST /allies.json
-  def create
-    @ally = Ally.new(ally_params)
+      if !the_allies.include?(params[:userid].to_s) 
+        the_allies.push(params[:userid])
+      end 
+
+      the_user = Ally.find_by(userid: current_user.id)
+      the_user.update(allies: the_allies)
+    else 
+      new_ally = [params[:userid]]
+      Ally.create(userid: current_user.id, allies: new_ally)
+    end
 
     respond_to do |format|
-      if @ally.save
-        format.html { redirect_to @ally, notice: 'Ally was successfully created.' }
-        format.json { render :show, status: :created, location: @ally }
-      else
-        format.html { render :new }
-        format.json { render json: @ally.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to allies_url }
+      format.json { head :no_content }
     end
   end
 
-  # DELETE /allies/1
-  # DELETE /allies/1.json
-  def destroy
-    @ally.destroy
+  def remove
+    update_allies = Ally.where(:userid => current_user.id).first.allies 
+    update_allies.delete(params[:userid].to_s)
+    the_user = Ally.find_by(:userid => current_user.id)
+    the_user.update(allies: update_allies)
+
+    if Ally.where(:userid => params[:userid]).exists? && Ally.where(:userid => params[:userid]).first.allies.include?(current_user.id.to_s)
+      update_allies2 = Ally.where(:userid => params[:userid]).first.allies 
+      update_allies2.delete(current_user.id.to_s)
+      the_user2 = Ally.find_by(:userid => params[:userid])
+      the_user2.update(allies: update_allies2)
+    end
+
     respond_to do |format|
       format.html { redirect_to allies_url }
       format.json { head :no_content }
@@ -41,13 +54,16 @@ class AlliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ally
-      @ally = Ally.find(params[:id])
+
+  def common_friends(ally_request)
+    my_allies = Ally.where(:userid => current_user.id).first.allies
+
+    ally_request.each do |item|
+      if !my_allies.include?(item)
+        return false
+      end 
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ally_params
-      params.require(:ally).permit(:userid, :allies)
-    end
+    return true
+  end 
 end

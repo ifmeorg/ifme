@@ -4,7 +4,7 @@ class MedicationsController < ApplicationController
   # GET /medications
   # GET /medications.json
   def index
-    @medications = Medication.all
+    @medications = Medication.where(:userid => current_user.id).all
     @page_title = "Medications"
   end
 

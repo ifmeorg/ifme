@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :allies
-
   resources :alerts
+
+  resources :allies, :except => [:show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post "add"
+      post "remove"
+    end
+  end
 
   resources :medications
 
@@ -10,6 +15,8 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :triggers
+
+  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] 
 
   get 'pages/home'
 
