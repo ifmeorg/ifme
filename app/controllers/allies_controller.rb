@@ -3,9 +3,8 @@ class AlliesController < ApplicationController
   # GET /allies.json
   def index
     @ally_requests = Array.new
-    # Requests
-    Ally.all.each do |item|
-      if item.allies.include?(current_user.id.to_s) && (!Ally.where(:userid => current_user.id).exists? || common_friends(item.allies))
+    Ally.where.not(:userid => current_user.id).all.each do |item|
+      if item.allies.include?(current_user.id.to_s) && (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(item.userid.to_s))
         @ally_requests.push(item.userid)
       end  
     end
@@ -52,18 +51,4 @@ class AlliesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-
-  def common_friends(ally_request)
-    my_allies = Ally.where(:userid => current_user.id).first.allies
-
-    ally_request.each do |item|
-      if !my_allies.include?(item)
-        return false
-      end 
-    end
-
-    return true
-  end 
 end

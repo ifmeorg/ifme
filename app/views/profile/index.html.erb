@@ -2,5 +2,14 @@
 
 <% if @profile.id != current_user.id %>
 	<br />
-	<br /><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %>
+	 <% if Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s)) %>
+	 	<br /><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %> 
+	<% elsif Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s) %>
+		<br /><%= link_to 'Remove as Ally', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+	<% elsif (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s)) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s)) %>
+		<br /><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %> 
+	<% else %>
+		<br /><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
+	<% end %>
 <% end %>
+
