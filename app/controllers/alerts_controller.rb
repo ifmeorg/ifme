@@ -1,4 +1,5 @@
 class AlertsController < ApplicationController
+  before_filter :if_not_signed_in
   before_action :set_alert, only: [:show, :edit, :update, :destroy]
 
   # GET /alerts
@@ -11,7 +12,14 @@ class AlertsController < ApplicationController
   # GET /alerts/1
   # GET /alerts/1.json
   def show
-    @page_title = @alert.name
+    if current_user.id == @alert.userid
+      @page_title = @alert.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to alerts_url }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # GET /alerts/new
@@ -22,7 +30,14 @@ class AlertsController < ApplicationController
 
   # GET /alerts/1/edit
   def edit
-    @page_title = "Edit " + @alert.name 
+    if current_user.id == @alert.userid
+      @page_title = "Edit " + @alert.name 
+    else 
+      respond_to do |format|
+        format.html { redirect_to alerts_url }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # POST /alerts
@@ -76,5 +91,14 @@ class AlertsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def alert_params
       params.require(:alert).permit(:userid, :trigger, :medication, :message, :means, :days, :name, :time_hour, :time_minute, :time_period)
+    end
+
+    def if_not_signed_in
+      if !user_signed_in?
+        respond_to do |format|
+          format.html { redirect_to new_user_session_path }
+          format.json { head :no_content }
+        end
+      end
     end
 end

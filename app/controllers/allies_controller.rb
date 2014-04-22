@@ -1,4 +1,5 @@
 class AlliesController < ApplicationController
+  before_filter :if_not_signed_in
   # GET /allies
   # GET /allies.json
   def index
@@ -49,6 +50,17 @@ class AlliesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to allies_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def if_not_signed_in
+    if !user_signed_in?
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path }
+        format.json { head :no_content }
+      end
     end
   end
 end

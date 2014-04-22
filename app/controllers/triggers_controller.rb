@@ -1,4 +1,5 @@
 class TriggersController < ApplicationController
+  before_filter :if_not_signed_in
   before_action :set_trigger, only: [:show, :edit, :update, :destroy]
 
   # GET /triggers
@@ -115,4 +116,13 @@ class TriggersController < ApplicationController
       end
       return true
     end 
+
+    def if_not_signed_in
+      if !user_signed_in?
+        respond_to do |format|
+          format.html { redirect_to new_user_session_path }
+          format.json { head :no_content }
+        end
+      end
+    end
 end

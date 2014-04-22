@@ -1,4 +1,5 @@
 class MoodsController < ApplicationController
+  before_filter :if_not_signed_in
   before_action :set_mood, only: [:show, :edit, :update, :destroy]
 
   # GET /moods
@@ -97,5 +98,14 @@ class MoodsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def mood_params
       params.require(:mood).permit(:name, :description, :userid)
+    end
+
+    def if_not_signed_in
+      if !user_signed_in?
+        respond_to do |format|
+          format.html { redirect_to new_user_session_path }
+          format.json { head :no_content }
+        end
+      end
     end
 end

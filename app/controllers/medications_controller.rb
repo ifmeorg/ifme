@@ -1,4 +1,5 @@
 class MedicationsController < ApplicationController
+  before_filter :if_not_signed_in
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
   # GET /medications
@@ -88,5 +89,14 @@ class MedicationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
       params.require(:medication).permit(:name, :dosage, :refill, :userid)
+    end
+
+    def if_not_signed_in
+      if !user_signed_in?
+        respond_to do |format|
+          format.html { redirect_to new_user_session_path }
+          format.json { head :no_content }
+        end
+      end
     end
 end

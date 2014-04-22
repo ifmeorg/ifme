@@ -33,5 +33,6 @@
   <%= @trigger.fix %>
 </p>
 
-<%= link_to 'Edit', edit_trigger_path(@trigger) %> |
-<%= link_to 'Back', triggers_path %>
+<% if current_user.id == @trigger.userid %>
+  <%= link_to 'Edit', edit_trigger_path(@trigger) %> 
+<% end %>
