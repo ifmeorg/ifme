@@ -11,7 +11,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @page_title = @category.name
+    if @category.userid == current_user.id
+      @page_title = @category.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to categories_url }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   # GET /categories/new
@@ -22,7 +29,14 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @page_title = "Edit " + @category.name
+    if @category.userid == current_user.id
+      @page_title = "Edit " + @category.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to categories_url }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   # POST /categories

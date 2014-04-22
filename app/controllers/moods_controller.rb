@@ -11,7 +11,14 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    @page_title = @mood.name
+    if @mood.userid == current_user.id
+      @page_title = @mood.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to moods_url }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # GET /moods/new
@@ -22,7 +29,14 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    @page_title = "Edit " + @mood.name 
+    if @mood.userid == current_user.id
+      @page_title = "Edit " + @mood.name
+    else
+      respond_to do |format|
+        format.html { redirect_to moods_url }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   # POST /moods

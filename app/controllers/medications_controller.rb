@@ -11,7 +11,14 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    @page_title = @medication.name
+    if @medication.userid == current_user.id
+      @page_title = @medication.name
+    else 
+      respond_to do |format|
+        format.html { redirect_to medications_url }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # GET /medications/new
@@ -22,7 +29,14 @@ class MedicationsController < ApplicationController
 
   # GET /medications/1/edit
   def edit
-    @page_title = "Edit " + @medication.name
+    if @medication.userid == current_user.id
+      @page_title = "Edit " + @medication.name
+    else
+      respond_to do |format|
+        format.html { redirect_to medications_url }
+        format.json { head :no_content }
+      end
+    end
   end
 
   # POST /medications
