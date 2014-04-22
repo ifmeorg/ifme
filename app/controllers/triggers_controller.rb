@@ -12,15 +12,29 @@ class TriggersController < ApplicationController
   # GET /triggers/1
   # GET /triggers/1.json
   def show
+    @no_hide_page = false
     if hide_page && @trigger.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to triggers_url }
         format.json { head :no_content }
       end
     else 
+      @comment = Comment.new
+      @no_hide_page = true
       @page_title = @trigger.name
     end 
   end
+
+  def comment 
+    puts ">>> Function called"
+    @comment = Comment.create(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment])
+    puts params[:commented_on]
+    puts ">>> is the id"
+    respond_to do |format|
+        format.html { redirect_to Trigger.find(params[:commented_on]), notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: Trigger.find(params[:commented_on]) }
+    end
+  end 
 
   # GET /triggers/new
   def new

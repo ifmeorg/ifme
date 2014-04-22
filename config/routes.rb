@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :triggers
+  resources :triggers do
+    collection do
+      post "comment"
+    end
+  end 
 
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] 
 
