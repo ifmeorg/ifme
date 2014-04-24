@@ -1,7 +1,9 @@
 class ProfileController < ApplicationController
 	before_filter :if_not_signed_in
+
 	def index
 		@profile = User.where(:id => params[:userid]).first
+		@triggers = Trigger.where(:userid => @profile.id)
 		if @profile.blank?
 			@profile = current_user
 		end

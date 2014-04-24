@@ -8,14 +8,7 @@
       <% end %>
     </strong>
     <% @trigger.category.each do |item| %>
-      <% if !Category.where(:id => item.to_i).first.description.blank? %>
-        <%= link_to Category.where(:id => item.to_i).first.name, category_path(item, :trigger => @trigger.id) %>
-      <% else %>
-        <%= Category.where(:id => item.to_i).first.name %>
-      <% end %>
-      <% if item != @trigger.category.last %>
-        <%= ', ' %>
-      <% end %>
+      <%= fetch_categories_moods(@trigger, "trigger", item, "category", true) %>
     <% end %>
   </p>
 <% end %>
@@ -30,14 +23,7 @@
       <% end %>
     </strong>
     <% @trigger.mood.each do |item| %>
-       <% if !Mood.where(:id => item.to_i).first.description.blank? %>
-        <%= link_to Mood.where(:id => item.to_i).first.name, mood_path(item, :trigger => @trigger.id) %>
-      <% else %>
-        <%= Mood.where(:id => item.to_i).first.name %>
-      <% end %>
-      <% if item != @trigger.mood.last %>
-        <%= ', ' %>
-      <% end %>
+      <%= fetch_categories_moods(@trigger, "trigger", item, "mood", true) %>
     <% end %>
   </p>
 <% end %>

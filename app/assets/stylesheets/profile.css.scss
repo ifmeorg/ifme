@@ -1,3 +1,26 @@
 // Place all the styles related to the Profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Profiles */
+
+.profile {
+	padding: 20px;
+	border: 1px solid #6D0839;
+	box-shadow: 0 0 2px #6D0839 inset;
+	margin-bottom: 40px;
+}
+
+.profile > h1.profile_name {
+	font-weight: 300;
+	font-size: 26px;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+	color: #6D0839;
+}
+
+h1.profile_name a:link, h1.profile_name a:visited {
+	color: #6D0839;
+	text-decoration: none;
+	border: none;
+}

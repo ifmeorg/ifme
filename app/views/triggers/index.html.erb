@@ -1,19 +1,26 @@
 <% @triggers.each do |trigger| %>
   <div class="trigger">
     <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
-    Category:
+    <strong>
+      <% if trigger.category.count == 1 %>
+        Category:
+      <% else %>
+        Categories:
+      <% end %>
+    </strong>
     <% trigger.category.each do |item| %>
-      <%= Category.where(:id => item.to_i).first.name %>
-      <% if item != trigger.category.last %>
-       <%= ', ' %>
-      <% end %>
+      <%= fetch_categories_moods(trigger, "trigger", item, "category", false) %>
     <% end %>
-    <br />Mood: 
-    <% trigger.mood.each do |item| %>
-      <%= Mood.where(:id => item.to_i).first.name %>
-      <% if item != trigger.mood.last %>
-        <%= ', ' %>
+    <br />
+    <strong>
+      <% if trigger.mood.count == 1 %>
+        Mood:
+      <% else %>
+        Moods:
       <% end %>
+    </strong>
+    <% trigger.mood.each do |item| %>
+      <%= fetch_categories_moods(trigger, "trigger", item, "mood", false) %>
     <% end %>
     <div style="margin-top: 20px">
       <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
