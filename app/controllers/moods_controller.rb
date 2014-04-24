@@ -15,7 +15,9 @@ class MoodsController < ApplicationController
   def show
     if @mood.userid == current_user.id || is_viewer(params[:trigger], @mood)
       @page_title = @mood.name
-      @page_edit = edit_mood_path(@mood)
+      if @mood.userid == current_user.id
+        @page_edit = edit_mood_path(@mood)
+      end
     else 
       respond_to do |format|
         format.html { redirect_to moods_url }

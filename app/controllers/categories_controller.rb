@@ -15,7 +15,9 @@ class CategoriesController < ApplicationController
   def show
     if @category.userid == current_user.id || is_viewer(params[:trigger], @category)
       @page_title = @category.name
-      @page_edit = edit_category_path(@category)
+      if @category.userid == current_user.id
+        @page_edit = edit_category_path(@category)
+      end
     else 
       respond_to do |format|
         format.html { redirect_to categories_url }
