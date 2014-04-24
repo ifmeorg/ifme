@@ -20,19 +20,18 @@ class TriggersController < ApplicationController
       end
     else 
       @comment = Comment.new
+      @comments = Comment.where(:commented_on => @trigger.id).all
       @no_hide_page = true
       @page_title = @trigger.name
     end 
   end
 
-  def comment 
-    puts ">>> Function called"
-    @comment = Comment.create(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment])
-    puts params[:commented_on]
-    puts ">>> is the id"
+  def comment
+    @comment = Comment.create(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
+    puts @comment
     respond_to do |format|
-        format.html { redirect_to Trigger.find(params[:commented_on]), notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: Trigger.find(params[:commented_on]) }
+        format.html { redirect_to Trigger.find(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
     end
   end 
 

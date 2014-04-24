@@ -37,13 +37,12 @@
   <%= link_to 'Edit', edit_trigger_path(@trigger) %> 
 <% end %>
 
-<% if current_user === @trigger.userid || @no_hide_page %>
+<% if current_user.id == @trigger.userid || @no_hide_page %>
 
-  <%= form_for(@comment, url: comment_triggers_path, html: {method: "post"}) do |f| %>
+  <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
         <ul>
         <% @comment.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -51,6 +50,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="field">
       <%= f.label :comment %><br />
       <%= f.text_area :comment %>
@@ -62,6 +62,14 @@
       <%= f.hidden_field :commented_on, :value => @trigger.id %>  
       <%= f.submit %>
     </div>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    <p>
+      Posted by: <%= User.where(:id => comment.comment_by).first.firstname %> <%= User.where(:id => comment.comment_by).first.lastname %>
+      <br /><br />
+      <%= comment.comment %>
+    </p>
   <% end %>
 
 <% end %>
