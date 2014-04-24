@@ -3,26 +3,27 @@
   <br />
   <br />
   <% @ally_requests.each do |ally| %>
-       <%= link_to User.where(:id => ally).first.firstname + " " + User.where(:id => ally).first.lastname, profile_index_path(:userid => ally) %>
-       <br />
+    <div class="ally">
+       <h1 class="ally_name"><%= link_to User.where(:id => ally).first.firstname + " " + User.where(:id => ally).first.lastname, profile_index_path(:userid => ally) %></h1>
        <%= link_to 'Accept', add_allies_path(:userid => ally), :method => :post %>
-       <br />
+    </div>
   <% end %>
 <% end %>
 
 <% if !@allies.empty? %>
   <% @allies.each do |ally| %>
     <% ally.allies.each do |ally_item| %>
-      <%= link_to User.where(:id => ally_item).first.firstname + " " + User.where(:id => ally_item).first.lastname, profile_index_path(:userid => ally_item) %>
-      <% if !Ally.where(:userid => ally_item).exists? || !Ally.where(:userid => ally_item).first.allies.include?(current_user.id.to_s) %>
-        (Pending Request)
-        <br />
-        <%= link_to 'Cancel Request', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
-      <% else %>
-        <br />
-        <%= link_to 'Remove as Ally', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-      <br />
+      <div class="ally">
+        <h1 class="ally_name"><%= link_to User.where(:id => ally_item).first.firstname + " " + User.where(:id => ally_item).first.lastname, profile_index_path(:userid => ally_item) %></h1>
+        <% if !Ally.where(:userid => ally_item).exists? || !Ally.where(:userid => ally_item).first.allies.include?(current_user.id.to_s) %>
+          (Pending Request)
+          <br />
+          <%= link_to 'Cancel Request', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <br />
+          <%= link_to 'Remove as Ally', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 <% end %>
