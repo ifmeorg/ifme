@@ -1,8 +1,3 @@
-<div class="align_right" style="margin-bottom: 40px">
-  <i class="fa fa-plus-square-o action"></i><%= link_to 'New Trigger', new_trigger_path %>
-</div>
-<div class="clear"></div>
-
 <% @triggers.each do |trigger| %>
   <div class="trigger">
     <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
@@ -26,6 +21,3 @@
     </div>
   </div>
 <% end %>
-
-<br />[Add commenting system for triggers from allies]
-

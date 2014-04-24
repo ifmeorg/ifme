@@ -7,11 +7,15 @@ class TriggersController < ApplicationController
   def index
     @triggers = Trigger.where(:userid => current_user.id).all
     @page_title = "Triggers"
+    @page_new = new_trigger_path
   end
 
   # GET /triggers/1
   # GET /triggers/1.json
   def show
+    if current_user.id == @trigger.userid
+      @page_edit = edit_trigger_path(@trigger) 
+    end
     @no_hide_page = false
     if hide_page && @trigger.userid != current_user.id
       respond_to do |format|
@@ -111,7 +115,16 @@ class TriggersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trigger
-      @trigger = Trigger.find(params[:id])
+      begin
+        @trigger = Trigger.find(params[:id])
+      rescue
+        if @trigger.blank?
+          respond_to do |format|
+            format.html { redirect_to triggers_url }
+            format.json { head :no_content }
+          end
+        end 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

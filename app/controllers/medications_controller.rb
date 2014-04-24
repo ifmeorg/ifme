@@ -7,6 +7,7 @@ class MedicationsController < ApplicationController
   def index
     @medications = Medication.where(:userid => current_user.id).all
     @page_title = "Medications"
+    @page_new = new_medication_path
   end
 
   # GET /medications/1
@@ -14,6 +15,7 @@ class MedicationsController < ApplicationController
   def show
     if @medication.userid == current_user.id
       @page_title = @medication.name
+      @page_edit = edit_medication_path(@medication)
     else 
       respond_to do |format|
         format.html { redirect_to medications_url }
@@ -83,7 +85,16 @@ class MedicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_medication
-      @medication = Medication.find(params[:id])
+      begin
+        @medication = Medication.find(params[:id])
+      rescue
+        if @medication.blank?
+          respond_to do |format|
+            format.html { redirect_to medications_url }
+            format.json { head :no_content }
+          end
+        end 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

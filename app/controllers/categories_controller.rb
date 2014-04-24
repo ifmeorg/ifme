@@ -7,13 +7,15 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.where(:userid => current_user.id).all
     @page_title = "Categories"
+    @page_new = new_category_path
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id
+    if @category.userid == current_user.id || is_viewer(params[:trigger], @category)
       @page_title = @category.name
+      @page_edit = edit_category_path(@category)
     else 
       respond_to do |format|
         format.html { redirect_to categories_url }
@@ -92,7 +94,16 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      begin
+        @category = Category.find(params[:id])
+      rescue
+        if @category.blank?
+          respond_to do |format|
+            format.html { redirect_to categories_url }
+            format.json { head :no_content }
+          end
+        end 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -107,5 +118,16 @@ class CategoriesController < ApplicationController
           format.json { head :no_content }
         end
       end
+    end
+
+    def is_viewer(trigger, category)
+      if trigger.blank?
+        return false
+      else
+        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.category.include?(category.id.to_s) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id.to_s)
+          return true
+        end
+      end 
+      return false
     end
 end

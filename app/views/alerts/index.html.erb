@@ -1,8 +1,3 @@
-<div class="align_right" style="margin-bottom: 40px">
-  <i class="fa fa-plus-square-o action"></i><%= link_to 'New Alert', new_alert_path %>
-</div>
-<div class="clear"></div>
-
 <% @alerts.each do |alert| %>
   <div class="the_alert">
     <h1 class="alert_name"><%= link_to alert.name, alert %></h1>

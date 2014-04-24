@@ -122,7 +122,25 @@
 					<% elsif current_page?(edit_user_registration_path) %>
 						Settings
 					<% else %>
-						<%= @page_title %>
+						<% if !@page_edit.blank? %>
+							<div class="align_left">
+								<%= @page_title %> 
+							</div>
+							<div class="align_right">
+								<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
+							</div>
+							<div class="clear"></div>
+						<% elsif !@page_new.blank? %>
+							<div class="align_left">
+								<%= @page_title %> 
+							</div>
+							<div class="align_right">
+								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
+							</div>
+							<div class="clear"></div>
+						<% else %>
+							<%= @page_title %> 
+						<% end %>
 					<% end %>
 				</div>
 			</div>

@@ -90,6 +90,22 @@ body, html {
 	font-weight: 300;
 }
 
+
+/* Page Edit and New */
+
+a.page_edit:link, a.page_edit:visited, a.page_new:link, a.page_new:visited {
+	text-decoration: none;
+	color: #000000;
+	border: none;
+}
+
+a.page_edit:hover, a.page_new:hover {
+	text-decoration: none;
+	color: #000000;
+	border: none;
+	opacity: 0.8;
+}
+
 /* Content */
 
 #content {
@@ -179,4 +195,22 @@ table th {
 .action {
 	color: #02779E;
 	margin-right: 10px;
+}
+
+/* Comments */
+
+.comment {
+	margin-top: 40px;
+	padding: 10px;
+	background-color: #E1CDD7;
+}
+
+.comment > .comment_info {
+	color: #6D0839;
+	margin-bottom: 10px;
+}
+
+.comment a:link, .comment a:visited, .comment a:hover {
+	color: #6D0839;
+	border-color: #6D0839;
 }

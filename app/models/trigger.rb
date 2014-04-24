@@ -3,5 +3,5 @@ class Trigger < ActiveRecord::Base
 	serialize :category, Array
 	serialize :viewers, Array
 	serialize :mood, Array
-	validates_presence_of :userid, :name, :category, :name
+	validates_presence_of :userid, :name, :category, :name, :why
 end

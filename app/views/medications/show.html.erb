@@ -1,9 +1,4 @@
 <p>
-  <strong>Name:</strong>
-  <%= @medication.name %>
-</p>
-
-<p>
   <strong>Dosage:</strong>
   <%= @medication.dosage %>
 </p>
@@ -12,6 +7,3 @@
   <strong>Refill:</strong>
   <%= @medication.refill %>
 </p>
-
-<%= link_to 'Edit', edit_medication_path(@medication) %> |
-<%= link_to 'Back', medications_path %>

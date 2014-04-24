@@ -7,6 +7,7 @@ class AlertsController < ApplicationController
   def index
     @alerts = Alert.where(:userid => current_user.id).all
     @page_title = "Alerts"
+    @page_new = new_alert_path
   end
 
   # GET /alerts/1
@@ -14,6 +15,7 @@ class AlertsController < ApplicationController
   def show
     if current_user.id == @alert.userid
       @page_title = @alert.name
+      @page_edit = edit_alert_path(@alert)
     else 
       respond_to do |format|
         format.html { redirect_to alerts_url }
@@ -85,7 +87,16 @@ class AlertsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alert
-      @alert = Alert.find(params[:id])
+      begin
+        @alert = Alert.find(params[:id])
+      rescue
+        if @alert.blank?
+          respond_to do |format|
+            format.html { redirect_to alerts_url }
+            format.json { head :no_content }
+          end
+        end 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

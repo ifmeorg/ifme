@@ -7,13 +7,15 @@ class MoodsController < ApplicationController
   def index
     @moods = Mood.where(:userid => current_user.id).all
     @page_title = "Moods"
+    @page_new = new_mood_path
   end
 
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.userid == current_user.id
+    if @mood.userid == current_user.id || is_viewer(params[:trigger], @mood)
       @page_title = @mood.name
+      @page_edit = edit_mood_path(@mood)
     else 
       respond_to do |format|
         format.html { redirect_to moods_url }
@@ -92,7 +94,16 @@ class MoodsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mood
-      @mood = Mood.find(params[:id])
+      begin
+        @mood = Mood.find(params[:id])
+      rescue
+        if @mood.blank?
+          respond_to do |format|
+            format.html { redirect_to moods_url }
+            format.json { head :no_content }
+          end
+        end 
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -107,5 +118,16 @@ class MoodsController < ApplicationController
           format.json { head :no_content }
         end
       end
+    end
+
+    def is_viewer(trigger, mood)
+      if trigger.blank?
+        return false
+      else
+        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.mood.include?(mood.id.to_s) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id.to_s)
+          return true
+        end
+      end 
+      return false
     end
 end

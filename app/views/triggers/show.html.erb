@@ -1,40 +1,59 @@
-<p>
-  <strong>Category:</strong>
-  <% @trigger.category.each do |item| %>
-    <%= Category.where(:id => item.to_i).first.name %>
-    <% if item != @trigger.category.last %>
-      <%= ', ' %>
+<% if @trigger.category.count > 0 %>
+  <p>
+    <strong>
+      <% if @trigger.category.count == 1 %>
+        Category:
+      <% else %>
+        Categories:
+      <% end %>
+    </strong>
+    <% @trigger.category.each do |item| %>
+      <% if !Category.where(:id => item.to_i).first.description.blank? %>
+        <%= link_to Category.where(:id => item.to_i).first.name, category_path(item, :trigger => @trigger.id) %>
+      <% else %>
+        <%= Category.where(:id => item.to_i).first.name %>
+      <% end %>
+      <% if item != @trigger.category.last %>
+        <%= ', ' %>
+      <% end %>
     <% end %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trigger.name %>
-</p>
-
-<p>
-  <strong>Mood:</strong>
-  <% @trigger.mood.each do |item| %>
-    <%= Mood.where(:id => item.to_i).first.name %>
-    <% if item != @trigger.mood.last %>
-      <%= ', ' %>
+<% if @trigger.mood.count > 0 %>
+  <p>
+    <strong>
+      <% if @trigger.mood.count == 1 %>
+        Mood:
+      <% else %>
+        Moods:
+      <% end %>
+    </strong>
+    <% @trigger.mood.each do |item| %>
+       <% if !Mood.where(:id => item.to_i).first.description.blank? %>
+        <%= link_to Mood.where(:id => item.to_i).first.name, mood_path(item, :trigger => @trigger.id) %>
+      <% else %>
+        <%= Mood.where(:id => item.to_i).first.name %>
+      <% end %>
+      <% if item != @trigger.mood.last %>
+        <%= ', ' %>
+      <% end %>
     <% end %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
-<p>
-  <strong>Why:</strong>
-  <%= @trigger.why %>
-</p>
+<% if !@trigger.why.blank? %>
+  <p>
+    <%= @trigger.why %>
+  </p>
+<% end %>
 
-<p>
-  <strong>Fix:</strong>
-  <%= @trigger.fix %>
-</p>
 
-<% if current_user.id == @trigger.userid %>
-  <%= link_to 'Edit', edit_trigger_path(@trigger) %> 
+<% if !@trigger.fix.blank? %>
+  <p>
+    <strong>Fix:</strong>
+    <%= @trigger.fix %>
+  </p>
 <% end %>
 
 <% if current_user.id == @trigger.userid || @no_hide_page %>
@@ -52,7 +71,6 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :comment %><br />
       <%= f.text_area :comment %>
     </div>
 
@@ -60,16 +78,15 @@
       <%= f.hidden_field :comment_type, :value => 'trigger' %>  
       <%= f.hidden_field :comment_by, :value => current_user.id %>  
       <%= f.hidden_field :commented_on, :value => @trigger.id %>  
-      <%= f.submit %>
+      <%= f.submit "Comment" %>
     </div>
   <% end %>
 
   <% @comments.each do |comment| %>
-    <p>
-      Posted by: <%= User.where(:id => comment.comment_by).first.firstname %> <%= User.where(:id => comment.comment_by).first.lastname %>
-      <br /><br />
+    <div class="comment">
+      <div class="comment_info">Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= comment.created_at %></div>
       <%= comment.comment %>
-    </p>
+    </div>
   <% end %>
 
 <% end %>
