@@ -1,7 +1,7 @@
 <% if Trigger.where(:userid => @profile.id).exists? %>
 	<% Trigger.where(:userid => @profile.id).all.each do |item| %>
-		<% if item.viewers.include?(current_user.id.to_s) %>
-			<br /><%= link_to 'Hello', item %>
+		<% if item.viewers.include?(current_user.id.to_s) || (current_user.id == @profile.id && !item.viewers.empty?) %>
+			<br /><%= link_to item.name, item %>
 		<% end %>
 	<% end %>
 <% end %>
