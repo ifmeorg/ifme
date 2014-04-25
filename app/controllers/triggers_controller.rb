@@ -24,6 +24,7 @@ class TriggersController < ApplicationController
       end
     else 
       @comment = Comment.new
+      @support = Support.new
       @comments = Comment.where(:commented_on => @trigger.id).all
       @no_hide_page = true
       @page_title = @trigger.name
@@ -32,10 +33,30 @@ class TriggersController < ApplicationController
 
   def comment
     @comment = Comment.create(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
-    puts @comment
     respond_to do |format|
         format.html { redirect_to Trigger.find(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+    end
+  end 
+
+  def support
+    if !params[:support].nil? && !params[:support][:userid].empty? && !params[:support][:support_type].empty? && !params[:support][:support_id].empty?
+      params[:userid] = params[:support][:userid]
+      params[:support_type] = params[:support][:support_type]
+      params[:support_id] = params[:support][:support_id]
+    end
+    
+    if Support.where(userid: params[:userid], support_type: params[:support_type]).exists?
+      new_support_ids = Support.where(userid: params[:userid], support_type: params[:support_type]).first.support_ids
+      if new_support_ids.include?(params[:support_id])
+    else
+      support_id = params[:support_id].to_i
+      @support = Support.create(userid: params[:userid], support_type: params[:support_type], support_ids: Array.new(support_id))
+    end
+
+    respond_to do |format|
+        format.html { redirect_to trigger_path(support_id) }
+        format.json { render :show, status: :created, location: Trigger.find(support_id) }
     end
   end 
 

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :triggers do
     collection do
       post "comment"
+      post "support"
     end
   end 
 

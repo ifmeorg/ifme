@@ -42,6 +42,28 @@
   </p>
 <% end %>
 
+<% if @no_hide_page %>
+  <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
+    <% if @support.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@support.errors.count, "error") %> prohibited this support from being saved:</h2>
+        <ul>
+        <% @support.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions"> 
+      <%= f.hidden_field :userid, :value => current_user.id %>  
+      <%= f.hidden_field :support_type, :value => 'trigger' %>  
+      <%= f.hidden_field :support_id, :value => @trigger.id %>  
+      <%= f.submit "Support" %>
+    </div>
+  <% end %>
+<% end %>
+
 <% if current_user.id == @trigger.userid || @no_hide_page %>
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
@@ -76,3 +98,4 @@
   <% end %>
 
 <% end %>
+

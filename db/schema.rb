@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422060649) do
+ActiveRecord::Schema.define(version: 20140424230458) do
 
   create_table "alerts", force: true do |t|
     t.integer  "userid"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 20140422060649) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
+  end
+
+  create_table "supports", force: true do |t|
+    t.integer  "userid"
+    t.string   "support_type"
+    t.string   "support_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "triggers", force: true do |t|
