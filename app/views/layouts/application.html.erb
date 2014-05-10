@@ -22,9 +22,19 @@
 	</head>
 
 	<body>
+		<script>
+			$(document).ready(function(){
+				$(function () {
+					var the_height = $('#header').height();
+					$('#header_space').css({"height": the_height});
+				});
+
+			});
+		</script>
 		<% if current_page?(new_user_session_path) %>
 		  	<style>
 			  	#header a#signin_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			  	}
@@ -32,6 +42,7 @@
 		<% elsif current_page?(edit_user_registration_path) %>
 		  	<style>
 			  	#header a#settings_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			  	}
@@ -39,6 +50,7 @@
 		<% elsif params[:controller] == "categories" %>
 			<style>
 		  		#header a#categories_link:link {
+		  			border-top: 1px solid #ffffff;
 		    		border-bottom: 1px solid #ffffff;
 		    		opacity: 0.8;
 		  		}
@@ -46,6 +58,7 @@
 		<% elsif params[:controller] == "moods" %>
 		  	<style>
 				#header a#moods_link:link {
+					border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			  	}
@@ -53,6 +66,7 @@
 		<% elsif params[:controller] == "triggers" %>
 		  	<style>
 			  	#header a#triggers_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
@@ -60,6 +74,7 @@
 		<% elsif params[:controller] == "medications" %>
 		  	<style>
 			  	#header a#medications_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
@@ -67,6 +82,7 @@
 		<% elsif params[:controller] == "alerts" %>
 		  	<style>
 			  	#header a#alerts_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
@@ -74,6 +90,7 @@
 		<% elsif params[:controller] == "allies" %>
 		  	<style>
 			  	#header a#allies_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
@@ -81,6 +98,7 @@
 		<% elsif current_page?(root_path) %>
 		  	<style>
 			  	#header a#home_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
@@ -89,27 +107,33 @@
 
 		<div id="container">
 			<div id="header">
-				<div class="align_left">
-					<% if user_signed_in? %>
-					  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>     
-					  	<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
-					  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
-					 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
-					 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
-					 	<%= link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
-					 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
-					 	<%= link_to('Settings', edit_user_registration_path, class: 'nav_link', id: 'settings_link') %>      
-					 	<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'nav_link') %>    
-					<% else %>
-						<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
-					  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>  
-					<% end %>
-				</div>
-				<div class="align_right" id="title">
-					If Me
-				</div>
-				<div class="clear"></div>	
+				<div id="header_content">
+					<div class="table">
+						<div class="table_cell" style="vertical-align: middle">
+							<% if user_signed_in? %>
+							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>     
+							  	<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
+							  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
+							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
+							 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
+							 	<%= link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
+							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
+							 	<%= link_to('Settings', edit_user_registration_path, class: 'nav_link', id: 'settings_link') %>      
+							 	<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'nav_link') %>    
+							<% else %>
+								<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
+							  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>  
+							<% end %>
+						</div>
+						<div class="table_cell" id="title" style="vertical-align: middle">
+							If Me
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>	
 			</div>
+
+			<div id="header_space"></div>
 
 			<div id="page_title">
 				<div id="page_title_content">
@@ -139,7 +163,13 @@
 							</div>
 							<div class="clear"></div>
 						<% else %>
-							<%= @page_title %> 
+							<div class="align_left">
+								<%= @page_title %> 
+							</div>
+							<div class="align_right">
+								<%= @page_author %> 
+							</div>
+							<div class="clear"></div>
 						<% end %>
 					<% end %>
 				</div>

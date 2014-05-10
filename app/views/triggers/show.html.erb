@@ -1,5 +1,3 @@
-By: <%= link_to User.where(:id => @trigger.userid).first.firstname + " " + User.where(:id => @trigger.userid).first.lastname, profile_index_path(:userid => @trigger.userid) %>
-
 <% if @trigger.category.count > 0 %>
   <p>
     <strong>
@@ -64,12 +62,12 @@ By: <%= link_to User.where(:id => @trigger.userid).first.firstname + " " + User.
         <%= f.hidden_field :support_id, :value => @trigger.id %>  
         <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
           <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
-            <%= f.submit "Unsupport" %>
+            <%= f.submit "Unsupport", :id => 'unsupport' %>
           <% else %>
-            <%= f.submit "Support" %>
+            <%= f.submit "Support", :id => 'support' %>
           <% end %>
         <% else %>
-          <%= f.submit "Support" %>
+          <%= f.submit "Support", :id => 'support' %>
         <% end %>
       </div>
     <% end %>

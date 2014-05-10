@@ -17,6 +17,10 @@ class MoodsController < ApplicationController
       @page_title = @mood.name
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
+      else 
+        link_url = "/profile?userid=" + @mood.userid.to_s
+        the_link = link_to User.where(:id => @mood.userid).first.firstname + " " + User.where(:id => @mood.userid).first.lastname, link_url
+        @page_author = the_link.html_safe
       end
     else 
       respond_to do |format|

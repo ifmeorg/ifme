@@ -15,6 +15,10 @@ class TriggersController < ApplicationController
   def show
     if current_user.id == @trigger.userid
       @page_edit = edit_trigger_path(@trigger) 
+    else
+      link_url = "/profile?userid=" + @trigger.userid.to_s
+      the_link = link_to User.where(:id => @trigger.userid).first.firstname + " " + User.where(:id => @trigger.userid).first.lastname, link_url
+      @page_author = the_link.html_safe
     end
     @no_hide_page = false
     if hide_page && @trigger.userid != current_user.id

@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
       	if supporters
       		return_this = "Supporters: " + return_this 
       	else
-      		return_this = "<em>No supporters yet</em>"
+      		return_this = ""
       	end
 
       	return return_this.html_safe

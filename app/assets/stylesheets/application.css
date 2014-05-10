@@ -50,31 +50,42 @@ body, html {
 /* Header */
 
 #header {
-	padding: 40px;
 	background-color: #6D0839;
+	position: fixed;
+	width: 100%;
 }
 
-#header a.nav_link:link, #header a.nav_link:visited {
+#header_content {
+	padding: 40px;
+}
+
+#header_content a.nav_link:link, #header_content a.nav_link:visited {
 	text-decoration: none;
 	color: #ffffff;
 	margin-right: 20px;
-	padding-bottom: 20px;
+	padding: 20px 0px 20px 0px;
 	border: none;
 }
 
-#header a.nav_link:hover {
+#header_content a.nav_link:hover {
 	color: #ffffff;
 	text-decoration: none;
 	margin-right: 20px;
-	padding-bottom: 20px;
+	padding: 20px 0px 20px 0px;
 	border-bottom: 1px solid #ffffff;
+	border-top: 1px solid #ffffff;
 }
 
-#header > #title {
+#title {
 	color: #ffffff;
 	text-transform: lowercase;
 	font-size: 40px;
 	font-weight: 100;
+	text-align: right;
+}
+
+#header_spacer {
+	width: 100%;
 }
 
 /* Page Title */
@@ -90,18 +101,31 @@ body, html {
 	font-weight: 300;
 }
 
+#page_title_content a:link, #page_title_content a:visited {
+	text-decoration: none;
+	border: none;
+	color: #6D0839;
+}
+
+#page_title_content a:hover {
+	text-decoration: none;
+	border: none;
+	color: #6D0839;
+	opacity: 0.8;
+}
+
 
 /* Page Edit and New */
 
 a.page_edit:link, a.page_edit:visited, a.page_new:link, a.page_new:visited {
 	text-decoration: none;
-	color: #000000;
+	color: #000000 !important;
 	border: none;
 }
 
 a.page_edit:hover, a.page_new:hover {
 	text-decoration: none;
-	color: #000000;
+	color: #000000 !important;
 	border: none;
 	opacity: 0.8;
 }
@@ -165,6 +189,36 @@ input[type="submit"]:hover {
 	opacity: 0.8;
 }
 
+input[type="submit"]#unsupport {
+	border: 1px solid #990019 !important;
+	box-shadow: 0 0 2px #990019 inset !important;
+	color: #990019 !important;
+	background: none;
+}
+
+input[type="submit"]#unsupport:hover {
+	border: 1px solid #990019 !important;
+	box-shadow: 0 0 2px #990019 inset !important;
+	color: #990019 !important;
+	background: none;
+	opacity: 0.8;
+}
+
+input[type="submit"]#support {
+	border: 1px solid #289900 !important;
+	box-shadow: 0 0 2px #289900 inset !important;
+	color: #289900 !important;
+	background: none;
+}
+
+input[type="submit"]#support:hover {
+	border: 1px solid #289900 !important;
+	box-shadow: 0 0 2px #289900 inset !important;
+	color: #289900 !important;
+	background: none;
+	opacity: 0.8;
+}
+
 .field, .actions {
 	margin-bottom: 40px;
 }
@@ -213,4 +267,16 @@ table th {
 .comment a:link, .comment a:visited, .comment a:hover {
 	color: #6D0839;
 	border-color: #6D0839;
+}
+
+/* Table */
+
+div.table {
+	display: table;
+	table-layout: auto;
+	width: 100%;
+}	
+
+div.table > div.table_cell {
+	display: table-cell;
 }

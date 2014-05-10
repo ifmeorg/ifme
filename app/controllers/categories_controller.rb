@@ -17,6 +17,10 @@ class CategoriesController < ApplicationController
       @page_title = @category.name
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
+      else 
+        link_url = "/profile?userid=" + @category.userid.to_s
+        the_link = link_to User.where(:id => @category.userid).first.firstname + " " + User.where(:id => @category.userid).first.lastname, link_url
+        @page_author = the_link.html_safe
       end
     else 
       respond_to do |format|
