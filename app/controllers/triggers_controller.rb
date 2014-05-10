@@ -32,7 +32,7 @@ class TriggersController < ApplicationController
   end
 
   def comment
-    @comment = Comment.create(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
+    @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
     respond_to do |format|
         format.html { redirect_to Trigger.find(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
@@ -46,12 +46,25 @@ class TriggersController < ApplicationController
       params[:support_id] = params[:support][:support_id]
     end
     
+    support_id = params[:support_id].to_i
+
     if Support.where(userid: params[:userid], support_type: params[:support_type]).exists?
       new_support_ids = Support.where(userid: params[:userid], support_type: params[:support_type]).first.support_ids
-      if new_support_ids.include?(params[:support_id])
+      if new_support_ids.include?(support_id)
+        new_support_ids.delete(support_id)
+        the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
+        if new_support_ids.empty?
+          @support = the_support.destroy
+        else
+          @support = the_support.update!(support_ids: new_support_ids)
+        end
+      else 
+        new_support_ids = new_support_ids.push(support_id)
+        the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
+        the_support.update!(support_ids: new_support_ids)
+      end 
     else
-      support_id = params[:support_id].to_i
-      @support = Support.create(userid: params[:userid], support_type: params[:support_type], support_ids: Array.new(support_id))
+      @support = Support.create!(userid: params[:userid], support_type: params[:support_type], support_ids: Array.new(1, support_id))
     end
 
     respond_to do |format|
@@ -172,4 +185,5 @@ class TriggersController < ApplicationController
         end
       end
     end
+
 end

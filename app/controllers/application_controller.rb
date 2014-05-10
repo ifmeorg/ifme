@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :lastname, :email, :password, :password_confirmation, :current_password) }
 	end
 
-	helper_method :fetch_categories_moods
+	helper_method :fetch_categories_moods, :fetch_supporters
 
 	def fetch_categories_moods(data, data_type, item, category_mood, show)
 		if category_mood == "category" && data_type == "trigger"
@@ -47,6 +47,33 @@ class ApplicationController < ActionController::Base
 		end
 
 		return return_this
+	end
+
+	def fetch_supporters(support, type)
+		supporters = false
+		first_element = 0
+		return_this = ''
+		support.each do |s|
+			if s.support_ids.include?(type.id)
+				supporters = true
+				first_element = first_element + 1
+				link_url = '/profile?userid=' + s.userid.to_s
+				if first_element == 1
+         			return_this = link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         		else
+         			return_this += ", "
+         			return_this += link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         		end
+      		end
+      	end
+
+      	if supporters
+      		return_this = "Supporters: " + return_this 
+      	else
+      		return_this = "<em>No supporters yet</em>"
+      	end
+
+      	return return_this.html_safe
 	end
 
 end
