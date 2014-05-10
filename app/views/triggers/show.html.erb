@@ -65,6 +65,8 @@ By: <%= link_to User.where(:id => @trigger.userid).first.firstname + " " + User.
         <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
           <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
             <%= f.submit "Unsupport" %>
+          <% else %>
+            <%= f.submit "Support" %>
           <% end %>
         <% else %>
           <%= f.submit "Support" %>
