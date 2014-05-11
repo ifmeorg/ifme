@@ -28,6 +28,10 @@ body, html {
 
 /* Divs */
 
+.center {
+	text-align: center;
+}
+
 .spacer {
 	width: 100%;
 	height: 40px;
@@ -122,6 +126,14 @@ body, html {
 
 /* Page Title */
 
+.welcome {
+	width: 100%;
+	background-image: url('/assets/welcome.png');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
 #page_title {
 	width: 100%;
 	background-color: #D0E799;
@@ -169,6 +181,27 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 #content {
 	padding: 40px;
+}
+
+.headline {
+	color: #6D0839;
+	font-size: 36px;
+	margin-bottom: 40px;
+}
+
+.branding_title {
+	font: 100 36px 'Lato',sans-serif;
+	text-transform: lowercase;
+}
+
+.branding_subtitle {
+	padding: 10px 0px 10px 0px;
+	border-top: 1px solid #6D0839;
+	border-bottom: 1px solid #6D0839;
+}
+
+.message {
+	font: 400 26px 'Lato',sans-serif;
 }
 
 /* Footer */

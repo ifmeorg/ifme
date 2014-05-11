@@ -162,13 +162,16 @@
 							 	<% #link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
 							<% else %>
-								<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
 							  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>
 							  	<%= link_to('Join', new_user_registration_path, id: 'signup_link', class: 'nav_link') %>  
 							<% end %>
 						</div>
 						<div class="table_cell" id="title" style="vertical-align: middle">
-							If <span id="me">Me</span>
+							<% if user_signed_in? %>
+								If <span id="me">Me</span>
+							<% else %>
+								If <%= link_to('Me', root_path, id: 'me') %>
+							<% end %>
 						</div>
 					</div>
 					<% if user_signed_in? %>
@@ -184,7 +187,11 @@
 
 			<div id="header_space"></div>
 
+			<% if current_page?(root_path) %>
+			<div id="page_title" class="welcome">
+			<% else %>
 			<div id="page_title">
+			<% end %>
 				<div id="page_title_content">
 					<% if current_page?(new_user_session_path) %>
 						Sign in
