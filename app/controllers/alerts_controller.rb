@@ -18,7 +18,7 @@ class AlertsController < ApplicationController
       @page_edit = edit_alert_path(@alert)
     else 
       respond_to do |format|
-        format.html { redirect_to alerts_url }
+        format.html { redirect_to alerts_path }
         format.json { head :no_content }
       end
     end
@@ -36,7 +36,7 @@ class AlertsController < ApplicationController
       @page_title = "Edit " + @alert.name 
     else 
       respond_to do |format|
-        format.html { redirect_to alerts_url }
+        format.html { redirect_to alert_path(@alert) }
         format.json { head :no_content }
       end
     end
@@ -51,7 +51,7 @@ class AlertsController < ApplicationController
       if @alert.save
 
         AlertMailer.alert_email(current_user).deliver
-        format.html { redirect_to @alert, notice: 'Alert was successfully created.' }
+        format.html { redirect_to alert_path(@alert), notice: 'Alert was successfully created.' }
         format.json { render :show, status: :created, location: @alert }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class AlertsController < ApplicationController
   def update
     respond_to do |format|
       if @alert.update(alert_params)
-        format.html { redirect_to @alert, notice: 'Alert was successfully updated.' }
+        format.html { redirect_to alert_path(@alert), notice: 'Alert was successfully updated.' }
         format.json { render :show, status: :ok, location: @alert }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class AlertsController < ApplicationController
   def destroy
     @alert.destroy
     respond_to do |format|
-      format.html { redirect_to alerts_url }
+      format.html { redirect_to alerts_path }
       format.json { head :no_content }
     end
   end
@@ -92,7 +92,7 @@ class AlertsController < ApplicationController
       rescue
         if @alert.blank?
           respond_to do |format|
-            format.html { redirect_to alerts_url }
+            format.html { redirect_to alerts_path }
             format.json { head :no_content }
           end
         end 

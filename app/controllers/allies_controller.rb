@@ -29,7 +29,7 @@ class AlliesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to allies_url }
+      format.html { redirect_to allies_path }
       format.json { head :no_content }
     end
   end
@@ -48,7 +48,7 @@ class AlliesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to allies_url }
+      format.html { redirect_to allies_path }
       format.json { head :no_content }
     end
   end

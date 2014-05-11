@@ -18,7 +18,7 @@ class MedicationsController < ApplicationController
       @page_edit = edit_medication_path(@medication)
     else 
       respond_to do |format|
-        format.html { redirect_to medications_url }
+        format.html { redirect_to medications_path }
         format.json { head :no_content }
       end
     end
@@ -36,7 +36,7 @@ class MedicationsController < ApplicationController
       @page_title = "Edit " + @medication.name
     else
       respond_to do |format|
-        format.html { redirect_to medications_url }
+        format.html { redirect_to medication_path(@medication) }
         format.json { head :no_content }
       end
     end
@@ -49,7 +49,7 @@ class MedicationsController < ApplicationController
 
     respond_to do |format|
       if @medication.save
-        format.html { redirect_to @medication, notice: 'Medication was successfully created.' }
+        format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully created.' }
         format.json { render :show, status: :created, location: @medication }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class MedicationsController < ApplicationController
   def update
     respond_to do |format|
       if @medication.update(medication_params)
-        format.html { redirect_to @medication, notice: 'Medication was successfully updated.' }
+        format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully updated.' }
         format.json { render :show, status: :ok, location: @medication }
       else
         format.html { render :edit }
@@ -77,7 +77,7 @@ class MedicationsController < ApplicationController
   def destroy
     @medication.destroy
     respond_to do |format|
-      format.html { redirect_to medications_url }
+      format.html { redirect_to medications_path }
       format.json { head :no_content }
     end
   end
@@ -90,7 +90,7 @@ class MedicationsController < ApplicationController
       rescue
         if @medication.blank?
           respond_to do |format|
-            format.html { redirect_to medications_url }
+            format.html { redirect_to medications_path }
             format.json { head :no_content }
           end
         end 

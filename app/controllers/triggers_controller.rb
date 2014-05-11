@@ -23,7 +23,7 @@ class TriggersController < ApplicationController
     @no_hide_page = false
     if hide_page && @trigger.userid != current_user.id
       respond_to do |format|
-        format.html { redirect_to triggers_url }
+        format.html { redirect_to triggers_path }
         format.json { head :no_content }
       end
     else 
@@ -105,7 +105,7 @@ class TriggersController < ApplicationController
       @page_title = "Edit " + @trigger.name
     else 
       respond_to do |format|
-        format.html { redirect_to triggers_url }
+        format.html { redirect_to trigger_path(@trigger) }
         format.json { head :no_content }
       end
     end 
@@ -117,7 +117,7 @@ class TriggersController < ApplicationController
     @trigger = Trigger.new(trigger_params)
     respond_to do |format|
       if @trigger.save
-        format.html { redirect_to @trigger, notice: 'Trigger was successfully created.' }
+        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
         format.json { render :show, status: :created, location: @trigger }
       else
         format.html { render :new }
@@ -131,7 +131,7 @@ class TriggersController < ApplicationController
   def update
     respond_to do |format|
       if @trigger.update(trigger_params)
-        format.html { redirect_to @trigger, notice: 'Trigger was successfully updated.' }
+        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }
         format.json { render :show, status: :ok, location: @trigger }
       else
         format.html { render :edit }
@@ -145,7 +145,7 @@ class TriggersController < ApplicationController
   def destroy
     @trigger.destroy
     respond_to do |format|
-      format.html { redirect_to triggers_url }
+      format.html { redirect_to triggers_path }
       format.json { head :no_content }
     end
   end
@@ -158,7 +158,7 @@ class TriggersController < ApplicationController
       rescue
         if @trigger.blank?
           respond_to do |format|
-            format.html { redirect_to triggers_url }
+            format.html { redirect_to triggers_path }
             format.json { head :no_content }
           end
         end 

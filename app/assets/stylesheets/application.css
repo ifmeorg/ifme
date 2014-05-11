@@ -88,6 +88,33 @@ body, html {
 	width: 100%;
 }
 
+#me {
+	margin: 0;
+	color: #D0E799;
+	padding: 5px 0px 10px 0px;
+	border-top: 1px solid #D0E799;
+	border-bottom: 1px solid #D0E799;
+}
+
+#expand_me {
+	margin-top: 40px;
+	width: 100%;
+	text-align: right;
+}
+
+#expand_me a.me_link:link, #expand_me a.me_link:visited {
+	text-decoration: none;
+	color: #ffffff;
+	margin-left: 20px;
+	border: none;
+}
+
+#expand_me a.me_link:hover {
+	color: #ffffff;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
 /* Page Title */
 
 #page_title {

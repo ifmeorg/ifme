@@ -27,6 +27,28 @@
 				$(function () {
 					var the_height = $('#header').height();
 					$('#header_space').css({"height": the_height});
+
+					var click_flag = 0;
+
+					$('#me').click(function() {
+						if (click_flag % 2 == 0) {
+							$('#expand_me').css({"display": "block"});
+							$('#me').css({"opacity": 0.8});
+						} else {
+							$('#expand_me').css({"display": "none"});
+							$('#me').css({"opacity": 1});
+						}
+
+						the_height = $('#header').height();
+						$('#header_space').css({"height": the_height});
+
+						click_flag++;
+					});
+
+					$(window).resize(function () {
+						var the_height = $('#header').height();
+						$('#header_space').css({"height": the_height});
+					});
 				});
 
 			});
@@ -39,14 +61,6 @@
 			    	opacity: 0.8;
 			  	}
 			</style>
-		<% elsif current_page?(edit_user_registration_path) %>
-		  	<style>
-			  	#header a#settings_link:link {
-			  		border-top: 1px solid #ffffff;
-			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
-			  	}
-			</style>		
 		<% elsif params[:controller] == "categories" %>
 			<style>
 		  		#header a#categories_link:link {
@@ -118,16 +132,19 @@
 							 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
 							 	<%= link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
-							 	<%= link_to('Settings', edit_user_registration_path, class: 'nav_link', id: 'settings_link') %>      
-							 	<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'nav_link') %>    
 							<% else %>
 								<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
 							  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>  
 							<% end %>
 						</div>
 						<div class="table_cell" id="title" style="vertical-align: middle">
-							If Me
+							If <span id="me">Me</span>
 						</div>
+					</div>
+					<div id="expand_me" style="display: none">
+						<%= link_to 'Profile', profile_index_path(:userid => current_user.id), class: 'me_link' %>
+						<%= link_to 'Settings', edit_user_registration_path, class: 'me_link' %> 
+						<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'me_link') %>
 					</div>
 					<div class="clear"></div>
 				</div>	

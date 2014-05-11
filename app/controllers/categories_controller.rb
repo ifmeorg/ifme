@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
       end
     else 
       respond_to do |format|
-        format.html { redirect_to categories_url }
+        format.html { redirect_to categories_path }
         format.json { head :no_content }
       end
     end 
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
       @page_title = "Edit " + @category.name
     else 
       respond_to do |format|
-        format.html { redirect_to categories_url }
+        format.html { redirect_to category_path(@category) }
         format.json { head :no_content }
       end
     end 
@@ -55,7 +55,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to category_path(@category), notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -69,7 +69,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to category_path(@category), notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -92,7 +92,7 @@ class CategoriesController < ApplicationController
 
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url }
+      format.html { redirect_to categories_path }
       format.json { head :no_content }
     end
   end
@@ -105,7 +105,7 @@ class CategoriesController < ApplicationController
       rescue
         if @category.blank?
           respond_to do |format|
-            format.html { redirect_to categories_url }
+            format.html { redirect_to categories_path }
             format.json { head :no_content }
           end
         end 

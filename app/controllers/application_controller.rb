@@ -13,10 +13,11 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :lastname, :email, :password, :password_confirmation, :current_password) }
 	end
 
-	helper_method :fetch_categories_moods, :fetch_supporters
+	helper_method :fetch_categories_moods
+	helper_method :fetch_supporters
 
 	def fetch_categories_moods(data, data_type, item, category_mood, show)
-		if category_mood == "category" && data_type == "trigger"
+		if category_mood == "category" && data_type == "trigger" && Category.where(:id => item.to_i).exists?
 			if !Category.where(:id => item.to_i).first.description.blank?
 				link_name = Category.where(:id => item.to_i).first.name
 				link_url = '/categories/' + item.to_s
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
 			if item != data.category.last
 				return_this += ', '
 			end
-		elsif category_mood == "mood" && data_type == "trigger"
+		elsif category_mood == "mood" && data_type == "trigger" && Mood.where(:id => item.to_i).exists?
 			if !Mood.where(:id => item.to_i).first.description.blank?
 				link_name = Mood.where(:id => item.to_i).first.name
 				link_url = '/moods/' + item.to_s 
