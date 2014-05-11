@@ -1,33 +1,42 @@
-<% if @triggers.exists? %>
-	<% @triggers.all.each do |item| %>
-		<% if item.viewers.include?(current_user.id.to_s) || (current_user.id == @profile.id && !item.viewers.empty?) %>
-			<div class="profile">
-				<h1 class="profile_name"><%= link_to item.name, item %></h1>
-				<strong>
-			      <% if item.category.count == 1 %>
-			        Category:
-			      <% else %>
-			        Categories:
-			      <% end %>
-			    </strong>
-				<% item.category.each do |category_item| %>
-      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
-    			<% end %>
-    			<br />
-    			<strong>
-			      <% if item.mood.count == 1 %>
-			        Mood:
-			      <% else %>
-			        Moods:
-			      <% end %>
-			    </strong>
-				<% item.mood.each do |mood_item| %>
-      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
-    			<% end %>
-			</div>
+<div class="table">
+	<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: top">
+    	<%= image_tag avatar_url(User.where(:id => @profile.id).first) %>
+    	<div class="spacer"></div>
+    	 <%= User.where(:id => @profile.id).first.location %>
+  	</div>
+  	<div class="table_cell" style="vertical-align: top">
+		<% if @triggers.exists? %>
+			<% @triggers.all.each do |item| %>
+				<% if item.viewers.include?(current_user.id.to_s) || (current_user.id == @profile.id && !item.viewers.empty?) %>
+					<div class="profile">
+						<h1 class="profile_name"><%= link_to item.name, item %></h1>
+						<strong>
+					      <% if item.category.count == 1 %>
+					        Category:
+					      <% else %>
+					        Categories:
+					      <% end %>
+					    </strong>
+						<% item.category.each do |category_item| %>
+		      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
+		    			<% end %>
+		    			<br />
+		    			<strong>
+					      <% if item.mood.count == 1 %>
+					        Mood:
+					      <% else %>
+					        Moods:
+					      <% end %>
+					    </strong>
+						<% item.mood.each do |mood_item| %>
+		      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
+		    			<% end %>
+					</div>
+				<% end %>
+			<% end %>
 		<% end %>
-	<% end %>
-<% end %>
+	</div>
+</div>
 
 <% if @profile.id != current_user.id %>
 	 <% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s)) %>

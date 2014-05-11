@@ -2,9 +2,31 @@
 <div class="spacer"></div>
 <% User.all.each do |user| %>
 	<% if user.id != current_user.id %>
-		<% if ( !@name.blank? && user.firstname.downcase.include?(@name.downcase) ) || ( !@name.blank? && @name.downcase.include?(user.firstname.downcase) ) || ( !@name.blank? && user.lastname.downcase.include?(@name.downcase) ) || ( !@name.blank? && @name.downcase.include?(user.lastname.downcase) ) || ( !@email.blank? && user.email.downcase.include?(@email.downcase) ) %>
+		<% if ( !@name.blank? && !user.firstname.nil? && user.firstname.downcase.include?(@name.downcase) ) || ( !@name.blank?  && !user.firstname.nil? && @name.downcase.include?(user.firstname.downcase) ) || ( !@name.blank?  && !user.lastname.nil? && user.lastname.downcase.include?(@name.downcase) ) || ( !@name.blank?  && !user.lastname.nil? && @name.downcase.include?(user.lastname.downcase) ) || ( !@email.blank?  && !user.email.nil? && user.email.downcase.include?(@email.downcase) ) || ( !@location.blank?  && !user.location.nil? && user.location.downcase.include?(@location.downcase) ) %>
 			<div class="ally">
-	       		<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
+				<div class="table">
+		        	<div class="table_cell" style="width: 200px; padding-right: 20px; vertical-align: top">
+		            	<%= image_tag avatar_url(User.where(:id => user.id).first) %>
+		          	</div>
+		          	<div class="table_cell" style="vertical-align: top">
+						<div class="align_left">
+			       			<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
+			       		</div>
+			       		<div class="align_right location">
+			       			<%= User.where(:id => user.id).first.location %>
+			       		</div>
+			       		<div class="clear"></div>
+
+			       		<% if !Ally.where(:userid => user.id).exists? || !Ally.where(:userid => user.id).first.allies.include?(current_user.id.to_s) %>
+					        (Pending Request)
+					        <br />
+					        <%= link_to 'Cancel Request', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+					    <% else %>
+					        <br />
+					        <%= link_to 'Remove as Ally', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+					    <% end %>
+					</div>
+				</div>
 	    	</div>
 		<% end %>
 	<% end %>

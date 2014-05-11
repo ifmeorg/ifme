@@ -11,7 +11,7 @@
 	margin-bottom: 40px;
 }
 
-.ally > h1.ally_name {
+h1.ally_name {
 	font-weight: 300;
 	font-size: 26px;
 	padding: 0;
@@ -23,4 +23,9 @@ h1.ally_name a:link, h1.ally_name a:visited {
 	color: #6D0839;
 	text-decoration: none;
 	border: none;
+}
+
+.location {
+	color: #6D0839;
+	opacity: 0.8;
 }

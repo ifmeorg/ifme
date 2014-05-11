@@ -13,8 +13,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password) }
 	end
 
-	helper_method :fetch_categories_moods
-	helper_method :fetch_supporters
+	helper_method :fetch_categories_moods, :fetch_supporters, :avatar_url
 
 	def fetch_categories_moods(data, data_type, item, category_mood, show)
 		if category_mood == "category" && data_type == "trigger" && Category.where(:id => item.to_i).exists?
@@ -75,6 +74,12 @@ class ApplicationController < ActionController::Base
       	end
 
       	return return_this.html_safe
+	end
+
+	def avatar_url(user)
+	    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+
+	    return "http://gravatar.com/avatar/#{gravatar_id}.png?s=200"
 	end
 
 end

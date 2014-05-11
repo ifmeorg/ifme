@@ -187,7 +187,7 @@
 
 			<div id="header_space"></div>
 
-			<% if current_page?(root_path) %>
+			<% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(edit_user_registration_path) %>
 			<div id="page_title" class="welcome">
 			<% else %>
 			<div id="page_title">
