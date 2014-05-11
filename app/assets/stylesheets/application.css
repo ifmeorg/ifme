@@ -233,6 +233,27 @@ a:hover {
 	opacity: 0.8;
 }
 
+a.gravatar:link, a.gravatar:visited {
+	text-decoration: none;
+	border: none;
+}
+
+a.gravatar:hover {
+	text-decoration: none;
+	border: none;
+	opacity: 0.8;
+}
+
+/* Images */
+
+img {
+	 max-width: 100%;
+}
+
+img.profile_pic {
+	border: 1px solid #6D0839;
+}
+
 /* Input Fields */
 
 input, textarea, select, fieldset {

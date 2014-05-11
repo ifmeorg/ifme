@@ -1,6 +1,6 @@
 <div class="table">
 	<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: top">
-    	<%= image_tag avatar_url(User.where(:id => @profile.id).first) %>
+    	<a href="http://gravatar.com" target="_blank" class="gravatar"><%= image_tag avatar_url(User.where(:id => @profile.id).first), :class => 'profile_pic' %></a>
     	<div class="spacer"></div>
     	 <%= User.where(:id => @profile.id).first.location %>
   	</div>
