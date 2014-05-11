@@ -3,6 +3,7 @@ class AlliesController < ApplicationController
   # GET /allies
   # GET /allies.json
   def index
+    @page_search = true
     @ally_requests = Array.new
     Ally.where.not(:userid => current_user.id).all.each do |item|
       if item.allies.include?(current_user.id.to_s) && (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(item.userid.to_s))

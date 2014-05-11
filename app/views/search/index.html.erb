@@ -1,0 +1,12 @@
+<%= render 'form' %>
+<div class="spacer"></div>
+<% User.all.each do |user| %>
+	<% if user.id != current_user.id %>
+		<% if ( !@name.blank? && user.firstname.downcase.include?(@name.downcase) ) || ( !@name.blank? && @name.downcase.include?(user.firstname.downcase) ) || ( !@name.blank? && user.lastname.downcase.include?(@name.downcase) ) || ( !@name.blank? && @name.downcase.include?(user.lastname.downcase) ) || ( !@email.blank? && user.email.downcase.include?(@email.downcase) ) %>
+			<div class="ally">
+	       		<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
+	    	</div>
+		<% end %>
+	<% end %>
+<% end %>
+

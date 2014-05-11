@@ -29,6 +29,7 @@
 					$('#header_space').css({"height": the_height});
 
 					var click_flag = 0;
+					var click_flag2 = 0;
 
 					$('#me').click(function() {
 						if (click_flag % 2 == 0) {
@@ -43,6 +44,15 @@
 						$('#header_space').css({"height": the_height});
 
 						click_flag++;
+					});
+
+					$('#search').click(function() {
+						if (click_flag2 % 2 == 0) {
+							$('#search_box').css({"display": "block"});
+						} else {
+							$('#search_box').css({"display": "none"});
+						}
+						click_flag2++;
 					});
 
 					$(window).resize(function () {
@@ -130,7 +140,7 @@
 							  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
 							 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
-							 	<%= link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
+							 	<% #link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
 							<% else %>
 								<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
@@ -179,7 +189,7 @@
 								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
 							</div>
 							<div class="clear"></div>
-						<% else %>
+						<% elsif !@page_author.blank? %>
 							<div class="align_left">
 								<%= @page_title %> 
 							</div>
@@ -187,6 +197,19 @@
 								<%= @page_author %> 
 							</div>
 							<div class="clear"></div>
+						<% elsif @page_search %>
+							<div class="align_left">
+								<%= @page_title %> 
+							</div>
+							<div class="align_right">
+								<i class="fa fa-search" id="search"></i>
+							</div>
+							<div class="clear"></div>
+							<div id="search_box" style="display: none">
+								<%= render :partial => '/search/form' %>
+							</div>
+						<% else %>
+							<%= @page_title %> 
 						<% end %>
 					<% end %>
 				</div>

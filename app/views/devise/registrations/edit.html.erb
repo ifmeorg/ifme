@@ -7,11 +7,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field"><%= f.label :firstname %><br />
+  <div class="field"><%= f.label "First Name" %><br />
   <%= f.text_field :firstname, autofocus: true %></div>
 
-  <div class="field"><%= f.label :lastname %><br />
+  <div class="field"><%= f.label "Last Name" %><br />
   <%= f.text_field :lastname %></div>
+
+  <div class="field"><%= f.label :location %><br />
+  <%= f.text_field :location %></div>
 
   <div class="field"><%= f.label :email %><br />
   <%= f.email_field :email %></div>

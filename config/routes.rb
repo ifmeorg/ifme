@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     end
   end 
 
-  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] 
+  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
+
+  resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
 
   get 'pages/home'
 
