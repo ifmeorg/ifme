@@ -5,13 +5,12 @@
 </style>
 
 <% if !user_signed_in? %>
-
 	<div class="center">
 		<div class="headline">
 			<span class="branding_title">
 				if <span class="branding_subtitle">me</span>
 			</span> 
-			is a platform and community for mental health experiences
+			is an open-source platform and community for mental health experiences
 		</div>
 
 		<div class="message">
@@ -22,9 +21,52 @@
 			Be <strong>you</strong>, no strings attached 
 		</div>
 	</div>
-
 <% else %>
-
-	News feed here
-
+	<% @triggers.each do |trigger| %>
+		<% if current_user.id == trigger.userid || (trigger.viewers.include?(current_user.id.to_s) && are_allies(current_user.id, trigger.userid)) %>
+			<%= trigger.created_at %>
+			<div class="trigger">
+      			<div class="align_left">
+				    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+				</div>
+				<div class="align_right">
+        			<h1 class="ally_name">
+        				<% if current_user.id == trigger.userid %>
+        					<%= link_to "You", profile_index_path(:userid => trigger.userid) %>
+        				<% else %>
+        					<%= link_to User.where(:id => trigger.userid).first.firstname + " " + User.where(:id => trigger.userid).first.lastname, profile_index_path(:userid => trigger.userid) %>
+        				<% end %>
+        			</h1>
+     			</div>
+     			<div class="clear"></div>
+			    <strong>
+			      <% if trigger.category.count == 1 %>
+			        Category:
+			      <% else %>
+			        Categories:
+			      <% end %>
+			    </strong>
+			    <% trigger.category.each do |item| %>
+			      <%= fetch_categories_moods(trigger, "trigger", item, "category", true) %>
+			    <% end %>
+			    <br />
+			    <strong>
+			      <% if trigger.mood.count == 1 %>
+			        Mood:
+			      <% else %>
+			        Moods:
+			      <% end %>
+			    </strong>
+			    <% trigger.mood.each do |item| %>
+			      <%= fetch_categories_moods(trigger, "trigger", item, "mood", true) %>
+			    <% end %>
+			    <br />
+			    <br />
+			    <%= trigger.why[0...200] + "..." %>
+			    <br />
+			    <br />
+			    <%= fetch_supporters(Support.all, trigger) %>
+			</div>
+		<% end %>
+	<% end %>
 <% end %>

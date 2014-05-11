@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password) }
 	end
 
-	helper_method :fetch_categories_moods, :fetch_supporters, :avatar_url
+	helper_method :fetch_categories_moods, :fetch_supporters, :avatar_url, :are_allies
 
 	def fetch_categories_moods(data, data_type, item, category_mood, show)
 		if category_mood == "category" && data_type == "trigger" && Category.where(:id => item.to_i).exists?
@@ -59,10 +59,18 @@ class ApplicationController < ActionController::Base
 				first_element = first_element + 1
 				link_url = '/profile?userid=' + s.userid.to_s
 				if first_element == 1
-         			return_this = link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+					if s.userid == current_user.id
+         				return_this = link_to "You", link_url
+         			else
+         				return_this = link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         			end
          		else
          			return_this += ", "
-         			return_this += link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         			if s.userid == current_user.id
+         				return_this += link_to "You", link_url
+         			else
+         				return_this += link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         			end
          		end
       		end
       	end
@@ -80,6 +88,15 @@ class ApplicationController < ActionController::Base
 	    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
 
 	    return "http://gravatar.com/avatar/#{gravatar_id}.png?s=200"
+	end
+
+	def are_allies(user1, user2)
+		if Ally.where(:userid => user1).exists? && Ally.where(:userid => user2).exists?
+			if Ally.where(:userid => user1).first.allies.include?(user2.to_s) && Ally.where(:userid => user2).first.allies.include?(user1.to_s)
+				return true
+			end
+		end
+		return false
 	end
 
 end
