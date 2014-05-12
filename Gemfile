@@ -50,3 +50,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'protected_attributes'
+
+gem 'rails_12factor', group: :production
