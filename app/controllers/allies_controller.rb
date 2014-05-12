@@ -6,7 +6,7 @@ class AlliesController < ApplicationController
     @page_search = true
     @ally_requests = Array.new
     Ally.where.not(:userid => current_user.id).all.each do |item|
-      if item.allies.include?(current_user.id.to_s) && (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(item.userid.to_s))
+      if item.allies.include?(current_user.id) && (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(item.userid))
         @ally_requests.push(item.userid)
       end  
     end
@@ -18,7 +18,7 @@ class AlliesController < ApplicationController
     if Ally.where(:userid => current_user.id).exists?
       the_allies = Ally.where(:userid => current_user.id).first.allies
 
-      if !the_allies.include?(params[:userid].to_s) 
+      if !the_allies.include?(params[:userid]) 
         the_allies.push(params[:userid])
       end 
 
@@ -37,13 +37,13 @@ class AlliesController < ApplicationController
 
   def remove
     update_allies = Ally.where(:userid => current_user.id).first.allies 
-    update_allies.delete(params[:userid].to_s)
+    update_allies.delete(params[:userid])
     the_user = Ally.find_by(:userid => current_user.id)
     the_user.update(allies: update_allies)
 
-    if Ally.where(:userid => params[:userid]).exists? && Ally.where(:userid => params[:userid]).first.allies.include?(current_user.id.to_s)
+    if Ally.where(:userid => params[:userid]).exists? && Ally.where(:userid => params[:userid]).first.allies.include?(current_user.id)
       update_allies2 = Ally.where(:userid => params[:userid]).first.allies 
-      update_allies2.delete(current_user.id.to_s)
+      update_allies2.delete(current_user.id)
       the_user2 = Ally.find_by(:userid => params[:userid])
       the_user2.update(allies: update_allies2)
     end

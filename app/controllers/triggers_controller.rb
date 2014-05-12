@@ -82,7 +82,7 @@ class TriggersController < ApplicationController
     @viewers = Array.new
     if Ally.where(:userid => current_user.id).exists?
       User.where.not(:id => current_user.id).all.each do |item|
-        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(item.id.to_s)
+        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
           @viewers.push(item.id)
         end
       end
@@ -97,7 +97,7 @@ class TriggersController < ApplicationController
       @viewers = Array.new
       if Ally.where(:userid => current_user.id).exists?
         User.where.not(:id => current_user.id).all.each do |item|
-          if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(item.id.to_s)
+          if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
             @viewers.push(item.id)
           end
         end
@@ -173,7 +173,7 @@ class TriggersController < ApplicationController
     def hide_page 
       if Trigger.where(:userid => @trigger.userid).exists?
         Trigger.where(:userid => @trigger.userid).all.each do |item|
-          if item.viewers.include?(current_user.id.to_s) 
+          if item.viewers.include?(current_user.id) 
             return false
           end
         end

@@ -265,6 +265,11 @@ input, textarea, select, fieldset {
 	margin-right: 10px;
 }
 
+textarea {
+	width: 50%;
+	height: 100px;
+}
+
 input[type="submit"] {
 	border: 1px solid #02779E;
 	box-shadow: 0 0 2px #02779E inset;

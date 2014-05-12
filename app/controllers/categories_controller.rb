@@ -85,7 +85,7 @@ class CategoriesController < ApplicationController
     @triggers = Trigger.where(:userid => current_user.id).all
 
     @triggers.each do |item|
-      new_category = item.category.delete(@category.id.to_s)
+      new_category = item.category.delete(@category.id)
       the_trigger = Trigger.find_by(id: item.id)
       the_trigger.update(category: item.category)
     end
@@ -130,7 +130,7 @@ class CategoriesController < ApplicationController
       if trigger.blank?
         return false
       else
-        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.category.include?(category.id.to_s) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id.to_s)
+        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.category.include?(category.id) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id)
           return true
         end
       end 

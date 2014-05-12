@@ -10,7 +10,7 @@
 			<span class="branding_title">
 				if <span class="branding_subtitle">me</span>
 			</span> 
-			is an open-source platform and community for mental health experiences
+			is an open-source community for mental health experiences
 		</div>
 
 		<div class="message">
@@ -23,7 +23,7 @@
 	</div>
 <% else %>
 	<% @triggers.each do |trigger| %>
-		<% if current_user.id == trigger.userid || (trigger.viewers.include?(current_user.id.to_s) && are_allies(current_user.id, trigger.userid)) %>
+		<% if current_user.id == trigger.userid || (trigger.viewers.include?(current_user.id) && are_allies(current_user.id, trigger.userid)) %>
 			<div class="trigger">
       			<div class="align_left">
 				    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>

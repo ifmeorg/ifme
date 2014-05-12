@@ -9,11 +9,11 @@
     	 <%= User.where(:id => @profile.id).first.location %>
     	 <% if @profile.id != current_user.id %>
     	 	<br />
-			<% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s)) %>
+			<% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
 			 	<br /><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %> 
-			<% elsif Ally.where(:userid => @profile.id).exists? && Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s) %>
+			<% elsif Ally.where(:userid => @profile.id).exists? && Ally.where(:userid => @profile.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) %>
 				<br /><%= link_to 'Remove as Ally', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			<% elsif (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(@profile.id.to_s)) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id.to_s)) %>
+			<% elsif (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(@profile.id)) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
 				<br /><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %> 
 			<% else %>
 				<br /><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
@@ -23,7 +23,7 @@
   	<div class="table_cell" style="vertical-align: top">
 		<% if @triggers.exists? %>
 			<% @triggers.all.each do |item| %>
-				<% if item.viewers.include?(current_user.id.to_s) || (current_user.id == @profile.id && !item.viewers.empty?) %>
+				<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
 					<div class="profile">
 						<h1 class="profile_name"><%= link_to item.name, item %></h1>
 						<strong>

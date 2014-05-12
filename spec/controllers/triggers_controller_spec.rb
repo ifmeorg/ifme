@@ -26,7 +26,7 @@ describe TriggersController do
 			sign_in new_user
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
-	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
+	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(new_mood.id))
 	  		get :show, id: new_trigger
 	  		response.should render_template("show")
 		end
@@ -46,7 +46,7 @@ describe TriggersController do
 				sign_in new_user
 		 		new_category = create(:category, userid: new_user.id)
 		  		new_mood = create(:mood, userid: new_user.id)
-		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
+		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => new_trigger.id
 		  		response.should redirect_to(trigger_path(new_trigger.id))
 			end
@@ -56,12 +56,12 @@ describe TriggersController do
 				sign_in new_user
 		 		new_category = create(:category, userid: new_user.id)
 		  		new_mood = create(:mood, userid: new_user.id)
-		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
+		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => new_trigger.id
 		  		puts "Size (before) >>>"
 		  		puts Support.count
 
-		  		other_new_trigger = Trigger.create(userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id), name: "Other Trigger", why: "Cause")
+		  		other_new_trigger = Trigger.create(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), name: "Other Trigger", why: "Cause")
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => other_new_trigger.id
 		  		puts "Size (after) >>>"
 		  		puts Support.count

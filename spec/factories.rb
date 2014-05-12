@@ -4,6 +4,8 @@ FactoryGirl.define do
     lastname  "Chang"
     email "oprah.chang@example.com"
     password "password"
+    location "Toronto, ON, Canada"
+    timezone "-05:00"
   end
 
   factory :category do 

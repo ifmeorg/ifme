@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
 
 	def are_allies(user1, user2)
 		if Ally.where(:userid => user1).exists? && Ally.where(:userid => user2).exists?
-			if Ally.where(:userid => user1).first.allies.include?(user2.to_s) && Ally.where(:userid => user2).first.allies.include?(user1.to_s)
+			if Ally.where(:userid => user1).first.allies.include?(user2) && Ally.where(:userid => user2).first.allies.include?(user1)
 				return true
 			end
 		end
