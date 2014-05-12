@@ -43,13 +43,15 @@
 					var click_flag = 0;
 					var click_flag2 = 0;
 
-					$('#me').click(function() {
+					$('.expand_button').click(function() {
 						if (click_flag % 2 == 0) {
 							$('#expand_me').css({"display": "block"});
 							$('#me').css({"opacity": 0.8});
+							$('#title_expand').css({"opacity": 0.8});
 						} else {
 							$('#expand_me').css({"display": "none"});
 							$('#me').css({"opacity": 1});
+							$('#title_expand').css({"opacity": 1});
 						}
 
 						the_height = $('#header').height();
@@ -168,11 +170,16 @@
 						</div>
 						<div class="table_cell" id="title" style="vertical-align: middle">
 							<% if user_signed_in? %>
-								If <span id="me">Me</span>
+								If <span id="me" class="expand_button">Me</span>
 							<% else %>
 								If <%= link_to('Me', root_path, id: 'me') %>
 							<% end %>
 						</div>
+						<% if user_signed_in? %>
+							<div class="table_cell expand_button" id="title_expand" style="vertical-align: middle">
+								<i class="fa fa-sort-asc"></i>
+							</div>
+						<% end %>
 					</div>
 					<% if user_signed_in? %>
 						<div id="expand_me" style="display: none">

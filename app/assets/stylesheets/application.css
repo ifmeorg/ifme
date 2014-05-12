@@ -93,6 +93,11 @@ body, html {
 	text-align: right;
 }
 
+#title_expand {
+	color: #D0E799;
+	text-align: right;
+}
+
 #header_spacer {
 	width: 100%;
 }
