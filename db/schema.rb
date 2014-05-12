@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511024815) do
+ActiveRecord::Schema.define(version: 20140512001607) do
 
   create_table "alerts", force: true do |t|
     t.integer  "userid"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140511024815) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "location"
+    t.string   "timezone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

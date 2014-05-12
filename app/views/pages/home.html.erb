@@ -24,7 +24,6 @@
 <% else %>
 	<% @triggers.each do |trigger| %>
 		<% if current_user.id == trigger.userid || (trigger.viewers.include?(current_user.id.to_s) && are_allies(current_user.id, trigger.userid)) %>
-			<%= trigger.created_at %>
 			<div class="trigger">
       			<div class="align_left">
 				    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
