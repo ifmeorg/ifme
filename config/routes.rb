@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
 
   get 'pages/home'
+  #get 'pages/about', as: 'about'
+  match 'about', to: 'pages#about', via: :get
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

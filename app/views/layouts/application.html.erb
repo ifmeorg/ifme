@@ -194,7 +194,7 @@
 
 			<div id="header_space"></div>
 
-			<% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(edit_user_registration_path) %>
+			<% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(edit_user_registration_path) || current_page?(about_path) %>
 			<div id="page_title" class="welcome">
 			<% else %>
 			<div id="page_title">
@@ -262,7 +262,14 @@
 
 			<div id="footer">
 				<div id="footer_content">
-					if me &#169; 2014
+					<div class="align_left">
+						<%= link_to('About', about_path, class: "spacing") %>
+						<a href="https://github.com/julianguyen/ifme" target="_blank">Contribute</a>
+					</div>
+					<div class="align_right">
+						&#169; 2014 if me
+					</div>
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div>

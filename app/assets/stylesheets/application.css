@@ -195,7 +195,8 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 }
 
 .branding_title {
-	font: 100 36px 'Lato',sans-serif;
+	font-family: 'Lato',sans-serif;
+	font-weight: 100;
 	text-transform: lowercase;
 }
 
@@ -220,7 +221,23 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	padding-top: 40px;
 	font-size: 16px;
 	color: #6D0839;
-	text-align: right;
+}
+
+#footer a:link, #footer a:visited {
+	text-decoration: none;
+	color: #6D0839;
+	border-bottom: 1px dotted #6D0839;
+}
+
+#footer a:hover {
+	text-decoration: none;
+	color: #6D0839;
+	border-bottom: 1px dotted #6D0839;
+	opacity: 0.8;
+}
+
+.spacing {
+	margin-right: 10px;
 }
 
 /* Links */
