@@ -3,14 +3,16 @@ if me
 
 An open-source community for mental health experiences
 
-About the web app
------------------
-The app is written using Ruby on Rails
-
-
 Getting started
 ---------------
-After cloning the app on your local machine and assuming Ruby on Rails and Postgres are installed, in your terminal run the following commands:
+
+Easiest ways to install Ruby on Rails and Postgres:
+
+http://railsinstaller.org/en
+
+brew install postgresql
+
+After cloning the app on your local machine, in your terminal run the following commands:
 
 ```
 bundle install
