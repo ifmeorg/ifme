@@ -12,7 +12,7 @@ http://railsinstaller.org/en
 
 http://www.postgresql.org/download/
 
-After cloning the app on your local machine, in your terminal run the following commands:
+After cloning the app on your local machine, in your terminal run the following commands to get it up and running:
 
 ```
 bundle install
@@ -30,6 +30,10 @@ createuser -s -r juria
 bin/rake db:create db:migrate
 ```
 
+```
+rails s
+```
+
 Testing accounts
 -----------------
 
@@ -41,7 +45,7 @@ Password: password99
 ```
 
 ```
-Email: test1@example.com
+Email: test2@example.com
 Password: password99
 ```
 
