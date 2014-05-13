@@ -10,7 +10,7 @@ Easiest ways to install Ruby on Rails and Postgres:
 
 http://railsinstaller.org/en
 
-brew install postgresql
+http://www.postgresql.org/download/
 
 After cloning the app on your local machine, in your terminal run the following commands:
 
