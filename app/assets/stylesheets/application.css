@@ -26,6 +26,19 @@ body, html {
 	font-weight: 400;
 }
 
+ul, ol  {
+	padding-left: 0;   
+}
+
+ul li, ol li  {
+ 	list-style-position:inside
+}
+
+
+li {
+	list-style-type : circle;
+}
+
 /* Divs */
 
 .center {

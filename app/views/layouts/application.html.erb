@@ -3,13 +3,13 @@
 	<head>
 		<title>
 			if me 
-			<% if current_page?(new_user_session_path) %>
+			<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in
-			<% elsif current_page?(new_user_registration_path) %>
+			<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
 				- Sign up
-			<% elsif current_page?(new_user_password_path) %>
+			<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
 				- Forgot your password?
-			<% elsif current_page?(edit_user_registration_path) %>
+			<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
 				- Settings
 			<% else %>
 				- <%= @page_title %>
@@ -76,7 +76,7 @@
 				});
 			});
 		</script>
-		<% if current_page?(new_user_session_path) %>
+		<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
 		  	<style>
 			  	#header a#signin_link:link {
 			  		border-top: 1px solid #ffffff;
@@ -84,7 +84,7 @@
 			    	opacity: 0.8;
 			  	}
 			</style>
-		<% elsif current_page?(new_user_registration_path) %>
+		<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
 		  	<style>
 			  	#header a#signup_link:link {
 			  		border-top: 1px solid #ffffff;
@@ -194,19 +194,19 @@
 
 			<div id="header_space"></div>
 
-			<% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(edit_user_registration_path) || current_page?(about_path) %>
+			<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) %>
 			<div id="page_title" class="welcome">
 			<% else %>
 			<div id="page_title">
 			<% end %>
 				<div id="page_title_content">
-					<% if current_page?(new_user_session_path) %>
+					<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
 						Sign in
-					<% elsif current_page?(new_user_registration_path) %>
+					<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
 						Join
-					<% elsif current_page?(new_user_password_path) %>
+					<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
 						Forgot your password?
-					<% elsif current_page?(edit_user_registration_path) %>
+					<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
 						Settings
 					<% else %>
 						<% if !@page_edit.blank? %>
