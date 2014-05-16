@@ -253,8 +253,12 @@
 
 			<div id="content">
 
-				<p class="notice"><%= notice %></p>
-				<p class="alert"><%= alert %></p>
+				<% if !notice.blank? %>
+					<div class="notice"><%= notice %></div>
+				<% end %>
+				<% if !alert.blank? %>
+					<div class="alert"><%= alert %></div>
+				<% end %>
 
 				<%= yield %>
 

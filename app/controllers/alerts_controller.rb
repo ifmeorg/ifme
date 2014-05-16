@@ -46,7 +46,7 @@ class AlertsController < ApplicationController
   # POST /alerts.json
   def create
     @alert = Alert.new(alert_params)
-    @page_title = @alert.name
+    @page_title = "New Alert"
 
     respond_to do |format|
       if @alert.save

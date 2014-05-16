@@ -46,7 +46,7 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication = Medication.new(medication_params)
-    @page_title = @medication.name
+    @page_title = "New Medication"
     respond_to do |format|
       if @medication.save
         format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully created.' }

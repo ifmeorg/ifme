@@ -52,7 +52,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-    @page_title = @category.name
+    @page_title = "New Category"
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_path(@category), notice: 'Category was successfully created.' }

@@ -399,3 +399,30 @@ div.table {
 div.table > div.table_cell {
 	display: table-cell;
 }
+
+/* Errors and Notices */
+
+.field_with_errors {
+	width: auto;
+	display: inherit;
+	color: #990019;
+	font-weight: bold;
+}
+
+.notice {
+	color: #289900;
+	font-weight: bold;
+	margin-bottom: 40px;
+	border: 1px solid #289900 !important;
+	box-shadow: 0 0 2px #289900 inset !important;
+	padding: 10px;
+}
+
+.alert {
+	color: #990019;
+	font-weight: bold;
+	margin-bottom: 40px;
+	border: 1px solid #990019 !important;
+	box-shadow: 0 0 2px #990019 inset !important;
+	padding: 10px;
+}
