@@ -12,7 +12,9 @@
       <tr>
         <td><%= link_to mood.name, mood %></td>
         <td>
-          <%= truncate(mood.description, :length => 80) %> 
+          <%= simple_format(mood.description[0..80]) %>
+          <br />
+          <%= "[...]" %> 
         </td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>

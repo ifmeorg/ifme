@@ -49,7 +49,9 @@
 		    			<% end %>
 		    			<br />
 					    <br />
-					    <%= item.why[0...200] + "..." %>
+					    <%= simple_format(item.why[0..200]) %>
+         				<br />
+          				<%= "[...]" %> 
 					    <br />
 					    <br />
 					    <%= fetch_supporters(Support.all, item) %>

@@ -381,6 +381,10 @@ table td {
 	vertical-align: top;
 }
 
+table td p {
+	margin : 0;
+}
+
 table th {
 	text-align: left;
 	font-weight: bold;

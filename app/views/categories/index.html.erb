@@ -12,7 +12,9 @@
       <tr>
         <td><%= link_to category.name, category %></td>
         <td>
-          <%= truncate(category.description, :length => 80) %> 
+         <%= simple_format(category.description[0..80]) %>
+          <br />
+          <%= "[...]" %> 
         </td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>

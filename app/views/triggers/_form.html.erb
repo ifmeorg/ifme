@@ -10,42 +10,49 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <div class="label"><%= f.label :name %></div>
-    <%= f.text_field :name %>
+  <div class="table">
+    <div class="table_cell" style="padding-right: 40px; width: 200px">
+      <div class="field">
+        <div class="label"><%= f.label :name %></div>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label :category %></div>
+        <% Category.where(:userid => current_user.id).all.each do |item| %>
+          <br />
+          <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id.to_s)}, item.id, nil) %>
+          <%= item.name %>
+        <% end %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label :mood %></div>
+        <% Mood.where(:userid => current_user.id).all.each do |item| %>
+          <br />
+          <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id.to_s)}, item.id, nil) %>
+          <%= item.name %>
+        <% end %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label :viewers %></div>
+        <% @viewers.each do |item| %>
+          <br />
+          <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item.to_s)}, item, nil) %>
+          <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %>
+        <% end %>
+      </div>
+    </div>
+    <div class="table_cell" style="padding-right: 40px">
+      <div class="field">
+        <div class="label"><%= f.label :why %></div>
+        <%= f.text_area :why, :style => "height: 200px" %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label :fix %></div>
+        <%= f.text_area :fix, :style => "height: 200px" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <div class="label"><%= f.label :category %>
-    <% Category.where(:userid => current_user.id).all.each do |item| %>
-      <br />
-      <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id.to_s)}, item.id, nil) %>
-      <%= item.name %>
-    <% end %>
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label :mood %></div>
-    <% Mood.where(:userid => current_user.id).all.each do |item| %>
-      <br />
-      <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id.to_s)}, item.id, nil) %>
-      <%= item.name %>
-    <% end %>
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label :why %></div>
-    <%= f.text_area :why %>
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label :fix %></div>
-    <%= f.text_area :fix %>
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label :viewers %></div>
-    <% @viewers.each do |item| %>
-      <br />
-      <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item.to_s)}, item, nil) %>
-      <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %>
-    <% end %>
-  </div>
+  <div class="clear"></div>
   <div class="actions">
     <%= f.hidden_field :userid, :value => current_user.id %>  
     <%= f.submit %>
