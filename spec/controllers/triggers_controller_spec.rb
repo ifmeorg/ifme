@@ -61,7 +61,7 @@ describe TriggersController do
 		  		puts "Size (before) >>>"
 		  		puts Support.count
 
-		  		other_new_trigger = Trigger.create(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), name: "Other Trigger", why: "Cause")
+		  		other_new_trigger = Trigger.create(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), name: "Other Trigger", why: "Cause", comment: true)
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => other_new_trigger.id
 		  		puts "Size (after) >>>"
 		  		puts Support.count

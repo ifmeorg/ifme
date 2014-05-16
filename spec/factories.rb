@@ -22,6 +22,7 @@ FactoryGirl.define do
     name  "Test Trigger"
     why "Test Why"
     fix "Test fix"
+    comment true
   end
 
   factory :comment do 
