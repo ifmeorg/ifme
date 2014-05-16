@@ -78,7 +78,7 @@
   <div class="clear"></div>
 <% end %>
 
-<% if current_user.id == @trigger.userid || @no_hide_page %>
+<% if @trigger.comment && (current_user.id == @trigger.userid || @no_hide_page) %>
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
@@ -110,6 +110,7 @@
       <%= simple_format(comment.comment) %>
     </div>
   <% end %>
-
+<% else %>
+  <em>Comments have been disabled.</em>
 <% end %>
 

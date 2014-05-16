@@ -185,7 +185,7 @@ class TriggersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trigger_params
-      params.require(:trigger).permit(:name, :why, :fix, :userid, {:category => []}, {:mood => []}, {:viewers => []})
+      params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []})
     end
 
     def hide_page 

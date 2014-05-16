@@ -1,8 +1,9 @@
 class Trigger < ActiveRecord::Base
-	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers
+	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers, :comment
 	serialize :category, Array
 	serialize :viewers, Array
 	serialize :mood, Array
+	validates :comment, inclusion: [true, false]
 	validates_presence_of :userid, :name, :category, :name, :why
 	validates_length_of :why, :minimum => 1, :maximum => 2000
 	validates_length_of :fix, :minimum => 0, :maximum => 2000
