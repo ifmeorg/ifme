@@ -227,12 +227,12 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 /* Footer */
 
 #footer {
-	padding: 0px 40px 40px 40px;
+	border-top: 1px solid #6D0839;
+	padding: 40px 0px 40px 0px;
 }
 
 #footer > #footer_content {
-	border-top: 1px solid #6D0839;
-	padding-top: 40px;
+	padding: 0px 40px 0px 40px;
 	font-size: 16px;
 	color: #6D0839;
 }
