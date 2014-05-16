@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <div class="label"><%= f.label :name %></div>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :message %><br />
+    <div class="label"><%= f.label :message %></div>
     <%= f.text_field :message %>
   </div>
   <div class="field">
-    <%= f.label :trigger %><br />
+    <div class="label"><%= f.label :trigger %></div>
     <%= f.select :trigger, Trigger.where(:userid => current_user.id).all.collect {|item| [ item.name, item.id ] }, {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    <%= f.label :medication %><br />
+    <div class="label"><%= f.label :medication %></div>
     <%= f.select :medication, Medication.where(:userid => current_user.id).all.collect {|item| [ item.name, item.id ] }, {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    <%= f.label :means %><br />
+    <div class="label"><%= f.label :means %></div>
     <%= f.select :means, [['Email', 'email'], ['SMS', 'sms'], ['Calendar', 'calendar']], {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    <%= f.label :days %><br />
+    <div class="label"><%= f.label :days %></div>
     <%= f.select :days, [['Everyday', 'everyday']], {include_blank: 'Please select'} %>
   </div>
   <div class="field">
-    Time <br />
+    <div class="label">Time</div>
     <%= f.select :time_hour, (1..12).to_a, {include_blank: 'Hour'} %> 
     <%= ':' %>
     <% the_time = ["01","02","03","04","05","06","07","08","09"].concat (10..59).to_a %>

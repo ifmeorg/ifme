@@ -47,29 +47,29 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 	<%= devise_error_messages! %>
 
-	<div class="field"><%= f.label "First Name" %><br />
+	<div class="field"><div class="label"><%= f.label "First Name" %></div>
 	<%= f.text_field :firstname, autofocus: true %></div>
 
-	<div class="field"><%= f.label "Last Name" %><br />
+	<div class="field"><div class="label"><%= f.label "Last Name" %></div>
 	<%= f.text_field :lastname %></div>
 
-	<div class="field"><%= f.label :location %><br />
+	<div class="field"><div class="label"><%= f.label :location %></div>
 	<%= f.text_field :location %></div>
 
-	<div class="field"><%= f.label :email %><br />
+	<div class="field"><div class="label"><%= f.label :email %></div>
 	<%= f.email_field :email %></div>
 
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-	<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+	<div class="field">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	<% end %>
 
-	<div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+	<div class="field"><div class="label"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></div>
 	<%= f.password_field :password, autocomplete: "off" %></div>
 
-	<div class="field"><%= f.label :password_confirmation %><br />
+	<div class="field"><div class="label"><%= f.label :password_confirmation %></div>
 	<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-	<div class="field"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+	<div class="field"><div class="label"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></div>
 	<%= f.password_field :current_password, autocomplete: "off" %></div>
 
 	<div class="actions">

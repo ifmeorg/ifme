@@ -276,7 +276,17 @@ img.profile_pic {
 	border: 1px solid #6D0839;
 }
 
-/* Input Fields */
+/* Form Elements and Input Fields */
+
+label {
+	font-weight: bold;
+}
+
+.label {
+	width: auto;
+	display: inherit;
+	margin-bottom: 20px;
+}
 
 input, textarea, select, fieldset {
 	border: 1px solid #000000;

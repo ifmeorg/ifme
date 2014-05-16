@@ -4,13 +4,13 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
+  <div class="field"><div class="label"><%= f.label :password, "New password" %></div>
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
+  <div class="field"><div class="label"><%= f.label :password_confirmation, "Confirm new password" %></div>
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.submit "Change my password" %></div>
+  <div class="actions"><%= f.submit "Change my password" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
