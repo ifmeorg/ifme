@@ -26,18 +26,19 @@ body, html {
 	font-weight: 400;
 }
 
-ul, ol  {
+ul:not(.ui-autocomplete), ol:not(.ui-autocomplete)  {
 	padding-left: 0;   
 }
 
-ul li, ol li  {
- 	list-style-position:inside
+ul:not(.ui-autocomplete) li:not(.ui-autocomplete), ol:not(.ui-autocomplete) li:not(.ui-autocomplete)  {
+ 	list-style-position:inside;
 }
 
 
-li {
+li:not(.ui-autocomplete) {
 	list-style-type : circle;
 }
+
 
 /* Divs */
 
