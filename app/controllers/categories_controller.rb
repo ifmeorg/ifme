@@ -67,7 +67,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    @page_title = @category.name
+    @page_title = "Edit " + @category.name
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_path(@category), notice: 'Category was successfully updated.' }

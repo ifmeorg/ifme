@@ -63,7 +63,7 @@ class AlertsController < ApplicationController
   # PATCH/PUT /alerts/1
   # PATCH/PUT /alerts/1.json
   def update
-    @page_title = @alert.name
+    @page_title = "Edit " + @alert.name
     respond_to do |format|
       if @alert.update(alert_params)
         format.html { redirect_to alert_path(@alert), notice: 'Alert was successfully updated.' }

@@ -67,7 +67,7 @@ class MoodsController < ApplicationController
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    @page_title = @mood.name
+    @page_title = "Edit " + @mood.name
     respond_to do |format|
       if @mood.update(mood_params)
         format.html { redirect_to mood_path(@mood), notice: 'Mood was successfully updated.' }

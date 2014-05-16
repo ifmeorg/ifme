@@ -138,7 +138,7 @@ class TriggersController < ApplicationController
   # PATCH/PUT /triggers/1
   # PATCH/PUT /triggers/1.json
   def update
-    @page_title = @trigger.name
+    @page_title = "Edit " + @trigger.name
     @viewers = Array.new
     if Ally.where(:userid => current_user.id).exists?
       User.where.not(:id => current_user.id).all.each do |item|
