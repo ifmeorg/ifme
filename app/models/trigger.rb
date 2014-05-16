@@ -4,6 +4,8 @@ class Trigger < ActiveRecord::Base
 	serialize :viewers, Array
 	serialize :mood, Array
 	validates_presence_of :userid, :name, :category, :name, :why
+	validates_length_of :why, :minimum => 1, :maximum => 2000
+	validates_length_of :fix, :minimum => 0, :maximum => 2000
 	before_save :array_data
 
 	def array_data 

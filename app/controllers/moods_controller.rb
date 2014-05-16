@@ -52,7 +52,7 @@ class MoodsController < ApplicationController
   # POST /moods.json
   def create
     @mood = Mood.new(mood_params)
-
+    @page_title = @mood.name
     respond_to do |format|
       if @mood.save
         format.html { redirect_to mood_path(@mood), notice: 'Mood was successfully created.' }
@@ -67,6 +67,7 @@ class MoodsController < ApplicationController
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
+    @page_title = @mood.name
     respond_to do |format|
       if @mood.update(mood_params)
         format.html { redirect_to mood_path(@mood), notice: 'Mood was successfully updated.' }

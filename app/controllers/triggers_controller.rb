@@ -38,7 +38,7 @@ class TriggersController < ApplicationController
   def comment
     @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
     respond_to do |format|
-        format.html { redirect_to Trigger.find(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
+        format.html { redirect_to trigger_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
     end
   end 
@@ -115,6 +115,7 @@ class TriggersController < ApplicationController
   # POST /triggers.json
   def create
     @trigger = Trigger.new(trigger_params)
+    @page_title = @trigger.name
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -129,6 +130,7 @@ class TriggersController < ApplicationController
   # PATCH/PUT /triggers/1
   # PATCH/PUT /triggers/1.json
   def update
+    @page_title = @trigger.name
     respond_to do |format|
       if @trigger.update(trigger_params)
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }

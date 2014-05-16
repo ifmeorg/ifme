@@ -46,7 +46,7 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication = Medication.new(medication_params)
-
+    @page_title = @medication.name
     respond_to do |format|
       if @medication.save
         format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully created.' }
@@ -61,6 +61,7 @@ class MedicationsController < ApplicationController
   # PATCH/PUT /medications/1
   # PATCH/PUT /medications/1.json
   def update
+    @page_title = @medication.name
     respond_to do |format|
       if @medication.update(medication_params)
         format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully updated.' }

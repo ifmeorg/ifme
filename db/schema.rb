@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512001607) do
+ActiveRecord::Schema.define(version: 20140516014130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140512001607) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140512001607) do
     t.string   "comment_type"
     t.integer  "commented_on"
     t.integer  "comment_by"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140512001607) do
 
   create_table "moods", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 20140512001607) do
     t.string   "category"
     t.string   "name"
     t.string   "mood"
-    t.string   "why"
-    t.string   "fix"
+    t.text     "why"
+    t.text     "fix"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"

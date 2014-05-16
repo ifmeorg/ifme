@@ -30,7 +30,7 @@
 
 <% if !@trigger.why.blank? %>
   <p>
-    <%= @trigger.why %>
+    <%= simple_format(@trigger.why) %>
   </p>
 <% end %>
 
@@ -38,7 +38,7 @@
 <% if !@trigger.fix.blank? %>
   <p>
     <strong>Fix:</strong>
-    <%= @trigger.fix %>
+    <%= simple_format(@trigger.fix) %>
   </p>
 <% end %>
 
@@ -107,7 +107,7 @@
   <% @comments.each do |comment| %>
     <div class="comment">
       <div class="comment_info">Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= comment.created_at %></div>
-      <%= comment.comment %>
+      <%= simple_format(comment.comment) %>
     </div>
   <% end %>
 

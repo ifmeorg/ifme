@@ -46,10 +46,10 @@ class AlertsController < ApplicationController
   # POST /alerts.json
   def create
     @alert = Alert.new(alert_params)
+    @page_title = @alert.name
 
     respond_to do |format|
       if @alert.save
-
         AlertMailer.alert_email(current_user).deliver
         format.html { redirect_to alert_path(@alert), notice: 'Alert was successfully created.' }
         format.json { render :show, status: :created, location: @alert }
@@ -63,6 +63,7 @@ class AlertsController < ApplicationController
   # PATCH/PUT /alerts/1
   # PATCH/PUT /alerts/1.json
   def update
+    @page_title = @alert.name
     respond_to do |format|
       if @alert.update(alert_params)
         format.html { redirect_to alert_path(@alert), notice: 'Alert was successfully updated.' }
