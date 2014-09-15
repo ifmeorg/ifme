@@ -99,16 +99,21 @@
     <div class="actions">
       <%= f.hidden_field :comment_type, :value => 'trigger' %>  
       <%= f.hidden_field :comment_by, :value => current_user.id %>  
-      <%= f.hidden_field :commented_on, :value => @trigger.id %>  
+      <%= f.hidden_field :commented_on, :value => @trigger.id %>
+      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.firstname + ' only', 'private']] %>  
       <%= f.submit "Comment" %>
     </div>
   <% end %>
 
   <% @comments.each do |comment| %>
-    <div class="comment">
-      <div class="comment_info">Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= comment.created_at %></div>
-      <%= simple_format(comment.comment) %>
-    </div>
+    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
+        <div class="comment">
+          <div class="comment_info">
+            Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= comment.created_at %> <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>(Visible only between you and <%= User.where(:id => @trigger.userid).first.firstname %>)<% end %>
+          </div>
+          <%= simple_format(comment.comment) %>
+        </div>
+      <% end %>
   <% end %>
 <% else %>
   <em>Comments have been disabled.</em>

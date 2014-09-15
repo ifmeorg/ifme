@@ -36,7 +36,7 @@ class TriggersController < ApplicationController
   end
 
   def comment
-    @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment])
+    @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :comment => params[:comment][:visibility])
     respond_to do |format|
         format.html { redirect_to trigger_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
