@@ -105,7 +105,7 @@ li:not(.ui-autocomplete) {
 	color: #ffffff;
 	text-transform: lowercase;
 	font-size: 40px;
-	font-weight: 100;
+	font-weight: 300;
 	text-align: right;
 }
 
@@ -289,7 +289,8 @@ img.profile_pic {
 /* Form Elements and Input Fields */
 
 label {
-	font-weight: bold;
+	font-size: 30px;
+	font-weight: 100;
 }
 
 .label {
@@ -317,6 +318,8 @@ input[type="submit"] {
 	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: #ffffff;
+	font-size: 30px;
+	font-weight: 100;
 }
 
 input[type="submit"]:hover {
