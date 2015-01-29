@@ -1,5 +1,7 @@
+<p>
+  <strong>Created:</strong> <%= local_time(@trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
 <% if @trigger.category.count > 0 %>
-  <p>
+  <br>
     <strong>
       <% if @trigger.category.count == 1 %>
         Category:
@@ -10,11 +12,10 @@
     <% @trigger.category.each do |item| %>
       <%= fetch_categories_moods(@trigger, "trigger", item, "category", true) %>
     <% end %>
-  </p>
 <% end %>
 
 <% if @trigger.mood.count > 0 %>
-  <p>
+  <br>
     <strong>
       <% if @trigger.mood.count == 1 %>
         Mood:
@@ -25,8 +26,8 @@
     <% @trigger.mood.each do |item| %>
       <%= fetch_categories_moods(@trigger, "trigger", item, "mood", true) %>
     <% end %>
-  </p>
 <% end %>
+</p>
 
 <% if !@trigger.why.blank? %>
   <p>
@@ -56,10 +57,10 @@
         </div>
       <% end %>
 
-      <div class="actions"> 
-        <%= f.hidden_field :userid, :value => current_user.id %>  
-        <%= f.hidden_field :support_type, :value => 'trigger' %>  
-        <%= f.hidden_field :support_id, :value => @trigger.id %>  
+      <div class="actions">
+        <%= f.hidden_field :userid, :value => current_user.id %>
+        <%= f.hidden_field :support_type, :value => 'trigger' %>
+        <%= f.hidden_field :support_id, :value => @trigger.id %>
         <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
           <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
             <%= f.submit "Unsupport", :id => 'unsupport' %>
@@ -97,10 +98,10 @@
     </div>
 
     <div class="actions">
-      <%= f.hidden_field :comment_type, :value => 'trigger' %>  
-      <%= f.hidden_field :comment_by, :value => current_user.id %>  
+      <%= f.hidden_field :comment_type, :value => 'trigger' %>
+      <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.firstname + ' only', 'private']] %>  
+      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.firstname + ' only', 'private']] %>
       <%= f.submit "Comment" %>
     </div>
   <% end %>
@@ -109,7 +110,7 @@
     <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
         <div class="comment">
           <div class="comment_info">
-            Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= comment.created_at %> <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>(Visible only between you and <%= User.where(:id => @trigger.userid).first.firstname %>)<% end %>
+            Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %> <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>(Visible only between you and <%= User.where(:id => @trigger.userid).first.firstname %>)<% end %>
           </div>
           <%= simple_format(comment.comment) %>
         </div>

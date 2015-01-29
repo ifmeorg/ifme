@@ -147,17 +147,13 @@ li:not(.ui-autocomplete) {
 
 /* Page Title */
 
-.welcome {
+#page_title {
 	width: 100%;
 	background-image: url('/assets/welcome_small.png');
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: bottom center;
-}
-
-#page_title {
-	width: 100%;
-	background-color: #D0E799;
+	text-shadow: 1px 3px 5px #d0e799;
 }
 
 #page_title > #page_title_content {
@@ -176,7 +172,7 @@ li:not(.ui-autocomplete) {
 	text-decoration: none;
 	border: none;
 	color: #6D0839;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 #search_box {
@@ -195,7 +191,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	text-decoration: none;
 	color: #000000 !important;
 	border: none;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 /* Content */
@@ -208,7 +204,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 .headline {
 	color: #ffffff;
 	font-size: 40px;
-	text-shadow: 1px 1px #6D0839;
+	text-shadow: 1px 2px 5px #6D0839;
 }
 
 .branding_title {
@@ -247,7 +243,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	text-decoration: none;
 	color: #6D0839;
 	border-bottom: 1px dotted #6D0839;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 .spacing {
@@ -266,7 +262,7 @@ a:hover {
 	text-decoration: none;
 	color: #02779E;
 	border-bottom: 1px dotted #02779E;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 a.gravatar:link, a.gravatar:visited {
@@ -277,7 +273,7 @@ a.gravatar:link, a.gravatar:visited {
 a.gravatar:hover {
 	text-decoration: none;
 	border: none;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 /* Images */
@@ -328,7 +324,7 @@ input[type="submit"]:hover {
 	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: #ffffff;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 input[type="submit"]#unsupport {
@@ -343,7 +339,7 @@ input[type="submit"]#unsupport:hover {
 	box-shadow: 0 0 2px #990019 inset !important;
 	color: #990019 !important;
 	background: #ffffff;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 input[type="submit"]#support {
@@ -358,7 +354,7 @@ input[type="submit"]#support:hover {
 	box-shadow: 0 0 2px #289900 inset !important;
 	color: #289900 !important;
 	background: #ffffff;
-	opacity: 0.8;
+	opacity: 0.5;
 }
 
 .field, .actions {

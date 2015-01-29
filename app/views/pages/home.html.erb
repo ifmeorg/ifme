@@ -66,9 +66,7 @@
 			    <% end %>
 			    <br>
 			    <br>
-			    <%= simple_format(trigger.why[0..200]) %>
- 				<br>
-  				<%= "[...]" %>
+			    <%= simple_format(trigger.why[0..200]) %><%= " [...]" %>
 			    <br>
 			    <br>
 			    <%= fetch_supporters(Support.all, trigger) %>

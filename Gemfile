@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'local_time'
+
 gem 'devise'
 
 gem 'resque'

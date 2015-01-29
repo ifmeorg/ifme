@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
 				link_url = '/categories/' + item.to_s
 				if show
 					link_url += '?trigger=' + data.id.to_s
-				end 
+				end
 				return_this = link_to link_name, link_url
-			else 
+			else
 				return_this = Category.where(:id => item.to_i).first.name
 			end
 			if item != data.category.last
@@ -33,12 +33,12 @@ class ApplicationController < ActionController::Base
 		elsif category_mood == "mood" && data_type == "trigger" && Mood.where(:id => item.to_i).exists?
 			if !Mood.where(:id => item.to_i).first.description.blank?
 				link_name = Mood.where(:id => item.to_i).first.name
-				link_url = '/moods/' + item.to_s 
+				link_url = '/moods/' + item.to_s
 				if show
 					link_url += '?trigger=' + data.id.to_s
-				end 
+				end
 				return_this = link_to link_name, link_url
-			else 
+			else
 				return_this = Mood.where(:id => item.to_i).first.name
 			end
 			if item != data.mood.last
@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
       	end
 
       	if supporters
-      		return_this = "Supporters: " + return_this 
+      		return_this = "Supporters: " + return_this
       	else
       		return_this = ""
       	end

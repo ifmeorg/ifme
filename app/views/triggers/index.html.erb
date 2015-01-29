@@ -1,6 +1,8 @@
 <% @triggers.each do |trigger| %>
   <div class="trigger">
     <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+    <strong>Created</strong>: <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+    <br>
     <strong>
       <% if trigger.category.count == 1 %>
         Category:

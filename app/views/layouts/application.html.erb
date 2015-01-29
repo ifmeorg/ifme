@@ -81,7 +81,7 @@
 			  	#header a#signin_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			  	}
 			</style>
 		<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
@@ -89,7 +89,7 @@
 			  	#header a#signup_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			  	}
 			</style>
 		<% elsif params[:controller] == "categories" %>
@@ -97,7 +97,7 @@
 		  		#header a#categories_link:link {
 		  			border-top: 1px solid #ffffff;
 		    		border-bottom: 1px solid #ffffff;
-		    		opacity: 0.8;
+		    		opacity: 0.5;
 		  		}
 			</style>
 		<% elsif params[:controller] == "moods" %>
@@ -105,7 +105,7 @@
 				#header a#moods_link:link {
 					border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			  	}
 			</style>
 		<% elsif params[:controller] == "triggers" %>
@@ -113,7 +113,7 @@
 			  	#header a#triggers_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			 	}
 			</style>
 		<% elsif params[:controller] == "medications" %>
@@ -121,7 +121,7 @@
 			  	#header a#medications_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			 	}
 			</style>
 		<% elsif params[:controller] == "alerts" %>
@@ -129,7 +129,7 @@
 			  	#header a#alerts_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			 	}
 			</style>
 		<% elsif params[:controller] == "allies" %>
@@ -137,7 +137,7 @@
 			  	#header a#allies_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			 	}
 			</style>
 		<% elsif current_page?(root_path) %>
@@ -145,7 +145,7 @@
 			  	#header a#home_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
-			    	opacity: 0.8;
+			    	opacity: 0.5;
 			 	}
 			</style>
 		<% end %>
@@ -195,7 +195,7 @@
 			<div id="header_space"></div>
 
 			<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) %>
-			<div id="page_title" class="welcome">
+			<div id="page_title">
 			<% else %>
 			<div id="page_title">
 			<% end %>

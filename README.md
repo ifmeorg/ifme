@@ -25,6 +25,20 @@ After cloning the app on your local machine, in your terminal run the following 
 bundle install
 ```
 
+For Yosemite users, if "Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)" is encountered, try running:
+
+```
+rvm get stable
+```
+
+```
+rvm reinstall ruby
+```
+
+```
+rvm gemset pristine
+```
+
 ```
 sudo su - postgres
 ```
