@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			if me 
+			if me
 			<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in
 			<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
@@ -147,8 +147,8 @@
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.8;
 			 	}
-			</style>		
-		<% end %>	
+			</style>
+		<% end %>
 
 		<div id="container">
 			<div id="header">
@@ -156,7 +156,7 @@
 					<div class="table">
 						<div class="table_cell" style="vertical-align: middle">
 							<% if user_signed_in? %>
-							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>     
+							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
 							  	<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
 							  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
@@ -165,7 +165,7 @@
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
 							<% else %>
 							  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>
-							  	<%= link_to('Join', new_user_registration_path, id: 'signup_link', class: 'nav_link') %>  
+							  	<%= link_to('Join', new_user_registration_path, id: 'signup_link', class: 'nav_link') %>
 							<% end %>
 						</div>
 						<div class="table_cell" id="title" style="vertical-align: middle">
@@ -184,12 +184,12 @@
 					<% if user_signed_in? %>
 						<div id="expand_me" style="display: none">
 							<%= link_to 'Profile', profile_index_path(:userid => current_user.id), class: 'me_link' %>
-							<%= link_to 'Settings', edit_user_registration_path, class: 'me_link' %> 
+							<%= link_to 'Settings', edit_user_registration_path, class: 'me_link' %>
 							<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'me_link') %>
 						</div>
 					<% end %>
 					<div class="clear"></div>
-				</div>	
+				</div>
 			</div>
 
 			<div id="header_space"></div>
@@ -208,45 +208,49 @@
 						Forgot your password?
 					<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
 						Settings
+					<% elsif !@page_edit.blank? %>
+						<div class="align_left">
+							<%= @page_title %>
+						</div>
+						<div class="align_right">
+							<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
+						</div>
+						<div class="clear"></div>
+					<% elsif !@page_new.blank? %>
+						<div class="align_left">
+							<%= @page_title %>
+						</div>
+						<div class="align_right">
+							<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
+						</div>
+						<div class="clear"></div>
+					<% elsif !@page_author.blank? %>
+						<div class="align_left">
+							<%= @page_title %>
+						</div>
+						<div class="align_right">
+							<%= @page_author %>
+						</div>
+						<div class="clear"></div>
+					<% elsif @page_search %>
+						<div class="align_left">
+							<%= @page_title %>
+						</div>
+						<div class="align_right">
+							<i class="fa fa-search" id="search"></i>
+						</div>
+						<div class="clear"></div>
+						<div id="search_box" style="display: none">
+							<%= render :partial => '/search/form' %>
+						</div>
+					<% elsif current_page?(root_path) && !user_signed_in? %>
+						<div class="headline center">
+					        <span class="branding_title">
+					          if <span class="branding_subtitle">me</span>
+					        </span> is a community for mental health experiences
+				      </div>
 					<% else %>
-						<% if !@page_edit.blank? %>
-							<div class="align_left">
-								<%= @page_title %> 
-							</div>
-							<div class="align_right">
-								<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
-							</div>
-							<div class="clear"></div>
-						<% elsif !@page_new.blank? %>
-							<div class="align_left">
-								<%= @page_title %> 
-							</div>
-							<div class="align_right">
-								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
-							</div>
-							<div class="clear"></div>
-						<% elsif !@page_author.blank? %>
-							<div class="align_left">
-								<%= @page_title %> 
-							</div>
-							<div class="align_right">
-								<%= @page_author %> 
-							</div>
-							<div class="clear"></div>
-						<% elsif @page_search %>
-							<div class="align_left">
-								<%= @page_title %> 
-							</div>
-							<div class="align_right">
-								<i class="fa fa-search" id="search"></i>
-							</div>
-							<div class="clear"></div>
-							<div id="search_box" style="display: none">
-								<%= render :partial => '/search/form' %>
-							</div>
-						<% else %>
-							<%= @page_title %> 
-						<% end %>
+						<%= @page_title %>
 					<% end %>
 				</div>
 			</div>
@@ -271,7 +275,7 @@
 						<a href="https://github.com/julianguyen/ifme" target="_blank">Contribute</a>
 					</div>
 					<div class="align_right">
-						&#169; 2014 if me
+						&#169; 2014-<%= Time.now.strftime("%Y") %> if me
 					</div>
 					<div class="clear"></div>
 				</div>

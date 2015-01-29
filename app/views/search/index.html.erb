@@ -19,10 +19,10 @@
 
 			       		<% if !Ally.where(:userid => user.id).exists? || !Ally.where(:userid => user.id).first.allies.include?(current_user.id) %>
 					        (Pending Request)
-					        <br />
+					        <br>
 					        <%= link_to 'Cancel Request', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 					    <% else %>
-					        <br />
+					        <br>
 					        <%= link_to 'Remove as Ally', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 					    <% end %>
 					</div>

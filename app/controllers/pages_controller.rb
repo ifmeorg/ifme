@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   		#where("created_at >= ?", 4.week.ago.utc)
   		@allies = Ally.where(:userid => current_user.id).all
   	else
-  		@page_title = "Welcome"
+      @page_title = 'Welcome'
   	end
   end
 

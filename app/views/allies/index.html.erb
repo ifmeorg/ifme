@@ -1,7 +1,7 @@
 <% if !@ally_requests.empty? %>
   <strong>Requests</strong>
-  <br />
-  <br />
+  <br>
+  <br>
   <% @ally_requests.each do |ally| %>
     <div class="ally">
       <div class="align_left">
@@ -34,10 +34,10 @@
             <div class="clear"></div>
             <% if !Ally.where(:userid => ally_item).exists? || !Ally.where(:userid => ally_item).first.allies.include?(current_user.id) %>
               (Pending Request)
-              <br />
+              <br>
               <%= link_to 'Cancel Request', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
             <% else %>
-              <br />
+              <br>
               <%= link_to 'Remove as Ally', remove_allies_path(:userid => ally_item), :method => :post, data: { confirm: 'Are you sure?' } %>
             <% end %>
           </div>

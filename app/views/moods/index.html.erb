@@ -13,8 +13,8 @@
         <td><%= link_to mood.name, mood %></td>
         <td>
           <%= simple_format(mood.description[0..80]) %>
-          <br />
-          <%= "[...]" %> 
+          <br>
+          <%= "[...]" %>
         </td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>

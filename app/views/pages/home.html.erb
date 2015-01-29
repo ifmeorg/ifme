@@ -6,19 +6,24 @@
 
 <% if !user_signed_in? %>
 	<div class="center">
-		<div class="headline">
-			<span class="branding_title">
-				if <span class="branding_subtitle">me</span>
-			</span> 
-			is an open-source community for mental health experiences
-		</div>
-
 		<div class="message">
-			Share your story with trusted allies and get the support you <strong>deserve</strong>
-			<div class="spacer"></div>
-			Keep track of medications, appointments, and create alerts
-			<div class="spacer"></div>
-			Be <strong>you</strong>, no strings attached 
+			<div class="message_row">
+				<div class="message_cell">
+					<div id="book"></div>
+					<div class="icon_border"></div>
+					Share your story with trusted allies and get the support you deserve
+				</div>
+				<div class="message_cell">
+					<div id="you"></div>
+					<div class="icon_border"></div>
+					Be you, no strings attached
+				</div>
+				<div class="message_cell">
+					<div id="time"></div>
+					<div class="icon_border"></div>
+					Keep track of medications, appointments, and create alerts
+				</div>
+			</div>
 		</div>
 	</div>
 <% else %>
@@ -48,7 +53,7 @@
 			    <% trigger.category.each do |item| %>
 			      <%= fetch_categories_moods(trigger, "trigger", item, "category", true) %>
 			    <% end %>
-			    <br />
+			    <br>
 			    <strong>
 			      <% if trigger.mood.count == 1 %>
 			        Mood:
@@ -59,13 +64,13 @@
 			    <% trigger.mood.each do |item| %>
 			      <%= fetch_categories_moods(trigger, "trigger", item, "mood", true) %>
 			    <% end %>
-			    <br />
-			    <br />
+			    <br>
+			    <br>
 			    <%= simple_format(trigger.why[0..200]) %>
- 				<br />
-  				<%= "[...]" %> 
-			    <br />
-			    <br />
+ 				<br>
+  				<%= "[...]" %>
+			    <br>
+			    <br>
 			    <%= fetch_supporters(Support.all, trigger) %>
 			</div>
 		<% end %>

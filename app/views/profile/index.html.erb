@@ -8,15 +8,15 @@
     	<div class="spacer"></div>
     	 <%= User.where(:id => @profile.id).first.location %>
     	 <% if @profile.id != current_user.id %>
-    	 	<br />
+    	 	<br>
 			<% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
-			 	<br /><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %> 
+			 	<br><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 			<% elsif Ally.where(:userid => @profile.id).exists? && Ally.where(:userid => @profile.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) %>
-				<br /><%= link_to 'Remove as Ally', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+				<br><%= link_to 'Remove as Ally', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 			<% elsif (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(@profile.id)) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
-				<br /><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %> 
+				<br><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %>
 			<% else %>
-				<br /><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
+				<br><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
 			<% end %>
 		<% end %>
   	</div>
@@ -36,7 +36,7 @@
 						<% item.category.each do |category_item| %>
 		      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
 		    			<% end %>
-		    			<br />
+		    			<br>
 		    			<strong>
 					      <% if item.mood.count == 1 %>
 					        Mood:
@@ -47,13 +47,13 @@
 						<% item.mood.each do |mood_item| %>
 		      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
 		    			<% end %>
-		    			<br />
-					    <br />
+		    			<br>
+					    <br>
 					    <%= simple_format(item.why[0..200]) %>
-         				<br />
-          				<%= "[...]" %> 
-					    <br />
-					    <br />
+         				<br>
+          				<%= "[...]" %>
+					    <br>
+					    <br>
 					    <%= fetch_supporters(Support.all, item) %>
 					</div>
 				<% end %>

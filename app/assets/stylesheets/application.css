@@ -27,7 +27,7 @@ body, html {
 }
 
 ul:not(.ui-autocomplete), ol:not(.ui-autocomplete)  {
-	padding-left: 0;   
+	padding-left: 0;
 }
 
 ul:not(.ui-autocomplete) li:not(.ui-autocomplete), ol:not(.ui-autocomplete) li:not(.ui-autocomplete)  {
@@ -147,7 +147,7 @@ li:not(.ui-autocomplete) {
 
 .welcome {
 	width: 100%;
-	background-image: url('/assets/welcome.png');
+	background-image: url('/assets/welcome_small.png');
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: bottom center;
@@ -203,25 +203,22 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 }
 
 .headline {
-	color: #6D0839;
-	font-size: 36px;
-	margin-bottom: 40px;
+	color: #ffffff;
+	font-size: 40px;
+	text-shadow: 1px 1px #6D0839;
 }
 
 .branding_title {
 	font-family: 'Lato',sans-serif;
 	font-weight: 100;
 	text-transform: lowercase;
+	color: #6D0839;
 }
 
 .branding_subtitle {
 	padding: 10px 0px 10px 0px;
 	border-top: 1px solid #6D0839;
 	border-bottom: 1px solid #6D0839;
-}
-
-.message {
-	font: 400 26px 'Lato',sans-serif;
 }
 
 /* Footer */
@@ -422,7 +419,7 @@ div.table {
 	display: table;
 	table-layout: auto;
 	width: 100%;
-}	
+}
 
 div.table > div.table_cell {
 	display: table-cell;

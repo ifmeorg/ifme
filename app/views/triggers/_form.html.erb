@@ -19,7 +19,7 @@
       <div class="field">
         <div class="label"><%= f.label :category %></div>
         <% Category.where(:userid => current_user.id).all.each do |item| %>
-          <br />
+          <br>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
           <%= item.name %>
         <% end %>
@@ -27,7 +27,7 @@
       <div class="field">
         <div class="label"><%= f.label :mood %></div>
         <% Mood.where(:userid => current_user.id).all.each do |item| %>
-          <br />
+          <br>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
           <%= item.name %>
         <% end %>
@@ -40,7 +40,7 @@
       <div class="field">
         <div class="label"><%= f.label :viewers %></div>
         <% @viewers.each do |item| %>
-          <br />
+          <br>
           <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %>
           <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %>
         <% end %>
@@ -59,7 +59,7 @@
   </div>
   <div class="clear"></div>
   <div class="actions">
-    <%= f.hidden_field :userid, :value => current_user.id %>  
+    <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
 <% end %>
