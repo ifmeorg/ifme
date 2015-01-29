@@ -105,7 +105,7 @@ li:not(.ui-autocomplete) {
 	color: #ffffff;
 	text-transform: lowercase;
 	font-size: 40px;
-	font-weight: 300;
+	font-weight: 100;
 	text-align: right;
 }
 
