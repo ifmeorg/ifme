@@ -22,7 +22,7 @@
 
 body, html {
 	margin: 0 auto;
-	font: 18px 'Lato', sans-serif;
+	font: 20px 'Lato', sans-serif;
 	font-weight: 400;
 }
 
@@ -200,6 +200,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 #content {
 	padding: 40px;
+	line-height: 150%;
 }
 
 .headline {
@@ -304,7 +305,7 @@ input, textarea, select, fieldset {
 	padding: 10px;
 	box-shadow: 0 0 2px #000000 inset;
 	background-color: #ffffff;
-	font: 18px 'Lato', sans-serif;
+	font: 20px 'Lato', sans-serif;
 	margin-right: 10px;
 }
 
