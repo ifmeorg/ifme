@@ -3,6 +3,13 @@ if me
 
 An open-source community for mental health experiences
 
+
+Geting involved
+---------------
+
+Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If you have any questions, email tojulianguyen@gmail.com.
+
+
 Getting started
 ---------------
 
@@ -25,6 +32,8 @@ sudo su - postgres
 ```
 createuser -s -r juria
 ````
+
+Exit from postgres
 
 ```
 bin/rake db:create db:migrate
