@@ -88,6 +88,7 @@ li:not(.ui-autocomplete) {
 	margin-right: 20px;
 	padding: 20px 0px 20px 0px;
 	border: none;
+	font-size: 18px;
 }
 
 #header_content a.nav_link:hover {
@@ -97,6 +98,7 @@ li:not(.ui-autocomplete) {
 	padding: 20px 0px 20px 0px;
 	border-bottom: 1px solid #ffffff;
 	border-top: 1px solid #ffffff;
+	font-size: 18px;
 }
 
 #title {
