@@ -43,6 +43,8 @@
         			</h1>
      			</div>
      			<div class="clear"></div>
+     			<strong>Created:</strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+     			<br>
 			    <strong>
 			      <% if trigger.category.count == 1 %>
 			        Category:
