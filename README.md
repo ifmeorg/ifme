@@ -3,12 +3,10 @@ if me
 
 An open-source community for mental health experiences
 
-
 Geting involved
 ---------------
 
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If you have any questions, email tojulianguyen@gmail.com.
-
 
 Getting started
 ---------------
@@ -75,9 +73,8 @@ Password: password99
 Rspec tests
 ------------
 
+Always write unit tests for the changes you've made! If you see any missing unit tests, write them!
+
 ```
 rspec
 ```
-
-
-
