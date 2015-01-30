@@ -42,7 +42,7 @@ sudo su - postgres
 ```
 
 ```
-createuser -s -r juria
+createuser -s -r [username here]
 ````
 
 Exit from postgres
