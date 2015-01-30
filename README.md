@@ -39,6 +39,8 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
+On Windows, you may encounter an error like "SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed".  If this happens, download the CURL CA bundle from http://curl.haxx.se/ca/cacert.pem and set the environment variable SSL_CERT_FILE to point to it.
+
 Time to set up a Postgres user:
 
 ```
