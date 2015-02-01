@@ -48,7 +48,7 @@ sudo su - postgres
 ```
 
 ```
-createuser -s -r [username here]
+createuser -s -r ifme_app
 ````
 
 After exiting from Postgres:
