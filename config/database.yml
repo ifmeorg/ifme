@@ -4,7 +4,7 @@ development:
   encoding: unicode
   host: localhost
   database: ifme_development
-  username: <%= ENV["USER"] %>
+  username: ifme_app
   password:
   allow_concurrency: true
   pool: 5
@@ -15,7 +15,7 @@ test:
   encoding: unicode
   host: localhost
   database: ifme_test
-  username: <%= ENV["USER"] %>
+  username: ifme_app
   password:
   allow_concurrency: true
   pool: 5
