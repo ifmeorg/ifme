@@ -13,6 +13,8 @@ Getting Started
 
 ### Installing Programs
 
+The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
+
 #### Ruby on Rails
 http://railsinstaller.org/en
 
@@ -33,8 +35,6 @@ Bulid from the source using yum, apt-get, etc.
 ##### Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
-
-The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
 ### Install Gems
 
