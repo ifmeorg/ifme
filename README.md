@@ -51,7 +51,7 @@ sudo su - postgres
 createuser -s -r ifme_app
 ````
 
-Before setting up a Postgres user, make sure that the auth-method value for the database is trust. This can be configured in the pg_hba.conf file. This is because no password is being used for the local development and test databases (database.yml). Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
+Make sure that the auth-method value for the database is trust. This can be configured in the pg_hba.conf file. This is because no password is being used for the local development and test databases (database.yml). Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
 
 After exiting from Postgres:
 
