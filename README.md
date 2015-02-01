@@ -59,11 +59,11 @@ sudo su - postgres
 createuser -s -r ifme_app
 ````
 
-Make sure that the auth-method value for the `ifme_app` database is trust. This can be configured in the `pg_hba.conf` file. This is because no password is being used for the local development and test databases, as seen in `database.yml`. Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
+In `pg_hba.conf`, make sure the value for `auth-method` in the `ifme_app` database is `trust`. This is because no password is being used for the local development and test databases, as seen in `database.yml`. Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
 
 ### Running the app locally
 
-After exiting from Postgres, run the following commands.
+After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
 
 ```
 bin/rake db:create db:migrate
