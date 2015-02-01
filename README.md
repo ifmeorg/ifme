@@ -1,14 +1,14 @@
 if me
 =====
 
-An open-source community for mental health experiences
+A community for mental health experiences
 
-Geting involved
+Geting Involved
 ---------------
 
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If you have any questions, email tojulianguyen@gmail.com.
 
-Getting started
+Getting Started
 ---------------
 
 ### Installing Programs
@@ -21,7 +21,7 @@ http://www.postgresql.org/download/
 
 The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-### Running the App
+### Install Gems
 
 After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
@@ -47,7 +47,7 @@ rvm gemset pristine
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-### Setting up Postgres
+### Setting Up Postgres
 
 Time to set up a Postgres user!
 
@@ -71,7 +71,7 @@ psql
 SHOW hba_file;
 ```
 
-### Running the app locally
+### Running the App Locally
 
 After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
 
@@ -83,7 +83,15 @@ bin/rake db:create db:migrate
 rails s
 ```
 
-Testing accounts
+### Accessing the Database
+
+```
+rails db
+```
+
+Note that ifme_test is used when running unit tests
+
+Testing Accounts
 -----------------
 
 They have been created in `seeds.rb`.
@@ -98,7 +106,7 @@ Email: test2@example.com
 Password: password99
 ```
 
-Rspec tests
+Unit Tests
 ------------
 
 Always write unit tests for the changes you've made! If you see any missing unit tests, write them!
