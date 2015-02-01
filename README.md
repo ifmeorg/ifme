@@ -17,7 +17,7 @@ Easiest ways to install Ruby on Rails and Postgres:
 
 http://railsinstaller.org/en
 
-http://www.postgresql.org/download/
+http://www.postgresql.org/download/ (Download Postgres.app)
 
 The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
