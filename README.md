@@ -61,6 +61,16 @@ createuser -s -r ifme_app
 
 In `pg_hba.conf`, make sure the value for `auth-method` in the `ifme_app` database is `trust`. This is because no password is being used for the local development and test databases, as seen in `database.yml`. Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
 
+To find the path of `pg_hba.conf` run the following commands.
+
+```
+psql
+```
+
+```
+SHOW hba_file;
+```
+
 ### Running the app locally
 
 After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
