@@ -11,6 +11,8 @@ Fork the repository, pick up an issue, or create an issue for a feature you woul
 Getting started
 ---------------
 
+### Installing Programs
+
 Easiest ways to install Ruby on Rails and Postgres:
 
 http://railsinstaller.org/en
@@ -19,13 +21,17 @@ http://www.postgresql.org/download/
 
 The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-After cloning the app on your local machine, in your terminal run the following commands to get it up and running:
+### Running the App
+
+After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
 ```
 bundle install
 ```
 
-If "Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)" is encountered, try running:
+### Possible Errors
+
+If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
 
 ```
 rvm get stable
@@ -39,9 +45,11 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
-On Windows, you may encounter an error like "SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed".  If this happens, download the CURL CA bundle from http://curl.haxx.se/ca/cacert.pem and set the environment variable SSL_CERT_FILE to point to it.
+On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-Time to set up a Postgres user:
+### Setting up Postgres
+
+Time to set up a Postgres user!
 
 ```
 sudo su - postgres
@@ -51,9 +59,11 @@ sudo su - postgres
 createuser -s -r ifme_app
 ````
 
-Make sure that the auth-method value for the database is trust. This can be configured in the pg_hba.conf file. This is because no password is being used for the local development and test databases (database.yml). Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
+Make sure that the auth-method value for the `ifme_app` database is trust. This can be configured in the `pg_hba.conf` file. This is because no password is being used for the local development and test databases, as seen in `database.yml`. Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
 
-After exiting from Postgres:
+### Running the app locally
+
+After exiting from Postgres, run the following commands.
 
 ```
 bin/rake db:create db:migrate
@@ -66,7 +76,7 @@ rails s
 Testing accounts
 -----------------
 
-They have been created in seeds.rb
+They have been created in `seeds.rb`.
 
 ```
 Email: test1@example.com
