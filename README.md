@@ -17,7 +17,7 @@ http://railsinstaller.org/en
 
 http://www.postgresql.org/download/
 
-The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for troubleshooting tips on setup.
+The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
 After cloning the app on your local machine, in your terminal run the following commands to get it up and running:
 
@@ -50,6 +50,8 @@ sudo su - postgres
 ```
 createuser -s -r ifme_app
 ````
+
+Before setting up a Postgres user, make sure that the auth-method value for the database is trust. This can be configured in the pg_hba.conf file. This is because no password is being used for the local development and test databases (database.yml). Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
 
 After exiting from Postgres:
 
