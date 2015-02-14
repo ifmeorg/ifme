@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915034554) do
+ActiveRecord::Schema.define(version: 20150214213259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20140915034554) do
   create_table "allies", force: true do |t|
     t.integer  "userid"
     t.string   "allies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_image_galleries", force: true do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: true do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,6 +125,8 @@ ActiveRecord::Schema.define(version: 20140915034554) do
     t.string   "lastname"
     t.string   "location"
     t.string   "timezone"
+    t.text     "about"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -2,13 +2,14 @@ class ProfileController < ApplicationController
 	before_filter :if_not_signed_in
 
 	def index
+		@about = User.update(params[:userid], params[:about])
 		@profile = User.where(:id => params[:userid]).first
 		@triggers = Trigger.where(:userid => @profile.id)
 		if @profile.blank?
 			@profile = current_user
 		end
 		@page_title = @profile.firstname + " " + @profile.lastname
-	end 
+	end
 
 	private
 

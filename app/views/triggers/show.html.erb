@@ -109,10 +109,22 @@
   <% @comments.each do |comment| %>
     <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
         <div class="comment">
-          <div class="comment_info">
-            Posted by: <%= link_to User.where(:id => comment.comment_by).first.firstname + " " + User.where(:id => comment.comment_by).first.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %> <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>(Visible only between you and <%= User.where(:id => @trigger.userid).first.firstname %>)<% end %>
+          <div class="table">
+            <div class="table_cell" style="width: 100px; padding-right: 20px; vertical-align: top">
+              <% profile = User.where(:id => comment.comment_by).first %>
+                <%= image_tag profile.avatar.url, class: 'mini_profile_picture' %>
+                <br>
+            </div>
+            <div class="table_cell">
+              <div class="comment_info">
+                <%= link_to profile.firstname + " " + profile.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+              </div>
+              <%= simple_format(comment.comment) %>
+              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
+                <div class="subtle">Visible only between you and <%= profile.firstname %></div>
+              <% end %>
+            </div>
           </div>
-          <%= simple_format(comment.comment) %>
         </div>
       <% end %>
   <% end %>

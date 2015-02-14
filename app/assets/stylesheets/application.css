@@ -221,6 +221,12 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	border-bottom: 1px solid #6D0839;
 }
 
+.subtle {
+	color: #6D0839;
+	opacity: 0.5;
+	text-align: right;
+}
+
 /* Footer */
 
 #footer {
@@ -283,8 +289,16 @@ img {
 	 max-width: 100%;
 }
 
-img.profile_pic {
-	border: 1px solid #6D0839;
+.profile_picture {
+	width: 200px;
+	border-radius: 150px;
+	border: 2px solid #6d0839;
+}
+
+.mini_profile_picture {
+	width: 100px;
+	border-radius: 150px;
+	border: 2px solid #6d0839;
 }
 
 /* Form Elements and Input Fields */
@@ -453,4 +467,10 @@ div.table > div.table_cell {
 	border: 1px solid #990019 !important;
 	box-shadow: 0 0 2px #990019 inset !important;
 	padding: 10px;
+}
+
+/* Font Awesome */
+
+.fa-inline {
+	margin-right: 20px;
 }

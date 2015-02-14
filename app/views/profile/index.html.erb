@@ -1,14 +1,16 @@
 <div class="table">
 	<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: top">
-		<% if @profile.id == current_user.id %>
-    		<a href="http://gravatar.com" target="_blank" class="gravatar"><%= image_tag avatar_url(User.where(:id => @profile.id).first), :class => 'profile_pic' %></a>
-    	<% else %>
-    		<%= image_tag avatar_url(User.where(:id => @profile.id).first), :class => 'profile_pic' %>
-    	<% end %>
-    	<div class="spacer"></div>
-    	 <%= User.where(:id => @profile.id).first.location %>
-    	 <% if @profile.id != current_user.id %>
-    	 	<br>
+		<%= image_tag @profile.avatar.url, class: 'profile_picture' %>
+	</div>
+	<div class="table_cell">
+		<% if @profile.about %>
+			<%= @profile.about %>
+			<br>
+			<br>
+		<% end %>
+		<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
+		<% if @profile.id != current_user.id %>
+		 	<br>
 			<% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
 			 	<br><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 			<% elsif Ally.where(:userid => @profile.id).exists? && Ally.where(:userid => @profile.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) %>
@@ -19,43 +21,43 @@
 				<br><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
 			<% end %>
 		<% end %>
-  	</div>
-  	<div class="table_cell" style="vertical-align: top">
-		<% if @triggers.exists? %>
-			<% @triggers.all.each do |item| %>
-				<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
-					<div class="profile">
-						<h1 class="profile_name"><%= link_to item.name, item %></h1>
-						<strong>
-					      <% if item.category.count == 1 %>
-					        Category:
-					      <% else %>
-					        Categories:
-					      <% end %>
-					    </strong>
-						<% item.category.each do |category_item| %>
-		      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
-		    			<% end %>
-		    			<br>
-		    			<strong>
-					      <% if item.mood.count == 1 %>
-					        Mood:
-					      <% else %>
-					        Moods:
-					      <% end %>
-					    </strong>
-						<% item.mood.each do |mood_item| %>
-		      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
-		    			<% end %>
-		    			<br>
-					    <br>
-					    <%= simple_format(item.why[0..200]) %><%= " [...]" %>
-					    <br>
-					    <br>
-					    <%= fetch_supporters(Support.all, item) %>
-					</div>
-				<% end %>
-			<% end %>
-		<% end %>
 	</div>
 </div>
+<div class="spacer"></div>
+
+<% if @triggers.exists? %>
+	<% @triggers.all.each do |item| %>
+		<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
+			<div class="profile">
+				<h1 class="profile_name"><%= link_to item.name, item %></h1>
+				<strong>
+			      <% if item.category.count == 1 %>
+			        Category:
+			      <% else %>
+			        Categories:
+			      <% end %>
+			    </strong>
+				<% item.category.each do |category_item| %>
+      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
+    			<% end %>
+    			<br>
+    			<strong>
+			      <% if item.mood.count == 1 %>
+			        Mood:
+			      <% else %>
+			        Moods:
+			      <% end %>
+			    </strong>
+				<% item.mood.each do |mood_item| %>
+      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
+    			<% end %>
+    			<br>
+			    <br>
+			    <%= simple_format(item.why[0..200]) %><%= " [...]" %>
+			    <br>
+			    <br>
+			    <%= fetch_supporters(Support.all, item) %>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
