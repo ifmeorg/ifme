@@ -54,3 +54,5 @@ gem 'spring',        group: :development
 gem 'protected_attributes'
 
 gem 'rails_12factor', group: :production
+
+gem 'ckeditor'

@@ -76,6 +76,7 @@ li:not(.ui-autocomplete) {
 	background-color: #6D0839;
 	position: fixed;
 	width: 100%;
+	z-index: 9000;
 }
 
 #header_content {

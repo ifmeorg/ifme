@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :description %></div>
-    <%= f.text_area :description %>
+    <%= f.cktext_area :description %>
   </div>
   <div class="actions">
     <%= f.hidden_field :userid, :value => current_user.id %>
