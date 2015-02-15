@@ -333,8 +333,7 @@ input[type="submit"] {
 	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: #ffffff;
-	font-size: 30px;
-	font-weight: 100;
+	font: 20px 'Lato', sans-serif;
 }
 
 input[type="submit"]:hover {
