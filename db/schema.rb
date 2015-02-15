@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215195340) do
+ActiveRecord::Schema.define(version: 20150215200832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150215195340) do
 
   create_table "allies", force: true do |t|
     t.integer  "userid"
-    t.string   "allies"
+    t.text     "allies"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20150215195340) do
   create_table "supports", force: true do |t|
     t.integer  "userid"
     t.string   "support_type"
-    t.string   "support_ids"
+    t.text     "support_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
