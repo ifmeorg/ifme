@@ -26,6 +26,10 @@ body, html {
 	font-weight: 400;
 }
 
+strong, b {
+	color: #6D0839;
+}
+
 ul:not(.ui-autocomplete), ol:not(.ui-autocomplete)  {
 	padding-left: 0;
 }

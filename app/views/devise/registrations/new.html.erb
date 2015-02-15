@@ -1,40 +1,40 @@
 <script type="text/javascript">
-  jQuery(function () {
+  $(function () {
     function get_timezone() {
-      var cityfqcn = jQuery("#user_location").val();
+      var cityfqcn = $("#user_location").val();
         if (cityfqcn) {
-          jQuery.getJSON(
+          $.getJSON(
             "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn="+cityfqcn,
               function (data) {
-                jQuery("#user_timezone").val(data.geobytestimezone);
+                $("#user_timezone").val(data.geobytestimezone);
             }
           );
       }
     }
-      jQuery("#user_location").autocomplete({
+      $("#user_location").autocomplete({
         source: function (request, response) {
-          jQuery.getJSON(
-            "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
-            function (data) {
-              response(data);
-            }
-          );
+            $.getJSON(
+              "http://gd.geobytes.com/AutoCompleteCity?callback=?&q="+request.term,
+              function (data) {
+                response(data);
+              }
+            );
           },
           minLength: 3,
           select: function (event, ui) {
             var selectedObj = ui.item;
-            jQuery("#user_location").val(selectedObj.value);
-              return false;
+            $("#user_location").val(selectedObj.value);
+            return false;
           },
           open: function () {
-            jQuery(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
           },
           close: function () {
-            jQuery(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
             get_timezone();
           }
       });
-      jQuery("#user_location").autocomplete("option", "delay", 100);
+      $("#user_location").autocomplete("option", "delay", 100);
   });
 </script>
 

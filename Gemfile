@@ -58,3 +58,5 @@ gem 'rails_12factor', group: :production
 gem 'ckeditor'
 
 gem 'carrierwave'
+
+gem 'underscore-rails'
