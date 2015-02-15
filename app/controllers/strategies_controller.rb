@@ -161,11 +161,21 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
+    # Remove strategies from existing triggers
+    @triggers = Trigger.where(:userid => current_user.id).all
+
+    @triggers.each do |item|
+      new_strategy = item.strategies.delete(@strategy.id)
+      the_trigger = Trigger.find_by(id: item.id)
+      the_trigger.update(strategies: item.strategies)
+    end
+
     @strategy.destroy
     respond_to do |format|
       format.html { redirect_to strategies_path }
       format.json { head :no_content }
     end
+
   end
 
   private

@@ -54,9 +54,14 @@
       </div>
       <div class="field">
         <div class="label"><%= f.label t('strategies_label') %></div>
-        <% Strategy.where(:userid => current_user.id).all.each do |item| %>
-          <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true) %><br>
+        <% strategy = Strategy.where(:userid => current_user.id).all %>
+        <% if strategy.length > 0 %>
+          <% strategy.each do |item| %>
+            <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
+            <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true) %><br>
+          <% end %>
+        <% else %>
+          There are no strategies available! <%= link_to 'Create', new_strategy_path %> new strategy and add it to this trigger.
         <% end %>
       </div>
     </div>
