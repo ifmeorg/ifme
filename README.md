@@ -95,6 +95,10 @@ bin/rake db:create db:migrate
 ```
 
 ```
+bin/rake db:setup
+```
+
+```
 rails s
 ```
 
