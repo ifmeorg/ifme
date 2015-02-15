@@ -133,6 +133,8 @@ GEM
       rufus-scheduler (~> 3.0)
     resque_mailer (2.2.7)
       actionmailer (>= 3.0)
+    rspec-collection_matchers (1.1.2)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -212,6 +214,7 @@ DEPENDENCIES
   resque
   resque-scheduler
   resque_mailer
+  rspec-collection_matchers
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -2,7 +2,7 @@
 	<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: top">
 		<%= image_tag @profile.avatar.url, class: 'profile_picture' %>
 	</div>
-	<div class="table_cell">
+	<div class="table_cell" style="vertical-align: middle">
 		<% if @profile.about %>
 			<%= @profile.about %>
 			<br>
@@ -38,7 +38,7 @@
 			      <% end %>
 			    </strong>
 				<% item.category.each do |category_item| %>
-      				<%= fetch_categories_moods(item, "trigger", category_item, "category", true) %>
+      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true) %>
     			<% end %>
     			<br>
     			<strong>
@@ -49,7 +49,7 @@
 			      <% end %>
 			    </strong>
 				<% item.mood.each do |mood_item| %>
-      				<%= fetch_categories_moods(item, "trigger", mood_item, "mood", true) %>
+      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true) %>
     			<% end %>
     			<br>
 			    <br>

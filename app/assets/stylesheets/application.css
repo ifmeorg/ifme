@@ -22,7 +22,7 @@
 
 body, html {
 	margin: 0 auto;
-	font: 20px 'Lato', sans-serif;
+	font: 20px 'Lato';
 	font-weight: 400;
 }
 
@@ -213,7 +213,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 }
 
 .branding_title {
-	font-family: 'Lato',sans-serif;
+	font-family: 'Lato';
 	font-weight: 100;
 	text-transform: lowercase;
 	color: #6D0839;
@@ -229,6 +229,12 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	color: #6D0839;
 	opacity: 0.5;
 	text-align: right;
+}
+
+.subtitle {
+	font: 34px 'Lato';
+	font-weight: 100;
+	text-align: center;
 }
 
 /* Footer */
@@ -323,7 +329,7 @@ input, textarea, select, fieldset {
 	padding: 10px;
 	box-shadow: 0 0 2px #000000 inset;
 	background-color: #ffffff;
-	font: 20px 'Lato', sans-serif;
+	font: 20px 'Lato';
 	margin-right: 10px;
 }
 
@@ -337,7 +343,7 @@ input[type="submit"] {
 	box-shadow: 0 0 2px #02779E inset;
 	color: #02779E;
 	background: #ffffff;
-	font: 20px 'Lato', sans-serif;
+	font: 20px 'Lato';
 }
 
 input[type="submit"]:hover {

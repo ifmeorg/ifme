@@ -8,25 +8,31 @@ FactoryGirl.define do
     timezone "-05:00"
   end
 
-  factory :category do 
+  factory :category do
     name  "Test Category"
     description "Test Description"
   end
 
-  factory :mood do 
+  factory :mood do
     name  "Test Mood"
     description "Test Mood"
   end
 
-  factory :trigger do 
+  factory :trigger do
     name  "Test Trigger"
     why "Test Why"
     fix "Test fix"
     comment true
   end
 
-  factory :comment do 
+  factory :comment do
     comment_type "trigger"
     comment "Test Comment"
-  end 
+  end
+
+  factory :strategy do
+    name "Test Strategy"
+    description "Test Description"
+    comment true
+  end
 end

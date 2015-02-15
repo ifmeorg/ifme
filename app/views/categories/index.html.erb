@@ -1,25 +1,32 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="subtitle">
+  Life is messy, categorize the different people, places, and things.
+</div>
 
-  <tbody>
-    <% @categories.each do |category| %>
+<% if @categories.length > 0 %>
+  <div class="spacer"></div>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to category.name, category %></td>
-        <td>
-         <%= simple_format(category.description[0..80]) %><%= " [...]" %>
-        </td>
-        <td>
-          <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>
-          <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= link_to category.name, category %></td>
+          <td>
+           <%= simple_format(category.description[0..80]) %><%= " [...]" %>
+          </td>
+          <td>
+            <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>
+            <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 

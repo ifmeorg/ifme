@@ -17,43 +17,47 @@
         <%= f.text_field :name %>
       </div>
       <div class="field">
-        <div class="label"><%= f.label :category %></div>
+        <div class="label"><%= f.label 'Categories' %></div>
         <% Category.where(:userid => current_user.id).all.each do |item| %>
-          <br>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-          <%= item.name %>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "category", true) %><br>
         <% end %>
       </div>
       <div class="field">
-        <div class="label"><%= f.label :mood %></div>
+        <div class="label"><%= f.label 'Moods' %></div>
         <% Mood.where(:userid => current_user.id).all.each do |item| %>
-          <br>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
-          <%= item.name %>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true) %><br>
         <% end %>
       </div>
       <div class="field">
-        <div class="label">Allow comments?</div>
+        <div class="label"><%= f.label 'Allow Comments?' %></div>
         <%= f.radio_button(:comment, true) %>Yes
         <%= f.radio_button(:comment, false) %>No
       </div>
       <div class="field">
         <div class="label"><%= f.label :viewers %></div>
         <% @viewers.each do |item| %>
-          <br>
           <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %>
-          <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %>
+          <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %><br>
         <% end %>
       </div>
     </div>
     <div class="table_cell">
       <div class="field">
-        <div class="label"><%= f.label :why %></div>
+        <div class="label"><%= f.label t('why_label') %></div>
         <%= f.cktext_area :why, :style => "height: 200px" %>
       </div>
       <div class="field">
-        <div class="label"><%= f.label :fix %></div>
+        <div class="label"><%= f.label t('fix_label') %></div>
         <%= f.cktext_area :fix, :style => "height: 200px" %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label t('strategies_label') %></div>
+        <% Strategy.where(:userid => current_user.id).all.each do |item| %>
+          <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true) %><br>
+        <% end %>
       </div>
     </div>
   </div>

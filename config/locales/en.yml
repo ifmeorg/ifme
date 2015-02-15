@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  why_label: 'Describe the trigger and how it affects your mood and behaviour.'
+  fix_label: 'What thoughts would you like to have instead?'
+  strategies_label: 'What strategies would help achieve these thoughts?'

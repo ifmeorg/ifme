@@ -117,6 +117,14 @@
 			    	opacity: 0.5;
 			 	}
 			</style>
+		<% elsif params[:controller] == "strategies" %>
+		  	<style>
+			  	#header a#strategies_link:link {
+			  		border-top: 1px solid #ffffff;
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.5;
+			 	}
+			</style>
 		<% elsif params[:controller] == "medications" %>
 		  	<style>
 			  	#header a#medications_link:link {
@@ -161,6 +169,7 @@
 							  	<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
 							  	<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %>
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
+							 	<%= link_to('Strategies', strategies_path, class: 'nav_link', id: 'strategies_link')  %>
 							 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
 							 	<% #link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>

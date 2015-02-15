@@ -12,6 +12,8 @@ gem 'resque_mailer'
 
 gem "rspec-rails", :group => [:development, :test]
 
+gem 'rspec-collection_matchers'
+
 gem 'factory_girl_rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,28 +1,35 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Strength</th>
-      <th>Total Quantity</th>
-      <th>Daily Dosage</th>
-      <th>Refill</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="subtitle">
+  Keep track of your medications, including dosage and refill information.
+</div>
 
-  <tbody>
-    <% @medications.each do |medication| %>
+<% if @medications.length > 0 %>
+  <div class="spacer"></div>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to medication.name, medication %></td>
-        <td><%= medication.strength.to_s + " " + medication.strength_unit %></td>
-        <td><%= medication.total.to_s + " " + medication.total_unit %></td>
-        <td><%= medication.dosage.to_s + " " + medication.dosage_unit %></td>
-        <td><%= medication.refill %></td>
-        <td>
-          <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_medication_path(medication) %>
-          <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', medication, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <th>Name</th>
+        <th>Strength</th>
+        <th>Total Quantity</th>
+        <th>Daily Dosage</th>
+        <th>Refill</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @medications.each do |medication| %>
+        <tr>
+          <td><%= link_to medication.name, medication %></td>
+          <td><%= medication.strength.to_s + " " + medication.strength_unit %></td>
+          <td><%= medication.total.to_s + " " + medication.total_unit %></td>
+          <td><%= medication.dosage.to_s + " " + medication.dosage_unit %></td>
+          <td><%= medication.refill %></td>
+          <td>
+            <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_medication_path(medication) %>
+            <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', medication, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

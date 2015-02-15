@@ -6,7 +6,7 @@ describe TriggersController do
 			new_user = create(:user)
 			sign_in new_user
 	  		get :index
-	  		response.should render_template("index")
+	  		expect(response).to render_template("index")
 		end
 
 		it "POST new" do
@@ -26,9 +26,10 @@ describe TriggersController do
 			sign_in new_user
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
-	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(new_mood.id))
+	  		new_strategies = create(:strategy, userid: new_user.id)
+	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(new_mood.id), strategies: Array.new(new_strategies.id))
 	  		get :show, id: new_trigger
-	  		response.should render_template("show")
+	  		expect(response).to render_template("show")
 		end
 =begin
 		it "POST comment" do
@@ -40,7 +41,7 @@ describe TriggersController do
 		end
 =end
 
-		describe "POST support" do 
+		describe "POST support" do
 			it "first time support for triggers" do
 				new_user = create(:user)
 				sign_in new_user
@@ -48,7 +49,7 @@ describe TriggersController do
 		  		new_mood = create(:mood, userid: new_user.id)
 		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => new_trigger.id
-		  		response.should redirect_to(trigger_path(new_trigger.id))
+		  		expect(response).to redirect_to(trigger_path(new_trigger.id))
 			end
 
 			it "supports more triggers" do
@@ -58,15 +59,11 @@ describe TriggersController do
 		  		new_mood = create(:mood, userid: new_user.id)
 		  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => new_trigger.id
-		  		puts "Size (before) >>>"
-		  		puts Support.count
 
 		  		other_new_trigger = Trigger.create(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), name: "Other Trigger", why: "Cause", comment: true)
 		  		post "support", :userid => new_user.id, :support_type => "trigger", :support_id => other_new_trigger.id
-		  		puts "Size (after) >>>"
-		  		puts Support.count
-		  		response.should redirect_to(trigger_path(other_new_trigger.id))
+		  		expect(response).to redirect_to(trigger_path(other_new_trigger.id))
 			end
-		end 
+		end
 	end
 end

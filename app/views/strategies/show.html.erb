@@ -1,52 +1,21 @@
-<strong>Created:</strong> <%= local_time(@trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-<% if @trigger.category.count > 0 %>
+<strong>Created:</strong> <%= local_time(@strategy.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+<% if @strategy.category.count > 0 %>
   <br>
     <strong>
-      <% if @trigger.category.count == 1 %>
+      <% if @strategy.category.count == 1 %>
         Category:
       <% else %>
         Categories:
       <% end %>
     </strong>
-    <% @trigger.category.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "category", true) %>
+    <% @strategy.category.each do |item| %>
+      <%= fetch_taxonomies(@strategy, "strategy", item, "category", true) %>
     <% end %>
 <% end %>
 
-<% if @trigger.mood.count > 0 %>
-  <br>
-    <strong>
-      <% if @trigger.mood.count == 1 %>
-        Mood:
-      <% else %>
-        Moods:
-      <% end %>
-    </strong>
-    <% @trigger.mood.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "mood", true) %>
-    <% end %>
-<% end %>
-
-<% if !@trigger.why.blank? %>
+<% if !@strategy.description.blank? %>
   <p>
-    <div class="label"><%= label_tag t('why_label') %></div>
-    <%= simple_format(@trigger.why) %>
-  </p>
-<% end %>
-
-<% if !@trigger.fix.blank? %>
-  <p>
-    <div class="label"><%= label_tag t('fix_label') %></div>
-    <%= simple_format(@trigger.fix) %>
-  </p>
-<% end %>
-
-<% if @trigger.strategies.count > 0 %>
-  <p>
-    <div class="label"><%= label_tag t('strategies_label') %></div>
-    <% @trigger.strategies.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true) %>
-    <% end %>
+    <%= simple_format(@strategy.description) %>
   </p>
 <% end %>
 
@@ -66,10 +35,10 @@
 
       <div class="actions">
         <%= f.hidden_field :userid, :value => current_user.id %>
-        <%= f.hidden_field :support_type, :value => 'trigger' %>
-        <%= f.hidden_field :support_id, :value => @trigger.id %>
-        <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
-          <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
+        <%= f.hidden_field :support_type, :value => 'strategy' %>
+        <%= f.hidden_field :support_id, :value => @strategy.id %>
+        <% if Support.where(:userid => current_user.id, :support_type => 'strategy').exists? %>
+          <% if Support.where(:userid => current_user.id, :support_type => 'strategy').first.support_ids.include?(@strategy.id) %>
             <%= f.submit "Unsupport", :id => 'unsupport' %>
           <% else %>
             <%= f.submit "Support", :id => 'support' %>
@@ -81,12 +50,12 @@
     <% end %>
   </div>
   <div class="align_right">
-    <%= fetch_supporters(Support.all, @trigger) %>
+    <%= fetch_supporters(Support.all, @strategy) %>
   </div>
   <div class="clear"></div>
 <% end %>
 
-<% if @trigger.comment && (current_user.id == @trigger.userid || @no_hide_page) %>
+<% if @strategy.comment && (current_user.id == @strategy.userid || @no_hide_page) %>
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
@@ -105,16 +74,16 @@
     </div>
 
     <div class="actions">
-      <%= f.hidden_field :comment_type, :value => 'trigger' %>
+      <%= f.hidden_field :comment_type, :value => 'strategy' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
-      <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.firstname + ' only', 'private']] %>
+      <%= f.hidden_field :commented_on, :value => @strategy.id %>
+      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @strategy.userid).first.firstname + ' only', 'private']] %>
       <%= f.submit "Comment" %>
     </div>
   <% end %>
 
   <% @comments.each do |comment| %>
-    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
+    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @strategy.userid)) %>
         <div class="comment">
           <div class="table">
             <div class="table_cell" style="width: 100px; padding-right: 20px; vertical-align: top">
@@ -127,7 +96,7 @@
                 <%= link_to profile.firstname + " " + profile.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
               </div>
               <%= simple_format(comment.comment) %>
-              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
+              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @strategy.userid) %>
                 <div class="subtle">Visible only between you and <%= profile.firstname %></div>
               <% end %>
             </div>

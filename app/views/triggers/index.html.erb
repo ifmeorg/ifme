@@ -1,32 +1,50 @@
-<% @triggers.each do |trigger| %>
-  <div class="trigger">
-    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
-    <strong>Created</strong>: <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-    <br>
-    <strong>
-      <% if trigger.category.count == 1 %>
-        Category:
-      <% else %>
-        Categories:
+<div class="subtitle">
+  Delve deep into your triggers - events, moments, and situations that affect your mental health.
+</div>
+
+<% if @triggers.length > 0 %>
+  <div class="spacer"></div>
+  <% @triggers.each do |trigger| %>
+    <div class="trigger">
+      <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+      <strong>Created</strong>: <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+      <br>
+      <strong>
+        <% if trigger.category.count == 1 %>
+          Category:
+        <% else %>
+          Categories:
+        <% end %>
+      </strong>
+      <% trigger.category.each do |item| %>
+        <%= fetch_taxonomies(trigger, "trigger", item, "category", false) %>
       <% end %>
-    </strong>
-    <% trigger.category.each do |item| %>
-      <%= fetch_categories_moods(trigger, "trigger", item, "category", false) %>
-    <% end %>
-    <br>
-    <strong>
-      <% if trigger.mood.count == 1 %>
-        Mood:
-      <% else %>
-        Moods:
+      <br>
+      <strong>
+        <% if trigger.mood.count == 1 %>
+          Mood:
+        <% else %>
+          Moods:
+        <% end %>
+      </strong>
+      <% trigger.mood.each do |item| %>
+        <%= fetch_taxonomies(trigger, "trigger", item, "mood", false) %>
       <% end %>
-    </strong>
-    <% trigger.mood.each do |item| %>
-      <%= fetch_categories_moods(trigger, "trigger", item, "mood", false) %>
-    <% end %>
-    <div style="margin-top: 20px">
-      <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
-      <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <br>
+      <strong>
+        <% if trigger.strategies.count == 1 %>
+          Strategy:
+        <% else %>
+          Strategies:
+        <% end %>
+      </strong>
+      <% trigger.strategies.each do |item| %>
+        <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false) %>
+      <% end %>
+      <div style="margin-top: 20px">
+        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
+        <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

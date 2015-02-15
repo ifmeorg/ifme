@@ -13,15 +13,15 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_categories_moods, :fetch_supporters, :avatar_url, :are_allies
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies
 
-	def fetch_categories_moods(data, data_type, item, category_mood, show)
-		if category_mood == "category" && data_type == "trigger" && Category.where(:id => item.to_i).exists?
+	def fetch_taxonomies(data, data_type, item, taxonomy, show)
+		if taxonomy == "category" && Category.where(:id => item.to_i).exists?
 			if !Category.where(:id => item.to_i).first.description.blank?
 				link_name = Category.where(:id => item.to_i).first.name
 				link_url = '/categories/' + item.to_s
 				if show
-					link_url += '?trigger=' + data.id.to_s
+					link_url += '?' + data_type.to_s + '=' + data.id.to_s
 				end
 				return_this = link_to link_name, link_url
 			else
@@ -30,18 +30,32 @@ class ApplicationController < ActionController::Base
 			if item != data.category.last
 				return_this += ', '
 			end
-		elsif category_mood == "mood" && data_type == "trigger" && Mood.where(:id => item.to_i).exists?
+		elsif taxonomy == "mood" && Mood.where(:id => item.to_i).exists?
 			if !Mood.where(:id => item.to_i).first.description.blank?
 				link_name = Mood.where(:id => item.to_i).first.name
 				link_url = '/moods/' + item.to_s
 				if show
-					link_url += '?trigger=' + data.id.to_s
+					link_url += '?' + data_type.to_s + '=' + data.id.to_s
 				end
 				return_this = link_to link_name, link_url
 			else
 				return_this = Mood.where(:id => item.to_i).first.name
 			end
 			if item != data.mood.last
+				return_this += ', '
+			end
+		elsif taxonomy == "strategy" && Strategy.where(:id => item.to_i).exists?
+			if !Strategy.where(:id => item.to_i).first.description.blank?
+				link_name = Strategy.where(:id => item.to_i).first.name
+				link_url = '/strategies/' + item.to_s
+				if show
+					link_url += '?' + data_type.to_s + '=' + data.id.to_s
+				end
+				return_this = link_to link_name, link_url
+			else
+				return_this = Strategy.where(:id => item.to_i).first.name
+			end
+			if item != data.strategies.last
 				return_this += ', '
 			end
 		end
@@ -82,12 +96,6 @@ class ApplicationController < ActionController::Base
       	end
 
       	return return_this.html_safe
-	end
-
-	def avatar_url(user)
-	    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-
-	    return "http://gravatar.com/avatar/#{gravatar_id}.png?s=200"
 	end
 
 	def are_allies(user1, user2)

@@ -5,7 +5,8 @@ describe Support do
 	  new_user = create(:user)
 	  new_category = create(:category, userid: new_user.id)
 	  new_mood = create(:mood, userid: new_user.id)
-	  new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
+	  new_strategies = create(:strategy, userid: new_user.id)
+	  new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id), strategies: Array.new(new_strategies.id))
 	  new_support = Support.create(:userid => new_user.id, :support_type => "trigger", :support_ids => Array.new(new_trigger.id))
 	  expect(Support.count).to eq(1)
 	end

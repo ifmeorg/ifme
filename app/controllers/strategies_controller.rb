@@ -1,45 +1,45 @@
-class TriggersController < ApplicationController
+class StrategiesController < ApplicationController
   before_filter :if_not_signed_in
-  before_action :set_trigger, only: [:show, :edit, :update, :destroy]
+  before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
-  # GET /triggers
-  # GET /triggers.json
+  # GET /strategies
+  # GET /strategies.json
   def index
-    @triggers = Trigger.where(:userid => current_user.id).all
-    @page_title = "Triggers"
-    @page_new = new_trigger_path
+    @strategies = Strategy.where(:userid => current_user.id).all
+    @page_title = "Strategies"
+    @page_new = new_strategy_path
   end
 
-  # GET /triggers/1
-  # GET /triggers/1.json
+  # GET /strategies/1
+  # GET /strategies/1.json
   def show
-    if current_user.id == @trigger.userid
-      @page_edit = edit_trigger_path(@trigger)
+    if current_user.id == @strategy.userid
+      @page_edit = edit_strategy_path(@strategy)
     else
-      link_url = "/profile?userid=" + @trigger.userid.to_s
-      the_link = link_to User.where(:id => @trigger.userid).first.firstname + " " + User.where(:id => @trigger.userid).first.lastname, link_url
+      link_url = "/profile?userid=" + @strategy.userid.to_s
+      the_link = link_to User.where(:id => @strategy.userid).first.firstname + " " + User.where(:id => @strategy.userid).first.lastname, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
-    if hide_page && @trigger.userid != current_user.id
+    if hide_page && @strategy.userid != current_user.id
       respond_to do |format|
-        format.html { redirect_to triggers_path }
+        format.html { redirect_to strategies_path }
         format.json { head :no_content }
       end
     else
       @comment = Comment.new
       @support = Support.new
-      @comments = Comment.where(:commented_on => @trigger.id, :comment_type => 'trigger').all
+      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => "strategy").all
       @no_hide_page = true
-      @page_title = @trigger.name
+      @page_title = @strategy.name
     end
   end
 
   def comment
     @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
     respond_to do |format|
-        format.html { redirect_to trigger_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+        format.html { redirect_to strategy_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: Strategy.find(params[:comment][:commented_on]) }
     end
   end
 
@@ -72,12 +72,12 @@ class TriggersController < ApplicationController
     end
 
     respond_to do |format|
-        format.html { redirect_to trigger_path(support_id) }
-        format.json { render :show, status: :created, location: Trigger.find(support_id) }
+        format.html { redirect_to strategy_path(support_id) }
+        format.json { render :show, status: :created, location: Strategy.find(support_id) }
     end
   end
 
-  # GET /triggers/new
+  # GET /strategies/new
   def new
     @viewers = Array.new
     if Ally.where(:userid => current_user.id).exists?
@@ -87,13 +87,13 @@ class TriggersController < ApplicationController
         end
       end
     end
-    @trigger = Trigger.new
-    @page_title = "New Trigger"
+    @strategy = Strategy.new
+    @page_title = "New Strategy"
   end
 
-  # GET /triggers/1/edit
+  # GET /strategies/1/edit
   def edit
-    if @trigger.userid == current_user.id
+    if @strategy.userid == current_user.id
       @viewers = Array.new
       if Ally.where(:userid => current_user.id).exists?
         User.where.not(:id => current_user.id).all.each do |item|
@@ -102,20 +102,20 @@ class TriggersController < ApplicationController
           end
         end
       end
-      @page_title = "Edit " + @trigger.name
+      @page_title = "Edit " + @strategy.name
     else
       respond_to do |format|
-        format.html { redirect_to trigger_path(@trigger) }
+        format.html { redirect_to strategy_path(@strategy) }
         format.json { head :no_content }
       end
     end
   end
 
-  # POST /triggers
-  # POST /triggers.json
+  # POST /strategies
+  # POST /strategies.json
   def create
-    @trigger = Trigger.new(trigger_params)
-    @page_title = "New Trigger"
+    @strategy = Strategy.new(strategy_params)
+    @page_title = "New Strategy"
     @viewers = Array.new
     if Ally.where(:userid => current_user.id).exists?
       User.where.not(:id => current_user.id).all.each do |item|
@@ -125,20 +125,20 @@ class TriggersController < ApplicationController
       end
     end
     respond_to do |format|
-      if @trigger.save
-        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
-        format.json { render :show, status: :created, location: @trigger }
+      if @strategy.save
+        format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully created.' }
+        format.json { render :show, status: :created, location: @strategy }
       else
         format.html { render :new }
-        format.json { render json: @trigger.errors, status: :unprocessable_entity }
+        format.json { render json: @strategy.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /triggers/1
-  # PATCH/PUT /triggers/1.json
+  # PATCH/PUT /strategies/1
+  # PATCH/PUT /strategies/1.json
   def update
-    @page_title = "Edit " + @trigger.name
+    @page_title = "Edit " + @strategy.name
     @viewers = Array.new
     if Ally.where(:userid => current_user.id).exists?
       User.where.not(:id => current_user.id).all.each do |item|
@@ -148,35 +148,35 @@ class TriggersController < ApplicationController
       end
     end
     respond_to do |format|
-      if @trigger.update(trigger_params)
-        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }
-        format.json { render :show, status: :ok, location: @trigger }
+      if @strategy.update(strategy_params)
+        format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully updated.' }
+        format.json { render :show, status: :ok, location: @strategy }
       else
         format.html { render :edit }
-        format.json { render json: @trigger.errors, status: :unprocessable_entity }
+        format.json { render json: @strategy.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /triggers/1
-  # DELETE /triggers/1.json
+  # DELETE /strategies/1
+  # DELETE /strategies/1.json
   def destroy
-    @trigger.destroy
+    @strategy.destroy
     respond_to do |format|
-      format.html { redirect_to triggers_path }
+      format.html { redirect_to strategies_path }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_trigger
+    def set_strategy
       begin
-        @trigger = Trigger.find(params[:id])
+        @strategy = Strategy.find(params[:id])
       rescue
-        if @trigger.blank?
+        if @strategy.blank?
           respond_to do |format|
-            format.html { redirect_to triggers_path }
+            format.html { redirect_to strategies_path }
             format.json { head :no_content }
           end
         end
@@ -184,13 +184,13 @@ class TriggersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def trigger_params
-      params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
+    def strategy_params
+      params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
     end
 
     def hide_page
-      if Trigger.where(:userid => @trigger.userid).exists?
-        Trigger.where(:userid => @trigger.userid).all.each do |item|
+      if Strategy.where(:userid => @strategy.userid).exists?
+        Strategy.where(:userid => @strategy.userid).all.each do |item|
           if item.viewers.include?(current_user.id)
             return false
           end

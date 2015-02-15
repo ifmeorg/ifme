@@ -19,7 +19,14 @@ Rails.application.routes.draw do
       post "comment"
       post "support"
     end
-  end 
+  end
+
+  resources :strategies do
+    collection do
+      post "comment"
+      post "support"
+    end
+  end
 
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
 
