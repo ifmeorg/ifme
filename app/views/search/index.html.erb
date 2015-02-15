@@ -6,7 +6,7 @@
 			<div class="ally">
 				<div class="table">
 		        	<div class="table_cell" style="width: 200px; padding-right: 20px; vertical-align: top">
-		        		<%= image_tag user.avatar.url, class: 'profile_picture' %>
+		        		<%= image_tag fetch_profile_picture(user.avatar.url), class: 'profile_picture' %>
 		          	</div>
 		          	<div class="table_cell" style="vertical-align: top">
 						<div class="align_left">

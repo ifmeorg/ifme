@@ -65,7 +65,7 @@
 
 	<div class="field"><div class="label"><%= f.label "Profile Picture" %></div>
 	<% profile = User.where(:id => current_user.id).first %>
-	<%= image_tag profile.avatar.url, class: 'mini_profile_picture' %>
+	<%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
 	<br>
 	<%= f.file_field :avatar %></div>
 

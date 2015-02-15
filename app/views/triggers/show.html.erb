@@ -119,7 +119,7 @@
           <div class="table">
             <div class="table_cell" style="width: 100px; padding-right: 20px; vertical-align: top">
               <% profile = User.where(:id => comment.comment_by).first %>
-                <%= image_tag profile.avatar.url, class: 'mini_profile_picture' %>
+                <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
                 <br>
             </div>
             <div class="table_cell">

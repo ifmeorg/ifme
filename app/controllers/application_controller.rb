@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture
 
 	def fetch_taxonomies(data, data_type, item, taxonomy, show)
 		if taxonomy == "category" && Category.where(:id => item.to_i).exists?
@@ -105,6 +105,14 @@ class ApplicationController < ActionController::Base
 			end
 		end
 		return false
+	end
+
+	def fetch_profile_picture(avatar)
+		if avatar
+			return avatar
+		end
+
+		return "default_ifme_avatar.png"
 	end
 
 end
