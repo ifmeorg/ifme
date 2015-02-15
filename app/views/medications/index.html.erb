@@ -2,7 +2,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Dosage</th>
+      <th>Strength</th>
+      <th>Total Quantity</th>
+      <th>Daily Dosage</th>
       <th>Refill</th>
       <th></th>
     </tr>
@@ -12,7 +14,9 @@
     <% @medications.each do |medication| %>
       <tr>
         <td><%= link_to medication.name, medication %></td>
-        <td><%= medication.dosage %></td>
+        <td><%= medication.strength.to_s + " " + medication.strength_unit %></td>
+        <td><%= medication.total.to_s + " " + medication.total_unit %></td>
+        <td><%= medication.dosage.to_s + " " + medication.dosage_unit %></td>
         <td><%= medication.refill %></td>
         <td>
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_medication_path(medication) %>

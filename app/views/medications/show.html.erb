@@ -1,6 +1,14 @@
+<strong>Strength:</strong>
+<%= @medication.strength.to_s + " " + @medication.strength_unit %>
+
 <p>
-  <strong>Dosage:</strong>
-  <%= @medication.dosage %>
+  <strong>Total Quantity:</strong>
+  <%= @medication.total.to_s + " " + @medication.total_unit %>
+</p>
+
+<p>
+  <strong>Daily Dosage:</strong>
+  <%= @medication.dosage.to_s + " " + @medication.dosage_unit %>
 </p>
 
 <p>

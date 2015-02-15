@@ -16,7 +16,7 @@ class MedicationsController < ApplicationController
     if @medication.userid == current_user.id
       @page_title = @medication.name
       @page_edit = edit_medication_path(@medication)
-    else 
+    else
       respond_to do |format|
         format.html { redirect_to medications_path }
         format.json { head :no_content }
@@ -94,13 +94,13 @@ class MedicationsController < ApplicationController
             format.html { redirect_to medications_path }
             format.json { head :no_content }
           end
-        end 
+        end
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill, :userid)
+      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit)
     end
 
     def if_not_signed_in

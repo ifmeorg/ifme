@@ -1,3 +1,41 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    function toTitleCase(str) {
+      if (1 !== str.length) str = str.toLowerCase();
+      return str.replace(/\b[a-z]/g, function(f){return f.toUpperCase()});
+    }
+
+    $("#medication_name").autocomplete({
+      source: function (request, response) {
+      $.getJSON(
+        "http://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames.json?drug_name=" + request.term,
+        function (data) {
+          var cleanedData = [];
+          _.each(data.data, function(dataItem) {
+            cleanedData.push(toTitleCase(dataItem.drug_name));
+          })
+          response(cleanedData);
+        });
+      },
+      minLength: 3,
+      select: function (event, ui) {
+        var selectedObj = ui.item;
+        $("#medication_name").val(selectedObj.value);
+          return false;
+      },
+      open: function () {
+        $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+      },
+      close: function () {
+        $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+      }
+    });
+    $("#medication_name").autocomplete("option", "delay", 100);
+    $("#medication_refill").datepicker();
+  });
+</script>
+
 <%= form_for(@medication) do |f| %>
   <% if @medication.errors.any? %>
     <div id="error_explanation">
@@ -16,8 +54,24 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <div class="label"><%= f.label :dosage %></div>
-    <%= f.text_field :dosage %>
+    <div class="label"><%= f.label :strength %> <i>(e.g. 100 mg)</i></div>
+    <%= f.number_field :strength %>
+    <%= f.radio_button(:strength_unit, 'mg') %>mg
+    <%= f.radio_button(:strength_unit, 'ml') %>ml
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label "Total Quantity" %> <i>(e.g. 30 tablets)</i></div>
+    <%= f.number_field :total %>
+    <%= f.radio_button(:total_unit, 'tablets') %>tablets
+    <%= f.radio_button(:total_unit, 'mg') %>mg
+    <%= f.radio_button(:total_unit, 'ml') %>ml
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label "Daily Dosage" %> <i>(e.g. 1 tablet)</i></div>
+    <%= f.number_field :dosage %>
+    <%= f.radio_button(:dosage_unit, 'tablets') %>tablets
+    <%= f.radio_button(:dosage_unit, 'mg') %>mg
+    <%= f.radio_button(:dosage_unit, 'ml') %>ml
   </div>
   <div class="field">
     <div class="label"><%= f.label :refill %></div>
