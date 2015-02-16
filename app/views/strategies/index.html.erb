@@ -8,16 +8,18 @@
     <div class="strategy">
       <h1 class="strategy_name"><%= link_to strategy.name, strategy %></h1>
       <strong>Created</strong>: <%= local_time(strategy.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-      <br>
-      <strong>
-        <% if strategy.category.count == 1 %>
-          Category:
-        <% else %>
-          Categories:
+      <% if strategy.category.count > 0 %>
+        <br>
+        <strong>
+          <% if strategy.category.count == 1 %>
+            Category:
+          <% else %>
+            Categories:
+          <% end %>
+        </strong>
+        <% strategy.category.each do |item| %>
+          <%= fetch_taxonomies(strategy, "strategy", item, "category", false) %>
         <% end %>
-      </strong>
-      <% strategy.category.each do |item| %>
-        <%= fetch_taxonomies(strategy, "strategy", item, "category", false) %>
       <% end %>
       <div style="margin-top: 20px">
         <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_strategy_path(strategy) %>

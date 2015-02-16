@@ -8,38 +8,44 @@
     <div class="trigger">
       <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
       <strong>Created</strong>: <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-      <br>
-      <strong>
-        <% if trigger.category.count == 1 %>
-          Category:
-        <% else %>
-          Categories:
+      <% if trigger.category.count > 0 %>
+        <br>
+        <strong>
+          <% if trigger.category.count == 1 %>
+            Category:
+          <% else %>
+            Categories:
+          <% end %>
+        </strong>
+        <% trigger.category.each do |item| %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "category", false) %>
         <% end %>
-      </strong>
-      <% trigger.category.each do |item| %>
-        <%= fetch_taxonomies(trigger, "trigger", item, "category", false) %>
       <% end %>
-      <br>
-      <strong>
-        <% if trigger.mood.count == 1 %>
-          Mood:
-        <% else %>
-          Moods:
+      <% if trigger.mood.count > 0 %>
+        <br>
+        <strong>
+          <% if trigger.mood.count == 1 %>
+            Mood:
+          <% else %>
+            Moods:
+          <% end %>
+        </strong>
+        <% trigger.mood.each do |item| %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "mood", false) %>
         <% end %>
-      </strong>
-      <% trigger.mood.each do |item| %>
-        <%= fetch_taxonomies(trigger, "trigger", item, "mood", false) %>
       <% end %>
-      <br>
-      <strong>
-        <% if trigger.strategies.count == 1 %>
-          Strategy:
-        <% else %>
-          Strategies:
+      <% if trigger.strategies.count > 0 %>
+        <br>
+        <strong>
+          <% if trigger.strategies.count == 1 %>
+            Strategy:
+          <% else %>
+            Strategies:
+          <% end %>
+        </strong>
+        <% trigger.strategies.each do |item| %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false) %>
         <% end %>
-      </strong>
-      <% trigger.strategies.each do |item| %>
-        <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false) %>
       <% end %>
       <div style="margin-top: 20px">
         <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>

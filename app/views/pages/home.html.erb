@@ -44,28 +44,32 @@
      			</div>
      			<div class="clear"></div>
      			<strong>Created:</strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-     			<br>
-			    <strong>
-			      <% if trigger.category.count == 1 %>
-			        Category:
-			      <% else %>
-			        Categories:
-			      <% end %>
-			    </strong>
-			    <% trigger.category.each do |item| %>
-			      <%= fetch_taxonomies(trigger, "trigger", item, "category", true) %>
-			    <% end %>
-			    <br>
-			    <strong>
-			      <% if trigger.mood.count == 1 %>
-			        Mood:
-			      <% else %>
-			        Moods:
-			      <% end %>
-			    </strong>
-			    <% trigger.mood.each do |item| %>
-			      <%= fetch_taxonomies(trigger, "trigger", item, "mood", true) %>
-			    <% end %>
+     			<% if trigger.category.count > 0 %>
+	     			<br>
+				    <strong>
+				      <% if trigger.category.count == 1 %>
+				        Category:
+				      <% else %>
+				        Categories:
+				      <% end %>
+				    </strong>
+				    <% trigger.category.each do |item| %>
+				      <%= fetch_taxonomies(trigger, "trigger", item, "category", true) %>
+				    <% end %>
+				<% end %>
+				<% if trigger.mood.count > 0 %>
+				    <br>
+				    <strong>
+				      <% if trigger.mood.count == 1 %>
+				        Mood:
+				      <% else %>
+				        Moods:
+				      <% end %>
+				    </strong>
+				    <% trigger.mood.each do |item| %>
+				      <%= fetch_taxonomies(trigger, "trigger", item, "mood", true) %>
+				    <% end %>
+				<% end %>
 			    <% if trigger.strategies.count > 0 %>
 				  	<br>
 				    <strong>
