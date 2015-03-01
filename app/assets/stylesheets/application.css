@@ -30,17 +30,27 @@ strong, b {
 	color: #6D0839;
 }
 
-ul:not(.ui-autocomplete), ol:not(.ui-autocomplete)  {
+ul:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list)  {
 	padding-left: 0;
 }
 
-ul:not(.ui-autocomplete) li:not(.ui-autocomplete), ol:not(.ui-autocomplete) li:not(.ui-autocomplete)  {
+ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
  	list-style-position:inside;
 }
 
 
-li:not(.ui-autocomplete) {
-	list-style-type : circle;
+li:not(.ui-autocomplete, .no_bullet_list) {
+	list-style-type: circle;
+}
+
+ul.no_bullet_list {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+ul.no_bullet_list li {
+	list-style-type: none;
 }
 
 
@@ -84,14 +94,14 @@ li:not(.ui-autocomplete) {
 }
 
 #header_content {
-	padding: 40px;
+	padding: 40px 60px;
 }
 
 #header_content a.nav_link:link, #header_content a.nav_link:visited {
 	text-decoration: none;
 	color: #ffffff;
 	margin-right: 20px;
-	padding: 20px 0px 20px 0px;
+	padding: 13px 0px 18px 0px;
 	border: none;
 	font-size: 18px;
 }
@@ -99,8 +109,8 @@ li:not(.ui-autocomplete) {
 #header_content a.nav_link:hover {
 	color: #ffffff;
 	text-decoration: none;
+	padding: 13px 0px 18px 0px;
 	margin-right: 20px;
-	padding: 20px 0px 20px 0px;
 	border-bottom: 1px solid #ffffff;
 	border-top: 1px solid #ffffff;
 	font-size: 18px;
@@ -109,7 +119,7 @@ li:not(.ui-autocomplete) {
 #title {
 	color: #ffffff;
 	text-transform: lowercase;
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: 100;
 	text-align: right;
 }
@@ -182,7 +192,7 @@ li:not(.ui-autocomplete) {
 }
 
 #page_title > #page_title_content {
-	padding: 40px;
+	padding: 40px 60px;
 	font-size: 30px;
 	font-weight: 300;
 }
@@ -222,7 +232,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 /* Content */
 
 #content {
-	padding: 40px;
+	padding: 40px 60px;
 	line-height: 150%;
 }
 
@@ -261,11 +271,11 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 #footer {
 	border-top: 1px solid #6D0839;
-	padding: 40px 0px 40px 0px;
+	padding: 40px 0px;
 }
 
 #footer > #footer_content {
-	padding: 0px 40px 0px 40px;
+	padding: 0px 60px;
 	font-size: 16px;
 	color: #6D0839;
 }
@@ -425,7 +435,7 @@ table td {
 }
 
 table td p {
-	margin : 0;
+	margin: 0;
 }
 
 table th {

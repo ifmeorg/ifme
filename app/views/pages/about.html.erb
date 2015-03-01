@@ -1,3 +1,17 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$.getJSON("https://api.github.com/repos/julianguyen/ifme/contributors", function (data) {
+      		_.each(data, function(dataItem) {
+      			if(dataItem.login != "julianguyen") {
+      				var contributor = '<li><a href="' + dataItem.html_url + '" target="_blank">' + dataItem.login + '</a></li>';
+      				$('#contributors').append(contributor);
+      			}
+      		});
+    	});
+  });
+</script>
+
 if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
 
 <p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p>
@@ -12,4 +26,12 @@ if me is a community for mental health experiences that encourages people to sha
 
 <p>If you are interested in helping out as a developer or designer, fork the repository hosted on <a href="https://github.com/julianguyen/ifme" target="_blank">GitHub</a>.</p>
 
-<p>Be sure to reach out to <a href="mailto:tojulianguyen@gmail.com">Julia Nguyen</a>, the creator of the project. This includes anyone with any neat ideas (you don't need technical experience)!</p>
+<p>Be sure to reach out to <a href="mailto:tojulianguyen@gmail.com">Julia Nguyen</a>, the creator of the project. This includes anyone with any neat ideas (you don't need technical experience)! Ask for invite to participate on our <a href="https://ifme.slack.com" target="_blank">Slack</a> page - that's where we discuss new ideas for the project.</p>
+
+<div class="spacer"></div>
+<div class="subtitle">A huge thanks to our contributors!</div>
+<div class="spacer"></div>
+
+<ul id="contributors" class="no_bullet_list">
+
+</ul>
