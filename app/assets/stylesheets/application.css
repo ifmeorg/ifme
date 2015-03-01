@@ -119,8 +119,20 @@ li:not(.ui-autocomplete) {
 	text-align: right;
 }
 
+#menu_header {
+	float: left;
+}
+
 #header_spacer {
 	width: 100%;
+}
+
+#close_trigger{
+	color: white;
+	float: right;
+	position: relative;
+	top: 5px;
+	color: #D0E799;
 }
 
 #me {
@@ -149,6 +161,13 @@ li:not(.ui-autocomplete) {
 	text-decoration: none;
 	margin-left: 20px;
 }
+
+#expand_trigger {
+	margin-top: 40px;
+	width: 100%;
+	text-align: left;
+}
+
 
 /* Page Title */
 
