@@ -119,9 +119,23 @@ li:not(.ui-autocomplete) {
 	text-align: right;
 }
 
+#pre_trigger{
+	float: left;
+}
+
+#post_trigger{
+	float: left;
+}
+
 #header_spacer {
 	width: 100%;
 }
+
+/*#trigger{
+	position: relative;
+	color: #ffffff;
+	right: 20px;
+}*/
 
 #me {
 	margin: 0;
@@ -145,6 +159,25 @@ li:not(.ui-autocomplete) {
 }
 
 #expand_me a.me_link:hover {
+	color: #ffffff;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+#expand_trigger {
+	margin-top: 40px;
+	width: 100%;
+	text-align: left;
+}
+
+#expand_trigger a.me_link:link, #expand_me a.me_link:visited {
+	text-decoration: none;
+	color: #ffffff;
+	margin-left: 20px;
+	border: none;
+}
+
+#expand_trigger a.me_link:hover {
 	color: #ffffff;
 	text-decoration: none;
 	margin-left: 20px;
