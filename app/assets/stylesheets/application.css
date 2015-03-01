@@ -363,7 +363,7 @@ input, textarea, select, fieldset {
 	margin-right: 10px;
 }
 
-.field input[type="text"] {
+.field input[type="text"], .field input[type="passsword"], .field input[type="email"] {
 	margin-right: 0px;
 }
 

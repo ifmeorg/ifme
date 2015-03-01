@@ -10,7 +10,7 @@
 			<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
 				- Forgot your password?
 			<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
-				- Settings
+				- Account
 			<% else %>
 				- <%= @page_title %>
 			<% end %>
@@ -224,7 +224,7 @@
 
 						<div id="expand_me" style="display: none">
 							<%= link_to 'Profile', profile_index_path(:userid => current_user.id), class: 'me_link' %>
-							<%= link_to 'Settings', edit_user_registration_path, class: 'me_link' %>
+							<%= link_to 'Account', edit_user_registration_path, class: 'me_link' %>
 							<%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'me_link') %>
 						</div>
 					<% end %>
@@ -247,7 +247,7 @@
 					<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
 						Forgot your password?
 					<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
-						Settings
+						Customize your account
 					<% elsif !@page_edit.blank? %>
 						<div class="align_left">
 							<%= @page_title %>

@@ -47,11 +47,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 	<%= devise_error_messages! %>
 
-	<div class="field"><div class="label"><%= f.label "First Name" %></div>
-	<%= f.text_field :firstname, autofocus: true %></div>
-
-	<div class="field"><div class="label"><%= f.label "Last Name" %></div>
-	<%= f.text_field :lastname %></div>
+	<div class="field"><div class="label"><%= f.label "Full name" %></div>
+	<%= f.text_field :firstname, autofocus: true, class: "spacing", placeholder: "First name" %>
+	<%= f.text_field :lastname, placeholder: "First name" %></div>
 
 	<div class="field"><div class="label"><%= f.label :location %></div>
 	<%= f.text_field :location %></div>
@@ -63,23 +61,21 @@
 	<div class="field">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	<% end %>
 
-	<div class="field"><div class="label"><%= f.label "Profile Picture" %></div>
+	<div class="field"><div class="label"><%= f.label "Profile picture" %></div>
 	<% profile = User.where(:id => current_user.id).first %>
 	<%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
 	<br>
 	<%= f.file_field :avatar %></div>
 
 	<div class="field"><div class="label"><%= f.label :about %></div>
-	<%= f.text_area :about %></div>
+	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? List some fun facts!" %></div>
 
-	<div class="field"><div class="label"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></div>
-	<%= f.password_field :password, autocomplete: "off" %></div>
+	<div class="field"><div class="label"><%= f.label "New password" %></div>
+	<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %></div>
 
-	<div class="field"><div class="label"><%= f.label :password_confirmation %></div>
-	<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-	<div class="field"><div class="label"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></div>
-	<%= f.password_field :current_password, autocomplete: "off" %></div>
+	<div class="field"><div class="label"><%= f.label :current_password %></div>
+	<%= f.password_field :current_password, autocomplete: "off", placeholder: "Required" %></div>
 
 	<div class="actions">
 		<%= f.hidden_field :timezone %>
@@ -87,5 +83,6 @@
 	</div>
 <% end %>
 
-<% #button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<div class="label"><label>Is <strong>if me</strong> not working out for you?</label></div>
+<%= button_to "Permanently delete my account", registration_path(resource_name), data: { confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!" }, method: :delete %>
 
