@@ -7,6 +7,10 @@
 			<%= @profile.about %>
 			<br>
 			<br>
+		<% elsif @profile.id == current_user.id %>
+			<%= link_to 'Customize profile', edit_user_registration_path %>
+			<br>
+			<br>
 		<% end %>
 		<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
 		<% if @profile.id != current_user.id %>
