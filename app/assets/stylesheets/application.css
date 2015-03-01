@@ -294,7 +294,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 }
 
 .spacing {
-	margin-right: 10px;
+	margin-right: 10px !important;
 }
 
 /* Links */
@@ -361,6 +361,10 @@ input, textarea, select, fieldset {
 	background-color: #ffffff;
 	font: 20px 'Lato';
 	margin-right: 10px;
+}
+
+.field input[type="text"] {
+	margin-right: 0px;
 }
 
 textarea {
@@ -477,7 +481,11 @@ div.table {
 	width: 100%;
 }
 
-div.table > div.table_cell {
+div.table div.table-row {
+	display: table-row;
+}
+
+div.table div.table_cell {
 	display: table-cell;
 }
 

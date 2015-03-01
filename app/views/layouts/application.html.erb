@@ -241,9 +241,9 @@
 			<% end %>
 				<div id="page_title_content">
 					<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
-						Sign in
+						Tell your stories now
 					<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
-						Join
+						Join the community now
 					<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
 						Forgot your password?
 					<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
