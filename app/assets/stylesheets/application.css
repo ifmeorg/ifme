@@ -119,14 +119,6 @@ li:not(.ui-autocomplete) {
 	text-align: right;
 }
 
-#pre_trigger{
-	float: left;
-}
-
-#post_trigger{
-	float: left;
-}
-
 #header_spacer {
 	width: 100%;
 }
@@ -171,7 +163,6 @@ li:not(.ui-autocomplete) {
 	width: 100%;
 	text-align: left;
 }
-
 
 
 /* Page Title */

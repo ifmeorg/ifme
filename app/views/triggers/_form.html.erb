@@ -75,14 +75,6 @@
 <% end %>
 
 
-<script>
-
-$('#no_viewers').change(function(){
-  var inputs = $('[id=^no_viewers]:checkbox').not(this);
-  this.checked ? inputs.prop({disabled: true, checked: false}) : inputs.prop("disabled", false);
-}).change();
-
-</script>
 
 
 
