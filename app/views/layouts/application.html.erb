@@ -60,20 +60,28 @@
 						click_flag++;
 					});
 
-					var upTimer = false,
-						downTimer = false,
-						isHover = false;
+				
+					
 
-					$('.expand_trigger_button').hover(function() { 		
-						$('#expand_trigger').css({"display": "block"});
-						$('#trigger').css({"opacity": 0.8});
-						$('#title_expand').css({"opacity": 0.8});
-						the_height = $('#header').height();
-						$('#header_space').css({"height": the_height});
+					$('.expand_trigger_button').mouseover(function() { 	
+						var trig = document.getElementById("expand_trigger");
+						var disp = getComputedStyle(trig).getPropertyValue("display");
+						if(disp == "none"){
+							$('#expand_trigger').css({"display": "block"});
+							$('#trigger').css({"opacity": 0.8});
+							$('#title_expand').css({"opacity": 0.8});
+							the_height = $('#header').height();
+							$('#header_space').css({"height": the_height});
+						}else{
+							$('#expand_trigger').css({"display": "none"});
+							$('#trigger').css({"opacity": 1});
+							$('#title_expand').css({"opacity": 1});
+							the_height = $('#header').height();
+							$('#header_space').css({"height": the_height});
+						}
 					});
 
 					$(':not(.expand_trigger_button)').click(function() {
-						isHover = false;
 						$('#expand_trigger').css({"display": "none"});
 						$('#trigger').css({"opacity": 1});
 						$('#title_expand').css({"opacity": 1});
@@ -190,7 +198,7 @@
 							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
 
 							</div>
-							<div class="table_cell" id = "post_trigger" style="vertical-align: middle">
+							<div class="table_cell" id = "post_trigger">
 							 	<span id="trigger" class="expand_trigger_button">
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
 							 	</span>
@@ -211,7 +219,7 @@
 							<% end %>
 						</div>
 						<% if user_signed_in? %>
-							<div class="table_cell expand_button" id="title_expand" style="vertical-align: middle" value = "me">
+							<div class="table_cell expand_button" id="title_expand" style="vertical-align: middle">
 								<i class="fa fa-sort-asc"></i>
 							</div>
 						<% end %>
@@ -220,6 +228,7 @@
 						<div id = "expand_trigger" style = "display: none">
 							<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
 							<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %> 
+							<i class="fa fa-times" id = "close_trigger"></i>
 						</div>
 
 						<div id="expand_me" style="display: none">
