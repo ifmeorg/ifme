@@ -44,7 +44,7 @@
 					var click_flag = 0;
 					var click_flag2 = 0;
 
-					$('.expand_button').click(function() { 
+					$('.expand_button').click(function() {
 						if (click_flag % 2 == 0) {
 							$('#expand_me').css({"display": "block"});
 							$('#me').css({"opacity": 0.8});
@@ -60,24 +60,15 @@
 						click_flag++;
 					});
 
-				
-					
-
-					$('.expand_trigger_button').mouseover(function() { 	
-						var trig = document.getElementById("expand_trigger");
-						var trigDisp = getComputedStyle(trig).getPropertyValue("display");
-						var setts = document.getElementById("expand_me");
-						var settsDisp = getComputedStyle(setts).getPropertyValue("display");
-						if(trigDisp == "none" && settsDisp == "none"){
+					$('.expand_trigger_button').mouseover(function() {
+						if ($('#expand_trigger').css('display') == "none") {
 							$('#expand_trigger').css({"display": "block"});
-							$('#trigger').css({"opacity": 0.8});
-							$('#title_expand').css({"opacity": 0.8});
-							the_height = $('#header').height();
-							$('#header_space').css({"height": the_height});
-						}else{
-							$('#expand_trigger').css({"display": "none"});
-							$('#trigger').css({"opacity": 1});
+
+							if ($('#expand_me').css('display') == "block") click_flag++;
+							$('#expand_me').css({"display": "none"});
+							$('#me').css({"opacity": 1});
 							$('#title_expand').css({"opacity": 1});
+
 							the_height = $('#header').height();
 							$('#header_space').css({"height": the_height});
 						}
@@ -90,8 +81,6 @@
 						the_height = $('#header').height();
 						$('#header_space').css({"height": the_height});
 					});
-
-
 
 					$('#search').click(function() {
 						if (click_flag2 % 2 == 0) {
@@ -127,17 +116,23 @@
 			</style>
 		<% elsif params[:controller] == "categories" %>
 			<style>
+				#header a#triggers_link:link {
+			  		border-top: 1px solid #ffffff;
+			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.5;
+			 	}
 		  		#header a#categories_link:link {
-		  			border-top: 1px solid #ffffff;
-		    		border-bottom: 1px solid #ffffff;
 		    		opacity: 0.5;
 		  		}
 			</style>
 		<% elsif params[:controller] == "moods" %>
 		  	<style>
-				#header a#moods_link:link {
-					border-top: 1px solid #ffffff;
+		  		#header a#triggers_link:link {
+			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
+			    	opacity: 0.5;
+			 	}
+				#header a#moods_link:link {
 			    	opacity: 0.5;
 			  	}
 			</style>
@@ -195,11 +190,11 @@
 			<div id="header">
 				<div id="header_content">
 					<div class="table">
-						<div class="table_cell"  id = "menu_header" style = "vertical-align: middle">
+						<div class="table_cell"  id="menu_header" style="vertical-align: middle">
 							<% if user_signed_in? %>
 							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
 							</div>
-							<div class="table_cell" id = "menu_header" style = "vertical-align: middle">
+							<div class="table_cell" id="menu_header" style="vertical-align: middle">
 							 	<span id="trigger" class="expand_trigger_button">
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
 							 	</span>
@@ -226,10 +221,9 @@
 						<% end %>
 					</div>
 					<% if user_signed_in? %>
-						<div id = "expand_trigger" style = "display: none">
-							<%= link_to('Categories', categories_path, class: 'nav_link', id: 'categories_link')  %>
-							<%= link_to('Moods', moods_path, class: 'nav_link', id: 'moods_link')  %> 
-							<i class="fa fa-times" id = "close_trigger"></i>
+						<div id="expand_trigger" style="display: none">
+							<%= link_to('Categories', categories_path, class: 'me_link', id: 'categories_link')  %>
+							<%= link_to('Moods', moods_path, class: 'me_link', id: 'moods_link')  %>
 						</div>
 
 						<div id="expand_me" style="display: none">
