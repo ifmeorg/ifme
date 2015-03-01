@@ -65,8 +65,10 @@
 
 					$('.expand_trigger_button').mouseover(function() { 	
 						var trig = document.getElementById("expand_trigger");
-						var disp = getComputedStyle(trig).getPropertyValue("display");
-						if(disp == "none"){
+						var trigDisp = getComputedStyle(trig).getPropertyValue("display");
+						var setts = document.getElementById("expand_me");
+						var settsDisp = getComputedStyle(setts).getPropertyValue("display");
+						if(trigDisp == "none" && settsDisp == "none"){
 							$('#expand_trigger').css({"display": "block"});
 							$('#trigger').css({"opacity": 0.8});
 							$('#title_expand').css({"opacity": 0.8});
@@ -193,12 +195,11 @@
 			<div id="header">
 				<div id="header_content">
 					<div class="table">
-						<div class="table_cell" id = "pre_trigger" style="vertical-align: middle">
+						<div class="table_cell"  id = "menu_header" style = "vertical-align: middle">
 							<% if user_signed_in? %>
 							  	<%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
-
 							</div>
-							<div class="table_cell" id = "post_trigger">
+							<div class="table_cell" id = "menu_header" style = "vertical-align: middle">
 							 	<span id="trigger" class="expand_trigger_button">
 							 	<%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
 							 	</span>
@@ -211,7 +212,7 @@
 							  	<%= link_to('Join', new_user_registration_path, id: 'signup_link', class: 'nav_link') %>
 							<% end %>
 						</div>
-						<div class="table_cell" id="title" style="vertical-align: middle">
+						<div class="table_cell" id="title">
 							<% if user_signed_in? %>
 								If <span id="me" class="expand_button">Me</span>
 							<% else %>

@@ -119,6 +119,10 @@ li:not(.ui-autocomplete) {
 	text-align: right;
 }
 
+#menu_header {
+	float: left;
+}
+
 #header_spacer {
 	width: 100%;
 }
