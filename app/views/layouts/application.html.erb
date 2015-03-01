@@ -312,10 +312,11 @@
 				<div id="footer_content">
 					<div class="align_left">
 						<%= link_to('About', about_path, class: "spacing") %>
-						<a href="https://github.com/julianguyen/ifme" target="_blank">Contribute</a>
+						<%= link_to('Contribute', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
+						<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
 					</div>
 					<div class="align_right">
-						&#169; 2014-<%= Time.now.strftime("%Y") %> if me
+						Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
 					</div>
 					<div class="clear"></div>
 				</div>
