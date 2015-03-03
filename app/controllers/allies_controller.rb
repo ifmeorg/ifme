@@ -1,32 +1,44 @@
 class AlliesController < ApplicationController
   before_filter :if_not_signed_in
+
   # GET /allies
   # GET /allies.json
   def index
     @page_search = true
-    @ally_requests = Array.new
-    Ally.where.not(:userid => current_user.id).all.each do |item|
-      if item.allies.include?(current_user.id) && (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(item.userid))
-        @ally_requests.push(item.userid)
-      end  
-    end
-    @allies = Ally.where(:userid => current_user.id).all
+    @accepted_allies = get_accepted_allies(current_user.id)
+    @incoming_ally_requests = get_incoming_ally_requests(current_user.id)
+    @outgoing_ally_requests = get_outgoing_ally_requests(current_user.id)
     @page_title = "Allies"
   end
 
   def add
-    if Ally.where(:userid => current_user.id).exists?
-      the_allies = Ally.where(:userid => current_user.id).first.allies
+    params[:userid1] = params[:userid1].to_i
+    params[:userid2] = params[:userid2].to_i
+    params[:status] = params[:status].to_i
 
-      if !the_allies.include?(params[:userid]) 
-        the_allies.push(params[:userid])
-      end 
+    # We will enforce that :userid1 < :userid2 for convenience
+    if params[:userid1] > params[:userid2]
+      tmp = params[:userid1]
+      params[:userid1] = params[:userid2]
+      params[:userid2] = tmp
+      if params[:status] == AllyStatus::PENDING_FROM_USERID1
+        params[:status] = AllyStatus::PENDING_FROM_USERID2
+      elsif params[:status] == AllyStatus::PENDING_FROM_USERID2
+        params[:status] = AllyStatus::PENDING_FROM_USERID1
+      end
+    end
 
-      the_user = Ally.find_by(userid: current_user.id)
-      the_user.update(allies: the_allies)
-    else 
-      new_ally = [params[:userid]]
-      Ally.create(userid: current_user.id, allies: new_ally)
+    if Ally.where(userid1: params[:userid1], userid2: params[:userid2]).exists?
+      the_ally = Ally.find_by(userid1: params[:userid1], userid2: params[:userid2])
+
+      # If the new status is pending_from_useridA and the old status is pending_from_useridB, where A != B, then the new status is accepted.
+      if (the_ally.status == AllyStatus::PENDING_FROM_USERID1 && params[:status] == AllyStatus::PENDING_FROM_USERID2) || (the_ally.status == AllyStatus::PENDING_FROM_USERID2 && params[:status] == AllyStatus::PENDING_FROM_USERID1)
+        the_ally.update(status: AllyStatus::ACCEPTED)
+      else
+        the_ally.update(status: params[:status])
+      end
+    else
+       Ally.create(userid1: params[:userid1], userid2: params[:userid2], status: params[:status])
     end
 
     respond_to do |format|
@@ -36,17 +48,19 @@ class AlliesController < ApplicationController
   end
 
   def remove
-    update_allies = Ally.where(:userid => current_user.id).first.allies 
-    update_allies.delete(params[:userid])
-    the_user = Ally.find_by(:userid => current_user.id)
-    the_user.update(allies: update_allies)
+    params[:userid1] = params[:userid1].to_i
+    params[:userid2] = params[:userid2].to_i
 
-    if Ally.where(:userid => params[:userid]).exists? && Ally.where(:userid => params[:userid]).first.allies.include?(current_user.id)
-      update_allies2 = Ally.where(:userid => params[:userid]).first.allies 
-      update_allies2.delete(current_user.id)
-      the_user2 = Ally.find_by(:userid => params[:userid])
-      the_user2.update(allies: update_allies2)
+    # We will enforce that :userid1 < :userid2 for convenience
+    if params[:userid1] > params[:userid2]
+      tmp = params[:userid1]
+      params[:userid1] = params[:userid2]
+      params[:userid2] = tmp.to_i
     end
+
+    the_ally = Ally.find_by(userid1: params[:userid1], userid2: params[:userid2])
+
+    the_ally.destroy
 
     respond_to do |format|
       format.html { redirect_to allies_path }

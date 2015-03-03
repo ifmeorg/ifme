@@ -1,33 +1,30 @@
 <%= render 'form' %>
 <div class="spacer"></div>
-<% User.all.each do |user| %>
-	<% if user.id != current_user.id %>
-		<% if ( !@name.blank? && !user.firstname.nil? && user.firstname.downcase.include?(@name.downcase) ) || ( !@name.blank?  && !user.firstname.nil? && @name.downcase.include?(user.firstname.downcase) ) || ( !@name.blank?  && !user.lastname.nil? && user.lastname.downcase.include?(@name.downcase) ) || ( !@name.blank?  && !user.lastname.nil? && @name.downcase.include?(user.lastname.downcase) ) || ( !@email.blank?  && !user.email.nil? && user.email.downcase.include?(@email.downcase) ) || ( !@location.blank?  && !user.location.nil? && user.location.downcase.include?(@location.downcase) ) %>
-			<div class="ally">
-				<div class="table">
-		        	<div class="table_cell" style="width: 200px; padding-right: 20px; vertical-align: top">
-		        		<%= image_tag fetch_profile_picture(user.avatar.url), class: 'profile_picture' %>
-		          	</div>
-		          	<div class="table_cell" style="vertical-align: top">
-						<div class="align_left">
-			       			<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
-			       		</div>
-			       		<div class="align_right location">
-			       			<%= user.location %>
-			       		</div>
-			       		<div class="clear"></div>
+<% @matching_users.each do |user| %>
+	<div class="ally">
+		<div class="table">
+        	<div class="table_cell" style="width: 200px; padding-right: 20px; vertical-align: top">
+        		<%= image_tag fetch_profile_picture(user.avatar.url), class: 'profile_picture' %>
+          	</div>
+          	<div class="table_cell" style="vertical-align: top">
+				<div class="align_left">
+	       			<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
+	       		</div>
+	       		<div class="align_right location">
+	       			<%= user.location %>
+	       		</div>
+	       		<div class="clear"></div>
 
-			       		<% if !Ally.where(:userid => user.id).exists? || !Ally.where(:userid => user.id).first.allies.include?(current_user.id) %>
-					        (Pending Request)
-					        <br>
-					        <%= link_to 'Cancel Request', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-					    <% else %>
-					        <br>
-					        <%= link_to 'Remove as Ally', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-					    <% end %>
-					</div>
-				</div>
-	    	</div>
-		<% end %>
-	<% end %>
+	       		<% if user_relation(current_user.id, user.id) == UserRelation::OUTGOING_REQUEST %>
+			        <%= link_to 'Cancel Request', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			    <% elsif user_relation(current_user.id, user.id) == UserRelation::INCOMING_REQUEST %>
+			    	<%= link_to 'Accept', add_allies_path(:userid1 => current_user.id, :userid2 => user.id, :status => AllyStatus::ACCEPTED), :method => :post %>
+			    <% elsif user_relation(current_user.id, user.id) == UserRelation::ALLY %>
+			        <%= link_to 'Remove', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			    <% elsif user_relation(current_user.id, user.id) == UserRelation::OTHER %>
+			    	<%= link_to 'Add to Allies', add_allies_path(:userid1 => current_user.id, :userid2 => user.id, :status => AllyStatus::PENDING_FROM_USERID1), :method => :post %>
+			    <% end %>
+			</div>
+		</div>
+	</div>
 <% end %>

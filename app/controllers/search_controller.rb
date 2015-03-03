@@ -3,11 +3,22 @@ class SearchController < ApplicationController
 
 	def index
 		@page_title = "Search for Allies"
+		name = params[:search][:name]
+		location = params[:search][:location]
+		email = params[:search][:email]
 
-		@name = params[:search][:name]
-		@location = params[:search][:location]
-		@email = params[:search][:email]
-	end 
+		@matching_users = User
+		if !name.nil?
+			@matching_users = @matching_users.where("firstname ilike ? or lastname like ?", "%#{name}%", "%#{name}%")
+		end
+		if !location.nil?
+			@matching_users = @matching_users.where("location ilike ?", "%#{location}%")
+		end
+		if !email.nil?
+			@matching_users = @matching_users.where("email ilike ?", "%#{email}%")
+		end
+		@matching_users = @matching_users.where.not(id: current_user.id).all
+	end
 
 	private
 

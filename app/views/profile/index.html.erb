@@ -7,7 +7,8 @@
 			<%= @profile.about %>
 			<br>
 			<br>
-		<% elsif @profile.id == current_user.id %>
+		<% end %>
+		<% if @type == UserRelation::MYSELF %>
 			<%= link_to 'Customize profile', edit_user_registration_path %>
 			<br>
 			<br>
@@ -15,22 +16,22 @@
 		<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
 		<% if @profile.id != current_user.id %>
 		 	<br>
-			<% if Ally.where(:userid => current_user.id).exists? && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
-			 	<br><%= link_to 'Cancel Request', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			<% elsif Ally.where(:userid => @profile.id).exists? && Ally.where(:userid => @profile.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(@profile.id) %>
-				<br><%= link_to 'Remove as Ally', remove_allies_path(:userid => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			<% elsif (!Ally.where(:userid => current_user.id).exists? || !Ally.where(:userid => current_user.id).first.allies.include?(@profile.id)) && (!Ally.where(:userid => @profile.id).exists? || !Ally.where(:userid => @profile.id).first.allies.include?(current_user.id)) %>
-				<br><%= link_to 'Add to Allies', add_allies_path(:userid => @profile.id), :method => :post %>
-			<% else %>
-				<br><%= link_to 'Accept', add_allies_path(:userid => @profile.id), :method => :post %>
+			<% if @type == UserRelation::OUTGOING_REQUEST %>
+			 	<br><%= link_to 'Cancel Request', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% elsif @type == UserRelation::ALLY %>
+				<br><%= link_to 'Remove', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% elsif @type == UserRelation::OTHER %>
+				<br><%= link_to 'Add to Allies', add_allies_path(:userid1 => current_user.id, :userid2 => @profile.id, :status => AllyStatus::PENDING_FROM_USERID1), :method => :post %>
+			<% elsif @type == UserRelation::INCOMING_REQUEST %>
+				<br><%= link_to 'Accept', add_allies_path(:userid1 => current_user.id, :userid2 => @profile.id, :status => AllyStatus::ACCEPTED), :method => :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
 			<% end %>
 		<% end %>
 	</div>
 </div>
 <div class="spacer"></div>
 
-<% if @triggers.exists? %>
-	<% @triggers.all.each do |item| %>
+<% if !@triggers.nil? %>
+	<% @triggers.each do |item| %>
 		<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
 			<div class="profile">
 				<h1 class="profile_name"><%= link_to item.name, item %></h1>

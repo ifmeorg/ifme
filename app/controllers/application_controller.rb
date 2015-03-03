@@ -1,3 +1,19 @@
+module UserRelation
+	mattr_accessor :myself, :ally, :incoming_request, :outgoing_request, :other
+	MYSELF = 0
+	ALLY = 1
+	INCOMING_REQUEST = 2
+	OUTGOING_REQUEST = 3
+	OTHER = 4
+end
+
+module AllyStatus
+	mattr_accessor :accepted, :pending_from_userid1, :pending_from_userid2
+	ACCEPTED = 0
+	PENDING_FROM_USERID1 = 1
+	PENDING_FROM_USERID2 = 2
+end
+
 class ApplicationController < ActionController::Base
 	include ActionView::Helpers::UrlHelper
   	# Prevent CSRF attacks by raising an exception.
@@ -5,7 +21,7 @@ class ApplicationController < ActionController::Base
   	protect_from_forgery with: :exception
   	before_filter :configure_permitted_parameters, if: :devise_controller?
 
-	protected
+  	protected
 
   	def configure_permitted_parameters
   		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar) }
@@ -13,7 +29,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation
 
 	def fetch_taxonomies(data, data_type, item, taxonomy, show)
 		if taxonomy == "category" && Category.where(:id => item.to_i).exists?
@@ -98,13 +114,46 @@ class ApplicationController < ActionController::Base
       	return return_this.html_safe
 	end
 
-	def are_allies(user1, user2)
-		if Ally.where(:userid => user1).exists? && Ally.where(:userid => user2).exists?
-			if Ally.where(:userid => user1).first.allies.include?(user2) && Ally.where(:userid => user2).first.allies.include?(user1)
-				return true
-			end
+	def get_accepted_allies(userid)
+		userid1s = Ally.where(userid1: userid, status: AllyStatus::ACCEPTED).pluck(:userid2)
+    	userid2s = Ally.where(userid2: userid, status: AllyStatus::ACCEPTED).pluck(:userid1)
+    	return userid1s + userid2s
+	end
+
+	def get_outgoing_ally_requests(userid)
+		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid2)
+    	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid1)
+    	return userid1s + userid2s
+	end
+
+	def get_incoming_ally_requests(userid)
+		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid2)
+    	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid1)
+    	return userid1s + userid2s
+	end
+
+	def are_allies(userid1, userid2)
+		return get_accepted_allies(userid1).include? userid2.to_i
+	end
+
+	# A is a pending ally of B if A sent B an ally request
+	def are_pending_allies(userid1, userid2)
+		return get_outgoing_ally_requests(userid1).include? userid2.to_i
+	end
+
+	def user_relation(userid1, userid2)
+		type = UserRelation::OTHER
+		if userid1 == userid2
+			type = UserRelation::MYSELF
+		elsif are_allies(userid1, userid2)
+			type = UserRelation::ALLY
+		elsif are_pending_allies(userid2, userid1)
+			type = UserRelation::INCOMING_REQUEST
+		elsif are_pending_allies(userid1, userid2)
+			type = UserRelation::OUTGOING_REQUEST
 		end
-		return false
+
+		return type
 	end
 
 	def fetch_profile_picture(avatar)

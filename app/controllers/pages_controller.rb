@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   		@page_title = "Latest"
   		@triggers = Trigger.order("created_at DESC").all
   		#where("created_at >= ?", 4.week.ago.utc)
-  		@allies = Ally.where(:userid => current_user.id).all
   	else
       @page_title = 'Welcome'
   	end
