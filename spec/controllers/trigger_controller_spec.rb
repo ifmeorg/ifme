@@ -6,19 +6,18 @@ describe TriggersController do
 			new_user = create(:user1)
 			sign_in new_user
 	  		get :index
-	  		expect(response).to render_template("index")
+	  		expect(response).to render_template(:index)
 		end
 
 		it "POST new" do
-=begin
 			new_user = create(:user1)
 			sign_in new_user
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
-	  		new_trigger = attributes_for(:trigger).merge(userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
-	  		puts new_trigger
+	  		new_trigger = attributes_for(:trigger).merge(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
+	  		get :new
+    		expect(response).to render_template(:new)
 	  		expect{post :create,  trigger: new_trigger}.to change(Trigger, :count).by(1)
-=end
 		end
 
 		it "GET show" do
@@ -27,17 +26,15 @@ describe TriggersController do
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
 	  		new_strategies = create(:strategy, userid: new_user.id)
-	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(new_mood.id), strategies: Array.new(new_strategies.id))
+	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), strategies: Array.new(1, new_strategies.id))
 	  		get :show, id: new_trigger
-	  		expect(response).to render_template("show")
+	  		expect(response).to render_template(:show)
 		end
+
 =begin
 		it "POST comment" do
-			new_user = create(:user1)
-			sign_in new_user
-			new_category = create(:category, userid: new_user.id)
-	  		new_mood = create(:mood, userid: new_user.id)
-	  		new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))
+	  		get :comment
+	  		expect(response).to render_template(:show)
 		end
 =end
 
