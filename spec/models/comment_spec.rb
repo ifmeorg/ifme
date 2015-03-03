@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Comment do
 	it "posts a valid comment" do
-	  new_user = create(:user)
+	  new_user = create(:user1)
 	  new_category = create(:category, userid: new_user.id)
 	  new_mood = create(:mood, userid: new_user.id)
 	  new_strategies = create(:strategy, userid: new_user.id)
@@ -12,7 +12,7 @@ describe Comment do
 	end
 
 	it "posts an invalid comment" do
-	  new_user = create(:user)
+	  new_user = create(:user1)
 	  new_category = create(:category, userid: new_user.id)
 	  new_mood = create(:mood, userid: new_user.id)
 	  new_trigger = create(:trigger, userid: new_user.id, category: Array.new(new_category.id), mood: Array.new(new_mood.id))

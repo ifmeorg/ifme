@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TriggersController do
 	describe "signed in" do
 		it "GET index" do
-			new_user = create(:user)
+			new_user = create(:user1)
 			sign_in new_user
 	  		get :index
 	  		expect(response).to render_template("index")
@@ -11,7 +11,7 @@ describe TriggersController do
 
 		it "POST new" do
 =begin
-			new_user = create(:user)
+			new_user = create(:user1)
 			sign_in new_user
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
@@ -22,7 +22,7 @@ describe TriggersController do
 		end
 
 		it "GET show" do
-			new_user = create(:user)
+			new_user = create(:user1)
 			sign_in new_user
 	 		new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
@@ -33,7 +33,7 @@ describe TriggersController do
 		end
 =begin
 		it "POST comment" do
-			new_user = create(:user)
+			new_user = create(:user1)
 			sign_in new_user
 			new_category = create(:category, userid: new_user.id)
 	  		new_mood = create(:mood, userid: new_user.id)
@@ -43,7 +43,7 @@ describe TriggersController do
 
 		describe "POST support" do
 			it "first time support for triggers" do
-				new_user = create(:user)
+				new_user = create(:user1)
 				sign_in new_user
 		 		new_category = create(:category, userid: new_user.id)
 		  		new_mood = create(:mood, userid: new_user.id)
@@ -53,7 +53,7 @@ describe TriggersController do
 			end
 
 			it "supports more triggers" do
-				new_user = create(:user)
+				new_user = create(:user1)
 				sign_in new_user
 		 		new_category = create(:category, userid: new_user.id)
 		  		new_mood = create(:mood, userid: new_user.id)
