@@ -38,7 +38,7 @@
         				<% if current_user.id == trigger.userid %>
         					<%= link_to "You", profile_index_path(:userid => trigger.userid) %>
         				<% else %>
-        					<%= link_to User.where(:id => trigger.userid).first.firstname + " " + User.where(:id => trigger.userid).first.lastname, profile_index_path(:userid => trigger.userid) %>
+        					<%= link_to User.where(:id => trigger.userid).first.name, profile_index_path(:userid => trigger.userid) %>
         				<% end %>
         			</h1>
      			</div>

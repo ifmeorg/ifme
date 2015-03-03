@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   #get 'pages/about', as: 'about'
   match 'about', to: 'pages#about', via: :get
 
-  devise_for :users, :controllers => { :registrations => :registrations }
+  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks' }
 
   mount Ckeditor::Engine => "/ckeditor"
 

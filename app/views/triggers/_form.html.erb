@@ -39,7 +39,7 @@
         <div class="label"><%= f.label :viewers %></div>
         <% @viewers.each do |item| %>
           <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %>
-          <%= User.where(:id => item).first.firstname %> <%= User.where(:id => item).first.lastname %><br>
+          <%= User.where(:id => item).first.name %><br>
         <% end %>
 
       </div>

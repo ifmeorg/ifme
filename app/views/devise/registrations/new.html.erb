@@ -45,9 +45,8 @@
   <div class="spacer"></div>
 
   <div class="center">
-    <div class="field"><div class="label"><%= f.label 'Full Name' %></div>
-    <%= f.text_field :firstname, autofocus: true, class: 'spacing', placeholder: 'First name' %>
-    <%= f.text_field :lastname, placeholder: 'Last name' %></div>
+    <div class="field"><div class="label"><%= f.label 'Name' %></div>
+    <%= f.text_field :name, autofocus: true %></div>
 
     <div class="field"><div class="label"><%= f.label 'A few details' %></div>
     <%= f.text_field :location, class: 'spacing', placeholder: 'Location' %>
@@ -64,4 +63,6 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="center">
+  <%= render "devise/shared/links" %>
+</div>

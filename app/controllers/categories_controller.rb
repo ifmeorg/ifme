@@ -17,17 +17,17 @@ class CategoriesController < ApplicationController
       @page_title = @category.name
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
-      else 
+      else
         link_url = "/profile?userid=" + @category.userid.to_s
-        the_link = link_to User.where(:id => @category.userid).first.firstname + " " + User.where(:id => @category.userid).first.lastname, link_url
+        the_link = link_to User.where(:id => @category.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
-    else 
+    else
       respond_to do |format|
         format.html { redirect_to categories_path }
         format.json { head :no_content }
       end
-    end 
+    end
   end
 
   # GET /categories/new
@@ -40,12 +40,12 @@ class CategoriesController < ApplicationController
   def edit
     if @category.userid == current_user.id
       @page_title = "Edit " + @category.name
-    else 
+    else
       respond_to do |format|
         format.html { redirect_to category_path(@category) }
         format.json { head :no_content }
       end
-    end 
+    end
   end
 
   # POST /categories
@@ -109,7 +109,7 @@ class CategoriesController < ApplicationController
             format.html { redirect_to categories_path }
             format.json { head :no_content }
           end
-        end 
+        end
       end
     end
 
@@ -134,7 +134,7 @@ class CategoriesController < ApplicationController
         if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.category.include?(category.id) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id)
           return true
         end
-      end 
+      end
       return false
     end
 end

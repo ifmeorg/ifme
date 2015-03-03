@@ -17,12 +17,12 @@ class MoodsController < ApplicationController
       @page_title = @mood.name
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
-      else 
+      else
         link_url = "/profile?userid=" + @mood.userid.to_s
-        the_link = link_to User.where(:id => @mood.userid).first.firstname + " " + User.where(:id => @mood.userid).first.lastname, link_url
+        the_link = link_to User.where(:id => @mood.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
-    else 
+    else
       respond_to do |format|
         format.html { redirect_to moods_path }
         format.json { head :no_content }
@@ -45,7 +45,7 @@ class MoodsController < ApplicationController
         format.html { redirect_to mood_path(@mood) }
         format.json { head :no_content }
       end
-    end 
+    end
   end
 
   # POST /moods
@@ -109,7 +109,7 @@ class MoodsController < ApplicationController
             format.html { redirect_to moods_path }
             format.json { head :no_content }
           end
-        end 
+        end
       end
     end
 
@@ -134,7 +134,7 @@ class MoodsController < ApplicationController
         if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.mood.include?(mood.id) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id)
           return true
         end
-      end 
+      end
       return false
     end
 end

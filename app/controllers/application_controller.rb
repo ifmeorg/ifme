@@ -24,9 +24,9 @@ class ApplicationController < ActionController::Base
   	protected
 
   	def configure_permitted_parameters
-  		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar) }
+  		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar) }
 
-  		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :firstname, :lastname, :email, :password, :password_confirmation, :current_password, :timezone) }
+  		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
 	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation
@@ -92,14 +92,14 @@ class ApplicationController < ActionController::Base
 					if s.userid == current_user.id
          				return_this = link_to "You", link_url
          			else
-         				return_this = link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         				return_this = link_to User.where(:id => s.userid).first.name, link_url
          			end
          		else
          			return_this += ", "
          			if s.userid == current_user.id
          				return_this += link_to "You", link_url
          			else
-         				return_this += link_to User.where(:id => s.userid).first.firstname + " " + User.where(:id => s.userid).first.lastname, link_url
+         				return_this += link_to User.where(:id => s.userid).first.name, link_url
          			end
          		end
       		end

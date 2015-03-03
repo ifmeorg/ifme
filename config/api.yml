@@ -1,0 +1,11 @@
+development:
+  google_client_id: "764296591688-srfkad2uvh0rbseqlakjj608irm1erdo.apps.googleusercontent.com"
+  google_client_secret: "VBfK6kGrY0hNeOF_AbC8Lj41"
+
+test:
+  google_client_id: "764296591688-srfkad2uvh0rbseqlakjj608irm1erdo.apps.googleusercontent.com"
+  google_client_secret: "VBfK6kGrY0hNeOF_AbC8Lj41"
+
+production:
+  google_client_id: "764296591688-srfkad2uvh0rbseqlakjj608irm1erdo.apps.googleusercontent.com"
+  google_client_secret: "VBfK6kGrY0hNeOF_AbC8Lj41"

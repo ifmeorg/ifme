@@ -9,7 +9,7 @@ class SearchController < ApplicationController
 
 		@matching_users = User
 		if !name.nil?
-			@matching_users = @matching_users.where("firstname ilike ? or lastname like ?", "%#{name}%", "%#{name}%")
+			@matching_users = @matching_users.where("name ilike ?", "%#{name}%")
 		end
 		if !location.nil?
 			@matching_users = @matching_users.where("location ilike ?", "%#{location}%")

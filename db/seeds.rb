@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Users
-user1 = User.create(firstname: 'Test1', lastname: 'Lastname', email: 'test1@example.com', password: 'password99', location: 'Toronto, ON, Canada', timezone: '-05:00', about: 'Hi my name is Test1! I want to use the site so that I can improve the way I handle my anxiety.	')
-user2 = User.create(firstname: 'Test2', lastname: 'Lastname', email: 'test2@example.com', password: 'password99', location: 'Toronto, ON, Canada', timezone: '-05:00')
-user3 = User.create(firstname: 'Test3', lastname: 'Two-Lastnames', email: 'test3@example.com', password: 'password99', location: 'San Francisco, CA, United States', timezone: '-08:00')
+user1 = User.create(name: 'Test1 Lastname', email: 'test1@example.com', password: 'password99', location: 'Toronto, ON, Canada', timezone: '-05:00', about: 'Hi my name is Test1! I want to use the site so that I can improve the way I handle my anxiety.	')
+user2 = User.create(name: 'Test2 Lastname', email: 'test2@example.com', password: 'password99', location: 'Toronto, ON, Canada', timezone: '-05:00')
+user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'password99', location: 'San Francisco, CA, United States', timezone: '-08:00')
 
 # Allies
 Ally.create(userid1: user1.id, userid2: user2.id, status: :accepted)

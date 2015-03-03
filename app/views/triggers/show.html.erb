@@ -108,7 +108,7 @@
       <%= f.hidden_field :comment_type, :value => 'trigger' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.firstname + ' only', 'private']] %>
+      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
       <%= f.submit "Comment" %>
     </div>
   <% end %>
@@ -124,11 +124,11 @@
             </div>
             <div class="table_cell">
               <div class="comment_info">
-                <%= link_to profile.firstname + " " + profile.lastname, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
               </div>
               <%= simple_format(comment.comment) %>
               <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
-                <div class="subtle">Visible only between you and <%= profile.firstname %></div>
+                <div class="subtle">Visible only between you and <%= profile.name %></div>
               <% end %>
             </div>
           </div>

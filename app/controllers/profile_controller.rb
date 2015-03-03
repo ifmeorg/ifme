@@ -15,7 +15,7 @@ class ProfileController < ApplicationController
 		end
 
 		@profile = User.where(:id => params[:userid]).first
-		@page_title = @profile.firstname + " " + @profile.lastname
+		@page_title = @profile.name
 	end
 
 	private

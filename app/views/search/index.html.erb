@@ -8,7 +8,7 @@
           	</div>
           	<div class="table_cell" style="vertical-align: top">
 				<div class="align_left">
-	       			<h1 class="ally_name"><%= link_to user.firstname + " " + user.lastname, profile_index_path(:userid => user.id) %></h1>
+	       			<h1 class="ally_name"><%= link_to user.name, profile_index_path(:userid => user.id) %></h1>
 	       		</div>
 	       		<div class="align_right location">
 	       			<%= user.location %>

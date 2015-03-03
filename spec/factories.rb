@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :user1, class: User do
-    firstname "Oprah"
-    lastname  "Chang"
+    name "Oprah Chang"
     email "oprah.chang@example.com"
     password "password"
     location "Toronto, ON, Canada"
@@ -9,8 +8,7 @@ FactoryGirl.define do
   end
 
   factory :user2, class: User do
-    firstname "Plum"
-    lastname  "Blossom"
+    name "Plum Blossom"
     email "plum.blossom@example.com"
     password "password"
     location "Toronto, ON, Canada"

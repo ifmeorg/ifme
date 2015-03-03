@@ -47,9 +47,8 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 	<%= devise_error_messages! %>
 
-	<div class="field"><div class="label"><%= f.label "Full name" %></div>
-	<%= f.text_field :firstname, autofocus: true, class: "spacing", placeholder: "First name" %>
-	<%= f.text_field :lastname, placeholder: "First name" %></div>
+	<div class="field"><div class="label"><%= f.label "Name" %></div>
+	<%= f.text_field :name, autofocus: true %></div>
 
 	<div class="field"><div class="label"><%= f.label :location %></div>
 	<%= f.text_field :location %></div>
@@ -70,6 +69,9 @@
 	<div class="field"><div class="label"><%= f.label :about %></div>
 	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? List some fun facts!" %></div>
 
+	<% if current_user.provider == "google_oauth2" %>
+		<div class="field"><div class="label"><label>Password for <strong>if me</strong> account</label></div></div>
+	<% end %>
 	<div class="field"><div class="label"><%= f.label "New password" %></div>
 	<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
 	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %></div>

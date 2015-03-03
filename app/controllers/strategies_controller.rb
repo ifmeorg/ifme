@@ -17,7 +17,7 @@ class StrategiesController < ApplicationController
       @page_edit = edit_strategy_path(@strategy)
     else
       link_url = "/profile?userid=" + @strategy.userid.to_s
-      the_link = link_to User.where(:id => @strategy.userid).first.firstname + " " + User.where(:id => @strategy.userid).first.lastname, link_url
+      the_link = link_to User.where(:id => @strategy.userid).first.name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
