@@ -79,14 +79,7 @@ class TriggersController < ApplicationController
 
   # GET /triggers/new
   def new
-    @viewers = Array.new
-    if Ally.where(:userid => current_user.id).exists?
-      User.where.not(:id => current_user.id).all.each do |item|
-        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
-          @viewers.push(item.id)
-        end
-      end
-    end
+    @viewers = get_accepted_allies(current_user.id)
     @trigger = Trigger.new
     @page_title = "New Trigger"
   end
@@ -94,14 +87,7 @@ class TriggersController < ApplicationController
   # GET /triggers/1/edit
   def edit
     if @trigger.userid == current_user.id
-      @viewers = Array.new
-      if Ally.where(:userid => current_user.id).exists?
-        User.where.not(:id => current_user.id).all.each do |item|
-          if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
-            @viewers.push(item.id)
-          end
-        end
-      end
+      @viewers = get_accepted_allies(current_user.id)
       @page_title = "Edit " + @trigger.name
     else
       respond_to do |format|
@@ -116,14 +102,7 @@ class TriggersController < ApplicationController
   def create
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
-    @viewers = Array.new
-    if Ally.where(:userid => current_user.id).exists?
-      User.where.not(:id => current_user.id).all.each do |item|
-        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
-          @viewers.push(item.id)
-        end
-      end
-    end
+    @viewers = get_accepted_allies(current_user.id)
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -139,14 +118,7 @@ class TriggersController < ApplicationController
   # PATCH/PUT /triggers/1.json
   def update
     @page_title = "Edit " + @trigger.name
-    @viewers = Array.new
-    if Ally.where(:userid => current_user.id).exists?
-      User.where.not(:id => current_user.id).all.each do |item|
-        if Ally.where(:userid => item.id).exists? && Ally.where(:userid => item.id).first.allies.include?(current_user.id) && Ally.where(:userid => current_user.id).first.allies.include?(item.id)
-          @viewers.push(item.id)
-        end
-      end
-    end
+    @viewers = get_accepted_allies(current_user.id)
     respond_to do |format|
       if @trigger.update(trigger_params)
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }
