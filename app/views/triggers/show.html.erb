@@ -9,7 +9,7 @@
       <% end %>
     </strong>
     <% @trigger.category.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "category", true) %>
+      <%= fetch_taxonomies(@trigger, "trigger", item, "category", true, true) %>
     <% end %>
 <% end %>
 
@@ -23,7 +23,7 @@
       <% end %>
     </strong>
     <% @trigger.mood.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "mood", true) %>
+      <%= fetch_taxonomies(@trigger, "trigger", item, "mood", true, true) %>
     <% end %>
 <% end %>
 
@@ -45,7 +45,7 @@
   <p>
     <div class="label"><%= label_tag t('strategies_label') %></div>
     <% @trigger.strategies.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true) %>
+      <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true, true) %>
     <% end %>
   </p>
 <% end %>

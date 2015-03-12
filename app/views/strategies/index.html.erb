@@ -18,7 +18,7 @@
           <% end %>
         </strong>
         <% strategy.category.each do |item| %>
-          <%= fetch_taxonomies(strategy, "strategy", item, "category", false) %>
+          <%= fetch_taxonomies(strategy, "strategy", item, "category", false, false) %>
         <% end %>
       <% end %>
       <div style="margin-top: 20px">

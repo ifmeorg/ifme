@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
 	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation
 
-	def fetch_taxonomies(data, data_type, item, taxonomy, show)
+	def fetch_taxonomies(data, data_type, item, taxonomy, show, list)
 		if taxonomy == "category" && Category.where(:id => item.to_i).exists?
 			if !Category.where(:id => item.to_i).first.description.blank?
 				link_name = Category.where(:id => item.to_i).first.name
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 			else
 				return_this = Category.where(:id => item.to_i).first.name
 			end
-			if item != data.category.last
+			if item != data.category.last and list
 				return_this += ', '
 			end
 		elsif taxonomy == "mood" && Mood.where(:id => item.to_i).exists?
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
 			else
 				return_this = Mood.where(:id => item.to_i).first.name
 			end
-			if item != data.mood.last
+			if item != data.mood.last and list
 				return_this += ', '
 			end
 		elsif taxonomy == "strategy" && Strategy.where(:id => item.to_i).exists?
@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
 			else
 				return_this = Strategy.where(:id => item.to_i).first.name
 			end
-			if item != data.strategies.last
+			if item != data.strategies.last and list
 				return_this += ', '
 			end
 		end

@@ -20,14 +20,14 @@
         <div class="label"><%= f.label 'Categories' %></div>
         <% Category.where(:userid => current_user.id).all.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "category", true) %><br>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "category", true, false) %><br>
         <% end %>
       </div>
       <div class="field">
         <div class="label"><%= f.label 'Moods' %></div>
         <% Mood.where(:userid => current_user.id).all.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true) %><br>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
         <% end %>
       </div>
       <div class="field">
@@ -59,7 +59,7 @@
         <% if strategy.length > 0 %>
           <% strategy.each do |item| %>
             <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
-            <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true) %><br>
+            <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true, false) %><br>
           <% end %>
         <% else %>
           There are no strategies available! <%= link_to 'Create', new_strategy_path %> new strategy and add it to this trigger.

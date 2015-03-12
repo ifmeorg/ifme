@@ -18,7 +18,7 @@
           <% end %>
         </strong>
         <% trigger.category.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "category", false) %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "category", false, true) %>
         <% end %>
       <% end %>
       <% if trigger.mood.count > 0 %>
@@ -31,7 +31,7 @@
           <% end %>
         </strong>
         <% trigger.mood.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "mood", false) %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "mood", false, true) %>
         <% end %>
       <% end %>
       <% if trigger.strategies.count > 0 %>
@@ -44,7 +44,7 @@
           <% end %>
         </strong>
         <% trigger.strategies.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false) %>
+          <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false, true) %>
         <% end %>
       <% end %>
       <div style="margin-top: 20px">

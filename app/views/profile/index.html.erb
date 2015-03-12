@@ -43,7 +43,7 @@
 			      <% end %>
 			    </strong>
 				<% item.category.each do |category_item| %>
-      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true) %>
+      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true, true) %>
     			<% end %>
     			<br>
     			<strong>
@@ -54,7 +54,7 @@
 			      <% end %>
 			    </strong>
 				<% item.mood.each do |mood_item| %>
-      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true) %>
+      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true, true) %>
     			<% end %>
     			<br>
 			    <br>

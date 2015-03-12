@@ -9,7 +9,7 @@
       <% end %>
     </strong>
     <% @strategy.category.each do |item| %>
-      <%= fetch_taxonomies(@strategy, "strategy", item, "category", true) %>
+      <%= fetch_taxonomies(@strategy, "strategy", item, "category", true, true) %>
     <% end %>
 <% end %>
 
