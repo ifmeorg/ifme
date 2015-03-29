@@ -103,14 +103,6 @@ class TriggersController < ApplicationController
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
     @viewers = get_accepted_allies(current_user.id) 
-    post_type = (params[:trigger][:post_type]).to_i
-    if post_type == 1
-	@viewers.each do |item|
-	    @trigger.viewers.push(item)
-	end
-    else
-	@trigger.viewers = nil
-    end
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
