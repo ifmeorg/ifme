@@ -62,5 +62,6 @@ describe TriggersController do
 		  		expect(response).to redirect_to(trigger_path(other_new_trigger.id))
 			end
 		end
+		
 	end
 end
