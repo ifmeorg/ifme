@@ -97,12 +97,13 @@ class TriggersController < ApplicationController
     end
   end
 
+
   # POST /triggers
   # POST /triggers.json
   def create
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
-    @viewers = get_accepted_allies(current_user.id) 
+    @allowed_viewers = User.where(:view_permission => true).pluck(:name).join("\n")
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -111,6 +112,23 @@ class TriggersController < ApplicationController
         format.html { render :new }
         format.json { render json: @trigger.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def allies
+    @viewers = get_accepted_allies(current_user.id)
+    if params[:commit]
+      if params[:viewers]
+        @allowed_viewers = params[:viewers]
+        @allowed_viewers.each do |viewer|
+          User.where(name: viewer).first.update_attributes!(:view_permission => true)
+          @viewers.delete(User.where(name: viewer).first.id)
+        end
+      else
+          User.update_all(:view_permission => false)
+      end
+    else
+      render :layout => false
     end
   end
 

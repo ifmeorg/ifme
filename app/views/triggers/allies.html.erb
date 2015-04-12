@@ -1,0 +1,24 @@
+<%= form_tag({:controller => "triggers", :action => "allies"}, :remote => true) do |f| %>
+<h3>Share with: </h3>
+<% @viewers.each do |item| %>
+    <%= check_box_tag("viewers[]", User.where(:id => item).first.name, User.find(item).view_permission, :id => User.find(item).id) %>
+    <%= User.where(:id => item).first.name %><br>
+<% end %>
+<br>
+<%= submit_tag "Save", :id => "btnClose" %>
+<% end %>
+
+<script>
+
+$(function () {
+ 	$('form').submit(function(){
+ 		//Uncomment to list viewers and uncomment view div #text
+	    /*$('input:checkbox:checked').each(function(){
+        	window.parent.$("#text").text(parent.$("#text").text() + $(this).val() +  ", ");
+        });
+		*/
+    	$("#cboxClose").click();
+ 	});
+});
+
+</script>

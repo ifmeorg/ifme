@@ -1,0 +1,47 @@
+<%= form_tag({:controller => "triggers", :action => "allies"}, :remote => true) do |f| %>
+<h3>Share with: </h3>
+<% @viewers.each do |item| %>
+    <%= check_box_tag("viewers[]", User.where(:id => item).first.name, false, :id => User.find(item).id) %>
+    <%= User.where(:id => item).first.name %><br>
+<% end %>
+<br>
+<%= submit_tag "Save", :id => "btnClose" %>
+<% end %>
+
+<script>
+
+
+$(function () {
+
+ 	$('form').submit(function(){
+	    $('input:checkbox:checked').each(function(){
+        	window.parent.$("#text").text(parent.$("#text").text() + $(this).val() +  ", ");
+        });
+    	$("#cboxClose").click();
+ 	});
+});
+
+
+
+/*
+$(document).ready(function(){
+        $('form').submit(function(){
+        	    var valuesToSubmit = $(this).serialize();
+    			$.ajax({
+        			type: "POST",
+        			url: $(this).attr('action'), //sumbits it to the given url of the form
+        			data: valuesToSubmit,
+        			dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+    			}).success(function(json){
+        			console.log("success", json);
+    			});
+                    $('input:checkbox:checked').each(function(){
+                        window.parent.$("#text").text(parent.$("#text").text() + $(this).val()+" ,");
+
+                    });
+                    parent.$.colorbox.close();
+                    return false;
+        });             
+    });
+*/
+</script>

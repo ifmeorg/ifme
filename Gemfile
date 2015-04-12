@@ -69,6 +69,10 @@ gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
+gem 'jquery-colorbox-rails'
+
+gem 'colorbox-rails'
+
 group :development, :test do
 	gem 'railroady'
 end

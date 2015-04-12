@@ -2,7 +2,6 @@
   <% if @trigger.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
-
       <ul>
       <% @trigger.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -38,7 +37,13 @@
       <div class="field">
         <div class="label"><%= f.label :viewers %></div>
 	       <%= f.radio_button(:post_type, 1, :checked => true) %>Allies<br>
-	       <%= f.radio_button(:post_type, 0) %>Only Me
+	       <%= f.radio_button(:post_type, 0) %>Only Me<br>
+	       <%= f.radio_button(:post_type, 2, {:id => "radio"})%>
+         <%= link_to "Custom", allies_triggers_path, :data => {:colorbox => true} , class: "cb"%>
+         <br>
+<!--         <p id="text">
+          Visible to:
+        </p> -->
       </div>
     </div>
     <div class="table_cell">
@@ -73,5 +78,12 @@
 
 
 
+<script>
+$(function(){
+$('.cb').click(function(){
+  $('#radio').prop("checked", true);
+});
+});
+</script>
 
 

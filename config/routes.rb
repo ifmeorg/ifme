@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     collection do
       post "comment"
       post "support"
-    end
+      get "allies" 
+   end
   end
 
   resources :strategies do
@@ -35,7 +36,7 @@ Rails.application.routes.draw do
   get 'pages/home'
   #get 'pages/about', as: 'about'
   match 'about', to: 'pages#about', via: :get
-
+  match '/triggers/allies', to: 'triggers#allies', via: :post
   devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks' }
 
   mount Ckeditor::Engine => "/ckeditor"

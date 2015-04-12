@@ -29,9 +29,11 @@ class Trigger < ActiveRecord::Base
 	def check_post_type
 		if self.post_type == 1
 	   		self.viewers = Ally.where(:status => 0).pluck(:id)
-    	else
+    	elsif self.post_type == 0
 	   		self.viewers = nil
+	   	else
+	   		self.viewers = User.where(:view_permission => true).pluck(:id)
     	end
+    	User.update_all(:view_permission => false)
 	end
-
 end
