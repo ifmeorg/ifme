@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20150326231724) do
     t.integer  "status"
   end
 
+  create_table "bootsy_image_galleries", force: true do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: true do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -131,6 +145,7 @@ ActiveRecord::Schema.define(version: 20150326231724) do
     t.string   "timezone"
     t.text     "about"
     t.string   "avatar"
+    t.text     "conditions"
     t.string   "token"
     t.string   "uid"
     t.string   "provider"

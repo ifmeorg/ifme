@@ -329,7 +329,7 @@ img {
 	 max-width: 100%;
 }
 
-.profile_picture {
+.profile_picture, .contributor_picture {
 	width: 200px;
 	border-radius: 150px;
 	border: 2px solid #6d0839;
@@ -481,7 +481,7 @@ div.table {
 	width: 100%;
 }
 
-div.table div.table-row {
+div.table div.table_row {
 	display: table-row;
 }
 
@@ -520,4 +520,8 @@ div.table div.table_cell {
 
 .fa-inline {
 	margin-right: 20px;
+}
+
+.fa-left {
+	margin-left: 20px;
 }

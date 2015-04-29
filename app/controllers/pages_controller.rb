@@ -12,4 +12,12 @@ class PagesController < ApplicationController
   def about
     @page_title = "About"
   end
+
+  def contributors
+    @page_title = "Contributors"
+  end
+
+  def blog
+    @page_title = "Blog"
+  end
 end

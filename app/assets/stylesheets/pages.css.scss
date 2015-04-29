@@ -57,3 +57,26 @@
 	background-color: #000000;
 	width: 80px;
 }
+
+/* Blog */
+
+.blog_post {
+	padding: 20px;
+	border: 1px solid #6D0839;
+	box-shadow: 0 0 2px #6D0839 inset;
+	margin-bottom: 40px;
+}
+
+h1.blog_name {
+	font-weight: 300;
+	font-size: 26px;
+	padding: 0;
+	margin: 0;
+	color: #6D0839;
+}
+
+h1.blog_name a:link, h1.blog_name a:visited {
+	color: #6D0839;
+	text-decoration: none;
+	border: none;
+}

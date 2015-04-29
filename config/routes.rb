@@ -33,8 +33,9 @@ Rails.application.routes.draw do
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
 
   get 'pages/home'
-  #get 'pages/about', as: 'about'
   match 'about', to: 'pages#about', via: :get
+  match 'contributors', to: 'pages#contributors', via: :get
+  match 'blog', to: 'pages#blog', via: :get
 
   devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks' }
 

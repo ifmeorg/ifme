@@ -173,7 +173,7 @@
 
 			<div id="header_space"></div>
 
-			<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) %>
+			<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) || current_page?(contributors_path) || current_page?(blog_path) %>
 			<div id="page_title">
 			<% else %>
 			<div id="page_title">
@@ -251,7 +251,9 @@
 				<div id="footer_content">
 					<div class="align_left">
 						<%= link_to('About', about_path, class: "spacing") %>
-						<%= link_to('Contribute', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
+						<%= link_to('Blog', blog_path, class: "spacing") %>
+						<%= link_to('Contributors', contributors_path, class: "spacing") %>
+						<%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
 						<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
 					</div>
 					<div class="align_right">
