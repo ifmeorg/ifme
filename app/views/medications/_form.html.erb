@@ -49,36 +49,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <div class="label"><%= f.label :name %></div>
-    <%= f.text_field :name %>
+<div class="table">
+  <div class="table_cell" style="padding-right: 40px; width: 400px">
+    <div class="field">
+      <div class="label"><%= f.label :name %></div>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <div class="label"><%= f.label :strength %> <i>(e.g. 100 mg)</i></div>
+      <%= f.number_field :strength %>
+      <%= f.radio_button(:strength_unit, 'mg') %>mg
+      <%= f.radio_button(:strength_unit, 'ml') %>ml
+    </div>
+    <div class="field">
+      <div class="label"><%= f.label "Total Quantity" %> <i>(e.g. 30 tablets)</i></div>
+      <%= f.number_field :total %>
+      <%= f.radio_button(:total_unit, 'tablets') %>tablets
+      <%= f.radio_button(:total_unit, 'mg') %>mg
+      <%= f.radio_button(:total_unit, 'ml') %>ml
+    </div>
+    <div class="field">
+      <div class="label"><%= f.label "Daily Dosage" %> <i>(e.g. 1 tablet)</i></div>
+      <%= f.number_field :dosage %>
+      <%= f.radio_button(:dosage_unit, 'tablets') %>tablets
+      <%= f.radio_button(:dosage_unit, 'mg') %>mg
+      <%= f.radio_button(:dosage_unit, 'ml') %>ml
+    </div>
+    <div class="field">
+      <div class="label"><%= f.label :refill %></div>
+      <%= f.text_field :refill %>
+    </div>
+    <div class="actions">
+      <%= f.hidden_field :userid, :value => current_user.id %>
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <div class="label"><%= f.label :strength %> <i>(e.g. 100 mg)</i></div>
-    <%= f.number_field :strength %>
-    <%= f.radio_button(:strength_unit, 'mg') %>mg
-    <%= f.radio_button(:strength_unit, 'ml') %>ml
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label "Total Quantity" %> <i>(e.g. 30 tablets)</i></div>
-    <%= f.number_field :total %>
-    <%= f.radio_button(:total_unit, 'tablets') %>tablets
-    <%= f.radio_button(:total_unit, 'mg') %>mg
-    <%= f.radio_button(:total_unit, 'ml') %>ml
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label "Daily Dosage" %> <i>(e.g. 1 tablet)</i></div>
-    <%= f.number_field :dosage %>
-    <%= f.radio_button(:dosage_unit, 'tablets') %>tablets
-    <%= f.radio_button(:dosage_unit, 'mg') %>mg
-    <%= f.radio_button(:dosage_unit, 'ml') %>ml
-  </div>
-  <div class="field">
-    <div class="label"><%= f.label :refill %></div>
-    <%= f.text_field :refill %>
-  </div>
-  <div class="actions">
-    <%= f.hidden_field :userid, :value => current_user.id %>
-    <%= f.submit %>
+  <div class="table_cell">
+    <div class="field">
+      <div class="label"><%= f.label :comments %></div>
+      <%= f.text_area :comments %>
+    </div>
   </div>
 <% end %>

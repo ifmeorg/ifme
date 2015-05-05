@@ -100,7 +100,7 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit)
+      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments)
     end
 
     def if_not_signed_in

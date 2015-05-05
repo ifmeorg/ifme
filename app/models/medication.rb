@@ -1,5 +1,5 @@
 class Medication < ActiveRecord::Base
-	attr_accessible :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit
+	attr_accessible :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments
 
 	# dosage: amount of medication taken at one time
 	# total: total quantity of medication

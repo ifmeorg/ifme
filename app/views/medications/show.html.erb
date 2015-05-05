@@ -15,3 +15,10 @@
   <strong>Refill:</strong>
   <%= @medication.refill %>
 </p>
+
+<% if !@medication.comments.blank? %>
+	<p>
+	  <strong>Comments:</strong>
+	  <%= @medication.comments %>
+	</p>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326231724) do
+ActiveRecord::Schema.define(version: 20150505222547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150326231724) do
     t.string   "strength_unit"
     t.string   "dosage_unit"
     t.string   "total_unit"
+    t.text     "comments"
   end
 
   create_table "moods", force: true do |t|
