@@ -29,29 +29,29 @@ We're always looking for ideas from everyone, including <strong>mental health ad
 		</div>
 	</div>
 	<div class="table_row">
-		<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: middle">
-			<%= image_tag 'default_ifme_avatar.png', class: 'contributor_picture' %>
+		<div class="table_cell" style="width: 200px; padding-right: 40px; padding-bottom: 40px; vertical-align: middle">
+			<%= image_tag 'contributors/jon_tan.png', class: 'contributor_picture' %>
 		</div>
-		<div class="table_cell" style="text-align: center; vertical-align: top">
-			<div class="subtitle">Other Contributors</div>
+		<div class="table_cell" style="padding-bottom: 40px; vertical-align: top">
+			<div class="subtitle">Jon Tan</div>
 			<div class="spacer"></div>
-			<ul id="contributors" class="no_bullet_list">
-
-			</ul>
+			Among the millions of web applications, there are only a handful of web applications catering to individuals with mental heatlh. I am glad that Julia has created if me for the purpose of building this community.
+			<div class="spacer"></div>
+			<i class="fa fa-location-arrow fa-inline"></i> Mississauga, Canada
+			<i class="fa fa-github fa-inline fa-left"></i><%= link_to('9bits', 'http://github.com/9bits', class: "spacing") %>
+		</div>
+	</div>
+	<div class="table_row">
+		<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: middle">
+			<%= image_tag 'contributors/jenny_nguyen.png', class: 'contributor_picture' %>
+		</div>
+		<div class="table_cell" style="vertical-align: top">
+			<div class="subtitle">Jenny Nguyen</div>
+			<div class="spacer"></div>
+			As a health science student I have been exposed medical literature that focuses on neuroplasticity, the idea that our environment and actions can change neural circuitry and pathways, and its role in shaping mental health disorders. For example, studies shows the in people with OCD, there is hyperconnectivity between the orbitofrontal cortex and the caudate nucleus, structures of the brain that are responsible for decision-making and thinking. Thus novel treatment of OCD focuses on targeting these principles and beliefs these obsessions and compulsions are founded on in order to rewire the brain. I believe if me provides a platform habitually reflect and help manage one’s wellbeing in addition to formal medical treatment.
+			<div class="spacer"></div>
+			<i class="fa fa-location-arrow fa-inline"></i> Toronto, Canada
+			<i class="fa fa-github fa-inline fa-left"></i><%= link_to('nguyenjenny', 'http://github.com/nguyenjenny', class: "spacing") %>
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		var exclude = ['julianguyen', 'jzshen'];
-		$.getJSON("https://api.github.com/repos/julianguyen/ifme/contributors", function (data) {
-      		_.each(data, function(dataItem) {
-      			if(_.indexOf(exclude, dataItem.login) === -1) {
-      				var contributor = '<li><a href="' + dataItem.html_url + '" target="_blank">' + dataItem.login + '</a></li>';
-      				$('#contributors').append(contributor);
-      			}
-      		});
-    	});
-  });
-</script>
