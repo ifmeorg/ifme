@@ -1,4 +1,24 @@
 FactoryGirl.define do
+  factory :group_member do
+    userid 1
+  end
+
+  factory :session_member do
+    userid 1
+  end
+
+  factory :session do
+    name "Test Name"
+    description "Test Description"
+    location "Test Location"
+    time "Test Time"
+    maxmembers 1
+  end
+
+  factory :group do
+    name "Test Group"
+  end
+
   factory :user1, class: User do
     name "Oprah Chang"
     email "oprah.chang@example.com"
