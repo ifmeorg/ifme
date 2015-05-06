@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505231048) do
+ActiveRecord::Schema.define(version: 20150506005730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,23 +101,15 @@ ActiveRecord::Schema.define(version: 20150505231048) do
     t.text     "comments"
   end
 
-  create_table "moods", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "userid"
-  end
-
-  create_table "session_members", force: true do |t|
-    t.integer  "sessionid"
+  create_table "meeting_members", force: true do |t|
+    t.integer  "meetingid"
     t.integer  "userid"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "sessions", force: true do |t|
+  create_table "meetings", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.text     "location"
@@ -126,6 +118,14 @@ ActiveRecord::Schema.define(version: 20150505231048) do
     t.integer  "groupid"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "moods", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "userid"
   end
 
   create_table "strategies", force: true do |t|

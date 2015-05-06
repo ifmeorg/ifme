@@ -21,6 +21,10 @@ user1_mood1 = Mood.create(userid: user1.id, name: 'Anxious', description: 'Sweat
 user1_mood2 = Mood.create(userid: user1.id, name: 'Shy', description: 'I swallow my words and start speaking fast')
 user1_trigger1 = Trigger.create(userid: user1.id, category: Array.new(1, user1_category1.id), mood: [user1_mood1.id, user1_mood2.id], name: 'Presentation for ENGL 101', why: 'I am presenting in front of my classmates and I am worried I will make a fool out of myself', viewers: Array.new(1, user2.id), comment: true)
 user1_trigger1_comment = Comment.create(comment_type: 'trigger', commented_on: user1_trigger1.id, comment_by: user2.id, comment: "Good luck on the presentation! Just pretend everyone is in underpants :)", visibility: 'private')
+user1_group = Group.create(name: 'Students with Anxiety', description: 'A support group for students to meet discuss anxiety weekly')
+user1_group_member = GroupMember.create(groupid: user1_group.id, userid: user1.id, leader: true)
+user1_meeting = Meeting.create(name: 'Meeting #1: Self-care', description: 'This week we will be talking what we can do to adequately self-care during exams', location: 'http://SomeGoogleHangoutURL', time: '6:00 pm EST', maxmembers: 5, groupid: user1_group.id)
+user1_meeting_member = MeetingMember.create(meetingid: user1_meeting.id, userid: user1.id, leader: true)
 
 # User 2
 user2_category1 = Category.create(userid: user2.id, name: 'Brother', description: 'We have a strained relationship')

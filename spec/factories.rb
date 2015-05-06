@@ -3,11 +3,11 @@ FactoryGirl.define do
     userid 1
   end
 
-  factory :session_member do
+  factory :meeting_member do
     userid 1
   end
 
-  factory :session do
+  factory :meeting do
     name "Test Name"
     description "Test Description"
     location "Test Location"

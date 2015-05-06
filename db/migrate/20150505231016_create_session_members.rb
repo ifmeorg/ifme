@@ -1,7 +1,7 @@
 class CreateSessionMembers < ActiveRecord::Migration
   def change
-    create_table :session_members do |t|
-      t.integer :sessionid
+    create_table :meeting_members do |t|
+      t.integer :meetingid
       t.integer :userid
       t.boolean :leader
 
