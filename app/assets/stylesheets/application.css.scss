@@ -2,6 +2,21 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
+ * Directory structure:
+ *
+ *	stylesheets/
+ *	|
+ *  |-- application/          # Styles for specific pages.
+ *	|   |-- allies.scss       # Etc...
+ *	|   ...
+ *	|
+ *	|-- base/                 # Variables and other common project styles.
+ *	|   |-- _colors.scss      # Color variables.
+ *	|   |-- _fonts.css        # Font variables and imports.
+ *	|   ...                   # etc.
+ *	|
+ *	`-- application.css.scss  # primary Sass file
+ *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
@@ -10,13 +25,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
-/* Fonts */
-
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400,300);
+ @import "application/*";
 
 /* Text */
 
