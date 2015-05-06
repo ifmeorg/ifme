@@ -3,7 +3,7 @@ if me
 
 A community for mental health experiences
 
-Geting Involved
+Getting Involved
 ---------------
 
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email tojulianguyen@gmail.com.
