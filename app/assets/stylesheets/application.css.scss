@@ -28,18 +28,19 @@
  *= require_self
  */
 
+ @import "base/*";
  @import "application/*";
 
 /* Text */
 
 body, html {
 	margin: 0 auto;
-	font: 20px 'Lato';
+	font: 20px $font-family;
 	font-weight: 400;
 }
 
 strong, b {
-	color: #6D0839;
+	color: $secondary-text-color;
 }
 
 ul:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list)  {
@@ -99,7 +100,7 @@ ul.no_bullet_list li {
 /* Header */
 
 #header {
-	background-color: #6D0839;
+	background-color: $container-color;
 	position: fixed;
 	width: 100%;
 	z-index: 9000;
@@ -212,13 +213,13 @@ ul.no_bullet_list li {
 #page_title_content a:link, #page_title_content a:visited {
 	text-decoration: none;
 	border: none;
-	color: #6D0839;
+	color: $secondary-text-color;
 }
 
 #page_title_content a:hover {
 	text-decoration: none;
 	border: none;
-	color: #6D0839;
+	color: $secondary-text-color;
 	opacity: 0.5;
 }
 
@@ -251,30 +252,30 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 .headline {
 	color: #ffffff;
 	font-size: 40px;
-	text-shadow: 1px 2px 5px #6D0839;
+	text-shadow: 1px 2px 5px $font-family;
 }
 
 .branding_title {
-	font-family: 'Lato';
+	font-family: $font-family;
 	font-weight: 100;
 	text-transform: lowercase;
-	color: #6D0839;
+	color: $secondary-text-color;
 }
 
 .branding_subtitle {
 	padding: 10px 0px 10px 0px;
-	border-top: 1px solid #6D0839;
-	border-bottom: 1px solid #6D0839;
+	border-top: 1px solid $font-family;
+	border-bottom: 1px solid $font-family;
 }
 
 .subtle {
-	color: #6D0839;
+	color: $secondary-text-color;
 	opacity: 0.5;
 	text-align: right;
 }
 
 .subtitle {
-	font: 34px 'Lato';
+	font: 34px $font-family;
 	font-weight: 100;
 	text-align: center;
 }
@@ -282,26 +283,26 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 /* Footer */
 
 #footer {
-	border-top: 1px solid #6D0839;
+	border-top: 1px solid $container-color;
 	padding: 40px 0px;
 }
 
 #footer > #footer_content {
 	padding: 0px 60px;
 	font-size: 16px;
-	color: #6D0839;
+	color: $secondary-text-color
 }
 
 #footer a:link, #footer a:visited {
 	text-decoration: none;
-	color: #6D0839;
-	border-bottom: 1px dotted #6D0839;
+	color: $secondary-text-color;
+	border-bottom: 1px dotted $font-family;
 }
 
 #footer a:hover {
 	text-decoration: none;
-	color: #6D0839;
-	border-bottom: 1px dotted #6D0839;
+	color: $secondary-text-color;
+	border-bottom: 1px dotted $font-family;
 	opacity: 0.5;
 }
 
@@ -313,14 +314,14 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 a:link, a:visited {
 	text-decoration: none;
-	color: #02779E;
-	border-bottom: 1px dotted #02779E;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
 }
 
 a:hover {
 	text-decoration: none;
-	color: #02779E;
-	border-bottom: 1px dotted #02779E;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
 	opacity: 0.5;
 }
 
@@ -344,13 +345,13 @@ img {
 .profile_picture, .contributor_picture {
 	width: 200px;
 	border-radius: 150px;
-	border: 2px solid #6d0839;
+	border: 2px solid $container-color;
 }
 
 .mini_profile_picture {
 	width: 100px;
 	border-radius: 150px;
-	border: 2px solid #6d0839;
+	border: 2px solid $container-color;
 }
 
 /* Form Elements and Input Fields */
@@ -371,7 +372,7 @@ input, textarea, select, fieldset {
 	padding: 10px;
 	box-shadow: 0 0 2px #000000 inset;
 	background-color: #ffffff;
-	font: 20px 'Lato';
+	font: 20px $font-family;
 	margin-right: 10px;
 }
 
@@ -385,17 +386,17 @@ textarea {
 }
 
 input[type="submit"] {
-	border: 1px solid #02779E;
-	box-shadow: 0 0 2px #02779E inset;
-	color: #02779E;
+	border: 1px solid $link-color;
+	box-shadow: 0 0 2px $link-color inset;
+	color: $link-color;
 	background: #ffffff;
-	font: 20px 'Lato';
+	font: 20px $font-family;
 }
 
 input[type="submit"]:hover {
-	border: 1px solid #02779E;
-	box-shadow: 0 0 2px #02779E inset;
-	color: #02779E;
+	border: 1px solid $link-color;
+	box-shadow: 0 0 2px $link-color inset;
+	color: $link-color;
 	background: #ffffff;
 	opacity: 0.5;
 }
@@ -440,9 +441,9 @@ table {
 	width: 100%;
 	table-layout: auto;
 	padding: 20px 0px 0px 20px;
-	border: 1px solid #6D0839;
+	border: 1px solid $container-color;
 	background-color: #ffffff;
-	box-shadow: 0 0 2px #6D0839 inset;
+	box-shadow: 0 0 2px $container-color inset;
 }
 
 table td {
@@ -457,13 +458,13 @@ table td p {
 table th {
 	text-align: left;
 	font-weight: bold;
-	color: #6D0839;
+	color: $secondary-text-color;
 	padding-bottom: 20px;
 	font-size: 20px;
 }
 
 .action {
-	color: #02779E;
+	color: $link-color;
 	margin-right: 10px;
 }
 
@@ -476,13 +477,13 @@ table th {
 }
 
 .comment > .comment_info {
-	color: #6D0839;
+	color: $secondary-text-color;
 	margin-bottom: 10px;
 }
 
 .comment a:link, .comment a:visited, .comment a:hover {
-	color: #6D0839;
-	border-color: #6D0839;
+	color: $secondary-text-color;
+	border-color: $secondary-text-color;
 }
 
 /* Table */
