@@ -32,7 +32,7 @@
 
 <% if !@triggers.nil? %>
 	<% @triggers.each do |item| %>
-		<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
+		<% if (item.post_type == 1||current_user.id == @profile.id)  %>
 			<div class="profile">
 				<h1 class="profile_name"><%= link_to item.name, item %></h1>
 				<strong>
