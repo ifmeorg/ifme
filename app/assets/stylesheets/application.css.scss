@@ -296,13 +296,13 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 #footer a:link, #footer a:visited {
 	text-decoration: none;
 	color: $secondary-text-color;
-	border-bottom: 1px dotted $font-family;
+	border-bottom: 1px dotted $secondary-text-color;
 }
 
 #footer a:hover {
 	text-decoration: none;
 	color: $secondary-text-color;
-	border-bottom: 1px dotted $font-family;
+	border-bottom: 1px dotted $secondary-text-color;
 	opacity: 0.5;
 }
 
