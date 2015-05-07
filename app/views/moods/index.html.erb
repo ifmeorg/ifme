@@ -18,7 +18,10 @@
         <tr>
           <td><%= link_to mood.name, mood %></td>
           <td>
-            <%= simple_format(mood.description[0..80]) %><%= " [...]" %>
+            <%= simple_format(mood.description[0..80]) %>
+            <% if mood.description.length >= 80 %>
+              <%= " [...]" %>
+            <% end %>
           </td>
           <td>
             <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>

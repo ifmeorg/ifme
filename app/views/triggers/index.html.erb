@@ -4,53 +4,57 @@
 
 <% if @triggers.length > 0 %>
   <div class="spacer"></div>
-  <% @triggers.each do |trigger| %>
-    <div class="trigger">
-      <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
-      <strong>Created</strong>: <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-      <% if trigger.category.count > 0 %>
-        <br>
-        <strong>
-          <% if trigger.category.count == 1 %>
-            Category:
-          <% else %>
-            Categories:
+  <% @triggers.each_with_index do |trigger, index| %>
+    <% if index+1 == @triggers.length %>
+      <div class="trigger" style="margin-bottom: 0">
+    <% else %>
+      <div class="trigger">
+    <% end %>
+        <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+        <strong>Created:</strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+        <% if trigger.category.count > 0 %>
+          <br>
+          <strong>
+            <% if trigger.category.count == 1 %>
+              Category:
+            <% else %>
+              Categories:
+            <% end %>
+          </strong>
+          <% trigger.category.each do |item| %>
+            <%= fetch_taxonomies(trigger, "trigger", item, "category", false, true) %>
           <% end %>
-        </strong>
-        <% trigger.category.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "category", false, true) %>
         <% end %>
-      <% end %>
-      <% if trigger.mood.count > 0 %>
-        <br>
-        <strong>
-          <% if trigger.mood.count == 1 %>
-            Mood:
-          <% else %>
-            Moods:
+        <% if trigger.mood.count > 0 %>
+          <br>
+          <strong>
+            <% if trigger.mood.count == 1 %>
+              Mood:
+            <% else %>
+              Moods:
+            <% end %>
+          </strong>
+          <% trigger.mood.each do |item| %>
+            <%= fetch_taxonomies(trigger, "trigger", item, "mood", false, true) %>
           <% end %>
-        </strong>
-        <% trigger.mood.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "mood", false, true) %>
         <% end %>
-      <% end %>
-      <% if trigger.strategies.count > 0 %>
-        <br>
-        <strong>
-          <% if trigger.strategies.count == 1 %>
-            Strategy:
-          <% else %>
-            Strategies:
+        <% if trigger.strategies.count > 0 %>
+          <br>
+          <strong>
+            <% if trigger.strategies.count == 1 %>
+              Strategy:
+            <% else %>
+              Strategies:
+            <% end %>
+          </strong>
+          <% trigger.strategies.each do |item| %>
+            <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false, true) %>
           <% end %>
-        </strong>
-        <% trigger.strategies.each do |item| %>
-          <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false, true) %>
         <% end %>
-      <% end %>
-      <div style="margin-top: 20px">
-        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
-        <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div style="margin-top: 20px">
+          <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
+          <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
       </div>
-    </div>
   <% end %>
 <% end %>

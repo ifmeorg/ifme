@@ -31,38 +31,45 @@
 <div class="spacer"></div>
 
 <% if !@triggers.nil? %>
-	<% @triggers.each do |item| %>
+	<% @triggers.each_with_index do |item, index| %>
 		<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
-			<div class="profile">
-				<h1 class="profile_name"><%= link_to item.name, item %></h1>
-				<strong>
-			      <% if item.category.count == 1 %>
-			        Category:
-			      <% else %>
-			        Categories:
-			      <% end %>
-			    </strong>
-				<% item.category.each do |category_item| %>
-      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true, true) %>
-    			<% end %>
-    			<br>
-    			<strong>
-			      <% if item.mood.count == 1 %>
-			        Mood:
-			      <% else %>
-			        Moods:
-			      <% end %>
-			    </strong>
-				<% item.mood.each do |mood_item| %>
-      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true, true) %>
-    			<% end %>
-    			<br>
-			    <br>
-			    <%= simple_format(item.why[0..200]) %><%= " [...]" %>
-			    <br>
-			    <br>
-			    <%= fetch_supporters(Support.all, item) %>
-			</div>
+			<% if index+1 == @triggers.length %>
+  				<div class="profile" style="margin-bottom: 0">
+  			<% else %>
+				<div class="profile">
+			<% end %>
+					<h1 class="profile_name"><%= link_to item.name, item %></h1>
+					<strong>
+				      <% if item.category.count == 1 %>
+				        Category:
+				      <% else %>
+				        Categories:
+				      <% end %>
+				    </strong>
+					<% item.category.each do |category_item| %>
+	      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true, true) %>
+	    			<% end %>
+	    			<br>
+	    			<strong>
+				      <% if item.mood.count == 1 %>
+				        Mood:
+				      <% else %>
+				        Moods:
+				      <% end %>
+				    </strong>
+					<% item.mood.each do |mood_item| %>
+	      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true, true) %>
+	    			<% end %>
+	    			<br>
+				    <br>
+				    <%= simple_format(item.why[0..200]) %>
+				    <% if item.why.length >= 200 %>
+	              		<%= " [...]" %>
+	            	<% end %>
+				    <br>
+				    <br>
+				    <%= fetch_supporters(Support.all, item) %>
+				</div>
 		<% end %>
 	<% end %>
 <% end %>
