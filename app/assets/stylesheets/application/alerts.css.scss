@@ -6,8 +6,8 @@
 
 .the_alert {
 	padding: 20px;
-	border: 1px solid #6D0839;
-	box-shadow: 0 0 2px #6D0839 inset;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
 }
 
@@ -16,11 +16,11 @@
 	font-size: 26px;
 	padding: 0;
 	margin: 0px 0px 20px 0px;
-	color: #6D0839;
+	color: $secondary-text-color;
 }
 
 h1.alert_name a:link, h1.alert_name a:visited {
-	color: #6D0839;
+	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;
 }
