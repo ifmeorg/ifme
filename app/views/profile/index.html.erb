@@ -32,7 +32,7 @@
 
 <% if !@triggers.nil? %>
 	<% @triggers.each_with_index do |item, index| %>
-		<% if (!item.viewers.empty? && item.viewers.include?(current_user.id)) || current_user.id == @profile.id %>
+		<% if item.post_type == 1 || current_user.id == @profile.id %>
 			<% if index+1 == @triggers.length %>
   				<div class="profile" style="margin-bottom: 0">
   			<% else %>
