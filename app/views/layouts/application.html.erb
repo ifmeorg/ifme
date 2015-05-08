@@ -97,9 +97,9 @@
 			    	opacity: 0.5;
 			 	}
 			</style>
-		<% elsif params[:controller] == "alerts" %>
+		<% elsif params[:controller] == "groups" %>
 		  	<style>
-			  	#header a#alerts_link:link {
+			  	#header a#groups_link:link {
 			  		border-top: 1px solid #ffffff;
 			    	border-bottom: 1px solid #ffffff;
 			    	opacity: 0.5;
@@ -135,7 +135,7 @@
 							 	</span>
 							 	<%= link_to('Strategies', strategies_path, class: 'nav_link', id: 'strategies_link')  %>
 							 	<%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
-							 	<% #link_to('Alerts', alerts_path, class: 'nav_link', id: 'alerts_link')  %>
+							 	<%= link_to('Groups', groups_path, class: 'nav_link', id: 'groups_link')  %>
 							 	<%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
 							<% else %>
 							  	<%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>

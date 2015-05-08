@@ -1,3 +1,82 @@
 <div class="subtitle">
 	Create and join groups that offer support, mentorship, and discussions.
 </div>
+
+<% if @groups.length > 0 %>
+  <div class="spacer"></div>
+  <table>
+    <thead>
+      <tr>
+        <th><h1>Joined Groups</h1></th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Members</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td>
+            <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
+            <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
+                  <%= ' (Leader)' %>
+              <% end %>
+          </td>
+          <td>
+          	<%= GroupMember.where(groupid: group.groupid).count %>
+          </td>
+          <td>
+          	<%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
+           	<% if Group.where(id: group.groupid).first.description.length >= 80 %>
+           		<%= " [...]" %>
+           	<% end %>
+          </td>
+          <td>
+            <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
+              <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_group_path(group.groupid) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @available_groups.length > 0 %>
+  <div class="spacer"></div>
+  <table>
+    <thead>
+      <tr>
+        <th><h1>Available Groups</h1></th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Members</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @available_groups.each do |group| %>
+        <tr>
+          <td>
+            <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
+          </td>
+          <td>
+            <%= GroupMember.where(groupid: group.groupid).count %>
+          </td>
+          <td>
+            <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
+            <% if Group.where(id: group.groupid).first.description.length >= 80 %>
+              <%= " [...]" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

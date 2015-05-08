@@ -1,0 +1,37 @@
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="label"><%= f.label :name %></div>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :description %></div>
+    <%= f.cktext_area :description %>
+  </div>
+
+  <% if !current_page?(action: 'new') %>
+    <div class="field">
+      <div class="label"><%= f.label 'Leaders' %></div>
+      <% @group_members.each do |member| %>
+        <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
+        <%= link_to User.where(id: member.userid).first.name, profile_index_path(userid: member.userid) %>
+        <br>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,3 +1,27 @@
 // Place all the styles related to the Groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Groups */
+
+.meeting {
+	padding: 20px;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	margin-bottom: 40px;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 26px;
+	padding: 0;
+	margin: 0px;
+	color: $secondary-text-color;
+}
+
+h1.meeting_name a:link, h1.meeting_name a:visited {
+	color: $secondary-text-color;
+	text-decoration: none;
+	border: none;
+}
+

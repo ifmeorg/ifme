@@ -1,0 +1,54 @@
+<%= simple_format(@group.description) %>
+<strong>Led by:</strong>
+<% @group_leaders.each_with_index do |leader, index| %>
+	<% if leader.userid == current_user.id %>
+		<%= link_to 'You', profile_index_path(:userid => leader.userid) %>
+	<% else %>
+		<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
+	<% end %>
+	<% if index+1 < @group_leaders.length %>
+		<%= ', ' %>
+	<% end %>
+<% end %>
+
+<% if @meetings.length > 0 %>
+  <div class="spacer"></div>
+  <% @meetings.each_with_index do |meeting, index| %>
+  	<% if index+1 == @meetings.length %>
+  		<div class="meeting" style="margin-bottom: 0">
+  	<% else %>
+    	<div class="meeting">
+    <% end %>
+	    	<h1 class="meeting_name"><%= link_to meeting.name, meeting %></h1>
+	      	<%= simple_format(meeting.description) %>
+	      	<strong>Location:</strong>
+	      	<% if meeting.location.include? "http://" or meeting.location.include? "https://" or meeting.location.include? "www." %>
+	      		<%= link_to meeting.location, meeting.location %>
+	      	<% else %>
+	      		<%= link_to meeting.location, "https://www.google.com/maps/place/" + meeting.location %>
+	      	<% end %>
+	      	<br><strong>Time:</strong> <%= meeting.time %>
+	      	<br><strong>Led by:</strong>
+	      	<% meeting_members = MeetingMember.where(meetingid: meeting.id, leader: true).all %>
+	      	<% meeting_members.each_with_index do |leader, index| %>
+				<% if leader.userid == current_user.id %>
+					<%= link_to 'You', profile_index_path(:userid => leader.userid) %>
+				<% else %>
+					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
+				<% end %>
+				<% if index+1 < meeting_members.length %>
+					<%= ', ' %>
+				<% end %>
+			<% end %>
+
+	      	<br>
+	      	<% if MeetingMember.where(id: meeting.id, userid: current_user.id).exists? %>
+				<strong>You are attending</strong>
+			<% elsif meeting.maxmembers > 0 %>
+				<strong>You are not attending. There are <%= meeting.maxmembers-MeetingMember.where(id: meeting.id).count %> spots left to fill!</strong>
+			<% else %>
+				<strong>You are not attending. There is still room to join!</strong>
+		 	<% end %>
+	    </div>
+  <% end %>
+<% end %>

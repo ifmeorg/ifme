@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groups
+
+  resources :meetings
+
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
 
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
