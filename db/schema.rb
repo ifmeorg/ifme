@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412211950) do
+ActiveRecord::Schema.define(version: 20150507231620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20150412211950) do
     t.integer  "status"
   end
 
+  create_table "ally_permissions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "view",       default: true
+    t.boolean  "comment",    default: true
+  end
+
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -57,6 +64,21 @@ ActiveRecord::Schema.define(version: 20150412211950) do
     t.string   "visibility"
   end
 
+  create_table "group_members", force: true do |t|
+    t.integer  "groupid"
+    t.integer  "userid"
+    t.boolean  "leader"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
   create_table "medications", force: true do |t|
     t.string   "name"
     t.integer  "dosage"
@@ -69,6 +91,26 @@ ActiveRecord::Schema.define(version: 20150412211950) do
     t.string   "strength_unit"
     t.string   "dosage_unit"
     t.string   "total_unit"
+    t.text     "comments"
+  end
+
+  create_table "meeting_members", force: true do |t|
+    t.integer  "meetingid"
+    t.integer  "userid"
+    t.boolean  "leader"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meetings", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "location"
+    t.string   "time"
+    t.integer  "maxmembers"
+    t.integer  "groupid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "moods", force: true do |t|
@@ -111,15 +153,16 @@ ActiveRecord::Schema.define(version: 20150412211950) do
     t.boolean  "comment"
     t.text     "strategies"
     t.integer  "post_type"
+    t.text     "view_permissions"
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -134,7 +177,6 @@ ActiveRecord::Schema.define(version: 20150412211950) do
     t.string   "token"
     t.string   "uid"
     t.string   "provider"
-    t.boolean  "view_permission",        default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
