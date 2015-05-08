@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
       	end
 
       	if supporters
-      		return_this = "Supporters: " + return_this
+      		return_this = "<br><strong>Supporters:</strong> " + return_this
       	else
       		return_this = ""
       	end

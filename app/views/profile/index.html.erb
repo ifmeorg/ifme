@@ -66,8 +66,6 @@
 				    <% if item.why.length >= 200 %>
 	              		<%= " [...]" %>
 	            	<% end %>
-				    <br>
-				    <br>
 				    <%= fetch_supporters(Support.all, item) %>
 				</div>
 		<% end %>

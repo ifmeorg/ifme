@@ -2,8 +2,14 @@ class PagesController < ApplicationController
   def home
   	if user_signed_in?
   		@page_title = "Latest"
-  		@triggers = Trigger.order("created_at DESC").all
-  		#where("created_at >= ?", 4.week.ago.utc)
+
+      @triggers = Array.new
+      all_triggers = Trigger.order("created_at DESC").all
+      all_triggers.each do |trigger|
+        if current_user.id == trigger.userid || are_allies(current_user.id, trigger.userid) && trigger.post_type == 1
+          @triggers.push(trigger)
+        end
+      end
   	else
       @page_title = 'Welcome'
   	end

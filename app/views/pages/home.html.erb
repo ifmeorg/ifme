@@ -28,7 +28,7 @@
 	</div>
 <% else %>
 	<% @triggers.each_with_index do |trigger, index| %>
-		<% if current_user.id == trigger.userid || (trigger.viewers.include?(current_user.id) && are_allies(current_user.id, trigger.userid)) %>
+		<% if current_user.id == trigger.userid || (trigger.post_type == 1 && are_allies(current_user.id, trigger.userid)) %>
 			<% if index+1 == @triggers.length %>
   				<div class="trigger" style="margin-bottom: 0">
   			<% else %>
@@ -93,8 +93,6 @@
 				    <% if trigger.why.length >= 200 %>
 	              		<%= " [...]" %>
 	            	<% end %>
-				    <br>
-				    <br>
 				    <%= fetch_supporters(Support.all, trigger) %>
 				</div>
 		<% end %>

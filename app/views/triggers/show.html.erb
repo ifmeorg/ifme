@@ -51,35 +51,37 @@
 <% end %>
 
 <% if @no_hide_page %>
-  <div class="align_left">
-    <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
-      <% if @support.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@support.errors.count, "error") %> prohibited this support from being saved:</h2>
-          <ul>
-          <% @support.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
+  <% if current_user.id != @trigger.userid %>
+    <div class="align_left">
+      <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
+        <% if @support.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@support.errors.count, "error") %> prohibited this support from being saved:</h2>
+            <ul>
+            <% @support.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-      <div class="actions">
-        <%= f.hidden_field :userid, :value => current_user.id %>
-        <%= f.hidden_field :support_type, :value => 'trigger' %>
-        <%= f.hidden_field :support_id, :value => @trigger.id %>
-        <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
-          <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
-            <%= f.submit "Unsupport", :id => 'unsupport' %>
+        <div class="actions">
+          <%= f.hidden_field :userid, :value => current_user.id %>
+          <%= f.hidden_field :support_type, :value => 'trigger' %>
+          <%= f.hidden_field :support_id, :value => @trigger.id %>
+          <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
+            <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
+              <%= f.submit "Unsupport", :id => 'unsupport' %>
+            <% else %>
+              <%= f.submit "Support", :id => 'support' %>
+            <% end %>
           <% else %>
             <%= f.submit "Support", :id => 'support' %>
           <% end %>
-        <% else %>
-          <%= f.submit "Support", :id => 'support' %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <div class="align_right">
     <%= fetch_supporters(Support.all, @trigger) %>
   </div>

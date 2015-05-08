@@ -21,6 +21,9 @@
 <% end %>
 
 <% if !@incoming_ally_requests.empty? %>
+  <% if !@outgoing_ally_requests.empty? %>
+    <div class="spacer"></div>
+  <% end %>
   <strong>Incoming Requests</strong>
   <br>
   <br>
@@ -43,6 +46,9 @@
 <% end %>
 
 <% @accepted_allies.each_with_index do |ally_id, index| %>
+  <% if !@incoming_ally_requests.empty? || !@outgoing_ally_requests.empty? %>
+    <div class="spacer"></div>
+  <% end %>
   <% if index+1 == @accepted_allies.length %>
     <div class="ally" style="margin-bottom: 0">
   <% else %>
