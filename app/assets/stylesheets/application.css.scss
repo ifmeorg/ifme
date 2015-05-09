@@ -43,11 +43,13 @@ strong, b {
 	color: $secondary-text-color;
 }
 
-ul:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list)  {
+ul:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list)  {
 	padding-left: 0;
 }
 
-ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
+ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
  	list-style-position:inside;
 }
 
@@ -110,7 +112,8 @@ ul.no_bullet_list li {
 	padding: 40px 60px;
 }
 
-#header_content a.nav_link:link, #header_content a.nav_link:visited {
+#header_content a.nav_link:link,
+#header_content a.nav_link:visited {
 	text-decoration: none;
 	color: $header-text-color;
 	margin-right: 20px;
@@ -170,7 +173,8 @@ ul.no_bullet_list li {
 	text-align: left;
 }
 
-#expand_me a.me_link:link, #expand_me a.me_link:visited {
+#expand_me a.me_link:link,
+#expand_me a.me_link:visited {
 	text-decoration: none;
 	color: $header-text-color;
 	margin-left: 20px;
@@ -179,7 +183,8 @@ ul.no_bullet_list li {
 	font-weight: 300;
 }
 
-#expand_trigger a.me_link:link, #expand_trigger a.me_link:visited {
+#expand_trigger a.me_link:link,
+#expand_trigger a.me_link:visited {
 	text-decoration: none;
 	color: $header-text-color;
 	margin-right: 20px;
@@ -188,7 +193,8 @@ ul.no_bullet_list li {
 	font-weight: 300;
 }
 
-#expand_me a.me_link:hover, #expand_trigger a.me_link:hover {
+#expand_me a.me_link:hover,
+#expand_trigger a.me_link:hover {
 	color: $header-text-color;
 	text-decoration: none;
 }
@@ -210,7 +216,8 @@ ul.no_bullet_list li {
 	font-weight: 300;
 }
 
-#page_title_content a:link, #page_title_content a:visited {
+#page_title_content a:link,
+#page_title_content a:visited {
 	text-decoration: none;
 	border: none;
 	color: $secondary-text-color;
@@ -229,13 +236,20 @@ ul.no_bullet_list li {
 
 /* Page Edit and New */
 
-a.page_edit:link, a.page_edit:visited, a.page_new:link, a.page_new:visited, a.page_search:link, a.page_search:visited {
+a.page_edit:link,
+a.page_edit:visited,
+a.page_new:link,
+a.page_new:visited,
+a.page_search:link,
+a.page_search:visited {
 	text-decoration: none;
 	color: $primary-text-color !important;
 	border: none;
 }
 
-a.page_edit:hover, a.page_new:hover, a.page_search:hover {
+a.page_edit:hover,
+a.page_new:hover,
+a.page_search:hover {
 	text-decoration: none;
 	color: $primary-text-color !important;
 	border: none;
@@ -293,7 +307,8 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	color: $secondary-text-color
 }
 
-#footer a:link, #footer a:visited {
+#footer a:link,
+#footer a:visited {
 	text-decoration: none;
 	color: $secondary-text-color;
 	border-bottom: 1px dotted $secondary-text-color;
@@ -312,7 +327,8 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 /* Links */
 
-a:link, a:visited {
+a:link,
+a:visited {
 	text-decoration: none;
 	color: $link-color;
 	border-bottom: 1px dotted $link-color;
@@ -325,7 +341,8 @@ a:hover {
 	opacity: 0.5;
 }
 
-a.gravatar:link, a.gravatar:visited {
+a.gravatar:link,
+a.gravatar:visited {
 	text-decoration: none;
 	border: none;
 }
@@ -342,7 +359,8 @@ img {
 	 max-width: 100%;
 }
 
-.profile_picture, .contributor_picture {
+.profile_picture,
+.contributor_picture {
 	width: 200px;
 	border-radius: 150px;
 	border: 2px solid $container-color;
@@ -367,7 +385,10 @@ label {
 	margin-bottom: 20px;
 }
 
-input, textarea, select, fieldset {
+input,
+textarea,
+select,
+fieldset {
 	border: 1px solid $primary-text-color;
 	padding: 10px;
 	box-shadow: 0 0 2px $primary-text-color inset;
@@ -376,7 +397,9 @@ input, textarea, select, fieldset {
 	margin-right: 10px;
 }
 
-.field input[type="text"], .field input[type="passsword"], .field input[type="email"] {
+.field input[type="text"],
+.field input[type="passsword"],
+.field input[type="email"] {
 	margin-right: 0px;
 }
 
@@ -431,7 +454,8 @@ input[type="submit"]#support:hover {
 	opacity: 0.5;
 }
 
-.field, .actions {
+.field,
+.actions {
 	margin-bottom: 40px;
 }
 
@@ -481,7 +505,9 @@ table th {
 	margin-bottom: 10px;
 }
 
-.comment a:link, .comment a:visited, .comment a:hover {
+.comment a:link,
+.comment a:visited,
+.comment a:hover {
 	color: $secondary-text-color;
 	border-color: $secondary-text-color;
 }

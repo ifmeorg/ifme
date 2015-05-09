@@ -75,7 +75,8 @@ h1.blog_name {
 	color: $secondary-text-color;
 }
 
-h1.blog_name a:link, h1.blog_name a:visited {
+h1.blog_name a:link,
+h1.blog_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;
