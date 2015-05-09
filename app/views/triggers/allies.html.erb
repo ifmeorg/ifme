@@ -1,7 +1,7 @@
 <%= form_tag({:controller => "triggers", :action => "allies"}, :remote => true) do |f| %>
 <h3>Share with: </h3>
 <% @viewers.each do |item| %>
-    <%= check_box_tag("viewers[]", User.where(:id => item).first.name, User.find(item).view_permission, :id => User.find(item).id) %>
+    <%= check_box_tag("viewers[]", User.where(:id => item).first.name, Viewer.where(:viewerid => item).empty?, :id => User.find(item).id) %>
     <%= User.where(:id => item).first.name %><br>
 <% end %>
 <br>

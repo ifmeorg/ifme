@@ -10,6 +10,8 @@ class Trigger < ActiveRecord::Base
 	validates_length_of :fix, :maximum => 2000
 	before_save :array_data
 	before_save :check_post_type
+	id = nil
+  	after_save {id = self.id}
 
 	def array_data
 		if !self.category.nil? && self.category.is_a?(Array)
@@ -32,8 +34,9 @@ class Trigger < ActiveRecord::Base
     	elsif self.post_type == 0
 	   		self.viewers = nil
 	   	else
-	   		self.viewers = User.where(:view_permission => true).pluck(:id)
+	   		self.viewers = Viewer.where(:triggerid => id).pluck(:viewerid)
+	   		#self.viewers = User.where(:view_permission => true).pluck(:id)
     	end
-    	User.update_all(:view_permission => false)
+    	#User.update_all(:view_permission => false)
 	end
 end

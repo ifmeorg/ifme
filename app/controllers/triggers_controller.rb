@@ -103,7 +103,7 @@ class TriggersController < ApplicationController
   def create
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
-    @allowed_viewers = User.where(:view_permission => true).pluck(:name).join("\n")
+    #@allowed_viewers = Viewer.where(:triggerid => @trigger.id).pluck(:viewerid).join("\n")
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -121,11 +121,16 @@ class TriggersController < ApplicationController
       if params[:viewers]
         @allowed_viewers = params[:viewers]
         @allowed_viewers.each do |viewer|
-          User.where(name: viewer).first.update_attributes!(:view_permission => true)
-          @viewers.delete(User.where(name: viewer).first.id)
+          Viewer.create(userid: current_user.id, triggerid: (Trigger.last.id + 1), viewerid: User.where(name: viewer).first.id)
+          #User.where(name: viewer).first.update_attributes!(:view_permission => true)
+          #@viewers.delete(User.where(name: viewer).first.id)
         end
+        @views = Viewer.where(:triggerid => (Trigger.last.id + 1)).pluck(:viewerid)
+        Rails.logger.info "+++++++++++++++"
+        Rails.logger.info @views
+        Rails.logger.info "+++++++++++++++"
       else
-          User.update_all(:view_permission => false)
+          #User.update_all(:view_permission => false)
       end
     else
       render :layout => false
