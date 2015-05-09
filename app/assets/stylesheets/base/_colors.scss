@@ -1,9 +1,16 @@
 // This file contains the base colors for the application.
 
-// Colors for text
+// Text
 $primary-text-color: #000;
 $secondary-text-color: #6D0839;
+$highlight-text-color: #D0E799;
+$header-text-color: #fff;
 $link-color: #02779E;
 
-// Colors for page elements
+// Notices & Alerts
+$notice-color: #289900;
+$alert-color: #990019;
+
+// General page elements
 $container-color: #6D0839;  // Color for header, tables, boxes, etc.
+$background-color: #fff;
