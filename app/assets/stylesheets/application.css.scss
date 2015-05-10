@@ -28,8 +28,8 @@
  *= require_self
  */
 
- @import "base/*";
- @import "application/*";
+@import "base/*";
+@import "application/*";
 
 /* Text */
 
@@ -37,6 +37,12 @@ body, html {
 	margin: 0 auto;
 	font: 20px $font-family;
 	font-weight: 400;
+}
+
+// TODO(juliepagano): This is probably not what we want long-term. Come back
+// and clean up table css.
+table {
+	border-collapse: separate;
 }
 
 strong, b {
@@ -395,6 +401,11 @@ fieldset {
 	background-color: $background-color;
 	font: 20px $font-family;
 	margin-right: 10px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0 10px 0 5px;
 }
 
 .field input[type="text"],
