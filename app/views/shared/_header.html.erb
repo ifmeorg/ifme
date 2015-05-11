@@ -1,133 +1,36 @@
-<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
-    <style>
-      #header a#signin_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-      }
-  </style>
-<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
-    <style>
-      #header a#signup_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-      }
-  </style>
-<% elsif params[:controller] == "categories" %>
-  <style>
-    #header a#triggers_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-      #header a#categories_link:link {
-        opacity: 0.5;
-      }
-  </style>
-<% elsif params[:controller] == "moods" %>
-    <style>
-      #header a#triggers_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-    #header a#moods_link:link {
-        opacity: 0.5;
-      }
-  </style>
-<% elsif params[:controller] == "triggers" %>
-    <style>
-      #header a#triggers_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% elsif params[:controller] == "strategies" %>
-    <style>
-      #header a#strategies_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% elsif params[:controller] == "medications" %>
-    <style>
-      #header a#medications_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% elsif params[:controller] == "groups" %>
-    <style>
-      #header a#groups_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% elsif params[:controller] == "allies" %>
-    <style>
-      #header a#allies_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% elsif current_page?(root_path) %>
-    <style>
-      #header a#home_link:link {
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #ffffff;
-        opacity: 0.5;
-    }
-  </style>
-<% end %>
 <div id="header">
   <div id="header_content">
-    <div class="table">
-      <div class="table_cell" id="menu_header" style="vertical-align: middle">
-        <% if user_signed_in? %>
-            <%= link_to('Home', root_path, class: 'nav_link', id: 'home_link') %>
-          <span class="expand_trigger_button">
-            <%= link_to('Triggers', triggers_path, class: 'nav_link', id: 'triggers_link')  %>
-          </span>
-          <%= link_to('Strategies', strategies_path, class: 'nav_link', id: 'strategies_link')  %>
-          <%= link_to('Medications', medications_path, class: 'nav_link', id: 'medications_link')  %>
-          <%= link_to('Groups', groups_path, class: 'nav_link', id: 'groups_link')  %>
-          <%= link_to('Allies', allies_path, class: 'nav_link', id: 'allies_link')  %>
-        <% else %>
-            <%= link_to('Sign in', new_user_session_path, id: 'signin_link', class: 'nav_link') %>
-            <%= link_to('Join', new_user_registration_path, id: 'signup_link', class: 'nav_link') %>
-        <% end %>
-      </div>
-      <div class="table_cell" id="title">
-        <% if user_signed_in? %>
-          If <span id="me" class="expand_button">Me</span>
-        <% else %>
-          If <%= link_to('Me', root_path, id: 'me') %>
-        <% end %>
-      </div>
+    <ul class="top-nav primary-nav">
       <% if user_signed_in? %>
-        <div class="table_cell expand_button" id="title_expand" style="vertical-align: middle">
-          <i class="fa fa-sort-asc"></i>
-        </div>
+        <%= nav_link_to('Home', root_path)  %>
+        <%= nav_link_to('Triggers', triggers_path, :class => "expand_trigger_button") %>
+        <%= nav_link_to('Strategies', strategies_path) %>
+        <%= nav_link_to('Medications', medications_path) %>
+        <%= nav_link_to('Groups', groups_path) %>
+        <%= nav_link_to('Allies', allies_path) %>
+      <% else %>
+        <%= nav_link_to('Sign in', new_user_session_path) %>
+        <%= nav_link_to('Join', new_user_registration_path) %>
       <% end %>
-    </div>
-    <% if user_signed_in? %>
-      <div id="expand_trigger" style="display: none">
-        <%= link_to('Categories', categories_path, class: 'me_link', id: 'categories_link')  %>
-        <%= link_to('Moods', moods_path, class: 'me_link', id: 'moods_link')  %>
-      </div>
+    </ul>
 
-      <div id="expand_me" style="display: none">
-        <%= link_to 'Profile', profile_index_path(:userid => current_user.id), class: 'me_link' %>
-        <%= link_to 'Account', edit_user_registration_path, class: 'me_link' %>
-        <%= link_to('Sign out', destroy_user_session_path, :method => :delete, class: 'me_link') %>
-      </div>
+    <%= link_to root_path, :id => "title_expand", :class => "expand_button" do %>
+      If <span id="me">Me</span>
+      <% if user_signed_in? %>
+        <i class="expand fa fa-sort-asc"></i>
+      <% end %>
     <% end %>
-    <div class="clear"></div>
+
+    <% if user_signed_in? %>
+      <ul id="expand_trigger" class="top-nav" style="display: none">
+        <%= nav_link_to('Categories', categories_path) %>
+        <%= nav_link_to('Moods', moods_path) %>
+      </ul>
+      <ul id="expand_me" class="top-nav" style="display: none">
+        <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
+        <%= nav_link_to('Account', edit_user_registration_path) %>
+        <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+      </ul>
+    <% end %>
   </div>
 </div>

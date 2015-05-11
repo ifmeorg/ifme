@@ -28,6 +28,8 @@
  *= require_self
  */
 
+@import "compass/support";
+@import "compass/utilities";
 @import "base/*";
 @import "application/*";
 
@@ -37,6 +39,20 @@ body, html {
 	margin: 0 auto;
 	font: 20px $font-family;
 	font-weight: 400;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
+}
+
+a:hover {
+	text-decoration: none;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
+	opacity: 0.5;
 }
 
 // TODO(juliepagano): This is probably not what we want long-term. Come back
@@ -115,94 +131,96 @@ ul.no_bullet_list li {
 }
 
 #header_content {
-	padding: 40px 60px;
+	@include clearfix;
+	padding: 30px 60px;
 }
 
-#header_content a.nav_link:link,
-#header_content a.nav_link:visited {
-	text-decoration: none;
-	color: $header-text-color;
-	margin-right: 20px;
-	padding: 13px 0px 18px 0px;
-	border: none;
+.top-nav {
+	clear: left;
+	float: left;
 	font-size: 18px;
+	padding: 0;
+	margin: 0;
+
+	li {
+		float: left;
+		list-style: none;
+		margin-right: 24px;
+	}
+
+	.active a {
+		border-top: 1px solid $header-text-color;
+		border-bottom: 1px solid $header-text-color;
+		opacity: 0.5;
+	}
+
+	a {
+		border-bottom: 1px solid $container-color;
+		border-top: 1px solid $container-color;
+		color: $header-text-color;
+		display: block;
+		padding: 13px 0px 18px 0px;
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 1px solid $header-text-color;
+			border-top: 1px solid $header-text-color;
+		}
+	}
 }
 
-#header_content a.nav_link:hover {
-	color: $header-text-color;
-	text-decoration: none;
-	padding: 13px 0px 18px 0px;
-	margin-right: 20px;
-	border-bottom: 1px solid $header-text-color;
-	border-top: 1px solid $header-text-color;
-	font-size: 18px;
-}
+#expand_trigger, #expand_me {
+	font-weight: 300;
+	margin-top: 30px;
 
-#title {
-	color: $header-text-color;
-	text-transform: lowercase;
-	font-size: 30px;
-	font-weight: 100;
-	text-align: right;
+	a {
+		border: none;
+	}
 }
 
 #title_expand {
-	color: $highlight-text-color;
+	border: none;
+	color: $header-text-color;
+	float: right;
+	font-size: 30px;
+	font-weight: 100;
+	line-height: 1;
+	margin-top: 7px;
+	outline: 0;
 	text-align: right;
+	text-transform: lowercase;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	.expand {
+		color: $highlight-text-color;
+		float: right;
+		font-size: 20px;
+		line-height: 30px;
+		margin-left: 10px;
+	}
 }
 
-#menu_header {
-	float: left;
+#me {
+	@include clearfix;
+	border-bottom: 1px solid $highlight-text-color;
+	border-top: 1px solid $highlight-text-color;
+	color: $highlight-text-color;
+	margin: 0;
+	padding: 5px 0px 10px 0px;
+}
+
+#expand_me {
+	clear: right;
+	float: right;
+	margin-top: 30px;
+	text-align: right;
 }
 
 #header_spacer {
 	width: 100%;
-}
-
-#me {
-	margin: 0;
-	color: $highlight-text-color;
-	padding: 5px 0px 10px 0px;
-	border-top: 1px solid $highlight-text-color;
-	border-bottom: 1px solid $highlight-text-color;
-}
-
-#expand_me {
-	margin-top: 40px;
-	width: 100%;
-	text-align: right;
-}
-
-#expand_trigger {
-	margin-top: 40px;
-	width: 100%;
-	text-align: left;
-}
-
-#expand_me a.me_link:link,
-#expand_me a.me_link:visited {
-	text-decoration: none;
-	color: $header-text-color;
-	margin-left: 20px;
-	border: none;
-	font-size: 18px;
-	font-weight: 300;
-}
-
-#expand_trigger a.me_link:link,
-#expand_trigger a.me_link:visited {
-	text-decoration: none;
-	color: $header-text-color;
-	margin-right: 20px;
-	border: none;
-	font-size: 18px;
-	font-weight: 300;
-}
-
-#expand_me a.me_link:hover,
-#expand_trigger a.me_link:hover {
-	color: $header-text-color;
-	text-decoration: none;
 }
 
 /* Page Title */
@@ -332,20 +350,6 @@ a.page_search:hover {
 }
 
 /* Links */
-
-a:link,
-a:visited {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-}
-
-a:hover {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-	opacity: 0.5;
-}
 
 a.gravatar:link,
 a.gravatar:visited {

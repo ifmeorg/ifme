@@ -10,10 +10,6 @@ gem 'resque-scheduler'
 
 gem 'resque_mailer'
 
-gem "rspec-rails", :group => [:development, :test]
-
-gem 'rspec-collection_matchers'
-
 gem 'factory_girl_rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -71,5 +67,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 group :development, :test do
-	gem 'railroady'
+  gem "rspec-rails"
+  gem 'rspec-collection_matchers'
+  gem 'capybara'
+  gem 'railroady'
 end
