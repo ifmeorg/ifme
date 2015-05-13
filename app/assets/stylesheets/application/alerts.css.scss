@@ -19,7 +19,8 @@
 	color: $secondary-text-color;
 }
 
-h1.alert_name a:link, h1.alert_name a:visited {
+h1.alert_name a:link,
+h1.alert_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;
