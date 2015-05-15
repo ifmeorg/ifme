@@ -28,7 +28,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups
+  resources :groups do
+    collection do
+      get "join"
+      get "leave"
+    end
+  end
 
   resources :meetings
 

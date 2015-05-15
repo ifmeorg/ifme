@@ -93,6 +93,46 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    @group_member = GroupMember.create!(groupid: params[:groupid], userid: current_user.id, leader: false)
+
+    respond_to do |format|
+        format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }
+        format.json { render :show, status: :created, location: Group.find(params[:groupid]) }
+    end
+  end
+
+  def leave
+    group_name = Group.where(id: params[:groupid]).first.name
+
+    # Cannot leave When you are the only leader
+    is_leader = GroupMember.where(userid: current_user.id, groupid: params[:groupid], leader: true).count
+    are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
+    if (is_leader == 1 && are_leaders == is_leader)
+      respond_to do |format|
+        format.html { redirect_to groups_path, alert: 'You cannot leave the group, you are the only leader.' }
+        format.json { head :no_content }
+      end
+    else
+      # Remove corresponding meetings
+      meetings = MeetingMember.where(userid: current_user.id).all
+      meetings.each do |meeting|
+        group_meetings = Meeting.where(id: meeting.id, groupid: params[:groupid]).all
+        group_meetings.each do |group_meeting|
+          group_meeting.destroy
+        end
+      end
+
+      group_member = GroupMember.find_by(userid: current_user.id, groupid: params[:groupid])
+      group_member.destroy
+
+      respond_to do |format|
+        format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
@@ -110,7 +150,6 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_path }
       format.json { head :no_content }
     end
-
   end
 
   private
