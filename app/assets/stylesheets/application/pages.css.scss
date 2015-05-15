@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#version {
+	text-align: center;
+	font-weight: 300;
+	font-size: 26px;
+	margin-bottom: 30px;
+	color: $secondary-text-color;
+}
+
 .trigger p {
 	margin : 0;
 }
