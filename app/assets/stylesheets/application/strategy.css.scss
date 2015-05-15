@@ -19,7 +19,8 @@ h1.strategy_name {
 	color: $secondary-text-color;
 }
 
-h1.strategy_name a:link, h1.strategy_name a:visited {
+h1.strategy_name a:link,
+h1.strategy_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;

@@ -28,8 +28,10 @@
  *= require_self
  */
 
- @import "base/*";
- @import "application/*";
+@import "compass/support";
+@import "compass/utilities";
+@import "base/*";
+@import "application/*";
 
 /* Text */
 
@@ -39,15 +41,37 @@ body, html {
 	font-weight: 400;
 }
 
+a:link,
+a:visited {
+	text-decoration: none;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
+}
+
+a:hover {
+	text-decoration: none;
+	color: $link-color;
+	border-bottom: 1px dotted $link-color;
+	opacity: 0.5;
+}
+
+// TODO(juliepagano): This is probably not what we want long-term. Come back
+// and clean up table css.
+table {
+	border-collapse: separate;
+}
+
 strong, b {
 	color: $secondary-text-color;
 }
 
-ul:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list)  {
+ul:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list)  {
 	padding-left: 0;
 }
 
-ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list), ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
+ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
  	list-style-position:inside;
 }
 
@@ -107,90 +131,96 @@ ul.no_bullet_list li {
 }
 
 #header_content {
-	padding: 40px 60px;
+	@include clearfix;
+	padding: 30px 60px;
 }
 
-#header_content a.nav_link:link, #header_content a.nav_link:visited {
-	text-decoration: none;
-	color: #ffffff;
-	margin-right: 20px;
-	padding: 13px 0px 18px 0px;
-	border: none;
+.top-nav {
+	clear: left;
+	float: left;
 	font-size: 18px;
+	padding: 0;
+	margin: 0;
+
+	li {
+		float: left;
+		list-style: none;
+		margin-right: 24px;
+	}
+
+	.active a {
+		border-top: 1px solid $header-text-color;
+		border-bottom: 1px solid $header-text-color;
+		opacity: 0.5;
+	}
+
+	a {
+		border-bottom: 1px solid $container-color;
+		border-top: 1px solid $container-color;
+		color: $header-text-color;
+		display: block;
+		padding: 13px 0px 18px 0px;
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 1px solid $header-text-color;
+			border-top: 1px solid $header-text-color;
+		}
+	}
 }
 
-#header_content a.nav_link:hover {
-	color: #ffffff;
-	text-decoration: none;
-	padding: 13px 0px 18px 0px;
-	margin-right: 20px;
-	border-bottom: 1px solid #ffffff;
-	border-top: 1px solid #ffffff;
-	font-size: 18px;
-}
+#expand_trigger, #expand_me {
+	font-weight: 300;
+	margin-top: 30px;
 
-#title {
-	color: #ffffff;
-	text-transform: lowercase;
-	font-size: 30px;
-	font-weight: 100;
-	text-align: right;
+	a {
+		border: none;
+	}
 }
 
 #title_expand {
-	color: #D0E799;
+	border: none;
+	color: $header-text-color;
+	float: right;
+	font-size: 30px;
+	font-weight: 100;
+	line-height: 1;
+	margin-top: 7px;
+	outline: 0;
 	text-align: right;
+	text-transform: lowercase;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	.expand {
+		color: $highlight-text-color;
+		float: right;
+		font-size: 20px;
+		line-height: 30px;
+		margin-left: 10px;
+	}
 }
 
-#menu_header {
-	float: left;
+#me {
+	@include clearfix;
+	border-bottom: 1px solid $highlight-text-color;
+	border-top: 1px solid $highlight-text-color;
+	color: $highlight-text-color;
+	margin: 0;
+	padding: 5px 0px 10px 0px;
+}
+
+#expand_me {
+	clear: right;
+	float: right;
+	margin-top: 30px;
+	text-align: right;
 }
 
 #header_spacer {
 	width: 100%;
-}
-
-#me {
-	margin: 0;
-	color: #D0E799;
-	padding: 5px 0px 10px 0px;
-	border-top: 1px solid #D0E799;
-	border-bottom: 1px solid #D0E799;
-}
-
-#expand_me {
-	margin-top: 40px;
-	width: 100%;
-	text-align: right;
-}
-
-#expand_trigger {
-	margin-top: 40px;
-	width: 100%;
-	text-align: left;
-}
-
-#expand_me a.me_link:link, #expand_me a.me_link:visited {
-	text-decoration: none;
-	color: #ffffff;
-	margin-left: 20px;
-	border: none;
-	font-size: 18px;
-	font-weight: 300;
-}
-
-#expand_trigger a.me_link:link, #expand_trigger a.me_link:visited {
-	text-decoration: none;
-	color: #ffffff;
-	margin-right: 20px;
-	border: none;
-	font-size: 18px;
-	font-weight: 300;
-}
-
-#expand_me a.me_link:hover, #expand_trigger a.me_link:hover {
-	color: #ffffff;
-	text-decoration: none;
 }
 
 /* Page Title */
@@ -201,7 +231,7 @@ ul.no_bullet_list li {
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: bottom center;
-	text-shadow: 1px 3px 5px #d0e799;
+	text-shadow: 1px 3px 5px $highlight-text-color;
 }
 
 #page_title > #page_title_content {
@@ -210,7 +240,8 @@ ul.no_bullet_list li {
 	font-weight: 300;
 }
 
-#page_title_content a:link, #page_title_content a:visited {
+#page_title_content a:link,
+#page_title_content a:visited {
 	text-decoration: none;
 	border: none;
 	color: $secondary-text-color;
@@ -229,15 +260,22 @@ ul.no_bullet_list li {
 
 /* Page Edit and New */
 
-a.page_edit:link, a.page_edit:visited, a.page_new:link, a.page_new:visited, a.page_search:link, a.page_search:visited {
+a.page_edit:link,
+a.page_edit:visited,
+a.page_new:link,
+a.page_new:visited,
+a.page_search:link,
+a.page_search:visited {
 	text-decoration: none;
-	color: #000000 !important;
+	color: $primary-text-color !important;
 	border: none;
 }
 
-a.page_edit:hover, a.page_new:hover, a.page_search:hover {
+a.page_edit:hover,
+a.page_new:hover,
+a.page_search:hover {
 	text-decoration: none;
-	color: #000000 !important;
+	color: $primary-text-color !important;
 	border: none;
 	opacity: 0.5;
 }
@@ -250,7 +288,7 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 }
 
 .headline {
-	color: #ffffff;
+	color: $header-text-color;
 	font-size: 40px;
 	text-shadow: 1px 2px 5px $font-family;
 }
@@ -293,7 +331,8 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 	color: $secondary-text-color
 }
 
-#footer a:link, #footer a:visited {
+#footer a:link,
+#footer a:visited {
 	text-decoration: none;
 	color: $secondary-text-color;
 	border-bottom: 1px dotted $secondary-text-color;
@@ -312,20 +351,8 @@ a.page_edit:hover, a.page_new:hover, a.page_search:hover {
 
 /* Links */
 
-a:link, a:visited {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-}
-
-a:hover {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-	opacity: 0.5;
-}
-
-a.gravatar:link, a.gravatar:visited {
+a.gravatar:link,
+a.gravatar:visited {
 	text-decoration: none;
 	border: none;
 }
@@ -342,7 +369,8 @@ img {
 	 max-width: 100%;
 }
 
-.profile_picture, .contributor_picture {
+.profile_picture,
+.contributor_picture {
 	width: 200px;
 	border-radius: 150px;
 	border: 2px solid $container-color;
@@ -367,16 +395,26 @@ label {
 	margin-bottom: 20px;
 }
 
-input, textarea, select, fieldset {
-	border: 1px solid #000000;
+input,
+textarea,
+select,
+fieldset {
+	border: 1px solid $primary-text-color;
 	padding: 10px;
-	box-shadow: 0 0 2px #000000 inset;
-	background-color: #ffffff;
+	box-shadow: 0 0 2px $primary-text-color inset;
+	background-color: $background-color;
 	font: 20px $font-family;
 	margin-right: 10px;
 }
 
-.field input[type="text"], .field input[type="passsword"], .field input[type="email"] {
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0 10px 0 5px;
+}
+
+.field input[type="text"],
+.field input[type="passsword"],
+.field input[type="email"] {
 	margin-right: 0px;
 }
 
@@ -389,7 +427,7 @@ input[type="submit"] {
 	border: 1px solid $link-color;
 	box-shadow: 0 0 2px $link-color inset;
 	color: $link-color;
-	background: #ffffff;
+	background: $background-color;
 	font: 20px $font-family;
 }
 
@@ -397,41 +435,42 @@ input[type="submit"]:hover {
 	border: 1px solid $link-color;
 	box-shadow: 0 0 2px $link-color inset;
 	color: $link-color;
-	background: #ffffff;
+	background: $background-color;
 	opacity: 0.5;
 }
 
 input[type="submit"]#unsupport {
-	border: 1px solid #990019 !important;
-	box-shadow: 0 0 2px #990019 inset !important;
-	color: #990019 !important;
-	background: #ffffff;
+	border: 1px solid $alert-color !important;
+	box-shadow: 0 0 2px $alert-color inset !important;
+	color: $alert-color !important;
+	background: $background-color;
 }
 
 input[type="submit"]#unsupport:hover {
-	border: 1px solid #990019 !important;
-	box-shadow: 0 0 2px #990019 inset !important;
-	color: #990019 !important;
-	background: #ffffff;
+	border: 1px solid $alert-color !important;
+	box-shadow: 0 0 2px $alert-color inset !important;
+	color: $alert-color !important;
+	background: $background-color;
 	opacity: 0.5;
 }
 
 input[type="submit"]#support {
-	border: 1px solid #289900 !important;
-	box-shadow: 0 0 2px #289900 inset !important;
-	color: #289900 !important;
-	background: #ffffff;
+	border: 1px solid $notice-color !important;
+	box-shadow: 0 0 2px $notice-color inset !important;
+	color: $notice-color !important;
+	background: $background-color;
 }
 
 input[type="submit"]#support:hover {
-	border: 1px solid #289900 !important;
-	box-shadow: 0 0 2px #289900 inset !important;
-	color: #289900 !important;
-	background: #ffffff;
+	border: 1px solid $notice-color !important;
+	box-shadow: 0 0 2px $notice-color inset !important;
+	color: $notice-color !important;
+	background: $background-color;
 	opacity: 0.5;
 }
 
-.field, .actions {
+.field,
+.actions {
 	margin-bottom: 40px;
 }
 
@@ -442,7 +481,7 @@ table {
 	table-layout: auto;
 	padding: 20px 0px 0px 20px;
 	border: 1px solid $container-color;
-	background-color: #ffffff;
+	background-color: $background-color;
 	box-shadow: 0 0 2px $container-color inset;
 }
 
@@ -481,7 +520,9 @@ table th {
 	margin-bottom: 10px;
 }
 
-.comment a:link, .comment a:visited, .comment a:hover {
+.comment a:link,
+.comment a:visited,
+.comment a:hover {
 	color: $secondary-text-color;
 	border-color: $secondary-text-color;
 }
@@ -507,25 +548,25 @@ div.table div.table_cell {
 .field_with_errors {
 	width: auto;
 	display: inherit;
-	color: #990019;
+	color: $alert-color;
 	font-weight: bold;
 }
 
 .notice {
-	color: #289900;
+	color: $notice-color;
 	font-weight: bold;
 	margin-bottom: 40px;
-	border: 1px solid #289900 !important;
-	box-shadow: 0 0 2px #289900 inset !important;
+	border: 1px solid $notice-color !important;
+	box-shadow: 0 0 2px $notice-color inset !important;
 	padding: 10px;
 }
 
 .alert {
-	color: #990019;
+	color: $alert-color;
 	font-weight: bold;
 	margin-bottom: 40px;
-	border: 1px solid #990019 !important;
-	box-shadow: 0 0 2px #990019 inset !important;
+	border: 1px solid $alert-color !important;
+	box-shadow: 0 0 2px $alert-color inset !important;
 	padding: 10px;
 }
 
