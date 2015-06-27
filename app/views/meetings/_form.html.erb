@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  <script>
+	$(function(){
+		$("#timepicker").timepicker();
+	});
+  </script>
 
   <div class="field">
     <div class="label"><%= f.label :name %></div>
@@ -25,7 +30,7 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :time %></div>
-    <%= f.text_field :time %>
+    <%= f.text_field :time, :id => "timepicker" %>
   </div>
   <div class="field">
     <div class="label"><%= f.label 'Maximum Members' %></div>

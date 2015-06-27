@@ -17,3 +17,5 @@
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
+//= require jquery.timepicker.js
+
