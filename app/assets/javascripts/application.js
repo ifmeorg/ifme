@@ -14,15 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery-ui-timepicker-addon
 //= require turbolinks
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
 
-$(function(){
-	$("#tpicker").timepicker();
-	$("#tpicker").on('click', function(){
-		$("#tpicker").timepicker('setTime', new Date());
-		});
-	});
