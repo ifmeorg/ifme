@@ -11,14 +11,6 @@
     </div>
   <% end %>
 
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script>
-	$(function(){
-		$("#timepicker").timepicker();
-	});
-  </script>
-
   <div class="field">
     <div class="label"><%= f.label :name %></div>
     <%= f.text_field :name %>
@@ -33,7 +25,7 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :time %></div>
-    <%= f.text_field :time, :id => "timepicker" %>
+    <%= f.text_field :time, id: "tpicker", class: "time ui-timepicker-input" %>
   </div>
   <div class="field">
     <div class="label"><%= f.label 'Maximum Members' %></div>
