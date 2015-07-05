@@ -18,4 +18,3 @@
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
-

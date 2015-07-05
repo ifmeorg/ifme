@@ -1,3 +1,17 @@
+<script>
+	$(function(){
+		$("#datepicker").datepicker();
+	});
+</script>
+
+<script>
+	$(function(){
+		$("#timepicker").timepicker({
+			timeFormat: "hh:mm tt"
+		});
+	});
+</script>
+
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
     <div id="error_explanation">
@@ -10,13 +24,6 @@
       </ul>
     </div>
   <% end %>
-
-	<script>
-	$(function(){
-		$("#tpicker").timepicker();
-	});
-	</script>
-
 
   <div class="field">
     <div class="label"><%= f.label :name %></div>
@@ -32,7 +39,11 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :time %></div>
-    <%= f.text_field :time, id: "tpicker", class: "ui-timepicker-div" %>
+    <%= f.text_field :time, id: "timepicker" %>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :date %></div>
+    <%= f.text_field :date, id: "datepicker" %>
   </div>
   <div class="field">
     <div class="label"><%= f.label 'Maximum Members' %></div>
@@ -44,7 +55,7 @@
   </div>
 <% end %>
 
-	<script>
+<script>
 /*! jQuery Timepicker Addon - v1.5.3 - 2015-04-19
 * http://trentrichardson.com/examples/timepicker
 * Copyright (c) 2015 Trent Richardson; Licensed MIT */
@@ -2292,3 +2303,4 @@
 }));
 
 </script>
+
