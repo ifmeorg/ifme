@@ -28,6 +28,7 @@
 	      		<%= link_to meeting.location, "https://www.google.com/maps/place/" + meeting.location %>
 	      	<% end %>
 	      	<br><strong>Time:</strong> <%= meeting.time %>
+		<br><strong>Date:</strong> <%= meeting.date %>
 	      	<br><strong>Led by:</strong>
 	      	<% meeting_leaders = MeetingMember.where(meetingid: meeting.id, leader: true).all %>
 	      	<% meeting_leaders.each_with_index do |leader, index| %>
