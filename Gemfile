@@ -12,8 +12,6 @@ gem 'resque_mailer'
 
 gem 'factory_girl_rails'
 
-gem 'jquery-rails'
-
 gem 'jquery-ui-rails'
 
 
@@ -77,3 +75,5 @@ group :development, :test do
   gem 'capybara'
   gem 'railroady'
 end
+
+gem 'jquery-datetimepicker-rails'
