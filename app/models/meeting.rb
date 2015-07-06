@@ -1,5 +1,5 @@
 class Meeting < ActiveRecord::Base
-	attr_accessible :name, :description, :location, :date, :time, :maxmembers, :groupid
+	attr_accessible :name, :description, :location, :time, :maxmembers, :groupid
 
-	validates_presence_of :name, :description, :location, :date, :time, :groupid
+	validates_presence_of :name, :description, :location, :time, :groupid
 end

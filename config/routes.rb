@@ -35,12 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :meetings do
-    collection do
-      get "join"
-      get "leave"
-    end
-  end
+  resources :meetings
 
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
 
