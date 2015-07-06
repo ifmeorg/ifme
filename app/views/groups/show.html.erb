@@ -19,7 +19,7 @@
   	<% else %>
     	<div class="meeting">
     <% end %>
-	    	<h1 class="meeting_name"><%= meeting.name %></h1>
+	    	<h1 class="meeting_name"><%= link_to meeting.name, meeting %></h1>
 	      	<%= simple_format(meeting.description) %>
 	      	<strong>Location:</strong>
 	      	<% if meeting.location.include? "http://" or meeting.location.include? "https://" or meeting.location.include? "www." %>
@@ -28,16 +28,15 @@
 	      		<%= link_to meeting.location, "https://www.google.com/maps/place/" + meeting.location %>
 	      	<% end %>
 	      	<br><strong>Time:</strong> <%= meeting.time %>
-		<br><strong>Date:</strong> <%= meeting.date %>
 	      	<br><strong>Led by:</strong>
-	      	<% meeting_leaders = MeetingMember.where(meetingid: meeting.id, leader: true).all %>
-	      	<% meeting_leaders.each_with_index do |leader, index| %>
+	      	<% meeting_members = MeetingMember.where(meetingid: meeting.id, leader: true).all %>
+	      	<% meeting_members.each_with_index do |leader, index| %>
 				<% if leader.userid == current_user.id %>
 					<%= link_to 'You', profile_index_path(:userid => leader.userid) %>
 				<% else %>
 					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
 				<% end %>
-				<% if index+1 < meeting_leaders.length %>
+				<% if index+1 < meeting_members.length %>
 					<%= ', ' %>
 				<% end %>
 			<% end %>
@@ -50,19 +49,6 @@
 			<% else %>
 				<strong>You are not attending. There is still room to join!</strong>
 		 	<% end %>
-
-		 	<% meeting_members = MeetingMember.where(["meetingid = ? and userid != ?", meeting.id, current_user.id]).all %>
-		 	<% if meeting_members.count > 0 %>
-			 	<br>
-			 	<br>
-			 	<strong>Attending:</strong>
-			 	<% meeting_members.each_with_index do |member, index| %>
-					<%= link_to User.where(id: member.userid).first.name, profile_index_path(userid: member.userid) %>
-					<% if index+1 < meeting_members.length %>
-						<%= ', ' %>
-					<% end %>
-			 	<% end %>
-			<% end %>
 	    </div>
   <% end %>
 <% end %>
