@@ -135,3 +135,14 @@ Always write unit tests for the changes you've made! If you see any missing unit
 ```
 rspec
 ```
+
+Committing Work
+----------------
+
+Make a fork of the repository, create a new branch for every feature you are working on!
+
+In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me. 
+
+This also helps people to familiarize themselves with the code base! The live contributors page can be found here: http://www.if-me.org/contributors. 
+
+Find the source code for that page and submit a pull request with your story!
