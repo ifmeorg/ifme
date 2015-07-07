@@ -10,6 +10,22 @@ Fork the repository, pick up an issue, or create an issue for a feature you woul
 
 Check out our Slack [page](https://ifme.slack.com) if you have any questions, ideas, or concerns!
 
+### Contributor Code of Conduct
+
+As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
+
+We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
+
+Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
+
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.
+
+This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.
+
+This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.1.0, available at [http://contributor-covenant.org/version/1/1/0/](http://contributor-covenant.org/version/1/1/0/)
+
 Getting Started
 ---------------
 
@@ -141,8 +157,8 @@ Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are working on!
 
-In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me. 
+In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me.
 
-This also helps people to familiarize themselves with the code base! The live contributors page can be found here: http://www.if-me.org/contributors. 
+This also helps people to familiarize themselves with the code base! The live contributors page can be found here: http://www.if-me.org/contributors.
 
 Find the source code for that page and submit a pull request with your story!
