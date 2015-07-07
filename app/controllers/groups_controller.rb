@@ -135,25 +135,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
-  def destroy
-    # Remove groups from existing triggers
-    @triggers = Trigger.where(:userid => current_user.id).all
-
-    @triggers.each do |item|
-      new_group = item.groups.delete(@group.id)
-      the_trigger = Trigger.find_by(id: item.id)
-      the_trigger.update(groups: item.groups)
-    end
-
-    @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group

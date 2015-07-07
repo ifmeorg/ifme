@@ -11,6 +11,7 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1/edit
   def edit
+    @groupid = @meeting.groupid
     @page_title = "Edit " + @meeting.name
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
   end
@@ -19,13 +20,14 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    groupid = meeting_params[:groupid]
     @page_title = "New Meeting"
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(meetingid: @meeting.id, userid: current_user.id, leader: true)
         if meeting_member.save
-          format.html { redirect_to meeting_path(@meeting), notice: 'Meeting was successfully created.' }
-          format.json { render :show, status: :created, location: @meeting }
+          format.html { redirect_to group_path(groupid), notice: 'Meeting was successfully created.' }
+          format.json { render :show, status: :created, location: groupid }
         end
       end
 
@@ -71,38 +73,33 @@ class MeetingsController < ApplicationController
   def join
     @meeting_member = MeetingMember.create!(meetingid: params[:meetingid], userid: current_user.id, leader: false)
 
+    groupid = Meeting.where(id: params[:meetingid]).first.groupid
+
     respond_to do |format|
-        format.html { redirect_to meeting_path(params[:meetingid]), notice: 'You have joined this meeting.' }
-        format.json { render :show, status: :created, location: Meeting.find(params[:meetingid]) }
+        format.html { redirect_to group_path(groupid), notice: 'You have joined this meeting.' }
+        format.json { render :show, status: :created, location: group_path(groupid) }
     end
   end
 
   def leave
     meeting_name = Meeting.where(id: params[:meetingid]).first.name
+    groupid = Meeting.where(id: params[:meetingid]).first.groupid
 
     # Cannot leave When you are the only leader
     is_leader = MeetingMember.where(userid: current_user.id, meetingid: params[:meetingid], leader: true).count
     are_leaders = MeetingMember.where(meetingid: params[:meetingid], leader: true).count
     if (is_leader == 1 && are_leaders == is_leader)
       respond_to do |format|
-        format.html { redirect_to meetings_path, alert: 'You cannot leave the meeting, you are the only leader.' }
+        format.html { redirect_to group_path(groupid), alert: 'You cannot leave the meeting, you are the only leader.' }
         format.json { head :no_content }
       end
     else
-      # Remove corresponding meetings
-      meetings = MeetingMember.where(userid: current_user.id).all
-      meetings.each do |meeting|
-        meeting_meetings = Meeting.where(id: meeting.id, meetingid: params[:meetingid]).all
-        meeting_meetings.each do |meeting_meeting|
-          meeting_meeting.destroy
-        end
-      end
-
+      # Remove user from meeting
       meeting_member = MeetingMember.find_by(userid: current_user.id, meetingid: params[:meetingid])
       meeting_member.destroy
 
       respond_to do |format|
-        format.html { redirect_to meetings_path, notice: 'You have left ' + meeting_name }
+        format.html { redirect_to group_path(groupid), notice: 'You have left ' + meeting_name }
         format.json { head :no_content }
       end
     end
@@ -111,18 +108,17 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
-    # Remove meetings from existing triggers
-    @triggers = Trigger.where(:userid => current_user.id).all
+    # Remove corresponding meeting members
+    @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
 
-    @triggers.each do |item|
-      new_meeting = item.meetings.delete(@meeting.id)
-      the_trigger = Trigger.find_by(id: item.id)
-      the_trigger.update(meetings: item.meetings)
+    @meeting_members.each do |item|
+      item.destroy
     end
 
+    groupid = @meeting.groupid
     @meeting.destroy
     respond_to do |format|
-      format.html { redirect_to meetings_path }
+      format.html { redirect_to group_path(groupid) }
       format.json { head :no_content }
     end
   end
@@ -135,7 +131,7 @@ class MeetingsController < ApplicationController
       rescue
         if @meeting.blank?
           respond_to do |format|
-            format.html { redirect_to meetings_path }
+            format.html { redirect_to groups_path }
             format.json { head :no_content }
           end
         end

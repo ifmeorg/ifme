@@ -43,7 +43,10 @@
 
 <script>
 	$(function(){
-		$("#meeting_date").datepicker();
-		$('#meeting_time').timepicker();
+		$('#meeting_date').datepicker();
+		$('#meeting_time').timepicker({
+			format: 'HH:mm',
+			use24hours: false
+		});
 	});
 </script>
