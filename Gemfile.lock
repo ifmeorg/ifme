@@ -46,6 +46,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    certified (1.0.0)
+    chronic (0.10.2)
     chunky_png (1.3.4)
     ckeditor (4.1.1)
       cocaine
@@ -293,6 +295,8 @@ PLATFORMS
 DEPENDENCIES
   capybara
   carrierwave
+  certified
+  chronic
   ckeditor
   coffee-rails (~> 4.0.0)
   compass-rails (~> 2.0.4)

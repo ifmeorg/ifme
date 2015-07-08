@@ -66,6 +66,10 @@ gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
+gem 'certified'
+
+gem 'chronic'
+
 group :development, :test do
   gem "rspec-rails"
   gem 'rspec-collection_matchers'
