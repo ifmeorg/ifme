@@ -1,3 +1,21 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ui-widget-header{
+	background: #d0e799;
+	box-shadow: 0px 40px 40px -40px white inset;
+}
+
+.ui-timepicker.div{
+	box-shadow: 0px 0px 2px #bbcf89;
+}
+
+.ui-datepicker th{
+	color:bbcf89;
+}
+
+.ui-datepicker table{
+	border: 1px solid #bbcf89;
+	box-shadow: 0px 0px 2px #bbcf89;
+}
