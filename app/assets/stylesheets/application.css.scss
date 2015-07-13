@@ -579,3 +579,10 @@ div.table div.table_cell {
 .fa-left {
 	margin-left: 20px;
 }
+
+/* Focused input fields */
+
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
+	border-color: #6d0839;
+	box-shadow: 0px 0px 2px #6d0839;
+}
