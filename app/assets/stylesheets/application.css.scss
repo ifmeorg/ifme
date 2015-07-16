@@ -424,17 +424,17 @@ textarea {
 }
 
 input[type="submit"] {
-	border: 1px solid $link-color;
-	box-shadow: 0 0 2px $link-color inset;
-	color: $link-color;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	color: $container-color;
 	background: $background-color;
 	font: 20px $font-family;
 }
 
 input[type="submit"]:hover {
-	border: 1px solid $link-color;
-	box-shadow: 0 0 2px $link-color inset;
-	color: $link-color;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	color: $container-color;
 	background: $background-color;
 	opacity: 0.5;
 }
@@ -583,6 +583,7 @@ div.table div.table_cell {
 /* Focused input fields */
 
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-	border-color: #6d0839;
-	box-shadow: 0px 0px 2px #6d0839;
+	border-color: $container-color;
+	box-shadow: 0px 0px 2px $container-color;
 }
+
