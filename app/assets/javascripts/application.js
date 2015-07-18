@@ -17,3 +17,9 @@
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
+
+var subtitle_delay_time = 300;
+var subtitle_slideDown_time = 1500;
+
+
+
