@@ -10,48 +10,64 @@
       </ul>
     </div>
   <% end %>
+
   <div class="table">
-    <div class="table_cell" style="padding-right: 40px; width: 200px">
-      <div class="field">
-        <div class="label"><%= f.label :name %></div>
-        <%= f.text_field :name %>
+
+    <div class="table_cell" style="padding-left: 200px;width:300px" >
+
+      <div class="field" >
+        <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
       </div>
-      <div class="field">
-        <div class="label"><%= f.label 'Categories' %></div>
-        <% Category.where(:userid => current_user.id).all.each do |item| %>
-          <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "category", true, false) %><br>
-        <% end %>
+
+      <div class="sidebarField" >
+        <div class="sidebarLabel">
+          <a href="#" class="toggleButton" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
+            <i class="fa fa-plus-square" ></i>
+          </a>
+          <a href="#" class="toggleButton" style="display:none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
+            <i class="fa fa-minus-square" ></i>
+          </a></i>
+          <%= f.label 'Categories' %>
+        </div>
+        <div id="categories" style="display:none"> 
+          <% Category.where(:userid => current_user.id).all.each do |item| %>
+            <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
+            <%= item.name %><br>
+          <% end %>
+        </div>
       </div>
-      <div class="field">
-        <div class="label"><%= f.label 'Moods' %></div>
+
+      <div class="sidebarField">
+        <div class="sidebarLabel">
+          <a href="#" class="toggleButton" onclick="toggleElements(['moods', 'showMoods', 'hideMoods']); " id="showMoods">
+            <i class="fa fa-plus-square" ></i>
+          </a>
+          <a href="#" class="toggleButton" style="display:none" onclick="toggleElements(['moods', 'showMoods', 'hideMoods'])" id="hideMoods">
+            <i class="fa fa-minus-square" ></i>
+        </a></i>
+        <%= f.label 'Moods' %>
+        </div>
+        <div id ="moods" style="display:none">
         <% Mood.where(:userid => current_user.id).all.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
           <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
         <% end %>
+        </div>
       </div>
-      <div class="field">
-        <div class="label"><%= f.label 'Allow Comments?' %></div>
-        <%= f.radio_button(:comment, true, :checked => true) %>Yes
-        <%= f.radio_button(:comment, false) %>No
-      </div>
-      <div class="field">
-        <div class="label"><%= f.label :viewers %></div>
-	       <%= f.radio_button(:post_type, 1, :checked => true) %>Allies<br>
-	       <%= f.radio_button(:post_type, 0) %>Only Me
-      </div>
-    </div>
-    <div class="table_cell">
-      <div class="field">
-        <div class="label"><%= f.label t('why_label') %></div>
-        <%= f.cktext_area :why, :style => "height: 200px" %>
-      </div>
-      <div class="field">
-        <div class="label"><%= f.label t('fix_label') %></div>
-        <%= f.cktext_area :fix, :style => "height: 200px" %>
-      </div>
-      <div class="field">
-        <div class="label"><%= f.label t('strategies_label') %></div>
+
+
+      <div class="sidebarField">
+        <div class="sidebarLabel">
+        <a href="#" class="toggleButton" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies']); " id="showStrategies">
+            <i class="fa fa-plus-square" ></i>
+          </a>
+          <a href="#" class="toggleButton" style="display:none" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies'])" id="hideStrategies">
+            <i class="fa fa-minus-square" ></i>
+        </a></i>
+        <%= f.label 'Stategies for handling trigger' %>
+        </div>
+
+        <div id ="strategies" style="display:none">
         <% strategy = Strategy.where(:userid => current_user.id).all %>
         <% if strategy.length > 0 %>
           <% strategy.each do |item| %>
@@ -61,14 +77,42 @@
         <% else %>
           There are no strategies available! <%= link_to 'Create', new_strategy_path %> new strategy and add it to this trigger.
         <% end %>
+        </div>
+      </div>
+
+      <div class="Field" style="padding: 50px 15px 15px 0px;">
+        <div class="sidebarLabel"><%= f.label 'Allow Comments?' %><div style="float:right">
+          <input name="trigger[comment]" type="hidden" value="false" />
+          <input type="checkbox" name="trigger[comment]" value="true" checked="true"/>
+        </div></div>
+      </div>
+
+      <div class="field" style="padding: 15px 15px 15px 0px;">
+        <div class="sidebarLabel"><%= f.label :viewers %> <div style="float:right"><%= f.select(:post_type, [['Only Me', 0], ['Allies', 1]], {}, {}) %></div>
+      </div>
+      </div>
+
+    </div>
+
+    <div class="table_cell" style="padding-left:40px;padding-right: 200px;">
+      <div class="field">
+        <div class="label"><%= f.label 'Describe the trigger & how it affects your mood and behaviour' %></div>
+        <%= f.cktext_area :why, :style => "height: 200px" %>
+      </div>
+      <div class="field">
+        <div class="label"><%= f.label t('fix_label') %></div>
+        <%= f.cktext_area :fix, :style => "height: 200px" %>
       </div>
     </div>
   </div>
+
   <div class="clear"></div>
-  <div class="actions">
+    <div class="actions" style="float:right;padding-right: 200px;">
     <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
-  </div>
+    </div>
+  <div class="clear"></div>
+
 <% end %>
 
 

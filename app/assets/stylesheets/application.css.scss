@@ -475,6 +475,32 @@ input[type="submit"]#support:hover {
 	margin-bottom: 40px;
 }
 
+.nameFormTextbox {
+  font: 30px Lato;
+  border: none;
+  width:265px;
+}
+
+.toggleButton:link, .toggleButton:visited {
+  font-size:27px;
+  color:#d0e799;
+  float:right;
+  border: none;
+}
+
+.sidebarField {
+  padding:15px 15px 15px 0px; 
+}
+
+.sidebarField:hover {
+  border-bottom: 1px solid #d0e799;
+  border-top: 1px solid #d0e799;
+}
+
+.sidebarLabel label{
+  font-size: 24px;
+}
+
 /* Tables */
 
 table {
