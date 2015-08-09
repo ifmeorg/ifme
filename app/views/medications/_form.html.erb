@@ -50,44 +50,39 @@
   <% end %>
 
 <div class="table">
-  <div class="table_cell" style="padding-right: 40px; width: 400px">
-    <div class="field">
-      <div class="label"><%= f.label :name %></div>
-      <%= f.text_field :name %>
+  <div class="table_cell" style="padding-left: 200px; width:500px">
+    <div class="field" >
+      <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox", :style=>"width:80%"%>
     </div>
     <div class="field">
-      <div class="label"><%= f.label :strength %> <i>(e.g. 100 mg)</i></div>
-      <%= f.number_field :strength %>
-      <%= f.radio_button(:strength_unit, 'mg') %>mg
-      <%= f.radio_button(:strength_unit, 'ml') %>ml
+      <%= f.text_area :comments, :placeholder => "Comments", :class => "commentsTextarea", :style=>"width:80%; height:150px" %>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label "Total Quantity" %> <i>(e.g. 30 tablets)</i></div>
-      <%= f.number_field :total %>
-      <%= f.radio_button(:total_unit, 'tablets') %>tablets
-      <%= f.radio_button(:total_unit, 'mg') %>mg
-      <%= f.radio_button(:total_unit, 'ml') %>ml
+  </div>
+
+
+  <div class="table_cell" style="padding-right: 200px; width:150px">
+    <div class="medicationField">
+      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
+      <div style="float:right"><%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %></div>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label "Daily Dosage" %> <i>(e.g. 1 tablet)</i></div>
-      <%= f.number_field :dosage %>
-      <%= f.radio_button(:dosage_unit, 'tablets') %>tablets
-      <%= f.radio_button(:dosage_unit, 'mg') %>mg
-      <%= f.radio_button(:dosage_unit, 'ml') %>ml
+    <div class="medicationField">
+      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
+      <div style="float:right"><%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %></div>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label :refill %></div>
-      <%= f.text_field :refill %>
+    <div class="medicationField">
+      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
+      <div style="float:right"><%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %></div>
     </div>
-    <div class="actions">
+    <div class="medicationField">
+      <%= f.text_field :refill, :placeholder => "Refill Time" %>
+    </div>
+
+    <br/><br/>
+    <div class="actions" style="float:right">
       <%= f.hidden_field :userid, :value => current_user.id %>
       <%= f.submit %>
     </div>
+  
   </div>
-  <div class="table_cell">
-    <div class="field">
-      <div class="label"><%= f.label :comments %></div>
-      <%= f.text_area :comments %>
-    </div>
-  </div>
+
 <% end %>
