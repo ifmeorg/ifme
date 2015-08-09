@@ -13,7 +13,7 @@
 
   <div class="table">
 
-    <div class="table_cell" style="width:300px" >
+    <div class="table_cell" style="padding-left: 200px;width:300px" >
 
       <div class="field" >
         <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
@@ -94,7 +94,7 @@
 
     </div>
 
-    <div class="table_cell" style="padding-left:40px">
+    <div class="table_cell" style="padding-left:40px;padding-right: 200px;">
       <div class="field">
         <div class="label"><%= f.label 'Describe the trigger & how it affects your mood and behaviour' %></div>
         <%= f.cktext_area :why, :style => "height: 200px" %>
@@ -107,7 +107,7 @@
   </div>
 
   <div class="clear"></div>
-    <div class="actions" style="float:right;">
+    <div class="actions" style="float:right;padding-right: 200px;">
     <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
     </div>

@@ -13,6 +13,7 @@
 
 
   <%if current_page?(action: 'new') %>
+    <div class="table_cell" style="padding-right: 200px; padding-left:200px">
     <div class="field">
       <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
     </div>
@@ -20,11 +21,12 @@
       <div class="label"><%= f.label :description %></div>
       <%= f.cktext_area :description %>
     </div>
+    </div>
   <% end %>
 
   <% if !current_page?(action: 'new') %>
   <div class="table">
-    <div class="table_cell" style="width:300px" >
+    <div class="table_cell" style="width:300px;padding-left:200px" >
       <div class="field">
         <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
       </div>
@@ -50,7 +52,7 @@
 
   </div>
 
-    <div class="table_cell" style="padding-left:40px">
+    <div class="table_cell" style="padding-left:40px;padding-right: 200px">
       <div class="field">
         <div class="label"><%= f.label :description %></div>
         <%= f.cktext_area :description %>
@@ -60,7 +62,7 @@
   <% end %>
   
   <div class="clear"></div>
-  <div class="actions" style="float:right;">
+  <div class="actions" style="float:right;padding-right: 200px;">
     <%= f.submit %>
   </div>
   <div class="clear"></div>

@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+<div class="table_cell" style="padding-right: 200px; padding-left:200px">
+    <div class="field">
     <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
-  </div>
+    </div>
   <div class="field">
     <div class="label"><%= f.label :description %></div>
     <%= f.cktext_area :description %>
   </div>
-  <div class="actions">
+  <div class="actions" style="float:right">
     <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
+  <div class="clear"></div>
+</div>
+
 <% end %>
