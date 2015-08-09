@@ -16,7 +16,7 @@
     <div class="table_cell" style="width:300px" >
 
       <div class="field" >
-        <%= f.text_field :name, :placeholder => "Trigger Name", :id => "triggerNameField" %>
+        <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
       </div>
 
       <div class="sidebarField" >
@@ -32,7 +32,7 @@
         <div id="categories" style="display:none"> 
           <% Category.where(:userid => current_user.id).all.each do |item| %>
             <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-            <%= fetch_taxonomies(@trigger, "trigger", item.id, "category", true, false) %><br>
+            <%= item.name %><br>
           <% end %>
         </div>
       </div>
@@ -80,14 +80,14 @@
         </div>
       </div>
 
-      <div class="Field" style="padding: 50px 15px 15px 15px;">
+      <div class="Field" style="padding: 50px 15px 15px 0px;">
         <div class="sidebarLabel"><%= f.label 'Allow Comments?' %><div style="float:right">
           <input name="trigger[comment]" type="hidden" value="false" />
           <input type="checkbox" name="trigger[comment]" value="true" checked="true"/>
         </div></div>
       </div>
 
-      <div class="field" style="padding: 15px;">
+      <div class="field" style="padding: 15px 15px 15px 0px;">
         <div class="sidebarLabel"><%= f.label :viewers %> <div style="float:right"><%= f.select(:post_type, [['Only Me', 0], ['Allies', 1]], {}, {}) %></div>
       </div>
       </div>

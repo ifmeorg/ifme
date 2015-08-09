@@ -26,46 +26,5 @@ h1.trigger_name a:visited {
 	border: none;
 }
 
-/* Trigger Form */ 
 
-#triggerNameField {
-  font: 30px Lato;
-  border: none;
-  margin-left: 15px;
-  width:80%;
-}
-
-.toggleButton:link, .toggleButton:visited {
-  font-size:27px;
-  color:#d0e799;
-  float:right;
-  border: none;
-}
-
-.sidebarField {
-  padding:15px; 
-}
-
-.sidebarField:hover {
-  border-bottom: 1px solid #d0e799;
-  border-top: 1px solid #d0e799;
-}
-
-.sidebarLabel label{
-  font-size: 24px;
-}
-
-/* styling placeholder for different browsers */
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  font-weight: 100;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  font-weight: 100;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  font-weight: 100;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  font-weight: 100;
-}
 
