@@ -38,7 +38,7 @@
 				<% else %>
 					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
 				<% end %>
-				<% if index+1 < meeting_members.length %>
+				<% if index+1 < meeting_leaders.length %>
 					<%= ', ' %>
 				<% end %>
 			<% end %>
