@@ -1,29 +1,36 @@
 <%= form_for(@mood) do |f| %>
-  <% if @mood.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mood.errors.count, "error") %> prohibited this mood from being saved:</h2>
+<% if @mood.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@mood.errors.count, "error") %> prohibited this mood from being saved:</h2>
 
-      <ul>
-      <% @mood.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @mood.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-<div class="table_cell" style="padding-left: 200px; padding-right: 200px;">
+<div class="table_cell">
+
   <div class="field">
-    <%= f.text_field :name, :placeholder => "Name", :class => "nameFormTextbox" %>
+    <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
   </div>
+
   <div class="field">
-    <div class="label"><%= f.label :description %></div>
+    <div class="label">
+      <%= f.label :description %>
+    </div>
     <%= f.cktext_area :description %>
   </div>
-  <div class="actions" style="float:right">
+
+  <div class="actions align_right">
     <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit %>
   </div>
+
   <div class="clear"></div>
+
 </div>
 
 <% end %>
