@@ -1,51 +1,86 @@
 <%= form_for(@strategy) do |f| %>
-  <% if @strategy.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@strategy.errors.count, "error") %> prohibited this strategy from being saved:</h2>
+<% if @strategy.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@strategy.errors.count, "error") %> prohibited this strategy from being saved:</h2>
 
-      <ul>
-      <% @strategy.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% @strategy.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="table">
+
+  <div class="table_cell padding_right vertical_align">
+
+    <div class="field">
+      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
     </div>
-  <% end %>
-  <div class="table">
-    <div class="table_cell" style="padding-right: 40px; width: 200px">
-      <div class="field">
-        <div class="label"><%= f.label :name %></div>
-        <%= f.text_field :name %>
+
+    <div class="sidebar_field">
+      <div class="sidebar_label">
+        <a href="#" class="toggle_button" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
+          <i class="fa fa-plus-square"></i>
+        </a>
+        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
+          <i class="fa fa-minus-square" ></i>
+        </a>
+        <%= f.label 'Categories' %>
       </div>
-      <div class="field">
-        <div class="label"><%= f.label 'Categories' %></div>
+      <div id="categories" style="display: none">
         <% Category.where(:userid => current_user.id).all.each do |item| %>
-          <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
-          <%= item.name %><br>
-        <% end %>
-      </div>
-      <div class="field">
-        <div class="label"><%= f.label 'Allow Comments?' %></div>
-        <%= f.radio_button(:comment, true) %>Yes
-        <%= f.radio_button(:comment, false) %>No
-      </div>
-      <div class="field">
-        <div class="label"><%= f.label :viewers %></div>
-        <% @viewers.each do |item| %>
-          <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item)}, item, nil) %>
-          <%= User.where(:id => item).first.name %><br>
+        <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
+        <%= item.name %><br>
         <% end %>
       </div>
     </div>
-    <div class="table_cell">
-      <div class="field">
-        <div class="label"><%= f.label "Describe the strategy." %></div>
-        <%= f.cktext_area :description, :style => "height: 200px" %>
+
+    <div class="sidebar_field">
+      <div class="sidebar_label">
+        <a href="#" class="toggle_button" onclick="toggleElements(['viewers', 'showViewers', 'hideViewers']); " id="showViewers">
+          <i class="fa fa-plus-square"></i>
+        </a>
+        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['viewers', 'showViewers', 'hideViewers'])" id="hideViewers">
+          <i class="fa fa-minus-square" ></i>
+        </a>
+        <%= f.label 'Viewers' %>
+      </div>
+      <div id="viewers" style="display: none">
+        <% Category.where(:userid => current_user.id).all.each do |item| %>
+        <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item)}, item, nil) %>
+        <%= User.where(:id => item).first.name  %><br>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ield" style="padding: 50px 15px 15px 0px;">
+      <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
+        <div class="align_right">
+          <input name="strategy[comment]" type="hidden" value="false" />
+          <input type="checkbox" name="strategy[comment]" value="true" checked="true"/>
+        </div>
       </div>
     </div>
   </div>
-  <div class="clear"></div>
-  <div class="actions">
-    <%= f.hidden_field :userid, :value => current_user.id %>
-    <%= f.submit %>
+
+  <div class="table_cell vertical_align">
+    <div class="field">
+      <div class="label"><%= f.label "Describe the strategy." %></div>
+      <%= f.cktext_area :description, :style => "height: 200px" %>
+    </div>
   </div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="actions align_right">
+  <%= f.hidden_field :userid, :value => current_user.id %>
+  <%= f.submit %>
+</div>
+
+<div class="clear"></div>
+
 <% end %>

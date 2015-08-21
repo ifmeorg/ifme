@@ -1,37 +1,85 @@
 <%= form_for(@group) do |f| %>
-  <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+<% if @group.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
-      <ul>
-      <% @group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @group.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+<%if current_page?(action: 'new') %>
+<div class="table_cell vertical_align">
 
   <div class="field">
-    <div class="label"><%= f.label :name %></div>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
   </div>
+
   <div class="field">
     <div class="label"><%= f.label :description %></div>
     <%= f.cktext_area :description %>
   </div>
 
-  <% if !current_page?(action: 'new') %>
+</div>
+<% end %>
+
+<% if !current_page?(action: 'new') %>
+<div class="table">
+
+  <div class="table_cell vertical_align">
+
     <div class="field">
-      <div class="label"><%= f.label 'Leaders' %></div>
-      <% @group_members.each do |member| %>
+      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
+    </div>
+
+    <div class="sidebar_field">
+
+      <div class="sidebar_label">
+        <a href="#" class="toggle_button" onclick="toggleElements(['Leaders', 'showLeaders', 'hideLeaders']); " id="showLeaders">
+          <i class="fa fa-plus-square"></i>
+        </a>
+        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['Leaders', 'showLeaders', 'hideLeaders'])" id="hideLeaders">
+          <i class="fa fa-minus-square" ></i>
+        </a></i>
+        <%= f.label 'Leaders' %>
+      </div>
+
+      <div id ="Leaders" style="display: none">
+        <% @group_members.each do |member| %>
         <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
         <%= link_to User.where(id: member.userid).first.name, profile_index_path(userid: member.userid) %>
-        <br>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    </div>
+
   </div>
+
+  <div class="table_cell vertical_align">
+
+    <div class="field">
+      <div class="label">
+        <%= f.label :description %>
+      </div>
+
+      <%= f.cktext_area :description %>
+    </div>
+
+  </div>
+
+</div>
+<% end %>
+
+<div class="clear"></div>
+
+<div class="actions align_right">
+  <%= f.submit %>
+</div>
+
+<div class="clear"></div>
+
 <% end %>

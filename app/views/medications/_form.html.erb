@@ -8,21 +8,21 @@
 
     $("#medication_name").autocomplete({
       source: function (request, response) {
-      $.getJSON(
-        "http://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames.json?drug_name=" + request.term,
-        function (data) {
-          var cleanedData = [];
-          _.each(data.data, function(dataItem) {
-            cleanedData.push(toTitleCase(dataItem.drug_name));
-          })
-          response(cleanedData);
-        });
+        $.getJSON(
+          "http://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames.json?drug_name=" + request.term,
+          function (data) {
+            var cleanedData = [];
+            _.each(data.data, function(dataItem) {
+              cleanedData.push(toTitleCase(dataItem.drug_name));
+            })
+            response(cleanedData);
+          });
       },
       minLength: 3,
       select: function (event, ui) {
         var selectedObj = ui.item;
         $("#medication_name").val(selectedObj.value);
-          return false;
+        return false;
       },
       open: function () {
         $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
@@ -37,57 +37,68 @@
 </script>
 
 <%= form_for(@medication) do |f| %>
-  <% if @medication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@medication.errors.count, "error") %> prohibited this medication from being saved:</h2>
+<% if @medication.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@medication.errors.count, "error") %> prohibited this medication from being saved:</h2>
 
-      <ul>
-      <% @medication.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @medication.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div class="table">
-  <div class="table_cell" style="padding-right: 40px; width: 400px">
-    <div class="field">
-      <div class="label"><%= f.label :name %></div>
-      <%= f.text_field :name %>
+
+  <div class="table_cell padding_right vertical_align">
+
+    <div class="field" >
+      <%= f.text_field :name, :placeholder => "Name", :class => "name_field", :style=>"width:80%"%>
     </div>
+
     <div class="field">
-      <div class="label"><%= f.label :strength %> <i>(e.g. 100 mg)</i></div>
-      <%= f.number_field :strength %>
-      <%= f.radio_button(:strength_unit, 'mg') %>mg
-      <%= f.radio_button(:strength_unit, 'ml') %>ml
+      <%= f.text_area :comments, :placeholder => "Comments", :class => "commentsTextarea", :style=>"width:80%; height:150px" %>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label "Total Quantity" %> <i>(e.g. 30 tablets)</i></div>
-      <%= f.number_field :total %>
-      <%= f.radio_button(:total_unit, 'tablets') %>tablets
-      <%= f.radio_button(:total_unit, 'mg') %>mg
-      <%= f.radio_button(:total_unit, 'ml') %>ml
+
+  </div>
+
+  <div class="table_cell vertical_align">
+
+    <div class="medication_field">
+      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
+      <div class="align_right">
+        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label "Daily Dosage" %> <i>(e.g. 1 tablet)</i></div>
-      <%= f.number_field :dosage %>
-      <%= f.radio_button(:dosage_unit, 'tablets') %>tablets
-      <%= f.radio_button(:dosage_unit, 'mg') %>mg
-      <%= f.radio_button(:dosage_unit, 'ml') %>ml
+
+    <div class="medication_field">
+      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
+      <div class="align_right">
+        <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
-    <div class="field">
-      <div class="label"><%= f.label :refill %></div>
-      <%= f.text_field :refill %>
+
+    <div class="medication_field">
+      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
+      <div class="align_right">
+        <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
-    <div class="actions">
+
+    <div class="medication_field">
+      <%= f.text_field :refill, :placeholder => "Refill Time" %>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="actions align_right">
       <%= f.hidden_field :userid, :value => current_user.id %>
       <%= f.submit %>
     </div>
+
   </div>
-  <div class="table_cell">
-    <div class="field">
-      <div class="label"><%= f.label :comments %></div>
-      <%= f.text_area :comments %>
-    </div>
-  </div>
+
+</div>
+
 <% end %>

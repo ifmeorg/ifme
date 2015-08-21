@@ -1,3 +1,25 @@
 // Place all the styles related to the Medications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.medication_field input {
+	border:none;
+}
+
+.medication_field {
+	padding:15px 15px 15px 0px;
+}
+
+.medication_field input {
+	width: 220px;
+}
+
+.medication_field select {
+	border:none;
+	width: 100px;
+	height: 45px;
+}
+
+.commentsTextarea {
+  border: none;
+}

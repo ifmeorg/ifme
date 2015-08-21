@@ -90,6 +90,15 @@ ul.no_bullet_list li {
 	list-style-type: none;
 }
 
+/* Padding */
+
+.padding_right {
+	padding-right: 40px;
+}
+
+.padding_left {
+	padding-left: 40px;
+}
 
 /* Divs */
 
@@ -316,7 +325,13 @@ a.page_search:hover {
 	font: 34px $font-family;
 	font-weight: 100;
 	text-align: center;
+	display: none;
 }
+
+.block {
+	display: block !important;
+}
+
 
 /* Footer */
 
@@ -382,7 +397,7 @@ img {
 	border: 2px solid $container-color;
 }
 
-/* Form Elements and Input Fields */
+/* Form Elements and Input fields */
 
 label {
 	font-size: 30px;
@@ -424,17 +439,17 @@ textarea {
 }
 
 input[type="submit"] {
-	border: 1px solid $link-color;
-	box-shadow: 0 0 2px $link-color inset;
-	color: $link-color;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	color: $container-color;
 	background: $background-color;
 	font: 20px $font-family;
 }
 
 input[type="submit"]:hover {
-	border: 1px solid $link-color;
-	box-shadow: 0 0 2px $link-color inset;
-	color: $link-color;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	color: $container-color;
 	background: $background-color;
 	opacity: 0.5;
 }
@@ -474,6 +489,27 @@ input[type="submit"]#support:hover {
 	margin-bottom: 40px;
 }
 
+.name_field {
+  font: 30px Lato;
+  border: none;
+  width:265px;
+}
+
+.toggle_button:link, .toggle_button:visited {
+  font-size: 27px;
+  color: $highlight-text-color;
+  float: right;
+  border: none;
+}
+
+.sidebar_field {
+  padding: 15px 15px 15px 0px;
+}
+
+.sidebar_label label{
+  font-size: 24px;
+}
+
 /* Tables */
 
 table {
@@ -505,6 +541,10 @@ table th {
 .action {
 	color: $link-color;
 	margin-right: 10px;
+}
+
+.vertical_align {
+	vertical-align: top;
 }
 
 /* Comments */
@@ -583,6 +623,7 @@ div.table div.table_cell {
 /* Focused input fields */
 
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-	border-color: #6d0839;
-	box-shadow: 0px 0px 2px #6d0839;
+	border-color: $container-color;
+	box-shadow: 0px 0px 2px $container-color;
 }
+
