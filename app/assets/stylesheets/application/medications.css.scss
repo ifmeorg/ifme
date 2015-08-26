@@ -2,24 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.medication_field input {
-	border:none;
+.comments {
+	width: 100%;
+	height: 150px;
 }
 
-.medication_field {
-	padding:15px 15px 15px 0px;
-}
-
-.medication_field input {
-	width: 220px;
-}
-
-.medication_field select {
-	border:none;
-	width: 100px;
-	height: 45px;
-}
-
-.commentsTextarea {
-  border: none;
+.name_field {
+	width: 100% !important;
 }

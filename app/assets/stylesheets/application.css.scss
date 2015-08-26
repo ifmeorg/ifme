@@ -420,6 +420,7 @@ fieldset {
 	background-color: $background-color;
 	font: 20px $font-family;
 	margin-right: 10px;
+	box-sizing: border-box;
 }
 
 input[type="checkbox"],
@@ -492,7 +493,6 @@ input[type="submit"]#support:hover {
 .name_field {
   font: 30px Lato;
   border: none;
-  width:265px;
 }
 
 .toggle_button:link, .toggle_button:visited {
@@ -573,6 +573,7 @@ div.table {
 	display: table;
 	table-layout: auto;
 	width: 100%;
+	border-collapse: separate;
 }
 
 div.table div.table_row {

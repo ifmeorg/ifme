@@ -1,41 +1,3 @@
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    function toTitleCase(str) {
-      if (1 !== str.length) str = str.toLowerCase();
-      return str.replace(/\b[a-z]/g, function(f){return f.toUpperCase()});
-    }
-
-    $("#medication_name").autocomplete({
-      source: function (request, response) {
-        $.getJSON(
-          "http://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames.json?drug_name=" + request.term,
-          function (data) {
-            var cleanedData = [];
-            _.each(data.data, function(dataItem) {
-              cleanedData.push(toTitleCase(dataItem.drug_name));
-            })
-            response(cleanedData);
-          });
-      },
-      minLength: 3,
-      select: function (event, ui) {
-        var selectedObj = ui.item;
-        $("#medication_name").val(selectedObj.value);
-        return false;
-      },
-      open: function () {
-        $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
-      },
-      close: function () {
-        $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
-      }
-    });
-    $("#medication_name").autocomplete("option", "delay", 100);
-    $("#medication_refill").datepicker();
-  });
-</script>
-
 <%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
 <div id="error_explanation">
@@ -54,45 +16,41 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="field" >
-      <%= f.text_field :name, :placeholder => "Name", :class => "name_field", :style=>"width:80%"%>
+      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
     </div>
 
     <div class="field">
-      <%= f.text_area :comments, :placeholder => "Comments", :class => "commentsTextarea", :style=>"width:80%; height:150px" %>
+      <%= f.text_area :comments, :placeholder => "Comments", :class => "comments" %>
+    </div>
+
+  </div>
+
+  <div class="table_cell vertical_align padding_right">
+
+    <div class="field">
+      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
+      <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
+      <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
+      <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
     </div>
 
   </div>
 
   <div class="table_cell vertical_align">
 
-    <div class="medication_field">
-      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
-      <div class="align_right">
-        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
-      </div>
-    </div>
-
-    <div class="medication_field">
-      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
-      <div class="align_right">
-        <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
-      </div>
-    </div>
-
-    <div class="medication_field">
-      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
-      <div class="align_right">
-        <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
-      </div>
-    </div>
-
-    <div class="medication_field">
+    <div class="field">
       <%= f.text_field :refill, :placeholder => "Refill Time" %>
     </div>
 
-    <div class="spacer"></div>
-
-    <div class="actions align_right">
+    <div class="actions">
       <%= f.hidden_field :userid, :value => current_user.id %>
       <%= f.submit %>
     </div>
