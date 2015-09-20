@@ -144,15 +144,25 @@ $header-height: 115px;
 
 #header_content {
 	@include clearfix;
-	padding: 30px 60px;
+	padding: 10px;
+
+	@media screen and (min-width: 800px) {
+		padding: 30px 60px;
+	}
 }
 
 .top-nav {
 	clear: left;
 	float: left;
-	font-size: 18px;
+	font-size: 12px;
 	padding: 0;
 	margin: 0;
+	width: 80%;
+
+	@media screen and (min-width: 800px) {
+		font-size: 18px;
+		width: auto;
+	}
 
 	li {
 		float: left;
@@ -194,13 +204,17 @@ $header-height: 115px;
 	border: none;
 	color: $header-text-color;
 	float: right;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 100;
 	line-height: 1;
 	margin-top: 7px;
 	outline: 0;
 	text-align: right;
 	text-transform: lowercase;
+
+	@media screen and (min-width: 800px) {
+		font-size: 30px;
+	}
 
 	&:hover {
 		opacity: 1;
