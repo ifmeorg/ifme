@@ -132,9 +132,12 @@ ul.no_bullet_list li {
 
 /* Header */
 
+$header-height: 115px;
+
 #header {
 	background-color: $container-color;
 	position: fixed;
+	height: $header-height;
 	width: 100%;
 	z-index: 9000;
 }
@@ -232,12 +235,19 @@ ul.no_bullet_list li {
 	width: 100%;
 }
 
+/* All Content Below Header */
+
+.page-container {
+	position: relative;
+	top: $header-height;
+}
+
 /* Page Title */
 
 #page_title {
 	width: 100%;
 	background-image: url('/assets/welcome_small.png');
-	background-size: 100% auto;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	text-shadow: 1px 3px 5px $highlight-text-color;
