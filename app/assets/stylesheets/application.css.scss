@@ -132,12 +132,9 @@ ul.no_bullet_list li {
 
 /* Header */
 
-$header-height: 115px;
-
 #header {
 	background-color: $container-color;
 	position: fixed;
-	height: $header-height;
 	width: 100%;
 	z-index: 9000;
 }
