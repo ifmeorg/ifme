@@ -238,8 +238,16 @@ ul.no_bullet_list li {
 #expand_me {
 	clear: right;
 	float: right;
-	margin-top: 30px;
+	margin-top: 0;
 	text-align: right;
+
+	li {
+		float: right;
+	}
+
+	@media screen and (min-width:800px) {
+		margin-top: 30px;
+	}
 }
 
 #header_spacer {
