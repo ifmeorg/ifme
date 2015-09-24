@@ -76,3 +76,5 @@ group :development, :test do
   gem 'capybara'
   gem 'railroady'
 end
+
+gem 'foundation-rails'
