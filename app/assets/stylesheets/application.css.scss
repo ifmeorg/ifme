@@ -141,15 +141,25 @@ ul.no_bullet_list li {
 
 #header_content {
 	@include clearfix;
-	padding: 30px 60px;
+	padding: 10px;
+
+	@media screen and (min-width: 800px) {
+		padding: 30px 60px;
+	}
 }
 
 .top-nav {
 	clear: left;
 	float: left;
-	font-size: 18px;
+	font-size: 12px;
 	padding: 0;
 	margin: 0;
+	width: 80%;
+
+	@media screen and (min-width: 800px) {
+		font-size: 18px;
+		width: auto;
+	}
 
 	li {
 		float: left;
@@ -191,13 +201,17 @@ ul.no_bullet_list li {
 	border: none;
 	color: $header-text-color;
 	float: right;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 100;
 	line-height: 1;
 	margin-top: 7px;
 	outline: 0;
 	text-align: right;
 	text-transform: lowercase;
+
+	@media screen and (min-width: 800px) {
+		font-size: 30px;
+	}
 
 	&:hover {
 		opacity: 1;
@@ -224,8 +238,16 @@ ul.no_bullet_list li {
 #expand_me {
 	clear: right;
 	float: right;
-	margin-top: 30px;
+	margin-top: 0;
 	text-align: right;
+
+	li {
+		float: right;
+	}
+
+	@media screen and (min-width:800px) {
+		margin-top: 30px;
+	}
 }
 
 #header_spacer {
@@ -237,7 +259,7 @@ ul.no_bullet_list li {
 #page_title {
 	width: 100%;
 	background-image: url('/assets/welcome_small.png');
-	background-size: 100% auto;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	text-shadow: 1px 3px 5px $highlight-text-color;
