@@ -3,6 +3,13 @@ if me
 
 A community for mental health experiences
 
+# Table of Contents
+1. [Getting Involved](#getting-involved)
+2. [Getting Started](#getting-started)
+3. [Testing Accounts](#testing-accounts)
+4. [Committing Work](#committing-work)
+5. [License](#license)
+
 Getting Involved
 ---------------
 
