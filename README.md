@@ -6,7 +6,7 @@ A community for mental health experiences
 Getting Involved
 ---------------
 
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email tojulianguyen@gmail.com.
+Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email join.ifme@gmail.com.
 
 Check out our Slack [page](https://ifme.slack.com) if you have any questions, ideas, or concerns!
 
@@ -166,5 +166,5 @@ Find the source code for that page and submit a pull request with your story!
 License
 -------
 
-The source code is licensed under the Apache License. For mor information see http://www.apache.org/licenses/ or LICENSE.txt.
+The source code is licensed under the Apache License. For more information see http://www.apache.org/licenses/ or LICENSE.txt.
 
