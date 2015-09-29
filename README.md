@@ -162,3 +162,9 @@ In the spirit of open communication and community, we highly recommend that new 
 This also helps people to familiarize themselves with the code base! The live contributors page can be found here: http://www.if-me.org/contributors.
 
 Find the source code for that page and submit a pull request with your story!
+
+License
+-------
+
+The source code is licensed under the Apache License. For mor information see http://www.apache.org/licenses/ or LICENSE.txt.
+
