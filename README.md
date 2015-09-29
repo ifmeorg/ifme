@@ -6,7 +6,7 @@ A community for mental health experiences
 Getting Involved
 ---------------
 
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email tojulianguyen@gmail.com.
+Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email join.ifme@gmail.com.
 
 Check out our Slack [page](https://ifme.slack.com) if you have any questions, ideas, or concerns!
 
