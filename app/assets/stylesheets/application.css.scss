@@ -121,6 +121,13 @@ ul.no_bullet_list li {
 	display: inline-block;
 }
 
+.align_left, .align_right {
+	@media screen and (max-width: $medium) {
+		display: block;
+		float: none;
+	}
+}
+
 .clear {
 	clear: both;
 }
@@ -408,9 +415,13 @@ img {
 
 .profile_picture,
 .contributor_picture {
-	width: 200px;
+	width: 100px;
 	border-radius: 150px;
 	border: 2px solid $container-color;
+
+	@media screen and (min-width: $medium) {
+		width: 200px;
+	}
 }
 
 .mini_profile_picture {
@@ -605,7 +616,7 @@ div.table div.table_row {
 div.table div.table_cell {
 	display: table-cell;
 
-	@media screen and (max-width: $medium + 1) {
+	@media screen and (max-width: $medium - 1) {
 		display: block;
 	}
 }
