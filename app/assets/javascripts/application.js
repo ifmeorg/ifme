@@ -13,6 +13,7 @@
 //= require local_time
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
 //= require ckeditor/init
@@ -23,3 +24,5 @@ var subtitle_slideDown_time = 1500;
 
 
 
+
+$(function(){ $(document).foundation(); });
