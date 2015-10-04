@@ -604,6 +604,10 @@ div.table div.table_row {
 
 div.table div.table_cell {
 	display: table-cell;
+
+	@media screen and (max-width: $medium + 1) {
+		display: block;
+	}
 }
 
 /* Errors and Notices */
