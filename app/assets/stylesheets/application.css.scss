@@ -26,8 +26,6 @@
  * file per style scope.
  *
  *= require_self
- //= require foundation_and_overrides
-
  */
 
 @import "compass/support";
@@ -145,7 +143,7 @@ ul.no_bullet_list li {
 	@include clearfix;
 	padding: 10px;
 
-	@media #{$medium-up} {
+	@media screen and (min-width: $medium) {
 		padding: 30px 60px;
 	}
 }
@@ -158,7 +156,7 @@ ul.no_bullet_list li {
 	margin: 0;
 	width: 80%;
 
-	@media #{$medium-up} {
+	@media screen and (min-width: $medium) {
 		font-size: 18px;
 		width: auto;
 	}
@@ -211,7 +209,7 @@ ul.no_bullet_list li {
 	text-align: right;
 	text-transform: lowercase;
 
-	@media #{$medium-up} {
+	@media screen and (min-width: $medium) {
 		font-size: 30px;
 	}
 
@@ -247,7 +245,7 @@ ul.no_bullet_list li {
 		float: right;
 	}
 
-	@media #{$medium-up} {
+	@media screen and (min-width: $medium) {
 		margin-top: 30px;
 	}
 }
