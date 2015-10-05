@@ -1,0 +1,45 @@
+.contributor {
+  @media screen and (max-width: $medium - 1) {
+    margin: 0 0 40px;
+    padding: 20px;
+    border: 1px solid $secondary-text-color;
+  }
+
+  .about-contributor {
+    vertical-align: middle;
+  }
+
+  .contributor-image {
+    @media screen and (min-width: $medium) {
+      width: 200px;
+      padding-right: 40px;
+      vertical-align: middle
+    }
+  }
+
+  .spacer {
+    @media screen and (max-width: $medium - 1) {
+      height: 10px;
+
+      &:last-of-type {
+        height: 0;
+      }
+    }
+  }
+}
+
+div.table div.table_cell {
+  @media screen and (max-width: $medium - 1) {
+    &.contributor-image {
+      text-align: center;
+    }
+  }
+}
+
+.contributor_picture {
+  width: 150px;
+
+  @media screen and (min-width: $medium) {
+    width: 200px;
+  }
+}

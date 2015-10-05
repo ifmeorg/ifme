@@ -15,10 +15,13 @@
 				- <%= @page_title %>
 			<% end %>
 		</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
+
 		<!-- jQuery UI -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
@@ -38,95 +41,96 @@
 		<div id="container">
 			<%= render partial: "shared/header" %>
 
-			<div id="header_space"></div>
+			<div class="page-container">
 
-			<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) || current_page?(contributors_path) || current_page?(blog_path) %>
-			<div id="page_title">
-			<% else %>
-			<div id="page_title">
-			<% end %>
-				<div id="page_title_content">
-					<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
-						Tell your stories now
-					<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
-						Join the community now
-					<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
-						Forgot your password?
-					<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
-						Customize your account
-					<% elsif !@page_edit.blank? %>
-						<div class="align_left">
+				<div id="header_space"></div>
+
+				<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) || current_page?(contributors_path) || current_page?(blog_path) %>
+				<div id="page_title">
+				<% else %>
+				<div id="page_title">
+				<% end %>
+					<div id="page_title_content">
+						<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
+							Tell your stories now
+						<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
+							Join the community now
+						<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
+							Forgot your password?
+						<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
+							Customize your account
+						<% elsif !@page_edit.blank? %>
+							<div class="align_left">
+								<%= @page_title %>
+							</div>
+							<div class="align_right">
+								<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
+							</div>
+							<div class="clear"></div>
+						<% elsif !@page_new.blank? %>
+							<div class="align_left">
+								<%= @page_title %>
+							</div>
+							<div class="align_right">
+								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
+							</div>
+							<div class="clear"></div>
+						<% elsif !@page_author.blank? %>
+							<div class="align_left">
+								<%= @page_title %>
+							</div>
+							<div class="align_right">
+								<%= @page_author %>
+							</div>
+							<div class="clear"></div>
+						<% elsif @page_search %>
+							<div class="align_left">
+								<%= @page_title %>
+							</div>
+							<div class="align_right">
+								<i class="fa fa-search" id="search"></i>
+							</div>
+							<div class="clear"></div>
+							<div id="search_box" style="display: none">
+								<%= render :partial => '/search/form' %>
+							</div>
+						<% elsif current_page?(root_path) && !user_signed_in? %>
+							<div class="headline center">
+						        <span class="branding_title">
+						          if <span class="branding_subtitle">me</span>
+						        </span> is a community for mental health experiences
+					      </div>
+						<% else %>
 							<%= @page_title %>
-						</div>
-						<div class="align_right">
-							<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
-						</div>
-						<div class="clear"></div>
-					<% elsif !@page_new.blank? %>
-						<div class="align_left">
-							<%= @page_title %>
-						</div>
-						<div class="align_right">
-							<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
-						</div>
-						<div class="clear"></div>
-					<% elsif !@page_author.blank? %>
-						<div class="align_left">
-							<%= @page_title %>
-						</div>
-						<div class="align_right">
-							<%= @page_author %>
-						</div>
-						<div class="clear"></div>
-					<% elsif @page_search %>
-						<div class="align_left">
-							<%= @page_title %>
-						</div>
-						<div class="align_right">
-							<i class="fa fa-search" id="search"></i>
-						</div>
-						<div class="clear"></div>
-						<div id="search_box" style="display: none">
-							<%= render :partial => '/search/form' %>
-						</div>
-					<% elsif current_page?(root_path) && !user_signed_in? %>
-						<div class="headline center">
-					        <span class="branding_title">
-					          if <span class="branding_subtitle">me</span>
-					        </span> is a community for mental health experiences
-				      </div>
-					<% else %>
-						<%= @page_title %>
-					<% end %>
+						<% end %>
+					</div>
 				</div>
-			</div>
 
-			<div id="content">
+				<div id="content">
+					<% if !notice.blank? %>
+						<div class="notice"><%= notice %></div>
+					<% end %>
+					<% if !alert.blank? %>
+						<div class="alert"><%= alert %></div>
+					<% end %>
 
-				<% if !notice.blank? %>
-					<div class="notice"><%= notice %></div>
-				<% end %>
-				<% if !alert.blank? %>
-					<div class="alert"><%= alert %></div>
-				<% end %>
+					<%= yield %>
+				</div>
 
-				<%= yield %>
-
-			</div>
-
-			<div id="footer">
-				<div id="footer_content">
-					<div class="align_left">
-						<%= link_to('About', about_path, class: "spacing") %>
-						<%= link_to('Blog', blog_path, class: "spacing") %>
-						<%= link_to('Contributors', contributors_path, class: "spacing") %>
-						<%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
-						<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
+				<div id="footer">
+					<div id="footer_content">
+						<div class="align_left">
+							<%= link_to('About', about_path, class: "spacing") %>
+							<%= link_to('Blog', blog_path, class: "spacing") %>
+							<%= link_to('Contributors', contributors_path, class: "spacing") %>
+							<%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
+							<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
+						</div>
+						<div class="align_right">
+							Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
+						</div>
+						<div class="clear"></div>
 					</div>
-					<div class="align_right">
-						Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
-					</div>
-					<div class="clear"></div>
 				</div>
 			</div>
 		</div>

@@ -30,3 +30,11 @@ h1.ally_name a:visited {
 	color: $secondary-text-color;
 	opacity: 0.5;
 }
+
+.ally {
+	@media screen and (max-width: $medium - 1) {
+		.profile_picture {
+			width: 50px;
+		}
+	}
+}

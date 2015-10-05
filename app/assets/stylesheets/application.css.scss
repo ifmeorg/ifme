@@ -31,7 +31,6 @@
 @import "compass/support";
 @import "compass/utilities";
 @import "base/*";
-@import "application/*";
 
 /* Text */
 
@@ -121,6 +120,13 @@ ul.no_bullet_list li {
 	display: inline-block;
 }
 
+.align_left, .align_right {
+	@media screen and (max-width: $medium - 1) {
+		display: block;
+		float: none;
+	}
+}
+
 .clear {
 	clear: both;
 }
@@ -141,15 +147,25 @@ ul.no_bullet_list li {
 
 #header_content {
 	@include clearfix;
-	padding: 30px 60px;
+	padding: 10px;
+
+	@media screen and (min-width: $medium) {
+		padding: 30px 60px;
+	}
 }
 
 .top-nav {
 	clear: left;
 	float: left;
-	font-size: 18px;
+	font-size: 12px;
 	padding: 0;
 	margin: 0;
+	width: 80%;
+
+	@media screen and (min-width: $medium) {
+		font-size: 18px;
+		width: auto;
+	}
 
 	li {
 		float: left;
@@ -191,13 +207,17 @@ ul.no_bullet_list li {
 	border: none;
 	color: $header-text-color;
 	float: right;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 100;
 	line-height: 1;
 	margin-top: 7px;
 	outline: 0;
 	text-align: right;
 	text-transform: lowercase;
+
+	@media screen and (min-width: $medium) {
+		font-size: 30px;
+	}
 
 	&:hover {
 		opacity: 1;
@@ -224,8 +244,16 @@ ul.no_bullet_list li {
 #expand_me {
 	clear: right;
 	float: right;
-	margin-top: 30px;
+	margin-top: 0;
 	text-align: right;
+
+	li {
+		float: right;
+	}
+
+	@media screen and (min-width: $medium) {
+		margin-top: 30px;
+	}
 }
 
 #header_spacer {
@@ -237,7 +265,7 @@ ul.no_bullet_list li {
 #page_title {
 	width: 100%;
 	background-image: url('/assets/welcome_small.png');
-	background-size: 100% auto;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	text-shadow: 1px 3px 5px $highlight-text-color;
@@ -294,6 +322,10 @@ a.page_search:hover {
 #content {
 	padding: 40px 60px;
 	line-height: 150%;
+
+	@media screen and (max-width: $medium - 1) {
+		padding: 20px;
+	}
 }
 
 .headline {
@@ -386,9 +418,13 @@ img {
 
 .profile_picture,
 .contributor_picture {
-	width: 200px;
+	width: 100px;
 	border-radius: 150px;
 	border: 2px solid $container-color;
+
+	@media screen and (min-width: $medium) {
+		width: 200px;
+	}
 }
 
 .mini_profile_picture {
@@ -421,11 +457,20 @@ fieldset {
 	font: 20px $font-family;
 	margin-right: 10px;
 	box-sizing: border-box;
+
+	@media screen and (max-width: $medium - 1) {
+		width: 100%;
+	}
 }
 
 input[type="checkbox"],
 input[type="radio"] {
 	margin: 0 10px 0 5px;
+
+	@media screen and (max-width: $medium - 1) {
+		width: 20px;
+		height: 20px;
+	}
 }
 
 .field input[type="text"],
@@ -578,10 +623,18 @@ div.table {
 
 div.table div.table_row {
 	display: table-row;
+
+	@media screen and (max-width: $medium - 1) {
+		display: block;
+	}
 }
 
 div.table div.table_cell {
 	display: table-cell;
+
+	@media screen and (max-width: $medium - 1) {
+		display: block;
+	}
 }
 
 /* Errors and Notices */
@@ -628,3 +681,4 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
 	box-shadow: 0px 0px 2px $container-color;
 }
 
+@import "application/*";
