@@ -322,6 +322,10 @@ a.page_search:hover {
 #content {
 	padding: 40px 60px;
 	line-height: 150%;
+
+	@media screen and (max-width: $medium - 1) {
+		padding: 20px;
+	}
 }
 
 .headline {
@@ -453,6 +457,10 @@ fieldset {
 	font: 20px $font-family;
 	margin-right: 10px;
 	box-sizing: border-box;
+
+	@media screen and (max-width: $medium - 1) {
+		width: 100%;
+	}
 }
 
 input[type="checkbox"],
