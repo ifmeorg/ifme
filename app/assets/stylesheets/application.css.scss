@@ -121,7 +121,7 @@ ul.no_bullet_list li {
 }
 
 .align_left, .align_right {
-	@media screen and (max-width: $medium) {
+	@media screen and (max-width: $medium - 1) {
 		display: block;
 		float: none;
 	}
