@@ -111,6 +111,24 @@ psql
 SHOW hba_file;
 ```
 
+If you're using Ubuntu, your `pg_hba.conf` file is probably in `/etc/postgresql/9.*/main/`
+
+Your final `pg_hba.conf` file should look something like this.
+
+```
+# TYPE  DATABASE          USER            ADDRESS                 METHOD
+
+# ifme_app
+host    ifme_development  ifme_app        127.0.0.1/32            trust
+
+# "local" is for Unix domain socket connections only
+local   all               all                                     peer
+# IPv4 local connections:
+host    all               all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all               all             ::1/128                 md5
+```
+
 ### Running the App Locally
 
 After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
