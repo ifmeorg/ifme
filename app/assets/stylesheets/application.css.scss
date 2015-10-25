@@ -170,7 +170,11 @@ ul.no_bullet_list li {
 	li {
 		float: left;
 		list-style: none;
-		margin-right: 24px;
+		margin-right: 10px;
+
+		@media screen and (min-width: $medium) {
+			margin-right: 24px;
+		}
 	}
 
 	.active a {
@@ -184,8 +188,12 @@ ul.no_bullet_list li {
 		border-top: 1px solid $container-color;
 		color: $header-text-color;
 		display: block;
-		padding: 13px 0px 18px 0px;
+		padding: 5px 0;
 		text-decoration: none;
+
+		@media screen and (min-width: $medium) {
+			padding: 13px 0;
+		}
 
 		&:hover {
 			border-bottom: 1px solid $header-text-color;
