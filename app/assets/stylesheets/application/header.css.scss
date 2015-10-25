@@ -16,6 +16,7 @@
   }
 }
 
+// Main Navigation Links
 .top-nav {
   clear: left;
   float: left;
@@ -79,11 +80,13 @@
   float: right;
   font-size: 20px;
   font-weight: 100;
-  line-height: 1;
-  margin-top: 7px;
+  // line-height: 1;
+  margin: 0;
+  padding: 0;
   outline: 0;
   text-align: right;
   text-transform: lowercase;
+  vertical-align: middle;
 
   @media screen and (min-width: $medium) {
     font-size: 30px;
@@ -97,7 +100,7 @@
     color: $highlight-text-color;
     float: right;
     font-size: 20px;
-    line-height: 30px;
+    // line-height: 30px;
     margin-left: 10px;
   }
 }
@@ -108,7 +111,8 @@
   border-top: 1px solid $highlight-text-color;
   color: $highlight-text-color;
   margin: 0;
-  padding: 5px 0px 10px 0px;
+  // padding: 5px 0px 10px 0px;
+  padding: .5px 0 3px;
 }
 
 #expand_me {
