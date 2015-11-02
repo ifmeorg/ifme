@@ -26,31 +26,22 @@
   width: 50%;
   text-align: center;
 
-  @media screen and (min-width: $small + 1) {
+  // @media screen and (min-width: $small + 1) {
     clear: left;
     float: left;
     width: auto;
-    margin: 0;
     text-align: left;
-  }
+  // }
 
   @media screen and (min-width: $small + 1) {
+    margin: 0;
     font-size: 18px;
   }
 
   li {
     list-style: none;
-
-    @media screen and (max-width: $small) {
-      &:first-of-type {
-        margin-top: 40px;
-      }
-    }
-
-    @media screen and (min-width: $small + 1) {
-      float: left;
-      margin-right: 24px;
-    }
+    float: left;
+    margin-right: 24px;
   }
 
   .active a {
@@ -140,11 +131,21 @@
   width: 100%;
 }
 
+
+@media screen and (max-width: $small) {
+  .large-screen {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $small + 1) {
+  .small-screen {
+    display: none;
+  }
+}
+
 .ifme-logo {
   @media screen and (max-width: $small) {
-    &.large-screen {
-      display: none;
-    }
 
     &.small-screen {
       width: 100%;
@@ -162,22 +163,20 @@
         float: right;
 
         li {
-          &:first-of-type {
-            margin: 0;
-          }
-
           display: inline;
           display: inline-block;
           margin: 0 10px;
+          float: none;
+        }
+
+        a {
+          border: none;
         }
       }
     }
   }
 
   @media screen and (min-width: $small + 1) {
-    &.small-screen {
-      display: none;
-    }
   }
 }
 

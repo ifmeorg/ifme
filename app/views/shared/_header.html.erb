@@ -35,7 +35,7 @@
         <%= nav_link_to('Categories', categories_path) %>
         <%= nav_link_to('Moods', moods_path) %>
       </ul>
-      <ul id="expand_me" class="top-nav" style="display: none">
+      <ul id="expand_me" class="top-nav large-screen" style="display: none">
         <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
         <%= nav_link_to('Account', edit_user_registration_path) %>
         <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
