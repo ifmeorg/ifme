@@ -11,31 +11,44 @@
   @include clearfix;
   padding: 10px;
 
-  @media screen and (min-width: $medium) {
+  @media screen and (min-width: $small + 1) {
     padding: 30px 60px;
   }
 }
 
 // Main Navigation Links
 .top-nav {
-  clear: left;
-  float: left;
+  clear: both;
+  float: none;
   font-size: 12px;
   padding: 0;
-  margin: 0;
-  width: 80%;
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
 
-  @media screen and (min-width: $medium) {
-    font-size: 18px;
+  @media screen and (min-width: $small + 1) {
+    clear: left;
+    float: left;
     width: auto;
+    margin: 0;
+    text-align: left;
+  }
+
+  @media screen and (min-width: $small + 1) {
+    font-size: 18px;
   }
 
   li {
-    float: left;
     list-style: none;
-    margin-right: 10px;
 
-    @media screen and (min-width: $medium) {
+    @media screen and (max-width: $small) {
+      &:first-of-type {
+        margin-top: 40px;
+      }
+    }
+
+    @media screen and (min-width: $small + 1) {
+      float: left;
       margin-right: 24px;
     }
   }
@@ -54,7 +67,7 @@
     padding: 5px 0;
     text-decoration: none;
 
-    @media screen and (min-width: $medium) {
+    @media screen and (min-width: $small + 1) {
       padding: 13px 0;
     }
 
@@ -67,20 +80,23 @@
 
 #expand_trigger, #expand_me {
   font-weight: 300;
-  margin-top: 30px;
+  margin-top: 10px;
+
+  @media screen and (min-width: $small + 1) {
+    margin-top: 30px;
+  }
 
   a {
     border: none;
   }
 }
 
-#title_expand {
+.header-logo {
   border: none;
   color: $header-text-color;
   float: right;
   font-size: 20px;
   font-weight: 100;
-  // line-height: 1;
   margin: 0;
   padding: 0;
   outline: 0;
@@ -88,7 +104,11 @@
   text-transform: lowercase;
   vertical-align: middle;
 
-  @media screen and (min-width: $medium) {
+  &:link, &:visited, &:hover {
+    color: $header-text-color;
+  }
+
+  @media screen and (min-width: $small + 1) {
     font-size: 30px;
   }
 
@@ -100,36 +120,72 @@
     color: $highlight-text-color;
     float: right;
     font-size: 20px;
-    // line-height: 30px;
     margin-left: 10px;
   }
 }
 
-#me {
-  @include clearfix;
-  border-bottom: 1px solid $highlight-text-color;
-  border-top: 1px solid $highlight-text-color;
-  color: $highlight-text-color;
-  margin: 0;
-  // padding: 5px 0px 10px 0px;
-  padding: .5px 0 3px;
-}
-
-#expand_me {
-  clear: right;
-  float: right;
-  margin-top: 0;
-  text-align: right;
-
-  li {
+@media screen and (min-width: $small + 1) {
+  #expand_me {
+    clear: right;
     float: right;
-  }
+    text-align: right;
 
-  @media screen and (min-width: $medium) {
-    margin-top: 30px;
+    li {
+      float: right;
+    }
   }
 }
 
 #header_spacer {
   width: 100%;
+}
+
+.ifme-logo {
+  @media screen and (max-width: $small) {
+    &.large-screen {
+      display: none;
+    }
+
+    &.small-screen {
+      width: 100%;
+
+      .header-logo {
+        float: left;
+      }
+
+      .top-nav {
+        display: inline-block;
+        margin: 0px;
+        text-align: right;
+        width: 60%;
+        clear: none;
+        float: right;
+
+        li {
+          &:first-of-type {
+            margin: 0;
+          }
+
+          display: inline;
+          display: inline-block;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $small + 1) {
+    &.small-screen {
+      display: none;
+    }
+  }
+}
+
+.me {
+  @include clearfix;
+  border-bottom: 1px solid $highlight-text-color;
+  border-top: 1px solid $highlight-text-color;
+  color: $highlight-text-color;
+  margin: 0;
+  padding: .5px 0 3px;
 }
