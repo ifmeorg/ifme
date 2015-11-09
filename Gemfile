@@ -77,6 +77,4 @@ group :development, :test do
   gem 'railroady'
 end
 
-gem 'simplecov', :require => false, :group => :test
-
 gem 'foundation-rails'
