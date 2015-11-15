@@ -1,0 +1,51 @@
+<style>
+  #footer, .footer-error  {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid $container-color;
+    padding: 40px 0px;
+  }
+
+  #footer > #footer_content {
+    padding: 0px 60px;
+    font-size: 16px;
+    color: $secondary-text-color
+  }
+
+  #footer a:link,
+  #footer a:visited {
+    text-decoration: none;
+    color: $secondary-text-color;
+    border-bottom: 1px dotted $secondary-text-color;
+  }
+
+  #footer a:hover {
+    text-decoration: none;
+    color: $secondary-text-color;
+    border-bottom: 1px dotted $secondary-text-color;
+    opacity: 0.5;
+  }
+
+  .spacing {
+
+    margin-right: 10px !important;
+  }
+</style>
+
+<div id="footer" class="footer-error">
+  <div id="footer_content">
+    <div class="align_left">
+      <%= link_to('About', about_path, class: "spacing") %>
+      <%= link_to('Blog', blog_path, class: "spacing") %>
+      <%= link_to('Contributors', contributors_path, class: "spacing") %>
+      <%= link_to('Privacy Policy', privacy_path, class: "spacing") %>
+      <%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
+      <%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
+    </div>
+    <div class="align_right">
+      Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

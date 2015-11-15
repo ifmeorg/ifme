@@ -34,17 +34,33 @@
         font-size:14px;
         }
       .ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
+      
       .container h1 {
+        font-weight: bold;
         padding-top: 150px;
         text-align: center;
         color: black;
       }
+
+      .container p {
+        padding-top: 10px;
+        text-align: center;
+        color: black;
+      }
+
+      .container .link {
+        text-decoration: none;
+        border-bottom: none;
+      }
+
     </style>
   </head>
   <body>
     <%= render partial: "shared/header" %>
     <div class="container">
-      <h1 class="text-center">This page does not exist</h1>
+      <h1 class="text-center">The page you are looking for does not exist.</h1>
+      <p><%= link_to "Click here to return home.", root_path, class: "link" %></p>
     </div>
+      <%= render 'shared/footer' %>
   </body>
 </html>
