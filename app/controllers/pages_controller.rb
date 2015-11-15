@@ -26,4 +26,8 @@ class PagesController < ApplicationController
   def blog
     @page_title = "Blog"
   end
+
+  def privacy
+    @page_title = "Privacy Policy"
+  end
 end
