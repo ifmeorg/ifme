@@ -116,23 +116,7 @@
 
 					<%= yield %>
 				</div>
-
-				<div id="footer">
-					<div id="footer_content">
-						<div class="align_left">
-							<%= link_to('About', about_path, class: "spacing") %>
-							<%= link_to('Blog', blog_path, class: "spacing") %>
-							<%= link_to('Contributors', contributors_path, class: "spacing") %>
-							<%= link_to('Privacy Policy', privacy_path, class: "spacing") %>
-							<%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
-							<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
-						</div>
-						<div class="align_right">
-							Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
+				<%= render 'shared/footer' %>
 			</div>
 		</div>
 		<script type="text/javascript">
