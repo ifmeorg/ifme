@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :alerts
   get "/404" => "errors#not_found"
-get "/500" => "errors#internal_server_error"
+  get "/500" => "errors#internal_server_error"
 
   resources :allies, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
