@@ -25,7 +25,7 @@
 
   </div>
 
-  <div class="table_cell vertical_align padding_right">
+  <div class="table_cell vertical_align">
 
     <div class="field">
       <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
@@ -42,12 +42,8 @@
       <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
     </div>
 
-  </div>
-
-  <div class="table_cell vertical_align">
-
     <div class="field">
-      <%= f.text_field :refill, :placeholder => "Refill Time" %>
+      <%= f.text_field :refill, :placeholder => "Refill Date" %>
     </div>
 
     <div class="actions">

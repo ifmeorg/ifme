@@ -78,3 +78,5 @@ group :development, :test do
 end
 
 gem 'foundation-rails'
+
+gem 'bootstrap-datepicker-rails'

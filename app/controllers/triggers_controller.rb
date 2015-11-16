@@ -80,6 +80,9 @@ class TriggersController < ApplicationController
   # GET /triggers/new
   def new
     @viewers = get_accepted_allies(current_user.id)
+    @categories = Category.where(:userid => current_user.id).all
+    @moods = Mood.where(:userid => current_user.id).all
+    @strategies = Strategy.where(:userid => current_user.id).all
     @trigger = Trigger.new
     @page_title = "New Trigger"
   end
@@ -88,6 +91,9 @@ class TriggersController < ApplicationController
   def edit
     if @trigger.userid == current_user.id
       @viewers = get_accepted_allies(current_user.id)
+      @categories = Category.where(:userid => current_user.id).all
+      @moods = Mood.where(:userid => current_user.id).all
+      @strategies = Strategy.where(:userid => current_user.id).all
       @page_title = "Edit " + @trigger.name
     else
       respond_to do |format|
@@ -102,7 +108,7 @@ class TriggersController < ApplicationController
   def create
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
-    @viewers = get_accepted_allies(current_user.id) 
+    @viewers = get_accepted_allies(current_user.id)
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -157,7 +163,7 @@ class TriggersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trigger_params
-      params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, :post_type, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
+      params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
     end
 
     def hide_page

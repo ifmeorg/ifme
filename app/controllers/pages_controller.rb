@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       @triggers = Array.new
       all_triggers = Trigger.order("created_at DESC").all
       all_triggers.each do |trigger|
-        if current_user.id == trigger.userid || are_allies(current_user.id, trigger.userid) && trigger.post_type == 1
+        if current_user.id == trigger.userid || are_allies(current_user.id, trigger.userid) && is_viewer(trigger.viewers)
           @triggers.push(trigger)
         end
       end

@@ -30,7 +30,7 @@
 <% if !current_page?(action: 'new') %>
 <div class="table">
 
-  <div class="table_cell vertical_align">
+  <div class="table_cell vertical_align padding_right">
 
     <div class="field">
       <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
@@ -48,10 +48,11 @@
         <%= f.label 'Leaders' %>
       </div>
 
-      <div id ="Leaders" style="display: none">
+      <div id="Leaders" style="display: none">
         <% @group_members.each do |member| %>
         <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
         <%= link_to User.where(id: member.userid).first.name, profile_index_path(userid: member.userid) %>
+        <br>
         <% end %>
       </div>
 

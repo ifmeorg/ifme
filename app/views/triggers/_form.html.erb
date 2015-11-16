@@ -30,9 +30,13 @@
         <%= f.label 'Categories' %>
       </div>
       <div id="categories" style="display: none">
-        <% Category.where(:userid => current_user.id).all.each do |item| %>
-        <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-        <%= item.name %><br>
+        <% if @categories.length > 0 %>
+          <% @categories.each do |item| %>
+          <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
+          <%= item.name %><br>
+          <% end %>
+        <% else %>
+          <%= no_taxonomies_error("category") %>
         <% end %>
       </div>
     </div>
@@ -49,14 +53,18 @@
       </div>
 
       <div id ="moods" style="display: none">
-        <% Mood.where(:userid => current_user.id).all.each do |item| %>
-        <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
-        <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
+        <% if @moods.length > 0 %>
+          <% @moods.each do |item| %>
+          <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
+          <% end %>
+         <% else %>
+          <%= no_taxonomies_error("mood") %>
         <% end %>
       </div>
     </div>
 
-    <div class="sidebar_field">
+    <div class="sidebar_field field">
       <div class="sidebar_label">
         <a href="#" class="toggle_button" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies']); " id="showStrategies">
           <i class="fa fa-plus-square"></i>
@@ -68,19 +76,19 @@
       </div>
 
       <div id ="strategies" style="display: none">
-        <% strategy = Strategy.where(:userid => current_user.id).all %>
-        <% if strategy.length > 0 %>
-        <% strategy.each do |item| %>
-        <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
-        <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true, false) %><br>
-        <% end %>
+        <% if @strategies.length > 0 %>
+          <% @strategies.each do |item| %>
+          <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
+          <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true, false) %><br>
+          <% end %>
         <% else %>
-        There are no strategies available! <%= link_to 'Create', new_strategy_path %> new strategy and add it to this trigger.
+          <%= no_taxonomies_error("strategy") %>
         <% end %>
       </div>
     </div>
 
-    <div class="field" style="padding: 50px 15px 15px 0px;">
+    <% if @viewers.length > 0 %>
+    <div class="field">
       <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
         <div class="align_right">
           <input name="trigger[comment]" type="hidden" value="false" />
@@ -89,14 +97,18 @@
       </div>
     </div>
 
-    <div class="field" style="padding: 15px 15px 15px 0px;">
+    <div class="field">
       <div class="sidebar_label">
         <%= f.label :viewers %>
-        <div class="align_right">
-          <%= f.select(:post_type, [['Only Me', 0], ['Allies', 1]], {}, {}) %>
-        </div>
+        <br>
+        <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
+        <br>
+        <% @viewers.each do |item| %>
+        <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %><%= User.where(id: item).first.name %><br>
+        <% end %>
       </div>
     </div>
+    <% end %>
 
   </div>
 
@@ -127,7 +139,6 @@
 <div class="clear"></div>
 
 <% end %>
-
 
 
 

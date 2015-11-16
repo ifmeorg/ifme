@@ -14,6 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-readyselector
+//= require bootstrap-datepicker
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
@@ -21,5 +23,16 @@
 var subtitle_delay_time = 300;
 var subtitle_slideDown_time = 1500;
 
-
-
+function toggleElements(elements) {
+  	var arrayLength = elements.length;
+  	var i = 0;
+	while (i < arrayLength) {
+	    var el = document.getElementById(elements[i]);
+	    if (el.style.display != 'none') {
+	    	el.style.display = 'none';
+	    } else {
+	    	el.style.display = '';
+	    }
+	    i++;
+	}
+}

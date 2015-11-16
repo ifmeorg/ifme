@@ -156,7 +156,7 @@ Note that ifme_test is used when running unit tests
 Testing Accounts
 -----------------
 
-They have been created in `seeds.rb`.
+They have been created in `seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
 
 ```
 Email: test1@example.com
@@ -165,6 +165,11 @@ Password: password99
 
 ```
 Email: test2@example.com
+Password: password99
+```
+
+```
+Email: test3@example.com
 Password: password99
 ```
 

@@ -29,7 +29,30 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
+
+	def is_viewer(viewers)
+		if (viewers.include? current_user.id)
+			return true
+		end
+
+		return false
+	end
+
+	def no_taxonomies_error(taxonomy)
+		if taxonomy == "category"
+			plural = "categories"
+		elsif taxonomy == "mood"
+			plural = "moods"
+		elsif taxonomy == "strategy"
+			plural = "strategies"
+		end
+
+		url = '/' + plural + '/new'
+		return_this = "There are no " + plural + " available! <a href='" + url + "'>Create " + plural + "</a> and add them."
+
+		return return_this.html_safe
+	end
 
 	def fetch_taxonomies(data, data_type, item, taxonomy, show, list)
 		if taxonomy == "category" && Category.where(:id => item.to_i).exists?

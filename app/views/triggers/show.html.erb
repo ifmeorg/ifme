@@ -110,7 +110,11 @@
       <%= f.hidden_field :comment_type, :value => 'trigger' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
+      <% if current_user.id == @trigger.userid %>
+         <%= f.hidden_field :visibility, :value => 'all' %>
+      <% else %>
+        <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
+      <% end %>
       <%= f.submit "Comment" %>
     </div>
   <% end %>
