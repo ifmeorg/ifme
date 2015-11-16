@@ -34,9 +34,9 @@
 	<% @triggers.each_with_index do |item, index| %>
 		<% if is_viewer(item.viewers) || current_user.id == @profile.id %>
 			<% if index+1 == @triggers.length %>
-  				<div class="profile" style="margin-bottom: 0">
+  				<div class="profile_container" style="margin-bottom: 0">
   			<% else %>
-				<div class="profile">
+				<div class="profile_container">
 			<% end %>
 					<h1 class="profile_name"><%= link_to item.name, item %></h1>
 					<strong>
