@@ -1,14 +1,8 @@
 <%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@medication.errors.count, "error") %> prohibited this medication from being saved:</h2>
-
-  <ul>
-    <% @medication.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="error_explanation">
+    <%= t('error_explanation') %>
+  </div>
 <% end %>
 
 <div class="table">

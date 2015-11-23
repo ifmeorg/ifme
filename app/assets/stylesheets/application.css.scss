@@ -664,6 +664,13 @@ div.table div.table_cell {
 	padding: 10px;
 }
 
+.error_explanation {
+	color: $alert-color;
+	font-size: 30px;
+	font-weight: 300;
+	margin-bottom: 40px;
+}
+
 /* Font Awesome */
 
 .fa-inline {

@@ -1,13 +1,7 @@
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
-
-      <ul>
-      <% @meeting.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="error_explanation">
+      <%= t('error_explanation') %>
     </div>
   <% end %>
 
@@ -33,7 +27,7 @@
       <div class="label">
         <%= f.label :time %>
       </div>
-      <input id="meeting_time" name="meeting[time]" type="text" data-time-format="H:i:s" />
+      <%= f.text_field :time %>
     </div>
 
     <div class="field">
@@ -62,7 +56,7 @@
     </div>
 
     <div class="actions">
-      <%= f.hidden_field :groupid, value: @groupid %>
+      <%= f.hidden_field :groupid, value: @groupid || @meeting.groupid %>
       <%= f.submit %>
     </div>
 
