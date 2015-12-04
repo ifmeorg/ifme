@@ -1,5 +1,17 @@
 <div id="header">
   <div id="header_content">
+    <div class="ifme-logo small-screen">
+      <span class="logo-text header-logo">If <span class="me">Me</span></span>
+
+      <% if user_signed_in? %>
+        <ul class="top-nav">
+          <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
+          <%= nav_link_to('Account', edit_user_registration_path) %>
+          <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+        </ul>
+      <% end %>
+    </div>
+
     <ul class="top-nav primary-nav">
       <% if user_signed_in? %>
         <%= nav_link_to('Home', root_path)  %>
@@ -14,19 +26,16 @@
       <% end %>
     </ul>
 
-    <%= link_to root_path, :id => "title_expand", :class => "expand_button" do %>
-      If <span id="me">Me</span>
-      <% if user_signed_in? %>
-        <i class="expand fa fa-sort-asc"></i>
-      <% end %>
-    <% end %>
+    <div class="ifme-logo large-screen">
+      <%= render "shared/menu_logo" %>
+    </div>
 
     <% if user_signed_in? %>
       <ul id="expand_trigger" class="top-nav" style="display: none">
         <%= nav_link_to('Categories', categories_path) %>
         <%= nav_link_to('Moods', moods_path) %>
       </ul>
-      <ul id="expand_me" class="top-nav" style="display: none">
+      <ul id="expand_me" class="top-nav large-screen" style="display: none">
         <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
         <%= nav_link_to('Account', edit_user_registration_path) %>
         <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
