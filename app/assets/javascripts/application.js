@@ -17,9 +17,7 @@
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
+//= require jquery.timepicker.js
 
 var subtitle_delay_time = 300;
 var subtitle_slideDown_time = 1500;
-
-
-
