@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("page:load ready", function() {
   var the_height = $('#header').height();
   $('#header_space').css({"height": the_height});
 
