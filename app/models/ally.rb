@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: allies
+#
+#  id         :integer          not null, primary key
+#  userid1    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  userid2    :integer
+#  status     :integer
+#
+
 class Ally < ActiveRecord::Base
 	attr_accessible :userid1, :userid2, :status
 	enum status: [:accepted, :pending_from_userid1, :pending_from_userid2]

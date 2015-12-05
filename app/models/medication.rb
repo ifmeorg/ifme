@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: medications
+#
+#  id            :integer          not null, primary key
+#  name          :string(255)
+#  dosage        :integer
+#  refill        :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#  userid        :integer
+#  total         :integer
+#  strength      :integer
+#  strength_unit :string(255)
+#  dosage_unit   :string(255)
+#  total_unit    :string(255)
+#  comments      :text
+#
+
 class Medication < ActiveRecord::Base
 	attr_accessible :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments
 
