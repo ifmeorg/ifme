@@ -79,7 +79,7 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/new
   def new
-    @viewers = get_accepted_allies(current_user.id)
+    @viewers = current_user.accepted_allies
     @strategy = Strategy.new
     @page_title = "New Strategy"
   end
@@ -87,7 +87,7 @@ class StrategiesController < ApplicationController
   # GET /strategies/1/edit
   def edit
     if @strategy.userid == current_user.id
-      @viewers = get_accepted_allies(current_user.id)
+      @viewers = current_user.accepted_allies
       @page_title = "Edit " + @strategy.name
     else
       respond_to do |format|
@@ -102,7 +102,7 @@ class StrategiesController < ApplicationController
   def create
     @strategy = Strategy.new(strategy_params)
     @page_title = "New Strategy"
-    @viewers = get_accepted_allies(current_user.id)
+    @viewers = current_user.accepted_allies
     respond_to do |format|
       if @strategy.save
         format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully created.' }
@@ -118,7 +118,7 @@ class StrategiesController < ApplicationController
   # PATCH/PUT /strategies/1.json
   def update
     @page_title = "Edit " + @strategy.name
-    @viewers = get_accepted_allies(current_user.id)
+    @viewers = current_user.accepted_allies
     respond_to do |format|
       if @strategy.update(strategy_params)
         format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully updated.' }
