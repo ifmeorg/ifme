@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: strategies
+#
+#  id          :integer          not null, primary key
+#  userid      :integer
+#  category    :text
+#  description :text
+#  viewers     :text
+#  comment     :boolean
+#  created_at  :datetime
+#  updated_at  :datetime
+#  name        :string(255)
+#
+
 require 'rails_helper'
 
 describe Strategy do

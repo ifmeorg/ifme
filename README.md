@@ -182,6 +182,11 @@ Always write unit tests for the changes you've made! If you see any missing unit
 rspec
 ```
 
+If you receive an error for having 'FATAL:  database "ifme_test" does not exist', run the following.
+```
+bin/rake db:create db:migrate RAILS_ENV=test
+```
+
 Committing Work
 ----------------
 

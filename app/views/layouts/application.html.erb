@@ -11,7 +11,7 @@
 				- Forgot your password?
 			<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
 				- Account
-			<% else %>
+			<% elsif !@page_title.blank? %>
 				- <%= @page_title %>
 			<% end %>
 		</title>
