@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: supports
+#
+#  id           :integer          not null, primary key
+#  userid       :integer
+#  support_type :string(255)
+#  support_ids  :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
 class Support < ActiveRecord::Base
 	attr_accessible :userid, :support_type, :support_ids
 	validates_presence_of :userid, :support_type, :support_ids

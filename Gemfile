@@ -73,6 +73,9 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'railroady'
+  gem 'rails-erd', '~> 1.4', '>= 1.4.4'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'annotate', '~> 2.6', '>= 2.6.10'
 end
 
 gem 'foundation-rails'
