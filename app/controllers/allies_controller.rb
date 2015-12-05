@@ -28,8 +28,8 @@ class AlliesController < ApplicationController
       end
     end
 
-    if Ally.where(userid1: params[:userid1], userid2: params[:userid2]).exists?
-      the_ally = Ally.find_by(userid1: params[:userid1], userid2: params[:userid2])
+    if Allyship.where(user_id: params[:userid1], ally_id: params[:userid2]).exists?
+      the_ally = Allyship.find_by(user_id: params[:userid1], ally_id: params[:userid2])
 
       # If the new status is pending_from_useridA and the old status is pending_from_useridB, where A != B, then the new status is accepted.
       if (the_ally.status == AllyStatus::PENDING_FROM_USERID1 && params[:status] == AllyStatus::PENDING_FROM_USERID2) || (the_ally.status == AllyStatus::PENDING_FROM_USERID2 && params[:status] == AllyStatus::PENDING_FROM_USERID1)
@@ -38,7 +38,7 @@ class AlliesController < ApplicationController
         the_ally.update(status: params[:status])
       end
     else
-       Ally.create(userid1: params[:userid1], userid2: params[:userid2], status: params[:status])
+       Allyship.create(user_id: params[:userid1], ally_id: params[:userid2], status: params[:status])
     end
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class AlliesController < ApplicationController
       params[:userid2] = tmp.to_i
     end
 
-    the_ally = Ally.find_by(userid1: params[:userid1], userid2: params[:userid2])
+    the_ally = Allyship.find_by(user_id: params[:userid1], ally_id: params[:userid2])
 
     the_ally.destroy
 

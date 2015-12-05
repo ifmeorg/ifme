@@ -138,9 +138,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def get_accepted_allies(userid)
-		userid1s = Ally.where(userid1: userid, status: AllyStatus::ACCEPTED).pluck(:userid2)
-    	userid2s = Ally.where(userid2: userid, status: AllyStatus::ACCEPTED).pluck(:userid1)
-    	return userid1s + userid2s
+		return User.find(userid).allies.where(status: AllyStatus::ACCEPTED)
 	end
 
 	def get_outgoing_ally_requests(userid)

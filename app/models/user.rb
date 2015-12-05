@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   before_save :remove_leading_trailing_whitespace
 
+  has_many :allyships
+  has_many :allies, through: :allyships
+
   def remove_leading_trailing_whitespace
   	self.email.rstrip!
   	self.email.lstrip!
