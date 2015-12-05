@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = GroupMember.where(userid: current_user.id).all
-    @page_title = "Groups"
     accepted_allies = get_accepted_allies(current_user.id)
     @page_new = new_group_path
 
@@ -23,7 +22,6 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
   	@group = Group.find(params[:id])
-  	@page_title = @group.name
     @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
   	@meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
   	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
@@ -32,12 +30,10 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    @page_title = "New Group"
   end
 
   # GET /groups/1/edit
   def edit
-    @page_title = "Edit " + @group.name
     @group_members = GroupMember.where(groupid: @group.id).all
   end
 
@@ -45,7 +41,6 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @page_title = "New Group"
     respond_to do |format|
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
@@ -63,7 +58,6 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    @page_title = "Edit " + @group.name
     respond_to do |format|
       if @group.update(group_params)
         error = false
