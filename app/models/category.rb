@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  userid      :integer
+#
+
 class Category < ActiveRecord::Base
 	attr_accessible :name, :description, :userid
 	validates_length_of :description, :maximum => 2000

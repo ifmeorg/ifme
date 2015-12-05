@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: meeting_members
+#
+#  id         :integer          not null, primary key
+#  meetingid  :integer
+#  userid     :integer
+#  leader     :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'rails_helper'
 
 describe MeetingMember do

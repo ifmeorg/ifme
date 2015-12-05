@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: triggers
+#
+#  id         :integer          not null, primary key
+#  category   :text
+#  name       :string(255)
+#  mood       :string(255)
+#  why        :text
+#  fix        :text
+#  created_at :datetime
+#  updated_at :datetime
+#  userid     :integer
+#  viewers    :text
+#  comment    :boolean
+#  strategies :text
+#
+
 class Trigger < ActiveRecord::Base
 	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers, :comment, :strategies
 	serialize :category, Array
