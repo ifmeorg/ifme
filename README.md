@@ -120,6 +120,7 @@ Your final `pg_hba.conf` file should look something like this.
 
 # ifme_app
 host    ifme_development  ifme_app        127.0.0.1/32            trust
+host    ifme_test         ifme_app        127.0.0.1/32            trust
 
 # "local" is for Unix domain socket connections only
 local   all               all                                     peer
@@ -134,11 +135,11 @@ host    all               all             ::1/128                 md5
 After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
 
 ```
-bin/rake db:create db:migrate
+bin/rake db:setup
 ```
 
 ```
-bin/rake db:setup
+RAILS_ENV=test bin/rake db:setup
 ```
 
 ```
@@ -197,4 +198,3 @@ License
 -------
 
 The source code is licensed under the Apache License. For more information see http://www.apache.org/licenses/ or LICENSE.txt.
-
