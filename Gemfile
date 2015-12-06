@@ -48,6 +48,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "ruby-graphviz"
+
 gem 'protected_attributes'
 
 gem 'rails_12factor', group: :production
