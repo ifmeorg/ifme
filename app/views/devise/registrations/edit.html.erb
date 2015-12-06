@@ -70,7 +70,7 @@
 	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? List some fun facts!" %></div>
 
 	<% if current_user.provider == "google_oauth2" %>
-		<div class="field"><div class="label"><label>Password for <strong>if me</strong> account</label></div></div>
+		<div class="field"><div class="label"><label>Password for <strong><%= t('app_name') %></strong> account</label></div></div>
 	<% end %>
 	<div class="field"><div class="label"><%= f.label "New password" %></div>
 	<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
@@ -85,6 +85,6 @@
 	</div>
 <% end %>
 
-<div class="label"><label>Is <strong>if me</strong> not working out for you?</label></div>
+<div class="label"><label>Is <strong><%= t('app_name') %></strong> not working out for you?</label></div>
 <%= button_to "Permanently delete my account", registration_path(resource_name), data: { confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!" }, method: :delete %>
 

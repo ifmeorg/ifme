@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: triggers
+#
+#  id         :integer          not null, primary key
+#  category   :text
+#  name       :string(255)
+#  mood       :string(255)
+#  why        :text
+#  fix        :text
+#  created_at :datetime
+#  updated_at :datetime
+#  userid     :integer
+#  viewers    :text
+#  comment    :boolean
+#  strategies :text
+#
+
 require 'spec_helper'
 
 describe Trigger do
