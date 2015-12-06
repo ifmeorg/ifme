@@ -10,11 +10,33 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="field" >
-      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
+      <div class="label"><%= f.label :name %></div>
+      <%= f.text_field :name, :class => "name_field" %>
     </div>
 
     <div class="field">
-      <%= f.text_area :comments, :placeholder => "Comments", :class => "comments" %>
+      <div class="label"><%= f.label :comments %></div>
+      <%= f.text_area :comments, :class => "comments" %>
+    </div>
+
+  </div>
+
+  <div class="table_cell padding_right vertical_align">
+
+    <div class="field">
+      <div class="label"><%= f.label :strength %></div>
+      <div class="inline-block">
+        <%= f.number_field :strength, :placeholder => "e.g. 100"%>
+        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label"><%= f.label :total %></div>
+      <div class="inline-block">
+        <%= f.number_field :total, :placeholder => "e.g. 30" %>
+        <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
 
   </div>
@@ -22,31 +44,27 @@
   <div class="table_cell vertical_align">
 
     <div class="field">
-      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
-      <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+      <div class="label"><%= f.label :dosage %></div>
+      <div class="inline-block">
+        <%= f.number_field :dosage, :placeholder => "e.g. 2" %>
+        <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
 
     <div class="field">
-      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
-      <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
-    </div>
-
-    <div class="field">
-      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
-      <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
-    </div>
-
-    <div class="field">
-      <%= f.text_field :refill, :placeholder => "Refill Date" %>
-    </div>
-
-    <div class="actions">
-      <%= f.hidden_field :userid, :value => current_user.id %>
-      <%= f.submit %>
+      <div class="label"><%= f.label :refill %></div>
+      <%= f.text_field :refill %>
     </div>
 
   </div>
 
 </div>
+
+<div class="align_right">
+  <%= f.hidden_field :userid, :value => current_user.id %>
+  <%= f.submit %>
+</div>
+
+<div class="clear"></div>
 
 <% end %>
