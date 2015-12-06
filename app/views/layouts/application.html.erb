@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			if me
+			<%= t('app_name') %>
 			<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in
 			<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
@@ -129,7 +129,7 @@
 							<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
 						</div>
 						<div class="align_right">
-							Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> if me
+							Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> <%= t('app_name') %>
 						</div>
 						<div class="clear"></div>
 					</div>
