@@ -23,13 +23,8 @@
   <div class="align_left">
     <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
       <% if @support.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@support.errors.count, "error") %> prohibited this support from being saved:</h2>
-          <ul>
-          <% @support.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
+        <div class="error_explanation">
+          <%= t('error_explanation') %>
         </div>
       <% end %>
 
@@ -59,13 +54,8 @@
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-        <ul>
-        <% @comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+      <div class="error_explanation">
+        <%= t('error_explanation') %>
       </div>
     <% end %>
 

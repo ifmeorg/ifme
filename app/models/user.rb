@@ -1,4 +1,38 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  name                   :string(255)
+#  location               :string(255)
+#  timezone               :string(255)
+#  about                  :text
+#  avatar                 :string(255)
+#  conditions             :text
+#  token                  :string(255)
+#  uid                    :string(255)
+#  provider               :string(255)
+#
+
 class User < ActiveRecord::Base
+  ALLY_STATUS = {
+    ACCEPTED: 0,
+    PENDING_FROM_USERID1: 1,
+    PENDING_FROM_USERID2: 2
+  }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +43,9 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   before_save :remove_leading_trailing_whitespace
+
+  has_many :allyships
+  has_many :allies, through: :allyships
 
   def remove_leading_trailing_whitespace
   	self.email.rstrip!
@@ -30,5 +67,9 @@ class User < ActiveRecord::Base
       fullname = data["name"]
       user = User.create(name: fullname, provider: access_token.provider, email: data["email"], uid: access_token.uid, password: Devise.friendly_token[0,20])
     end
+   end
+
+   def accepted_allies
+     allyships.includes(:ally).where(status: ALLY_STATUS[:ACCEPTED]).map(&:ally)
    end
 end

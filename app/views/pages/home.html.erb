@@ -31,7 +31,7 @@
 	</div>
 <% else %>
 	<% @triggers.each_with_index do |trigger, index| %>
-		<% if current_user.id == trigger.userid || (trigger.post_type == 1 && are_allies(current_user.id, trigger.userid)) %>
+		<% if current_user.id == trigger.userid || (is_viewer(trigger.viewers) && are_allies(current_user.id, trigger.userid)) %>
 			<% if index+1 == @triggers.length %>
   				<div class="trigger" style="margin-bottom: 0">
   			<% else %>

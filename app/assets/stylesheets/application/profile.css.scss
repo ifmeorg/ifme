@@ -4,14 +4,14 @@
 
 /* Profiles */
 
-.profile {
+.profile_container {
 	padding: 20px;
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
 }
 
-.profile > h1.profile_name {
+.profile_container > h1.profile_name {
 	font-weight: 300;
 	font-size: 26px;
 	padding: 0;
@@ -26,6 +26,6 @@ h1.profile_name a:visited {
 	border: none;
 }
 
-.profile p {
+.profile_container p {
 	margin : 0;
 }

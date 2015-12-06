@@ -1,14 +1,8 @@
 <%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@medication.errors.count, "error") %> prohibited this medication from being saved:</h2>
-
-  <ul>
-    <% @medication.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="error_explanation">
+    <%= t('error_explanation') %>
+  </div>
 <% end %>
 
 <div class="table">
@@ -16,30 +10,33 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="field" >
-      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
+      <div class="label"><%= f.label :name %></div>
+      <%= f.text_field :name, :class => "name_field" %>
     </div>
 
     <div class="field">
-      <%= f.text_area :comments, :placeholder => "Comments", :class => "comments" %>
+      <div class="label"><%= f.label :comments %></div>
+      <%= f.text_area :comments, :class => "comments" %>
     </div>
 
   </div>
 
-  <div class="table_cell vertical_align padding_right">
+  <div class="table_cell padding_right vertical_align">
 
     <div class="field">
-      <%= f.number_field :strength, :placeholder => "Strength (e.g. 100)"%>
-      <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+      <div class="label"><%= f.label :strength %></div>
+      <div class="inline-block">
+        <%= f.number_field :strength, :placeholder => "e.g. 100"%>
+        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
 
     <div class="field">
-      <%= f.number_field :total, :placeholder => "Total Quantity (e.g. 30)" %>
-      <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
-    </div>
-
-    <div class="field">
-      <%= f.number_field :dosage, :placeholder => "Daily Dosage (e.g. 2)" %>
-      <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      <div class="label"><%= f.label :total %></div>
+      <div class="inline-block">
+        <%= f.number_field :total, :placeholder => "e.g. 30" %>
+        <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
 
   </div>
@@ -47,16 +44,27 @@
   <div class="table_cell vertical_align">
 
     <div class="field">
-      <%= f.text_field :refill, :placeholder => "Refill Time" %>
+      <div class="label"><%= f.label :dosage %></div>
+      <div class="inline-block">
+        <%= f.number_field :dosage, :placeholder => "e.g. 2" %>
+        <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+      </div>
     </div>
 
-    <div class="actions">
-      <%= f.hidden_field :userid, :value => current_user.id %>
-      <%= f.submit %>
+    <div class="field">
+      <div class="label"><%= f.label :refill %></div>
+      <%= f.text_field :refill %>
     </div>
 
   </div>
 
 </div>
+
+<div class="align_right">
+  <%= f.hidden_field :userid, :value => current_user.id %>
+  <%= f.submit %>
+</div>
+
+<div class="clear"></div>
 
 <% end %>

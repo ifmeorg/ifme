@@ -49,6 +49,28 @@ class MedicationsController < ApplicationController
     @page_title = "New Medication"
     respond_to do |format|
       if @medication.save
+
+        # Save refill date to Google calendar
+        if (!current_user.token.blank?)
+          summary = "Refill for " + @medication.name
+          date = Chronic.parse(@medication.refill, :endian_precedence => [:little, :median]).to_time.iso8601
+
+          event = {
+            'summary' => summary,
+            'start' => { 'dateTime' => date },
+            'end' => { 'dateTime' => date }
+          }
+
+          client = Google::APIClient.new(:application_name => t('app_name'))
+          client.authorization.access_token = current_user.token
+          service = client.discovered_api('calendar', 'v3')
+
+          set_event = client.execute!(:api_method => service.events.insert,
+            :parameters => {'calendarId' => current_user.email, 'sendNotifications' => true},
+            :body => JSON.dump(@event),
+            :headers => {'Content-Type' => 'application/json'})
+        end
+
         format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully created.' }
         format.json { render :show, status: :created, location: @medication }
       else

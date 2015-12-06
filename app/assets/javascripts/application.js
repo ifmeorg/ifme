@@ -14,10 +14,41 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-readyselector
+//= require bootstrap-datepicker
 //= require_tree .
 //= require ckeditor/init
 //= require underscore
 //= require jquery.timepicker.js
 
+<<<<<<< HEAD
 var subtitle_delay_time = 300;
 var subtitle_slideDown_time = 1500;
+=======
+function toggleElements(elements) {
+  	var arrayLength = elements.length;
+  	var i = 0;
+	while (i < arrayLength) {
+	    var el = document.getElementById(elements[i]);
+	    if (el.style.display != 'none') {
+	    	el.style.display = 'none';
+	    } else {
+	    	el.style.display = '';
+	    }
+	    i++;
+	}
+}
+
+$(document).on("page:load ready", function() {
+	if ($('body').hasClass('categories index') ||
+		$('body').hasClass('groups index') ||
+		$('body').hasClass('medications index') ||
+		$('body').hasClass('moods index') ||
+		$('body').hasClass('strategies index') ||
+		$('body').hasClass('triggers index')) {
+		var subtitle_delay_time = 300;
+		var subtitle_slideDown_time = 1500;
+		$(".subtitle").delay(subtitle_delay_time).slideDown(subtitle_slideDown_time);
+	}
+});
+>>>>>>> upstream/master

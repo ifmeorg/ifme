@@ -1,5 +1,23 @@
+# == Schema Information
+#
+# Table name: triggers
+#
+#  id         :integer          not null, primary key
+#  category   :text
+#  name       :string(255)
+#  mood       :string(255)
+#  why        :text
+#  fix        :text
+#  created_at :datetime
+#  updated_at :datetime
+#  userid     :integer
+#  viewers    :text
+#  comment    :boolean
+#  strategies :text
+#
+
 class Trigger < ActiveRecord::Base
-	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers, :comment, :strategies, :post_type
+	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers, :comment, :strategies
 	serialize :category, Array
 	serialize :viewers, Array
 	serialize :mood, Array
@@ -9,7 +27,6 @@ class Trigger < ActiveRecord::Base
 	validates_length_of :why, :minimum => 1, :maximum => 2000
 	validates_length_of :fix, :maximum => 2000
 	before_save :array_data
-	before_save :check_post_type
 
 	def array_data
 		if !self.category.nil? && self.category.is_a?(Array)
@@ -24,14 +41,6 @@ class Trigger < ActiveRecord::Base
 		if !self.strategies.nil? && self.strategies.is_a?(Array)
 			self.strategies = self.strategies.collect{|i| i.to_i}
 		end
-	end
-
-	def check_post_type
-		if self.post_type == 1
-	   		self.viewers = Ally.where(:status => 0).pluck(:id)
-    	else
-	   		self.viewers = nil
-    	end
 	end
 
 end

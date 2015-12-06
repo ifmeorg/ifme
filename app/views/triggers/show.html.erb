@@ -55,13 +55,8 @@
     <div class="align_left">
       <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
         <% if @support.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@support.errors.count, "error") %> prohibited this support from being saved:</h2>
-            <ul>
-            <% @support.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+          <div class="error_explanation">
+            <%= t('error_explanation') %>
           </div>
         <% end %>
 
@@ -92,14 +87,9 @@
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-        <ul>
-        <% @comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+        <div class="error_explanation">
+          <%= t('error_explanation') %>
+        </div>
     <% end %>
 
     <div class="field">
@@ -110,7 +100,11 @@
       <%= f.hidden_field :comment_type, :value => 'trigger' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
+      <% if current_user.id == @trigger.userid %>
+         <%= f.hidden_field :visibility, :value => 'all' %>
+      <% else %>
+        <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
+      <% end %>
       <%= f.submit "Comment" %>
     </div>
   <% end %>

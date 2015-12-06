@@ -156,7 +156,7 @@ Note that ifme_test is used when running unit tests
 Testing Accounts
 -----------------
 
-They have been created in `seeds.rb`.
+They have been created in `seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
 
 ```
 Email: test1@example.com
@@ -168,6 +168,11 @@ Email: test2@example.com
 Password: password99
 ```
 
+```
+Email: test3@example.com
+Password: password99
+```
+
 Unit Tests
 ------------
 
@@ -175,6 +180,11 @@ Always write unit tests for the changes you've made! If you see any missing unit
 
 ```
 rspec
+```
+
+If you receive an error for having 'FATAL:  database "ifme_test" does not exist', run the following.
+```
+bin/rake db:create db:migrate RAILS_ENV=test
 ```
 
 Committing Work
