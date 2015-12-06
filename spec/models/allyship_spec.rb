@@ -17,21 +17,21 @@ describe Allyship do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
 	  new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-	  expect(Allyship.count).to eq(1)
+	  expect(Allyship.count).to eq(2)
 	end
 
 	it "creates a valid ally relationship with pending_from_userid1 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
 	  new_allies = create(:allyships_pending_from_userid1, user_id: new_user1.id, ally_id: new_user2.id)
-	  expect(Allyship.count).to eq(1)
+	  expect(Allyship.count).to eq(2)
 	end
 
 	it "creates a valid ally relationship with pending_from_userid2 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
 	  new_allies = create(:allyships_pending_from_userid2, user_id: new_user1.id, ally_id: new_user2.id)
-	  expect(Allyship.count).to eq(1)
+	  expect(Allyship.count).to eq(2)
 	end
 
 	it "creates an invalid ally relationship where users are identical" do
