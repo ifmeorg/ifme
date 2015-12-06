@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 		end
 
 		url = '/' + plural + '/new'
-		return_this = "There are no " + plural + " available! <a href='" + url + "'>Create " + plural + "</a> and add them."
+		return_this = "<a href='" + url + "'>Create " + plural + "</a> and add them!"
 
 		return return_this.html_safe
 	end

@@ -1,5 +1,5 @@
 $(document).on("page:load ready", function() {
-	if ($('body').hasClass('triggers new') || $('body').hasClass('triggers edit')) {
+	if ($('body').hasClass('triggers new') || $('body').hasClass('triggers edit') || $('body').hasClass('triggers create') || $('body').hasClass('triggers update')) {
 		var NO_ALLIES = "No allies";
 		var ALL_ALLIES = "All allies";
 		$('#viewers_label').text(ALL_ALLIES);
@@ -12,6 +12,7 @@ $(document).on("page:load ready", function() {
 				$(":checkbox[name='trigger[viewers][]']").prop("checked", false);
 				$(":checkbox[id='viewers']").prop("checked", false);
 				$('#viewers_label').text(ALL_ALLIES);
+				$(":checkbox[name='trigger[comment]']").prop("checked", false);
 			}
 		});
 	}
