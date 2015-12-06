@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_accepted_allies, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
 
 	def is_viewer(viewers)
 		if (viewers.include? current_user.id)
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 		end
 
 		url = '/' + plural + '/new'
-		return_this = "There are no " + plural + " available! <a href='" + url + "'>Create " + plural + "</a> and add them."
+		return_this = "<a href='" + url + "'>Create " + plural + "</a> and add them!"
 
 		return return_this.html_safe
 	end
@@ -137,12 +137,6 @@ class ApplicationController < ActionController::Base
       	return return_this.html_safe
 	end
 
-	def get_accepted_allies(userid)
-		userid1s = Ally.where(userid1: userid, status: AllyStatus::ACCEPTED).pluck(:userid2)
-    	userid2s = Ally.where(userid2: userid, status: AllyStatus::ACCEPTED).pluck(:userid1)
-    	return userid1s + userid2s
-	end
-
 	def get_outgoing_ally_requests(userid)
 		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid2)
     	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid1)
@@ -156,7 +150,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def are_allies(userid1, userid2)
-		return get_accepted_allies(userid1).include? userid2.to_i
+		return User.find(userid1).allies.include? User.find(userid2)
 	end
 
 	# A is a pending ally of B if A sent B an ally request

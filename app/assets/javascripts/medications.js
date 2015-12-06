@@ -1,5 +1,5 @@
 $(document).on("page:load ready", function() {
-  if ($('body').hasClass('medications new') || $('body').hasClass('medications edit')) {
+  if ($('body').hasClass('medications new') || $('body').hasClass('medications edit') || $('body').hasClass('medications create') || $('body').hasClass('medications update')) {
     function toTitleCase(str) {
       if (1 !== str.length) str = str.toLowerCase();
       return str.replace(/\b[a-z]/g, function(f){return f.toUpperCase()});

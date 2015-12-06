@@ -9,8 +9,9 @@
 
   <div class="table_cell padding_right vertical_align">
 
-    <div class="field">
-      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
+    <div class="sidebar_field">
+      <div class="sidebar_label"><%= f.label :name %></div>
+      <%= f.text_field :name, :class => "name_field" %>
     </div>
 
     <div class="sidebar_field">
@@ -24,36 +25,34 @@
         <%= f.label 'Categories' %>
       </div>
       <div id="categories" style="display: none">
-        <% Category.where(:userid => current_user.id).all.each do |item| %>
-        <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
-        <%= item.name %><br>
+        <% if !@categories.nil? && @categories.length > 0 %>
+          <% Category.where(:userid => current_user.id).all.each do |item| %>
+          <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
+          <%= item.name %><br>
+          <% end %>
+        <% else %>
+          <%= no_taxonomies_error("category") %>
         <% end %>
       </div>
     </div>
 
+    <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <a href="#" class="toggle_button" onclick="toggleElements(['viewers', 'showViewers', 'hideViewers']); " id="showViewers">
-          <i class="fa fa-plus-square"></i>
-        </a>
-        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['viewers', 'showViewers', 'hideViewers'])" id="hideViewers">
-          <i class="fa fa-minus-square" ></i>
-        </a>
         <%= f.label 'Viewers' %>
       </div>
-      <div id="viewers" style="display: none">
-        <% Category.where(:userid => current_user.id).all.each do |item| %>
-        <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item)}, item, nil) %>
-        <%= User.where(:id => item).first.name  %><br>
-        <% end %>
-      </div>
+      <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
+      <br>
+      <% Category.where(:userid => current_user.id).all.each do |item| %>
+      <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item)}, item, nil) %><%= User.where(:id => item).first.name %><br>
+      <% end %>
     </div>
+    <% end %>
 
-    <div class="ield" style="padding: 50px 15px 15px 0px;">
+    <div class="sidebar_field">
       <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
         <div class="align_right">
-          <input name="strategy[comment]" type="hidden" value="false" />
-          <input type="checkbox" name="strategy[comment]" value="true" checked="true"/>
+          <%= f.check_box :comment %>
         </div>
       </div>
     </div>

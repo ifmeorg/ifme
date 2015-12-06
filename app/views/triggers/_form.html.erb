@@ -9,8 +9,9 @@
 
   <div class="table_cell padding_right vertical_align">
 
-    <div class="field" >
-      <%= f.text_field :name, :placeholder => "Name", :class => "name_field" %>
+    <div class="sidebar_field" >
+      <div class="sidebar_label"><%= f.label :name %></div>
+      <%= f.text_field :name, :class => "name_field" %>
     </div>
 
     <div class="sidebar_field">
@@ -24,7 +25,7 @@
         <%= f.label 'Categories' %>
       </div>
       <div id="categories" style="display: none">
-        <% if @categories.length > 0 %>
+        <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
           <%= item.name %><br>
@@ -47,7 +48,7 @@
       </div>
 
       <div id ="moods" style="display: none">
-        <% if @moods.length > 0 %>
+        <% if !@moods.nil? && @moods.length > 0 %>
           <% @moods.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
           <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
@@ -58,7 +59,7 @@
       </div>
     </div>
 
-    <div class="sidebar_field field">
+    <div class="sidebar_field">
       <div class="sidebar_label">
         <a href="#" class="toggle_button" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies']); " id="showStrategies">
           <i class="fa fa-plus-square"></i>
@@ -70,7 +71,7 @@
       </div>
 
       <div id ="strategies" style="display: none">
-        <% if @strategies.length > 0 %>
+        <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
           <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
           <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true, false) %><br>
@@ -81,29 +82,26 @@
       </div>
     </div>
 
-    <% if @viewers.length > 0 %>
-    <div class="field">
-      <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
-        <div class="align_right">
-          <input name="trigger[comment]" type="hidden" value="false" />
-          <input type="checkbox" name="trigger[comment]" value="true" checked="true"/>
-        </div>
-      </div>
-    </div>
-
-    <div class="field">
+    <% if !@viewers.nil? && @viewers.length > 0 %>
+    <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label :viewers %>
-        <br>
-        <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
-        <br>
-        <% @viewers.each do |item| %>
-        <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %><%= User.where(id: item).first.name %><br>
-        <% end %>
       </div>
+      <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
+      <br>
+      <% @viewers.each do |item| %>
+      <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %><%= User.where(id: item).first.name %><br>
+      <% end %>
     </div>
     <% end %>
 
+     <div class="sidebar_field">
+      <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
+        <div class="align_right">
+          <%= f.check_box :comment %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="table_cell vertical_align">
