@@ -3,14 +3,20 @@
 	<head>
 		<title>
 			<%= t('app_name') %>
-			<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
+			<% if current_page?(new_user_session_path) ||
+				(params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in
-			<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
+
+			<% elsif current_page?(new_user_registration_path) ||
+				(params[:controller] == "devise/registrations" && action_name == "create") %>
 				- Sign up
-			<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
+			<% elsif current_page?(new_user_password_path) ||
+				(params[:controller] == "devise/passwords" && action_name == "new") %>
 				- Forgot your password?
-			<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
+			<% elsif current_page?(edit_user_registration_path) ||
+				(params[:controller] == "registrations" && action_name == "update") %>
 				- Account
+
 			<% elsif !@page_title.blank? %>
 				- <%= @page_title %>
 			<% end %>
@@ -46,20 +52,40 @@
 
 				<div id="header_space"></div>
 
-				<% if current_page?(root_path) || (current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new")) || (current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create")) || (current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update")) || current_page?(about_path) || current_page?(contributors_path) || current_page?(blog_path) %>
+				<% if current_page?(root_path) ||
+					(
+						current_page?(new_user_session_path) ||
+						(params[:controller] == "devise/sessions" && action_name == "new")
+					) || (
+						current_page?(new_user_registration_path) ||
+						(params[:controller] == "devise/registrations" && action_name == "create")
+					) || (
+						current_page?(edit_user_registration_path) ||
+						(params[:controller] == "registrations" && action_name == "update")
+					) || current_page?(about_path) || current_page?(contributors_path) ||
+					current_page?(blog_path) %>
 				<div id="page_title">
 				<% else %>
 				<div id="page_title">
 				<% end %>
+
 					<div id="page_title_content">
-						<% if current_page?(new_user_session_path) || (params[:controller] == "devise/sessions" && action_name == "new") %>
+						<% if current_page?(new_user_session_path) ||
+						(params[:controller] == "devise/sessions" && action_name == "new") %>
 							Tell your stories now
-						<% elsif current_page?(new_user_registration_path) || (params[:controller] == "devise/registrations" && action_name == "create") %>
+
+						<% elsif current_page?(new_user_registration_path) ||
+						(params[:controller] == "devise/registrations" && action_name == "create") %>
 							Join the community now
-						<% elsif current_page?(new_user_password_path) || (params[:controller] == "devise/passwords" && action_name == "new") %>
+
+						<% elsif current_page?(new_user_password_path) ||
+						(params[:controller] == "devise/passwords" && action_name == "new") %>
 							Forgot your password?
-						<% elsif current_page?(edit_user_registration_path) || (params[:controller] == "registrations" && action_name == "update") %>
+
+						<% elsif current_page?(edit_user_registration_path) ||
+						(params[:controller] == "registrations" && action_name == "update") %>
 							Customize your account
+
 						<% elsif !@page_edit.blank? %>
 							<div class="align_left">
 								<%= @page_title %>
@@ -68,6 +94,7 @@
 								<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
 							</div>
 							<div class="clear"></div>
+
 						<% elsif !@page_new.blank? %>
 							<div class="align_left">
 								<%= @page_title %>
@@ -76,6 +103,7 @@
 								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
 							</div>
 							<div class="clear"></div>
+
 						<% elsif !@page_author.blank? %>
 							<div class="align_left">
 								<%= @page_title %>
@@ -84,6 +112,7 @@
 								<%= @page_author %>
 							</div>
 							<div class="clear"></div>
+
 						<% elsif @page_search %>
 							<div class="align_left">
 								<%= @page_title %>
@@ -95,15 +124,19 @@
 							<div id="search_box" style="display: none">
 								<%= render :partial => '/search/form' %>
 							</div>
+
 						<% elsif current_page?(root_path) && !user_signed_in? %>
 							<div class="headline center">
 						        <span class="branding_title">
 						          if <span class="branding_subtitle">me</span>
 						        </span> is a community for mental health experiences
 					      </div>
+
 						<% else %>
 							<%= @page_title %>
+
 						<% end %>
+
 					</div>
 				</div>
 
@@ -111,6 +144,7 @@
 					<% if !notice.blank? %>
 						<div class="notice"><%= notice %></div>
 					<% end %>
+					
 					<% if !alert.blank? %>
 						<div class="alert"><%= alert %></div>
 					<% end %>

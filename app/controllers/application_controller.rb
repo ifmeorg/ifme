@@ -39,6 +39,9 @@ class ApplicationController < ActionController::Base
 		return false
 	end
 
+## Taxonomies are used for pluralization?
+## unless the pluralization is non-standard, Rails can do this with .pluralize.
+
 	def no_taxonomies_error(taxonomy)
 		if taxonomy == "category"
 			plural = "categories"
@@ -145,8 +148,8 @@ class ApplicationController < ActionController::Base
 
 	def get_incoming_ally_requests(userid)
 		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid2)
-    	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid1)
-    	return userid1s + userid2s
+  	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid1)
+  	return userid1s + userid2s
 	end
 
 	def are_allies(userid1, userid2)

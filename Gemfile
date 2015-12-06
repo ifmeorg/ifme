@@ -71,6 +71,7 @@ gem 'certified'
 gem 'chronic'
 
 group :development, :test do
+  gem "byebug"
   gem "rspec-rails"
   gem 'rspec-collection_matchers'
   gem 'capybara'
