@@ -39,7 +39,7 @@ class Allyship < ActiveRecord::Base
   end
 
   def inverse_allyship_options
-    { ally_id: user_id, user_id: ally_id }
+    { ally_id: user_id, user_id: ally_id, status: status }
   end
 
 	def different_users

@@ -138,14 +138,14 @@ class ApplicationController < ActionController::Base
 	end
 
 	def get_outgoing_ally_requests(userid)
-		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid2)
-    	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid1)
+		userid1s = Allyship.where(user_id: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:ally_id)
+		userid2s = Allyship.where(ally_id: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:user_id)
     	return userid1s + userid2s
 	end
 
 	def get_incoming_ally_requests(userid)
-		userid1s = Ally.where(userid1: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:userid2)
-    	userid2s = Ally.where(userid2: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:userid1)
+		userid1s = Allyship.where(user_id: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:ally_id)
+		userid2s = Allyship.where(ally_id: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:user_id)
     	return userid1s + userid2s
 	end
 
