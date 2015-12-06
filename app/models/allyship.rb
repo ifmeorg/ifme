@@ -11,7 +11,7 @@
 #
 
 class Allyship < ActiveRecord::Base
-	attr_accessible :status
+	attr_accessible :status, :user_id, :ally_id
 	enum status: [:accepted, :pending_from_userid1, :pending_from_userid2]
 
 	validate :different_users
