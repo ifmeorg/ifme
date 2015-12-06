@@ -78,6 +78,7 @@ group :development, :test do
   gem 'rails-erd', '~> 1.4', '>= 1.4.4'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'annotate', '~> 2.6', '>= 2.6.10'
+  gem 'pry-rails'
 end
 
 gem 'foundation-rails'
