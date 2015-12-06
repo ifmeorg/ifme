@@ -21,10 +21,7 @@
 //= require underscore
 //= require jquery.timepicker.js
 
-<<<<<<< HEAD
-var subtitle_delay_time = 300;
-var subtitle_slideDown_time = 1500;
-=======
+
 function toggleElements(elements) {
   	var arrayLength = elements.length;
   	var i = 0;
@@ -50,5 +47,4 @@ $(document).on("page:load ready", function() {
 		var subtitle_slideDown_time = 1500;
 		$(".subtitle").delay(subtitle_delay_time).slideDown(subtitle_slideDown_time);
 	}
-});
->>>>>>> upstream/master
+
