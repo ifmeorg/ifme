@@ -19,6 +19,7 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
 gem 'compass-rails', '~> 2.0.4'
+gem 'jquery-timepicker-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
