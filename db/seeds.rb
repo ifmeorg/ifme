@@ -12,9 +12,9 @@ user2 = User.create(name: 'Test2 Lastname', email: 'test2@example.com', password
 user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'password99', location: 'San Francisco, CA, United States', timezone: '-08:00')
 
 # Allies
-Ally.create(userid1: user1.id, userid2: user2.id, status: :accepted)
-Ally.create(userid1: user1.id, userid2: user3.id, status: :accepted)
-Ally.create(userid1: user2.id, userid2: user3.id, status: :pending_from_userid1)
+Allyship.create(userid1: user1.id, userid2: user2.id, status: :accepted)
+Allyship.create(userid1: user1.id, userid2: user3.id, status: :accepted)
+Allyship.create(userid1: user2.id, userid2: user3.id, status: :pending_from_userid1)
 
 # User 1
 user1_category1 = Category.create(userid: user1.id, name: 'Public Speaking', description: 'Speaking in front of an audience at school')
