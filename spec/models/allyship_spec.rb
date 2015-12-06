@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: allies
+#
+#  id         :integer          not null, primary key
+#  userid1    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  userid2    :integer
+#  status     :integer
+#
+
 require 'spec_helper'
 
 describe Allyship do
