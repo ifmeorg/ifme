@@ -5,7 +5,7 @@ class AlertsController < ApplicationController
   # GET /alerts
   # GET /alerts.json
   def index
-    @alerts = Alert.where(:userid => current_user.id).all
+    @alerts = Alert.where(:user_id => current_user.id).all
     @page_title = "Alerts"
     @page_new = new_alert_path
   end
@@ -13,10 +13,10 @@ class AlertsController < ApplicationController
   # GET /alerts/1
   # GET /alerts/1.json
   def show
-    if current_user.id == @alert.userid
+    if current_user.id == @alert.user_id
       @page_title = @alert.name
       @page_edit = edit_alert_path(@alert)
-    else 
+    else
       respond_to do |format|
         format.html { redirect_to alerts_path }
         format.json { head :no_content }
@@ -32,9 +32,9 @@ class AlertsController < ApplicationController
 
   # GET /alerts/1/edit
   def edit
-    if current_user.id == @alert.userid
-      @page_title = "Edit " + @alert.name 
-    else 
+    if current_user.id == @alert.user_id
+      @page_title = "Edit " + @alert.name
+    else
       respond_to do |format|
         format.html { redirect_to alert_path(@alert) }
         format.json { head :no_content }
@@ -96,13 +96,13 @@ class AlertsController < ApplicationController
             format.html { redirect_to alerts_path }
             format.json { head :no_content }
           end
-        end 
+        end
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alert_params
-      params.require(:alert).permit(:userid, :trigger, :medication, :message, :means, :days, :name, :time_hour, :time_minute, :time_period)
+      params.require(:alert).permit(:user_id, :trigger, :medication, :message, :means, :days, :name, :time_hour, :time_minute, :time_period)
     end
 
     def if_not_signed_in
