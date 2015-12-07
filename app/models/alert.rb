@@ -22,4 +22,6 @@ class Alert < ActiveRecord::Base
 
     validates :means, inclusion: %w(sms email calendar)
     validates_presence_of :user_id, :days, :name, :time_hour, :time_minute, :time_period
+
+		belongs_to :user, inverse_of: :alerts
 end
