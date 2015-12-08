@@ -8,7 +8,7 @@
 			<br>
 			<br>
 		<% end %>
-		<% if @type == UserRelation::MYSELF %>
+		<% if @profile == current_user %>
 			<%= link_to 'Customize profile', edit_user_registration_path %>
 			<br>
 			<br>
@@ -16,14 +16,14 @@
 		<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
 		<% if @profile.id != current_user.id %>
 		 	<br>
-			<% if @type == UserRelation::OUTGOING_REQUEST %>
-			 	<br><%= link_to 'Cancel Request', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			<% elsif @type == UserRelation::ALLY %>
-				<br><%= link_to 'Remove', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			<% elsif @type == UserRelation::OTHER %>
-				<br><%= link_to 'Add to Allies', add_allies_path(:userid1 => current_user.id, :userid2 => @profile.id, :status => AllyStatus::PENDING_FROM_USERID1), :method => :post %>
-			<% elsif @type == UserRelation::INCOMING_REQUEST %>
-				<br><%= link_to 'Accept', add_allies_path(:userid1 => current_user.id, :userid2 => @profile.id, :status => AllyStatus::ACCEPTED), :method => :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
+			 	<br><%= link_to 'Cancel Request', remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% elsif current_user.allies_by_status(:accepted).include? @profile %>
+				<br><%= link_to 'Remove', remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
+				<br><%= link_to 'Accept', add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			<% else %>
+				<br><%= link_to 'Add to Allies', add_allies_path(ally_id: @profile.id), :method => :post %>
 			<% end %>
 		<% end %>
 	</div>
