@@ -6,12 +6,13 @@ class AlliesController < ApplicationController
   def index
     @page_search = true
     @accepted_allies = current_user.allies_by_status(:accepted)
-    @incoming_ally_requests = get_incoming_ally_requests(current_user.id)
-    @outgoing_ally_requests = get_outgoing_ally_requests(current_user.id)
+    @incoming_ally_requests = current_user.allies_by_status(:pending_from_user)
+    @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally)
     @page_title = "Allies"
   end
 
   def add
+
     params[:userid1] = params[:userid1].to_i
     params[:userid2] = params[:userid2].to_i
     params[:status] = params[:status].to_i

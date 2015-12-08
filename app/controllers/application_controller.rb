@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :get_incoming_ally_requests, :get_outgoing_ally_requests, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
 
 	def is_viewer(viewers)
 		if (viewers.include? current_user.id)
@@ -130,40 +130,13 @@ class ApplicationController < ActionController::Base
       	return return_this.html_safe
 	end
 
-	def get_outgoing_ally_requests(userid)
-		userid1s = Allyship.where(user_id: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:ally_id)
-		userid2s = Allyship.where(ally_id: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:user_id)
-    	return userid1s + userid2s
-	end
-
-	def get_incoming_ally_requests(userid)
-		userid1s = Allyship.where(user_id: userid, status: AllyStatus::PENDING_FROM_USERID2).pluck(:ally_id)
-		userid2s = Allyship.where(ally_id: userid, status: AllyStatus::PENDING_FROM_USERID1).pluck(:user_id)
-    	return userid1s + userid2s
-	end
-
 	def are_allies(userid1, userid2)
 		return User.find(userid1).allies.include? User.find(userid2)
 	end
 
 	# A is a pending ally of B if A sent B an ally request
 	def are_pending_allies(userid1, userid2)
-		return get_outgoing_ally_requests(userid1).include? userid2.to_i
-	end
-
-	def user_relation(userid1, userid2)
-		type = UserRelation::OTHER
-		if userid1 == userid2
-			type = UserRelation::MYSELF
-		elsif are_allies(userid1, userid2)
-			type = UserRelation::ALLY
-		elsif are_pending_allies(userid2, userid1)
-			type = UserRelation::INCOMING_REQUEST
-		elsif are_pending_allies(userid1, userid2)
-			type = UserRelation::OUTGOING_REQUEST
-		end
-
-		return type
+		User.find(userid1).allies_by_status(:pending_from_ally).include? User.find(userid2.to_i)
 	end
 
 	def fetch_profile_picture(avatar)

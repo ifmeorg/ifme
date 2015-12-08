@@ -29,8 +29,8 @@
 class User < ActiveRecord::Base
   ALLY_STATUS = {
     accepted: 0,
-    pending_from_userid1: 1,
-    pending_from_userid2: 2
+    pending_from_user: 1,
+    pending_from_ally: 2
   }
 
   # Include default devise modules. Others available are:
