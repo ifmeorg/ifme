@@ -2,17 +2,17 @@
   <strong>Outgoing Requests</strong>
   <br>
   <br>
-  <% @outgoing_ally_requests.each_with_index do |ally_id, index| %>
-    <% if index+1 == @outgoing_ally_requests.length %>
+  <% @outgoing_ally_requests.each_with_index do |ally, index| %>
+    <% if index + 1 == @outgoing_ally_requests.length %>
       <div class="ally" style="margin-bottom: 0">
     <% else %>
       <div class="ally">
     <% end %>
         <div class="align_left">
-          <h1 class="ally_name"><%= link_to User.where(:id => ally_id).first.name, profile_index_path(:userid => ally_id) %></h1>
+          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(userid: ally.id) %></h1>
         </div>
         <div class="align_right location">
-          <%= User.where(:id => ally_id).first.location %>
+          <%= ally.location %>
         </div>
         <div class="clear"></div>
         <%= link_to 'Cancel', remove_allies_path(:userid1 => current_user.id, :userid2 => ally_id), :method => :post, data: { confirm: 'Are you sure?' } %>
@@ -27,25 +27,25 @@
   <strong>Incoming Requests</strong>
   <br>
   <br>
-  <% @incoming_ally_requests.each_with_index do |ally_id, index| %>
-    <% if index+1 == @incoming_ally_requests.length %>
+  <% @incoming_ally_requests.each_with_index do |ally, index| %>
+    <% if index + 1 == @incoming_ally_requests.length %>
       <div class="ally" style="margin-bottom: 0">
     <% else %>
       <div class="ally">
     <% end %>
         <div class="align_left">
-          <h1 class="ally_name"><%= link_to User.where(:id => ally_id).first.name, profile_index_path(:userid => ally_id) %></h1>
+          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(:userid => ally.id) %></h1>
         </div>
         <div class="align_right location">
-          <%= User.where(:id => ally_id).first.location %>
+          <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Accept', add_allies_path(:userid1 => current_user.id, :userid2 => ally_id, :status => AllyStatus::ACCEPTED), :method => :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => ally_id), :method => :post, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Accept', add_allies_path(user: current_user.id, ally: ally, status: User.ALLY_STATUS[:accepted]), method: :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => ally_id), :method => :post, data: { confirm: 'Are you sure?' } %>
       </div>
   <% end %>
 <% end %>
 
-<% @accepted_allies.each_with_index do |ally_id, index| %>
+<% @accepted_allies.each_with_index do |ally, index| %>
   <% if !@incoming_ally_requests.empty? || !@outgoing_ally_requests.empty? %>
     <div class="spacer"></div>
   <% end %>
@@ -56,15 +56,14 @@
   <% end %>
       <div class="table">
         <div class="table_cell" style="width: 200px; padding-right: 40px">
-          <% profile = User.where(:id => ally_id).first %>
-          <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'profile_picture' %>
+          <%= image_tag fetch_profile_picture(ally.avatar.url), class: 'profile_picture' %>
         </div>
         <div class="table_cell" style="vertical-align: top">
           <div class="align_left">
-            <h1 class="ally_name"><%= link_to User.where(:id => ally_id).first.name, profile_index_path(:userid => ally_id) %></h1>
+            <h1 class="ally_name"><%= link_to ally.name, profile_index_path(:userid => ally.id) %></h1>
           </div>
           <div class="align_right location">
-            <%= User.where(:id => ally_id).first.location %>
+            <%= ally.location %>
           </div>
           <div class="clear"></div>
             <%= link_to 'Remove', remove_allies_path(:userid1 => current_user.id, :userid2 => ally_id), :method => :post, data: { confirm: 'Are you sure?' } %>
