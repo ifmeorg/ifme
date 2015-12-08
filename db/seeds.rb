@@ -12,9 +12,9 @@ user2 = User.create(name: 'Test2 Lastname', email: 'test2@example.com', password
 user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'password99', location: 'San Francisco, CA, United States', timezone: '-08:00')
 
 # Allies
-Ally.create(userid1: user1.id, userid2: user2.id, status: :accepted)
-Ally.create(userid1: user1.id, userid2: user3.id, status: :accepted)
-Ally.create(userid1: user2.id, userid2: user3.id, status: :pending_from_userid1)
+Allyship.create(user_id: user1.id, ally_id: user2.id, status: :accepted)
+Allyship.create(user_id: user1.id, ally_id: user3.id, status: :accepted)
+Allyship.create(user_id: user2.id, ally_id: user3.id, status: :pending_from_userid1)
 
 # User 1
 user1_category1 = Category.create(userid: user1.id, name: 'Public Speaking', description: 'Speaking in front of an audience at school')
@@ -34,6 +34,7 @@ user1_group2_member1 = GroupMember.create(groupid: user1_group2.id, userid: user
 # User 2
 user2_category1 = Category.create(userid: user2.id, name: 'Brother', description: 'We have a strained relationship')
 user2_mood1 = Mood.create(userid: user2.id, name: 'Angry', description: 'I become violent and act irrationally')
+user2_mood2 = Mood.create(userid: user2.id, name: 'Exhausted', description: 'No motivation to do anything')
 user2_trigger1 = Trigger.create(userid: user2.id, category: Array.new(1, user2_category1.id), mood: Array.new(1, user2_mood1.id), name: 'Thanksgiving Dinner', why: 'He kept asserting to everyone that I was immature and he always did everything for me.', viewers: Array.new(1, user1.id), comment: false)
 user2_trigger1_comment = Comment.create(comment_type: 'trigger', commented_on: user2_trigger1.id, comment_by: user1.id, comment: "You should talk to him one-on-one and tell him how you feel!", visibility: 'all')
 user1_group1_member2 = GroupMember.create(groupid: user1_group1.id, userid: user2.id, leader: true)

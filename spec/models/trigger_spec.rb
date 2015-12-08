@@ -32,7 +32,7 @@ describe Trigger do
 		it "create public trigger" do
 		 	new_user = create(:user1)
 		 	new_user2 = create(:user2)
-		 	new_allies = create(:allies_accepted, userid1: new_user.id, userid2: new_user2.id)
+		 	new_allies = create(:allyships_accepted, user_id: new_user.id, ally_id: new_user2.id)
 		  	new_category = create(:category, userid: new_user.id)
 			new_mood = create(:mood, userid: new_user.id)
 			new_trigger = create(:trigger, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), viewers: [new_user2.id])

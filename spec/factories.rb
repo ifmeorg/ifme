@@ -35,15 +35,15 @@ FactoryGirl.define do
     timezone "-05:00"
   end
 
-  factory :allies_accepted, class: Ally do
+  factory :allyships_accepted, class: Allyship do
     status :accepted
   end
 
-  factory :allies_pending_from_userid1, class: Ally do
+  factory :allyships_pending_from_userid1, class: Allyship do
     status :pending_from_userid1
   end
 
-  factory :allies_pending_from_userid2, class: Ally do
+  factory :allyships_pending_from_userid2, class: Allyship do
     status :pending_from_userid2
   end
 
