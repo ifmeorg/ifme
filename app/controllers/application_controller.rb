@@ -7,13 +7,6 @@ module UserRelation
 	OTHER = 4
 end
 
-module AllyStatus
-	mattr_accessor :accepted, :pending_from_userid1, :pending_from_userid2
-	ACCEPTED = 0
-	PENDING_FROM_USERID1 = 1
-	PENDING_FROM_USERID2 = 2
-end
-
 class ApplicationController < ActionController::Base
 	include ActionView::Helpers::UrlHelper
   	# Prevent CSRF attacks by raising an exception.
