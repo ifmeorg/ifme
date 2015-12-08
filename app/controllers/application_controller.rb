@@ -130,15 +130,6 @@ class ApplicationController < ActionController::Base
       	return return_this.html_safe
 	end
 
-	def are_allies(userid1, userid2)
-		return User.find(userid1).allies.include? User.find(userid2)
-	end
-
-	# A is a pending ally of B if A sent B an ally request
-	def are_pending_allies(userid1, userid2)
-		User.find(userid1).allies_by_status(:pending_from_ally).include? User.find(userid2.to_i)
-	end
-
 	def fetch_profile_picture(avatar)
 		if avatar
 			return avatar
