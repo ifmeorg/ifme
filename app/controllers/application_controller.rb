@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :are_allies, :fetch_profile_picture, :are_allies, :are_pending_allies, :user_relation, :no_taxonomies_error, :is_viewer
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer
 
 	def is_viewer(viewers)
 		if (viewers.include? current_user.id)
