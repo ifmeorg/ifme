@@ -21,19 +21,7 @@ class AlliesController < ApplicationController
   end
 
   def remove
-    params[:userid1] = params[:userid1].to_i
-    params[:userid2] = params[:userid2].to_i
-
-    # We will enforce that :userid1 < :userid2 for convenience
-    if params[:userid1] > params[:userid2]
-      tmp = params[:userid1]
-      params[:userid1] = params[:userid2]
-      params[:userid2] = tmp.to_i
-    end
-
-    the_ally = Allyship.find_by(user_id: params[:userid1], ally_id: params[:userid2])
-
-    the_ally.destroy
+    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy
 
     respond_to do |format|
       format.html { redirect_to allies_path }
