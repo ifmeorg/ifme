@@ -12,9 +12,18 @@ class AlliesController < ApplicationController
   end
 
   def add
-    allyship = Allyship.find_or_create_by(user_id: current_user.id, ally_id: params[:ally_id])
-    allyship.update(status: User::ALLY_STATUS[:accepted])
+    allyship = Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id])
 
+    if allyship
+      allyship.update(status: User::ALLY_STATUS[:accepted])
+    else
+      Allyship.create(
+        user_id: current_user.id,
+        ally_id: params[:ally_id],
+        status: User::ALLY_STATUS[:pending_from_ally]
+      )
+    end
+    
     respond_to do |format|
       format.html { redirect_to allies_path }
       format.json { head :no_content }
