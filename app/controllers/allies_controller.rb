@@ -12,7 +12,8 @@ class AlliesController < ApplicationController
   end
 
   def add
-    Allyship.create(user_id: current_user.id, ally_id: params[:ally_id], status: User.ALLY_STATUS[:accepted])
+    allyship = Allyship.find_or_create_by(user_id: current_user.id, ally_id: params[:ally_id])
+    allyship.update(status: User::ALLY_STATUS[:accepted])
 
     respond_to do |format|
       format.html { redirect_to allies_path }
