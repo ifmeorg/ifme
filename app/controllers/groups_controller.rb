@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   def index
     @groups = GroupMember.where(userid: current_user.id).all
     @page_title = "Groups"
-    accepted_allies = current_user.accepted_allies
+    accepted_allies = current_user.allies_by_status(:accepted)
     @page_new = new_group_path
 
     @available_groups = Array.new

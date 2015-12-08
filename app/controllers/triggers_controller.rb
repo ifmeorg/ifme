@@ -79,7 +79,7 @@ class TriggersController < ApplicationController
 
   # GET /triggers/new
   def new
-    @viewers = current_user.accepted_allies
+    @viewers = current_user.allies_by_status(:accepted)
     @categories = Category.where(:userid => current_user.id).all
     @moods = Mood.where(:userid => current_user.id).all
     @strategies = Strategy.where(:userid => current_user.id).all
@@ -90,7 +90,7 @@ class TriggersController < ApplicationController
   # GET /triggers/1/edit
   def edit
     if @trigger.userid == current_user.id
-      @viewers = current_user.accepted_allies
+      @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all
       @moods = Mood.where(:userid => current_user.id).all
       @strategies = Strategy.where(:userid => current_user.id).all
@@ -108,7 +108,7 @@ class TriggersController < ApplicationController
   def create
     @trigger = Trigger.new(trigger_params)
     @page_title = "New Trigger"
-    @viewers = current_user.accepted_allies
+    @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @trigger.save
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
@@ -124,7 +124,7 @@ class TriggersController < ApplicationController
   # PATCH/PUT /triggers/1.json
   def update
     @page_title = "Edit " + @trigger.name
-    @viewers = current_user.accepted_allies
+    @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @trigger.update(trigger_params)
         format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }

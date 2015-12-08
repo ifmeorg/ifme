@@ -5,7 +5,7 @@ class AlliesController < ApplicationController
   # GET /allies.json
   def index
     @page_search = true
-    @accepted_allies = current_user.accepted_allies
+    @accepted_allies = current_user.allies_by_status(:accepted)
     @incoming_ally_requests = get_incoming_ally_requests(current_user.id)
     @outgoing_ally_requests = get_outgoing_ally_requests(current_user.id)
     @page_title = "Allies"
