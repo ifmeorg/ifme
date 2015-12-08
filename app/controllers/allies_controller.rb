@@ -12,35 +12,7 @@ class AlliesController < ApplicationController
   end
 
   def add
-
-    params[:userid1] = params[:userid1].to_i
-    params[:userid2] = params[:userid2].to_i
-    params[:status] = params[:status].to_i
-
-    # We will enforce that :userid1 < :userid2 for convenience
-    if params[:userid1] > params[:userid2]
-      tmp = params[:userid1]
-      params[:userid1] = params[:userid2]
-      params[:userid2] = tmp
-      if params[:status] == AllyStatus::PENDING_FROM_USERID1
-        params[:status] = AllyStatus::PENDING_FROM_USERID2
-      elsif params[:status] == AllyStatus::PENDING_FROM_USERID2
-        params[:status] = AllyStatus::PENDING_FROM_USERID1
-      end
-    end
-
-    if Allyship.where(user_id: params[:userid1], ally_id: params[:userid2]).exists?
-      the_ally = Allyship.find_by(user_id: params[:userid1], ally_id: params[:userid2])
-
-      # If the new status is pending_from_useridA and the old status is pending_from_useridB, where A != B, then the new status is accepted.
-      if (the_ally.status == AllyStatus::PENDING_FROM_USERID1 && params[:status] == AllyStatus::PENDING_FROM_USERID2) || (the_ally.status == AllyStatus::PENDING_FROM_USERID2 && params[:status] == AllyStatus::PENDING_FROM_USERID1)
-        the_ally.update(status: AllyStatus::ACCEPTED)
-      else
-        the_ally.update(status: params[:status])
-      end
-    else
-       Allyship.create(user_id: params[:userid1], ally_id: params[:userid2], status: params[:status])
-    end
+    Allyship.create(user_id: current_user.id, ally_id: params[:ally_id], status: User.ALLY_STATUS[:accepted])
 
     respond_to do |format|
       format.html { redirect_to allies_path }
