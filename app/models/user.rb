@@ -28,9 +28,9 @@
 
 class User < ActiveRecord::Base
   ALLY_STATUS = {
-    ACCEPTED: 0,
-    PENDING_FROM_USERID1: 1,
-    PENDING_FROM_USERID2: 2
+    accepted: 0,
+    pending_from_user: 1,
+    pending_from_ally: 2
   }
 
   # Include default devise modules. Others available are:
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
     end
    end
 
-   def accepted_allies
-     allyships.includes(:ally).where(status: ALLY_STATUS[:ACCEPTED]).map(&:ally)
+   def allies_by_status(status)
+     allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
    end
 end

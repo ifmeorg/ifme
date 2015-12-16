@@ -3,18 +3,17 @@ class ProfileController < ApplicationController
 
 	def index
 		# If the specified profile doesn't exist, view the current user's profile
-		params[:userid] = params[:userid].to_i
-		params[:userid] = current_user.id if params[:userid].nil? || !User.where(id: params[:userid]).exists?
+		user = User.find(params[:userid])
+		user = current_user if user.nil?
 
 		# Determine how the profile should be displayed based on the userid
-		@type = user_relation(current_user.id, params[:userid])
-		if @type == UserRelation::MYSELF
+		if user == current_user
 			@triggers = Trigger.where(userid: current_user.id).all
-		elsif @type == UserRelation::ALLY
+		elsif current_user.allies_by_status(:accepted).include? user
 			@triggers = Trigger.where(userid: params[:userid]).all
 		end
 
-		@profile = User.where(:id => params[:userid]).first
+		@profile = user
 		@page_title = @profile.name
 	end
 

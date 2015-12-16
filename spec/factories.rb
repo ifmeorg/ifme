@@ -40,11 +40,11 @@ FactoryGirl.define do
   end
 
   factory :allyships_pending_from_userid1, class: Allyship do
-    status :pending_from_userid1
+    status :pending_from_user
   end
 
   factory :allyships_pending_from_userid2, class: Allyship do
-    status :pending_from_userid2
+    status :pending_from_ally
   end
 
   factory :category do

@@ -15,14 +15,14 @@
 	       		</div>
 	       		<div class="clear"></div>
 
-	       		<% if user_relation(current_user.id, user.id) == UserRelation::OUTGOING_REQUEST %>
-			        <%= link_to 'Cancel Request', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			    <% elsif user_relation(current_user.id, user.id) == UserRelation::INCOMING_REQUEST %>
-			    	<%= link_to 'Accept', add_allies_path(:userid1 => current_user.id, :userid2 => user.id, :status => AllyStatus::ACCEPTED), :method => :post %>
-			    <% elsif user_relation(current_user.id, user.id) == UserRelation::ALLY %>
-			        <%= link_to 'Remove', remove_allies_path(:userid => user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
-			    <% elsif user_relation(current_user.id, user.id) == UserRelation::OTHER %>
-			    	<%= link_to 'Add to Allies', add_allies_path(:userid1 => current_user.id, :userid2 => user.id, :status => AllyStatus::PENDING_FROM_USERID1), :method => :post %>
+	       		<% if current_user.allies_by_status(:pending_from_ally).include?(user)) %>
+			        <%= link_to 'Cancel Request', remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			    <% elsif current_user.allies_by_status(:pending_from_user).include?(user)) %>
+			    	<%= link_to 'Accept', add_allies_path(:ally_id: user.id), :method => :post %>
+			    <% elsif current_user.allies_by_status(:accepted).include?(user) %>
+			        <%= link_to 'Remove', remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			    <% else %>
+			    	<%= link_to 'Add to Allies', add_allies_path(:ally_id: user.id), :method => :post %>
 			    <% end %>
 			</div>
 		</div>
