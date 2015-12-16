@@ -47,6 +47,8 @@ class User < ActiveRecord::Base
   has_many :allyships
   has_many :allies, through: :allyships
 
+  has_many :alerts, inverse_of: :user
+
   def remove_leading_trailing_whitespace
   	self.email.rstrip!
   	self.email.lstrip!

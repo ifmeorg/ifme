@@ -32,19 +32,11 @@ class ApplicationController < ActionController::Base
 		return false
 	end
 
+## Taxonomies are used for pluralization?
+## unless the pluralization is non-standard, Rails can do this with .pluralize.
+
 	def no_taxonomies_error(taxonomy)
-		if taxonomy == "category"
-			plural = "categories"
-		elsif taxonomy == "mood"
-			plural = "moods"
-		elsif taxonomy == "strategy"
-			plural = "strategies"
-		end
-
-		url = '/' + plural + '/new'
-		return_this = "<a href='" + url + "'>Create " + plural + "</a> and add them!"
-
-		return return_this.html_safe
+		"<a href='#{taxonomy.pluralize}'>Create #{taxonomy.pluralize}</a> and add them!".html_safe
 	end
 
 	def fetch_taxonomies(data, data_type, item, taxonomy, show, list)

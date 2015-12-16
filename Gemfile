@@ -48,6 +48,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem "ruby-graphviz"
+
 gem 'protected_attributes'
 
 gem 'rails_12factor', group: :production
@@ -69,6 +71,7 @@ gem 'certified'
 gem 'chronic'
 
 group :development, :test do
+  gem "byebug"
   gem "rspec-rails"
   gem 'rspec-collection_matchers'
   gem 'capybara'
@@ -76,6 +79,7 @@ group :development, :test do
   gem 'rails-erd', '~> 1.4', '>= 1.4.4'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'annotate', '~> 2.6', '>= 2.6.10'
+  gem 'pry-rails'
 end
 
 gem 'foundation-rails'
