@@ -15,7 +15,7 @@
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Cancel', remove_allies_path(:ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Cancel', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
       </div>
   <% end %>
 <% end %>
@@ -34,13 +34,13 @@
       <div class="ally">
     <% end %>
         <div class="align_left">
-          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(:userid => ally.id) %></h1>
+          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(userid: ally.id) %></h1>
         </div>
         <div class="align_right location">
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Accept', add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to 'Reject', remove_allies_path(:ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Accept', add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to 'Reject', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
       </div>
   <% end %>
 <% end %>
@@ -60,13 +60,13 @@
         </div>
         <div class="table_cell" style="vertical-align: top">
           <div class="align_left">
-            <h1 class="ally_name"><%= link_to ally.name, profile_index_path(:userid => ally.id) %></h1>
+            <h1 class="ally_name"><%= link_to ally.name, profile_index_path(userid: ally.id) %></h1>
           </div>
           <div class="align_right location">
             <%= ally.location %>
           </div>
           <div class="clear"></div>
-            <%= link_to 'Remove', remove_allies_path(:ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Remove', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     </div>
