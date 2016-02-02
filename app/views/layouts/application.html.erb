@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>
-			<%= t('app_name') %>
+			<%= t(:app_name) %>
 			<% if current_page?(new_user_session_path) ||
 				(params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in

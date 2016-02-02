@@ -1,28 +1,98 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  app_name: "if me"
-  hello: "Hello world"
-  why_label: 'Describe the trigger and how it affects your mood and behaviour.'
-  fix_label: 'What thoughts would you like to have instead?'
-  strategies_label: 'What strategies would help achieve these thoughts?'
-  error_explanation: 'Please fill out the marked fields!'
+ app_name: 'if me'
+ error_explanation: 'Please fill out the marked fields!'
+ name: 'Name'
+ alert_mailer:
+  alert_email:
+
+ alerts:
+  form:
+  edit:
+  index:
+  new:
+  show:
+
+ allies:
+  index:
+
+ categories:
+  form:
+  edit:
+  index:
+  new:
+  show:
+
+ #devise views
+
+ errors:
+  internal_server_error:
+  not_found:
+
+ groups:
+  form:
+  edit:
+  index:
+  new:
+  show:
+
+ layouts:
+  application:
+
+ medications:
+  form:
+  edit:
+  index:
+  new:
+  show:
+
+ meetings:
+  form:
+  edit:
+  new:
+
+ moods:
+  form:
+  edit:
+  index:
+  new:
+  show:
+
+ pages:
+  about:
+  blog:
+  contributors:
+  home:
+  privacy:
+
+ profile:
+  index:
+
+ search:
+  form:
+  index:
+
+ shared:
+  header:
+  menu_logo:
+
+ triggers:
+  form:
+   name: 'Name'
+   categories: 'Categories'
+   moods: 'Moods'
+   strategies: 'Strategies'
+   describe: 'Describe the trigger and how it affects your mood and behaviour.'
+   desired: 'What thoughts would you like to have instead?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields!'
+   #submit button
+
+ strategies:
+  form:
+   name: 'Name'
+   categories: 'Categories'
+   describe: 'Describe the strategy.'
+   strategies_label: 'What strategies would help achieve these thoughts?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields'
+   #submit button
