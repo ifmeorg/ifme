@@ -1,19 +1,42 @@
 en:
  app_name: 'if me'
- error_explanation: 'Please fill out the marked fields!'
- name: 'Name'
- alert_mailer:
-  alert_email:
 
+# alert_mailer and alerts will be added to for selects
+# and tested once feature is up and running
  alerts:
   form:
-  edit:
+   name: 'Name'
+   message: 'Message'
+   trigger: 'Trigger'
+   medication: 'Medication'
+   select: 'Please select'
+   means: 'Means'
+   days: 'Days'
+   time: 'Time'
+   hour: 'Hour'
+   minute: 'Minute'
+   period: 'Period'
   index:
-  new:
+   # trigger:
+   # and:
+   # medication:
+   by: 'By:'
+   when: 'When:'
+   confirm: 'Are you sure?'
   show:
+   name: 'Name'
+   message: 'Message'
+   trigger: 'Trigger'
+   medication: 'Medication'
+   means: 'Means'
+   days: 'Days'
+   time: 'Time'
 
  allies:
   index:
+   outgoing: 'Outgoing Requests'
+   incoming: 'Incoming Requests'
+   confirm: 'Are you sure?'
 
  categories:
   form:

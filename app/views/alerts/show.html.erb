@@ -1,39 +1,39 @@
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('.name') %></strong>
   <%= @alert.name %>
 </p>
 
 <p>
-  <strong>Message:</strong>
+  <strong><%= t('.message') %></strong>
   <%= @alert.message %>
 </p>
 
 
 <% if !@alert.trigger.blank? %>
   <p>
-    <strong>Trigger:</strong>
+    <strong><%= t('.trigger') %></strong>
     <%= Trigger.where(:id => @alert.trigger, :userid => current_user.id).first.name %>
   </p>
 <% end %>
 
 <% if !@alert.medication.blank? %>
   <p>
-    <strong>Medication:</strong>
+    <strong><%= t('.medication') %></strong>
     <%= Medication.where(:id => @alert.medication, :userid => current_user.id).first.name %>
   </p>
 <% end %>
 
 <p>
-  <strong>Means:</strong>
+  <strong><%= t('.means') %></strong>
   <%= @alert.means %>
 </p>
 
 <p>
-  <strong>Days:</strong>
+  <strong><%= t('.days') %></strong>
   <%= @alert.days %>
 </p>
 
 <p>
-  <strong>Time:</strong>
+  <strong><%= t('.time') %></strong>
   <%= @alert.time_hour %>:<%= @alert.time_minute %> <%= @alert.time_period %>
 </p>
