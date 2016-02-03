@@ -4,14 +4,14 @@
     For:
     <% if !alert.trigger.blank? %>
       <%= Trigger.where(:id => alert.trigger, :userid => current_user.id).first.name %>
-      <%= ' (Trigger)' %>
+      <%= t('.trigger') %>
     <% end %>
     <% if !alert.trigger.blank? && !alert.medication.blank? %>
-      <%= ' and ' %>
+      <%= t('.and') %>
     <% end %>
     <% if !alert.medication.blank? %>
       <%= Medication.where(:id => alert.medication, :userid => current_user.id).first.name %>
-      <%= ' (Medication)' %>
+      <%= t('.medication') %>
     <% end %>
     <br><%= t('.by') alert.means %>
     <br><%= t('.when') alert.days %> at <%= alert.time_hour %>:<%= alert.time_minute %> <%= alert.time_period %>
