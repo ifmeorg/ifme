@@ -1,5 +1,5 @@
 <div class="subtitle">
-	Create and join groups that offer support, mentorship, and discussions.
+	<%= t('.subtitle') %>
 </div>
 
 <% if @groups.length > 0 %>
@@ -7,12 +7,12 @@
   <table>
     <thead>
       <tr>
-        <th><h1>Joined Groups</h1></th>
+        <th><h1><%= t('.joined_groups') %></h1></th>
       </tr>
       <tr>
-        <th>Name</th>
-        <th>Members</th>
-        <th>Description</th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.members') %></th>
+        <th><%= t('.description') %></th>
         <th></th>
         <th></th>
       </tr>
@@ -24,7 +24,7 @@
           <td>
             <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
             <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-                  <%= ' (Leader)' %>
+                  <%= t('.leader') %>
               <% end %>
           </td>
           <td>
@@ -38,12 +38,12 @@
           </td>
           <td>
             <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-              <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_group_path(group.groupid) %>
+              <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_group_path(group.groupid) %>
             <% end %>
           </td>
           <td>
             <i class="fa fa-times action"></i>
-            <%= link_to 'Leave', leave_groups_path(groupid: group.groupid) %>
+            <%= link_to t('.leave'), leave_groups_path(groupid: group.groupid) %>
           </td>
         </tr>
       <% end %>
@@ -59,9 +59,9 @@
         <th><h1>Available Groups</h1></th>
       </tr>
       <tr>
-        <th>Name</th>
-        <th>Members</th>
-        <th>Description</th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.members') %></th>
+        <th><%= t('.description') %>Description</th>
         <th></th>
       </tr>
     </thead>
@@ -82,7 +82,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to 'Join', join_groups_path(groupid: group.groupid) %>
+            <%= link_to t('.join'), join_groups_path(groupid: group.groupid) %>
           </td>
         </tr>
       <% end %>

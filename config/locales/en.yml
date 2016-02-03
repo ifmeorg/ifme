@@ -62,10 +62,31 @@ en:
 
  groups:
   form:
-  edit:
+   name: 'Name'
+   description: 'Description'
+   leaders: 'Leaders'
+   error_explanation: 'Please fill out the marked fields!'
   index:
-  new:
+   subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
+   joined_groups: 'Joined Groups'
+   name: 'Name'
+   members: 'Members'
+   description: 'Description'
+   leader: 'Leader'
+   edit: 'Edit'
+   leave: 'Leave'
+   join: 'Join'
   show:
+   led_by: 'Led by:'
+   self: 'You'
+   location: 'Location:'
+   time: 'Time:'
+   delete: 'Delete the event'
+   confirm: 'Are you sure?'
+   leave_cta: 'Leave?'
+   join_cta: 'Join!'
+   join: 'join'
+
 
  layouts:
   application:
