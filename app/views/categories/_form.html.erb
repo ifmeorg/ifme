@@ -2,19 +2,19 @@
 
 <% if @category.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
 <div class="table_cell">
 
   <div class="field">
-    <div class="label"><%= f.label :name %></div>
+    <div class="label"><%= f.label t('.name') %></div>
     <%= f.text_field :name, :class => "name_field" %>
   </div>
 
   <div class="field">
-    <div class="label"><%= f.label :description %></div>
+    <div class="label"><%= f.label t('.description') %></div>
     <%= f.cktext_area :description %>
   </div>
 
