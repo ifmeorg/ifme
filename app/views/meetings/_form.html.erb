@@ -1,7 +1,7 @@
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
     <div class="error_explanation">
-      <%= t('error_explanation') %>
+      <%= t('.error_explanation') %>
     </div>
   <% end %>
 
@@ -11,37 +11,37 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label :name %>
+        <%= f.label t('.name') %>
       </div>
       <%= f.text_field :name %>
     </div>
 
     <div class="field">
       <div class="label">
-        <%= f.label :location %>
+        <%= f.label t('.location') %>
       </div>
-      <%= f.text_field :location, placeholder: 'URL or street address' %>
+      <%= f.text_field :location, placeholder: t('.location_placeholder') %>
     </div>
 
     <div class="field">
       <div class="label">
-        <%= f.label :time %>
+        <%= f.label t('.time') %>
       </div>
       <%= f.text_field :time %>
     </div>
 
     <div class="field">
       <div class="label">
-        <%= f.label :date %>
+        <%= f.label t('.date') %>
       </div>
       <%= f.text_field :date %>
     </div>
 
     <div class="field">
       <div class="label">
-        <%= f.label 'Maximum Members' %>
+        <%= f.label t('.maximum_members') %>
       </div>
-      <%= f.number_field :maxmembers, min: 0, placeholder: '0 if no maximum' %>
+      <%= f.number_field :maxmembers, min: 0, placeholder: t('.maximum_placeholder') %>
     </div>
 
   </div>
@@ -50,7 +50,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label :description %>
+        <%= f.label t('.description') %>
       </div>
       <%= f.cktext_area :description %>
     </div>

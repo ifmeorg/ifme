@@ -134,21 +134,41 @@ en:
 
  meetings:
   form:
-  edit:
-  new:
+   name: 'Name'
+   location: 'Location'
+   location_placeholder: 'URL or street address'
+   time: 'Time'
+   date: 'Date'
+   maximum_members: 'Maximum Members'
+   maximum_placeholder: '0 if no maximum'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
 
  moods:
   form:
-  edit:
+   name: 'Name'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
   index:
-  new:
-  show:
+   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
+   name: 'Name'
+   description: 'Description'
+   edit: 'Edit'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
 
  pages:
   about:
-  blog:
-  contributors:
+   app_name: 'if me'
   home:
+   you: 'You'
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   strategy: 'Strategy:'
+   strategies: 'Strategies:'
   privacy:
 
  profile:
@@ -162,6 +182,16 @@ en:
   header:
   menu_logo:
 
+ strategies:
+  form:
+   name: 'Name'
+   categories: 'Categories'
+   describe: 'Describe the strategy.'
+   strategies_label: 'What strategies would help achieve these thoughts?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields'
+   #submit button
+
  triggers:
   form:
    name: 'Name'
@@ -172,14 +202,8 @@ en:
    desired: 'What thoughts would you like to have instead?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields!'
-   #submit button
-
- strategies:
-  form:
-   name: 'Name'
-   categories: 'Categories'
-   describe: 'Describe the strategy.'
+  show:
+   why_label: 'Describe the trigger and how it affects your mood and behaviour.'
+   fix_label: 'What thoughts would you like to have instead?'
    strategies_label: 'What strategies would help achieve these thoughts?'
-   allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields'
    #submit button
