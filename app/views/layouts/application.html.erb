@@ -72,19 +72,19 @@
 					<div id="page_title_content">
 						<% if current_page?(new_user_session_path) ||
 						(params[:controller] == "devise/sessions" && action_name == "new") %>
-							Tell your stories now
+							<%= t('.signin') %>
 
 						<% elsif current_page?(new_user_registration_path) ||
 						(params[:controller] == "devise/registrations" && action_name == "create") %>
-							Join the community now
+							<%= t('.create_account') %>
 
 						<% elsif current_page?(new_user_password_path) ||
 						(params[:controller] == "devise/passwords" && action_name == "new") %>
-							Forgot your password?
+							<%= t('.forgot_password') %>
 
 						<% elsif current_page?(edit_user_registration_path) ||
 						(params[:controller] == "registrations" && action_name == "update") %>
-							Customize your account
+							<%= t('.update_account') %>
 
 						<% elsif !@page_edit.blank? %>
 							<div class="align_left">
@@ -128,15 +128,15 @@
 						<% elsif current_page?(root_path) && !user_signed_in? %>
 							<div class="headline center">
 						        <span class="branding_title">
-						          if <span class="branding_subtitle">me</span>
-						        </span> is a community for mental health experiences
+						          <%= t('.if') %> <span class="branding_subtitle"><%= t('.me') %></span>
+						        </span><%= t('.branding_title') %>
 					      </div>
 
 						<% else %>
 							<%= @page_title %>
 
 						<% end %>
-
+ 
 					</div>
 				</div>
 
@@ -155,15 +155,15 @@
 				<div id="footer">
 					<div id="footer_content">
 						<div class="align_left">
-							<%= link_to('About', about_path, class: "spacing") %>
-							<%= link_to('Blog', blog_path, class: "spacing") %>
-							<%= link_to('Contributors', contributors_path, class: "spacing") %>
-							<%= link_to('Privacy Policy', privacy_path, class: "spacing") %>
-							<%= link_to('GitHub', "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
-							<%= link_to('Twitter', "http://twitter.com/ifmeorg", target: "blank") %>
+							<%= link_to(t('.footer_about'), about_path, class: "spacing") %>
+							<%= link_to(t('.footer_blog'), blog_path, class: "spacing") %>
+							<%= link_to(t('.footer_contributors'), contributors_path, class: "spacing") %>
+							<%= link_to(t('.footer_privacy'), privacy_path, class: "spacing") %>
+							<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", class: "spacing", target: "blank") %>
+							<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
 						</div>
 						<div class="align_right">
-							Copyright &#169; 2014-<%= Time.now.strftime("%Y") %> <%= t('app_name') %>
+							<%= t('.copyright') %> &#169; 2014-<%= Time.now.strftime("%Y") %> <%= t('.app_name') %>
 						</div>
 						<div class="clear"></div>
 					</div>

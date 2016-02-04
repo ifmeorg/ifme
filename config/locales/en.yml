@@ -50,8 +50,6 @@ en:
    description: 'Description'
    confirm: 'Are you sure?'
 
- #devise views
-
  errors:
   internal_server_error:
    header_message: 'This page cannot be displayed'
@@ -87,9 +85,23 @@ en:
    join_cta: 'Join!'
    join: 'join'
 
-
  layouts:
   application:
+   signin: 'Tell your stories now'
+   create_account: 'Join the community now'
+   forgot_password: 'Forgot your password?'
+   update_account: 'Customize your account'
+   if: 'if'
+   me: 'me'
+   branding_title: 'is a community for mental health experiences'
+   footer_about: 'About'
+   footer_blog: 'Blog'
+   footer_contributors: 'Contributors'
+   footer_privacy: 'Privacy Policy'
+   github: 'GitHub'
+   twitter: 'Twitter'
+   copyright: 'Copyright'
+   app_name: 'if me'
 
  medications:
   form:
