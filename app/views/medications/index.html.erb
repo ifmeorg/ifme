@@ -1,5 +1,5 @@
 <div class="subtitle">
-  Keep track of your medications, including dosage and refill information.
+  <%= t('.subtitle') %>
 </div>
 
 <% if @medications.length > 0 %>
@@ -7,11 +7,11 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Strength</th>
-        <th>Total Quantity</th>
-        <th>Daily Dosage</th>
-        <th>Refill</th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.strength') %></th>
+        <th><%= t('.quantity') %></th>
+        <th><%= t('.dosage') %></th>
+        <th><%= t('.refill') %></th>
         <th></th>
       </tr>
     </thead>
@@ -25,8 +25,8 @@
           <td><%= medication.dosage.to_s + " " + medication.dosage_unit %></td>
           <td><%= medication.refill %></td>
           <td>
-            <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_medication_path(medication) %>
-            <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', medication, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_medication_path(medication) %>
+            <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
           </td>
         </tr>
       <% end %>

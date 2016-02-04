@@ -105,10 +105,32 @@ en:
 
  medications:
   form:
-  edit:
+   name: 'Name'
+   comments: 'Comments'
+   strength: 'Strength'
+   strength_placeholder: 'e.g. 100'
+   total_placeholder: 'e.g. 30'
+   tablets: 'tablets'
+   dosage: 'dosage'
+   dosage_placeholder: 'e.g. 2'
+   refill: 'refill'
+   error_explanation: 'Please fill out the marked fields!'
   index:
-  new:
+   subtitle: 'Keep track of your medications, including dosage and refill information.'
+   name: 'Name'
+   strength: 'Strength'
+   quantity: 'Total Quantity'
+   dosage: 'Daily Dosage'
+   refill: 'Refill'
+   edit: 'Edit'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
   show:
+   strength: 'Strength:'
+   quantity: 'Total Quantity:'
+   dosage: 'Daily Dosage:'
+   refill: 'Refill:'
+   comments: 'Comments:'
 
  meetings:
   form:
