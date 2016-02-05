@@ -29,21 +29,21 @@
 
 <% if !@trigger.why.blank? %>
   <p>
-    <div class="label"><%= label_tag t('why_label') %></div>
+    <div class="label"><%= label_tag t('.why_label') %></div>
     <%= simple_format(@trigger.why) %>
   </p>
 <% end %>
 
 <% if !@trigger.fix.blank? %>
   <p>
-    <div class="label"><%= label_tag t('fix_label') %></div>
+    <div class="label"><%= label_tag t('.fix_label') %></div>
     <%= simple_format(@trigger.fix) %>
   </p>
 <% end %>
 
 <% if @trigger.strategies.count > 0 %>
   <p>
-    <div class="label"><%= label_tag t('strategies_label') %></div>
+    <div class="label"><%= label_tag t('.strategies_label') %></div>
     <% @trigger.strategies.each do |item| %>
       <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true, true) %>
     <% end %>

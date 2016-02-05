@@ -9,7 +9,7 @@
 			<br>
 		<% end %>
 		<% if @profile == current_user %>
-			<%= link_to 'Customize profile', edit_user_registration_path %>
+			<%= link_to t('.edit_user'), edit_user_registration_path %>
 			<br>
 			<br>
 		<% end %>
@@ -17,13 +17,13 @@
 		<% if @profile.id != current_user.id %>
 		 	<br>
 			<% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-			 	<br><%= link_to 'Cancel Request', remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+			 	<br><%= link_to t('.cancel_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
 			<% elsif current_user.allies_by_status(:accepted).include? @profile %>
-				<br><%= link_to 'Remove', remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+				<br><%= link_to t('.remove_ally'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
 			<% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
-				<br><%= link_to 'Accept', add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to 'Reject', remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: 'Are you sure?' } %>
+				<br><%= link_to t('.accept_ally'), add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to t('.reject_ally'), remove_allies_path(:userid1 => current_user.id, :userid2 => @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
 			<% else %>
-				<br><%= link_to 'Add to Allies', add_allies_path(ally_id: @profile.id), :method => :post %>
+				<br><%= link_to t('.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
 			<% end %>
 		<% end %>
 	</div>
@@ -41,9 +41,9 @@
 					<h1 class="profile_name"><%= link_to item.name, item %></h1>
 					<strong>
 				      <% if item.category.count == 1 %>
-				        Category:
+				        <%= t('.category') %>
 				      <% else %>
-				        Categories:
+				        <%= t('.categories') %>
 				      <% end %>
 				    </strong>
 					<% item.category.each do |category_item| %>
@@ -52,9 +52,9 @@
 	    			<br>
 	    			<strong>
 				      <% if item.mood.count == 1 %>
-				        Mood:
+				        <%= t('.mood') %>
 				      <% else %>
-				        Moods:
+				        <%= t('.moods') %>
 				      <% end %>
 				    </strong>
 					<% item.mood.each do |mood_item| %>

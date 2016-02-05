@@ -169,10 +169,20 @@ en:
    moods: 'Moods:'
    strategy: 'Strategy:'
    strategies: 'Strategies:'
-  privacy:
 
  profile:
   index:
+   edit_user: 'Customize profile'
+   cancel_request: 'Cancel Request'
+   remove_ally: 'Remove'
+   accept_ally: 'Accept'
+   reject_ally: 'Reject'
+   add_ally: 'Add to Allies'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   confirm: 'Are you sure?'
 
  search:
   form:
