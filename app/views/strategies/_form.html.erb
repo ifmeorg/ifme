@@ -1,7 +1,7 @@
 <%= form_for(@strategy) do |f| %>
 <% if @strategy.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
@@ -39,7 +39,7 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label 'Viewers' %>
+        <%= f.label t('.viewers') %>
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>

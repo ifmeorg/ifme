@@ -212,17 +212,37 @@ en:
    allies: 'Allies'
    categories: 'Categories'
    moods: 'Moods'
-  menu_logo:
 
  strategies:
   form:
    name: 'Name'
    categories: 'Categories'
+   viewers: 'Viewers'
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields'
-   #submit button
+  index:
+   subtitle: 'Create strategies to achieve desired thoughts and attitudes towards triggers.'
+   created: 'Created:'
+   category: 'Category'
+   categories: 'Categories'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+  show:
+   created: 'Created'
+   category: 'Category:'
+   categories: 'Categories:'
+   unsupport: 'Unsupport'
+   support: 'Support'
+   share_everyone: 'Share with everyone'
+   share_with: 'Share with '
+   only: ' only'
+   comment: 'Comment'
+   on: 'on'
+   visible_only_to: 'Visible only between you and {{profile.name}}'
+   disabled_comments: 'Comments have been disabled.'
+   error_explanation: 'Please fill out the marked fields'
 
  triggers:
   form:
