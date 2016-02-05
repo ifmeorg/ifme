@@ -5,24 +5,24 @@
 
       <% if user_signed_in? %>
         <ul class="top-nav">
-          <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
-          <%= nav_link_to('Account', edit_user_registration_path) %>
-          <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+          <%= nav_link_to(t('.profile'), profile_index_path(:userid => current_user.id)) %>
+          <%= nav_link_to(t('.account'), edit_user_registration_path) %>
+          <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>
         </ul>
       <% end %>
     </div>
 
     <ul class="top-nav primary-nav">
       <% if user_signed_in? %>
-        <%= nav_link_to('Home', root_path)  %>
-        <%= nav_link_to('Triggers', triggers_path, :class => "expand_trigger_button") %>
-        <%= nav_link_to('Strategies', strategies_path) %>
-        <%= nav_link_to('Medications', medications_path) %>
-        <%= nav_link_to('Groups', groups_path) %>
-        <%= nav_link_to('Allies', allies_path) %>
+        <%= nav_link_to(t('.home'), root_path)  %>
+        <%= nav_link_to(t('.triggers'), triggers_path, :class => "expand_trigger_button") %>
+        <%= nav_link_to(t('.strategies'), strategies_path) %>
+        <%= nav_link_to(t('.medications'), medications_path) %>
+        <%= nav_link_to(t('.groups'), groups_path) %>
+        <%= nav_link_to(t('.allies'), allies_path) %>
       <% else %>
-        <%= nav_link_to('Sign in', new_user_session_path) %>
-        <%= nav_link_to('Join', new_user_registration_path) %>
+        <%= nav_link_to(t('.signin'), new_user_session_path) %>
+        <%= nav_link_to(t('.join'), new_user_registration_path) %>
       <% end %>
     </ul>
 
@@ -32,13 +32,13 @@
 
     <% if user_signed_in? %>
       <ul id="expand_trigger" class="top-nav" style="display: none">
-        <%= nav_link_to('Categories', categories_path) %>
-        <%= nav_link_to('Moods', moods_path) %>
+        <%= nav_link_to(t('.categories'), categories_path) %>
+        <%= nav_link_to(t('.moods'), moods_path) %>
       </ul>
       <ul id="expand_me" class="top-nav large-screen" style="display: none">
-        <%= nav_link_to('Profile', profile_index_path(:userid => current_user.id)) %>
-        <%= nav_link_to('Account', edit_user_registration_path) %>
-        <%= nav_link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+        <%= nav_link_to(t('.profile'), profile_index_path(:userid => current_user.id)) %>
+        <%= nav_link_to(t('.account'), edit_user_registration_path) %>
+        <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>
       </ul>
     <% end %>
   </div>

@@ -186,10 +186,32 @@ en:
 
  search:
   form:
+   search_by_name: 'Search by name'
+   search_by_location: 'Search by location'
+   search_by_email: 'Search by email'
+   search: 'Search'
   index:
+   cancel_request: 'Cancel Request'
+   remove_ally: 'Remove'
+   accept_ally: 'Accept'
+   add_ally: 'Add to Allies'
+   confirm: 'Are you sure?'
 
  shared:
   header:
+   profile: 'Profile'
+   account: 'Account'
+   signin: 'Sign in'
+   signout: 'Sign out'
+   join: 'Join'
+   home: 'Home'
+   triggers: 'Triggers'
+   strategies: 'Strategies'
+   medications: 'Medications'
+   groups: 'Groups'
+   allies: 'Allies'
+   categories: 'Categories'
+   moods: 'Moods'
   menu_logo:
 
  strategies:

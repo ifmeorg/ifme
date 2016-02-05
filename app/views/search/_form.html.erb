@@ -1,22 +1,22 @@
 <%= form_for(:search, :url => search_index_path, :html => { :method => :get }) do |f| %>
 
 	<% if @name.nil? %>
- 		<%= f.text_field :name, :placeholder => "Search by name" %>
+ 		<%= f.text_field :name, :placeholder => t('.search_by_name') %>
  	<% else %>
- 		<%= f.text_field :name, :placeholder => "Search by name", :value => @name %>
+ 		<%= f.text_field :name, :placeholder => t('.search_by_name'), :value => @name %>
  	<% end %>
 
  	<% if @location.nil? %>
- 		<%= f.text_field :location, :placeholder => "Search by location" %>
+ 		<%= f.text_field :location, :placeholder => t('.search_by_location') %>
  	<% else %>
- 		<%= f.text_field :location, :placeholder => "Search by location", :value => @location %>
+ 		<%= f.text_field :location, :placeholder => t('.search_by_location'), :value => @location %>
  	<% end %>
 
     <% if @email.nil? %>
- 		<%= f.text_field :email, :placeholder => "Search by email" %>
+ 		<%= f.text_field :email, :placeholder => t('.search_by_email') %>
  	<% else %>
- 		<%= f.text_field :email, :placeholder => "Search by email", :value => @email %>
+ 		<%= f.text_field :email, :placeholder => t('.search_by_email'), :value => @email %>
  	<% end %>
 
-    <%= f.submit "Search" %>
+    <%= f.submit t('.search') %>
 <% end %>
