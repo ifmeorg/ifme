@@ -1,28 +1,289 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  app_name: "if me"
-  hello: "Hello world"
-  why_label: 'Describe the trigger and how it affects your mood and behaviour.'
-  fix_label: 'What thoughts would you like to have instead?'
-  strategies_label: 'What strategies would help achieve these thoughts?'
-  error_explanation: 'Please fill out the marked fields!'
+ app_name: 'if me'
+
+# alert_mailer and alerts will be added to for selects
+# and tested once feature is up and running
+# views without labels have been omitted from scoping
+ alerts:
+  form:
+   name: 'Name'
+   message: 'Message'
+   trigger: 'Trigger'
+   medication: 'Medication'
+   select: 'Please select'
+   means: 'Means'
+   days: 'Days'
+   time: 'Time'
+   hour: 'Hour'
+   minute: 'Minute'
+   period: 'Period'
+  index:
+   trigger: 'Trigger'
+   and: 'and'
+   medication: 'Medication'
+   by: 'By:'
+   when: 'When:'
+   confirm: 'Are you sure?'
+  show:
+   name: 'Name'
+   message: 'Message'
+   trigger: 'Trigger'
+   medication: 'Medication'
+   means: 'Means'
+   days: 'Days'
+   time: 'Time'
+
+ allies:
+  index:
+   outgoing: 'Outgoing Requests'
+   incoming: 'Incoming Requests'
+   confirm: 'Are you sure?'
+
+ categories:
+  form:
+   name: 'Name'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
+  index:
+   subtitle: 'Life is messy, categorize the different people, places, and things.'
+   name: 'Name'
+   description: 'Description'
+   confirm: 'Are you sure?'
+
+ errors:
+  internal_server_error:
+   header_message: 'This page cannot be displayed'
+   home_page: 'Return to home page'
+  not_found:
+   header_message: 'The page you are looking for does not exist'
+   home_page: 'Return to home page'
+
+ groups:
+  form:
+   name: 'Name'
+   description: 'Description'
+   leaders: 'Leaders'
+   error_explanation: 'Please fill out the marked fields!'
+  index:
+   subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
+   joined_groups: 'Joined Groups'
+   name: 'Name'
+   members: 'Members'
+   description: 'Description'
+   leader: 'Leader'
+   edit: 'Edit'
+   leave: 'Leave'
+   join: 'Join'
+  show:
+   led_by: 'Led by:'
+   self: 'You'
+   location: 'Location:'
+   time: 'Time:'
+   delete: 'Delete the event'
+   confirm: 'Are you sure?'
+   leave_cta: 'Leave?'
+   join_cta: 'Join!'
+   join: 'join'
+
+ layouts:
+  application:
+   signin: 'Tell your stories now'
+   create_account: 'Join the community now'
+   forgot_password: 'Forgot your password?'
+   update_account: 'Customize your account'
+   if: 'if'
+   me: 'me'
+   branding_title: 'is a community for mental health experiences'
+   footer_about: 'About'
+   footer_blog: 'Blog'
+   footer_contributors: 'Contributors'
+   footer_privacy: 'Privacy Policy'
+   github: 'GitHub'
+   twitter: 'Twitter'
+   copyright: 'Copyright'
+   app_name: 'if me'
+
+ medications:
+  form:
+   name: 'Name'
+   comments: 'Comments'
+   strength: 'Strength'
+   strength_placeholder: 'e.g. 100'
+   total_placeholder: 'e.g. 30'
+   tablets: 'tablets'
+   dosage: 'dosage'
+   dosage_placeholder: 'e.g. 2'
+   refill: 'refill'
+   error_explanation: 'Please fill out the marked fields!'
+  index:
+   subtitle: 'Keep track of your medications, including dosage and refill information.'
+   name: 'Name'
+   strength: 'Strength'
+   quantity: 'Total Quantity'
+   dosage: 'Daily Dosage'
+   refill: 'Refill'
+   edit: 'Edit'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+  show:
+   strength: 'Strength:'
+   quantity: 'Total Quantity:'
+   dosage: 'Daily Dosage:'
+   refill: 'Refill:'
+   comments: 'Comments:'
+
+ meetings:
+  form:
+   name: 'Name'
+   location: 'Location'
+   location_placeholder: 'URL or street address'
+   time: 'Time'
+   date: 'Date'
+   maximum_members: 'Maximum Members'
+   maximum_placeholder: '0 if no maximum'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
+
+ moods:
+  form:
+   name: 'Name'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
+  index:
+   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
+   name: 'Name'
+   description: 'Description'
+   edit: 'Edit'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+
+ pages:
+  about:
+   app_name: 'if me'
+  home:
+   you: 'You'
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   strategy: 'Strategy:'
+   strategies: 'Strategies:'
+
+ profile:
+  index:
+   edit_user: 'Customize profile'
+   cancel_request: 'Cancel Request'
+   remove_ally: 'Remove'
+   accept_ally: 'Accept'
+   reject_ally: 'Reject'
+   add_ally: 'Add to Allies'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   confirm: 'Are you sure?'
+
+ search:
+  form:
+   search_by_name: 'Search by name'
+   search_by_location: 'Search by location'
+   search_by_email: 'Search by email'
+   search: 'Search'
+  index:
+   cancel_request: 'Cancel Request'
+   remove_ally: 'Remove'
+   accept_ally: 'Accept'
+   add_ally: 'Add to Allies'
+   confirm: 'Are you sure?'
+
+ shared:
+  header:
+   profile: 'Profile'
+   account: 'Account'
+   signin: 'Sign in'
+   signout: 'Sign out'
+   join: 'Join'
+   home: 'Home'
+   triggers: 'Triggers'
+   strategies: 'Strategies'
+   medications: 'Medications'
+   groups: 'Groups'
+   allies: 'Allies'
+   categories: 'Categories'
+   moods: 'Moods'
+
+ strategies:
+  form:
+   name: 'Name'
+   categories: 'Categories'
+   viewers: 'Viewers'
+   describe: 'Describe the strategy.'
+   strategies_label: 'What strategies would help achieve these thoughts?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields'
+  index:
+   subtitle: 'Create strategies to achieve desired thoughts and attitudes towards triggers.'
+   created: 'Created:'
+   category: 'Category'
+   categories: 'Categories'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+  show:
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   unsupport: 'Unsupport'
+   support: 'Support'
+   share_everyone: 'Share with everyone'
+   share_with: 'Share with '
+   only: ' only'
+   comment: 'Comment'
+   on: 'on'
+   visible_only_to: 'Visible only between you and {{profile.name}}'
+   disabled_comments: 'Comments have been disabled.'
+   error_explanation: 'Please fill out the marked fields'
+
+ triggers:
+  form:
+   name: 'Name'
+   categories: 'Categories'
+   moods: 'Moods'
+   strategies: 'Strategies'
+   viewers: 'Viewers'
+   describe: 'Describe the trigger and how it affects your mood and behaviour.'
+   desired: 'What thoughts would you like to have instead?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields!'
+  index:
+   subtitle: 'Delve deep into your triggers - events, moments, and situations that affect your mental health.'
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   strategy: 'Strategy'
+   strategies: 'Strategies'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+  show:
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   why: 'Describe the trigger and how it affects your mood and behaviour.'
+   fix: 'What thoughts would you like to have instead?'
+   strategies: 'What strategies would help achieve these thoughts?'
+   unsupport: 'Unsupport'
+   support: 'Support'
+   share_everyone: 'Share with everyone'
+   share_with: 'Share with '
+   only: ' only'
+   comment: 'Comment'
+   on: 'on'
+   visible_only_to: 'Visible only between you and {{profile.name}}'
+   disabled_comments: 'Comments have been disabled.'
+   error_explanation: 'Please fill out the marked fields'
+
+   #submit button

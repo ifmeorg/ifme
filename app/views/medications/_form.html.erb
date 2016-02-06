@@ -1,7 +1,7 @@
 <%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
@@ -10,12 +10,12 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="field" >
-      <div class="label"><%= f.label :name %></div>
+      <div class="label"><%= f.label t('.name') %></div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
     <div class="field">
-      <div class="label"><%= f.label :comments %></div>
+      <div class="label"><%= f.label t('.comments') %></div>
       <%= f.text_area :comments, :class => "comments" %>
     </div>
 
@@ -24,9 +24,9 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="field">
-      <div class="label"><%= f.label :strength %></div>
+      <div class="label"><%= f.label t('.strength') %></div>
       <div class="inline-block">
-        <%= f.number_field :strength, :placeholder => "e.g. 100"%>
+        <%= f.number_field :strength, :placeholder => t('.strength_placeholder') %>
         <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
       </div>
     </div>
@@ -34,8 +34,8 @@
     <div class="field">
       <div class="label"><%= f.label :total %></div>
       <div class="inline-block">
-        <%= f.number_field :total, :placeholder => "e.g. 30" %>
-        <%= f.select(:total_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+        <%= f.number_field :total, :placeholder => t('.total_placeholder') %>
+        <%= f.select(:total_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
       </div>
     </div>
 
@@ -44,15 +44,15 @@
   <div class="table_cell vertical_align">
 
     <div class="field">
-      <div class="label"><%= f.label :dosage %></div>
+      <div class="label"><%= f.label t('.dosage') %></div>
       <div class="inline-block">
-        <%= f.number_field :dosage, :placeholder => "e.g. 2" %>
-        <%= f.select(:dosage_unit, [['tablets', 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+        <%= f.number_field :dosage, :placeholder => t('.dosage_placeholder') %>
+        <%= f.select(:dosage_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
       </div>
     </div>
 
     <div class="field">
-      <div class="label"><%= f.label :refill %></div>
+      <div class="label"><%= f.label t('.refill') %></div>
       <%= f.text_field :refill %>
     </div>
 

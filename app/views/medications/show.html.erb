@@ -1,24 +1,24 @@
-<strong>Strength:</strong>
+<strong><%= t('.strength') %></strong>
 <%= @medication.strength.to_s + " " + @medication.strength_unit %>
 
 <p>
-  <strong>Total Quantity:</strong>
+  <strong><%= t('.quantity') %></strong>
   <%= @medication.total.to_s + " " + @medication.total_unit %>
 </p>
 
 <p>
-  <strong>Daily Dosage:</strong>
+  <strong><%= t('.dosage') %></strong>
   <%= @medication.dosage.to_s + " " + @medication.dosage_unit %>
 </p>
 
 <p>
-  <strong>Refill:</strong>
+  <strong><%= t('.refill') %></strong>
   <%= @medication.refill %>
 </p>
 
 <% if !@medication.comments.blank? %>
 	<p>
-	  <strong>Comments:</strong>
+	  <strong><%= t('.comments') %></strong>
 	  <%= @medication.comments %>
 	</p>
 <% end %>

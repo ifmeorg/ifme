@@ -1,18 +1,18 @@
 <%= form_for(@group) do |f| %>
 <% if @group.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
 <% if action_name == "new" || action_name == "create" %>
   <div class="field">
-    <div class="label"><%= f.label :name %></div>
+    <div class="label"><%= f.label t('.name') %></div>
     <%= f.text_field :name, :class => "name_field" %>
   </div>
 
   <div class="field">
-    <div class="label"><%= f.label :description %></div>
+    <div class="label"><%= f.label t('.description') %></div>
     <%= f.cktext_area :description %>
   </div>
 <% elsif action_name == "edit" || action_name == "update" %>
@@ -20,13 +20,13 @@
 
   <div class="table_cell vertical_align padding_right">
     <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label :name %></div>
+      <div class="sidebar_label"><%= f.label t('.name') %></div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
       <div class="sidebar_field">
         <div class="sidebar_label">
-          <%= f.label 'Leaders' %>
+          <%= f.label t('.leaders') %>
         </div>
 
         <% @group_members.each do |member| %>
@@ -41,7 +41,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label :description %>
+        <%= f.label t('.description') %>
       </div>
 
       <%= f.cktext_area :description %>

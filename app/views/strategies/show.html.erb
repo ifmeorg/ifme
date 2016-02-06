@@ -1,11 +1,11 @@
-<strong>Created:</strong> <%= local_time(@strategy.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+<strong><%= t('.created') %></strong> <%= local_time(@strategy.created_at, '%A, %B %e, %Y at %l:%M %P') %>
 <% if @strategy.category.count > 0 %>
   <br>
     <strong>
       <% if @strategy.category.count == 1 %>
-        Category:
+        <%= t('.category') %>
       <% else %>
-        Categories:
+        <%= t('.categories') %>
       <% end %>
     </strong>
     <% @strategy.category.each do |item| %>
@@ -24,7 +24,7 @@
     <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
       <% if @support.errors.any? %>
         <div class="error_explanation">
-          <%= t('error_explanation') %>
+          <%= t('.error_explanation') %>
         </div>
       <% end %>
 
@@ -34,12 +34,12 @@
         <%= f.hidden_field :support_id, :value => @strategy.id %>
         <% if Support.where(:userid => current_user.id, :support_type => 'strategy').exists? %>
           <% if Support.where(:userid => current_user.id, :support_type => 'strategy').first.support_ids.include?(@strategy.id) %>
-            <%= f.submit "Unsupport", :id => 'unsupport' %>
+            <%= f.submit t('.unsupport'), :id => 'unsupport' %>
           <% else %>
-            <%= f.submit "Support", :id => 'support' %>
+            <%= f.submit t('.support'), :id => 'support' %>
           <% end %>
         <% else %>
-          <%= f.submit "Support", :id => 'support' %>
+          <%= f.submit t('.support'), :id => 'support' %>
         <% end %>
       </div>
     <% end %>
@@ -55,7 +55,7 @@
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
       <div class="error_explanation">
-        <%= t('error_explanation') %>
+        <%= t('.error_explanation') %>
       </div>
     <% end %>
 
@@ -67,8 +67,8 @@
       <%= f.hidden_field :comment_type, :value => 'strategy' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @strategy.id %>
-      <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @strategy.userid).first.name + ' only', 'private']] %>
-      <%= f.submit "Comment" %>
+      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @strategy.userid).first.name + t('.only'), 'private']] %>
+      <%= f.submit t('.comment') %>
     </div>
   <% end %>
 
@@ -83,11 +83,11 @@
             </div>
             <div class="table_cell">
               <div class="comment_info">
-                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
               </div>
               <%= simple_format(comment.comment) %>
               <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @strategy.userid) %>
-                <div class="subtle">Visible only between you and <%= profile.name %></div>
+                <div class="subtle"><%= t('.visible_only_to') %></div>
               <% end %>
             </div>
           </div>
@@ -95,5 +95,5 @@
       <% end %>
   <% end %>
 <% else %>
-  <em>Comments have been disabled.</em>
+  <em><%= t('.disabled_comments') %></em>
 <% end %>

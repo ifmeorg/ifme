@@ -1,7 +1,7 @@
 <%= form_for(@trigger) do |f| %>
 <% if @trigger.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
@@ -10,7 +10,7 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="sidebar_field" >
-      <div class="sidebar_label"><%= f.label :name %></div>
+      <div class="sidebar_label"><%= f.label t('.name') %></div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
@@ -22,7 +22,7 @@
         <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
           <i class="fa fa-minus-square" ></i>
         </a></i>
-        <%= f.label 'Categories' %>
+        <%= f.label t('.categories') %>
       </div>
       <div id="categories" style="display: none">
         <% if !@categories.nil? && @categories.length > 0 %>
@@ -44,7 +44,7 @@
         <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['moods', 'showMoods', 'hideMoods'])" id="hideMoods">
           <i class="fa fa-minus-square" ></i>
         </a>
-        <%= f.label 'Moods' %>
+        <%= f.label t('.moods') %>
       </div>
 
       <div id ="moods" style="display: none">
@@ -67,7 +67,7 @@
         <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies'])" id="hideStrategies">
           <i class="fa fa-minus-square" ></i>
         </a>
-        <%= f.label 'Strategies' %>
+        <%= f.label t('.strategies') %>
       </div>
 
       <div id ="strategies" style="display: none">
@@ -85,7 +85,7 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label :viewers %>
+        <%= f.label t('.viewers') %>
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
@@ -96,7 +96,7 @@
     <% end %>
 
      <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
+      <div class="sidebar_label"><%= f.label t('.allow_comments') %>
         <div class="align_right">
           <%= f.check_box :comment %>
         </div>
@@ -107,13 +107,13 @@
   <div class="table_cell vertical_align">
     <div class="field">
       <div class="label">
-        <%= f.label 'Describe the trigger & how it affects your mood and behaviour' %>
+        <%= f.label t('.describe') %>
       </div>
       <%= f.cktext_area :why, :style => "height: 200px" %>
     </div>
     <div class="field">
       <div class="label">
-        <%= f.label t('fix_label') %>
+        <%= f.label t('.desired') %>
       </div>
       <%= f.cktext_area :fix, :style => "height: 200px" %>
     </div>

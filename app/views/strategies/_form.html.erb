@@ -1,7 +1,7 @@
 <%= form_for(@strategy) do |f| %>
 <% if @strategy.errors.any? %>
   <div class="error_explanation">
-    <%= t('error_explanation') %>
+    <%= t('.error_explanation') %>
   </div>
 <% end %>
 
@@ -10,7 +10,7 @@
   <div class="table_cell padding_right vertical_align">
 
     <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label :name %></div>
+      <div class="sidebar_label"><%= f.label t('.name') %></div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
@@ -22,7 +22,7 @@
         <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
           <i class="fa fa-minus-square" ></i>
         </a>
-        <%= f.label 'Categories' %>
+        <%= f.label t('.categories') %>
       </div>
       <div id="categories" style="display: none">
         <% if !@categories.nil? && @categories.length > 0 %>
@@ -39,7 +39,7 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label 'Viewers' %>
+        <%= f.label t('.viewers') %>
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
@@ -50,7 +50,7 @@
     <% end %>
 
     <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label 'Allow Comments?' %>
+      <div class="sidebar_label"><%= f.label t('.allow_comments') %>
         <div class="align_right">
           <%= f.check_box :comment %>
         </div>
@@ -60,7 +60,7 @@
 
   <div class="table_cell vertical_align">
     <div class="field">
-      <div class="label"><%= f.label "Describe the strategy." %></div>
+      <div class="label"><%= f.label t('.describe') %></div>
       <%= f.cktext_area :description, :style => "height: 200px" %>
     </div>
   </div>

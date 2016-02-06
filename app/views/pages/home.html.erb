@@ -43,21 +43,21 @@
 					<div class="align_right">
 	        			<h1 class="ally_name">
 	        				<% if current_user.id == trigger.userid %>
-	        					<%= link_to "You", profile_index_path(:userid => trigger.userid) %>
+	        					<%= link_to t('.you'), profile_index_path(:userid => trigger.userid) %>
 	        				<% else %>
 	        					<%= link_to User.where(:id => trigger.userid).first.name, profile_index_path(:userid => trigger.userid) %>
 	        				<% end %>
 	        			</h1>
 	     			</div>
 	     			<div class="clear"></div>
-	     			<strong>Created:</strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+	     			<strong><%= t('.created') %></strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
 	     			<% if trigger.category.count > 0 %>
 		     			<br>
 					    <strong>
 					      <% if trigger.category.count == 1 %>
-					        Category:
+					        <%= t('.category') %>
 					      <% else %>
-					        Categories:
+					        <%= t('.categories') %>
 					      <% end %>
 					    </strong>
 					    <% trigger.category.each do |item| %>
@@ -68,9 +68,9 @@
 					    <br>
 					    <strong>
 					      <% if trigger.mood.count == 1 %>
-					        Mood:
+					        <%= t('.mood') %>
 					      <% else %>
-					        Moods:
+					        <%= t('.moods') %>
 					      <% end %>
 					    </strong>
 					    <% trigger.mood.each do |item| %>
@@ -81,9 +81,9 @@
 					  	<br>
 					    <strong>
 					      <% if trigger.strategies.count == 1 %>
-					        Strategy:
+					        <%= t('.strategy') %>
 					      <% else %>
-					        Strategies:
+					        <%= t('.strategies') %>
 					      <% end %>
 					    </strong>
 					    <% trigger.strategies.each do |item| %>

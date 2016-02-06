@@ -1,8 +1,8 @@
 <%= simple_format(@group.description) %>
-<strong>Led by:</strong>
+<strong><%= t('.led_by') %></strong>
 <% @group_leaders.each_with_index do |leader, index| %>
 	<% if leader.userid == current_user.id %>
-		<%= link_to 'You', profile_index_path(:userid => leader.userid) %>
+		<%= link_to t('.self'), profile_index_path(:userid => leader.userid) %>
 	<% else %>
 		<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
 	<% end %>
@@ -21,20 +21,20 @@
     <% end %>
     	<h1 class="meeting_name"><%= link_to meeting.name, edit_meeting_path(meeting) %></h1>
 	      	<%= simple_format(meeting.description) %>
-	      	<strong>Location:</strong>
+	      	<strong><%= t('.location') %></strong>
 	      	<% if meeting.location.include? "http://" or meeting.location.include? "https://" or meeting.location.include? "www." %>
 	      		<%= link_to meeting.location, meeting.location %>
 	      	<% else %>
 	      		<%= link_to meeting.location, "https://www.google.com/maps/place/" + meeting.location %>
 	      	<% end %>
-	      	<br><strong>Time:</strong> <%= meeting.time %>
-	      	<br><strong>Led by:</strong>
+	      	<br><strong><%= t('.time') %></strong> <%= meeting.time %>
+	      	<br><strong><%= t('.led_by') %></strong>
 	      	<% meeting_leaders = MeetingMember.where(meetingid: meeting.id, leader: true).all %>
 	      	<% is_leader = false %>
 	      	<% meeting_leaders.each_with_index do |leader, index| %>
 				<% if leader.userid == current_user.id %>
 					<% is_leader = true %>
-					<%= link_to 'You', profile_index_path(:userid => leader.userid) %>
+					<%= link_to t('.self'), profile_index_path(:userid => leader.userid) %>
 				<% else %>
 					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
 				<% end %>
@@ -44,17 +44,17 @@
 			<% end %>
 			<% if is_leader %>
 				<br>
-				<i class="fa fa-trash-o action"></i><%= link_to 'Delete the event', meeting, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<i class="fa fa-trash-o action"></i><%= link_to t('.delete'), meeting, method: :delete, data: { confirm: t('.confirm') } %>
 				<br>
 			<% end %>
 
 	      	<br>
 	      	<% if MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists? %>
-				<strong>You are attending. Change your mind? <%= link_to 'Leave?', leave_meetings_path(meetingid: meeting.id) %></strong>
+				<strong>You are attending. Change your mind? <%= link_to t('.leave_cta'), leave_meetings_path(meetingid: meeting.id) %></strong>
 			<% elsif meeting.maxmembers > 0 %>
-				<strong>You are not attending. There are <%= meeting.maxmembers-MeetingMember.where(id: meeting.id).count %> spots left to fill! <%= link_to 'Join!', join_meetings_path(meetingid: meeting.id) %></strong>
+				<strong>You are not attending. There are <%= meeting.maxmembers-MeetingMember.where(id: meeting.id).count %> spots left to fill! <%= link_to t('.join_cta'), join_meetings_path(meetingid: meeting.id) %></strong>
 			<% else %>
-				<strong>You are not attending. There is still room to <%= link_to 'join', join_meetings_path(meetingid: meeting.id) %>!</strong>
+				<strong>You are not attending. There is still room to <%= link_to t('.join'), join_meetings_path(meetingid: meeting.id) %>!</strong>
 		 	<% end %>
 	    </div>
   <% end %>
