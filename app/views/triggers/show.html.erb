@@ -1,11 +1,11 @@
-<strong>Created:</strong> <%= local_time(@trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+<strong><%= t('.created') %></strong> <%= local_time(@trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
 <% if @trigger.category.count > 0 %>
   <br>
     <strong>
       <% if @trigger.category.count == 1 %>
-        Category:
+        <%= t('.category') %>
       <% else %>
-        Categories:
+        <%= t('.categories') %>
       <% end %>
     </strong>
     <% @trigger.category.each do |item| %>
@@ -17,9 +17,9 @@
   <br>
     <strong>
       <% if @trigger.mood.count == 1 %>
-        Mood:
+        <%= t('.mood') %>
       <% else %>
-        Moods:
+        <%= t('.moods') %>
       <% end %>
     </strong>
     <% @trigger.mood.each do |item| %>
@@ -29,21 +29,21 @@
 
 <% if !@trigger.why.blank? %>
   <p>
-    <div class="label"><%= label_tag t('.why_label') %></div>
+    <div class="label"><%= label_tag t('.why') %></div>
     <%= simple_format(@trigger.why) %>
   </p>
 <% end %>
 
 <% if !@trigger.fix.blank? %>
   <p>
-    <div class="label"><%= label_tag t('.fix_label') %></div>
+    <div class="label"><%= label_tag t('.fix') %></div>
     <%= simple_format(@trigger.fix) %>
   </p>
 <% end %>
 
 <% if @trigger.strategies.count > 0 %>
   <p>
-    <div class="label"><%= label_tag t('.strategies_label') %></div>
+    <div class="label"><%= label_tag t('.strategies') %></div>
     <% @trigger.strategies.each do |item| %>
       <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true, true) %>
     <% end %>
@@ -56,7 +56,7 @@
       <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
         <% if @support.errors.any? %>
           <div class="error_explanation">
-            <%= t('error_explanation') %>
+            <%= t('.error_explanation') %>
           </div>
         <% end %>
 
@@ -66,12 +66,12 @@
           <%= f.hidden_field :support_id, :value => @trigger.id %>
           <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
             <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
-              <%= f.submit "Unsupport", :id => 'unsupport' %>
+              <%= f.submit t('.unsupport'), :id => 'unsupport' %>
             <% else %>
-              <%= f.submit "Support", :id => 'support' %>
+              <%= f.submit t('.support'), :id => 'support' %>
             <% end %>
           <% else %>
-            <%= f.submit "Support", :id => 'support' %>
+            <%= f.submit t('.support'), :id => 'support' %>
           <% end %>
         </div>
       <% end %>
@@ -88,7 +88,7 @@
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
         <div class="error_explanation">
-          <%= t('error_explanation') %>
+          <%= t('.error_explanation') %>
         </div>
     <% end %>
 
@@ -103,9 +103,9 @@
       <% if current_user.id == @trigger.userid %>
          <%= f.hidden_field :visibility, :value => 'all' %>
       <% else %>
-        <%= f.select :visibility, [['Share with everyone', 'all'], ['Share with ' + User.where(:id => @trigger.userid).first.name + ' only', 'private']] %>
+        <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @trigger.userid).first.name + t('.only'), 'private']] %>
       <% end %>
-      <%= f.submit "Comment" %>
+      <%= f.submit t('.comment') %>
     </div>
   <% end %>
 
@@ -120,11 +120,11 @@
             </div>
             <div class="table_cell">
               <div class="comment_info">
-                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> on <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
               </div>
               <%= simple_format(comment.comment) %>
               <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
-                <div class="subtle">Visible only between you and <%= profile.name %></div>
+                <div class="subtle"><%= t('.visible_only_to') %></div>
               <% end %>
             </div>
           </div>
@@ -132,5 +132,5 @@
       <% end %>
   <% end %>
 <% else %>
-  <em>Comments have been disabled.</em>
+  <em><%= t('.disabled_comments') %></em>
 <% end %>

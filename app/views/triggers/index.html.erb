@@ -1,5 +1,5 @@
 <div class="subtitle">
-  Delve deep into your triggers - events, moments, and situations that affect your mental health.
+  <%= t('.subtitle') %>
 </div>
 
 <% if @triggers.length > 0 %>
@@ -11,14 +11,14 @@
       <div class="trigger">
     <% end %>
         <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
-        <strong>Created:</strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+        <strong><%= t('.created') %></strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
         <% if trigger.category.count > 0 %>
           <br>
           <strong>
             <% if trigger.category.count == 1 %>
-              Category:
+              <%= t('.category') %>
             <% else %>
-              Categories:
+              <%= t('.categories') %>
             <% end %>
           </strong>
           <% trigger.category.each do |item| %>
@@ -29,9 +29,9 @@
           <br>
           <strong>
             <% if trigger.mood.count == 1 %>
-              Mood:
+              <%= t('.mood') %>
             <% else %>
-              Moods:
+              <%= t('.moods') %>
             <% end %>
           </strong>
           <% trigger.mood.each do |item| %>
@@ -42,9 +42,9 @@
           <br>
           <strong>
             <% if trigger.strategies.count == 1 %>
-              Strategy:
+              <%= t('.strategy') %>
             <% else %>
-              Strategies:
+              <%= t('strategies') %>
             <% end %>
           </strong>
           <% trigger.strategies.each do |item| %>
@@ -53,7 +53,7 @@
         <% end %>
         <div style="margin-top: 20px">
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
-          <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to 'Delete', trigger, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to t('.delete'), trigger, method: :delete, data: { confirm: t('.confirm') } %>
         </div>
       </div>
   <% end %>
