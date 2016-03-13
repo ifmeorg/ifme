@@ -113,51 +113,7 @@ rvm gemset pristine
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-### Setting Up Postgres
-
-Time to set up a Postgres user!
-
-```
-sudo su - postgres
-```
-
-```
-createuser -s -r ifme_app
-````
-
-In `pg_hba.conf`, make sure the value for `auth-method` in the `ifme_app` database is `trust`. This is because no password is being used for the local development and test databases, as seen in `database.yml`. Refer to this [guide](http://www.postgresql.org/docs/8.2/static/auth-pg-hba-conf.html) as a reference.
-
-To find the path of `pg_hba.conf` run the following commands.
-
-```
-psql
-```
-
-```
-SHOW hba_file;
-```
-
-If you're using Ubuntu, your `pg_hba.conf` file is probably in `/etc/postgresql/9.*/main/`
-
-Your final `pg_hba.conf` file should look something like this.
-
-```
-# TYPE  DATABASE          USER            ADDRESS                 METHOD
-
-# ifme_app
-host    ifme_development  ifme_app        127.0.0.1/32            trust
-
-# "local" is for Unix domain socket connections only
-local   all               all                                     peer
-# IPv4 local connections:
-host    all               all             127.0.0.1/32            md5
-# IPv6 local connections:
-host    all               all             ::1/128                 md5
-```
-
 ### Running the App Locally
-
-After exiting from Postgres by typing in `exit` in the terminal, run the following commands.
 
 ```
 bin/rake db:create db:migrate
