@@ -1,24 +1,15 @@
-
-development:
+development: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
   database: ifme_development
-  username: ifme_app
-  password:
   allow_concurrency: true
   pool: 5
   min_messages: warning
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  host: localhost
+  <<: *default
   database: ifme_test
-  username: ifme_app
-  password:
-  allow_concurrency: true
-  pool: 5
   min_messages: error
 
 production:
