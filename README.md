@@ -4,11 +4,37 @@ if me
 A community for mental health experiences
 
 # Table of Contents
-1. [Getting Involved](#getting-involved)
-2. [Getting Started](#getting-started)
-3. [Testing Accounts](#testing-accounts)
-4. [Committing Work](#committing-work)
-5. [License](#license)
+1. [Goals](#goals)
+2. [Getting Involved](#getting-involved)
+3. [Getting Started](#getting-started)
+4. [Testing Accounts](#testing-accounts)
+5. [Committing Work](#committing-work)
+6. [License](#license)
+
+Goals
+-----
+
+if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
+
+Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.
+
+Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.
+
+The goal is to create a platform that:
+
+* Allows users to write about their experiences (Triggers) similar to a blog and get feedback and support from their allies
+* Create personalized categories and moods to organize Triggers and Strategies
+* Develop and share Strategies to solve problems and maintain healthy goals
+* Keep track of medications and create alerts for them
+* Create support groups whether online or offline and keep track of sessions
+
+Current goals:
+
+* Improve test coverage
+* Create introductory user survey based on user's current mood to personalize writing prompts in Triggers
+* General clean up and tweaking of UI and UX, including language throughout the app
+* More helpful and visual documentation to help familiarize contributors with the project
+* Usability testing
 
 Getting Involved
 ---------------

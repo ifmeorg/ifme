@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.text     "viewers"
     t.boolean  "comment"
     t.text     "strategies"
+    t.integer  "post_type"
   end
 
   create_table "users", force: true do |t|
