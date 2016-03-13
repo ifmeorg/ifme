@@ -115,14 +115,13 @@ On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 stat
 
 ### Running the App Locally
 
-```
-bin/rake db:create db:migrate
+Create the developement and test databases:
+
+```bash
+bin/rake db:setup db:test:prepare
 ```
 
-```
-bin/rake db:setup
-```
-
+Start the local server:
 ```
 rails s
 ```
