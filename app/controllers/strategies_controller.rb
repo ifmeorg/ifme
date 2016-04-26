@@ -38,7 +38,7 @@ class StrategiesController < ApplicationController
   def comment
     @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
     respond_to do |format|
-        format.html { redirect_to strategy_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
+        format.html { redirect_to strategy_path(params[:comment][:commented_on]) }
         format.json { render :show, status: :created, location: Strategy.find(params[:comment][:commented_on]) }
     end
   end
@@ -105,7 +105,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @strategy.save
-        format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully created.' }
+        format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :created, location: @strategy }
       else
         format.html { render :new }
@@ -137,7 +137,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @strategy.update(strategy_params)
-        format.html { redirect_to strategy_path(@strategy), notice: 'Strategy was successfully updated.' }
+        format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :ok, location: @strategy }
       else
         format.html { render :edit }

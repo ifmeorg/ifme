@@ -142,13 +142,21 @@
 
 				<div id="content">
 					<% if !notice.blank? %>
-						<div class="notice"><%= notice %></div>
+						<% if current_page?(root_path) %>
+							<div class="notice display_none"><%= notice %></div>
+						<% else %>
+							<div class="notice"><%= notice %></div>
+						<% end %>
 					<% end %>
 					
 					<% if !alert.blank? %>
-						<div class="alert"><%= alert %></div>
+						<% if current_page?(root_path) %>
+							<div class="alert display_none"><%= alert %></div>
+						<% else %>
+							<div class="alert"><%= alert %></div>
+						<% end %>
 					<% end %>
-
+		
 					<%= yield %>
 				</div>
 

@@ -26,7 +26,7 @@ class MeetingsController < ApplicationController
       if @meeting.save
         meeting_member = MeetingMember.new(meetingid: @meeting.id, userid: current_user.id, leader: true)
         if meeting_member.save
-          format.html { redirect_to group_path(groupid), notice: 'Meeting was successfully created.' }
+          format.html { redirect_to group_path(groupid) }
           format.json { render :show, status: :created, location: groupid }
         end
       end
@@ -56,7 +56,7 @@ class MeetingsController < ApplicationController
           end
         end
         if !error
-          format.html { redirect_to meeting_path(@meeting), notice: 'Meeting was successfully updated.' }
+          format.html { redirect_to meeting_path(@meeting) }
           format.json { render :show, status: :ok, location: @meeting }
         else
           @meeting_members = MeetingMember.where(meetingid: @meeting.id).all

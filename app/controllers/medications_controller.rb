@@ -71,7 +71,7 @@ class MedicationsController < ApplicationController
             :headers => {'Content-Type' => 'application/json'})
         end
 
-        format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully created.' }
+        format.html { redirect_to medication_path(@medication) }
         format.json { render :show, status: :created, location: @medication }
       else
         format.html { render :new }
@@ -86,7 +86,7 @@ class MedicationsController < ApplicationController
     @page_title = "Edit " + @medication.name
     respond_to do |format|
       if @medication.update(medication_params)
-        format.html { redirect_to medication_path(@medication), notice: 'Medication was successfully updated.' }
+        format.html { redirect_to medication_path(@medication) }
         format.json { render :show, status: :ok, location: @medication }
       else
         format.html { render :edit }

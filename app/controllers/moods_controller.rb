@@ -55,7 +55,7 @@ class MoodsController < ApplicationController
     @page_title = "New Mood"
     respond_to do |format|
       if @mood.save
-        format.html { redirect_to mood_path(@mood), notice: 'Mood was successfully created.' }
+        format.html { redirect_to mood_path(@mood) }
         format.json { render :show, status: :created, location: @mood }
       else
         format.html { render :new }
@@ -85,7 +85,7 @@ class MoodsController < ApplicationController
     @page_title = "Edit " + @mood.name
     respond_to do |format|
       if @mood.update(mood_params)
-        format.html { redirect_to mood_path(@mood), notice: 'Mood was successfully updated.' }
+        format.html { redirect_to mood_path(@mood) }
         format.json { render :show, status: :ok, location: @mood }
       else
         format.html { render :edit }

@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
         if group_member.save
-          format.html { redirect_to group_path(@group), notice: 'Group was successfully created.' }
+          format.html { redirect_to group_path(@group) }
           format.json { render :show, status: :created, location: @group }
         end
       end
@@ -80,7 +80,7 @@ class GroupsController < ApplicationController
           end
         end
         if !error
-          format.html { redirect_to group_path(@group), notice: 'Group was successfully updated.' }
+          format.html { redirect_to group_path(@group) }
           format.json { render :show, status: :ok, location: @group }
         else
           @group_members = GroupMember.where(groupid: @group.id).all

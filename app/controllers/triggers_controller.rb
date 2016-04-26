@@ -38,7 +38,7 @@ class TriggersController < ApplicationController
   def comment
     @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
     respond_to do |format|
-        format.html { redirect_to trigger_path(params[:comment][:commented_on]), notice: 'Comment was successfully created.' }
+        format.html { redirect_to trigger_path(params[:comment][:commented_on]) }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
     end
   end
@@ -111,7 +111,7 @@ class TriggersController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @trigger.save
-        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully created.' }
+        format.html { redirect_to trigger_path(@trigger) }
         format.json { render :show, status: :created, location: @trigger }
       else
         format.html { render :new }
@@ -127,7 +127,7 @@ class TriggersController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
       if @trigger.update(trigger_params)
-        format.html { redirect_to trigger_path(@trigger), notice: 'Trigger was successfully updated.' }
+        format.html { redirect_to trigger_path(@trigger) }
         format.json { render :show, status: :ok, location: @trigger }
       else
         format.html { render :edit }
