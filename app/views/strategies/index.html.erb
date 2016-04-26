@@ -7,7 +7,7 @@
 <% if @strategies.length > 0 %>
   <% @strategies.each_with_index do |strategy, index| %>
     <% if index+1 == @strategies.length %>
-      <div class="strategy" style="margin-bottom: 0">
+      <div class="strategy no_margin_bottom">
     <% else %>
       <div class="strategy">
     <% end %>
@@ -42,7 +42,7 @@
 
   <div class="clear"></div>
 
-  <div class="strategy" style="margin-bottom: 0">
+  <div class="strategy no_margin_bottom">
     <h1 class="strategy_name"><%= t('strategies.index.premade1_name') %></h1>
 
     <%= raw t('strategies.index.premade1_description')[0..80] %>

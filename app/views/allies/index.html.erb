@@ -4,7 +4,7 @@
   <br>
   <% @outgoing_ally_requests.each_with_index do |ally, index| %>
     <% if index + 1 == @outgoing_ally_requests.length %>
-      <div class="ally" style="margin-bottom: 0">
+      <div class="ally no_margin_bottom">
     <% else %>
       <div class="ally">
     <% end %>
@@ -29,7 +29,7 @@
   <br>
   <% @incoming_ally_requests.each_with_index do |ally, index| %>
     <% if index + 1 == @incoming_ally_requests.length %>
-      <div class="ally" style="margin-bottom: 0">
+      <div class="ally no_margin_bottom">
     <% else %>
       <div class="ally">
     <% end %>
@@ -50,7 +50,7 @@
     <div class="spacer"></div>
   <% end %>
   <% if index+1 == @accepted_allies.length %>
-    <div class="ally" style="margin-bottom: 0">
+    <div class="ally no_margin_bottom">
   <% else %>
     <div class="ally">
   <% end %>
