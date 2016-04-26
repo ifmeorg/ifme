@@ -15,14 +15,14 @@
 	       		</div>
 	       		<div class="clear"></div>
 
-	       		<% if current_user.allies_by_status(:pending_from_ally).include?(user)) %>
+	       		<% if current_user.allies_by_status(:pending_from_ally).include?(user) %>
 			        <%= link_to t('.cancel_request'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('.confirm') } %>
-			    <% elsif current_user.allies_by_status(:pending_from_user).include?(user)) %>
-			    	<%= link_to t('.accept_ally'), add_allies_path(:ally_id: user.id), :method => :post %>
+			    <% elsif current_user.allies_by_status(:pending_from_user).include?(user) %>
+			    	<%= link_to t('.accept_ally'), add_allies_path(ally_id: user.id), :method => :post %>
 			    <% elsif current_user.allies_by_status(:accepted).include?(user) %>
 			        <%= link_to t('.remove_ally'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('.confirm') } %>
 			    <% else %>
-			    	<%= link_to t('.add_ally'), add_allies_path(:ally_id: user.id), :method => :post %>
+			    	<%= link_to t('.add_ally'), add_allies_path(ally_id: user.id), :method => :post %>
 			    <% end %>
 			</div>
 		</div>

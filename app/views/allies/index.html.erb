@@ -71,3 +71,7 @@
       </div>
     </div>
 <% end %>
+
+<% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
+  <%= t('.none') %>
+<% end %>
