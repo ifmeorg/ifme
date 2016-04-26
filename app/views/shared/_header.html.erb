@@ -31,11 +31,11 @@
     </div>
 
     <% if user_signed_in? %>
-      <ul id="expand_trigger" class="top-nav" style="display: none">
+      <ul id="expand_trigger" class="top-nav display_none">
         <%= nav_link_to(t('.categories'), categories_path) %>
         <%= nav_link_to(t('.moods'), moods_path) %>
       </ul>
-      <ul id="expand_me" class="top-nav large-screen" style="display: none">
+      <ul id="expand_me" class="top-nav large-screen display_none">
         <%= nav_link_to(t('.profile'), profile_index_path(:userid => current_user.id)) %>
         <%= nav_link_to(t('.account'), edit_user_registration_path) %>
         <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>

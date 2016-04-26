@@ -19,12 +19,12 @@
         <a href="#" class="toggle_button" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
           <i class="fa fa-plus-square"></i>
         </a>
-        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
+        <a href="#" class="toggle_button display_none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
           <i class="fa fa-minus-square" ></i>
         </a></i>
         <%= f.label t('.categories') %>
       </div>
-      <div id="categories" style="display: none">
+      <div id="categories" class="display_none">
         <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
@@ -41,13 +41,13 @@
         <a href="#" class="toggle_button" onclick="toggleElements(['moods', 'showMoods', 'hideMoods']); " id="showMoods">
           <i class="fa fa-plus-square"></i>
         </a>
-        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['moods', 'showMoods', 'hideMoods'])" id="hideMoods">
+        <a href="#" class="toggle_button display_none" onclick="toggleElements(['moods', 'showMoods', 'hideMoods'])" id="hideMoods">
           <i class="fa fa-minus-square" ></i>
         </a>
         <%= f.label t('.moods') %>
       </div>
 
-      <div id ="moods" style="display: none">
+      <div id="moods" class="display_none">
         <% if !@moods.nil? && @moods.length > 0 %>
           <% @moods.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
@@ -64,13 +64,13 @@
         <a href="#" class="toggle_button" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies']); " id="showStrategies">
           <i class="fa fa-plus-square"></i>
         </a>
-        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies'])" id="hideStrategies">
+        <a href="#" class="toggle_button display_none" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies'])" id="hideStrategies">
           <i class="fa fa-minus-square" ></i>
         </a>
         <%= f.label t('.strategies') %>
       </div>
 
-      <div id ="strategies" style="display: none">
+      <div id ="strategies" class="display_none">
         <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
           <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>

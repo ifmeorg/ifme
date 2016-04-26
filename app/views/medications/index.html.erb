@@ -26,7 +26,7 @@
           <td><%= medication.refill %></td>
           <td>
             <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_medication_path(medication) %>
-            <i class="fa fa-trash-o action" style="margin-left: 20px"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
+            <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
           </td>
         </tr>
       <% end %>

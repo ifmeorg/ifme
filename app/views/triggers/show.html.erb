@@ -113,7 +113,7 @@
     <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
         <div class="comment">
           <div class="table">
-            <div class="table_cell" style="width: 100px; padding-right: 20px; vertical-align: top">
+            <div class="table_cell small_profile_picture_div vertical_align_top small_padding_right">
               <% profile = User.where(:id => comment.comment_by).first %>
                 <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
                 <br>

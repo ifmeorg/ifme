@@ -55,10 +55,10 @@
     <div class="ally">
   <% end %>
       <div class="table">
-        <div class="table_cell" style="width: 200px; padding-right: 40px">
+        <div class="table_cell padding_right profile_picture_div">
           <%= image_tag fetch_profile_picture(ally.avatar.url), class: 'profile_picture' %>
         </div>
-        <div class="table_cell" style="vertical-align: top">
+        <div class="table_cell vertical_align_top">
           <div class="align_left">
             <h1 class="ally_name"><%= link_to ally.name, profile_index_path(userid: ally.id) %></h1>
           </div>

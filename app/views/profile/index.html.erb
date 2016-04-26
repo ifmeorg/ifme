@@ -1,8 +1,8 @@
 <div class="table">
-	<div class="table_cell" style="width: 200px; padding-right: 40px; vertical-align: top">
+	<div class="table_cell profile_picture_div vertical_align_top padding_right">
 		<%= image_tag fetch_profile_picture(@profile.avatar.url), class: 'profile_picture' %>
 	</div>
-	<div class="table_cell" style="vertical-align: middle">
+	<div class="table_cell vertical_align_middle">
 		<% if @profile.about %>
 			<%= @profile.about %>
 			<br>

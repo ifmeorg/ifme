@@ -19,12 +19,12 @@
         <a href="#" class="toggle_button" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
           <i class="fa fa-plus-square"></i>
         </a>
-        <a href="#" class="toggle_button" style="display: none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
+        <a href="#" class="toggle_button display_none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
           <i class="fa fa-minus-square" ></i>
         </a>
         <%= f.label t('.categories') %>
       </div>
-      <div id="categories" style="display: none">
+      <div id="categories" class="display_none">
         <% if !@categories.nil? && @categories.length > 0 %>
           <% Category.where(:userid => current_user.id).all.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
