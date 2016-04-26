@@ -67,7 +67,7 @@ class MedicationsController < ApplicationController
 
           set_event = client.execute!(:api_method => service.events.insert,
             :parameters => {'calendarId' => current_user.email, 'sendNotifications' => true},
-            :body => JSON.dump(@event),
+            :body => JSON.dump(event),
             :headers => {'Content-Type' => 'application/json'})
         end
 
