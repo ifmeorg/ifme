@@ -2,8 +2,9 @@
 	<%= t('.subtitle') %>
 </div>
 
+<div class="spacer"></div>
+
 <% if @groups.length > 0 %>
-  <div class="spacer"></div>
   <table>
     <thead>
       <tr>
@@ -49,6 +50,10 @@
       <% end %>
     </tbody>
   </table>
+<% else %>
+  You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below. 
+  <br>
+  <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
 <% end %>
 
 <% if @available_groups.length > 0 %>

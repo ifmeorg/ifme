@@ -2,8 +2,9 @@
   <%= t('.subtitle') %>
 </div>
 
+<div class="spacer"></div>
+
 <% if @medications.length > 0 %>
-  <div class="spacer"></div>
   <table>
     <thead>
       <tr>
@@ -30,6 +31,34 @@
           </td>
         </tr>
       <% end %>
+    </tbody>
+  </table>
+<% else %>
+You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+<br>
+<br>Here's an example of a saved medication! You can also write about your experience.
+
+<div class="spacer"></div>
+
+<table>
+    <thead>
+      <tr>
+        <th><%= t('.name') %></th>
+        <th><%= t('.strength') %></th>
+        <th><%= t('.quantity') %></th>
+        <th><%= t('.dosage') %></th>
+        <th><%= t('.refill') %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Prozac</td>
+        <td>10 mg</td>
+        <td>2 tablets</td>
+        <td>40 tablets</td>
+        <td>05/31/2016</td>
+      </tr>
     </tbody>
   </table>
 <% end %>
