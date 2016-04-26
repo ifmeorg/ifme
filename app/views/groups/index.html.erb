@@ -24,7 +24,7 @@
           <td>
             <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
             <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-                  <%= t('.leader') %>
+                  (<%= t('.leader') %>)
               <% end %>
           </td>
           <td>

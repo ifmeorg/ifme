@@ -50,6 +50,14 @@ en:
    name: 'Name'
    description: 'Description'
    confirm: 'Are you sure?'
+   premade1_name: 'Family'
+   premade1_description: 'Family related'
+   premade2_name: 'Friends'
+   premade2_description: 'Friends related'
+   premade3_name: 'Work'
+   premade3_description: 'Work related'
+   premade4_name: 'Meditation'
+   premade4_description: 'Meditation, deep breathing, and relaxing activities'
 
  errors:
   internal_server_error:
@@ -157,6 +165,16 @@ en:
    edit: 'Edit'
    delete: 'Delete'
    confirm: 'Are you sure?'
+   premade1_name: 'Accepting'
+   premade1_description: 'Accepting and being at peace with differences and limitations'
+   premade2_name: 'Ambitious'
+   premade2_description: 'Feeling optimistic about achieving goals'
+   premade3_name: 'Curious'
+   premade3_description: 'Feeling curious about uncertainty'
+   premade4_name: 'Resentful'
+   premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
+   premade5_name: 'Hopeless'
+   premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
 
  pages:
   about:

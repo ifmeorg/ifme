@@ -16,9 +16,17 @@ Rails.application.routes.draw do
 
   resources :medications
 
-  resources :moods
+  resources :moods do
+    collection do
+      post "premade"
+    end
+  end
 
-  resources :categories
+  resources :categories do
+    collection do
+      post "premade"
+    end
+  end
 
   resources :triggers do
     collection do
@@ -31,6 +39,7 @@ Rails.application.routes.draw do
     collection do
       post "comment"
       post "support"
+      post "premade"
     end
   end
 

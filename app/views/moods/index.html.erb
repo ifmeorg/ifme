@@ -2,8 +2,9 @@
   <%= t('.subtitle') %>
 </div>
 
+<div class="spacer"></div>
+
 <% if @moods.length > 0 %>
-  <div class="spacer"></div>
   <table>
     <thead>
       <tr>
@@ -29,6 +30,53 @@
           </td>
         </tr>
       <% end %>
+    </tbody>
+  </table>
+<% else %>
+  You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+  <br>You can also add the following premade moods and customize them another time.
+
+  <div class="actions align_right">
+    <%= button_to "Add all", premade_moods_path %>
+  </div>
+
+  <div class="clear"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('.name') %></th>
+        <th><%= t('.description') %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    
+        <tr>
+          <td><%= t('moods.index.premade1_name') %></td>
+          <td><%= t('moods.index.premade1_description') %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('moods.index.premade2_name') %></td>
+          <td><%= t('moods.index.premade2_description') %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('moods.index.premade3_name') %></td>
+          <td><%= t('moods.index.premade3_description') %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('moods.index.premade4_name') %></td>
+          <td><%= t('moods.index.premade4_description') %></td>
+        </tr>
+
+        <tr>
+          <td><%= t('moods.index.premade5_name') %></td>
+          <td><%= t('moods.index.premade5_description') %></td>
+        </tr>
     </tbody>
   </table>
 <% end %>
