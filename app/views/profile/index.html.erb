@@ -13,7 +13,9 @@
 			<br>
 			<br>
 		<% end %>
-		<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
+		<% if !User.where(:id => @profile.id).first.location.nil? %>
+			<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
+		<% end %>
 		<% if @profile.id != current_user.id %>
 		 	<br>
 			<% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
