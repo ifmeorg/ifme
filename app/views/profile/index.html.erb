@@ -30,9 +30,10 @@
 		<% end %>
 	</div>
 </div>
-<div class="spacer"></div>
 
-<% if !@triggers.nil? %>
+<% if !@triggers.empty? %>
+	<div class="spacer"></div>
+
 	<% @triggers.each_with_index do |item, index| %>
 		<% if is_viewer(item.viewers) || current_user.id == @profile.id %>
 			<% if index+1 == @triggers.length %>
