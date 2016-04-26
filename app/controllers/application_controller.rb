@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links
 
 	def are_allies(userid1, userid2)
 		userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -135,4 +135,19 @@ class ApplicationController < ActionController::Base
 		return "default_ifme_avatar.png"
 	end
 
+	def print_list_links(data)
+		first_element = 0
+		return_this = ''
+		data.each do |d|
+			first_element = first_element + 1
+			if first_element == 1
+     			return_this = link_to d[0], d[1]
+     		else
+     			return_this += ", "
+     			return_this += link_to d[0], d[1]
+     		end
+      	end
+
+      	return return_this.html_safe
+	end
 end

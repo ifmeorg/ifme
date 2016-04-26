@@ -21,6 +21,24 @@ class PagesController < ApplicationController
 
   def contributors
     @page_title = "Contributors"
+
+    @contributors = [
+      ['Elizabeth Mitchell', 'https://github.com/emitche'],
+      ['William Horton', 'https://github.com/wdhorton'],
+      ['Bella Woo', 'https://github.com/bellawoo'],
+      ['Julie Pagano', 'https://github.com/juliapagano'],
+      ['Fiona Conn', 'https://github.com/fpcyan'],
+      ['Iuliia Kotlenko', 'https://github.com/IuliiaKot'],
+      ['Daniel Levenson', 'https://github.com/dleve123'],
+      ['Dawa Sherpa', 'https://github.com/Dawa12'],
+      ['Tien Yuan', 'https://github.com/tienyuan'],
+      ['chenghw', 'https://github.com/chenghw'],
+      ['Danny Burgoyne', 'https://github.com/dburgoyne'],
+      ['Jellene Khoh', 'https://github.com/jellene4eva'],
+      ['John Lim', 'https://github.com/jolim24601'],
+      ['Danny Glatstein', 'https://github.com/danielglatstein'],
+      ['Tess Gadwa', 'http://www.yesexactly.com']
+    ]
   end
 
   def blog
