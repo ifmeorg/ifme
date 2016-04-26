@@ -100,10 +100,40 @@ ul.no_bullet_list li {
 	padding-left: 40px;
 }
 
+.padding_top {
+	padding-top: 40px;
+}
+
+.padding_bottom {
+	padding-bottom: 40px;
+}
+
+/* Margin */
+
+.margin_right {
+	margin-right: 40px;
+}
+
+.margin_left {
+	margin-left: 40px;
+}
+
+.margin_top {
+	margin-top: 40px;
+}
+
+.margin_bottom {
+	margin-bottom: 40px;
+}
+
 /* Divs */
 
 .center {
 	text-align: center;
+}
+
+.center_div {
+	margin: 0 auto;
 }
 
 .spacer {
@@ -478,8 +508,12 @@ table th {
 	margin-right: 10px;
 }
 
-.vertical_align {
+.vertical_align_top {
 	vertical-align: top;
+}
+
+.vertical_align_middle {
+	vertical-align: middle;
 }
 
 /* Comments */

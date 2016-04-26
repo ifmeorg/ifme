@@ -29,7 +29,7 @@
 			</div>
 		</div>
 	</div>
-<% else %>
+<% elsif @triggers.count > 0 %>
 	<% @triggers.each_with_index do |trigger, index| %>
 		<% if current_user.id == trigger.userid || (is_viewer(trigger.viewers) && are_allies(current_user.id, trigger.userid)) %>
 			<% if index+1 == @triggers.length %>
@@ -100,4 +100,64 @@
 				</div>
 		<% end %>
 	<% end %>
+<% else %>
+	<div id="version">
+		Welcome <%= current_user.name %>! Here are some things to get you started with sharing your stories!
+	</div>
+	<div class="table">
+		<div class="table_row">
+			<div class="table_cell message_cell center_div">
+				<div id="you" class="padding_bottom"></div>
+			</div>
+
+			<div class="table_cell vertical_align_middle">
+				Customize your <%= link_to(t('.profile_word'), edit_user_registration_path) %> - add a bio and profile picture
+				<br>Add custom <%= link_to(t('.moods_word'), moods_path) %> to best describe your emotions
+				<br>Add <%= link_to(t('.allies_word'), allies_path) %> - friends, family, and others who you want to share with
+			</div>
+		</div>
+
+		<div class="table_row">
+			<div class="table_cell message_cell center_div">
+				<div id="book" class="padding_bottom"></div>
+			</div>
+
+			<div class="table_cell vertical_align_middle">
+				Is it easier to categorize your life? Create custom <%= link_to(t('.categories_word'), categories_path) %> to help organize your triggers
+				<br>Write about the <%= link_to(t('.triggers_word'), triggers_path) %> - the events, moments, and situations that affect your mental health
+				<br>Need extra support? Join or create a <%= link_to(t('.groups_word'), groups_path) %> to open up
+			</div>
+		</div>
+
+		<div class="table_row">
+			<div class="table_cell message_cell center_div">
+				<div id="time" class="padding_bottom"></div>
+			</div>
+
+			<div class="table_cell vertical_align_middle">
+				Currently taking <%= link_to(t('.medication_word'), medications_path) %>? Keep track of it and add alerts to your Google calendar!
+			</div>
+		</div>
+	</div>
+
+
+		<!-- <div class="message">
+			<div class="message_row">
+				<div class="message_cell">
+					<div id="book"></div>
+					<div class="icon_border"></div>
+					Share your story with trusted allies and get the support you deserve
+				</div>
+				<div class="message_cell">
+					<div id="you"></div>
+					<div class="icon_border"></div>
+					Be you, no strings attached
+				</div>
+				<div class="message_cell">
+					<div id="time"></div>
+					<div class="icon_border"></div>
+					Keep track of medications, appointments, and create alerts
+				</div>
+			</div>
+		</div> -->
 <% end %>

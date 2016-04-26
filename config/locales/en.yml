@@ -169,6 +169,14 @@ en:
    moods: 'Moods:'
    strategy: 'Strategy:'
    strategies: 'Strategies:'
+   moods_word: "moods"
+   profile_word: "profile"
+   categories_word: "categories"
+   triggers_word: "triggers"
+   medication_word: "medication"
+   strategies_word: "strategies"
+   groups_word: "groups"
+   allies_word: "allies"
 
  profile:
   index:

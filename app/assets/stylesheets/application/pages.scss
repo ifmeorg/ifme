@@ -31,32 +31,35 @@
 }
 
 #book {
-	width: auto;
+	width: 106px;
 	height: 80px;
 	background-image: url('/assets/book.png');
-	background-size: auto 80px;
+	background-size: 106px 80px;
 	background-repeat: no-repeat;
 	background-position: center;
+	margin: 0 auto;
 }
 
 #time {
-	width: 100%;
+	width: 80px;
 	height: 80px;
 	background-image: url('/assets/time.png');
-	background-size: auto 80px;
+	background-size: 80px 80px;
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-top: 40px;
+	margin: 0 auto;
 }
 
 #you {
-	width: 100%;
+	width: 198px;
 	height: 80px;
 	background-image: url('/assets/you.png');
-	background-size: auto 80px;
+	background-size: 198px 80px;
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-top: 40px;
+	margin: 0 auto;
 }
 
 .icon_border {
