@@ -2,8 +2,9 @@
   <%= t('.subtitle') %>
 </div>
 
+<div class="spacer"></div>
+
 <% if @strategies.length > 0 %>
-  <div class="spacer"></div>
   <% @strategies.each_with_index do |strategy, index| %>
     <% if index+1 == @strategies.length %>
       <div class="strategy" style="margin-bottom: 0">
@@ -31,4 +32,22 @@
         </div>
       </div>
   <% end %>
+<% else %>
+  You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+  <br>You can also add the following premade strategy and customize it another time.
+
+  <div class="actions align_right">
+    <%= button_to "Add", premade_strategies_path %>
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="strategy" style="margin-bottom: 0">
+    <h1 class="strategy_name"><%= t('strategies.index.premade1_name') %></h1>
+
+    <%= raw t('strategies.index.premade1_description')[0..80] %>
+    <% if t('strategies.index.premade1_description').length >= 80 %>
+      <%= " [...]" %>
+    <% end %>
+  </div>
 <% end %>

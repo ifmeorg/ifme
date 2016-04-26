@@ -114,6 +114,22 @@ class StrategiesController < ApplicationController
     end
   end
 
+  # POST /strategies
+  # POST /strategies.json
+  def premade
+    premade_category = Category.where(name: 'Meditation')
+    if premade_category.exists?
+      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
+    else 
+      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), comment: false)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to strategies_path }
+      format.json { render :no_content }
+    end
+  end
+
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
   def update

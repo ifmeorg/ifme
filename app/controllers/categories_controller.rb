@@ -74,7 +74,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to categories_path }
-      format.json { render :no_content}
+      format.json { render :no_content }
     end
   end
 

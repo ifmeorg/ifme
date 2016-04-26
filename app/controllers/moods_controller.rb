@@ -75,7 +75,7 @@ class MoodsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to moods_path }
-      format.json { render :no_content}
+      format.json { render :no_content }
     end
   end
 
