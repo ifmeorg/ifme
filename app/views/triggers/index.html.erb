@@ -2,8 +2,9 @@
   <%= t('.subtitle') %>
 </div>
 
+<div class="spacer"></div>
+
 <% if @triggers.length > 0 %>
-  <div class="spacer"></div>
   <% @triggers.each_with_index do |trigger, index| %>
     <% if index+1 == @triggers.length %>
       <div class="trigger no_margin_bottom">
@@ -57,4 +58,8 @@
         </div>
       </div>
   <% end %>
+<% else %>
+You haven't written about any triggers yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+<br>
+<br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to!
 <% end %>
