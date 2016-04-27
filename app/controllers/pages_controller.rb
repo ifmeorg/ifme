@@ -37,7 +37,8 @@ class PagesController < ApplicationController
       ['Jellene Khoh', 'https://github.com/jellene4eva'],
       ['John Lim', 'https://github.com/jolim24601'],
       ['Danny Glatstein', 'https://github.com/danielglatstein'],
-      ['Tess Gadwa', 'http://www.yesexactly.com']
+      ['Tess Gadwa', 'http://www.yesexactly.com'],
+      ['Mark Farrell', 'https://github.com/markfarrell']
     ]
   end
 

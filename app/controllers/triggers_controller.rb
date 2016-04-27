@@ -8,6 +8,7 @@ class TriggersController < ApplicationController
     @triggers = Trigger.where(:userid => current_user.id).all
     @page_title = "Triggers"
     @page_new = new_trigger_path
+    @page_tooltip = "New trigger"
   end
 
   # GET /triggers/1
@@ -15,6 +16,7 @@ class TriggersController < ApplicationController
   def show
     if current_user.id == @trigger.userid
       @page_edit = edit_trigger_path(@trigger)
+      @page_tooltip = "Edit trigger"
     else
       link_url = "/profile?userid=" + @trigger.userid.to_s
       the_link = link_to User.where(:id => @trigger.userid).first.name, link_url

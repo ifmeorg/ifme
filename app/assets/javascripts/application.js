@@ -16,9 +16,9 @@
 //= require turbolinks
 //= require jquery-readyselector
 //= require bootstrap-datepicker
-//= require_tree .
 //= require ckeditor/init
 //= require underscore
+//= require_tree .
 
 function toggleElements(elements) {
   	var arrayLength = elements.length;
@@ -35,6 +35,21 @@ function toggleElements(elements) {
 }
 
 $(document).on("page:load ready", function() {
+	if (!$('body').hasClass('categories new') &&
+		!$('body').hasClass('categories edit') &&
+		!$('body').hasClass('moods new') &&
+		!$('body').hasClass('moods edit') &&
+		!$('body').hasClass('triggers new') &&
+		!$('body').hasClass('triggers edit') &&
+		!$('body').hasClass('strategies new') &&
+		!$('body').hasClass('strategies edit') &&
+		!$('body').hasClass('groups new') &&
+		!$('body').hasClass('groups edit') &&
+		!$('body').hasClass('meetings new') &&
+		!$('body').hasClass('meetings edit')) {
+		$(document).find(':not(.no_title)').tooltip();
+	}
+
 	if ($('body').hasClass('categories index') ||
 		$('body').hasClass('groups index') ||
 		$('body').hasClass('medications index') ||

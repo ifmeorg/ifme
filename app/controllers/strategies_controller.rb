@@ -8,6 +8,7 @@ class StrategiesController < ApplicationController
     @strategies = Strategy.where(:userid => current_user.id).all
     @page_title = "Strategies"
     @page_new = new_strategy_path
+    @page_tooltip = "New strategy"
   end
 
   # GET /strategies/1
@@ -15,6 +16,7 @@ class StrategiesController < ApplicationController
   def show
     if current_user.id == @strategy.userid
       @page_edit = edit_strategy_path(@strategy)
+      @page_tooltip = "Edit strategy"
     else
       link_url = "/profile?userid=" + @strategy.userid.to_s
       the_link = link_to User.where(:id => @strategy.userid).first.name, link_url

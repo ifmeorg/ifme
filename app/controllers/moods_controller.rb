@@ -8,6 +8,7 @@ class MoodsController < ApplicationController
     @moods = Mood.where(:userid => current_user.id).all
     @page_title = "Moods"
     @page_new = new_mood_path
+    @page_tooltip = "New mood"
   end
 
   # GET /moods/1
@@ -17,6 +18,7 @@ class MoodsController < ApplicationController
       @page_title = @mood.name
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
+        @page_tooltip = "Edit mood"
       else
         link_url = "/profile?userid=" + @mood.userid.to_s
         the_link = link_to User.where(:id => @mood.userid).first.name, link_url

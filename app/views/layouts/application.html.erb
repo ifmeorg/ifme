@@ -91,7 +91,7 @@
 								<%= @page_title %>
 							</div>
 							<div class="align_right">
-								<a class="page_edit" href=<%= @page_edit %>><i class="fa fa-pencil"></i></a>
+								<%= link_to(raw('<i class="fa fa-pencil"></i>'), @page_edit, class: 'page_edit', title: @page_tooltip) %>
 							</div>
 							<div class="clear"></div>
 
@@ -100,7 +100,7 @@
 								<%= @page_title %>
 							</div>
 							<div class="align_right">
-								<a class="page_new" href=<%= @page_new %>><i class="fa fa-plus-circle"></i></a>
+							<%= link_to(raw('<i class="fa fa-plus-circle"></i>'), @page_new, class: 'page_new', title: @page_tooltip) %>
 							</div>
 							<div class="clear"></div>
 
@@ -118,7 +118,7 @@
 								<%= @page_title %>
 							</div>
 							<div class="align_right">
-								<i class="fa fa-search" id="search"></i>
+								<i class="fa fa-search" id="search" title="Search for allies"></i>
 							</div>
 							<div class="clear"></div>
 							<div id="search_box" class="display_none">

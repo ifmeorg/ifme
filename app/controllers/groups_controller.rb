@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   def index
     @groups = GroupMember.where(userid: current_user.id).all
     @page_title = "Groups"
+    @page_tooltip = "New group"
     accepted_allies = current_user.allies_by_status(:accepted)
     @page_new = new_group_path
 
@@ -25,6 +26,7 @@ class GroupsController < ApplicationController
   	@group = Group.find(params[:id])
   	@page_title = @group.name
     @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
+    @page_tooltip = "New meeting"
   	@meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
   	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
   end

@@ -207,6 +207,10 @@ ul.no_bullet_list li {
 	display: none;
 }
 
+.no_title {
+	width: auto;
+}
+
 /* Page Title */
 
 #page_title {
@@ -525,6 +529,10 @@ input[type="submit"]#support:hover {
 
 .sidebar_label label{
   font-size: 24px;
+}
+
+.special_textarea {
+	height: 200px;
 }
 
 /* Tables */

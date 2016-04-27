@@ -8,6 +8,7 @@ class MedicationsController < ApplicationController
     @medications = Medication.where(:userid => current_user.id).all
     @page_title = "Medications"
     @page_new = new_medication_path
+    @page_tooltip = "New medication"
   end
 
   # GET /medications/1
@@ -16,6 +17,7 @@ class MedicationsController < ApplicationController
     if @medication.userid == current_user.id
       @page_title = @medication.name
       @page_edit = edit_medication_path(@medication)
+      @page_tooltip = "Edit medication"
     else
       respond_to do |format|
         format.html { redirect_to medications_path }
