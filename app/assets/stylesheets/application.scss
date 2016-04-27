@@ -374,6 +374,24 @@ a.gravatar:hover {
 	opacity: 0.5;
 }
 
+a.highlight:link,
+a.highlight:visited {
+	text-decoration: none;
+	background-color: $secondary-text-color;
+	color: $header-text-color !important;
+	border-bottom: none !important;
+	padding: 5px;
+}
+
+a.highlight:hover {
+	text-decoration: none;
+	background-color: $secondary-text-color;
+	color: $header-text-color !important;
+	border-bottom: none !important;
+	opacity: 0.5;
+	padding: 5px;
+}
+
 /* Images */
 
 img {

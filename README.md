@@ -31,10 +31,12 @@ The goal is to create a platform that:
 Current goals:
 
 * Improve test coverage
-* Create introductory user survey based on user's current mood to personalize writing prompts in Triggers
+* Notification system
 * General clean up and tweaking of UI and UX, including language throughout the app
 * More helpful and visual documentation to help familiarize contributors with the project
 * Usability testing
+
+Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features!
 
 Getting Involved
 ---------------
@@ -42,6 +44,8 @@ Getting Involved
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email join.ifme@gmail.com.
 
 Check out our Slack [page](https://ifme.slack.com) if you have any questions, ideas, or concerns!
+
+You can provide your feedback [here](http://goo.gl/forms/8EqoJDDiXY)!
 
 ### Contributor Code of Conduct
 
