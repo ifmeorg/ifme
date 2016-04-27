@@ -271,7 +271,7 @@ en:
    only: ' only'
    comment: 'Comment'
    on: 'on'
-   visible_only_to: 'Visible only between you and {{profile.name}}'
+   visible_only_to: 'Visible only between you two'
    disabled_comments: 'Comments have been disabled.'
    error_explanation: 'Please fill out the marked fields'
 
@@ -313,7 +313,7 @@ en:
    only: ' only'
    comment: 'Comment'
    on: 'on'
-   visible_only_to: 'Visible only between you and {{profile.name}}'
+   visible_only_to: 'Visible only between you two'
    disabled_comments: 'Comments have been disabled.'
    error_explanation: 'Please fill out the marked fields'
 
