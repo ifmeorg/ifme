@@ -4,6 +4,7 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
   var click_flag2 = 0;
+  var click_flag3 = 0;
 
   $('.expand_button').click(function(event) {
     event.preventDefault();
@@ -51,6 +52,42 @@ $(document).on("page:load ready", function() {
       $('#search_box').css({"display": "none"});
     }
     click_flag2++;
+  });
+
+  $('#notifications_button').css({"opacity": 1});
+  $('#notifications_button').click(function() {
+    event.preventDefault();
+    if (click_flag3 % 2 == 0) {
+      $('#notifications').css({"display": "block"});
+      $('#notifications_button').css({"opacity": 0.5});
+
+      if (typeof(Storage) !== "undefined" && $('#notifications_list').is(':empty')) {
+        $('#notifications_list').append(localStorage.getItem("notifications_list"));
+      }
+
+      if ($('#notifications_list').is(':empty')) {
+        $('#notifications_none').css({"display": "block"});
+      } else {
+        $('#notifications_none').css({"display": "none"});
+      }
+    } else {
+      $('#notifications').css({"display": "none"});
+      $('#notifications_button').css({"opacity": 1});
+    }
+    click_flag3++;
+  });
+
+  $('#close_notifications').click(function() {
+    event.preventDefault();
+    $('#notifications').css({"display": "none"});
+    $('#notifications_button').css({"opacity": 1});
+    click_flag3++;
+  });
+
+   $('#clear_notifcations').click(function() {
+    $('#notifications_list').empty();
+    $('#notifications_none').css({"display": "block"});
+    localStorage.removeItem("notifications_list");
   });
 
   $(window).resize(function () {

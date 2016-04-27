@@ -60,7 +60,7 @@ gem 'carrierwave'
 
 gem 'underscore-rails'
 
-gem 'google-api-client', :require => 'google/api_client'
+gem 'google-api-client', '~> 0.9.1'
 
 gem 'omniauth'
 
@@ -85,3 +85,5 @@ end
 gem 'foundation-rails'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'pusher'

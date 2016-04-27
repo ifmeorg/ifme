@@ -203,6 +203,11 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pusher (0.17.0)
+      httpclient (~> 2.7)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -356,7 +361,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   foundation-rails
-  google-api-client
+  google-api-client (~> 0.9.1)
   jbuilder (~> 2.0)
   jquery-rails
   local_time
@@ -365,6 +370,7 @@ DEPENDENCIES
   pg
   protected_attributes
   pry-rails
+  pusher
   railroady
   rails (= 4.2.5)
   rails-erd (~> 1.4, >= 1.4.4)

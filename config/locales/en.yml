@@ -231,6 +231,7 @@ en:
    account: 'Account'
    signin: 'Sign in'
    signout: 'Sign out'
+   notifications: 'Notifications'
    join: 'Join'
    home: 'Home'
    triggers: 'Triggers'

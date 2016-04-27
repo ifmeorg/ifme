@@ -71,6 +71,8 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => "/ckeditor"
 
+  post 'pusher/auth'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
