@@ -87,3 +87,5 @@ gem 'foundation-rails'
 gem 'bootstrap-datepicker-rails'
 
 gem 'pusher'
+
+ruby "2.3.0"

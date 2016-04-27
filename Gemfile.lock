@@ -119,7 +119,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    google-api-client (0.9.5)
+    google-api-client (0.9.6)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)
@@ -388,3 +388,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   underscore-rails
+
+BUNDLED WITH
+   1.11.2
