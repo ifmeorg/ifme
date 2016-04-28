@@ -291,7 +291,6 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
-    rspec-support (3.5.0.beta3)
     ruby-graphviz (1.2.2)
     rufus-scheduler (3.2.0)
     sass (3.4.22)

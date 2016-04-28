@@ -207,6 +207,10 @@ ul.no_bullet_list li {
 	display: none;
 }
 
+.display_block {
+	display: block;
+}
+
 .no_title, .yes_title {
 	width: auto;
 }
@@ -309,6 +313,12 @@ a.page_search:hover {
 	font-weight: 100;
 	text-align: center;
 	display: none;
+}
+
+.emphasis {
+	font: 28px $font-family;
+	font-weight: 300;
+	color: $secondary-text-color;
 }
 
 .contributor-name {
