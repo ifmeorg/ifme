@@ -19,6 +19,7 @@
   </p>
 <% end %>
 
+<!--
 <% if @no_hide_page %>
   <div class="align_left">
     <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
@@ -49,6 +50,7 @@
   </div>
   <div class="clear"></div>
 <% end %>
+-->
 
 <% if @strategy.comment && (current_user.id == @strategy.userid || @no_hide_page) %>
 

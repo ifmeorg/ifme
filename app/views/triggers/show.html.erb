@@ -50,6 +50,7 @@
   </p>
 <% end %>
 
+<!--
 <% if @no_hide_page %>
   <% if current_user.id != @trigger.userid %>
     <div class="align_left">
@@ -82,6 +83,7 @@
   </div>
   <div class="clear"></div>
 <% end %>
+-->
 
 <% if @trigger.comment && (current_user.id == @trigger.userid || @no_hide_page) %>
 

@@ -45,21 +45,25 @@ class TriggersController < ApplicationController
     end
 
     # Notify commented_on user that they have a new comment
-    commented_on_user = Trigger.where(id: @comment.commented_on).first.userid
-    trigger_name = Trigger.where(id: @comment.commented_on).first.name
-    cutoff = false
-    if @comment.comment.length > 80 
-      cutoff = true
+    trigger_user = Trigger.where(id: @comment.commented_on).first.userid
+
+    if (trigger_user != @comment.comment_by)
+      commented_on_user = Trigger.where(id: @comment.commented_on).first.userid
+      trigger_name = Trigger.where(id: @comment.commented_on).first.name
+      cutoff = false
+      if @comment.comment.length > 80 
+        cutoff = true
+      end
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
+        user: current_user.name, 
+        triggerid: @comment.commented_on,
+        trigger: trigger_name,
+        commentid: @comment.id,
+        comment: @comment.comment[0..80],
+        cutoff: cutoff,
+        type: 'comment_on_trigger'
+        })
     end
-    Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
-      user: current_user.name, 
-      triggerid: @comment.commented_on,
-      trigger: trigger_name,
-      commentid: @comment.id,
-      comment: @comment.comment[0..80],
-      cutoff: cutoff,
-      type: 'comment_on_trigger'
-      })
   end
 
   def support

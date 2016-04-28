@@ -41,6 +41,10 @@ body, html {
 	font-weight: 400;
 }
 
+p {
+	word-wrap: break-word;
+}
+
 a:link,
 a:visited {
 	text-decoration: none;
