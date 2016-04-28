@@ -40,6 +40,10 @@ class PagesController < ApplicationController
       ['Tess Gadwa', 'http://www.yesexactly.com'],
       ['Mark Farrell', 'https://github.com/markfarrell']
     ]
+
+    @organizations = [
+      ['Hacker Hours', 'http://hackerhours.org']
+    ]
   end
 
   def blog
