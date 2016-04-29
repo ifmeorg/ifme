@@ -61,7 +61,13 @@ Rails.application.routes.draw do
 
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
 
-  resources :notifications, :except => [:show, :edit, :update]
+  resources :notifications, :except => [:show, :new, :create, :edit, :update] do
+    collection do
+      get "clear"
+      get "fetch_notifications"
+      get "signed_in"
+    end
+  end
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get

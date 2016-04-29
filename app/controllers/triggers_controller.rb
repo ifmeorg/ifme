@@ -56,7 +56,7 @@ class TriggersController < ApplicationController
       end
       uniqueid = 'comment_on_trigger' + '_' + @comment.id.to_s
 
-      data = {
+      data = JSON.generate({
         user: current_user.name, 
         triggerid: @comment.commented_on,
         trigger: trigger_name,
@@ -65,10 +65,11 @@ class TriggersController < ApplicationController
         cutoff: cutoff,
         type: 'comment_on_trigger',
         uniqueid: uniqueid
-        }
+        })
 
-      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', data)
       Notification.create(userid: trigger_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: trigger_user).order("created_at ASC").all
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
     end
   end
 

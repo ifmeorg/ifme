@@ -56,7 +56,7 @@ class StrategiesController < ApplicationController
       end
       uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
 
-      data = {
+      data = JSON.generate({
         user: current_user.name, 
         strategyid: @comment.commented_on,
         strategy: strategy_name,
@@ -64,10 +64,11 @@ class StrategiesController < ApplicationController
         comment: @comment.comment[0..80],
         cutoff: cutoff,
         type: 'comment_on_strategy'
-        }
+        })
 
-      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', data)
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: strategy_user).order("created_at ASC").all
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
     end
   end
 

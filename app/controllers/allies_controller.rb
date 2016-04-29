@@ -19,6 +19,10 @@ class AlliesController < ApplicationController
 
       # Notify the user who made the request
       pusher_type = 'accepted_ally_request'
+
+      # Get rid of original new_ally_request notification
+      uniqueid = 'new_ally_request_' + params[:ally_id].to_s
+      Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
     else
       Allyship.create(
         user_id: current_user.id,
@@ -33,15 +37,16 @@ class AlliesController < ApplicationController
     user = User.where(id: current_user.id).first.name
     uniqueid = pusher_type.to_s + '_' + current_user.id.to_s
 
-    data = {
+    data = JSON.generate({
       user: user,
       userid: current_user.id,
       type: pusher_type,
       uniqueid: uniqueid
-      }
+      })
 
-    Pusher['private-' + params[:ally_id]].trigger('new_notification', data)
     Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
+    notifications = Notification.where(userid: params[:ally_id]).order("created_at ASC").all
+    Pusher['private-' + params[:ally_id]].trigger('new_notification', {notifications: notifications})
     
     respond_to do |format|
       format.html { redirect_to params[:refresh] }
@@ -53,18 +58,18 @@ class AlliesController < ApplicationController
     # Remove original ally request notifications
     # Case 1: user terminating allyship did not initiate allyship
     uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy
+    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + current_user.id.to_s
-    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy
+    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
 
     # Case 2: user terminating allyship did initiate allyship
     uniqueid = 'new_ally_request_' + current_user.id.to_s
-    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy
+    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy
+    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
 
     # Destroy allyship
-    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy
+    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy if !Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
 
     respond_to do |format|
       format.html { redirect_to params[:refresh] }
