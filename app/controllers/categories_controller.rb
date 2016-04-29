@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id || is_viewer(params[:trigger], @category)
+    if @category.userid == current_user.id || is_viewer(params[:trigger], params[:strategy], @category)
       @page_title = @category.name
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
@@ -143,14 +143,15 @@ class CategoriesController < ApplicationController
       end
     end
 
-    def is_viewer(trigger, category)
-      if trigger.blank?
-        return false
-      else
-        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.category.include?(category.id) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id)
+    def is_viewer(trigger, strategy, category)
+      if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+        return true
+      elsif !trigger.blank?
+        if Trigger.where(id: trigger).exists? && Trigger.where(id: trigger).first.category.include?(category.id) && Trigger.where(id: trigger).first.viewers.include?(current_user.id)
           return true
         end
       end
+
       return false
     end
 end

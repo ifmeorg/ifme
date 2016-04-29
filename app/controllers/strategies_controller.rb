@@ -140,7 +140,7 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def premade
-    premade_category = Category.where(name: 'Meditation')
+    premade_category = Category.where(name: 'Meditation', userid: current_user.id)
     if premade_category.exists?
       premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
     else 
@@ -211,7 +211,6 @@ class StrategiesController < ApplicationController
 
     def hide_page(strategy)
       if Strategy.where(id: strategy.id).exists?
-        puts "******* viewers" + Strategy.where(id: strategy.id).first.viewers.to_s
         if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id)
           return false
         end

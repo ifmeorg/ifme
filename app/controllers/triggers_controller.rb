@@ -23,7 +23,7 @@ class TriggersController < ApplicationController
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
-    if hide_page && @trigger.userid != current_user.id
+    if hide_page(@trigger) && @trigger.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to triggers_path }
         format.json { head :no_content }
@@ -189,12 +189,10 @@ class TriggersController < ApplicationController
       params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
     end
 
-    def hide_page
-      if Trigger.where(:userid => @trigger.userid).exists?
-        Trigger.where(:userid => @trigger.userid).all.each do |item|
-          if item.viewers.include?(current_user.id)
-            return false
-          end
+    def hide_page(trigger)
+      if Trigger.where(id: trigger.id).exists?
+        if Trigger.where(id: trigger.id).first.viewers.include?(current_user.id)
+          return false
         end
       end
       return true
