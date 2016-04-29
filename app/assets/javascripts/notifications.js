@@ -27,18 +27,18 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
 
-  $('#notifications_button').css({"opacity": 1});
-  $('#notifications_button').click(function() {
+  $('.notifications_button').css({"opacity": 1});
+  $('.notifications_button').click(function() {
     event.preventDefault();
     if (click_flag % 2 == 0) {
       $('#notifications').css({"display": "block"});
-      $('#notifications_button').css({"opacity": 0.5});
+      $('.notifications_button').css({"opacity": 0.5});
 
       // Fetch notifications for current_user
       fetchNotifications();
     } else {
       $('#notifications').css({"display": "none"});
-      $('#notifications_button').css({"opacity": 1});
+      $('.notifications_button').css({"opacity": 1});
     }
     click_flag++;
   });
@@ -46,7 +46,7 @@ $(document).on("page:load ready", function() {
   $('#close_notifications').click(function() {
     event.preventDefault();
     $('#notifications').css({"display": "none"});
-    $('#notifications_button').css({"opacity": 1});
+    $('.notifications_button').css({"opacity": 1});
     click_flag++;
 
     // TODO Julia Nguyen: Refresh page if page reflects notification change
@@ -114,12 +114,6 @@ function renderNotifications(notifications) {
       $('#notifications_list').prepend(notification_link);
     }
   })
-
-  if ($('#notifications_list').is(':empty')) {
-    $('#notifications_none').css({"display": "block"});
-  } else {
-    $('#notifications_none').css({"display": "none"});
-  }
 }
 
 function fetchNotifications(){
@@ -131,6 +125,8 @@ function fetchNotifications(){
       var data = JSON.parse(json).fetch_notifications;
       if (data.length > 0) {
         renderNotifications(data);
+      } else {
+        $('#notifications_none').css({"display": "block"});
       }
     }
   });
