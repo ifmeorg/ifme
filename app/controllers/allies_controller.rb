@@ -16,16 +16,29 @@ class AlliesController < ApplicationController
 
     if allyship
       allyship.update(status: User::ALLY_STATUS[:accepted])
+
+      # Notify the user who made the request
+      pusher_type = 'accepted_ally_request'
     else
       Allyship.create(
         user_id: current_user.id,
         ally_id: params[:ally_id],
         status: User::ALLY_STATUS[:pending_from_ally]
       )
+
+      # Notify the user the request has been made to
+      pusher_type = 'new_ally_request'
     end
+
+    user = User.where(id: current_user.id).first.name
+    Pusher['private-' + params[:ally_id]].trigger('new_notification', {
+      user: user,
+      userid: current_user.id,
+      type: pusher_type
+      })
     
     respond_to do |format|
-      format.html { redirect_to allies_path }
+      format.html { redirect_to params[:refresh] }
       format.json { head :no_content }
     end
   end
@@ -34,7 +47,7 @@ class AlliesController < ApplicationController
     Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to allies_path }
+      format.html { redirect_to params[:refresh] }
       format.json { head :no_content }
     end
   end

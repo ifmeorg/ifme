@@ -72,6 +72,12 @@ $(document).on("page:load ready", function() {
     $('#notifications').css({"display": "none"});
     $('#notifications_button').css({"opacity": 1});
     click_flag2++;
+
+    if (window.location.pathname.indexOf('allies') > -1 || 
+      window.location.pathname.indexOf('profile') > -1 || 
+      window.location.pathname.indexOf('allies') > -1) {
+      location.reload();
+    }
   });
 
    $('#clear_notifcations').click(function() {
