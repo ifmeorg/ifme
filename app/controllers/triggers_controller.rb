@@ -54,6 +54,7 @@ class TriggersController < ApplicationController
       if @comment.comment.length > 80 
         cutoff = true
       end
+      uniqueid = 'comment_on_trigger' + '_' + @comment.id.to_s
       Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
         user: current_user.name, 
         triggerid: @comment.commented_on,
@@ -61,7 +62,8 @@ class TriggersController < ApplicationController
         commentid: @comment.id,
         comment: @comment.comment[0..80],
         cutoff: cutoff,
-        type: 'comment_on_trigger'
+        type: 'comment_on_trigger',
+        uniqueid: uniqueid
         })
     end
   end

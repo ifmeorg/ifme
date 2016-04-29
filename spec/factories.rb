@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :notification do
+    userid 1
+    uniqueid "MyString"
+    data "MyText"
+  end
   factory :group_member do
     userid 1
   end

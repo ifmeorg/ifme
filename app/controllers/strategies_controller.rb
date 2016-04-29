@@ -54,6 +54,7 @@ class StrategiesController < ApplicationController
       if @comment.comment.length > 80 
         cutoff = true
       end
+      uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
       Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
         user: current_user.name, 
         strategyid: @comment.commented_on,

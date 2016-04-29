@@ -61,6 +61,8 @@ Rails.application.routes.draw do
 
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy]
 
+  resources :notifications, :except => [:show, :edit, :update]
+
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
   match 'contributors', to: 'pages#contributors', via: :get

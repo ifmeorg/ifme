@@ -38,6 +38,7 @@
 		    });
 
 		    var channel = pusher.subscribe('private-'+<%= current_user.id %>);
+
 		    channel.bind('new_notification', function(data) {
 		    	if (typeof(Storage) !== "undefined" && $('#notifications_list').is(':empty')) {
     				$('#notifications_list').append(localStorage.getItem("notifications_list"));
@@ -67,18 +68,16 @@
 				    	link = 'strategies/' + data.strategyid;
 				    }
 
-			    	var uniqueid = data.type + '_' + data.commentid;
-			    	var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>'
+			    	var notification_link = '<a class="notification_link" id="' + data.uniqueid + '" href="' + link + '">' + notification + '</a>'
 
 			    	$('#notifications_list').prepend(notification_link);
 			    } else if (data.type == 'accepted_ally_request' || data.type == 'new_ally_request') {
 			    	var link = 'profile?userid=' + data.userid;
-			    	var uniqueid = data.type + '_' + data.userid;
 			    	var notification_link;
 
 			    	if (data.type == 'accepted_ally_request') {
 			    		var notification = data.user + ' accepted your ally request!';
-			    		notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>'
+			    		notification_link = '<a class="notification_link" id="' + data.uniqueid + '" href="' + link + '">' + notification + '</a>'
 			    	} else if (data.type == 'new_ally_request') {
 			    		var add = '/allies/add?ally_id=' + data.userid + '&refresh=' + window.location.pathname;
 			    		var remove = '/allies/remove?ally_id=' + data.userid + '&refresh=' + window.location.pathname;
@@ -86,7 +85,7 @@
 			    		var accept = '<a rel="nofollow" data-method="post" class="notification_link small_margin_left display_inline" href="' + add + '"><i class="fa fa-check"></i></a>';
 			    		var reject = '<a data-confirm="Are you sure?" rel="nofollow" data-method="post" class="notification_link small_margin_left display_inline" href="' + remove + '"><i class="fa fa-times"></i></a>';
 
-			    		notification_link = '<div id="' + uniqueid + '" class ="small_margin_top"><a class="notification_link display_inline" href="' + link + '">' + data.user + '</a> sent an ally request!' + accept + reject + '</span>'
+			    		notification_link = '<div id="' + data.uniqueid + '" class ="small_margin_top"><a class="notification_link display_inline" href="' + link + '">' + data.user + '</a> sent an ally request!' + accept + reject + '</span>'
 			    	}
 
 			   

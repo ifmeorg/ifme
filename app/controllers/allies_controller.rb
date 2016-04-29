@@ -31,10 +31,12 @@ class AlliesController < ApplicationController
     end
 
     user = User.where(id: current_user.id).first.name
+    uniqueid = pusher_type.to_s + '_' + current_user.id.to_s
     Pusher['private-' + params[:ally_id]].trigger('new_notification', {
       user: user,
       userid: current_user.id,
-      type: pusher_type
+      type: pusher_type,
+      uniqueid: uniqueid
       })
     
     respond_to do |format|

@@ -11,27 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207045350) do
+ActiveRecord::Schema.define(version: 20160429191349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alerts", force: true do |t|
+  create_table "alerts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "trigger"
     t.integer  "medication"
-    t.string   "message"
-    t.string   "means"
-    t.string   "days"
-    t.string   "time_hour"
+    t.string   "message",     limit: 255
+    t.string   "means",       limit: 255
+    t.string   "days",        limit: 255
+    t.string   "time_hour",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "time_minute"
-    t.string   "time_period"
+    t.string   "name",        limit: 255
+    t.string   "time_minute", limit: 255
+    t.string   "time_period", limit: 255
   end
 
-  create_table "allyships", force: true do |t|
+  create_table "allyships", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -39,39 +39,39 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.integer  "status"
   end
 
-  create_table "bootsy_image_galleries", force: true do |t|
+  create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
-    t.string   "bootsy_resource_type"
+    t.string   "bootsy_resource_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bootsy_images", force: true do |t|
-    t.string   "image_file"
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file",       limit: 255
     t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
   end
 
-  create_table "comments", force: true do |t|
-    t.string   "comment_type"
+  create_table "comments", force: :cascade do |t|
+    t.string   "comment_type", limit: 255
     t.integer  "commented_on"
     t.integer  "comment_by"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "visibility"
+    t.string   "visibility",   limit: 255
   end
 
-  create_table "group_members", force: true do |t|
+  create_table "group_members", force: :cascade do |t|
     t.integer  "groupid"
     t.integer  "userid"
     t.boolean  "leader"
@@ -79,29 +79,29 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.datetime "updated_at"
   end
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
 
-  create_table "medications", force: true do |t|
-    t.string   "name"
+  create_table "medications", force: :cascade do |t|
+    t.string   "name",          limit: 255
     t.integer  "dosage"
-    t.string   "refill"
+    t.string   "refill",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
     t.integer  "total"
     t.integer  "strength"
-    t.string   "strength_unit"
-    t.string   "dosage_unit"
-    t.string   "total_unit"
+    t.string   "strength_unit", limit: 255
+    t.string   "dosage_unit",   limit: 255
+    t.string   "total_unit",    limit: 255
     t.text     "comments"
   end
 
-  create_table "meeting_members", force: true do |t|
+  create_table "meeting_members", force: :cascade do |t|
     t.integer  "meetingid"
     t.integer  "userid"
     t.boolean  "leader"
@@ -109,27 +109,35 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.datetime "updated_at"
   end
 
-  create_table "meetings", force: true do |t|
-    t.string   "name"
+  create_table "meetings", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "description"
     t.text     "location"
-    t.string   "time"
+    t.string   "time",        limit: 255
     t.integer  "maxmembers"
     t.integer  "groupid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "date"
+    t.string   "date",        limit: 255
   end
 
-  create_table "moods", force: true do |t|
-    t.string   "name"
+  create_table "moods", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
   end
 
-  create_table "strategies", force: true do |t|
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "userid"
+    t.string   "uniqueid"
+    t.text     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "strategies", force: :cascade do |t|
     t.integer  "userid"
     t.text     "category"
     t.text     "description"
@@ -137,21 +145,21 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.boolean  "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.string   "name",        limit: 255
   end
 
-  create_table "supports", force: true do |t|
+  create_table "supports", force: :cascade do |t|
     t.integer  "userid"
-    t.string   "support_type"
+    t.string   "support_type", limit: 255
     t.text     "support_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "triggers", force: true do |t|
+  create_table "triggers", force: :cascade do |t|
     t.text     "category"
-    t.string   "name"
-    t.string   "mood"
+    t.string   "name",       limit: 255
+    t.string   "mood",       limit: 255
     t.text     "why"
     t.text     "fix"
     t.datetime "created_at"
@@ -163,28 +171,28 @@ ActiveRecord::Schema.define(version: 20151207045350) do
     t.integer  "post_type"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "location"
-    t.string   "timezone"
+    t.string   "name",                   limit: 255
+    t.string   "location",               limit: 255
+    t.string   "timezone",               limit: 255
     t.text     "about"
-    t.string   "avatar"
+    t.string   "avatar",                 limit: 255
     t.text     "conditions"
-    t.string   "token"
-    t.string   "uid"
-    t.string   "provider"
+    t.string   "token",                  limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "provider",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
