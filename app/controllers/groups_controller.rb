@@ -25,10 +25,13 @@ class GroupsController < ApplicationController
   def show
   	@group = Group.find(params[:id])
   	@page_title = @group.name
-    @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
-    @page_tooltip = "New meeting"
   	@meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
   	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+
+    if (GroupMember.where(groupid: @group.id, leader: true, userid: current_user.id).exists?)
+      @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
+      @page_tooltip = "New meeting"
+    end
   end
 
   # GET /groups/new
