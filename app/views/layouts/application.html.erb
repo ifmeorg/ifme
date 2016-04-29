@@ -43,17 +43,30 @@
     				$('#notifications_list').append(localStorage.getItem("notifications_list"));
 				}
 
-		    	if (data.type == 'comment_on_trigger') {
+		    	if (data.type == 'comment_on_trigger' || data.type == 'comment_on_strategy') {
 		    		$('#notifications').css({ "display": "block" });
 			    	$('#notifications_none').css({"display": "none"});
 
-			    	if (data.cutoff) {
-			    		var notification = data.user + ' commented "' + data.comment + '" [...] on ' + data.trigger;
-			    	} else {
-			    		var notification = data.user + ' commented "' + data.comment + '" on ' + data.trigger;
+			    	var type_name;
+			    	if (data.type == 'comment_on_trigger') {
+			    		type_name = data.trigger;
+			    	} else if (data.type == 'comment_on_strategy') {
+			    		type_name = data.strategy;
 			    	}
 
-			    	var link = 'triggers/' + data.triggerid;
+			    	if (data.cutoff) {
+			    		var notification = data.user + ' commented "' + data.comment + '" [...] on ' + type_name;
+			    	} else {
+			    		var notification = data.user + ' commented "' + data.comment + '" on ' + type_name;
+			    	}
+
+			    	var link;
+			    	if (data.type == 'comment_on_trigger') {
+				    	link = 'triggers/' + data.triggerid;
+				    } else if (data.type == 'comment_on_strategy') {
+				    	link = 'strategies/' + data.strategyid;
+				    }
+
 			    	var uniqueid = data.type + '_' + data.commentid;
 			    	var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>'
 

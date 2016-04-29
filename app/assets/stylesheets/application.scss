@@ -445,7 +445,7 @@ img {
 
 label {
 	font-size: 30px;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 .label {
@@ -550,7 +550,7 @@ input[type="submit"]#support:hover {
 
 .toggle_button:link, .toggle_button:visited {
   font-size: 27px;
-  color: $highlight-text-color;
+  color: $primary-text-color;
   float: right;
   border: none;
 }

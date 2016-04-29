@@ -16,11 +16,11 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <a href="#" class="toggle_button" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
-          <i class="fa fa-plus-square"></i>
+        <a href="#" class="toggle_button" id="showCategories">
+          <i class="fa fa-plus"></i>
         </a>
-        <a href="#" class="toggle_button display_none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
-          <i class="fa fa-minus-square" ></i>
+        <a href="#" class="toggle_button display_none" id="hideCategories">
+          <i class="fa fa-minus" ></i>
         </a>
         <%= f.label t('.categories') %>
       </div>
@@ -43,8 +43,8 @@
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
-      <% Category.where(:userid => current_user.id).all.each do |item| %>
-      <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item)}, item, nil) %><%= User.where(:id => item).first.name %><br>
+      <% @viewers.each do |item| %>
+      <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item.id)}, item.id, nil) %><%= User.where(:id => item.id).first.name %><br>
       <% end %>
     </div>
     <% end %>

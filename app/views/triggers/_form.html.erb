@@ -16,11 +16,11 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <a href="#" class="toggle_button" onclick="toggleElements(['categories', 'showCategories', 'hideCategories']); " id="showCategories">
-          <i class="fa fa-plus-square"></i>
+        <a href="#" class="toggle_button" id="showCategories">
+          <i class="fa fa-plus"></i>
         </a>
-        <a href="#" class="toggle_button display_none" onclick="toggleElements(['categories', 'showCategories', 'hideCategories'])" id="hideCategories">
-          <i class="fa fa-minus-square" ></i>
+        <a href="#" class="toggle_button display_none" id="hideCategories">
+          <i class="fa fa-minus" ></i>
         </a></i>
         <%= f.label t('.categories') %>
       </div>
@@ -38,11 +38,11 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <a href="#" class="toggle_button" onclick="toggleElements(['moods', 'showMoods', 'hideMoods']); " id="showMoods">
-          <i class="fa fa-plus-square"></i>
+        <a href="#" class="toggle_button" id="showMoods">
+          <i class="fa fa-plus"></i>
         </a>
-        <a href="#" class="toggle_button display_none" onclick="toggleElements(['moods', 'showMoods', 'hideMoods'])" id="hideMoods">
-          <i class="fa fa-minus-square" ></i>
+        <a href="#" class="toggle_button display_none" id="hideMoods">
+          <i class="fa fa-minus" ></i>
         </a>
         <%= f.label t('.moods') %>
       </div>
@@ -61,11 +61,11 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <a href="#" class="toggle_button" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies']); " id="showStrategies">
-          <i class="fa fa-plus-square"></i>
+        <a href="#" class="toggle_button" id="showStrategies">
+          <i class="fa fa-plus"></i>
         </a>
-        <a href="#" class="toggle_button display_none" onclick="toggleElements(['strategies', 'showStrategies', 'hideStrategies'])" id="hideStrategies">
-          <i class="fa fa-minus-square" ></i>
+        <a href="#" class="toggle_button display_none" id="hideStrategies">
+          <i class="fa fa-minus" ></i>
         </a>
         <%= f.label t('.strategies') %>
       </div>
@@ -90,7 +90,7 @@
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
       <% @viewers.each do |item| %>
-      <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item)}, item, nil) %><%= User.where(id: item).first.name %><br>
+      <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item.id)}, item.id, nil) %><%= User.where(id: item.id).first.name %><br>
       <% end %>
     </div>
     <% end %>

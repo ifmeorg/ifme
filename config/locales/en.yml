@@ -255,8 +255,8 @@ en:
   index:
    subtitle: 'Create strategies to achieve desired thoughts and attitudes towards triggers.'
    created: 'Created:'
-   category: 'Category'
-   categories: 'Categories'
+   category: 'Category:'
+   categories: 'Categories:'
    delete: 'Delete'
    confirm: 'Are you sure?'
    premade1_name: 'Five Minute Meditation'

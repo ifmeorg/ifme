@@ -23,7 +23,7 @@ class StrategiesController < ApplicationController
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
-    if hide_page && @strategy.userid != current_user.id
+    if hide_page(@strategy) && @strategy.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to strategies_path }
         format.json { head :no_content }
@@ -42,6 +42,27 @@ class StrategiesController < ApplicationController
     respond_to do |format|
         format.html { redirect_to strategy_path(params[:comment][:commented_on]) }
         format.json { render :show, status: :created, location: Strategy.find(params[:comment][:commented_on]) }
+    end
+
+    # Notify commented_on user that they have a new comment
+    strategy_user = Strategy.where(id: @comment.commented_on).first.userid
+
+    if (strategy_user != @comment.comment_by)
+      commented_on_user = Strategy.where(id: @comment.commented_on).first.userid
+      strategy_name = Strategy.where(id: @comment.commented_on).first.name
+      cutoff = false
+      if @comment.comment.length > 80 
+        cutoff = true
+      end
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
+        user: current_user.name, 
+        strategyid: @comment.commented_on,
+        strategy: strategy_name,
+        commentid: @comment.id,
+        comment: @comment.comment[0..80],
+        cutoff: cutoff,
+        type: 'comment_on_strategy'
+        })
     end
   end
 
@@ -188,12 +209,11 @@ class StrategiesController < ApplicationController
       params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
     end
 
-    def hide_page
-      if Strategy.where(:userid => @strategy.userid).exists?
-        Strategy.where(:userid => @strategy.userid).all.each do |item|
-          if item.viewers.include?(current_user.id)
-            return false
-          end
+    def hide_page(strategy)
+      if Strategy.where(id: strategy.id).exists?
+        puts "******* viewers" + Strategy.where(id: strategy.id).first.viewers.to_s
+        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id)
+          return false
         end
       end
       return true

@@ -20,20 +20,6 @@
 //= require underscore
 //= require_tree .
 
-function toggleElements(elements) {
-  	var arrayLength = elements.length;
-  	var i = 0;
-	while (i < arrayLength) {
-	    var el = document.getElementById(elements[i]);
-	    if (el.style.display != 'none') {
-	    	el.style.display = 'none';
-	    } else {
-	    	el.style.display = '';
-	    }
-	    i++;
-	}
-}
-
 $(document).on("page:load ready", function() {
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
@@ -47,5 +33,47 @@ $(document).on("page:load ready", function() {
 		var subtitle_delay_time = 300;
 		var subtitle_slideDown_time = 1500;
 		$(".subtitle").delay(subtitle_delay_time).slideDown(subtitle_slideDown_time);
+	}
+
+	if ($('body').hasClass('triggers edit') ||
+		$('body').hasClass('triggers create') ||
+		$('body').hasClass('strategies edit') ||
+		$('body').hasClass('strategies create')) {
+
+		$('#showCategories').click(function() {
+			$('#categories').css({"display": "block"});
+			$('#showCategories').css({"display": "none"});
+			$('#hideCategories').css({"display": "block"});
+		});
+
+		$('#hideCategories').click(function() {
+			$('#categories').css({"display": "none"});
+			$('#showCategories').css({"display": "block"});
+			$('#hideCategories').css({"display": "none"});
+		});
+
+		$('#showMoods').click(function() {
+			$('#moods').css({"display": "block"});
+			$('#showMoods').css({"display": "none"});
+			$('#hideMoods').css({"display": "block"});
+		});
+
+		$('#hideMoods').click(function() {
+			$('#moods').css({"display": "none"});
+			$('#showMoods').css({"display": "block"});
+			$('#hideMoods').css({"display": "none"});
+		});
+
+		$('#showStrategies').click(function() {
+			$('#strategies').css({"display": "block"});
+			$('#showStrategies').css({"display": "none"});
+			$('#hideStrategies').css({"display": "block"});
+		});
+
+		$('#hideStrategies').click(function() {
+			$('#strategies').css({"display": "none"});
+			$('#showStrategies').css({"display": "block"});
+			$('#hideStrategies').css({"display": "none"});
+		});
 	}
 });
