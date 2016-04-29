@@ -32,12 +32,16 @@ class AlliesController < ApplicationController
 
     user = User.where(id: current_user.id).first.name
     uniqueid = pusher_type.to_s + '_' + current_user.id.to_s
-    Pusher['private-' + params[:ally_id]].trigger('new_notification', {
+
+    data = {
       user: user,
       userid: current_user.id,
       type: pusher_type,
       uniqueid: uniqueid
-      })
+      }
+
+    Pusher['private-' + params[:ally_id]].trigger('new_notification', data)
+    Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
     
     respond_to do |format|
       format.html { redirect_to params[:refresh] }
@@ -46,6 +50,20 @@ class AlliesController < ApplicationController
   end
 
   def remove
+    # Remove original ally request notifications
+    # Case 1: user terminating allyship did not initiate allyship
+    uniqueid = 'new_ally_request_' + params[:ally_id].to_s
+    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy
+    uniqueid = 'accepted_ally_request_' + current_user.id.to_s
+    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy
+
+    # Case 2: user terminating allyship did initiate allyship
+    uniqueid = 'new_ally_request_' + current_user.id.to_s
+    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy
+    uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
+    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy
+
+    # Destroy allyship
     Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy
 
     respond_to do |format|

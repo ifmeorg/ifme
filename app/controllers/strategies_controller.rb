@@ -55,7 +55,8 @@ class StrategiesController < ApplicationController
         cutoff = true
       end
       uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
-      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
+
+      data = {
         user: current_user.name, 
         strategyid: @comment.commented_on,
         strategy: strategy_name,
@@ -63,7 +64,10 @@ class StrategiesController < ApplicationController
         comment: @comment.comment[0..80],
         cutoff: cutoff,
         type: 'comment_on_strategy'
-        })
+        }
+
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', data)
+      Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
     end
   end
 

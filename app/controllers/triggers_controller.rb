@@ -55,7 +55,8 @@ class TriggersController < ApplicationController
         cutoff = true
       end
       uniqueid = 'comment_on_trigger' + '_' + @comment.id.to_s
-      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {
+
+      data = {
         user: current_user.name, 
         triggerid: @comment.commented_on,
         trigger: trigger_name,
@@ -64,7 +65,10 @@ class TriggersController < ApplicationController
         cutoff: cutoff,
         type: 'comment_on_trigger',
         uniqueid: uniqueid
-        })
+        }
+
+      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', data)
+      Notification.create(userid: trigger_user, uniqueid: uniqueid, data: data)
     end
   end
 
