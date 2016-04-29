@@ -4,14 +4,19 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
+    @groupid = params[:groupid]
+    not_a_leader(@groupid)
+
     @meeting = Meeting.new
     @page_title = "New Meeting"
-    @groupid = params[:groupid]
+    
   end
 
   # GET /meetings/1/edit
   def edit
     @groupid = @meeting.groupid
+    not_a_leader(@groupid)
+
     @page_title = "Edit " + @meeting.name
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
   end
@@ -21,6 +26,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     groupid = meeting_params[:groupid]
+    not_a_leader(groupid)
     @page_title = "New Meeting"
     respond_to do |format|
       if @meeting.save
@@ -108,6 +114,8 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
+    not_a_leader(@meeting.groupid)
+
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
 
@@ -134,6 +142,16 @@ class MeetingsController < ApplicationController
             format.html { redirect_to groups_path }
             format.json { head :no_content }
           end
+        end
+      end
+    end
+
+    # Checks if user is a meeting leader, if not redirect to group_path
+    def not_a_leader(groupid)
+      if !GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+        respond_to do |format|
+          format.html { redirect_to group_path(groupid) }
+          format.json { head :no_content }
         end
       end
     end
