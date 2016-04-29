@@ -50,40 +50,41 @@
   </p>
 <% end %>
 
-<!--
-<% if @no_hide_page %>
-  <% if current_user.id != @trigger.userid %>
-    <div class="align_left">
-      <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
-        <% if @support.errors.any? %>
-          <div class="error_explanation">
-            <%= t('.error_explanation') %>
-          </div>
-        <% end %>
+<!-- Disabling support feature temporarily -->
+<% if false %>
+  <% if @no_hide_page %>
+    <% if current_user.id != @trigger.userid %>
+      <div class="align_left">
+        <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
+          <% if @support.errors.any? %>
+            <div class="error_explanation">
+              <%= t('.error_explanation') %>
+            </div>
+          <% end %>
 
-        <div class="actions">
-          <%= f.hidden_field :userid, :value => current_user.id %>
-          <%= f.hidden_field :support_type, :value => 'trigger' %>
-          <%= f.hidden_field :support_id, :value => @trigger.id %>
-          <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
-            <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
-              <%= f.submit t('.unsupport'), :id => 'unsupport' %>
+          <div class="actions">
+            <%= f.hidden_field :userid, :value => current_user.id %>
+            <%= f.hidden_field :support_type, :value => 'trigger' %>
+            <%= f.hidden_field :support_id, :value => @trigger.id %>
+            <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
+              <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
+                <%= f.submit t('.unsupport'), :id => 'unsupport' %>
+              <% else %>
+                <%= f.submit t('.support'), :id => 'support' %>
+              <% end %>
             <% else %>
               <%= f.submit t('.support'), :id => 'support' %>
             <% end %>
-          <% else %>
-            <%= f.submit t('.support'), :id => 'support' %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="align_right">
+      <%= fetch_supporters(Support.all, @trigger) %>
     </div>
+    <div class="clear"></div>
   <% end %>
-  <div class="align_right">
-    <%= fetch_supporters(Support.all, @trigger) %>
-  </div>
-  <div class="clear"></div>
 <% end %>
--->
 
 <% if @trigger.comment && (current_user.id == @trigger.userid || @no_hide_page) %>
 

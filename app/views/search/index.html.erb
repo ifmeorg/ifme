@@ -1,7 +1,16 @@
-<%= render 'form' %>
+<div class="align_right">
+	<%= render 'form' %>
+</div>
+<div class="clear"></div>
+
 <div class="spacer"></div>
+
 <% @matching_users.each do |user| %>
-	<div class="ally">
+	<% if @matching_users.last == user %>
+		<div class="ally no_margin_bottom">
+	<% else %>
+		<div class="ally">
+	<% end %>
 		<div class="table">
         	<div class="table_cell profile_picture_div small_padding_right vertical_align_top">
         		<%= image_tag fetch_profile_picture(user.avatar.url), class: 'profile_picture' %>

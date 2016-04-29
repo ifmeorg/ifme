@@ -4,7 +4,6 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
   var click_flag2 = 0;
-  var click_flag3 = 0;
 
   $('.expand_button').click(function(event) {
     event.preventDefault();
@@ -45,19 +44,10 @@ $(document).on("page:load ready", function() {
     $('#header_space').css({"height": the_height});
   });
 
-  $('#search').click(function() {
-    if (click_flag2 % 2 == 0) {
-      $('#search_box').css({"display": "block"});
-    } else {
-      $('#search_box').css({"display": "none"});
-    }
-    click_flag2++;
-  });
-
   $('#notifications_button').css({"opacity": 1});
   $('#notifications_button').click(function() {
     event.preventDefault();
-    if (click_flag3 % 2 == 0) {
+    if (click_flag2 % 2 == 0) {
       $('#notifications').css({"display": "block"});
       $('#notifications_button').css({"opacity": 0.5});
 
@@ -74,14 +64,14 @@ $(document).on("page:load ready", function() {
       $('#notifications').css({"display": "none"});
       $('#notifications_button').css({"opacity": 1});
     }
-    click_flag3++;
+    click_flag2++;
   });
 
   $('#close_notifications').click(function() {
     event.preventDefault();
     $('#notifications').css({"display": "none"});
     $('#notifications_button').css({"opacity": 1});
-    click_flag3++;
+    click_flag2++;
   });
 
    $('#clear_notifcations').click(function() {

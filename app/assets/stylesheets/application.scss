@@ -162,8 +162,20 @@ ul.no_bullet_list li {
 	margin-bottom: 20px;
 }
 
+.no_margin_top{
+	margin-top: 0px !important;
+}
+
 .no_margin_bottom {
 	margin-bottom: 0px !important;
+}
+
+.no_margin_left {
+	margin-left: 0px !important;
+}
+
+.no_margin_right {
+	margin-right: 0px !important;
 }
 
 /* Divs */
@@ -248,10 +260,6 @@ ul.no_bullet_list li {
 	border: none;
 	color: $secondary-text-color;
 	opacity: 0.5;
-}
-
-#search_box {
-	margin-top: 20px;
 }
 
 /* Page Edit and New */
