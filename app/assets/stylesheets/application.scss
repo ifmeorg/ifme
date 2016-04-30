@@ -659,6 +659,7 @@ div.table div.table_row {
 
 div.table div.table_cell {
 	display: table-cell;
+	word-break: break-word;
 
 	@media screen and (max-width: $medium - 1) {
 		display: block;
