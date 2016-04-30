@@ -63,7 +63,8 @@ class StrategiesController < ApplicationController
         commentid: @comment.id,
         comment: @comment.comment[0..80],
         cutoff: cutoff,
-        type: 'comment_on_strategy'
+        type: 'comment_on_strategy',
+        uniqueid: uniqueid
         })
 
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)

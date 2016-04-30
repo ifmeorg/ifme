@@ -27,6 +27,7 @@ class GroupsController < ApplicationController
   	@page_title = @group.name
   	@meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
   	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+    @is_group_member = if GroupMember.where(groupid: @group.id, userid: current_user.id).exists? then true else false end
 
     if (GroupMember.where(groupid: @group.id, leader: true, userid: current_user.id).exists?)
       @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
@@ -54,6 +55,26 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
+        
+        # Alert allies that you created a new group
+        accepted_allies = current_user.allies_by_status(:accepted)
+
+        uniqueid = 'new_group_' + current_user.id.to_s
+
+        accepted_allies.each do |ally|      
+          data = JSON.generate({
+          user: ally.name, 
+          groupid: @group.id,
+          group: @group.name,
+          type: 'new_group',
+          uniqueid: uniqueid
+          })
+
+          Notification.create(userid: ally.id, uniqueid: uniqueid, data: data)
+          notifications = Notification.where(userid: ally.id).order("created_at ASC").all
+          Pusher['private-' + ally.id.to_s].trigger('new_notification', {notifications: notifications})
+        end
+
         if group_member.save
           format.html { redirect_to group_path(@group) }
           format.json { render :show, status: :created, location: @group }
@@ -101,6 +122,25 @@ class GroupsController < ApplicationController
 
   def join
     @group_member = GroupMember.create!(groupid: params[:groupid], userid: current_user.id, leader: false)
+
+    uniqueid = 'new_group_member' + current_user.id.to_s
+
+    group_leaders = GroupMember.where(groupid: params[:groupid], leader: true).all
+    group = Group.where(id: params[:groupid]).first.name
+
+    group_leaders.each do |leader|     
+      data = JSON.generate({
+      user: current_user.name, 
+      groupid: params[:groupid],
+      group: group,
+      type: 'new_group_member',
+      uniqueid: uniqueid
+      })
+
+      Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
+      Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+    end
 
     respond_to do |format|
         format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }

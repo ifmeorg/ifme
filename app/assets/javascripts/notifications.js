@@ -48,15 +48,13 @@ $(document).on("page:load ready", function() {
     $('#notifications').css({"display": "none"});
     $('.notifications_button').css({"opacity": 1});
     click_flag++;
-
-    // TODO Julia Nguyen: Refresh page if page reflects notification change
   });
 
    $('#clear_notifcations').click(function() {
     $('#notifications_list').empty();
     $('#notifications_none').css({"display": "block"});
 
-    $.ajax("/notifications/clear")
+    $.ajax("/notifications/clear");
   });
 });
 
@@ -109,8 +107,22 @@ function renderNotifications(notifications) {
 
         notification_link = '<div id="' + uniqueid + '" class ="small_margin_top"><a class="notification_link display_inline" href="' + link + '">' + data.user + '</a> sent an ally request!' + accept + reject + '</span>';
       }
-
    
+      $('#notifications_list').prepend(notification_link);
+    } else if (data.type == 'new_group' || data.type == 'new_group_member') {
+      // Alice created a new group "Name"
+      var notification;
+
+      if (data.type == 'new_group')
+        notification = data.user + ' created a group "' + data.group + '"';
+      else if (data.type == 'new_group_member') {
+        notification = data.user + ' joined your group "' + data.group + '"';
+      }
+
+      var link = 'groups/' + data.groupid;
+    
+      var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';
+
       $('#notifications_list').prepend(notification_link);
     }
   })

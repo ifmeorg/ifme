@@ -10,8 +10,6 @@
 #  status     :integer
 #
 
-
-
 class Allyship < ActiveRecord::Base
 	attr_accessible :status, :user_id, :ally_id
 	enum status: [:accepted, :pending_from_user, :pending_from_ally]
