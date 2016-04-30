@@ -130,6 +130,11 @@ therubyracer:
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
+If running bundle install on Mac OS X El Capitan v. 10.11.4 or later, please consult the following tickets for help with installing libv8 and therubyracer gems:
+
+https://github.com/cowboyd/libv8/issues/205
+https://github.com/cowboyd/therubyracer/issues/359
+
 ### Running the App Locally
 
 Create the developement and test databases:
@@ -200,4 +205,3 @@ License
 -------
 
 The source code is licensed under the Apache License. For more information see http://www.apache.org/licenses/ or LICENSE.txt.
-
