@@ -117,6 +117,17 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
+If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help. 
+
+libv8:
+
+[https://github.com/cowboyd/libv8/issues/205](https://github.com/cowboyd/libv8/issues/205)
+
+therubyracer: 
+[http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan](http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan) 
+
+
+
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
 ### Running the App Locally
