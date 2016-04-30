@@ -31,7 +31,7 @@ class TriggersController < ApplicationController
     else
       @comment = Comment.new
       # @support = Support.new
-      @comments = Comment.where(:commented_on => @trigger.id, :comment_type => 'trigger').all
+      @comments = Comment.where(:commented_on => @trigger.id, :comment_type => 'trigger').all.order("created_at DESC")
       @no_hide_page = true
       @page_title = @trigger.name
     end
