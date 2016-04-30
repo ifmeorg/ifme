@@ -51,13 +51,13 @@ class TriggersController < ApplicationController
       commented_on_user = Trigger.where(id: @comment.commented_on).first.userid
       trigger_name = Trigger.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80 
+      if @comment.comment.length > 80
         cutoff = true
       end
       uniqueid = 'comment_on_trigger' + '_' + @comment.id.to_s
 
       data = JSON.generate({
-        user: current_user.name, 
+        user: current_user.name,
         triggerid: @comment.commented_on,
         trigger: trigger_name,
         commentid: @comment.id,

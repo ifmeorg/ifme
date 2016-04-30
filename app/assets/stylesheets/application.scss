@@ -450,7 +450,7 @@ img {
 .mini_profile_picture {
 	width: 100px;
 	border-radius: 150px;
-	border: 2px solid $container-color;
+	border-bottom: 2px solid #E1CDD7;
 }
 
 /* Form Elements and Input fields */
@@ -625,7 +625,9 @@ table th {
 .comment {
 	margin-top: 40px;
 	padding: 10px;
-	background-color: #E1CDD7;
+	background-color: white;
+	border: 2px solid #E1CDD7;
+	border-radius: 50px;
 }
 
 .comment > .comment_info {
@@ -659,10 +661,20 @@ div.table div.table_row {
 
 div.table div.table_cell {
 	display: table-cell;
+	word-break: break-word;
 
 	@media screen and (max-width: $medium - 1) {
 		display: block;
 	}
+}
+
+.table_cell p {
+	word-wrap: break-word;
+	background: #E1CDD7;
+	border-radius: 10px;
+	width: 90%;
+	padding: 1%;
+	font-weight: 300;
 }
 
 /* Errors and Notices */
