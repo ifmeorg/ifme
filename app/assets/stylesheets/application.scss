@@ -591,32 +591,6 @@ input[type="submit"]#support:hover {
 
 /* Tables */
 
-table {
-	width: 100%;
-	table-layout: auto;
-	padding: 20px 0px 0px 20px;
-	border: 1px solid $container-color;
-	background-color: $background-color;
-	box-shadow: 0 0 2px $container-color inset;
-}
-
-table td {
-	padding: 0px 20px 20px 0px;
-	vertical-align: top;
-}
-
-table td p {
-	margin: 0;
-}
-
-table th {
-	text-align: left;
-	font-weight: bold;
-	color: $secondary-text-color;
-	padding-bottom: 20px;
-	font-size: 20px;
-}
-
 .action {
 	color: $link-color;
 	margin-right: 10px;

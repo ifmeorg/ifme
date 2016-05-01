@@ -5,34 +5,26 @@
 <div class="spacer"></div>
 
 <% if @medications.length > 0 %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.strength') %></th>
-        <th><%= t('.quantity') %></th>
-        <th><%= t('.dosage') %></th>
-        <th><%= t('.refill') %></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @medications.each do |medication| %>
-        <tr>
-          <td><%= link_to medication.name, medication %></td>
-          <td><%= medication.strength.to_s + " " + medication.strength_unit %></td>
-          <td><%= medication.total.to_s + " " + medication.total_unit %></td>
-          <td><%= medication.dosage.to_s + " " + medication.dosage_unit %></td>
-          <td><%= medication.refill %></td>
-          <td>
-            <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_medication_path(medication) %>
-            <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
-          </td>
-        </tr>
+    <% @medications.each do |medication| %>
+      <% if @medications.last == medication %>
+      <div class="medication no_margin_bottom">
+      <% else %>
+      <div class="medication">
       <% end %>
-    </tbody>
-  </table>
+
+        <h1 class="medication_name"><%= link_to medication.name, medication %></h1>
+
+        <strong><%= t('.strength') %></strong> <%= medication.strength.to_s + " " + medication.strength_unit %>
+        <br><strong><%= t('.total') %></strong> <%= medication.total.to_s + " " + medication.total_unit %>
+        <br><strong><%= t('.dosage') %></strong> <%= medication.dosage.to_s + " " + medication.dosage_unit %>
+        <br><strong><%= t('.refill') %></strong> <%= medication.refill %>
+        
+        <div class="small_margin_top">
+          <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_medication_path(medication) %>
+          <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
+        </div>
+      </div>
+    <% end %>
 <% else %>
 You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> to add some! 
 <br>
@@ -40,25 +32,12 @@ You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> t
 
 <div class="spacer"></div>
 
-<table>
-    <thead>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.strength') %></th>
-        <th><%= t('.quantity') %></th>
-        <th><%= t('.dosage') %></th>
-        <th><%= t('.refill') %></th>
-      </tr>
-    </thead>
+<div class="medication no_margin_bottom">
+  <h1 class="medication_name">Prozac</h1>
 
-    <tbody>
-      <tr>
-        <td>Prozac</td>
-        <td>10 mg</td>
-        <td>2 tablets</td>
-        <td>40 tablets</td>
-        <td>05/31/2016</td>
-      </tr>
-    </tbody>
-  </table>
+  <strong><%= t('.strength') %></strong> 10 mg
+  <br><strong><%= t('.total') %></strong> 2 tablets
+  <br><strong><%= t('.dosage') %></strong> 40 tablets
+  <br><strong><%= t('.refill') %></strong> 05/31/2016
+</div>
 <% end %>

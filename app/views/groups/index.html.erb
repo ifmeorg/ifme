@@ -5,51 +5,35 @@
 <div class="spacer"></div>
 
 <% if @groups.length > 0 %>
-  <table>
-    <thead>
-      <tr>
-        <th><h1><%= t('.joined_groups') %></h1></th>
-      </tr>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.members') %></th>
-        <th><%= t('.description') %></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+  <h1 class="group_type">Joined Groups</h1>
+  <% @groups.each do |group| %>
+    <% if @groups.last == group %>
+    <div class="group no_margin_bottom">
+    <% else %>
+    <div class="group">
+    <% end %>
 
-    <tbody>
-      <% @groups.each do |group| %>
-        <tr>
-          <td>
-            <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
-            <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-                  (<%= t('.leader') %>)
-              <% end %>
-          </td>
-          <td>
-          	<%= GroupMember.where(groupid: group.groupid).count %>
-          </td>
-          <td>
-          	<%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
-           	<% if Group.where(id: group.groupid).first.description.length >= 80 %>
-           		<%= " [...]" %>
-           	<% end %>
-          </td>
-          <td>
-            <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-              <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_group_path(group.groupid) %>
-            <% end %>
-          </td>
-          <td>
-            <i class="fa fa-times action"></i>
-            <%= link_to t('.leave'), leave_groups_path(groupid: group.groupid) %>
-          </td>
-        </tr>
+      <h1 class="group_name">
+        <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
+        <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
+              (<%= t('.leader') %>)
+        <% end %>
+      </h1>
+
+      <strong><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+      
+      <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
+      <% if Group.where(id: group.groupid).first.description.length >= 80 %>
+       	<%= " [...]" %>
       <% end %>
-    </tbody>
-  </table>
+
+
+      <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
+      <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_group_path(group.groupid), class: 'small_margin_right' %>
+      <% end %>
+      <i class="fa fa-times action"></i><%= link_to t('.leave'), leave_groups_path(groupid: group.groupid) %>
+    </div>
+  <% end %>
 <% else %>
   You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below. 
   <br>
@@ -58,39 +42,28 @@
 
 <% if @available_groups.length > 0 %>
   <div class="spacer"></div>
-  <table>
-    <thead>
-      <tr>
-        <th><h1>Available Groups</h1></th>
-      </tr>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.members') %></th>
-        <th><%= t('.description') %>Description</th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @available_groups.each do |group| %>
-        <tr>
-          <td>
-            <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
-          </td>
-          <td>
-            <%= GroupMember.where(groupid: group.groupid).count %>
-          </td>
-          <td>
-            <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
-            <% if Group.where(id: group.groupid).first.description.length >= 80 %>
-              <%= " [...]" %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to t('.join'), join_groups_path(groupid: group.groupid) %>
-          </td>
-        </tr>
+  <h1 class="group_type">Available Groups</h1>
+
+  <% @available_groups.each do |group| %>
+    <% if @available_groups.last == group %>
+    <div class="group no_margin_bottom">
+    <% else %>
+    <div class="group">
+    <% end %>
+
+      <h1 class="group_name">
+        <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
+      </h1>
+
+      <strong><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+      
+      <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
+      <% if Group.where(id: group.groupid).first.description.length >= 80 %>
+        <%= " [...]" %>
       <% end %>
-    </tbody>
-  </table>
+
+      <%= link_to t('.join'), join_groups_path(groupid: group.groupid) %>
+    </div>
+  <% end %>
 <% end %>

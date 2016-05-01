@@ -26,3 +26,31 @@ h1.meeting_name a:visited {
 	border: none;
 }
 
+.group {
+	padding: 20px;
+	border: 1px solid $container-color;
+	box-shadow: 0 0 2px $container-color inset;
+	margin-bottom: 40px;
+}
+
+h1.group_name {
+	font-weight: 300;
+	font-size: 26px;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+	color: $secondary-text-color;
+}
+
+h1.group_name a:link,
+h1.group_name a:visited {
+	color: $secondary-text-color;
+	text-decoration: none;
+	border: none;
+}
+
+h1.group_type {
+	font-weight: 100;
+	font-size: 30px;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+}
