@@ -5,33 +5,24 @@
 <div class="spacer"></div>
 
 <% if @moods.length > 0 %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.description') %></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @moods.each do |mood| %>
-        <tr>
-          <td><%= link_to mood.name, mood %></td>
-          <td>
-            <%= simple_format(mood.description[0..80]) %>
-            <% if mood.description.length >= 80 %>
-              <%= " [...]" %>
-            <% end %>
-          </td>
-          <td>
-            <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_mood_path(mood) %>
-            <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), mood, method: :delete, data: { confirm: t('.confirm') } %>
-          </td>
-        </tr>
+    <% @moods.each do |mood| %>
+      <% if @moods.last == mood %>
+        <div class="mood no_margin_bottom">
+      <% else %>
+        <div class="mood">
       <% end %>
-    </tbody>
-  </table>
+
+        <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
+         
+        <%= simple_format(mood.description[0..80]) %>
+        <% if mood.description.length >= 80 %>
+          <%= " [...]" %>
+        <% end %>
+
+        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>
+        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', mood, method: :delete, data: { confirm: t('.confirm') } %>
+      </div>
+    <% end %>
 <% else %>
   You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some! 
   <br>You can also add the following premade moods and customize them another time.
@@ -42,41 +33,39 @@
 
   <div class="clear"></div>
 
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('.name') %></th>
-        <th><%= t('.description') %></th>
-        <th></th>
-      </tr>
-    </thead>
+  <div class="mood">
+    <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
+     
+    <%= simple_format(t('moods.index.premade1_description')[0..80]) %>
+    <% if t('moods.index.premade1_description').length >= 80 %>
+      <%= " [...]" %>
+    <% end %>
+  </div>
 
-    <tbody>
-    
-        <tr>
-          <td><%= t('moods.index.premade1_name') %></td>
-          <td><%= t('moods.index.premade1_description') %></td>
-        </tr>
+  <div class="mood">
+    <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
+     
+    <%= simple_format(t('moods.index.premade2_description')[0..80]) %>
+    <% if t('moods.index.premade2_description').length >= 80 %>
+      <%= " [...]" %>
+    <% end %>
+  </div>
 
-        <tr>
-          <td><%= t('moods.index.premade2_name') %></td>
-          <td><%= t('moods.index.premade2_description') %></td>
-        </tr>
+  <div class="mood">
+    <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
+     
+    <%= simple_format(t('moods.index.premade3_description')[0..80]) %>
+    <% if t('moods.index.premade3_description').length >= 80 %>
+      <%= " [...]" %>
+    <% end %>
+  </div>
 
-        <tr>
-          <td><%= t('moods.index.premade3_name') %></td>
-          <td><%= t('moods.index.premade3_description') %></td>
-        </tr>
-
-        <tr>
-          <td><%= t('moods.index.premade4_name') %></td>
-          <td><%= t('moods.index.premade4_description') %></td>
-        </tr>
-
-        <tr>
-          <td><%= t('moods.index.premade5_name') %></td>
-          <td><%= t('moods.index.premade5_description') %></td>
-        </tr>
-    </tbody>
-  </table>
+  <div class="mood no_margin_bottom">
+    <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
+     
+    <%= simple_format(t('moods.index.premade4_description')[0..80]) %>
+    <% if t('moods.index.premade4_description').length >= 80 %>
+      <%= " [...]" %>
+    <% end %>
+  </div>
 <% end %>

@@ -244,6 +244,7 @@ ul.no_bullet_list li {
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	color: $secondary-text-color;
+	text-shadow: 0px 0px 10px $highlight-text-color;
 }
 
 .overlay {
@@ -367,7 +368,7 @@ a.page_search:hover {
 
 #footer {
 	border-top: 1px solid $container-color;
-  padding: 40px 0px;
+  	padding: 40px 0px;
 
 }
 
