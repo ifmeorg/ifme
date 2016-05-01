@@ -96,25 +96,27 @@
     <% end %>
 
     <div class="field">
-      <%= f.text_area :comment %>
+      <%= f.text_area :comment, class: 'comment_textarea' %>
     </div>
 
-    <div class="actions">
+    <div class="actions align_right">
       <%= f.hidden_field :comment_type, :value => 'trigger' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <% if current_user.id == @trigger.userid %>
-         <%= f.hidden_field :visibility, :value => 'all' %>
-      <% else %>
-        <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @trigger.userid).first.name + t('.only'), 'private']] %>
-      <% end %>
-      <%= f.submit t('.comment') %>
+      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @trigger.userid).first.name + t('.only'), 'private']] %>
+      <%= f.submit t('.comment'), class: 'no_margin_right' %>
     </div>
+
+    <div class="clear"></div>
   <% end %>
 
   <% @comments.each do |comment| %>
     <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
+        <% if @comments.first == comment %>
+        <div class="comment no_margin_top" %>
+        <% else %>
         <div class="comment">
+        <% end %>
           <div class="table">
             <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
               <% profile = User.where(:id => comment.comment_by).first %>

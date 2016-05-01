@@ -243,12 +243,16 @@ ul.no_bullet_list li {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom center;
-	text-shadow: 1px 3px 5px $highlight-text-color;
+	color: $secondary-text-color;
 }
 
-#page_title > #page_title_content {
+.overlay {
+	background: $overlay-color;
+}
+
+#page_title_content {
 	padding: 40px 60px;
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: 300;
 }
 
@@ -256,14 +260,16 @@ ul.no_bullet_list li {
 #page_title_content a:visited {
 	text-decoration: none;
 	border: none;
-	color: $secondary-text-color;
+	color: $header-text-color;
+	text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 #page_title_content a:hover {
 	text-decoration: none;
 	border: none;
-	color: $secondary-text-color;
+	color: $header-text-color;
 	opacity: 0.5;
+	text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 /* Page Edit and New */
@@ -275,17 +281,19 @@ a.page_new:visited,
 a.page_search:link,
 a.page_search:visited {
 	text-decoration: none;
-	color: $primary-text-color !important;
 	border: none;
+	color: $header-text-color;
+	text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 a.page_edit:hover,
 a.page_new:hover,
 a.page_search:hover {
 	text-decoration: none;
-	color: $primary-text-color !important;
 	border: none;
+	color: $header-text-color;
 	opacity: 0.5;
+	text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 /* Content */
@@ -302,20 +310,21 @@ a.page_search:hover {
 .headline {
 	color: $header-text-color;
 	font-size: 40px;
-	text-shadow: 1px 2px 5px $font-family;
+	text-shadow: 0px 0px 10px $font-family;
 }
 
 .branding_title {
 	font-family: $font-family;
-	font-weight: 100;
+	font-weight: 300;
 	text-transform: lowercase;
 	color: $secondary-text-color;
+	text-shadow: none;
 }
 
 .branding_subtitle {
 	padding: 6px 0px 12px 0px;
-	border-top: 1px solid $secondary-text-color;
-	border-bottom: 1px solid $secondary-text-color;
+	border-top: 2px solid $secondary-text-color;
+	border-bottom: 2px solid $secondary-text-color;
 }
 
 .subtle {
@@ -648,6 +657,11 @@ table th {
 	word-wrap: break-word;
 	padding: 10px;
 	font-weight: 300;
+}
+
+.comment_textarea {
+	width: 100%;
+	margin: 0px !important;
 }
 
 /* Table */

@@ -76,22 +76,8 @@
 
 				<div id="header_space"></div>
 
-				<% if current_page?(root_path) ||
-					(
-						current_page?(new_user_session_path) ||
-						(params[:controller] == "devise/sessions" && action_name == "new")
-					) || (
-						current_page?(new_user_registration_path) ||
-						(params[:controller] == "devise/registrations" && action_name == "create")
-					) || (
-						current_page?(edit_user_registration_path) ||
-						(params[:controller] == "registrations" && action_name == "update")
-					) || current_page?(about_path) || current_page?(contributors_path) ||
-					current_page?(blog_path) %>
 				<div id="page_title">
-				<% else %>
-				<div id="page_title">
-				<% end %>
+				<div class="overlay">
 
 					<div id="page_title_content">
 						<% if current_page?(new_user_session_path) ||
@@ -146,6 +132,8 @@
 							<%= @page_title %>
 						<% end %>
 					</div>
+
+				</div>
 				</div>
 
 				<div id="content">
