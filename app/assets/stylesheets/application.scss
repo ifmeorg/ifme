@@ -450,7 +450,7 @@ img {
 .mini_profile_picture {
 	width: 100px;
 	border-radius: 150px;
-	border-bottom: 2px solid #E1CDD7;
+	border: 2px solid $container-color;
 }
 
 /* Form Elements and Input fields */
@@ -624,15 +624,17 @@ table th {
 
 .comment {
 	margin-top: 40px;
-	padding: 10px;
+	padding: 20px;
 	background-color: white;
-	border: 2px solid #E1CDD7;
-	border-radius: 50px;
+	border: 2px solid $secondary-text-color;
 }
 
-.comment > .comment_info {
+.comment_info {
 	color: $secondary-text-color;
-	margin-bottom: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-bottom: 1px solid $subtle-secondary-text-color;
 }
 
 .comment a:link,
@@ -640,6 +642,12 @@ table th {
 .comment a:hover {
 	color: $secondary-text-color;
 	border-color: $secondary-text-color;
+}
+
+.comment_text {
+	word-wrap: break-word;
+	padding: 10px;
+	font-weight: 300;
 }
 
 /* Table */
@@ -666,15 +674,6 @@ div.table div.table_cell {
 	@media screen and (max-width: $medium - 1) {
 		display: block;
 	}
-}
-
-.table_cell p {
-	word-wrap: break-word;
-	background: #E1CDD7;
-	border-radius: 10px;
-	width: 90%;
-	padding: 1%;
-	font-weight: 300;
 }
 
 /* Errors and Notices */
