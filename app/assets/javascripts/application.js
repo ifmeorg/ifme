@@ -37,8 +37,10 @@ $(document).on("page:load ready", function() {
 
 	if ($('body').hasClass('triggers edit') ||
 		$('body').hasClass('triggers create') ||
+		$('body').hasClass('triggers new') ||
 		$('body').hasClass('strategies edit') ||
-		$('body').hasClass('strategies create')) {
+		$('body').hasClass('strategies create') ||
+		$('body').hasClass('strategies new')) {
 
 		$('#showCategories').click(function() {
 			$('#categories').css({"display": "block"});
