@@ -38,10 +38,13 @@ class TriggersController < ApplicationController
   end
 
   def comment
-    @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
-    respond_to do |format|
+    @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
+    
+    if !@comment.save
+      respond_to do |format|
         format.html { redirect_to trigger_path(params[:comment][:commented_on]) }
         format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+      end
     end
 
     # Notify commented_on user that they have a new comment
@@ -70,6 +73,13 @@ class TriggersController < ApplicationController
       Notification.create(userid: trigger_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: trigger_user).order("created_at ASC").all
       Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
+    end
+
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to trigger_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+      end
     end
   end
 

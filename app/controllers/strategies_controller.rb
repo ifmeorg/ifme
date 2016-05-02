@@ -31,17 +31,20 @@ class StrategiesController < ApplicationController
     else
       @comment = Comment.new
       # @support = Support.new
-      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => "strategy").all
+      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => "strategy").all.order("created_at DESC")
       @no_hide_page = true
       @page_title = @strategy.name
     end
   end
 
   def comment
-    @comment = Comment.create!(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
-    respond_to do |format|
+    @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
+    
+    if !@comment.save 
+      respond_to do |format|
         format.html { redirect_to strategy_path(params[:comment][:commented_on]) }
         format.json { render :show, status: :created, location: Strategy.find(params[:comment][:commented_on]) }
+      end
     end
 
     # Notify commented_on user that they have a new comment
@@ -70,6 +73,13 @@ class StrategiesController < ApplicationController
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: strategy_user).order("created_at ASC").all
       Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
+    end
+
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to strategy_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Strategy.find(params[:comment][:commented_on]) }
+      end
     end
   end
 
