@@ -12,46 +12,9 @@
       <div class="trigger">
     <% end %>
         <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
-        <strong><%= t('.created') %></strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-        <% if trigger.category.count > 0 %>
-          <br>
-          <strong>
-            <% if trigger.category.count == 1 %>
-              <%= t('.category') %>
-            <% else %>
-              <%= t('.categories') %>
-            <% end %>
-          </strong>
-          <% trigger.category.each do |item| %>
-            <%= fetch_taxonomies(trigger, "trigger", item, "category", false, true) %>
-          <% end %>
-        <% end %>
-        <% if trigger.mood.count > 0 %>
-          <br>
-          <strong>
-            <% if trigger.mood.count == 1 %>
-              <%= t('.mood') %>
-            <% else %>
-              <%= t('.moods') %>
-            <% end %>
-          </strong>
-          <% trigger.mood.each do |item| %>
-            <%= fetch_taxonomies(trigger, "trigger", item, "mood", false, true) %>
-          <% end %>
-        <% end %>
-        <% if trigger.strategies.count > 0 %>
-          <br>
-          <strong>
-            <% if trigger.strategies.count == 1 %>
-              <%= t('.strategy') %>
-            <% else %>
-              <%= t('strategies') %>
-            <% end %>
-          </strong>
-          <% trigger.strategies.each do |item| %>
-            <%= fetch_taxonomies(trigger, "trigger", item, "strategy", false, true) %>
-          <% end %>
-        <% end %>
+        
+        <%= render :partial => '/triggers/info', locals: { data: trigger, show_strategies: true } %>
+
         <div class="small_margin_top">
           <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_trigger_path(trigger) %>
           <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), trigger, method: :delete, data: { confirm: t('.confirm') } %>

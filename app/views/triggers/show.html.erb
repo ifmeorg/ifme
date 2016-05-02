@@ -1,31 +1,4 @@
-<strong><%= t('.created') %></strong> <%= local_time(@trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-<% if @trigger.category.count > 0 %>
-  <br>
-    <strong>
-      <% if @trigger.category.count == 1 %>
-        <%= t('.category') %>
-      <% else %>
-        <%= t('.categories') %>
-      <% end %>
-    </strong>
-    <% @trigger.category.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "category", true, true) %>
-    <% end %>
-<% end %>
-
-<% if @trigger.mood.count > 0 %>
-  <br>
-    <strong>
-      <% if @trigger.mood.count == 1 %>
-        <%= t('.mood') %>
-      <% else %>
-        <%= t('.moods') %>
-      <% end %>
-    </strong>
-    <% @trigger.mood.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "mood", true, true) %>
-    <% end %>
-<% end %>
+<%= render :partial => '/triggers/info', locals: { data: @trigger } %>
 
 <% if !@trigger.why.blank? %>
   <p>
@@ -79,9 +52,6 @@
         <% end %>
       </div>
     <% end %>
-    <div class="align_right">
-      <%= fetch_supporters(Support.all, @trigger) %>
-    </div>
     <div class="clear"></div>
   <% end %>
 <% end %>

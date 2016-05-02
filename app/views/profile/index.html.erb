@@ -42,34 +42,7 @@
 				<div class="profile_container">
 			<% end %>
 					<h1 class="profile_name"><%= link_to item.name, item %></h1>
-					<strong>
-				      <% if item.category.count == 1 %>
-				        <%= t('.category') %>
-				      <% else %>
-				        <%= t('.categories') %>
-				      <% end %>
-				    </strong>
-					<% item.category.each do |category_item| %>
-	      				<%= fetch_taxonomies(item, "trigger", category_item, "category", true, true) %>
-	    			<% end %>
-	    			<br>
-	    			<strong>
-				      <% if item.mood.count == 1 %>
-				        <%= t('.mood') %>
-				      <% else %>
-				        <%= t('.moods') %>
-				      <% end %>
-				    </strong>
-					<% item.mood.each do |mood_item| %>
-	      				<%= fetch_taxonomies(item, "trigger", mood_item, "mood", true, true) %>
-	    			<% end %>
-	    			<br>
-				    <br>
-				    <%= simple_format(item.why[0..200]) %>
-				    <% if item.why.length >= 200 %>
-	              		<%= " [...]" %>
-	            	<% end %>
-				    <%= fetch_supporters(Support.all, item) %>
+					<%= render :partial => '/triggers/info', locals: { data: item, show_strategies: true, home: true } %>
 				</div>
 		<% end %>
 	<% end %>

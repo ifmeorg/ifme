@@ -50,53 +50,8 @@
 	        			</h1>
 	     			</div>
 	     			<div class="clear"></div>
-	     			<strong><%= t('.created') %></strong> <%= local_time(trigger.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-	     			<% if trigger.category.count > 0 %>
-		     			<br>
-					    <strong>
-					      <% if trigger.category.count == 1 %>
-					        <%= t('.category') %>
-					      <% else %>
-					        <%= t('.categories') %>
-					      <% end %>
-					    </strong>
-					    <% trigger.category.each do |item| %>
-					      <%= fetch_taxonomies(trigger, "trigger", item, "category", true, true) %>
-					    <% end %>
-					<% end %>
-					<% if trigger.mood.count > 0 %>
-					    <br>
-					    <strong>
-					      <% if trigger.mood.count == 1 %>
-					        <%= t('.mood') %>
-					      <% else %>
-					        <%= t('.moods') %>
-					      <% end %>
-					    </strong>
-					    <% trigger.mood.each do |item| %>
-					      <%= fetch_taxonomies(trigger, "trigger", item, "mood", true, true) %>
-					    <% end %>
-					<% end %>
-				    <% if trigger.strategies.count > 0 %>
-					  	<br>
-					    <strong>
-					      <% if trigger.strategies.count == 1 %>
-					        <%= t('.strategy') %>
-					      <% else %>
-					        <%= t('.strategies') %>
-					      <% end %>
-					    </strong>
-					    <% trigger.strategies.each do |item| %>
-					      <%= fetch_taxonomies(trigger, "trigger", item, "strategy", true, true) %>
-					    <% end %>
-					<% end %>
-				    <br>
-				    <br>
-				    <%= simple_format(trigger.why[0..200]) %>
-				    <% if trigger.why.length >= 200 %>
-	              		<%= " [...]" %>
-	            	<% end %>
-				    <%= fetch_supporters(Support.all, trigger) %>
+	     			
+	     			<%= render :partial => '/triggers/info', locals: { data: trigger, show_strategies: true, home: true } %>
 				</div>
 		<% end %>
 	<% end %>

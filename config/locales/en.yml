@@ -210,6 +210,8 @@ en:
    categories: 'Categories:'
    mood: 'Mood:'
    moods: 'Moods:'
+   strategy: 'Strategy:'
+   strategies: 'Strategies:'
    confirm: 'Are you sure?'
 
  search:
@@ -293,8 +295,8 @@ en:
    categories: 'Categories:'
    mood: 'Mood:'
    moods: 'Moods:'
-   strategy: 'Strategy'
-   strategies: 'Strategies'
+   strategy: 'Strategy:'
+   strategies: 'Strategies:'
    delete: 'Delete'
    confirm: 'Are you sure?'
   show:

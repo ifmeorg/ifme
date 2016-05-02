@@ -29,7 +29,7 @@
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
-            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item } %>
           </span>
           <% end %>
@@ -55,7 +55,7 @@
           <% @moods.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
-            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item } %>
           </span>
           <% end %>
@@ -81,7 +81,7 @@
           <% @strategies.each do |item| %>
           <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
-            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item } %>
           </span>
           <% end %>

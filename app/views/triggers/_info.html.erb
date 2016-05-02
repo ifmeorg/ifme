@@ -1,0 +1,56 @@
+<strong><%= t('triggers.show.created') %></strong> <%= local_time(local_assigns[:data].created_at, '%A, %B %e, %Y at %l:%M %P') %>
+<% if local_assigns[:data].category.count > 0 %>
+  <br>
+  <strong>
+    <% if local_assigns[:data].category.count == 1 %>
+      <%= t('triggers.show.category') %>
+    <% else %>
+      <%= t('triggers.index.categories') %>
+    <% end %>
+  </strong>
+  <% local_assigns[:data].category.each do |item| %>
+    <span class="notification_wrapper">
+      <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:data].category.last != item %><%= ', ' %><% end %>
+      <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first } %>
+    </span>
+  <% end %>
+<% end %>
+
+<% if local_assigns[:data].mood.count > 0 %>
+  <br>
+  <strong>
+    <% if local_assigns[:data].mood.count == 1 %>
+      <%= t('triggers.index.mood') %>
+    <% else %>
+      <%= t('triggers.index.moods') %>
+    <% end %>
+  </strong>
+  <% local_assigns[:data].mood.each do |item| %>
+    <span class="notification_wrapper">
+      <span class="tip_notifications_button link_style"><%= Mood.where(id: item).first.name %></span><% if local_assigns[:data].mood.last != item %><%= ', ' %><% end %>
+      <%= render :partial => '/notifications/preview', locals: { data: Mood.where(id: item).first } %>
+    </span>
+  <% end %>
+<% end %>
+
+<% if local_assigns[:data].strategies.count > 0 && local_assigns[:show_strategies] %>
+  <br>
+  <strong>
+    <% if local_assigns[:data].strategies.count == 1 %>
+      <%= t('triggers.index.strategy') %>
+    <% else %>
+      <%= t('triggers.index.strategies') %>
+    <% end %>
+  </strong>
+  <% local_assigns[:data].strategies.each do |item| %>
+    <%= fetch_taxonomies(local_assigns[:data], "trigger", item, "strategy", true, true) %>
+  <% end %>
+<% end %>
+
+<% if local_assigns[:home] %>
+  <div class="spacer"></div>
+  <%= simple_format(local_assigns[:data].why[0..200]) %>
+  <% if local_assigns[:data].why.length >= 200 %>
+    <%= " [...]" %>
+  <% end %>
+<% end %>
