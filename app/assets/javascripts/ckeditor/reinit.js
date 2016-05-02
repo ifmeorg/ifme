@@ -1,5 +1,7 @@
 $(document).bind('page:change', function() {
   $('.ckeditor').each(function() {
-    CKEDITOR.replace($(this).attr('id'));
+  	if (!this) {
+    	CKEDITOR.replace($(this).attr('id'));
+	}
   });
 });
