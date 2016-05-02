@@ -13,7 +13,7 @@
 
   <div class="field">
     <div class="label"><%= f.label t('.description') %></div>
-    <%= f.cktext_area :description, class: 'no_title special_textarea' %>
+    <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
 <% elsif action_name == "edit" || action_name == "update" %>
 <div class="table">
@@ -44,7 +44,7 @@
         <%= f.label t('.description') %>
       </div>
 
-      <%= f.cktext_area :description, class: 'no_title special_textarea' %>
+      <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
     </div>
 
   </div>
