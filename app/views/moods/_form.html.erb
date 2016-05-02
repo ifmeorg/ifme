@@ -8,13 +8,19 @@
 <div class="table_cell">
 
   <div class="field">
-    <div class="label"><%= f.label t('.name') %></div>
+    <div class="label">
+      <%= f.label t('.name') %>
+      <i class="fa fa-exclamation-circle align_right"></i>
+      <div class="clear"></div>
+    </div>
     <%= f.text_field :name, :class => "name_field" %>
   </div>
 
   <div class="field">
     <div class="label">
       <%= f.label t('.description') %>
+      <i class="fa fa-exclamation-circle align_right"></i>
+      <div class="clear"></div>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>

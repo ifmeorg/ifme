@@ -10,7 +10,11 @@
   <div class="table_cell padding_right vertical_align_top">
 
     <div class="field" >
-      <div class="label"><%= f.label t('.name') %></div>
+      <div class="label">
+        <%= f.label t('.name') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
+      </div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
@@ -24,7 +28,11 @@
   <div class="table_cell padding_right vertical_align_top">
 
     <div class="field">
-      <div class="label"><%= f.label t('.strength') %></div>
+      <div class="label">
+        <%= f.label t('.strength') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
+        </div>
       <div class="inline-block">
         <%= f.number_field :strength, :placeholder => t('.strength_placeholder') %>
         <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
@@ -32,7 +40,11 @@
     </div>
 
     <div class="field">
-      <div class="label"><%= f.label :total %></div>
+      <div class="label">
+        <%= f.label :total %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
+      </div>
       <div class="inline-block">
         <%= f.number_field :total, :placeholder => t('.total_placeholder') %>
         <%= f.select(:total_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
@@ -44,7 +56,11 @@
   <div class="table_cell vertical_align_top">
 
     <div class="field">
-      <div class="label"><%= f.label t('.dosage') %></div>
+      <div class="label">
+        <%= f.label t('.dosage') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
+      </div>
       <div class="inline-block">
         <%= f.number_field :dosage, :placeholder => t('.dosage_placeholder') %>
         <%= f.select(:dosage_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
@@ -52,7 +68,11 @@
     </div>
 
     <div class="field">
-      <div class="label"><%= f.label t('.refill') %></div>
+      <div class="label">
+        <%= f.label t('.refill') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
+      </div>
       <%= f.text_field :refill %>
     </div>
 

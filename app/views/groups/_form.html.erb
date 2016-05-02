@@ -7,12 +7,20 @@
 
 <% if action_name == "new" || action_name == "create" %>
   <div class="field">
-    <div class="label"><%= f.label t('.name') %></div>
+    <div class="label">
+      <%= f.label t('.name') %>
+      <i class="fa fa-exclamation-circle align_right"></i>
+      <div class="clear"></div>
+    </div>
     <%= f.text_field :name, :class => "name_field" %>
   </div>
 
   <div class="field">
-    <div class="label"><%= f.label t('.description') %></div>
+    <div class="label">
+      <%= f.label t('.description') %>
+      <i class="fa fa-exclamation-circle align_right"></i>
+      <div class="clear"></div>
+    </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
 <% elsif action_name == "edit" || action_name == "update" %>

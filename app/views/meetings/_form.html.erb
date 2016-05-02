@@ -9,39 +9,49 @@
 
   <div class="table_cell padding_right vertical_align_top">
 
-    <div class="field">
-      <div class="label">
+    <div class="sidebar_field">
+      <div class="sidebar_label">
         <%= f.label t('.name') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'name_field' %>
     </div>
 
-    <div class="field">
-      <div class="label">
+    <div class="sidebar_field">
+      <div class="sidebar_label">
         <%= f.label t('.location') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
-      <%= f.text_field :location, placeholder: t('.location_placeholder') %>
+      <%= f.text_field :location, placeholder: t('.location_placeholder'), class: 'full_field' %>
     </div>
 
-    <div class="field">
-      <div class="label">
+    <div class="sidebar_field">
+      <div class="sidebar_label">
         <%= f.label t('.time') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
-      <%= f.text_field :time %>
+      <%= f.text_field :time, class: 'full_field' %>
     </div>
 
-    <div class="field">
-      <div class="label">
+    <div class="sidebar_field">
+      <div class="sidebar_label">
         <%= f.label t('.date') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, class: 'full_field' %>
     </div>
 
-    <div class="field">
-      <div class="label">
+    <div class="sidebar_field">
+      <div class="sidebar_label">
         <%= f.label t('.maximum_members') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
-      <%= f.number_field :maxmembers, min: 0, placeholder: t('.maximum_placeholder') %>
+      <%= f.number_field :maxmembers, min: 0, placeholder: t('.maximum_placeholder'), class: 'full_field' %>
     </div>
 
   </div>
@@ -51,6 +61,8 @@
     <div class="field">
       <div class="label">
         <%= f.label t('.description') %>
+        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="clear"></div>
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
     </div>
