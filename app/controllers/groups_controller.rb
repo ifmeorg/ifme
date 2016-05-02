@@ -56,14 +56,14 @@ class GroupsController < ApplicationController
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
         
-        # Alert allies that you created a new group
+        # Notify allies that you created a new group
         accepted_allies = current_user.allies_by_status(:accepted)
 
         uniqueid = 'new_group_' + current_user.id.to_s
 
         accepted_allies.each do |ally|      
           data = JSON.generate({
-          user: ally.name, 
+          user: current_user.name, 
           groupid: @group.id,
           group: @group.name,
           type: 'new_group',
@@ -98,21 +98,41 @@ class GroupsController < ApplicationController
           group_member_id = GroupMember.where(groupid: @group.id, userid: member.userid).first.id
           if params[:group][:leader].nil?
             error = true
-            break
+            format.html { redirect_to group_path(@group) }
+            format.json { render :show, status: :ok, location: @group }
           elsif params[:group][:leader].include? member.userid.to_s
             GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: true)
+            pusher_type = 'add_group_leader'
           else
             GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: false)
+            pusher_type = 'remove_group_leader'
+          end
+
+          # Notify leaders that a leader has been added or removed
+          uniqueid = pusher_type + '_' + current_user.id.to_s
+          group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+          group = Group.where(id: @group.id).first.name
+
+          group_leaders.each do |leader|
+            if leader.userid != current_user.id
+              user = User.where(id: member.userid).first.name     
+              data = JSON.generate({
+              user: user, 
+              groupid: params[:groupid],
+              group: group,
+              type: pusher_type,
+              uniqueid: uniqueid
+              })
+
+              Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
+              notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
+              Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+            end
           end
         end
-        if !error
-          format.html { redirect_to group_path(@group) }
-          format.json { render :show, status: :ok, location: @group }
-        else
-          @group_members = GroupMember.where(groupid: @group.id).all
-          format.html { render :edit }
-          format.json { render json: @group.errors, status: :unprocessable_entity }
-        end
+        @group_members = GroupMember.where(groupid: @group.id).all
+        format.html { render :edit }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
       else
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }

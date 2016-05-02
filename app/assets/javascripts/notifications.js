@@ -109,14 +109,29 @@ function renderNotifications(notifications) {
       }
    
       $('#notifications_list').prepend(notification_link);
-    } else if (data.type == 'new_group' || data.type == 'new_group_member') {
-      // Alice created a new group "Name"
+    } else if (data.type == 'new_group' || 
+      data.type == 'new_group_member' || 
+      data.type == 'add_group_leader' || 
+      data.type == 'remove_group_leader' || 
+      data.type == 'new_meeting' || 
+      data.type == 'remove_meeting' || 
+      data.type == 'update_meeting') {
       var notification;
 
-      if (data.type == 'new_group')
+      if (data.type == 'new_group') {
         notification = data.user + ' created a group "' + data.group + '"';
-      else if (data.type == 'new_group_member') {
+      } else if (data.type == 'new_group_member') {
         notification = data.user + ' joined your group "' + data.group + '"';
+      } else if (data.type == 'add_group_leader') {
+        notification = data.user + ' became a leader of "' + data.group + '"';
+      } else if (data.type == 'remove_group_leader') {
+        notification = data.user + ' is no longer a leader of "' + data.group + '"';
+      } else if (data.type == 'new_meeting') {
+        notification = data.user + ' created a new meeting "' + data.meeting + '" for "' + data.group + '"';
+      } else if (data.type == 'remove_meeting') {
+        notification = data.user + ' has removed "' + data.meeting + '" for "' + data.group + '"';
+      } else if (data.type == 'update_meeting') {
+        notification = data.user + ' has updated "' + data.meeting + '" for "' + data.group + '"';
       }
 
       var link = 'groups/' + data.groupid;

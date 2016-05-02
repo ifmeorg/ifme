@@ -23,8 +23,8 @@
 
 <% if @meetings.length > 0 %>
   <div class="spacer"></div>
-  <% @meetings.each_with_index do |meeting, index| %>
-  	<% if index+1 == @meetings.length %>
+  <% @meetings.each do |meeting| %>
+  	<% if @meetings.last == meeting %>
   		<div class="meeting no_margin_bottom">
   	<% else %>
     	<div class="meeting">
@@ -67,7 +67,7 @@
 	      	<br>
 	      	<% if MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists? %>
 				<strong>You are attending. Change your mind? <%= link_to t('.leave_cta'), leave_meetings_path(meetingid: meeting.id) %></strong>
-			<% elsif meeting.maxmembers > 0 %>
+			<% elsif !meeting.maxmembers.nil? && meeting.maxmembers > 0 %>
 				<strong>You are not attending. There are <%= meeting.maxmembers-MeetingMember.where(id: meeting.id).count %> spots left to fill! <%= link_to t('.join_cta'), join_meetings_path(meetingid: meeting.id) %></strong>
 			<% else %>
 				<strong>You are not attending. There is still room to <%= link_to t('.join'), join_meetings_path(meetingid: meeting.id) %>!</strong>
