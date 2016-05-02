@@ -20,7 +20,9 @@
         <% end %>
       </h1>
 
-      <strong><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+      <strong><i class="fa fa-list tip_notifications_button small_margin_right"></i><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+
+      <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
       
       <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
       <% if Group.where(id: group.groupid).first.description.length >= 80 %>

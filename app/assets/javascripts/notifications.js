@@ -56,6 +56,25 @@ $(document).on("page:load ready", function() {
 
     $.ajax("/notifications/clear");
   });
+
+  // Tip
+  var tip_click_flag = 0;
+
+  $('.tip_notifications_button').click(function() {
+    event.preventDefault();
+    if (tip_click_flag % 2 == 0) {
+      $(this).parent().siblings('.tip_notifications').css({"display": "block"});
+    } else {
+      $(this).parent().siblings('.tip_notifications').css({"display": "none"});
+    }
+    tip_click_flag++;
+  });
+
+  $('.tip_close_notifications').click(function() {
+    event.preventDefault();
+    $(this).closest('.tip_notifications').css({"display": "none"});
+    tip_click_flag++;
+  });
 });
 
 function renderNotifications(notifications) {

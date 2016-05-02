@@ -1,11 +1,11 @@
-#notifications {
+#notifications, .tip_notifications {
   width: 100%;
   position: fixed;
   top: 30%;
   z-index: 9001;
 }
 
-#notifications_text {
+#notifications_text, .tip_notifications_text {
   margin: 0 auto;
   width: 50%;
   height: 250px;
@@ -17,7 +17,9 @@
 }
 
 a.notification_link:link,
-a.notification_link:visited {
+a.notification_link:visited,
+a.tip_notification_link:link,
+a.tip_notification_link:visited {
   margin-top: 20px;
   display: block;
   text-decoration: none;
@@ -25,7 +27,7 @@ a.notification_link:visited {
   border-bottom: none;
 }
 
-a.notification_link:hover {
+a.notification_link:hover, a.tip_notification_link:hover {
   margin-top: 20px;
   display: block;
   text-decoration: none;
@@ -36,4 +38,8 @@ a.notification_link:hover {
 
 #notifications_none {
   margin-top: 20px;
+}
+
+.tip_notifications_button:hover {
+  opacity: 0.5;
 }

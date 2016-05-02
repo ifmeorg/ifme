@@ -92,6 +92,7 @@ en:
    leave_cta: 'Leave?'
    join_cta: 'Join!'
    join: 'join'
+   members: 'Members:'
 
  layouts:
   application:

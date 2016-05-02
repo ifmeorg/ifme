@@ -118,19 +118,21 @@
         <div class="comment">
         <% end %>
           <div class="table">
-            <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
-              <% profile = User.where(:id => comment.comment_by).first %>
-                <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
-                <br>
-            </div>
-            <div class="table_cell">
-              <div class="comment_info">
-                <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+            <div class="table_row">
+              <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
+                <% profile = User.where(:id => comment.comment_by).first %>
+                  <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
+                  <br>
               </div>
-              <div class="comment_text"><%= simple_format(comment.comment) %></div>
-              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
-                <div class="subtle"><%= t('.visible_only_to') %></div>
-              <% end %>
+              <div class="table_cell">
+                <div class="comment_info">
+                  <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                </div>
+                <div class="comment_text"><%= simple_format(comment.comment) %></div>
+                <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
+                  <div class="subtle"><%= t('.visible_only_to') %></div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

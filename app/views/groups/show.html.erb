@@ -1,5 +1,10 @@
 <%= simple_format(@group.description) %>
-<strong><%= t('.led_by') %></strong>
+<strong><i class="fa fa-list tip_notifications_button small_margin_right"></i><%= t('.members') %></strong> <%= GroupMember.where(groupid: @group.id).count %>
+
+<%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: @group.id).all } %>
+
+<br>
+<strong><i class="fa fa-key small_margin_right"></i><%= t('.led_by') %></strong>
 <% is_leader = false %>
 <% @group_leaders.each_with_index do |leader, index| %>
 	<% if leader.userid == current_user.id %>

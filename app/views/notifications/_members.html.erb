@@ -1,0 +1,33 @@
+<div class="tip_notifications display_none">
+	<div class="tip_notifications_text">
+		<div class="table small_margin_bottom">
+			<div class="table_row">
+				<div class="table_cell vertical_align_middle">
+					<h1>List of Members</h1>
+				</div>
+				<div class="table_cell align_right">
+					<h1 class="tip_close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
+				</div>
+			</div>
+		</div>
+
+		<% local_assigns[:data].each do |member| %>
+			<div class="table">
+				<div class="table_row">
+					<% if local_assigns[:data].last == member %>
+						<div class="table_cell small_profile_picture_div padding_right">
+					<% else %>
+		            	<div class="table_cell small_profile_picture_div padding_right small_padding_bottom">
+		            <% end %>
+		              <% profile = User.where(:id => member.userid).first %>
+		                <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
+		                <br>
+		            </div>
+		            <div class="table_cell vertical_align_middle">
+		                <%= link_to profile.name, profile_index_path(:userid => member.userid) %>
+		            </div>
+		        </div>
+          	</div>
+		<% end %>
+	</div>
+</div>
