@@ -3,21 +3,6 @@ class SetupDatabase < ActiveRecord::Migration
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alerts", force: true do |t|
-    t.integer  "userid"
-    t.integer  "trigger"
-    t.integer  "medication"
-    t.string   "message"
-    t.string   "means"
-    t.string   "days"
-    t.string   "time_hour"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "time_minute"
-    t.string   "time_period"
-  end
-
   create_table "allies", force: true do |t|
     t.integer  "userid1"
     t.datetime "created_at"
