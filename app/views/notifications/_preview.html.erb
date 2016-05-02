@@ -1,0 +1,18 @@
+<div class="tip_notifications display_none">
+	<div class="tip_notifications_text">
+		<div class="table small_margin_bottom">
+			<div class="table_row">
+				<div class="table_cell vertical_align_middle">
+					<h1><%= local_assigns[:data].name %></h1>
+				</div>
+				<div class="table_cell align_right">
+					<h1 class="tip_close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
+				</div>
+			</div>
+		</div>
+
+		<%= simple_format(local_assigns[:data].description) %>
+
+        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(local_assigns[:data]), target: "blank" %>
+	</div>
+</div>

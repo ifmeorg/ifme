@@ -3,6 +3,7 @@
   position: fixed;
   top: 30%;
   z-index: 9001;
+  left: 0;
 }
 
 #notifications_text, .tip_notifications_text {
@@ -42,4 +43,12 @@ a.notification_link:hover, a.tip_notification_link:hover {
 
 .tip_notifications_button:hover {
   opacity: 0.5;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 26px;
+  padding: 0;
+  margin: 0px;
+  color: $secondary-text-color;
 }

@@ -112,6 +112,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
     @page_title = "New Strategy"
+    @categories = Category.where(:userid => current_user.id).all
   end
 
   # GET /strategies/1/edit
@@ -119,6 +120,7 @@ class StrategiesController < ApplicationController
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @page_title = "Edit " + @strategy.name
+      @categories = Category.where(:userid => current_user.id).all
     else
       respond_to do |format|
         format.html { redirect_to strategy_path(@strategy) }

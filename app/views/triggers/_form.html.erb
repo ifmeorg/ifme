@@ -28,7 +28,10 @@
         <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
-          <%= item.name %><br>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+          </span>
           <% end %>
         <% else %>
           <%= no_taxonomies_error("category") %>
@@ -51,7 +54,10 @@
         <% if !@moods.nil? && @moods.length > 0 %>
           <% @moods.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "mood", true, false) %><br>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+          </span>
           <% end %>
          <% else %>
           <%= no_taxonomies_error("mood") %>
@@ -74,7 +80,10 @@
         <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
           <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
-          <%= fetch_taxonomies(@trigger, "trigger", item.id, "strategy", true, false) %><br>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+          </span>
           <% end %>
         <% else %>
           <%= no_taxonomies_error("strategy") %>
