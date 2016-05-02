@@ -474,6 +474,10 @@ label {
 	display: inherit;
 	margin-bottom: 20px;
 }
+textarea {
+	width: 50%;
+	height: 100px;
+}
 
 input,
 textarea,
@@ -508,10 +512,6 @@ input[type="radio"] {
 	margin-right: 0px;
 }
 
-textarea {
-	width: 50%;
-	height: 100px;
-}
 
 input[type="submit"] {
 	border: 1px solid $container-color;
