@@ -1,7 +1,7 @@
 <%= simple_format(@group.description) %>
 
 <div class="notification_wrapper">
-	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= t('.members') %></strong> <%= GroupMember.where(groupid: @group.id).count %>
+	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: @group.id).count %> <% if GroupMember.where(groupid: @group.id).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong> 
 
 	<%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: @group.id).all } %>
 </div>

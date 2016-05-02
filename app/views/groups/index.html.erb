@@ -21,7 +21,7 @@
       </h1>
 
       <div class="notification_wrapper">
-        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
 
         <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
       </div>
@@ -60,7 +60,9 @@
         <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
       </h1>
 
-      <strong><%= t('.members') %></strong> <%= GroupMember.where(groupid: group.groupid).count %>
+      <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
+
+      <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
       
       <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
       <% if Group.where(id: group.groupid).first.description.length >= 80 %>

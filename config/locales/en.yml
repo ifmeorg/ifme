@@ -76,7 +76,8 @@ en:
   index:
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
    joined_groups: 'Joined Groups'
-   members: 'Members:'
+   members: 'members'
+   member: 'member'
    description: 'Description:'
    leader: 'Leader'
    edit: 'Edit'
@@ -92,7 +93,8 @@ en:
    leave_cta: 'Leave?'
    join_cta: 'Join!'
    join: 'join'
-   members: 'Members:'
+   members: 'members'
+   member: 'member'
 
  layouts:
   application:
