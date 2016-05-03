@@ -3,11 +3,11 @@ class PagesController < ApplicationController
   	if user_signed_in?
   		@page_title = "Latest"
 
-      @triggers = Array.new
-      all_triggers = Trigger.order("created_at DESC").all
-      all_triggers.each do |trigger|
-        if current_user.id == trigger.userid || are_allies(current_user.id, trigger.userid) && is_viewer(trigger.viewers)
-          @triggers.push(trigger)
+      @moments = Array.new
+      all_moments = Moment.order("created_at DESC").all
+      all_moments.each do |moment|
+        if current_user.id == moment.userid || are_allies(current_user.id, moment.userid) && is_viewer(moment.viewers)
+          @moments.push(moment)
         end
       end
   	else

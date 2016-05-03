@@ -1,17 +1,17 @@
-// Place all the styles related to the Triggers controller here.
+// Place all the styles related to the Moments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Triggers */
+/* Moments */
 
-.trigger {
+.moment {
 	padding: 20px;
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
 }
 
-h1.trigger_name {
+h1.moment_name {
 	font-weight: 300;
 	font-size: 26px;
 	padding: 0;
@@ -19,8 +19,8 @@ h1.trigger_name {
 	color: $secondary-text-color;
 }
 
-h1.trigger_name a:link,
-h1.trigger_name a:visited {
+h1.moment_name a:link,
+h1.moment_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;

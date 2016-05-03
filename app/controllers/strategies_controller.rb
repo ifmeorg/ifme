@@ -191,13 +191,13 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
-    # Remove strategies from existing triggers
-    @triggers = Trigger.where(:userid => current_user.id).all
+    # Remove strategies from existing moments
+    @moments = Moment.where(:userid => current_user.id).all
 
-    @triggers.each do |item|
+    @moments.each do |item|
       new_strategy = item.strategies.delete(@strategy.id)
-      the_trigger = Trigger.find_by(id: item.id)
-      the_trigger.update(strategies: item.strategies)
+      the_moment = Moment.find_by(id: item.id)
+      the_moment.update(strategies: item.strategies)
     end
 
     @strategy.destroy

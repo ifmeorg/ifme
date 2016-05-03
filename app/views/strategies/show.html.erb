@@ -79,7 +79,7 @@
 
   <div class="table">
   <% @comments.each do |comment| %>
-    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
+    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @moment.userid)) %>
         <% if @comments.first == comment %>
         <div class="comment no_margin_top" %>
         <% else %>
@@ -96,7 +96,7 @@
                 <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
               </div>
               <div class="comment_text"><%= simple_format(comment.comment) %></div>
-              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
+              <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @moment.userid) %>
                 <div class="subtle"><%= t('.visible_only_to') %></div>
               <% end %>
             </div>

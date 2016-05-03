@@ -1,5 +1,5 @@
-<%= form_for(@trigger) do |f| %>
-<% if @trigger.errors.any? %>
+<%= form_for(@moment) do |f| %>
+<% if @moment.errors.any? %>
   <div class="error_explanation">
     <%= t('.error_explanation') %>
   </div>
@@ -31,7 +31,7 @@
       <div id="categories" class="display_none">
         <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
-          <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
+          <%= f.check_box(:category, {:multiple => true, :checked => @moment.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
@@ -57,7 +57,7 @@
       <div id="moods" class="display_none">
         <% if !@moods.nil? && @moods.length > 0 %>
           <% @moods.each do |item| %>
-          <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
+          <%= f.check_box(:mood, {:multiple => true, :checked => @moment.mood.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
@@ -83,7 +83,7 @@
       <div id ="strategies" class="display_none">
         <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
-          <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
+          <%= f.check_box(:strategies, {:multiple => true, :checked => @moment.strategies.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_strategy_path(item) } %>
@@ -103,7 +103,7 @@
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
       <% @viewers.each do |item| %>
-      <%= f.check_box(:viewers, {:multiple => true, :checked => @trigger.viewers.include?(item.id)}, item.id, nil) %><%= User.where(id: item.id).first.name %><br>
+      <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %><%= User.where(id: item.id).first.name %><br>
       <% end %>
     </div>
     <% end %>

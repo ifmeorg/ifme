@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id || is_viewer(params[:trigger], params[:strategy], @category)
+    if @category.userid == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
       @page_title = @category.name
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
@@ -98,13 +98,13 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    # Remove categories from existing triggers
-    @triggers = Trigger.where(:userid => current_user.id).all
+    # Remove categories from existing moments
+    @moments = Moment.where(:userid => current_user.id).all
 
-    @triggers.each do |item|
+    @moments.each do |item|
       new_category = item.category.delete(@category.id)
-      the_trigger = Trigger.find_by(id: item.id)
-      the_trigger.update(category: item.category)
+      the_moment = Moment.find_by(id: item.id)
+      the_moment.update(category: item.category)
     end
 
     @category.destroy
@@ -143,11 +143,11 @@ class CategoriesController < ApplicationController
       end
     end
 
-    def is_viewer(trigger, strategy, category)
+    def is_viewer(moment, strategy, category)
       if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
         return true
-      elsif !trigger.blank?
-        if Trigger.where(id: trigger).exists? && Trigger.where(id: trigger).first.category.include?(category.id) && Trigger.where(id: trigger).first.viewers.include?(current_user.id)
+      elsif !moment.blank?
+        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id)
           return true
         end
       end

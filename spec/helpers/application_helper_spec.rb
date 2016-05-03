@@ -60,8 +60,8 @@ describe ApplicationHelper do
     end
 
     context "current controller" do
-      let(:current_controller) { "triggers" }
-      let(:path)               { new_trigger_path }
+      let(:current_controller) { "moments" }
+      let(:path)               { new_moment_path }
 
       it { is_expected.to be true }
     end
@@ -75,7 +75,7 @@ describe ApplicationHelper do
 
     context "parent of active controller" do
       let(:current_controller) { "categories" }
-      let(:path)               { triggers_path }
+      let(:path)               { moments_path }
 
       it { is_expected.to be true }
     end

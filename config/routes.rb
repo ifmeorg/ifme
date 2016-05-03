@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'errors/not_found'
-
   get 'errors/internal_server_error'
 
   get "/404" => "errors#not_found"
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :triggers do
+  resources :moments do
     collection do
       post "comment"
       post "support"

@@ -29,29 +29,29 @@
 			</div>
 		</div>
 	</div>
-<% elsif @triggers.count > 0 %>
-	<% @triggers.each_with_index do |trigger, index| %>
-		<% if current_user.id == trigger.userid || (is_viewer(trigger.viewers) && are_allies(current_user.id, trigger.userid)) %>
-			<% if index+1 == @triggers.length %>
-  				<div class="trigger no_margin_bottom">
+<% elsif @moments.count > 0 %>
+	<% @moments.each_with_index do |moment, index| %>
+		<% if current_user.id == moment.userid || (is_viewer(moment.viewers) && are_allies(current_user.id, moment.userid)) %>
+			<% if index+1 == @moments.length %>
+  				<div class="moment no_margin_bottom">
   			<% else %>
-				<div class="trigger">
+				<div class="moment">
 			<% end %>
 	      			<div class="align_left">
-					    <h1 class="trigger_name"><%= link_to trigger.name, trigger %></h1>
+					    <h1 class="moment_name"><%= link_to moment.name, moment %></h1>
 					</div>
 					<div class="align_right">
 	        			<h1 class="ally_name">
-	        				<% if current_user.id == trigger.userid %>
-	        					<%= link_to t('.you'), profile_index_path(:userid => trigger.userid) %>
+	        				<% if current_user.id == moment.userid %>
+	        					<%= link_to t('.you'), profile_index_path(:userid => moment.userid) %>
 	        				<% else %>
-	        					<%= link_to User.where(:id => trigger.userid).first.name, profile_index_path(:userid => trigger.userid) %>
+	        					<%= link_to User.where(:id => moment.userid).first.name, profile_index_path(:userid => moment.userid) %>
 	        				<% end %>
 	        			</h1>
 	     			</div>
 	     			<div class="clear"></div>
 	     			
-	     			<%= render :partial => '/triggers/info', locals: { data: trigger, show_strategies: true, home: true } %>
+	     			<%= render :partial => '/moments/info', locals: { data: moment, show_strategies: true, home: true } %>
 				</div>
 		<% end %>
 	<% end %>
@@ -78,8 +78,8 @@
 			</div>
 
 			<div class="table_cell vertical_align_middle">
-				Is it easier to categorize your life? Create custom <%= link_to(t('.categories_word'), categories_path) %> to help organize your triggers
-				<br>Write about the <%= link_to(t('.triggers_word'), triggers_path) %> - the events, moments, and situations that affect your mental health
+				Is it easier to categorize your life? Create custom <%= link_to(t('.categories_word'), categories_path) %> to help organize your moments
+				<br>Write about the <%= link_to(t('.moments_word'), moments_path) %> - the events and situations that affect your mental health
 				<br>Need extra support? Join or create a <%= link_to(t('.groups_word'), groups_path) %> to open up
 			</div>
 		</div>

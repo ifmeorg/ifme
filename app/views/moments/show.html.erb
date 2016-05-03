@@ -1,24 +1,24 @@
-<%= render :partial => '/triggers/info', locals: { data: @trigger } %>
+<%= render :partial => '/moments/info', locals: { data: @moment } %>
 
-<% if !@trigger.why.blank? %>
+<% if !@moment.why.blank? %>
   <p>
     <div class="label"><%= label_tag t('.why') %></div>
-    <%= simple_format(@trigger.why) %>
+    <%= simple_format(@moment.why) %>
   </p>
 <% end %>
 
-<% if !@trigger.fix.blank? %>
+<% if !@moment.fix.blank? %>
   <p>
     <div class="label"><%= label_tag t('.fix') %></div>
-    <%= simple_format(@trigger.fix) %>
+    <%= simple_format(@moment.fix) %>
   </p>
 <% end %>
 
-<% if @trigger.strategies.count > 0 %>
+<% if @moment.strategies.count > 0 %>
   <p>
     <div class="label"><%= label_tag t('.strategies') %></div>
-    <% @trigger.strategies.each do |item| %>
-      <%= fetch_taxonomies(@trigger, "trigger", item, "strategy", true, true) %>
+    <% @moment.strategies.each do |item| %>
+      <%= fetch_taxonomies(@moment, "moment", item, "strategy", true, true) %>
     <% end %>
   </p>
 <% end %>
@@ -26,7 +26,7 @@
 <!-- Disabling support feature temporarily -->
 <% if false %>
   <% if @no_hide_page %>
-    <% if current_user.id != @trigger.userid %>
+    <% if current_user.id != @moment.userid %>
       <div class="align_left">
         <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
           <% if @support.errors.any? %>
@@ -37,10 +37,10 @@
 
           <div class="actions">
             <%= f.hidden_field :userid, :value => current_user.id %>
-            <%= f.hidden_field :support_type, :value => 'trigger' %>
-            <%= f.hidden_field :support_id, :value => @trigger.id %>
-            <% if Support.where(:userid => current_user.id, :support_type => 'trigger').exists? %>
-              <% if Support.where(:userid => current_user.id, :support_type => 'trigger').first.support_ids.include?(@trigger.id) %>
+            <%= f.hidden_field :support_type, :value => 'moment' %>
+            <%= f.hidden_field :support_id, :value => @moment.id %>
+            <% if Support.where(:userid => current_user.id, :support_type => 'moment').exists? %>
+              <% if Support.where(:userid => current_user.id, :support_type => 'moment').first.support_ids.include?(@moment.id) %>
                 <%= f.submit t('.unsupport'), :id => 'unsupport' %>
               <% else %>
                 <%= f.submit t('.support'), :id => 'support' %>
@@ -56,7 +56,7 @@
   <% end %>
 <% end %>
 
-<% if @trigger.comment && (current_user.id == @trigger.userid || @no_hide_page) %>
+<% if @moment.comment && (current_user.id == @moment.userid || @no_hide_page) %>
 
   <%= form_for @comment, :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if @comment.errors.any? %>
@@ -70,10 +70,10 @@
     </div>
 
     <div class="actions align_right">
-      <%= f.hidden_field :comment_type, :value => 'trigger' %>
+      <%= f.hidden_field :comment_type, :value => 'moment' %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
-      <%= f.hidden_field :commented_on, :value => @trigger.id %>
-      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @trigger.userid).first.name + t('.only'), 'private']] %>
+      <%= f.hidden_field :commented_on, :value => @moment.id %>
+      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => @moment.userid).first.name + t('.only'), 'private']] %>
       <%= f.submit t('.comment'), class: 'no_margin_right' %>
     </div>
 
@@ -81,7 +81,7 @@
   <% end %>
 
   <% @comments.each do |comment| %>
-    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid)) %>
+    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @moment.userid)) %>
         <% if @comments.first == comment %>
         <div class="comment no_margin_top" %>
         <% else %>
@@ -99,7 +99,7 @@
                   <%= link_to profile.name, profile_index_path(:userid => comment.comment_by) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
                 </div>
                 <div class="comment_text"><%= simple_format(comment.comment) %></div>
-                <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @trigger.userid) %>
+                <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == @moment.userid) %>
                   <div class="subtle"><%= t('.visible_only_to') %></div>
                 <% end %>
               </div>

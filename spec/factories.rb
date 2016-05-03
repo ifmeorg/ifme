@@ -62,15 +62,15 @@ FactoryGirl.define do
     description "Test Mood"
   end
 
-  factory :trigger do
-    name  "Test Trigger"
+  factory :moment do
+    name  "Test Moment"
     why "Test Why"
     fix "Test fix"
     comment true
   end
 
   factory :comment do
-    comment_type "trigger"
+    comment_type "moment"
     comment "Test Comment"
   end
 

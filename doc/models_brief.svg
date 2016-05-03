@@ -57,10 +57,10 @@
 <ellipse fill="none" stroke="black" cx="693.277" cy="-18" rx="38.2284" ry="18"/>
 <text text-anchor="middle" x="693.277" y="-13.8" font-family="Times,serif" font-size="14.00">Support</text>
 </g>
-<!-- Trigger -->
-<g id="node10" class="node"><title>Trigger</title>
+<!-- Moment -->
+<g id="node10" class="node"><title>Moment</title>
 <ellipse fill="none" stroke="black" cx="785.277" cy="-18" rx="36.1363" ry="18"/>
-<text text-anchor="middle" x="785.277" y="-13.8" font-family="Times,serif" font-size="14.00">Trigger</text>
+<text text-anchor="middle" x="785.277" y="-13.8" font-family="Times,serif" font-size="14.00">Moment</text>
 </g>
 <!-- User -->
 <g id="node11" class="node"><title>User</title>
@@ -104,8 +104,8 @@
 <g id="edge8" class="edge"><title>ActiveRecord::Base&#45;&gt;Support</title>
 <path fill="none" stroke="black" d="M497.611,-92.6871C544.649,-74.9727 622.274,-45.7394 664.219,-29.9434"/>
 </g>
-<!-- ActiveRecord::Base&#45;&gt;Trigger -->
-<g id="edge9" class="edge"><title>ActiveRecord::Base&#45;&gt;Trigger</title>
+<!-- ActiveRecord::Base&#45;&gt;Moment -->
+<g id="edge9" class="edge"><title>ActiveRecord::Base&#45;&gt;Moment</title>
 <path fill="none" stroke="black" d="M513.912,-95.3494C571.168,-82.3894 662.707,-60.4002 740.277,-36 746.013,-34.1957 752.082,-32.0616 757.843,-29.9259"/>
 </g>
 <!-- ActiveRecord::Base&#45;&gt;User -->

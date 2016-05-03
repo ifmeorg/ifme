@@ -24,7 +24,7 @@
 <polyline fill="none" stroke="black" points="0,-253.5 133.011,-253.5 "/>
 <text text-anchor="start" x="8" y="-238.3" font-family="Times,serif" font-size="14.00">id :integer</text>
 <text text-anchor="start" x="8" y="-224.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
-<text text-anchor="start" x="8" y="-210.3" font-family="Times,serif" font-size="14.00">trigger :integer</text>
+<text text-anchor="start" x="8" y="-210.3" font-family="Times,serif" font-size="14.00">moment :integer</text>
 <text text-anchor="start" x="8" y="-196.3" font-family="Times,serif" font-size="14.00">medication :integer</text>
 <text text-anchor="start" x="8" y="-182.3" font-family="Times,serif" font-size="14.00">message :string</text>
 <text text-anchor="start" x="8" y="-168.3" font-family="Times,serif" font-size="14.00">means :string</text>
@@ -131,10 +131,10 @@
 <text text-anchor="start" x="1081" y="-133.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="1081" y="-119.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
 </g>
-<!-- Trigger -->
-<g id="node10" class="node"><title>Trigger</title>
+<!-- Moment -->
+<g id="node10" class="node"><title>Moment</title>
 <path fill="none" stroke="black" d="M1236,-70.5C1236,-70.5 1345.01,-70.5 1345.01,-70.5 1351.01,-70.5 1357.01,-76.5 1357.01,-82.5 1357.01,-82.5 1357.01,-256.5 1357.01,-256.5 1357.01,-262.5 1351.01,-268.5 1345.01,-268.5 1345.01,-268.5 1236,-268.5 1236,-268.5 1230,-268.5 1224,-262.5 1224,-256.5 1224,-256.5 1224,-82.5 1224,-82.5 1224,-76.5 1230,-70.5 1236,-70.5"/>
-<text text-anchor="middle" x="1290.51" y="-253.3" font-family="Times,serif" font-size="14.00">Trigger</text>
+<text text-anchor="middle" x="1290.51" y="-253.3" font-family="Times,serif" font-size="14.00">Moment</text>
 <polyline fill="none" stroke="black" points="1224,-246.5 1357.01,-246.5 "/>
 <text text-anchor="start" x="1232" y="-231.3" font-family="Times,serif" font-size="14.00">id :integer</text>
 <text text-anchor="start" x="1232" y="-217.3" font-family="Times,serif" font-size="14.00">category :text</text>
@@ -214,8 +214,8 @@
 <g id="edge8" class="edge"><title>ActiveRecord::Base&#45;&gt;Support</title>
 <path fill="none" stroke="black" d="M830.603,-401.51C908.357,-390.041 1029.35,-368.145 1064.51,-339 1098.65,-310.694 1117.8,-263.696 1128.19,-226.517"/>
 </g>
-<!-- ActiveRecord::Base&#45;&gt;Trigger -->
-<g id="edge9" class="edge"><title>ActiveRecord::Base&#45;&gt;Trigger</title>
+<!-- ActiveRecord::Base&#45;&gt;Moment -->
+<g id="edge9" class="edge"><title>ActiveRecord::Base&#45;&gt;Moment</title>
 <path fill="none" stroke="black" d="M841.645,-406.977C955.553,-400.437 1158.33,-382.852 1215.51,-339 1238.5,-321.364 1254.61,-295.139 1265.83,-268.602"/>
 </g>
 <!-- ActiveRecord::Base&#45;&gt;User -->

@@ -254,6 +254,10 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+
   require 'omniauth-google-oauth2'
     GOOGLE_CONFIG = YAML.load_file("#{::Rails.root}/config/api.yml")[::Rails.env]
     config.omniauth :google_oauth2, GOOGLE_CONFIG['google_client_id'],

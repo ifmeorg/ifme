@@ -87,10 +87,10 @@ function renderNotifications(notifications) {
     var uniqueid = notification.uniqueid;
     var data = JSON.parse(notification.data);
  
-    if (data.type == 'comment_on_trigger' || data.type == 'comment_on_strategy') {
+    if (data.type == 'comment_on_moment' || data.type == 'comment_on_strategy') {
       var type_name;
-      if (data.type == 'comment_on_trigger') {
-        type_name = data.trigger;
+      if (data.type == 'comment_on_moment') {
+        type_name = data.moment;
       } else if (data.type == 'comment_on_strategy') {
         type_name = data.strategy;
       }
@@ -102,8 +102,8 @@ function renderNotifications(notifications) {
       }
 
       var link;
-      if (data.type == 'comment_on_trigger') {
-        link = 'triggers/' + data.triggerid;
+      if (data.type == 'comment_on_moment') {
+        link = 'moments/' + data.momentid;
       } else if (data.type == 'comment_on_strategy') {
         link = 'strategies/' + data.strategyid;
       }

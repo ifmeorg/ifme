@@ -15,7 +15,7 @@ module ApplicationHelper
     link_controller = Rails.application.routes.recognize_path(link_path, environment)[:controller]
 
     nested_controllers = {
-      "triggers" => ["categories", "moods"]
+      "moments" => ["categories", "moods"]
     }
 
     # Current page.

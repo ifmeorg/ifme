@@ -218,10 +218,10 @@
 <g id="edge11" class="edge"><title>ApplicationController&#45;&gt;StrategiesController</title>
 <path fill="none" stroke="black" d="M-349.183,311.498C-405.772,296.526 -475.126,278.177 -524.718,265.057"/>
 </g>
-<!-- TriggersController -->
-<g id="node14" class="node"><title>TriggersController</title>
+<!-- MomentsController -->
+<g id="node14" class="node"><title>MomentsController</title>
 <path fill="none" stroke="black" d="M87.3698,501.497C87.3698,501.497 183.857,501.497 183.857,501.497 189.857,501.497 195.857,495.497 195.857,489.497 195.857,489.497 195.857,255.497 195.857,255.497 195.857,249.497 189.857,243.497 183.857,243.497 183.857,243.497 87.3698,243.497 87.3698,243.497 81.3698,243.497 75.3698,249.497 75.3698,255.497 75.3698,255.497 75.3698,489.497 75.3698,489.497 75.3698,495.497 81.3698,501.497 87.3698,501.497"/>
-<text text-anchor="middle" x="135.613" y="258.697" font-family="Times,serif" font-size="14.00">TriggersController</text>
+<text text-anchor="middle" x="135.613" y="258.697" font-family="Times,serif" font-size="14.00">MomentsController</text>
 <polyline fill="none" stroke="black" points="75.3698,265.497 195.857,265.497 "/>
 <text text-anchor="start" x="83.3698" y="280.697" font-family="Times,serif" font-size="14.00">comment</text>
 <text text-anchor="start" x="83.3698" y="294.697" font-family="Times,serif" font-size="14.00">create</text>
@@ -237,11 +237,11 @@
 <text text-anchor="start" x="83.3698" y="438.697" font-family="Times,serif" font-size="14.00">_layout</text>
 <text text-anchor="start" x="83.3698" y="452.697" font-family="Times,serif" font-size="14.00">hide_page</text>
 <text text-anchor="start" x="83.3698" y="466.697" font-family="Times,serif" font-size="14.00">if_not_signed_in</text>
-<text text-anchor="start" x="83.3698" y="480.697" font-family="Times,serif" font-size="14.00">set_trigger</text>
-<text text-anchor="start" x="83.3698" y="494.697" font-family="Times,serif" font-size="14.00">trigger_params</text>
+<text text-anchor="start" x="83.3698" y="480.697" font-family="Times,serif" font-size="14.00">set_moment</text>
+<text text-anchor="start" x="83.3698" y="494.697" font-family="Times,serif" font-size="14.00">moment_params</text>
 </g>
-<!-- ApplicationController&#45;&gt;TriggersController -->
-<g id="edge12" class="edge"><title>ApplicationController&#45;&gt;TriggersController</title>
+<!-- ApplicationController&#45;&gt;MomentsController -->
+<g id="edge12" class="edge"><title>ApplicationController&#45;&gt;MomentsController</title>
 <path fill="none" stroke="black" d="M-151.091,346.628C-79.5348,353.085 14.7806,361.595 75.3226,367.057"/>
 </g>
 <!-- DeviseController -->

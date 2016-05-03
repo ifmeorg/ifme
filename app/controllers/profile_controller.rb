@@ -8,9 +8,9 @@ class ProfileController < ApplicationController
 
 		# Determine how the profile should be displayed based on the userid
 		if user == current_user
-			@triggers = Trigger.where(userid: current_user.id).all
+			@moments = Moment.where(userid: current_user.id).all
 		elsif current_user.allies_by_status(:accepted).include? user
-			@triggers = Trigger.where(userid: params[:userid]).all
+			@moments = Moment.where(userid: params[:userid]).all
 		end
 
 		@profile = user

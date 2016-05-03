@@ -120,7 +120,7 @@ class SetupDatabase < ActiveRecord::Migration
     t.datetime "updated_at"
   end
 
-  create_table "triggers", force: true do |t|
+  create_table "moments", force: true do |t|
     t.text     "category"
     t.string   "name"
     t.string   "mood"

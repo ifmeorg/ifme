@@ -31,18 +31,18 @@
 	</div>
 </div>
 
-<% if !@triggers.nil? && !@triggers.empty? %>
+<% if !@moments.nil? && !@moments.empty? %>
 	<div class="spacer"></div>
 
-	<% @triggers.each_with_index do |item, index| %>
+	<% @moments.each_with_index do |item, index| %>
 		<% if is_viewer(item.viewers) || current_user.id == @profile.id %>
-			<% if index+1 == @triggers.length %>
+			<% if index+1 == @moments.length %>
   				<div class="profile_container no_margin_bottom">
   			<% else %>
 				<div class="profile_container">
 			<% end %>
 					<h1 class="profile_name"><%= link_to item.name, item %></h1>
-					<%= render :partial => '/triggers/info', locals: { data: item, show_strategies: true, home: true } %>
+					<%= render :partial => '/moments/info', locals: { data: item, show_strategies: true, home: true } %>
 				</div>
 		<% end %>
 	<% end %>

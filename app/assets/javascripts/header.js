@@ -21,9 +21,9 @@ $(document).on("page:load ready", function() {
     click_flag++;
   });
 
-  $('.expand_trigger_button').mouseover(function() {
-    if ($('#expand_trigger').css('display') == "none") {
-      $('#expand_trigger').css({"display": "block"});
+  $('.expand_moment_button').mouseover(function() {
+    if ($('#expand_moment').css('display') == "none") {
+      $('#expand_moment').css({"display": "block"});
 
       if ($('#expand_me').css('display') == "block") click_flag++;
       $('#expand_me').css({"display": "none"});
@@ -35,9 +35,9 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $(':not(.expand_trigger_button)').click(function() {
-    $('#expand_trigger').css({"display": "none"});
-    $('#trigger').css({"opacity": 1});
+  $(':not(.expand_moment_button)').click(function() {
+    $('#expand_moment').css({"display": "none"});
+    $('#moment').css({"opacity": 1});
     $('#title_expand').css({"opacity": 1});
     the_height = $('#header').height();
     $('#header_space').css({"height": the_height});

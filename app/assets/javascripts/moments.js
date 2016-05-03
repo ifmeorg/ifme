@@ -1,18 +1,18 @@
 $(document).on("page:load ready", function() {
-	if ($('body').hasClass('triggers new') || $('body').hasClass('triggers edit') || $('body').hasClass('triggers create') || $('body').hasClass('triggers update')) {
+	if ($('body').hasClass('moments new') || $('body').hasClass('moments edit') || $('body').hasClass('moments create') || $('body').hasClass('moments update')) {
 		var NO_ALLIES = "No allies";
 		var ALL_ALLIES = "All allies";
 		$('#viewers_label').text(ALL_ALLIES);
 		$('#viewers').change(function() {
 			if ($(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES) {
-				$(":checkbox[name='trigger[viewers][]']").prop("checked", true);
+				$(":checkbox[name='moment[viewers][]']").prop("checked", true);
 				$(":checkbox[id='viewers']").prop("checked", false);
 				$('#viewers_label').text(NO_ALLIES);
 			} else if ($(this).is(":checked") && $('#viewers_label').text() == NO_ALLIES) {
-				$(":checkbox[name='trigger[viewers][]']").prop("checked", false);
+				$(":checkbox[name='moment[viewers][]']").prop("checked", false);
 				$(":checkbox[id='viewers']").prop("checked", false);
 				$('#viewers_label').text(ALL_ALLIES);
-				$(":checkbox[name='trigger[comment]']").prop("checked", false);
+				$(":checkbox[name='moment[comment]']").prop("checked", false);
 			}
 		});
 	}

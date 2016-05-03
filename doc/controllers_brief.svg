@@ -103,13 +103,13 @@
 <g id="edge11" class="edge"><title>ApplicationController&#45;&gt;StrategiesController</title>
 <path fill="none" stroke="black" d="M-115.985,168.386C-149.318,167.734 -187.104,166.995 -219.797,166.356"/>
 </g>
-<!-- TriggersController -->
-<g id="node14" class="node"><title>TriggersController</title>
+<!-- MomentsController -->
+<g id="node14" class="node"><title>MomentsController</title>
 <ellipse fill="none" stroke="black" cx="474.053" cy="480.211" rx="76.2181" ry="18"/>
-<text text-anchor="middle" x="474.053" y="484.411" font-family="Times,serif" font-size="14.00">TriggersController</text>
+<text text-anchor="middle" x="474.053" y="484.411" font-family="Times,serif" font-size="14.00">MomentsController</text>
 </g>
-<!-- ApplicationController&#45;&gt;TriggersController -->
-<g id="edge12" class="edge"><title>ApplicationController&#45;&gt;TriggersController</title>
+<!-- ApplicationController&#45;&gt;MomentsController -->
+<g id="edge12" class="edge"><title>ApplicationController&#45;&gt;MomentsController</title>
 <path fill="none" stroke="black" d="M-0.447414,187.218C87.4608,241.499 359.372,409.398 446.729,463.339"/>
 </g>
 <!-- DeviseController -->

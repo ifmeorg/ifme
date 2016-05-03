@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: triggers
+# Table name: moments
 #
 #  id         :integer          not null, primary key
 #  category   :text
@@ -16,7 +16,7 @@
 #  strategies :text
 #
 
-class Trigger < ActiveRecord::Base
+class Moment < ActiveRecord::Base
 	attr_accessible :category, :name, :mood, :why, :fix, :userid, :viewers, :comment, :strategies
 	serialize :category, Array
 	serialize :viewers, Array

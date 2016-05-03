@@ -1,39 +1,39 @@
-class TriggersController < ApplicationController
+class MomentsController < ApplicationController
   before_filter :if_not_signed_in
-  before_action :set_trigger, only: [:show, :edit, :update, :destroy]
+  before_action :set_moment, only: [:show, :edit, :update, :destroy]
 
-  # GET /triggers
-  # GET /triggers.json
+  # GET /moments
+  # GET /moments.json
   def index
-    @triggers = Trigger.where(:userid => current_user.id).all
-    @page_title = "Triggers"
-    @page_new = new_trigger_path
-    @page_tooltip = "New trigger"
+    @moments = Moment.where(:userid => current_user.id).all
+    @page_title = "Moments"
+    @page_new = new_moment_path
+    @page_tooltip = "New moment"
   end
 
-  # GET /triggers/1
-  # GET /triggers/1.json
+  # GET /moments/1
+  # GET /moments/1.json
   def show
-    if current_user.id == @trigger.userid
-      @page_edit = edit_trigger_path(@trigger)
-      @page_tooltip = "Edit trigger"
+    if current_user.id == @moment.userid
+      @page_edit = edit_moment_path(@moment)
+      @page_tooltip = "Edit moment"
     else
-      link_url = "/profile?userid=" + @trigger.userid.to_s
-      the_link = link_to User.where(:id => @trigger.userid).first.name, link_url
+      link_url = "/profile?userid=" + @moment.userid.to_s
+      the_link = link_to User.where(:id => @moment.userid).first.name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
-    if hide_page(@trigger) && @trigger.userid != current_user.id
+    if hide_page(@moment) && @moment.userid != current_user.id
       respond_to do |format|
-        format.html { redirect_to triggers_path }
+        format.html { redirect_to moments_path }
         format.json { head :no_content }
       end
     else
       @comment = Comment.new
       # @support = Support.new
-      @comments = Comment.where(:commented_on => @trigger.id, :comment_type => 'trigger').all.order("created_at DESC")
+      @comments = Comment.where(:commented_on => @moment.id, :comment_type => 'moment').all.order("created_at DESC")
       @no_hide_page = true
-      @page_title = @trigger.name
+      @page_title = @moment.name
     end
   end
 
@@ -42,43 +42,43 @@ class TriggersController < ApplicationController
     
     if !@comment.save
       respond_to do |format|
-        format.html { redirect_to trigger_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+        format.html { redirect_to moment_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Moment.find(params[:comment][:commented_on]) }
       end
     end
 
     # Notify commented_on user that they have a new comment
-    trigger_user = Trigger.where(id: @comment.commented_on).first.userid
+    moment_user = Moment.where(id: @comment.commented_on).first.userid
 
-    if (trigger_user != @comment.comment_by)
-      commented_on_user = Trigger.where(id: @comment.commented_on).first.userid
-      trigger_name = Trigger.where(id: @comment.commented_on).first.name
+    if (moment_user != @comment.comment_by)
+      commented_on_user = Moment.where(id: @comment.commented_on).first.userid
+      moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false
       if @comment.comment.length > 80
         cutoff = true
       end
-      uniqueid = 'comment_on_trigger' + '_' + @comment.id.to_s
+      uniqueid = 'comment_on_moment' + '_' + @comment.id.to_s
 
       data = JSON.generate({
         user: current_user.name,
-        triggerid: @comment.commented_on,
-        trigger: trigger_name,
+        momentid: @comment.commented_on,
+        moment: moment_name,
         commentid: @comment.id,
         comment: @comment.comment[0..80],
         cutoff: cutoff,
-        type: 'comment_on_trigger',
+        type: 'comment_on_moment',
         uniqueid: uniqueid
         })
 
-      Notification.create(userid: trigger_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: trigger_user).order("created_at ASC").all
+      Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: moment_user).order("created_at ASC").all
       Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
     end
 
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to trigger_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Trigger.find(params[:comment][:commented_on]) }
+        format.html { redirect_to moment_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Moment.find(params[:comment][:commented_on]) }
       end
     end
   end
@@ -112,89 +112,89 @@ class TriggersController < ApplicationController
   #   end
 
   #   respond_to do |format|
-  #       format.html { redirect_to trigger_path(support_id) }
-  #       format.json { render :show, status: :created, location: Trigger.find(support_id) }
+  #       format.html { redirect_to moment_path(support_id) }
+  #       format.json { render :show, status: :created, location: Moment.find(support_id) }
   #   end
   # end
 
-  # GET /triggers/new
+  # GET /moments/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @categories = Category.where(:userid => current_user.id).all
     @moods = Mood.where(:userid => current_user.id).all
     @strategies = Strategy.where(:userid => current_user.id).all
-    @trigger = Trigger.new
-    @page_title = "New Trigger"
+    @moment = Moment.new
+    @page_title = "New Moment"
   end
 
-  # GET /triggers/1/edit
+  # GET /moments/1/edit
   def edit
-    if @trigger.userid == current_user.id
+    if @moment.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all
       @moods = Mood.where(:userid => current_user.id).all
       @strategies = Strategy.where(:userid => current_user.id).all
-      @page_title = "Edit " + @trigger.name
+      @page_title = "Edit " + @moment.name
     else
       respond_to do |format|
-        format.html { redirect_to trigger_path(@trigger) }
+        format.html { redirect_to moment_path(@moment) }
         format.json { head :no_content }
       end
     end
   end
 
-  # POST /triggers
-  # POST /triggers.json
+  # POST /moments
+  # POST /moments.json
   def create
-    @trigger = Trigger.new(trigger_params)
-    @page_title = "New Trigger"
+    @moment = Moment.new(moment_params)
+    @page_title = "New Moment"
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
-      if @trigger.save
-        format.html { redirect_to trigger_path(@trigger) }
-        format.json { render :show, status: :created, location: @trigger }
+      if @moment.save
+        format.html { redirect_to moment_path(@moment) }
+        format.json { render :show, status: :created, location: @moment }
       else
         format.html { render :new }
-        format.json { render json: @trigger.errors, status: :unprocessable_entity }
+        format.json { render json: @moment.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /triggers/1
-  # PATCH/PUT /triggers/1.json
+  # PATCH/PUT /moments/1
+  # PATCH/PUT /moments/1.json
   def update
-    @page_title = "Edit " + @trigger.name
+    @page_title = "Edit " + @moment.name
     @viewers = current_user.allies_by_status(:accepted)
     respond_to do |format|
-      if @trigger.update(trigger_params)
-        format.html { redirect_to trigger_path(@trigger) }
-        format.json { render :show, status: :ok, location: @trigger }
+      if @moment.update(moment_params)
+        format.html { redirect_to moment_path(@moment) }
+        format.json { render :show, status: :ok, location: @moment }
       else
         format.html { render :edit }
-        format.json { render json: @trigger.errors, status: :unprocessable_entity }
+        format.json { render json: @moment.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /triggers/1
-  # DELETE /triggers/1.json
+  # DELETE /moments/1
+  # DELETE /moments/1.json
   def destroy
-    @trigger.destroy
+    @moment.destroy
     respond_to do |format|
-      format.html { redirect_to triggers_path }
+      format.html { redirect_to moments_path }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_trigger
+    def set_moment
       begin
-        @trigger = Trigger.find(params[:id])
+        @moment = Moment.find(params[:id])
       rescue
-        if @trigger.blank?
+        if @moment.blank?
           respond_to do |format|
-            format.html { redirect_to triggers_path }
+            format.html { redirect_to moments_path }
             format.json { head :no_content }
           end
         end
@@ -202,13 +202,13 @@ class TriggersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def trigger_params
-      params.require(:trigger).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
+    def moment_params
+      params.require(:moment).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
     end
 
-    def hide_page(trigger)
-      if Trigger.where(id: trigger.id).exists?
-        if Trigger.where(id: trigger.id).first.viewers.include?(current_user.id)
+    def hide_page(moment)
+      if Moment.where(id: moment.id).exists?
+        if Moment.where(id: moment.id).first.viewers.include?(current_user.id)
           return false
         end
       end

@@ -16,7 +16,7 @@
     <ul class="top-nav primary-nav">
       <% if user_signed_in? %>
         <%= nav_link_to(t('.home'), root_path)  %>
-        <%= nav_link_to(t('.triggers'), triggers_path, :class => "expand_trigger_button") %>
+        <%= nav_link_to(t('.moments'), moments_path, :class => "expand_moment_button") %>
         <%= nav_link_to(t('.strategies'), strategies_path) %>
         <%= nav_link_to(t('.medications'), medications_path) %>
         <%= nav_link_to(t('.groups'), groups_path) %>
@@ -32,7 +32,7 @@
     </div>
 
     <% if user_signed_in? %>
-      <ul id="expand_trigger" class="top-nav display_none">
+      <ul id="expand_moment" class="top-nav display_none">
         <%= nav_link_to(t('.categories'), categories_path) %>
         <%= nav_link_to(t('.moods'), moods_path) %>
       </ul>

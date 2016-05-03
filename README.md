@@ -22,8 +22,8 @@ Not everyone is a counsellor or therapist. The people who we interact with every
 
 The goal is to create a platform that:
 
-* Allows users to write about their experiences (Triggers) similar to a blog and get feedback and support from their allies
-* Create personalized categories and moods to organize Triggers and Strategies
+* Allows users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
+* Create personalized categories and moods to organize Moments and Strategies
 * Develop and share Strategies to solve problems and maintain healthy goals
 * Keep track of medications and create alerts for them
 * Create support groups whether online or offline and keep track of sessions

@@ -14,7 +14,7 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.userid == current_user.id || is_viewer(params[:trigger], @mood)
+    if @mood.userid == current_user.id || is_viewer(params[:moment], @mood)
       @page_title = @mood.name
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
@@ -99,13 +99,13 @@ class MoodsController < ApplicationController
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
-    # Remove moods from existing triggers
-    @triggers = Trigger.where(:userid => current_user.id).all
+    # Remove moods from existing moments
+    @moments = Moment.where(:userid => current_user.id).all
 
-    @triggers.each do |item|
+    @moments.each do |item|
       new_category = item.mood.delete(@mood.id)
-      the_trigger = Trigger.find_by(id: item.id)
-      the_trigger.update(mood: item.mood)
+      the_moment = Moment.find_by(id: item.id)
+      the_moment.update(mood: item.mood)
     end
 
     @mood.destroy
@@ -144,11 +144,11 @@ class MoodsController < ApplicationController
       end
     end
 
-    def is_viewer(trigger, mood)
-      if trigger.blank?
+    def is_viewer(moment, mood)
+      if moment.blank?
         return false
       else
-        if Trigger.where(:id => trigger).exists? && Trigger.where(:id => trigger).first.mood.include?(mood.id) && Trigger.where(:id => trigger).first.viewers.include?(current_user.id)
+        if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id)
           return true
         end
       end

@@ -4,34 +4,6 @@ en:
 # alert_mailer and alerts will be added to for selects
 # and tested once feature is up and running
 # views without labels have been omitted from scoping
- alerts:
-  form:
-   name: 'Name'
-   message: 'Message'
-   trigger: 'Trigger'
-   medication: 'Medication'
-   select: 'Please select'
-   means: 'Means'
-   days: 'Days'
-   time: 'Time'
-   hour: 'Hour'
-   minute: 'Minute'
-   period: 'Period'
-  index:
-   trigger: 'Trigger'
-   and: 'and'
-   medication: 'Medication'
-   by: 'By:'
-   when: 'When:'
-   confirm: 'Are you sure?'
-  show:
-   name: 'Name'
-   message: 'Message'
-   trigger: 'Trigger'
-   medication: 'Medication'
-   means: 'Means'
-   days: 'Days'
-   time: 'Time'
 
  allies:
   index:
@@ -137,6 +109,7 @@ en:
    edit: 'Edit'
    delete: 'Delete'
    confirm: 'Are you sure?'
+   total: 'Total:'
   show:
    strength: 'Strength:'
    quantity: 'Total Quantity:'
@@ -194,7 +167,7 @@ en:
    moods_word: "moods"
    profile_word: "profile"
    categories_word: "categories"
-   triggers_word: "triggers"
+   moments_word: "moments"
    medication_word: "medication"
    strategies_word: "strategies"
    groups_word: "groups"
@@ -238,7 +211,7 @@ en:
    notifications: 'Notifications'
    join: 'Join'
    home: 'Home'
-   triggers: 'Triggers'
+   moments: 'Moments'
    strategies: 'Strategies'
    medications: 'Medications'
    groups: 'Groups'
@@ -256,7 +229,7 @@ en:
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields'
   index:
-   subtitle: 'Create strategies to achieve desired thoughts and attitudes towards triggers.'
+   subtitle: 'Create strategies to achieve desired thoughts and attitudes towards moments.'
    created: 'Created:'
    category: 'Category:'
    categories: 'Categories:'
@@ -279,19 +252,19 @@ en:
    disabled_comments: 'Comments have been disabled.'
    error_explanation: 'Please fill out the marked fields'
 
- triggers:
+ moments:
   form:
    name: 'Name'
    categories: 'Categories'
    moods: 'Moods'
    strategies: 'Strategies'
    viewers: 'Viewers'
-   describe: 'Describe the trigger and how it affects your mood and behaviour.'
+   describe: 'Describe the moment and how it affects your mood and behaviour.'
    desired: 'What thoughts would you like to have instead?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields!'
   index:
-   subtitle: 'Delve deep into your triggers - events, moments, and situations that affect your mental health.'
+   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
    created: 'Created:'
    category: 'Category:'
    categories: 'Categories:'
@@ -307,7 +280,7 @@ en:
    categories: 'Categories:'
    mood: 'Mood:'
    moods: 'Moods:'
-   why: 'Describe the trigger and how it affects your mood and behaviour.'
+   why: 'Describe the moment and how it affects your mood and behaviour.'
    fix: 'What thoughts would you like to have instead?'
    strategies: 'What strategies would help achieve these thoughts?'
    unsupport: 'Unsupport'
