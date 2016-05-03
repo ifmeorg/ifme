@@ -1,0 +1,55 @@
+<% if local_assigns[:data].comment && (current_user.id == local_assigns[:data].userid || local_assigns[:no_hide_page]) %>
+
+  <%= form_for local_assigns[:comment], :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
+    <% if local_assigns[:comment].errors.any? %>
+        <div class="error_explanation">
+          <%= t('.error_explanation') %>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.text_area :comment, class: 'comment_textarea' %>
+    </div>
+
+    <div class="actions align_right">
+      <%= f.hidden_field :comment_type, :value => local_assigns[:comment_type] %>
+      <%= f.hidden_field :comment_by, :value => current_user.id %>
+      <%= f.hidden_field :commented_on, :value => local_assigns[:data].id %>
+      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => local_assigns[:data].userid).first.name + t('.only'), 'private']] %>
+      <%= f.submit t('.comment'), class: 'no_margin_right' %>
+    </div>
+
+    <div class="clear"></div>
+  <% end %>
+
+  <% local_assigns[:comments].each do |comment| %>
+    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == local_assigns[:data].userid)) %>
+        <% if local_assigns[:comments].first == comment %>
+        <div class="comment no_margin_top" %>
+        <% else %>
+        <div class="comment">
+        <% end %>
+          <div class="table">
+            <div class="table_row">
+              <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
+                <% profile = User.where(:id => comment.comment_by).first %>
+                  <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
+                  <br>
+              </div>
+              <div class="table_cell">
+                <div class="comment_info">
+                  <%= link_to profile.name, profile_index_path(:uid => get_uid(comment.comment_by)) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                </div>
+                <div class="comment_text"><%= simple_format(comment.comment) %></div>
+                <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == local_assigns[:data].userid) %>
+                  <div class="subtle"><%= t('.visible_only_to') %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <% end %>
+<% else %>
+  <em><%= t('.disabled_comments') %></em>
+<% end %>

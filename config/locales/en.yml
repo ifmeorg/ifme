@@ -203,6 +203,15 @@ en:
    confirm: 'Are you sure?'
 
  shared:
+  comments:
+    share_everyone: 'Share with everyone'
+    share_with: 'Share with '
+    only: ' only'
+    comment: 'Comment'
+    on: 'on'
+    visible_only_to: 'Visible only between you two'
+    disabled_comments: 'Comments have been disabled.'
+    error_explanation: 'Please fill out the marked fields'
   header:
    profile: 'Profile'
    account: 'Account'
@@ -243,14 +252,6 @@ en:
    categories: 'Categories:'
    unsupport: 'Unsupport'
    support: 'Support'
-   share_everyone: 'Share with everyone'
-   share_with: 'Share with '
-   only: ' only'
-   comment: 'Comment'
-   on: 'on'
-   visible_only_to: 'Visible only between you two'
-   disabled_comments: 'Comments have been disabled.'
-   error_explanation: 'Please fill out the marked fields'
 
  moments:
   form:
@@ -285,13 +286,5 @@ en:
    strategies: 'What strategies would help achieve these thoughts?'
    unsupport: 'Unsupport'
    support: 'Support'
-   share_everyone: 'Share with everyone'
-   share_with: 'Share with '
-   only: ' only'
-   comment: 'Comment'
-   on: 'on'
-   visible_only_to: 'Visible only between you two'
-   disabled_comments: 'Comments have been disabled.'
-   error_explanation: 'Please fill out the marked fields'
 
    #submit button

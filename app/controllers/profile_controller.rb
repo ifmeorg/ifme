@@ -3,18 +3,18 @@ class ProfileController < ApplicationController
 
 	def index
 		# If the specified profile doesn't exist, view the current user's profile
-		user = User.find(params[:userid])
+		user = User.find_by(uid: params[:uid])
 		user = current_user if user.nil?
 
 		# Determine how the profile should be displayed based on the userid
 		if user == current_user
 			@moments = Moment.where(userid: current_user.id).all
 		elsif current_user.allies_by_status(:accepted).include? user
-			@moments = Moment.where(userid: params[:userid]).all
+			@moments = Moment.where(userid: user).all
 		end
 
 		@profile = user
-		@page_title = @profile.name
+		@page_title = user.name
 	end
 
 	private

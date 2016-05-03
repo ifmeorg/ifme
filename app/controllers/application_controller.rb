@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid
 
 	def are_allies(userid1, userid2)
 		userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -35,6 +35,11 @@ class ApplicationController < ActionController::Base
 		end
 
 		return false
+	end
+
+	def get_uid(userid)
+		uid = User.where(id: userid).first.uid
+		return uid
 	end
 
 ## Taxonomies are used for pluralization?
