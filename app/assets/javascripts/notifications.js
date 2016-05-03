@@ -3,26 +3,28 @@ $(document).on("page:load ready", function() {
   var pusher;
 
   $.ajax({
-    dataType: "text",
+    dataType: "json",
     url: "/notifications/signed_in",
     type: "GET",
     success: function (json) {
-      var result = JSON.parse(json).signed_in;
+      if (json !== undefined) {
+        var result = json.signed_in;
 
-      if (result != -1) {
-        // Show notifications on initial sign in
-        if ($('body').hasClass('pages home')) {
-          fetchNotifications();
+        if (result != -1) {
+          // Show notifications on initial sign in
+          if ($('body').hasClass('pages home')) {
+            fetchNotifications();
+          }
+
+          pusher = new Pusher('200b6370c503d11d4fa4', {
+            encrypted: true
+          });
+
+          var channel = pusher.subscribe('private-' + result);
+          channel.bind('new_notification', function(data) {
+            renderNotifications(data.notifications);
+          });
         }
-
-        pusher = new Pusher('200b6370c503d11d4fa4', {
-          encrypted: true
-        });
-        
-        var channel = pusher.subscribe('private-' + result);
-        channel.bind('new_notification', function(data) {
-          renderNotifications(data.notifications);
-        });
       }
     }
   });
@@ -88,7 +90,7 @@ function renderNotifications(notifications) {
   _.each(notifications, function(notification) {
     var uniqueid = notification.uniqueid;
     var data = JSON.parse(notification.data);
- 
+
     if (data.type == 'comment_on_moment' || data.type == 'comment_on_strategy') {
       var type_name;
       if (data.type == 'comment_on_moment') {
@@ -129,14 +131,14 @@ function renderNotifications(notifications) {
 
         notification_link = '<div id="' + uniqueid + '" class ="small_margin_top"><a class="notification_link display_inline" href="' + link + '">' + data.user + '</a> sent an ally request!' + accept + reject + '</span>';
       }
-   
+
       $('#notifications_list').prepend(notification_link);
-    } else if (data.type == 'new_group' || 
-      data.type == 'new_group_member' || 
-      data.type == 'add_group_leader' || 
-      data.type == 'remove_group_leader' || 
-      data.type == 'new_meeting' || 
-      data.type == 'remove_meeting' || 
+    } else if (data.type == 'new_group' ||
+      data.type == 'new_group_member' ||
+      data.type == 'add_group_leader' ||
+      data.type == 'remove_group_leader' ||
+      data.type == 'new_meeting' ||
+      data.type == 'remove_meeting' ||
       data.type == 'update_meeting') {
       var notification;
 
@@ -157,7 +159,7 @@ function renderNotifications(notifications) {
       }
 
       var link = 'groups/' + data.groupid;
-    
+
       var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';
 
       $('#notifications_list').prepend(notification_link);
