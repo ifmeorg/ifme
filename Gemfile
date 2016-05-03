@@ -72,7 +72,7 @@ gem 'chronic'
 
 group :development, :test do
   gem "byebug"
-  gem "rspec-rails"
+  gem "rspec-rails", '~> 3.4'
   gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'railroady'
