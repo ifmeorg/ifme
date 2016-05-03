@@ -88,4 +88,6 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'pusher'
 
+gem 'devise_uid'
+
 ruby "2.3.0"

@@ -160,5 +160,6 @@ class SetupDatabase < ActiveRecord::Migration
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", :uid, unique: true
 
 end
