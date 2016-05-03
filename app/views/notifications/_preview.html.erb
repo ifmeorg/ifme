@@ -15,7 +15,7 @@
 
 		<% if local_assigns[:data].userid == current_user.id %>
 			<br>
-        	<i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(local_assigns[:data]), target: "blank" %>
+        	<i class="fa fa-pencil action"></i><%= link_to 'Edit', local_assigns[:edit], target: "blank" %>
         <% end %>
 	</div>
 </div>

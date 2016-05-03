@@ -9,7 +9,10 @@
       <% end %>
     </strong>
     <% @strategy.category.each do |item| %>
-      <%= fetch_taxonomies(@strategy, "strategy", item, "category", true, true) %>
+      <span class="notification_wrapper">
+        <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if @strategy.category.last != item %><%= ', ' %><% end %>
+        <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
+       </span>
     <% end %>
 <% end %>
 

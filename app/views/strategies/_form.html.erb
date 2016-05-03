@@ -34,7 +34,7 @@
           <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
           </span>
           <% end %>
         <% else %>

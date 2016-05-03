@@ -11,7 +11,7 @@
   <% local_assigns[:data].category.each do |item| %>
     <span class="notification_wrapper">
       <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:data].category.last != item %><%= ', ' %><% end %>
-      <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first } %>
+      <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
     </span>
   <% end %>
 <% end %>
@@ -28,7 +28,7 @@
   <% local_assigns[:data].mood.each do |item| %>
     <span class="notification_wrapper">
       <span class="tip_notifications_button link_style"><%= Mood.where(id: item).first.name %></span><% if local_assigns[:data].mood.last != item %><%= ', ' %><% end %>
-      <%= render :partial => '/notifications/preview', locals: { data: Mood.where(id: item).first } %>
+      <%= render :partial => '/notifications/preview', locals: { data: Mood.where(id: item).first, edit: edit_mood_path(item) } %>
     </span>
   <% end %>
 <% end %>

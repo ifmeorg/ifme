@@ -34,7 +34,7 @@
           <%= f.check_box(:category, {:multiple => true, :checked => @trigger.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
           </span>
           <% end %>
         <% else %>
@@ -60,7 +60,7 @@
           <%= f.check_box(:mood, {:multiple => true, :checked => @trigger.mood.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
           </span>
           <% end %>
          <% else %>
@@ -86,7 +86,7 @@
           <%= f.check_box(:strategies, {:multiple => true, :checked => @trigger.strategies.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item } %>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_strategy_path(item) } %>
           </span>
           <% end %>
         <% else %>
