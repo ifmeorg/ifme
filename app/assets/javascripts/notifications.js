@@ -1,8 +1,6 @@
 $(document).on("page:load ready", function() {
   // Pusher
-  var pusher = new Pusher('200b6370c503d11d4fa4', {
-    encrypted: true
-  });
+  var pusher;
 
   $.ajax({
     dataType: "text",
@@ -17,6 +15,10 @@ $(document).on("page:load ready", function() {
           fetchNotifications();
         }
 
+        pusher = new Pusher('200b6370c503d11d4fa4', {
+          encrypted: true
+        });
+        
         var channel = pusher.subscribe('private-' + result);
         channel.bind('new_notification', function(data) {
           renderNotifications(data.notifications);
