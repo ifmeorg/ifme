@@ -24,7 +24,7 @@
 		                <br>
 		            </div>
 		            <div class="table_cell vertical_align_middle">
-		                <%= link_to profile.name, profile_index_path(:userid => member.userid) %>
+		                <%= link_to profile.name, profile_index_path(uid: get_uid(member.userid)) %>
 		            </div>
 		        </div>
           	</div>

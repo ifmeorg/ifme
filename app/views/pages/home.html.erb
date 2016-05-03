@@ -43,9 +43,9 @@
 					<div class="align_right">
 	        			<h1 class="ally_name">
 	        				<% if current_user.id == moment.userid %>
-	        					<%= link_to t('.you'), profile_index_path(:uid => current_user.uid) %>
+	        					<%= link_to t('.you'), profile_index_path(uid: current_user.uid) %>
 	        				<% else %>
-	        					<%= link_to User.where(:id => moment.userid).first.name, profile_index_path(:uid => get_uid(moment.userid)) %>
+	        					<%= link_to User.where(:id => moment.userid).first.name, profile_index_path(uid: get_uid(moment.userid)) %>
 	        				<% end %>
 	        			</h1>
 	     			</div>

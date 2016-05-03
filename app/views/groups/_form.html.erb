@@ -39,7 +39,7 @@
 
         <% @group_members.each do |member| %>
         <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
-        <%= link_to User.where(id: member.userid).first.name, profile_index_path(userid: member.userid) %>
+        <%= link_to User.where(id: member.userid).first.name, profile_index_path(uid: get_uid(member.userid)) %>
         <br>
         <% end %>
       </div>

@@ -12,9 +12,9 @@
 <% @group_leaders.each_with_index do |leader, index| %>
 	<% if leader.userid == current_user.id %>
 		<% is_leader = true %>
-		<%= link_to t('.self'), profile_index_path(:userid => leader.userid) %>
+		<%= link_to t('.self'), profile_index_path(uid: get_uid(leader.userid)) %>
 	<% else %>
-		<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
+		<%= link_to User.where(id: leader.userid).first.name, profile_index_path(uid: get_uid(leader.userid)) %>
 	<% end %>
 	<% if index+1 < @group_leaders.length %>
 		<%= ', ' %>
@@ -57,9 +57,9 @@
 	      	<% meeting_leaders.each_with_index do |leader, index| %>
 				<% if leader.userid == current_user.id %>
 					<% is_leader = true %>
-					<%= link_to t('.self'), profile_index_path(:userid => leader.userid) %>
+					<%= link_to t('.self'), profile_index_path(uid: get_uid(leader.userid)) %>
 				<% else %>
-					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(userid: leader.userid) %>
+					<%= link_to User.where(id: leader.userid).first.name, profile_index_path(uid: get_uid(leader.userid)) %>
 				<% end %>
 				<% if index+1 < meeting_leaders.length %>
 					<%= ', ' %>
