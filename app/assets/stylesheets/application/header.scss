@@ -45,14 +45,14 @@
   }
 
   .active a {
-    border-top: 1px solid $header-text-color;
-    border-bottom: 1px solid $header-text-color;
+    border-top: 2px solid $header-text-color;
+    border-bottom: 2px solid $header-text-color;
     opacity: 0.5;
   }
 
   a {
-    border-bottom: 1px solid $container-color;
-    border-top: 1px solid $container-color;
+    border-bottom: 2px solid $container-color;
+    border-top: 2px solid $container-color;
     color: $header-text-color;
     display: block;
     padding: 5px 0;
@@ -63,8 +63,8 @@
     }
 
     &:hover {
-      border-bottom: 1px solid $header-text-color;
-      border-top: 1px solid $header-text-color;
+      border-bottom: 2px solid $header-text-color;
+      border-top: 2px solid $header-text-color;
     }
   }
 }
@@ -87,7 +87,7 @@
   color: $header-text-color;
   float: right;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 300;
   margin: 0;
   padding: 0;
   outline: 0;
@@ -180,8 +180,8 @@
 
 .me {
   @include clearfix;
-  border-bottom: 1px solid $highlight-text-color;
-  border-top: 1px solid $highlight-text-color;
+  border-bottom: 2px solid $highlight-text-color;
+  border-top: 2px solid $highlight-text-color;
   color: $highlight-text-color;
   margin: 0;
   padding: .5px 0 6.5px;
