@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     collection do
       post "comment"
       post "support"
+      post "quick_moment"
     end
   end
 

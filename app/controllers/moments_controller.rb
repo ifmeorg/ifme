@@ -83,6 +83,23 @@ class MomentsController < ApplicationController
     end
   end
 
+  def quick_moment
+    # Assumme all viewers and comments allowed
+    viewers = Array.new
+    current_user.allies_by_status(:accepted).each do |item|
+      viewers.push(item.id)
+    end
+
+    moment = Moment.new(userid: current_user.id, name: params[:moment][:name], why: params[:moment][:why], comment: true, viewers: viewers, category: params[:moment][:category], mood: params[:moment][:mood])
+
+    moment.save
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render root_path }
+    end
+  end
+
   # def support
   #   if !params[:support].nil? && !params[:support][:userid].empty? && !params[:support][:support_type].empty? && !params[:support][:support_id].empty?
   #     params[:userid] = params[:support][:userid]

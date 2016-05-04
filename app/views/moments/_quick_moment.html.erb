@@ -1,0 +1,51 @@
+<%= form_for(local_assigns[:moment], url: quick_moment_moments_path) do |f| %>
+	<% if local_assigns[:moment].errors.any? %>
+	  <div class="error_explanation">
+	    <%= t('moments.form.error_explanation') %>
+	  </div>
+	<% end %>
+
+	<div class="table" id="quick_moment">
+		<div class="table_row">
+			<div class="table_cell small_padding_right vertical_align_middle">
+				<%= f.text_field :name, placeholder: t('moments.form.name') %>
+
+				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>				
+			</div>
+
+			<div class="table_cell center">
+				<%= f.label t('moments.form.categories') %>
+
+				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+				    <% local_assigns[:categories].each do |item| %>
+				    	<%= f.check_box(:category, {:multiple => true}, item.id, nil) %>
+				      	<span class="notification_wrapper">
+				        	<span class="tip_notifications_button link_style"><%= item.name %></span>
+				        	<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
+				      	</span>
+				    <% end %>
+				<% end %>
+
+				<%= f.label t('moments.form.moods'), class: 'small_margin_top' %>
+
+				<% if !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+					<% local_assigns[:moods].each do |item| %>
+						<%= f.check_box(:mood, {:multiple => true}, item.id, nil) %>
+						<span class="notification_wrapper">
+							<span class="tip_notifications_button link_style"><%= item.name %></span>
+						<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
+						</span>
+					<% end %>
+				<% end %>
+
+				<div class="actions no_margin_bottom">
+					<%= f.hidden_field :userid, :value => current_user.id %>
+					<%= f.submit %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<% end %>
+
+<div class="spacer"></div>

@@ -215,6 +215,10 @@ ul.no_bullet_list li {
 	text-align: center;
 }
 
+.no_center {
+	text-align: left !important;
+}
+
 .center_div {
 	margin: 0 auto;
 }
@@ -664,6 +668,10 @@ input[type="submit"]#support:hover {
 
 .vertical_align_middle {
 	vertical-align: middle;
+}
+
+.vertical_align_bottom {
+	vertical-align: bottom;
 }
 
 /* Comments */

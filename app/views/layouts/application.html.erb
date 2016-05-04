@@ -16,7 +16,8 @@
 			<% elsif current_page?(edit_user_registration_path) ||
 				(params[:controller] == "registrations" && action_name == "update") %>
 				- Account
-
+			<% elsif current_page?(root_path) %>
+				- <%= t(:app_description) %>
 			<% elsif !@page_title.blank? %>
 				- <%= @page_title %>
 			<% end %>
@@ -126,7 +127,7 @@
 							<div class="headline center">
 						        <span class="branding_title">
 						          <%= t('.if') %> <span class="branding_subtitle"><%= t('.me') %></span>
-						        </span><%= t('.branding_title') %>
+						        </span><%= t(:app_description) %>
 					      </div>
 						<% else %>
 							<%= @page_title %>

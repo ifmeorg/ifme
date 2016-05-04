@@ -1,5 +1,6 @@
 en:
  app_name: 'if me'
+ app_description: 'a community for mental health experiences'
 
 # alert_mailer and alerts will be added to for selects
 # and tested once feature is up and running
@@ -76,7 +77,6 @@ en:
    update_account: 'Customize your account'
    if: 'if'
    me: 'me'
-   branding_title: 'is a community for mental health experiences'
    footer_about: 'About'
    footer_blog: 'Blog'
    footer_contributors: 'Contributors'
@@ -264,6 +264,7 @@ en:
    desired: 'What thoughts would you like to have instead?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields!'
+   what_happened: 'What happened?'
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
    created: 'Created:'

@@ -142,3 +142,62 @@ h1.blog_name, h1.privacy_heading {
 		font-size: 22px;
 	}
 }
+
+/* Quick Moment */
+
+#quick_moment {
+	input,
+	textarea,
+	select,
+	fieldset {
+		margin-right: 0;
+	}
+
+	input[type="text"], textarea {
+		width: 100%;
+	}
+
+	input[type="text"] {
+		margin-bottom: 20px;
+	}
+
+	input[type="submit"] {
+		margin-top: 20px;
+	}
+
+	label {
+		font-size: 20px;
+		font-weight: 300;
+		display: block;
+		margin-bottom: 5px;
+
+		@media screen and (max-width: $medium) {
+			font-size: 16px;
+		}
+	}
+
+	@media screen and (max-width: $medium) {
+		.small_padding_right, .small_padding_bottom {
+			padding: 0 !important;
+		}
+
+		input[type="text"] {
+			margin-bottom: 10px;
+		}
+
+		input[type="submit"] {
+			margin-top: 10px;
+		}
+
+		textarea {
+			margin-bottom: 10px;
+		}
+	}
+
+
+	@media screen and (min-width: $medium + 1) {
+		input[type="checkbox"] {
+			display: inline-block;
+		}
+	}
+}
