@@ -9,6 +9,10 @@
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
+
+	@media screen and (max-width: $medium - 1) {
+		margin-bottom: 20px;
+	}
 }
 
 h1.ally_name {
@@ -17,6 +21,11 @@ h1.ally_name {
 	padding: 0;
 	margin: 0px 0px 20px 0px;
 	color: $secondary-text-color;
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 22px;
+		margin: 0px 0px 10px 0px;
+	}
 }
 
 h1.ally_name a:link,

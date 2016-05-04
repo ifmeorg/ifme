@@ -4,25 +4,16 @@
 
 /* Groups */
 
-.meeting {
+.meeting, .group {
 	padding: 20px;
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
-}
 
-h1.meeting_name a:link,
-h1.meeting_name a:visited {
-	color: $secondary-text-color;
-	text-decoration: none;
-	border: none;
-}
-
-.group {
-	padding: 20px;
-	border: 1px solid $container-color;
-	box-shadow: 0 0 2px $container-color inset;
-	margin-bottom: 40px;
+	@media screen and (max-width: $medium - 1) {
+		padding: 10px;
+		margin-bottom: 20px;
+	}
 }
 
 h1.group_name, h1.meeting_name {
@@ -31,10 +22,18 @@ h1.group_name, h1.meeting_name {
 	padding: 0;
 	margin: 0px 0px 20px 0px;
 	color: $secondary-text-color;
+
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 22px;
+		margin: 0px 0px 10px 0px;
+	}
 }
 
 h1.group_name a:link,
-h1.group_name a:visited {
+h1.group_name a:visited,
+h1.meeting_name a:link,
+h1.meeting_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;
@@ -45,4 +44,9 @@ h1.group_type {
 	font-size: 30px;
 	padding: 0;
 	margin: 0px 0px 20px 0px;
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 26px;
+		margin: 0px 0px 10px 0px;
+	}
 }

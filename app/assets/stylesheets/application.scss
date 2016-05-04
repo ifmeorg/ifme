@@ -45,6 +45,12 @@ body, html {
 		font: 18px $font-family;
 		font-weight: 400;
 	}
+
+	@media screen and (max-width: $small - 1) {
+		margin: 0 auto;
+		font: 16px $font-family;
+		font-weight: 400;
+	}
 }
 
 p {
@@ -103,6 +109,10 @@ ul.no_bullet_list li {
 
 .padding_right {
 	padding-right: 40px !important;
+
+	@media screen and (max-width: $medium - 1) {
+		padding-right: 0 !important;
+	}
 }
 
 .padding_left {
@@ -232,6 +242,22 @@ ul.no_bullet_list li {
 	@media screen and (max-width: $medium - 1) {
 		display: block;
 		float: none;
+	}
+}
+
+#page_title_content, .sidebar_label, .tip_notifications_text, #notifications_text {
+	.align_left {
+		float: left;
+		display: inline-block;
+
+		@media screen and (max-width: $small - 1) {
+			width: 90%;
+		}
+	}
+
+	.align_right {
+		float: right;
+		display: inline-block;
 	}
 }
 
@@ -425,6 +451,7 @@ a.page_search:hover {
 	color: $secondary-text-color;
 
 	@media screen and (max-width: $medium - 1) {
+		font-size: 14px;
 		padding: 0px 20px;
 	}
 }
@@ -671,6 +698,11 @@ input[type="submit"]#support:hover {
 
 .sidebar_field {
   padding: 15px 15px 15px 0px;
+
+  @media screen and (max-width: $medium - 1) {
+  	padding: 10px 10px 10px 0px;
+  	width: 100%;
+  }
 }
 
 .sidebar_label label, .sidebar_label {

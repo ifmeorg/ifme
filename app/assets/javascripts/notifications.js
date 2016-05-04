@@ -32,7 +32,8 @@ $(document).on("page:load ready", function() {
   var click_flag = 0;
 
   resetNotificationsButton();
-  $('.notifications_button').click(function() {
+  $('.notifications_button').click(function(event) {
+    event.preventDefault();
     if (click_flag % 2 == 0) {
       showNotifications();
       pressNotificationsButton();
