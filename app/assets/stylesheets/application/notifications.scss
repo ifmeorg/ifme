@@ -16,7 +16,7 @@
   box-shadow: 0 0 40px $container-color;
   background-color: $background-color;
 
-  @media screen and (max-width: $small - 1) {
+  @media screen and (max-width: $small) {
     width: 80%;
     padding: 20px;
   }
@@ -32,7 +32,7 @@ a.tip_notification_link:visited {
   color: $link-color;
   border-bottom: none;
 
-  @media screen and (max-width: $small - 1) {
+  @media screen and (max-width: $small) {
     margin-top: 10px;
   }
 }
@@ -45,7 +45,7 @@ a.notification_link:hover, a.tip_notification_link:hover {
   border-bottom: none;
   opacity: 0.5;
 
-  @media screen and (max-width: $small - 1) {
+  @media screen and (max-width: $small) {
     margin-top: 10px;
   }
 }
@@ -53,7 +53,7 @@ a.notification_link:hover, a.tip_notification_link:hover {
 #notifications_none {
   margin-top: 20px;
 
-  @media screen and (max-width: $small - 1) {
+  @media screen and (max-width: $small) {
     margin-top: 10px;
   }
 }
@@ -69,7 +69,7 @@ h1.notification_name, h1.tip_close_notifications, h1#clear_notifcations, h1#clos
   margin: 0px;
   color: $secondary-text-color;
 
-  @media screen and (max-width: $small - 1) {
+  @media screen and (max-width: $small) {
     font-weight: 22px;
   }
 }
@@ -86,7 +86,7 @@ h1.notification_name, h1.tip_close_notifications, h1#clear_notifcations, h1#clos
 }
 
 #notifications .align_left, #notifications .align_right {
-  @media screen and (max-width: $medium - 1) {
+  @media screen and (max-width: $medium) {
     width: auto !important;
   }
 }

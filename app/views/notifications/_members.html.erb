@@ -23,7 +23,7 @@
 		                <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
 		                <br>
 		            </div>
-		            <div class="table_cell vertical_align_middle">
+		            <div class="table_cell small_padding_bottom vertical_align_middle">
 		                <%= link_to profile.name, profile_index_path(uid: get_uid(member.userid)) %>
 		            </div>
 		        </div>

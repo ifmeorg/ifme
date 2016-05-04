@@ -9,7 +9,7 @@
 	margin-bottom: 60px;
 	color: $secondary-text-color;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		font-size: 24px;
 		margin-bottom: 20px;
 	}
@@ -26,7 +26,7 @@
 	table-layout: fixed;
 	width: 100%;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		font-size: 24px;
 	}
 }
@@ -34,7 +34,7 @@
 .message_row {
 	display: table-row;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		display: block;
 	}
 }
@@ -43,7 +43,7 @@
 	display: table-cell;
 	width: 30%;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		display: block;
 		width: 100%;
 		margin-bottom: 30px;
@@ -58,6 +58,12 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	margin: 0 auto;
+
+	@media screen and (max-width: $small) {
+		width: 80px;
+		height: 60px;
+		background-size: 80px 60px;
+	}
 }
 
 #time {
@@ -68,7 +74,16 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-top: 40px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+
+	@media screen and (max-width: $small) {
+		width: 60px;
+		height: 60px;
+		background-size: 60px 60px;
+		margin-top: 20px;
+	}
 }
 
 #you {
@@ -79,7 +94,16 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-top: 40px;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+
+	@media screen and (max-width: $small) {
+		width: 149px;
+		height: 60px;
+		background-size: 149px 60px;
+		margin-top: 20px;
+	}
 }
 
 .icon_border {
@@ -88,7 +112,7 @@
 	background-color: $primary-text-color;
 	width: 80px;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		margin: 30px auto 30px auto;
 	}
 }
@@ -101,7 +125,7 @@
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		margin-bottom: 20px;
 		padding: 10px;
 	}
@@ -114,7 +138,7 @@ h1.blog_name, h1.privacy_heading {
 	margin: 0;
 	color: $secondary-text-color;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		font-size: 22px;
 	}
 }

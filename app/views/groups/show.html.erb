@@ -22,9 +22,9 @@
 <% end %>
 
 <% if @is_group_member %>
-	<%= link_to t('.leave_cta'), leave_groups_path(groupid: @group.id), class: 'align_right' %>
+	<%= link_to t('.leave_cta'), leave_groups_path(groupid: @group.id), class: 'align_right', id: 'leave' %>
 <% else %>
-	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), class: 'align_right' %>	
+	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), id: 'join align_right' %>	
 <% end %>
 
 <div class="clear"></div>

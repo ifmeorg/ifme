@@ -10,7 +10,7 @@ h1.group_type {
 	padding: 0;
 	margin: 0px 0px 20px 0px;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		font-size: 26px;
 		margin: 0px 0px 10px 0px;
 	}

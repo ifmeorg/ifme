@@ -10,7 +10,7 @@
 }
 
 .ally {
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		.profile_picture {
 			width: 50px;
 		}

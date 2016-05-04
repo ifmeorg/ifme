@@ -1,5 +1,5 @@
 .contributor {
-  @media screen and (max-width: $medium - 1) {
+  @media screen and (max-width: $medium) {
     margin: 0 0 20px;
     padding: 10px;
     border: 1px solid $secondary-text-color;
@@ -10,7 +10,7 @@
   }
 
   .contributor-image {
-    @media screen and (min-width: $medium) {
+    @media screen and (min-width: $medium + 1) {
       width: 200px;
       padding-right: 40px;
       vertical-align: middle
@@ -18,7 +18,7 @@
   }
 
   .spacer {
-    @media screen and (max-width: $medium - 1) {
+    @media screen and (max-width: $medium) {
       height: 10px;
 
       &:last-of-type {
@@ -29,7 +29,7 @@
 }
 
 div.table div.table_cell {
-  @media screen and (max-width: $medium - 1) {
+  @media screen and (max-width: $medium) {
     &.contributor-image {
       text-align: center;
     }
@@ -39,7 +39,7 @@ div.table div.table_cell {
 .contributor_picture {
   width: 150px;
 
-  @media screen and (min-width: $medium) {
+  @media screen and (min-width: $medium + 1) {
     width: 200px;
   }
 }
@@ -49,7 +49,7 @@ div.table div.table_cell {
   font-weight: 100;
   text-align: center;
 
-  @media screen and (max-width: $medium - 1) {
+  @media screen and (max-width: $medium) {
     font: 30px $font-family;
     font-weight: 100;
     text-align: center;

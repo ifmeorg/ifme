@@ -11,7 +11,7 @@
   @include clearfix;
   padding: 20px;
 
-  @media screen and (min-width: $medium) {
+  @media screen and (min-width: $medium + 1) {
     padding: 30px 60px;
   }
 }
@@ -41,7 +41,7 @@
     float: left;
     margin-right: 24px;
 
-    @media screen and (max-width: $medium - 1) {
+    @media screen and (max-width: $medium) {
       margin-right: 20px;
     }
   }
@@ -75,7 +75,7 @@
   font-weight: 300;
   margin-top: 30px;
 
-  @media screen and (max-width: $medium - 1) {
+  @media screen and (max-width: $medium) {
     margin-top: 10px;
   }
 
@@ -104,6 +104,7 @@
 
   @media screen and (min-width: $small + 1) {
     font-size: 30px;
+    padding-top: 4px;
   }
 
   &:hover {
@@ -182,5 +183,9 @@
   border-top: 2px solid $highlight-text-color;
   color: $highlight-text-color;
   margin: 0;
-  padding: .5px 0 6.5px;
+  padding: 0px 0 6px;
+
+  @media screen and (max-width: $small) {
+    padding: 1px 0 4px;
+  }
 }

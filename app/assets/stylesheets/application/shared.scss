@@ -12,7 +12,7 @@
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		padding: 10px;
 		margin-bottom: 20px;
 	}
@@ -34,7 +34,7 @@ h1.strategy_name {
 	margin: 0px 0px 20px 0px;
 	color: $secondary-text-color;
 
-	@media screen and (max-width: $medium - 1) {
+	@media screen and (max-width: $medium) {
 		font-size: 22px;
 		margin: 0px 0px 10px 0px;
 	}
@@ -63,4 +63,34 @@ h1.strategy_name a:visited {
 	color: $secondary-text-color;
 	text-decoration: none;
 	border: none;
+}
+
+#page_title_content, .sidebar_label, .label, .tip_notifications_text, #notifications_text, .moment {
+	.align_left {
+		float: left;
+		display: inline-block;
+
+		@media screen and (max-width: $small) {
+			width: 80%;
+		}
+	}
+
+	.align_right {
+		float: right;
+		display: inline-block;
+	}
+}
+
+#leave.align_left, #join.align_left {
+	float: left;
+	display: inline-block;
+
+	@media screen and (max-width: $small) {
+		width: 60%;
+	}
+}
+
+#leave.align_right, #join.align_right {
+	float: right;
+	display: inline-block;
 }
