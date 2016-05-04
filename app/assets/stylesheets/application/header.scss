@@ -73,10 +73,10 @@
 
 #expand_moment, #expand_me {
   font-weight: 300;
-  margin-top: 10px;
+  margin-top: 30px;
 
-  @media screen and (min-width: $small + 1) {
-    margin-top: 30px;
+  @media screen and (max-width: $medium - 1) {
+    margin-top: 10px;
   }
 
   a {
@@ -116,15 +116,24 @@
     font-size: 20px;
     margin-left: 10px;
     padding-top: 6px;
+
+    @media screen and (max-width: $small) {
+      font-size: 16px;
+      padding-top: 2px;
+    }
   }
 }
 
-@media screen and (min-width: $small + 1) {
-  #expand_me {
-    clear: right;
-    float: right;
-    text-align: right;
+@media screen and (max-width: $small) {
+  #expand_nav {
+    color: $header-text-color;
   }
+}
+
+#expand_me {
+  clear: right;
+  float: right;
+  text-align: right;
 }
 
 #header_spacer {
@@ -146,31 +155,24 @@
 
 .ifme-logo {
   @media screen and (max-width: $small) {
-
     &.small-screen {
-      .top-nav {
-        display: inline-block;
-        margin: 0px;
-        text-align: right;
-        width: 60%;
-        clear: none;
-        float: right;
+      #small_nav {
+        text-align: left;
+        margin-bottom: 0;
+        list-style: none;
+        padding-left: 0;
 
         li {
-          display: inline;
-          display: inline-block;
-          margin: 0 10px;
-          float: none;
+          display: block;
+          margin-bottom: 10px;
         }
 
         a {
           border: none;
+          color: $header-text-color;
         }
       }
     }
-  }
-
-  @media screen and (min-width: $small + 1) {
   }
 }
 

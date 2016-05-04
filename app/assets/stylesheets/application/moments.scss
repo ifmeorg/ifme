@@ -9,6 +9,10 @@
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
+
+	@media screen and (max-width: $medium - 1) {
+		margin-bottom: 20px;
+	}
 }
 
 h1.moment_name {
@@ -25,6 +29,3 @@ h1.moment_name a:visited {
 	text-decoration: none;
 	border: none;
 }
-
-
-
