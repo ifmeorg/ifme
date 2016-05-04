@@ -3,7 +3,8 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
 
-  $('.expand_button').click(function() {
+  $('.expand_button').click(function(event) {
+    event.preventDefault();
     hideSmallTopNav();
 
     if (click_flag % 2 == 0) {
