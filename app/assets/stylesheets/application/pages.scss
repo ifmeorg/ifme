@@ -6,12 +6,11 @@
 	text-align: center;
 	font-weight: 300;
 	font-size: 26px;
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 	color: $secondary-text-color;
 
 	@media screen and (max-width: $medium) {
 		font-size: 24px;
-		margin-bottom: 20px;
 	}
 }
 
@@ -73,16 +72,12 @@
 	background-size: 80px 80px;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin-top: 40px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: auto;
+	margin: 0 auto;
 
 	@media screen and (max-width: $small) {
 		width: 60px;
 		height: 60px;
 		background-size: 60px 60px;
-		margin-top: 20px;
 	}
 }
 
@@ -93,16 +88,12 @@
 	background-size: 198px 80px;
 	background-repeat: no-repeat;
 	background-position: center;
-	margin-top: 40px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: auto;
+	margin: 0 auto;
 
 	@media screen and (max-width: $small) {
 		width: 149px;
 		height: 60px;
 		background-size: 149px 60px;
-		margin-top: 20px;
 	}
 }
 
@@ -198,6 +189,23 @@ h1.blog_name, h1.privacy_heading {
 	@media screen and (min-width: $medium + 1) {
 		input[type="checkbox"] {
 			display: inline-block;
+		}
+	}
+}
+
+#onboarding {
+	@media screen and (max-width: $medium) {
+		.message_cell {
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+
+		.onboarding_message {
+			text-align: center;
+		}
+
+		.padding_bottom, .last_cell {
+			padding-bottom: 20px !important;
 		}
 	}
 }
