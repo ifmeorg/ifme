@@ -8,6 +8,11 @@
 	font-size: 26px;
 	margin-bottom: 60px;
 	color: $secondary-text-color;
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
 }
 
 .moment p {
@@ -19,15 +24,30 @@
 	font-size: 26px;
 	display: table;
 	table-layout: fixed;
+	width: 100%;
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 24px;
+	}
 }
 
 .message_row {
 	display: table-row;
+
+	@media screen and (max-width: $medium - 1) {
+		display: block;
+	}
 }
 
 .message_cell {
 	display: table-cell;
 	width: 30%;
+
+	@media screen and (max-width: $medium - 1) {
+		display: block;
+		width: 100%;
+		margin-bottom: 30px;
+	}
 }
 
 #book {
@@ -67,6 +87,10 @@
 	height: 1px;
 	background-color: $primary-text-color;
 	width: 80px;
+
+	@media screen and (max-width: $medium - 1) {
+		margin: 30px auto 30px auto;
+	}
 }
 
 /* Blog */
@@ -76,6 +100,11 @@
 	border: 1px solid $container-color;
 	box-shadow: 0 0 2px $container-color inset;
 	margin-bottom: 40px;
+
+	@media screen and (max-width: $medium - 1) {
+		margin-bottom: 20px;
+		padding: 10px;
+	}
 }
 
 h1.blog_name, h1.privacy_heading {
@@ -84,6 +113,10 @@ h1.blog_name, h1.privacy_heading {
 	padding: 0;
 	margin: 0;
 	color: $secondary-text-color;
+
+	@media screen and (max-width: $medium - 1) {
+		font-size: 24px;
+	}
 }
 
 h1.blog_name a:link,

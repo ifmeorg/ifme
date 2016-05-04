@@ -397,8 +397,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   underscore-rails
 
-RUBY VERSION
-   ruby 2.3.0p0
-
 BUNDLED WITH
    1.12.1

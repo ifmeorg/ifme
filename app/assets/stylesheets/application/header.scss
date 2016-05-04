@@ -9,39 +9,41 @@
 
 #header_content {
   @include clearfix;
-  padding: 10px;
+  padding: 20px;
 
-  @media screen and (min-width: $small + 1) {
+  @media screen and (min-width: $medium) {
     padding: 30px 60px;
   }
 }
 
 // Main Navigation Links
 .top-nav {
-  clear: both;
-  float: none;
-  font-size: 12px;
+  margin: 0;
   padding: 0;
-  margin: 20px auto;
-  width: 50%;
-  text-align: center;
+  font-size: 16px;
+  clear: left;
+  float: left;
+  width: auto;
+  text-align: left;
 
-  // @media screen and (min-width: $small + 1) {
+  @media screen and (min-width: $small + 1) {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
     clear: left;
     float: left;
     width: auto;
     text-align: left;
-  // }
-
-  @media screen and (min-width: $small + 1) {
-    margin: 0;
-    font-size: 18px;
   }
 
   li {
     list-style: none;
     float: left;
     margin-right: 24px;
+
+    @media screen and (max-width: $medium - 1) {
+      margin-right: 20px;
+    }
   }
 
   .active a {
@@ -146,12 +148,6 @@
   @media screen and (max-width: $small) {
 
     &.small-screen {
-      width: 100%;
-
-      .header-logo {
-        float: left;
-      }
-
       .top-nav {
         display: inline-block;
         margin: 0px;

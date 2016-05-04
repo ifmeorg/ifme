@@ -1,7 +1,7 @@
 .contributor {
   @media screen and (max-width: $medium - 1) {
-    margin: 0 0 40px;
-    padding: 20px;
+    margin: 0 0 20px;
+    padding: 10px;
     border: 1px solid $secondary-text-color;
   }
 
@@ -41,5 +41,17 @@ div.table div.table_cell {
 
   @media screen and (min-width: $medium) {
     width: 200px;
+  }
+}
+
+.contributor-name {
+  font: 34px $font-family;
+  font-weight: 100;
+  text-align: center;
+
+  @media screen and (max-width: $medium - 1) {
+    font: 30px $font-family;
+    font-weight: 100;
+    text-align: center;
   }
 }

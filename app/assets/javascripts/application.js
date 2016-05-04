@@ -23,18 +23,6 @@
 $(document).on("page:load ready", function() {
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
-
-	if ($('body').hasClass('categories index') ||
-		$('body').hasClass('groups index') ||
-		$('body').hasClass('medications index') ||
-		$('body').hasClass('moods index') ||
-		$('body').hasClass('strategies index') ||
-		$('body').hasClass('moments index')) {
-		var subtitle_delay_time = 300;
-		var subtitle_slideDown_time = 1500;
-		$(".subtitle").delay(subtitle_delay_time).slideDown(subtitle_slideDown_time);
-	}
-
 	if ($('body').hasClass('moments edit') ||
 		$('body').hasClass('moments create') ||
 		$('body').hasClass('moments new') ||
