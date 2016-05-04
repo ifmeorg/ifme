@@ -6,6 +6,14 @@
   left: 0;
 }
 
+@media screen and (max-width: $medium) {
+  .tip_notifications {
+    .padding_right {
+      padding-right: 20px !important;
+    }
+  }
+}
+
 #notifications_text, .tip_notifications_text {
   margin: 0 auto;
   width: 50%;
