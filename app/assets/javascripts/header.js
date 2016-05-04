@@ -3,8 +3,7 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
 
-  $('.expand_button').click(function(event) {
-    event.preventDefault();
+  $('.expand_button').click(function() {
     hideSmallTopNav();
 
     if (click_flag % 2 == 0) {
@@ -17,8 +16,7 @@ $(document).on("page:load ready", function() {
     click_flag++;
   });
 
-  $('#expand_nav').click(function(event) {
-    event.preventDefault();
+  $('#expand_nav').click(function() {
     hideExpandMe();
 
     if ($('#small_nav')[0].classList.contains('display_none')) {
@@ -28,9 +26,7 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $('.expand_moment_button').mouseover(function(event) {
-    event.preventDefault();
-
+  $('.expand_moment_button').mouseover(function() {
     if ($('#expand_moment')[0].classList.contains('display_none')) {
       showExpandMoment();
 
@@ -43,8 +39,7 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $(':not(.expand_moment_button)').click(function(event) {
-    event.preventDefault();
+  $(':not(.expand_moment_button)').click(function() {
     hideExpandMoment();
     setHeight();
   });
