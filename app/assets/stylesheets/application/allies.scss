@@ -4,37 +4,6 @@
 
 /* Allies */
 
-.ally {
-	padding: 20px;
-	border: 1px solid $container-color;
-	box-shadow: 0 0 2px $container-color inset;
-	margin-bottom: 40px;
-
-	@media screen and (max-width: $medium - 1) {
-		margin-bottom: 20px;
-	}
-}
-
-h1.ally_name {
-	font-weight: 300;
-	font-size: 26px;
-	padding: 0;
-	margin: 0px 0px 20px 0px;
-	color: $secondary-text-color;
-
-	@media screen and (max-width: $medium - 1) {
-		font-size: 22px;
-		margin: 0px 0px 10px 0px;
-	}
-}
-
-h1.ally_name a:link,
-h1.ally_name a:visited {
-	color: $secondary-text-color;
-	text-decoration: none;
-	border: none;
-}
-
 .location {
 	color: $secondary-text-color;
 	opacity: 0.5;

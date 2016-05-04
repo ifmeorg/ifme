@@ -115,13 +115,6 @@ h1.blog_name, h1.privacy_heading {
 	color: $secondary-text-color;
 
 	@media screen and (max-width: $medium - 1) {
-		font-size: 24px;
+		font-size: 22px;
 	}
-}
-
-h1.blog_name a:link,
-h1.blog_name a:visited {
-	color: $secondary-text-color;
-	text-decoration: none;
-	border: none;
 }
