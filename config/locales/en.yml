@@ -172,6 +172,7 @@ en:
    strategies_word: "strategies"
    groups_word: "groups"
    allies_word: "allies"
+   strategize_word: "Strategize"
 
  profile:
   index:
@@ -238,7 +239,7 @@ en:
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields'
   index:
-   subtitle: 'Create strategies to achieve desired thoughts and attitudes towards moments.'
+   subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
    created: 'Created:'
    category: 'Category:'
    categories: 'Categories:'
