@@ -1,13 +1,14 @@
 <div id="header">
   <div id="header_content">
     <div class="ifme-logo small-screen">
-      <%= render "shared/menu_logo" %>
+      <%= link_to root_path do %>
+        <span class="logo-text header-logo">If <span class="me">Me</span></span>
+      <% end %>
 
       <i class="expand fa fa-bars" id="expand_nav"></i>
 
       <ul id="small_nav" class="display_none">
       <% if user_signed_in? %>
-          <%= nav_link_to(t('.home'), root_path)  %>
           <%= nav_link_to(t('.moments'), moments_path) %>
           <%= nav_link_to(t('.categories'), categories_path) %>
           <%= nav_link_to(t('.moods'), moods_path) %>
@@ -15,6 +16,10 @@
           <%= nav_link_to(t('.medications'), medications_path) %>
           <%= nav_link_to(t('.groups'), groups_path) %>
           <%= nav_link_to(t('.allies'), allies_path) %>
+          <%= nav_link_to(t('.notifications'), "", class: 'notifications_button') %>
+          <%= nav_link_to(t('.profile'), profile_index_path(uid: current_user.uid)) %>
+          <%= nav_link_to(t('.account'), edit_user_registration_path) %>
+          <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>
         <% else %>
           <%= nav_link_to(t('.signin'), new_user_session_path) %>
           <%= nav_link_to(t('.join'), new_user_registration_path) %>
