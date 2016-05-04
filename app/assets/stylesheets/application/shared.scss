@@ -65,7 +65,12 @@ h1.strategy_name a:visited {
 	border: none;
 }
 
-#page_title_content, .sidebar_label, .label, .tip_notifications_text, #notifications_text, .moment {
+#page_title_content, 
+.sidebar_label, 
+.label, 
+.tip_notifications_text, 
+#notifications_text, 
+.moment {
 	.align_left {
 		float: left;
 		display: inline-block;
@@ -81,7 +86,8 @@ h1.strategy_name a:visited {
 	}
 }
 
-#leave.align_left, #join.align_left {
+#leave.align_left, 
+#join.align_left {
 	float: left;
 	display: inline-block;
 
@@ -90,7 +96,18 @@ h1.strategy_name a:visited {
 	}
 }
 
-#leave.align_right, #join.align_right {
+.ally .align_left {
+	float: left;
+	display: inline-block;
+
+	@media screen and (max-width: $small) {
+		width: 50%;
+	}
+}
+
+#leave.align_right, 
+#join.align_right,
+.ally .align_right {
 	float: right;
 	display: inline-block;
 }

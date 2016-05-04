@@ -7,3 +7,13 @@
 .profile_container p {
 	margin : 0;
 }
+
+@media screen and (max-width: $medium) {
+	#profile_info {
+		text-align: center;
+
+		.profile_picture_div {
+			margin: 0 auto;
+		}
+	}
+}

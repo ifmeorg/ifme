@@ -488,10 +488,14 @@ img {
 }
 
 .profile_picture_div {
-	width: 100px;
+	width: 200px;
 
-	@media screen and (min-width: $medium + 1) {
-		width: 200px;
+	@media screen and (max-width: $medium) {
+		width: 50px;
+	}
+
+	@media screen and (max-width: $small) {
+		width: 50px;
 	}
 }
 

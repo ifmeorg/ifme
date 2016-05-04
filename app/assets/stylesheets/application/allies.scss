@@ -14,5 +14,33 @@
 		.profile_picture {
 			width: 50px;
 		}
+
+		.padding_right {
+			padding-right: 20px !important;
+		}
+	}
+
+	div.table {
+		display: table;
+		table-layout: auto;
+		width: 100%;
+		border-collapse: separate;
+	}
+
+	div.table div.table_row {
+		display: table-row;
+	}
+
+	div.table div.table_cell {
+		display: table-cell;
+		word-break: break-word;
 	}
 }
+
+@media screen and (max-width: $medium) {
+	#search_email {
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+}
+
