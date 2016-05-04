@@ -31,32 +31,32 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
 
-  $('.notifications_button').css({"opacity": 1});
+  resetNotificationsButton();
   $('.notifications_button').click(function() {
     event.preventDefault();
     if (click_flag % 2 == 0) {
-      $('#notifications').css({"display": "block"});
-      $('.notifications_button').css({"opacity": 0.5});
+      showNotifications();
+      pressNotificationsButton();
 
       // Fetch notifications for current_user
       fetchNotifications();
     } else {
-      $('#notifications').css({"display": "none"});
-      $('.notifications_button').css({"opacity": 1});
+      hideNotifications();
+      resetNotificationsButton();
     }
     click_flag++;
   });
 
   $('#close_notifications').click(function() {
     event.preventDefault();
-    $('#notifications').css({"display": "none"});
-    $('.notifications_button').css({"opacity": 1});
+    hideNotifications();
+    resetNotificationsButton();
     click_flag++;
   });
 
    $('#clear_notifcations').click(function() {
-    $('#notifications_list').empty();
-    $('#notifications_none').css({"display": "block"});
+    emptyNotificationsList();
+    showNotificationsNone();
 
     $.ajax("/notifications/clear");
   });
@@ -83,9 +83,9 @@ $(document).on("page:load ready", function() {
 });
 
 function renderNotifications(notifications) {
-  $('#notifications_list').empty();
-  $('#notifications').css({ "display": "block" });
-  $('#notifications_none').css({"display": "none"});
+  emptyNotificationsList();
+  showNotifications();
+  hideNotificationsNone();
 
   _.each(notifications, function(notification) {
     var uniqueid = notification.uniqueid;
@@ -167,7 +167,7 @@ function renderNotifications(notifications) {
   })
 }
 
-function fetchNotifications(){
+function fetchNotifications() {
   $.ajax({
     dataType: "text",
     url: "/notifications/fetch_notifications",
@@ -177,8 +177,40 @@ function fetchNotifications(){
       if (data.length > 0) {
         renderNotifications(data);
       } else {
-        $('#notifications_none').css({"display": "block"});
+        showNotificationsNone();
       }
     }
   });
+}
+
+function showNotifications() {
+  $('#notifications').removeClass('display_none');
+  $('#notifications').addClass('display_block');
+}
+
+function hideNotifications() {
+  $('#notifications').removeClass('display_block');
+  $('#notifications').addClass('display_none');
+}
+
+function pressNotificationsButton() {
+  $('.notifications_button').css({"opacity": 0.5});
+}
+
+function resetNotificationsButton() {
+  $('.notifications_button').css({"opacity": 1});
+}
+
+function emptyNotificationsList() {
+  $('#notifications_list').empty();
+}
+
+function showNotificationsNone() {
+  $('#notifications_none').removeClass('display_none');
+  $('#notifications_none').addClass('display_block');
+}
+
+function hideNotificationsNone() {
+  $('#notifications_none').removeClass('display_block');
+  $('#notifications_none').addClass('display_none');
 }
