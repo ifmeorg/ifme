@@ -53,7 +53,8 @@ class PagesController < ApplicationController
     ]
 
     @organizations = [
-      ['Hacker Hours', 'http://hackerhours.org']
+      ['Hacker Hours', 'http://hackerhours.org'],
+      ['Open Sourcing Mental Illness', 'https://osmihelp.org']
     ]
   end
 
