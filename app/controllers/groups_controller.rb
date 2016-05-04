@@ -5,14 +5,14 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = GroupMember.where(userid: current_user.id).all
+    @groups = GroupMember.where(userid: current_user.id).all.order("created_at DESC")
     @page_title = "Groups"
     @page_tooltip = "New group"
     accepted_allies = current_user.allies_by_status(:accepted)
     @page_new = new_group_path
 
     @available_groups = Array.new
-  	find_available_groups = GroupMember.where(userid: accepted_allies).all
+  	find_available_groups = GroupMember.where(userid: accepted_allies).all.order("created_at DESC")
   	find_available_groups.each do |group|
   		if !GroupMember.where(userid: current_user.id, groupid: group.groupid).exists?
   			@available_groups.push(group)

@@ -481,6 +481,10 @@ img {
 
 .small_profile_picture_div {
 	width: 100px;
+
+	@media screen and (max-width: $small) {
+		width: 50px;
+	}
 }
 
 .profile_picture_div {
@@ -672,41 +676,6 @@ input[type="submit"]#support:hover {
 
 .vertical_align_bottom {
 	vertical-align: bottom;
-}
-
-/* Comments */
-
-.comment {
-	margin-top: 40px;
-	padding: 20px;
-	background-color: white;
-	border: 2px solid $secondary-text-color;
-}
-
-.comment_info {
-	color: $secondary-text-color;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-bottom: 1px solid $subtle-secondary-text-color;
-}
-
-.comment a:link,
-.comment a:visited,
-.comment a:hover {
-	color: $secondary-text-color;
-	border-color: $secondary-text-color;
-}
-
-.comment_text {
-	word-wrap: break-word;
-	padding: 10px;
-	font-weight: 300;
-}
-
-.comment_textarea {
-	width: 100%;
-	margin: 0px !important;
 }
 
 /* Table */

@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.where(:userid => current_user.id).all
+    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @page_title = "Categories"
     @page_new = new_category_path
     @page_tooltip = "New category"

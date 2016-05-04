@@ -5,7 +5,7 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC")
     @page_title = "Moments"
     @page_new = new_moment_path
     @page_tooltip = "New moment"

@@ -11,7 +11,11 @@
       <%= f.text_area :comment, class: 'comment_textarea' %>
     </div>
 
+    <% if local_assigns[:comments].length == 0 %>
+    <div class="actions align_right no_margin_bottom">
+    <% else %>
     <div class="actions align_right">
+    <% end %>
       <%= f.hidden_field :comment_type, :value => local_assigns[:comment_type] %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => local_assigns[:data].id %>
