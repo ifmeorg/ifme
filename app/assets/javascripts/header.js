@@ -3,8 +3,7 @@ $(document).on("page:load ready", function() {
 
   var click_flag = 0;
 
-  $('.expand_button').click(function(event) {
-    event.preventDefault();
+  $('.expand_button').click(function() {
     hideSmallTopNav();
 
     if (click_flag % 2 == 0) {
@@ -41,8 +40,10 @@ $(document).on("page:load ready", function() {
   });
 
   $(':not(.expand_moment_button)').click(function() {
-    hideExpandMoment();
-    setHeight();
+    if ($('#expand_moment')[0].classList.contains('display_block')) {
+      hideExpandMoment();
+      setHeight();
+    }
   });
 
   $(window).resize(function () {

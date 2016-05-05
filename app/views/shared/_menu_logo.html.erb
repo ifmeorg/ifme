@@ -1,7 +1,6 @@
-<%= link_to root_path, :id => "title_expand",
-  :class => "expand_button header-logo" do %>
+<span id="title_expand" class="expand_button header-logo">
   <span class="logo-text">If <span id="me" class="me">Me</span></span>
   <% if user_signed_in? %>
     <i class="expand fa fa-sort-asc"></i>
   <% end %>
-<% end %>
+</span>
