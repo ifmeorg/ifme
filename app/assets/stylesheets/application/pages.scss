@@ -168,6 +168,10 @@ h1.blog_name, h1.privacy_heading {
 		}
 	}
 
+	.checkbox {
+		display: inline-block;
+	}
+
 	@media screen and (max-width: $medium) {
 		.small_padding_right, .small_padding_bottom {
 			padding: 0 !important;
@@ -184,12 +188,36 @@ h1.blog_name, h1.privacy_heading {
 		textarea {
 			margin-bottom: 10px;
 		}
+
+		#categories_cell {
+			float: left;
+			text-align: center;
+			display: inline-block;
+			width: 50%;
+		}
+
+		#moods_cell {
+			float: left;
+			text-align: center;
+			display: inline-block;
+			width: 50%;
+
+			.small_margin_top {
+				margin: 0 !important;
+			}
+		}
 	}
 
 
 	@media screen and (min-width: $medium + 1) {
 		input[type="checkbox"] {
 			display: inline-block;
+		}
+	}
+
+	@media screen and (max-width: $small) {
+		.checkbox {
+			display: block;
 		}
 	}
 }
