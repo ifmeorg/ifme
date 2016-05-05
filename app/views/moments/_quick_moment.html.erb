@@ -13,7 +13,7 @@
 				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>				
 			</div>
 
-			<div class="table_cell center">
+			<div class="table_cell center vertical_align_middle">
 				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
 					<div id="categories_cell">
 						<%= f.label t('moments.form.categories') %>
@@ -47,7 +47,11 @@
 
 				<div class="clear"></div>
 
+				<% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
 				<div class="actions no_margin_bottom">
+				<% else %>
+				<div class="actions no_margin_bottom no_margin_top">
+				<% end %>
 					<%= f.hidden_field :userid, :value => current_user.id %>
 					<%= f.submit %>
 				</div>

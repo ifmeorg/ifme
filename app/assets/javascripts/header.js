@@ -40,7 +40,7 @@ $(document).on("page:load ready", function() {
   });
 
   $(':not(.expand_moment_button)').click(function() {
-    if ($('#expand_moment')[0].classList.contains('display_block')) {
+    if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
       hideExpandMoment();
       setHeight();
     }
