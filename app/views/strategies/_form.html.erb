@@ -29,17 +29,18 @@
         <%= f.label t('.categories') %>
       </div>
       <div id="categories" class="display_none">
+        <div id="categories_list">
         <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
-            <span class="tip_notifications_button"><%= item.name %></span><br>
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
           </span>
           <% end %>
-        <% else %>
-          <%= no_taxonomies_error("category") %>
         <% end %>
+        </div>
+        <%= no_taxonomies_error("category") %>
       </div>
     </div>
 
@@ -88,3 +89,5 @@
 <div class="clear"></div>
 
 <% end %>
+
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category } %>

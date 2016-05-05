@@ -29,6 +29,7 @@
         <%= f.label t('.categories') %>
       </div>
       <div id="categories" class="display_none">
+        <div id="categories_list">
         <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @moment.category.include?(item.id)}, item.id, nil) %>
@@ -37,9 +38,9 @@
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
           </span>
           <% end %>
-        <% else %>
-          <%= no_taxonomies_error("category") %>
         <% end %>
+        </div>
+        <%= no_taxonomies_error("category") %>
       </div>
     </div>
 
@@ -55,6 +56,7 @@
       </div>
 
       <div id="moods" class="display_none">
+      <div id="moods_list">
         <% if !@moods.nil? && @moods.length > 0 %>
           <% @moods.each do |item| %>
           <%= f.check_box(:mood, {:multiple => true, :checked => @moment.mood.include?(item.id)}, item.id, nil) %>
@@ -63,9 +65,9 @@
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
           </span>
           <% end %>
-         <% else %>
-          <%= no_taxonomies_error("mood") %>
         <% end %>
+        </div>
+        <%= no_taxonomies_error("mood") %>
       </div>
     </div>
 
@@ -81,6 +83,7 @@
       </div>
 
       <div id ="strategies" class="display_none">
+        <div id="strategies_list">
         <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
           <%= f.check_box(:strategies, {:multiple => true, :checked => @moment.strategies.include?(item.id)}, item.id, nil) %>
@@ -89,9 +92,9 @@
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_strategy_path(item) } %>
           </span>
           <% end %>
-        <% else %>
-          <%= no_taxonomies_error("strategy") %>
         <% end %>
+        </div>
+        <%= no_taxonomies_error("strategy") %>
       </div>
     </div>
 
@@ -147,6 +150,8 @@
 
 <% end %>
 
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category } %>
 
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'mood', data: @mood } %>
 
-
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy } %>

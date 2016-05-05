@@ -17,12 +17,14 @@ Rails.application.routes.draw do
   resources :moods do
     collection do
       post "premade"
+      post "quick_create"
     end
   end
 
   resources :categories do
     collection do
       post "premade"
+      post "quick_create"
     end
   end
 
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
       post "comment"
       post "support"
       post "premade"
+      post "quick_create"
     end
   end
 

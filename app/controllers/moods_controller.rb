@@ -115,6 +115,26 @@ class MoodsController < ApplicationController
     end
   end
 
+  def quick_create
+    mood = Mood.new(userid: current_user.id, name: params[:mood][:name], description: params[:mood][:description])
+    
+    if mood.save
+      checkbox = '<input type="checkbox" value="' + mood.id.to_s + '" name="moment[mood][]" id="moment_mood_' + mood.id.to_s + '">'
+      label = '<span class="notification_wrapper">
+            <span class="tip_notifications_button link_style">' + mood.name + '</span><br>'
+      label += render_to_string :partial => '/notifications/preview', locals: { data: mood, edit: edit_mood_path(mood) }
+      label += '</span>'
+      result = { checkbox: checkbox, label: label }
+    else 
+      result = { error: 'error' }
+    end
+
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mood

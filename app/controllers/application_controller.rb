@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 	include ActionView::Helpers::UrlHelper
   	# Prevent CSRF attacks by raising an exception.
   	# For APIs, you may want to use :null_session instead.
-  	protect_from_forgery with: :exception
+  	protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   	before_filter :configure_permitted_parameters, if: :devise_controller?
 
   	protected
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 ## unless the pluralization is non-standard, Rails can do this with .pluralize.
 
 	def no_taxonomies_error(taxonomy)
-		"<a href='#{taxonomy.pluralize}'>Create #{taxonomy.pluralize}</a> and add them!".html_safe
+		return "<span id='#{taxonomy}_quick_button' class='link_style small_margin_top'>Add #{taxonomy}</span>".html_safe
 	end
 
 	def fetch_taxonomies(data, data_type, item, taxonomy, show, list)

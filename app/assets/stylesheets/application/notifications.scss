@@ -1,4 +1,6 @@
-#notifications, .tip_notifications {
+#notifications, 
+.tip_notifications, 
+.quick_create {
   width: 100%;
   position: fixed;
   top: 30%;
@@ -7,14 +9,14 @@
 }
 
 @media screen and (max-width: $medium) {
-  .tip_notifications {
+  .tip_notifications, .quick_notifications {
     .padding_right {
       padding-right: 20px !important;
     }
   }
 }
 
-#notifications_text, .tip_notifications_text {
+#notifications_text, .tip_notifications_text, .quick_create_text {
   margin: 0 auto;
   width: 50%;
   height: 250px;
@@ -33,7 +35,9 @@
 a.notification_link:link,
 a.notification_link:visited,
 a.tip_notification_link:link,
-a.tip_notification_link:visited {
+a.tip_notification_link:visited,
+a.quick_create_link:link,
+a.quick_create_link:visited {
   margin-top: 20px;
   display: block;
   text-decoration: none;
@@ -45,7 +49,9 @@ a.tip_notification_link:visited {
   }
 }
 
-a.notification_link:hover, a.tip_notification_link:hover {
+a.notification_link:hover, 
+a.tip_notification_link:hover,
+a.quick_create_link:hover {
   margin-top: 20px;
   display: block;
   text-decoration: none;
@@ -66,11 +72,18 @@ a.notification_link:hover, a.tip_notification_link:hover {
   }
 }
 
-.tip_notifications_button:hover {
+.tip_notifications_button:hover,
+#categories_quick_button:hover,
+#moods_quick_button:hover,
+#strategies_quick_button:hover {
   opacity: 0.5;
 }
 
-h1.notification_name, h1.tip_close_notifications, h1#clear_notifcations, h1#close_notifications {
+h1.notification_name, 
+h1.tip_close_notifications,
+h1.quick_create_close, 
+h1#clear_notifcations, 
+h1#close_notifications {
   font-weight: 300;
   font-size: 26px;
   padding: 0;
@@ -82,11 +95,13 @@ h1.notification_name, h1.tip_close_notifications, h1#clear_notifcations, h1#clos
   }
 }
 
+.quick_create_text div.table div.table_row,
 .tip_notifications_text div.table div.table_row,
 #notifications_text div.table div.table_row {
   display: table-row;
 }
 
+.quick_create_text div.table div.table_cell,
 .tip_notifications_text div.table div.table_cell,
 #notifications_text div.table div.table_cell {
   display: table-cell;
@@ -96,5 +111,32 @@ h1.notification_name, h1.tip_close_notifications, h1#clear_notifcations, h1#clos
 #notifications .align_left, #notifications .align_right {
   @media screen and (max-width: $medium) {
     width: auto !important;
+  }
+}
+
+.quick_create {
+  textarea {
+    width: 100%;
+  }
+
+  label {
+    font-size: 26px;
+    font-weight: 300;
+
+    @media screen and (max-width: $medium) {
+      font-size: 24px;
+    }
+  }
+
+  .label {
+    width: auto;
+    display: inherit;
+    font-size: 26px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: $medium) {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
   }
 }

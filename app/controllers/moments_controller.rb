@@ -91,7 +91,6 @@ class MomentsController < ApplicationController
     end
 
     moment = Moment.new(userid: current_user.id, name: params[:moment][:name], why: params[:moment][:why], comment: true, viewers: viewers, category: params[:moment][:category], mood: params[:moment][:mood])
-
     moment.save
 
     respond_to do |format|
@@ -142,6 +141,9 @@ class MomentsController < ApplicationController
     @strategies = Strategy.where(:userid => current_user.id).all
     @moment = Moment.new
     @page_title = "New Moment"
+    @category = Category.new
+    @mood = Mood.new
+    @strategy = Strategy.new
   end
 
   # GET /moments/1/edit
@@ -152,6 +154,9 @@ class MomentsController < ApplicationController
       @moods = Mood.where(:userid => current_user.id).all
       @strategies = Strategy.where(:userid => current_user.id).all
       @page_title = "Edit " + @moment.name
+      @category = Category.new
+      @mood = Mood.new
+      @strategy = Strategy.new
     else
       respond_to do |format|
         format.html { redirect_to moment_path(@moment) }
@@ -166,6 +171,9 @@ class MomentsController < ApplicationController
     @moment = Moment.new(moment_params)
     @page_title = "New Moment"
     @viewers = current_user.allies_by_status(:accepted)
+    @category = Category.new
+    @mood = Mood.new
+    @strategy = Strategy.new
     respond_to do |format|
       if @moment.save
         format.html { redirect_to moment_path(@moment) }
@@ -182,6 +190,9 @@ class MomentsController < ApplicationController
   def update
     @page_title = "Edit " + @moment.name
     @viewers = current_user.allies_by_status(:accepted)
+    @category = Category.new
+    @mood = Mood.new
+    @strategy = Strategy.new
     respond_to do |format|
       if @moment.update(moment_params)
         format.html { redirect_to moment_path(@moment) }

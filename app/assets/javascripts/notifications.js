@@ -1,12 +1,12 @@
 $(document).on("page:load ready", function() {
-  // Pusher
+  /* Pusher */
   var pusher;
 
   $.ajax({
     dataType: "json",
     url: "/notifications/signed_in",
     type: "GET",
-    success: function (json) {
+    success: function(json) {
       if (json !== undefined) {
         var result = json.signed_in;
 
@@ -60,10 +60,10 @@ $(document).on("page:load ready", function() {
     $.ajax("/notifications/clear");
   });
 
-  // Tip
+  /* Tips */
   var tip_click_flag = 0;
 
-  $('.tip_notifications_button').click(function() {
+  $(document).on('click', '.tip_notifications_button', function() {
     if (tip_click_flag % 2 == 0) {
       $(this).siblings('.tip_notifications').css({"display": "block"});
 
@@ -73,9 +73,72 @@ $(document).on("page:load ready", function() {
     tip_click_flag++;
   });
 
-  $('.tip_close_notifications').click(function() {
+  $(document).on('click', '.tip_close_notifications', function() {
     $(this).closest('.tip_notifications').css({"display": "none"});
     tip_click_flag++;
+  });
+
+  /* Quick Create */
+  var category_click_flag = 0;
+  var mood_click_flag = 0;
+  var strategy_click_flag = 0;
+
+  $('#category_quick_button').click(function() {
+    if (category_click_flag % 2 == 0) {
+      $('#category_quick_create').css({"display": "block"});
+
+    } else {
+      $('#category_quick_create').css({"display": "none"});
+    }
+    category_click_flag++;
+  });
+
+  $('#mood_quick_button').click(function() {
+    if (mood_click_flag % 2 == 0) {
+      $('#mood_quick_create').css({"display": "block"});
+
+    } else {
+      $('#mood_quick_create').css({"display": "none"});
+    }
+    mood_click_flag++;
+  });
+
+  $('#strategy_quick_button').click(function() {
+    if (strategy_click_flag % 2 == 0) {
+      $('#strategy_quick_create').css({"display": "block"});
+
+    } else {
+      $('#strategy_quick_create').css({"display": "none"});
+    }
+    strategy_click_flag++;
+  });
+
+  $('.quick_create_close').click(function() {
+    if ($(this).closest('.quick_create').attr('id') == 'category_quick_create') {
+      $('#category_quick_create').css({"display": "none"});
+      category_click_flag++;
+    } else if ($(this).closest('.quick_create').attr('id') == 'mood_quick_create') {
+      $('#mood_quick_create').css({"display": "none"});
+      mood_click_flag++;
+    } else if ($(this).closest('.quick_create').attr('id') == 'strategy_quick_create') {
+      $('#strategy_quick_create').css({"display": "none"});
+      strategy_click_flag++;
+    }
+  });
+
+  $('#new_category').submit(function() {  
+    quickCreate(this, 'category');
+    return false;
+  });
+
+  $('#new_mood').submit(function() {  
+    quickCreate(this, 'mood');
+    return false;
+  });
+
+  $('#new_strategy').submit(function() {  
+    quickCreate(this, 'strategy');
+    return false;
   });
 });
 
@@ -210,4 +273,28 @@ function showNotificationsNone() {
 function hideNotificationsNone() {
   $('#notifications_none').removeClass('display_block');
   $('#notifications_none').addClass('display_none');
+}
+
+function quickCreate(form, data_type) {
+  var values = $(form).serialize();
+  $.ajax({
+      type: 'POST',
+      url: $(form).attr('action'),
+      data: values,
+      dataType: 'json'
+  }).success(function(json) {
+      // Update moments/strategies form
+      if (data_type == 'category') {
+        $('#categories_list').append(json.checkbox);
+        $('#categories_list').append(json.label);
+      } else if (data_type == 'mood') {
+        $('#moods_list').append(json.checkbox);
+        $('#moods_list').append(json.label);
+      } else if (data_type == 'strategy') {
+        $('#strategies_list').append(json.checkbox);
+        $('#strategies_list').append(json.label);
+      }
+
+       $('.quick_create_close').click();
+  });
 }

@@ -1,0 +1,50 @@
+<div id=<%= local_assigns[:data_type].to_s + '_quick_create' %> class="quick_create display_none">
+	<div class="quick_create_text">
+		<div class="table small_margin_bottom">
+			<div class="table_row">
+				<div class="table_cell vertical_align_middle">
+					<h1 class="notification_name">Add <%= local_assigns[:data_type].to_s.titleize %></h1>
+				</div>
+				<div class="table_cell align_right">
+					<h1 class="quick_create_close" class="align_right"><i class="fa fa-times"></i></h1>
+				</div>
+			</div>
+		</div>
+
+		<% 
+			if local_assigns[:data_type] == 'category'
+				url = quick_create_categories_path
+			elsif local_assigns[:data_type] == 'mood'
+				url = quick_create_moods_path
+			elsif local_assigns[:data_type] == 'strategy'
+				url = quick_create_strategies_path
+			end
+		%>
+
+		<%= form_for(local_assigns[:data], url: url) do |f| %>
+
+			<% if local_assigns[:data].errors.any? %>
+			  	<div class="error_explanation">
+			  	<% if local_assigns[:data_type] == 'category' %>
+					<%= t('categories.form.error_explanation') %>
+			  	<% elsif local_assigns[:data_type] == 'mood' %>
+					<%= t('moods.form.error_explanation') %>
+			  	<% elsif local_assigns[:data_type] == 'strategy' %>
+					<%= t('strategies.form.error_explanation') %>
+			  	<% end %>
+			  	</div>
+			<% end %>
+		
+			<%= render :partial => '/shared/quick_create_fields', locals: { data_type: local_assigns[:data_type], f: f } %>
+
+			<div class="clear"></div>
+
+			<div class="actions no_margin_bottom">
+				<%= f.hidden_field :data_type, :value => local_assigns[:data_type] %>
+				<%= f.hidden_field :userid, :value => current_user.id %>
+				<%= f.submit %>
+			</div>
+
+		<% end %>
+	</div>
+</div>

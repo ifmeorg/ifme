@@ -83,6 +83,32 @@ class StrategiesController < ApplicationController
     end
   end
 
+  def quick_create
+    # Assumme all viewers and comments allowed
+    viewers = Array.new
+    current_user.allies_by_status(:accepted).each do |item|
+      viewers.push(item.id)
+    end
+    
+    strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
+    
+    if strategy.save
+      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategy][]" id="moment_strategy_' + strategy.id.to_s + '">'
+      label = '<span class="notification_wrapper">
+            <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
+      label += render_to_string :partial => '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
+      label += '</span>'
+      result = { checkbox: checkbox, label: label }
+    else 
+      result = { error: 'error' }
+    end
+
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
+  end
+
   # def support
   #   if !params[:support].nil? && !params[:support][:userid].empty? && !params[:support][:support_type].empty? && !params[:support][:support_id].empty?
   #     params[:userid] = params[:support][:userid]
@@ -123,6 +149,7 @@ class StrategiesController < ApplicationController
     @strategy = Strategy.new
     @page_title = "New Strategy"
     @categories = Category.where(:userid => current_user.id).all
+    @category = Category.new
   end
 
   # GET /strategies/1/edit
@@ -131,6 +158,7 @@ class StrategiesController < ApplicationController
       @viewers = current_user.allies_by_status(:accepted)
       @page_title = "Edit " + @strategy.name
       @categories = Category.where(:userid => current_user.id).all
+      @category = Category.new
     else
       respond_to do |format|
         format.html { redirect_to strategy_path(@strategy) }
@@ -145,6 +173,7 @@ class StrategiesController < ApplicationController
     @strategy = Strategy.new(strategy_params)
     @page_title = "New Strategy"
     @viewers = current_user.allies_by_status(:accepted)
+    @category = Category.new
     respond_to do |format|
       if @strategy.save
         format.html { redirect_to strategy_path(@strategy) }
@@ -177,6 +206,7 @@ class StrategiesController < ApplicationController
   def update
     @page_title = "Edit " + @strategy.name
     @viewers = current_user.allies_by_status(:accepted)
+    @category = Category.new
     respond_to do |format|
       if @strategy.update(strategy_params)
         format.html { redirect_to strategy_path(@strategy) }

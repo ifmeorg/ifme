@@ -114,6 +114,27 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def quick_create
+    category = Category.new(userid: current_user.id, name: params[:category][:name], description: params[:category][:description])
+    
+    if category.save
+      data_type = params[:category][:data_type].to_s
+      checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + data_type + '[category][]" id="' + data_type + '_category_' + category.id.to_s + '">'
+      label = '<span class="notification_wrapper">
+            <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
+      label += render_to_string :partial => '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
+      label += '</span>'
+      result = { checkbox: checkbox, label: label }
+    else 
+      result = { error: 'error' }
+    end
+
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
