@@ -18,6 +18,11 @@
 				- Account
 			<% elsif current_page?(root_path) %>
 				- <%= t(:app_description) %>
+			<% elsif current_page?(new_user_invitation_path) ||
+				(params[:controller] == "devise/invitations" && action_name == "new") %>
+				- <%= t('devise.invitations.new.header') %>
+			<% elsif params[:controller] == "devise/invitations" && action_name == "edit" %>
+				- <%= t('devise.invitations.edit.header') %>
 			<% elsif !@page_title.blank? %>
 				- <%= @page_title %>
 			<% end %>
@@ -129,6 +134,11 @@
 						          <%= t('.if') %> <span class="branding_subtitle"><%= t('.me') %></span>
 						        </span><%= t(:app_description) %>
 					      </div>
+					    <% elsif current_page?(new_user_invitation_path) ||
+							(params[:controller] == "devise/invitations" && action_name == "new") %>
+							<%= t('devise.invitations.new.header') %>
+						<% elsif params[:controller] == "devise/invitations" && action_name == "edit" %>
+							<%= t('devise.invitations.edit.header') %>
 						<% else %>
 							<%= @page_title %>
 						<% end %>

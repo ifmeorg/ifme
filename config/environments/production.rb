@@ -85,4 +85,8 @@ Rails.application.configure do
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
   config.assets.precompile += %w( ckeditor/* )
+
+  config.action_mailer.default_url_options = { host: 'http://if-me.org' }
+
+  config.action_mailer.perform_deliveries = true
 end

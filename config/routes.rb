@@ -77,7 +77,7 @@ Rails.application.routes.draw do
   match 'blog', to: 'pages#blog', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
 
-  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks' }
+  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks', :invitations => 'users/invitations' }
 
   mount Ckeditor::Engine => "/ckeditor"
 

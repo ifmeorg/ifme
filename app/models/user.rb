@@ -50,10 +50,10 @@ class User < ActiveRecord::Base
   has_many :alerts, inverse_of: :user
 
   def remove_leading_trailing_whitespace
-  	self.email.rstrip!
-  	self.email.lstrip!
-  	self.name.rstrip!
-  	self.name.lstrip!
+  	self.email&.rstrip!
+  	self.email&.lstrip!
+  	self.name&.rstrip!
+  	self.name&.lstrip!
   end
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
