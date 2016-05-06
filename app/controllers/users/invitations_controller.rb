@@ -2,7 +2,6 @@ class Users::InvitationsController < Devise::InvitationsController
 
   # POST /resource/invitation
   def create
-  	puts "YOLO SWAG MASTER"
     self.resource = invite_resource
     resource_invited = resource.errors.empty?
 
