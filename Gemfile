@@ -90,4 +90,6 @@ gem 'pusher'
 
 gem 'devise_uid'
 
+gem 'devise_invitable'
+
 ruby "2.3.0"

@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429191349) do
+ActiveRecord::Schema.define(version: 20160506154041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trigger"
+    t.integer  "medication"
+    t.string   "message",     limit: 255
+    t.string   "means",       limit: 255
+    t.string   "days",        limit: 255
+    t.string   "time_hour",   limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name",        limit: 255
+    t.string   "time_minute", limit: 255
+    t.string   "time_period", limit: 255
+  end
 
   create_table "allyships", force: :cascade do |t|
     t.integer  "user_id"
@@ -156,6 +171,21 @@ ActiveRecord::Schema.define(version: 20160429191349) do
     t.datetime "updated_at"
   end
 
+  create_table "triggers", force: :cascade do |t|
+    t.text     "category"
+    t.string   "name",       limit: 255
+    t.string   "mood",       limit: 255
+    t.text     "why"
+    t.text     "fix"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "userid"
+    t.text     "viewers"
+    t.boolean  "comment"
+    t.text     "strategies"
+    t.integer  "post_type"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -178,10 +208,21 @@ ActiveRecord::Schema.define(version: 20160429191349) do
     t.string   "token",                  limit: 255
     t.string   "uid",                    limit: 255
     t.string   "provider",               limit: 255
+    t.string   "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.integer  "invitations_count",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", :uid, unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
 
 end
