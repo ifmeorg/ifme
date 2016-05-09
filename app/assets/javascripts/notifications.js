@@ -56,6 +56,7 @@ $(document).on("page:load ready", function() {
    $('#clear_notifcations').click(function() {
     emptyNotificationsList();
     showNotificationsNone();
+    changeTitle(0);
 
     $.ajax("/notifications/clear");
   });
@@ -143,6 +144,7 @@ $(document).on("page:load ready", function() {
 });
 
 function renderNotifications(notifications) {
+  changeTitle(notifications.length);
   emptyNotificationsList();
   showNotifications();
   hideNotificationsNone();
@@ -297,4 +299,17 @@ function quickCreate(form, data_type) {
 
        $('.quick_create_close').click();
   });
+}
+
+function changeTitle(count) {
+  var title = document.title;
+  var eliminate = title.substr(0, title.indexOf(') ')) + ')';
+  title = title.replace(eliminate, '');
+  var newTitle = '(' + count + ') ' + title;
+
+  if (count == 0) {
+    newTitle = title;
+  }
+
+  document.title = newTitle;
 }
