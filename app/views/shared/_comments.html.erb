@@ -37,7 +37,7 @@
             <div class="table_row">
               <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
                 <% profile = User.where(:id => comment.comment_by).first %>
-                  <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
+                  <%= fetch_profile_picture(profile.avatar.url, 'mini_profile_picture') %>
                   <br>
               </div>
               <div class="table_cell">

@@ -20,7 +20,7 @@
 		            	<div class="table_cell small_profile_picture_div padding_right small_padding_bottom">
 		            <% end %>
 		              <% profile = User.where(:id => member.userid).first %>
-		                <%= image_tag fetch_profile_picture(profile.avatar.url), class: 'mini_profile_picture' %>
+		                <%= fetch_profile_picture(profile.avatar.url, 'mini_profile_picture') %>
 		                <br>
 		            </div>
 		            <div class="table_cell small_padding_bottom vertical_align_middle">

@@ -67,7 +67,7 @@
   <% end %>
       <div class="table">
         <div class="table_cell padding_right profile_picture_div">
-          <%= image_tag fetch_profile_picture(ally.avatar.url), class: 'profile_picture' %>
+          <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
         </div>
         <div class="table_cell vertical_align_top">
           <div class="align_left">

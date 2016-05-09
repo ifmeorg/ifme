@@ -132,12 +132,16 @@ class ApplicationController < ActionController::Base
       	return return_this.html_safe
 	end
 
-	def fetch_profile_picture(avatar)
+	def fetch_profile_picture(avatar, class_name)
 		if avatar
-			return avatar
+			profile = avatar
+		else 
+			profile = "default_ifme_avatar.png"
 		end
 
-		return "default_ifme_avatar.png"
+		result = "<div class='" + class_name.to_s + "' style='background: url(" + profile + ")'></div>"
+
+		return result.html_safe
 	end
 
 	def print_list_links(data)

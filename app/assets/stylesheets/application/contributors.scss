@@ -37,11 +37,7 @@ div.table div.table_cell {
 }
 
 .contributor_picture {
-  width: 150px;
-
-  @media screen and (min-width: $medium + 1) {
-    width: 200px;
-  }
+  margin: 0 auto;
 }
 
 .contributor-name {

@@ -468,44 +468,66 @@ img {
 	 max-width: 100%;
 }
 
+.mini_profile_picture {
+	width: 100px;
+	height: 100px;
+	border-radius: 150px;
+	border: 2px solid $container-color;
+	background-size: 100px !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+
+	@media screen and (max-width: $small) {
+		width: 50px;
+		height: 50px;
+		background-size: 50px !important;
+    	background-position: center center !important;
+    	background-repeat: no-repeat !important;
+	}
+}
+
 .profile_picture,
 .contributor_picture {
 	width: 100px;
+	height: 100px;
 	border-radius: 150px;
 	border: 2px solid $container-color;
+	background-size: 100px !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    margin: 0 auto;
 
 	@media screen and (min-width: $medium + 1) {
 		width: 200px;
+		height: 200px;
+		background-size: 200px !important;
+    	background-position: center center !important;
+    	background-repeat: no-repeat !important;
 	}
 }
 
 .small_profile_picture_div {
 	width: 100px;
-
+	height: 100px;
+ 
 	@media screen and (max-width: $small) {
 		width: 50px;
+		height: 50px;
 	}
 }
 
 .profile_picture_div {
 	width: 200px;
+	height: 200px;
 
 	@media screen and (max-width: $medium) {
 		width: 50px;
+		height: 50px;
 	}
 
 	@media screen and (max-width: $small) {
 		width: 50px;
-	}
-}
-
-.mini_profile_picture {
-	width: 100px;
-	border-radius: 150px;
-	border: 2px solid $container-color;
-
-	@media screen and (max-width: $small) {
-		width: 50px;
+		height: 50px;
 	}
 }
 

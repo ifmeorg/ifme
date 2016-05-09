@@ -13,7 +13,7 @@
 	<% end %>
 		<div class="table">
         	<div class="table_cell profile_picture_div small_padding_right vertical_align_top">
-        		<%= image_tag fetch_profile_picture(user.avatar.url), class: 'profile_picture' %>
+        		<%= fetch_profile_picture(user.avatar.url, 'profile_picture') %>
           	</div>
           	<div class="table_cell vertical_align_top">
 				<div class="align_left">
