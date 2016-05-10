@@ -98,18 +98,20 @@ h1.strategy_name a:visited {
 	}
 }
 
-.ally .align_left {
-	float: left;
-	display: inline-block;
+@media screen and (min-width: $small + 1) {
+	.ally .align_left {
+		float: left;
+		display: inline-block;
+	}
 
-	@media screen and (max-width: $small) {
-		width: 50%;
+	.ally .align_right {
+		float: right;
+		display: inline-block;
 	}
 }
 
 #leave.align_right, 
-#join.align_right,
-.ally .align_right {
+#join.align_right {
 	float: right;
 	display: inline-block;
 }

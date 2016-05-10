@@ -16,6 +16,16 @@
 		}
 	}
 
+	@media screen and (max-width: $small) {
+		.profile_picture {
+			width: 50px;
+			height: 50px;
+			background-size: 50px !important;
+    		background-position: center center !important;
+    		background-repeat: no-repeat !important;
+		}
+	}
+
 	div.table {
 		display: table;
 		table-layout: auto;
