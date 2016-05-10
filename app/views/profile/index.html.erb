@@ -13,7 +13,7 @@
 			<br>
 			<br>
 		<% end %>
-		<% if !User.where(:id => @profile.id).first.location.nil? %>
+		<% if !User.where(:id => @profile.id).first.location.blank? %>
 			<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
 		<% end %>
 		<% if @profile.id != current_user.id %>
