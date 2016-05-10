@@ -1,6 +1,7 @@
 #notifications, 
 .tip_notifications, 
-.quick_create {
+.quick_create,
+#categories_moods {
   width: 100%;
   position: fixed;
   top: 30%;
@@ -9,14 +10,19 @@
 }
 
 @media screen and (max-width: $medium) {
-  .tip_notifications, .quick_notifications {
+  .tip_notifications, 
+  .quick_notifications,
+  #categories_moods {
     .padding_right {
       padding-right: 20px !important;
     }
   }
 }
 
-#notifications_text, .tip_notifications_text, .quick_create_text {
+#notifications_text, 
+.tip_notifications_text, 
+.quick_create_text,
+#categories_moods_text {
   margin: 0 auto;
   width: 50%;
   height: 250px;
@@ -83,7 +89,8 @@ h1.notification_name,
 h1.tip_close_notifications,
 h1.quick_create_close, 
 h1#clear_notifcations, 
-h1#close_notifications {
+h1#close_notifications,
+h1#close_categories_moods, {
   font-weight: 300;
   font-size: 26px;
   padding: 0;
@@ -97,18 +104,23 @@ h1#close_notifications {
 
 .quick_create_text div.table div.table_row,
 .tip_notifications_text div.table div.table_row,
-#notifications_text div.table div.table_row {
+#notifications_text div.table div.table_row,
+#categories_moods_text div.table div.table_row {
   display: table-row;
 }
 
 .quick_create_text div.table div.table_cell,
 .tip_notifications_text div.table div.table_cell,
-#notifications_text div.table div.table_cell {
+#notifications_text div.table div.table_cell,
+#categories_moods_text div.table div.table_cell {
   display: table-cell;
   word-break: break-word;
 }
 
-#notifications .align_left, #notifications .align_right {
+#notifications .align_left, 
+#notifications .align_right,
+#categories_moods .align_left,
+#categories_moods .align_right {
   @media screen and (max-width: $medium) {
     width: auto !important;
   }

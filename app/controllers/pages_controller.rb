@@ -13,8 +13,8 @@ class PagesController < ApplicationController
 
       if @moments.count > 0 
         @moment = Moment.new
-        @categories = Category.where(userid: current_user.id).order("created_at DESC").limit(3)
-        @moods = Mood.where(userid: current_user.id).order("created_at DESC").limit(3)
+        @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
+        @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
       end
   	else
       @page_title = 'Welcome'

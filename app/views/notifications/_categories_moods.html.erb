@@ -1,0 +1,58 @@
+<div id="categories_moods" class="display_none no_center">
+	<div id="categories_moods_text">
+		<div class="table small_margin_bottom">
+			<div class="table_row">
+				<div class="table_cell vertical_align_middle">
+					<h1 class="notification_name">
+					<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
+						!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+						Categories and Moods
+					<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+						Categories
+					<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+						Moods
+					<% end %>
+				</div>
+				<div class="table_cell align_right">
+					<h1 id="close_categories_moods" class="align_right"><i class="fa fa-times"></i></h1>
+				</div>
+			</div>
+		</div>
+
+		<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+			<div id="categories_cell">
+				<% if !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+				<%= local_assigns[:f].label t('moments.form.categories') %>
+				<% end %>
+
+			    <% local_assigns[:categories].each do |item| %>
+			    	<div class="checkbox">
+				    	<%= local_assigns[:f].check_box(:category, {:multiple => true}, item.id, nil) %>
+				      	<span class="notification_wrapper">
+				        	<span class="tip_notifications_button link_style"><%= item.name %></span>
+				        	<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
+				      	</span>
+				    </div>
+			    <% end %>
+		    </div>
+		<% end %>
+
+		<% if !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+			<div id="moods_cell">
+				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+				<%= local_assigns[:f].label t('moments.form.moods'), class: 'small_margin_top' %>
+				<% end %>
+				<% local_assigns[:moods].each do |item| %>
+					<div class="checkbox">
+						<%= local_assigns[:f].check_box(:mood, {:multiple => true}, item.id, nil) %>
+						<span class="notification_wrapper">
+							<span class="tip_notifications_button link_style"><%= item.name %></span>
+						<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
+						</span>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+
+	</div>
+</div>

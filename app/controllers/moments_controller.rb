@@ -136,9 +136,9 @@ class MomentsController < ApplicationController
   # GET /moments/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
-    @categories = Category.where(:userid => current_user.id).all
-    @moods = Mood.where(:userid => current_user.id).all
-    @strategies = Strategy.where(:userid => current_user.id).all
+    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+    @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
+    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
     @moment = Moment.new
     @page_title = "New Moment"
     @category = Category.new
@@ -150,9 +150,9 @@ class MomentsController < ApplicationController
   def edit
     if @moment.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(:userid => current_user.id).all
-      @moods = Mood.where(:userid => current_user.id).all
-      @strategies = Strategy.where(:userid => current_user.id).all
+      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+      @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
+      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
       @page_title = "Edit " + @moment.name
       @category = Category.new
       @mood = Mood.new

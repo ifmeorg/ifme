@@ -61,6 +61,19 @@ $(document).on("page:load ready", function() {
     $.ajax("/notifications/clear");
   });
 
+  /* Quick Moment */
+  $('#toggle_categories_moods').click(function() {
+    if ($('#categories_moods')[0].classList.contains('display_none')) {
+      showCategoriesMoods();
+    } else {
+      hideCategoriesMoods();
+    }
+  }); 
+
+  $('#close_categories_moods').click(function() {
+    hideCategoriesMoods();
+  });
+
   /* Tips */
   var tip_click_flag = 0;
 
@@ -281,6 +294,16 @@ function showNotificationsNone() {
 function hideNotificationsNone() {
   $('#notifications_none').removeClass('display_block');
   $('#notifications_none').addClass('display_none');
+}
+
+function showCategoriesMoods() {
+  $('#categories_moods').removeClass('display_none');
+  $('#categories_moods').addClass('display_block');
+}
+
+function hideCategoriesMoods() {
+  $('#categories_moods').removeClass('display_block');
+  $('#categories_moods').addClass('display_none');
 }
 
 function quickCreate(form, data_type) {

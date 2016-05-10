@@ -148,7 +148,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
     @page_title = "New Strategy"
-    @categories = Category.where(:userid => current_user.id).all
+    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
 
@@ -157,7 +157,7 @@ class StrategiesController < ApplicationController
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @page_title = "Edit " + @strategy.name
-      @categories = Category.where(:userid => current_user.id).all
+      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
       @category = Category.new
     else
       respond_to do |format|

@@ -138,13 +138,6 @@ h1.blog_name, h1.privacy_heading {
 /* Quick Moment */
 
 #quick_moment {
-	input,
-	textarea,
-	select,
-	fieldset {
-		margin-right: 0;
-	}
-
 	input[type="text"], textarea {
 		width: 100%;
 	}
@@ -169,7 +162,7 @@ h1.blog_name, h1.privacy_heading {
 	}
 
 	.checkbox {
-		display: inline-block;
+		display: block;
 	}
 
 	@media screen and (max-width: $medium) {
@@ -187,37 +180,6 @@ h1.blog_name, h1.privacy_heading {
 
 		textarea {
 			margin-bottom: 10px;
-		}
-
-		#categories_cell {
-			float: left;
-			text-align: center;
-			display: inline-block;
-			width: 50%;
-		}
-
-		#moods_cell {
-			float: left;
-			text-align: center;
-			display: inline-block;
-			width: 50%;
-
-			.small_margin_top {
-				margin: 0 !important;
-			}
-		}
-	}
-
-
-	@media screen and (min-width: $medium + 1) {
-		input[type="checkbox"] {
-			display: inline-block;
-		}
-	}
-
-	@media screen and (max-width: $small) {
-		.checkbox {
-			display: block;
 		}
 	}
 }

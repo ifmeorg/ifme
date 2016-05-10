@@ -66,20 +66,4 @@ $(document).on("page:load ready", function() {
 			$('#hideStrategies').css({"display": "none"});
 		});
 	}
-
-	if ($('body').hasClass('pages home')) {
-		$('#toggle_categories_moods').click(function() {
-			if ($('#categories_moods')[0].classList.contains('display_none')) {
-				$('#categories_moods').removeClass('display_none');
-  				$('#categories_moods').addClass('display_block');
-  				$('#toggle_categories_moods').addClass('small_margin_top');
-  				$("#toggle_text").html("Hide Categories and Moods");
-  			} else {
-  				$('#categories_moods').removeClass('display_block');
-  				$('#categories_moods').addClass('display_none');
-  				$('#toggle_categories_moods').removeClass('small_margin_top');
-  				$("#toggle_text").html("Show Categories and Moods");
-  			}
-		});
-	}
 });

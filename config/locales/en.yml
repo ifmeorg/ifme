@@ -231,7 +231,7 @@ en:
 
  strategies:
   form:
-   name: 'Name'
+   name: 'Title'
    categories: 'Categories'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
@@ -256,7 +256,7 @@ en:
 
  moments:
   form:
-   name: 'Name'
+   name: 'Title'
    categories: 'Categories'
    moods: 'Moods'
    strategies: 'Strategies'

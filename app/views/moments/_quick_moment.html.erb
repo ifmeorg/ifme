@@ -14,44 +14,23 @@
 			</div>
 
 			<div class="table_cell center vertical_align_middle">
-				<div id="categories_moods" class="display_none">
-				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-					<div id="categories_cell">
-						<%= f.label t('moments.form.categories') %>
 
-					    <% local_assigns[:categories].each do |item| %>
-					    	<div class="checkbox">
-						    	<%= f.check_box(:category, {:multiple => true}, item.id, nil) %>
-						      	<span class="notification_wrapper">
-						        	<span class="tip_notifications_button link_style"><%= item.name %></span>
-						        	<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
-						      	</span>
-						    </div>
-					    <% end %>
-				    </div>
-				<% end %>
-
-				<% if !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-					<div id="moods_cell">
-						<%= f.label t('moments.form.moods'), class: 'small_margin_top' %>
-						<% local_assigns[:moods].each do |item| %>
-							<div class="checkbox">
-								<%= f.check_box(:mood, {:multiple => true}, item.id, nil) %>
-								<span class="notification_wrapper">
-									<span class="tip_notifications_button link_style"><%= item.name %></span>
-								<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
-								</span>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-				</div>
+				<%= render :partial => '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
 
 				<div class="clear"></div>
 
 				<% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
 				<div id="toggle_categories_moods">
-					<span id="toggle_text" class="link_style">Show Categories and Moods</span>
+					<span class="link_style">
+						<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
+							!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+							Categories and Moods
+						<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+							Categories
+						<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+							Moods
+						<% end %>
+					</span>
 				</div>
 				<div class="actions no_margin_bottom">
 				<% else %>
