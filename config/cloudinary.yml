@@ -1,0 +1,18 @@
+development:
+  cloud_name: hy1mfoifn
+  api_key: '789439187171968'
+  api_secret: hQv-Cg_pPuPUzVJPstUu2iVeQW0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hy1mfoifn
+  api_key: '789439187171968'
+  api_secret: hQv-Cg_pPuPUzVJPstUu2iVeQW0
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hy1mfoifn
+  api_key: '789439187171968'
+  api_secret: hQv-Cg_pPuPUzVJPstUu2iVeQW0
+  enhance_image_tag: true
+  static_image_support: false

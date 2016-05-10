@@ -136,7 +136,7 @@ class ApplicationController < ActionController::Base
 		if avatar
 			profile = avatar
 		else 
-			profile = "default_ifme_avatar.png"
+			profile = "/assets/default_ifme_avatar.png"
 		end
 
 		result = "<div class='" + class_name.to_s + "' style='background: url(" + profile + ")'></div>"
