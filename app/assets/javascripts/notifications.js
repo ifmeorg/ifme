@@ -127,18 +127,22 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $('#new_category').submit(function() {  
-    quickCreate(this, 'category');
-    return false;
+  $('#new_category').submit(function() {
+    if ($('body').hasClass('moments new') || $('body').hasClass('strategies new')) {
+      quickCreate(this, 'category');
+      return false;
+    }
   });
 
-  $('#new_mood').submit(function() {  
-    quickCreate(this, 'mood');
-    return false;
+  $('#new_mood').submit(function() {
+    if ($('body').hasClass('moments new')) {
+      quickCreate(this, 'mood');
+      return false;
+    }
   });
 
   $('#new_strategy').submit(function() { 
-    if (!$('body').hasClass('strategies new')) {
+    if ($('body').hasClass('moments new')) {
       quickCreate(this, 'strategy');
       return false;
     }
