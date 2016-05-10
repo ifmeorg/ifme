@@ -23,10 +23,12 @@
             <% end %>
           </strong>
           <% strategy.category.each do |item| %>
+            <% if Category.where(id: item, userid: current_user.id).exists? %>
             <span class="notification_wrapper">
               <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if strategy.category.last != item %><%= ', ' %><% end %>
               <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
             </span>
+            <% end %>
           <% end %>
         <% end %>
         <div class="small_margin_top">
