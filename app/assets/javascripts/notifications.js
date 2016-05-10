@@ -137,9 +137,11 @@ $(document).on("page:load ready", function() {
     return false;
   });
 
-  $('#new_strategy').submit(function() {  
-    quickCreate(this, 'strategy');
-    return false;
+  $('#new_strategy').submit(function() { 
+    if (!$('body').hasClass('strategies new')) {
+      quickCreate(this, 'strategy');
+      return false;
+    }
   });
 });
 
