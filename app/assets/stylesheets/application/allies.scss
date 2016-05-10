@@ -11,10 +11,6 @@
 
 .ally {
 	@media screen and (max-width: $medium) {
-		.profile_picture {
-			width: 50px;
-		}
-
 		.padding_right {
 			padding-right: 20px !important;
 		}
@@ -40,6 +36,10 @@
 @media screen and (max-width: $medium) {
 	#search_email {
 		margin-right: 0;
+		margin-bottom: 10px;
+	}
+
+	#invite {
 		margin-bottom: 10px;
 	}
 }
