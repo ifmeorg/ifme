@@ -14,6 +14,7 @@
 			</div>
 
 			<div class="table_cell center vertical_align_middle">
+				<div id="categories_moods" class="display_none">
 				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
 					<div id="categories_cell">
 						<%= f.label t('moments.form.categories') %>
@@ -44,10 +45,14 @@
 						<% end %>
 					</div>
 				<% end %>
+				</div>
 
 				<div class="clear"></div>
 
 				<% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
+				<div id="toggle_categories_moods">
+					<span id="toggle_text" class="link_style">Show Categories and Moods</span>
+				</div>
 				<div class="actions no_margin_bottom">
 				<% else %>
 				<div class="actions no_margin_bottom no_margin_top">
