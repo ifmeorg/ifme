@@ -8,3 +8,14 @@
 	width: 100%;
 	height: 150px;
 }
+
+@media screen and (max-width: $medium) {
+	#medication_strength,
+	#medication_strength_unit,
+	#medication_total,
+	#medication_total_unit,
+	#medication_dosage,
+	#medication_dosage_unit {
+		width: auto !important;
+	}
+}
