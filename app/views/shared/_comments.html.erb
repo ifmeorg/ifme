@@ -19,7 +19,11 @@
       <%= f.hidden_field :comment_type, :value => local_assigns[:comment_type] %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
       <%= f.hidden_field :commented_on, :value => local_assigns[:data].id %>
-      <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => local_assigns[:data].userid).first.name + t('.only'), 'private']] %>
+      <% if local_assigns[:data].userid != current_user.id %>
+        <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => local_assigns[:data].userid).first.name + t('.only'), 'private']] %>
+      <% else %>
+        <%= f.hidden_field :visibility, :value => 'all' %>
+      <% end %>
       <%= f.submit t('.comment'), class: 'no_margin_right' %>
     </div>
 
