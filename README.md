@@ -7,9 +7,10 @@ A community for mental health experiences
 1. [Goals](#goals)
 2. [Getting Involved](#getting-involved)
 3. [Getting Started](#getting-started)
-4. [Testing Accounts](#testing-accounts)
-5. [Committing Work](#committing-work)
-6. [License](#license)
+4. [Setting Up APIs](#setting-up-apis)
+5. [Testing Accounts](#testing-accounts)
+6. [Committing Work](#committing-work)
+7. [License](#license)
 
 Goals
 -----
@@ -126,8 +127,6 @@ libv8:
 therubyracer: 
 [http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan](http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan) 
 
-
-
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
 If running bundle install on Mac OS X El Capitan v. 10.11.4 or later, please consult the following tickets for help with installing libv8 and therubyracer gems:
@@ -161,7 +160,9 @@ Setting up APIs
 
 [Pusher](http://pusher.com) is used app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
 
-[Google APIs](https://console.developers.google.com) is used for OAuth and Calendars. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
+
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/cloudinary.yml`.
 
 Testing Accounts
 -----------------
