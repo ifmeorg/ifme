@@ -7,10 +7,9 @@ A community for mental health experiences
 1. [Goals](#goals)
 2. [Getting Involved](#getting-involved)
 3. [Getting Started](#getting-started)
-4. [Setting up APIs](#setting-up-apis)
-5. [Testing Accounts](#testing-accounts)
-6. [Committing Work](#committing-work)
-7. [License](#license)
+4. [Testing Accounts](#testing-accounts)
+5. [Committing Work](#committing-work)
+6. [License](#license)
 
 Goals
 -----
@@ -134,6 +133,16 @@ If running bundle install on Mac OS X El Capitan v. 10.11.4 or later, please con
 https://github.com/cowboyd/libv8/issues/205
 https://github.com/cowboyd/therubyracer/issues/359
 
+### Setting up API Keys
+
+Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets.yml`.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
+
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
+
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/cloudinary.yml`.
+
 ### Running the App Locally
 
 Create the developement and test databases:
@@ -154,17 +163,6 @@ rails db
 ```
 
 Note that ifme_test is used when running unit tests
-
-Setting up APIs
------------------
-
-Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets.yml`.
-
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
-
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
-
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/cloudinary.yml`.
 
 Testing Accounts
 -----------------
