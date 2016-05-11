@@ -7,7 +7,7 @@ A community for mental health experiences
 1. [Goals](#goals)
 2. [Getting Involved](#getting-involved)
 3. [Getting Started](#getting-started)
-4. [Setting Up APIs](#setting-up-apis)
+4. [Setting up APIs](#setting-up-apis)
 5. [Testing Accounts](#testing-accounts)
 6. [Committing Work](#committing-work)
 7. [License](#license)
@@ -158,7 +158,9 @@ Note that ifme_test is used when running unit tests
 Setting up APIs
 -----------------
 
-[Pusher](http://pusher.com) is used app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
+Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets.yml`.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
 
 [Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
 
