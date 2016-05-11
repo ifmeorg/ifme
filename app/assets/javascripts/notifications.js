@@ -16,7 +16,7 @@ $(document).on("page:load ready", function() {
             fetchNotifications();
           }
 
-          pusher = new Pusher('200b6370c503d11d4fa4', {
+          pusher = new Pusher('[insert Pusher.key from pusher.rb here]', {
             encrypted: true
           });
 

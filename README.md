@@ -137,7 +137,7 @@ https://github.com/cowboyd/therubyracer/issues/359
 
 Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets.yml`.
 
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`. In addition, replace `[insert Pusher.key from pusher.rb here]` in `app/assets/javascripts/notification.js` with the generated key.
 
 [Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
 
