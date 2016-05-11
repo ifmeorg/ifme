@@ -49,7 +49,8 @@ class PagesController < ApplicationController
       ['Christopher De Borja', 'https://github.com/cdeborja'],
       ['Dominic Prescod', 'https://github.com/dominicprescod'],
       ['Noah Finnerman', 'https://github.com/nonothetoad'],
-      ['David Tomberlin', 'https://github.com/siyegen']
+      ['David Tomberlin', 'https://github.com/siyegen'],
+      ['Elana Hashman', 'https://github.com/ehashman']
     ]
 
     @organizations = [
