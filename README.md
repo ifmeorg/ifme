@@ -156,6 +156,13 @@ rails db
 
 Note that ifme_test is used when running unit tests
 
+Setting up APIs
+-----------------
+
+[Pusher](http://pusher.com) is used app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`.
+
+[Google APIs](https://console.developers.google.com) is used for OAuth and Calendars. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
+
 Testing Accounts
 -----------------
 
