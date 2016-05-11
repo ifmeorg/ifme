@@ -53,6 +53,16 @@ body, html {
 	}
 }
 
+.small_font {
+	font: 14px $font-family;
+	font-weight: 400;
+
+	@media screen and (max-width: $small) {
+		font: 12px $font-family;
+		font-weight: 400;
+	}
+}
+
 p {
 	word-wrap: break-word;
 }
@@ -384,7 +394,14 @@ a.page_search:hover {
 .subtle {
 	color: $secondary-text-color;
 	opacity: 0.5;
-	text-align: right;
+}
+
+.text_align_left {
+	text-align: left !important;
+}
+
+.text_align_right {
+	text-align: right !important;
 }
 
 .subtitle {

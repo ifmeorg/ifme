@@ -36,6 +36,10 @@
 				<% else %>
 				<div class="actions no_margin_bottom no_margin_top">
 				<% end %>
+					<div class="small_margin_bottom subtle small_font">
+						Comments on and shared with all allies.
+						<br>You can always edit these settings.
+						<br>You can also <%= link_to 'create', new_moment_path %> a more detailed moment.</div>
 					<%= f.hidden_field :userid, :value => current_user.id %>
 					<%= f.submit %>
 				</div>
