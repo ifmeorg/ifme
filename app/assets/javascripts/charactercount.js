@@ -11,8 +11,6 @@ $(document).on("page:load ready", function() {
 	});
 
 	if ($('body').hasClass('pages home')) {
-		noCKEditor($('#moment_why'));
-
 		$('#moment_why').bind('keyup', function() {
 			noCKEditor($(this));
 		});
