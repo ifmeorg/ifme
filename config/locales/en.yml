@@ -210,7 +210,6 @@ en:
     only: ' only'
     comment: 'Comment'
     on_date: 'on'
-    visible_only_between_you_two: 'Visible only between you two'
     visible_only_between_you_and: 'Visible only between you and '
     error_explanation: 'Please fill out the marked fields'
     not_allies: '(not allies)'

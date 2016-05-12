@@ -41,6 +41,7 @@ class MomentsController < ApplicationController
     if params[:comment][:viewers].blank?
       @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
     else 
+      # Can only get here if comment is from Moment creator
       @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'private', :viewers => [params[:comment][:viewers].to_i])
     end
     
@@ -55,7 +56,6 @@ class MomentsController < ApplicationController
     moment_user = Moment.where(id: @comment.commented_on).first.userid
 
     if (moment_user != @comment.comment_by)
-      commented_on_user = Moment.where(id: @comment.commented_on).first.userid
       moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false
       if @comment.comment.length > 80
@@ -76,7 +76,32 @@ class MomentsController < ApplicationController
 
       Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: moment_user).order("created_at ASC").all
-      Pusher['private-' + commented_on_user.to_s].trigger('new_notification', {notifications: notifications})
+      Pusher['private-' + moment_user.to_s].trigger('new_notification', {notifications: notifications})
+
+    # Notify viewer that they have a new comment
+    elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
+      private_user = User.where(id: @comment.viewers[0]).first.id
+      moment_name = Moment.where(id: @comment.commented_on).first.name
+      cutoff = false
+      if @comment.comment.length > 80
+        cutoff = true
+      end
+      uniqueid = 'comment_on_moment_private' + '_' + @comment.id.to_s
+
+      data = JSON.generate({
+        user: current_user.name,
+        momentid: @comment.commented_on,
+        moment: moment_name,
+        commentid: @comment.id,
+        comment: @comment.comment[0..80],
+        cutoff: cutoff,
+        type: 'comment_on_moment_private',
+        uniqueid: uniqueid
+        })
+
+      Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: private_user).order("created_at ASC").all
+      Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
     end
 
     if @comment.save

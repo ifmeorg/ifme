@@ -67,7 +67,7 @@
                     <% if Moment.where(id: comment.commented_on).first.userid == current_user.id && User.where(id: comment.viewers[0]).exists? %>
                     <%= t('.visible_only_between_you_and') + ' ' + User.where(id: comment.viewers[0]).first.name %>
                     <% else %>
-                    <%= t('.visible_only_between_you_two') %>
+                       <%= t('.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: comment.commented_on).first.userid).first.name %>
                     <% end %>
                   </div>
                 <% end %>

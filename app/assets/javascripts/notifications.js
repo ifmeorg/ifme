@@ -172,11 +172,14 @@ function renderNotifications(notifications) {
     var uniqueid = notification.uniqueid;
     var data = JSON.parse(notification.data);
 
-    if (data.type == 'comment_on_moment' || data.type == 'comment_on_strategy') {
+    if (data.type == 'comment_on_moment' || 
+      data.type == 'comment_on_strategy' ||
+      data.type == 'comment_on_moment_private' || 
+      data.type == 'comment_on_strategy_private') {
       var type_name;
-      if (data.type == 'comment_on_moment') {
+      if (data.type == 'comment_on_moment' || data.type == 'comment_on_moment_private') {
         type_name = data.moment;
-      } else if (data.type == 'comment_on_strategy') {
+      } else if (data.type == 'comment_on_strategy' || data.type == 'comment_on_strategy_private') {
         type_name = data.strategy;
       }
 
@@ -187,17 +190,17 @@ function renderNotifications(notifications) {
       }
 
       var link;
-      if (data.type == 'comment_on_moment') {
-        link = 'moments/' + data.momentid;
-      } else if (data.type == 'comment_on_strategy') {
-        link = 'strategies/' + data.strategyid;
+      if (data.type == 'comment_on_moment' || data.type == 'comment_on_moment_private') {
+        link = '/moments/' + data.momentid;
+      } else if (data.type == 'comment_on_strategy' || data.type == 'comment_on_strategy_private') {
+        link = '/strategies/' + data.strategyid;
       }
 
       var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';
 
       $('#notifications_list').prepend(notification_link);
     } else if (data.type == 'accepted_ally_request' || data.type == 'new_ally_request') {
-      var link = 'profile?userid=' + data.userid;
+      var link = '/profile?userid=' + data.userid;
       var notification_link;
 
       if (data.type == 'accepted_ally_request') {
@@ -239,7 +242,7 @@ function renderNotifications(notifications) {
         notification = data.user + ' has updated "' + data.meeting + '" for "' + data.group + '"';
       }
 
-      var link = 'groups/' + data.groupid;
+      var link = '/groups/' + data.groupid;
 
       var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';
 
