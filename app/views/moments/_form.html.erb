@@ -128,12 +128,16 @@
         <div class="clear"></div>
       </div>
       <%= f.cktext_area :why, class: 'no_title special_textarea ckeditor' %>
+
+      <%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
     </div>
     <div class="field">
       <div class="label">
         <%= f.label t('.desired') %>
       </div>
       <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
+
+      <%= render :partial => '/shared/character_count', locals: { data: 'moment_fix' } %>
     </div>
   </div>
 
