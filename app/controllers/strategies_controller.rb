@@ -260,7 +260,7 @@ class StrategiesController < ApplicationController
 
     def hide_page(strategy)
       if Strategy.where(id: strategy.id).exists?
-        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id)
+        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.userid, current_user.id)
           return false
         end
       end

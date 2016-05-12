@@ -168,7 +168,7 @@ class MoodsController < ApplicationController
       if moment.blank?
         return false
       else
-        if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id)
+        if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
           return true
         end
       end

@@ -168,7 +168,7 @@ class CategoriesController < ApplicationController
       if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
         return true
       elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id)
+        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
           return true
         end
       end

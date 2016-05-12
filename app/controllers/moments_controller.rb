@@ -236,7 +236,7 @@ class MomentsController < ApplicationController
 
     def hide_page(moment)
       if Moment.where(id: moment.id).exists?
-        if Moment.where(id: moment.id).first.viewers.include?(current_user.id)
+        if Moment.where(id: moment.id).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
           return false
         end
       end
