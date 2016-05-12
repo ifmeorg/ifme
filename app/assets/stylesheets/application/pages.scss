@@ -181,6 +181,18 @@ h1.blog_name, h1.privacy_heading {
 		textarea {
 			margin-bottom: 10px;
 		}
+
+		.character_count {
+			text-align: center;
+			font: 14px $font-family;
+			font-weight: 400;
+			margin-bottom: 10px;
+
+			@media screen and (max-width: $small) {
+				font: 12px $font-family;
+				font-weight: 400;
+			}
+		}
 	}
 }
 

@@ -9,8 +9,8 @@
 		<div class="table_row">
 			<div class="table_cell small_padding_right vertical_align_middle">
 				<%= f.text_field :name, placeholder: t('moments.form.name') %>
-
-				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>				
+				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>	
+				<%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>		
 			</div>
 
 			<div class="table_cell center vertical_align_middle">
@@ -37,8 +37,8 @@
 				<div class="actions no_margin_bottom no_margin_top">
 				<% end %>
 					<div class="small_margin_bottom subtle small_font">
-						Comments on and shared with all allies.
-						<br>You can always edit these settings.
+						Shared with all allies with comments on.
+						<br>You can always edit these settings later.
 						<br>You can also <%= link_to 'create', new_moment_path %> a more detailed moment.</div>
 					<%= f.hidden_field :userid, :value => current_user.id %>
 					<%= f.submit %>
