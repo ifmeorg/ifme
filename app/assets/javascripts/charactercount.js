@@ -26,6 +26,15 @@ $(document).on("page:load ready", function() {
 			noCKEditor($(this));
 		});
 	}
+
+	if ($('body').hasClass('moments show') ||
+		$('body').hasClass('strategies show')) {
+		noCKEditor($('#comment_comment'));
+
+		$('#comment_comment').bind('keyup', function() {
+			noCKEditor($(this));
+		});
+	}
 });
 
 function noCKEditor(editor) {

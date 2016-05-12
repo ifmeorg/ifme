@@ -49,7 +49,7 @@
 
 <% if local_assigns[:home] %>
   <div class="spacer"></div>
-  <%= simple_format(local_assigns[:data].why[0..200]) %>
+  <%= raw simple_format(local_assigns[:data].why[0..200]) %>
   <% if local_assigns[:data].why.length >= 200 %>
     <%= " [...]" %>
   <% end %>

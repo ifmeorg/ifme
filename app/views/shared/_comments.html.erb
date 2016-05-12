@@ -8,8 +8,9 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="field no_margin_bottom">
       <%= f.text_area :comment, class: 'comment_textarea' %>
+      <%= render :partial => '/shared/character_count', locals: { data: 'comment_comment' } %>
     </div>
 
     <% if local_assigns[:comments].length == 0 %>
@@ -25,7 +26,7 @@
       <% else %>
         <%= f.hidden_field :visibility, :value => 'all' %>
       <% end %>
-      <%= f.submit t('.comment'), class: 'no_margin_right' %>
+      <%= f.submit t('.comment'), class: 'no_margin_right small_margin_top' %>
     </div>
 
     <div class="clear"></div>
