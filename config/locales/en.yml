@@ -209,10 +209,10 @@ en:
     share_with: 'Share with '
     only: ' only'
     comment: 'Comment'
-    on: 'on'
+    on_date: 'on'
     visible_only_to: 'Visible only between you two'
-    disabled_comments: 'Comments have been disabled.'
     error_explanation: 'Please fill out the marked fields'
+    not_allies: '(no longer allies)'
   header:
    profile: 'Profile'
    account: 'Account'
@@ -228,6 +228,15 @@ en:
    allies: 'Allies'
    categories: 'Categories'
    moods: 'Moods'
+  viewers_indicator:
+   disabled_comments: 'Comments have been disabled.'
+   no_viewers: 'There are <strong>no</strong> viewers.'
+   only_viewer: 'You are the only viewer.'
+   not_only_viewer: 'You are <strong>not</strong> the only viewer.'
+   are_viewers: ' are viewers.'
+   is_a_viewer: ' is a viewer.'
+   and: ' and '
+   comma_and: ', and '
 
  strategies:
   form:

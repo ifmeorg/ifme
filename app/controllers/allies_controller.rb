@@ -68,6 +68,39 @@ class AlliesController < ApplicationController
     uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
     Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
 
+    # Remove ally from all viewers lists
+    Moment.where(userid: current_user.id.to_i).all.each do |moment|
+      viewers = moment.viewers
+      if viewers.include? params[:ally_id].to_i
+        viewers.delete(params[:ally_id].to_i)
+        Moment.update(moment.id, viewers: viewers)
+      end
+    end
+
+    Moment.where(userid: params[:ally_id].to_i).all.each do |moment|
+      viewers = moment.viewers
+      if viewers.include? current_user.id.to_i
+        viewers.delete(current_user.id.to_i)
+        Moment.update(moment.id, viewers: viewers)
+      end
+    end
+
+    Strategy.where(userid: current_user.id.to_i).all.each do |strategy|
+      viewers = strategy.viewers
+      if viewers.include? params[:ally_id].to_i
+        viewers.delete(params[:ally_id].to_i)
+        Strategy.update(moment.id, viewers: viewers)
+      end
+    end
+
+    Strategy.where(userid: params[:ally_id].to_i).all.each do |strategy|
+      viewers = strategy.viewers
+      if viewers.include? current_user.id.to_i
+        viewers.delete(current_user.id.to_i)
+        Strategy.update(moment.id, viewers: viewers)
+      end
+    end
+
     # Destroy allyship
     Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy if !Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
 

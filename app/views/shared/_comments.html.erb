@@ -1,5 +1,6 @@
 <% if local_assigns[:data].comment && (current_user.id == local_assigns[:data].userid || local_assigns[:no_hide_page]) %>
 
+  <div class="small_margin_top">
   <%= form_for local_assigns[:comment], :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if local_assigns[:comment].errors.any? %>
         <div class="error_explanation">
@@ -46,7 +47,7 @@
               </div>
               <div class="table_cell">
                 <div class="comment_info">
-                  <%= link_to profile.name, profile_index_path(uid: get_uid(comment.comment_by)) %> <%= t('.on') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                  <%= link_to profile.name, profile_index_path(uid: get_uid(comment.comment_by)) %> <% if !are_allies(current_user.id, comment.comment_by) %> <%= t('.not_allies') %><% end %> <%= t('.on_date') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
                 </div>
                 <div class="comment_text"><%= simple_format(comment.comment) %></div>
                 <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == local_assigns[:data].userid) %>
@@ -57,7 +58,6 @@
           </div>
         </div>
       <% end %>
-  <% end %>
-<% else %>
-  <em><%= t('.disabled_comments') %></em>
+  <% end %>  
+  </div>
 <% end %>

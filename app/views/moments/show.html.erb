@@ -56,4 +56,6 @@
   <% end %>
 <% end %>
 
+<%= render :partial => '/shared/viewers_indicator', locals: { data: @moment } %>
+
 <%= render :partial => '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'moment' } %>

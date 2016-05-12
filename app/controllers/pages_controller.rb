@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       @moments = Array.new
       all_moments = Moment.order("created_at DESC").all
       all_moments.each do |moment|
-        if current_user.id == moment.userid || are_allies(current_user.id, moment.userid) && is_viewer(moment.viewers)
+        if current_user.id == moment.userid || (are_allies(current_user.id, moment.userid) && is_viewer(moment.viewers))
           @moments.push(moment)
         end
       end

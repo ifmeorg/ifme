@@ -1,0 +1,31 @@
+<div class="viewers_indicator">
+<% if !local_assigns[:data].viewers.blank? %>
+	<% if local_assigns[:data].viewers.length == 1  && local_assigns[:data].viewers.length[0] == current_user.id %>
+	<%= raw t('.only_viewer') %>
+	<% elsif local_assigns[:data].viewers.length > 0 && local_assigns[:data].userid != current_user.id %>
+	<%= raw t('.not_only_viewer') %>
+	<% elsif local_assigns[:data].userid == current_user.id %>
+		<% local_assigns[:data].viewers.each do |viewer| %>
+			<% if local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length == 2 %>
+				<%= t('.and') %>
+			<% elsif local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length != 2 %>
+				<%= t('.comma_and') %>
+			<% end %>
+			<%= User.where(id: viewer).first.name %>
+			<% if local_assigns[:data].viewers.last != viewer && local_assigns[:data].viewers.length != 2 %>
+				<%= ', ' %>
+			<% end %>
+		<% end %>
+		<% if local_assigns[:data].viewers.length > 1 %>
+		<%= t('.are_viewers') %>
+		<% else %>
+		<%= t('.is_a_viewer.') %>
+		<% end %>
+	<% end %>
+<% else %>
+	<%= raw t('.no_viewers') %>
+<% end %>
+<% if !local_assigns[:data].comment %>
+	<%= t('.disabled_comments') %>
+<% end %>
+</div>

@@ -773,6 +773,14 @@ div.table div.table_cell {
 	padding: 10px;
 }
 
+.viewers_indicator {
+	color: $subtle-secondary-text-color;
+	font-weight: bold;
+	border: 1px solid $subtle-secondary-text-color !important;
+	box-shadow: 0 0 2px $subtle-secondary-text-color inset !important;
+	padding: 10px;
+}
+
 .error_explanation {
 	color: $alert-color;
 	font-size: 30px;
