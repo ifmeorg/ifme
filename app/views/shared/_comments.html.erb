@@ -25,6 +25,9 @@
         <%= f.select :visibility, [[t('.share_everyone'), 'all'], [t('.share_with') + User.where(:id => local_assigns[:data].userid).first.name + t('.only'), 'private']] %>
       <% else %>
         <%= f.hidden_field :visibility, :value => 'all' %>
+        <% if !local_assigns[:data].viewers.blank? && local_assigns[:data].viewers.length > 0 %>
+         <%= f.select :viewers, local_assigns[:data].viewers.collect {|v| [ t('.share_with') + User.where(id: v).first.name + t('.only'), v ] }, { include_blank: t('.share_everyone') } %>
+        <% end %>
       <% end %>
       <%= f.submit t('.comment'), class: 'no_margin_right small_margin_top' %>
     </div>
@@ -33,7 +36,12 @@
   <% end %>
 
   <% local_assigns[:comments].each do |comment| %>
-    <% if comment.visibility == 'all' || (comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == local_assigns[:data].userid)) %>
+    <% if comment.visibility == 'all' || 
+      (comment.visibility == 'private' && User.where(id: comment.comment_by).exists? && 
+        (comment.comment_by == current_user.id || 
+        current_user.id == local_assigns[:data].userid || 
+        (!comment.viewers.blank? && comment.viewers.include?(current_user.id))
+        )) %>
         <% if local_assigns[:comments].first == comment %>
         <div class="comment no_margin_top" %>
         <% else %>
@@ -48,11 +56,20 @@
               </div>
               <div class="table_cell">
                 <div class="comment_info">
-                  <%= link_to profile.name, profile_index_path(uid: get_uid(comment.comment_by)) %> <% if !are_allies(current_user.id, comment.comment_by) %> <%= t('.not_allies') %><% end %> <%= t('.on_date') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
+                  <%= link_to profile.name, profile_index_path(uid: get_uid(comment.comment_by)) %> <% if !are_allies(current_user.id, comment.comment_by) && current_user.id != comment.comment_by %> <%= t('.not_allies') %><% end %> <%= t('.on_date') %> <%= local_time(comment.created_at, '%A, %B %e, %Y at %l:%M %P') %>
                 </div>
                 <div class="comment_text"><%= simple_format(comment.comment) %></div>
-                <% if comment.visibility == 'private' && (comment.comment_by == current_user.id || current_user.id == local_assigns[:data].userid) %>
-                  <div class="subtle text_align_right"><%= t('.visible_only_to') %></div>
+                <% if comment.visibility == 'private' && 
+                  (comment.comment_by == current_user.id || 
+                  current_user.id == local_assigns[:data].userid ||
+                  (!comment.viewers.blank? && comment.viewers.include?(current_user.id))) %>
+                  <div class="subtle text_align_right">
+                    <% if Moment.where(id: comment.commented_on).first.userid == current_user.id && User.where(id: comment.viewers[0]).exists? %>
+                    <%= t('.visible_only_between_you_and') + ' ' + User.where(id: comment.viewers[0]).first.name %>
+                    <% else %>
+                    <%= t('.visible_only_between_you_two') %>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
             </div>

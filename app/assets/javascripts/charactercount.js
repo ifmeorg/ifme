@@ -29,8 +29,6 @@ $(document).on("page:load ready", function() {
 
 	if ($('body').hasClass('moments show') ||
 		$('body').hasClass('strategies show')) {
-		noCKEditor($('#comment_comment'));
-
 		$('#comment_comment').bind('keyup', function() {
 			noCKEditor($(this));
 		});
