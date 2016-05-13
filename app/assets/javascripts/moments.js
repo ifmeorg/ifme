@@ -1,7 +1,7 @@
 $(document).on("page:load ready", function() {
 	if ($('body').hasClass('moments new') || $('body').hasClass('moments edit') || $('body').hasClass('moments create') || $('body').hasClass('moments update')) {
-		var NO_ALLIES = "No allies";
-		var ALL_ALLIES = "All allies";
+		var NO_ALLIES = "Unselect all";
+		var ALL_ALLIES = "Select all";
 		$('#viewers_label').text(ALL_ALLIES);
 		$('#viewers').change(function() {
 			if ($(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES) {

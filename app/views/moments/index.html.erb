@@ -5,21 +5,8 @@
 <div class="spacer"></div>
 
 <% if @moments.length > 0 %>
-  <% @moments.each_with_index do |moment, index| %>
-    <% if index+1 == @moments.length %>
-      <div class="moment no_margin_bottom">
-    <% else %>
-      <div class="moment">
-    <% end %>
-        <h1 class="moment_name"><%= link_to moment.name, moment %></h1>
-        
-        <%= render :partial => '/moments/info', locals: { data: moment, show_strategies: true } %>
-
-        <div class="small_margin_top">
-          <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_moment_path(moment) %>
-          <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), moment, method: :delete, data: { confirm: t('.confirm') } %>
-        </div>
-      </div>
+  <% @moments.each do |moment| %>
+    <%= render :partial => '/shared/moments_strategies', locals: { items: @moments, item: moment, data_type: 'moment' } %>
   <% end %>
 <% else %>
 You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></i> to add some! 

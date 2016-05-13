@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
   	if user_signed_in?
-  		@page_title = "Latest"
+      @page_title = "Welcome"
 
       @moments = Array.new
       all_moments = Moment.order("created_at DESC").all
@@ -15,6 +15,7 @@ class PagesController < ApplicationController
         @moment = Moment.new
         @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
         @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
+        @page_title = "Latest Moments"
       end
   	else
       @page_title = 'Welcome'

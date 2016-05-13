@@ -7,37 +7,8 @@
 <% if @strategies.length > 0 %>
   <%= render :partial => '/shared/stats', locals: { data_type: 'strategy' } %>
 
-  <% @strategies.each_with_index do |strategy, index| %>
-    <% if index+1 == @strategies.length %>
-      <div class="strategy no_margin_bottom">
-    <% else %>
-      <div class="strategy">
-    <% end %>
-        <h1 class="strategy_name"><%= link_to strategy.name, strategy %></h1>
-        <strong><%= t('.created') %></strong> <%= local_time(strategy.created_at, '%A, %B %e, %Y at %l:%M %P') %>
-        <% if strategy.category.count > 0 %>
-          <br>
-          <strong>
-            <% if strategy.category.count == 1 %>
-              <%= t('.category') %>
-            <% else %>
-              <%= t('.categories') %>
-            <% end %>
-          </strong>
-          <% strategy.category.each do |item| %>
-            <% if Category.where(id: item, userid: current_user.id).exists? %>
-            <span class="notification_wrapper">
-              <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if strategy.category.last != item %><%= ', ' %><% end %>
-              <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
-            </span>
-            <% end %>
-          <% end %>
-        <% end %>
-        <div class="small_margin_top">
-          <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_strategy_path(strategy) %>
-          <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), strategy, method: :delete, data: { confirm: t('.confirm') } %>
-        </div>
-      </div>
+  <% @strategies.each do |strategy| %>
+    <%= render :partial => '/shared/moments_strategies', locals: { items: @strategies, item: strategy, data_type: 'strategy' } %>
   <% end %>
 <% else %>
   You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some! 

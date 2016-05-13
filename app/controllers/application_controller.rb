@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage
 
 	def are_allies(userid1, userid2)
 		userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -209,6 +209,41 @@ class ApplicationController < ActionController::Base
 			end
 		end
 		
+		return result
+	end
+
+	def tag_usage(data, data_type, userid)
+		result = Array.new
+		if (data_type == 'category')
+			moments = Array.new
+			Moment.where(userid: userid).order("created_at DESC").all.each do |moment|		
+				if !moment.category.blank? && moment.category.length > 0 && moment.category.include?(data.to_i)
+					moments.push(moment.id)
+				end
+			end
+			result.push(moments)
+
+			strategies = Array.new
+			Strategy.where(userid: userid).order("created_at DESC").all.each do |strategy|		
+				if !strategy.category.blank? && strategy.category.length > 0 && strategy.category.include?(data.to_i)
+					strategies.push(strategy.id)
+				end
+			end
+			result.push(strategies)
+		elsif (data_type == 'mood')
+			Moment.where(userid: userid).order("created_at DESC").all.each do |moment|		
+				if !moment.mood.blank? && moment.mood.length > 0 && moment.mood.include?(data.to_i)
+					result.push(moment.id)
+				end
+			end
+		elsif (data_type == 'strategy')
+			Moment.where(userid: userid).order("created_at DESC").all.each do |moment|		
+				if !moment.strategies.blank? && moment.strategies.length > 0 && moment.strategies.include?(data.to_i)
+					result.push(moment.id)
+				end
+			end
+		end
+
 		return result
 	end
 end

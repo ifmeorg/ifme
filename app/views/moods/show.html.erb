@@ -1,1 +1,3 @@
 <%= simple_format(@mood.description) %>
+
+<%= render :partial => '/shared/tag_usage', locals: { data: @mood.id, data_type: 'mood', userid: @mood.userid } %>

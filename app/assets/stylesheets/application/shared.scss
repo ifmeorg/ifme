@@ -187,3 +187,39 @@ h1.strategy_name a:visited {
 		}
 	}
 }
+
+#tag_usage.margin_bottom {
+	margin-bottom: 20px !important;
+}
+
+.tag_type.margin_top {
+	margin-top: 20px !important;
+}
+
+@media screen and (max-width: $small) {
+	#tag_usage.margin_bottom {
+		margin-bottom: 10px !important;
+	}
+
+	.tag_type.margin_top {
+		margin-top: 10px !important;
+	}
+}
+
+h1.group_type,
+h1.tag_type {
+	font-weight: 100;
+	font-size: 30px;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+
+	@media screen and (max-width: $medium) {
+		font-size: 26px;
+		margin: 0px 0px 10px 0px;
+	}
+}
+
+#showTaggedMoments.align_right,
+#hideTaggedMoments.align_right  {
+	float: right !important;
+}

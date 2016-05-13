@@ -1,0 +1,55 @@
+<% if local_assigns[:data_type] == 'moment' || local_assigns[:data_type] == 'moment_tag_usage' %>
+  <% if (local_assigns[:data_type] == 'moment' && local_assigns[:items].last == local_assigns[:item]) || (local_assigns[:data_type] == 'moment_tag_usage' && local_assigns[:items].last == local_assigns[:item].id) %>
+    <div class="moment no_margin_bottom">
+  <% else %>
+    <div class="moment">
+  <% end %>
+      <h1 class="moment_name"><%= link_to local_assigns[:item].name, local_assigns[:item] %></h1>
+      
+      <%= render :partial => '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
+
+      <% if current_user.id == local_assigns[:item].userid %>
+      <div class="small_margin_top">
+        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_moment_path(local_assigns[:item]) %>
+        <% if local_assigns[:data_type] == 'moment' %>
+        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('moods.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('moods.index.confirm') } %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+<% elsif local_assigns[:data_type] == 'strategy' || local_assigns[:data_type] == 'strategy_tag_usage' %>
+  <% if (local_assigns[:data_type] == 'strategy' && local_assigns[:items].last == local_assigns[:item]) || (local_assigns[:data_type] == 'strategy_tag_usage' && local_assigns[:items].last == local_assigns[:item].id) %>
+      <div class="strategy no_margin_bottom">
+    <% else %>
+      <div class="strategy">
+    <% end %>
+      <h1 class="strategy_name"><%= link_to local_assigns[:item].name, local_assigns[:item] %></h1>
+      <strong><%= t('strategies.index.created') %></strong> <%= local_time(local_assigns[:item].created_at, '%A, %B %e, %Y at %l:%M %P') %>
+      <% if local_assigns[:item].category.count > 0 %>
+        <br>
+        <strong>
+          <% if local_assigns[:item].category.count == 1 %>
+            <%= t('strategies.index.category') %>
+          <% else %>
+            <%= t('strategies.index.categories') %>
+          <% end %>
+        </strong>
+        <% local_assigns[:item].category.each do |item| %>
+          <% if Category.where(id: item, userid: current_user.id).exists? %>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
+            <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
+          </span>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% if current_user.id == local_assigns[:item].userid %>
+      <div class="small_margin_top">
+        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_strategy_path(local_assigns[:item]) %>
+        <% if local_assigns[:data_type] == 'strategy' %>
+        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('strategies.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('strategies.index.confirm') } %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+<% end %>
