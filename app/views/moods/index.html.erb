@@ -5,24 +5,26 @@
 <div class="spacer"></div>
 
 <% if @moods.length > 0 %>
-    <% @moods.each do |mood| %>
-      <% if @moods.last == mood %>
-        <div class="mood no_margin_bottom">
-      <% else %>
-        <div class="mood">
+  <%= render :partial => '/shared/stats', locals: { data_type: 'mood' } %>
+
+  <% @moods.each do |mood| %>
+    <% if @moods.last == mood %>
+      <div class="mood no_margin_bottom">
+    <% else %>
+      <div class="mood">
+    <% end %>
+
+      <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
+       
+      <%= simple_format(mood.description[0..80]) %>
+      <% if mood.description.length >= 80 %>
+        <%= " [...]" %>
       <% end %>
 
-        <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
-         
-        <%= simple_format(mood.description[0..80]) %>
-        <% if mood.description.length >= 80 %>
-          <%= " [...]" %>
-        <% end %>
-
-        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>
-        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', mood, method: :delete, data: { confirm: t('.confirm') } %>
-      </div>
-    <% end %>
+      <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>
+      <i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', mood, method: :delete, data: { confirm: t('.confirm') } %>
+    </div>
+  <% end %>
 <% else %>
   You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some! 
   <br>You can also add the following premade moods and customize them another time.

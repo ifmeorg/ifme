@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
 	end
 
-	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid
+	helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus
 
 	def are_allies(userid1, userid2)
 		userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -158,5 +158,57 @@ class ApplicationController < ActionController::Base
       	end
 
       	return return_this.html_safe
+	end
+
+	def most_focus(data_type)
+		data = Array.new
+		if data_type == 'category'
+			Moment.where(userid: current_user.id).all.each do |moment|
+				if !moment.category.blank? && moment.category.length > 0
+					data += moment.category
+				end
+			end
+			Strategy.where(userid: current_user.id).all.each do |strategy|
+				if !strategy.category.blank? && strategy.category.length > 0
+					data += strategy.category
+				end
+			end
+		elsif data_type == 'mood'
+			Moment.where(userid: current_user.id).all.each do |moment|
+				if !moment.mood.blank? && moment.mood.length > 0
+					data += moment.mood
+				end
+			end
+		elsif data_type == 'strategy'
+			Moment.where(userid: current_user.id).all.each do |moment|
+				if !moment.strategies.blank? && moment.strategies.length > 0
+					data += moment.strategies
+				end
+			end
+		end
+
+		# Determine top three occurrences
+		result = Hash.new
+
+		if data.length > 0
+			freq = Hash.new
+			for i in 0..2
+				freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+	   			if freq.length == 0
+	   				break
+	   			end
+
+	   			max = data.max_by { |v| freq[v] }
+	   			if freq[max] == 0
+	   				break
+	   			end
+
+	   			result[max] = freq[max]
+				freq.delete(max)
+				data.delete(max)
+			end
+		end
+		
+		return result
 	end
 end

@@ -237,6 +237,8 @@ en:
    is_a_viewer: ' is a viewer.'
    and: ' and '
    comma_and: ', and '
+  stats:
+    most_focus: 'You are focusing the most on'
 
  strategies:
   form:

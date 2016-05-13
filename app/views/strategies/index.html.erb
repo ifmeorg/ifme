@@ -5,6 +5,8 @@
 <div class="spacer"></div>
 
 <% if @strategies.length > 0 %>
+  <%= render :partial => '/shared/stats', locals: { data_type: 'strategy' } %>
+
   <% @strategies.each_with_index do |strategy, index| %>
     <% if index+1 == @strategies.length %>
       <div class="strategy no_margin_bottom">

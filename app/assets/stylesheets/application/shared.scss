@@ -115,3 +115,75 @@ h1.strategy_name a:visited {
 	float: right;
 	display: inline-block;
 }
+
+#stats {
+	font: 22px $font-family;
+	font-weight: 300;
+	margin-bottom: 40px;
+
+	#most_focus {
+		display: block;
+		width: 100%;
+		font-size: 0;
+	}
+
+	.some_focus {
+		display: inline-block;
+		text-align: center;
+		color: $highlight-text-color;
+		background-color: $secondary-text-color;
+		font-size: 0;
+	}
+
+	.some_focus_text {
+		padding: 20px;
+		font: 22px $font-family;
+		font-weight: 300;
+
+		a:link, a:visited, .link_style {
+			text-decoration: none;
+			color: $highlight-text-color;
+			border-bottom: none;
+		}
+
+		a:hover, .link_style:hover {
+			text-decoration: none;
+			color: $highlight-text-color;
+			border-bottom: none;
+			opacity: 0.5;
+		}
+	}
+
+	@media screen and (max-width: $medium) {
+		font: 20px $font-family;
+		font-weight: 300;
+		margin-bottom: 20px;
+
+		.some_focus_text {
+			padding: 20px;
+			font: 20px $font-family;
+			font-weight: 300;
+		}
+	}
+
+	@media screen and (max-width: $small) {
+		font: 18px $font-family;
+		font-weight: 300;
+		margin-bottom: 20px;
+
+		.some_focus {
+			display: block;
+			text-align: center;
+			color: $highlight-text-color;
+			background-color: $secondary-text-color;
+			font-size: 0;
+			width: 100% !important;
+		}
+
+		.some_focus_text {
+			padding: 10px;
+			font: 18px $font-family;
+			font-weight: 300;
+		}
+	}
+}

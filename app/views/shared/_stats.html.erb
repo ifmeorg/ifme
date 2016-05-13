@@ -1,0 +1,39 @@
+<% most_focus = most_focus(local_assigns[:data_type]) %>
+<% if most_focus.length > 0 %>
+<div class="center" id="stats">
+	<div class="small_margin_bottom">
+		<%= t('.most_focus') %>
+	</div>
+
+	<div id="most_focus">
+		<% total = most_focus.values.inject(0){|sum,x| sum + x } %>
+		<% count = 0 %>
+		<% prev = 0 %>
+		<% most_focus.each do |key, value| %>
+			<% percentage_value = (value.to_f / total.to_f) * 100 %>
+			<% percentage = percentage_value.to_s + '%' %>
+			<% count = count + 1 %>
+		
+			<% if count == 1 %>
+			<div class="some_focus" style='width: <%= percentage %>;'>
+			<% elsif count == 2 %>
+			<div class="some_focus" style='opacity: 0.8; width: <%= percentage %>;'>
+			<% elsif count == 3 %>
+			<div class="some_focus" style='opacity: 0.6; width: <%= percentage %>;'>
+			<% end %>
+				<div class="some_focus_text">
+				<% if local_assigns[:data_type] == 'category' %>
+					<%= link_to Category.where(id: key).first.name, Category.where(id: key).first %>
+				<% elsif local_assigns[:data_type] == 'mood' %>
+					<%= link_to Mood.where(id: key).first.name, Mood.where(id: key).first %>
+				<% elsif local_assigns[:data_type] == 'strategy' %>
+					<%= Strategy.where(id: key).first.name %>
+				<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="clear"></div>
+</div>
+<% end %>
