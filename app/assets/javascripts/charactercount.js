@@ -28,7 +28,8 @@ $(document).on("page:load ready", function() {
 	}
 
 	if ($('body').hasClass('moments show') ||
-		$('body').hasClass('strategies show')) {
+		$('body').hasClass('strategies show') ||
+		$('body').hasClass('meetings show')) {
 		$('#comment_comment').bind('keyup', function() {
 			noCKEditor($(this));
 		});
