@@ -191,6 +191,7 @@ class MeetingsController < ApplicationController
     end
   end
 
+  # TODO: add notification
   def join
     @meeting_member = MeetingMember.create!(meetingid: params[:meetingid], userid: current_user.id, leader: false)
 
@@ -202,6 +203,7 @@ class MeetingsController < ApplicationController
     end
   end
 
+  # TODO: add notification
   def leave
     meeting_name = Meeting.where(id: params[:meetingid]).first.name
     groupid = Meeting.where(id: params[:meetingid]).first.groupid
@@ -226,6 +228,7 @@ class MeetingsController < ApplicationController
     end
   end
 
+  # TODO: add notification
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
