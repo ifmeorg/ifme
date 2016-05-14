@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   resources :moments do
     collection do
       post "comment"
-      post "support"
       post "quick_moment"
     end
   end
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
   resources :strategies do
     collection do
       post "comment"
-      post "support"
       post "premade"
       post "quick_create"
     end
@@ -56,6 +54,7 @@ Rails.application.routes.draw do
     collection do
       get "join"
       get "leave"
+      post "comment"
     end
   end
 

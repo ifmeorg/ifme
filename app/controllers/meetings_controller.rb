@@ -6,6 +6,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.json
   def show
     @meeting = Meeting.find(params[:id])
+    @is_member = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id).exists?
     @page_title = @meeting.name
 
     is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?
@@ -13,6 +14,38 @@ class MeetingsController < ApplicationController
     if is_leader
       @page_edit = edit_meeting_path(@meeting)
       @page_tooltip = "Edit meeting"
+    end
+
+    @no_hide_page = false
+    if hide_page(@meeting)
+      respond_to do |format|
+        format.html { redirect_to group_path(@meeting.groupid) }
+        format.json { head :no_content }
+      end
+    else
+      @comment = Comment.new
+      @comments = Comment.where(:commented_on => @meeting.id, :comment_type => "meeting").all.order("created_at DESC")
+      @no_hide_page = true
+    end
+  end
+
+  def comment
+    @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'all')
+    
+    if !@comment.save 
+      respond_to do |format|
+        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
+      end
+    end
+
+    # TODO: notifications
+
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
+      end
     end
   end
 
@@ -238,6 +271,13 @@ class MeetingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
       params.require(:meeting).permit(:name, :description, :location, :date, :time, :maxmembers, :groupid)
+    end
+
+    def hide_page(meeting)
+      if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
+        return false
+      end
+      return true
     end
 
     def if_not_signed_in

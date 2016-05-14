@@ -6,7 +6,6 @@
 	<%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: @group.id).all } %>
 </div>
 
-<br>
 <strong><i class="fa fa-key small_margin_right"></i><%= t('.led_by') %></strong>
 <% is_leader = false %>
 <% @group_leaders.each_with_index do |leader, index| %>
@@ -24,7 +23,7 @@
 <% if @is_group_member %>
 	<%= link_to t('.leave_cta'), leave_groups_path(groupid: @group.id), class: 'align_right', id: 'leave' %>
 <% else %>
-	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), id: 'join align_right' %>	
+	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), id: 'join', class: 'align_right' %>	
 <% end %>
 
 <div class="clear"></div>

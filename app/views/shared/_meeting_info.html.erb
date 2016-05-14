@@ -7,8 +7,21 @@
 <% end %>
 <br><strong><%= t('groups.show.date') %></strong> <%= local_assigns[:meeting].date %>
 <br><strong><%= t('groups.show.time') %></strong> <%= local_assigns[:meeting].time %>
-<br><strong><%= t('groups.show.led_by') %></strong>
 
+<% if local_assigns[:show_members] %>
+<br>
+<br>
+<div class="notification_wrapper">
+	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= MeetingMember.where(meetingid: local_assigns[:meeting].id).count %> <% if MeetingMember.where(meetingid: local_assigns[:meeting].id).count == 1 %><%= t('group.show.member') %><% else %><%= t('group.show.members') %><% end %></strong> 
+
+	<%= render :partial => '/notifications/members', locals: { data: MeetingMember.where(meetingid: local_assigns[:meeting].id).all } %>
+</div>
+<% else %>
+<br>
+<br>
+<% end %>
+
+<strong><i class="fa fa-key small_margin_right"></i><%= t('groups.show.led_by') %></strong>
 <% is_leader = false %>
 <% meeting_leaders = MeetingMember.where(meetingid: local_assigns[:meeting].id, leader: true).all %>
 <% meeting_leaders.each_with_index do |leader, index| %>
@@ -23,18 +36,8 @@
 <% end %>
 <% end %>
 
-<% if local_assigns[:show_members] %>
-<div class="notification_wrapper">
-	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= MeetingMember.where(meetingid: local_assigns[:meeting].id).count %> <% if MeetingMember.where(meetingid: local_assigns[:meeting].id).count == 1 %><%= t('group.show.member') %><% else %><%= t('group.show.members') %><% end %></strong> 
-
-	<%= render :partial => '/notifications/members', locals: { data: MeetingMember.where(meetingid: local_assigns[:meeting].id).all } %>
-</div>
-<% end %>
-
-<% if MeetingMember.where(meetingid: local_assigns[:meeting].id, userid: current_user.id).exists? %>
-<% if !local_assigns[:show_members] %>
 <br>
-<% end %>
+<% if MeetingMember.where(meetingid: local_assigns[:meeting].id, userid: current_user.id).exists? %>
 <strong>You are attending. Change your mind? <%= link_to t('groups.show.leave_cta'), leave_meetings_path(meetingid: local_assigns[:meeting].id) %></strong>
 <% elsif !local_assigns[:meeting].maxmembers.nil? && local_assigns[:meeting].maxmembers > 0 %>
 <strong>You are not attending. There are <%= local_assigns[:meeting].maxmembers-MeetingMember.where(id: local_assigns[:meeting].id).count %> spots left to fill! <%= link_to t('groups.show.join_cta'), join_meetings_path(meetingid: local_assigns[:meeting].id) %></strong>
@@ -43,7 +46,6 @@
 <% end %>
 
 <% if local_assigns[:delete] && is_leader %>
-<br>
 <br>
 <i class="fa fa-trash-o action"></i><%= link_to t('groups.show.delete'), local_assigns[:meeting], method: :delete, data: { confirm: t('groups.show.confirm') } %>
 <% end %>

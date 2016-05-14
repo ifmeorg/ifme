@@ -1,1 +1,3 @@
 <%= render :partial => '/shared/meeting_info', locals: { meeting: @meeting, show_members: true } %>
+
+<%= render :partial => '/shared/comments', locals: { data: @meeting, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'meeting', is_member: @is_member } %>
