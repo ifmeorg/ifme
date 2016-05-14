@@ -2,6 +2,20 @@ class MeetingsController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
+  # GET /meetings/1
+  # GET /meetings/1.json
+  def show
+    @meeting = Meeting.find(params[:id])
+    @page_title = @meeting.name
+
+    is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?
+
+    if is_leader
+      @page_edit = edit_meeting_path(@meeting)
+      @page_tooltip = "Edit meeting"
+    end
+  end
+
   # GET /meetings/new
   def new
     @groupid = params[:groupid]

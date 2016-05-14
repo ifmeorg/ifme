@@ -64,10 +64,14 @@
                   current_user.id == local_assigns[:data].userid ||
                   (!comment.viewers.blank? && comment.viewers.include?(current_user.id))) %>
                   <div class="subtle text_align_right">
-                    <% if Moment.where(id: comment.commented_on).first.userid == current_user.id && User.where(id: comment.viewers[0]).exists? %>
+                    <% if User.where(id: comment.viewers[0]).exists? && 
+                      ((local_assigns[:comment_type] == 'moment' && Moment.where(id: comment.commented_on).first.userid == current_user.id) || 
+                      (local_assigns[:comment_type] == 'strategy' && Strategy.where(id: comment.commented_on).first.userid == current_user.id)) %>
                     <%= t('.visible_only_between_you_and') + ' ' + User.where(id: comment.viewers[0]).first.name %>
-                    <% else %>
-                       <%= t('.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: comment.commented_on).first.userid).first.name %>
+                    <% elsif local_assigns[:comment_type] == 'moment' %>
+                      <%= t('.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: comment.commented_on).first.userid).first.name %>
+                    <% elsif local_assigns[:comment_type] == 'strategy' %>
+                      <%= t('.visible_only_between_you_and') + ' ' + User.where(id: Strategy.where(id: comment.commented_on).first.userid).first.name %>
                     <% end %>
                   </div>
                 <% end %>
