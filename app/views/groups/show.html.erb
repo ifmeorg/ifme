@@ -39,12 +39,14 @@
     	<% if is_leader %>
     		<h1 class="meeting_name">
     			<%= link_to meeting.name, meeting_path(meeting) %>
+          <% if MeetingMember.where(meetingid: meeting.id, userid: current_user.id, leader: true).exists? %>
     			<%= link_to raw('<i class="fa fa-pencil"></i>'), edit_meeting_path(meeting), class: 'align_right display_inline_block' %>	
+          <% end %>
     		</h1>
     	<% else %>
     		<h1 class="meeting_name"><%= meeting.name %></h1>
     	<% end %>
-	    <%= render :partial => '/shared/meeting_info', locals: { meeting: meeting, delete: true } %>
+	    <%= render :partial => '/shared/meeting_info', locals: { meeting: meeting, is_leader: MeetingMember.where(meetingid: meeting.id, userid: current_user.id, leader: true).exists? } %>
 	    </div>
   <% end %>
 <% end %>

@@ -175,12 +175,15 @@ function renderNotifications(notifications) {
     if (data.type == 'comment_on_moment' || 
       data.type == 'comment_on_strategy' ||
       data.type == 'comment_on_moment_private' || 
-      data.type == 'comment_on_strategy_private') {
+      data.type == 'comment_on_strategy_private' ||
+      data.type == 'comment_on_meeting') {
       var type_name;
       if (data.type == 'comment_on_moment' || data.type == 'comment_on_moment_private') {
         type_name = data.moment;
       } else if (data.type == 'comment_on_strategy' || data.type == 'comment_on_strategy_private') {
         type_name = data.strategy;
+      } else if (data.type == 'comment_on_meeting') {
+        type_name = data.meeting;
       }
 
       if (data.cutoff) {
@@ -194,6 +197,8 @@ function renderNotifications(notifications) {
         link = '/moments/' + data.momentid;
       } else if (data.type == 'comment_on_strategy' || data.type == 'comment_on_strategy_private') {
         link = '/strategies/' + data.strategyid;
+      } else if (data.type == 'comment_on_meeting') {
+        link = '/meetings/' + data.meetingid;
       }
 
       var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';

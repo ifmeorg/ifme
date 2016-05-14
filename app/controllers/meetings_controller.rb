@@ -9,9 +9,9 @@ class MeetingsController < ApplicationController
     @is_member = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id).exists?
     @page_title = @meeting.name
 
-    is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?
+    @is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?
 
-    if is_leader
+    if @is_leader
       @page_edit = edit_meeting_path(@meeting)
       @page_tooltip = "Edit meeting"
     end
@@ -31,7 +31,34 @@ class MeetingsController < ApplicationController
 
   def comment
     @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'all')
-    
+
+    # Notify MeetingMembers except for commenter that there is a new comment
+    MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
+      if member.userid != current_user.id
+        meeting_name = Meeting.where(id: @comment.commented_on).first.name
+        cutoff = false
+        if @comment.comment.length > 80 
+          cutoff = true
+        end
+        uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
+
+        data = JSON.generate({
+          user: current_user.name, 
+          meetingid: @comment.commented_on,
+          meeting: meeting_name,
+          commentid: @comment.id,
+          comment: @comment.comment[0..80],
+          cutoff: cutoff,
+          type: 'comment_on_meeting',
+          uniqueid: uniqueid
+          })
+
+        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
+        Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+      end
+    end
+
     if !@comment.save 
       respond_to do |format|
         format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
