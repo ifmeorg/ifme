@@ -27,7 +27,7 @@
 				<% elsif local_assigns[:data_type] == 'mood' %>
 					<%= link_to Mood.where(id: key).first.name, Mood.where(id: key).first %>
 				<% elsif local_assigns[:data_type] == 'strategy' %>
-					<%= Strategy.where(id: key).first.name %>
+					<%= link_to Strategy.where(id: key).first.name, Strategy.where(id: key).first %>
 				<% end %>
 				</div>
 			</div>
