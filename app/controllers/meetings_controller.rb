@@ -32,6 +32,13 @@ class MeetingsController < ApplicationController
   def comment
     @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'all')
 
+    if !@comment.save
+      respond_to do |format|
+        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
+        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
+      end
+    end
+
     # Notify MeetingMembers except for commenter that there is a new comment
     MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
       if member.userid != current_user.id
@@ -58,15 +65,6 @@ class MeetingsController < ApplicationController
         Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
       end
     end
-
-    if !@comment.save 
-      respond_to do |format|
-        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
-      end
-    end
-
-    # TODO: notifications
 
     if @comment.save
       respond_to do |format|
