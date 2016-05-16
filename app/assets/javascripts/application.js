@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require ckeditor/init
 //= require local_time
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-readyselector
 //= require bootstrap-datepicker
-//= require ckeditor/init
 //= require underscore
 //= require_tree .
 

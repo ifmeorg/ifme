@@ -1,7 +1,7 @@
-$(document).bind('page:load ready', function() {
-  $('.ckeditor').each(function() {
-  	if (!this) {
-    	CKEDITOR.replace($(this).attr('id'));
-	}
-  });
+$(document).bind('page:before-unload', function() {
+    if (typeof(CKEDITOR) != "undefined") {
+        for (name in CKEDITOR.instances) {
+            CKEDITOR.instances[name].destroy(true);
+        }
+    }
 });
