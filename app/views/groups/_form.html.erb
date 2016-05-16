@@ -23,6 +23,7 @@
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
+
 <% elsif action_name == "edit" || action_name == "update" %>
 <div class="table">
 
@@ -33,6 +34,8 @@
     </div>
 
       <div class="sidebar_field">
+
+      <% if @group_members.count > 1 %>
         <div class="sidebar_label">
           <%= f.label t('.leaders') %>
         </div>
@@ -42,6 +45,11 @@
         <%= link_to User.where(id: member.userid).first.name, profile_index_path(uid: get_uid(member.userid)) %>
         <br>
         <% end %>
+      <% else %>
+        <div class="small_font subtle">
+          <%= t('.only_leader') %>
+        </div>
+      <% end %>
       </div>
   </div>
 
@@ -62,7 +70,12 @@
 
 <div class="clear"></div>
 
-<div class="actions align_right no_margin_bottom">
+<div class="actions align_right no_margin_bottom right">
+  <% if action_name == "new" || action_name == "create" %>
+    <div class="small_margin_bottom subtle small_font">
+      <%= t('.cannot_delete') %>
+    </div>
+  <% end %>
   <%= f.submit %>
 </div>
 

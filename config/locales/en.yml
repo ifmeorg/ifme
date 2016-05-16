@@ -45,6 +45,8 @@ en:
    name: 'Name'
    description: 'Description'
    leaders: 'Leaders'
+   only_leader: "You are the only leader, therefore you can't leave."
+   cannot_delete: 'Please note that you cannot delete groups.'
    error_explanation: 'Please fill out the marked fields!'
   index:
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
