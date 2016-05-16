@@ -40,6 +40,12 @@ en:
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: "You updated your account successfully."
+      email_notifications: "Email Notifications"
+      comment_notify_text: "Comments on moments, strategies, and meetings"
+      ally_notify_text: "New and accepted ally requests"
+      group_notify_text: "Group updates"
+      meeting_notify_text: "Meeting updates"
+
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."

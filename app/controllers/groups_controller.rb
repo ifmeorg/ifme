@@ -25,9 +25,11 @@ class GroupsController < ApplicationController
   def show
   	@group = Group.find(params[:id])
   	@page_title = @group.name
-  	@meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
-  	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
     @is_group_member = if GroupMember.where(groupid: @group.id, userid: current_user.id).exists? then true else false end
+    if @is_group_member
+  	 @meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
+    end
+  	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
 
     if (GroupMember.where(groupid: @group.id, leader: true, userid: current_user.id).exists?)
       @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
@@ -73,6 +75,8 @@ class GroupsController < ApplicationController
           Notification.create(userid: ally.id, uniqueid: uniqueid, data: data)
           notifications = Notification.where(userid: ally.id).order("created_at ASC").all
           Pusher['private-' + ally.id.to_s].trigger('new_notification', {notifications: notifications})
+
+          NotificationMailer.notification_email(ally.id, data).deliver
         end
 
         if group_member.save
@@ -113,7 +117,7 @@ class GroupsController < ApplicationController
               user = User.where(id: member.userid).first.name     
               data = JSON.generate({
               user: user, 
-              groupid: params[:groupid],
+              groupid: @group.id,
               group: group,
               type: pusher_type,
               uniqueid: uniqueid
@@ -122,6 +126,8 @@ class GroupsController < ApplicationController
               Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
               notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
               Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+              NotificationMailer.notification_email(leader.userid, data).deliver
             end
           end
         end
@@ -155,6 +161,8 @@ class GroupsController < ApplicationController
       Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
       Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+      NotificationMailer.notification_email(leader.userid, data).deliver
     end
 
     respond_to do |format|
@@ -176,11 +184,10 @@ class GroupsController < ApplicationController
       end
     else
       # Remove corresponding meetings
-      meetings = MeetingMember.where(userid: current_user.id).all
-      meetings.each do |meeting|
-        group_meetings = Meeting.where(id: meeting.id, groupid: params[:groupid]).all
-        group_meetings.each do |group_meeting|
-          group_meeting.destroy
+      meeting_members = MeetingMember.where(userid: current_user.id).all
+      meeting_members.each do |member|
+        if Meeting.where(id: member.meetingid, groupid: params[:groupid]).exists?
+          member.destroy
         end
       end
 

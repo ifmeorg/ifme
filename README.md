@@ -143,6 +143,12 @@ Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/cloudinary.yml`.
 
+### Email notifications
+
+To get email notifications working, you must configure SMTP settings in `config/environments/development.rb` and `config/environments/production.rb`. You will also need to update the string `[insert email address here]` in `app/mailers/application_mailer.rb` and `config/initializers/devise.rb`.
+
+[Here](https://launchschool.com/blog/handling-emails-in-rails) is a great guide from Launch School on how to handle emails in Rails!
+
 ### Running the App Locally
 
 Create the developement and test databases:

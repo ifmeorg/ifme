@@ -48,6 +48,8 @@ class AlliesController < ApplicationController
     notifications = Notification.where(userid: params[:ally_id]).order("created_at ASC").all
     Pusher['private-' + params[:ally_id]].trigger('new_notification', {notifications: notifications})
     
+    NotificationMailer.notification_email(params[:ally_id], data).deliver
+
     respond_to do |format|
       format.html { redirect_to params[:refresh] }
       format.json { head :no_content }

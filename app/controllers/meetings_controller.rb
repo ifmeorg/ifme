@@ -63,6 +63,8 @@ class MeetingsController < ApplicationController
         Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
         notifications = Notification.where(userid: member.userid).order("created_at ASC").all
         Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+        NotificationMailer.notification_email(member.userid, data).deliver
       end
     end
 
@@ -125,6 +127,8 @@ class MeetingsController < ApplicationController
               Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
               notifications = Notification.where(userid: member.userid).order("created_at ASC").all
               Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+              NotificationMailer.notification_email(member.userid, data).deliver
             end
           end
 
@@ -178,6 +182,8 @@ class MeetingsController < ApplicationController
             Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
             notifications = Notification.where(userid: member.userid).order("created_at ASC").all
             Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+            NotificationMailer.notification_email(member.userid, data).deliver
           end
         end
 
@@ -225,6 +231,8 @@ class MeetingsController < ApplicationController
           Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
           notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
           Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+          NotificationMailer.notification_email(leader.userid, data).deliver
         end
       end
 
@@ -283,6 +291,8 @@ class MeetingsController < ApplicationController
         Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
         notifications = Notification.where(userid: member.userid).order("created_at ASC").all
         Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+
+        NotificationMailer.notification_email(member.userid, data).deliver
       end
     end
 

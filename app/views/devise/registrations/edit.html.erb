@@ -56,6 +56,14 @@
 	<div class="field"><div class="label"><%= f.label :email %></div>
 	<%= f.email_field :email %></div>
 
+	<div class="field">
+		<div class="label"><label><%= t('devise.registrations.email_notifications') %></label></div>
+		<%= f.check_box :comment_notify, {:checked => current_user.comment_notify || current_user.comment_notify.nil?}, 'true', 'false' %><%= t('devise.registrations.comment_notify_text') %><br>
+		<%= f.check_box :ally_notify, {:checked => current_user.ally_notify || current_user.ally_notify.nil?}, 'true', 'false' %><%= t('devise.registrations.ally_notify_text') %><br>
+		<%= f.check_box :group_notify, {:checked => current_user.group_notify || current_user.group_notify.nil?}, 'true', 'false' %><%= t('devise.registrations.group_notify_text') %><br>
+		<%= f.check_box :meeting_notify, {:checked => current_user.meeting_notify || current_user.meeting_notify.nil?}, 'true', 'false' %><%= t('devise.registrations.meeting_notify_text') %>
+	</div>
+
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 	<div class="field">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	<% end %>

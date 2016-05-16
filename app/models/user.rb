@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  attr_accessible :timezone, :location, :email, :password, :password_confirmation, :remember_me, :name, :about, :avatar, :token, :uid, :provider
+  attr_accessible :timezone, :location, :email, :password, :password_confirmation, :remember_me, :name, :about, :avatar, :token, :uid, :provider, :comment_notify, :ally_notify, :group_notify, :meeting_notify
 
   mount_uploader :avatar, AvatarUploader
 
@@ -48,6 +48,8 @@ class User < ActiveRecord::Base
   has_many :allies, through: :allyships
 
   has_many :alerts, inverse_of: :user
+
+  after_initialize :set_defaults, unless: :persisted?
 
   def remove_leading_trailing_whitespace
   	self.email&.rstrip!
@@ -74,4 +76,30 @@ class User < ActiveRecord::Base
    def allies_by_status(status)
      allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
    end
+
+   def set_defaults
+    if self.comment_notify.nil? || self.comment_notify
+      self.comment_notify = true
+    else
+      self.comment_notify = false
+    end
+
+    if self.ally_notify.nil? || self.ally_notify
+      self.ally_notify = true
+    else
+      self.ally_notify = false
+    end
+
+    if self.group_notify.nil? || self.group_notify
+      self.group_notify = true
+    else
+      self.group_notify = false
+    end
+  
+    if self.meeting_notify.nil? || self.meeting_notify
+      self.meeting_notify = true
+    else
+      self.meeting_notify = false
+    end
+  end
 end

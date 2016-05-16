@@ -11,25 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512174202) do
+ActiveRecord::Schema.define(version: 20160516202831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "alerts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "trigger"
-    t.integer  "medication"
-    t.string   "message",     limit: 255
-    t.string   "means",       limit: 255
-    t.string   "days",        limit: 255
-    t.string   "time_hour",   limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name",        limit: 255
-    t.string   "time_minute", limit: 255
-    t.string   "time_period", limit: 255
-  end
 
   create_table "allyships", force: :cascade do |t|
     t.integer  "user_id"
@@ -171,22 +156,7 @@ ActiveRecord::Schema.define(version: 20160512174202) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "triggers", force: :cascade do |t|
-    t.text     "category"
-    t.string   "name",       limit: 255
-    t.string   "mood",       limit: 255
-    t.text     "why"
-    t.text     "fix"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "userid"
-    t.text     "viewers"
-    t.boolean  "comment"
-    t.text     "strategies"
-    t.integer  "post_type"
-  end
-
+  
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -217,6 +187,10 @@ ActiveRecord::Schema.define(version: 20160512174202) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",                  default: 0
+    t.boolean  "comment_notify"
+    t.boolean  "ally_notify"
+    t.boolean  "group_notify"
+    t.boolean  "meeting_notify"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

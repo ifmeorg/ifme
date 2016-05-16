@@ -1,6 +1,6 @@
 <div class="viewers_indicator">
 <% if !local_assigns[:data].viewers.blank? %>
-	<% if local_assigns[:data].viewers.length == 1  && local_assigns[:data].viewers.length[0] != current_user.id %>
+	<% if local_assigns[:data].viewers.length == 1  && local_assigns[:data].viewers.length[0] != current_user.id && local_assigns[:data].userid != current_user.id %>
 	<%= raw t('.only_viewer') %>
 	<% elsif local_assigns[:data].viewers.length > 0 && local_assigns[:data].userid != current_user.id %>
 	<%= raw t('.not_only_viewer') %>

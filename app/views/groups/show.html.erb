@@ -28,7 +28,7 @@
 
 <div class="clear"></div>
 
-<% if @meetings.length > 0 %>
+<% if !@meetings.blank? && @meetings.length > 0 %>
   <div class="spacer"></div>
   <% @meetings.each do |meeting| %>
   	<% if @meetings.last == meeting %>

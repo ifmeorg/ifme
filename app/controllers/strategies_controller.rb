@@ -78,6 +78,8 @@ class StrategiesController < ApplicationController
       notifications = Notification.where(userid: strategy_user).order("created_at ASC").all
       Pusher['private-' + strategy_user.to_s].trigger('new_notification', {notifications: notifications})
 
+      NotificationMailer.notification_email(strategy_user, data).deliver
+
     # Notify viewer that they have a new comment
     elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
       private_user = User.where(id: @comment.viewers[0]).first.id
@@ -102,6 +104,8 @@ class StrategiesController < ApplicationController
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: private_user).order("created_at ASC").all
       Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
+
+      NotificationMailer.notification_email(private_user, data).deliver
     end
 
     if @comment.save
