@@ -228,7 +228,8 @@ function renderNotifications(notifications) {
       data.type == 'remove_group_leader' ||
       data.type == 'new_meeting' ||
       data.type == 'remove_meeting' ||
-      data.type == 'update_meeting') {
+      data.type == 'update_meeting' || 
+      data.type == 'join_meeting') {
       var notification;
 
       if (data.type == 'new_group') {
@@ -242,12 +243,21 @@ function renderNotifications(notifications) {
       } else if (data.type == 'new_meeting') {
         notification = data.user + ' created a new meeting "' + data.meeting + '" for "' + data.group + '"';
       } else if (data.type == 'remove_meeting') {
-        notification = data.user + ' has removed "' + data.meeting + '" for "' + data.group + '"';
+        notification = data.user + ' has cancelled "' + data.meeting + '" for "' + data.group + '"';
       } else if (data.type == 'update_meeting') {
         notification = data.user + ' has updated "' + data.meeting + '" for "' + data.group + '"';
+      } else if (data.type == 'join_meeting') {
+        notification = data.user + ' has joined "' + data.meeting + '" for "' + data.group + '"';
       }
 
+
       var link = '/groups/' + data.groupid;
+
+      if (data.type == 'new_meeting' ||
+        data.type == 'update_meeting' || 
+        data.type == 'join_meeting') {
+        link = '/meetings/' + data.meetingid;
+      }
 
       var notification_link = '<a class="notification_link" id="' + uniqueid + '" href="' + link + '">' + notification + '</a>';
 
