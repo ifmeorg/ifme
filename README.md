@@ -31,7 +31,6 @@ The goal is to create a platform that:
 Current goals:
 
 * Improve test coverage
-* Notification system
 * General clean up and tweaking of UI and UX, including language throughout the app
 * More helpful and visual documentation to help familiarize contributors with the project
 * Usability testing
