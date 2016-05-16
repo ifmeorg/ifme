@@ -53,8 +53,18 @@
 	<div class="field"><div class="label"><%= f.label :location %></div>
 	<%= f.text_field :location, placeholder: "Optional" %></div>
 
-	<div class="field"><div class="label"><%= f.label :email %></div>
-	<%= f.email_field :email %></div>
+	<div class="field">
+		<div class="label">
+			<%= f.label :email %>
+		</div>
+		<% if current_user.provider == "google_oauth2" %>
+			<div class="small_font small_margin_bottom">
+				<%= raw t('devise.registrations.google_auth1') %>
+			</div>
+		<% end %>
+
+		<%= f.email_field :email %>
+	</div>
 
 	<div class="field">
 		<div class="label"><label><%= t('devise.registrations.email_notifications') %></label></div>
@@ -77,15 +87,26 @@
 	<div class="field"><div class="label"><%= f.label :about %></div>
 	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you" %></div>
 
-	<% if current_user.provider == "google_oauth2" %>
-		<div class="field"><div class="label"><label>Password for <strong><%= t('app_name') %></strong> account</label></div></div>
-	<% end %>
+	<div class="field">
+		<div class="label">
+			<label>Password for <strong><%= t('app_name') %></strong> account</label>
+		</div>
+
+		<% if current_user.provider == "google_oauth2" %>
+			<div class="small_font">
+				<%= raw t('devise.registrations.google_auth2') %>
+			</div>
+		<% end %>
+	</div>
+
 	<div class="field"><div class="label"><%= f.label "New password" %></div>
 	<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
 	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %></div>
 
+	<% if current_user.provider != "google_oauth2" %>
 	<div class="field"><div class="label"><%= f.label :current_password %></div>
 	<%= f.password_field :current_password, autocomplete: "off", placeholder: "Required" %></div>
+	<% end %>
 
 	<div class="actions">
 		<%= f.hidden_field :timezone %>

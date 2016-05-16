@@ -45,7 +45,8 @@ en:
       ally_notify_text: "New and accepted ally requests"
       group_notify_text: "Group updates"
       meeting_notify_text: "Meeting updates"
-
+      google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
+      google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
