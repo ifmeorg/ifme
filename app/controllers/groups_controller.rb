@@ -91,16 +91,11 @@ class GroupsController < ApplicationController
   def update
     @page_title = "Edit " + @group.name
     respond_to do |format|
-      if @group.update(group_params)
-        error = false
+      if @group.update(group_params) && !params[:group][:leader].nil?
         group_members = GroupMember.where(groupid: @group.id).all
         group_members.each do |member|
           group_member_id = GroupMember.where(groupid: @group.id, userid: member.userid).first.id
-          if params[:group][:leader].nil?
-            error = true
-            format.html { redirect_to group_path(@group) }
-            format.json { render :show, status: :ok, location: @group }
-          elsif params[:group][:leader].include? member.userid.to_s
+          if params[:group][:leader].include? member.userid.to_s
             GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: true)
             pusher_type = 'add_group_leader'
           else
@@ -130,10 +125,10 @@ class GroupsController < ApplicationController
             end
           end
         end
-        @group_members = GroupMember.where(groupid: @group.id).all
-        format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.html { redirect_to groups_path }
+        format.json { head :no_content }
       else
+        @group_members = GroupMember.where(groupid: @group.id).all
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
