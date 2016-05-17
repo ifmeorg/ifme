@@ -9,6 +9,9 @@ end
 
 class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::DateHelper
+  include ActionView::Helpers::TextHelper
+  include LocalTimeHelper
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
@@ -20,7 +23,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify
+  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -241,6 +244,58 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+    return result
+  end
+
+  def generate_comment(data, data_type)
+    profile = User.where(:id => data.comment_by).first
+    profile_picture = fetch_profile_picture(profile.avatar.url, 'mini_profile_picture')
+
+    comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
+    if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
+      comment_info += t('shared.comments.not_allies')
+    end
+    comment_info += ' ' + t('shared.comments.on_date') + ' '
+    comment_info += local_time(data.created_at, '%A, %B %e, %Y at %l:%M %P')
+
+    comment_text = simple_format(data.comment)
+
+    if data_type == 'moment'
+      moment_user = Moment.where(id: data.commented_on).first.userid
+      if data.visibility == 'private' && (data.comment_by == current_user.id || current_user.id == moment_user || (!data.viewers.blank? && data.viewers.include?(current_user.id)))
+        visibility = '<div class="subtle">'
+
+        if User.where(id: data.viewers[0]).exists? && Moment.where(id: data.commented_on).first.userid == current_user.id
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
+        else
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: data.commented_on).first.userid).first.name
+        end
+
+        visibility += '</div>'
+      end
+    elsif data_type == 'strategy'
+      strategy_user = Strategy.where(id: data.commented_on).first.userid
+      if data.visibility == 'private' && (data.comment_by == current_user.id || current_user.id == strategy_user || (!data.viewers.blank? && data.viewers.include?(current_user.id)))
+        visibility = '<div class="subtle">'
+
+        if User.where(id: data.viewers[0]).exists? && Strategy.where(id: data.commented_on).first.userid == current_user.id
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
+        else
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Strategy.where(id: data.commented_on).first.userid).first.name
+        end
+
+        visibility += '</div>'
+      end
+    end
+
+    if (data_type == 'moment' && (Moment.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'strategy' && (Strategy.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commented_on, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
+      delete_comment = '<div class="table_cell delete_comment">'
+      delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: 'delete_comment_' + data.id.to_s, class: 'delete_comment_button'
+      delete_comment += '</div>'
+    end
+
+    result = { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
 
     return result
   end

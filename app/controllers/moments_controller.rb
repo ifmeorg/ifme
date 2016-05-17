@@ -38,17 +38,18 @@ class MomentsController < ApplicationController
   end
 
   def comment
-    if params[:comment][:viewers].blank?
-      @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => params[:comment][:visibility])
+    if params[:viewers].blank?
+      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
     else 
       # Can only get here if comment is from Moment creator
-      @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'private', :viewers => [params[:comment][:viewers].to_i])
+      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
     end
     
     if !@comment.save
+      result = { no_save: true }
       respond_to do |format|
-        format.html { redirect_to moment_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Moment.find(params[:comment][:commented_on]) }
+        format.html { render json: result }
+        format.json { render json: result }
       end
     end
 
@@ -109,9 +110,10 @@ class MomentsController < ApplicationController
     end
 
     if @comment.save
+      result = generate_comment(@comment, 'moment')
       respond_to do |format|
-        format.html { redirect_to moment_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Moment.find(params[:comment][:commented_on]) }
+        format.html { render json: result }
+        format.json { render json: result }
       end
     end
   end
@@ -309,6 +311,7 @@ class MomentsController < ApplicationController
           format.html { redirect_to new_user_session_path }
           format.json { head :no_content }
         end
+      else
       end
     end
 

@@ -21,6 +21,12 @@
 //= require_tree .
 
 $(document).on("page:load ready", function() {
+	$.ajaxSetup({
+  		headers: {
+    		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  		}
+	});
+
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
 	if ($('body').hasClass('moments edit') ||

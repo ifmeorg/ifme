@@ -3,7 +3,7 @@ $(document).on("page:load ready", function() {
 	if ($('body').hasClass('moments show') ||
 		$('body').hasClass('strategies show') ||
 		$('body').hasClass('meetings show')) {
-		$('.delete_comment_button').on('click', function(event) {
+		$(document).on('click', '.delete_comment_button', function(event) {
 			event.preventDefault();
 			
 			var commentid = $(this).attr('id').replace('delete_comment_', '');
@@ -12,6 +12,8 @@ $(document).on("page:load ready", function() {
 
 			if ($('.comment').length == 0) {
 				$('.actions').addClass('no_margin_bottom');
+			} else {
+				$('.comment').first().addClass('no_margin_top');
 			}
 
 			var url;
@@ -26,5 +28,4 @@ $(document).on("page:load ready", function() {
 			$.ajax(url);
 		});
 	}
-
 });

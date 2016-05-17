@@ -44,7 +44,9 @@
           <% end %>
     		</h1>
     	<% else %>
-    		<h1 class="meeting_name"><%= meeting.name %></h1>
+    		<h1 class="meeting_name">
+          <%= link_to meeting.name, meeting_path(meeting) %>  
+        </h1>
     	<% end %>
 	    <%= render :partial => '/shared/meeting_info', locals: { meeting: meeting, is_leader: MeetingMember.where(meetingid: meeting.id, userid: current_user.id, leader: true).exists? } %>
 	    </div>

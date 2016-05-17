@@ -30,12 +30,13 @@ class MeetingsController < ApplicationController
   end
 
   def comment
-    @comment = Comment.new(:comment_type => params[:comment][:comment_type], :commented_on => params[:comment][:commented_on], :comment_by => params[:comment][:comment_by], :comment => params[:comment][:comment], :visibility => 'all')
+    @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'all')
 
     if !@comment.save
+      result = { no_save: true }
       respond_to do |format|
-        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
+        format.html { render json: result }
+        format.json { render json: result }
       end
     end
 
@@ -69,9 +70,10 @@ class MeetingsController < ApplicationController
     end
 
     if @comment.save
+      result = generate_comment(@comment, 'meeting')
       respond_to do |format|
-        format.html { redirect_to meeting_path(params[:comment][:commented_on]) }
-        format.json { render :show, status: :created, location: Meeting.find(params[:comment][:commented_on]) }
+        format.html { render json: result }
+        format.json { render json: result }
       end
     end
   end
