@@ -8,7 +8,6 @@ gem 'resque'
 
 gem 'resque-scheduler'
 
-gem 'resque_mailer'
 
 gem 'factory_girl_rails'
 

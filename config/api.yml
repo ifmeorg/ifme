@@ -1,10 +1,10 @@
-# development:
-#   google_client_id: ...
-#   google_client_secret: ...
+development:
+  google_client_id: no-id
+  google_client_secret: no-secret
 
-# test:
-#   google_client_id: ...
-#   google_client_secret: ...
+test:
+  google_client_id: no-id
+  google_client_secret: no-secret
 
 # production:
 #   google_client_id: ...
