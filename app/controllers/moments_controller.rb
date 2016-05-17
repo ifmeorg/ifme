@@ -116,6 +116,33 @@ class MomentsController < ApplicationController
     end
   end
 
+  def delete_comment
+    comment_exists = Comment.where(id: params[:commentid]).exists?
+    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+
+    if comment_exists
+      momentid = Comment.where(id: params[:commentid]).first.commented_on
+      is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
+      is_a_viewer = is_viewer(Moment.where(id: momentid).first.viewers)
+    else
+      is_my_moment = false
+      is_a_viewer = false
+    end
+
+    if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
+      Comment.find(params[:commentid]).destroy
+
+      # Delete corresponding notifcations
+      public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
+      Notification.where(uniqueid: public_uniqueid).destroy_all
+
+      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s 
+      Notification.where(uniqueid: private_uniqueid).destroy_all
+    end
+
+    render :nothing => true
+  end
+
   def quick_moment
     # Assumme all viewers and comments allowed
     viewers = Array.new

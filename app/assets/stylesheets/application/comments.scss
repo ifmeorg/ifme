@@ -38,9 +38,34 @@
 		word-break: break-word;
 	}
 
+	.align_left {
+		float: left;
+		display: inline-block;
+	}
+
+	.align_right {
+		float: right;
+		display: inline-block;
+	}
+
+	.delete_comment {
+		padding-left: 20px;
+		text-align: right;
+	}
+
 	@media screen and (max-width: $medium) {
 		margin-top: 20px;
 		padding: 10px;
+
+		.delete_comment {
+			padding-left: 10px;
+		}
+	}
+
+	@media screen and (max-width: $small) {
+		.delete_comment {
+			padding-left: 5px;
+		}
 	}
 }
 
@@ -61,6 +86,13 @@
 .comment a:hover {
 	color: $secondary-text-color;
 	border-color: $secondary-text-color;
+}
+
+.delete_comment a:link,
+.delete_comment a:visited,
+.delete_comment a:hover {
+	color: $secondary-text-color;
+	border: none;
 }
 
 .comment_text {

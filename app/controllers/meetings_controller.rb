@@ -76,6 +76,30 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def delete_comment
+    comment_exists = Comment.where(id: params[:commentid]).exists?
+    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+
+    if comment_exists
+      meetingid = Comment.where(id: params[:commentid]).first.commented_on
+      is_my_meeting = MeetingMember.where(meetingid: meetingid, userid: current_user.id, leader: true).exists?
+      is_member = MeetingMember.where(meetingid: meetingid, userid: current_user.id).exists?
+    else
+      is_my_meeting = false
+      is_member = false
+    end
+
+    if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
+      Comment.find(params[:commentid]).destroy
+
+      # Delete corresponding notifcations
+      public_uniqueid = 'comment_on_meeting_' + params[:commentid].to_s
+      Notification.where(uniqueid: public_uniqueid).destroy_all
+    end
+
+    render :nothing => true
+  end
+
   # GET /meetings/new
   def new
     @groupid = params[:groupid]

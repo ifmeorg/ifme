@@ -276,6 +276,8 @@ function fetchNotifications() {
       if (data.length > 0) {
         renderNotifications(data);
       } else {
+        changeTitle(data.length);
+        emptyNotificationsList();
         showNotificationsNone();
       }
     }

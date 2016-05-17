@@ -116,6 +116,31 @@ class StrategiesController < ApplicationController
     end
   end
 
+  def delete_comment
+    comment_exists = Comment.where(id: params[:commentid]).exists?
+    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+
+    if comment_exists
+      strategyid = Comment.where(id: params[:commentid]).first.commented_on
+      is_my_strategy = Strategy.where(id: strategyid, userid: current_user.id).exists?
+    else
+      is_my_strategy = false
+    end
+
+    if comment_exists && (is_my_comment || is_my_strategy)
+      Comment.find(params[:commentid]).destroy
+
+      # Delete corresponding notifcations
+      public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
+      Notification.where(uniqueid: public_uniqueid).destroy_all
+
+      private_uniqueid = 'comment_on_strategy_private_' + params[:commentid].to_s 
+      Notification.where(uniqueid: private_uniqueid).destroy_all
+    end
+
+    render :nothing => true
+  end
+
   def quick_create
     # Assumme all viewers and comments allowed
     viewers = Array.new

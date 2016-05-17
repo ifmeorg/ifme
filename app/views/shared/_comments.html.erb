@@ -47,9 +47,9 @@
         (!comment.viewers.blank? && comment.viewers.include?(current_user.id))
         )) %>
         <% if local_assigns[:comments].first == comment %>
-        <div class="comment no_margin_top" %>
+        <div class="comment no_margin_top" id=<%= 'comment_' + comment.id.to_s %>>
         <% else %>
-        <div class="comment">
+        <div class="comment" id=<%= 'comment_' + comment.id.to_s %>>
         <% end %>
           <div class="table">
             <div class="table_row">
@@ -67,7 +67,7 @@
                   (comment.comment_by == current_user.id || 
                   current_user.id == local_assigns[:data].userid ||
                   (!comment.viewers.blank? && comment.viewers.include?(current_user.id))) %>
-                  <div class="subtle text_align_right">
+                  <div class="subtle">
                     <% if User.where(id: comment.viewers[0]).exists? && 
                       ((local_assigns[:comment_type] == 'moment' && Moment.where(id: comment.commented_on).first.userid == current_user.id) || 
                       (local_assigns[:comment_type] == 'strategy' && Strategy.where(id: comment.commented_on).first.userid == current_user.id)) %>
@@ -80,6 +80,13 @@
                   </div>
                 <% end %>
               </div>
+              <% if (local_assigns[:comment_type] == 'moment' && (Moment.where(id: comment.commented_on, userid: current_user.id).exists? || comment.comment_by == current_user.id)) ||
+                (local_assigns[:comment_type] == 'strategy' && (Strategy.where(id: comment.commented_on, userid: current_user.id).exists? || comment.comment_by == current_user.id)) ||
+                (local_assigns[:comment_type] == 'meeting' && (MeetingMember.where(meetingid: comment.commented_on, userid: current_user.id, leader: true).exists? || comment.comment_by == current_user.id)) %>
+                 <div class="table_cell delete_comment">
+                  <%= link_to raw('<i class="fa fa-times"></i>'), '', id: 'delete_comment_' + comment.id.to_s, class: 'delete_comment_button' %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
