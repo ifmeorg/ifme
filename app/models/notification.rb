@@ -9,6 +9,5 @@
 #
 
 class Notification < ActiveRecord::Base
-	attr_accessible :userid, :uniqueid, :data
-	validates_presence_of :userid, :uniqueid, :data
+  validates_presence_of :userid, :uniqueid, :data
 end
