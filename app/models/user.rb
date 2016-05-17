@@ -56,14 +56,17 @@ class User < ActiveRecord::Base
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
-    find_or_initialize_by(email: data.email) do |user|
+    user = find_or_initialize_by(email: data.email) do |user|
       user.name = data.name
       user.password = Devise.friendly_token[0,20]
-    end.update!(
+    end
+
+    user.update!(
         provider: access_token.provider,
         token: access_token.credentials.token,
         uid: access_token.uid,
       )
+    user
   end
 
    def allies_by_status(status)
