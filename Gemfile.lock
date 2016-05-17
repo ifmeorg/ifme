@@ -207,8 +207,6 @@ GEM
     orm_adapter (0.5.0)
     os (0.9.6)
     pg (0.18.4)
-    protected_attributes (1.1.3)
-      activemodel (>= 4.0.1, < 5.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -389,7 +387,6 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   pg
-  protected_attributes
   pry-rails
   pusher
   railroady
@@ -414,4 +411,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.2
+   1.12.4

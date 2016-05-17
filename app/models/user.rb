@@ -38,8 +38,6 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  attr_accessible :timezone, :location, :email, :password, :password_confirmation, :remember_me, :name, :about, :avatar, :token, :uid, :provider, :comment_notify, :ally_notify, :group_notify, :meeting_notify
-
   mount_uploader :avatar, AvatarUploader
 
   before_save :remove_leading_trailing_whitespace
@@ -52,54 +50,30 @@ class User < ActiveRecord::Base
   after_initialize :set_defaults, unless: :persisted?
 
   def remove_leading_trailing_whitespace
-  	self.email&.rstrip!
-  	self.email&.lstrip!
-  	self.name&.rstrip!
-  	self.name&.lstrip!
+    @email&.strip!
+    @name&.strip!
   end
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-	data = access_token.info
-    user = User.find_by(email: data.email)
-    if user
-      user.provider = access_token.provider
-      user.uid = access_token.uid
-      user.token = access_token.credentials.token
-      user.save
-      user
-    else
-      fullname = data["name"]
-      user = User.create(name: fullname, provider: access_token.provider, email: data["email"], uid: access_token.uid, password: Devise.friendly_token[0,20])
-    end
-   end
+    data = access_token.info
+    find_or_initialize_by(email: data.email) do |user|
+      user.name = data.name
+      user.password = Devise.friendly_token[0,20]
+    end.update!(
+        provider: access_token.provider,
+        token: access_token.credentials.token,
+        uid: access_token.uid,
+      )
+  end
 
    def allies_by_status(status)
      allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
    end
 
    def set_defaults
-    if self.comment_notify.nil? || self.comment_notify
-      self.comment_notify = true
-    else
-      self.comment_notify = false
-    end
-
-    if self.ally_notify.nil? || self.ally_notify
-      self.ally_notify = true
-    else
-      self.ally_notify = false
-    end
-
-    if self.group_notify.nil? || self.group_notify
-      self.group_notify = true
-    else
-      self.group_notify = false
-    end
-  
-    if self.meeting_notify.nil? || self.meeting_notify
-      self.meeting_notify = true
-    else
-      self.meeting_notify = false
-    end
-  end
+     @comment_notify.nil? && @comment_notify = true
+     @ally_notify.nil? && @comment_notify = true
+     @group_notify.nil? && @comment_notify = true
+     @meeting_notify.nil? && @comment_notify = true
+   end
 end
