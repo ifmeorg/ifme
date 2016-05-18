@@ -11,7 +11,7 @@ class PagesController < ApplicationController
         end
       end
 
-      if @moments.count > 0 
+      if @moments.count > 0
         @moment = Moment.new
         @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
         @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
@@ -52,7 +52,8 @@ class PagesController < ApplicationController
       ['Noah Finnerman', 'https://github.com/nonothetoad'],
       ['David Tomberlin', 'https://github.com/siyegen'],
       ['Elana Hashman', 'https://github.com/ehashman'],
-      ['Caleb Thompson', 'https://github.com/calebthompson']
+      ['Caleb Thompson', 'https://github.com/calebthompson'],
+      ['Stella Cotton', 'https://github.com/stellacotton']
     ]
 
     @organizations = [
