@@ -9,7 +9,8 @@ A community for mental health experiences
 3. [Getting Started](#getting-started)
 4. [Testing Accounts](#testing-accounts)
 5. [Committing Work](#committing-work)
-6. [License](#license)
+6. [Tracking Issues](#tracking-issues)
+7. [License](#license)
 
 Goals
 -----
@@ -116,14 +117,14 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
-If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help. 
+If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
 
 libv8:
 
 [https://github.com/cowboyd/libv8/issues/205](https://github.com/cowboyd/libv8/issues/205)
 
-therubyracer: 
-[http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan](http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan) 
+therubyracer:
+[http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan](http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan)
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
@@ -144,9 +145,25 @@ Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets
 
 ### Email notifications
 
-To get email notifications working, you must configure SMTP settings in `config/environments/development.rb` and `config/environments/production.rb`. You will also need to update the string `[insert email address here]` in `app/mailers/application_mailer.rb` and `config/initializers/devise.rb`.
+To get email notifications working, you must configure SMTP settings in `config/environments/development.rb` and `config/environments/production.rb`.
 
-[Here](https://launchschool.com/blog/handling-emails-in-rails) is a great guide from Launch School on how to handle emails in Rails!
+``` ruby
+config.action_mailer.smtp_settings = {
+	:address        => '[insert address here]',
+    :port           => '[insert port here]',
+    :authentication => :plain,
+    :user_name      => '[insert email address here]',
+    :password       => '[insert password here]',
+    :domain         => '[insert domain here]',
+    :enable_starttls_auto => true
+}
+```
+
+You will also need to update the string `[insert email address here]` in `app/mailers/application_mailer.rb` and `config/initializers/devise.rb`.
+
+The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
+
+Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
 ### Running the App Locally
 
@@ -210,9 +227,16 @@ Make a fork of the repository, create a new branch for every feature you are wor
 
 In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me.
 
-This also helps people to familiarize themselves with the code base! The live contributors page can be found here: http://www.if-me.org/contributors.
+This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors).
 
 Find the source code for that page and submit a pull request with your story!
+
+Tracking Issues
+----------------
+
+Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
+
+For bugs, please list the reproduction steps and specify if the bug was prodcued locally or on production.
 
 License
 -------
