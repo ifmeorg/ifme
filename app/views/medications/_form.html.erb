@@ -19,7 +19,13 @@
     </div>
 
     <div class="field">
-      <div class="label"><%= f.label t('.comments') %></div>
+      <div class="label">
+        <%= f.label t('.comments') %>
+        <div class="align_right">
+          <span class="yes_title" title="Additional comments, log your symptoms here"><i class="fa fa-question-circle"></i><span>
+        </div>
+        <div class="clear"></div>
+      </div>
       <%= f.text_area :comments, :class => "comments" %>
     </div>
 
@@ -30,9 +36,12 @@
     <div class="field">
       <div class="label">
         <%= f.label t('.strength') %>
-        <i class="fa fa-exclamation-circle align_right"></i>
-        <div class="clear"></div>
+        <div class="align_right">
+          <span class="yes_title" title="Medication strength, usually found beside the name"><i class="fa fa-question-circle"></i><span>
+          <i class="fa fa-exclamation-circle"></i>
         </div>
+        <div class="clear"></div>
+      </div>
       <div class="inline-block">
         <%= f.number_field :strength, :placeholder => t('.strength_placeholder') %>
         <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
@@ -42,7 +51,10 @@
     <div class="field">
       <div class="label">
         <%= f.label :total %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="align_right">
+          <span class="yes_title" title="Total number of pills or amount of medication"><i class="fa fa-question-circle"></i><span>
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
         <div class="clear"></div>
       </div>
       <div class="inline-block">
@@ -58,7 +70,10 @@
     <div class="field">
       <div class="label">
         <%= f.label t('.dosage') %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="align_right">
+          <span class="yes_title" title="Number of pills or servings daily"><i class="fa fa-question-circle"></i><span>
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
         <div class="clear"></div>
       </div>
       <div class="inline-block">
@@ -70,7 +85,10 @@
     <div class="field">
       <div class="label">
         <%= f.label t('.refill') %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <div class="align_right">
+          <span class="yes_title" title="When to refill this prescription"><i class="fa fa-question-circle"></i><span>
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
         <div class="clear"></div>
       </div>
       <%= f.text_field :refill %>

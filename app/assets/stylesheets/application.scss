@@ -465,7 +465,7 @@ a.page_search:hover {
 	@media screen and (max-width: $medium) {
 		margin-right: 0;
 		margin-bottom: 10px;
-	}	
+	}
 }
 
 /* Links */
@@ -547,7 +547,7 @@ img {
 .small_profile_picture_div {
 	width: 100px;
 	height: 100px;
- 
+
 	@media screen and (max-width: $small) {
 		width: 50px;
 		height: 50px;
@@ -825,6 +825,27 @@ div.table div.table_cell {
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
 	border-color: $field-color;
 	box-shadow: 0px 0px 2px $field-color;
+}
+
+/* Date Picker */
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	color: $secondary-text-color !important;
+}
+
+#ui-datepicker-div {
+	font: 20px $font-family !important;
+	font-weight: 400 !important;
+
+	@media screen and (max-width: $medium) {
+		font: 18px $font-family !important;
+		font-weight: 400 !important;
+	}
+
+	@media screen and (max-width: $small) {
+		font: 16px $font-family !important;
+		font-weight: 400 !important;
+	}
 }
 
 @import "application/*";
