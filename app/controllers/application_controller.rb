@@ -268,6 +268,8 @@ class ApplicationController < ActionController::Base
 
         if User.where(id: data.viewers[0]).exists? && Moment.where(id: data.commented_on).first.userid == current_user.id
           visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
+        elsif Moment.where(id: data.commented_on).first.userid == current_user.id
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.comment_by).first.name
         else
           visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: data.commented_on).first.userid).first.name
         end
@@ -281,6 +283,8 @@ class ApplicationController < ActionController::Base
 
         if User.where(id: data.viewers[0]).exists? && Strategy.where(id: data.commented_on).first.userid == current_user.id
           visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
+        elsif Strategy.where(id: data.commented_on).first.userid == current_user.id
+          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.comment_by).first.name
         else
           visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Strategy.where(id: data.commented_on).first.userid).first.name
         end
