@@ -125,6 +125,8 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
+    figaro (1.1.1)
+      thor (~> 0.14)
     foundation-rails (6.1.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -379,6 +381,7 @@ DEPENDENCIES
   devise_invitable
   devise_uid
   factory_girl_rails
+  figaro
   foundation-rails
   google-api-client (~> 0.9.1)
   jbuilder (~> 2.0)

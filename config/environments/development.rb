@@ -16,9 +16,6 @@ Rails.application.configure do
   # config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -40,16 +37,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = ENV["SEND_EMAIL"]
+  config.action_mailer.raise_delivery_errors = ENV["RAISE_DELIVERY_ERRORS"]
 
-  # If you want to actually test emails, you will have to configure SMTP settings here
-  config.action_mailer.smtp_settings = {
-    :address        => '[insert address here]',
-    :port           => '[insert port here]',
-    :authentication => :plain,
-    :user_name      => '[insert email address here]',
-    :password       => '[insert password here]',
-    :domain         => '[insert domain here]',
-    :enable_starttls_auto => true
-  }
+  # If you want to actually test emails, you will have to configure SMTP settings in smtp.yml
+  config.action_mailer.smtp_settings = YAML.load_file("#{Rails.root}/config/smtp.yml")[Rails.env].symbolize_keys
 end

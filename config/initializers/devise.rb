@@ -307,9 +307,8 @@ Devise.setup do |config|
   end
 
   require 'omniauth-google-oauth2'
-    GOOGLE_CONFIG = YAML.load_file("#{::Rails.root}/config/api.yml")[::Rails.env]
-    config.omniauth :google_oauth2, GOOGLE_CONFIG['google_client_id'],
-    GOOGLE_CONFIG['google_client_secret'],
+    config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'],
+    ENV['GOOGLE_CLIENT_SECRET'],
     { access_type: "offline", approval_prompt: "",
     scope: 'userinfo.email,calendar' }
 end

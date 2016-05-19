@@ -68,6 +68,8 @@ gem 'certified'
 
 gem 'chronic'
 
+gem "figaro" #for environment variable configuration management
+
 group :development, :test do
   gem "byebug"
   gem "rspec-rails", '~> 3.4'

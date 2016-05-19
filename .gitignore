@@ -18,3 +18,7 @@
 *.DS_Store
 *.keep
 *.byebug_history
+
+# Ignore application configuration
+/config/application.yml
+/config/smtp.yml

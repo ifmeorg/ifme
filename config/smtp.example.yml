@@ -1,0 +1,6 @@
+development: { address:              'smtp.gmail.com',
+               port:                 587,
+               authentication:       'plain',
+               user_name:            'youremail@gmail.com',
+               password:             'yourpassword',
+               enable_starttls_auto: 'true' }

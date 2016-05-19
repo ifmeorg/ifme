@@ -1,7 +1,7 @@
 $(document).on("page:load ready", function() {
   /* Pusher */
   var pusher;
-
+  
   $.ajax({
     dataType: "json",
     url: "/notifications/signed_in",
@@ -16,7 +16,8 @@ $(document).on("page:load ready", function() {
             fetchNotifications();
           }
 
-          pusher = new Pusher('[insert Pusher.key from pusher.rb here]', {
+          var pusherKey = $('meta[name="pusher-key"]').attr('content');
+          pusher = new Pusher(pusherKey, {
             encrypted: true
           });
 

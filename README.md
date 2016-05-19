@@ -135,17 +135,25 @@ https://github.com/cowboyd/therubyracer/issues/359
 
 ### Setting up API Keys
 
-Run `rake secret` to generate a `secret_key_base` for the app in `config/secrets.yml`.
+The two primary configuration files that you need to change are application.yml and smtp.yml. They are ignored in git to prevent accidentally checking in sensitive information.
 
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/initializers/pusher.rb`. In addition, replace `[insert Pusher.key from pusher.rb here]` in `app/assets/javascripts/notification.js` with the generated key.
+Copy the sample files to create your own configuration files:
 
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/api.yml`.
+`cp config/application.example.yml config/application.yml`
 
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and insert them in `config/cloudinary.yml`.
+`cp config/smtp.example.yml config/smtp.yml`
+
+Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
+
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need to make sure your application is named `if me` and activate both the Google+ API and the Contacts API.
+
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in config/application.yml`.
 
 ### Email notifications
 
-To get email notifications working, you must configure SMTP settings in `config/environments/development.rb` and `config/environments/production.rb`.
+To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
 
 ``` ruby
 config.action_mailer.smtp_settings = {
@@ -158,8 +166,6 @@ config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true
 }
 ```
-
-You will also need to update the string `[insert email address here]` in `app/mailers/application_mailer.rb` and `config/initializers/devise.rb`.
 
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
 
