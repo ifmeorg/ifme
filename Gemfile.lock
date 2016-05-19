@@ -283,8 +283,6 @@ GEM
       redis (~> 3.0)
       resque (~> 1.25)
       rufus-scheduler (~> 3.2)
-    resque_mailer (2.3.0)
-      actionmailer (>= 3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     retriable (2.1.0)
@@ -395,7 +393,6 @@ DEPENDENCIES
   rails_12factor
   resque
   resque-scheduler
-  resque_mailer
   rspec-collection_matchers
   rspec-rails (~> 3.4)
   ruby-graphviz
