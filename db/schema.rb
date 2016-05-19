@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516202831) do
+ActiveRecord::Schema.define(version: 20160518220139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,13 @@ ActiveRecord::Schema.define(version: 20160516202831) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "refill_reminders", force: :cascade do |t|
+    t.integer  "medication_id", null: false
+    t.boolean  "active",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "strategies", force: :cascade do |t|
     t.integer  "userid"
     t.text     "category"
@@ -156,7 +163,14 @@ ActiveRecord::Schema.define(version: 20160516202831) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
+  create_table "take_medication_reminders", force: :cascade do |t|
+    t.integer  "medication_id", null: false
+    t.boolean  "active",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
