@@ -1,0 +1,31 @@
+# Add account credentials and API keys here.
+# See http://railsapps.github.io/rails-environment-variables.html
+
+# This file should be listed in .gitignore to keep your settings secret!
+# Each entry sets a local environment variable and overrides ENV variables in the Unix shell.
+# For example, setting:
+# GMAIL_USERNAME: Your_Gmail_Username
+# makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
+
+#This is the only configuration value required to boot the application
+SECRET_KEY_BASE: "examplesecretkey123123"
+
+# Configuration values for sending email, set these to true, configure your default "from address",
+# and configure smtp.yml in order to send email
+SEND_EMAIL: "false"
+RAISE_DELIVERY_ERRORS: "false"
+DEFAULT_FROM_ADDRESS: "yourmail@gmail.com"
+
+# Configuration values for Oauth through Google
+GOOGLE_CLIENT_ID:
+GOOGLE_CLIENT_SECRET:
+
+# Configuration values for pusher
+PUSHER_APP_ID:
+PUSHER_KEY:
+PUSHER_SECRET:
+
+# Configuration values for cloudinary
+CLOUDINARY_CLOUD_NAME:
+CLOUDINARY_API_KEY:
+CLOUDINARY_API_SECRET":

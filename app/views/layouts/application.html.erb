@@ -41,7 +41,8 @@
 
 		<!-- Pusher -->
 		<% if user_signed_in? %>
-		<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+			<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+			<%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
 		<% end %>
 		
 		<!-- jQuery UI -->
