@@ -30,6 +30,7 @@ class GroupsController < ApplicationController
   	 @meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
     end
   	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+    @group_deletable = GroupMember.where(groupid: @group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: @group.id, leader: true).count == 1 && GroupMember.where(groupid: @group.id).count == 1
 
     if (GroupMember.where(groupid: @group.id, leader: true, userid: current_user.id).exists?)
       @page_new = new_meeting_path + '/?groupid=' + @group.id.to_s
@@ -172,10 +173,17 @@ class GroupsController < ApplicationController
   end
 
   def leave
+    if params[:memberid].blank?
+       memberid = current_user.id
+    else
+      memberid = params[:memberid]
+      membername = User.where(id: memberid).first.name
+    end
+
     group_name = Group.where(id: params[:groupid]).first.name
 
     # Cannot leave When you are the only leader
-    is_leader = GroupMember.where(userid: current_user.id, groupid: params[:groupid], leader: true).count
+    is_leader = GroupMember.where(userid: memberid, groupid: params[:groupid], leader: true).count
     are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
     if (is_leader == 1 && are_leaders == is_leader)
       respond_to do |format|
@@ -184,19 +192,26 @@ class GroupsController < ApplicationController
       end
     else
       # Remove corresponding meetings
-      meeting_members = MeetingMember.where(userid: current_user.id).all
+      meeting_members = MeetingMember.where(userid: memberid).all
       meeting_members.each do |member|
         if Meeting.where(id: member.meetingid, groupid: params[:groupid]).exists?
           member.destroy
         end
       end
 
-      group_member = GroupMember.find_by(userid: current_user.id, groupid: params[:groupid])
+      group_member = GroupMember.find_by(userid: memberid, groupid: params[:groupid])
       group_member.destroy
 
-      respond_to do |format|
-        format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
-        format.json { head :no_content }
+      if memberid == current_user.id
+        respond_to do |format|
+          format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
+          format.json { head :no_content }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to groups_path, notice: 'You have removed ' + membername + ' from ' + group_name }
+          format.json { head :no_content }
+        end
       end
     end
   end

@@ -9,11 +9,11 @@
 <br><strong><%= t('groups.show.time') %></strong> <%= local_assigns[:meeting].time %>
 
 <div class="notification_wrapper">
-	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= MeetingMember.where(meetingid: local_assigns[:meeting].id).count %> <% if MeetingMember.where(meetingid: local_assigns[:meeting].id).count == 1 %><%= t('group.show.member') %><% else %><%= t('group.show.members') %><% end %></strong> 
+	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= MeetingMember.where(meetingid: local_assigns[:meeting].id).count %> <% if MeetingMember.where(meetingid: local_assigns[:meeting].id).count == 1 %><%= t('group.show.member') %><% else %><%= t('group.show.members') %><% end %></strong>
 
 		<% if local_assigns[:show_group] %><strong><%= ' of ' %><%= link_to Group.where(id: local_assigns[:meeting].groupid).first.name, group_path(local_assigns[:meeting].groupid) %></strong><% end %>
 
-	<%= render :partial => '/notifications/members', locals: { data: MeetingMember.where(meetingid: local_assigns[:meeting].id).all } %>
+	<%= render :partial => '/notifications/members', locals: { data: MeetingMember.where(meetingid: local_assigns[:meeting].id).all, is_meeting_member: true } %>
 </div>
 
 <% if MeetingMember.where(meetingid: local_assigns[:meeting].id, userid: current_user.id).exists? %>

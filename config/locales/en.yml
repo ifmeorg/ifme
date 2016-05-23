@@ -73,6 +73,7 @@ en:
    join: 'join'
    members: 'members'
    member: 'member'
+   delete: 'Delete group'
 
  layouts:
   application:
@@ -304,5 +305,9 @@ en:
    strategies: 'What strategies would help achieve these thoughts?'
    unsupport: 'Unsupport'
    support: 'Support'
+
+   notifications:
+    members:
+      remove: 'Remove'
 
    #submit button

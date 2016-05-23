@@ -23,8 +23,15 @@
 		                <%= fetch_profile_picture(profile.avatar.url, 'mini_profile_picture') %>
 		                <br>
 		            </div>
-		            <div class="table_cell small_padding_bottom vertical_align_middle">
+		            <% if local_assigns[:data].last == member %>
+						<div class="table_cell vertical_align_middle">
+					<% else %>
+		            	<div class="table_cell small_padding_bottom vertical_align_middle">
+		            <% end %>
 		                <%= link_to profile.name, profile_index_path(uid: get_uid(member.userid)) %>
+		                <% if member.userid != current_user.id && local_assigns[:is_meeting_member].blank? && GroupMember.where(groupid: member.groupid, userid: current_user.id, leader: true).exists? %>
+		                <i class="fa fa-times action small_margin_left"></i><%= link_to t('notifications.members.remove'), leave_groups_path(groupid: member.groupid, memberid: member.userid), id: 'leave' %>
+		                <% end %>
 		            </div>
 		        </div>
           	</div>

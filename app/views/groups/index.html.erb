@@ -21,7 +21,7 @@
       </h1>
 
       <div class="notification_wrapper">
-        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
+        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
 
         <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
       </div>
@@ -33,11 +33,11 @@
 
 
       <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-      <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_group_path(group.groupid), class: 'small_margin_right' %>
+      <i class="fa fa-pencil action"></i><%= link_to t('groups.index.edit'), edit_group_path(group.groupid), class: 'small_margin_right' %>
       <% end %>
       <% if (!GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).exists?) || (GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).count > 1)
         %>
-        <i class="fa fa-times action"></i><%= link_to t('.leave'), leave_groups_path(groupid: group.groupid), id: 'leave' %>
+        <i class="fa fa-times action"></i><%= link_to t('groups.index.leave'), leave_groups_path(groupid: group.groupid), id: 'leave' %>
       <% end %>
       <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).count == 1 %>
         <% @group = Group.where(id: group.groupid).first %>
@@ -67,7 +67,7 @@
         <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
       </h1>
 
-      <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
+      <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
 
       <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
 
@@ -76,7 +76,7 @@
         <%= " [...]" %>
       <% end %>
 
-      <%= link_to t('.join'), join_groups_path(groupid: group.groupid), id: 'join' %>
+      <%= link_to t('groups.index.join'), join_groups_path(groupid: group.groupid), id: 'join' %>
     </div>
   <% end %>
 <% end %>

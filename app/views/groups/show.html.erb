@@ -1,7 +1,7 @@
 <%= simple_format(@group.description) %>
 
 <div class="notification_wrapper">
-	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: @group.id).count %> <% if GroupMember.where(groupid: @group.id).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong> 
+	<strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: @group.id).count %> <% if GroupMember.where(groupid: @group.id).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
 
 	<%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: @group.id).all } %>
 </div>
@@ -20,10 +20,12 @@
 	<% end %>
 <% end %>
 
-<% if @is_group_member %>
+<% if @group_deletable %>
+  <%= link_to t('.delete'), @group, method: :delete, class: 'align_right', data: { confirm: t('.confirm') } %>
+<% elsif @is_group_member %>
 	<%= link_to t('.leave_cta'), leave_groups_path(groupid: @group.id), class: 'align_right', id: 'leave' %>
 <% else %>
-	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), id: 'join', class: 'align_right' %>	
+	<%= link_to t('.join_cta'), join_groups_path(groupid: @group.id), id: 'join', class: 'align_right' %>
 <% end %>
 
 <div class="clear"></div>
@@ -40,12 +42,12 @@
     		<h1 class="meeting_name">
     			<%= link_to meeting.name, meeting_path(meeting) %>
           <% if MeetingMember.where(meetingid: meeting.id, userid: current_user.id, leader: true).exists? %>
-    			<%= link_to raw('<i class="fa fa-pencil"></i>'), edit_meeting_path(meeting), class: 'align_right display_inline_block' %>	
+    			<%= link_to raw('<i class="fa fa-pencil"></i>'), edit_meeting_path(meeting), class: 'align_right display_inline_block' %>
           <% end %>
     		</h1>
     	<% else %>
     		<h1 class="meeting_name">
-          <%= link_to meeting.name, meeting_path(meeting) %>  
+          <%= link_to meeting.name, meeting_path(meeting) %>
         </h1>
     	<% end %>
 	    <%= render :partial => '/shared/meeting_info', locals: { meeting: meeting, is_leader: MeetingMember.where(meetingid: meeting.id, userid: current_user.id, leader: true).exists? } %>
