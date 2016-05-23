@@ -25,7 +25,7 @@
 
         <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
       </div>
-      
+
       <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
       <% if Group.where(id: group.groupid).first.description.length >= 80 %>
        	<%= " [...]" %>
@@ -35,11 +35,18 @@
       <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
       <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_group_path(group.groupid), class: 'small_margin_right' %>
       <% end %>
-      <i class="fa fa-times action"></i><%= link_to t('.leave'), leave_groups_path(groupid: group.groupid), id: 'leave' %>
+      <% if (!GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).exists?) || (GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).count > 1)
+        %>
+        <i class="fa fa-times action"></i><%= link_to t('.leave'), leave_groups_path(groupid: group.groupid), id: 'leave' %>
+      <% end %>
+      <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).count == 1 %>
+        <% @group = Group.where(id: group.groupid).first %>
+        <i class="fa fa-trash-o action"></i><%= link_to t('groups.index.delete'), @group, method: :delete, data: { confirm: t('groups.index.confirm') } %>
+      <% end %>
     </div>
   <% end %>
 <% else %>
-  You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below. 
+  You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below.
   <br>
   <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
 <% end %>
@@ -63,7 +70,7 @@
       <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('.member') %><% else %><%= t('.members') %><% end %></strong>
 
       <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
-      
+
       <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
       <% if Group.where(id: group.groupid).first.description.length >= 80 %>
         <%= " [...]" %>

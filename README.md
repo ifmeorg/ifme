@@ -156,14 +156,14 @@ Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
 
 ``` ruby
-config.action_mailer.smtp_settings = {
-	:address        => '[insert address here]',
-    :port           => '[insert port here]',
-    :authentication => :plain,
-    :user_name      => '[insert email address here]',
-    :password       => '[insert password here]',
-    :domain         => '[insert domain here]',
-    :enable_starttls_auto => true
+development: {
+	address:              '[insert address]',
+  	port:                 '[insert port]',
+  	authentication:       'plain',
+  	user_name:            '[insert email address]',
+  	passowrd:             '[insert email password]',
+  	domain:               '[insert email domain]',
+  	enable_starttls_auto: 'true'
 }
 ```
 

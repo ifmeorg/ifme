@@ -57,15 +57,15 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
-        
+
         # Notify allies that you created a new group
         accepted_allies = current_user.allies_by_status(:accepted)
 
         uniqueid = 'new_group_' + current_user.id.to_s
 
-        accepted_allies.each do |ally|      
+        accepted_allies.each do |ally|
           data = JSON.generate({
-          user: current_user.name, 
+          user: current_user.name,
           groupid: @group.id,
           group: @group.name,
           type: 'new_group',
@@ -114,9 +114,9 @@ class GroupsController < ApplicationController
 
           group_leaders.each do |leader|
             if leader.userid != current_user.id
-              user = User.where(id: member.userid).first.name     
+              user = User.where(id: member.userid).first.name
               data = JSON.generate({
-              user: user, 
+              user: user,
               groupid: @group.id,
               group: group,
               type: pusher_type,
@@ -149,9 +149,9 @@ class GroupsController < ApplicationController
     group_leaders = GroupMember.where(groupid: params[:groupid], leader: true).all
     group = Group.where(id: params[:groupid]).first.name
 
-    group_leaders.each do |leader|     
+    group_leaders.each do |leader|
       data = JSON.generate({
-      user: current_user.name, 
+      user: current_user.name,
       groupid: params[:groupid],
       group: group,
       type: 'new_group_member',
@@ -198,6 +198,32 @@ class GroupsController < ApplicationController
         format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
         format.json { head :no_content }
       end
+    end
+  end
+
+  # DELETE /groups/1
+  # DELETE /groups/1.json
+  def destroy
+    # Destroy group members
+    GroupMember.where(groupid: @group.id).destroy_all
+
+    # Destroy meetings and its members
+    Meeting.where(groupid: @group.id).all.each do |meeting|
+       MeetingMember.where(meetingid: meeting.id).destroy_all
+       meeting.destroy
+    end
+
+    # Delete notifications for this group
+    Notification.where("uniqueid ilike ?", "%new_group%").all.each do |notification|
+      if JSON.parse(notification.data)["groupid"].to_i == @group.id.to_i
+        notification.destroy
+      end
+    end
+
+    @group.destroy
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
     end
   end
 
