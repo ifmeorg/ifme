@@ -1,3 +1,5 @@
+require "google/api_client"
+
 class MedicationsController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
@@ -55,22 +57,8 @@ class MedicationsController < ApplicationController
         # Save refill date to Google calendar
         if (!current_user.token.blank?)
           summary = "Refill for " + @medication.name
-          date = Chronic.parse(@medication.refill, :endian_precedence => [:little, :median]).to_time.iso8601
-
-          event = {
-            'summary' => summary,
-            'start' => { 'dateTime' => date },
-            'end' => { 'dateTime' => date }
-          }
-
-          client = Google::APIClient.new(:application_name => t('app_name'))
-          client.authorization.access_token = current_user.token
-          service = client.discovered_api('calendar', 'v3')
-
-          set_event = client.execute!(:api_method => service.events.insert,
-            :parameters => {'calendarId' => current_user.email, 'sendNotifications' => true},
-            :body => JSON.dump(event),
-            :headers => {'Content-Type' => 'application/json'})
+          date = @medication.refill
+          CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
         end
 
         format.html { redirect_to medication_path(@medication) }
