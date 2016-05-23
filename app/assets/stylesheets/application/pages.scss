@@ -212,3 +212,10 @@ h1.blog_name, h1.privacy_heading {
 		}
 	}
 }
+
+.purple_yay {
+	color: $purple-yay;
+	text-align: center;
+	text-shadow: 0px 0px 5px $purple-yay;
+	font-size: 30px;
+}
