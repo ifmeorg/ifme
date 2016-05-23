@@ -36,37 +36,43 @@ $(document).on("page:load ready", function() {
 		$('body').hasClass('strategies create') ||
 		$('body').hasClass('strategies new')) {
 
-		$('#showCategories').click(function() {
+		$('#showCategories').click(function(event) {
+			event.preventDefault();
 			$('#categories').css({"display": "block"});
 			$('#showCategories').css({"display": "none"});
 			$('#hideCategories').css({"display": "block"});
 		});
 
-		$('#hideCategories').click(function() {
+		$('#hideCategories').click(function(event) {
+			event.preventDefault();
 			$('#categories').css({"display": "none"});
 			$('#showCategories').css({"display": "block"});
 			$('#hideCategories').css({"display": "none"});
 		});
 
-		$('#showMoods').click(function() {
+		$('#showMoods').click(function(event) {
+			event.preventDefault();
 			$('#moods').css({"display": "block"});
 			$('#showMoods').css({"display": "none"});
 			$('#hideMoods').css({"display": "block"});
 		});
 
-		$('#hideMoods').click(function() {
+		$('#hideMoods').click(function(event) {
+			event.preventDefault();
 			$('#moods').css({"display": "none"});
 			$('#showMoods').css({"display": "block"});
 			$('#hideMoods').css({"display": "none"});
 		});
 
-		$('#showStrategies').click(function() {
+		$('#showStrategies').click(function(event) {
+			event.preventDefault();
 			$('#strategies').css({"display": "block"});
 			$('#showStrategies').css({"display": "none"});
 			$('#hideStrategies').css({"display": "block"});
 		});
 
-		$('#hideStrategies').click(function() {
+		$('#hideStrategies').click(function(event) {
+			event.preventDefault();
 			$('#strategies').css({"display": "none"});
 			$('#showStrategies').css({"display": "block"});
 			$('#hideStrategies').css({"display": "none"});
