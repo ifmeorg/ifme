@@ -6,6 +6,7 @@ FactoryGirl.define do
   end
   factory :group_member do
     userid 1
+    leader false
   end
 
   factory :meeting_member do

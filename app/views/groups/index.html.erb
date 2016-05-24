@@ -14,34 +14,33 @@
     <% end %>
 
       <h1 class="group_name">
-        <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
-        <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
+        <%= link_to group.name, group %>
+        <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
               (<%= t('.leader') %>)
         <% end %>
       </h1>
 
       <div class="notification_wrapper">
-        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
+        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.id).count %> <% if GroupMember.where(groupid: group.id).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
 
-        <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
+        <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
       </div>
 
-      <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
-      <% if Group.where(id: group.groupid).first.description.length >= 80 %>
+      <%= simple_format(group.description[0..80]) %>
+      <% if group.description.length >= 80 %>
        	<%= " [...]" %>
       <% end %>
 
 
-      <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? %>
-      <i class="fa fa-pencil action"></i><%= link_to t('groups.index.edit'), edit_group_path(group.groupid), class: 'small_margin_right' %>
+      <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
+      <i class="fa fa-pencil action"></i><%= link_to t('groups.index.edit'), edit_group_path(group), class: 'small_margin_right' %>
       <% end %>
-      <% if (!GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).exists?) || (GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).count > 1)
+      <% if (!GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id).exists?) || (GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).count > 1)
         %>
-        <i class="fa fa-times action"></i><%= link_to t('groups.index.leave'), leave_groups_path(groupid: group.groupid), id: 'leave' %>
+        <i class="fa fa-times action"></i><%= link_to t('groups.index.leave'), leave_groups_path(groupid: group.id), id: 'leave' %>
       <% end %>
-      <% if GroupMember.where(groupid: group.groupid, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.groupid).count == 1 %>
-        <% @group = Group.where(id: group.groupid).first %>
-        <i class="fa fa-trash-o action"></i><%= link_to t('groups.index.delete'), @group, method: :delete, data: { confirm: t('groups.index.confirm') } %>
+      <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id).count == 1 %>
+        <i class="fa fa-trash-o action"></i><%= link_to t('groups.index.delete'), group, method: :delete, data: { confirm: t('groups.index.confirm') } %>
       <% end %>
     </div>
   <% end %>

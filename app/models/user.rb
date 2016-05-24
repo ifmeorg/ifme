@@ -44,8 +44,9 @@ class User < ActiveRecord::Base
 
   has_many :allyships
   has_many :allies, through: :allyships
-
   has_many :alerts, inverse_of: :user
+  has_and_belongs_to_many :groups, join_table: :group_members,
+    foreign_key: :userid, association_foreign_key: :groupid
 
   after_initialize :set_defaults, unless: :persisted?
 
