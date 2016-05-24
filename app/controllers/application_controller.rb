@@ -137,11 +137,14 @@ class ApplicationController < ActionController::Base
     default = "/assets/default_ifme_avatar.png"
 
     if avatar
-      img_url = avatar
-      res = Net::HTTP.get_response(URI.parse(img_url))
-      img_url = default unless res.code.to_f >= 200 && res.code.to_f < 400
-
-      profile = img_url
+      if avatar.include?('/assets/contributors/')
+        profile = avatar
+      else
+        img_url = avatar
+        res = Net::HTTP.get_response(URI.parse(img_url))
+        img_url = default unless res.code.to_f >= 200 && res.code.to_f < 400
+        profile = img_url
+      end
     else
       profile = default
     end

@@ -53,7 +53,8 @@ class PagesController < ApplicationController
       ['David Tomberlin', 'https://github.com/siyegen'],
       ['Elana Hashman', 'https://github.com/ehashman'],
       ['Caleb Thompson', 'https://github.com/calebthompson'],
-      ['Stella Cotton', 'https://github.com/stellacotton']
+      ['Stella Cotton', 'https://github.com/stellacotton'],
+      ['Karen Kelley', 'https://github.com/kkelleey']
     ]
 
     @organizations = [
