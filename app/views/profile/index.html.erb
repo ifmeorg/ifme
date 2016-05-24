@@ -41,7 +41,10 @@
   			<% else %>
 				<div class="profile_container">
 			<% end %>
-					<h1 class="profile_name"><%= link_to item.name, item %></h1>
+					<h1 class="profile_name">
+						<%= render :partial => '/shared/viewers_hover', locals: { data: item } %>
+						<%= link_to item.name, item %>
+					</h1>
 					<%= render :partial => '/moments/info', locals: { data: item, show_strategies: true, home: true } %>
 				</div>
 		<% end %>

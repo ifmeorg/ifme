@@ -34,7 +34,10 @@
 				<div class="moment">
 			<% end %>
 	      			<div class="align_left">
-					    <h1 class="moment_name"><%= link_to moment.name, moment %></h1>
+					    <h1 class="moment_name">
+					    	<%= render :partial => '/shared/viewers_hover', locals: { data: moment } %>
+					    	<%= link_to moment.name, moment %>
+					    </h1>
 					</div>
 					<div class="align_right">
 	        			<h1 class="ally_name">
@@ -46,7 +49,7 @@
 	        			</h1>
 	     			</div>
 	     			<div class="clear"></div>
-	     			
+
 	     			<%= render :partial => '/moments/info', locals: { data: moment, show_strategies: true, home: true } %>
 				</div>
 		<% end %>

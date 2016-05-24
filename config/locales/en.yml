@@ -245,6 +245,10 @@ en:
    comma_and: ', and '
   stats:
     most_focus: 'You are focusing the most on'
+  viewers_hover:
+    and: ' and '
+    comma_and: ', and '
+    comma: ', '
 
  strategies:
   form:
