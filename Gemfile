@@ -58,7 +58,7 @@ gem 'carrierwave'
 
 gem 'underscore-rails'
 
-gem 'google-api-client', '~> 0.9.1'
+gem 'google-api-client', '~> 0.8.6'
 
 gem 'omniauth'
 
