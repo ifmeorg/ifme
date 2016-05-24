@@ -23,7 +23,6 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-  	@group = Group.find(params[:id])
   	@page_title = @group.name
     @is_group_member = if GroupMember.where(groupid: @group.id, userid: current_user.id).exists? then true else false end
     if @is_group_member
