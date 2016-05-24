@@ -134,10 +134,16 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_profile_picture(avatar, class_name)
+    default = "/assets/default_ifme_avatar.png"
+
     if avatar
-      profile = avatar
+      img_url = avatar
+      res = Net::HTTP.get_response(URI.parse(img_url))
+      img_url = default unless res.code.to_f >= 200 && res.code.to_f < 400
+
+      profile = img_url
     else
-      profile = "/assets/default_ifme_avatar.png"
+      profile = default
     end
 
     result = "<div class='" + class_name.to_s + "' style='background: url(" + profile + ")'></div>"
