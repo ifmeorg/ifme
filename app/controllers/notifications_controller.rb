@@ -7,7 +7,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to params[:refresh] }
+        format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
@@ -46,7 +46,7 @@ class NotificationsController < ApplicationController
       rescue
         if @notification.blank?
           respond_to do |format|
-            format.html { redirect_to params[:refresh] }
+            format.html { redirect_to :back }
             format.json { head :no_content }
           end
         end

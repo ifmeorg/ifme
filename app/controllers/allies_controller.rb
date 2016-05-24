@@ -47,11 +47,11 @@ class AlliesController < ApplicationController
     Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
     notifications = Notification.where(userid: params[:ally_id]).order("created_at ASC").all
     Pusher['private-' + params[:ally_id]].trigger('new_notification', {notifications: notifications})
-    
+
     NotificationMailer.notification_email(params[:ally_id], data).deliver
 
     respond_to do |format|
-      format.html { redirect_to params[:refresh] }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
@@ -91,7 +91,7 @@ class AlliesController < ApplicationController
       viewers = strategy.viewers
       if viewers.include? params[:ally_id].to_i
         viewers.delete(params[:ally_id].to_i)
-        Strategy.update(moment.id, viewers: viewers)
+        Strategy.update(strategy.id, viewers: viewers)
       end
     end
 
@@ -99,7 +99,7 @@ class AlliesController < ApplicationController
       viewers = strategy.viewers
       if viewers.include? current_user.id.to_i
         viewers.delete(current_user.id.to_i)
-        Strategy.update(moment.id, viewers: viewers)
+        Strategy.update(strategy.id, viewers: viewers)
       end
     end
 
@@ -107,7 +107,7 @@ class AlliesController < ApplicationController
     Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy if !Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
 
     respond_to do |format|
-      format.html { redirect_to params[:refresh] }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
