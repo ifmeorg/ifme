@@ -11,4 +11,7 @@
 
 class Group < ActiveRecord::Base
   validates_presence_of :name, :description
+
+  has_and_belongs_to_many :users, join_table: :group_members,
+    foreign_key: :userid, association_foreign_key: :groupid
 end

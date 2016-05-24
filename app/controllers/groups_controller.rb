@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = GroupMember.where(userid: current_user.id).all.order("created_at DESC")
+    @groups = current_user.groups.order("created_at DESC")
     @page_title = "Groups"
     @page_tooltip = "New group"
     accepted_allies = current_user.allies_by_status(:accepted)
