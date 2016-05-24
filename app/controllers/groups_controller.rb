@@ -12,23 +12,23 @@ class GroupsController < ApplicationController
     @page_new = new_group_path
 
     @available_groups = Array.new
-  	find_available_groups = GroupMember.where(userid: accepted_allies).all.order("created_at DESC")
-  	find_available_groups.each do |group|
-  		if !GroupMember.where(userid: current_user.id, groupid: group.groupid).exists?
-  			@available_groups.push(group)
-  		end
-  	end
+    find_available_groups = GroupMember.where(userid: accepted_allies).all.order("created_at DESC")
+    find_available_groups.each do |group|
+      if !GroupMember.where(userid: current_user.id, groupid: group.groupid).exists?
+        @available_groups.push(group)
+      end
+    end
   end
 
   # GET /groups/1
   # GET /groups/1.json
   def show
-  	@page_title = @group.name
+    @page_title = @group.name
     @is_group_member = if GroupMember.where(groupid: @group.id, userid: current_user.id).exists? then true else false end
     if @is_group_member
-  	 @meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
+      @meetings = Meeting.where(groupid: @group.id).order('created_at DESC')
     end
-  	@group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+    @group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
     @group_deletable = GroupMember.where(groupid: @group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: @group.id, leader: true).count == 1 && GroupMember.where(groupid: @group.id).count == 1
 
     if (GroupMember.where(groupid: @group.id, leader: true, userid: current_user.id).exists?)
@@ -65,11 +65,11 @@ class GroupsController < ApplicationController
 
         accepted_allies.each do |ally|
           data = JSON.generate({
-          user: current_user.name,
-          groupid: @group.id,
-          group: @group.name,
-          type: 'new_group',
-          uniqueid: uniqueid
+            user: current_user.name,
+            groupid: @group.id,
+            group: @group.name,
+            type: 'new_group',
+            uniqueid: uniqueid
           })
 
           Notification.create(userid: ally.id, uniqueid: uniqueid, data: data)
@@ -116,11 +116,11 @@ class GroupsController < ApplicationController
             if leader.userid != current_user.id
               user = User.where(id: member.userid).first.name
               data = JSON.generate({
-              user: user,
-              groupid: @group.id,
-              group: group,
-              type: pusher_type,
-              uniqueid: uniqueid
+                user: user,
+                groupid: @group.id,
+                group: group,
+                type: pusher_type,
+                uniqueid: uniqueid
               })
 
               Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
@@ -151,11 +151,11 @@ class GroupsController < ApplicationController
 
     group_leaders.each do |leader|
       data = JSON.generate({
-      user: current_user.name,
-      groupid: params[:groupid],
-      group: group,
-      type: 'new_group_member',
-      uniqueid: uniqueid
+        user: current_user.name,
+        groupid: params[:groupid],
+        group: group,
+        type: 'new_group_member',
+        uniqueid: uniqueid
       })
 
       Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
@@ -166,14 +166,14 @@ class GroupsController < ApplicationController
     end
 
     respond_to do |format|
-        format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }
-        format.json { render :show, status: :created, location: Group.find(params[:groupid]) }
+      format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }
+      format.json { render :show, status: :created, location: Group.find(params[:groupid]) }
     end
   end
 
   def leave
     if params[:memberid].blank?
-       memberid = current_user.id
+      memberid = current_user.id
     else
       memberid = params[:memberid]
       membername = User.where(id: memberid).first.name
@@ -184,7 +184,7 @@ class GroupsController < ApplicationController
     # Cannot leave When you are the only leader
     is_leader = GroupMember.where(userid: memberid, groupid: params[:groupid], leader: true).count
     are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
-    if (is_leader == 1 && are_leaders == is_leader)
+    if is_leader == 1 && are_leaders == is_leader
       respond_to do |format|
         format.html { redirect_to groups_path, alert: 'You cannot leave the group, you are the only leader.' }
         format.json { head :no_content }
@@ -223,8 +223,8 @@ class GroupsController < ApplicationController
 
     # Destroy meetings and its members
     Meeting.where(groupid: @group.id).all.each do |meeting|
-       MeetingMember.where(meetingid: meeting.id).destroy_all
-       meeting.destroy
+      MeetingMember.where(meetingid: meeting.id).destroy_all
+      meeting.destroy
     end
 
     # Delete notifications for this group
@@ -242,28 +242,28 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_group
+    @group = Group.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
+    end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def group_params
+    params.require(:group).permit(:name, :description)
+  end
+
+  def if_not_signed_in
+    if !user_signed_in?
       respond_to do |format|
-        format.html { redirect_to groups_path }
+        format.html { redirect_to new_user_session_path }
         format.json { head :no_content }
       end
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
-      params.require(:group).permit(:name, :description)
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
-        respond_to do |format|
-          format.html { redirect_to new_user_session_path }
-          format.json { head :no_content }
-        end
-      end
-    end
-
+  end
 end
