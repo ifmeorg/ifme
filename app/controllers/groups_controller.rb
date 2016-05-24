@@ -245,15 +245,11 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      begin
-        @group = Group.find(params[:id])
-      rescue
-        if @group.blank?
-          respond_to do |format|
-            format.html { redirect_to groups_path }
-            format.json { head :no_content }
-          end
-        end
+      @group = Group.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      respond_to do |format|
+        format.html { redirect_to groups_path }
+        format.json { head :no_content }
       end
     end
 
