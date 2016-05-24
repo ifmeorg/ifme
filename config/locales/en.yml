@@ -246,9 +246,6 @@ en:
   stats:
     most_focus: 'You are focusing the most on'
   viewers_hover:
-    and: ' and '
-    comma_and: ', and '
-    comma: ', '
     only_you: 'Only you'
 
  strategies:
