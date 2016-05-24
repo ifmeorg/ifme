@@ -1,6 +1,10 @@
 <% if local_assigns[:data].userid == current_user.id %>
 <%
-	viewers = ''
+	if local_assigns[:data].viewers.blank?
+		viewers = t('shared.viewers_hover.only_you')
+	else
+		viewers = ''
+	end
 	local_assigns[:data].viewers.to_a.each do |viewer|
 		if local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length == 2
 			viewers += t('shared.viewers_hover.and')

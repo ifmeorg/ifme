@@ -249,6 +249,7 @@ en:
     and: ' and '
     comma_and: ', and '
     comma: ', '
+    only_you: 'Only you'
 
  strategies:
   form:
