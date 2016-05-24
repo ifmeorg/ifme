@@ -22,6 +22,7 @@ FactoryGirl.define do
 
   factory :group do
     name "Test Group"
+    description "Group description"
   end
 
   factory :user1, class: User do
