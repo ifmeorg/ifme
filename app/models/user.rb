@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts, inverse_of: :user
-  has_and_belongs_to_many :groups, join_table: :group_members,
-    foreign_key: :userid, association_foreign_key: :groupid
+  has_many :group_members, foreign_key: :userid
+  has_many :groups, through: :group_members
 
   after_initialize :set_defaults, unless: :persisted?
 
@@ -79,5 +79,21 @@ class User < ActiveRecord::Base
      @ally_notify.nil? && @comment_notify = true
      @group_notify.nil? && @comment_notify = true
      @meeting_notify.nil? && @comment_notify = true
+   end
+
+
+   def available_groups(order)
+     ally_groups.order(order) - groups
+   end
+
+   private
+
+   def accepted_ally_ids
+     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
+   end
+
+   def ally_groups
+     Group.joins(:group_members)
+       .where(group_members: { userid: accepted_ally_ids })
    end
 end

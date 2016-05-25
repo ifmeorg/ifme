@@ -39,4 +39,20 @@ describe User do
       end
     end
   end  
+
+  describe "#available_groups" do
+    it "returns the groups that allys belong to and the user doesn't" do
+      user = create :user1
+      user_groups = create_list :group_with_member, 2, userid: user.id
+      ally = create :user2
+      create :allyships_accepted, user_id: user.id, ally_id: ally.id
+      group_only_ally_belongs_to = create(:group_with_member, userid: ally.id)
+      group_both_belong_to = user_groups.first
+      create :group_member, groupid: group_both_belong_to.id, userid: ally.id
+
+      result = user.available_groups("created_at DESC")
+
+      expect(result).to eq [group_only_ally_belongs_to]
+    end
+  end
 end
