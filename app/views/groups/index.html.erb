@@ -1,5 +1,5 @@
 <div class="subtitle">
-	<%= t('.subtitle') %>
+  <%= t('.subtitle') %>
 </div>
 
 <div class="spacer"></div>
@@ -8,74 +8,77 @@
   <h1 class="group_type">Joined Groups</h1>
   <% @groups.each do |group| %>
     <% if @groups.last == group %>
-    <div class="group no_margin_bottom">
-    <% else %>
-    <div class="group">
-    <% end %>
-
-      <h1 class="group_name">
-        <%= link_to group.name, group %>
-        <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
-              (<%= t('.leader') %>)
+      <div class="group no_margin_bottom">
+      <% else %>
+        <div class="group">
         <% end %>
-      </h1>
 
-      <div class="notification_wrapper">
-        <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.id).count %> <% if GroupMember.where(groupid: group.id).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
+        <h1 class="group_name">
+          <%= link_to group.name, group %>
+          <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
+            (<%= t('.leader') %>)
+          <% end %>
+        </h1>
 
-        <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
-      </div>
+        <div class="notification_wrapper">
+          <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.id).count %> <% if GroupMember.where(groupid: group.id).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
 
-      <%= simple_format(group.description[0..80]) %>
-      <% if group.description.length >= 80 %>
-       	<%= " [...]" %>
-      <% end %>
+          <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
+        </div>
+
+        <%= simple_format(group.description[0..80]) %>
+        <% if group.description.length >= 80 %>
+          <%= " [...]" %>
+        <% end %>
 
 
-      <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
-      <i class="fa fa-pencil action"></i><%= link_to t('groups.index.edit'), edit_group_path(group), class: 'small_margin_right' %>
+        <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? %>
+          <i class="fa fa-pencil action"></i><%= link_to t('groups.index.edit'), edit_group_path(group), class: 'small_margin_right' %>
       <% end %>
       <% if (!GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id).exists?) || (GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).count > 1)
-        %>
-        <i class="fa fa-times action"></i><%= link_to t('groups.index.leave'), leave_groups_path(groupid: group.id), id: 'leave' %>
+    %>
+  <i class="fa fa-times action"></i><%= link_to t('groups.index.leave'), leave_groups_path(groupid: group.id), id: 'leave' %>
       <% end %>
       <% if GroupMember.where(groupid: group.id, userid: current_user.id, leader: true).exists? && GroupMember.where(groupid: group.id).count == 1 %>
         <i class="fa fa-trash-o action"></i><%= link_to t('groups.index.delete'), group, method: :delete, data: { confirm: t('groups.index.confirm') } %>
+    <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
-<% else %>
-  You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below.
-  <br>
-  <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
-<% end %>
-
-<% if @available_groups.length > 0 %>
-  <div class="spacer"></div>
-
-  <h1 class="group_type">Available Groups</h1>
-
-  <% @available_groups.each do |group| %>
-    <% if @available_groups.last == group %>
-    <div class="group no_margin_bottom">
     <% else %>
-    <div class="group">
+      You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below.
+      <br>
+      <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
     <% end %>
 
-      <h1 class="group_name">
-        <%= link_to Group.where(id: group.groupid).first.name, group_path(group.groupid) %>
-      </h1>
+    <% if @available_groups.length > 0 %>
+      <div class="spacer"></div>
 
-      <strong class="tip_notifications_button"><i class="fa fa-list small_margin_right"></i><%= GroupMember.where(groupid: group.groupid).count %> <% if GroupMember.where(groupid: group.groupid).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
+      <h1 class="group_type">Available Groups</h1>
 
-      <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.groupid).all } %>
+      <% @available_groups.each do |group| %>
+        <% if @available_groups.last == group %>
+          <div class="group no_margin_bottom">
+          <% else %>
+            <div class="group">
+            <% end %>
 
-      <%= simple_format(Group.where(id: group.groupid).first.description[0..80]) %>
-      <% if Group.where(id: group.groupid).first.description.length >= 80 %>
-        <%= " [...]" %>
-      <% end %>
+            <h1 class="group_name">
+              <%= link_to group.name, group %>
+            </h1>
 
-      <%= link_to t('groups.index.join'), join_groups_path(groupid: group.groupid), id: 'join' %>
-    </div>
-  <% end %>
-<% end %>
+            <strong class="tip_notifications_button">
+              <i class="fa fa-list small_margin_right"></i>
+              <%= GroupMember.where(groupid: group.id).count %>
+              <% if GroupMember.where(groupid: group.id).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
+
+            <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
+
+            <%= simple_format(Group.where(id: group.id).first.description[0..80]) %>
+            <% if Group.where(id: group.id).first.description.length >= 80 %>
+              <%= " [...]" %>
+            <% end %>
+
+            <%= link_to t('groups.index.join'), join_groups_path(groupid: group.id), id: 'join' %>
+            </div>
+          <% end %>
+        <% end %>

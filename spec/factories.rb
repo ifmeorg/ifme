@@ -24,6 +24,16 @@ FactoryGirl.define do
   factory :group do
     name "Test Group"
     description "Group description"
+
+    factory :group_with_member do
+      transient do
+        userid 1
+      end
+
+      after(:create) do |group, evaluator|
+        create :group_member, userid: evaluator.userid, groupid: group.id
+      end
+    end
   end
 
   factory :user1, class: User do
