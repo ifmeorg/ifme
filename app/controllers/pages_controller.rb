@@ -57,7 +57,9 @@ class PagesController < ApplicationController
       ['Karen Kelley', 'https://github.com/kkelleey'],
       ['Gwen Weston', 'https://github.com/gwengrid'],
       ['Mark Freeman', 'http://markfreeman.ca'],
-      ['Catherine Vendryes', 'http://catherinevendryes.com']
+      ['Catherine Vendryes', 'http://catherinevendryes.com'],
+      ['Michelle Liauw', 'https://github.com/techiemichelle'],
+      ['Kerry Benjamin', 'https://twitter.com/kerry_benjamin1']
     ]
 
     @organizations = [
