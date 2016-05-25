@@ -1,7 +1,9 @@
 if me
 =====
 
-A community for mental health experiences
+if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
+
+Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.
 
 # Table of Contents
 1. [Goals](#goals)
@@ -14,14 +16,6 @@ A community for mental health experiences
 
 Goals
 -----
-
-if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
-
-Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.
-
-Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.
-
-The goal is to create a platform that:
 
 * Allows users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
 * Create personalized categories and moods to organize Moments and Strategies
@@ -143,7 +137,9 @@ Copy the sample files to create your own configuration files:
 
 `cp config/smtp.example.yml config/smtp.yml`
 
-Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+**Mandatory:** Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+
+The following are not mandatory, but are required if you would like to test/use these features:
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
 
@@ -231,9 +227,9 @@ Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are working on!
 
-In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me.
+**In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me.**
 
-This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors).
+This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/contributors/firstname_lastname.png`!
 
 Find the source code for that page and submit a pull request with your story!
 

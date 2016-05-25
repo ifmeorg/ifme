@@ -54,12 +54,17 @@ class PagesController < ApplicationController
       ['Elana Hashman', 'https://github.com/ehashman'],
       ['Caleb Thompson', 'https://github.com/calebthompson'],
       ['Stella Cotton', 'https://github.com/stellacotton'],
-      ['Karen Kelley', 'https://github.com/kkelleey']
+      ['Karen Kelley', 'https://github.com/kkelleey'],
+      ['Gwen Weston', 'https://github.com/gwengrid'],
+      ['Mark Freeman', 'http://markfreeman.ca'],
+      ['Catherine Vendryes', 'http://catherinevendryes.com']
     ]
 
     @organizations = [
       ['Hacker Hours', 'http://hackerhours.org'],
-      ['Open Sourcing Mental Illness', 'https://osmihelp.org']
+      ['Open Sourcing Mental Illness', 'https://osmihelp.org'],
+      ['Contributor Convenant', 'http://contributor-covenant.org'],
+      ['Everybody Has a Brain', 'http://everbodyhasabrain.com']
     ]
   end
 
