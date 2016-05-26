@@ -178,19 +178,39 @@
 
 				<div id="footer">
 					<div id="footer_content">
+						<div class="table">
+							<div class="row">
+								<div class="table_cell large_padding_right">
+									<h1 class="footer_heading" id="if_me_links"><%= t('.app_name') %></h1>
+									<div class="align_left padding_right">
+										<%= link_to(t('.footer_about'), about_path) %>
+										<%= link_to(t('.footer_blog'), blog_path) %>
+										<%= link_to(t('.footer_contributors'), contributors_path) %>
+									</div>
+									<div class="align_right">
+										<%= link_to(t('.faq'), faq_path) %>
+										<%= link_to(t('.footer_privacy'), privacy_path) %>
+									</div>
+								</div>
+								<div class="table_cell">
+									<h1 class="footer_heading" id="connect_links"><%= t('.connect') %></h1>
+									<div class="align_left padding_right">
+										<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
+										<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
+										<%= link_to(t('.patreon'), 'http://patreon.com/ifme', target: "blank") %>
+									</div>
+									<div class="align_right">
+										<%= link_to(t('.email'), 'mailto:join.ifme@gmail.com') %>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="spacer"></div>
 						<div class="align_left">
-							<%= link_to(t('.feedback'), "http://goo.gl/forms/8EqoJDDiXY", class: "highlight smaller_margin_right", target: "blank") %>
-							<%= link_to(t('.footer_about'), about_path, class: "smaller_margin_right") %>
-							<%= link_to(t('.footer_blog'), blog_path, class: "smaller_margin_right") %>
-							<%= link_to(t('.footer_contributors'), contributors_path, class: "smaller_margin_right") %>
-							<%= link_to(t('.faq'), faq_path, class: "smaller_margin_right") %>
-							<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", class: "smaller_margin_right", target: "blank") %>
-							<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", class: "smaller_margin_right", target: "blank") %>
-							<%= link_to(t('.patreon'), 'http://patreon.com/ifme', class: "smaller_margin_right", target: "blank") %>
-							<%= link_to(t('.footer_privacy'), privacy_path) %>
+							<%= link_to(t('.feedback'), "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 						</div>
 						<div class="align_right">
-							<%= t('.copyright') %> &#169; 2014-<%= Time.now.strftime("%Y") %> <%= t('.app_name') %>
+							<%= t('.copyright') %> &#169; <%= Time.now.strftime("%Y") %> <%= t('.app_name') %>
 						</div>
 						<div class="clear"></div>
 					</div>
