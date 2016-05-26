@@ -157,7 +157,7 @@ development: {
   	port:                 '[insert port]',
   	authentication:       'plain',
   	user_name:            '[insert email address]',
-  	passowrd:             '[insert email password]',
+  	password:             '[insert email password]',
   	domain:               '[insert email domain]',
   	enable_starttls_auto: 'true'
 }
@@ -179,6 +179,17 @@ Start the local server:
 ```
 rails s
 ```
+*** possible errors: For Linux users,
+  	PG::ConnectionBad (fe_sendauth: no password supplied ):
+when attempting to run server - may need to create a new PSQL user
+
+Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) then add username & password to database.yml, under
+  	'development: &default'
+
+(To keep the information private:)
+  	username: <%= ENV["PSQL_USERNAME"] %>
+  	password: <%= ENV["PSQL_PASSWORD"] %>
+And list PSQL_USERNAME and PSQL_PASSWORD under application.yml
 
 ### Accessing the Database
 

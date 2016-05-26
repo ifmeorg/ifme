@@ -6,6 +6,8 @@ development: &default
   allow_concurrency: true
   pool: 5
   min_messages: warning
+  username: <%= ENV["PSQL_USERNAME"] %>
+  password: <%= ENV["PSQL_PASSWORD"] %>
 
 test:
   <<: *default
