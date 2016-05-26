@@ -77,4 +77,8 @@ class PagesController < ApplicationController
   def privacy
     @page_title = "Privacy Policy"
   end
+
+  def faq
+    @page_title = "Frequently Asked Questions"
+  end
 end

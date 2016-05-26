@@ -78,6 +78,7 @@ Rails.application.routes.draw do
   match 'contributors', to: 'pages#contributors', via: :get
   match 'blog', to: 'pages#blog', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
+  match 'faq', to: 'pages#faq', via: :get
 
   devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks', :invitations => 'users/invitations' }
 

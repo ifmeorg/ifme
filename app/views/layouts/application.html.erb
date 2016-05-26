@@ -44,7 +44,7 @@
 			<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 			<%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
 		<% end %>
-		
+
 		<!-- jQuery UI -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
@@ -164,7 +164,7 @@
 							<div class="notice"><%= notice %></div>
 						<% end %>
 					<% end %>
-					
+
 					<% if !alert.blank? %>
 						<% if current_page?(root_path) %>
 							<div class="alert display_none"><%= alert %></div>
@@ -172,7 +172,7 @@
 							<div class="alert"><%= alert %></div>
 						<% end %>
 					<% end %>
-		
+
 					<%= yield %>
 				</div>
 
@@ -183,6 +183,7 @@
 							<%= link_to(t('.footer_about'), about_path, class: "smaller_margin_right") %>
 							<%= link_to(t('.footer_blog'), blog_path, class: "smaller_margin_right") %>
 							<%= link_to(t('.footer_contributors'), contributors_path, class: "smaller_margin_right") %>
+							<%= link_to(t('.faq'), faq_path, class: "smaller_margin_right") %>
 							<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", class: "smaller_margin_right", target: "blank") %>
 							<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", class: "smaller_margin_right", target: "blank") %>
 							<%= link_to(t('.patreon'), 'http://patreon.com/ifme', class: "smaller_margin_right", target: "blank") %>
