@@ -15,9 +15,9 @@
 		<% end %>
 		<% if !User.where(:id => @profile.id).first.location.blank? %>
 			<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
+			<br>
 		<% end %>
 		<% if @profile.id != current_user.id %>
-		 	<br>
 			<% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
 			 	<br><%= link_to t('.cancel_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
 			<% elsif current_user.allies_by_status(:accepted).include? @profile %>

@@ -40,11 +40,11 @@ class MomentsController < ApplicationController
   def comment
     if params[:viewers].blank?
       @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
-    else 
+    else
       # Can only get here if comment is from Moment creator
       @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
     end
-    
+
     if !@comment.save
       result = { no_save: true }
       respond_to do |format|
@@ -138,7 +138,7 @@ class MomentsController < ApplicationController
       public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
 
-      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s 
+      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
@@ -200,7 +200,20 @@ class MomentsController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
-    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+
+    # current_user's strategies and all viewable strategies from allies
+    my_strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+    ally_strategies = []
+    @viewers.each do |ally|
+      Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+        if strategy.viewers.include?(current_user.id)
+          ally_strategies << strategy
+        end
+      end
+    end
+    my_strategies += ally_strategies
+    @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+
     @moment = Moment.new
     @page_title = "New Moment"
     @category = Category.new
@@ -214,7 +227,20 @@ class MomentsController < ApplicationController
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
       @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
-      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+
+      # current_user's strategies and all viewable strategies from allies
+      my_strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+      ally_strategies = []
+      @viewers.each do |ally|
+        Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+          if strategy.viewers.include?(current_user.id)
+            ally_strategies << strategy
+          end
+        end
+      end
+      my_strategies += ally_strategies
+      @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+
       @page_title = "Edit " + @moment.name
       @category = Category.new
       @mood = Mood.new
