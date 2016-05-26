@@ -183,16 +183,14 @@ rails s
 ```
   	PG::ConnectionBad (fe_sendauth: no password supplied ):
 ```
-You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) then add username & password to `database.yml`, under
+You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04)
+To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `application.yml`, then add username & password to `database.yml`:
 ```
-  	'development: &default'
+  	development: &default
+      ...
+  	  username: <%= ENV["PSQL_USERNAME"] %>
+  	  password: <%= ENV["PSQL_PASSWORD"] %>
 ```
-(To keep the information private:)
-```
-  	username: <%= ENV["PSQL_USERNAME"] %>
-  	password: <%= ENV["PSQL_PASSWORD"] %>
-```
-And list PSQL_USERNAME and PSQL_PASSWORD under application.yml
 
 ### Accessing the Database
 
