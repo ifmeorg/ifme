@@ -3,10 +3,6 @@ module GroupsHelper
     group.group_members.where(userid: current_user.id, leader: true).exists?
   end
 
-  def user_can_leave?(group)
-    !user_is_leader_of?(group) || group.group_members.count > 1
-  end
-
   def edit_group_link(group)
     link_to t('groups.index.edit'), edit_group_path(group),
             class: 'small_margin_right'

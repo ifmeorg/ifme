@@ -7,6 +7,8 @@
 <% if @groups.any? %>
   <h1 class="group_type">Joined Groups</h1>
   <% @groups.each do |group| %>
+    <% user_is_leader = user_is_leader_of?(group) %>
+
     <% if @groups.last == group %>
       <div class="group no_margin_bottom">
     <% else %>
@@ -14,7 +16,7 @@
     <% end %>
     <h1 class="group_name">
       <%= link_to group.name, group %>
-      <% if user_is_leader_of?(group) %>
+      <% if user_is_leader %>
         (<%= t('.leader') %>)
       <% end %>
     </h1>
@@ -37,15 +39,15 @@
       <%= " [...]" %>
     <% end %>
 
-    <% if user_is_leader_of?(group) %>
+    <% if user_is_leader %>
       <i class="fa fa-pencil action"></i>
       <%= edit_group_link(group) %>
     <% end %>
-    <% if user_can_leave?(group) %>
+    <% if !user_is_leader || group.group_members.count > 1 %>
       <i class="fa fa-times action"></i>
       <%= leave_group_link(group) %>
     <% end %>
-    <% if user_is_leader_of?(group) && group.group_members.count == 1 %>
+    <% if user_is_leader && group.group_members.count == 1 %>
       <i class="fa fa-trash-o action"></i>
       <%= delete_group_link(group) %>
     <% end %>
