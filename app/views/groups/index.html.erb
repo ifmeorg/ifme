@@ -59,35 +59,39 @@
   <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
 <% end %>
 
-    <% if @available_groups.length > 0 %>
-      <div class="spacer"></div>
+<% if @available_groups.length > 0 %>
+  <div class="spacer"></div>
 
-      <h1 class="group_type">Available Groups</h1>
+  <h1 class="group_type">Available Groups</h1>
 
-      <% @available_groups.each do |group| %>
-        <% if @available_groups.last == group %>
-          <div class="group no_margin_bottom">
-          <% else %>
-            <div class="group">
-            <% end %>
+  <% @available_groups.each do |group| %>
+    <% if @available_groups.last == group %>
+      <div class="group no_margin_bottom">
+    <% else %>
+      <div class="group">
+    <% end %>
+      <h1 class="group_name">
+        <%= link_to group.name, group %>
+      </h1>
 
-            <h1 class="group_name">
-              <%= link_to group.name, group %>
-            </h1>
-
-            <strong class="tip_notifications_button">
-              <i class="fa fa-list small_margin_right"></i>
-              <%= GroupMember.where(groupid: group.id).count %>
-              <% if GroupMember.where(groupid: group.id).count == 1 %><%= t('groups.index.member') %><% else %><%= t('groups.index.members') %><% end %></strong>
-
-            <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
-
-            <%= simple_format(Group.where(id: group.id).first.description[0..80]) %>
-            <% if Group.where(id: group.id).first.description.length >= 80 %>
-              <%= " [...]" %>
-            <% end %>
-
-            <%= link_to t('groups.index.join'), join_groups_path(groupid: group.id), id: 'join' %>
-            </div>
-          <% end %>
+      <strong class="tip_notifications_button">
+        <i class="fa fa-list small_margin_right"></i>
+        <%= GroupMember.where(groupid: group.id).count %>
+        <% if GroupMember.where(groupid: group.id).count == 1 %>
+          <%= t('groups.index.member') %>
+        <% else %>
+          <%= t('groups.index.members') %>
         <% end %>
+      </strong>
+
+      <%= render :partial => '/notifications/members', locals: { data: GroupMember.where(groupid: group.id).all } %>
+      <%= simple_format(Group.where(id: group.id).first.description[0..80]) %>
+
+      <% if Group.where(id: group.id).first.description.length >= 80 %>
+        <%= " [...]" %>
+      <% end %>
+
+      <%= link_to t('groups.index.join'), join_groups_path(groupid: group.id), id: 'join' %>
+    </div>
+  <% end %>
+<% end %>
