@@ -5,7 +5,9 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = current_user.groups.order("created_at DESC")
+    @groups = current_user.groups
+                          .includes(:group_members)
+                          .order("groups.created_at DESC")
     @page_title = "Groups"
     @page_tooltip = "New group"
     @page_new = new_group_path
