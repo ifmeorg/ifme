@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     @page_title = "Groups"
     @page_tooltip = "New group"
     @page_new = new_group_path
-    @available_groups = current_user.available_groups("created_at DESC")
+    @available_groups = current_user.available_groups("groups.created_at DESC")
   end
 
   # GET /groups/1
