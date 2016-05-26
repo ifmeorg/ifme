@@ -14,12 +14,18 @@ module GroupsHelper
             data: { confirm: t('groups.index.confirm') }
   end
 
-  def group_has_more_than_one_member?(group)
-    group.group_members.count > 1
-  end
-
   def leave_group_link(group)
     link_to t('groups.index.leave'), leave_groups_path(groupid: group.id),
             id: 'leave'
+  end
+
+  def join_group_link(group)
+    link_to t('groups.index.join'), join_groups_path(groupid: group.id),
+            id: 'join'
+  end
+
+  def render_group_member_partial(group)
+    render partial: '/notifications/members',
+           locals: { data: group.group_members }
   end
 end

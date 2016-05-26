@@ -50,7 +50,7 @@ describe User do
       group_both_belong_to = user_groups.first
       create :group_member, groupid: group_both_belong_to.id, userid: ally.id
 
-      result = user.available_groups("created_at DESC")
+      result = user.available_groups("groups.created_at DESC")
 
       expect(result).to eq [group_only_ally_belongs_to]
     end

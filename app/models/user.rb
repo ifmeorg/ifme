@@ -93,7 +93,7 @@ class User < ActiveRecord::Base
    end
 
    def ally_groups
-     Group.joins(:group_members)
-       .where(group_members: { userid: accepted_ally_ids })
+     Group.includes(:group_members)
+           .where(group_members: { userid: accepted_ally_ids })
    end
 end
