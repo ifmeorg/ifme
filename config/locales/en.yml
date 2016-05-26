@@ -94,6 +94,8 @@ en:
    copyright: 'Copyright'
    faq: 'FAQ'
    app_name: 'if me'
+   connect: 'connect'
+   email: 'Email'
 
  medications:
   form:
