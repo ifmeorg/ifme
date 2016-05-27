@@ -237,7 +237,7 @@ h1.faq_heading {
 	}
 }
 
-#onboarding {
+.onboarding {
 	@media screen and (max-width: $medium) {
 		.message_cell {
 			padding: 0 !important;
@@ -248,8 +248,14 @@ h1.faq_heading {
 			text-align: center;
 		}
 
-		.padding_bottom, .last_cell {
+		.padding_bottom {
 			padding-bottom: 20px !important;
+		}
+	}
+
+	@media screen and (min-width: $medium + 1) {
+		.padding_bottom {
+			padding-bottom: 0 !important;
 		}
 	}
 }
