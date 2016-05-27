@@ -161,6 +161,16 @@ development: {
   	domain:               '[insert email domain]',
   	enable_starttls_auto: 'true'
 }
+
+test: {
+  address:              '[insert address]',
+    port:                 '[insert port]',
+    authentication:       'plain',
+    user_name:            '[insert email address]',
+    password:             '[insert email password]',
+    domain:               '[insert email domain]',
+    enable_starttls_auto: 'true'
+}
 ```
 
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
