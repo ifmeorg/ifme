@@ -16,4 +16,6 @@
 
 class Meeting < ActiveRecord::Base
   validates_presence_of :name, :description, :location, :time, :groupid, :date
+
+  belongs_to :group, foreign_key: :groupid
 end

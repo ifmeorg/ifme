@@ -7,6 +7,10 @@ FactoryGirl.define do
   factory :group_member do
     userid 1
     leader false
+
+    factory :group_leader do
+      leader true
+    end
   end
 
   factory :meeting_member do
@@ -19,6 +23,7 @@ FactoryGirl.define do
     location "Test Location"
     time "Test Time"
     maxmembers 1
+    date Date.tomorrow
   end
 
   factory :group do
@@ -28,10 +33,13 @@ FactoryGirl.define do
     factory :group_with_member do
       transient do
         userid 1
+        leader false
       end
 
       after(:create) do |group, evaluator|
-        create :group_member, userid: evaluator.userid, groupid: group.id
+        create :group_member, userid: evaluator.userid,
+                              groupid: group.id,
+                              leader: evaluator.leader
       end
     end
   end
