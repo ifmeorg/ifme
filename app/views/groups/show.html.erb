@@ -46,6 +46,8 @@
 <% if !@meetings.blank? && @meetings.length > 0 %>
   <div class="spacer"></div>
   <% @meetings.each do |meeting| %>
+    <% user_is_meeting_leader = meeting.leaders.include? current_user %>
+
     <% if @meetings.last == meeting %>
       <div class="meeting no_margin_bottom">
     <% else %>
@@ -55,8 +57,7 @@
       <% if @current_user_is_leader %>
         <h1 class="meeting_name">
           <%= link_to meeting.name, meeting_path(meeting) %>
-          <% if MeetingMember.where(meetingid: meeting.id,
-              userid: current_user.id, leader: true).exists? %>
+          <% if user_is_meeting_leader %>
             <%= link_to raw('<i class="fa fa-pencil"></i>'),
               edit_meeting_path(meeting),
               class: 'align_right display_inline_block' %>
@@ -69,9 +70,7 @@
       <% end %>
       <%= render partial: '/shared/meeting_info',
                  locals: { meeting: meeting,
-                           is_leader: MeetingMember.where(meetingid: meeting.id,
-                                                          userid: current_user.id,
-                                                          leader: true).exists? } %>
+                           is_leader: user_is_meeting_leader } %>
     </div>
   <% end %>
 <% end %>
