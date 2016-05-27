@@ -16,7 +16,7 @@
 
       <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
 
-      <%= raw(mood.description[0..80]) %>
+      <%= strip_tags(mood.description[0..80]) %>
       <% if mood.description.length >= 80 %>
         <%= " [...]" %>
       <% end %>
@@ -38,7 +38,7 @@
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
 
-    <%= raw(t('moods.index.premade1_description')[0..80]) %>
+    <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>
     <% if t('moods.index.premade1_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -47,7 +47,7 @@
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
 
-    <%= raw(t('moods.index.premade2_description')[0..80]) %>
+    <%= strip_tags(t('moods.index.premade2_description')[0..80]) %>
     <% if t('moods.index.premade2_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -56,7 +56,7 @@
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
 
-    <%= raw(t('moods.index.premade3_description')[0..80]) %>
+    <%= strip_tags(t('moods.index.premade3_description')[0..80]) %>
     <% if t('moods.index.premade3_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -65,7 +65,7 @@
   <div class="mood no_margin_bottom">
     <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
 
-    <%= raw(t('moods.index.premade4_description')[0..80]) %>
+    <%= strip_tags(t('moods.index.premade4_description')[0..80]) %>
     <% if t('moods.index.premade4_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>

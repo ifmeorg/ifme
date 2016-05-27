@@ -26,7 +26,7 @@
       <%= t('strategies.index.premade1_name') %>
     </h1>
 
-    <%= raw t('strategies.index.premade1_description')[0..80] %>
+    <%= strip_tags(t('strategies.index.premade1_description')[0..80]) %>
     <% if t('strategies.index.premade1_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>

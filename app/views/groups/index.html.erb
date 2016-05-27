@@ -34,7 +34,7 @@
       <%= render_group_member_partial(group.group_members) %>
     </div>
 
-    <%= raw(group.description[0..80]) %>
+    <%= strip_tags(group.description[0..80]) %>
     <% if group.description.length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -85,7 +85,7 @@
       </strong>
 
       <%= render_group_member_partial(group.group_members) %>
-      <%= raw(group.description[0..80]) %>
+      <%= strip_tags(group.description[0..80]) %>
 
       <% if group.description.length >= 80 %>
         <%= " [...]" %>
