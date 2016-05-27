@@ -16,7 +16,7 @@
   <% end %>
 <% end %>
 
-<% if local_assigns[:data].mood.count > 0 %>
+<% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].mood.count > 0 %>
   <br>
   <strong>
     <% if local_assigns[:data].mood.count == 1 %>
@@ -33,7 +33,7 @@
   <% end %>
 <% end %>
 
-<% if local_assigns[:data].strategies.count > 0 && local_assigns[:show_strategies] %>
+<% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].strategies.count > 0 && local_assigns[:show_strategies] %>
   <br>
   <strong>
     <% if local_assigns[:data].strategies.count == 1 %>
@@ -49,8 +49,28 @@
 
 <% if local_assigns[:home] %>
   <div class="spacer"></div>
+  <% if local_assigns[:data].class.name == 'Moment' %>
   <%= raw simple_format(local_assigns[:data].why[0..200]) %>
   <% if local_assigns[:data].why.length >= 200 %>
     <%= " [...]" %>
   <% end %>
+  <% elsif local_assigns[:data].class.name == 'Strategy' %>
+  <%= raw simple_format(local_assigns[:data].description[0..200]) %>
+  <% if local_assigns[:data].description.length >= 200 %>
+    <%= " [...]" %>
+  <% end %>
+  <% end %>
 <% end %>
+
+<% if local_assigns[:class_name] %>
+<div class="align_right subtle" id="class_name">
+<% if local_assigns[:data].class.name == 'Moment' %>
+  Moment
+<% elsif local_assigns[:data].class.name == 'Strategy' %>
+  Strategy
+<% end %>
+</div>
+<% end %>
+
+<div class="clear"></div>
+

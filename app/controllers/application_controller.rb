@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment
+  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -311,5 +311,42 @@ class ApplicationController < ActionController::Base
     result = { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
 
     return result
+  end
+
+  def get_stories(user, include_allies)
+    allies = user.allies_by_status(:accepted)
+
+    my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
+    my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
+
+    if include_allies
+      ally_moments = []
+      ally_strategies = []
+
+      allies.each do |ally|
+        Moment.where(userid: ally.id).all.order("created_at DESC").each do |moment|
+          if moment.viewers.include?(user.id)
+            ally_moments << moment
+          end
+        end
+
+        Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+          if strategy.viewers.include?(user.id)
+            ally_strategies << strategy
+          end
+        end
+      end
+
+      my_moments += ally_moments
+      my_strategies += ally_strategies
+    end
+
+    moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
+    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+
+    stories = moments.zip(strategies).flatten.compact
+    stories = stories.sort_by {|x| x.created_at }.reverse!
+
+    return stories
   end
 end

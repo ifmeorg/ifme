@@ -1,6 +1,6 @@
-.ally, 
+.ally,
 .category,
-.meeting, 
+.meeting,
 .group,
 .medication,
 .moment,
@@ -21,7 +21,7 @@
 h1.ally_name,
 h1.category_name,
 .pageerror h1,
-h1.group_name, 
+h1.group_name,
 h1.meeting_name,
 h1.medication_name,
 h1.moment_name,
@@ -65,12 +65,12 @@ h1.strategy_name a:visited {
 	border: none;
 }
 
-#page_title_content, 
-.sidebar_label, 
-.label, 
-.tip_notifications_text, 
+#page_title_content,
+.sidebar_label,
+.label,
+.tip_notifications_text,
 #notifications_text,
-.quick_create_text, 
+.quick_create_text,
 .moment,
 #categories_moods_text,
 .meeting {
@@ -89,7 +89,7 @@ h1.strategy_name a:visited {
 	}
 }
 
-#leave.align_left, 
+#leave.align_left,
 #join.align_left {
 	float: left;
 	display: inline-block;
@@ -111,7 +111,7 @@ h1.strategy_name a:visited {
 	}
 }
 
-#leave.align_right, 
+#leave.align_right,
 #join.align_right {
 	float: right;
 	display: inline-block;
@@ -220,6 +220,7 @@ h1.tag_type {
 	}
 }
 
+#class_name,
 #showTaggedMoments.align_right,
 #hideTaggedMoments.align_right  {
 	float: right !important;

@@ -1,33 +1,33 @@
 <% if !user_signed_in? %>
 	<%= render :partial => 'not_signed_in' %>
-<% elsif @moments.count > 0 %>
+<% elsif @stories.count > 0 %>
 	<%= render :partial => '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
 
-	<% @moments.each_with_index do |moment, index| %>
-		<% if current_user.id == moment.userid || (is_viewer(moment.viewers) && are_allies(current_user.id, moment.userid)) %>
-			<% if index+1 == @moments.length %>
+	<% @stories.each_with_index do |story, index| %>
+		<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies(current_user.id, story.userid)) %>
+			<% if index+1 == @stories.length %>
   				<div class="moment no_margin_bottom">
   			<% else %>
 				<div class="moment">
 			<% end %>
 	      			<div class="align_left">
 					    <h1 class="moment_name">
-					    	<%= render :partial => '/shared/viewers_hover', locals: { data: moment } %>
-					    	<%= link_to moment.name, moment %>
+					    	<%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+					    	<%= link_to story.name, story %>
 					    </h1>
 					</div>
 					<div class="align_right">
 	        			<h1 class="ally_name">
-	        				<% if current_user.id == moment.userid %>
+	        				<% if current_user.id == story.userid %>
 	        					<%= link_to t('.you'), profile_index_path(uid: current_user.uid) %>
 	        				<% else %>
-	        					<%= link_to User.where(:id => moment.userid).first.name, profile_index_path(uid: get_uid(moment.userid)) %>
+	        					<%= link_to User.where(:id => story.userid).first.name, profile_index_path(uid: get_uid(story.userid)) %>
 	        				<% end %>
 	        			</h1>
 	     			</div>
 	     			<div class="clear"></div>
 
-	     			<%= render :partial => '/moments/info', locals: { data: moment, show_strategies: true, home: true } %>
+	     			<%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
 				</div>
 		<% end %>
 	<% end %>

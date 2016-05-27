@@ -2,20 +2,13 @@ class PagesController < ApplicationController
   def home
   	if user_signed_in?
       @page_title = "Welcome"
+      @stories = get_stories(current_user, true)
 
-      @moments = Array.new
-      all_moments = Moment.order("created_at DESC").all
-      all_moments.each do |moment|
-        if current_user.id == moment.userid || (are_allies(current_user.id, moment.userid) && is_viewer(moment.viewers))
-          @moments.push(moment)
-        end
-      end
-
-      if @moments.count > 0
+      if !@stories.blank? && @stories.count > 0
         @moment = Moment.new
         @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
         @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
-        @page_title = "Latest Moments"
+        @page_title = "Stories"
       end
   	else
       @page_title = 'Welcome'
