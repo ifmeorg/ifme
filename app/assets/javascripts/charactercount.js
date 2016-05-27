@@ -49,7 +49,7 @@ function yesCKEditor(editor) {
 	var editorCount = '#' + editor.name + '_count';
     var remaining = 2000 - editor.getData().length;
 
-	changeEditorCount(editorCount, remaining);    
+	changeEditorCount(editorCount, remaining);
 }
 
 function changeEditorCount(editorCount, remaining) {
@@ -57,7 +57,14 @@ function changeEditorCount(editorCount, remaining) {
 
     if (remaining <= 0) {
     	$(editorCount).css('color', '#990019');
+
+    	if (remaining == 0) {
+    		$('input[type="submit"]').prop('disabled', false);
+    	} else {
+    		$('input[type="submit"]').prop('disabled', true);
+    	}
     } else {
     	$(editorCount).css('color', '#b5839b');
+    	$('input[type="submit"]').prop('disabled', false);
     }
 }

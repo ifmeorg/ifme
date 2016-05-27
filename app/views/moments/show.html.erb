@@ -3,14 +3,14 @@
 <% if !@moment.why.blank? %>
   <p>
     <div class="label"><%= label_tag t('.why') %></div>
-    <%= simple_format(@moment.why) %>
+    <%= raw(@moment.why) %>
   </p>
 <% end %>
 
 <% if !@moment.fix.blank? %>
   <p>
     <div class="label"><%= label_tag t('.fix') %></div>
-    <%= simple_format(@moment.fix) %>
+    <%= raw(@moment.fix) %>
   </p>
 <% end %>
 

@@ -15,8 +15,8 @@
     <% end %>
 
       <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
-       
-      <%= simple_format(mood.description[0..80]) %>
+
+      <%= raw(mood.description[0..80]) %>
       <% if mood.description.length >= 80 %>
         <%= " [...]" %>
       <% end %>
@@ -26,7 +26,7 @@
     </div>
   <% end %>
 <% else %>
-  You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+  You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some!
   <br>You can also add the following premade moods and customize them another time.
 
   <div class="actions align_right">
@@ -37,8 +37,8 @@
 
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
-     
-    <%= simple_format(t('moods.index.premade1_description')[0..80]) %>
+
+    <%= raw(t('moods.index.premade1_description')[0..80]) %>
     <% if t('moods.index.premade1_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -46,8 +46,8 @@
 
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
-     
-    <%= simple_format(t('moods.index.premade2_description')[0..80]) %>
+
+    <%= raw(t('moods.index.premade2_description')[0..80]) %>
     <% if t('moods.index.premade2_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -55,8 +55,8 @@
 
   <div class="mood">
     <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
-     
-    <%= simple_format(t('moods.index.premade3_description')[0..80]) %>
+
+    <%= raw(t('moods.index.premade3_description')[0..80]) %>
     <% if t('moods.index.premade3_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -64,8 +64,8 @@
 
   <div class="mood no_margin_bottom">
     <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
-     
-    <%= simple_format(t('moods.index.premade4_description')[0..80]) %>
+
+    <%= raw(t('moods.index.premade4_description')[0..80]) %>
     <% if t('moods.index.premade4_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>

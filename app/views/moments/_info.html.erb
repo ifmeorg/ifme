@@ -50,12 +50,12 @@
 <% if local_assigns[:home] %>
   <div class="spacer"></div>
   <% if local_assigns[:data].class.name == 'Moment' %>
-  <%= raw simple_format(local_assigns[:data].why[0..200]) %>
+  <%= raw(local_assigns[:data].why[0..200]) %>
   <% if local_assigns[:data].why.length >= 200 %>
     <%= " [...]" %>
   <% end %>
   <% elsif local_assigns[:data].class.name == 'Strategy' %>
-  <%= raw simple_format(local_assigns[:data].description[0..200]) %>
+  <%= raw(local_assigns[:data].description[0..200]) %>
   <% if local_assigns[:data].description.length >= 200 %>
     <%= " [...]" %>
   <% end %>
@@ -63,6 +63,7 @@
 <% end %>
 
 <% if local_assigns[:class_name] %>
+<br>
 <div class="align_right subtle" id="class_name">
 <% if local_assigns[:data].class.name == 'Moment' %>
   Moment

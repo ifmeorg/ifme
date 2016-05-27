@@ -1,4 +1,4 @@
-<%= simple_format(local_assigns[:meeting].description) %>
+<%= raw(local_assigns[:meeting].description) %>
 <strong><%= t('groups.show.location') %></strong>
 <% if local_assigns[:meeting].location.include? "http://" or local_assigns[:meeting].location.include? "https://" or local_assigns[:meeting].location.include? "www." %>
 	<%= link_to local_assigns[:meeting].location, local_assigns[:meeting].location %>

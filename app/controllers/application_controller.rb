@@ -268,7 +268,7 @@ class ApplicationController < ActionController::Base
     comment_info += ' ' + t('shared.comments.on_date') + ' '
     comment_info += local_time(data.created_at, '%A, %B %e, %Y at %l:%M %P')
 
-    comment_text = simple_format(data.comment)
+    comment_text = raw(data.comment)
 
     if data_type == 'moment'
       moment_user = Moment.where(id: data.commented_on).first.userid

@@ -34,6 +34,8 @@ if (typeof(CKEDITOR) != 'undefined') {
 
     config.allowedContent = true;
 
+    config.enterMode = CKEDITOR.ENTER_BR;
+
     // Rails CSRF token
     config.filebrowserParams = function(){
       var csrf_token, csrf_param, meta,

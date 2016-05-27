@@ -15,8 +15,8 @@
     <% end %>
 
       <h1 class="category_name"><%= link_to category.name, category %></h1>
-       
-      <%= simple_format(category.description[0..80]) %>
+
+      <%= raw(category.description[0..80]) %>
       <% if category.description.length >= 80 %>
         <%= " [...]" %>
       <% end %>
@@ -26,7 +26,7 @@
     </div>
   <% end %>
 <% else %>
-  You haven't created any custom categories yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+  You haven't created any custom categories yet. Click <i class="fa fa-plus-circle"></i> to add some!
   <br>You can also add the following premade categories and customize them another time.
 
   <div class="actions align_right">
@@ -37,8 +37,8 @@
 
   <div class="category">
     <h1 class="category_name"><%= t('categories.index.premade1_name') %></h1>
-     
-    <%= simple_format(t('categories.index.premade1_description')[0..80]) %>
+
+    <%= raw(t('categories.index.premade1_description')[0..80]) %>
     <% if t('categories.index.premade1_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -46,8 +46,8 @@
 
   <div class="category">
     <h1 class="category_name"><%= t('categories.index.premade2_name') %></h1>
-     
-    <%= simple_format(t('categories.index.premade2_description')[0..80]) %>
+
+    <%= raw(t('categories.index.premade2_description')[0..80]) %>
     <% if t('categories.index.premade2_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -55,8 +55,8 @@
 
   <div class="category">
     <h1 class="category_name"><%= t('categories.index.premade3_name') %></h1>
-     
-    <%= simple_format(t('categories.index.premade3_description')[0..80]) %>
+
+    <%= raw(t('categories.index.premade3_description')[0..80]) %>
     <% if t('categories.index.premade3_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>
@@ -64,8 +64,8 @@
 
   <div class="category no_margin_bottom">
     <h1 class="category_name"><%= t('categories.index.premade4_name') %></h1>
-     
-    <%= simple_format(t('categories.index.premade4_description')[0..80]) %>
+
+    <%= raw(t('categories.index.premade4_description')[0..80]) %>
     <% if t('categories.index.premade4_description').length >= 80 %>
       <%= " [...]" %>
     <% end %>

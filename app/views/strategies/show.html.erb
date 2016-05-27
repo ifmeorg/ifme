@@ -18,7 +18,7 @@
 
 <% if !@strategy.description.blank? %>
   <p>
-    <%= simple_format(@strategy.description) %>
+    <%= raw(@strategy.description) %>
   </p>
 <% end %>
 
