@@ -24,6 +24,7 @@ FactoryGirl.define do
     time "Test Time"
     maxmembers 1
     date Date.tomorrow
+    sequence(:groupid)
   end
 
   factory :bad_group, class: Group do
