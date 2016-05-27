@@ -1,28 +1,5 @@
 <% if !user_signed_in? %>
-	<div id="version">
-		We're constantly improving our app! Wanna <%= link_to('help', contributors_path) %>?
-	</div>
-	<div class="center">
-		<div class="message">
-			<div class="message_row">
-				<div class="message_cell">
-					<div id="book"></div>
-					<div class="icon_border"></div>
-					Share your stories with loved ones and get the support you deserve
-				</div>
-				<div class="message_cell">
-					<div id="you"></div>
-					<div class="icon_border"></div>
-					Be you, no strings attached and with security
-				</div>
-				<div class="message_cell no_margin_bottom">
-					<div id="time"></div>
-					<div class="icon_border"></div>
-					Document your moods, medications, and self-care
-				</div>
-			</div>
-		</div>
-	</div>
+	<%= render :partial => 'not_signed_in' %>
 <% elsif @moments.count > 0 %>
 	<%= render :partial => '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
 
@@ -55,43 +32,5 @@
 		<% end %>
 	<% end %>
 <% else %>
-	<div id="version">
-		Welcome <%= current_user.name %>! Here are some things to get you started with sharing your stories!
-	</div>
-	<div class="table" id="onboarding">
-		<div class="table_row">
-			<div class="table_cell message_cell center_div vertical_align_middle padding_bottom">
-				<div id="you"></div>
-			</div>
-
-			<div class="table_cell padding_bottom vertical_align_middle onboarding_message">
-				Customize your <%= link_to(t('.profile_word'), edit_user_registration_path) %> - add a bio and profile picture
-				<br>Add custom <%= link_to(t('.moods_word'), moods_path) %> to best describe your emotions
-				<br>Add <%= link_to(t('.allies_word'), allies_path) %> - friends, family, and others who you want to share with
-			</div>
-		</div>
-
-		<div class="table_row">
-			<div class="table_cell message_cell center_div vertical_align_middle padding_bottom">
-				<div id="book"></div>
-			</div>
-
-			<div class="table_cell padding_bottom vertical_align_middle onboarding_message">
-				Is it easier to categorize your life? Create custom <%= link_to(t('.categories_word'), categories_path) %> to help organize your moments
-				<br>Write about the <%= link_to(t('.moments_word'), moments_path) %> - the events and situations that affect your mental health
-				<br><%= link_to(t('.strategize_word'), strategies_path) %> your self-care plan!
-				<br>Need extra support? Join or create a <%= link_to(t('.groups_word'), groups_path) %> to open up
-			</div>
-		</div>
-
-		<div class="table_row">
-			<div class="table_cell message_cell center_div vertical_align_middle last_cell">
-				<div id="time"></div>
-			</div>
-
-			<div class="table_cell vertical_align_middle onboarding_message">
-				Currently taking <%= link_to(t('.medication_word'), medications_path) %>? Keep track of it and add alerts to your Google calendar!
-			</div>
-		</div>
-	</div>
+	<%= render :partial => 'signed_in_empty' %>
 <% end %>
