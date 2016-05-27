@@ -21,7 +21,7 @@
       <% end %>
     </h1>
 
-    <div class="notification_wrapper">
+    <div class="notification_wrapper small_margin_bottom">
       <strong class="tip_notifications_button">
         <i class="fa fa-list small_margin_right"></i>
         <%= group.group_members.count %>
@@ -33,16 +33,14 @@
       </strong>
       <%= render_group_member_partial(group.group_members) %>
     </div>
-    <br>
 
     <%= strip_tags(group.description[0..80]) %>
     <% if group.description.length >= 80 %>
       <%= " [...]" %>
     <% end %>
 
-    <% if true %>
-      <br>
-      <br>
+    <% if user_is_leader || (!user_is_leader || group.group_members.count > 1) || (user_is_leader && group.group_members.count == 1) %>
+      <div class="small_margin_top">
       <% if user_is_leader %>
         <i class="fa fa-pencil action"></i>
         <%= edit_group_link(group) %>
@@ -55,6 +53,7 @@
         <i class="fa fa-trash-o action"></i>
         <%= delete_group_link(group) %>
       <% end %>
+      </div>
     <% end %>
     </div>
   <% end %>
@@ -79,24 +78,29 @@
         <%= link_to group.name, group %>
       </h1>
 
-      <strong class="tip_notifications_button">
-        <i class="fa fa-list small_margin_right"></i>
-        <%= number_of_members = group.group_members.count %>
-        <% if number_of_members == 1 %>
-          <%= t('groups.index.member') %>
-        <% else %>
-          <%= t('groups.index.members') %>
-        <% end %>
-      </strong>
+      <div class="notification_wrapper small_margin_bottom">
+        <strong class="tip_notifications_button">
+          <i class="fa fa-list small_margin_right"></i>
+          <%= number_of_members = group.group_members.count %>
+          <% if number_of_members == 1 %>
+            <%= t('groups.index.member') %>
+          <% else %>
+            <%= t('groups.index.members') %>
+          <% end %>
+        </strong>
 
-      <%= render_group_member_partial(group.group_members) %>
+        <%= render_group_member_partial(group.group_members) %>
+      </div>
+
       <%= strip_tags(group.description[0..80]) %>
 
       <% if group.description.length >= 80 %>
         <%= " [...]" %>
       <% end %>
 
-      <%= join_group_link(group) %>
+      <div class="small_margin_top">
+        <%= join_group_link(group) %>
+      </div>
     </div>
   <% end %>
 <% end %>
