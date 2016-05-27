@@ -26,6 +26,10 @@ FactoryGirl.define do
     date Date.tomorrow
   end
 
+  factory :bad_group, class: Group do
+    name "Test Group"
+  end
+
   factory :group do
     name "Test Group"
     description "Group description"
