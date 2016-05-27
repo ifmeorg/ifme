@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
     @group_members = @group.group_members
     @is_group_member = @group.users.include? current_user
     if @is_group_member
-      @meetings = @group.meetings.order('created_at DESC')
+      @meetings = @group.meetings.includes(:leaders)
     end
     @group_leaders = @group.group_members.includes(:user).where(leader: true)
     @current_user_is_leader = @group.led_by?(current_user)
