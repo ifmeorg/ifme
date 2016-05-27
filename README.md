@@ -239,7 +239,7 @@ Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are working on!
 
-**In the spirit of open communication and community, we highly recommend that new contributors write blurb on themselves, what mental health means to them, and why they are part of if me.**
+**In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.**
 
 This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/contributors/firstname_lastname.png`!
 
