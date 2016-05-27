@@ -83,19 +83,6 @@ en:
    update_account: 'Customize your account'
    if: 'if'
    me: 'me'
-   footer_about: 'About'
-   footer_blog: 'Blog'
-   footer_contributors: 'Contributors'
-   footer_privacy: 'Privacy Policy'
-   github: 'GitHub'
-   twitter: 'Twitter'
-   patreon: 'Patreon'
-   feedback: 'Feedback?'
-   copyright: 'Copyright'
-   faq: 'FAQ'
-   app_name: 'if me'
-   connect: 'connect'
-   email: 'Email'
 
  medications:
   form:
@@ -213,6 +200,20 @@ en:
    confirm: 'Are you sure?'
 
  shared:
+  footer:
+    footer_about: 'About'
+    footer_blog: 'Blog'
+    footer_contributors: 'Contributors'
+    footer_privacy: 'Privacy Policy'
+    github: 'GitHub'
+    twitter: 'Twitter'
+    patreon: 'Patreon'
+    feedback: 'Feedback?'
+    copyright: 'Copyright'
+    faq: 'FAQ'
+    app_name: 'if me'
+    connect: 'connect'
+    email: 'Email'
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with '
