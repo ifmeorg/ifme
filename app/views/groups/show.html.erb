@@ -3,35 +3,31 @@
 <div class="notification_wrapper">
   <strong class="tip_notifications_button">
     <i class="fa fa-list small_margin_right"></i>
-    <%= GroupMember.where(groupid: @group.id).count %>
-    <% if GroupMember.where(groupid: @group.id).count == 1 %>
+    <%= @group_members.count %>
+    <% if @group_members.count == 1 %>
       <%= t('.member') %>
     <% else %>
       <%= t('.members') %>
     <% end %>
   </strong>
 
-  <%= render :partial => '/notifications/members',
-    locals: { data: GroupMember.where(groupid: @group.id).all } %>
+  <%= render_group_member_partial(@group_members) %>
 </div>
 
 <strong>
   <i class="fa fa-key small_margin_right"></i>
   <%= t('.led_by') %>
 </strong>
-<% is_leader = false %>
-<% @group_leaders.each_with_index do |leader, index| %>
-  <% if leader.userid == current_user.id %>
-    <% is_leader = true %>
+
+<% @group_leaders.each do |leader| %>
+  <% if leader == current_user %>
     <%= link_to t('.self'), profile_index_path(uid: get_uid(leader.userid)) %>
   <% else %>
-    <%= link_to User.where(id: leader.userid).first.name,
+    <%= link_to leader.user.name,
                 profile_index_path(uid: get_uid(leader.userid)) %>
   <% end %>
 
-  <% if index + 1 < @group_leaders.length %>
-    <%= ', ' %>
-  <% end %>
+  <%= ',' unless leader == @group_leaders.last %>
 <% end %>
 
 <% if @group_deletable %>
@@ -56,7 +52,7 @@
       <div class="meeting">
     <% end %>
 
-      <% if is_leader %>
+      <% if @current_user_is_leader %>
         <h1 class="meeting_name">
           <%= link_to meeting.name, meeting_path(meeting) %>
           <% if MeetingMember.where(meetingid: meeting.id,

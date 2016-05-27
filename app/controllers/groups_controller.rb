@@ -18,15 +18,16 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @page_title = @group.name
-    @is_group_member = current_user.groups.include? @group
+    @group_members = @group.group_members
+    @is_group_member = @group.users.include? current_user
     if @is_group_member
       @meetings = @group.meetings.order('created_at DESC')
     end
-    @group_leaders = @group.group_members.where(leader: true)
-    current_user_is_leader = @group.led_by?(current_user)
-    @group_deletable = current_user_is_leader && @group.group_members.count == 1
+    @group_leaders = @group.group_members.includes(:user).where(leader: true)
+    @current_user_is_leader = @group.led_by?(current_user)
+    @group_deletable = @current_user_is_leader && @group.group_members.count == 1
 
-    if current_user_is_leader
+    if @current_user_is_leader
       @page_new = new_meeting_path(groupid: @group.id)
       @page_tooltip = "New meeting"
     end
