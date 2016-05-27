@@ -24,8 +24,8 @@ module GroupsHelper
             id: 'join'
   end
 
-  def render_group_member_partial(group)
+  def render_group_member_partial(members)
     render partial: '/notifications/members',
-           locals: { data: group.group_members }
+           locals: { data: members }
   end
 end
