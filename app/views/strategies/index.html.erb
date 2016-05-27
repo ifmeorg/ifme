@@ -11,7 +11,7 @@
     <%= render :partial => '/shared/moments_strategies', locals: { items: @strategies, item: strategy, data_type: 'strategy' } %>
   <% end %>
 <% else %>
-  You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+  You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some!
   <br>You can also add the following premade strategy and customize it another time.
 
   <div class="actions align_right">
@@ -21,7 +21,10 @@
   <div class="clear"></div>
 
   <div class="strategy no_margin_bottom">
-    <h1 class="strategy_name"><%= t('strategies.index.premade1_name') %></h1>
+    <h1 class="strategy_name">
+      <span class="yes_title small_margin_right" title="Control who can view and comment"><i class="fa fa-lock"></i></span>
+      <%= t('strategies.index.premade1_name') %>
+    </h1>
 
     <%= raw t('strategies.index.premade1_description')[0..80] %>
     <% if t('strategies.index.premade1_description').length >= 80 %>

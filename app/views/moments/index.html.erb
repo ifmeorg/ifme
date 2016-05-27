@@ -9,7 +9,21 @@
     <%= render :partial => '/shared/moments_strategies', locals: { items: @moments, item: moment, data_type: 'moment' } %>
   <% end %>
 <% else %>
-You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></i> to add some!
 <br>
-<br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to!
+<br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment.
+
+<div class="spacer"></div>
+
+<div class="moment no_margin_bottom">
+	<h1 class="moment_name">
+    	<span class="yes_title small_margin_right" title="Control who can view and comment"><i class="fa fa-lock"></i></span>
+    	Panicking over interview tomorrow!
+  	</h1>
+
+  	<strong><%= t('moments.show.created') %></strong> Thursday, May 26, 2016 at 6:24 pm
+  	<br><strong><%= t('moments.index.category') %></strong> Career
+  	<br><strong><%= t('moments.index.moods') %></strong> Nervous, Anxious, Hopeful
+</div>
+
 <% end %>
