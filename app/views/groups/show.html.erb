@@ -21,10 +21,9 @@
 
 <% @group_leaders.each do |leader| %>
   <% if leader == current_user %>
-    <%= link_to t('.self'), profile_index_path(uid: get_uid(leader.userid)) %>
+    <%= link_to t('.self'), profile_index_path(uid: leader.uid) %>
   <% else %>
-    <%= link_to leader.user.name,
-                profile_index_path(uid: get_uid(leader.userid)) %>
+    <%= link_to leader.name, profile_index_path(uid: leader.uid) %>
   <% end %>
 
   <%= ',' unless leader == @group_leaders.last %>

@@ -45,4 +45,31 @@ describe Group do
       end
     end
   end
+
+  describe ".leaders" do
+    context "when group has leaders" do
+      it "returns the leaders" do
+        leader = create :user1
+        non_leader = create :user2
+        group = create :group_with_member, userid: leader.id, leader: true
+        create :group_member, userid: non_leader.id, groupid: group.id,
+                              leader: false
+
+        result = group.leaders
+
+        expect(result).to eq [leader]
+      end
+    end
+
+    context "when group has no leaders" do
+      it "returns an empty array" do
+        non_leader = create :user1
+        group = create :group_with_member, userid: non_leader.id, leader: false
+
+        result = group.leaders
+
+        expect(result).to eq []
+      end
+    end
+  end
 end

@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
     if @is_group_member
       @meetings = @group.meetings.includes(:leaders)
     end
-    @group_leaders = @group.group_members.includes(:user).where(leader: true)
+    @group_leaders = @group.leaders
     @current_user_is_leader = @group.led_by?(current_user)
     @group_deletable = @current_user_is_leader && @group.group_members.count == 1
 
