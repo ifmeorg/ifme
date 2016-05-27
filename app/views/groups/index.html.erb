@@ -33,23 +33,28 @@
       </strong>
       <%= render_group_member_partial(group.group_members) %>
     </div>
+    <br>
 
     <%= strip_tags(group.description[0..80]) %>
     <% if group.description.length >= 80 %>
       <%= " [...]" %>
     <% end %>
 
-    <% if user_is_leader %>
-      <i class="fa fa-pencil action"></i>
-      <%= edit_group_link(group) %>
-    <% end %>
-    <% if !user_is_leader || group.group_members.count > 1 %>
-      <i class="fa fa-times action"></i>
-      <%= leave_group_link(group) %>
-    <% end %>
-    <% if user_is_leader && group.group_members.count == 1 %>
-      <i class="fa fa-trash-o action"></i>
-      <%= delete_group_link(group) %>
+    <% if true %>
+      <br>
+      <br>
+      <% if user_is_leader %>
+        <i class="fa fa-pencil action"></i>
+        <%= edit_group_link(group) %>
+      <% end %>
+      <% if !user_is_leader || group.group_members.count > 1 %>
+        <i class="fa fa-times action"></i>
+        <%= leave_group_link(group) %>
+      <% end %>
+      <% if user_is_leader && group.group_members.count == 1 %>
+        <i class="fa fa-trash-o action"></i>
+        <%= delete_group_link(group) %>
+      <% end %>
     <% end %>
     </div>
   <% end %>

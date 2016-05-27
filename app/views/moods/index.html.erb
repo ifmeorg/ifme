@@ -21,7 +21,8 @@
         <%= " [...]" %>
       <% end %>
 
-      <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>
+      <br>
+      <br><i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_mood_path(mood) %>
       <i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', mood, method: :delete, data: { confirm: t('.confirm') } %>
     </div>
   <% end %>
