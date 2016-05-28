@@ -1,4 +1,7 @@
+<div class="small_margin_bottom">
 <%= raw(local_assigns[:meeting].description) %>
+</div>
+
 <strong><%= t('groups.show.location') %></strong>
 <% if local_assigns[:meeting].location.include? "http://" or local_assigns[:meeting].location.include? "https://" or local_assigns[:meeting].location.include? "www." %>
 	<%= link_to local_assigns[:meeting].location, local_assigns[:meeting].location %>
