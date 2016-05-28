@@ -20,16 +20,11 @@
 </strong>
 
 <% @group.leaders.each do |leader| %>
-  <% if leader == current_user %>
-    <%= link_to t('.self'), profile_index_path(uid: leader.uid) %>
-  <% else %>
-    <%= link_to leader.name, profile_index_path(uid: leader.uid) %>
-  <% end %>
-
+  <%= leader_link(leader) %>
   <%= ',' unless leader == @group.leaders.last %>
 <% end %>
 
-<% if @group.led_by?(current_user) && @group.group_members.count == 1 %>
+<% if group_is_deletable? @group %>
   <%= delete_group_link(@group, class: 'align_right') %>
 <% elsif @group.users.include? current_user %>
   <%= leave_group_link(@group, class: 'align_right') %>
@@ -39,34 +34,16 @@
 
 <div class="clear"></div>
 
-<% if !@meetings.blank? && @meetings.length > 0 %>
+<% if @meetings.present? %>
   <div class="spacer"></div>
   <% @meetings.each do |meeting| %>
-    <% user_is_meeting_leader = meeting.leaders.include? current_user %>
-
-    <% if @meetings.last == meeting %>
-      <div class="meeting no_margin_bottom">
-    <% else %>
-      <div class="meeting">
-    <% end %>
-
-      <% if @current_user_is_leader %>
-        <h1 class="meeting_name">
-          <%= link_to meeting.name, meeting_path(meeting) %>
-          <% if user_is_meeting_leader %>
-            <%= link_to raw('<i class="fa fa-pencil"></i>'),
-              edit_meeting_path(meeting),
-              class: 'align_right display_inline_block' %>
-          <% end %>
-        </h1>
-      <% else %>
-        <h1 class="meeting_name">
-          <%= link_to meeting.name, meeting_path(meeting) %>
-        </h1>
-      <% end %>
-      <%= render partial: '/shared/meeting_info',
-                 locals: { meeting: meeting,
-                           is_leader: user_is_meeting_leader } %>
+    <div class="meeting <%= 'no_margin_bottom' if meeting == @meetings.last %>">
+      <h1 class="meeting_name">
+        <%= link_to meeting.name, meeting_path(meeting) %>
+        <%= edit_meeting_link(meeting,
+                                  class: 'align_right display_inline_block') %>
+      </h1>
+      <%= render_meeting_partial(meeting) %>
     </div>
   <% end %>
 <% end %>

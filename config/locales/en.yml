@@ -70,7 +70,7 @@ en:
    location: 'Location:'
    date: 'Date:'
    time: 'Time:'
-   delete: 'Cancel meeting'
+   cancel_meeting: 'Cancel meeting'
    confirm: 'Are you sure?'
    leave: 'Leave?'
    leave_cta: 'Leave?'

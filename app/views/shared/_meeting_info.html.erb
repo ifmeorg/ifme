@@ -27,5 +27,5 @@
 <% if local_assigns[:is_leader] %>
 <br>
 <br>
-<i class="fa fa-trash-o action"></i><%= link_to t('groups.show.delete'), local_assigns[:meeting], method: :delete, data: { confirm: t('groups.show.confirm') } %>
+<i class="fa fa-trash-o action"></i><%= link_to t('groups.show.cancel_meeting'), local_assigns[:meeting], method: :delete, data: { confirm: t('groups.show.confirm') } %>
 <% end %>
