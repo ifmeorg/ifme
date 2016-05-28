@@ -19,7 +19,7 @@ DEFAULT_FROM_ADDRESS: "yourmail@gmail.com"
 # Configuration values for Oauth through Google
 GOOGLE_CLIENT_ID: ""
 GOOGLE_CLIENT_SECRET: ""
-GOOGLE_APP_NAME: #this is the project name you configured when setting up your google client application
+GOOGLE_APP_NAME: "" #this is the project name you configured when setting up your google client application
 
 # Configuration values for pusher
 PUSHER_APP_ID: ""
