@@ -25,7 +25,6 @@ class GroupsController < ApplicationController
     end
     @group_leaders = @group.leaders
     @current_user_is_leader = @group.led_by?(current_user)
-    @group_deletable = @current_user_is_leader && @group.group_members.count == 1
 
     if @current_user_is_leader
       @page_new = new_meeting_path(groupid: @group.id)

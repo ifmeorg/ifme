@@ -29,15 +29,12 @@
   <%= ',' unless leader == @group_leaders.last %>
 <% end %>
 
-<% if @group_deletable %>
-  <%= link_to t('.delete'), @group, method: :delete, class: 'align_right',
-              data: { confirm: t('.confirm') } %>
+<% if @current_user_is_leader && @group_members.count == 1 %>
+  <%= delete_group_link(@group, class: 'align_right') %>
 <% elsif @is_group_member %>
-  <%= link_to t('.leave_cta'), leave_groups_path(groupid: @group.id),
-              class: 'align_right', id: 'leave' %>
+  <%= leave_group_link(@group, class: 'align_right') %>
 <% else %>
-  <%= link_to t('.join_cta'), join_groups_path(groupid: @group.id),
-              id: 'join', class: 'align_right' %>
+  <%= join_group_link(@group, class: 'align_right') %>
 <% end %>
 
 <div class="clear"></div>
