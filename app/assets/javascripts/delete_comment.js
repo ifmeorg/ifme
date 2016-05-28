@@ -1,6 +1,6 @@
 $(document).on("page:load ready", function() {
 
-	if (newOrEdit(['moments', 'strategies', 'meetings'])) {
+	if (isShow(['moments', 'strategies', 'meetings'])) {
 		$(document).on('click', '.delete_comment_button', function(event) {
 			event.preventDefault();
 
