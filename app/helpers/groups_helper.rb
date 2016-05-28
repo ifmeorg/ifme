@@ -8,20 +8,21 @@ module GroupsHelper
             class: 'small_margin_right'
   end
 
-  def delete_group_link(group)
-    link_to t('groups.index.delete'), group,
-            method: :delete,
-            data: { confirm: t('groups.index.confirm') }
+  def delete_group_link(group, attrs = {})
+    link_to t('.delete'), group,
+            { method: :delete,
+              data: { confirm: t('.confirm') }
+            }.merge(attrs)
   end
 
-  def leave_group_link(group)
-    link_to t('groups.index.leave'), leave_groups_path(groupid: group.id),
-            id: 'leave'
+  def leave_group_link(group, attrs = {})
+    link_to t('.leave'), leave_groups_path(groupid: group.id),
+            { id: 'leave' }.merge(attrs)
   end
 
-  def join_group_link(group)
-    link_to t('groups.index.join'), join_groups_path(groupid: group.id),
-            id: 'join'
+  def join_group_link(group, attrs = {})
+    link_to t('.join'), join_groups_path(groupid: group.id),
+            { id: 'join' }.merge(attrs)
   end
 
   def render_group_member_partial(members)
