@@ -32,13 +32,17 @@ en:
    premade4_name: 'Meditation'
    premade4_description: 'Meditation, deep breathing, and relaxing activities'
 
+ warnings:
+  no_description: "You didn't write a description!"
+  yes_description: "Writing one can help you and others better understand in detail"
+
  errors:
   internal_server_error:
    header_message: 'This page cannot be displayed'
-   home_page: 'Return to home page'
+   home_page: 'Return home'
   not_found:
-   header_message: 'The page you are looking for does not exist'
-   home_page: 'Return to home page'
+   header_message: 'This page does not exist'
+   home_page: 'Return home'
 
  groups:
   form:
