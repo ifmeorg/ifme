@@ -1,7 +1,7 @@
 $(document).on("page:load ready", function() {
   /* Pusher */
   var pusher;
-  
+
   $.ajax({
     dataType: "json",
     url: "/notifications/signed_in",
@@ -69,7 +69,7 @@ $(document).on("page:load ready", function() {
     } else {
       hideCategoriesMoods();
     }
-  }); 
+  });
 
   $('#close_categories_moods').click(function() {
     hideCategoriesMoods();
@@ -142,21 +142,30 @@ $(document).on("page:load ready", function() {
   });
 
   $('#new_category').submit(function() {
-    if ($('body').hasClass('moments new') || $('body').hasClass('strategies new')) {
+    if ($('body').hasClass('moments new') ||
+      $('body').hasClass('moments edit') ||
+      $('body').hasClass('strategies new') ||
+      $('body').hasClass('strategies edit')) {
       quickCreate(this, 'category');
       return false;
     }
   });
 
   $('#new_mood').submit(function() {
-    if ($('body').hasClass('moments new')) {
+    if ($('body').hasClass('moments new') ||
+      $('body').hasClass('moments edit') ||
+      $('body').hasClass('strategies new') ||
+      $('body').hasClass('strategies edit')) {
       quickCreate(this, 'mood');
       return false;
     }
   });
 
-  $('#new_strategy').submit(function() { 
-    if ($('body').hasClass('moments new')) {
+  $('#new_strategy').submit(function() {
+    if ($('body').hasClass('moments new') ||
+      $('body').hasClass('moments edit') ||
+      $('body').hasClass('strategies new') ||
+      $('body').hasClass('strategies edit')) {
       quickCreate(this, 'strategy');
       return false;
     }
@@ -173,9 +182,9 @@ function renderNotifications(notifications) {
     var uniqueid = notification.uniqueid;
     var data = JSON.parse(notification.data);
 
-    if (data.type == 'comment_on_moment' || 
+    if (data.type == 'comment_on_moment' ||
       data.type == 'comment_on_strategy' ||
-      data.type == 'comment_on_moment_private' || 
+      data.type == 'comment_on_moment_private' ||
       data.type == 'comment_on_strategy_private' ||
       data.type == 'comment_on_meeting') {
       var type_name;
@@ -229,7 +238,7 @@ function renderNotifications(notifications) {
       data.type == 'remove_group_leader' ||
       data.type == 'new_meeting' ||
       data.type == 'remove_meeting' ||
-      data.type == 'update_meeting' || 
+      data.type == 'update_meeting' ||
       data.type == 'join_meeting') {
       var notification;
 
@@ -255,7 +264,7 @@ function renderNotifications(notifications) {
       var link = '/groups/' + data.groupid;
 
       if (data.type == 'new_meeting' ||
-        data.type == 'update_meeting' || 
+        data.type == 'update_meeting' ||
         data.type == 'join_meeting') {
         link = '/meetings/' + data.meetingid;
       }
@@ -337,14 +346,14 @@ function quickCreate(form, data_type) {
   }).success(function(json) {
       // Update moments/strategies form
       if (data_type == 'category') {
-        $('#categories_list').append(json.checkbox);
-        $('#categories_list').append(json.label);
+        $('#categories_list').prepend(json.label);
+        $('#categories_list').prepend(json.checkbox);
       } else if (data_type == 'mood') {
-        $('#moods_list').append(json.checkbox);
-        $('#moods_list').append(json.label);
+        $('#moods_list').prepend(json.label);
+        $('#moods_list').prepend(json.checkbox);
       } else if (data_type == 'strategy') {
-        $('#strategies_list').append(json.checkbox);
-        $('#strategies_list').append(json.label);
+        $('#strategies_list').prepend(json.label);
+        $('#strategies_list').prepend(json.checkbox);
       }
 
        $('.quick_create_close').click();

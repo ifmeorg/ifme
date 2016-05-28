@@ -154,8 +154,8 @@
 
 <% end %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category } %>
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'moment' } %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'mood', data: @mood } %>
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'mood', data: @mood , tag: 'moment' } %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy } %>
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy, tag: 'moment' } %>
