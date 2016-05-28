@@ -1,10 +1,7 @@
-<% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' ||local_assigns[:data_type] == 'strategy' %>
+<% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
 
-<% if local_assigns[:data_type] == 'strategy' %>
-<div id="tag_usage" class="small_margin_top">
-<% else %>
-<div id="tag_usage">
-<% end %>
+	<div id="tag_usage" class="small_margin_top">
+
 	<% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:userid]) %>
 
 	<% if local_assigns[:data_type] == 'category' %>
@@ -64,5 +61,4 @@
 	<% end %>
 
 </div>
-
 <% end %>
