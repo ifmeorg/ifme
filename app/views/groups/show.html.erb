@@ -3,15 +3,15 @@
 <div class="notification_wrapper">
   <strong class="tip_notifications_button">
     <i class="fa fa-list small_margin_right"></i>
-    <%= @group_members.count %>
-    <% if @group_members.count == 1 %>
+    <%= @group.group_members.count %>
+    <% if @group.group_members.count == 1 %>
       <%= t('.member') %>
     <% else %>
       <%= t('.members') %>
     <% end %>
   </strong>
 
-  <%= render_group_member_partial(@group_members) %>
+  <%= render_group_member_partial(@group.group_members) %>
 </div>
 
 <strong>
@@ -19,19 +19,19 @@
   <%= t('.led_by') %>
 </strong>
 
-<% @group_leaders.each do |leader| %>
+<% @group.leaders.each do |leader| %>
   <% if leader == current_user %>
     <%= link_to t('.self'), profile_index_path(uid: leader.uid) %>
   <% else %>
     <%= link_to leader.name, profile_index_path(uid: leader.uid) %>
   <% end %>
 
-  <%= ',' unless leader == @group_leaders.last %>
+  <%= ',' unless leader == @group.leaders.last %>
 <% end %>
 
-<% if @current_user_is_leader && @group_members.count == 1 %>
+<% if @group.led_by?(current_user) && @group.group_members.count == 1 %>
   <%= delete_group_link(@group, class: 'align_right') %>
-<% elsif @is_group_member %>
+<% elsif @group.users.include? current_user %>
   <%= leave_group_link(@group, class: 'align_right') %>
 <% else %>
   <%= join_group_link(@group, class: 'align_right') %>
