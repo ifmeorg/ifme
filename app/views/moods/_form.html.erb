@@ -7,7 +7,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.name') %>
+      <%= f.label t('.name'), for: 'mood_name' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>
@@ -16,9 +16,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description') %>
-      <i class="fa fa-exclamation-circle align_right"></i>
-      <div class="clear"></div>
+      <%= f.label t('.description'), for: 'mood_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>

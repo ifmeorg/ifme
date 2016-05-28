@@ -141,35 +141,24 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $('#new_category').submit(function() {
-    if ($('body').hasClass('moments new') ||
-      $('body').hasClass('moments edit') ||
-      $('body').hasClass('strategies new') ||
-      $('body').hasClass('strategies edit')) {
+  if (newOrEdit(['moments', 'strategies'])) {
+    $('#new_category').submit(function() {
       quickCreate(this, 'category');
       return false;
-    }
-  });
+    });
+  }
 
-  $('#new_mood').submit(function() {
-    if ($('body').hasClass('moments new') ||
-      $('body').hasClass('moments edit') ||
-      $('body').hasClass('strategies new') ||
-      $('body').hasClass('strategies edit')) {
+  if (newOrEdit(['moments'])) {
+    $('#new_mood').submit(function() {
       quickCreate(this, 'mood');
       return false;
-    }
-  });
+    });
 
-  $('#new_strategy').submit(function() {
-    if ($('body').hasClass('moments new') ||
-      $('body').hasClass('moments edit') ||
-      $('body').hasClass('strategies new') ||
-      $('body').hasClass('strategies edit')) {
+    $('#new_strategy').submit(function() {
       quickCreate(this, 'strategy');
       return false;
-    }
-  });
+    });
+  }
 });
 
 function renderNotifications(notifications) {

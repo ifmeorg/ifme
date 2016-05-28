@@ -16,10 +16,7 @@ $(document).on("page:load ready", function() {
 		});
 	}
 
-	if ($('body').hasClass('moments create') ||
-		$('body').hasClass('moments new') ||
-		$('body').hasClass('moments update') ||
-		$('body').hasClass('moments edit')) {
+	if (newOrEdit(['moments'])) {
 		noCKEditor($('#strategy_description'));
 
 		$('#strategy_description').bind('keyup', function() {
@@ -27,9 +24,7 @@ $(document).on("page:load ready", function() {
 		});
 	}
 
-	if ($('body').hasClass('moments show') ||
-		$('body').hasClass('strategies show') ||
-		$('body').hasClass('meetings show')) {
+	if (newOrEdit(['moments', 'strategies', 'meetings'])) {
 		$('#comment_comment').bind('keyup', function() {
 			noCKEditor($(this));
 		});

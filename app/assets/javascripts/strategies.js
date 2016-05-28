@@ -17,7 +17,7 @@ $(document).on("page:load ready", function() {
 		});
 	}
 
-	if ($('body').hasClass('strategies show')) {
+	if (newOrEdit(['strategies'])) {
 		$('#showTaggedMoments').click(function() {
 			$('#moment_tag_usage').removeClass('display_none');
 			$('#moment_tag_usage').addClass('display_block');

@@ -8,7 +8,7 @@
 <% if action_name == "new" || action_name == "create" %>
   <div class="field">
     <div class="label">
-      <%= f.label t('.name') %>
+      <%= f.label t('.name'), for: 'group_name' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>
@@ -17,7 +17,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description') %>
+      <%= f.label t('.description'), for: 'group_description' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>

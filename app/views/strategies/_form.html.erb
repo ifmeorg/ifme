@@ -11,7 +11,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.name') %>
+        <%= f.label t('.name'), for: 'strategy_name' %>
         <div class="align_right">
         <span class="yes_title" title="Any activity, train of thought, or form or self-care that helps you"><i class="fa fa-question-circle"></i></span>
         <i class="fa fa-exclamation-circle"></i>
@@ -72,7 +72,7 @@
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
-        <%= f.label t('.describe') %>
+        <%= f.label t('.describe'), for: 'strategy_description' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>

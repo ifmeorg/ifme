@@ -1,8 +1,6 @@
 $(document).on("page:load ready", function() {
 
-	if ($('body').hasClass('moments show') ||
-		$('body').hasClass('strategies show') ||
-		$('body').hasClass('meetings show')) {
+	if (isShow(['moments', 'strategies', 'meetings'])) {
 
 		$(document).on('click', '#add_comment_button', function(event) {
 			event.preventDefault();
@@ -11,15 +9,15 @@ $(document).on("page:load ready", function() {
 				$(this).prop('disabled', true);
 				$('#comment_comment').prop('disabled', true);
 				$(this).val('Posting comment...');
-				
+
 				if ($('.comment').length > 0) {
 					$('.actions').removeClass('no_margin_bottom');
 				}
 
 				var url;
-				if ($('body').hasClass('moments show')) {
+				if (isShow(['moments'])) {
 					url = '/moments/comment';
-				} else if ($('body').hasClass('strategies show')) {
+				} else if (isShow(['strategies'])) {
 					url = '/strategies/comment';
 				} else {
 					url = '/meetings/comment';
@@ -58,7 +56,7 @@ $(document).on("page:load ready", function() {
 					    		var comment_text = json.comment_text;
 					    		var visibility = json.visibility;
 					    		var delete_comment = json.delete_comment;
-					    		
+
 					    		// Remove no_margin_top on first comment
 					    		if ($('.comment').length > 0) {
 					    			$('.comment.no_margin_top').removeClass('no_margin_top');

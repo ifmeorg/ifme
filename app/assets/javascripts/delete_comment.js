@@ -1,11 +1,9 @@
 $(document).on("page:load ready", function() {
 
-	if ($('body').hasClass('moments show') ||
-		$('body').hasClass('strategies show') ||
-		$('body').hasClass('meetings show')) {
+	if (newOrEdit(['moments', 'strategies', 'meetings'])) {
 		$(document).on('click', '.delete_comment_button', function(event) {
 			event.preventDefault();
-			
+
 			var commentid = $(this).attr('id').replace('delete_comment_', '');
 			var comment = '#comment_' + commentid;
 			$(comment).remove();

@@ -29,12 +29,7 @@ $(document).on("page:load ready", function() {
 
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
-	if ($('body').hasClass('moments edit') ||
-		$('body').hasClass('moments create') ||
-		$('body').hasClass('moments new') ||
-		$('body').hasClass('strategies edit') ||
-		$('body').hasClass('strategies create') ||
-		$('body').hasClass('strategies new')) {
+	if (newOrEdit(['moments', 'strategies'])) {
 
 		$('#showCategories').click(function(event) {
 			event.preventDefault();
@@ -79,3 +74,27 @@ $(document).on("page:load ready", function() {
 		});
 	}
 });
+
+function newOrEdit(forms) {
+	var result = false;
+	_.each(forms, function(form) {
+		if ($('body').hasClass(form + ' new') || $('body').hasClass(form + ' create') || $('body').hasClass(form + ' edit') || $('body').hasClass(form + ' update')) {
+			result = true;
+			return;
+	    }
+	});
+
+	return result;
+}
+
+function isShow(forms) {
+	var result = false;
+	_.each(forms, function(form) {
+		if ($('body').hasClass(form + ' show')) {
+			result = true;
+			return;
+	    }
+	});
+
+	return result;
+}

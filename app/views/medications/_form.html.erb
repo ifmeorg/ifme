@@ -11,7 +11,7 @@
 
     <div class="field" >
       <div class="label">
-        <%= f.label t('.name') %>
+        <%= f.label t('.name'), for: 'medication_name' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -35,7 +35,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('.strength') %>
+        <%= f.label t('.strength'), for: 'medication_strength' %>
         <div class="align_right">
           <span class="yes_title" title="Medication strength, usually found beside the name"><i class="fa fa-question-circle"></i></span>
           <i class="fa fa-exclamation-circle"></i>
@@ -50,7 +50,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label :total %>
+        <%= f.label :total, for: 'medication_total' %>
         <div class="align_right">
           <span class="yes_title" title="Total number of pills or amount of medication"><i class="fa fa-question-circle"></i></span>
           <i class="fa fa-exclamation-circle"></i>
@@ -69,7 +69,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('.dosage') %>
+        <%= f.label t('.dosage'), for: 'medication_dosage' %>
         <div class="align_right">
           <span class="yes_title" title="Number of pills or servings daily"><i class="fa fa-question-circle"></i></span>
           <i class="fa fa-exclamation-circle"></i>
@@ -84,7 +84,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('.refill') %>
+        <%= f.label t('.refill'), for: 'medication_refill' %>
         <div class="align_right">
           <span class="yes_title" title="When to refill this prescription"><i class="fa fa-question-circle"></i></span>
           <i class="fa fa-exclamation-circle"></i>

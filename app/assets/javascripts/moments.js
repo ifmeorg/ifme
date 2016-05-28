@@ -1,5 +1,5 @@
 $(document).on("page:load ready", function() {
-	if ($('body').hasClass('moments new') || $('body').hasClass('moments edit') || $('body').hasClass('moments create') || $('body').hasClass('moments update')) {
+	if (newOrEdit(['moments'])) {
 		var NO_ALLIES = "Unselect all";
 		var ALL_ALLIES = "Select all";
 		$('#viewers_label').text(ALL_ALLIES);

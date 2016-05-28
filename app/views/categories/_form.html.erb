@@ -8,7 +8,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.name') %>
+      <%= f.label t('.name'), for: 'category_name' %>
       <div class="align_right">
         <span class="yes_title" title="Categorize recurring people, places, things, activities, and more"><i class="fa fa-question-circle"></i></span>
         <i class="fa fa-exclamation-circle"></i>
@@ -20,9 +20,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description') %>
-      <i class="fa fa-exclamation-circle align_right"></i>
-      <div class="clear"></div>
+      <%= f.label t('.description'), for: 'category_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
