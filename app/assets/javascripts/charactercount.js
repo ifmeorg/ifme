@@ -24,7 +24,7 @@ $(document).on("page:load ready", function() {
 		});
 	}
 
-	if (newOrEdit(['moments', 'strategies', 'meetings'])) {
+	if (isShow(['moments', 'strategies', 'meetings'])) {
 		$('#comment_comment').bind('keyup', function() {
 			noCKEditor($(this));
 		});
