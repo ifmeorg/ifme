@@ -35,9 +35,7 @@ Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of exis
 Getting Involved
 ---------------
 
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator, email join.ifme@gmail.com.
-
-Check out our Slack [page](https://ifme.slack.com) if you have any questions, ideas, or concerns!
+Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
 
 You can provide your feedback [here](http://goo.gl/forms/8EqoJDDiXY)!
 
@@ -189,17 +187,18 @@ Start the local server:
 ```
 rails s
 ```
-*** possible error for Linux users when attempting to run server:
+
+Possible error for Linux users when attempting to run server:
 ```
   	PG::ConnectionBad (fe_sendauth: no password supplied ):
 ```
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
 To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `application.yml`, then add username & password to `database.yml`:
 ```
-  	development: &default
-      ...
-  	  username: <%= ENV["PSQL_USERNAME"] %>
-  	  password: <%= ENV["PSQL_PASSWORD"] %>
+development: &default
+  ...
+  username: <%= ENV["PSQL_USERNAME"] %>
+  password: <%= ENV["PSQL_PASSWORD"] %>
 ```
 
 ### Accessing the Database
