@@ -1,27 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe GroupsController, :type => :controller do
+  include StubCurrentUserHelper
+
   describe "GET #index" do
     it "assigns groups to the groups that the user belongs to" do
-      user = create :user1
-      sign_in user
-      group = create :group
-      other_group = create :group
-      create :group_member, groupid: group.id, userid: user.id
-      create :group_member, groupid: other_group.id
+      stub_current_user
+      group = create :group_with_member, userid: controller.current_user.id
+      other_user = build_stubbed(:user2)
+      create :group_with_member, userid: other_user.id
 
       get :index
 
       expect(assigns(:groups)).to eq [group]
     end
+
+    context "when user isn't signed in" do
+      it "redirects to the sign in page" do
+        get :index
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 
   describe "GET #show" do
     context "when the group exists" do
+      let(:group) { create :group }
+
       it "sets the group" do
-        user = create :user1
-        sign_in user
-        group = create :group
+        stub_current_user
 
         get :show, id: group.id
 
@@ -29,20 +37,9 @@ RSpec.describe GroupsController, :type => :controller do
       end
 
       context "when user is member of the group" do
-        it "sets @is_group_member to true" do
-          user = create :user1
-          sign_in user
-          group = create :group_with_member, userid: user.id
-
-          get :show, id: group.id
-
-          expect(assigns(:is_group_member)).to be true
-        end
-
         it "sets @meetings to the group's meetings" do
-          user = create :user1
-          sign_in user
-          group = create :group_with_member, userid: user.id
+          create_current_user
+          group = create :group_with_member, userid: controller.current_user.id
           meeting = create :meeting, groupid: group.id
 
           get :show, id: group.id
@@ -54,12 +51,18 @@ RSpec.describe GroupsController, :type => :controller do
 
     context "when group doesn't exist" do
       it "redirects to the index" do
-        user = create :user1
-        sign_in user
-
-        get :show, id: 1
+        stub_current_user
+        get :show, id: 999
 
         expect(response).to redirect_to(groups_path)
+      end
+    end
+
+    context "when user isn't signed in" do
+      it "redirects to sign in" do
+        get :show, id: 999
+
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
