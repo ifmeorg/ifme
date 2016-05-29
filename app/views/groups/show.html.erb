@@ -1,41 +1,36 @@
 <div class="group_info">
-<div class="small_margin_bottom">
-<%= raw(@group.description) %>
-</div>
+  <div class="small_margin_bottom">
+    <%= raw(@group.description) %>
+  </div>
 
-<div class="notification_wrapper">
-  <strong class="tip_notifications_button">
-    <i class="fa fa-list small_margin_right"></i>
-    <%= @group.group_members.count %>
-    <% if @group.group_members.count == 1 %>
-      <%= t('.member') %>
-    <% else %>
-      <%= t('.members') %>
-    <% end %>
+  <div class="notification_wrapper">
+    <strong class="tip_notifications_button">
+      <i class="fa fa-list small_margin_right"></i>
+      <%= @group.group_members.count %>
+      <%= member_pluralized_for(@group) %>
+    </strong>
+    <%= render_group_member_partial(@group.group_members) %>
+  </div>
+
+  <strong>
+    <i class="fa fa-key small_margin_right"></i>
+    <%= t('.led_by') %>
   </strong>
 
-  <%= render_group_member_partial(@group.group_members) %>
-</div>
+  <% @group.leaders.each do |leader| %>
+    <%= leader_link(leader) %>
+    <%= ',' unless leader == @group.leaders.last %>
+  <% end %>
 
-<strong>
-  <i class="fa fa-key small_margin_right"></i>
-  <%= t('.led_by') %>
-</strong>
+  <% if user_can_delete? @group %>
+    <%= delete_group_link(@group, class: 'align_right') %>
+  <% elsif @group.users.include? current_user %>
+    <%= leave_group_link(@group, class: 'align_right') %>
+  <% else %>
+    <%= join_group_link(@group, class: 'align_right') %>
+  <% end %>
 
-<% @group.leaders.each do |leader| %>
-  <%= leader_link(leader) %>
-  <%= ',' unless leader == @group.leaders.last %>
-<% end %>
-
-<% if group_is_deletable? @group %>
-  <%= delete_group_link(@group, class: 'align_right') %>
-<% elsif @group.users.include? current_user %>
-  <%= leave_group_link(@group, class: 'align_right') %>
-<% else %>
-  <%= join_group_link(@group, class: 'align_right') %>
-<% end %>
-
-<div class="clear"></div>
+  <div class="clear"></div>
 </div>
 
 <% if @meetings.present? %>

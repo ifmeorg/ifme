@@ -50,18 +50,6 @@ RSpec.describe GroupsController, :type => :controller do
           expect(assigns(:meetings)).to eq [meeting]
         end
       end
-
-      context "when user is not a member of the group" do
-        it "sets @is_group_member to false" do
-          user = create :user1
-          sign_in user
-          group = create :group
-
-          get :show, id: group.id
-
-          expect(assigns(:is_group_member)).to be false
-        end
-      end
     end
 
     context "when group doesn't exist" do
