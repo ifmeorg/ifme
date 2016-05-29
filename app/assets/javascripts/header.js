@@ -39,7 +39,7 @@ $(document).on("page:load ready", function() {
     }
   });
 
-  $(':not(.expand_moment_button)').click(function() {
+  $('#header').mouseleave(function() {
     if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
       hideExpandMoment();
       setHeight();
