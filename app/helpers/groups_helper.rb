@@ -4,7 +4,19 @@ module GroupsHelper
     object.leaders.include? current_user
   end
 
-  def group_is_deletable?(group)
+  def member_pluralized_for(group)
+    group.group_members.count == 1 ? t('.member') : t('.members')
+  end
+
+  def user_can_edit?(group)
+    user_is_leader_of?(group)
+  end
+
+  def user_can_leave?(group)
+    !user_is_leader_of?(group) || group.group_members.count > 1
+  end
+
+  def user_can_delete?(group)
     user_is_leader_of?(group) && group.group_members.count == 1
   end
 

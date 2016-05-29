@@ -7,54 +7,38 @@
 <% if @groups.any? %>
   <h1 class="group_type">Joined Groups</h1>
   <% @groups.each do |group| %>
-    <% user_is_leader = user_is_leader_of?(group) %>
+    <div class="group <%= 'no_margin_bottom' if group == @groups.last %>">
+      <h1 class="group_name">
+        <%= link_to group.name, group %>
+        (<%= t('.leader') if user_is_leader_of? group %>)
+      </h1>
 
-    <% if @groups.last == group %>
-      <div class="group no_margin_bottom">
-    <% else %>
-      <div class="group">
-    <% end %>
-    <h1 class="group_name">
-      <%= link_to group.name, group %>
-      <% if user_is_leader %>
-        (<%= t('.leader') %>)
-      <% end %>
-    </h1>
-
-    <div class="notification_wrapper small_margin_bottom">
-      <strong class="tip_notifications_button">
-        <i class="fa fa-list small_margin_right"></i>
-        <%= group.group_members.count %>
-        <% if group.group_members.count == 1 %>
-          <%= t('groups.index.member') %>
-        <% else %>
-          <%= t('groups.index.members') %>
-        <% end %>
-      </strong>
-      <%= render_group_member_partial(group.group_members) %>
-    </div>
-
-    <%= strip_tags(group.description[0..80]) %>
-    <% if group.description.length >= 80 %>
-      <%= " [...]" %>
-    <% end %>
-
-    <% if user_is_leader || (!user_is_leader || group.group_members.count > 1) || (user_is_leader && group.group_members.count == 1) %>
-      <div class="small_margin_top">
-      <% if user_is_leader %>
-        <i class="fa fa-pencil action"></i>
-        <%= edit_group_link(group) %>
-      <% end %>
-      <% if !user_is_leader || group.group_members.count > 1 %>
-        <i class="fa fa-times action"></i>
-        <%= leave_group_link(group) %>
-      <% end %>
-      <% if user_is_leader && group.group_members.count == 1 %>
-        <i class="fa fa-trash-o action"></i>
-        <%= delete_group_link(group) %>
-      <% end %>
+      <div class="notification_wrapper small_margin_bottom">
+        <strong class="tip_notifications_button">
+          <i class="fa fa-list small_margin_right"></i>
+          <%= group.group_members.count %>
+          <%= member_pluralized_for(group) %>
+        </strong>
+        <%= render_group_member_partial(group.group_members) %>
       </div>
-    <% end %>
+
+      <%= strip_tags(group.description[0..80]) %>
+      <%= " [...]" if group.description.length >= 80 %>
+
+      <div class="small_margin_top">
+        <% if user_can_edit?(group) %>
+          <i class="fa fa-pencil action"></i>
+          <%= edit_group_link(group) %>
+        <% end %>
+        <% if user_can_leave?(group) %>
+          <i class="fa fa-times action"></i>
+          <%= leave_group_link(group) %>
+        <% end %>
+        <% if user_can_delete?(group) %>
+          <i class="fa fa-trash-o action"></i>
+          <%= delete_group_link(group) %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% else %>
@@ -69,11 +53,7 @@
   <h1 class="group_type">Available Groups</h1>
 
   <% @available_groups.each do |group| %>
-    <% if @available_groups.last == group %>
-      <div class="group no_margin_bottom">
-    <% else %>
-      <div class="group">
-    <% end %>
+    <div class="group <%= 'no_margin_bottom' if group == @available_groups.last %>">
       <h1 class="group_name">
         <%= link_to group.name, group %>
       </h1>
@@ -81,22 +61,14 @@
       <div class="notification_wrapper small_margin_bottom">
         <strong class="tip_notifications_button">
           <i class="fa fa-list small_margin_right"></i>
-          <%= number_of_members = group.group_members.count %>
-          <% if number_of_members == 1 %>
-            <%= t('groups.index.member') %>
-          <% else %>
-            <%= t('groups.index.members') %>
-          <% end %>
+          <%= group.group_members.count %>
+          <%= member_pluralized_for(group) %>
         </strong>
-
         <%= render_group_member_partial(group.group_members) %>
       </div>
 
       <%= strip_tags(group.description[0..80]) %>
-
-      <% if group.description.length >= 80 %>
-        <%= " [...]" %>
-      <% end %>
+      <%= " [...]" if group.description.length >= 80 %>
 
       <div class="small_margin_top">
         <%= join_group_link(group) %>
