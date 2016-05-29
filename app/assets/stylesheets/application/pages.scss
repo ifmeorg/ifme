@@ -187,8 +187,16 @@ h1.faq_heading {
 		margin-bottom: 20px;
 	}
 
+	.character_count {
+		display: inline-block !important;
+	}
+
 	.actions {
 		margin-top: 20px;
+	}
+
+	.quick_moment_disclaimer {
+		text-align: left;
 	}
 
 	label {
@@ -207,6 +215,10 @@ h1.faq_heading {
 	}
 
 	@media screen and (max-width: $medium) {
+		.quick_moment_disclaimer {
+			text-align: center;
+		}
+
 		.small_padding_right, .small_padding_bottom {
 			padding: 0 !important;
 		}
