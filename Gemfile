@@ -80,6 +80,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'annotate', '~> 2.6', '>= 2.6.10'
   gem 'pry-rails'
+  gem 'jasmine'
 end
 
 gem 'foundation-rails'

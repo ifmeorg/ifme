@@ -190,7 +190,7 @@ rails s
 
 Possible error for Linux users when attempting to run server:
 ```
-  	PG::ConnectionBad (fe_sendauth: no password supplied ):
+PG::ConnectionBad (fe_sendauth: no password supplied ):
 ```
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
 To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `application.yml`, then add username & password to `database.yml`:
@@ -234,6 +234,9 @@ Unit Tests
 
 Always write unit tests for the changes you've made! If you see any missing unit tests, write them!
 
+
+### Rspec for Ruby
+
 ```
 rspec
 ```
@@ -242,6 +245,12 @@ If you receive an error for having 'FATAL:  database "ifme_test" does not exist'
 ```
 bin/rake db:create db:migrate RAILS_ENV=test
 ```
+
+### Jasmine for JavaScript
+
+In a new terminal window, run `rake jasmine`
+
+To view the test results, go to `http://localhost:8888/`
 
 Committing Work
 ----------------

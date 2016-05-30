@@ -160,6 +160,12 @@ GEM
     hike (1.2.3)
     httpclient (2.8.0)
     i18n (0.7.0)
+    jasmine (2.4.0)
+      jasmine-core (~> 2.4)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.4.1)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -216,6 +222,7 @@ GEM
     orm_adapter (0.5.0)
     os (0.9.6)
     pg (0.18.4)
+    phantomjs (2.1.1.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -388,6 +395,7 @@ DEPENDENCIES
   figaro
   foundation-rails
   google-api-client (~> 0.8.6)
+  jasmine
   jbuilder (~> 2.0)
   jquery-rails
   local_time
