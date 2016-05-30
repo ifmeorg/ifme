@@ -59,7 +59,6 @@ module GroupsHelper
   end
 
   def render_meeting_partial(meeting)
-    render partial: '/shared/meeting_info',
-           locals: { meeting: meeting, is_leader: user_is_leader_of?(meeting) }
+    render partial: '/shared/meeting_info', locals: { meeting: meeting }
   end
 end
