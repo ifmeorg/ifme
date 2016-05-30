@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyMoments = function() {
 	if (newOrEdit(['moments'])) {
 		var NO_ALLIES = "Unselect all";
 		var ALL_ALLIES = "Select all";
@@ -16,4 +16,6 @@ $(document).on("page:load ready", function() {
 			}
 		});
 	}
-});
+}
+
+$(document).on("page:load ready", onReadyMoments);

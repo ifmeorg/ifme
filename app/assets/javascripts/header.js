@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyHeader = function() {
   setHeight();
 
   var click_flag = 0;
@@ -49,7 +49,7 @@ $(document).on("page:load ready", function() {
   $(window).resize(function () {
     setHeight();
   });
-});
+}
 
 function hideSmallTopNav() {
   $('#small_nav').removeClass('display_block');
@@ -93,3 +93,5 @@ function setHeight() {
   var the_height = $('#header').height();
   $('#header_space').css({"height": the_height});
 }
+
+$(document).on("page:load ready", onReadyHeader);

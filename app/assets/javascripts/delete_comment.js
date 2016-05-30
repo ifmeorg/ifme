@@ -1,5 +1,4 @@
-$(document).on("page:load ready", function() {
-
+var onReadyDeleteComment = function() {
 	if (isShow(['moments', 'strategies', 'meetings'])) {
 		$(document).on('click', '.delete_comment_button', function(event) {
 			event.preventDefault();
@@ -26,4 +25,6 @@ $(document).on("page:load ready", function() {
 			$.ajax(url);
 		});
 	}
-});
+}
+
+$(document).on("page:load ready", onReadyDeleteComment);

@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyFormProcessing = function() {
 	if (newOrEdit(['moods'])) {
 		$('#new_mood').submit(function() {
 			return simpleCheck(['mood_name']);
@@ -87,7 +87,7 @@ $(document).on("page:load ready", function() {
 			return simple && complex;
 		});
 	}
-});
+}
 
 function complexCheck(dataType, emptyWhy) {
 	var name = dataType + '_name';
@@ -139,3 +139,5 @@ function simpleCheck(labels) {
 
 	return result;
 }
+
+$(document).on("page:load ready", onReadyFormProcessing);

@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyStrategies = function() {
 	if ($('body').hasClass('strategies new') || $('body').hasClass('strategies edit') || $('body').hasClass('strategies create') || $('body').hasClass('strategies update')) {
 		var NO_ALLIES = "Unselect all";
 		var ALL_ALLIES = "Select all";
@@ -36,4 +36,6 @@ $(document).on("page:load ready", function() {
 			$('#hideTaggedMoments').removeClass('display_inline_block');
 		});
 	}
-});
+}
+
+$(document).on("page:load ready", onReadyStrategies);

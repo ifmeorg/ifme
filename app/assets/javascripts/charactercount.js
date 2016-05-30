@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyCharacterCount = function() {
 	CKEDITOR.on("instanceReady", function(event) {
 		var editor;
 	  	editor = event.editor;
@@ -29,7 +29,7 @@ $(document).on("page:load ready", function() {
 			noCKEditor($(this));
 		});
 	}
-});
+}
 
 function noCKEditor(editor) {
 	var editorName = editor.attr('id');
@@ -63,3 +63,5 @@ function changeEditorCount(editorCount, remaining) {
     	$('input[type="submit"]').prop('disabled', false);
     }
 }
+
+$(document).on("page:load ready", onReadyCharacterCount);

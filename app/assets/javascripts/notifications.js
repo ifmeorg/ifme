@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadyNotifications = function() {
   /* Pusher */
   var pusher;
 
@@ -159,7 +159,7 @@ $(document).on("page:load ready", function() {
       return false;
     });
   }
-});
+}
 
 function renderNotifications(notifications) {
   changeTitle(notifications.length);
@@ -361,3 +361,5 @@ function changeTitle(count) {
 
   document.title = newTitle;
 }
+
+$(document).on("page:load ready", onReadyNotifications);

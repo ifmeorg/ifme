@@ -1,4 +1,4 @@
-$(document).on("page:load ready", function() {
+var onReadySearch = function() {
 	if ($('body').hasClass('search index') || $('body').hasClass('allies index')) {
 		$("#search_location").autocomplete({
 			source: function (request, response) {
@@ -24,4 +24,6 @@ $(document).on("page:load ready", function() {
 		});
 		$("#search_location").autocomplete("option", "delay", 100);
 	}
-});
+}
+
+$(document).on("page:load ready", onReadySearch);

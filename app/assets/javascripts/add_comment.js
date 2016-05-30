@@ -1,5 +1,4 @@
-$(document).on("page:load ready", function() {
-
+var onReadyAddComment = function() {
 	if (isShow(['moments', 'strategies', 'meetings'])) {
 
 		$(document).on('click', '#add_comment_button', function(event) {
@@ -109,4 +108,6 @@ $(document).on("page:load ready", function() {
 			}
 		});
 	}
-});
+}
+
+$(document).on("page:load ready", onReadyAddComment);
