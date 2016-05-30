@@ -54,9 +54,8 @@ module GroupsHelper
     end
   end
 
-  def render_group_member_partial(members)
-    render partial: '/notifications/members',
-           locals: { data: members }
+  def render_group_member_partial(group)
+    render partial: '/notifications/members', locals: { group: group }
   end
 
   def render_meeting_partial(meeting)

@@ -9,7 +9,7 @@
       <%= @group.group_members.count %>
       <%= member_pluralized_for(@group) %>
     </strong>
-    <%= render_group_member_partial(@group.group_members) %>
+    <%= render_group_member_partial(@group) %>
   </div>
 
   <strong>
@@ -24,7 +24,7 @@
 
   <% if user_can_delete? @group %>
     <%= delete_group_link(@group, class: 'align_right') %>
-  <% elsif @group.users.include? current_user %>
+  <% elsif @group.members.include? current_user %>
     <%= leave_group_link(@group, class: 'align_right') %>
   <% else %>
     <%= join_group_link(@group, class: 'align_right') %>
