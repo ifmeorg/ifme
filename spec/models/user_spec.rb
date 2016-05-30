@@ -38,7 +38,7 @@ describe User do
         expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
       end
     end
-  end  
+  end
 
   describe "#available_groups" do
     it "returns the groups that allys belong to and the user doesn't" do

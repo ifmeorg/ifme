@@ -14,7 +14,8 @@ FactoryGirl.define do
   end
 
   factory :meeting_member do
-    userid 1
+    sequence(:userid)
+    leader false
   end
 
   factory :meeting do
@@ -51,7 +52,7 @@ FactoryGirl.define do
 
   factory :user1, class: User do
     name "Oprah Chang"
-    email "oprah.chang@example.com"
+    sequence(:email) { |n| "oprah.chang#{n}@example.com" }
     password "password"
     location "Toronto, ON, Canada"
     timezone "-05:00"

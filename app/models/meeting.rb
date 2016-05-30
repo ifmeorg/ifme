@@ -19,6 +19,8 @@ class Meeting < ActiveRecord::Base
 
   belongs_to :group, foreign_key: :groupid
 
+  has_many :members, -> { order 'name' }, through: :meeting_members,
+                                          source: :user
   has_many :meeting_members, foreign_key: :meetingid
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user

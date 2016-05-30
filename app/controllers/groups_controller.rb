@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   def show
     @page_title = @group.name
 
-    if @group.users.include? current_user
+    if @group.members.include? current_user
       @meetings = @group.meetings.includes(:leaders)
     end
 

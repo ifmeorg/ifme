@@ -19,7 +19,7 @@
           <%= group.group_members.count %>
           <%= member_pluralized_for(group) %>
         </strong>
-        <%= render_group_member_partial(group.group_members) %>
+        <%= render_group_member_partial(group) %>
       </div>
 
       <%= strip_tags(group.description[0..80]) %>
@@ -64,7 +64,7 @@
           <%= group.group_members.count %>
           <%= member_pluralized_for(group) %>
         </strong>
-        <%= render_group_member_partial(group.group_members) %>
+        <%= render_group_member_partial(group) %>
       </div>
 
       <%= strip_tags(group.description[0..80]) %>

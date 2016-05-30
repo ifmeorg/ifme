@@ -46,7 +46,7 @@ describe Group do
     end
   end
 
-  describe ".leaders" do
+  describe "#leaders" do
     context "when group has leaders" do
       it "returns the leaders" do
         leader = create :user1
@@ -70,6 +70,21 @@ describe Group do
 
         expect(result).to eq []
       end
+    end
+  end
+
+  describe "#members" do
+    it "returns group members in alphabetical order" do
+      group = create :group
+      names = ['bryan', 'charlie', 'alex']
+      names.each do |name|
+        user = create :user1, name: name
+        create :group_member, userid: user.id, groupid: group.id
+      end
+
+      result = group.members
+
+      expect(result.map(&:name)).to eq ['alex', 'bryan', 'charlie']
     end
   end
 end
