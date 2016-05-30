@@ -10,9 +10,10 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 2. [Getting Involved](#getting-involved)
 3. [Getting Started](#getting-started)
 4. [Testing Accounts](#testing-accounts)
-5. [Committing Work](#committing-work)
-6. [Tracking Issues](#tracking-issues)
-7. [License](#license)
+5. [Unit Tests](#unit-tests)
+6. [Committing Work](#committing-work)
+7. [Tracking Issues](#tracking-issues)
+8. [License](#license)
 
 Goals
 -----
@@ -188,6 +189,8 @@ Start the local server:
 rails s
 ```
 
+To view the app, go to http://localhost:3000
+
 Possible error for Linux users when attempting to run server:
 ```
 PG::ConnectionBad (fe_sendauth: no password supplied ):
@@ -250,7 +253,7 @@ bin/rake db:create db:migrate RAILS_ENV=test
 
 In a new terminal window, run `rake jasmine`
 
-To view the test results, go to `http://localhost:8888/`
+To view the test results, go to `http://localhost:8888`
 
 Committing Work
 ----------------
