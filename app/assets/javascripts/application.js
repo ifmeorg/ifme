@@ -20,7 +20,7 @@
 //= require underscore
 //= require_tree .
 
-$(document).on("page:load ready", function() {
+var onReadyApplication = function() {
 	$.ajaxSetup({
   		headers: {
     		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
@@ -73,7 +73,7 @@ $(document).on("page:load ready", function() {
 			$('#hideStrategies').css({"display": "none"});
 		});
 	}
-});
+}
 
 function newOrEdit(forms) {
 	var result = false;
@@ -98,3 +98,5 @@ function isShow(forms) {
 
 	return result;
 }
+
+$(document).on("page:load ready", onReadyApplication);
