@@ -73,6 +73,13 @@ describe ApplicationHelper do
       it { is_expected.to be false }
     end
 
+    context "current controller and about" do
+      let(:current_controller) { "pages" }
+      let(:path)               { "about" }
+
+      it { is_expected.to be false }
+    end
+
     context "parent of active controller" do
       let(:current_controller) { "categories" }
       let(:path)               { moments_path }

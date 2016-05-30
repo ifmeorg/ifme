@@ -6,7 +6,6 @@
 			<% if current_page?(new_user_session_path) ||
 				(params[:controller] == "devise/sessions" && action_name == "new") %>
 				- Sign in
-
 			<% elsif current_page?(new_user_registration_path) ||
 				(params[:controller] == "devise/registrations" && action_name == "create") %>
 				- Sign up
