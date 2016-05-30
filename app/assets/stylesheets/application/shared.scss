@@ -225,3 +225,41 @@ h1.tag_type {
 #hideTaggedMoments.align_right  {
 	float: right !important;
 }
+
+.pagination {
+	color: $subtle-secondary-text-color;
+	margin-top: 40px;
+	text-align: center;
+
+	span.prev,
+	span.first {
+		margin-right: 10px;
+	}
+
+	span.next,
+	span.last {
+		margin-left: 10px;
+	}
+
+	a:link, a:visited {
+		text-decoration: none;
+		color: $secondary-text-color;
+		border: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: $secondary-text-color;
+		border-bottom: none;
+		opacity: 0.5;
+	}
+
+	@media screen and (max-width: $medium) {
+		margin-top: 20px;
+	}
+
+	@media screen and (max-width: $small) {
+		margin-top: 10px;
+	}
+}
+

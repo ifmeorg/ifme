@@ -5,7 +5,7 @@ class MoodsController < ApplicationController
   # GET /moods
   # GET /moods.json
   def index
-    @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
+    @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per(5)
     @page_title = "Moods"
     @page_new = new_mood_path
     @page_tooltip = "New mood"

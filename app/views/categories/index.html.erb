@@ -7,26 +7,13 @@
 <% if @categories.length > 0 %>
   <%= render :partial => '/shared/stats', locals: { data_type: 'category' } %>
 
-  <% @categories.each do |category| %>
-    <% if @categories.last == category %>
-      <div class="category no_margin_bottom">
-    <% else %>
-      <div class="category">
-    <% end %>
-
-      <h1 class="category_name"><%= link_to category.name, category %></h1>
-
-      <%= strip_tags(category.description[0..80]) %>
-      <% if category.description.length >= 80 %>
-        <%= " [...]" %>
-      <% end %>
-
-      <div class="small_margin_top">
-        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>
-        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', category, method: :delete, data: { confirm: t('.confirm') } %>
-      </div>
+  <div id="pages">
+    <div class="page">
+    <%= render @categories %>
     </div>
-  <% end %>
+  </div>
+
+  <%= paginate @categories %>
 <% else %>
   You haven't created any custom categories yet. Click <i class="fa fa-plus-circle"></i> to add some!
   <br>You can also add the following premade categories and customize them another time.

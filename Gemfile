@@ -95,4 +95,6 @@ gem 'devise_invitable'
 
 gem 'cloudinary'
 
+gem 'kaminari'
+
 ruby "2.3.0"

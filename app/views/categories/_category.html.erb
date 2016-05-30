@@ -1,0 +1,18 @@
+<% if @categories.last == category %>
+<div class="category no_margin_bottom post">
+<% else %>
+<div class="category post">
+<% end %>
+
+	<h1 class="category_name"><%= link_to category.name, category %></h1>
+
+  	<%= strip_tags(category.description[0..80]) %>
+  	<% if category.description.length >= 80 %>
+    	<%= " [...]" %>
+  	<% end %>
+
+  	<div class="small_margin_top">
+    	<i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_category_path(category) %>
+    	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to 'Delete', category, method: :delete, data: { confirm: t('categories.index.confirm') } %>
+  	</div>
+</div>

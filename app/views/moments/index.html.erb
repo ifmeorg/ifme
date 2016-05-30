@@ -5,9 +5,13 @@
 <div class="spacer"></div>
 
 <% if @moments.length > 0 %>
-  <% @moments.each do |moment| %>
-    <%= render :partial => '/shared/moments_strategies', locals: { items: @moments, item: moment, data_type: 'moment' } %>
-  <% end %>
+  <div id="pages">
+    <div class="page">
+    <%= render @moments %>
+    </div>
+  </div>
+
+  <%= paginate @moments %>
 <% else %>
 You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></i> to add some!
 <br>

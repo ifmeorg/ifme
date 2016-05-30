@@ -1,0 +1,18 @@
+<% if @medications.last == medication %>
+	<div class="medication no_margin_bottom">
+<% else %>
+	<div class="medication">
+<% end %>
+
+	<h1 class="medication_name"><%= link_to medication.name, medication %></h1>
+
+  	<strong><%= t('medications.index.strength') %></strong> <%= medication.strength.to_s + " " + medication.strength_unit %>
+  	<br><strong><%= t('medications.index.total') %></strong> <%= medication.total.to_s + " " + medication.total_unit %>
+  	<br><strong><%= t('medications.index.dosage') %></strong> <%= medication.dosage.to_s + " " + medication.dosage_unit %>
+  	<br><strong><%= t('medications.index.refill') %></strong> <%= medication.refill %>
+
+  	<div class="small_margin_top">
+    	<i class="fa fa-pencil action"></i><%= link_to t('medications.index.edit'), edit_medication_path(medication) %>
+    	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('medications.index.delete'), medication, method: :delete, data: { confirm: t('medications.index.confirm') } %>
+  	</div>
+</div>

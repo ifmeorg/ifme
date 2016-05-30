@@ -5,7 +5,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per(5)
     @page_title = "Strategies"
     @page_new = new_strategy_path
     @page_tooltip = "New strategy"
@@ -40,11 +40,11 @@ class StrategiesController < ApplicationController
   def comment
     if params[:viewers].blank?
       @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
-    else 
+    else
       # Can only get here if comment is from Strategy creator
       @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
     end
-    
+
     if !@comment.save
       result = { no_save: true }
       respond_to do |format|
@@ -59,13 +59,13 @@ class StrategiesController < ApplicationController
     if (strategy_user != @comment.comment_by)
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80 
+      if @comment.comment.length > 80
         cutoff = true
       end
       uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
 
       data = JSON.generate({
-        user: current_user.name, 
+        user: current_user.name,
         strategyid: @comment.commented_on,
         strategy: strategy_name,
         commentid: @comment.id,
@@ -92,7 +92,7 @@ class StrategiesController < ApplicationController
       uniqueid = 'comment_on_strategy_private' + '_' + @comment.id.to_s
 
       data = JSON.generate({
-        user: current_user.name, 
+        user: current_user.name,
         strategyid: @comment.commented_on,
         strategy: strategy_name,
         commentid: @comment.id,
@@ -136,7 +136,7 @@ class StrategiesController < ApplicationController
       public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
 
-      private_uniqueid = 'comment_on_strategy_private_' + params[:commentid].to_s 
+      private_uniqueid = 'comment_on_strategy_private_' + params[:commentid].to_s
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
@@ -149,9 +149,9 @@ class StrategiesController < ApplicationController
     current_user.allies_by_status(:accepted).each do |item|
       viewers.push(item.id)
     end
-    
+
     strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
-    
+
     if strategy.save
       checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategy][]" id="moment_strategy_' + strategy.id.to_s + '">'
       label = '<span class="notification_wrapper">
@@ -159,7 +159,7 @@ class StrategiesController < ApplicationController
       label += render_to_string :partial => '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
-    else 
+    else
       result = { error: 'error' }
     end
 
@@ -251,7 +251,7 @@ class StrategiesController < ApplicationController
     premade_category = Category.where(name: 'Meditation', userid: current_user.id)
     if premade_category.exists?
       premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
-    else 
+    else
       premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), comment: false)
     end
 

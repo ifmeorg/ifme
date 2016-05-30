@@ -7,9 +7,13 @@
 <% if @strategies.length > 0 %>
   <%= render :partial => '/shared/stats', locals: { data_type: 'strategy' } %>
 
-  <% @strategies.each do |strategy| %>
-    <%= render :partial => '/shared/moments_strategies', locals: { items: @strategies, item: strategy, data_type: 'strategy' } %>
-  <% end %>
+  <div id="pages">
+    <div class="page">
+    <%= render @strategies %>
+    </div>
+  </div>
+
+  <%= paginate @strategies %>
 <% else %>
   You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some!
   <br>You can also add the following premade strategy and customize it another time.
