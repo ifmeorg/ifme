@@ -5,9 +5,9 @@ class NotificationMailer < ApplicationMailer
 		subject = 'if me | '
 
 		if (can_notify(@recipient, 'comment_notify') &&
-			(@data['type'] == 'comment_on_moment' || 
+			(@data['type'] == 'comment_on_moment' ||
 			@data['type'] == 'comment_on_moment_private' ||
-			@data['type'] == 'comment_on_strategy' || 
+			@data['type'] == 'comment_on_strategy' ||
 			@data['type'] == 'comment_on_strategy_private' ||
 			@data['type'] == 'comment_on_meeting'))
 
@@ -45,14 +45,14 @@ class NotificationMailer < ApplicationMailer
 			end
 
 			mail(to: @recipient.email, subject: subject)
-	    elsif (can_notify(@recipient, 'ally_notify') && 
-	    		(@data['type'] == 'accepted_ally_request' || 
+	    elsif (can_notify(@recipient, 'ally_notify') &&
+	    		(@data['type'] == 'accepted_ally_request' ||
 	    		@data['type'] == 'new_ally_request'))
 
 	    	if  @data['type'] == 'accepted_ally_request'
 	    		subject += @data['user'].to_s + ' accepted your ally request!'
 	    		@message = '<p>Congrats! You can now share Moments, Strategies, and more with ' + @data['user'].to_s + '.</p>'
-	    	else 
+	    	else
 	    		subject += @data['user'].to_s + ' sent an ally request!'
 	    		link = link_to("sign in", allies_url)
 	    		@message = '<p>Please ' + link + ' to accept or reject the request!</p>'
@@ -67,7 +67,7 @@ class NotificationMailer < ApplicationMailer
 	    	(can_notify(@recipient, 'meeting_notify') &&
 	      		(@data['type'] == 'new_meeting' ||
 	      		@data['type'] == 'remove_meeting' ||
-	      		@data['type'] == 'update_meeting' || 
+	      		@data['type'] == 'update_meeting' ||
 	      		@data['type'] == 'join_meeting')))
 
 	    	if @data['type'] == 'new_group'
@@ -109,7 +109,7 @@ class NotificationMailer < ApplicationMailer
 		    		what = @data['user'].to_s + ' created a new meeting "' + @data['meeting'].to_s + '" for "' + @data['group'].to_s + '"'
 		    	end
 		    	subject += what
-		    	
+
 		    	meeting_description = Meeting.where(id: @data['meetingid']).first.description
 		    	meeting_location = Meeting.where(id: @data['meetingid']).first.location
 		    	meeting_date = Meeting.where(id: @data['meetingid']).first.date

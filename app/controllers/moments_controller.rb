@@ -79,7 +79,7 @@ class MomentsController < ApplicationController
       notifications = Notification.where(userid: moment_user).order("created_at ASC").all
       Pusher['private-' + moment_user.to_s].trigger('new_notification', {notifications: notifications})
 
-      NotificationMailer.notification_email(moment_user, data).deliver
+      NotificationMailer.notification_email(moment_user, data).deliver_now
 
     # Notify viewer that they have a new comment
     elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
@@ -106,7 +106,7 @@ class MomentsController < ApplicationController
       notifications = Notification.where(userid: private_user).order("created_at ASC").all
       Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
 
-      NotificationMailer.notification_email(private_user, data).deliver
+      NotificationMailer.notification_email(private_user, data).deliver_now
     end
 
     if @comment.save

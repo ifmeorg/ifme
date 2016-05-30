@@ -68,7 +68,7 @@ class GroupsController < ApplicationController
           notifications = Notification.where(userid: ally.id).order("created_at ASC").all
           Pusher['private-' + ally.id.to_s].trigger('new_notification', {notifications: notifications})
 
-          NotificationMailer.notification_email(ally.id, data).deliver
+          NotificationMailer.notification_email(ally.id, data).deliver_now
         end
 
         if group_member.save
@@ -119,7 +119,7 @@ class GroupsController < ApplicationController
               notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
               Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
 
-              NotificationMailer.notification_email(leader.userid, data).deliver
+              NotificationMailer.notification_email(leader.userid, data).deliver_now
             end
           end
         end
@@ -154,7 +154,7 @@ class GroupsController < ApplicationController
       notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
       Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
 
-      NotificationMailer.notification_email(leader.userid, data).deliver
+      NotificationMailer.notification_email(leader.userid, data).deliver_now
     end
 
     respond_to do |format|
