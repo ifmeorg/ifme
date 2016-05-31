@@ -1,6 +1,16 @@
 en:
  app_name: 'if me'
  app_description: 'a community for mental health experiences'
+ confirm: 'Are you sure?'
+ cancel_meeting: 'Cancel meeting'
+ date: 'Date:'
+ join_cta: 'Join!'
+ join: 'join'
+ leave_cta: 'Leave?'
+ location: 'Location'
+ member: 'Member'
+ members: 'Members'
+ time: 'Time'
 
 # alert_mailer and alerts will be added to for selects
 # and tested once feature is up and running
