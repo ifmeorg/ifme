@@ -7,7 +7,7 @@ class MedicationsController < ApplicationController
   # GET /medications
   # GET /medications.json
   def index
-    @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per(5)
+    @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     @page_title = "Medications"
     @page_new = new_medication_path
     @page_tooltip = "New medication"

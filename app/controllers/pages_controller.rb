@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
   	if user_signed_in?
       @page_title = "Welcome"
-      @stories = get_stories(current_user, true)
+      @stories = Kaminari.paginate_array(get_stories(current_user, true)).page(params[:page]).per($per_page)
 
       if !@stories.blank? && @stories.count > 0
         @moment = Moment.new

@@ -5,7 +5,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per(5)
+    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     @page_title = "Strategies"
     @page_new = new_strategy_path
     @page_tooltip = "New strategy"

@@ -12,15 +12,19 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include LocalTimeHelper
-    # Prevent CSRF attacks by raising an exception.
-    # For APIs, you may want to use :null_session instead.
-    protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
-    before_filter :configure_permitted_parameters, if: :devise_controller?
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar, :comment_notify, :ally_notify, :group_notify, :meeting_notify) }
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
+  # Global Variables
+  $per_page = 5 # For Kaminari
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar, :comment_notify, :ally_notify, :group_notify, :meeting_notify) }
+
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
   helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories

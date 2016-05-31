@@ -31,6 +31,8 @@
 				</div>
 		<% end %>
 	<% end %>
+
+	<%= paginate @stories %>
 <% else %>
 	<%= render :partial => 'signed_in_empty' %>
 <% end %>
