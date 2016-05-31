@@ -1,5 +1,5 @@
-#notifications, 
-.tip_notifications, 
+#notifications,
+.tip_notifications,
 .quick_create,
 #categories_moods {
   width: 100%;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: $medium) {
-  .tip_notifications, 
+  .tip_notifications,
   .quick_notifications,
   #categories_moods {
     .padding_right {
@@ -19,13 +19,13 @@
   }
 }
 
-#notifications_text, 
-.tip_notifications_text, 
+#notifications_text,
+.tip_notifications_text,
 .quick_create_text,
 #categories_moods_text {
   margin: 0 auto;
   width: 50%;
-  height: 250px;
+  max-height: 250px;
   padding: 40px;
   overflow: scroll;
   border: 1px solid $container-color;
@@ -55,7 +55,7 @@ a.quick_create_link:visited {
   }
 }
 
-a.notification_link:hover, 
+a.notification_link:hover,
 a.tip_notification_link:hover,
 a.quick_create_link:hover {
   margin-top: 20px;
@@ -85,10 +85,10 @@ a.quick_create_link:hover {
   opacity: 0.5;
 }
 
-h1.notification_name, 
+h1.notification_name,
 h1.tip_close_notifications,
-h1.quick_create_close, 
-h1#clear_notifcations, 
+h1.quick_create_close,
+h1#clear_notifcations,
 h1#close_notifications,
 h1#close_categories_moods, {
   font-weight: 300;
@@ -117,7 +117,7 @@ h1#close_categories_moods, {
   word-break: break-word;
 }
 
-#notifications .align_left, 
+#notifications .align_left,
 #notifications .align_right,
 #categories_moods .align_left,
 #categories_moods .align_right {
