@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats
+  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -108,41 +108,6 @@ class ApplicationController < ActionController::Base
     end
 
     return return_this
-  end
-
-  def fetch_supporters(support, type)
-    supporters = false
-    first_element = 0
-    return_this = ''
-    support.each do |s|
-      if s.support_ids.include?(type.id)
-        supporters = true
-        first_element = first_element + 1
-        link_url = '/profile?userid=' + s.userid.to_s
-        if first_element == 1
-          if s.userid == current_user.id
-                return_this = link_to "You", link_url
-              else
-                return_this = link_to User.where(:id => s.userid).first.name, link_url
-              end
-            else
-              return_this += ", "
-              if s.userid == current_user.id
-                return_this += link_to "You", link_url
-              else
-                return_this += link_to User.where(:id => s.userid).first.name, link_url
-              end
-            end
-          end
-        end
-
-        if supporters
-          return_this = "<br><strong>Supporters:</strong> " + return_this
-        else
-          return_this = ""
-        end
-
-        return return_this.html_safe
   end
 
   def fetch_profile_picture(avatar, class_name)
@@ -363,27 +328,33 @@ class ApplicationController < ActionController::Base
   end
 
   def moments_stats
-    result = 'You have written a <strong>total</strong> of '
-
+    result = ''
     count = Moment.where(userid: current_user.id).all.count
-    result += '<strong>' + count.to_s + '</strong>'
 
-    if count == 1
-      result += ' moment.'
-    else
-      result += ' moments.'
+    if count > 1
+      result += '<div class="center" id="stats">'
+      result += 'You have written a <strong>total</strong> of '
+      result += '<strong>' + count.to_s + '</strong>'
 
-      monthly_count = Moment.where(userid: current_user.id, created_at: Time.now.beginning_of_month..Time.now.end_of_month).all.count
-      if count != monthly_count
-        result += ' This <strong>month</strong> you wrote '
-        result += '<strong>' + monthly_count.to_s + '</strong>'
+      if count == 1
+        result += ' moment.'
+      else
+        result += ' moments.'
 
-        if monthly_count == 1
-          result += ' moment.'
-        else
-          result += ' moments.'
+        monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
+        if count != monthly_count
+          result += ' This <strong>month</strong> you wrote '
+          result += '<strong>' + monthly_count.to_s + '</strong>'
+
+          if monthly_count == 1
+            result += ' moment.'
+          else
+            result += ' moments.'
+          end
         end
       end
+
+      result += '</div>'
     end
 
     return result
