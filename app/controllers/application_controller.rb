@@ -277,8 +277,8 @@ class ApplicationController < ActionController::Base
     if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
       comment_info += ' ' + t('shared.comments.not_allies')
     end
-    comment_info += ' ' + t('shared.comments.on_date') + ' '
-    comment_info += local_time(data.created_at, '%A, %B %e, %Y at %l:%M %P')
+    comment_info += ' - '
+    comment_info += local_time_ago(data.created_at)
 
     comment_text = raw(data.comment)
 

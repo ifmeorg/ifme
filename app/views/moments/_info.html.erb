@@ -1,4 +1,4 @@
-<strong><%= t('moments.show.created') %></strong> <%= local_time(local_assigns[:data].created_at, '%A, %B %e, %Y at %l:%M %P') %>
+<strong><%= t('moments.show.created') %></strong> <%= local_time_ago(local_assigns[:data].created_at) %>
 <% if local_assigns[:data].category.count > 0 %>
   <br>
   <strong>
