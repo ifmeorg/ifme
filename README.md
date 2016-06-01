@@ -119,12 +119,7 @@ rvm gemset pristine
 If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
 
 * libv8: https://github.com/cowboyd/libv8/issues/205
-* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan
-
-If running bundle install on Mac OS X El Capitan v. 10.11.4 or later, please consult the following tickets for help with installing libv8 and therubyracer gems:
-
-* libv8: https://github.com/cowboyd/libv8/issues/205
-* therubyracer: https://github.com/cowboyd/therubyracer/issues/359
+* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan, https://github.com/cowboyd/therubyracer/issues/359
 
 #### SSL
 
@@ -132,7 +127,7 @@ On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 stat
 
 ### Setting up API Keys
 
-### Mandatory
+#### Mandatory
 
 The two primary configuration files that you need to change are application.yml and smtp.yml. They are ignored in git to prevent accidentally checking in sensitive information.
 
@@ -144,7 +139,7 @@ Copy the sample files to create your own configuration files:
 
 Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
 
-#### Email Notifications
+##### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
 
@@ -174,7 +169,7 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-### Optional
+#### Optional
 
 The following are not mandatory, but are required if you would like to test/use these features.
 
@@ -197,7 +192,7 @@ Start the local server:
 rails s
 ```
 
-To view the app, go to `http://localhost:3000`
+To view the app, go to `http://localhost:3000`.
 
 #### Possible Errors
 
