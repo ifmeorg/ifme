@@ -267,7 +267,7 @@ class ApplicationController < ActionController::Base
 
     comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
     if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
-      comment_info += t('shared.comments.not_allies')
+      comment_info += ' ' + t('shared.comments.not_allies')
     end
     comment_info += ' ' + t('shared.comments.on_date') + ' '
     comment_info += local_time(data.created_at, '%A, %B %e, %Y at %l:%M %P')
