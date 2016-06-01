@@ -6,14 +6,14 @@ if me is a community for mental health experiences that encourages people to sha
 Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.
 
 # Table of Contents
-1. [Goals](#goals)
-2. [Getting Involved](#getting-involved)
-3. [Getting Started](#getting-started)
-4. [Testing Accounts](#testing-accounts)
-5. [Unit Tests](#unit-tests)
-6. [Committing Work](#committing-work)
-7. [Tracking Issues](#tracking-issues)
-8. [License](#license)
+* [Goals](#goals)
+* [Getting Involved](#getting-involved)
+* [Getting Started](#getting-started)
+* [Testing Accounts](#testing-accounts)
+* [Unit Tests](#unit-tests)
+* [Committing Work](#committing-work)
+* [Tracking Issues](#tracking-issues)
+* [License](#license)
 
 Goals
 -----
@@ -59,7 +59,7 @@ This Code of Conduct is adapted from the [Contributor Covenant](http://contribut
 Getting Started
 ---------------
 
-The app uses Rails 4.2.5 and Ruby 2.3.0
+The app uses **Rails 4.2.5** and **Ruby 2.3.0**. Please stick to these versions.
 
 ### Installing Programs
 
@@ -130,6 +130,8 @@ https://github.com/cowboyd/therubyracer/issues/359
 
 ### Setting up API Keys
 
+### Mandatory
+
 The two primary configuration files that you need to change are application.yml and smtp.yml. They are ignored in git to prevent accidentally checking in sensitive information.
 
 Copy the sample files to create your own configuration files:
@@ -138,29 +140,21 @@ Copy the sample files to create your own configuration files:
 
 `cp config/smtp.example.yml config/smtp.yml`
 
-**Mandatory:** Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
 
-The following are not mandatory, but are required if you would like to test/use these features:
-
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
-
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars.
-
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in config/application.yml`.
-
-### Email notifications
+#### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
 
 ``` ruby
 development: {
-	address:              '[insert address]',
-  	port:                 '[insert port]',
-  	authentication:       'plain',
-  	user_name:            '[insert email address]',
-  	password:             '[insert email password]',
-  	domain:               '[insert email domain]',
-  	enable_starttls_auto: 'true'
+  address:              '[insert address]',
+    port:                 '[insert port]',
+    authentication:       'plain',
+    user_name:            '[insert email address]',
+    password:             '[insert email password]',
+    domain:               '[insert email domain]',
+    enable_starttls_auto: 'true'
 }
 
 test: {
@@ -177,6 +171,16 @@ test: {
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
+
+### Optional
+
+The following are not mandatory, but are required if you would like to test/use these features.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
+
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars.
+
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in config/application.yml`.
 
 ### Running the App Locally
 
@@ -260,20 +264,28 @@ To view the test results, go to `http://localhost:8888`
 Committing Work
 ----------------
 
-Make a fork of the repository, create a new branch for every feature you are working on!
+Make a fork of the repository, create a new branch for every feature you are working on! **Always make pull requests!**
 
-**In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.**
+If you've been added as a collaborator to the repository, please do not push unless the commit you are making is _trivial_ i.e. doesn't require a code review. If you're unsure about this, please ask!
+
+### Contributor Blurb
+
+In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me
 
 This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/contributors/firstname_lastname.png`!
 
-Find the source code for that page and submit a pull request with your story!
 
 Tracking Issues
 ----------------
 
-Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
+Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues).
 
-For bugs, please list the reproduction steps and specify if the bug was prodcued locally or on production.
+If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
+
+### Labelling Issues
+If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
+
+For bugs, please list the reproduction steps and specify if the bug was prodcued locally or on production. Please also mention what OS and browser you are using.
 
 License
 -------
