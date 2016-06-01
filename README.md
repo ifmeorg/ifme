@@ -78,6 +78,8 @@ Install via [Homebrew](http://brew.sh/)
 
 `brew install postgresql`
 
+After that, follow [this guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
+
 #####Linux
 
 Bulid from the source using yum, apt-get, etc.
