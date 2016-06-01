@@ -1,11 +1,12 @@
 FactoryGirl.define do
   factory :notification do
-    userid 1
+    association :user, factory: :user1
     uniqueid "MyString"
     data "MyText"
   end
   factory :group_member do
-    userid 1
+    association :user, factory: :user1
+    group
     leader false
 
     factory :group_leader do
@@ -14,7 +15,8 @@ FactoryGirl.define do
   end
 
   factory :meeting_member do
-    sequence(:userid)
+    association :user, factory: :user1
+    meeting
     leader false
   end
 
