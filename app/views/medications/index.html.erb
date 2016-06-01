@@ -18,7 +18,7 @@
         <br><strong><%= t('.total') %></strong> <%= medication.total.to_s + " " + medication.total_unit %>
         <br><strong><%= t('.dosage') %></strong> <%= medication.dosage.to_s + " " + medication.dosage_unit %>
         <br><strong><%= t('.refill') %></strong> <%= medication.refill %>
-        
+
         <div class="small_margin_top">
           <i class="fa fa-pencil action"></i><%= link_to t('.edit'), edit_medication_path(medication) %>
           <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('.delete'), medication, method: :delete, data: { confirm: t('.confirm') } %>
@@ -26,14 +26,14 @@
       </div>
     <% end %>
 <% else %>
-You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> to add some! 
+You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> to add some!
 <br>
 <br>Here's an example of a saved medication! You can also write about your experience.
 
 <div class="spacer"></div>
 
 <div class="medication no_margin_bottom">
-  <h1 class="medication_name">Prozac</h1>
+  <h1 class="medication_name"><strong>[EXAMPLE]</strong> Prozac</h1>
 
   <strong><%= t('.strength') %></strong> 10 mg
   <br><strong><%= t('.total') %></strong> 2 tablets
