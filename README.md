@@ -38,7 +38,7 @@ Getting Involved
 
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
 
-You can provide your feedback [here](http://goo.gl/forms/8EqoJDDiXY)!
+If you're looking to give feedback on the app, you can do so [here](http://goo.gl/forms/8EqoJDDiXY)!
 
 ### Contributor Code of Conduct
 
@@ -98,6 +98,8 @@ bundle install
 
 ### Possible Errors
 
+#### Ruby
+
 If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
 
 ```
@@ -112,21 +114,21 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
+#### libv8 and therubyracer
+
 If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
 
-libv8:
-
-[https://github.com/cowboyd/libv8/issues/205](https://github.com/cowboyd/libv8/issues/205)
-
-therubyracer:
-[http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan](http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan)
-
-On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
+* libv8: https://github.com/cowboyd/libv8/issues/205
+* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan
 
 If running bundle install on Mac OS X El Capitan v. 10.11.4 or later, please consult the following tickets for help with installing libv8 and therubyracer gems:
 
-https://github.com/cowboyd/libv8/issues/205
-https://github.com/cowboyd/therubyracer/issues/359
+* libv8: https://github.com/cowboyd/libv8/issues/205
+* therubyracer: https://github.com/cowboyd/therubyracer/issues/359
+
+#### SSL
+
+On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
 ### Setting up API Keys
 
@@ -197,7 +199,10 @@ rails s
 
 To view the app, go to `http://localhost:3000`
 
-Possible error for Linux users when attempting to run server:
+#### Possible Errors
+
+##### Postgres
+
 ```
 PG::ConnectionBad (fe_sendauth: no password supplied )
 ```
@@ -270,17 +275,17 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ### Contributor Blurb
 
-In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me
+In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
 
 This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/contributors/firstname_lastname.png`!
+
+If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `app/controllers/pages_controller.rb`.
 
 
 Tracking Issues
 ----------------
 
-Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues).
-
-If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
+Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
 
 ### Labelling Issues
 If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
