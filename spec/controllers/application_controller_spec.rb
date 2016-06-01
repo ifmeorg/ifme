@@ -1,6 +1,76 @@
 require 'spec_helper'
 
 describe ApplicationController do
+	describe "get_stories" do
+		it "has no stories and does not include allies" do
+			new_user = create(:user1)
+			sign_in new_user
+	  		expect(controller.get_stories(new_user, false).length).to eq(0)
+		end
+
+		it "has only moments and does not include allies" do
+			new_user = create(:user1)
+			sign_in new_user
+			new_moment = create(:moment, userid: new_user.id)
+			expect(controller.get_stories(new_user, false).length).to eq(1)
+		end
+
+		it "has only strategies and does not include allies" do
+			new_user = create(:user1)
+			sign_in new_user
+			new_strategy = create(:strategy, userid: new_user.id)
+			expect(controller.get_stories(new_user, false).length).to eq(1)
+		end
+
+		it "has both moments and strategies, and does not include allies" do
+			new_user = create(:user1)
+			sign_in new_user
+			new_moment = create(:moment, userid: new_user.id)
+			new_strategy = create(:strategy, userid: new_user.id)
+			expect(controller.get_stories(new_user, false).length).to eq(2)
+
+		end
+
+		it "has no stories and does include allies" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+	  		expect(controller.get_stories(new_user1, true).length).to eq(0)
+		end
+
+		it "has only moments and does include allies" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+			new_moment1 = create(:moment, userid: new_user1.id)
+			new_moment2 = create(:moment, userid: new_user2.id, viewers: [new_user1.id])
+			expect(controller.get_stories(new_user1, true).length).to eq(2)
+		end
+
+		it "has only strategies and does include allies" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+			new_strategy1 = create(:strategy, userid: new_user1.id)
+			new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
+			expect(controller.get_stories(new_user1, true).length).to eq(2)
+		end
+
+		it "has both moments and strategies, and does include allies" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+			new_moment1 = create(:moment, userid: new_user1.id)
+			new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
+			expect(controller.get_stories(new_user1, true).length).to eq(2)
+
+		end
+	end
+
 	describe "moments_stats" do
 		it "has no moments" do
 			new_user = create(:user1)

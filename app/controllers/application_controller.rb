@@ -321,7 +321,12 @@ class ApplicationController < ActionController::Base
     moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
     strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
 
-    stories = moments.zip(strategies).flatten.compact
+    if moments.count > 0
+      stories = moments.zip(strategies).flatten.compact
+    else
+      stories = strategies.flatten.compact
+    end
+
     stories = stories.sort_by {|x| x.created_at }.reverse!
 
     return stories
