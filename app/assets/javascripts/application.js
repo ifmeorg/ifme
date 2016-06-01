@@ -27,6 +27,12 @@ var onReadyApplication = function() {
   		}
 	});
 
+	// Timezone detection
+	var tz = jstz.determine();
+	console.log(jstz);
+	console.log(tz.name());
+  	$.cookie('timezone', tz.name(), { path: '/' });
+
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
 	if (newOrEdit(['moments', 'strategies'])) {

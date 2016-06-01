@@ -13,13 +13,21 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include LocalTimeHelper
 
+  # Global Variables
+  $per_page = 5 # For Kaminari
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  # Global Variables
-  $per_page = 5 # For Kaminari
+  # Timezone
+  around_filter :with_timezone
+
+  def with_timezone
+    timezone = Time.find_zone(cookies[:timezone])
+    Time.use_zone(timezone) { yield }
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar, :comment_notify, :ally_notify, :group_notify, :meeting_notify) }
