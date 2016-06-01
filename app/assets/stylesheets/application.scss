@@ -259,6 +259,16 @@ ul.no_bullet_list li {
 	}
 }
 
+.stats_divider {
+	width: 100%;
+	height: 1px;
+	background-color: $subtle-secondary-text-color;
+	margin-bottom: 40px;
+
+	@media screen and (max-width: $medium) {
+		margin-bottom: 20px;
+	}
+}
 
 .align_left {
 	float: left;

@@ -5,7 +5,12 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    if !name.blank?
+      @strategies = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Strategies"
     @page_new = new_strategy_path
     @page_tooltip = "New strategy"

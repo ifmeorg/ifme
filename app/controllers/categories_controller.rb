@@ -5,7 +5,12 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    if !name.blank?
+      @categories = Category.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Categories"
     @page_new = new_category_path
     @page_tooltip = "New category"

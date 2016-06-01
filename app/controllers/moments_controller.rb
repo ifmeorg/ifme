@@ -5,7 +5,12 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
-    @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    if !name.blank?
+      @moments = Moment.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Moments"
     @page_new = new_moment_path
     @page_tooltip = "New moment"

@@ -207,6 +207,9 @@ en:
    search_by_location: 'Search by location'
    search_by_email: 'Search by email'
    search: 'Search'
+  posts:
+    search: 'Search'
+    search_by_name: 'Search by name'
   index:
    cancel_request: 'Cancel Request'
    remove_ally: 'Remove'

@@ -1,6 +1,7 @@
 <% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
 	<% most_focus = most_focus(local_assigns[:data_type]) %>
 	<% if most_focus.length > 0 %>
+	<div class="stats_divider"></div>
 	<div class="center" id="stats">
 		<div class="small_margin_bottom">
 			<%= t('.most_focus') %>
@@ -39,5 +40,6 @@
 	</div>
 	<% end %>
 <% elsif local_assigns[:data_type] == 'moment' %>
+	<div class="stats_divider"></div>
 	<%= raw(moments_stats) %>
 <% end %>
