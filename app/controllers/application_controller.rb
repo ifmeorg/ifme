@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories
+  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -352,5 +352,32 @@ class ApplicationController < ActionController::Base
     stories = stories.sort_by {|x| x.created_at }.reverse!
 
     return stories
+  end
+
+  def moments_stats
+    result = 'You have written a <strong>total</strong> of '
+
+    count = Moment.where(userid: current_user.id).all.count
+    result += '<strong>' + count.to_s + '</strong>'
+
+    if count == 1
+      result += ' moment.'
+    else
+      result += ' moments.'
+
+      monthly_count = Moment.where(userid: current_user.id, created_at: Time.now.beginning_of_month..Time.now.end_of_month).all.count
+      if count != monthly_count
+        result += ' This <strong>month</strong> you wrote '
+        result += '<strong>' + monthly_count.to_s + '</strong>'
+
+        if monthly_count == 1
+          result += ' moment.'
+        else
+          result += ' moments.'
+        end
+      end
+    end
+
+    return result
   end
 end

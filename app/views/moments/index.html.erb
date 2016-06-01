@@ -5,6 +5,8 @@
 <div class="spacer"></div>
 
 <% if @moments.length > 0 %>
+  <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
+
   <div id="pages">
     <div class="page">
     <%= render @moments %>
