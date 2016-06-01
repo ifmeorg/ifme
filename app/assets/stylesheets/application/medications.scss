@@ -8,6 +8,69 @@
 	width: 100%;
 	height: 150px;
 }
+.form-group label {
+  background-color: #F7F9FA;
+  display: block;
+  border-bottom: none;
+  font-size: 16px;
+  margin: 0 0 0 0;
+  padding: 4px 0 4px 10px;
+  color: #34495E;
+	font-weight: 400;
+}
+
+.form-group {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group input {
+  box-shadow: none;
+  font-size: 20px;
+  width: 100%;
+	border: none;
+}
+
+.form-group input[type="number"] {
+  width: 56%;
+  border-right: 1px solid #7F8C8D;
+}
+
+.form-group select {
+  width: 40%;
+  height: 40px;
+  outline: 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: #525A5B;
+  position: relative;
+	border: none;
+	box-shadow: none;
+}
+
+.form-grouped-fields {
+    margin: 40px 0;
+}
+
+.form-group {
+  border: 1px solid #7F8C8D;
+  border-bottom: none;
+}
+
+.form-group textarea{
+	box-shadow: none;
+	border: none;
+	resize: none;
+}
+
+.form-group:last-of-type {
+  border-bottom: 1px solid #7F8C8D;
+}
+
+.submit-form{
+	margin: 0 auto;
+	max-width: 600px;
+}
 
 @media screen and (max-width: $medium) {
 	#medication_strength,

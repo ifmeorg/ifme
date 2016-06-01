@@ -5,7 +5,39 @@
   </div>
 <% end %>
 
-<div class="table">
+<div class="form-grouped-fields">
+  <div class="form-group">
+    <%= f.label t('.name') %>
+    <%= f.text_field :name, :class => "name_field" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t('.strength') %>
+    <%= f.number_field :dosage, :placeholder => t('.dosage_placeholder') %>
+    <%= f.select(:dosage_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total %>
+    <%= f.number_field :total, :placeholder => t('.total_placeholder') %>
+    <%= f.select(:total_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label t('.dosage') %>
+    <%= f.number_field :dosage, :placeholder => t('.dosage_placeholder') %>
+    <%= f.select(:dosage_unit, [[t('.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+  </div>
+  <div class="form-group">
+    <%= f.label t('.refill') %>
+    <%= f.text_field :refill %>
+  </div>
+</div>
+<div class="form-grouped-fields">
+  <div class="form-group">
+    <%= f.label t('.comments') %>
+    <%= f.text_area :comments, :class => "comments" %>
+  </div>
+</div>
+
+<!-- <div class="table">
 
   <div class="table_cell padding_right vertical_align_top">
 
@@ -30,23 +62,24 @@
     </div>
 
   </div>
+  <div class="field">
+    <div class="label">
+      <%= f.label t('.strength') %>
+      <div class="align_right">
+        <span class="yes_title" title="Medication strength, usually found beside the name"><i class="fa fa-question-circle"></i></span>
+        <i class="fa fa-exclamation-circle"></i>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="inline-block">
+      <%= f.number_field :strength, :placeholder => t('.strength_placeholder') %>
+      <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+    </div>
+  </div>
 
   <div class="table_cell padding_right vertical_align_top">
 
-    <div class="field">
-      <div class="label">
-        <%= f.label t('.strength') %>
-        <div class="align_right">
-          <span class="yes_title" title="Medication strength, usually found beside the name"><i class="fa fa-question-circle"></i></span>
-          <i class="fa fa-exclamation-circle"></i>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="inline-block">
-        <%= f.number_field :strength, :placeholder => t('.strength_placeholder') %>
-        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
-      </div>
-    </div>
+
 
     <div class="field">
       <div class="label">
@@ -96,9 +129,9 @@
 
   </div>
 
-</div>
+</div> -->
 
-<div class="align_right">
+<div class="submit-form">
   <%= f.hidden_field :userid, :value => current_user.id %>
   <%= f.submit %>
 </div>
