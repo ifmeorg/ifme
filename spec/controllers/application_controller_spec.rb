@@ -1,6 +1,49 @@
 require 'spec_helper'
 
 describe ApplicationController do
+	describe "tag_usage" do
+		it "is looking for categories tagged nowhere" do
+			new_user = create(:user1)
+			new_category = create(:category, userid: new_user.id)
+			result = controller.tag_usage(new_category.id, 'category', new_user.id)
+		  	expect(result[0].length + result[1].length).to eq(0)
+		end
+		it "is looking for categories tagged in moments and strategies" do
+			new_user = create(:user1)
+			new_category = create(:category, userid: new_user.id)
+		  	new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id))
+		  	new_strategy = create(:strategy, userid: new_user.id, category: Array.new(1, new_category.id))
+		  	result = controller.tag_usage(new_category.id, 'category', new_user.id)
+		  	expect(result[0].length + result[1].length).to eq(2)
+		end
+		it "is looking for moods tagged nowhere" do
+			new_user = create(:user1)
+			new_mood = create(:mood, userid: new_user.id)
+			result = controller.tag_usage(new_mood.id, 'mood', new_user.id)
+		  	expect(result.length).to eq(0)
+		end
+		it "is looking for moods tagged in moments" do
+			new_user = create(:user1)
+			new_mood = create(:mood, userid: new_user.id)
+		  	new_moment = create(:moment, userid: new_user.id, mood: Array.new(1, new_mood.id))
+		  	result = controller.tag_usage(new_mood.id, 'mood', new_user.id)
+		  	expect(result.length).to eq(1)
+		end
+		it "is looking for strategies tagged nowhere" do
+			new_user = create(:user1)
+			new_strategy = create(:strategy, userid: new_user.id)
+			result = controller.tag_usage(new_strategy.id, 'strategy', new_user.id)
+		  	expect(result.length).to eq(0)
+		end
+		it "is looking for strategies tagged in moments" do
+			new_user = create(:user1)
+			new_strategy = create(:strategy, userid: new_user.id)
+		  	new_moment = create(:moment, userid: new_user.id, strategies: Array.new(1, new_strategy.id))
+		  	result = controller.tag_usage(new_strategy.id, 'strategy', new_user.id)
+		  	expect(result.length).to eq(1)
+		end
+	end
+
 	describe "get_stories" do
 		it "has no stories and does not include allies" do
 			new_user = create(:user1)

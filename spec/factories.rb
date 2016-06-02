@@ -4,6 +4,7 @@ FactoryGirl.define do
     uniqueid "MyString"
     data "MyText"
   end
+
   factory :group_member do
     association :user, factory: :user1
     group

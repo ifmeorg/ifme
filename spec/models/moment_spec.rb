@@ -23,9 +23,9 @@ describe Moment do
 		it "create private moment" do
 			new_user = create(:user1)
 			new_category = create(:category, userid: new_user.id)
-				new_mood = create(:mood, userid: new_user.id)
-				new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
-				expect(new_moment.viewers).to be_empty
+			new_mood = create(:mood, userid: new_user.id)
+			new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
+			expect(new_moment.viewers).to be_empty
 		  end
 	end
 	describe "POST create" do
