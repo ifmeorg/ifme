@@ -2,10 +2,24 @@ class StrategiesController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
+  def default_params
+    @default_params ||= {
+      strategy: {
+        viewers: [],
+        category: [],
+      }
+    }
+  end
+  
   # GET /strategies
   # GET /strategies.json
   def index
-    @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    if !name.blank?
+      @strategies = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Strategies"
     @page_new = new_strategy_path
     @page_tooltip = "New strategy"
@@ -315,6 +329,7 @@ class StrategiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def strategy_params
+      params[:strategy] = default_params[:strategy].merge(params[:strategy]) 
       params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
     end
 
