@@ -6,8 +6,9 @@ class MoodsController < ApplicationController
   # GET /moods.json
   def index
     name = params[:search]
-    if !name.blank?
-      @moods = Mood.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    search = Mood.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @moods = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
       @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end

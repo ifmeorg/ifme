@@ -8,8 +8,9 @@ class MedicationsController < ApplicationController
   # GET /medications.json
   def index
     name = params[:search]
-    if !name.blank?
-      @medications = Medication.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    search = Medication.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @medications = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
       @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end

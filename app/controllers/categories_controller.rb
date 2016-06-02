@@ -6,8 +6,9 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     name = params[:search]
-    if !name.blank?
-      @categories = Category.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    search = Category.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @categories = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end

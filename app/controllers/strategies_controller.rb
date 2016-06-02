@@ -10,13 +10,14 @@ class StrategiesController < ApplicationController
       }
     }
   end
-  
+
   # GET /strategies
   # GET /strategies.json
   def index
     name = params[:search]
-    if !name.blank?
-      @strategies = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    search = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @strategies = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
       @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
@@ -329,7 +330,7 @@ class StrategiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def strategy_params
-      params[:strategy] = default_params[:strategy].merge(params[:strategy]) 
+      params[:strategy] = default_params[:strategy].merge(params[:strategy])
       params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
     end
 
