@@ -10,7 +10,7 @@ en:
  location: 'Location'
  member: 'Member'
  members: 'Members'
- time: 'Time'
+ meeting_time: 'Time'
 
 # alert_mailer and alerts will be added to for selects
 # and tested once feature is up and running
@@ -79,7 +79,7 @@ en:
    self: 'You'
    location: 'Location:'
    date: 'Date:'
-   time: 'Time:'
+   meeting_time: 'Time:'
    cancel_meeting: 'Cancel meeting'
    confirm: 'Are you sure?'
    leave: 'Leave?'
@@ -133,7 +133,7 @@ en:
    name: 'Name'
    location: 'Location'
    location_placeholder: 'URL or street address'
-   time: 'Time'
+   meeting_time: 'Time'
    date: 'Date'
    maximum_members: 'Maximum Members'
    maximum_placeholder: '0 if no maximum'

@@ -28,4 +28,4 @@ en:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
+            accept_until_format: "%A %B %d, %Y at %I:%M %p"
