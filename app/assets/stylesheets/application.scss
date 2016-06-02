@@ -817,11 +817,44 @@ div.table div.table_cell {
 	padding: 10px;
 }
 
+#error_explanation,
 .error_explanation {
 	color: $alert-color;
 	font-size: 30px;
 	font-weight: 300;
 	margin-bottom: 40px;
+
+	@media screen and (max-width: $medium) {
+		font-size: 26px;
+	}
+
+	h2 {
+		font-weight: 300;
+		font-size: 30px;
+		padding: 0;
+		margin: 0px 0px 20px 0px;
+		color: $secondary-text-color;
+
+		@media screen and (max-width: $medium) {
+			font-size: 26px;
+			margin: 0px 0px 10px 0px;
+		}
+	}
+
+	ul {
+		padding-left: 0;
+		margin-top: 0;
+		margin-bottom: 40px;
+		list-style-position: inside;
+
+		@media screen and (max-width: $medium) {
+			margin-bottom: 20px;
+		}
+
+		@media screen and (max-width: $small) {
+			margin-bottom: 10px;
+		}
+	}
 }
 
 /* Font Awesome */

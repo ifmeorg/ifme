@@ -18,7 +18,8 @@
 			<% elsif current_page?(root_path) %>
 				- <%= t(:app_description) %>
 			<% elsif current_page?(new_user_invitation_path) ||
-				(params[:controller] == "devise/invitations" && action_name == "new") %>
+				(params[:controller] == "devise/invitations" && action_name == "new") ||
+				(params[:controller] == "users/invitations" && action_name == "create") %>
 				- <%= t('devise.invitations.new.header') %>
 			<% elsif current_page?(accept_user_invitation_path) ||
 				(params[:controller] == "devise/invitations" && action_name == "accept") %>
@@ -147,7 +148,8 @@
 						        </span><%= t(:app_description) %>
 					      </div>
 					    <% elsif current_page?(new_user_invitation_path) ||
-							(params[:controller] == "devise/invitations" && action_name == "new") %>
+							(params[:controller] == "devise/invitations" && action_name == "new") ||
+							(params[:controller] == "users/invitations" && action_name == "create") %>
 							<%= t('devise.invitations.new.header') %>
 						<% elsif current_page?(accept_user_invitation_path) ||
 							(params[:controller] == "devise/invitations" && action_name == "accept") %>
