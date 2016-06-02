@@ -2,6 +2,15 @@ class StrategiesController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
+  def default_params
+    @default_params ||= {
+      strategy: {
+        viewers: [],
+        category: [],
+      }
+    }
+  end
+  
   # GET /strategies
   # GET /strategies.json
   def index
@@ -320,6 +329,7 @@ class StrategiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def strategy_params
+      params[:strategy] = default_params[:strategy].merge(params[:strategy]) 
       params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
     end
 
