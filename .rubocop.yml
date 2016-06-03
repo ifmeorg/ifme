@@ -1,0 +1,6 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'spec/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
