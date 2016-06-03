@@ -35,7 +35,7 @@ class MomentsController < ApplicationController
       @page_edit = edit_moment_path(@moment)
       @page_tooltip = "Edit moment"
     else
-      link_url = "/profile?userid=" + @moment.userid.to_s
+      link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
       the_link = link_to User.where(:id => @moment.userid).first.name, link_url
       @page_author = the_link.html_safe
     end

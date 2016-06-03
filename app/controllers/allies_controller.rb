@@ -40,6 +40,7 @@ class AlliesController < ApplicationController
     data = JSON.generate({
       user: user,
       userid: current_user.id,
+      uid: get_uid(current_user.id),
       type: pusher_type,
       uniqueid: uniqueid
       })

@@ -33,7 +33,7 @@ class StrategiesController < ApplicationController
       @page_edit = edit_strategy_path(@strategy)
       @page_tooltip = "Edit strategy"
     else
-      link_url = "/profile?userid=" + @strategy.userid.to_s
+      link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
       the_link = link_to User.where(:id => @strategy.userid).first.name, link_url
       @page_author = the_link.html_safe
     end

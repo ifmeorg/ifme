@@ -26,7 +26,7 @@ class MoodsController < ApplicationController
         @page_edit = edit_mood_path(@mood)
         @page_tooltip = "Edit mood"
       else
-        link_url = "/profile?userid=" + @mood.userid.to_s
+        link_url = "/profile?uid=" + get_uid(@mood.userid).to_s
         the_link = link_to User.where(:id => @mood.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
