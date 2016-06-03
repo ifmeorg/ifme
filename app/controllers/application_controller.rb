@@ -135,16 +135,21 @@ class ApplicationController < ActionController::Base
     first_element = 0
     return_this = ''
     data.each do |d|
-      first_element = first_element + 1
-      if first_element == 1
+      if d.kind_of?(Array) && d[0].kind_of?(String) && d[1].kind_of?(String)
+        first_element = first_element + 1
+        if first_element == 1
           return_this = link_to d[0], d[1]
         else
           return_this += ", "
           return_this += link_to d[0], d[1]
         end
-        end
+      else
+        return_this = ''
+        break
+      end
+    end
 
-        return return_this.html_safe
+    return return_this.html_safe
   end
 
   def most_focus(data_type)
