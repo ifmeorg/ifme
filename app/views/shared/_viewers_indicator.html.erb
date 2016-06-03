@@ -5,16 +5,20 @@
 	<% elsif local_assigns[:data].viewers.length > 0 && local_assigns[:data].userid != current_user.id %>
 	<%= raw t('.not_only_viewer') %>
 	<% elsif local_assigns[:data].userid == current_user.id %>
+		<% result = '' %>
 		<% local_assigns[:data].viewers.each do |viewer| %>
+			<% name = User.where(id: viewer).first.name %>
 			<% if local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length == 2 %>
-				<%= t('.and') %>
+				<% result += t('.and') + name %>
 			<% elsif local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length != 2 %>
-				<%= t('.comma_and') %>
+				<% result +=  t('.comma_and') + name %>
 			<% elsif local_assigns[:data].viewers.last != viewer && local_assigns[:data].viewers.length != 2 && viewer != local_assigns[:data].viewers.first %>
-				<%= ', ' %>
+				<% result +=  ', ' + name %>
+			<% else %>
+				<% result +=  name %>
 			<% end %>
-			<%= User.where(id: viewer).first.name %>
 		<% end %>
+		<%= result %>
 		<% if local_assigns[:data].viewers.length > 1 %>
 		<%= t('.are_viewers') %>
 		<% else %>
