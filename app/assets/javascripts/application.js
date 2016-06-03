@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require ckeditor/init
-//= require local_time
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

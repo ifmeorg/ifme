@@ -182,8 +182,6 @@ GEM
       addressable (~> 2.3)
     libv8 (3.16.14.15)
     little-plugger (1.1.4)
-    local_time (1.0.3)
-      coffee-rails
     logging (2.1.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
@@ -402,7 +400,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  local_time
   omniauth
   omniauth-google-oauth2
   pg
