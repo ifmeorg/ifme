@@ -129,7 +129,7 @@ On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 stat
 
 #### Mandatory
 
-The two primary configuration files that you need to change are application.yml and smtp.yml. They are ignored in git to prevent accidentally checking in sensitive information.
+The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally checking in sensitive information.
 
 Copy the sample files to create your own configuration files:
 
@@ -177,7 +177,7 @@ The following are not mandatory, but are required if you would like to test/use 
 
 [Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars.
 
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in config/application.yml`.
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/application.yml`.
 
 ### Running the App Locally
 
@@ -201,8 +201,10 @@ To view the app, go to `http://localhost:3000`.
 ```
 PG::ConnectionBad (fe_sendauth: no password supplied )
 ```
+
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `application.yml`, then add username & password to `database.yml`:
+To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/application.yml`, then add username and password to `config/database.yml`:
+
 ```
 development: &default
   ...
@@ -216,12 +218,12 @@ development: &default
 rails db
 ```
 
-Note that ifme_test is used when running unit tests
+Note that `ifme_test` is used when running unit tests
 
 Testing Accounts
 -----------------
 
-They have been created in `seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
+They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
 
 ```
 Email: test1@example.com
@@ -250,16 +252,17 @@ Always write unit tests for the changes you've made! If you see any missing unit
 rspec
 ```
 
-If you receive an error for having 'FATAL:  database "ifme_test" does not exist', run the following.
+If you receive an error for having `'FATAL:  database "ifme_test" does not exist'`, run the following.
+
 ```
 bin/rake db:create db:migrate RAILS_ENV=test
 ```
 
 ### Jasmine for JavaScript
 
-In a new terminal window, run `rake jasmine`
+In a new terminal window, run `rake jasmine`.
 
-To view the test results, go to `http://localhost:8888`
+To view the test results, go to `http://localhost:8888`.
 
 Committing Work
 ----------------
@@ -290,4 +293,4 @@ For bugs, please list the reproduction steps and specify if the bug was prodcued
 License
 -------
 
-The source code is licensed under the Apache License. For more information see http://www.apache.org/licenses/ or LICENSE.txt.
+The source code is licensed under GNU AGPLv3. For more information see http://www.gnu.org/licenses/agpl-3.0.txt or LICENSE.txt.
