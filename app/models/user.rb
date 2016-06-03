@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
   has_many :alerts, inverse_of: :user
   has_many :group_members, foreign_key: :userid
   has_many :groups, through: :group_members
+  has_many :meeting_members, foreign_key: :userid
 
   after_initialize :set_defaults, unless: :persisted?
 
