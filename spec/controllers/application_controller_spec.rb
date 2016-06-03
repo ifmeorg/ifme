@@ -321,6 +321,26 @@ describe ApplicationController do
 			expect(controller.get_stories(new_user1, true).length).to eq(2)
 
 		end
+
+		it "has no moments and strategies despite being allies with user" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+			new_moment1 = create(:moment, userid: new_user2.id)
+			new_strategy2 = create(:strategy, userid: new_user2.id)
+			expect(controller.get_stories(new_user2, false).length).to eq(0)
+		end
+
+		it "has both moments and strategies and is allies with user" do
+			new_user1 = create(:user1)
+			new_user2 = create(:user2)
+			new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+			sign_in new_user1
+			new_moment1 = create(:moment, userid: new_user2.id, viewers: [new_user1.id])
+			new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
+			expect(controller.get_stories(new_user2, false).length).to eq(2)
+		end
 	end
 
 	describe "moments_stats" do

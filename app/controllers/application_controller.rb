@@ -303,12 +303,13 @@ class ApplicationController < ActionController::Base
   end
 
   def get_stories(user, include_allies)
-    allies = user.allies_by_status(:accepted)
+    if user.id == current_user.id
+      my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
+      my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
+    end
 
-    my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
-    my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
-
-    if include_allies
+    if include_allies && user.id == current_user.id
+      allies = user.allies_by_status(:accepted)
       ally_moments = []
       ally_strategies = []
 
@@ -328,6 +329,24 @@ class ApplicationController < ActionController::Base
 
       my_moments += ally_moments
       my_strategies += ally_strategies
+    elsif !include_allies && user.id != current_user.id
+      ally_moments = []
+      ally_strategies = []
+
+      Moment.where(userid: user.id).all.order("created_at DESC").each do |moment|
+        if moment.viewers.include?(current_user.id)
+          ally_moments << moment
+        end
+      end
+
+      Strategy.where(userid: user.id).all.order("created_at DESC").each do |strategy|
+        if strategy.viewers.include?(current_user.id)
+          ally_strategies << strategy
+        end
+      end
+
+      my_moments = ally_moments
+      my_strategies = ally_strategies
     end
 
     moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
