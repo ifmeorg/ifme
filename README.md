@@ -1,4 +1,4 @@
-https://travis-ci.org/julianguyen/ifme.svg?branch=master
+[![Build Status](https://travis-ci.org/julianguyen/ifme.svg?branch=master)](https://travis-ci.org/julianguyen/ifme)
 
 if me
 =====
