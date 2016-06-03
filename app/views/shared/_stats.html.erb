@@ -1,10 +1,23 @@
 <% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
-	<% most_focus = most_focus(local_assigns[:data_type]) %>
+	<% most_focus = most_focus(local_assigns[:data_type], local_assigns[:profile]) %>
 	<% if most_focus.length > 0 %>
-	<div class="stats_divider"></div>
+
+		<% if !local_assigns[:profile] %>
+			<div class="stats_divider"></div>
+		<% end %>
+
 	<div class="center" id="stats">
+		<% if local_assigns[:profile] %>
+		<div class="main_message no_margin_top">
+			<%= local_assigns[:data_type].pluralize.titleize %>
+		</div>
+		<% end %>
 		<div class="small_margin_bottom">
-			<%= t('.most_focus') %>
+			<% if !local_assigns[:profile] || local_assigns[:profile] == current_user.id %>
+				<%= 'You are' + t('.most_focus') %>
+			<% elsif local_assigns[:profile] %>
+				<%= User.where(id: local_assigns[:profile]).first.name + ' is ' + t('.most_focus') %>
+			<% end %>
 		</div>
 
 		<div id="most_focus">
@@ -24,12 +37,18 @@
 				<div class="some_focus" style='opacity: 0.6; width: <%= percentage %>;'>
 				<% end %>
 					<div class="some_focus_text">
-					<% if local_assigns[:data_type] == 'category' %>
+					<% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
 						<%= link_to Category.where(id: key).first.name, Category.where(id: key).first %>
-					<% elsif local_assigns[:data_type] == 'mood' %>
+					<% elsif local_assigns[:data_type] == 'category' && local_assigns[:profile] %>
+						<%= Category.where(id: key).first.name %>
+					<% elsif local_assigns[:data_type] == 'mood' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
 						<%= link_to Mood.where(id: key).first.name, Mood.where(id: key).first %>
-					<% elsif local_assigns[:data_type] == 'strategy' %>
+					<% elsif local_assigns[:data_type] == 'mood' && local_assigns[:profile] %>
+						<%= Mood.where(id: key).first.name %>
+					<% elsif local_assigns[:data_type] == 'strategy' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
 						<%= link_to Strategy.where(id: key).first.name, Strategy.where(id: key).first %>
+					<% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:profile] %>
+						<%= Strategy.where(id: key).first.name %>
 					<% end %>
 					</div>
 				</div>

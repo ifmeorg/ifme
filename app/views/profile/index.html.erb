@@ -32,7 +32,17 @@
 </div>
 
 <% if !@stories.nil? && !@stories.empty? %>
-	<div class="spacer"></div>
+	<div class="divider"></div>
+<% end %>
+
+<%= render :partial => '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
+<%= render :partial => '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
+<%= render :partial => '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
+
+<% if !@stories.nil? && !@stories.empty? %>
+	<div class="main_message">
+		Stories
+	</div>
 
 	<% @stories.each_with_index do |item, index| %>
 		<% if is_viewer(item.viewers) || current_user.id == @profile.id %>

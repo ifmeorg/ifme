@@ -152,28 +152,35 @@ class ApplicationController < ActionController::Base
     return return_this.html_safe
   end
 
-  def most_focus(data_type)
+  def most_focus(data_type, profile)
     data = Array.new
+
+    if profile.blank?
+      userid = current_user.id
+    else
+      userid = profile
+    end
+
     if data_type == 'category'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.category.blank? && moment.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.category
         end
       end
-      Strategy.where(userid: current_user.id).all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0
+      Strategy.where(userid: userid).all.each do |strategy|
+        if !strategy.category.blank? && strategy.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
           data += strategy.category
         end
       end
     elsif data_type == 'mood'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.mood.blank? && moment.mood.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.mood
         end
       end
     elsif data_type == 'strategy'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.strategies.blank? && moment.strategies.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.strategies
         end
       end
