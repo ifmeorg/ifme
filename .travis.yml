@@ -2,7 +2,9 @@ language: ruby
 rvm:
   - 2.3.0
 addons:
-  postgresql: 9.5
+  postgresql: 9.4
+services:
+  - postgresql
 env:
   SECRET_KEY_BASE="$(bundle exec rake secret)"
   DEVISE_SECRET_KEY="$(bundle exec rake secret)"
@@ -10,4 +12,4 @@ before_script:
   - /bin/cp $TRAVIS_BUILD_DIR/config/database.example.yml $TRAVIS_BUILD_DIR/config/database.yml 
   - /bin/cp $TRAVIS_BUILD_DIR/config/smtp.example.yml $TRAVIS_BUILD_DIR/config/smtp.yml
   - psql -c 'create database ifme_test;' -U postgres
- 
+sudo: false
