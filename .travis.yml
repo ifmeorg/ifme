@@ -1,8 +1,6 @@
 language: ruby
 rvm:
-  - 2.3
-  - 2.2
-  - jruby
+  - 2.3.0
 addons:
   postgresql: 9.5
 env:
