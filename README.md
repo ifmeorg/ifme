@@ -1,3 +1,5 @@
+https://travis-ci.org/julianguyen/ifme.svg?branch=master
+
 if me
 =====
 
