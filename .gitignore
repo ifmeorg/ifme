@@ -22,3 +22,6 @@
 # Ignore application configuration
 /config/application.yml
 /config/smtp.yml
+
+# PERSONAL: ignore changes to config/database.yml
+/config/database.yml
