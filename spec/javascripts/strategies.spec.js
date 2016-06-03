@@ -1,7 +1,7 @@
-describe("test", function() {
+describe("Strategies", function() {
   var NO_ALLIES = "Unselect all";
   var ALL_ALLIES = "Select all";
-  beforeEach(function() {
+  beforeAll(function() {
     $("body").addClass("strategies new");
 
     $("body")
@@ -52,20 +52,25 @@ describe("test", function() {
     )
     onReadyStrategies();
   });
-	it("1", function() {
+  afterAll(function() {
+    $("#test_body").remove();
+  });
+	it("test all viewers not checked", function() {
     // all are unchecked
     expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(false);
     expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
   	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
     expect($(":checkbox[name='strategy[comment]']").prop("checked")).toBe(false);
-
+  });
+  it("test all viewers checked", function() {
     // check all
     $(":checkbox[id='viewers']").prop("checked", true);
     onChangeViewers.apply($(":checkbox[id='viewers']")[0]);
     expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(true);
     expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
   	expect($('#viewers_label').text()).toBe(NO_ALLIES);
-
+  });
+  it("test all viewers unchecked", function() {
     // uncheck all
     $(":checkbox[id='viewers']").prop("checked", true);
     onChangeViewers.apply($(":checkbox[id='viewers']")[0]);
