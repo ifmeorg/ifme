@@ -271,6 +271,8 @@ Make a fork of the repository, create a new branch for every feature you are wor
 
 If you've been added as a collaborator to the repository, please do not push unless the commit you are making is _trivial_ i.e. doesn't require a code review. If you're unsure about this, please ask!
 
+**Everyone is encouraged to participate in code reviews, so please do so!**
+
 ### Contributor Blurb
 
 In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
