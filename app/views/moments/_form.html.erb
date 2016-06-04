@@ -102,6 +102,9 @@
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('.viewers') %>
+        <div class="align_right">
+          <span class="yes_title" title="Allies who can view your moment"><i class="fa fa-question-circle"></i></span>
+        </div>
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
@@ -112,7 +115,9 @@
     <% end %>
 
      <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label t('.allow_comments') %>
+      <div class="sidebar_label">
+        <%= f.label t('.allow_comments') %>
+        <span class="yes_title smaller_margin_left" title="Only you and viewers can comment"><i class="fa fa-question-circle"></i></span>
         <div class="align_right">
           <%= f.check_box :comment %>
         </div>
