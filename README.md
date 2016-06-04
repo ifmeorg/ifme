@@ -61,14 +61,59 @@ This Code of Conduct is adapted from the [Contributor Covenant](http://contribut
 Getting Started
 ---------------
 
-The app uses **Rails 4.2.5** and **Ruby 2.3.0**. Please stick to these versions.
+The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions.
 
 ### Installing Programs
 
 The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
 #### Ruby on Rails
-http://railsinstaller.org/en
+
+http://installrails.com
+
+### Updating existing Ruby installation
+
+Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
+
+```
+rvm get stable --autolibs=enable
+```
+
+Close and re-open the terminal window
+
+```
+rvm install ruby-2.3.1
+```
+
+Check that Ruby has been updated by running `ruby -v`.
+
+Update the gem manager by running `gem update --system`.
+
+Update your gems by running `gem update`.
+
+If you are missing `bundler` and `nokogiri`, please install them
+
+```
+gem install bundler
+```
+
+```
+gem install nokogiri
+```
+
+Make a gemset for the specific Ruby on Rails version
+
+```
+rvm use ruby-2.3.1@rails4.2.6 --create
+```
+
+### Updating existing Rails installation
+
+```
+gem install rails --version=4.2.6
+```
+
+Check that Rails has been updated by running `rails -v`.
 
 #### Postgres
 
@@ -82,9 +127,9 @@ Install via [Homebrew](http://brew.sh/)
 
 After that, follow [this guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
-#####Linux
+##### Linux
 
-Bulid from the source using yum, apt-get, etc.
+Bulid from the source using yum, apt-get, etc. If you already have postgres installed, please update it.
 
 ##### Windows
 
