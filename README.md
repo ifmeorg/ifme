@@ -71,7 +71,7 @@ The steps below should be straightforward for Linux and OSX users. Windows users
 
 http://installrails.com
 
-### Updating existing Ruby installation
+##### Updating existing Ruby installation
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -107,7 +107,7 @@ Make a gemset for the specific Ruby on Rails version
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 
-### Updating existing Rails installation
+##### Updating existing Rails installation
 
 ```
 gem install rails --version=4.2.6
