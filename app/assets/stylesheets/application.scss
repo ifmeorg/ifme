@@ -635,11 +635,8 @@ fieldset {
 input[type="checkbox"],
 input[type="radio"] {
 	margin: 0 10px 0 5px;
-
-	@media screen and (max-width: $medium) {
-		width: 20px;
-		height: 20px;
-	}
+	width: auto;
+	height: auto;
 }
 
 .field input[type="text"],
