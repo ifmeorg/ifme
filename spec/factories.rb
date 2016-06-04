@@ -69,6 +69,14 @@ FactoryGirl.define do
     timezone "-05:00"
   end
 
+  factory :user3, class: User do
+    name "Gentle Breezy"
+    email "gentle.breezy@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+    timezone "-05:00"
+  end
+
   factory :allyships_accepted, class: Allyship do
     status :accepted
   end

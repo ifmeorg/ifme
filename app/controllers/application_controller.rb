@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats
+  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -394,5 +394,82 @@ class ApplicationController < ActionController::Base
     end
 
     return result
+  end
+
+  def get_viewers_for(data, data_type)
+    result = Array.new
+
+    if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
+      Moment.where(userid: data.userid).all.order("created_at DESC").each do |moment|
+        if data_type == 'category'
+          item = moment.category
+        elsif data_type == 'mood'
+          item = moment.mood
+        else
+          item = moment.strategies
+        end
+
+        if item.include?(data.id)
+          result += moment.viewers
+        end
+      end
+
+      if (data_type == 'category')
+        Strategy.where(userid: data.userid).all.order("created_at DESC").each do |strategy|
+          if strategy.category.include?(data.id)
+            result += strategy.viewers
+          end
+        end
+      end
+    end
+
+    return result.uniq
+  end
+
+  def viewers_hover(data, link)
+    result = ''
+    viewers = ''
+
+    if link
+      viewers += t('shared.viewers_hover.visible_to')
+    end
+
+    if data.blank? || data.length == 0
+      if link
+        viewers += t('shared.viewers_hover.only_you').downcase
+      else
+        viewers += t('shared.viewers_hover.only_you')
+      end
+    end
+
+    data.to_a.each do |viewer|
+      if data.last == viewer && data.length > 1 &&  data.length == 2
+        viewers += ' and '
+      elsif data.last == viewer && data.length > 1 &&  data.length != 2
+        viewers += ', and '
+      elsif data.last != viewer && data.length != 2 && viewer != data.first
+        viewers += ', '
+      end
+
+      viewers += User.where(id: viewer).first.name
+    end
+
+    if link
+      if link.class.name == 'Category'
+        link_url = '/categories/' + link.id.to_s
+      elsif link.class.name == 'Mood'
+        link_url = '/moods/' + link.id.to_s
+      elsif link.class.name == 'Strategy'
+        link_url = '/strategies/' + link.id.to_s
+      end
+
+      result += '<span class="yes_title" title="' + viewers + '">'
+      result += link_to link.name, link_url
+      result += '</span>'
+    else
+      result += '<span class="yes_title small_margin_right" title="' + viewers + '"><i class="fa fa-lock"></i></span>'
+    end
+
+    return result.html_safe
   end
 end

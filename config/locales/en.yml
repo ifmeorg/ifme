@@ -269,6 +269,7 @@ en:
     most_focus: ' focusing the most on'
   viewers_hover:
     only_you: 'Only you'
+    visible_to: 'Visible to '
 
  strategies:
   form:
