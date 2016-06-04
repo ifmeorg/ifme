@@ -1,20 +1,4 @@
 <%= form_for(:search, :url => search_index_path, :html => { :method => :get }) do |f| %>
-
-	<!-- Disabling name and location search temporarily -->
-	<% if false %>
-		<% if @name.nil? %>
-	 		<%= f.text_field :name, :placeholder => t('.search_by_name') %>
-	 	<% else %>
-	 		<%= f.text_field :name, :placeholder => t('.search_by_name'), :value => @name %>
-	 	<% end %>
-
-	 	<% if @location.nil? %>
-	 		<%= f.text_field :location, :placeholder => t('.search_by_location') %>
-	 	<% else %>
-	 		<%= f.text_field :location, :placeholder => t('.search_by_location'), :value => @location %>
-	 	<% end %>
-	<% end %>
-
     <% if @email.nil? %>
  		<%= f.text_field :email, :placeholder => t('.search_by_email') %>
  	<% else %>

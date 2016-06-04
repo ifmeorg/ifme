@@ -184,40 +184,6 @@ class StrategiesController < ApplicationController
     end
   end
 
-  # def support
-  #   if !params[:support].nil? && !params[:support][:userid].empty? && !params[:support][:support_type].empty? && !params[:support][:support_id].empty?
-  #     params[:userid] = params[:support][:userid]
-  #     params[:support_type] = params[:support][:support_type]
-  #     params[:support_id] = params[:support][:support_id]
-  #   end
-
-  #   support_id = params[:support_id].to_i
-
-  #   if Support.where(userid: params[:userid], support_type: params[:support_type]).exists?
-  #     new_support_ids = Support.where(userid: params[:userid], support_type: params[:support_type]).first.support_ids
-  #     if new_support_ids.include?(support_id)
-  #       new_support_ids.delete(support_id)
-  #       the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
-  #       if new_support_ids.empty?
-  #         @support = the_support.destroy
-  #       else
-  #         @support = the_support.update!(support_ids: new_support_ids)
-  #       end
-  #     else
-  #       new_support_ids = new_support_ids.push(support_id)
-  #       the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
-  #       the_support.update!(support_ids: new_support_ids)
-  #     end
-  #   else
-  #     @support = Support.create!(userid: params[:userid], support_type: params[:support_type], support_ids: Array.new(1, support_id))
-  #   end
-
-  #   respond_to do |format|
-  #       format.html { redirect_to strategy_path(support_id) }
-  #       format.json { render :show, status: :created, location: Strategy.find(support_id) }
-  #   end
-  # end
-
   # GET /strategies/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
