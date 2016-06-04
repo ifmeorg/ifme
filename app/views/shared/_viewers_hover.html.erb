@@ -1,25 +1,3 @@
 <% if local_assigns[:data].userid == current_user.id %>
-<%
-	if local_assigns[:data].viewers.blank?
-		viewers = t('shared.viewers_hover.only_you')
-	else
-		viewers = ''
-	end
-	local_assigns[:data].viewers.to_a.each do |viewer|
-		if local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length == 2
-			viewers += ' and '
-		 elsif local_assigns[:data].viewers.last == viewer && local_assigns[:data].viewers.length > 1 &&  local_assigns[:data].viewers.length != 2
-		 	viewers += ', and '
-		 elsif local_assigns[:data].viewers.last != viewer && local_assigns[:data].viewers.length != 2 && viewer != local_assigns[:data].viewers.first
-		 	viewers += ', '
-		end
-
-		viewers += User.where(id: viewer).first.name
-	end
-
-	viewers_hover = '<span class="yes_title small_margin_right" title="' + viewers + '"><i class="fa fa-lock"></i></span>'
-%>
-
-<%= viewers_hover.html_safe %>
-
+	<%= viewers_hover(local_assigns[:data].viewers, nil) %>
 <% end %>

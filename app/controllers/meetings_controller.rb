@@ -244,7 +244,6 @@ class MeetingsController < ApplicationController
 
       meeting_leaders.each do |leader|
         if leader.userid != current_user.id
-          puts "JULIA NGUYEN"
           data = JSON.generate({
           user: current_user.name,
           meetingid: meetingid,

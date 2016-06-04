@@ -13,13 +13,21 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include LocalTimeHelper
 
+  # Global Variables
+  $per_page = 5 # For Kaminari
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  # Global Variables
-  $per_page = 5 # For Kaminari
+  # Timezone
+  around_filter :with_timezone
+
+  def with_timezone
+    timezone = Time.find_zone(cookies[:timezone])
+    Time.use_zone(timezone) { yield }
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar, :comment_notify, :ally_notify, :group_notify, :meeting_notify) }
@@ -27,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :fetch_supporters, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories
+  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -102,41 +110,6 @@ class ApplicationController < ActionController::Base
     return return_this
   end
 
-  def fetch_supporters(support, type)
-    supporters = false
-    first_element = 0
-    return_this = ''
-    support.each do |s|
-      if s.support_ids.include?(type.id)
-        supporters = true
-        first_element = first_element + 1
-        link_url = '/profile?userid=' + s.userid.to_s
-        if first_element == 1
-          if s.userid == current_user.id
-                return_this = link_to "You", link_url
-              else
-                return_this = link_to User.where(:id => s.userid).first.name, link_url
-              end
-            else
-              return_this += ", "
-              if s.userid == current_user.id
-                return_this += link_to "You", link_url
-              else
-                return_this += link_to User.where(:id => s.userid).first.name, link_url
-              end
-            end
-          end
-        end
-
-        if supporters
-          return_this = "<br><strong>Supporters:</strong> " + return_this
-        else
-          return_this = ""
-        end
-
-        return return_this.html_safe
-  end
-
   def fetch_profile_picture(avatar, class_name)
     default = "/assets/default_ifme_avatar.png"
 
@@ -162,40 +135,52 @@ class ApplicationController < ActionController::Base
     first_element = 0
     return_this = ''
     data.each do |d|
-      first_element = first_element + 1
-      if first_element == 1
+      if d.kind_of?(Array) && d[0].kind_of?(String) && d[1].kind_of?(String)
+        first_element = first_element + 1
+        if first_element == 1
           return_this = link_to d[0], d[1]
         else
           return_this += ", "
           return_this += link_to d[0], d[1]
         end
-        end
+      else
+        return_this = ''
+        break
+      end
+    end
 
-        return return_this.html_safe
+    return return_this.html_safe
   end
 
-  def most_focus(data_type)
+  def most_focus(data_type, profile)
     data = Array.new
+
+    if profile.blank?
+      userid = current_user.id
+    else
+      userid = profile
+    end
+
     if data_type == 'category'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.category.blank? && moment.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.category
         end
       end
-      Strategy.where(userid: current_user.id).all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0
+      Strategy.where(userid: userid).all.each do |strategy|
+        if !strategy.category.blank? && strategy.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
           data += strategy.category
         end
       end
     elsif data_type == 'mood'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.mood.blank? && moment.mood.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.mood
         end
       end
     elsif data_type == 'strategy'
-      Moment.where(userid: current_user.id).all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0
+      Moment.where(userid: userid).all.each do |moment|
+        if !moment.strategies.blank? && moment.strategies.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.strategies
         end
       end
@@ -267,10 +252,10 @@ class ApplicationController < ActionController::Base
 
     comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
     if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
-      comment_info += t('shared.comments.not_allies')
+      comment_info += ' ' + t('shared.comments.not_allies')
     end
-    comment_info += ' ' + t('shared.comments.on_date') + ' '
-    comment_info += local_time(data.created_at, '%A, %B %e, %Y at %l:%M %P')
+    comment_info += ' - '
+    comment_info += local_time_ago(data.created_at)
 
     comment_text = raw(data.comment)
 
@@ -318,12 +303,13 @@ class ApplicationController < ActionController::Base
   end
 
   def get_stories(user, include_allies)
-    allies = user.allies_by_status(:accepted)
+    if user.id == current_user.id
+      my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
+      my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
+    end
 
-    my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
-    my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
-
-    if include_allies
+    if include_allies && user.id == current_user.id
+      allies = user.allies_by_status(:accepted)
       ally_moments = []
       ally_strategies = []
 
@@ -343,14 +329,147 @@ class ApplicationController < ActionController::Base
 
       my_moments += ally_moments
       my_strategies += ally_strategies
+    elsif !include_allies && user.id != current_user.id
+      ally_moments = []
+      ally_strategies = []
+
+      Moment.where(userid: user.id).all.order("created_at DESC").each do |moment|
+        if moment.viewers.include?(current_user.id)
+          ally_moments << moment
+        end
+      end
+
+      Strategy.where(userid: user.id).all.order("created_at DESC").each do |strategy|
+        if strategy.viewers.include?(current_user.id)
+          ally_strategies << strategy
+        end
+      end
+
+      my_moments = ally_moments
+      my_strategies = ally_strategies
     end
 
     moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
     strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
 
-    stories = moments.zip(strategies).flatten.compact
+    if moments.count > 0
+      stories = moments.zip(strategies).flatten.compact
+    else
+      stories = strategies.flatten.compact
+    end
+
     stories = stories.sort_by {|x| x.created_at }.reverse!
 
     return stories
+  end
+
+  def moments_stats
+    result = ''
+    count = Moment.where(userid: current_user.id).all.count
+
+    if count > 1
+      result += '<div class="center" id="stats">'
+      result += 'You have written a <strong>total</strong> of '
+      result += '<strong>' + count.to_s + '</strong>'
+
+      if count == 1
+        result += ' moment.'
+      else
+        result += ' moments.'
+
+        monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
+        if count != monthly_count
+          result += ' This <strong>month</strong> you wrote '
+          result += '<strong>' + monthly_count.to_s + '</strong>'
+
+          if monthly_count == 1
+            result += ' moment.'
+          else
+            result += ' moments.'
+          end
+        end
+      end
+
+      result += '</div>'
+    end
+
+    return result
+  end
+
+  def get_viewers_for(data, data_type)
+    result = Array.new
+
+    if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
+      Moment.where(userid: data.userid).all.order("created_at DESC").each do |moment|
+        if data_type == 'category'
+          item = moment.category
+        elsif data_type == 'mood'
+          item = moment.mood
+        else
+          item = moment.strategies
+        end
+
+        if item.include?(data.id)
+          result += moment.viewers
+        end
+      end
+
+      if (data_type == 'category')
+        Strategy.where(userid: data.userid).all.order("created_at DESC").each do |strategy|
+          if strategy.category.include?(data.id)
+            result += strategy.viewers
+          end
+        end
+      end
+    end
+
+    return result.uniq
+  end
+
+  def viewers_hover(data, link)
+    result = ''
+    viewers = ''
+
+    if link
+      viewers += t('shared.viewers_hover.visible_to')
+    end
+
+    if data.blank? || data.length == 0
+      if link
+        viewers += t('shared.viewers_hover.only_you').downcase
+      else
+        viewers += t('shared.viewers_hover.only_you')
+      end
+    end
+
+    data.to_a.each do |viewer|
+      if data.last == viewer && data.length > 1 &&  data.length == 2
+        viewers += ' and '
+      elsif data.last == viewer && data.length > 1 &&  data.length != 2
+        viewers += ', and '
+      elsif data.last != viewer && data.length != 2 && viewer != data.first
+        viewers += ', '
+      end
+
+      viewers += User.where(id: viewer).first.name
+    end
+
+    if link
+      if link.class.name == 'Category'
+        link_url = '/categories/' + link.id.to_s
+      elsif link.class.name == 'Mood'
+        link_url = '/moods/' + link.id.to_s
+      elsif link.class.name == 'Strategy'
+        link_url = '/strategies/' + link.id.to_s
+      end
+
+      result += '<span class="yes_title" title="' + viewers + '">'
+      result += link_to link.name, link_url
+      result += '</span>'
+    else
+      result += '<span class="yes_title small_margin_right" title="' + viewers + '"><i class="fa fa-lock"></i></span>'
+    end
+
+    return result.html_safe
   end
 end

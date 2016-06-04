@@ -4,6 +4,7 @@
 .group,
 .medication,
 .moment,
+.story,
 .mood,
 .profile_container,
 .strategy {
@@ -24,6 +25,7 @@ h1.group_name,
 h1.meeting_name,
 h1.medication_name,
 h1.moment_name,
+h1.story_name,
 h1.mood_name,
 h1.profile_name,
 h1.strategy_name {
@@ -51,6 +53,8 @@ h1.medication_name a:link,
 h1.medication_name a:visited,
 h1.moment_name a:link,
 h1.moment_name a:visited,
+h1.story_name a:link,
+h1.story_name a:visited,
 h1.mood_name a:link,
 h1.mood_name a:visited,
 h1.blog_name a:link,
@@ -70,10 +74,11 @@ h1.strategy_name a:visited {
 .tip_notifications_text,
 #notifications_text,
 .quick_create_text,
-.moment,
 #categories_moods_text,
 .meeting,
-.group_info {
+.group_info,
+.moment,
+.story {
 	.align_left {
 		float: left;
 		display: inline-block;
@@ -86,6 +91,43 @@ h1.strategy_name a:visited {
 	.align_right {
 		float: right;
 		display: inline-block;
+	}
+}
+
+.story {
+	.align_left {
+		float: left;
+		display: inline-block;
+
+		@media screen and (max-width: $small) {
+			width: 100%;
+			float: none;
+			display: block;
+		}
+	}
+
+	.align_right {
+		float: right;
+		display: inline-block;
+
+		@media screen and (max-width: $small) {
+			float: none;
+			display: block;
+		}
+	}
+
+	@media screen and (max-width: $small) {
+		h1.story_name {
+			font-size: 20px;
+			margin: 0px 0px 5px 0px;
+			padding-bottom: 5px;
+			border-bottom: 1px solid $subtle-secondary-text-color;
+		}
+
+		h1.ally_name {
+			font-size: 18px;
+			margin: 0px 0px 10px 0px;
+		}
 	}
 }
 

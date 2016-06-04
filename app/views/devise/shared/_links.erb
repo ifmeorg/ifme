@@ -1,3 +1,16 @@
+<%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
+<div class="divider"></div>
+<div class="small_margin_bottom">
+  <%- resource_class.omniauth_providers.each do |provider| %>
+  	<% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
+      <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %>
+    <% elsif provider.to_s == "google_oauth2" %>
+      <%= button_to "Sign up with Google", omniauth_authorize_path(resource_name, provider) %>
+    <% end -%>
+  <% end -%>
+</div>
+<% end -%>
+
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br>
 <% end -%>
@@ -8,16 +21,4 @@
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br>
-<% end -%>
-
-<%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-  	<% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-      <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %><br>
-    <% elsif provider.to_s == "google_oauth2" %>
-      <%= link_to "Sign up with Google", omniauth_authorize_path(resource_name, provider) %><br>
-  	<% else %>
-  		<%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br>
-    <% end -%>
-  <% end -%>
 <% end -%>

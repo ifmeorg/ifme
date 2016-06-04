@@ -204,7 +204,7 @@ function renderNotifications(notifications) {
 
       $('#notifications_list').prepend(notification_link);
     } else if (data.type == 'accepted_ally_request' || data.type == 'new_ally_request') {
-      var link = '/profile?userid=' + data.userid;
+      var link = '/profile?uid=' + data.uid;
       var notification_link;
 
       if (data.type == 'accepted_ally_request') {

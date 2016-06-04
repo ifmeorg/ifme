@@ -92,6 +92,7 @@ var onReadyAddComment = function() {
 					    		newComment += '</div>';
 
 					    		$('#comments').prepend(newComment);
+					    		handleLocalTime();
 
 					    		if ($('.comment').length > 0) {
 									$('.actions').removeClass('no_margin_bottom');

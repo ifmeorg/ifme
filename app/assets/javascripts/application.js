@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require ckeditor/init
-//= require local_time
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -26,6 +25,10 @@ var onReadyApplication = function() {
     		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   		}
 	});
+
+	// Timezone detection
+	var tz = jstz.determine();
+  	$.cookie('timezone', tz.name(), { path: '/' });
 
 	$('.yes_title').find(':not(.no_title)').tooltip();
 

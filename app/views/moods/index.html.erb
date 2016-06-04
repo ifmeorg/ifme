@@ -5,6 +5,8 @@
 <div class="spacer"></div>
 
 <% if @moods.length > 0 %>
+  <%= render :partial => '/search/posts', locals: { data_type: 'mood' } %>
+
   <%= render :partial => '/shared/stats', locals: { data_type: 'mood' } %>
 
   <div id="pages">

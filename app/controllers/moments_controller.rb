@@ -2,10 +2,27 @@ class MomentsController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_moment, only: [:show, :edit, :update, :destroy]
 
+  def default_params
+    @default_params ||= {
+      moment: {
+        category: [],
+        mood: [],
+        viewers: [],
+        strategies: []
+      }
+    }
+  end
+
   # GET /moments
   # GET /moments.json
   def index
-    @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    search = Moment.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @moments = search.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Moments"
     @page_new = new_moment_path
     @page_tooltip = "New moment"
@@ -18,7 +35,7 @@ class MomentsController < ApplicationController
       @page_edit = edit_moment_path(@moment)
       @page_tooltip = "Edit moment"
     else
-      link_url = "/profile?userid=" + @moment.userid.to_s
+      link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
       the_link = link_to User.where(:id => @moment.userid).first.name, link_url
       @page_author = the_link.html_safe
     end
@@ -319,6 +336,7 @@ class MomentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def moment_params
+      params[:moment] = default_params[:moment].merge(params[:moment])
       params.require(:moment).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
     end
 

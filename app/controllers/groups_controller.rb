@@ -182,14 +182,6 @@ class GroupsController < ApplicationController
         format.json { head :no_content }
       end
     else
-      # Remove corresponding meetings
-      meeting_members = MeetingMember.where(userid: memberid).all
-      meeting_members.each do |member|
-        if Meeting.where(id: member.meetingid, groupid: params[:groupid]).exists?
-          member.destroy
-        end
-      end
-
       group_member = GroupMember.find_by(userid: memberid, groupid: params[:groupid])
       group_member.destroy
 

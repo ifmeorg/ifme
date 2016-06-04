@@ -5,6 +5,10 @@
 <div class="spacer"></div>
 
 <% if @moments.length > 0 %>
+  <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
+
+  <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
+
   <div id="pages">
     <div class="page">
     <%= render @moments %>
@@ -25,8 +29,7 @@ You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></
     	Panicking over interview tomorrow!
   	</h1>
 
-  	<strong><%= t('moments.show.created') %></strong> Thursday, May 26, 2016 at 6:24 pm
-  	<br><strong><%= t('moments.index.category') %></strong> Career
+  	<strong><%= t('moments.index.category') %></strong> Career
   	<br><strong><%= t('moments.index.moods') %></strong> Nervous, Anxious, Hopeful
 </div>
 

@@ -44,7 +44,8 @@
 }
 
 @media screen and (max-width: $medium) {
-	#search_email {
+	#search_email,
+	#search_name {
 		margin-right: 0;
 		margin-bottom: 10px;
 	}

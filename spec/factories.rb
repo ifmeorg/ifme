@@ -1,11 +1,13 @@
 FactoryGirl.define do
   factory :notification do
-    userid 1
+    association :user, factory: :user1
     uniqueid "MyString"
     data "MyText"
   end
+
   factory :group_member do
-    userid 1
+    association :user, factory: :user1
+    group
     leader false
 
     factory :group_leader do
@@ -14,7 +16,8 @@ FactoryGirl.define do
   end
 
   factory :meeting_member do
-    sequence(:userid)
+    association :user, factory: :user1
+    meeting
     leader false
   end
 
@@ -61,6 +64,14 @@ FactoryGirl.define do
   factory :user2, class: User do
     name "Plum Blossom"
     email "plum.blossom@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+    timezone "-05:00"
+  end
+
+  factory :user3, class: User do
+    name "Gentle Breezy"
+    email "gentle.breezy@example.com"
     password "password"
     location "Toronto, ON, Canada"
     timezone "-05:00"

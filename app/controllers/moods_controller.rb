@@ -5,7 +5,13 @@ class MoodsController < ApplicationController
   # GET /moods
   # GET /moods.json
   def index
-    @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    name = params[:search]
+    search = Mood.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    if !name.blank? && search.exists?
+      @moods = search.order("created_at DESC").page(params[:page]).per($per_page)
+    else
+      @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+    end
     @page_title = "Moods"
     @page_new = new_mood_path
     @page_tooltip = "New mood"
@@ -20,7 +26,7 @@ class MoodsController < ApplicationController
         @page_edit = edit_mood_path(@mood)
         @page_tooltip = "Edit mood"
       else
-        link_url = "/profile?userid=" + @mood.userid.to_s
+        link_url = "/profile?uid=" + get_uid(@mood.userid).to_s
         the_link = link_to User.where(:id => @mood.userid).first.name, link_url
         @page_author = the_link.html_safe
       end

@@ -18,7 +18,8 @@
 			<% elsif current_page?(root_path) %>
 				- <%= t(:app_description) %>
 			<% elsif current_page?(new_user_invitation_path) ||
-				(params[:controller] == "devise/invitations" && action_name == "new") %>
+				(params[:controller] == "devise/invitations" && action_name == "new") ||
+				(params[:controller] == "users/invitations" && action_name == "create") %>
 				- <%= t('devise.invitations.new.header') %>
 			<% elsif current_page?(accept_user_invitation_path) ||
 				(params[:controller] == "devise/invitations" && action_name == "accept") %>
@@ -38,10 +39,10 @@
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 
-		<!-- Pusher -->
 		<% if user_signed_in? %>
-			<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-			<%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
+		<!-- Pusher -->
+		<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+		<%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
 		<% end %>
 
 		<!-- jQuery UI -->
@@ -61,6 +62,10 @@
 		<!-- Timepicker UI -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
+
+		<!-- Timezone Detection -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js" type="text/javascript"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
 	</head>
 
 	<body class="<%= controller_name %> <%= action_name %>">
@@ -143,7 +148,8 @@
 						        </span><%= t(:app_description) %>
 					      </div>
 					    <% elsif current_page?(new_user_invitation_path) ||
-							(params[:controller] == "devise/invitations" && action_name == "new") %>
+							(params[:controller] == "devise/invitations" && action_name == "new") ||
+							(params[:controller] == "users/invitations" && action_name == "create") %>
 							<%= t('devise.invitations.new.header') %>
 						<% elsif current_page?(accept_user_invitation_path) ||
 							(params[:controller] == "devise/invitations" && action_name == "accept") %>
