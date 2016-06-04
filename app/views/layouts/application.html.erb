@@ -134,13 +134,15 @@
 							<div class="clear"></div>
 
 						<% elsif !@page_author.blank? %>
-							<div class="align_left">
-								<%= @page_title %>
+							<div id="other_user">
+								<div class="align_left">
+									<%= @page_title %>
+								</div>
+								<div class="align_right">
+									<%= @page_author %>
+								</div>
+								<div class="clear"></div>
 							</div>
-							<div class="align_right">
-								<%= @page_author %>
-							</div>
-							<div class="clear"></div>
 						<% elsif current_page?(root_path) && !user_signed_in? %>
 							<div class="headline center">
 						        <span class="branding_title">
