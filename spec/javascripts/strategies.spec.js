@@ -78,4 +78,24 @@ describe("Strategies", function() {
     expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
   	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
 	});
+  it("test tagged moments hidden", function() {
+    // hidden tagged moments
+    expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
+    expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
+  	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
+    showTaggedMoments();
+	});
+  it("test tagged moments shown", function() {
+    // shown tagged moments
+    expect($('#moment_tag_usage').hasClass("display_block")).toBe(true);
+    expect($('#showTaggedMoments').hasClass("display_none")).toBe(true);
+  	expect($('#hideTaggedMoments').hasClass("display_inline_block")).toBe(true);
+    hideTaggedMoments();
+	});
+  it("test tagged moments re-hidden", function() {
+    // hidden tagged moments
+    expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
+    expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
+  	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
+	});
 });
