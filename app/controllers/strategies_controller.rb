@@ -168,7 +168,7 @@ class StrategiesController < ApplicationController
     strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
 
     if strategy.save
-      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategy][]" id="moment_strategy_' + strategy.id.to_s + '">'
+      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
       label += render_to_string :partial => '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
