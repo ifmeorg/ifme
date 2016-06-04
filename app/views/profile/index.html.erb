@@ -5,13 +5,11 @@
 	<div class="table_cell vertical_align_middle">
 		<% if @profile.about %>
 			<%= @profile.about %>
-			<br>
-			<br>
+			<div class="spacer"></div>
 		<% end %>
 		<% if @profile == current_user %>
 			<%= link_to t('.edit_user'), edit_user_registration_path %>
-			<br>
-			<br>
+			<div class="spacer"></div>
 		<% end %>
 		<% if !User.where(:id => @profile.id).first.location.blank? %>
 			<i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
