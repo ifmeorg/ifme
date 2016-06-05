@@ -164,35 +164,34 @@ class GroupsController < ApplicationController
   end
 
   def leave
-    if params[:memberid].blank?
-      memberid = current_user.id
-    else
-      memberid = params[:memberid]
-      membername = User.where(id: memberid).first.name
-    end
-
-    group_name = Group.where(id: params[:groupid]).first.name
+    member_id = params[:memberid] || current_user.id
+    group_member = GroupMember.find_by(userid: member_id, groupid: params[:groupid])
 
     # Cannot leave When you are the only leader
-    is_leader = GroupMember.where(userid: memberid, groupid: params[:groupid], leader: true).count
-    are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
-    if is_leader == 1 && are_leaders == is_leader
+    if group_member.group.leader_ids == [member_id]
       respond_to do |format|
-        format.html { redirect_to groups_path, alert: 'You cannot leave the group, you are the only leader.' }
+        format.html do
+          redirect_to groups_path,
+                      alert: 'You cannot leave the group, you are the only leader.'
+        end
         format.json { head :no_content }
       end
     else
-      group_member = GroupMember.find_by(userid: memberid, groupid: params[:groupid])
       group_member.destroy
 
-      if memberid == current_user.id
+      if member_id == current_user.id
         respond_to do |format|
-          format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
+          format.html do
+            redirect_to groups_path, notice: 'You have left ' +
+                                             group_member.group.name
+          end
           format.json { head :no_content }
         end
       else
         respond_to do |format|
-          format.html { redirect_to groups_path, notice: 'You have removed ' + membername + ' from ' + group_name }
+          format.html { redirect_to groups_path,
+                        notice: 'You have removed ' + group_member.user.name +
+                        ' from ' + group_name }
           format.json { head :no_content }
         end
       end
