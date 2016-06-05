@@ -41,6 +41,7 @@ describe("Strategies", function() {
         .attr({
           "id": "showTaggedMoments"
         })
+
         .addClass("display_inline_block"),
 
         $('<div>')
@@ -54,6 +55,7 @@ describe("Strategies", function() {
   });
   afterAll(function() {
     $("#test_body").remove();
+    $("body").removeClass("strategies new");
   });
 	it("test all viewers not checked", function() {
     // all are unchecked
