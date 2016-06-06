@@ -5,9 +5,9 @@ RSpec.feature "UserVisitsGroupsPages", type: :feature do
     scenario 'successfully' do
       user = create :user1
       login_as user
-      group = create :group_with_member, userid: user.id
-      meeting = create :meeting, groupid: group.id
-      create :meeting_member, userid: user.id, meetingid: meeting.id
+      group = create :group_with_member, user_id: user.id
+      meeting = create :meeting, group_id: group.id
+      create :meeting_member, user_id: user.id, meeting_id: meeting.id
 
       visit group_path(group)
 

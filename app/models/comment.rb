@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  comment_type :string(255)
 #  commented_on :integer
-#  comment_by   :integer
+#  user_id   :integer
 #  comment      :text
 #  created_at   :datetime
 #  updated_at   :datetime
@@ -15,7 +15,7 @@
 class Comment < ActiveRecord::Base
   serialize :viewers, Array
   validates_length_of :comment, :minimum => 0, :maximum => 1000
-  validates_presence_of :comment_type, :commented_on, :comment_by, :comment
+  validates_presence_of :comment_type, :commented_on, :user_id, :comment
   validates :comment_type, inclusion: %w(moment strategy meeting)
   validates :visibility, inclusion: %w(all private)
   before_save :array_data

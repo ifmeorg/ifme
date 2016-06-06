@@ -41,8 +41,8 @@
         </div>
 
         <% @group_members.each do |member| %>
-        <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
-        <%= link_to User.where(id: member.userid).first.name, profile_index_path(uid: get_uid(member.userid)) %>
+        <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.user_id, nil) %>
+        <%= link_to User.where(id: member.user_id).first.name, profile_index_path(uid: get_uid(member.user_id)) %>
         <br>
         <% end %>
       <% else %>

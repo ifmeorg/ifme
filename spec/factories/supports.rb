@@ -3,7 +3,7 @@
 # Table name: supports
 #
 #  id           :integer          not null, primary key
-#  userid       :integer
+#  user_id       :integer
 #  support_type :string(255)
 #  support_ids  :text
 #  created_at   :datetime
@@ -14,7 +14,7 @@
 
 FactoryGirl.define do
   factory :support do
-    userid 1
+    user_id 1
     support_type "MyString"
     support_ids "MyString"
   end

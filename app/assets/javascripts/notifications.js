@@ -250,7 +250,7 @@ function renderNotifications(notifications) {
       }
 
 
-      var link = '/groups/' + data.groupid;
+      var link = '/groups/' + data.group_id;
 
       if (data.type == 'new_meeting' ||
         data.type == 'update_meeting' ||

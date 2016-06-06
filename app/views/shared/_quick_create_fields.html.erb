@@ -45,7 +45,7 @@
 	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
 </div>
 
-<% categories = Category.where(userid: current_user.id).all %>
+<% categories = Category.where(user_id: current_user.id).all %>
 <% if !categories.nil? && categories.length > 0 %>
 <div class="field">
 	<div class="label">

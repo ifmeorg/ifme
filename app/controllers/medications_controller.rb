@@ -8,11 +8,11 @@ class MedicationsController < ApplicationController
   # GET /medications.json
   def index
     name = params[:search]
-    search = Medication.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    search = Medication.where("name ilike ? AND user_id = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
       @medications = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
-      @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+      @medications = Medication.where(:user_id => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
     @page_title = "Medications"
     @page_new = new_medication_path
@@ -22,7 +22,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    if @medication.userid == current_user.id
+    if @medication.user_id == current_user.id
       @page_title = @medication.name
       @page_edit = edit_medication_path(@medication)
       @page_tooltip = "Edit medication"
@@ -42,7 +42,7 @@ class MedicationsController < ApplicationController
 
   # GET /medications/1/edit
   def edit
-    if @medication.userid == current_user.id
+    if @medication.user_id == current_user.id
       @page_title = "Edit " + @medication.name
     else
       respond_to do |format|
@@ -118,7 +118,7 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments)
+      params.require(:medication).permit(:name, :dosage, :refill, :user_id, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments)
     end
 
     def if_not_signed_in

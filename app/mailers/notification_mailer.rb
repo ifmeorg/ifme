@@ -16,8 +16,8 @@ class NotificationMailer < ApplicationMailer
 			elsif @data['type'] == 'comment_on_strategy' || @data['type'] == 'comment_on_strategy_private'
 				subject += @data['user'].to_s + ' commented on your strategy "' + @data['strategy'].to_s + '"'
 			else
-				groupid = Meeting.where(id: @data['meetingid']).first.groupid
-				group = Group.where(id: groupid).first.name
+				group_id = Meeting.where(id: @data['meetingid']).first.group_id
+				group = Group.where(id: group_id).first.name
 				subject += @data['user'].to_s + ' commented on the meeting "' + @data['meeting'].to_s + '" in the group "' + group.to_s + '"'
 			end
 
@@ -73,15 +73,15 @@ class NotificationMailer < ApplicationMailer
 	    	if @data['type'] == 'new_group'
 	    		what = @data['user'].to_s + ' created a group "' + @data['group'].to_s + '"'
        	 		subject += what
-       	 		group_description = Group.where(id: @data['groupid']).first.description
-       	 		link = link_to("click here", group_url(@data['groupid']))
+       	 		group_description = Group.where(id: @data['group_id']).first.description
+       	 		link = link_to("click here", group_url(@data['group_id']))
        	 		@message = '<p>' + what + ':</p>'
        	 		@message += '<p><i>' + group_description.to_s + '</i></p>'
        	 		@message += '<p>To learn more and join, ' + link + '!</p>'
 
 		  	elsif @data['type'] == 'new_group_member'
 		  		subject += @data['user'].to_s + ' joined your group "' + @data['group'].to_s + '"'
-		    	link = link_to("click here", group_url(@data['groupid']))
+		    	link = link_to("click here", group_url(@data['group_id']))
        	 		@message = '<p>To see ' + @data['group'].to_s + ', ' + link + '!</p>'
 
 		  	elsif @data['type'] == 'add_group_leader'
@@ -90,7 +90,7 @@ class NotificationMailer < ApplicationMailer
 		  		else
 		    		subject += @data['user'].to_s + ' became a leader of "' + @data['group'].to_s + '"'
 		    	end
-		    	link = link_to("click here", group_url(@data['groupid']))
+		    	link = link_to("click here", group_url(@data['group_id']))
        	 		@message = '<p>To see ' + @data['group'].to_s + ', ' + link + '! </p>'
 
 		  	elsif @data['type'] == 'remove_group_leader'
@@ -99,7 +99,7 @@ class NotificationMailer < ApplicationMailer
 		  		else
 		    		subject += @data['user'].to_s + ' is no longer a leader of "' + @data['group'].to_s + '"'
 		    	end
-		    	link = link_to("click here", group_url(@data['groupid']))
+		    	link = link_to("click here", group_url(@data['group_id']))
        	 		@message = '<p>To see ' + @data['group'].to_s + ', ' + link + '!</p>'
 
 		  	elsif @data['type'] == 'new_meeting' || @data['type'] == 'update_meeting'
@@ -129,7 +129,7 @@ class NotificationMailer < ApplicationMailer
 
 		  	elsif @data['type'] == 'remove_meeting'
 		    	subject += @data['user'].to_s + ' has cancelled "' + @data['meeting'].to_s + '" for "' + @data['group'].to_s + '"'
-		    	link = link_to("click here", group_url(@data['groupid']))
+		    	link = link_to("click here", group_url(@data['group_id']))
        	 		@message = '<p>To see ' + @data['group'].to_s + ', ' + link + '!</p>'
 
 		  	elsif @data['type'] == 'join_meeting'

@@ -6,8 +6,8 @@ class PagesController < ApplicationController
 
       if !@stories.blank? && @stories.count > 0
         @moment = Moment.new
-        @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
-        @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
+        @categories = Category.where(user_id: current_user.id).all.order("created_at DESC")
+        @moods = Mood.where(user_id: current_user.id).all.order("created_at DESC")
         @page_title = "Stories"
       end
   	else

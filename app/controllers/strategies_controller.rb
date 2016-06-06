@@ -15,11 +15,11 @@ class StrategiesController < ApplicationController
   # GET /strategies.json
   def index
     name = params[:search]
-    search = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    search = Strategy.where("name ilike ? AND user_id = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
       @strategies = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
-      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+      @strategies = Strategy.where(:user_id => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
     @page_title = "Strategies"
     @page_new = new_strategy_path
@@ -29,16 +29,16 @@ class StrategiesController < ApplicationController
   # GET /strategies/1
   # GET /strategies/1.json
   def show
-    if current_user.id == @strategy.userid
+    if current_user.id == @strategy.user_id
       @page_edit = edit_strategy_path(@strategy)
       @page_tooltip = "Edit strategy"
     else
-      link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
-      the_link = link_to User.where(:id => @strategy.userid).first.name, link_url
+      link_url = "/profile?uid=" + get_uid(@strategy.user_id).to_s
+      the_link = link_to User.where(:id => @strategy.user_id).first.name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
-    if hide_page(@strategy) && @strategy.userid != current_user.id
+    if hide_page(@strategy) && @strategy.user_id != current_user.id
       respond_to do |format|
         format.html { redirect_to strategies_path }
         format.json { head :no_content }
@@ -54,10 +54,10 @@ class StrategiesController < ApplicationController
 
   def comment
     if params[:viewers].blank?
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
+      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :user_id => params[:user_id], :comment => params[:comment], :visibility => params[:visibility])
     else
       # Can only get here if comment is from Strategy creator
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
+      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :user_id => params[:user_id], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
     end
 
     if !@comment.save
@@ -69,9 +69,9 @@ class StrategiesController < ApplicationController
     end
 
     # Notify commented_on user that they have a new comment
-    strategy_user = Strategy.where(id: @comment.commented_on).first.userid
+    strategy_user = Strategy.where(id: @comment.commented_on).first.user_id
 
-    if (strategy_user != @comment.comment_by)
+    if (strategy_user != @comment.user_id)
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
       if @comment.comment.length > 80
@@ -90,8 +90,8 @@ class StrategiesController < ApplicationController
         uniqueid: uniqueid
         })
 
-      Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: strategy_user).order("created_at ASC").all
+      Notification.create(user_id: strategy_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(user_id: strategy_user).order("created_at ASC").all
       Pusher['private-' + strategy_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(strategy_user, data).deliver_now
@@ -117,8 +117,8 @@ class StrategiesController < ApplicationController
         uniqueid: uniqueid
         })
 
-      Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order("created_at ASC").all
+      Notification.create(user_id: private_user, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(user_id: private_user).order("created_at ASC").all
       Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(private_user, data).deliver_now
@@ -135,11 +135,11 @@ class StrategiesController < ApplicationController
 
   def delete_comment
     comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+    is_my_comment = Comment.where(id: params[:commentid], user_id: current_user.id).exists?
 
     if comment_exists
       strategyid = Comment.where(id: params[:commentid]).first.commented_on
-      is_my_strategy = Strategy.where(id: strategyid, userid: current_user.id).exists?
+      is_my_strategy = Strategy.where(id: strategyid, user_id: current_user.id).exists?
     else
       is_my_strategy = false
     end
@@ -165,7 +165,7 @@ class StrategiesController < ApplicationController
       viewers.push(item.id)
     end
 
-    strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
+    strategy = Strategy.new(user_id: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
 
     if strategy.save
       checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
@@ -189,16 +189,16 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
     @page_title = "New Strategy"
-    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+    @categories = Category.where(:user_id => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
 
   # GET /strategies/1/edit
   def edit
-    if @strategy.userid == current_user.id
+    if @strategy.user_id == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @page_title = "Edit " + @strategy.name
-      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+      @categories = Category.where(:user_id => current_user.id).all.order("created_at DESC")
       @category = Category.new
     else
       respond_to do |format|
@@ -229,11 +229,11 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def premade
-    premade_category = Category.where(name: 'Meditation', userid: current_user.id)
+    premade_category = Category.where(name: 'Meditation', user_id: current_user.id)
     if premade_category.exists?
-      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
+      premade1 = Strategy.create(user_id: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
     else
-      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), comment: false)
+      premade1 = Strategy.create(user_id: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), comment: false)
     end
 
     respond_to do |format|
@@ -263,7 +263,7 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1.json
   def destroy
     # Remove strategies from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(:user_id => current_user.id).all
 
     @moments.each do |item|
       new_strategy = item.strategies.delete(@strategy.id)
@@ -297,12 +297,12 @@ class StrategiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def strategy_params
       params[:strategy] = default_params[:strategy].merge(params[:strategy])
-      params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+      params.require(:strategy).permit(:name, :description, :user_id, :comment, {:category => []}, {:viewers => []})
     end
 
     def hide_page(strategy)
       if Strategy.where(id: strategy.id).exists?
-        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.userid, current_user.id)
+        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.user_id, current_user.id)
           return false
         end
       end

@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  meetingid  :integer
-#  userid     :integer
+#  user_id     :integer
 #  leader     :boolean
 #  created_at :datetime
 #  updated_at :datetime
@@ -20,8 +20,8 @@ describe MeetingMember do
 
   context "when meetingid is nil" do
     it "is invalid" do
-      meeting_member = build :meeting_member, meetingid: nil
-      expect(meeting_member).to have(1).error_on(:meetingid)
+      meeting_member = build :meeting_member, meeting_id: nil
+      expect(meeting_member).to have(1).error_on(:meeting_id)
     end
   end
 end

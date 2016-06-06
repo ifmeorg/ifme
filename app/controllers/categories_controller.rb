@@ -6,11 +6,11 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     name = params[:search]
-    search = Category.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
+    search = Category.where("name ilike ? AND user_id = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
       @categories = search.order("created_at DESC").page(params[:page]).per($per_page)
     else
-      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+      @categories = Category.where(:user_id => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
     @page_title = "Categories"
     @page_new = new_category_path
@@ -20,14 +20,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
+    if @category.user_id == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
       @page_title = @category.name
-      if @category.userid == current_user.id
+      if @category.user_id == current_user.id
         @page_edit = edit_category_path(@category)
         @page_tooltip = "Edit category"
       else
-        link_url = "/profile?uid=" + get_uid(@category.userid).to_s
-        the_link = link_to User.where(:id => @category.userid).first.name, link_url
+        link_url = "/profile?uid=" + get_uid(@category.user_id).to_s
+        the_link = link_to User.where(:id => @category.user_id).first.name, link_url
         @page_author = the_link.html_safe
       end
     else
@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    if @category.userid == current_user.id
+    if @category.user_id == current_user.id
       @page_title = "Edit " + @category.name
     else
       respond_to do |format|
@@ -75,10 +75,10 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def premade
-    premade1 = Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
-    premade2 = Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
-    premade3 = Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
-    premade4 = Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
+    premade1 = Category.create(user_id: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
+    premade2 = Category.create(user_id: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
+    premade3 = Category.create(user_id: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
+    premade4 = Category.create(user_id: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
 
     respond_to do |format|
       format.html { redirect_to categories_path }
@@ -105,7 +105,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(:user_id => current_user.id).all
 
     @moments.each do |item|
       new_category = item.category.delete(@category.id)
@@ -121,7 +121,7 @@ class CategoriesController < ApplicationController
   end
 
   def quick_create
-    category = Category.new(userid: current_user.id, name: params[:category][:name], description: params[:category][:description])
+    category = Category.new(user_id: current_user.id, name: params[:category][:name], description: params[:category][:description])
 
     if category.save
       tag = params[:category][:tag].to_s
@@ -158,7 +158,7 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :description, :userid)
+      params.require(:category).permit(:name, :description, :user_id)
     end
 
     def if_not_signed_in
@@ -174,7 +174,7 @@ class CategoriesController < ApplicationController
       if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
         return true
       elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
+        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.user_id, current_user.id)
           return true
         end
       end

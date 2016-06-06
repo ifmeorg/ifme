@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     end
 
     if @group.led_by?(current_user)
-      @page_new = new_meeting_path(groupid: @group.id)
+      @page_new = new_meeting_path(group_id: @group.id)
       @page_tooltip = "New meeting"
     end
   end
@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     @page_title = "Edit " + @group.name
-    @group_members = GroupMember.where(groupid: @group.id).all
+    @group_members = GroupMember.where(group_id: @group.id).all
   end
 
   # POST /groups
@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
     @page_title = "New Group"
     respond_to do |format|
       if @group.save
-        group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
+        group_member = GroupMember.new(group_id: @group.id, user_id: current_user.id, leader: true)
 
         # Notify allies that you created a new group
         accepted_allies = current_user.allies_by_status(:accepted)
@@ -58,14 +58,14 @@ class GroupsController < ApplicationController
         accepted_allies.each do |ally|
           data = JSON.generate({
             user: current_user.name,
-            groupid: @group.id,
+            group_id: @group.id,
             group: @group.name,
             type: 'new_group',
             uniqueid: uniqueid
           })
 
-          Notification.create(userid: ally.id, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: ally.id).order("created_at ASC").all
+          Notification.create(user_id: ally.id, uniqueid: uniqueid, data: data)
+          notifications = Notification.where(user_id: ally.id).order("created_at ASC").all
           Pusher['private-' + ally.id.to_s].trigger('new_notification', {notifications: notifications})
 
           NotificationMailer.notification_email(ally.id, data).deliver_now
@@ -88,45 +88,45 @@ class GroupsController < ApplicationController
     @page_title = "Edit " + @group.name
     respond_to do |format|
       if @group.update(group_params) && !params[:group][:leader].nil?
-        group_members = GroupMember.where(groupid: @group.id).all
+        group_members = GroupMember.where(group_id: @group.id).all
         group_members.each do |member|
-          group_member_id = GroupMember.where(groupid: @group.id, userid: member.userid).first.id
-          if params[:group][:leader].include? member.userid.to_s
-            GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: true)
+          group_member_id = GroupMember.where(group_id: @group.id, user_id: member.user_id).first.id
+          if params[:group][:leader].include? member.user_id.to_s
+            GroupMember.update(group_member_id, group_id: @group.id, user_id: member.user_id, leader: true)
             pusher_type = 'add_group_leader'
           else
-            GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: false)
+            GroupMember.update(group_member_id, group_id: @group.id, user_id: member.user_id, leader: false)
             pusher_type = 'remove_group_leader'
           end
 
           # Notify leaders that a leader has been added or removed
           uniqueid = pusher_type + '_' + current_user.id.to_s
-          group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
+          group_leaders = GroupMember.where(group_id: @group.id, leader: true).all
           group = Group.where(id: @group.id).first.name
 
           group_leaders.each do |leader|
-            if leader.userid != current_user.id
-              user = User.where(id: member.userid).first.name
+            if leader.user_id != current_user.id
+              user = User.where(id: member.user_id).first.name
               data = JSON.generate({
                 user: user,
-                groupid: @group.id,
+                group_id: @group.id,
                 group: group,
                 type: pusher_type,
                 uniqueid: uniqueid
               })
 
-              Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-              notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
-              Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+              Notification.create(user_id: leader.user_id, uniqueid: uniqueid, data: data)
+              notifications = Notification.where(user_id: leader.user_id).order("created_at ASC").all
+              Pusher['private-' + leader.user_id.to_s].trigger('new_notification', {notifications: notifications})
 
-              NotificationMailer.notification_email(leader.userid, data).deliver_now
+              NotificationMailer.notification_email(leader.user_id, data).deliver_now
             end
           end
         end
         format.html { redirect_to groups_path }
         format.json { head :no_content }
       else
-        @group_members = GroupMember.where(groupid: @group.id).all
+        @group_members = GroupMember.where(group_id: @group.id).all
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
@@ -134,32 +134,32 @@ class GroupsController < ApplicationController
   end
 
   def join
-    @group_member = GroupMember.create!(groupid: params[:groupid], userid: current_user.id, leader: false)
+    @group_member = GroupMember.create!(group_id: params[:group_id], user_id: current_user.id, leader: false)
 
     uniqueid = 'new_group_member' + current_user.id.to_s
 
-    group_leaders = GroupMember.where(groupid: params[:groupid], leader: true).all
-    group = Group.where(id: params[:groupid]).first.name
+    group_leaders = GroupMember.where(group_id: params[:group_id], leader: true).all
+    group = Group.where(id: params[:group_id]).first.name
 
     group_leaders.each do |leader|
       data = JSON.generate({
         user: current_user.name,
-        groupid: params[:groupid],
+        group_id: params[:group_id],
         group: group,
         type: 'new_group_member',
         uniqueid: uniqueid
       })
 
-      Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
-      Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+      Notification.create(user_id: leader.user_id, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(user_id: leader.user_id).order("created_at ASC").all
+      Pusher['private-' + leader.user_id.to_s].trigger('new_notification', {notifications: notifications})
 
-      NotificationMailer.notification_email(leader.userid, data).deliver_now
+      NotificationMailer.notification_email(leader.user_id, data).deliver_now
     end
 
     respond_to do |format|
-      format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }
-      format.json { render :show, status: :created, location: Group.find(params[:groupid]) }
+      format.html { redirect_to group_path(params[:group_id]), notice: 'You have joined this group.' }
+      format.json { render :show, status: :created, location: Group.find(params[:group_id]) }
     end
   end
 
@@ -171,18 +171,18 @@ class GroupsController < ApplicationController
       membername = User.where(id: memberid).first.name
     end
 
-    group_name = Group.where(id: params[:groupid]).first.name
+    group_name = Group.where(id: params[:group_id]).first.name
 
     # Cannot leave When you are the only leader
-    is_leader = GroupMember.where(userid: memberid, groupid: params[:groupid], leader: true).count
-    are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
+    is_leader = GroupMember.where(user_id: memberid, group_id: params[:group_id], leader: true).count
+    are_leaders = GroupMember.where(group_id: params[:group_id], leader: true).count
     if is_leader == 1 && are_leaders == is_leader
       respond_to do |format|
         format.html { redirect_to groups_path, alert: 'You cannot leave the group, you are the only leader.' }
         format.json { head :no_content }
       end
     else
-      group_member = GroupMember.find_by(userid: memberid, groupid: params[:groupid])
+      group_member = GroupMember.find_by(user_id: memberid, group_id: params[:group_id])
       group_member.destroy
 
       if memberid == current_user.id
@@ -203,17 +203,17 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     # Destroy group members
-    GroupMember.where(groupid: @group.id).destroy_all
+    GroupMember.where(group_id: @group.id).destroy_all
 
     # Destroy meetings and its members
-    Meeting.where(groupid: @group.id).all.each do |meeting|
+    Meeting.where(group_id: @group.id).all.each do |meeting|
       MeetingMember.where(meetingid: meeting.id).destroy_all
       meeting.destroy
     end
 
     # Delete notifications for this group
     Notification.where("uniqueid ilike ?", "%new_group%").all.each do |notification|
-      if JSON.parse(notification.data)["groupid"].to_i == @group.id.to_i
+      if JSON.parse(notification.data)["group_id"].to_i == @group.id.to_i
         notification.destroy
       end
     end
