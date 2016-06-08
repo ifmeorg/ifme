@@ -4,6 +4,7 @@ var onReadyHeader = function() {
   var click_flag = 0;
 
   $('.expand_button').click(function() {
+    console.log("triggered")
     hideSmallTopNav();
 
     if (click_flag % 2 == 0) {
