@@ -168,7 +168,7 @@ class StrategiesController < ApplicationController
     strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
 
     if strategy.save
-      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategy][]" id="moment_strategy_' + strategy.id.to_s + '">'
+      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
       label += render_to_string :partial => '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
@@ -183,40 +183,6 @@ class StrategiesController < ApplicationController
       format.json { render json: result }
     end
   end
-
-  # def support
-  #   if !params[:support].nil? && !params[:support][:userid].empty? && !params[:support][:support_type].empty? && !params[:support][:support_id].empty?
-  #     params[:userid] = params[:support][:userid]
-  #     params[:support_type] = params[:support][:support_type]
-  #     params[:support_id] = params[:support][:support_id]
-  #   end
-
-  #   support_id = params[:support_id].to_i
-
-  #   if Support.where(userid: params[:userid], support_type: params[:support_type]).exists?
-  #     new_support_ids = Support.where(userid: params[:userid], support_type: params[:support_type]).first.support_ids
-  #     if new_support_ids.include?(support_id)
-  #       new_support_ids.delete(support_id)
-  #       the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
-  #       if new_support_ids.empty?
-  #         @support = the_support.destroy
-  #       else
-  #         @support = the_support.update!(support_ids: new_support_ids)
-  #       end
-  #     else
-  #       new_support_ids = new_support_ids.push(support_id)
-  #       the_support = Support.find_by(userid: params[:userid], support_type: params[:support_type])
-  #       the_support.update!(support_ids: new_support_ids)
-  #     end
-  #   else
-  #     @support = Support.create!(userid: params[:userid], support_type: params[:support_type], support_ids: Array.new(1, support_id))
-  #   end
-
-  #   respond_to do |format|
-  #       format.html { redirect_to strategy_path(support_id) }
-  #       format.json { render :show, status: :created, location: Strategy.find(support_id) }
-  #   end
-  # end
 
   # GET /strategies/new
   def new

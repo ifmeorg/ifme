@@ -22,37 +22,6 @@
   </p>
 <% end %>
 
-<!-- Disabling support feature temporarily -->
-<% if false %>
-  <% if @no_hide_page %>
-    <div class="align_left">
-      <%= form_for @support, :url => { :action => "support" }, :html => { :method => "post" } do |f| %>
-        <% if @support.errors.any? %>
-          <div class="error_explanation">
-            <%= t('.error_explanation') %>
-          </div>
-        <% end %>
-
-        <div class="actions">
-          <%= f.hidden_field :userid, :value => current_user.id %>
-          <%= f.hidden_field :support_type, :value => 'strategy' %>
-          <%= f.hidden_field :support_id, :value => @strategy.id %>
-          <% if Support.where(:userid => current_user.id, :support_type => 'strategy').exists? %>
-            <% if Support.where(:userid => current_user.id, :support_type => 'strategy').first.support_ids.include?(@strategy.id) %>
-              <%= f.submit t('.unsupport'), :id => 'unsupport' %>
-            <% else %>
-              <%= f.submit t('.support'), :id => 'support' %>
-            <% end %>
-          <% else %>
-            <%= f.submit t('.support'), :id => 'support' %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="clear"></div>
-  <% end %>
-<% end %>
-
 <%= render :partial => '/shared/viewers_indicator', locals: { data: @strategy } %>
 
 <%= render :partial => '/shared/comments', locals: { data: @strategy, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'strategy' } %>

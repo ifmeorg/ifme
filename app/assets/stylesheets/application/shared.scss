@@ -94,6 +94,7 @@ h1.strategy_name a:visited {
 	}
 }
 
+#other_user,
 .story {
 	.align_left {
 		float: left;
@@ -106,7 +107,7 @@ h1.strategy_name a:visited {
 		}
 	}
 
-	.align_right {
+	.align_right:not(.table_cell) {
 		float: right;
 		display: inline-block;
 
