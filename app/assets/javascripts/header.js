@@ -3,18 +3,19 @@ var onReadyHeader = function() {
 
   var click_flag = 0;
 
-  $('.expand_button').click(function() {
-    hideSmallTopNav();
+  $('.expand_button').click(click_flag, expandButton);
 
-    if (click_flag % 2 == 0) {
+  function expandButton(event) {
+    console.log("triggered", event)
+    hideSmallTopNav();
+    if (event.data % 2 == 0) {
       showExpandMe();
     } else {
       hideExpandMe();
     }
-
     setHeight();
-    click_flag++;
-  });
+    event.data++;
+  };
 
   $('#expand_nav').click(function() {
     hideExpandMe();
