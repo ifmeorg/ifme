@@ -1,7 +1,7 @@
 var onReadyHeader = function() {
   setHeight();
 
-  var click_flag = 0;
+  var click_flag = { value: 0 };
 
   $('.expand_button').click(click_flag, expandButton);
 
@@ -70,13 +70,14 @@ function setHeight() {
 
 function expandButton(event) {
   hideSmallTopNav();
-  if (event.data % 2 == 0) {
+  console.log(event.data);
+  if (event.data.value % 2 == 0) {
     showExpandMe();
   } else {
     hideExpandMe();
   }
   setHeight();
-  event.data++;
+  event.data.value++;
 }
 
 function headerMouseLeave() {

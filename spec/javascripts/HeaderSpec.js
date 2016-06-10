@@ -29,7 +29,7 @@ describe("Header", function() {
     });
 
     it("toggles expand_me visibility", function (){
-      var click_flag = 0;
+      var click_flag = { value: 0 };
       onReadyHeader();
       var spy1 = spyOn(window, 'hideSmallTopNav');
       var spy2 = spyOn(window, 'showExpandMe');
