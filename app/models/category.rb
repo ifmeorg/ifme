@@ -7,10 +7,10 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
-#  userid      :integer
+#  user_id      :integer
 #
 
 class Category < ActiveRecord::Base
   validates_length_of :description, :maximum => 2000
-  validates_presence_of :userid, :name
+  validates_presence_of :user_id, :name
 end

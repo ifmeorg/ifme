@@ -3,10 +3,10 @@
 # Table name: allies
 #
 #  id         :integer          not null, primary key
-#  userid1    :integer
+#  user_id1    :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  userid2    :integer
+#  user_id2    :integer
 #  status     :integer
 #
 
@@ -20,17 +20,17 @@ describe Allyship do
 	  expect(Allyship.count).to eq(2)
 	end
 
-	it "creates a valid ally relationship with pending_from_userid1 status" do
+	it "creates a valid ally relationship with pending_from_user_id1 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
-	  new_allies = create(:allyships_pending_from_userid1, user_id: new_user1.id, ally_id: new_user2.id)
+	  new_allies = create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
 	  expect(Allyship.count).to eq(2)
 	end
 
-	it "creates a valid ally relationship with pending_from_userid2 status" do
+	it "creates a valid ally relationship with pending_from_user_id2 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
-	  new_allies = create(:allyships_pending_from_userid2, user_id: new_user1.id, ally_id: new_user2.id)
+	  new_allies = create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
 	  expect(Allyship.count).to eq(2)
 	end
 

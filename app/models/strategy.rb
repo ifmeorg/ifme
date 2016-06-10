@@ -3,7 +3,7 @@
 # Table name: strategies
 #
 #  id          :integer          not null, primary key
-#  userid      :integer
+#  user_id      :integer
 #  category    :text
 #  description :text
 #  viewers     :text
@@ -17,7 +17,7 @@ class Strategy < ActiveRecord::Base
   serialize :category, Array
   serialize :viewers, Array
   validates :comment, inclusion: [true, false]
-  validates_presence_of :userid, :name, :description
+  validates_presence_of :user_id, :name, :description
   validates_length_of :description, :minimum => 1, :maximum => 2000
   before_save :array_data
 

@@ -3,18 +3,18 @@
 # Table name: meeting_members
 #
 #  id         :integer          not null, primary key
-#  meetingid  :integer
-#  userid     :integer
+#  meeting_id  :integer
+#  user_id     :integer
 #  leader     :boolean
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class MeetingMember < ActiveRecord::Base
-  validates_presence_of :meetingid, :userid
+  validates_presence_of :meeting_id, :user_id
   validates :leader, inclusion: [true, false]
 
-  belongs_to :meeting, foreign_key: :meetingid
-  belongs_to :user, foreign_key: :userid
-  belongs_to :group_member, foreign_key: :userid
+  belongs_to :meeting, foreign_key: :meeting_id
+  belongs_to :user, foreign_key: :user_id
+  belongs_to :group_member, foreign_key: :user_id
 end

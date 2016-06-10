@@ -10,7 +10,7 @@
 #  fix        :text
 #  created_at :datetime
 #  updated_at :datetime
-#  userid     :integer
+#  user_id     :integer
 #  viewers    :text
 #  comment    :boolean
 #  strategies :text
@@ -22,7 +22,7 @@ class Moment < ActiveRecord::Base
   serialize :mood, Array
   serialize :strategies, Array
   validates :comment, inclusion: [true, false]
-  validates_presence_of :userid, :name, :why
+  validates_presence_of :user_id, :name, :why
   validates_length_of :why, :minimum => 1, :maximum => 2000
   validates_length_of :fix, :maximum => 2000
   before_save :array_data

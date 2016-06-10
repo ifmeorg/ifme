@@ -45,9 +45,9 @@ class User < ActiveRecord::Base
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts, inverse_of: :user
-  has_many :group_members, foreign_key: :userid
+  has_many :group_members
   has_many :groups, through: :group_members
-  has_many :meeting_members, foreign_key: :userid
+  has_many :meeting_members
 
   after_initialize :set_defaults, unless: :persisted?
 
@@ -95,6 +95,6 @@ class User < ActiveRecord::Base
 
    def ally_groups
      Group.includes(:group_members)
-           .where(group_members: { userid: accepted_ally_ids })
+           .where(group_members: { user_id: accepted_ally_ids })
    end
 end

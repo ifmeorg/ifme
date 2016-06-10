@@ -13,22 +13,22 @@
 
 		<% if !local_assigns[:data].description.blank? && local_assigns[:data].description.length > 0 %>
 		<%= raw(local_assigns[:data].description) %>
-		<% elsif current_user.id == local_assigns[:data].userid %>
+		<% elsif current_user.id == local_assigns[:data].user_id %>
 			<strong><%= t('warnings.no_description') %></strong>
 			<br><%= t('warnings.yes_description') %>
 		<% end %>
 
-		<% if local_assigns[:data].class.name == 'Strategy' && (local_assigns[:data].viewers.include?(current_user.id) || local_assigns[:data].userid == current_user.id) %>
+		<% if local_assigns[:data].class.name == 'Strategy' && (local_assigns[:data].viewers.include?(current_user.id) || local_assigns[:data].user_id == current_user.id) %>
         <div class="small_margin_top">
         	<%= link_to 'View more', local_assigns[:data], target: "blank" %>
         </div>
         <% end %>
 
 		<div class="small_margin_top">
-		<% if local_assigns[:data].userid == current_user.id %>
+		<% if local_assigns[:data].user_id == current_user.id %>
         	<i class="fa fa-pencil action"></i><%= link_to 'Edit', local_assigns[:edit], target: "blank" %>
         <% else %>
-        	<strong>Created by</strong>: <%= link_to User.where(id: local_assigns[:data].userid).first.name, profile_index_path(uid: get_uid(local_assigns[:data].userid)) %>
+        	<strong>Created by</strong>: <%= link_to User.where(id: local_assigns[:data].user_id).first.name, profile_index_path(uid: get_uid(local_assigns[:data].user_id)) %>
         <% end %>
         </div>
 	</div>

@@ -3,11 +3,11 @@
 # Table name: notifications
 #
 #  id         :integer          not null, primary key
-#  userid     :integer
+#  user_id     :integer
 #  uniqueid   :string(255)
 #  data       :text
 #
 
 class Notification < ActiveRecord::Base
-  validates_presence_of :userid, :uniqueid, :data
+  validates_presence_of :user_id, :uniqueid, :data
 end

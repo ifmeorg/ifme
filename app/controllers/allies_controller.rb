@@ -22,7 +22,7 @@ class AlliesController < ApplicationController
 
       # Get rid of original new_ally_request notification
       uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-      Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+      Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).nil?
     else
       Allyship.create(
         user_id: current_user.id,
@@ -39,14 +39,14 @@ class AlliesController < ApplicationController
 
     data = JSON.generate({
       user: user,
-      userid: current_user.id,
+      user_id: current_user.id,
       uid: get_uid(current_user.id),
       type: pusher_type,
       uniqueid: uniqueid
       })
 
-    Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
-    notifications = Notification.where(userid: params[:ally_id]).order("created_at ASC").all
+    Notification.create(user_id: params[:ally_id], uniqueid: uniqueid, data: data)
+    notifications = Notification.where(user_id: params[:ally_id]).order("created_at ASC").all
     Pusher['private-' + params[:ally_id]].trigger('new_notification', {notifications: notifications})
 
     NotificationMailer.notification_email(params[:ally_id], data).deliver_now
@@ -61,18 +61,18 @@ class AlliesController < ApplicationController
     # Remove original ally request notifications
     # Case 1: user terminating allyship did not initiate allyship
     uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
+    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).nil?
 
     # Case 2: user terminating allyship did initiate allyship
     uniqueid = 'new_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
+    Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(user_id: params[:ally_id], uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+    Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(user_id: current_user.id, uniqueid: uniqueid).nil?
 
     # Remove ally from all viewers lists
-    Moment.where(userid: current_user.id.to_i).all.each do |moment|
+    Moment.where(user_id: current_user.id.to_i).all.each do |moment|
       viewers = moment.viewers
       if viewers.include? params[:ally_id].to_i
         viewers.delete(params[:ally_id].to_i)
@@ -80,7 +80,7 @@ class AlliesController < ApplicationController
       end
     end
 
-    Moment.where(userid: params[:ally_id].to_i).all.each do |moment|
+    Moment.where(user_id: params[:ally_id].to_i).all.each do |moment|
       viewers = moment.viewers
       if viewers.include? current_user.id.to_i
         viewers.delete(current_user.id.to_i)
@@ -88,7 +88,7 @@ class AlliesController < ApplicationController
       end
     end
 
-    Strategy.where(userid: current_user.id.to_i).all.each do |strategy|
+    Strategy.where(user_id: current_user.id.to_i).all.each do |strategy|
       viewers = strategy.viewers
       if viewers.include? params[:ally_id].to_i
         viewers.delete(params[:ally_id].to_i)
@@ -96,7 +96,7 @@ class AlliesController < ApplicationController
       end
     end
 
-    Strategy.where(userid: params[:ally_id].to_i).all.each do |strategy|
+    Strategy.where(user_id: params[:ally_id].to_i).all.each do |strategy|
       viewers = strategy.viewers
       if viewers.include? current_user.id.to_i
         viewers.delete(current_user.id.to_i)

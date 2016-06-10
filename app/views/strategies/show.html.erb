@@ -26,4 +26,4 @@
 
 <%= render :partial => '/shared/comments', locals: { data: @strategy, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'strategy' } %>
 
-<%= render :partial => '/shared/tag_usage', locals: { data: @strategy.id, data_type: 'strategy', userid: @strategy.userid } %>
+<%= render :partial => '/shared/tag_usage', locals: { data: @strategy.id, data_type: 'strategy', user_id: @strategy.user_id } %>

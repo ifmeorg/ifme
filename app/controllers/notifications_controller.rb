@@ -13,12 +13,12 @@ class NotificationsController < ApplicationController
   end
 
   def clear
-    Notification.where(userid: current_user.id).destroy_all if !Notification.where(userid: current_user.id).nil?
+    Notification.where(user_id: current_user.id).destroy_all if !Notification.where(user_id: current_user.id).nil?
     render :nothing => true
   end
 
   def fetch_notifications
-    result = { fetch_notifications: Notification.where(userid: current_user.id).order("created_at ASC").all }
+    result = { fetch_notifications: Notification.where(user_id: current_user.id).order("created_at ASC").all }
     respond_to do |format|
       format.html { render json: result }
       format.json { render json: result }
@@ -55,7 +55,7 @@ class NotificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notification_params
-      params.require(:notification).permit(:name, :description, :userid)
+      params.require(:notification).permit(:name, :description, :user_id)
     end
 
     def if_not_signed_in

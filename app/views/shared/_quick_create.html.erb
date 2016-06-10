@@ -42,7 +42,7 @@
 			<div class="actions no_margin_bottom">
 				<%= f.hidden_field :tag, :value => local_assigns[:tag] %>
 				<%= f.hidden_field :data_type, :value => local_assigns[:data_type] %>
-				<%= f.hidden_field :userid, :value => current_user.id %>
+				<%= f.hidden_field :user_id, :value => current_user.id %>
 				<%= f.submit %>
 			</div>
 
