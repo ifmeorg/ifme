@@ -13,6 +13,7 @@ describe("onReadyHeader", function() {
     // doesn't work yet
 
     it("toggles expand_me visibility", function (){
+      var click_flag = { value : 0 };
 
       onReadyHeader();
 
@@ -20,7 +21,7 @@ describe("onReadyHeader", function() {
 
       var spy2 = spyOn(window, 'showExpandMe');
 
-      $('.expand_button').click();
+      expandButton({ data: click_flag });
 
       expect(spy1).toHaveBeenCalled();
 
