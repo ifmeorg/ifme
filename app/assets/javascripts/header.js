@@ -29,12 +29,7 @@ var onReadyHeader = function() {
     }
   });
 
-  $('#header').mouseleave(function() {
-    if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
-      hideExpandMoment();
-      setHeight();
-    }
-  });
+  $('#header').mouseleave(headerMouseLeave);
 
   $(window).resize(function () {
     setHeight();
@@ -85,7 +80,6 @@ function setHeight() {
 }
 
 function expandButton(event) {
-  console.log("triggered", event)
   hideSmallTopNav();
   if (event.data % 2 == 0) {
     showExpandMe();
@@ -94,6 +88,13 @@ function expandButton(event) {
   }
   setHeight();
   event.data++;
+}
+
+function headerMouseLeave() {
+  if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
+    hideExpandMoment();
+    setHeight();
+  }
 }
 
 $(document).on("page:load ready", onReadyHeader);

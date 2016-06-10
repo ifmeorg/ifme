@@ -51,13 +51,25 @@ describe("Header", function() {
       expect(spy2).toHaveBeenCalled();
     });
 
+    it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
+      var spy0 = spyOn(window, 'setHeight');
+      $('#expand_moment').length = true;
+      $('#expand_moment').addClass('display_block');
+      headerMouseLeave();
+      expect(spy0).toHaveBeenCalled();
+    });
+
+    it("calls setHeight() on widnow resize", function() {
+      var spy = spyOn(window, 'setHeight');
+      $(window).resize();
+      expect(spy).toHaveBeenCalled();
+    });
+
     //  TODO
     //  To get 100% test coverage for this function those events have to be
     //  tested as well:
     //    1. $('.expand_moment_button').mouseover
     //    2. $('#header').mouseleave
-    //    3. $(window).resize
-
   });
 
 
@@ -196,6 +208,7 @@ describe("Header", function() {
       expect($('#header_space').height()).toBe(24);
     });
   });
+
 
   // cleaning up mock DOM after each describe()
   afterEach(function (){
