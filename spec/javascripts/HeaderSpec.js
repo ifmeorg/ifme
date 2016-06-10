@@ -210,4 +210,5 @@ describe("Header", function() {
     $('#small_nav').remove();
     $('#expand_nav').remove();
   });
+  
 });
