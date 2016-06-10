@@ -16,18 +16,7 @@ var onReadyHeader = function() {
     }
   });
 
-  $('.expand_moment_button').mouseover(function() {
-    if ($('#expand_moment')[0].classList.contains('display_none')) {
-      showExpandMoment();
-
-      if ($('#expand_me')[0].classList.contains('display_block')) {
-        click_flag++;
-      }
-
-      hideExpandMe();
-      setHeight();
-    }
-  });
+  $('.expand_moment_button').mouseover(expandMomentMouseover);
 
   $('#header').mouseleave(headerMouseLeave);
 
@@ -93,6 +82,19 @@ function expandButton(event) {
 function headerMouseLeave() {
   if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
     hideExpandMoment();
+    setHeight();
+  }
+}
+
+function expandMomentMouseover() {
+  if ($('#expand_moment')[0].classList.contains('display_none')) {
+    showExpandMoment();
+
+    if ($('#expand_me')[0].classList.contains('display_block')) {
+      click_flag++;
+    }
+
+    hideExpandMe();
     setHeight();
   }
 }

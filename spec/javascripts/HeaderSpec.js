@@ -51,12 +51,25 @@ describe("Header", function() {
       expect(spy2).toHaveBeenCalled();
     });
 
+    it("handles expand_moment_button mouseover event", function() {
+      var spy0 = spyOn(window, 'setHeight');
+      var spy1 = spyOn(window, 'hideExpandMe');
+      var spy2 = spyOn(window, 'showExpandMoment');
+      $("#expand_moment").addClass("display_none");
+      expandMomentMouseover();
+      expect(spy0).toHaveBeenCalled();
+      expect(spy1).toHaveBeenCalled();
+      expect(spy2).toHaveBeenCalled();
+    });
+
     it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
       var spy0 = spyOn(window, 'setHeight');
+      var spy1 = spyOn(window, 'hideExpandMoment');
       $('#expand_moment').length = true;
       $('#expand_moment').addClass('display_block');
       headerMouseLeave();
       expect(spy0).toHaveBeenCalled();
+      expect(spy1).toHaveBeenCalled();
     });
 
     it("calls setHeight() on widnow resize", function() {
@@ -64,12 +77,6 @@ describe("Header", function() {
       $(window).resize();
       expect(spy).toHaveBeenCalled();
     });
-
-    //  TODO
-    //  To get 100% test coverage for this function those events have to be
-    //  tested as well:
-    //    1. $('.expand_moment_button').mouseover
-    //    2. $('#header').mouseleave
   });
 
 
