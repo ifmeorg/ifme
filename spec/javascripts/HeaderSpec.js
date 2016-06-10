@@ -28,13 +28,12 @@ describe("Header", function() {
       expect(spy).toHaveBeenCalled();
     });
 
-    // This test is disabled as I wasn't able to get it to pass.
-    // TODO fix this test
-    xit("toggles expand_me visibility", function (){
+    it("toggles expand_me visibility", function (){
+      var click_flag = 0;
       onReadyHeader();
       var spy1 = spyOn(window, 'hideSmallTopNav');
       var spy2 = spyOn(window, 'showExpandMe');
-      $('.expand_button').click();
+      expandButton({ data: click_flag });
       expect(spy1).toHaveBeenCalled();
       expect(spy2).toHaveBeenCalled();
     });
@@ -210,5 +209,5 @@ describe("Header", function() {
     $('#small_nav').remove();
     $('#expand_nav').remove();
   });
-  
+
 });

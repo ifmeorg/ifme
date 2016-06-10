@@ -5,17 +5,6 @@ var onReadyHeader = function() {
 
   $('.expand_button').click(click_flag, expandButton);
 
-  function expandButton(event) {
-    console.log("triggered", event)
-    hideSmallTopNav();
-    if (event.data % 2 == 0) {
-      showExpandMe();
-    } else {
-      hideExpandMe();
-    }
-    setHeight();
-    event.data++;
-  };
 
   $('#expand_nav').click(function() {
     hideExpandMe();
@@ -93,6 +82,18 @@ function hideExpandMoment() {
 function setHeight() {
   var the_height = $('#header').height();
   $('#header_space').css({"height": the_height});
+}
+
+function expandButton(event) {
+  console.log("triggered", event)
+  hideSmallTopNav();
+  if (event.data % 2 == 0) {
+    showExpandMe();
+  } else {
+    hideExpandMe();
+  }
+  setHeight();
+  event.data++;
 }
 
 $(document).on("page:load ready", onReadyHeader);
