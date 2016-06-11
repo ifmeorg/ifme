@@ -9,7 +9,7 @@ var onReadyHeader = function() {
   $('#expand_nav').click(function() {
     hideExpandMe();
 
-    if ($('#small_nav')[0].classList.contains('display_none')) {
+    if ($('#small_nav').hasClass('display_none')) {
       showSmallTopNav();
     } else {
       hideSmallTopNav();
@@ -70,7 +70,9 @@ function setHeight() {
 
 function expandButton(event) {
   hideSmallTopNav();
-  console.log(event.data);
+  // even.data.value -> how many times was this function called?
+  // if even number of times -> show expand_me
+  // otherwise -> hide expand_me
   if (event.data.value % 2 == 0) {
     showExpandMe();
   } else {
@@ -81,17 +83,17 @@ function expandButton(event) {
 }
 
 function headerMouseLeave() {
-  if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
+  if ($('#expand_moment').length && $('#expand_moment').hasClass('display_block')) {
     hideExpandMoment();
     setHeight();
   }
 }
 
 function expandMomentMouseover() {
-  if ($('#expand_moment')[0].classList.contains('display_none')) {
+  if ($('#expand_moment').hasClass('display_none')) {
     showExpandMoment();
 
-    if ($('#expand_me')[0].classList.contains('display_block')) {
+    if ($('#expand_me').hasClass('display_block')) {
       click_flag++;
     }
 

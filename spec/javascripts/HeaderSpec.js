@@ -72,7 +72,7 @@ describe("Header", function() {
       expect(spy1).toHaveBeenCalled();
     });
 
-    it("calls setHeight() on widnow resize", function() {
+    it("calls setHeight() on window resize", function() {
       var spy = spyOn(window, 'setHeight');
       $(window).resize();
       expect(spy).toHaveBeenCalled();
