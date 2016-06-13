@@ -202,14 +202,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    # Destroy group members
-    GroupMember.where(groupid: @group.id).destroy_all
-
-    # Destroy meetings and its members
-    Meeting.where(groupid: @group.id).all.each do |meeting|
-      MeetingMember.where(meetingid: meeting.id).destroy_all
-      meeting.destroy
-    end
+    @group.destroy
 
     # Delete notifications for this group
     Notification.where("uniqueid ilike ?", "%new_group%").all.each do |notification|
@@ -218,7 +211,6 @@ class GroupsController < ApplicationController
       end
     end
 
-    @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_path }
       format.json { head :no_content }
