@@ -166,9 +166,10 @@ class GroupsController < ApplicationController
   def leave
     member_id = params[:memberid] || current_user.id
     group_member = GroupMember.find_by(userid: member_id, groupid: params[:groupid])
+    group = group_member.group
 
     # Cannot leave When you are the only leader
-    if group_member.group.leader_ids == [member_id]
+    if group.leader_ids == [member_id]
       respond_to do |format|
         format.html do
           redirect_to groups_path,
@@ -183,7 +184,7 @@ class GroupsController < ApplicationController
         respond_to do |format|
           format.html do
             redirect_to groups_path, notice: 'You have left ' +
-                                             group_member.group.name
+                                             group.name
           end
           format.json { head :no_content }
         end
@@ -191,7 +192,7 @@ class GroupsController < ApplicationController
         respond_to do |format|
           format.html { redirect_to groups_path,
                         notice: 'You have removed ' + group_member.user.name +
-                        ' from ' + group_name }
+                        ' from ' + group.name }
           format.json { head :no_content }
         end
       end
