@@ -1,20 +1,9 @@
 var onReadyHeader = function() {
   setHeight();
 
-  var click_flag = 0;
+  var click_flag = { value : 0 };
 
-  $('.expand_button').click(function() {
-    hideSmallTopNav();
-
-    if (click_flag % 2 == 0) {
-      showExpandMe();
-    } else {
-      hideExpandMe();
-    }
-
-    setHeight();
-    click_flag++;
-  });
+  $('.expand_button').click(click_flag, expandButton);
 
   $('#expand_nav').click(function() {
     hideExpandMe();
@@ -31,7 +20,7 @@ var onReadyHeader = function() {
       showExpandMoment();
 
       if ($('#expand_me')[0].classList.contains('display_block')) {
-        click_flag++;
+        click_flag.value++;
       }
 
       hideExpandMe();
@@ -93,5 +82,18 @@ function setHeight() {
   var the_height = $('#header').height();
   $('#header_space').css({"height": the_height});
 }
+
+function expandButton(event) {
+  hideSmallTopNav();
+
+  if (event.data.value % 2 == 0) {
+    showExpandMe();
+  } else {
+    hideExpandMe();
+  }
+
+  setHeight();
+  event.data.value++;
+};
 
 $(document).on("page:load ready", onReadyHeader);
