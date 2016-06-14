@@ -22,6 +22,8 @@ class Medication < ActiveRecord::Base
   # total: total quantity of medication
   # strength: strength of medication
 
+  belongs_to :user, foreign_key: :userid
+
   validates_presence_of :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit
 
   validates :dosage, :numericality => { :greater_than_or_equal_to => 0 }
