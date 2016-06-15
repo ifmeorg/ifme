@@ -5,7 +5,6 @@ var onReadyHeader = function() {
 
   $('.expand_button').click(click_flag, expandButton);
 
-
   $('#expand_nav').click(function() {
     hideExpandMe();
 
@@ -19,6 +18,7 @@ var onReadyHeader = function() {
   $('.expand_moment_button').mouseover(expandMomentMouseover);
 
   $('#header').mouseleave(headerMouseLeave);
+
 
   $(window).resize(function () {
     setHeight();

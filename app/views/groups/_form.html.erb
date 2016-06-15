@@ -1,9 +1,14 @@
 <%= form_for(@group) do |f| %>
-<% if @group.errors.any? %>
-  <div class="error_explanation">
-    <%= t('.error_explanation') %>
-  </div>
-<% end %>
+  <% if @group.errors.any? %>
+    <div class="error_explanation">
+      <h2>We can't save this group because: </h2>
+      <ul>
+        <% @group.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <% if action_name == "new" || action_name == "create" %>
   <div class="field">

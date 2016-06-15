@@ -62,10 +62,6 @@ var onReadyFormProcessing = function() {
 		  		emptyWhy = handleEmptyWhy(editor);
 		  	});
 		});
-
-		$('#new_group').submit(function() {
-			return complexCheck('group', emptyWhy);
-		});
 	}
 
 	if (newOrEdit(['meetings'])) {
