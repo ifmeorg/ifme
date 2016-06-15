@@ -1,39 +1,24 @@
 var onReadyHeader = function() {
   setHeight();
 
-  var click_flag = { value : 0 };
+  var click_flag = { value: 0 };
 
   $('.expand_button').click(click_flag, expandButton);
 
   $('#expand_nav').click(function() {
     hideExpandMe();
 
-    if ($('#small_nav')[0].classList.contains('display_none')) {
+    if ($('#small_nav').hasClass('display_none')) {
       showSmallTopNav();
     } else {
       hideSmallTopNav();
     }
   });
 
-  $('.expand_moment_button').mouseover(function() {
-    if ($('#expand_moment')[0].classList.contains('display_none')) {
-      showExpandMoment();
+  $('.expand_moment_button').mouseover(expandMomentMouseover);
 
-      if ($('#expand_me')[0].classList.contains('display_block')) {
-        click_flag.value++;
-      }
+  $('#header').mouseleave(headerMouseLeave);
 
-      hideExpandMe();
-      setHeight();
-    }
-  });
-
-  $('#header').mouseleave(function() {
-    if ($('#expand_moment').length && $('#expand_moment')[0].classList.contains('display_block')) {
-      hideExpandMoment();
-      setHeight();
-    }
-  });
 
   $(window).resize(function () {
     setHeight();
@@ -85,15 +70,36 @@ function setHeight() {
 
 function expandButton(event) {
   hideSmallTopNav();
-
+  // even.data.value -> how many times was this function called?
+  // if even number of times -> show expand_me
+  // otherwise -> hide expand_me
   if (event.data.value % 2 == 0) {
     showExpandMe();
   } else {
     hideExpandMe();
   }
-
   setHeight();
   event.data.value++;
-};
+}
+
+function headerMouseLeave() {
+  if ($('#expand_moment').length && $('#expand_moment').hasClass('display_block')) {
+    hideExpandMoment();
+    setHeight();
+  }
+}
+
+function expandMomentMouseover() {
+  if ($('#expand_moment').hasClass('display_none')) {
+    showExpandMoment();
+
+    if ($('#expand_me').hasClass('display_block')) {
+      click_flag++;
+    }
+
+    hideExpandMe();
+    setHeight();
+  }
+}
 
 $(document).on("page:load ready", onReadyHeader);

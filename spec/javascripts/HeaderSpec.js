@@ -28,13 +28,12 @@ describe("Header", function() {
       expect(spy).toHaveBeenCalled();
     });
 
-    // This test is disabled as I wasn't able to get it to pass.
-    // TODO fix this test
-    xit("toggles expand_me visibility", function (){
+    it("toggles expand_me visibility", function (){
+      var click_flag = { value: 0 };
       onReadyHeader();
       var spy1 = spyOn(window, 'hideSmallTopNav');
       var spy2 = spyOn(window, 'showExpandMe');
-      $('.expand_button').click();
+      expandButton({ data: click_flag });
       expect(spy1).toHaveBeenCalled();
       expect(spy2).toHaveBeenCalled();
     });
@@ -52,13 +51,32 @@ describe("Header", function() {
       expect(spy2).toHaveBeenCalled();
     });
 
-    //  TODO
-    //  To get 100% test coverage for this function those events have to be
-    //  tested as well:
-    //    1. $('.expand_moment_button').mouseover
-    //    2. $('#header').mouseleave
-    //    3. $(window).resize
+    it("handles expand_moment_button mouseover event", function() {
+      var spy0 = spyOn(window, 'setHeight');
+      var spy1 = spyOn(window, 'hideExpandMe');
+      var spy2 = spyOn(window, 'showExpandMoment');
+      $("#expand_moment").addClass("display_none");
+      expandMomentMouseover();
+      expect(spy0).toHaveBeenCalled();
+      expect(spy1).toHaveBeenCalled();
+      expect(spy2).toHaveBeenCalled();
+    });
 
+    it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
+      var spy0 = spyOn(window, 'setHeight');
+      var spy1 = spyOn(window, 'hideExpandMoment');
+      $('#expand_moment').length = true;
+      $('#expand_moment').addClass('display_block');
+      headerMouseLeave();
+      expect(spy0).toHaveBeenCalled();
+      expect(spy1).toHaveBeenCalled();
+    });
+
+    it("calls setHeight() on window resize", function() {
+      var spy = spyOn(window, 'setHeight');
+      $(window).resize();
+      expect(spy).toHaveBeenCalled();
+    });
   });
 
 
@@ -198,6 +216,7 @@ describe("Header", function() {
     });
   });
 
+
   // cleaning up mock DOM after each describe()
   afterEach(function (){
     $('#expand_moment').remove();
@@ -210,4 +229,5 @@ describe("Header", function() {
     $('#small_nav').remove();
     $('#expand_nav').remove();
   });
+
 });
