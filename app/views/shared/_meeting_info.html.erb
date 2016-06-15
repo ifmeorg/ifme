@@ -46,7 +46,7 @@
                 leave_meetings_path(meetingid: meeting.id) %>
   <% elsif meeting.maxmembers.present? && meeting.maxmembers > 0 %>
     You are not attending. There are
-    <%= meeting.maxmembers - meeting.members %> spots left to fill!
+    <%= meeting.maxmembers - meeting.members.count %> spots left to fill!
     <%= link_to t('join_cta'),
       join_meetings_path(meetingid: meeting.id) %>
   <% else %>
