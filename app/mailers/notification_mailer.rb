@@ -1,4 +1,6 @@
 class NotificationMailer < ApplicationMailer
+   default from: ENV["DEFAULT_FROM_ADDRESS"]
+
   def take_medication(reminder)
     @medication = reminder.medication
     @user = @medication.user
