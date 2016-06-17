@@ -37,11 +37,15 @@ class MedicationsController < ApplicationController
   # GET /medications/new
   def new
     @medication = Medication.new
+    @medication.build_take_medication_reminder
+    @medication.build_refill_reminder
     @page_title = "New Medication"
   end
 
   # GET /medications/1/edit
   def edit
+    TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
+    RefillReminder.find_or_initialize_by(medication_id: @medication.id) 
     if @medication.userid == current_user.id
       @page_title = "Edit " + @medication.name
     else
@@ -59,7 +63,6 @@ class MedicationsController < ApplicationController
     @page_title = "New Medication"
     respond_to do |format|
       if @medication.save
-
         # Save refill date to Google calendar
         if (!current_user.token.blank?)
           summary = "Refill for " + @medication.name
@@ -118,7 +121,11 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments)
+      params.require(:medication).permit(
+        :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, 
+        :total_unit, :strength_unit, :comments, 
+        { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
+      )
     end
 
     def if_not_signed_in
