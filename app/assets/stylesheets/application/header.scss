@@ -128,6 +128,7 @@
 @media screen and (max-width: $small) {
   #expand_nav {
     color: $header-text-color;
+    cursor: pointer;
   }
 }
 
@@ -174,6 +175,10 @@
         }
       }
     }
+  }
+
+  #title_expand {
+    cursor: pointer;
   }
 }
 
