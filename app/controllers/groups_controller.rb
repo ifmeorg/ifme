@@ -170,32 +170,21 @@ class GroupsController < ApplicationController
 
     # Cannot leave When you are the only leader
     if group.leader_ids == [member_id]
-      respond_to do |format|
-        format.html do
-          redirect_to groups_path,
-                      alert: 'You cannot leave the group, you are the only leader.'
-        end
-        format.json { head :no_content }
-      end
+      flash[:alert] = 'You cannot leave the group, you are the only leader.'
     else
       group_member.destroy
 
       if member_id == current_user.id
-        respond_to do |format|
-          format.html do
-            redirect_to groups_path, notice: 'You have left ' +
-                                             group.name
-          end
-          format.json { head :no_content }
-        end
+        flash[:notice] = "You have left #{group.name}"
       else
-        respond_to do |format|
-          format.html { redirect_to groups_path,
-                        notice: 'You have removed ' + group_member.user.name +
-                        ' from ' + group.name }
-          format.json { head :no_content }
-        end
+        flash[:notice] = "You have removed #{group_member.user.name} from \
+                         #{group.name}"
       end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
     end
   end
 
