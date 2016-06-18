@@ -134,32 +134,32 @@ class GroupsController < ApplicationController
   end
 
   def join
-    @group_member = GroupMember.create!(groupid: params[:groupid], userid: current_user.id, leader: false)
-
+    @group_member = GroupMember.create!(group_member_params)
+    group = @group_member.group
     uniqueid = 'new_group_member' + current_user.id.to_s
 
-    group_leaders = GroupMember.where(groupid: params[:groupid], leader: true).all
-    group = Group.where(id: params[:groupid]).first.name
-
-    group_leaders.each do |leader|
-      data = JSON.generate({
+    group.leaders.each do |leader|
+      data = JSON.generate(
         user: current_user.name,
         groupid: params[:groupid],
-        group: group,
+        group: group.name,
         type: 'new_group_member',
         uniqueid: uniqueid
-      })
+      )
 
-      Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
-      Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+      Notification.create(userid: leader.id, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: leader.id)
+                                  .order('created_at ASC').all
+      Pusher['private-' + leader.id.to_s]
+        .trigger('new_notification', notifications: notifications)
 
       NotificationMailer.notification_email(leader.userid, data).deliver_now
     end
 
     respond_to do |format|
-      format.html { redirect_to group_path(params[:groupid]), notice: 'You have joined this group.' }
-      format.json { render :show, status: :created, location: Group.find(params[:groupid]) }
+      flash[:notice] = 'You have joined this group.'
+      format.html { redirect_to group_path(group) }
+      format.json { render :show, status: :created, location: group }
     end
   end
 
@@ -221,6 +221,10 @@ class GroupsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def group_params
     params.require(:group).permit(:name, :description)
+  end
+
+  def group_member_params
+    params.permit(:groupid).merge(userid: current_user.id, leader: false)
   end
 
   def if_not_signed_in
