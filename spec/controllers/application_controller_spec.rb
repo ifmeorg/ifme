@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe ApplicationController do
 	describe "print_list_links" do
 		it "returns empty result for empty array" do

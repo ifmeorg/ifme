@@ -12,8 +12,6 @@
 #  visibility   :string(255)
 #
 
-require 'spec_helper'
-
 describe Comment do
 	it "posts a valid comment" do
 	  new_user = create(:user1)

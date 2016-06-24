@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe MomentsController do
 	describe "signed in" do
 		it "GET index" do

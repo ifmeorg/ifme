@@ -9,8 +9,6 @@
 #  description :text
 #
 
-require 'spec_helper'
-
 describe Group do
   it "creates a group" do
     new_group = create(:group, description: 'Test Description')
