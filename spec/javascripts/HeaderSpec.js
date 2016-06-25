@@ -22,60 +22,66 @@ describe("Header", function() {
 
 
   describe("onReadyHeader", function() {
+     var setHeight;
+     var hideSmallTopNav;
+     var showExpandMe;
+     var showSmallTopNav;
+     var hideExpandMe;
+     var showExpandMoment;
+     var hideExpandMoment;
+
+    beforeEach(function() {
+        setHeight = spyOn(window, 'setHeight');
+        hideSmallTopNav = spyOn(window, 'hideSmallTopNav');
+        showExpandMe = spyOn(window, 'showExpandMe');
+        showSmallTopNav = spyOn(window, 'showSmallTopNav');
+        hideExpandMe = spyOn(window, 'hideExpandMe');
+        showExpandMoment = spyOn(window, 'showExpandMoment');
+        hideExpandMoment = spyOn(window, 'hideExpandMoment');
+    });
+
     it("has called setHeight", function() {
-      var spy = spyOn(window, 'setHeight');
       onReadyHeader();
-      expect(spy).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
     });
 
     it("toggles expand_me visibility", function (){
       var click_flag = { value: 0 };
       onReadyHeader();
-      var spy1 = spyOn(window, 'hideSmallTopNav');
-      var spy2 = spyOn(window, 'showExpandMe');
       expandButton({ data: click_flag });
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(hideSmallTopNav).toHaveBeenCalled();
+      expect(showExpandMe).toHaveBeenCalled();
     });
 
     it("toggles small_nav visibility", function (){
       onReadyHeader();
-      var spy0 = spyOn(window, 'showSmallTopNav');
-      var spy1 = spyOn(window, 'hideSmallTopNav');
-      var spy2 = spyOn(window, 'hideExpandMe');
       $('#expand_nav').click();
       $('#small_nav').addClass('display_none');
       $('#expand_nav').click();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(showSmallTopNav).toHaveBeenCalled();
+      expect(hideSmallTopNav).toHaveBeenCalled();
+      expect(hideExpandMe).toHaveBeenCalled();
     });
 
     it("handles expand_moment_button mouseover event", function() {
-      var spy0 = spyOn(window, 'setHeight');
-      var spy1 = spyOn(window, 'hideExpandMe');
-      var spy2 = spyOn(window, 'showExpandMoment');
       $("#expand_moment").addClass("display_none");
       expandMomentMouseover();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
+      expect(hideExpandMe).toHaveBeenCalled();
+      expect(showExpandMoment).toHaveBeenCalled();
     });
 
     it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
-      var spy0 = spyOn(window, 'setHeight');
-      var spy1 = spyOn(window, 'hideExpandMoment');
       $('#expand_moment').length = true;
       $('#expand_moment').addClass('display_block');
       headerMouseLeave();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
+      expect(hideExpandMoment ).toHaveBeenCalled();
     });
 
     it("calls setHeight() on window resize", function() {
-      var spy = spyOn(window, 'setHeight');
       $(window).resize();
-      expect(spy).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
     });
   });
 
