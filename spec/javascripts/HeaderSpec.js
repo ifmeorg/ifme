@@ -101,7 +101,7 @@ describe("Header", function() {
 
     it("has set expand_nav capacity", function() {
       hideSmallTopNav();
-      var o1 = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
+      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
       expect(o1).toBe('1.0');
     });
   });
@@ -121,7 +121,7 @@ describe("Header", function() {
 
     it("has set expand_nav capacity", function() {
       showSmallTopNav();
-      var o1 = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
+      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
       expect(o1).toBe('0.8');
     });
   });
@@ -142,10 +142,10 @@ describe("Header", function() {
 
     it("has set me and title_expand opacity", function() {
       hideExpandMe();
-      var o1 = parseInt($('#me').css('opacity'));
-      var o2 = parseInt($('#title_expand').css('opacity'))
-      expect(o1).toBe(1);
-      expect(o2).toBe(1);
+      var meOpacity = parseInt($('#me').css('opacity'));
+      var titleExpandOpacity = parseInt($('#title_expand').css('opacity'))
+      expect(meElementOpacity ).toBe(1);
+      expect(titleExpandOpacity).toBe(1);
     });
   });
 
@@ -165,10 +165,10 @@ describe("Header", function() {
 
     it("has set me and title_expand opacity", function() {
       showExpandMe();
-      var o1 = parseFloat($('#me').css('opacity')).toFixed(1);
-      var o2 = parseFloat($('#title_expand').css('opacity')).toFixed(1);
-      expect(o1).toBe('0.8');
-      expect(o2).toBe('0.8');
+      var meOpacity = parseFloat($('#me').css('opacity')).toFixed(1);
+      var titleExpandOpacity = parseFloat($('#title_expand').css('opacity')).toFixed(1);
+      expect(meElementOpacity).toBe('0.8');
+      expect(titleExpandOpacity).toBe('0.8');
     });
   });
 
