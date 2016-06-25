@@ -64,7 +64,7 @@ class MedicationsController < ApplicationController
     respond_to do |format|
       if @medication.save
         # Save refill date to Google calendar
-        if current_user.google_oauth2_enabled? && params[:add_to_google_cal]
+        if (!current_user.token.blank?) && params[:add_to_google_cal]
           summary = "Refill for " + @medication.name
           date = @medication.refill
           CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event

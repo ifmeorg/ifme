@@ -1,4 +1,4 @@
-<%= form_for :medication do |f| %>
+<%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
 <div class="error_explanation">
   <%= t('.error_explanation') %>
@@ -131,7 +131,7 @@
         <div class="label">
           <%= f.label t('.add_to_google_cal') %>
           <div class="align_right">
-            <span class="yes_title" title="Add a reminder for this medication onto your Google Calendar"><i class="fa fa-question-circle"></i></span>
+            <span class="yes_title" title="Adds a reminder for this medication onto your Google Calendar"><i class="fa fa-question-circle"></i></span>
           </div>
         </div>
         <div class="clear"></div>
