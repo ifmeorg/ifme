@@ -18,13 +18,13 @@ describe("Moments", function() {
     $("body").removeClass("moments new");
   });
   it("test no functions called", function() {
-    var spy = spyOn(window, "newOrEdit");
-    expect(spy).not.toHaveBeenCalled();
+    var newOrEdit = spyOn(window, "newOrEdit");
+    expect(newOrEdit).not.toHaveBeenCalled();
   });
 	it("test onReadyMoments to be called", function() {
-    var spy = spyOn(window, "newOrEdit");
+    var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
-    expect(spy).toHaveBeenCalled();
+    expect(newOrEdit).toHaveBeenCalled();
     expect($('#viewers_label').text()).toBe("");
   });
   it("test onReadyMoments and newOrEdit to be called", function() {
@@ -34,8 +34,8 @@ describe("Moments", function() {
     onReadyMoments();
   });
   it("test newOeEdit in onReadyMoments to be called", function() {
-    var spy = spyOn(window, "newOrEdit");
+    var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
-    expect(spy).toHaveBeenCalled();
+    expect(newOrEdit).toHaveBeenCalled();
   });
 });
