@@ -40,5 +40,19 @@ describe "user adds a new medication" do
       expect(new_medication.refill_reminder.active?).to eq(true)
     end
   end
-end
 
+  context "and turns adds reminder to Google Calendar" do
+    it "creates a new medication with Google Calendar reminder" do
+      fill_in "Name", with: "A medication name"
+      fill_in "medication_comments", with: "A comment"
+      fill_in "Strength", with: 100
+      fill_in "Total", with: 30
+      fill_in "Dosage", with: 30
+      fill_in "Refill", with: "05/25/2016"
+      find(:css, "#medication_add_to_google_cal").set(true)
+      click_on "Create Medication"
+      expect(page).to have_conten("A medication name")
+      new_medication = user.medications.last
+    end
+  end
+end
