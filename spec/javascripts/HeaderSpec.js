@@ -102,7 +102,7 @@ describe("Header", function() {
     it("has set expand_nav capacity", function() {
       hideSmallTopNav();
       var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(o1).toBe('1.0');
+      expect(expandNavOpacity ).toBe('1.0');
     });
   });
 
@@ -122,7 +122,7 @@ describe("Header", function() {
     it("has set expand_nav capacity", function() {
       showSmallTopNav();
       var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(o1).toBe('0.8');
+      expect(expandNavOpacity).toBe('0.8');
     });
   });
 
@@ -144,7 +144,7 @@ describe("Header", function() {
       hideExpandMe();
       var meOpacity = parseInt($('#me').css('opacity'));
       var titleExpandOpacity = parseInt($('#title_expand').css('opacity'))
-      expect(meElementOpacity ).toBe(1);
+      expect(meOpacity).toBe(1);
       expect(titleExpandOpacity).toBe(1);
     });
   });
@@ -167,7 +167,7 @@ describe("Header", function() {
       showExpandMe();
       var meOpacity = parseFloat($('#me').css('opacity')).toFixed(1);
       var titleExpandOpacity = parseFloat($('#title_expand').css('opacity')).toFixed(1);
-      expect(meElementOpacity).toBe('0.8');
+      expect(meOpacity).toBe('0.8');
       expect(titleExpandOpacity).toBe('0.8');
     });
   });
