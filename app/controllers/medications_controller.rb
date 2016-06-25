@@ -61,7 +61,7 @@ class MedicationsController < ApplicationController
       if @medication.save
 
         # Save refill date to Google calendar
-        if (!current_user.token.blank?)
+        if (!current_user.token.blank?) && params[:add_to_google_cal]
           summary = "Refill for " + @medication.name
           date = @medication.refill
           CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
@@ -118,7 +118,8 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
-      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, :comments)
+      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength,
+                                         :dosage_unit, :total_unit, :strength_unit, :comments, :add_to_google)
     end
 
     def if_not_signed_in

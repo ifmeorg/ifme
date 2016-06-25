@@ -111,6 +111,7 @@ en:
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
    error_explanation: 'Please fill out the marked fields!'
+   add_to_google_cal: 'Save to Google Calendar?'
   index:
    subtitle: 'Keep track of your medications, including dosage and refill information.'
    strength: 'Strength:'

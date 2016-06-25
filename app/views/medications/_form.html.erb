@@ -101,6 +101,8 @@
 <div class="align_right">
   <%= f.hidden_field :userid, :value => current_user.id %>
   <%= f.submit %>
+  <%= f.label t('.add_to_google_cal') %>
+  <%= f.check_box :add_to_google_cal %>
 </div>
 
 <div class="clear"></div>
