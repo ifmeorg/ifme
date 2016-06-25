@@ -1,5 +1,26 @@
 class NotificationMailer < ApplicationMailer
-	def notification_email(recipientid, data)
+   default from: ENV["DEFAULT_FROM_ADDRESS"]
+
+  def take_medication(reminder)
+    @medication = reminder.medication
+    @user = @medication.user
+    mail(
+      to: @user.email,
+      subject: "Don't forget to take #{@medication.name}!"
+    )
+  end
+
+  def refill_medication(reminder)
+    @medication = reminder.medication
+    @user = @medication.user
+    mail(
+      to: @user.email,
+      subject: "Your refill for #{@medication.name} is coming up soon!"
+    )
+  end
+
+
+  def notification_email(recipientid, data)
 		@data = JSON.parse(data)
 		@recipient = User.where(id: recipientid).first
 		subject = 'if me | '

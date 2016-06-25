@@ -164,52 +164,34 @@ class GroupsController < ApplicationController
   end
 
   def leave
-    if params[:memberid].blank?
-      memberid = current_user.id
-    else
-      memberid = params[:memberid]
-      membername = User.where(id: memberid).first.name
-    end
-
-    group_name = Group.where(id: params[:groupid]).first.name
+    member_id = params[:memberid] || current_user.id
+    group_member = GroupMember.find_by(userid: member_id, groupid: params[:groupid])
+    group = group_member.group
 
     # Cannot leave When you are the only leader
-    is_leader = GroupMember.where(userid: memberid, groupid: params[:groupid], leader: true).count
-    are_leaders = GroupMember.where(groupid: params[:groupid], leader: true).count
-    if is_leader == 1 && are_leaders == is_leader
-      respond_to do |format|
-        format.html { redirect_to groups_path, alert: 'You cannot leave the group, you are the only leader.' }
-        format.json { head :no_content }
-      end
+    if group.leader_ids == [member_id]
+      flash[:alert] = 'You cannot leave the group, you are the only leader.'
     else
-      group_member = GroupMember.find_by(userid: memberid, groupid: params[:groupid])
       group_member.destroy
 
-      if memberid == current_user.id
-        respond_to do |format|
-          format.html { redirect_to groups_path, notice: 'You have left ' + group_name }
-          format.json { head :no_content }
-        end
+      if member_id == current_user.id
+        flash[:notice] = "You have left #{group.name}"
       else
-        respond_to do |format|
-          format.html { redirect_to groups_path, notice: 'You have removed ' + membername + ' from ' + group_name }
-          format.json { head :no_content }
-        end
+        flash[:notice] = "You have removed #{group_member.user.name} from \
+                         #{group.name}"
       end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
     end
   end
 
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    # Destroy group members
-    GroupMember.where(groupid: @group.id).destroy_all
-
-    # Destroy meetings and its members
-    Meeting.where(groupid: @group.id).all.each do |meeting|
-      MeetingMember.where(meetingid: meeting.id).destroy_all
-      meeting.destroy
-    end
+    @group.destroy
 
     # Delete notifications for this group
     Notification.where("uniqueid ilike ?", "%new_group%").all.each do |notification|
@@ -218,7 +200,6 @@ class GroupsController < ApplicationController
       end
     end
 
-    @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_path }
       format.json { head :no_content }

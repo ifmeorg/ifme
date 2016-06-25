@@ -73,6 +73,8 @@ http://installrails.com
 
 ##### Updating existing Ruby installation
 
+###### RVM
+
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
 ```
@@ -86,6 +88,25 @@ rvm install ruby-2.3.1
 ```
 
 Check that Ruby has been updated by running `ruby -v`.
+
+###### rbenv
+
+Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
+
+Run the following to install Ruby 2.3.1:
+
+```
+rbenv install 2.3.1
+```
+
+Once you have cloned the project, set the local Ruby version to 2.3.1:
+
+```
+cd ifme
+rbenv local 2.3.1
+```
+
+###### After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
@@ -101,11 +122,13 @@ gem install bundler
 gem install nokogiri
 ```
 
-Make a gemset for the specific Ruby on Rails version
+Make a gemset for the specific Ruby on Rails version (RVM)
 
 ```
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
+
+If you want to create a gemset using rbenv, you can install [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
 ##### Updating existing Rails installation
 
@@ -183,6 +206,8 @@ Copy the sample files to create your own configuration files:
 `cp config/application.example.yml config/application.yml`
 
 `cp config/smtp.example.yml config/smtp.yml`
+
+`cp config/database.example.yml config/database.yml`
 
 Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
 

@@ -94,6 +94,17 @@ FactoryGirl.define do
     description "Test Description"
   end
 
+  factory :medication do
+    name "Fancy Medication Name"
+    dosage 10
+    dosage_unit "tablet"
+    refill 01/01/2020
+    strength 12
+    strength_unit "mg"
+    total "30"
+    total_unit "tablets"
+  end
+
   factory :mood do
     name  "Test Mood"
     description "Test Mood"
@@ -109,6 +120,14 @@ FactoryGirl.define do
   factory :comment do
     comment_type "moment"
     comment "Test Comment"
+  end
+
+  factory :take_medication_reminder do
+    active true
+  end
+
+  factory :refill_reminder do
+    active true
   end
 
   factory :strategy do

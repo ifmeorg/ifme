@@ -66,4 +66,21 @@ RSpec.describe GroupsController, :type => :controller do
       end
     end
   end
+
+  describe "GET #leave" do
+    context "when current_user is the only leader of the group" do
+      it "redirects to groups_path with alert message" do
+        create_current_user
+        group_member = create :group_member, userid: controller.current_user.id,
+                                             leader: true
+
+        get :leave, groupid: group_member.group.id
+
+        expect(response).to redirect_to(groups_path)
+        expect(flash[:alert]).to eq(
+          'You cannot leave the group, you are the only leader.'
+        )
+      end
+    end
+  end
 end

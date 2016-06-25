@@ -87,4 +87,21 @@ describe Group do
       expect(result.map(&:name)).to eq ['alex', 'bryan', 'charlie']
     end
   end
+
+  describe '#destroy' do
+    before(:each) do
+      @group = create :group
+      @meeting = create :meeting, groupid: @group.id
+    end
+
+    it 'destroys associated meetings' do
+      expect { @group.destroy }.to change(Meeting, :count).by(-1)
+    end
+
+    it 'destroys associated meeting_members' do
+      create :meeting_member, meeting: @meeting
+
+      expect { @group.destroy }.to change(MeetingMember, :count).by(-1)
+    end
+  end
 end

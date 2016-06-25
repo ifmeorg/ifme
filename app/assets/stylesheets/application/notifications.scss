@@ -78,6 +78,10 @@ a.quick_create_link:hover {
   }
 }
 
+.tip_notifications_button {
+  cursor: pointer;
+}
+
 .tip_notifications_button:hover,
 #categories_quick_button:hover,
 #moods_quick_button:hover,
@@ -100,6 +104,10 @@ h1#close_categories_moods, {
   @media screen and (max-width: $small) {
     font-weight: 22px;
   }
+}
+
+h1#clear_notifcations {
+  cursor: pointer;
 }
 
 .quick_create_text div.table div.table_row,
