@@ -1,4 +1,3 @@
-require "spec_helper"
 require "rails_helper"
 
 describe "user adds a new medication" do

@@ -10,8 +10,6 @@
 #  updated_at   :datetime
 #
 
-require 'spec_helper'
-
 describe Support do
  	it "gives valid support to one moment" do
 	  new_user = create(:user1)

@@ -16,8 +16,6 @@
 #  strategies :text
 #
 
-require 'spec_helper'
-
 describe Moment do
 	describe "POST create" do
 		it "create private moment" do

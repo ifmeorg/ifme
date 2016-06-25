@@ -10,8 +10,6 @@
 #  status     :integer
 #
 
-require 'spec_helper'
-
 describe Allyship do
 	it "creates a valid ally relationship with accepted status" do
 	  new_user1 = create(:user1)

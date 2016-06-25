@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe User do
   describe ".find_for_google_oauth2" do
     let(:access_token) { 

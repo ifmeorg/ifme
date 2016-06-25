@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe CalendarUploader do
   it "uploads an event to Google Calendar" do
     uploader = CalendarUploader.new(summary: "an exciting event", date: "2015/02/14", access_token: "a token", email: "an email")

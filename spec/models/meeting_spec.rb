@@ -14,8 +14,6 @@
 #  date        :string(255)
 #
 
-require 'spec_helper'
-
 describe Meeting do
   it "has a valid factory" do
     result = build :meeting
