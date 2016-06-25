@@ -1,8 +1,8 @@
 <%= form_for(@medication) do |f| %>
 <% if @medication.errors.any? %>
-<div class="error_explanation">
-  <%= t('.error_explanation') %>
-</div>
+  <div class="error_explanation">
+    <%= t('.error_explanation') %>
+  </div>
 <% end %>
 
 <div class="table">
