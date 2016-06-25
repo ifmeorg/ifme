@@ -45,7 +45,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1/edit
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
-    RefillReminder.find_or_initialize_by(medication_id: @medication.id)
+    RefillReminder.find_or_initialize_by(medication_id: @medication.id) 
     if @medication.userid == current_user.id
       @page_title = "Edit " + @medication.name
     else
@@ -121,11 +121,16 @@ class MedicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
+<<<<<<< 0a08af6b0d28af8ca5eae6d05d4c6c0f335cf44b
       params.require(:medication).permit(
-        :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
-        :total_unit, :strength_unit, :comments, :add_to_google
+        :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, 
+        :total_unit, :strength_unit, :comments, 
         { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
       )
+=======
+      params.require(:medication).permit(:name, :dosage, :refill, :userid, :total, :strength,
+                                         :dosage_unit, :total_unit, :strength_unit, :comments, :add_to_google)
+>>>>>>> basic add medications to google cal
     end
 
     def if_not_signed_in

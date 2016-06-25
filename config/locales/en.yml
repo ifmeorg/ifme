@@ -113,6 +113,7 @@ en:
    daily_reminder: 'Daily reminder email'
    refill_reminder: 'Refill reminder email'
    error_explanation: 'Please fill out the marked fields!'
+   add_to_google_cal: 'Save to Google Calendar?'
   index:
    subtitle: 'Keep track of your medications, including dosage and refill information.'
    strength: 'Strength:'
