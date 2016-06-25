@@ -96,47 +96,47 @@
 
     <div class="field">
       <%= f.fields_for :refill_reminder do | reminder | %>
-      <div class="inline-block">
-        <%= reminder.check_box(:active, { id: "refill_reminder" }, 'true', 'false') %>
-        <div class="label">
-          <%= reminder.label t('.refill_reminder'), for: 'refill_reminder' %>
-          <div class="align_right">
-            <span class="yes_title" title="We'll email you a reminder the week before your medication needs to be refilled"><i class="fa fa-question-circle"></i></span>
+        <div class="inline-block">
+          <%= reminder.check_box(:active, { id: "refill_reminder" }, 'true', 'false') %>
+          <div class="label">
+            <%= reminder.label t('.refill_reminder'), for: 'refill_reminder' %>
+            <div class="align_right">
+              <span class="yes_title" title="We'll email you a reminder the week before your medication needs to be refilled"><i class="fa fa-question-circle"></i></span>
+            </div>
           </div>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-      </div>
       <% end %>
     </div>
 
     <div class="field">
       <%= f.fields_for :take_medication_reminder do | reminder | %>
-      <div class="inline-block">
-        <%= reminder.check_box(:active, { id: 'take_medication_reminder' }, 'true', 'false') %>
-        <div class="label">
-          <%= reminder.label t('.daily_reminder'), for: 'take_medication_reminder' %>
-          <div class="align_right">
-            <span class="yes_title" title="We'll email you a daily reminder to take this medication"><i class="fa fa-question-circle"></i></span>
+        <div class="inline-block">
+          <%= reminder.check_box(:active, { id: 'take_medication_reminder' }, 'true', 'false') %>
+          <div class="label">
+            <%= reminder.label t('.daily_reminder'), for: 'take_medication_reminder' %>
+            <div class="align_right">
+              <span class="yes_title" title="We'll email you a daily reminder to take this medication"><i class="fa fa-question-circle"></i></span>
+            </div>
           </div>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-      </div>
       <% end %>
     </div>
 
     <% if current_user.google_oauth2_enabled? %>
-    <div class="field">
-      <div class="inline-block">
-        <%= f.check_box :add_to_google_cal %>
-        <div class="label">
-          <%= f.label t('.add_to_google_cal') %>
-          <div class="align_right">
-            <span class="yes_title" title="Adds a reminder for this medication onto your Google Calendar"><i class="fa fa-question-circle"></i></span>
+      <div class="field">
+        <div class="inline-block">
+          <%= f.check_box :add_to_google_cal %>
+          <div class="label">
+            <%= f.label t('.add_to_google_cal') %>
+            <div class="align_right">
+              <span class="yes_title" title="Adds a reminder for this medication onto your Google Calendar"><i class="fa fa-question-circle"></i></span>
+            </div>
           </div>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
       </div>
-    </div>
     <% end %>
 
   </div>
