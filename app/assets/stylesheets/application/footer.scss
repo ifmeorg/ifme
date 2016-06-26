@@ -126,12 +126,13 @@
 	}
 }
 
-h1.footer_heading {
+.footer_heading {
 	font-weight: 300;
 	font-size: 30px;
 	padding: 0;
 	margin-top: 0;
 	margin-bottom: 20px;
+	display: block;
 	color: $header-text-color;
 	text-shadow: 0px 0px 20px $secondary-text-color;
 

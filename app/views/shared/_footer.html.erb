@@ -3,7 +3,7 @@
 			<div class="table">
 				<div class="row">
 					<div class="table_cell large_padding_right">
-						<h1 class="footer_heading" id="if_me_links"><%= t('.app_name') %></h1>
+						<span class="footer_heading" id="if_me_links"><%= t('.app_name') %></span>
 						<%= link_to(t('.footer_about'), about_path) %>
 						<%= link_to(t('.footer_blog'), blog_path) %>
 						<%= link_to(t('.footer_contributors'), contributors_path) %>
@@ -11,7 +11,7 @@
 						<%= link_to(t('.footer_privacy'), privacy_path) %>
 					</div>
 					<div class="table_cell">
-						<h1 class="footer_heading" id="connect_links"><%= t('.connect') %></h1>
+						<span class="footer_heading" id="connect_links"><%= t('.connect') %></span>
 						<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
 						<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
 						<%= link_to(t('.patreon'), 'http://patreon.com/ifme', target: "blank") %>
