@@ -22,60 +22,66 @@ describe("Header", function() {
 
 
   describe("onReadyHeader", function() {
+     var setHeight;
+     var hideSmallTopNav;
+     var showExpandMe;
+     var showSmallTopNav;
+     var hideExpandMe;
+     var showExpandMoment;
+     var hideExpandMoment;
+
+    beforeEach(function() {
+        setHeight = spyOn(window, 'setHeight');
+        hideSmallTopNav = spyOn(window, 'hideSmallTopNav');
+        showExpandMe = spyOn(window, 'showExpandMe');
+        showSmallTopNav = spyOn(window, 'showSmallTopNav');
+        hideExpandMe = spyOn(window, 'hideExpandMe');
+        showExpandMoment = spyOn(window, 'showExpandMoment');
+        hideExpandMoment = spyOn(window, 'hideExpandMoment');
+    });
+
     it("has called setHeight", function() {
-      var spy = spyOn(window, 'setHeight');
       onReadyHeader();
-      expect(spy).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
     });
 
     it("toggles expand_me visibility", function (){
       var click_flag = { value: 0 };
       onReadyHeader();
-      var spy1 = spyOn(window, 'hideSmallTopNav');
-      var spy2 = spyOn(window, 'showExpandMe');
       expandButton({ data: click_flag });
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(hideSmallTopNav).toHaveBeenCalled();
+      expect(showExpandMe).toHaveBeenCalled();
     });
 
     it("toggles small_nav visibility", function (){
       onReadyHeader();
-      var spy0 = spyOn(window, 'showSmallTopNav');
-      var spy1 = spyOn(window, 'hideSmallTopNav');
-      var spy2 = spyOn(window, 'hideExpandMe');
       $('#expand_nav').click();
       $('#small_nav').addClass('display_none');
       $('#expand_nav').click();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(showSmallTopNav).toHaveBeenCalled();
+      expect(hideSmallTopNav).toHaveBeenCalled();
+      expect(hideExpandMe).toHaveBeenCalled();
     });
 
     it("handles expand_moment_button mouseover event", function() {
-      var spy0 = spyOn(window, 'setHeight');
-      var spy1 = spyOn(window, 'hideExpandMe');
-      var spy2 = spyOn(window, 'showExpandMoment');
       $("#expand_moment").addClass("display_none");
       expandMomentMouseover();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
-      expect(spy2).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
+      expect(hideExpandMe).toHaveBeenCalled();
+      expect(showExpandMoment).toHaveBeenCalled();
     });
 
     it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
-      var spy0 = spyOn(window, 'setHeight');
-      var spy1 = spyOn(window, 'hideExpandMoment');
       $('#expand_moment').length = true;
       $('#expand_moment').addClass('display_block');
       headerMouseLeave();
-      expect(spy0).toHaveBeenCalled();
-      expect(spy1).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
+      expect(hideExpandMoment ).toHaveBeenCalled();
     });
 
     it("calls setHeight() on window resize", function() {
-      var spy = spyOn(window, 'setHeight');
       $(window).resize();
-      expect(spy).toHaveBeenCalled();
+      expect(setHeight).toHaveBeenCalled();
     });
   });
 
@@ -95,8 +101,8 @@ describe("Header", function() {
 
     it("has set expand_nav capacity", function() {
       hideSmallTopNav();
-      var o1 = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(o1).toBe('1.0');
+      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
+      expect(expandNavOpacity ).toBe('1.0');
     });
   });
 
@@ -115,8 +121,8 @@ describe("Header", function() {
 
     it("has set expand_nav capacity", function() {
       showSmallTopNav();
-      var o1 = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(o1).toBe('0.8');
+      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
+      expect(expandNavOpacity).toBe('0.8');
     });
   });
 
@@ -136,10 +142,10 @@ describe("Header", function() {
 
     it("has set me and title_expand opacity", function() {
       hideExpandMe();
-      var o1 = parseInt($('#me').css('opacity'));
-      var o2 = parseInt($('#title_expand').css('opacity'))
-      expect(o1).toBe(1);
-      expect(o2).toBe(1);
+      var meOpacity = parseInt($('#me').css('opacity'));
+      var titleExpandOpacity = parseInt($('#title_expand').css('opacity'))
+      expect(meOpacity).toBe(1);
+      expect(titleExpandOpacity).toBe(1);
     });
   });
 
@@ -159,10 +165,10 @@ describe("Header", function() {
 
     it("has set me and title_expand opacity", function() {
       showExpandMe();
-      var o1 = parseFloat($('#me').css('opacity')).toFixed(1);
-      var o2 = parseFloat($('#title_expand').css('opacity')).toFixed(1);
-      expect(o1).toBe('0.8');
-      expect(o2).toBe('0.8');
+      var meOpacity = parseFloat($('#me').css('opacity')).toFixed(1);
+      var titleExpandOpacity = parseFloat($('#title_expand').css('opacity')).toFixed(1);
+      expect(meOpacity).toBe('0.8');
+      expect(titleExpandOpacity).toBe('0.8');
     });
   });
 
