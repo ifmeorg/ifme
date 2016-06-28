@@ -206,18 +206,22 @@ describe("Header", function() {
     });
   });
 
-
-
   describe("showExpandMoment", function() {
     beforeEach(function (){
       // adding the class to make sure showExpandMoment gets rid of it
       $('#expand_moment').addClass('display_none');
     });
 
-    it("has set the expand_moment class", function() {
+    it("has removed display_none to expand_moment", function() {
       showExpandMoment();
-      expect($('#expand_moment').hasClass('display_none')).toBeFalsy();
-      expect($('#expand_moment').hasClass('display_block')).toBeTruthy();
+
+      expect($('#expand_moment').hasClass('display_none')).toBe(false);
+    });
+
+    it("has added display_block to expand_moment", function() {
+      showExpandMoment();
+
+      expect($('#expand_moment').hasClass('display_block')).toBe(true);
     });
   });
 
@@ -239,6 +243,8 @@ describe("Header", function() {
       expect($('#moment').css('opacity')).toBe('1');
       expect($('#title_expand').css('opacity')).toBe('1');
     });
+
+
   });
 
 
