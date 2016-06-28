@@ -181,18 +181,28 @@ describe("Header", function() {
       $('#expand_me').addClass('display_none');
     });
 
-    it("has changed expand_me class", function() {
+    it("has removed display_none from expandMe", function() {
       showExpandMe();
-      expect($('#expand_me').hasClass('display_none')).toBeFalsy();
-      expect($('#expand_me').hasClass('display_block')).toBeTruthy();
+
+      expect($('#expand_me').hasClass('display_none')).toBe(false);
     });
 
-    it("has set me and title_expand opacity", function() {
+    it("has added display_block from expandMe", function() {
       showExpandMe();
-      var meOpacity = parseFloat($('#me').css('opacity')).toFixed(1);
-      var titleExpandOpacity = parseFloat($('#title_expand').css('opacity')).toFixed(1);
-      expect(meOpacity).toBe('0.8');
-      expect(titleExpandOpacity).toBe('0.8');
+
+      expect($('#expand_me').hasClass('display_block')).toBe(true);
+    });
+
+    it("has changed #me opacity amount to 0.8", function() {
+      showExpandMe();
+
+      expect($('#me').css('opacity')).toBe('0.8');
+    });
+
+    it("has changed #title_expand opacity amount to 0.8", function() {
+      showExpandMe();
+
+      expect($('#title_expand').css('opacity')).toBe('0.8');
     });
   });
 
