@@ -223,8 +223,6 @@ describe("Header", function() {
     });
   });
 
-
-
   describe("hideExpandMoment", function() {
     beforeEach(function() {
       $('#expand_moment').addClass('display_block');
@@ -259,15 +257,13 @@ describe("Header", function() {
 
 
   describe("setHeight", function() {
-    it("has set the height of header_space", function() {
-      // testing for 2 arbitrarly chosen values
+    it("has set the height of header_space to 17", function() {
       $('#header').height(17);
+
       setHeight();
+
       expect($('#header_space').height()).toBe(17);
 
-      $('#header').height(24);
-      setHeight();
-      expect($('#header_space').height()).toBe(24);
     });
   });
 
