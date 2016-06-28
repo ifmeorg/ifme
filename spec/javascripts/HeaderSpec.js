@@ -177,7 +177,6 @@ describe("Header", function() {
 
   describe("showExpandMe", function() {
     beforeEach(function () {
-      // adding the class to make sure showExpandMe gets rid of it
       $('#expand_me').addClass('display_none');
     });
 
@@ -187,7 +186,7 @@ describe("Header", function() {
       expect($('#expand_me').hasClass('display_none')).toBe(false);
     });
 
-    it("has added display_block from expandMe", function() {
+    it("has added display_block to expandMe", function() {
       showExpandMe();
 
       expect($('#expand_me').hasClass('display_block')).toBe(true);
@@ -208,11 +207,10 @@ describe("Header", function() {
 
   describe("showExpandMoment", function() {
     beforeEach(function (){
-      // adding the class to make sure showExpandMoment gets rid of it
       $('#expand_moment').addClass('display_none');
     });
 
-    it("has removed display_none to expand_moment", function() {
+    it("has removed display_none from expand_moment", function() {
       showExpandMoment();
 
       expect($('#expand_moment').hasClass('display_none')).toBe(false);
@@ -229,21 +227,32 @@ describe("Header", function() {
 
   describe("hideExpandMoment", function() {
     beforeEach(function() {
-      // adding the class to make sure hideExpandMe gets rid of it
       $('#expand_moment').addClass('display_block');
     });
 
-    it("has changed expand_moment class", function() {
-      hideExpandMoment();
-      expect($('#expand_moment').hasClass('display_block')).toBeFalsy();
-      expect($('#expand_moment').hasClass('display_none')).toBeTruthy();
+    it("has removed display_block from expand_moment", function() {
+        hideExpandMoment();
+
+        expect($('#expand_moment').hasClass('display_block')).toBe(false);
     });
 
-    it("has set moment and title_expand opacity", function() {
-      expect($('#moment').css('opacity')).toBe('1');
-      expect($('#title_expand').css('opacity')).toBe('1');
+    it("has added display_none to expand_moment", function() {
+        hideExpandMoment();
+
+        expect($('#expand_moment').hasClass('display_none')).toBe(true);
     });
 
+    it("has changed moment opacity amount to 1", function() {
+        hideExpandMoment();
+
+        expect($('#moment').css('opacity')).toBe('1');
+    });
+
+     it("has changed title_expand opacity amount to 1", function() {
+        hideExpandMoment();
+
+        expect($('#title_expand').css('opacity')).toBe('1');
+    });
 
   });
 
