@@ -122,16 +122,22 @@ describe("Header", function() {
       $('#small_nav').addClass('display_none');
     });
 
-    it("has changed small_nav class", function (){
-      showSmallTopNav();
-      expect($('#small_nav').hasClass('display_none')).toBeFalsy();
-      expect($('#small_nav').hasClass('display_block')).toBeTruthy();
+    it("has removed display_none class from small_nav", function() {
+        showSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_none')).toBe(false);
     });
 
-    it("has set expand_nav capacity", function() {
+     it("has added display_block class to small_nav", function() {
+        showSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_block')).toBe(true);
+    });
+
+    it("has changed expand_nav opacity amount to 0.8", function() {
       showSmallTopNav();
-      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(expandNavOpacity).toBe('0.8');
+
+      expect($('#expand_nav').css('opacity')).toBe('0.8');
     });
   });
 
