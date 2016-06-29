@@ -254,8 +254,6 @@ describe("Header", function() {
 
   });
 
-
-
   describe("setHeight", function() {
     it("has set the height of header_space to 17", function() {
       $('#header').height(17);
@@ -265,6 +263,57 @@ describe("Header", function() {
       expect($('#header_space').height()).toBe(17);
 
     });
+  });
+
+  describe("expandButton", function() {
+
+    var click_flag;
+    var hideSmallTopNav;
+    var showExpandMe;
+    var hideExpandMe;
+    var setHeight;
+
+    beforeEach(function() {
+      click_flag = { value: 0 };
+      hideSmallTopNav = spyOn(window, 'hideSmallTopNav');
+      showExpandMe = spyOn(window, 'showExpandMe');
+      hideExpandMe = spyOn(window, 'hideExpandMe');
+      setHeight = spyOn(window, 'setHeight');
+    });
+
+    it("has called hideSmallTopNav", function() {
+        expandButton({ data: click_flag});
+
+        expect(hideSmallTopNav).toHaveBeenCalled();
+    });
+
+    it("has called showExpandMe when click_flag value is 0", function() {
+       expandButton({ data: click_flag});
+
+       expect(showExpandMe).toHaveBeenCalled();
+    });
+
+     it("has called hideExpandMe when click_flag value is not evenly divisble by 0", function() {
+       click_flag = 3;
+
+       expandButton({ data: click_flag});
+
+       expect(hideExpandMe).toHaveBeenCalled();
+    });
+
+     it("has called setHeight", function() {
+        expandButton({ data: click_flag});
+
+        expect(setHeight).toHaveBeenCalled();
+     });
+
+     it("has increased click_flag value by 1", function() {
+        expandButton({ data: click_flag});
+
+        expect(click_flag.value).toBe(1);
+     });
+
+
   });
 
 
