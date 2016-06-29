@@ -312,9 +312,51 @@ describe("Header", function() {
 
         expect(click_flag.value).toBe(1);
      });
+   });
 
+   describe("expandMomentMouseover", function() {
+        var showExpandMoment;
+        var hideExpandMe;
+        var setHeight;
 
-  });
+        beforeEach(function() {
+            showExpandMoment = spyOn(window, 'showExpandMoment');
+            hideExpandMe = spyOn(window, 'hideExpandMe');
+            setHeight = spyOn(window, 'setHeight');
+        });
+
+        it("has called showExpandMoment", function() {
+            $('#expand_moment').addClass('display_none');
+            expandMomentMouseover();
+
+            expect(showExpandMoment).toHaveBeenCalled();
+        });
+
+        xit("has increased the value of click_flag by one", function() {
+            $('#expand_me').addClass('display_block');
+            var click_flag = 1;
+
+            expandMomentMouseover();
+
+            expect(click_flag).toBe(2);
+        });
+
+        it("has called hideExpandMe", function() {
+            $('#expand_moment').addClass('display_none');
+
+            expandMomentMouseover();
+
+            expect(hideExpandMe).toHaveBeenCalled();
+        });
+
+        it("has called setHeight", function() {
+            $('#expand_moment').addClass('display_none');
+
+            expandMomentMouseover();
+
+            expect(setHeight).toHaveBeenCalled();
+        });
+   });
 
 
   // cleaning up mock DOM after each describe()
