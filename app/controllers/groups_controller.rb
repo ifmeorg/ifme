@@ -87,40 +87,40 @@ class GroupsController < ApplicationController
   def update
     @page_title = "Edit " + @group.name
     respond_to do |format|
-      if @group.update(group_params) && !params[:group][:leader].nil?
-        group_members = GroupMember.where(groupid: @group.id).all
-        group_members.each do |member|
-          group_member_id = GroupMember.where(groupid: @group.id, userid: member.userid).first.id
-          if params[:group][:leader].include? member.userid.to_s
-            GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: true)
+      if @group.update(group_params) && params[:group][:leader].present?
+        @group.group_members.each do |group_member|
+          if params[:group][:leader].include? group_member.userid.to_s
+            group_member.update(leader: true)
             pusher_type = 'add_group_leader'
           else
-            GroupMember.update(group_member_id, groupid: @group.id, userid: member.userid, leader: false)
+            group_member.update(leader: false)
             pusher_type = 'remove_group_leader'
           end
 
           # Notify leaders that a leader has been added or removed
           uniqueid = pusher_type + '_' + current_user.id.to_s
-          group_leaders = GroupMember.where(groupid: @group.id, leader: true).all
-          group = Group.where(id: @group.id).first.name
 
-          group_leaders.each do |leader|
-            if leader.userid != current_user.id
-              user = User.where(id: member.userid).first.name
-              data = JSON.generate({
-                user: user,
-                groupid: @group.id,
-                group: group,
-                type: pusher_type,
-                uniqueid: uniqueid
-              })
+          @group.leaders.each do |leader|
+            next if leader.id == current_user.id
+            data = JSON.generate(
+              user: group_member.user.name,
+              groupid: @group.id,
+              group: @group.name,
+              type: pusher_type,
+              uniqueid: uniqueid
+            )
 
-              Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-              notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
-              Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+            Notification.create(
+              userid: leader.id,
+              uniqueid: uniqueid,
+              data: data
+            )
+            notifications = Notification.where(userid: leader.id)
+                                        .order('created_at ASC').all
+            Pusher['private-' + leader.id.to_s]
+              .trigger('new_notification', notifications: notifications)
 
-              NotificationMailer.notification_email(leader.userid, data).deliver_now
-            end
+            NotificationMailer.notification_email(leader.id, data).deliver_now
           end
         end
         format.html { redirect_to groups_path }
