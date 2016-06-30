@@ -14,12 +14,11 @@ describe("Header", function() {
     elements.push("<div id='expand_me'></div>");
     elements.push("<div id='small_nav'></div>");
     elements.push("<div id='expand_nav'></div>");
+    elements.push("<span class='expand_button'></span>");
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
   });
-
-
 
   describe("onReadyHeader", function() {
      var setHeight;
@@ -29,6 +28,7 @@ describe("Header", function() {
      var hideExpandMe;
      var showExpandMoment;
      var hideExpandMoment;
+     var expandButton;
 
     beforeEach(function() {
         setHeight = spyOn(window, 'setHeight');
@@ -38,6 +38,7 @@ describe("Header", function() {
         hideExpandMe = spyOn(window, 'hideExpandMe');
         showExpandMoment = spyOn(window, 'showExpandMoment');
         hideExpandMoment = spyOn(window, 'hideExpandMoment');
+        expandButton = spyOn(window, 'expandButton');
     });
 
     it("has called setHeight", function() {
@@ -46,12 +47,13 @@ describe("Header", function() {
       expect(setHeight).toHaveBeenCalled();
     });
 
-    it("toggles expand_me visibility", function (){
-      var click_flag = { value: 0 };
+    it("has called expandButton when clicked", function() {
+
       onReadyHeader();
-      expandButton({ data: click_flag });
-      expect(hideSmallTopNav).toHaveBeenCalled();
-      expect(showExpandMe).toHaveBeenCalled();
+
+      $('.expand_button').click();
+
+      expect(expandButton).toHaveBeenCalled();
     });
 
     it("has called hideExpandMe when #expand_nav has been clicked", function() {
@@ -93,7 +95,7 @@ describe("Header", function() {
       expect(hideExpandMoment ).toHaveBeenCalled();
     });
 
-    it("calls setHeight() on window resize", function() {
+    it("has called setHeight on window resize", function() {
       $(window).resize();
 
       expect(setHeight).toHaveBeenCalled();
