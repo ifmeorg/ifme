@@ -42,6 +42,7 @@ describe("Header", function() {
 
     it("has called setHeight", function() {
       onReadyHeader();
+
       expect(setHeight).toHaveBeenCalled();
     });
 
@@ -53,14 +54,27 @@ describe("Header", function() {
       expect(showExpandMe).toHaveBeenCalled();
     });
 
-    it("toggles small_nav visibility", function (){
-      onReadyHeader();
-      $('#expand_nav').click();
-      $('#small_nav').addClass('display_none');
-      $('#expand_nav').click();
-      expect(showSmallTopNav).toHaveBeenCalled();
-      expect(hideSmallTopNav).toHaveBeenCalled();
-      expect(hideExpandMe).toHaveBeenCalled();
+    it("has called hideExpandMe when #expand_nav has been clicked", function() {
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(hideExpandMe).toHaveBeenCalled();
+    });
+
+    it("has called showSmallTopNav when #expand_nav has been clicked", function() {
+        $('#small_nav').addClass('display_none');
+
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(showSmallTopNav).toHaveBeenCalled();
+    });
+
+    it("has called hideSmallTopNav when #expand_nav has been clicked", function() {
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(hideSmallTopNav).toHaveBeenCalled();
     });
 
     it("handles expand_moment_button mouseover event", function() {
@@ -81,6 +95,7 @@ describe("Header", function() {
 
     it("calls setHeight() on window resize", function() {
       $(window).resize();
+
       expect(setHeight).toHaveBeenCalled();
     });
   });
