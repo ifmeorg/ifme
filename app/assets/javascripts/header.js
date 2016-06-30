@@ -73,7 +73,7 @@ function expandButton(event) {
   // even.data.value -> how many times was this function called?
   // if even number of times -> show expand_me
   // otherwise -> hide expand_me
-  if (event.data.value % 2 == 0) {
+  if (event.data.value % 2 === 0) {
     showExpandMe();
   } else {
     hideExpandMe();
