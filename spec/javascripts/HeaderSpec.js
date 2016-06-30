@@ -1,9 +1,6 @@
 describe("Header", function() {
 
   beforeEach(function() {
-    // mocking the DOM
-    // "fresh" DOM will be created before
-    //  calling each describe()
     var elements = [];
     elements.push("<div id='expand_moment'></div>");
     elements.push("<div id='title_expand'></div>");
@@ -15,6 +12,7 @@ describe("Header", function() {
     elements.push("<div id='small_nav'></div>");
     elements.push("<div id='expand_nav'></div>");
     elements.push("<span class='expand_button'></span>");
+    elements.push("<a class='expand_moment_button'></a>");
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
@@ -29,6 +27,7 @@ describe("Header", function() {
      var showExpandMoment;
      var hideExpandMoment;
      var expandButton;
+     var expandMomentMouseover;
 
     beforeEach(function() {
         setHeight = spyOn(window, 'setHeight');
@@ -39,6 +38,7 @@ describe("Header", function() {
         showExpandMoment = spyOn(window, 'showExpandMoment');
         hideExpandMoment = spyOn(window, 'hideExpandMoment');
         expandButton = spyOn(window, 'expandButton');
+        expandMomentMouseover = spyOn(window, 'expandMomentMouseover');
     });
 
     it("has called setHeight", function() {
@@ -79,12 +79,11 @@ describe("Header", function() {
         expect(hideSmallTopNav).toHaveBeenCalled();
     });
 
-    it("handles expand_moment_button mouseover event", function() {
-      $("#expand_moment").addClass("display_none");
-      expandMomentMouseover();
-      expect(setHeight).toHaveBeenCalled();
-      expect(hideExpandMe).toHaveBeenCalled();
-      expect(showExpandMoment).toHaveBeenCalled();
+    it("has called expandMomentMouseover when expand_moment_button has been moused over", function() {
+        onReadyHeader();
+        $('.expand_moment_button').mouseover();
+
+        expect(expandMomentMouseover).toHaveBeenCalled();
     });
 
     it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
