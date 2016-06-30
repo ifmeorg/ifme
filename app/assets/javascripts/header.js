@@ -15,7 +15,7 @@ var onReadyHeader = function() {
     }
   });
 
-  $('.expand_moment_button').mouseover(expandMomentMouseover);
+  $('.expand_moment_button').mouseover(click_flag,expandMomentMouseover);
 
   $('#header').mouseleave(headerMouseLeave);
 
@@ -73,7 +73,7 @@ function expandButton(event) {
   // even.data.value -> how many times was this function called?
   // if even number of times -> show expand_me
   // otherwise -> hide expand_me
-  if (event.data.value % 2 === 0) {
+  if (event.data.value % 2 == 0) {
     showExpandMe();
   } else {
     hideExpandMe();
@@ -89,12 +89,12 @@ function headerMouseLeave() {
   }
 }
 
-function expandMomentMouseover() {
+function expandMomentMouseover(click_flag) {
   if ($('#expand_moment').hasClass('display_none')) {
     showExpandMoment();
 
     if ($('#expand_me').hasClass('display_block')) {
-      click_flag++;
+      click_flag.value++;
     }
 
     hideExpandMe();

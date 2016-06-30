@@ -88,22 +88,12 @@ describe("Header", function() {
         expect(expandMomentMouseover).toHaveBeenCalled();
     });
 
-    xit("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
-      $('#expand_moment').length = true;
-      $('#expand_moment').addClass('display_block');
-      headerMouseLeave();
-      expect(setHeight).toHaveBeenCalled();
-      expect(hideExpandMoment ).toHaveBeenCalled();
-    });
-
     it("has called headerMouseLeave", function() {
         onReadyHeader();
         $('#header').mouseleave();
 
         expect(headerMouseLeave).toHaveBeenCalled();
     });
-
-
 
     it("has called setHeight on window resize", function() {
       $(window).resize();
@@ -112,11 +102,8 @@ describe("Header", function() {
     });
   });
 
-
-
   describe("hideSmallTopNav", function() {
     beforeEach(function() {
-      // adding the class to make sure shideSmallTopNav gets rid of it
       $('#small_nav').addClass('display_block');
     });
 
@@ -145,7 +132,6 @@ describe("Header", function() {
 
   describe("showSmallTopNav", function() {
     beforeEach(function() {
-      // adding the class to make sure showSmallTopNav gets rid of it
       $('#small_nav').addClass('display_none');
     });
 
@@ -171,7 +157,6 @@ describe("Header", function() {
 
   describe("hideExpandMe", function() {
     beforeEach(function () {
-      // adding the class to make sure hideExpandMe gets rid of it
       $('#expand_me').addClass('display_block');
     });
 
@@ -199,8 +184,6 @@ describe("Header", function() {
       expect($('#title_expand').css('opacity')).toBe('1');
     });
   });
-
-
 
   describe("showExpandMe", function() {
     beforeEach(function () {
@@ -341,6 +324,33 @@ describe("Header", function() {
      });
    });
 
+  describe("headerMouseLeave", function() {
+    var hideExpandMoment;
+
+    beforeEach(function() {
+      hideExpandMoment = spyOn(window, 'hideExpandMoment');
+      setHeight = spyOn(window, 'setHeight');
+    });
+
+    it("has called hideExpandMoment", function() {
+      $('#expand_moment').length = true;
+      $('#expand_moment').addClass('display_block');
+
+      headerMouseLeave();
+
+      expect(hideExpandMoment).toHaveBeenCalled();
+    });
+
+    it("has called setHeight", function() {
+      $('#expand_moment').length = true;
+      $('#expand_moment').addClass('display_block');
+
+      headerMouseLeave();
+
+      expect(setHeight).toHaveBeenCalled();
+    });
+  });
+
    describe("expandMomentMouseover", function() {
         var showExpandMoment;
         var hideExpandMe;
@@ -359,13 +369,15 @@ describe("Header", function() {
             expect(showExpandMoment).toHaveBeenCalled();
         });
 
-        xit("has increased the value of click_flag by one", function() {
+        it("has increased the value of click_flag by one", function() {
+            var click_flag = { value : 1 };
+            $('#expand_moment').addClass('display_none');
             $('#expand_me').addClass('display_block');
-            var click_flag = 1;
 
-            expandMomentMouseover();
+            expandMomentMouseover(click_flag);
 
-            expect(click_flag).toBe(2);
+            expect(click_flag.value).toBe(2);
+
         });
 
         it("has called hideExpandMe", function() {
@@ -385,8 +397,6 @@ describe("Header", function() {
         });
    });
 
-
-  // cleaning up mock DOM after each describe()
   afterEach(function (){
     $('#expand_moment').remove();
     $('#title_expand').remove();
