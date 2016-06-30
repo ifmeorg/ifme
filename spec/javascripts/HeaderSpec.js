@@ -43,7 +43,7 @@ describe("Header", function() {
         headerMouseLeave = spyOn(window, 'headerMouseLeave');
     });
 
-    it("has called setHeight", function() {
+    it("has called setHeight when onReadyHeader has executed", function() {
       onReadyHeader();
 
       expect(setHeight).toHaveBeenCalled();
@@ -65,7 +65,7 @@ describe("Header", function() {
         expect(hideExpandMe).toHaveBeenCalled();
     });
 
-    it("has called showSmallTopNav when #expand_nav has been clicked", function() {
+    it("has called showSmallTopNav when small_nav has display_none as a class", function() {
         $('#small_nav').addClass('display_none');
 
         onReadyHeader();
@@ -74,21 +74,21 @@ describe("Header", function() {
         expect(showSmallTopNav).toHaveBeenCalled();
     });
 
-    it("has called hideSmallTopNav when #expand_nav has been clicked", function() {
+    it("has called hideSmallTopNav when display_none is not a class on small_nav", function() {
         onReadyHeader();
         $('#expand_nav').click();
 
         expect(hideSmallTopNav).toHaveBeenCalled();
     });
 
-    it("has called expandMomentMouseover", function() {
+    it("has called expandMomentMouseover when expand_moment_button is moused over", function() {
         onReadyHeader();
         $('.expand_moment_button').mouseover();
 
         expect(expandMomentMouseover).toHaveBeenCalled();
     });
 
-    it("has called headerMouseLeave", function() {
+    it("has called headerMouseLeave when header is moused over", function() {
         onReadyHeader();
         $('#header').mouseleave();
 
@@ -131,6 +131,7 @@ describe("Header", function() {
 
 
   describe("showSmallTopNav", function() {
+
     beforeEach(function() {
       $('#small_nav').addClass('display_none');
     });
@@ -291,7 +292,7 @@ describe("Header", function() {
       setHeight = spyOn(window, 'setHeight');
     });
 
-    it("has called hideSmallTopNav", function() {
+    it("has called hideSmallTopNav when expandButton is executed", function() {
         expandButton({ data: click_flag});
 
         expect(hideSmallTopNav).toHaveBeenCalled();
@@ -311,13 +312,13 @@ describe("Header", function() {
        expect(hideExpandMe).toHaveBeenCalled();
     });
 
-     it("has called setHeight", function() {
+     it("has called setHeight when expandButton is executed", function() {
         expandButton({ data: click_flag});
 
         expect(setHeight).toHaveBeenCalled();
      });
 
-     it("has increased click_flag value by 1", function() {
+     it("has increased click_flag value by 1 when expandButton is executed", function() {
         expandButton({ data: click_flag});
 
         expect(click_flag.value).toBe(1);
@@ -326,24 +327,23 @@ describe("Header", function() {
 
   describe("headerMouseLeave", function() {
     var hideExpandMoment;
+    var setHeight;
 
     beforeEach(function() {
       hideExpandMoment = spyOn(window, 'hideExpandMoment');
       setHeight = spyOn(window, 'setHeight');
-    });
-
-    it("has called hideExpandMoment", function() {
       $('#expand_moment').length = true;
       $('#expand_moment').addClass('display_block');
+    });
+
+    it("has called hideExpandMoment when expand_moment has a length and display_block class", function() {
 
       headerMouseLeave();
 
       expect(hideExpandMoment).toHaveBeenCalled();
     });
 
-    it("has called setHeight", function() {
-      $('#expand_moment').length = true;
-      $('#expand_moment').addClass('display_block');
+    it("has called setHeight when expand_moment has a length and display_block class", function() {
 
       headerMouseLeave();
 
@@ -362,14 +362,14 @@ describe("Header", function() {
             setHeight = spyOn(window, 'setHeight');
         });
 
-        it("has called showExpandMoment", function() {
+        it("has called showExpandMoment when expand_moment has a display_none class", function() {
             $('#expand_moment').addClass('display_none');
             expandMomentMouseover();
 
             expect(showExpandMoment).toHaveBeenCalled();
         });
 
-        it("has increased the value of click_flag by one", function() {
+        it("has increased the value of click_flag by 1 when expand_me has a display_block class", function() {
             var click_flag = { value : 1 };
             $('#expand_moment').addClass('display_none');
             $('#expand_me').addClass('display_block');
@@ -380,7 +380,7 @@ describe("Header", function() {
 
         });
 
-        it("has called hideExpandMe", function() {
+        it("has called hideExpandMe when expand_moment has a display_none class", function() {
             $('#expand_moment').addClass('display_none');
 
             expandMomentMouseover();
@@ -388,7 +388,7 @@ describe("Header", function() {
             expect(hideExpandMe).toHaveBeenCalled();
         });
 
-        it("has called setHeight", function() {
+        it("has called setHeight when expand_moment has a display_none class", function() {
             $('#expand_moment').addClass('display_none');
 
             expandMomentMouseover();
