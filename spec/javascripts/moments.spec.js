@@ -15,11 +15,6 @@ describe("Moments", function() {
     onReadyStrategies();
   });
 
-  afterAll(function() {
-    $("#test_body").remove();
-    $("body").removeClass("moments new");
-  });
-
   it("test no functions called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     expect(newOrEdit).not.toHaveBeenCalled();
