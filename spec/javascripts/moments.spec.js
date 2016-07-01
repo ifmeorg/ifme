@@ -1,22 +1,25 @@
 describe("Moments", function() {
-  var NO_ALLIES = "Unselect all";
-  var ALL_ALLIES = "Select all";
+  var NO_ALLIES;
+  var ALL_ALLIES;
+
   beforeAll(function() {
-    $("body")
-    .prepend(
-      $("<div>")
-      .attr("id", "test_body")
-      .append(
-        $('<label>')
-        .attr("id", "viewers_label")
-      )
-    )
+    var elements = [];
+    elements.push("<div id='test_body'></div>");
+    elements.push("<label id='viewers_label'></label>");
+    for (var i = 0; i < elements.length; i++) {
+      $(document.body).append(elements[i]);
+    }
+
+    NO_ALLIES = "Unselect all";
+    ALL_ALLIES = "Select all";
     onReadyStrategies();
   });
+
   afterAll(function() {
     $("#test_body").remove();
     $("body").removeClass("moments new");
   });
+
   it("test no functions called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     expect(newOrEdit).not.toHaveBeenCalled();
