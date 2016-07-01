@@ -12,28 +12,31 @@ describe("Moments", function() {
 
     NO_ALLIES = "Unselect all";
     ALL_ALLIES = "Select all";
-    onReadyStrategies();
   });
 
   it("test no functions called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     expect(newOrEdit).not.toHaveBeenCalled();
   });
+
 	it("test onReadyMoments to be called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
     expect($('#viewers_label').text()).toBe("");
   });
+
   it("test onReadyMoments and newOrEdit to be called", function() {
     $("body").addClass("moments new");
     onReadyMoments();
     expect($('#viewers_label').text()).toBe(ALL_ALLIES);
     onReadyMoments();
   });
+
   it("test newOeEdit in onReadyMoments to be called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
   });
+
 });
