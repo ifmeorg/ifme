@@ -26,20 +26,20 @@ ActiveRecord::Schema.define(version: 20160518220139) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id"
-    t.string   "bootsy_resource_type", limit: 255
+    t.string   "bootsy_resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "bootsy_images", force: :cascade do |t|
-    t.string   "image_file",       limit: 255
+    t.string   "image_file"
     t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20160518220139) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "comment_type", limit: 255
+    t.string   "comment_type"
     t.integer  "commented_on"
     t.integer  "comment_by"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "visibility",   limit: 255
+    t.string   "visibility"
     t.text     "viewers"
   end
 
@@ -66,24 +66,24 @@ ActiveRecord::Schema.define(version: 20160518220139) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
 
   create_table "medications", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.integer  "dosage"
-    t.string   "refill",        limit: 255
+    t.string   "refill"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
     t.integer  "total"
     t.integer  "strength"
-    t.string   "strength_unit", limit: 255
-    t.string   "dosage_unit",   limit: 255
-    t.string   "total_unit",    limit: 255
+    t.string   "strength_unit"
+    t.string   "dosage_unit"
+    t.string   "total_unit"
     t.text     "comments"
   end
 
@@ -96,20 +96,20 @@ ActiveRecord::Schema.define(version: 20160518220139) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.text     "location"
-    t.string   "time",        limit: 255
+    t.string   "time"
     t.integer  "maxmembers"
     t.integer  "groupid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "date",        limit: 255
+    t.string   "date"
   end
 
   create_table "moments", force: :cascade do |t|
     t.text     "category"
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.text     "mood"
     t.text     "why"
     t.text     "fix"
@@ -119,11 +119,10 @@ ActiveRecord::Schema.define(version: 20160518220139) do
     t.text     "viewers"
     t.boolean  "comment"
     t.text     "strategies"
-    t.integer  "post_type"
   end
 
   create_table "moods", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -153,12 +152,12 @@ ActiveRecord::Schema.define(version: 20160518220139) do
     t.boolean  "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",        limit: 255
+    t.string   "name"
   end
 
   create_table "supports", force: :cascade do |t|
     t.integer  "userid"
-    t.string   "support_type", limit: 255
+    t.string   "support_type"
     t.text     "support_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -172,27 +171,27 @@ ActiveRecord::Schema.define(version: 20160518220139) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",                   limit: 255
-    t.string   "location",               limit: 255
-    t.string   "timezone",               limit: 255
+    t.string   "name"
+    t.string   "location"
+    t.string   "timezone"
     t.text     "about"
-    t.string   "avatar",                 limit: 255
+    t.string   "avatar"
     t.text     "conditions"
-    t.string   "token",                  limit: 255
-    t.string   "uid",                    limit: 255
-    t.string   "provider",               limit: 255
+    t.string   "token"
+    t.string   "uid"
+    t.string   "provider"
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -200,7 +199,7 @@ ActiveRecord::Schema.define(version: 20160518220139) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
-    t.integer  "invitations_count",                  default: 0
+    t.integer  "invitations_count",      default: 0
     t.boolean  "comment_notify"
     t.boolean  "ally_notify"
     t.boolean  "group_notify"
