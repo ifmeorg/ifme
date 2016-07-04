@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :if_not_signed_in
+  before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
@@ -191,15 +191,6 @@ class GroupsController < ApplicationController
 
   def group_member_params
     params.permit(:groupid).merge(userid: current_user.id, leader: false)
-  end
-
-  def if_not_signed_in
-    if !user_signed_in?
-      respond_to do |format|
-        format.html { redirect_to new_user_session_path }
-        format.json { head :no_content }
-      end
-    end
   end
 
   def update_leaders
