@@ -52,24 +52,8 @@ class GroupsController < ApplicationController
 
         # Notify allies that you created a new group
         accepted_allies = current_user.allies_by_status(:accepted)
-
-        uniqueid = 'new_group_' + current_user.id.to_s
-
-        accepted_allies.each do |ally|
-          data = JSON.generate({
-            user: current_user.name,
-            groupid: @group.id,
-            group: @group.name,
-            type: 'new_group',
-            uniqueid: uniqueid
-          })
-
-          Notification.create(userid: ally.id, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: ally.id).order("created_at ASC").all
-          Pusher['private-' + ally.id.to_s].trigger('new_notification', {notifications: notifications})
-
-          NotificationMailer.notification_email(ally.id, data).deliver_now
-        end
+        GroupNotifier.new(@group, 'new_group', current_user)
+                     .send_notifications_to(accepted_allies)
 
         if group_member.save
           format.html { redirect_to group_path(@group) }
@@ -90,6 +74,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.update(group_params)
         update_leaders
+
         format.html { redirect_to groups_path }
         format.json { head :no_content }
       else
@@ -102,25 +87,8 @@ class GroupsController < ApplicationController
   def join
     @group_member = GroupMember.create!(group_member_params)
     group = @group_member.group
-    uniqueid = 'new_group_member' + current_user.id.to_s
-
-    group.leaders.each do |leader|
-      data = JSON.generate(
-        user: current_user.name,
-        groupid: params[:groupid],
-        group: group.name,
-        type: 'new_group_member',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: leader.id, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: leader.id)
-                                  .order('created_at ASC').all
-      Pusher['private-' + leader.id.to_s]
-        .trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(leader.userid, data).deliver_now
-    end
+    GroupNotifier.new(group, 'new_group_member', current_user)
+                 .send_notifications_to(group.leaders)
 
     respond_to do |format|
       flash[:notice] = 'You have joined this group.'
@@ -213,31 +181,8 @@ class GroupsController < ApplicationController
         pusher_type = 'remove_group_leader'
       end
 
-      # Notify leaders that a leader has been added or removed
-      uniqueid = pusher_type + '_' + current_user.id.to_s
-
-      @group.leaders.each do |leader|
-        next if leader.id == current_user.id
-        data = JSON.generate(
-          user: group_member.user.name,
-          groupid: @group.id,
-          group: @group.name,
-          type: pusher_type,
-          uniqueid: uniqueid
-        )
-
-        Notification.create(
-          userid: leader.id,
-          uniqueid: uniqueid,
-          data: data
-        )
-        notifications = Notification.where(userid: leader.id)
-          .order('created_at ASC').all
-        Pusher['private-' + leader.id.to_s]
-          .trigger('new_notification', notifications: notifications)
-
-        NotificationMailer.notification_email(leader.id, data).deliver_now
-      end
+      GroupNotifier.new(@group, pusher_type, current_user)
+                   .send_notifications_to(@group.leaders)
     end
   end
 end
