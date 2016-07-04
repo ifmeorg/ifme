@@ -40,12 +40,12 @@
 
       <div class="sidebar_field">
 
-      <% if @group_members.count > 1 %>
+      <% if @group.group_members.count > 1 %>
         <div class="sidebar_label">
           <%= f.label t('.leaders') %>
         </div>
 
-        <% @group_members.each do |member| %>
+        <% @group.group_members.each do |member| %>
         <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
         <%= link_to User.where(id: member.userid).first.name, profile_index_path(uid: get_uid(member.userid)) %>
         <br>

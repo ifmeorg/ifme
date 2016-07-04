@@ -83,4 +83,18 @@ RSpec.describe GroupsController, :type => :controller do
       end
     end
   end
+
+  describe 'GET #update' do
+    it 'updates leader' do
+      stub_current_user
+      group = create :group
+      user = create :user
+      non_leader = create :group_member, group: group, leader: false, user: user
+
+      put :update, id: group.id, group: { leader: [user.id] }
+
+      non_leader.reload
+      expect(non_leader.leader).to be true
+    end
+  end
 end

@@ -85,48 +85,14 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    @page_title = "Edit " + @group.name
+    @page_title = 'Edit ' + @group.name
+
     respond_to do |format|
-      if @group.update(group_params) && params[:group][:leader].present?
-        @group.group_members.each do |group_member|
-          if params[:group][:leader].include? group_member.userid.to_s
-            group_member.update(leader: true)
-            pusher_type = 'add_group_leader'
-          else
-            group_member.update(leader: false)
-            pusher_type = 'remove_group_leader'
-          end
-
-          # Notify leaders that a leader has been added or removed
-          uniqueid = pusher_type + '_' + current_user.id.to_s
-
-          @group.leaders.each do |leader|
-            next if leader.id == current_user.id
-            data = JSON.generate(
-              user: group_member.user.name,
-              groupid: @group.id,
-              group: @group.name,
-              type: pusher_type,
-              uniqueid: uniqueid
-            )
-
-            Notification.create(
-              userid: leader.id,
-              uniqueid: uniqueid,
-              data: data
-            )
-            notifications = Notification.where(userid: leader.id)
-                                        .order('created_at ASC').all
-            Pusher['private-' + leader.id.to_s]
-              .trigger('new_notification', notifications: notifications)
-
-            NotificationMailer.notification_email(leader.id, data).deliver_now
-          end
-        end
+      if @group.update(group_params)
+        update_leaders
         format.html { redirect_to groups_path }
         format.json { head :no_content }
       else
-        @group_members = GroupMember.where(groupid: @group.id).all
         format.html { render :edit }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
@@ -232,6 +198,45 @@ class GroupsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to new_user_session_path }
         format.json { head :no_content }
+      end
+    end
+  end
+
+  def update_leaders
+    return if params[:group][:leader].nil?
+    @group.group_members.each do |group_member|
+      if params[:group][:leader].include? group_member.userid.to_s
+        group_member.update(leader: true)
+        pusher_type = 'add_group_leader'
+      else
+        group_member.update(leader: false)
+        pusher_type = 'remove_group_leader'
+      end
+
+      # Notify leaders that a leader has been added or removed
+      uniqueid = pusher_type + '_' + current_user.id.to_s
+
+      @group.leaders.each do |leader|
+        next if leader.id == current_user.id
+        data = JSON.generate(
+          user: group_member.user.name,
+          groupid: @group.id,
+          group: @group.name,
+          type: pusher_type,
+          uniqueid: uniqueid
+        )
+
+        Notification.create(
+          userid: leader.id,
+          uniqueid: uniqueid,
+          data: data
+        )
+        notifications = Notification.where(userid: leader.id)
+          .order('created_at ASC').all
+        Pusher['private-' + leader.id.to_s]
+          .trigger('new_notification', notifications: notifications)
+
+        NotificationMailer.notification_email(leader.id, data).deliver_now
       end
     end
   end
