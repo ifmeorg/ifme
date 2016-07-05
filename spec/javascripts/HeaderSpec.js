@@ -1,9 +1,6 @@
 describe("Header", function() {
 
   beforeEach(function() {
-    // mocking the DOM
-    // "fresh" DOM will be created before
-    //  calling each describe()
     var elements = [];
     elements.push("<div id='expand_moment'></div>");
     elements.push("<div id='title_expand'></div>");
@@ -14,12 +11,12 @@ describe("Header", function() {
     elements.push("<div id='expand_me'></div>");
     elements.push("<div id='small_nav'></div>");
     elements.push("<div id='expand_nav'></div>");
+    elements.push("<span class='expand_button'></span>");
+    elements.push("<a class='expand_moment_button'></a>");
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
   });
-
-
 
   describe("onReadyHeader", function() {
      var setHeight;
@@ -29,6 +26,9 @@ describe("Header", function() {
      var hideExpandMe;
      var showExpandMoment;
      var hideExpandMoment;
+     var expandButton;
+     var expandMomentMouseover;
+     var headerMouseLeave;
 
     beforeEach(function() {
         setHeight = spyOn(window, 'setHeight');
@@ -38,192 +38,365 @@ describe("Header", function() {
         hideExpandMe = spyOn(window, 'hideExpandMe');
         showExpandMoment = spyOn(window, 'showExpandMoment');
         hideExpandMoment = spyOn(window, 'hideExpandMoment');
+        expandButton = spyOn(window, 'expandButton');
+        expandMomentMouseover = spyOn(window, 'expandMomentMouseover');
+        headerMouseLeave = spyOn(window, 'headerMouseLeave');
     });
 
-    it("has called setHeight", function() {
+    it("has called setHeight when onReadyHeader has executed", function() {
       onReadyHeader();
+
       expect(setHeight).toHaveBeenCalled();
     });
 
-    it("toggles expand_me visibility", function (){
-      var click_flag = { value: 0 };
+    it("has called expandButton when clicked", function() {
+
       onReadyHeader();
-      expandButton({ data: click_flag });
-      expect(hideSmallTopNav).toHaveBeenCalled();
-      expect(showExpandMe).toHaveBeenCalled();
+
+      $('.expand_button').click();
+
+      expect(expandButton).toHaveBeenCalled();
     });
 
-    it("toggles small_nav visibility", function (){
-      onReadyHeader();
-      $('#expand_nav').click();
-      $('#small_nav').addClass('display_none');
-      $('#expand_nav').click();
-      expect(showSmallTopNav).toHaveBeenCalled();
-      expect(hideSmallTopNav).toHaveBeenCalled();
-      expect(hideExpandMe).toHaveBeenCalled();
+    it("has called hideExpandMe when #expand_nav has been clicked", function() {
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(hideExpandMe).toHaveBeenCalled();
     });
 
-    it("handles expand_moment_button mouseover event", function() {
-      $("#expand_moment").addClass("display_none");
-      expandMomentMouseover();
-      expect(setHeight).toHaveBeenCalled();
-      expect(hideExpandMe).toHaveBeenCalled();
-      expect(showExpandMoment).toHaveBeenCalled();
+    it("has called showSmallTopNav when small_nav has display_none as a class", function() {
+        $('#small_nav').addClass('display_none');
+
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(showSmallTopNav).toHaveBeenCalled();
     });
 
-    it("calls hideExpandMoment() and setHeight() on $('#header').mouseleave", function() {
-      $('#expand_moment').length = true;
-      $('#expand_moment').addClass('display_block');
-      headerMouseLeave();
-      expect(setHeight).toHaveBeenCalled();
-      expect(hideExpandMoment ).toHaveBeenCalled();
+    it("has called hideSmallTopNav when display_none is not a class on small_nav", function() {
+        onReadyHeader();
+        $('#expand_nav').click();
+
+        expect(hideSmallTopNav).toHaveBeenCalled();
     });
 
-    it("calls setHeight() on window resize", function() {
+    it("has called expandMomentMouseover when expand_moment_button is moused over", function() {
+        onReadyHeader();
+        $('.expand_moment_button').mouseover();
+
+        expect(expandMomentMouseover).toHaveBeenCalled();
+    });
+
+    it("has called headerMouseLeave when header is moused over", function() {
+        onReadyHeader();
+        $('#header').mouseleave();
+
+        expect(headerMouseLeave).toHaveBeenCalled();
+    });
+
+    it("has called setHeight on window resize", function() {
       $(window).resize();
+
       expect(setHeight).toHaveBeenCalled();
     });
   });
 
-
-
   describe("hideSmallTopNav", function() {
     beforeEach(function() {
-      // adding the class to make sure shideSmallTopNav gets rid of it
       $('#small_nav').addClass('display_block');
     });
 
-    it("has changed small_nav class", function (){
-      hideSmallTopNav();
-      expect($('#small_nav').hasClass('display_block')).toBeFalsy();
-      expect($('#small_nav').hasClass('display_none')).toBeTruthy();
+    it("has removed display_block class from small_nav", function() {
+
+        hideSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_block')).toBe(false);
     });
 
-    it("has set expand_nav capacity", function() {
-      hideSmallTopNav();
-      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(expandNavOpacity ).toBe('1.0');
+    it("has added display_none class to small_nav", function() {
+
+        hideSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_none')).toBe(true);
+    });
+
+     it("has changed expand_nav opacity amount to 1", function() {
+
+        hideSmallTopNav();
+
+         expect($('#expand_nav').css('opacity')).toBe('1');
     });
   });
 
 
   describe("showSmallTopNav", function() {
+
     beforeEach(function() {
-      // adding the class to make sure showSmallTopNav gets rid of it
       $('#small_nav').addClass('display_none');
     });
 
-    it("has changed small_nav class", function (){
-      showSmallTopNav();
-      expect($('#small_nav').hasClass('display_none')).toBeFalsy();
-      expect($('#small_nav').hasClass('display_block')).toBeTruthy();
+    it("has removed display_none class from small_nav", function() {
+        showSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_none')).toBe(false);
     });
 
-    it("has set expand_nav capacity", function() {
+     it("has added display_block class to small_nav", function() {
+        showSmallTopNav();
+
+        expect($('#small_nav').hasClass('display_block')).toBe(true);
+    });
+
+    it("has changed expand_nav opacity amount to 0.8", function() {
       showSmallTopNav();
-      var expandNavOpacity = parseFloat($('#expand_nav').css('opacity')).toFixed(1);
-      expect(expandNavOpacity).toBe('0.8');
+
+      expect($('#expand_nav').css('opacity')).toBe('0.8');
     });
   });
-
 
 
   describe("hideExpandMe", function() {
     beforeEach(function () {
-      // adding the class to make sure hideExpandMe gets rid of it
       $('#expand_me').addClass('display_block');
     });
 
-    it("has changed expand_me class", function() {
+     it("has removed display_block class from expand_me", function() {
+        hideExpandMe();
+
+        expect($('#expand_me').hasClass('display_block')).toBe(false);
+    });
+
+    it("has added display_none class to expand_me", function() {
       hideExpandMe();
-      expect($('#expand_me').hasClass('display_block')).toBeFalsy();
-      expect($('#expand_me').hasClass('display_none')).toBeTruthy();
+
+      expect($('#expand_me').hasClass('display_none')).toBe(true);
     });
 
-    it("has set me and title_expand opacity", function() {
+     it("has changed #me opacity amount to 1", function() {
       hideExpandMe();
-      var meOpacity = parseInt($('#me').css('opacity'));
-      var titleExpandOpacity = parseInt($('#title_expand').css('opacity'))
-      expect(meOpacity).toBe(1);
-      expect(titleExpandOpacity).toBe(1);
-    });
-  });
 
-
-
-  describe("showExpandMe", function() {
-    beforeEach(function () {
-      // adding the class to make sure showExpandMe gets rid of it
-      $('#expand_me').addClass('display_none');
+      expect($('#me').css('opacity')).toBe('1');
     });
 
-    it("has changed expand_me class", function() {
-      showExpandMe();
-      expect($('#expand_me').hasClass('display_none')).toBeFalsy();
-      expect($('#expand_me').hasClass('display_block')).toBeTruthy();
-    });
+     it("has changed title_expand opacity amount to 1", function() {
+      hideExpandMe();
 
-    it("has set me and title_expand opacity", function() {
-      showExpandMe();
-      var meOpacity = parseFloat($('#me').css('opacity')).toFixed(1);
-      var titleExpandOpacity = parseFloat($('#title_expand').css('opacity')).toFixed(1);
-      expect(meOpacity).toBe('0.8');
-      expect(titleExpandOpacity).toBe('0.8');
-    });
-  });
-
-
-
-  describe("showExpandMoment", function() {
-    beforeEach(function (){
-      // adding the class to make sure showExpandMoment gets rid of it
-      $('#expand_moment').addClass('display_none');
-    });
-
-    it("has set the expand_moment class", function() {
-      showExpandMoment();
-      expect($('#expand_moment').hasClass('display_none')).toBeFalsy();
-      expect($('#expand_moment').hasClass('display_block')).toBeTruthy();
-    });
-  });
-
-
-
-  describe("hideExpandMoment", function() {
-    beforeEach(function() {
-      // adding the class to make sure hideExpandMe gets rid of it
-      $('#expand_moment').addClass('display_block');
-    });
-
-    it("has changed expand_moment class", function() {
-      hideExpandMoment();
-      expect($('#expand_moment').hasClass('display_block')).toBeFalsy();
-      expect($('#expand_moment').hasClass('display_none')).toBeTruthy();
-    });
-
-    it("has set moment and title_expand opacity", function() {
-      expect($('#moment').css('opacity')).toBe('1');
       expect($('#title_expand').css('opacity')).toBe('1');
     });
   });
 
+  describe("showExpandMe", function() {
+    beforeEach(function () {
+      $('#expand_me').addClass('display_none');
+    });
 
+    it("has removed display_none from expandMe", function() {
+      showExpandMe();
 
-  describe("setHeight", function() {
-    it("has set the height of header_space", function() {
-      // testing for 2 arbitrarly chosen values
-      $('#header').height(17);
-      setHeight();
-      expect($('#header_space').height()).toBe(17);
+      expect($('#expand_me').hasClass('display_none')).toBe(false);
+    });
 
-      $('#header').height(24);
-      setHeight();
-      expect($('#header_space').height()).toBe(24);
+    it("has added display_block to expandMe", function() {
+      showExpandMe();
+
+      expect($('#expand_me').hasClass('display_block')).toBe(true);
+    });
+
+    it("has changed #me opacity amount to 0.8", function() {
+      showExpandMe();
+
+      expect($('#me').css('opacity')).toBe('0.8');
+    });
+
+    it("has changed #title_expand opacity amount to 0.8", function() {
+      showExpandMe();
+
+      expect($('#title_expand').css('opacity')).toBe('0.8');
     });
   });
 
+  describe("showExpandMoment", function() {
+    beforeEach(function (){
+      $('#expand_moment').addClass('display_none');
+    });
 
-  // cleaning up mock DOM after each describe()
+    it("has removed display_none from expand_moment", function() {
+      showExpandMoment();
+
+      expect($('#expand_moment').hasClass('display_none')).toBe(false);
+    });
+
+    it("has added display_block to expand_moment", function() {
+      showExpandMoment();
+
+      expect($('#expand_moment').hasClass('display_block')).toBe(true);
+    });
+  });
+
+  describe("hideExpandMoment", function() {
+    beforeEach(function() {
+      $('#expand_moment').addClass('display_block');
+    });
+
+    it("has removed display_block from expand_moment", function() {
+        hideExpandMoment();
+
+        expect($('#expand_moment').hasClass('display_block')).toBe(false);
+    });
+
+    it("has added display_none to expand_moment", function() {
+        hideExpandMoment();
+
+        expect($('#expand_moment').hasClass('display_none')).toBe(true);
+    });
+
+    it("has changed moment opacity amount to 1", function() {
+        hideExpandMoment();
+
+        expect($('#moment').css('opacity')).toBe('1');
+    });
+
+     it("has changed title_expand opacity amount to 1", function() {
+        hideExpandMoment();
+
+        expect($('#title_expand').css('opacity')).toBe('1');
+    });
+
+  });
+
+  describe("setHeight", function() {
+    it("has set the height of header_space to 17", function() {
+      $('#header').height(17);
+
+      setHeight();
+
+      expect($('#header_space').height()).toBe(17);
+
+    });
+  });
+
+  describe("expandButton", function() {
+
+    var click_flag;
+    var hideSmallTopNav;
+    var showExpandMe;
+    var hideExpandMe;
+    var setHeight;
+
+    beforeEach(function() {
+      click_flag = { value: 0 };
+      hideSmallTopNav = spyOn(window, 'hideSmallTopNav');
+      showExpandMe = spyOn(window, 'showExpandMe');
+      hideExpandMe = spyOn(window, 'hideExpandMe');
+      setHeight = spyOn(window, 'setHeight');
+    });
+
+    it("has called hideSmallTopNav when expandButton is executed", function() {
+        expandButton({ data: click_flag});
+
+        expect(hideSmallTopNav).toHaveBeenCalled();
+    });
+
+    it("has called showExpandMe when click_flag value is 0", function() {
+       expandButton({ data: click_flag});
+
+       expect(showExpandMe).toHaveBeenCalled();
+    });
+
+     it("has called hideExpandMe when click_flag value is not evenly divisble by 0", function() {
+       click_flag = 3;
+
+       expandButton({ data: click_flag});
+
+       expect(hideExpandMe).toHaveBeenCalled();
+    });
+
+     it("has called setHeight when expandButton is executed", function() {
+        expandButton({ data: click_flag});
+
+        expect(setHeight).toHaveBeenCalled();
+     });
+
+     it("has increased click_flag value by 1 when expandButton is executed", function() {
+        expandButton({ data: click_flag});
+
+        expect(click_flag.value).toBe(1);
+     });
+   });
+
+  describe("headerMouseLeave", function() {
+    var hideExpandMoment;
+    var setHeight;
+
+    beforeEach(function() {
+      hideExpandMoment = spyOn(window, 'hideExpandMoment');
+      setHeight = spyOn(window, 'setHeight');
+      $('#expand_moment').length = true;
+      $('#expand_moment').addClass('display_block');
+    });
+
+    it("has called hideExpandMoment when expand_moment has a length and display_block class", function() {
+
+      headerMouseLeave();
+
+      expect(hideExpandMoment).toHaveBeenCalled();
+    });
+
+    it("has called setHeight when expand_moment has a length and display_block class", function() {
+
+      headerMouseLeave();
+
+      expect(setHeight).toHaveBeenCalled();
+    });
+  });
+
+   describe("expandMomentMouseover", function() {
+        var showExpandMoment;
+        var hideExpandMe;
+        var setHeight;
+
+        beforeEach(function() {
+            showExpandMoment = spyOn(window, 'showExpandMoment');
+            hideExpandMe = spyOn(window, 'hideExpandMe');
+            setHeight = spyOn(window, 'setHeight');
+        });
+
+        it("has called showExpandMoment when expand_moment has a display_none class", function() {
+            $('#expand_moment').addClass('display_none');
+            expandMomentMouseover();
+
+            expect(showExpandMoment).toHaveBeenCalled();
+        });
+
+        it("has increased the value of click_flag by 1 when expand_me has a display_block class", function() {
+            var click_flag = { value : 1 };
+            $('#expand_moment').addClass('display_none');
+            $('#expand_me').addClass('display_block');
+
+            expandMomentMouseover(click_flag);
+
+            expect(click_flag.value).toBe(2);
+
+        });
+
+        it("has called hideExpandMe when expand_moment has a display_none class", function() {
+            $('#expand_moment').addClass('display_none');
+
+            expandMomentMouseover();
+
+            expect(hideExpandMe).toHaveBeenCalled();
+        });
+
+        it("has called setHeight when expand_moment has a display_none class", function() {
+            $('#expand_moment').addClass('display_none');
+
+            expandMomentMouseover();
+
+            expect(setHeight).toHaveBeenCalled();
+        });
+   });
+
   afterEach(function (){
     $('#expand_moment').remove();
     $('#title_expand').remove();
