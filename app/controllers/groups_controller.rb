@@ -40,24 +40,16 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    respond_to do |format|
-      if @group.save
-        group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
-
-        # Notify allies that you created a new group
-        accepted_allies = current_user.allies_by_status(:accepted)
-        GroupNotifier.new(@group, 'new_group', current_user)
-                     .send_notifications_to(accepted_allies)
-
-        if group_member.save
-          format.html { redirect_to group_path(@group) }
-          format.json { render :show, status: :created, location: @group }
-        end
+    if @group.save
+      leader = new_group_leader
+      if leader.save
+        notify_allies
+        return redirect_to_group
       end
-
-      format.html { render :new }
-      format.json { render json: @group.errors, status: :unprocessable_entity }
     end
+
+    errors = @group.errors || leader.errors
+    render_new(errors)
   end
 
   # PATCH/PUT /groups/1
@@ -82,11 +74,8 @@ class GroupsController < ApplicationController
     GroupNotifier.new(group, 'new_group_member', current_user)
                  .send_notifications_to(group.leaders)
 
-    respond_to do |format|
-      flash[:notice] = 'You have joined this group.'
-      format.html { redirect_to group_path(group) }
-      format.json { render :show, status: :created, location: group }
-    end
+    flash[:notice] = 'You have joined this group.'
+    redirect_to_group
   end
 
   def leave
@@ -166,6 +155,30 @@ class GroupsController < ApplicationController
 
       GroupNotifier.new(@group, pusher_type, current_user)
                    .send_notifications_to(@group.leaders)
+    end
+  end
+
+  def new_group_leader
+    @group.group_members.new(user: current_user, leader: true)
+  end
+
+  def notify_allies
+    accepted_allies = current_user.allies_by_status(:accepted)
+    GroupNotifier.new(@group, 'new_group', current_user)
+                 .send_notifications_to(accepted_allies)
+  end
+
+  def redirect_to_group
+    respond_to do |format|
+      format.html { redirect_to group_path(@group) }
+      format.json { render :show, status: :created, location: @group }
+    end
+  end
+
+  def render_new(errors)
+    respond_to do |format|
+      format.html { render :new }
+      format.json { render json: errors, status: :unprocessable_entity }
     end
   end
 end
