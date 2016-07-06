@@ -127,13 +127,6 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
 
-    # Delete notifications for this group
-    Notification.where("uniqueid ilike ?", "%new_group%").all.each do |notification|
-      if JSON.parse(notification.data)["groupid"].to_i == @group.id.to_i
-        notification.destroy
-      end
-    end
-
     respond_to do |format|
       format.html { redirect_to groups_path }
       format.json { head :no_content }
