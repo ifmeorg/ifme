@@ -1,8 +1,9 @@
 describe("Moments", function() {
 
   var newOrEdit;
-  var labelTextIsAllAllies;
-  var selectAllAllies;
+  var isAllAlliesInputBoxChecked;
+  var selectAllAlliesWhoCanViewMomement;
+  var viewersCheckBoxIsNotSelected;
 
     beforeAll(function() {
     var elements = [];
@@ -14,8 +15,10 @@ describe("Moments", function() {
     }
 
     newOrEdit = spyOn(window, 'newOrEdit');
-    labelTextIsAllAllies = spyOn(window, 'labelTextIsAllAllies');
-    selectAllAllies = spyOn(window, 'selectAllAllies');
+    isAllAlliesInputBoxChecked = spyOn(window, 'isAllAlliesInputBoxChecked');
+    selectAllAlliesWhoCanViewMomement = spyOn(window, 'selectAllAlliesWhoCanViewMomement');
+
+    viewersCheckBoxIsNotSelected = spyOn(window, 'viewersCheckBoxIsNotSelected');
   });
 
   it("has called newOrEdit when onReadyMoments is executed", function () {
@@ -51,15 +54,23 @@ describe("Moments", function() {
 
      $('#viewers').change();
 
-      expect(labelTextIsAllAllies).toHaveBeenCalled();
+      expect(isAllAlliesInputBoxChecked).toHaveBeenCalled();
   });
 
-  it("has selected all allies who can view moments when labelTextIsAllAllies",  function() {
-      labelTextIsAllAllies.and.returnValue(true);
+  it("has selected all allies who can view moment when isAllAlliesInputBoxChecked is true",  function() {
+      isAllAlliesInputBoxChecked.and.returnValue(true);
 
       $('#viewers').change();
 
-      expect(selectAllAllies).toHaveBeenCalled();
+      expect(selectAllAlliesWhoCanViewMomement).toHaveBeenCalled();
+  });
+
+  it("has not selected #viewers checkbox when isAllAlliesInputBoxChecked is true",  function() {
+      isAllAlliesInputBoxChecked.and.returnValue(true);
+
+      $('#viewers').change();
+
+      expect(viewersCheckBoxIsNotSelected).toHaveBeenCalled();
   });
 
 
