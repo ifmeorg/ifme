@@ -73,6 +73,12 @@ describe("Moments", function() {
       expect(viewersCheckBoxIsNotSelected).toHaveBeenCalled();
   });
 
+  it("has set #viewers_label text to NO_ALLIES when isAllAlliesInputBoxChecked is true", function() {
+      isAllAlliesInputBoxChecked.and.returnValue(true);
+
+      expect($('#viewers_label').text()).toBe(NO_ALLIES);
+  });
+
 
 
   xit("test onReadyMoments to be called", function() {
