@@ -60,7 +60,7 @@ describe("Moments", function() {
       expect(isAllAlliesInputBoxChecked).toHaveBeenCalled();
   });
 
-  it("has selected all allies who can view moment when isAllAlliesInputBoxChecked is true",  function() {
+  it("has selected all allies who can view moment when ALL_ALLIES is selected",  function() {
       isAllAlliesInputBoxChecked.and.returnValue(true);
 
       $('#viewers').change();
@@ -68,7 +68,7 @@ describe("Moments", function() {
       expect(selectAllAlliesWhoCanViewMomement).toHaveBeenCalled();
   });
 
-  it("has not selected #viewers checkbox when isAllAlliesInputBoxChecked is true",  function() {
+  it("has not selected #viewers checkbox when ALL_ALLIES is selected",  function() {
       isAllAlliesInputBoxChecked.and.returnValue(true);
 
       $('#viewers').change();
@@ -76,13 +76,13 @@ describe("Moments", function() {
       expect(viewersCheckBoxIsNotSelected).toHaveBeenCalled();
   });
 
-  it("has set #viewers_label text to NO_ALLIES when isAllAlliesInputBoxChecked is true", function() {
+  it("has set #viewers_label text to NO_ALLIES when ALL_ALLIES is selected", function() {
       isAllAlliesInputBoxChecked.and.returnValue(true);
 
       expect($('#viewers_label').text()).toBe(NO_ALLIES);
   });
 
-  it("has unselected all allies who can view moment when NO_ALLIES is selected", function() {
+  it("has unselected all allies who can view the moment when NO_ALLIES is selected", function() {
       isAllAlliesInputBoxChecked.and.returnValue(false);
 
       $('#viewers').change();
@@ -90,12 +90,18 @@ describe("Moments", function() {
       expect(unselectAllAlliesWhoCanViewMoment).toHaveBeenCalled();
   });
 
-  it("has not selected #viewers checkbox when isAllAlliesInputBoxChecked is false", function () {
+  it("has not selected #viewers checkbox when NO_ALLIES is selected", function () {
       isAllAlliesInputBoxChecked.and.returnValue(false);
 
       $('#viewers').change();
 
       expect(viewersCheckBoxIsNotSelected).toHaveBeenCalled();
+  });
+
+  it("has set #viewers_label text to ALL_ALLIES when NO_ALLIES is selected", function() {
+      isAllAlliesInputBoxChecked.and.returnValue(false);
+
+      expect($('#viewers_label').text()).toBe(ALL_ALLIES);
   });
 
 
