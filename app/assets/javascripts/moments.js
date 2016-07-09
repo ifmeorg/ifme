@@ -7,7 +7,7 @@ var onReadyMoments = function() {
 
 		$('#viewers').change(function() {
 			if (labelTextIsAllAllies()) {
-				$(":checkbox[name='moment[viewers][]']").prop("checked", true);
+				selectAllAllies();
 				$(":checkbox[id='viewers']").prop("checked", false);
 				$('#viewers_label').text(NO_ALLIES);
 			} else if ($(this).is(":checked") && $('#viewers_label').text() == NO_ALLIES) {
@@ -23,6 +23,10 @@ var onReadyMoments = function() {
 
 function labelTextIsAllAllies() {
 			return $(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES
+}
+
+function selectAllAllies() {
+	$(":checkbox[name='moment[viewers][]']").prop("checked", true);
 }
 
 $(document).on("page:load ready", onReadyMoments);

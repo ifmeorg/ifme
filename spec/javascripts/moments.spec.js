@@ -2,6 +2,7 @@ describe("Moments", function() {
 
   var newOrEdit;
   var labelTextIsAllAllies;
+  var selectAllAllies;
 
     beforeAll(function() {
     var elements = [];
@@ -14,6 +15,7 @@ describe("Moments", function() {
 
     newOrEdit = spyOn(window, 'newOrEdit');
     labelTextIsAllAllies = spyOn(window, 'labelTextIsAllAllies');
+    selectAllAllies = spyOn(window, 'selectAllAllies');
   });
 
   it("has called newOrEdit when onReadyMoments is executed", function () {
@@ -51,6 +53,16 @@ describe("Moments", function() {
 
       expect(labelTextIsAllAllies).toHaveBeenCalled();
   });
+
+  it("has selected all allies who can view moments when labelTextIsAllAllies",  function() {
+      labelTextIsAllAllies.and.returnValue(true);
+
+      $('#viewers').change();
+
+      expect(selectAllAllies).toHaveBeenCalled();
+  });
+
+
 
   xit("test onReadyMoments to be called", function() {
     onReadyMoments();
