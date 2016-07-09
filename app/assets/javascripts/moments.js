@@ -4,6 +4,7 @@ var onReadyMoments = function() {
 		var NO_ALLIES = "Unselect all";
 		var ALL_ALLIES = "Select all";
 		$('#viewers_label').text(ALL_ALLIES);
+
 		$('#viewers').change(function() {
 			if ($(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES) {
 				$(":checkbox[name='moment[viewers][]']").prop("checked", true);

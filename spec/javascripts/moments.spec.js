@@ -36,6 +36,12 @@ describe("Moments", function() {
     expect(ALL_ALLIES).toBe("Select all");
   });
 
+  it("has set the default value of viewers_label text to ALL_ALLIES when creating or editing a new moment", function() {
+    newOrEdit.and.returnValue(true);
+
+    expect($('#viewers_label').text()).toBe(ALL_ALLIES);
+  });
+
   xit("test onReadyMoments to be called", function() {
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
