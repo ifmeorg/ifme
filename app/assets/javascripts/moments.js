@@ -6,7 +6,7 @@ var onReadyMoments = function() {
 		$('#viewers_label').text(ALL_ALLIES);
 
 		$('#viewers').change(function() {
-			if ($(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES) {
+			if (labelTextIsAllAllies()) {
 				$(":checkbox[name='moment[viewers][]']").prop("checked", true);
 				$(":checkbox[id='viewers']").prop("checked", false);
 				$('#viewers_label').text(NO_ALLIES);
@@ -18,6 +18,11 @@ var onReadyMoments = function() {
 			}
 		});
 	}
+}
+
+
+function labelTextIsAllAllies() {
+			return $(this).is(":checked") && $('#viewers_label').text() == ALL_ALLIES
 }
 
 $(document).on("page:load ready", onReadyMoments);
