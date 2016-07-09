@@ -1,6 +1,5 @@
 describe("Moments", function() {
-  var NO_ALLIES = "Unselect all";
-  var ALL_ALLIES = "Select all";
+
   var newOrEdit;
 
     beforeAll(function() {
@@ -21,7 +20,23 @@ describe("Moments", function() {
       expect(newOrEdit).toHaveBeenCalled();
   });
 
-  it("test onReadyMoments to be called", function() {
+  it("has set NO_ALLIES value to unselect all when creating or editing a new moment", function() {
+    newOrEdit.and.returnValue(true);
+
+    onReadyMoments();
+
+    expect(NO_ALLIES).toBe("Unselect all");
+  });
+
+  it("has set ALL_ALLIES value to select all when creating or editing a new moment", function() {
+    newOrEdit.and.returnValue(true);
+
+    onReadyMoments();
+
+    expect(ALL_ALLIES).toBe("Select all");
+  });
+
+  xit("test onReadyMoments to be called", function() {
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
     expect($('#viewers_label').text()).toBe("");
