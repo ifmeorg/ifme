@@ -6,20 +6,20 @@ var onReadyMoments = function() {
 		$('#viewers_label').text(ALL_ALLIES);
 
 		$('#viewers').change(function() {
-			if (isAllAlliesInputBoxChecked($(this))) {
+			if (isAllAlliesInputBoxIsChecked($(this))) {
 				selectAllAlliesWhoCanViewMomement();
-				viewersCheckBoxIsNotSelected();
+				setViewersCheckBoxToNotBeSelected();
 				$('#viewers_label').text(NO_ALLIES);
 			} else {
 				unselectAllAlliesWhoCanViewMoment();
-				viewersCheckBoxIsNotSelected();
+				setViewersCheckBoxToNotBeSelected();
 				$('#viewers_label').text(ALL_ALLIES);
 			}
 		});
 	}
 }
 
-function isAllAlliesInputBoxChecked(inputTag) {
+function isAllAlliesInputBoxIsChecked(inputTag) {
 			return inputTag.is(":checked") && $('#viewers_label').text() === ALL_ALLIES
 }
 
@@ -27,7 +27,7 @@ function selectAllAlliesWhoCanViewMomement() {
 	$(":checkbox[name='moment[viewers][]']").prop("checked", true);
 }
 
-function viewersCheckBoxIsNotSelected() {
+function setViewersCheckBoxToNotBeSelected() {
 	$(":checkbox[id='viewers']").prop("checked", false);
 }
 
