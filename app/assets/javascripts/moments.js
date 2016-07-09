@@ -14,7 +14,6 @@ var onReadyMoments = function() {
 				unselectAllAlliesWhoCanViewMoment();
 				viewersCheckBoxIsNotSelected();
 				$('#viewers_label').text(ALL_ALLIES);
-				$(":checkbox[name='moment[comment]']").prop("checked", false);
 			}
 		});
 	}
