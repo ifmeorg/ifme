@@ -1,6 +1,7 @@
 describe("Moments", function() {
   var NO_ALLIES = "Unselect all";
   var ALL_ALLIES = "Select all";
+  var newOrEdit;
 
     beforeAll(function() {
     var elements = [];
@@ -10,22 +11,29 @@ describe("Moments", function() {
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
+
+    newOrEdit = spyOn(window, 'newOrEdit');
+  });
+
+  it("has called newOrEdit when onReadyMoments is executed", function () {
+      onReadyMoments();
+
+      expect(newOrEdit).toHaveBeenCalled();
   });
 
   it("test onReadyMoments to be called", function() {
-    var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
     expect($('#viewers_label').text()).toBe("");
   });
-  it("test onReadyMoments and newOrEdit to be called", function() {
+
+  xit("test onReadyMoments and newOrEdit to be called", function() {
     $("body").addClass("moments new");
     onReadyMoments();
     expect($('#viewers_label').text()).toBe(ALL_ALLIES);
-    onReadyMoments();
   });
+
   it("test newOeEdit in onReadyMoments to be called", function() {
-    var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
     expect(newOrEdit).toHaveBeenCalled();
   });
