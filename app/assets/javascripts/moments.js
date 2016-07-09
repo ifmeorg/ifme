@@ -10,9 +10,9 @@ var onReadyMoments = function() {
 				selectAllAlliesWhoCanViewMomement();
 				viewersCheckBoxIsNotSelected();
 				$('#viewers_label').text(NO_ALLIES);
-			} else if ($(this).is(":checked") && $('#viewers_label').text() == NO_ALLIES) {
-				$(":checkbox[name='moment[viewers][]']").prop("checked", false);
-				$(":checkbox[id='viewers']").prop("checked", false);
+			} else {
+				unselectAllAlliesWhoCanViewMoment();
+				viewersCheckBoxIsNotSelected();
 				$('#viewers_label').text(ALL_ALLIES);
 				$(":checkbox[name='moment[comment]']").prop("checked", false);
 			}
@@ -21,7 +21,7 @@ var onReadyMoments = function() {
 }
 
 function isAllAlliesInputBoxChecked(inputTag) {
-			return inputTag.is(":checked") && $('#viewers_label').text() == ALL_ALLIES
+			return inputTag.is(":checked") && $('#viewers_label').text() === ALL_ALLIES
 }
 
 function selectAllAlliesWhoCanViewMomement() {
@@ -30,6 +30,10 @@ function selectAllAlliesWhoCanViewMomement() {
 
 function viewersCheckBoxIsNotSelected() {
 	$(":checkbox[id='viewers']").prop("checked", false);
+}
+
+function unselectAllAlliesWhoCanViewMoment() {
+	$(":checkbox[name='moment[viewers][]']").prop("checked", false);
 }
 
 $(document).on("page:load ready", onReadyMoments);
