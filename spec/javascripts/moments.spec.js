@@ -1,6 +1,7 @@
 describe("Moments", function() {
   var NO_ALLIES = "Unselect all";
   var ALL_ALLIES = "Select all";
+
     beforeAll(function() {
     var elements = [];
     elements.push("<div id='test_body'></div>");
@@ -10,8 +11,8 @@ describe("Moments", function() {
       $(document.body).append(elements[i]);
     }
 
-    onReadyStrategies();
   });
+
   afterAll(function() {
     $("#test_body").remove();
     $("body").removeClass("moments new");
