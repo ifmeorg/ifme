@@ -12,10 +12,6 @@ describe("Moments", function() {
     }
   });
 
-  it("test no functions called", function() {
-    var newOrEdit = spyOn(window, "newOrEdit");
-    expect(newOrEdit).not.toHaveBeenCalled();
-  });
   it("test onReadyMoments to be called", function() {
     var newOrEdit = spyOn(window, "newOrEdit");
     onReadyMoments();
