@@ -14,7 +14,6 @@ class MedicationsController < ApplicationController
     else
       @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_title = "Medications"
     @page_new = new_medication_path
     @page_tooltip = "New medication"
   end
@@ -23,7 +22,6 @@ class MedicationsController < ApplicationController
   # GET /medications/1.json
   def show
     if @medication.userid == current_user.id
-      @page_title = @medication.name
       @page_edit = edit_medication_path(@medication)
       @page_tooltip = "Edit medication"
     else
@@ -39,16 +37,13 @@ class MedicationsController < ApplicationController
     @medication = Medication.new
     @medication.build_take_medication_reminder
     @medication.build_refill_reminder
-    @page_title = "New Medication"
   end
 
   # GET /medications/1/edit
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id) 
-    if @medication.userid == current_user.id
-      @page_title = "Edit " + @medication.name
-    else
+    if @medication.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to medication_path(@medication) }
         format.json { head :no_content }
@@ -60,7 +55,6 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication = Medication.new(medication_params)
-    @page_title = "New Medication"
     respond_to do |format|
       if @medication.save
         # Save refill date to Google calendar
@@ -82,7 +76,6 @@ class MedicationsController < ApplicationController
   # PATCH/PUT /medications/1
   # PATCH/PUT /medications/1.json
   def update
-    @page_title = "Edit " + @medication.name
     respond_to do |format|
       if @medication.update(medication_params)
         format.html { redirect_to medication_path(@medication) }

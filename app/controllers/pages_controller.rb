@@ -1,27 +1,20 @@
 class PagesController < ApplicationController
   def home
   	if user_signed_in?
-      @page_title = "Welcome"
       @stories = Kaminari.paginate_array(get_stories(current_user, true)).page(params[:page]).per($per_page)
 
       if !@stories.blank? && @stories.count > 0
         @moment = Moment.new
         @categories = Category.where(userid: current_user.id).all.order("created_at DESC")
         @moods = Mood.where(userid: current_user.id).all.order("created_at DESC")
-        @page_title = "Stories"
       end
-  	else
-      @page_title = 'Welcome'
   	end
   end
 
   def about
-    @page_title = "About"
   end
 
   def contributors
-    @page_title = "Contributors"
-
     @contributors = [
       ['Elizabeth Mitchell', 'https://github.com/emitche'],
       ['William Horton', 'https://github.com/wdhorton'],
@@ -66,14 +59,11 @@ class PagesController < ApplicationController
   end
 
   def blog
-    @page_title = "Blog"
   end
 
   def privacy
-    @page_title = "Privacy Policy"
   end
 
   def faq
-    @page_title = "Frequently Asked Questions"
   end
 end

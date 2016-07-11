@@ -21,7 +21,6 @@ class StrategiesController < ApplicationController
     else
       @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_title = "Strategies"
     @page_new = new_strategy_path
     @page_tooltip = "New strategy"
   end
@@ -48,7 +47,6 @@ class StrategiesController < ApplicationController
       # @support = Support.new
       @comments = Comment.where(:commented_on => @strategy.id, :comment_type => "strategy").all.order("created_at DESC")
       @no_hide_page = true
-      @page_title = @strategy.name
     end
   end
 
@@ -188,7 +186,6 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @page_title = "New Strategy"
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
@@ -197,7 +194,6 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @page_title = "Edit " + @strategy.name
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
       @category = Category.new
     else
@@ -212,7 +208,6 @@ class StrategiesController < ApplicationController
   # POST /strategies.json
   def create
     @strategy = Strategy.new(strategy_params)
-    @page_title = "New Strategy"
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     respond_to do |format|
@@ -245,7 +240,6 @@ class StrategiesController < ApplicationController
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
   def update
-    @page_title = "Edit " + @strategy.name
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     respond_to do |format|

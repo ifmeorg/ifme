@@ -14,7 +14,6 @@ class ProfileController < ApplicationController
 		end
 
 		@profile = user
-		@page_title = user.name
 	end
 
 	private

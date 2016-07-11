@@ -12,16 +12,13 @@ class CategoriesController < ApplicationController
     else
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_title = "Categories"
     @page_new = new_category_path
-    @page_tooltip = "New category"
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
     if @category.userid == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
-      @page_title = @category.name
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
         @page_tooltip = "Edit category"
@@ -41,14 +38,11 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    @page_title = "New Category"
   end
 
   # GET /categories/1/edit
   def edit
-    if @category.userid == current_user.id
-      @page_title = "Edit " + @category.name
-    else
+    if @category.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to category_path(@category) }
         format.json { head :no_content }
@@ -60,7 +54,6 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-    @page_title = "New Category"
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_path(@category) }
@@ -89,7 +82,6 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    @page_title = "Edit " + @category.name
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_path(@category) }

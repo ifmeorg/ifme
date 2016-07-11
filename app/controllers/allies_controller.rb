@@ -8,7 +8,6 @@ class AlliesController < ApplicationController
     @accepted_allies = current_user.allies_by_status(:accepted).sort_by!{ |n| n.name.downcase }
     @incoming_ally_requests = current_user.allies_by_status(:pending_from_user).sort_by!{ |n| n.name.downcase }
     @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally).sort_by!{ |n| n.name.downcase }
-    @page_title = "Allies"
   end
 
   def add
