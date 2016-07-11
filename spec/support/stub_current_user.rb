@@ -1,6 +1,6 @@
 module StubCurrentUserHelper
   def stub_current_user_with(user)
-    allow(controller).to receive(:user_signed_in?).and_return(true)
+    allow(request.env['warden']).to receive(:authenticate!).and_return(user)
     allow(controller).to receive(:current_user).and_return(user)
   end
 
