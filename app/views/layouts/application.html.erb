@@ -90,7 +90,7 @@
 
         <% elsif !@page_edit.blank? %>
           <div class="align_left">
-            <%= @page_title %>
+            <%= yield(:title) || @page_title %>
           </div>
           <div class="align_right">
             <%= link_to(raw('<i class="fa fa-pencil"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
@@ -99,7 +99,7 @@
 
         <% elsif !@page_new.blank? %>
           <div class="align_left">
-            <%= @page_title %>
+            <%= yield(:title) || @page_title %>
           </div>
           <div class="align_right">
             <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), @page_new, class: 'page_new yes_title', title: @page_tooltip) %>
@@ -109,7 +109,7 @@
         <% elsif !@page_author.blank? %>
           <div id="other_user">
             <div class="align_left">
-              <%= @page_title %>
+              <%= yield(:title) || @page_title %>
             </div>
             <div class="align_right">
               <%= @page_author %>
@@ -133,7 +133,7 @@
     (params[:controller] == "devise/passwords" && action_name == "edit") %>
   Reset your password
 <% else %>
-  <%= @page_title %>
+  <%= yield(:title) || @page_title %>
 <% end %>
             </div>
 
