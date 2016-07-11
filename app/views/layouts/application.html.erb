@@ -1,194 +1,167 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			<%= t(:app_name) %>
-			<% if current_page?(new_user_session_path) ||
-				(params[:controller] == "devise/sessions" && action_name == "new") %>
-				- Sign in
-			<% elsif current_page?(new_user_registration_path) ||
-				(params[:controller] == "devise/registrations" && action_name == "create") %>
-				- Sign up
-			<% elsif current_page?(new_user_password_path) ||
-				(params[:controller] == "devise/passwords" && action_name == "new") %>
-				- Forgot your password?
-			<% elsif current_page?(edit_user_registration_path) ||
-				(params[:controller] == "registrations" && action_name == "update") %>
-				- Account
-			<% elsif current_page?(root_path) %>
-				- <%= t(:app_description) %>
-			<% elsif current_page?(new_user_invitation_path) ||
-				(params[:controller] == "devise/invitations" && action_name == "new") ||
-				(params[:controller] == "users/invitations" && action_name == "create") %>
-				- <%= t('devise.invitations.new.header') %>
-			<% elsif current_page?(accept_user_invitation_path) ||
-				(params[:controller] == "devise/invitations" && action_name == "accept") %>
-				- <%= t('devise.invitations.edit.header') %>
-			<% elsif current_page?(edit_user_password_path) ||
-				(params[:controller] == "devise/passwords" && action_name == "edit") %>
-				- Reset your password
-			<% elsif !@page_title.blank? %>
-				- <%= @page_title %>
-			<% end %>
-		</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <head>
+    <title>
+      <%= render 'layouts/title' %>
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		<%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-		<% if user_signed_in? %>
-		<!-- Pusher -->
-		<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-		<%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
-		<% end %>
+    <% if user_signed_in? %>
+      <!-- Pusher -->
+      <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+      <%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
+    <% end %>
 
-		<!-- jQuery UI -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-		<style type="text/css">
-			.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
-				font-weight: normal;
-				margin: -1px;
-				text-align:left;
-				font-size:14px;
-				}
-			.ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
-		</style>
+    <!-- jQuery UI -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <style type="text/css">
+.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+  font-weight: normal;
+  margin: -1px;
+  text-align:left;
+  font-size:14px;
+}
+      .ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
+    </style>
 
-		<!-- Timepicker UI -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
+    <!-- Timepicker UI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
 
-		<!-- Timezone Detection -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js" type="text/javascript"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
-	</head>
+    <!-- Timezone Detection -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
+  </head>
 
-	<body class="<%= controller_name %> <%= action_name %>">
-		<div id="notifications" class="display_none">
-			<div id="notifications_text">
-				<div class="table">
-					<div class="table_row">
-						<div class="table_cell vertical_align_middle">
-							<h1 class="notification_name">Notifications</h1>
-						</div>
-						<div class="table_cell align_right">
-							<h1 id="clear_notifcations" class="align_left small_margin_right">Clear</h1>
-							<h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-				<i id="notifications_none" class="display_none">There are none</i>
-				<div id="notifications_list"></div>
-			</div>
-		</div>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div id="notifications" class="display_none">
+      <div id="notifications_text">
+        <div class="table">
+          <div class="table_row">
+            <div class="table_cell vertical_align_middle">
+              <h1 class="notification_name">Notifications</h1>
+            </div>
+            <div class="table_cell align_right">
+              <h1 id="clear_notifcations" class="align_left small_margin_right">Clear</h1>
+              <h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
+              <div class="clear"></div>
+            </div>
+          </div>
+        </div>
+        <i id="notifications_none" class="display_none">There are none</i>
+        <div id="notifications_list"></div>
+      </div>
+    </div>
 
-		<div id="container">
-			<%= render partial: "shared/header" %>
+    <div id="container">
+      <%= render partial: "shared/header" %>
 
-			<div class="page-container">
+      <div class="page-container">
 
-				<div id="header_space"></div>
+        <div id="header_space"></div>
 
-				<div id="page_title">
-				<div class="overlay">
+        <div id="page_title">
+          <div class="overlay">
 
-					<div id="page_title_content">
-						<% if current_page?(new_user_session_path) ||
-						(params[:controller] == "devise/sessions" && action_name == "new") %>
-							<%= t('.signin') %>
+            <div id="page_title_content">
+              <% if current_page?(new_user_session_path) ||
+                  (params[:controller] == "devise/sessions" && action_name == "new") %>
+                <%= t('.signin') %>
 
-						<% elsif current_page?(new_user_registration_path) ||
-						(params[:controller] == "devise/registrations" && action_name == "create") %>
-							<%= t('.create_account') %>
+              <% elsif current_page?(new_user_registration_path) ||
+                (params[:controller] == "devise/registrations" && action_name == "create") %>
+              <%= t('.create_account') %>
 
-						<% elsif current_page?(new_user_password_path) ||
-						(params[:controller] == "devise/passwords" && action_name == "new") %>
-							<%= t('.forgot_password') %>
+            <% elsif current_page?(new_user_password_path) ||
+              (params[:controller] == "devise/passwords" && action_name == "new") %>
+            <%= t('.forgot_password') %>
 
-						<% elsif current_page?(edit_user_registration_path) ||
-						(params[:controller] == "registrations" && action_name == "update") %>
-							<%= t('.update_account') %>
+          <% elsif current_page?(edit_user_registration_path) ||
+            (params[:controller] == "registrations" && action_name == "update") %>
+          <%= t('.update_account') %>
 
-						<% elsif !@page_edit.blank? %>
-							<div class="align_left">
-								<%= @page_title %>
-							</div>
-							<div class="align_right">
-								<%= link_to(raw('<i class="fa fa-pencil"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
-							</div>
-							<div class="clear"></div>
+        <% elsif !@page_edit.blank? %>
+          <div class="align_left">
+            <%= @page_title %>
+          </div>
+          <div class="align_right">
+            <%= link_to(raw('<i class="fa fa-pencil"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
+          </div>
+          <div class="clear"></div>
 
-						<% elsif !@page_new.blank? %>
-							<div class="align_left">
-								<%= @page_title %>
-							</div>
-							<div class="align_right">
-							<%= link_to(raw('<i class="fa fa-plus-circle"></i>'), @page_new, class: 'page_new yes_title', title: @page_tooltip) %>
-							</div>
-							<div class="clear"></div>
+        <% elsif !@page_new.blank? %>
+          <div class="align_left">
+            <%= @page_title %>
+          </div>
+          <div class="align_right">
+            <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), @page_new, class: 'page_new yes_title', title: @page_tooltip) %>
+          </div>
+          <div class="clear"></div>
 
-						<% elsif !@page_author.blank? %>
-							<div id="other_user">
-								<div class="align_left">
-									<%= @page_title %>
-								</div>
-								<div class="align_right">
-									<%= @page_author %>
-								</div>
-								<div class="clear"></div>
-							</div>
-						<% elsif current_page?(root_path) && !user_signed_in? %>
-							<div class="headline center">
-						        <span class="branding_title">
-						          <%= t('.if') %> <span class="branding_subtitle"><%= t('.me') %></span>
-						        </span><%= t(:app_description) %>
-					      </div>
-					    <% elsif current_page?(new_user_invitation_path) ||
-							(params[:controller] == "devise/invitations" && action_name == "new") ||
-							(params[:controller] == "users/invitations" && action_name == "create") %>
-							<%= t('devise.invitations.new.header') %>
-						<% elsif current_page?(accept_user_invitation_path) ||
-							(params[:controller] == "devise/invitations" && action_name == "accept") %>
-							<%= t('devise.invitations.edit.header') %>
-						<% elsif current_page?(edit_user_password_path) ||
-							(params[:controller] == "devise/passwords" && action_name == "edit") %>
-							Reset your password
-						<% else %>
-							<%= @page_title %>
-						<% end %>
-					</div>
+        <% elsif !@page_author.blank? %>
+          <div id="other_user">
+            <div class="align_left">
+              <%= @page_title %>
+            </div>
+            <div class="align_right">
+              <%= @page_author %>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% elsif current_page?(root_path) && !user_signed_in? %>
+          <div class="headline center">
+            <span class="branding_title">
+              <%= t('.if') %> <span class="branding_subtitle"><%= t('.me') %></span>
+            </span><%= t(:app_description) %>
+        </div>
+      <% elsif current_page?(new_user_invitation_path) ||
+        (params[:controller] == "devise/invitations" && action_name == "new") ||
+        (params[:controller] == "users/invitations" && action_name == "create") %>
+      <%= t('devise.invitations.new.header') %>
+    <% elsif current_page?(accept_user_invitation_path) ||
+      (params[:controller] == "devise/invitations" && action_name == "accept") %>
+    <%= t('devise.invitations.edit.header') %>
+  <% elsif current_page?(edit_user_password_path) ||
+    (params[:controller] == "devise/passwords" && action_name == "edit") %>
+  Reset your password
+<% else %>
+  <%= @page_title %>
+<% end %>
+            </div>
 
-				</div>
-				</div>
+          </div>
+        </div>
 
-				<div id="content">
-					<% if !notice.blank? %>
-						<% if current_page?(root_path) %>
-							<div class="notice display_none"><%= notice %></div>
-						<% else %>
-							<div class="notice"><%= notice %></div>
-						<% end %>
-					<% end %>
+        <div id="content">
+          <% if !notice.blank? %>
+            <% if current_page?(root_path) %>
+              <div class="notice display_none"><%= notice %></div>
+            <% else %>
+              <div class="notice"><%= notice %></div>
+            <% end %>
+          <% end %>
 
-					<% if !alert.blank? %>
-						<% if current_page?(root_path) %>
-							<div class="alert display_none"><%= alert %></div>
-						<% else %>
-							<div class="alert"><%= alert %></div>
-						<% end %>
-					<% end %>
+          <% if !alert.blank? %>
+            <% if current_page?(root_path) %>
+              <div class="alert display_none"><%= alert %></div>
+            <% else %>
+              <div class="alert"><%= alert %></div>
+            <% end %>
+          <% end %>
 
-					<%= yield %>
-				</div>
+          <%= yield %>
+        </div>
 
-				<%= render partial: "shared/footer" %>
-			</div>
-		</div>
-	</body>
+        <%= render partial: "shared/footer" %>
+      </div>
+    </div>
+  </body>
 </html>

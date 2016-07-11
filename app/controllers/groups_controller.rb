@@ -8,7 +8,6 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
                           .includes(:group_members)
                           .order("groups.created_at DESC")
-    @page_title = "Groups"
     @page_tooltip = "New group"
     @page_new = new_group_path
     @available_groups = current_user.available_groups("groups.created_at DESC")
@@ -17,8 +16,6 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @page_title = @group.name
-
     if @group.members.include? current_user
       @meetings = @group.meetings.includes(:leaders)
     end
@@ -32,12 +29,10 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    @page_title = "New Group"
   end
 
   # GET /groups/1/edit
   def edit
-    @page_title = "Edit " + @group.name
     @group_members = GroupMember.where(groupid: @group.id).all
   end
 
@@ -45,7 +40,6 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    @page_title = "New Group"
     respond_to do |format|
       if @group.save
         group_member = GroupMember.new(groupid: @group.id, userid: current_user.id, leader: true)
@@ -69,8 +63,6 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    @page_title = 'Edit ' + @group.name
-
     respond_to do |format|
       if @group.update(group_params)
         update_leaders

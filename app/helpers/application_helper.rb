@@ -1,5 +1,5 @@
 module ApplicationHelper
-	include LocalTimeHelper
+  include LocalTimeHelper
 
   def nav_link_to(body, url, html_options = {})
     environment = html_options[:method] ? {:method => html_options[:method]} : {}
@@ -31,5 +31,9 @@ module ApplicationHelper
       # New user registration with devise.
       (link_path == new_user_registration_path &&
        current_controller == "devise/registrations" && action_name == "create")
+  end
+
+  def title(page_title)
+    content_for(:title) { page_title }
   end
 end
