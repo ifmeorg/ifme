@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
     @page_new = new_category_path
+    @page_tooltip = "New category"
   end
 
   # GET /categories/1
