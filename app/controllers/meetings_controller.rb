@@ -7,7 +7,6 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find(params[:id])
     @is_member = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id).exists?
-    @page_title = @meeting.name
 
     @is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?
 
@@ -108,7 +107,6 @@ class MeetingsController < ApplicationController
     not_a_leader(@groupid)
 
     @meeting = Meeting.new
-    @page_title = "New Meeting"
 
   end
 
@@ -117,7 +115,6 @@ class MeetingsController < ApplicationController
     @groupid = @meeting.groupid
     not_a_leader(@groupid)
 
-    @page_title = "Edit " + @meeting.name
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
   end
 
@@ -127,7 +124,6 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     groupid = meeting_params[:groupid]
     not_a_leader(groupid)
-    @page_title = "New Meeting"
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(meetingid: @meeting.id, userid: current_user.id, leader: true)
@@ -171,7 +167,6 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
-    @page_title = "Edit " + @meeting.name
     respond_to do |format|
       if @meeting.update(meeting_params)
         error = false

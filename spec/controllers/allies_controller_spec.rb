@@ -26,7 +26,6 @@ describe AlliesController do
         expect(assigns(:accepted_allies)).to eq [ally]
         expect(assigns(:incoming_ally_requests)).to eq [incoming_ally]
         expect(assigns(:outgoing_ally_requests)).to eq [outgoing_ally]
-        expect(assigns(:page_title)).to eq 'Allies'
       end
     end
 

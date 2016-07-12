@@ -23,7 +23,6 @@ class MomentsController < ApplicationController
     else
       @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_title = "Moments"
     @page_new = new_moment_path
     @page_tooltip = "New moment"
   end
@@ -49,7 +48,6 @@ class MomentsController < ApplicationController
       @comment = Comment.new
       @comments = Comment.where(:commented_on => @moment.id, :comment_type => 'moment').all.order("created_at DESC")
       @no_hide_page = true
-      @page_title = @moment.name
     end
   end
 
@@ -197,7 +195,6 @@ class MomentsController < ApplicationController
     @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
 
     @moment = Moment.new
-    @page_title = "New Moment"
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
@@ -223,7 +220,6 @@ class MomentsController < ApplicationController
       my_strategies += ally_strategies
       @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
 
-      @page_title = "Edit " + @moment.name
       @category = Category.new
       @mood = Mood.new
       @strategy = Strategy.new
@@ -239,7 +235,6 @@ class MomentsController < ApplicationController
   # POST /moments.json
   def create
     @moment = Moment.new(moment_params)
-    @page_title = "New Moment"
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
@@ -258,7 +253,6 @@ class MomentsController < ApplicationController
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json
   def update
-    @page_title = "Edit " + @moment.name
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new

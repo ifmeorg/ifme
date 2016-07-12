@@ -12,7 +12,6 @@ class MoodsController < ApplicationController
     else
       @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_title = "Moods"
     @page_new = new_mood_path
     @page_tooltip = "New mood"
   end
@@ -21,7 +20,6 @@ class MoodsController < ApplicationController
   # GET /moods/1.json
   def show
     if @mood.userid == current_user.id || is_viewer(params[:moment], @mood)
-      @page_title = @mood.name
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
         @page_tooltip = "Edit mood"
@@ -41,14 +39,11 @@ class MoodsController < ApplicationController
   # GET /moods/new
   def new
     @mood = Mood.new
-    @page_title = "New Mood"
   end
 
   # GET /moods/1/edit
   def edit
-    if @mood.userid == current_user.id
-      @page_title = "Edit " + @mood.name
-    else
+    if @mood.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to mood_path(@mood) }
         format.json { head :no_content }
@@ -60,7 +55,6 @@ class MoodsController < ApplicationController
   # POST /moods.json
   def create
     @mood = Mood.new(mood_params)
-    @page_title = "New Mood"
     respond_to do |format|
       if @mood.save
         format.html { redirect_to mood_path(@mood) }
@@ -90,7 +84,6 @@ class MoodsController < ApplicationController
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    @page_title = "Edit " + @mood.name
     respond_to do |format|
       if @mood.update(mood_params)
         format.html { redirect_to mood_path(@mood) }

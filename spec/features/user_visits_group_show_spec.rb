@@ -12,7 +12,7 @@ RSpec.feature "UserVisitsGroupsPages", type: :feature do
       visit group_path(group)
 
       expect(page.title).to match group.name
-      expect(page).to have_content group.description
+      expect(page).to have_content group.name
     end
   end
 end

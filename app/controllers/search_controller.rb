@@ -2,7 +2,6 @@ class SearchController < ApplicationController
 	before_filter :if_not_signed_in
 
 	def index
-		@page_title = "Search for Allies"
 		email = params[:search][:email]
 
 		@matching_users = User
