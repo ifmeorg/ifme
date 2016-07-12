@@ -19,7 +19,21 @@ class Group < ActiveRecord::Base
   has_many :leaders, -> { where(group_members: { leader: true }) },
            through: :group_members, source: :user
 
+  after_destroy :destroy_notifications
+
   def led_by?(user)
     leaders.include? user
+  end
+
+  def notifications
+    Notification.where('uniqueid ilike ?', '%new_group%').select do |n|
+      JSON.parse(n.data)['groupid'].to_i == id
+    end
+  end
+
+  private
+
+  def destroy_notifications
+    notifications.each(&:destroy)
   end
 end

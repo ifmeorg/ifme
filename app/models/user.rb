@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_members
   has_many :meeting_members, foreign_key: :userid
   has_many :medications, foreign_key: :userid
+  has_many :notifications, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
   def remove_leading_trailing_whitespace

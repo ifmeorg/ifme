@@ -101,5 +101,28 @@ describe Group do
 
       expect { @group.destroy }.to change(MeetingMember, :count).by(-1)
     end
+
+    it 'destroys associated notifications' do
+      group = create :group
+      create_notification_for(group)
+
+      expect { group.destroy }.to change(Notification, :count).by(-1)
+    end
+  end
+
+  describe '#notifications' do
+    it 'returns the notifications with a uniqueid contiaining "new_group"' do
+      group = build_stubbed :group
+      notification = create_notification_for(group)
+
+      result = group.notifications
+
+      expect(result).to eq [notification]
+    end
+  end
+
+  def create_notification_for(group)
+    data = { groupid: group.id }.to_json
+    create :notification, uniqueid: 'new_group_1', data: data
   end
 end
