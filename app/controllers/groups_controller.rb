@@ -147,23 +147,9 @@ class GroupsController < ApplicationController
   end
 
   def update_leaders
-    return if params[:group][:leader].nil?
+    updated_leader_ids = params[:group][:leader]
+    return if updated_leader_ids.nil?
 
-    updated_leader_ids = params[:group][:leader].map(&:to_i)
-    current_leader_ids = @group.leader_ids
-
-    leaders_to_add = updated_leader_ids - current_leader_ids
-    leaders_to_remove = current_leader_ids - updated_leader_ids
-
-    update_leader_status(leaders_to_add)
-    update_leader_status(leaders_to_remove, false)
-  end
-
-  def update_leader_status(leaders, leader = true)
-    return if leaders.empty?
-    @group.group_members.where(userid: leaders).update_all(leader: leader)
-    pusher_type = leader ? 'add_group_leader' : 'remove_group_leader'
-    GroupNotifier.new(@group, pusher_type, current_user)
-                 .send_notifications_to(@group.leaders)
+    LeaderUpdater.new(@group, updated_leader_ids.map(&:to_i)).update
   end
 end
