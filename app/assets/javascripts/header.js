@@ -70,14 +70,10 @@ function setHeight() {
 
 function expandButton(event) {
   hideSmallTopNav();
-
-  if (event.data.value % 2 === 0) {
-    showExpandMe();
-  } else {
-    hideExpandMe();
-  }
+  $('#expand_me').toggleClass("display_none");
+  $('#me').toggleClass('hide_me');
+  $('#title_expand').toggleClass('hide_me');
   setHeight();
-  event.data.value++;
 }
 
 function headerMouseLeave() {
