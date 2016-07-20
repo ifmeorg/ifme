@@ -123,7 +123,7 @@ class MedicationsController < ApplicationController
     def medication_params
       params.require(:medication).permit(
         :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
-        :total_unit, :strength_unit, :comments, :add_to_google
+        :total_unit, :strength_unit, :comments, :add_to_google,
         { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
       )
     end

@@ -87,6 +87,10 @@ class User < ActiveRecord::Base
      ally_groups.order(order) - groups
    end
 
+   def google_oauth2_enabled?
+     !token.blank?
+   end
+
    private
 
    def accepted_ally_ids
