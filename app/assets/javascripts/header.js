@@ -1,13 +1,11 @@
 var onReadyHeader = function() {
   setHeight();
 
-  var click_flag = { value: 0 };
 
-  $('.expand_button').click(click_flag, expandButton);
+  $('.expand_button').click(expandButton);
 
+  //mobile menu toggling
   $('#expand_nav').click(function() {
-    hideExpandMe();
-
     if ($('#small_nav').hasClass('display_none')) {
       showSmallTopNav();
     } else {
@@ -15,7 +13,7 @@ var onReadyHeader = function() {
     }
   });
 
-  $('.expand_moment_button').mouseover(click_flag,expandMomentMouseover);
+  $('.expand_moment_button').mouseover(expandMomentMouseover);
 
   $('#header').mouseleave(headerMouseLeave);
 
@@ -44,13 +42,6 @@ function hideExpandMe() {
   $('#title_expand').css({"opacity": 1});
 }
 
-function showExpandMe() {
-  $('#expand_me').removeClass('display_none');
-  $('#expand_me').addClass('display_block');
-  $('#me').css({"opacity": 0.8});
-  $('#title_expand').css({"opacity": 0.8});
-}
-
 function showExpandMoment() {
   $('#expand_moment').removeClass('display_none');
   $('#expand_moment').addClass('display_block');
@@ -71,8 +62,8 @@ function setHeight() {
 function expandButton(event) {
   hideSmallTopNav();
   $('#expand_me').toggleClass("display_none");
-  $('#me').toggleClass('hide_me');
-  $('#title_expand').toggleClass('hide_me');
+  $('#me').toggleClass('dim');
+  $('#title_expand').toggleClass('dim');
   setHeight();
 }
 
@@ -83,13 +74,9 @@ function headerMouseLeave() {
   }
 }
 
-function expandMomentMouseover(click_flag) {
+function expandMomentMouseover() {
   if ($('#expand_moment').hasClass('display_none')) {
     showExpandMoment();
-
-    if ($('#expand_me').hasClass('display_block')) {
-      click_flag.value++;
-    }
 
     hideExpandMe();
     setHeight();
