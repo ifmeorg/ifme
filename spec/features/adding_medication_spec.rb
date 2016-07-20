@@ -39,7 +39,6 @@ describe "user adds a new medication" do
   end
 
   it "creates a new medication with Google Calendar reminder" do
-    it "creates a new medication with Google Calendar reminder" do
     fill_in "Name", with: "A medication name"
     fill_in "medication_comments", with: "A comment"
     fill_in "Strength", with: 100
