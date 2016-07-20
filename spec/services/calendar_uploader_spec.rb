@@ -10,7 +10,6 @@ describe CalendarUploader do
     expect(client).to receive(:authorization)
     expect(client).to receive(:discovered_api).with('calendar', 'v3') { service}
     expect(client).to receive(:execute!)
-
     uploader.upload_event
   end
 end
