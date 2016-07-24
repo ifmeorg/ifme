@@ -5,7 +5,7 @@ if me
 
 if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
 
-Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.
+Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behavior. Getting them involved in mental health treatment is the key to recovery.
 
 # Table of Contents
 * [Goals](#goals)
@@ -199,7 +199,7 @@ On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 stat
 
 #### Mandatory
 
-The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally checking in sensitive information.
+The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally committing sensitive information.
 
 Copy the sample files to create your own configuration files:
 
