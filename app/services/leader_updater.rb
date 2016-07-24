@@ -26,10 +26,9 @@ class LeaderUpdater
   end
 
   def notify_leaders(user_ids, pusher_type)
-    leaders_before_update = User.where(id: @leader_ids_before_update)
     User.where(id: user_ids).each do |user|
       GroupNotifier.new(@group, pusher_type, user)
-                   .send_notifications_to(leaders_before_update)
+                   .send_notifications_to(@group.leaders)
     end
   end
 

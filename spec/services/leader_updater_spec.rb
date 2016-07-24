@@ -11,7 +11,7 @@ describe LeaderUpdater, '#update' do
     expect(GroupNotifier).to receive(:new)
       .with(group, 'remove_group_leader', other_leader).and_return(notifier)
     expect(notifier).to receive(:send_notifications_to)
-      .with([leader, other_leader])
+      .with([leader])
 
     LeaderUpdater.new(group, [leader.id]).update
 
@@ -27,7 +27,7 @@ describe LeaderUpdater, '#update' do
     notifier = double('notifier')
     expect(GroupNotifier).to receive(:new)
       .with(group, 'add_group_leader', non_leader).and_return(notifier)
-    expect(notifier).to receive(:send_notifications_to).with([leader])
+    expect(notifier).to receive(:send_notifications_to).with([leader, non_leader])
 
     LeaderUpdater.new(group, [leader.id, non_leader.id]).update
 
