@@ -136,19 +136,10 @@ class GroupsController < ApplicationController
   end
 
   def update_leaders
-    return if params[:group][:leader].nil?
-    @group.group_members.each do |group_member|
-      if params[:group][:leader].include? group_member.userid.to_s
-        group_member.update(leader: true)
-        pusher_type = 'add_group_leader'
-      else
-        group_member.update(leader: false)
-        pusher_type = 'remove_group_leader'
-      end
+    updated_leader_ids = params[:group][:leader]
+    return if updated_leader_ids.nil?
 
-      GroupNotifier.new(@group, pusher_type, current_user)
-                   .send_notifications_to(@group.leaders)
-    end
+    LeaderUpdater.new(@group, updated_leader_ids.map(&:to_i)).update
   end
 
   def new_group_leader
