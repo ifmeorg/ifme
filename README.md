@@ -332,9 +332,18 @@ bin/rake db:create db:migrate RAILS_ENV=test
 
 ### Jasmine for JavaScript
 
+
+#### GUI
+
 In a new terminal window, run `rake jasmine`.
 
 To view the test results, go to `http://localhost:8888`.
+
+#### Command Line
+
+```
+rake jasmine:ci
+```
 
 Committing Work
 ----------------
