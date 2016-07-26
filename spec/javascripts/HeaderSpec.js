@@ -150,8 +150,8 @@ describe("Header", function() {
 
     it("has changed expand_nav opacity amount to 0.8", function() {
       showSmallTopNav();
-
-      expect($('#expand_nav').css('opacity')).toBe('0.8');
+      opacity = Math.round($('#expand_nav').css('opacity') * 10) / 10
+      expect(opacity).toBe(0.8);
     });
   });
 
@@ -204,15 +204,15 @@ describe("Header", function() {
     });
 
     it("has changed #me opacity amount to 0.8", function() {
-      showExpandMe();
-
-      expect($('#me').css('opacity')).toBe('0.8');
+      showExpandMe(); 
+      opacity = Math.round($('#me').css('opacity') * 10) / 10
+      expect(opacity).toBe(0.8);
     });
 
     it("has changed #title_expand opacity amount to 0.8", function() {
       showExpandMe();
-
-      expect($('#title_expand').css('opacity')).toBe('0.8');
+      opacity = Math.round($('#title_expand').css('opacity') * 10) / 10
+      expect(opacity).toBe(0.8);
     });
   });
 

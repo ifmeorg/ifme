@@ -12,4 +12,6 @@ before_script:
   - /bin/cp $TRAVIS_BUILD_DIR/config/database.example.yml $TRAVIS_BUILD_DIR/config/database.yml 
   - /bin/cp $TRAVIS_BUILD_DIR/config/smtp.example.yml $TRAVIS_BUILD_DIR/config/smtp.yml
   - psql -c 'create database ifme_test;' -U postgres
+script:
+  - bundle exec rake travis
 sudo: false
