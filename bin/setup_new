@@ -3,16 +3,17 @@
 
 {
   RUBY_VERSION=$(cat .ruby-version)
-    RUBY_VERSION=${RUBY_VERSION:=2.1.0}
-  PROJECT_NAME=__PROJECT_NAME__
+  RUBY_VERSION=${RUBY_VERSION:=2.3.0}
+  PROJECT_NAME="ifme"
 } >/dev/null 2>&1
 
 ## bootstrap function called at bottom of file comment out verification steps you don't need
 init (){
   verify_ruby_version &&
     verify_bundled_gems
-    verify_env_file
-    verify_postgres_running &&
+  verify_env_file
+  copy_example_config_files
+  verify_postgres_running &&
     verify_database_migrations
 }
 
@@ -20,7 +21,7 @@ init (){
 ## utility functions to test dependencies
 is_darwin (){
   PLATFORM=$(uname)
-    [ "$PLATFORM" == "Darwin" ]
+  [ "$PLATFORM" == "Darwin" ]
 }
 
 has_homebrew (){
@@ -29,15 +30,15 @@ has_homebrew (){
 
 verify_homebrew (){
   if [ ! has_homebrew ]
+  then
+    if [ is_darwin ]
     then
-      if [ is_darwin ]
-        then
-          echo 'Please install homebrew. Install instructions at http://brew.sh/'
-      else
-        echo "Please install Ruby version $RUBY_VERSION"
-          fi
-          exit 1
-          fi
+      echo 'Please install homebrew. Install instructions at http://brew.sh/'
+    else
+      echo "Please install Ruby version $RUBY_VERSION"
+    fi
+    exit 1
+  fi
 }
 
 has_postgres (){
@@ -66,37 +67,37 @@ has_rbenv (){
 
 update_rbenv (){
   brew update
-    brew upgrade ruby-build
+  brew upgrade ruby-build
 }
 
 rbenv_install_ruby_version () {
   rbenv install $RUBY_VERSION
-    rbenv local $RUBY_VERSION
+  rbenv local $RUBY_VERSION
 }
 
 has_ruby_version (){
   INSTALLED_RUBY_VERSION=$(ruby -e 'puts RUBY_VERSION')
-    [ "$INSTALLED_RUBY_VERSION" == "$RUBY_VERSION" ]
+  [ "$INSTALLED_RUBY_VERSION" == "$RUBY_VERSION" ]
 }
 
 install_ruby_version (){
   verify_homebrew
 
-    if [ ! has_rvm ] && [ ! has_rbenv ]
-      then
-        echo 'Please install rbenv or rvm to manage your ruby versions.'
-        exit 1
-        fi
+  if [ ! has_rvm ] && [ ! has_rbenv ]
+  then
+    echo 'Please install rbenv or rvm to manage your ruby versions.'
+    exit 1
+  fi
 
-        echo "Installing Ruby Version $RUBY_VERSION"
-        has_rvm && {
-          update_rvm
-            rvm_install_ruby_version
-        }
+  echo "Installing Ruby Version $RUBY_VERSION"
+  has_rvm && {
+  update_rvm
+  rvm_install_ruby_version
+}
 
-  has_rbenv && {
-    update_rbenv
-      rbenv_install_ruby_version
+has_rbenv && {
+update_rbenv
+rbenv_install_ruby_version
   }
 }
 
@@ -113,67 +114,60 @@ verify_bundled_gems () {
 
 verify_env_file (){
   if [ ! -f .env ]
-    then
-      SECRET=$(bundle exec rake secret)
-      echo "SECRET_TOKEN=$SECRET" >> .env
-      fi
+  then
+    echo "Generating secret..."
+    SECRET=$(bundle exec rake secret)
+    echo "SECRET_KEY_BASE=$SECRET" >> .env
+  fi
 }
 
 
 verify_postgres_running () {
+  echo "Verifying postgres is running..."
   has_postgres || {
-    echo 'Please install postgresql.'
-      exit 1
-  }
+  echo 'Please install postgresql.'
+  exit 1
+}
 
-  postgres_is_running || {
-    echo 'Please ensure postgresql is running'
-      exit 1
+postgres_is_running || {
+echo 'Please ensure postgresql is running'
+exit 1
   }
 }
 
 verify_database_configuration () {
   if [ ! -f config/database.yml ]
-    then
-      cp config/database.travis.yml config/database.yml
-      bundle exec rake db:create:all
+  then
+    cp config/database.travis.yml config/database.yml
+    bundle exec rake db:create:all
 
-      if [ $? -ne 0 ]
-        then
-          echo 'Unable to create the databases for you. Please ensure your database.yml is configured for your system and run rake db:create:all'
-          exit 0
-          fi
-          fi
+    if [ $? -ne 0 ]
+    then
+      echo 'Unable to create the databases for you. Please ensure your database.yml is configured for your system and run rake db:create:all'
+      exit 0
+    fi
+  fi
 }
 
 verify_database_migrations () {
   verify_database_configuration
 
-    bundle exec rake db:abort_if_pending_migrations
-    if [ $? -eq 1 ]
-      then
-        echo 'Running migrations...'
-        bundle exec rake db:migrate db:test:prepare
-        bundle exec rake db:seed
-        fi
+  bundle exec rake db:abort_if_pending_migrations
+  if [ $? -eq 1 ]
+  then
+    echo 'Running migrations...'
+    bundle exec rake db:setup db:test:prepare
+  fi
 }
 
-verify_pow_installed () {
-  if [ ! -d /Users/$USER/.pow ]
-    then
-      echo 'Installing pow...'
-      curl get.pow.cx | sh
-      echo 'If you are having trouble accessing the application you may need to restart your computer to have it pick up the local DNS changes'
-      fi
-
-      if [ ! -d "/Users/$USER/.pow/$PROJECT_NAME" ]
-        then
-          (gem list -i powder || gem install powder) && powder portmap 5000 --name=$PROJECT_NAME
-          echo "Your application should now be available at http://$PROJECT_NAME.dev after starting foreman"
-          fi
+copy_example_config_files () {
+  echo "Copying example config files..."
+  cp config/application.example.yml config/application.yml
+  cp config/smtp.example.yml config/smtp.yml
+  cp config/database.example.yml config/database.yml
 }
 
 # start it up!!
 init
 echo 'Ready !'
-echo 'Run `foreman start` to start the server'
+echo 'Run `rails s` to start the server'

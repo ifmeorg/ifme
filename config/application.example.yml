@@ -8,7 +8,7 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 
 #This is the only configuration value required to boot the application
-SECRET_KEY_BASE: "examplesecretkey123123"
+# SECRET_KEY_BASE: "examplesecretkey123123"
 
 # Configuration values for sending email, set these to true, configure your default "from address",
 # and configure smtp.yml in order to send email
