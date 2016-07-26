@@ -108,7 +108,7 @@ verify_ruby_version (){
 verify_bundled_gems () {
   echo 'Updating gems...'
   {
-    (gem list -i bundler || gem install bundler) && bundle install --binstubs=./bundle/bin
+    (gem list -i bundler || gem install bundler) && bundle install
   } 2>&1
 }
 
