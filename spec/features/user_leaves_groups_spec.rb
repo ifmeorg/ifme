@@ -12,6 +12,7 @@ RSpec.feature "UserLeavesGroups", type: :feature do
     click_link "Leave"
 
     expect(page).to have_content("You have left #{group.name}")
+    expect(current_path).to eq(groups_path)
   end
 
   scenario 'user removes other member from group' do
@@ -28,5 +29,6 @@ RSpec.feature "UserLeavesGroups", type: :feature do
     expect(page).to have_content(
       "You have removed #{other_member.name} from #{group.name}"
     )
+    expect(current_path).to eq(groups_path)
   end
 end
