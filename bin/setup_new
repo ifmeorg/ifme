@@ -11,7 +11,6 @@
 init (){
   verify_ruby_version &&
     verify_bundled_gems
-  verify_env_file
   copy_example_config_files
   verify_postgres_running &&
     verify_database_migrations
@@ -21,17 +20,17 @@ init (){
 ## utility functions to test dependencies
 is_darwin (){
   PLATFORM=$(uname)
-  [ "$PLATFORM" == "Darwin" ]
+  [[ "$PLATFORM" == "Darwin" ]]
 }
 
 has_homebrew (){
-  [ is_darwin ] && [ hash brew >/dev/null 2>&1 ]
+  is_darwin && [ hash brew >/dev/null 2>&1 ]
 }
 
 verify_homebrew (){
-  if [ ! has_homebrew ]
+  if ! has_homebrew
   then
-    if [ is_darwin ]
+    if is_darwin
     then
       echo 'Please install homebrew. Install instructions at http://brew.sh/'
     else
@@ -91,13 +90,13 @@ install_ruby_version (){
 
   echo "Installing Ruby Version $RUBY_VERSION"
   has_rvm && {
-  update_rvm
-  rvm_install_ruby_version
-}
+    update_rvm
+    rvm_install_ruby_version
+  }
 
 has_rbenv && {
-update_rbenv
-rbenv_install_ruby_version
+    update_rbenv
+    rbenv_install_ruby_version
   }
 }
 
@@ -105,63 +104,70 @@ verify_ruby_version (){
   has_ruby_version || install_ruby_version
 }
 
+has_bundler (){
+  hash bundle >/dev/null 2>&1
+}
+
 verify_bundled_gems () {
-  echo 'Updating gems...'
-  {
-    (gem list -i bundler || gem install bundler) && bundle install
-  } 2>&1
+  has_bundler || install_bundler
+  bundle_check || bundle_install || {
+    echo 'Unable to install all dependencies from Gemfile. Make sure `bundle install` succeeds before continuing.'
+    exit 1
+  }
 }
 
-verify_env_file (){
-  if [ ! -f .env ]
-  then
-    echo "Generating secret..."
-    SECRET=$(bundle exec rake secret)
-    echo "SECRET_KEY_BASE=$SECRET" >> .env
-  fi
+install_bundler () {
+  echo 'Installing bundler...'
+  gem install bundler || { echo 'Unable to install bundler.'; exit 1; }
 }
 
+bundle_install () {
+  echo 'Installing dependencies specified in Gemfile...'
+  bundle install
+}
+
+bundle_check () {
+  bundle check >/dev/null 2>&1
+}
 
 verify_postgres_running () {
   echo "Verifying postgres is running..."
   has_postgres || {
-  echo 'Please install postgresql.'
-  exit 1
-}
+    echo 'Please install postgresql.'
+    exit 1
+  }
 
-postgres_is_running || {
-echo 'Please ensure postgresql is running'
-exit 1
+  postgres_is_running || {
+    echo 'Please ensure postgresql is running'
+    exit 1
   }
 }
 
 verify_database_migrations () {
-  bundle exec rake db:abort_if_pending_migrations
-  if [ $? -eq 1 ]
-  then
-    echo 'Creating the database, loading the schema and initializing it with the seed
-    data'
-    bundle exec rake db:setup
-    if [ $? -ne 0 ]
-    then
-      echo 'Unable to setup the databases for you. Please ensure your
-      database.yml is configured for your system and run rake db:setup'
-      exit 0
-    fi
-  fi
+  db_setup || {
+    echo 'Unable to setup the databases for you. Please ensure your
+    database.yml is configured for your system and run rake db:setup'
+    exit 0
+  }
+}
+
+db_setup () {
+  echo 'Creating the database, loading the schema and initializing it with the seed
+  data'
+  bundle exec rake db:setup >/dev/null 2>&1
 }
 
 copy_example_config_files () {
   echo "Copying example config files..."
-  if [ ! -f config/database.yml ]
+  if [ ! -f config/application.yml ]
   then
     cp config/application.example.yml config/application.yml
   fi
-  if [ ! -f config/smtp.example.yml ]
+  if [ ! -f config/smtp.yml ]
   then
     cp config/smtp.example.yml config/smtp.yml
   fi
-  if [ ! -f config/database.example.yml ]
+  if [ ! -f config/database.yml ]
   then
     cp config/database.example.yml config/database.yml
   fi
@@ -169,5 +175,5 @@ copy_example_config_files () {
 
 # start it up!!
 init
-echo 'Ready !'
+echo 'Ready!'
 echo 'Run `rails s` to start the server'
