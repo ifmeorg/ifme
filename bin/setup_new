@@ -118,7 +118,10 @@ verify_bundled_gems () {
 
 install_bundler () {
   echo 'Installing bundler...'
-  gem install bundler || { echo 'Unable to install bundler.'; exit 1; }
+  gem install bundler || {
+    echo 'Unable to install bundler.'
+    exit 1
+  }
 }
 
 bundle_install () {
@@ -146,8 +149,8 @@ verify_postgres_running () {
 verify_database_migrations () {
   db_setup || {
     echo 'Unable to setup the databases for you. Please ensure your
-    database.yml is configured for your system and run rake db:setup'
-    exit 0
+    database.yml is configured for your system and run `rake db:setup`'
+    exit 1
   }
 }
 
