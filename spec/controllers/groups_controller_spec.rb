@@ -67,6 +67,16 @@ RSpec.describe GroupsController, :type => :controller do
     end
   end
 
+  describe 'GET #edit' do
+    it 'redirects to groups path when current_user is not a leader' do
+      stub_current_user
+      group = create :group
+      get :edit, id: group.id
+
+      expect(response).to redirect_to(groups_path)
+    end
+  end
+
   describe "GET #leave" do
     context "when current_user is the only leader of the group" do
       it "redirects to groups_path with alert message" do

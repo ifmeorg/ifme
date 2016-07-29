@@ -33,7 +33,10 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @group_members = GroupMember.where(groupid: @group.id).all
+    unless @group.leaders.include?(current_user)
+      flash[:error] = 'You must be a leader of a group in order to edit it'
+      redirect_to_index
+    end
   end
 
   # POST /groups
@@ -96,11 +99,7 @@ class GroupsController < ApplicationController
                          #{group.name}"
       end
     end
-
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+    redirect_to_index
   end
 
   # DELETE /groups/1
@@ -108,10 +107,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
 
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+    redirect_to_index
   end
 
   private
@@ -156,6 +152,13 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to group_path(@group) }
       format.json { render :show, status: :created, location: @group }
+    end
+  end
+
+  def redirect_to_index
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
     end
   end
 
