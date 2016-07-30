@@ -94,7 +94,7 @@ install_ruby_version (){
     rvm_install_ruby_version
   }
 
-has_rbenv && {
+  has_rbenv && {
     update_rbenv
     rbenv_install_ruby_version
   }
@@ -149,22 +149,22 @@ bundle_check () {
 verify_postgres_running () {
   echo "Verifying postgres is running..."
   has_postgres || {
-  echo 'Please install postgresql.'
-  exit 1
-}
+    echo 'Please install postgresql.'
+    exit 1
+  }
 
-postgres_is_running || {
-echo 'Please ensure postgresql is running'
-exit 1
+  postgres_is_running || {
+    echo 'Please ensure postgresql is running'
+    exit 1
   }
 }
 
 verify_database_migrations () {
   db_setup || {
-  echo 'Unable to setup the databases for you. Please ensure your
-  database.yml is configured for your system and run `rake db:setup`'
-  exit 1
-}
+    echo 'Unable to setup the databases for you. Please ensure your
+    database.yml is configured for your system and run `rake db:setup`'
+    exit 1
+  }
 }
 
 db_setup () {
