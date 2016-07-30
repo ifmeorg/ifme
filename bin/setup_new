@@ -17,29 +17,6 @@ init (){
 }
 
 
-## utility functions to test dependencies
-is_darwin (){
-  PLATFORM=$(uname)
-  [[ "$PLATFORM" == "Darwin" ]]
-}
-
-has_homebrew (){
-  is_darwin && [ hash brew >/dev/null 2>&1 ]
-}
-
-verify_homebrew (){
-  if ! has_homebrew
-  then
-    if is_darwin
-    then
-      echo 'Please install homebrew. Install instructions at http://brew.sh/'
-    else
-      echo "Please install Ruby version $RUBY_VERSION"
-    fi
-    exit 1
-  fi
-}
-
 has_postgres (){
   hash psql >/dev/null 2>&1
 }
@@ -48,29 +25,59 @@ postgres_is_running (){
   ps aux | grep [p]ostgres >/dev/null 2>&1
 }
 
+# we don't want to hash this in case it is running as a binary and not a function
 has_rvm (){
-  hash rvm >/dev/null 2>&1
+  type rvm | head -1 >/dev/null 2>&1
 }
 
-update_rvm (){
-  rvm get latest
+rvm_use_ruby_version () {
+  check_rvm_is_function
+  rvm $RUBY_VERSION || {
+    rvm_install_ruby_version
+    rvm $RUBY_VERSION || {
+      echo "Unable to use ruby $RUBY_VERSION using rvm."
+      exit 1
+    }
+  }
 }
+
+# https://rvm.io/workflow/scripting
+check_rvm_is_function () {
+  RVM_TYPE=$(type rvm | head -1)
+  [[ $RVM_TYPE == 'rvm is a function' ]] || load_rvm_as_function
+}
+
+load_rvm_as_function () {
+  if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+    # First try to load from a user install
+    source "$HOME/.rvm/scripts/rvm"
+  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+    # Then try to load from a root install
+    source "/usr/local/rvm/scripts/rvm"
+  else
+    printf "Unable to load rvm into shell session as a function.\n\n"
+    printf "Try \`rvm ${RUBY_VERSION}\` or see https://rvm.io/rvm for help.\n\n"
+    exit 1
+  fi
+}
+
 
 rvm_install_ruby_version () {
-  rvm install $RUBY_VERSION
+  rvm install $RUBY_VERSION || {
+    echo "Unable to install ruby $RUBY_VERSION using rvm."
+    exit 1
+  }
 }
 
 has_rbenv (){
   hash rbenv >/dev/null 2>&1
 }
 
-update_rbenv (){
-  brew update
-  brew upgrade ruby-build
-}
-
 rbenv_install_ruby_version () {
-  rbenv install $RUBY_VERSION
+  rbenv install $RUBY_VERSION || {
+    echo "Unable to install ruby $RUBY_VERSION using rbenv."
+    exit 1
+  }
   rbenv local $RUBY_VERSION
 }
 
@@ -80,24 +87,16 @@ has_ruby_version (){
 }
 
 install_ruby_version (){
-  verify_homebrew
-
-  if [ ! has_rvm ] && [ ! has_rbenv ]
+  if has_rvm
   then
-    echo 'Please install rbenv or rvm to manage your ruby versions.'
+    rvm_use_ruby_version
+  elif has_rbenv
+  then
+    rbenv_install_ruby_version
+  else
+    echo "Please install either rbenv, rvm or Ruby Version $RUBY_VERSION."
     exit 1
   fi
-
-  echo "Installing Ruby Version $RUBY_VERSION"
-  has_rvm && {
-    update_rvm
-    rvm_install_ruby_version
-  }
-
-  has_rbenv && {
-    update_rbenv
-    rbenv_install_ruby_version
-  }
 }
 
 verify_ruby_version (){
