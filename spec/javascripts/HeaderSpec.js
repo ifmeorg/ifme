@@ -264,12 +264,14 @@ describe("Header", function() {
 
     it("has changed #me opacity amount to 0.8", function() {
       expandButton();
-      expect($('#me').css('opacity')).toBe('0.8');
+      opacity = convert_opacity('me');
+      expect(opacity).toBe(0.8);
     });
 
     it("has changed #title_expand opacity amount to 0.8", function() {
       expandButton();
-      expect($('#title_expand').css('opacity')).toBe('0.8');
+      opacity = convert_opacity('title_expand');
+      expect(opacity).toBe(0.8);
     });
 
      it("has called setHeight when expandButton is executed", function() {
@@ -353,3 +355,7 @@ describe("Header", function() {
   });
 
 });
+
+function convert_opacity(elem){
+  return opacity = Math.round($('#'+elem).css('opacity') * 10) / 10
+}
