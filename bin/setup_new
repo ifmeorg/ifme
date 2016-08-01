@@ -25,17 +25,16 @@ postgres_is_running (){
   ps aux | grep [p]ostgres >/dev/null 2>&1
 }
 
-# we don't want to hash this in case it is running as a binary and not a function
 has_rvm (){
-  type rvm | head -1 >/dev/null 2>&1
+  hash rvm >/dev/null 2>&1
 }
 
 rvm_use_ruby_version () {
   check_rvm_is_function
-  rvm $RUBY_VERSION || {
+  rvm $RUBY_VERSION >/dev/null 2>&1 || {
     rvm_install_ruby_version
-    rvm $RUBY_VERSION || {
-      echo "Unable to use ruby $RUBY_VERSION using rvm."
+    rvm $RUBY_VERSION >/dev/null 2>&1 || {
+      echo "Unable to use $RUBY_VERSION using rvm."
       exit 1
     }
   }
@@ -50,10 +49,10 @@ check_rvm_is_function () {
 load_rvm_as_function () {
   if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
     # First try to load from a user install
-    source "$HOME/.rvm/scripts/rvm"
+    source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
   elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
     # Then try to load from a root install
-    source "/usr/local/rvm/scripts/rvm"
+    source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
   else
     printf "Unable to load rvm into shell session as a function.\n\n"
     printf "Try \`rvm ${RUBY_VERSION}\` or see https://rvm.io/rvm for help.\n\n"
@@ -63,10 +62,12 @@ load_rvm_as_function () {
 
 
 rvm_install_ruby_version () {
-  rvm install $RUBY_VERSION || {
-    echo "Unable to install ruby $RUBY_VERSION using rvm."
+  echo "Installing ruby $RUBY_VERSION using rvm..."
+  rvm install $RUBY_VERSION >/dev/null 2>&1 || {
+    echo "Unable to install $RUBY_VERSION using rvm."
     exit 1
   }
+  echo "Sucessfully installed $RUBY_VERSION."
 }
 
 has_rbenv (){
@@ -94,7 +95,7 @@ install_ruby_version (){
   then
     rbenv_install_ruby_version
   else
-    echo "Please install either rbenv, rvm or Ruby Version $RUBY_VERSION."
+    echo "Please install either rbenv, rvm or ruby $RUBY_VERSION."
     exit 1
   fi
 }
