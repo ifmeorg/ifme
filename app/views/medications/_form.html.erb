@@ -93,36 +93,40 @@
       </div>
       <%= f.text_field :refill %>
     </div>
-    
-    <%= f.fields_for :refill_reminder do | reminder | %>
-     <div class="inline-block">
-       <%= reminder.check_box(:active, { id: "refill_reminder" }, 'true', 'false') %>
-      <div class="label">
-        <%= reminder.label t('.refill_reminder'), for: 'refill_reminder' %>
-        <div class="align_right">
-          <span class="yes_title" title="We'll email you a reminder the week before your medication needs to be refilled"><i class="fa fa-question-circle"></i></span>
-        </div>
+
+    <div class="field">
+      <%= f.fields_for :refill_reminder do | reminder | %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+            <%= reminder.label t('.refill_reminder'), for: 'refill_reminder' %>
+          </div>
+          <div class="align_right">
+            <span class="yes_title" title="We'll email you a reminder the week before your medication needs to be refilled"><i class="fa fa-question-circle"></i></span>
+          </div>
         </div>
         <div class="clear"></div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <div class="field">
       <%= f.fields_for :take_medication_reminder do | reminder | %>
-        <div class="inline-block">
-          <%= reminder.check_box(:active, { id: 'take_medication_reminder' }, 'true', 'false') %>
-         <div class="label">
-           <%= reminder.label t('.daily_reminder'), for: 'take_medication_reminder' %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+            <%= reminder.label t('.daily_reminder'), for: 'take_medication_reminder' %>
+          </div>
           <div class="align_right">
             <span class="yes_title" title="We'll email you a daily reminder to take this medication"><i class="fa fa-question-circle"></i></span>
           </div>
-         </div>
-         <div class="clear"></div>
+          <div class="clear"></div>
         </div>
       <% end %>
     </div>
+
   </div>
 </div>
+
 <div class="align_right">
   <%= f.hidden_field :userid, :value => current_user.id %>
   <%= f.submit %>
