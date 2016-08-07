@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/julianguyen/ifme.svg?branch=master)](https://travis-ci.org/julianguyen/ifme)
+[![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
 
 if me
 =====
