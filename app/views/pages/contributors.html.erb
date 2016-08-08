@@ -130,6 +130,7 @@
 			<div class="spacer"></div>
 			<i class="fa fa-location-arrow fa-inline"></i> Toronto, Canada
 			<i class="fa fa-twitter fa-inline fa-left"></i><%= link_to('TaraEWilkins', 'https://twitter.com/TaraEWilkins', class: "smaller_margin_right") %>
+			<div class="spacer"></div>
 		</div>
 	</div>
 	<div class="contributor table_row no_margin_bottom">
@@ -152,9 +153,9 @@
 <div class="spacer"></div>
 <div class="contributor-name">More Fabulous Contributors!</div>
 <div class="spacer"></div>
-A huge thanks to <%= print_list_links(@contributors) %>
+A huge thanks to <%= print_contributors(@contributors) %>
 
 <div class="spacer"></div>
 <div class="contributor-name">Organizations We've Partnered With!</div>
 <div class="spacer"></div>
-We love &hearts; <%= print_list_links(@organizations) %>
+<%= print_partners(@organizations) %>

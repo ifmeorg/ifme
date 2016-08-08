@@ -278,3 +278,19 @@ h1.faq_heading {
 	text-shadow: 0px 0px 5px $purple-yay;
 	font-size: 30px;
 }
+
+.partner {
+	text-align: center;
+
+	a:link, a:visited {
+		text-decoration: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	a:hover {
+		text-decoration: none;
+		border: none;
+		opacity: 0.5;
+	}
+}

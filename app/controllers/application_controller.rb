@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :print_list_links, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover
+  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -129,27 +129,6 @@ class ApplicationController < ActionController::Base
     result = "<div class='" + class_name.to_s + "' style='background: url(" + profile + ")'></div>"
 
     return result.html_safe
-  end
-
-  def print_list_links(data)
-    first_element = 0
-    return_this = ''
-    data.each do |d|
-      if d.kind_of?(Array) && d[0].kind_of?(String) && d[1].kind_of?(String)
-        first_element = first_element + 1
-        if first_element == 1
-          return_this = link_to d[0], d[1]
-        else
-          return_this += ", "
-          return_this += link_to d[0], d[1]
-        end
-      else
-        return_this = ''
-        break
-      end
-    end
-
-    return return_this.html_safe
   end
 
   def most_focus(data_type, profile)

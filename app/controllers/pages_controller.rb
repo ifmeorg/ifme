@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  include ActionView::Helpers::AssetTagHelper
+  helper_method :print_contributors, :print_partners
+
   def home
   	if user_signed_in?
       @stories = Kaminari.paginate_array(get_stories(current_user, true)).page(params[:page]).per($per_page)
@@ -51,10 +54,10 @@ class PagesController < ApplicationController
     ]
 
     @organizations = [
-      ['Hacker Hours', 'http://hackerhours.org'],
-      ['Open Sourcing Mental Illness', 'https://osmihelp.org'],
-      ['Contributor Convenant', 'http://contributor-covenant.org'],
-      ['Everybody Has a Brain', 'http://everbodyhasabrain.com']
+      ['Hacker Hours', 'http://hackerhours.org', '/assets/partners/hacker_hours.png'],
+      ['Open Sourcing Mental Illness', 'https://osmihelp.org', '/assets/partners/osmi.png'],
+      ['Contributor Convenant', 'http://contributor-covenant.org', '/assets/partners/contributor_convenant.png'],
+      ['Everybody Has a Brain', 'http://everybodyhasabrain.com', '/assets/partners/everybody_has_a_brain.png'],
     ]
   end
 
@@ -65,5 +68,51 @@ class PagesController < ApplicationController
   end
 
   def faq
+  end
+
+  def print_contributors(data)
+    first_element = 0
+    return_this = ''
+    data.each do |d|
+      name = d[0]
+      link = d[1]
+      if d.kind_of?(Array) && name.kind_of?(String) && link.kind_of?(String)
+        first_element = first_element + 1
+        if first_element == 1
+          return_this = link_to name, link
+        else
+          return_this += ", "
+          return_this += link_to name, link
+        end
+      else
+        return_this = ''
+        break
+      end
+    end
+
+    return return_this.html_safe
+  end
+
+  def print_partners(data)
+    last_element = 0
+    return_this = ''
+    data.each do |d|
+      name = d[0]
+      link = d[1]
+      image_link = d[2]
+      if d.kind_of?(Array) && name.kind_of?(String) && link.kind_of?(String) && image_link.kind_of?(String)
+        image = image_tag(image_link, alt: name)
+        return_this += '<div class="partner">'
+        return_this += link_to image, link, target: 'blank'
+        return_this += '</div>'
+
+        last_element = last_element + 1
+        if last_element != data.length
+          return_this += '<div class="spacer"></div>'
+        end
+      end
+    end
+
+    return return_this.html_safe
   end
 end
