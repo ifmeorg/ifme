@@ -1,19 +1,4 @@
 describe ApplicationController do
-	describe "print_list_links" do
-		it "returns empty result for empty array" do
-			expect(controller.print_list_links([])).to eq('')
-		end
-		it "returns empty result for malformed array" do
-			expect(controller.print_list_links(['test'])).to eq('')
-			expect(controller.print_list_links([['test']])).to eq('')
-		end
-		it "returns correct result for one link" do
-			expect(controller.print_list_links([['test', 'http://if-me.org']])).to eq('<a href="http://if-me.org">test</a>')
-		end
-		it "returns correct result for two links" do
-			expect(controller.print_list_links([['test1', 'http://if-me.org'], ['test2', 'http://if-me.org']])).to eq('<a href="http://if-me.org">test1</a>, <a href="http://if-me.org">test2</a>')
-		end
-	end
 	describe "most_focus" do
 		describe "categories" do
 			it "returns an empty hash because no categories exist" do
