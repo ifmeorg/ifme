@@ -30,28 +30,18 @@ var onReadyNotifications = function() {
     }
   });
 
-  var click_flag = 0;
-
-  resetNotificationsButton();
   $('.notifications_button').click(function(event) {
     event.preventDefault();
-    if (click_flag % 2 == 0) {
-      showNotifications();
-      pressNotificationsButton();
-
-      // Fetch notifications for current_user
+    $('#notifications').toggleClass('display_none');
+    $('.notifications_button').toggleClass('fade');
+    if( $('#notifications').is(':visible')){
       fetchNotifications();
-    } else {
-      hideNotifications();
-      resetNotificationsButton();
     }
-    click_flag++;
   });
 
   $('#close_notifications').click(function() {
-    hideNotifications();
-    resetNotificationsButton();
-    click_flag++;
+    $('#notifications').toggleClass('display_none');
+    $('.notifications_button').toggleClass('fade');
   });
 
    $('#clear_notifcations').click(function() {
@@ -76,68 +66,36 @@ var onReadyNotifications = function() {
   });
 
   /* Tips */
-  var tip_click_flag = 0;
 
   $(document).on('click', '.tip_notifications_button', function() {
-    if (tip_click_flag % 2 == 0) {
-      $(this).siblings('.tip_notifications').css({"display": "block"});
-
-    } else {
-      $(this).siblings('.tip_notifications').css({"display": "none"});
-    }
-    tip_click_flag++;
+    $(this).siblings('.tip_notifications').toggleClass("display_none");
   });
 
   $(document).on('click', '.tip_close_notifications', function() {
-    $(this).closest('.tip_notifications').css({"display": "none"});
-    tip_click_flag++;
+    $(this).closest('.tip_notifications').toggleClass("display_none");
   });
 
   /* Quick Create */
-  var category_click_flag = 0;
-  var mood_click_flag = 0;
-  var strategy_click_flag = 0;
-
+ 
   $('#category_quick_button').click(function() {
-    if (category_click_flag % 2 == 0) {
-      $('#category_quick_create').css({"display": "block"});
-
-    } else {
-      $('#category_quick_create').css({"display": "none"});
-    }
-    category_click_flag++;
+    $('#category_quick_create').toggleClass("display_none");
   });
 
   $('#mood_quick_button').click(function() {
-    if (mood_click_flag % 2 == 0) {
-      $('#mood_quick_create').css({"display": "block"});
-
-    } else {
-      $('#mood_quick_create').css({"display": "none"});
-    }
-    mood_click_flag++;
+    $('#mood_quick_create').toggleClass("display_none");
   });
 
   $('#strategy_quick_button').click(function() {
-    if (strategy_click_flag % 2 == 0) {
-      $('#strategy_quick_create').css({"display": "block"});
-
-    } else {
-      $('#strategy_quick_create').css({"display": "none"});
-    }
-    strategy_click_flag++;
+    $('#strategy_quick_create').toggleClass("display_none");
   });
 
   $('.quick_create_close').click(function() {
     if ($(this).closest('.quick_create').attr('id') == 'category_quick_create') {
-      $('#category_quick_create').css({"display": "none"});
-      category_click_flag++;
+      $('#category_quick_create').toggleClass("display_none");
     } else if ($(this).closest('.quick_create').attr('id') == 'mood_quick_create') {
-      $('#mood_quick_create').css({"display": "none"});
-      mood_click_flag++;
+      $('#mood_quick_create').toggleClass("display_none");
     } else if ($(this).closest('.quick_create').attr('id') == 'strategy_quick_create') {
-      $('#strategy_quick_create').css({"display": "none"});
-      strategy_click_flag++;
+      $('#strategy_quick_create').toggleClass("display_none");
     }
   });
 
@@ -286,19 +244,6 @@ function fetchNotifications() {
 function showNotifications() {
   $('#notifications').removeClass('display_none');
   $('#notifications').addClass('display_block');
-}
-
-function hideNotifications() {
-  $('#notifications').removeClass('display_block');
-  $('#notifications').addClass('display_none');
-}
-
-function pressNotificationsButton() {
-  $('.notifications_button').css({"opacity": 0.5});
-}
-
-function resetNotificationsButton() {
-  $('.notifications_button').css({"opacity": 1});
 }
 
 function emptyNotificationsList() {
