@@ -1,6 +1,7 @@
 require "google/api_client"
 
 class MedicationsController < ApplicationController
+  helper_method :print_reminders
   before_filter :if_not_signed_in
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
@@ -42,7 +43,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1/edit
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
-    RefillReminder.find_or_initialize_by(medication_id: @medication.id) 
+    RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     if @medication.userid != current_user.id
       respond_to do |format|
         format.html { redirect_to medication_path(@medication) }
@@ -97,6 +98,29 @@ class MedicationsController < ApplicationController
     end
   end
 
+  def print_reminders(medication)
+    return_this = ''
+
+    if medication.refill_reminder.active || medication.take_medication_reminder.active
+      return_this += '<div class="small_margin_top">'
+      return_this += '<i class="fa fa-bell small_margin_right"></i>'
+      first_reminder = false
+      if medication.refill_reminder.active
+        first_reminder = true
+        return_this += t("medications.form.refill_reminder")
+      end
+      if medication.take_medication_reminder.active
+        if first_reminder
+          return_this += ', '
+        end
+        return_this += t("medications.form.daily_reminder")
+      end
+      return_this += '</div>'
+    end
+
+    return return_this.html_safe
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_medication
@@ -115,8 +139,8 @@ class MedicationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def medication_params
       params.require(:medication).permit(
-        :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, 
-        :total_unit, :strength_unit, :comments, 
+        :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
+        :total_unit, :strength_unit, :comments,
         { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
       )
     end

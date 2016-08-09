@@ -2,24 +2,19 @@
 <strong><%= t('.strength') %></strong>
 <%= @medication.strength.to_s + " " + @medication.strength_unit %>
 
-<p>
-  <strong><%= t('.quantity') %></strong>
-  <%= @medication.total.to_s + " " + @medication.total_unit %>
-</p>
+<br><strong><%= t('.quantity') %></strong>
+<%= @medication.total.to_s + " " + @medication.total_unit %>
 
-<p>
-  <strong><%= t('.dosage') %></strong>
-  <%= @medication.dosage.to_s + " " + @medication.dosage_unit %>
-</p>
+<br><strong><%= t('.dosage') %></strong>
+<%= @medication.dosage.to_s + " " + @medication.dosage_unit %>
 
-<p>
-  <strong><%= t('.refill') %></strong>
-  <%= @medication.refill %>
-</p>
+<br><strong><%= t('.refill') %></strong>
+<%= @medication.refill %>
 
 <% if !@medication.comments.blank? %>
-	<p>
-	  <strong><%= t('.comments') %></strong>
-	  <%= @medication.comments %>
-	</p>
+  <div class="spacer"></div>
+	<strong><%= t('.comments') %></strong>
+	<%= @medication.comments %>
 <% end %>
+
+<%= print_reminders(@medication) %>
