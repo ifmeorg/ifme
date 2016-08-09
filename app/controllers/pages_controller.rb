@@ -58,6 +58,7 @@ class PagesController < ApplicationController
       ['Open Sourcing Mental Illness', 'https://osmihelp.org', '/assets/partners/osmi.png'],
       ['Contributor Convenant', 'http://contributor-covenant.org', '/assets/partners/contributor_convenant.png'],
       ['Everybody Has a Brain', 'http://everybodyhasabrain.com', '/assets/partners/everybody_has_a_brain.png'],
+      ['Brown Sisters Speak', 'http://brownsistersspeak.org', '/assets/partners/brown_sisters_speak.png'],
     ]
   end
 
