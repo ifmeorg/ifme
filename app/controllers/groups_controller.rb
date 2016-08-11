@@ -9,7 +9,6 @@ class GroupsController < ApplicationController
                           .includes(:group_members)
                           .order("groups.created_at DESC")
     @page_tooltip = "New group"
-    @page_new = new_group_path
     @available_groups = current_user.available_groups("groups.created_at DESC")
   end
 
@@ -21,7 +20,6 @@ class GroupsController < ApplicationController
     end
 
     if @group.led_by?(current_user)
-      @page_new = new_meeting_path(groupid: @group.id)
       @page_tooltip = "New meeting"
     end
   end

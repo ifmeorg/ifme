@@ -97,12 +97,12 @@
           </div>
           <div class="clear"></div>
 
-        <% elsif !@page_new.blank? %>
+        <% elsif yield(:page_new).present? %>
           <div class="align_left">
             <%= yield(:title) %>
           </div>
           <div class="align_right">
-            <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), @page_new, class: 'page_new yes_title', title: @page_tooltip) %>
+            <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
           </div>
           <div class="clear"></div>
 

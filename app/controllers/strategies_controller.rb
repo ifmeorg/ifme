@@ -21,7 +21,6 @@ class StrategiesController < ApplicationController
     else
       @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_new = new_strategy_path
     @page_tooltip = "New strategy"
   end
 
