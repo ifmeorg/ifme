@@ -19,9 +19,7 @@ class GroupsController < ApplicationController
       @meetings = @group.meetings.includes(:leaders)
     end
 
-    if @group.led_by?(current_user)
-      @page_tooltip = "New meeting"
-    end
+    @page_tooltip = 'New meeting' if @group.led_by?(current_user)
   end
 
   # GET /groups/new
