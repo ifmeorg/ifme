@@ -15,7 +15,6 @@ class MedicationsController < ApplicationController
     else
       @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_new = new_medication_path
     @page_tooltip = "New medication"
   end
 

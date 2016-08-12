@@ -36,4 +36,8 @@ module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+
+  def page_new(page_new_path)
+    content_for(:page_new) { page_new_path }
+  end
 end

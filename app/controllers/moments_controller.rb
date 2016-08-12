@@ -23,7 +23,6 @@ class MomentsController < ApplicationController
     else
       @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_new = new_moment_path
     @page_tooltip = "New moment"
   end
 
