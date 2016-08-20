@@ -4,10 +4,6 @@ module GroupsHelper
     object.leaders.include? current_user
   end
 
-  def member_pluralized_for(group)
-    group.group_members.count == 1 ? t('.member') : t('.members')
-  end
-
   def user_can_edit?(group)
     user_is_leader_of?(group)
   end

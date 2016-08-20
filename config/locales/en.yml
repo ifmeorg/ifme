@@ -47,8 +47,6 @@ en:
   index:
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
    joined_groups: 'Joined Groups'
-   members: 'members'
-   member: 'member'
    description: 'Description:'
    leader: 'Leader'
    edit: 'Edit'
@@ -56,6 +54,9 @@ en:
    join: 'Join'
    delete: 'Delete'
    confirm: 'Are you sure?'
+  members:
+   one: '%{count} member'
+   other: '%{count} members'
   show:
    led_by: 'Led by:'
    self: 'You'
@@ -68,8 +69,6 @@ en:
    leave_cta: 'Leave?'
    join_cta: 'Join!'
    join: 'Join!'
-   members: 'members'
-   member: 'member'
    delete: 'Delete group'
 
  layouts:
