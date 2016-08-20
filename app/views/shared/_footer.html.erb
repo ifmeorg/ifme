@@ -3,28 +3,28 @@
 			<div class="table">
 				<div class="row">
 					<div class="table_cell large_padding_right">
-						<span class="footer_heading" id="if_me_links"><%= t('.app_name') %></span>
-						<%= link_to(t('.footer_about'), about_path) %>
-						<%= link_to(t('.footer_blog'), blog_path) %>
-						<%= link_to(t('.footer_contributors'), contributors_path) %>
-						<%= link_to(t('.faq'), faq_path) %>
-						<%= link_to(t('.footer_privacy'), privacy_path) %>
+						<span class="footer_heading" id="if_me_links"><%= t('app_name') %></span>
+						<%= link_to(t('shared.footer.footer_about'), about_path) %>
+						<%= link_to(t('shared.footer.footer_blog'), blog_path) %>
+						<%= link_to(t('shared.footer.footer_contributors'), contributors_path) %>
+						<%= link_to(t('shared.footer.faq'), faq_path) %>
+						<%= link_to(t('shared.footer.footer_privacy'), privacy_path) %>
 					</div>
 					<div class="table_cell">
-						<span class="footer_heading" id="connect_links"><%= t('.connect') %></span>
-						<%= link_to(t('.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
-						<%= link_to(t('.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('.patreon'), 'http://patreon.com/ifme', target: "blank") %>
-						<%= link_to(t('.email'), 'mailto:join.ifme@gmail.com') %>
+						<span class="footer_heading" id="connect_links"><%= t('shared.footer.connect') %></span>
+						<%= link_to(t('shared.footer.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
+						<%= link_to(t('shared.footer.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
+						<%= link_to(t('shared.footer.patreon'), 'http://patreon.com/ifme', target: "blank") %>
+						<%= link_to(t('shared.footer.email'), 'mailto:join.ifme@gmail.com') %>
 					</div>
 				</div>
 			</div>
 			<div class="spacer"></div>
 			<div class="align_left">
-				<%= link_to(t('.feedback'), "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
+				<%= link_to(t('shared.footer.feedback'), "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 			</div>
 			<div class="align_right">
-				<%= t('.copyright') %> &#169; <%= Time.now.strftime("%Y") %> <%= t('.app_name') %>
+				<%= t('shared.footer.copyright') %> &#169; <%= Time.now.strftime("%Y") %> <%= t('app_name') %>
 			</div>
 			<div class="clear"></div>
 		</div>

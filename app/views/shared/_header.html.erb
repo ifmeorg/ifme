@@ -9,21 +9,21 @@
 
       <ul id="small_nav" class="display_none">
       <% if user_signed_in? %>
-          <%= nav_link_to(t('.moments'), moments_path) %>
-          <%= nav_link_to(t('.categories'), categories_path) %>
-          <%= nav_link_to(t('.moods'), moods_path) %>
-          <%= nav_link_to(t('.strategies'), strategies_path) %>
-          <%= nav_link_to(t('.medications'), medications_path) %>
-          <%= nav_link_to(t('.groups'), groups_path) %>
-          <%= nav_link_to(t('.allies'), allies_path) %>
+          <%= nav_link_to(t('shared.header.moments'), moments_path) %>
+          <%= nav_link_to(t('shared.header.categories'), categories_path) %>
+          <%= nav_link_to(t('shared.header.moods'), moods_path) %>
+          <%= nav_link_to(t('shared.header.strategies'), strategies_path) %>
+          <%= nav_link_to(t('shared.header.medications'), medications_path) %>
+          <%= nav_link_to(t('shared.header.groups'), groups_path) %>
+          <%= nav_link_to(t('shared.header.allies'), allies_path) %>
           <div class="divider"></div>
-          <%= nav_link_to(t('.notifications'), "", class: 'notifications_button') %>
-          <%= nav_link_to(t('.profile'), profile_index_path(uid: current_user.uid)) %>
-          <%= nav_link_to(t('.account'), edit_user_registration_path) %>
-          <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>
+          <%= nav_link_to(t('shared.header.notifications'), "", class: 'notifications_button') %>
+          <%= nav_link_to(t('shared.header.profile'), profile_index_path(uid: current_user.uid)) %>
+          <%= nav_link_to(t('shared.header.account'), edit_user_registration_path) %>
+          <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
         <% else %>
-          <%= nav_link_to(t('.signin'), new_user_session_path) %>
-          <%= nav_link_to(t('.join'), new_user_registration_path) %>
+          <%= nav_link_to(t('shared.header.signin'), new_user_session_path) %>
+          <%= nav_link_to(t('shared.header.join'), new_user_registration_path) %>
         <% end %>
       </ul>
     </div>
@@ -33,29 +33,29 @@
 
       <ul class="top-nav primary-nav">
         <% if user_signed_in? %>
-          <%= nav_link_to(t('.home'), root_path)  %>
-          <%= nav_link_to(t('.moments'), moments_path, :class => "expand_moment_button") %>
-          <%= nav_link_to(t('.strategies'), strategies_path) %>
-          <%= nav_link_to(t('.medications'), medications_path) %>
-          <%= nav_link_to(t('.groups'), groups_path) %>
-          <%= nav_link_to(t('.allies'), allies_path) %>
+          <%= nav_link_to(t('shared.header.home'), root_path)  %>
+          <%= nav_link_to(t('shared.header.moments'), moments_path, :class => "expand_moment_button") %>
+          <%= nav_link_to(t('shared.header.strategies'), strategies_path) %>
+          <%= nav_link_to(t('shared.header.medications'), medications_path) %>
+          <%= nav_link_to(t('shared.header.groups'), groups_path) %>
+          <%= nav_link_to(t('shared.header.allies'), allies_path) %>
         <% else %>
-          <%= nav_link_to(t('.signin'), new_user_session_path) %>
-          <%= nav_link_to(t('.join'), new_user_registration_path) %>
+          <%= nav_link_to(t('shared.header.signin'), new_user_session_path) %>
+          <%= nav_link_to(t('shared.header.join'), new_user_registration_path) %>
         <% end %>
       </ul>
 
       <% if user_signed_in? %>
         <ul id="expand_moment" class="top-nav display_none">
-          <%= nav_link_to(t('.categories'), categories_path) %>
-          <%= nav_link_to(t('.moods'), moods_path) %>
+          <%= nav_link_to(t('shared.header.categories'), categories_path) %>
+          <%= nav_link_to(t('shared.header.moods'), moods_path) %>
         </ul>
 
         <ul id="expand_me" class="top-nav large-screen display_none">
-          <%= nav_link_to(t('.notifications'), "", class: 'notifications_button') %>
-          <%= nav_link_to(t('.profile'), profile_index_path(uid: current_user.uid)) %>
-          <%= nav_link_to(t('.account'), edit_user_registration_path) %>
-          <%= nav_link_to(t('.signout'), destroy_user_session_path, :method => :delete) %>
+          <%= nav_link_to(t('shared.header.notifications'), "", class: 'notifications_button') %>
+          <%= nav_link_to(t('shared.header.profile'), profile_index_path(uid: current_user.uid)) %>
+          <%= nav_link_to(t('shared.header.account'), edit_user_registration_path) %>
+          <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
         </ul>
       <% end %>
     </div>
