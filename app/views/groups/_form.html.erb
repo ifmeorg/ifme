@@ -13,7 +13,7 @@
 <% if action_name == "new" || action_name == "create" %>
   <div class="field">
     <div class="label">
-      <%= f.label t('.name'), for: 'group_name' %>
+      <%= f.label t('groups.form.name'), for: 'group_name' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>
@@ -22,7 +22,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description'), for: 'group_description' %>
+      <%= f.label t('groups.form.description'), for: 'group_description' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>
@@ -34,7 +34,7 @@
 
   <div class="table_cell vertical_align_top padding_right">
     <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label t('.name') %></div>
+      <div class="sidebar_label"><%= f.label t('groups.form.name') %></div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
@@ -42,7 +42,7 @@
 
       <% if @group.group_members.count > 1 %>
         <div class="sidebar_label">
-          <%= f.label t('.leaders') %>
+          <%= f.label t('groups.form.leaders') %>
         </div>
 
         <% @group.group_members.each do |member| %>
@@ -52,7 +52,7 @@
         <% end %>
       <% else %>
         <div class="small_font subtle">
-          <%= t('.only_leader') %>
+          <%= t('groups.form.only_leader') %>
         </div>
       <% end %>
       </div>
@@ -62,7 +62,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('.description') %>
+        <%= f.label t('groups.form.description') %>
       </div>
 
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>

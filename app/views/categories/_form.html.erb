@@ -2,13 +2,13 @@
 
 <% if @category.errors.any? %>
   <div class="error_explanation">
-    <%= t('.error_explanation') %>
+    <%= t('categories.form.error_explanation') %>
   </div>
 <% end %>
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.name'), for: 'category_name' %>
+      <%= f.label t('categories.form.name'), for: 'category_name' %>
       <div class="align_right">
         <span class="yes_title" title="Categorize recurring people, places, things, activities, and more"><i class="fa fa-question-circle"></i></span>
         <i class="fa fa-exclamation-circle"></i>
@@ -20,7 +20,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description'), for: 'category_description' %>
+      <%= f.label t('categories.form.description'), for: 'category_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>

@@ -9,7 +9,7 @@
 			<div class="spacer"></div>
 		<% end %>
 		<% if @profile == current_user %>
-			<%= link_to t('.edit_user'), edit_user_registration_path %>
+			<%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
 			<div class="spacer"></div>
 		<% end %>
 		<% if !User.where(:id => @profile.id).first.location.blank? %>
@@ -18,13 +18,13 @@
 		<% end %>
 		<% if @profile.id != current_user.id %>
 			<% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-			 	<br><%= link_to t('.cancel_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
+			 	<br><%= link_to t('profile.index.cancel_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('profile.index.confirm') } %>
 			<% elsif current_user.allies_by_status(:accepted).include? @profile %>
-				<br><%= link_to t('.remove_ally'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
+				<br><%= link_to t('profile.index.remove_ally'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('profile.index.confirm') } %>
 			<% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
-				<br><%= link_to t('.accept_ally'), add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to t('.reject_ally'), remove_allies_path(:ally_id => @profile.id), :method => :post, data: { confirm: t('.confirm') } %>
+				<br><%= link_to t('profile.index.accept_ally'), add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to t('profile.index.reject_ally'), remove_allies_path(:ally_id => @profile.id), :method => :post, data: { confirm: t('profile.index.confirm') } %>
 			<% else %>
-				<br><%= link_to t('.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
+				<br><%= link_to t('profile.index.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
 			<% end %>
 		<% end %>
 	</div>

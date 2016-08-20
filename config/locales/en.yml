@@ -166,8 +166,6 @@ en:
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
 
  pages:
-  about:
-   app_name: 'if me'
   home:
    you: 'You'
    created: 'Created:'
@@ -231,7 +229,6 @@ en:
     feedback: 'Feedback?'
     copyright: 'Copyright'
     faq: 'FAQ'
-    app_name: 'if me'
     connect: 'connect'
     email: 'Email'
   comments:
@@ -333,8 +330,8 @@ en:
    unsupport: 'Unsupport'
    support: 'Support'
 
-   notifications:
-    members:
-      remove: 'Remove'
+ notifications:
+  members:
+    remove: 'Remove'
 
    #submit button

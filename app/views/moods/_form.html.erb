@@ -1,13 +1,13 @@
 <%= form_for(@mood) do |f| %>
 <% if @mood.errors.any? %>
   <div class="error_explanation">
-    <%= t('.error_explanation') %>
+    <%= t('moods.form.error_explanation') %>
   </div>
 <% end %>
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.name'), for: 'mood_name' %>
+      <%= f.label t('moods.form.name'), for: 'mood_name' %>
       <i class="fa fa-exclamation-circle align_right"></i>
       <div class="clear"></div>
     </div>
@@ -16,7 +16,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('.description'), for: 'mood_description' %>
+      <%= f.label t('moods.form.description'), for: 'mood_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>

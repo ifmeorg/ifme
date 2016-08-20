@@ -1,12 +1,12 @@
 <% title @strategy.name %>
-<strong><%= t('.created') %></strong> <%= local_time_ago(@strategy.created_at) %>
+<strong><%= t('strategies.show.created') %></strong> <%= local_time_ago(@strategy.created_at) %>
 <% if @strategy.category.count > 0 %>
   <br>
     <strong>
       <% if @strategy.category.count == 1 %>
-        <%= t('.category') %>
+        <%= t('strategies.show.category') %>
       <% else %>
-        <%= t('.categories') %>
+        <%= t('strategies.show.categories') %>
       <% end %>
     </strong>
     <% @strategy.category.each do |item| %>

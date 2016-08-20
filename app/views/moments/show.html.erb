@@ -3,21 +3,21 @@
 
 <% if !@moment.why.blank? %>
   <p>
-    <div class="label"><%= label_tag t('.why') %></div>
+    <div class="label"><%= label_tag t('moments.show.why') %></div>
     <%= raw(@moment.why) %>
   </p>
 <% end %>
 
 <% if !@moment.fix.blank? %>
   <p>
-    <div class="label"><%= label_tag t('.fix') %></div>
+    <div class="label"><%= label_tag t('moments.show.fix') %></div>
     <%= raw(@moment.fix) %>
   </p>
 <% end %>
 
 <% if @moment.strategies.count > 0 %>
   <p>
-    <div class="label"><%= label_tag t('.strategies') %></div>
+    <div class="label"><%= label_tag t('moments.show.strategies') %></div>
     <% @moment.strategies.each do |item| %>
         <span class="notification_wrapper">
           <span class="tip_notifications_button link_style"><%= Strategy.where(id: item).first.name %></span><% if @moment.strategies.last != item %><%= ', ' %><% end %>

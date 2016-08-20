@@ -1,4 +1,4 @@
-<%= t(:app_name) %>
+<%= t('app_name') %>
 <% if current_page?(new_user_session_path) ||
     (params[:controller] == "devise/sessions" && action_name == "new") %>
   - Sign in
@@ -12,7 +12,7 @@
     (params[:controller] == "registrations" && action_name == "update") %>
   - Account
 <% elsif current_page?(root_path) %>
-  - <%= t(:app_description) %>
+  - <%= t('app_description') %>
 <% elsif current_page?(new_user_invitation_path) ||
   (params[:controller] == "devise/invitations" && action_name == "new") ||
   (params[:controller] == "users/invitations" && action_name == "create") %>
