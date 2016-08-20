@@ -3,11 +3,7 @@
 <% if @strategy.category.count > 0 %>
   <br>
     <strong>
-      <% if @strategy.category.count == 1 %>
-        <%= t('strategies.show.category') %>
-      <% else %>
-        <%= t('strategies.show.categories') %>
-      <% end %>
+      <%= t('categories.label', count: @strategy.category.count) %>
     </strong>
     <% @strategy.category.each do |item| %>
       <span class="notification_wrapper">

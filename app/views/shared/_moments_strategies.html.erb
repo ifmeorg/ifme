@@ -34,11 +34,7 @@
       <% if local_assigns[:item].category.count > 0 %>
         <br>
         <strong>
-          <% if local_assigns[:item].category.count == 1 %>
-            <%= t('strategies.index.category') %>
-          <% else %>
-            <%= t('strategies.index.categories') %>
-          <% end %>
+          <%= t('categories.label', count: local_assigns[:item].category.count) %>
         </strong>
         <% local_assigns[:item].category.each do |item| %>
           <% if Category.where(id: item, userid: current_user.id).exists? %>
