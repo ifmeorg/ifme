@@ -10,7 +10,7 @@
 <div class="spacer"></div>
 
 <% if !@outgoing_ally_requests.empty? %>
-  <strong><%= t('.outgoing') %></strong>
+  <strong><%= t('allies.index.outgoing') %></strong>
   <br>
   <br>
   <% @outgoing_ally_requests.each_with_index do |ally, index| %>
@@ -26,7 +26,7 @@
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Cancel', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('.confirm') } %>
+        <%= link_to 'Cancel', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
       </div>
   <% end %>
 <% end %>
@@ -35,7 +35,7 @@
   <% if !@outgoing_ally_requests.empty? %>
     <div class="spacer"></div>
   <% end %>
-  <strong><%= t('.incoming') %></strong>
+  <strong><%= t('allies.index.incoming') %></strong>
   <br>
   <br>
   <% @incoming_ally_requests.each_with_index do |ally, index| %>
@@ -51,7 +51,7 @@
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Accept', add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to 'Reject', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('.confirm') } %>
+        <%= link_to 'Accept', add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to 'Reject', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
       </div>
   <% end %>
 <% end %>
@@ -77,12 +77,12 @@
             <%= ally.location %>
           </div>
           <div class="clear"></div>
-            <%= link_to 'Remove', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('.confirm') } %>
+            <%= link_to 'Remove', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
         </div>
       </div>
     </div>
 <% end %>
 
 <% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
-  <%= t('.none') %>
+  <%= t('allies.index.none') %>
 <% end %>
