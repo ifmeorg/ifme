@@ -132,8 +132,8 @@ en:
    location: 'Location'
    meeting_time: 'Time'
    members:
-    one: 'Member'
-    other: 'Members'
+    one: '%{count} Member'
+    other: '%{count} Members'
 
  moments:
   form:
