@@ -1,7 +1,7 @@
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
     <div class="error_explanation">
-      <%= t('.error_explanation') %>
+      <%= t('meetings.form.error_explanation') %>
     </div>
   <% end %>
 
@@ -11,7 +11,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.name'), for: 'meeting_name' %>
+        <%= f.label t('meetings.form.name'), for: 'meeting_name' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -20,16 +20,16 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.location'), for: 'meeting_location' %>
+        <%= f.label t('meetings.form.location'), for: 'meeting_location' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
-      <%= f.text_field :location, placeholder: t('.location_placeholder'), class: 'full_field' %>
+      <%= f.text_field :location, placeholder: t('meetings.form.location_placeholder'), class: 'full_field' %>
     </div>
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.meeting_time'), for: 'meeting_time' %>
+        <%= f.label t('meetings.form.meeting_time'), for: 'meeting_time' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -38,7 +38,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.date'), for: 'meeting_date' %>
+        <%= f.label t('meetings.form.date'), for: 'meeting_date' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -47,11 +47,11 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.maximum_members'), for: 'meeting_maxmembers' %>
+        <%= f.label t('meetings.form.maximum_members'), for: 'meeting_maxmembers' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
-      <%= f.number_field :maxmembers, min: 0, placeholder: t('.maximum_placeholder'), class: 'full_field' %>
+      <%= f.number_field :maxmembers, min: 0, placeholder: t('meetings.form.maximum_placeholder'), class: 'full_field' %>
     </div>
 
   </div>
@@ -60,7 +60,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('.description'), for: 'meeting_description' %>
+        <%= f.label t('meetings.form.description'), for: 'meeting_description' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>

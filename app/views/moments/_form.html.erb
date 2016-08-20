@@ -1,7 +1,7 @@
 <%= form_for(@moment) do |f| %>
 <% if @moment.errors.any? %>
   <div class="error_explanation">
-    <%= t('.error_explanation') %>
+    <%= t('moments.form.error_explanation') %>
   </div>
 <% end %>
 
@@ -11,7 +11,7 @@
 
     <div class="sidebar_field" >
       <div class="sidebar_label">
-        <%= f.label t('.name'), for: 'moment_name' %>
+        <%= f.label t('moments.form.name'), for: 'moment_name' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -26,7 +26,7 @@
         <a href="#" class="toggle_button display_none" id="hideCategories">
           <i class="fa fa-caret-up" ></i>
         </a></i>
-        <%= f.label t('.categories') %>
+        <%= f.label t('moments.form.categories') %>
       </div>
       <div id="categories" class="display_none">
         <div id="categories_list">
@@ -52,7 +52,7 @@
         <a href="#" class="toggle_button display_none" id="hideMoods">
           <i class="fa fa-caret-up" ></i>
         </a>
-        <%= f.label t('.moods') %>
+        <%= f.label t('moments.form.moods') %>
       </div>
 
       <div id="moods" class="display_none">
@@ -79,7 +79,7 @@
         <a href="#" class="toggle_button display_none" id="hideStrategies">
           <i class="fa fa-caret-up" ></i>
         </a>
-        <%= f.label t('.strategies') %>
+        <%= f.label t('moments.form.strategies') %>
       </div>
 
       <div id ="strategies" class="display_none">
@@ -101,7 +101,7 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.viewers') %>
+        <%= f.label t('moments.form.viewers') %>
         <div class="align_right">
           <span class="yes_title" title="Allies who can view your moment"><i class="fa fa-question-circle"></i></span>
         </div>
@@ -116,7 +116,7 @@
 
      <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.allow_comments') %>
+        <%= f.label t('moments.form.allow_comments') %>
         <span class="yes_title smaller_margin_left" title="Only you and viewers can comment"><i class="fa fa-question-circle"></i></span>
         <div class="align_right">
           <%= f.check_box :comment %>
@@ -128,7 +128,7 @@
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
-        <%= f.label t('.describe'), for: 'moment_why' %>
+        <%= f.label t('moments.form.describe'), for: 'moment_why' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
@@ -138,7 +138,7 @@
     </div>
     <div class="field">
       <div class="label">
-        <%= f.label t('.desired') %>
+        <%= f.label t('moments.form.desired') %>
       </div>
       <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
 
