@@ -1,19 +1,19 @@
-var readmore = (function(){
-    var totalChars = 0;
-	var max = 250;
-	var visible, invisible;
+var contributorReadMoreFeature = (function(){
+    var profileTextLength = 0;
+	const maxProfileLength = 250;
+	var visibleProfileText, invisibleProfileText;
 
-	$('.character-limit').each(function(i){
-		totalChars = $(this).text().length;
+	$('.contributor-profile').each(function(i){
+		profileTextLength = $(this).text().length;
 
-        if (totalChars > max){
-            visible = $(this).text().substr(0, max);
-            invisible = $(this).text().substr(max, totalChars - max);
+        if (profileTextLength > maxProfileLength){
+            visibleProfileText = $(this).text().substr(0, maxProfileLength);
+            invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
 
-            var content = visible + '<a href="#" class="read-more-show hide">...</a><span class="read-more-content">' 
-                + invisible + '</span>';
+            var profileContent = visibleProfileText + '<a href="#" class="read-more-show hide">...</a><span class="read-more-content">' 
+                + invisibleProfileText + '</span>';
             
-            $(this).html(content);
+            $(this).html(profileContent);
 
             $('.read-more-content').addClass('hide')
             $('.read-more-show, .read-more-hide').removeClass('hide')
@@ -30,4 +30,4 @@ var readmore = (function(){
 });
 
 
-$(document).on("page:load ready", readmore);
+$(document).on("page:load ready", contributorReadMoreFeature);
