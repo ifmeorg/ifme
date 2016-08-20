@@ -1,7 +1,5 @@
-<% title 'Contributors' %>
-<span class="emphasis">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span>
-
-<p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email <a href="mailto:join.ifme@gmail.com">us</a> and we'll connect with you! You will be invited to participate in our <a href="https://ifme.slack.com" target="_blank">Slack</a> page, our primary communication tool. Be sure to fork our repository hosted on <a href="https://github.com/julianguyen/ifme" target="_blank">GitHub</a>!</p>
+<% title t('pages.contributors.title') %>
+<%= raw t('pages.contributors.description') %>
 
 <div class="contributors table">
 	<div class="contributor table_row">
@@ -151,11 +149,11 @@
 </div>
 
 <div class="spacer"></div>
-<div class="contributor-name">More Fabulous Contributors!</div>
+<div class="contributor-name"><%= t('pages.contributors.more_contributors') %></div>
 <div class="spacer"></div>
 A huge thanks to <%= print_contributors(@contributors) %>
 
 <div class="spacer"></div>
-<div class="contributor-name">Organizations We've Partnered With!</div>
+<div class="contributor-name"><%= t('pages.contributors.partners') %></div>
 <div class="spacer"></div>
 <%= print_partners(@organizations) %>

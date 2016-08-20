@@ -1,8 +1,8 @@
 <div class="main_message">
-	Better communication with loved ones leads to better mental health.
+	<%= t('pages.home.not_signed_in.main_message_one') %>
 </div>
 <div class="message_text">
-	We need each other's support to break down stigmas.
+	<%= t('pages.home.not_signed_in.message_text_one') %>
 	<div class="spacer"></div>
 </div>
 <div class="center">
@@ -11,17 +11,17 @@
 			<div class="message_cell">
 				<div id="book"></div>
 				<div class="icon_border"></div>
-				Share your stories with loved ones and get the support you deserve
+				<%= t('pages.home.not_signed_in.message_one') %>
 			</div>
 			<div class="message_cell">
 				<div id="you"></div>
 				<div class="icon_border"></div>
-				Be you, no strings attached and with security and privacy
+				<%= t('pages.home.not_signed_in.message_two') %>
 			</div>
 			<div class="message_cell no_margin_bottom">
 				<div id="time"></div>
 				<div class="icon_border"></div>
-				Document your moods, medications, and self-care
+				<%= t('pages.home.not_signed_in.message_three') %>
 			</div>
 		</div>
 	</div>
@@ -30,8 +30,8 @@
 <div class="divider"></div>
 <div class="main_message">
 	<div class="spacer"></div>
-	We are open source because mental health should be open.
+	<%= t('pages.home.not_signed_in.main_message_two') %>
 </div>
 <div class="message_text">
-	We are <strong>always</strong> looking for your <%= link_to('help', contributors_path) %> and <%= link_to('feedback', 'http://goo.gl/forms/8EqoJDDiXY') %>!
+	<%= raw t('pages.home.not_signed_in.message_text_two') %>
 </div>
