@@ -1,19 +1,19 @@
 <% title @medication.name %>
-<strong><%= t('.strength') %></strong>
+<strong><%= t('medications.show.strength') %></strong>
 <%= @medication.strength.to_s + " " + @medication.strength_unit %>
 
-<br><strong><%= t('.quantity') %></strong>
+<br><strong><%= t('medications.show.quantity') %></strong>
 <%= @medication.total.to_s + " " + @medication.total_unit %>
 
-<br><strong><%= t('.dosage') %></strong>
+<br><strong><%= t('medications.show.dosage') %></strong>
 <%= @medication.dosage.to_s + " " + @medication.dosage_unit %>
 
-<br><strong><%= t('.refill') %></strong>
+<br><strong><%= t('medications.show.refill') %></strong>
 <%= @medication.refill %>
 
 <% if !@medication.comments.blank? %>
   <div class="spacer"></div>
-	<strong><%= t('.comments') %></strong>
+	<strong><%= t('medications.show.comments') %></strong>
 	<%= @medication.comments %>
 <% end %>
 
