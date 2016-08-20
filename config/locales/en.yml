@@ -194,6 +194,10 @@ en:
    premade5_name: 'Hopeless'
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
 
+ notifications:
+  members:
+   remove: 'Remove'
+
  pages:
   about:
     title: 'About'
