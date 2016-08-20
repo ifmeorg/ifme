@@ -1,4 +1,4 @@
-$(function(){
+var readmore = (function(){
     var totalChars = 0;
 	var max = 250;
 	var visible, invisible;
@@ -28,3 +28,6 @@ $(function(){
         e.preventDefault();
     });
 });
+
+
+$(document).on("page:load ready", readmore);
