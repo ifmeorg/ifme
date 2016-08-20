@@ -153,16 +153,12 @@ en:
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
    created: 'Created:'
-   mood: 'Mood:'
-   moods: 'Moods:'
    strategy: 'Strategy:'
    strategies: 'Strategies:'
    delete: 'Delete'
    confirm: 'Are you sure?'
   show:
    created: 'Created:'
-   mood: 'Mood:'
-   moods: 'Moods:'
    why: 'Describe the moment and how it affects your mood and behaviour.'
    fix: 'What thoughts would you like to have instead?'
    strategies: 'What strategies would help achieve these thoughts?'
@@ -174,6 +170,9 @@ en:
    name: 'Name'
    description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
+  label:
+   one: 'Mood:'
+   other: 'Moods:'
   index:
    subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
    name: 'Name'
@@ -232,8 +231,6 @@ en:
   home:
     you: 'You'
     created: 'Created:'
-    mood: 'Mood:'
-    moods: 'Moods:'
     strategy: 'Strategy:'
     strategies: 'Strategies:'
     moods_word: "moods"
@@ -274,8 +271,6 @@ en:
    accept_ally: 'Accept'
    reject_ally: 'Reject'
    add_ally: 'Add to Allies'
-   mood: 'Mood:'
-   moods: 'Moods:'
    strategy: 'Strategy:'
    strategies: 'Strategies:'
    confirm: 'Are you sure?'

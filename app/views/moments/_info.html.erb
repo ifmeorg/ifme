@@ -15,11 +15,7 @@
 <% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].mood.count > 0 %>
   <br>
   <strong>
-    <% if local_assigns[:data].mood.count == 1 %>
-      <%= t('moments.index.mood') %>
-    <% else %>
-      <%= t('moments.index.moods') %>
-    <% end %>
+    <%= t('moods.label', count: local_assigns[:data].mood.count) %>
   </strong>
   <% local_assigns[:data].mood.each do |item| %>
     <span class="notification_wrapper">
