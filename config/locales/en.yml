@@ -333,8 +333,8 @@ en:
    unsupport: 'Unsupport'
    support: 'Support'
 
-   notifications:
-    members:
-      remove: 'Remove'
+ notifications:
+  members:
+    remove: 'Remove'
 
    #submit button
