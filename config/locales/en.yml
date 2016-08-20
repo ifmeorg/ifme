@@ -153,8 +153,6 @@ en:
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
    created: 'Created:'
-   strategy: 'Strategy:'
-   strategies: 'Strategies:'
    delete: 'Delete'
    confirm: 'Are you sure?'
   show:
@@ -231,8 +229,6 @@ en:
   home:
     you: 'You'
     created: 'Created:'
-    strategy: 'Strategy:'
-    strategies: 'Strategies:'
     moods_word: "moods"
     profile_word: "profile"
     categories_word: "categories"
@@ -271,8 +267,6 @@ en:
    accept_ally: 'Accept'
    reject_ally: 'Reject'
    add_ally: 'Add to Allies'
-   strategy: 'Strategy:'
-   strategies: 'Strategies:'
    confirm: 'Are you sure?'
 
  search:
@@ -353,6 +347,9 @@ en:
    strategies_label: 'What strategies would help achieve these thoughts?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields'
+  label:
+   one: 'Strategy:'
+   other: 'Strategies:'
   index:
    subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
    created: 'Created:'

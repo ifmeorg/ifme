@@ -28,11 +28,7 @@
 <% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].strategies.count > 0 && local_assigns[:show_strategies] %>
   <br>
   <strong>
-    <% if local_assigns[:data].strategies.count == 1 %>
-      <%= t('moments.index.strategy') %>
-    <% else %>
-      <%= t('moments.index.strategies') %>
-    <% end %>
+    <%= t('strategies.label', count: local_assigns[:data].strategies.count) %>
   </strong>
   <% local_assigns[:data].strategies.each do |item| %>
     <span class="notification_wrapper">
