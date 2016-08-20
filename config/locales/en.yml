@@ -166,8 +166,6 @@ en:
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
 
  pages:
-  about:
-   app_name: 'if me'
   home:
    you: 'You'
    created: 'Created:'
