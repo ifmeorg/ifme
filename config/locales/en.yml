@@ -1,20 +1,6 @@
 en:
  app_name: 'if me'
  app_description: 'a community for mental health experiences'
- confirm: 'Are you sure?'
- cancel_meeting: 'Cancel meeting'
- date: 'Date:'
- join_cta: 'Join!'
- join: 'join'
- leave_cta: 'Leave?'
- location: 'Location'
- member: 'Member'
- members: 'Members'
- meeting_time: 'Time'
-
-# alert_mailer and alerts will be added to for selects
-# and tested once feature is up and running
-# views without labels have been omitted from scoping
 
  allies:
   index:
@@ -41,10 +27,6 @@ en:
    premade3_description: 'Work related'
    premade4_name: 'Meditation'
    premade4_description: 'Meditation, deep breathing, and relaxing activities'
-
- warnings:
-  no_description: "You didn't write a description!"
-  yes_description: "Writing one can help you and others better understand in detail"
 
  errors:
   internal_server_error:
@@ -141,6 +123,53 @@ en:
    maximum_placeholder: '0 if no maximum'
    description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
+  info:
+   cancel_meeting: 'Cancel meeting'
+   confirm: 'Are you sure?'
+   date: 'Date:'
+   join: 'join'
+   join_cta: 'Join!'
+   leave_cta: 'Leave?'
+   location: 'Location'
+   meeting_time: 'Time'
+   members:
+    one: 'Member'
+    other: 'Members'
+
+ moments:
+  form:
+   name: 'Title'
+   categories: 'Categories'
+   moods: 'Moods'
+   strategies: 'Strategies'
+   viewers: 'Viewers'
+   describe: 'Describe the moment and how it affects your mood and behaviour.'
+   desired: 'What thoughts would you like to have instead?'
+   allow_comments: 'Allow Comments?'
+   error_explanation: 'Please fill out the marked fields!'
+   what_happened: 'What happened?'
+  index:
+   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   strategy: 'Strategy:'
+   strategies: 'Strategies:'
+   delete: 'Delete'
+   confirm: 'Are you sure?'
+  show:
+   created: 'Created:'
+   category: 'Category:'
+   categories: 'Categories:'
+   mood: 'Mood:'
+   moods: 'Moods:'
+   why: 'Describe the moment and how it affects your mood and behaviour.'
+   fix: 'What thoughts would you like to have instead?'
+   strategies: 'What strategies would help achieve these thoughts?'
+   unsupport: 'Unsupport'
+   support: 'Support'
 
  moods:
   form:
@@ -347,41 +376,6 @@ en:
    unsupport: 'Unsupport'
    support: 'Support'
 
- moments:
-  form:
-   name: 'Title'
-   categories: 'Categories'
-   moods: 'Moods'
-   strategies: 'Strategies'
-   viewers: 'Viewers'
-   describe: 'Describe the moment and how it affects your mood and behaviour.'
-   desired: 'What thoughts would you like to have instead?'
-   allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields!'
-   what_happened: 'What happened?'
-  index:
-   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-   created: 'Created:'
-   category: 'Category:'
-   categories: 'Categories:'
-   mood: 'Mood:'
-   moods: 'Moods:'
-   strategy: 'Strategy:'
-   strategies: 'Strategies:'
-   delete: 'Delete'
-   confirm: 'Are you sure?'
-  show:
-   created: 'Created:'
-   category: 'Category:'
-   categories: 'Categories:'
-   mood: 'Mood:'
-   moods: 'Moods:'
-   why: 'Describe the moment and how it affects your mood and behaviour.'
-   fix: 'What thoughts would you like to have instead?'
-   strategies: 'What strategies would help achieve these thoughts?'
-   unsupport: 'Unsupport'
-   support: 'Support'
-
- notifications:
-  members:
-    remove: 'Remove'
+ warnings:
+  no_description: "You didn't write a description!"
+  yes_description: "Writing one can help you and others better understand in detail"

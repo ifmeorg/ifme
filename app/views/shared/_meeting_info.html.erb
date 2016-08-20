@@ -3,7 +3,7 @@
 </div>
 
 <strong>
-  <%= t('location') %>:
+  <%= t('meetings.info.location') %>:
 </strong>
 
 <% if meeting.location.match(/^https?:\/\/|www\./) %>
@@ -14,12 +14,12 @@
 <% end %>
 <br>
 <strong>
-  <%= t('date') %>
+  <%= t('meetings.info.date') %>
 </strong>
 <%= meeting.date %>
 <br>
 <strong>
-  <%= t('meeting_time') %>:
+  <%= t('meetings.info.meeting_time') %>:
 </strong>
 <%= meeting.time %>
 
@@ -27,7 +27,7 @@
   <strong class="tip_notifications_button">
     <i class="fa fa-list small_margin_right"></i>
     <%= meeting.members.count %>
-    <%= t('member'.pluralize(meeting.members.count)) %>
+    <%= t('meetings.info.members', count: meeting.members.count) %>
   </strong>
 
   <% if local_assigns[:show_group] %>
@@ -42,16 +42,16 @@
 <strong>
   <% if meeting.members.include? current_user %>
     You are attending. Change your mind?
-    <%= link_to t('leave_cta'),
+    <%= link_to t('meetings.info.leave_cta'),
                 leave_meetings_path(meetingid: meeting.id) %>
   <% elsif meeting.maxmembers.present? && meeting.maxmembers > 0 %>
     You are not attending. There are
     <%= meeting.maxmembers - meeting.members.count %> spots left to fill!
-    <%= link_to t('join_cta'),
+    <%= link_to t('meetings.info.join_cta'),
       join_meetings_path(meetingid: meeting.id) %>
   <% else %>
     You are not attending. There is still room to
-    <%= link_to t('join'),
+    <%= link_to t('meetings.info.join'),
       join_meetings_path(meetingid: meeting.id) %>!
   <% end %>
 </strong>
@@ -60,7 +60,7 @@
   <br>
   <br>
   <i class="fa fa-trash-o action"></i>
-  <%= link_to t('cancel_meeting'),
+  <%= link_to t('meetings.info.cancel_meeting'),
               meeting, method: :delete,
-                       data: { confirm: t('confirm') } %>
+                       data: { confirm: t('meetings.info.confirm') } %>
 <% end %>
