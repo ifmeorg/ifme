@@ -1,7 +1,7 @@
 <%= form_for(@strategy) do |f| %>
 <% if @strategy.errors.any? %>
   <div class="error_explanation">
-    <%= t('.error_explanation') %>
+    <%= t('strategies.form.error_explanation') %>
   </div>
 <% end %>
 
@@ -11,7 +11,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.name'), for: 'strategy_name' %>
+        <%= f.label t('strategies.form.name'), for: 'strategy_name' %>
         <div class="align_right">
         <span class="yes_title" title="Any activity, train of thought, or form or self-care that helps you"><i class="fa fa-question-circle"></i></span>
         <i class="fa fa-exclamation-circle"></i>
@@ -29,7 +29,7 @@
         <a href="#" class="toggle_button display_none" id="hideCategories">
           <i class="fa fa-caret-up" ></i>
         </a>
-        <%= f.label t('.categories') %>
+        <%= f.label t('strategies.form.categories') %>
       </div>
       <div id="categories" class="display_none">
         <div id="categories_list">
@@ -50,7 +50,7 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.viewers') %>
+        <%= f.label t('strategies.form.viewers') %>
         <div class="align_right">
           <span class="yes_title" title="Allies who can view your strategy and tag their own moments with it"><i class="fa fa-question-circle"></i></span>
         </div>
@@ -65,7 +65,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('.allow_comments') %>
+        <%= f.label t('strategies.form.allow_comments') %>
         <span class="yes_title smaller_margin_left" title="Only you and viewers can comment"><i class="fa fa-question-circle"></i></span>
         <div class="align_right">
           <%= f.check_box :comment %>
@@ -77,7 +77,7 @@
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
-        <%= f.label t('.describe'), for: 'strategy_description' %>
+        <%= f.label t('strategies.form.describe'), for: 'strategy_description' %>
         <i class="fa fa-exclamation-circle align_right"></i>
         <div class="clear"></div>
       </div>
