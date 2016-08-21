@@ -1,14 +1,16 @@
 <div class="main_message">
-	Hello <%= current_user.name %>!
+	<%= t('pages.home.signed_in_empty.main_message_one', {
+		name: current_user.name
+		}) %>
 </div>
 <div class="message_text">
-	Here's how you can start sharing your stories.
+	<%= t('pages.home.signed_in_empty.message_text_one') %>
 </div>
 
 <div class="divider"></div>
 
 <div class="main_message">
-	Tell us about yourself.
+	<%= t('pages.home.signed_in_empty.main_message_two') %>
 </div>
 <div class="table onboarding">
 	<div class="table_row">
@@ -17,16 +19,18 @@
 		</div>
 
 		<div class="table_cell vertical_align_middle onboarding_message">
-			Customize your <%= link_to(t('pages.home.profile_word'), edit_user_registration_path) %> - add a bio and profile picture
-			<br>Add custom <%= link_to(t('pages.home.moods_word'), moods_path) %> to best describe your emotions
-			<br>Add <%= link_to(t('pages.home.allies_word'), allies_path) %> - friends, family, and others who you want to share with
+			<%= raw t('pages.home.signed_in_empty.cell_one', {
+					profile: link_to(t('profile.index.title'), edit_user_registration_path),
+					moods: link_to(t('moods.index.title'), moods_path),
+					allies: link_to(t('allies.index.title'), allies_path)
+				}) %>
 		</div>
 	</div>
 </div>
 
 <div class="main_message">
 	<div class="spacer"></div>
-	Write your stories.
+	<%= t('pages.home.signed_in_empty.main_message_three') %>
 </div>
 <div class="table onboarding">
 	<div class="table_row">
@@ -35,15 +39,17 @@
 		</div>
 
 		<div class="table_cell vertical_align_middle onboarding_message">
-			Create custom <%= link_to(t('pages.home.categories_word'), categories_path) %> to help organize your moments
-			<br>Write about the <%= link_to(t('pages.home.moments_word'), moments_path) %> - the events and situations that affect your mental health
+			<%= raw t('pages.home.signed_in_empty.cell_two', {
+					categories: link_to(t('categories.index.title'), categories_path),
+					moments: link_to(t('moments.index.title'), moments_path)
+				}) %>
 		</div>
 	</div>
 </div>
 
 <div class="main_message">
 	<div class="spacer"></div>
-	Take care of yourself.
+	<%= t('pages.home.signed_in_empty.main_message_four') %>
 </div>
 <div class="table onboarding">
 	<div class="table_row">
@@ -52,9 +58,11 @@
 		</div>
 
 		<div class="table_cell vertical_align_middle onboarding_message">
-			<%= link_to(t('pages.home.strategize_word'), strategies_path) %> your self-care plan!
-			<br>Currently taking <%= link_to(t('pages.home.medication_word'), medications_path) %>? Keep track of it and create reminders!
-			<br>Need extra support? Join or create a <%= link_to(t('pages.home.groups_word'), groups_path) %> to open up
+			<%= raw t('pages.home.signed_in_empty.cell_three', {
+					strategize: link_to(t('pages.home.signed_in_empty.strategize'), strategies_path),
+					medications: link_to(t('medications.index.title'), medications_path),
+					group: link_to(t('group'), groups_path)
+				}) %>
 		</div>
 	</div>
 </div>
@@ -62,8 +70,11 @@
 <div class="divider"></div>
 
 <div class="main_message">
-	Have any questions or concerns?
+	<%= t('pages.home.signed_in_empty.main_message_five') %>
 </div>
 <div class="message_text">
-	Check out our <%= link_to(t('shared.footer.faq'), faq_path) %> page or <%= link_to('email', 'mailto:join.ifme@gmail.com') %> us!
+	<%= raw t('pages.home.signed_in_empty.message_text_three', {
+			faq: link_to(t('shared.footer.faq'), faq_path),
+			email_link: link_to(t('us'), "mailto:#{t('email')}")
+		}) %>
 </div>

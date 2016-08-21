@@ -10,8 +10,7 @@
     <div class="label">
       <%= f.label t('categories.form.name'), for: 'category_name' %>
       <div class="align_right">
-        <span class="yes_title" title="Categorize recurring people, places, things, activities, and more"><i class="fa fa-question-circle"></i></span>
-        <i class="fa fa-exclamation-circle"></i>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('categories.form.name_hint')) %>
       </div>
       <div class="clear"></div>
     </div>

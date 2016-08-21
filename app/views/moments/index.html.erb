@@ -1,4 +1,4 @@
-<% title 'Moments' %>
+<% title t('moments.index.title') %>
 <% page_new new_moment_path %>
 
 <div class="subtitle">
@@ -20,20 +20,20 @@
 
   <%= paginate @moments %>
 <% else %>
-You haven't written about any moments yet. Click <i class="fa fa-plus-circle"></i> to add some!
-<br>
-<br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment.
+<%= raw t('moments.index.instructions', {
+    icon: '<i class="fa fa-plus-circle"></i>'
+  }) %>
 
 <div class="spacer"></div>
 
 <div class="moment no_margin_bottom">
 	<h1 class="moment_name">
-    	<span class="yes_title small_margin_right" title="Control who can view and comment"><i class="fa fa-lock"></i></span>
-    	Panicking over interview tomorrow!
+      <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('moments.index.viewers_hint')) %>
+      <%= t('moments.index.example_name') %>
   	</h1>
 
-    <strong><%= t('categories.label', count: 1) %></strong> Career
-    <br><strong><%= t('moods.label', count: 3) %></strong> Nervous, Anxious, Hopeful
+    <strong><%= t('categories.label', count: 1) %></strong> <%= t('moments.index.example_category') %>
+    <br><strong><%= t('moods.label', count: 3) %></strong> <%= t('moments.index.example_moods') %>
 </div>
 
 <% end %>

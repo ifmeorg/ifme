@@ -11,7 +11,7 @@
 				<%= f.text_field :name, placeholder: t('moments.form.name') %>
 				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>
 				<div class="quick_moment_disclaimer">
-					<span class="yes_title subtle smaller_margin_right" title="This will be shared with all allies with comments on. You can always edit this later."><i class="fa fa-lock"></i></span>
+					<%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
 					<%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
 				</div>
 			</div>
@@ -27,11 +27,11 @@
 					<span class="link_style">
 						<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
 							!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-							Categories and Moods
+							<%= t('moments.categories_and_moods') %>
 						<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-							Categories
+							<%= t('categories.index.title') %>
 						<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-							Moods
+							<%= t('moods.index.title') %>
 						<% end %>
 					</span>
 				</div>

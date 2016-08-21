@@ -1,4 +1,4 @@
-<% title 'Medications' %>
+<% title t('medications.index.title') %>
 <% page_new new_medication_path %>
 
 <div class="subtitle">
@@ -18,18 +18,18 @@
 
   <%= paginate @medications %>
 <% else %>
-You haven't saved any medications yet. Click <i class="fa fa-plus-circle"></i> to add some!
-<br>
-<br>Here's an example of a saved medication! You can also write about your experience.
+<%= raw t('medications.index.instructions', {
+    icon: '<i class="fa fa-plus-circle"></i>'
+  }) %>
 
 <div class="spacer"></div>
 
 <div class="medication no_margin_bottom">
-  <h1 class="medication_name">Prozac</h1>
+  <h1 class="medication_name"><%= t('medications.index.example_name') %></h1>
 
-  <strong><%= t('medications.index.strength') %></strong> 10 mg
-  <br><strong><%= t('medications.index.total') %></strong> 2 tablets
-  <br><strong><%= t('medications.index.dosage') %></strong> 40 tablets
-  <br><strong><%= t('medications.index.refill') %></strong> 05/31/2016
+  <strong><%= t('medications.index.strength') %></strong> <%= t('medications.index.example_strength') %>
+  <br><strong><%= t('medications.index.total') %></strong> <%= t('medications.index.example_total') %>
+  <br><strong><%= t('medications.index.dosage') %></strong> <%= t('medications.index.example_dosage') %>
+  <br><strong><%= t('medications.index.refill') %></strong> <%= t('medications.index.example_refill') %>
 </div>
 <% end %>

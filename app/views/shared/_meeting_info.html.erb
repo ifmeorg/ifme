@@ -30,8 +30,8 @@
   </strong>
 
   <% if local_assigns[:show_group] %>
-    <strong><%= ' of ' %>
-    <%= link_to meeting.group.name, meeting.group %>
+    <strong>
+      <%= raw " #{t('of')} #{link_to(meeting.group.name, meeting.group)}" %>
     </strong>
   <% end %>
 
@@ -39,19 +39,24 @@
 </div>
 
 <strong>
-  <% if meeting.members.include? current_user %>
-    You are attending. Change your mind?
-    <%= link_to t('meetings.info.leave_cta'),
-                leave_meetings_path(meetingid: meeting.id) %>
-  <% elsif meeting.maxmembers.present? && meeting.maxmembers > 0 %>
-    You are not attending. There are
-    <%= meeting.maxmembers - meeting.members.count %> spots left to fill!
-    <%= link_to t('meetings.info.join_cta'),
-      join_meetings_path(meetingid: meeting.id) %>
+  <% if meeting.maxmembers == 0 %>
+    <%= raw t('shared.meeting_info.not_attending', {
+        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
+      }) %>
+  <% elsif meeting.members.include? current_user %>
+    <%= t('shared.meeting_info.attending') %>
+    <%= link_to t('meetings.info.leave_cta'), leave_meetings_path(meetingid: meeting.id) %>
+  <% elsif meeting.maxmembers - meeting.members.count == 1 %>
+    <%= raw t('shared.meeting_info.not_attending_one_spot_left', {
+        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
+      }) %>
+  <% elsif meeting.maxmembers - meeting.members.count > 1 %> %>
+    <%= raw t('shared.meeting_info.not_attending_spots_left', {
+        number: meeting.maxmembers - meeting.members.count,
+        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
+      }) %>
   <% else %>
-    You are not attending. There is still room to
-    <%= link_to t('meetings.info.join'),
-      join_meetings_path(meetingid: meeting.id) %>!
+    <%= t('shared.meeting_info.not_attending_no_spots_left') %>
   <% end %>
 </strong>
 
@@ -59,7 +64,5 @@
   <br>
   <br>
   <i class="fa fa-trash-o action"></i>
-  <%= link_to t('meetings.info.cancel_meeting'),
-              meeting, method: :delete,
-                       data: { confirm: t('meetings.info.confirm') } %>
+  <%= link_to t('meetings.info.cancel_meeting'), meeting, method: :delete, data: { confirm: t('meetings.info.confirm') } %>
 <% end %>

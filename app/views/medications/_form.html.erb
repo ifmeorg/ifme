@@ -22,7 +22,7 @@
       <div class="label">
         <%= f.label t('medications.form.comments') %>
         <div class="align_right">
-          <span class="yes_title" title="Additional comments, log your symptoms here"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
         </div>
         <div class="clear"></div>
       </div>
@@ -37,7 +37,7 @@
       <div class="label">
         <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
         <div class="align_right">
-          <span class="yes_title" title="Medication strength, usually found beside the name"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.strength_hint')) %>
           <i class="fa fa-exclamation-circle"></i>
         </div>
         <div class="clear"></div>
@@ -52,7 +52,7 @@
       <div class="label">
         <%= f.label :total, for: 'medication_total' %>
         <div class="align_right">
-          <span class="yes_title" title="Total number of pills or amount of medication"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.total_hint')) %>
           <i class="fa fa-exclamation-circle"></i>
         </div>
         <div class="clear"></div>
@@ -71,7 +71,7 @@
       <div class="label">
         <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
         <div class="align_right">
-          <span class="yes_title" title="Number of pills or servings daily"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.dosage_hint')) %>
           <i class="fa fa-exclamation-circle"></i>
         </div>
         <div class="clear"></div>
@@ -86,7 +86,7 @@
       <div class="label">
         <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
         <div class="align_right">
-          <span class="yes_title" title="When to refill this prescription"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_hint')) %>
           <i class="fa fa-exclamation-circle"></i>
         </div>
         <div class="clear"></div>
@@ -102,7 +102,7 @@
             <%= reminder.label t('medications.form.refill_reminder'), for: 'refill_reminder' %>
           </div>
           <div class="align_right">
-            <span class="yes_title" title="We'll email you a reminder the week before your medication needs to be refilled"><i class="fa fa-question-circle"></i></span>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
           </div>
         </div>
         <div class="clear"></div>
@@ -117,7 +117,7 @@
             <%= reminder.label t('medications.form.daily_reminder'), for: 'take_medication_reminder' %>
           </div>
           <div class="align_right">
-            <span class="yes_title" title="We'll email you a daily reminder to take this medication"><i class="fa fa-question-circle"></i></span>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
           </div>
           <div class="clear"></div>
         </div>

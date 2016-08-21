@@ -9,7 +9,7 @@
 		<% strategies = usage[1] %>
 
 		<% if moments.length > 0 %>
-			<h1 class="tag_type">Tagged Moments</h1>
+			<h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
 
 			<div id="moment_tag_usage">
 			<% moments.each do |moment_id| %>
@@ -22,7 +22,7 @@
 		<% end %>
 
 		<% if strategies.length > 0 %>
-			<h1 class="tag_type margin_top">Tagged Strategies</h1>
+			<h1 class="tag_type margin_top"><%= t('shared.tag_usage.tagged_strategies') %></h1>
 
 			<div id="strategy_tag_usage">
 			<% strategies.each do |strategy_id| %>
@@ -39,14 +39,14 @@
 		<% if moments.length > 0 %>
 			<% if local_assigns[:data_type] == 'strategy' %>
 				<h1 class="tag_type">
-					Tagged Moments
+					<%= t('shared.tag_usage.tagged_moments') %>
 					<span id="showTaggedMoments" class="align_right display_inline_block"><i class="fa fa-caret-down"></i></span>
 					<span id="hideTaggedMoments" class="align_right display_none"><i class="fa fa-caret-up"></i></span>
 				</h1>
 
 				<div id="moment_tag_usage" class="display_none">
 			<% else %>
-				<h1 class="tag_type">Tagged Moments</h1>
+				<h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
 				<div id="moment_tag_usage">
 			<% end %>
 

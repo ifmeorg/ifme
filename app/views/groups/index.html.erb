@@ -8,7 +8,7 @@
 <div class="spacer"></div>
 
 <% if @groups.any? %>
-  <h1 class="group_type">Joined Groups</h1>
+  <h1 class="group_type"><%= t('groups.index.joined_groups') %></h1>
   <% @groups.each do |group| %>
     <div class="group <%= 'no_margin_bottom' if group == @groups.last %>">
       <h1 class="group_name">
@@ -44,15 +44,15 @@
     </div>
   <% end %>
 <% else %>
-  You aren't a part of any groups yet! Click <i class="fa fa-plus-circle"></i> to create one or join any available groups below.
-  <br>
-  <br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created.
+  <%= raw t('groups.index.instructions', {
+      icon: '<i class="fa fa-plus-circle"></i>'
+    }) %>
 <% end %>
 
 <% if @available_groups.any? %>
   <div class="spacer"></div>
 
-  <h1 class="group_type">Available Groups</h1>
+  <h1 class="group_type"><%= t('groups.index.available_groups') %></h1>
 
   <% @available_groups.each do |group| %>
     <div class="group <%= 'no_margin_bottom' if group == @available_groups.last %>">

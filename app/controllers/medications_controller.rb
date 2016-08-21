@@ -15,7 +15,7 @@ class MedicationsController < ApplicationController
     else
       @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "New medication"
+    @page_tooltip = "#{t('new')} #{t('medication')}"
   end
 
   # GET /medications/1
@@ -23,7 +23,7 @@ class MedicationsController < ApplicationController
   def show
     if @medication.userid == current_user.id
       @page_edit = edit_medication_path(@medication)
-      @page_tooltip = "Edit medication"
+      @page_tooltip = "#{t('edit')} #{t('medication')}"
     else
       respond_to do |format|
         format.html { redirect_to medications_path }

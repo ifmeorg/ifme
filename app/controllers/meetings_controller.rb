@@ -12,7 +12,7 @@ class MeetingsController < ApplicationController
 
     if @is_leader
       @page_edit = edit_meeting_path(@meeting)
-      @page_tooltip = "Edit meeting"
+      @page_tooltip = "#{t('edit')} #{t('meeting')}"
     end
 
     @no_hide_page = false

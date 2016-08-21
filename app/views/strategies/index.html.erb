@@ -1,4 +1,4 @@
-<% title 'Strategies' %>
+<% title t('strategies.index.title') %>
 <% page_new new_strategy_path %>
 
 <div class="subtitle">
@@ -20,18 +20,19 @@
 
   <%= paginate @strategies %>
 <% else %>
-  You haven't created any custom strategies yet. Click <i class="fa fa-plus-circle"></i> to add some!
-  <br>You can also add the following premade strategy and customize it another time.
+  <%= raw t('strategies.index.instructions', {
+      icon: '<i class="fa fa-plus-circle"></i>'
+    }) %>
 
   <div class="actions align_right">
-    <%= button_to "Add", premade_strategies_path %>
+    <%= button_to t('add'), premade_strategies_path %>
   </div>
 
   <div class="clear"></div>
 
   <div class="strategy no_margin_bottom">
     <h1 class="strategy_name">
-      <span class="yes_title small_margin_right" title="Control who can view and comment"><i class="fa fa-lock"></i></span>
+      <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('strategies.index.privacy')) %>
       <%= t('strategies.index.premade1_name') %>
     </h1>
 

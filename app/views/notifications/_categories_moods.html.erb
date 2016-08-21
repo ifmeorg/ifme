@@ -6,11 +6,11 @@
 					<h1 class="notification_name">
 					<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
 						!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-						Categories and Moods
+						<%= t('moments.categories_and_moods') %>
 					<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-						Categories
+						<%= t('categories.index.title') %>
 					<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-						Moods
+						<%= t('moods.index.title') %>
 					<% end %>
 				</div>
 				<div class="table_cell align_right">

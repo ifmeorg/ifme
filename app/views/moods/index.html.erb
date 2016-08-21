@@ -1,4 +1,4 @@
-<% title 'Moods' %>
+<% title t('moods.index.title') %>
 <% page_new new_mood_path %>
 
 <div class="subtitle">
@@ -20,11 +20,12 @@
 
   <%= paginate @moods %>
 <% else %>
-  You haven't created any custom moods yet. Click <i class="fa fa-plus-circle"></i> to add some!
-  <br>You can also add the following premade moods and customize them another time.
+  <%= raw t('moods.index.instructions', {
+      icon: '<i class="fa fa-plus-circle"></i>'
+    }) %>
 
   <div class="actions align_right">
-    <%= button_to "Add all", premade_moods_path %>
+    <%= button_to t('add_all'), premade_moods_path %>
   </div>
 
   <div class="clear"></div>

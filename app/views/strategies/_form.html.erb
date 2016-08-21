@@ -13,7 +13,7 @@
       <div class="sidebar_label">
         <%= f.label t('strategies.form.name'), for: 'strategy_name' %>
         <div class="align_right">
-        <span class="yes_title" title="Any activity, train of thought, or form or self-care that helps you"><i class="fa fa-question-circle"></i></span>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
         <i class="fa fa-exclamation-circle"></i>
       </div>
       <div class="clear"></div>
@@ -52,7 +52,7 @@
       <div class="sidebar_label">
         <%= f.label t('strategies.form.viewers') %>
         <div class="align_right">
-          <span class="yes_title" title="Allies who can view your strategy and tag their own moments with it"><i class="fa fa-question-circle"></i></span>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.viewers_hint')) %>
         </div>
       </div>
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
@@ -66,7 +66,7 @@
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('strategies.form.allow_comments') %>
-        <span class="yes_title smaller_margin_left" title="Only you and viewers can comment"><i class="fa fa-question-circle"></i></span>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.comments_hint')) %>
         <div class="align_right">
           <%= f.check_box :comment %>
         </div>
