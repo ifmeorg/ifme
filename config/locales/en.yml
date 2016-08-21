@@ -330,11 +330,13 @@ en:
    moods: 'Moods'
   viewers_indicator:
    disabled_comments: 'Comments have been disabled.'
-   no_viewers: 'There are <strong>no</strong> viewers.'
-   only_viewer: 'You are the only viewer.'
-   not_only_viewer: 'You are <strong>not</strong> the only viewer.'
-   are_viewers: ' are viewers.'
-   is_a_viewer: ' is a viewer.'
+   you_are_viewer_html:
+    one: 'You are the only viewer.'
+    other: 'You are <strong>not</strong> the only viewer.'
+   viewers_html:
+     zero: 'There are <strong>no</strong> viewers.'
+     one: '%{names} is a viewer.'
+     other: '%{names} are viewers.'
    and: ' and '
    comma_and: ', and '
   stats:
