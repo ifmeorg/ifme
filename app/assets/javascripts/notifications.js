@@ -34,14 +34,15 @@ var onReadyNotifications = function() {
     event.preventDefault();
     $('#notifications').toggleClass('display_none');
     $('.notifications_button').toggleClass('fade');
-    if( $('#notifications').is(':visible')){
+    if ($('#notifications').is(':visible')){
       fetchNotifications();
     }
   });
 
   $('#close_notifications').click(function() {
-    $('#notifications').toggleClass('display_none');
-    $('.notifications_button').toggleClass('fade');
+    $('#notifications').removeClass('display_block');
+    $('#notifications').addClass('display_none');
+    $('.notifications_button').removeClass('fade');
   });
 
    $('#clear_notifcations').click(function() {
@@ -66,7 +67,6 @@ var onReadyNotifications = function() {
   });
 
   /* Tips */
-
   $(document).on('click', '.tip_notifications_button', function() {
     $(this).siblings('.tip_notifications').toggleClass("display_none");
   });
@@ -76,7 +76,6 @@ var onReadyNotifications = function() {
   });
 
   /* Quick Create */
- 
   $('#category_quick_button').click(function() {
     $('#category_quick_create').toggleClass("display_none");
   });
