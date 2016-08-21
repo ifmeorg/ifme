@@ -1,5 +1,7 @@
 <% title t('pages.blog.title') %>
-<%= raw t('pages.blog.description') %>
+<%= raw t('pages.blog.description', {
+		email_link: link_to(t('us'), "mailto:#{t('email')}")
+	}) %>
 <div class="spacer"></div>
 
 <div class="blog_post">

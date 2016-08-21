@@ -41,5 +41,8 @@
 
 <h1 class="faq_heading"><%= t('pages.faq.email_notifications_question') %></h1>
 <p class="no_margin_bottom">
-	<%= raw t('pages.faq.email_notifications_answer') %>
+	<%= raw t('pages.faq.email_notifications_answer', {
+			desktop_icon: '<i class="fa fa-sort-asc smaller_margin_left"></i>',
+			mobile_icon: '<i class="expand fa fa-bars smaller_margin_left"></i>'
+		}) %>
 </p>

@@ -12,16 +12,16 @@
 					</div>
 					<div class="table_cell">
 						<span class="footer_heading" id="connect_links"><%= t('shared.footer.connect') %></span>
-						<%= link_to(t('shared.footer.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
-						<%= link_to(t('shared.footer.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('shared.footer.patreon'), 'http://patreon.com/ifme', target: "blank") %>
+						<%= link_to(t('github'), "https://github.com/julianguyen/ifme", target: "blank") %>
+						<%= link_to(t('twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
+						<%= link_to(t('patreon'), 'http://patreon.com/ifme', target: "blank") %>
 						<%= link_to(t('shared.footer.email'), 'mailto:join.ifme@gmail.com') %>
 					</div>
 				</div>
 			</div>
 			<div class="spacer"></div>
 			<div class="align_left">
-				<%= link_to(t('shared.footer.feedback'), "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
+				<%= link_to(t('feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 			</div>
 			<div class="align_right">
 				<%= t('shared.footer.copyright') %> &#169; <%= Time.now.strftime("%Y") %> <%= t('app_name') %>

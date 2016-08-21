@@ -1,6 +1,14 @@
 en:
  app_name: 'if me'
  app_description: 'a community for mental health experiences'
+ email: 'join.ifme@gmail.com'
+ github: 'GitHub'
+ twitter: 'Twitter'
+ us: 'us'
+ patreon: 'Patreon'
+ slack: 'Slack'
+ feedback: 'feedback'
+ help: 'help'
 
  allies:
   index:
@@ -196,16 +204,17 @@ en:
  pages:
   about:
     title: 'About'
-    email_us: 'Feel free to email <a href="mailto:join.ifme@gmail.com">us</a>!'
-    description: "is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.<p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p><p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><div class=\"spacer\"></div><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p><p><strong>Wanna help fund us?</strong> Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets. As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. Donate to our <a href=\"http://patreon.com/ifme\" target=\"_blank\">Patreon!</a></p>"
+    email_us: 'Feel free to email %{email_link}!'
+    description: "is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.<p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p><p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><div class=\"spacer\"></div><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p><p><strong>Wanna help fund us?</strong> Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets. As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. Donate to our %{patreon_link}."
   blog:
     title: 'Blog'
-    description: "If you're interested in sharing your article or writing a new article, let <a href=\"mailto:join.ifme@gmail.com\">us</a> know!"
+    description: "If you're interested in sharing your article or writing a new article, let %{email_link} know!"
   contributors:
     title: 'Contributors'
-    description: "<span class=\"emphasis\">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span><p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email <a href=\"mailto:join.ifme@gmail.com\">us</a> and we'll connect with you! You will be invited to participate in our <a href=\"https://ifme.slack.com\" target=\"_blank\">Slack</a> page, our primary communication tool. Be sure to fork our repository hosted on <a href=\"https://github.com/julianguyen/ifme\" target=\"_blank\">GitHub</a>!</p>"
+    description: "<span class=\"emphasis\">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span><p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
     partners: "Organizations We've Partnered With!"
+    thanks: 'A huge thanks to'
   faq:
     title: 'Frequently Asked Questions'
     data_access_question: 'Who has access to my data?'
@@ -225,7 +234,7 @@ en:
     invite_question: 'How can I invite my loved ones to join the app?'
     invite_answer: 'Go to the <strong>Allies</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
     email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting <i class=\"fa fa-sort-asc\"></i> (desktop browser) or <i class=\"expand fa fa-bars\"></i> (mobile browser) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
+    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
   home:
     you: 'You'
     created: 'Created:'
@@ -245,7 +254,7 @@ en:
       message_two: 'Be you, no strings attached and with security and privacy'
       message_three: 'Document your moods, medications, and self-care'
       main_message_two: 'We are open source because mental health should be open.'
-      message_text_two: "We are <strong>always</strong> looking for your <a href=\"\\contributors\">help</a> and <a href=\"http://goo.gl/forms/8EqoJDDiXY\" target=\"_blank\">feedback</a>!"
+      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
   privacy:
     title: 'Privacy Policy'
     summary: 'Summary'
@@ -253,11 +262,11 @@ en:
     user_data: 'User Data'
     user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
     cookies: 'User of Cookies'
-    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's privacy policy <a href=\"http://www.google.com/privacy.html\">here</a> for further information.</p>"
+    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
     social_media: 'Social Media Platforms'
     social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
-    contact_description: "<p>Please email <a href=\"mailto:join.ifme@gmail.com\">us</a> if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from <a href=\"http://jamieking.co.uk/resources/download-free-sample-privacy-policy.html\" target=\"_blank\">Jamie King Media</a>.</em></p>"
+    contact_description: "<p>Please email %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
 
  profile:
   index:
@@ -291,10 +300,6 @@ en:
     footer_blog: 'Blog'
     footer_contributors: 'Contributors'
     footer_privacy: 'Privacy Policy'
-    github: 'GitHub'
-    twitter: 'Twitter'
-    patreon: 'Patreon'
-    feedback: 'Feedback?'
     copyright: 'Copyright'
     faq: 'FAQ'
     connect: 'connect'

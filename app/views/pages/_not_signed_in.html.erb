@@ -33,5 +33,8 @@
 	<%= t('pages.home.not_signed_in.main_message_two') %>
 </div>
 <div class="message_text">
-	<%= raw t('pages.home.not_signed_in.message_text_two') %>
+	<%= raw t('pages.home.not_signed_in.message_text_two', {
+			help: link_to(t('help'), contributors_path),
+			feedback: link_to(t('feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+		}) %>
 </div>
