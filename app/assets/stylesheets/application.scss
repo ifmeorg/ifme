@@ -663,36 +663,6 @@ input[type="submit"]:hover {
 	opacity: 0.5;
 }
 
-input[type="submit"]#unsupport {
-	border: 1px solid $alert-color !important;
-	box-shadow: 0 0 2px $alert-color inset !important;
-	color: $alert-color !important;
-	background: $background-color;
-}
-
-input[type="submit"]#unsupport:hover {
-	border: 1px solid $alert-color !important;
-	box-shadow: 0 0 2px $alert-color inset !important;
-	color: $alert-color !important;
-	background: $background-color;
-	opacity: 0.5;
-}
-
-input[type="submit"]#support {
-	border: 1px solid $notice-color !important;
-	box-shadow: 0 0 2px $notice-color inset !important;
-	color: $notice-color !important;
-	background: $background-color;
-}
-
-input[type="submit"]#support:hover {
-	border: 1px solid $notice-color !important;
-	box-shadow: 0 0 2px $notice-color inset !important;
-	color: $notice-color !important;
-	background: $background-color;
-	opacity: 0.5;
-}
-
 .field,
 .actions {
 	margin-bottom: 40px;
