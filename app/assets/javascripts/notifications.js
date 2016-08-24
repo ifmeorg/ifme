@@ -40,8 +40,8 @@ var onReadyNotifications = function() {
   });
 
   $('#close_notifications').click(function() {
-    $('#notifications').removeClass('display_block');
-    $('#notifications').addClass('display_none');
+    $('#notifications').toggleClass('display_none');
+    $('.notifications_button').toggleClass('fade');
     $('.notifications_button').removeClass('fade');
   });
 
@@ -67,11 +67,11 @@ var onReadyNotifications = function() {
   });
 
   /* Tips */
-  $(document).on('click', '.tip_notifications_button', function() {
+  $('.tip_notifications_button').click(function(){
     $(this).siblings('.tip_notifications').toggleClass("display_none");
   });
 
-  $(document).on('click', '.tip_close_notifications', function() {
+  $('.tip_close_notifications').click(function(){
     $(this).closest('.tip_notifications').toggleClass("display_none");
   });
 
