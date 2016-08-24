@@ -24,7 +24,7 @@ gem 'ckeditor',                   '4.1.6'
 gem 'carrierwave',                '0.11.2'
 gem 'underscore-rails',           '1.8.3'
 gem 'google-api-client',          '~> 0.8.6'
-gem 'omniauth',                   '1.3.1' 
+gem 'omniauth',                   '1.3.1'
 gem 'omniauth-google-oauth2',     '0.4.1'
 gem 'certified',                  '1.0.0'
 gem 'chronic',                    '0.10.2'
@@ -51,6 +51,7 @@ group :development, :test do
   gem 'pry-rails',                 '0.3.4'
   gem 'jasmine',                    '2.4.0'
   gem 'rubocop',                    '0.40.0'
+  gem 'jshint'
 end
 
 group :production do

@@ -1,3 +1,36 @@
+function changeEditorCount(editorCount, remaining) {
+	$(editorCount).html(remaining);
+
+    if (remaining <= 0) {
+    	$(editorCount).css('color', '#990019');
+
+    	if (remaining === 0) {
+    		$('input[type="submit"]').prop('disabled', false);
+    	} else {
+    		$('input[type="submit"]').prop('disabled', true);
+    	}
+    } else {
+    	$(editorCount).css('color', '#b5839b');
+    	$('input[type="submit"]').prop('disabled', false);
+    }
+}
+
+function noCKEditor(editor) {
+	var editorName = editor.attr('id');
+	var editorData = editor.val();
+  	var editorCount = '#' + editorName + '_count';
+	var remaining = 2000 - editorData.length;
+
+   changeEditorCount(editorCount, remaining);
+}
+
+function yesCKEditor(editor) {
+	var editorCount = '#' + editor.name + '_count';
+    var remaining = 2000 - editor.getData().length;
+
+	changeEditorCount(editorCount, remaining);
+}
+
 var onReadyCharacterCount = function() {
 	CKEDITOR.on("instanceReady", function(event) {
 		var editor;
@@ -29,39 +62,6 @@ var onReadyCharacterCount = function() {
 			noCKEditor($(this));
 		});
 	}
-}
-
-function noCKEditor(editor) {
-	var editorName = editor.attr('id');
-	var editorData = editor.val();
-  	var editorCount = '#' + editorName + '_count';
-	var remaining = 2000 - editorData.length;
-
-   changeEditorCount(editorCount, remaining);
-}
-
-function yesCKEditor(editor) {
-	var editorCount = '#' + editor.name + '_count';
-    var remaining = 2000 - editor.getData().length;
-
-	changeEditorCount(editorCount, remaining);
-}
-
-function changeEditorCount(editorCount, remaining) {
-	$(editorCount).html(remaining);
-
-    if (remaining <= 0) {
-    	$(editorCount).css('color', '#990019');
-
-    	if (remaining == 0) {
-    		$('input[type="submit"]').prop('disabled', false);
-    	} else {
-    		$('input[type="submit"]').prop('disabled', true);
-    	}
-    } else {
-    	$(editorCount).css('color', '#b5839b');
-    	$('input[type="submit"]').prop('disabled', false);
-    }
-}
+};
 
 $(document).on("page:load ready", onReadyCharacterCount);

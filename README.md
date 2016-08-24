@@ -318,7 +318,6 @@ Unit Tests
 
 Always write unit tests for the changes you've made! If you see any missing unit tests, write them!
 
-
 ### Rspec for Ruby
 
 ```
@@ -333,7 +332,6 @@ bin/rake db:create db:migrate RAILS_ENV=test
 
 ### Jasmine for JavaScript
 
-
 #### GUI
 
 In a new terminal window, run `rake jasmine`.
@@ -344,6 +342,15 @@ To view the test results, go to `http://localhost:8888`.
 
 ```
 rake jasmine:ci
+```
+
+Static Code Analysis
+--------------------
+
+### JSHint
+
+```
+bundle exec rake jshint
 ```
 
 Committing Work

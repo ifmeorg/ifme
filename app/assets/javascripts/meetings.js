@@ -3,6 +3,6 @@ var onReadyMeetings = function() {
 		$('#meeting_date').datepicker();
 		$('#meeting_time').timepicker({ 'scrollDefault': 'now', 'step': 15 });
 	}
-}
+};
 
 $(document).on("page:load ready", onReadyMeetings);

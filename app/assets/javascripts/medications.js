@@ -36,6 +36,6 @@ var onReadyMedications = function() {
 
     $("#medication_refill").datepicker();
   }
-}
+};
 
 $(document).on("page:load ready", onReadyMedications);

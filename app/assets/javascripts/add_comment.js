@@ -1,6 +1,5 @@
 var onReadyAddComment = function() {
 	if (isShow(['moments', 'strategies', 'meetings'])) {
-
 		$(document).on('click', '#add_comment_button', function(event) {
 			event.preventDefault();
 
@@ -27,7 +26,7 @@ var onReadyAddComment = function() {
 					viewers = $('#comment_viewers').val();
 				}
 
-				data = {
+				var data = {
 					comment_type: $('#comment_comment_type').val(),
 					commented_on:$('#comment_commented_on').val(),
 					comment_by: $('#comment_comment_by').val(),
@@ -71,7 +70,7 @@ var onReadyAddComment = function() {
 					    		newComment += '</div>';
 
 					    		newComment += '<div class="table_cell">';
-					    		newComment += '<div class="comment_info">'
+					    		newComment += '<div class="comment_info">';
 					    		newComment += comment_info;
 					    		newComment += '</div>';
 					    		newComment += '<div class="comment_text">';
@@ -109,6 +108,6 @@ var onReadyAddComment = function() {
 			}
 		});
 	}
-}
+};
 
 $(document).on("page:load ready", onReadyAddComment);

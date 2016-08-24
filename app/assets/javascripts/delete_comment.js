@@ -7,7 +7,7 @@ var onReadyDeleteComment = function() {
 			var comment = '#comment_' + commentid;
 			$(comment).remove();
 
-			if ($('.comment').length == 0) {
+			if ($('.comment').length === 0) {
 				$('.actions').addClass('no_margin_bottom');
 			} else {
 				$('.comment').first().addClass('no_margin_top');
@@ -25,6 +25,6 @@ var onReadyDeleteComment = function() {
 			$.ajax(url);
 		});
 	}
-}
+};
 
 $(document).on("page:load ready", onReadyDeleteComment);

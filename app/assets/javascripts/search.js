@@ -24,6 +24,6 @@ var onReadySearch = function() {
 		});
 		$("#search_location").autocomplete("option", "delay", 100);
 	}
-}
+};
 
 $(document).on("page:load ready", onReadySearch);

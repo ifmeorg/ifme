@@ -11,7 +11,7 @@ var onChangeViewers = function() {
 		$(":checkbox[id='viewers']").prop("checked", false);
 		$('#viewers_label').text(ALL_ALLIES);
 		$(":checkbox[name='strategy[comment]']").prop("checked", false);
-	};
+	}
 };
 
 var showTaggedMoments = function() {
@@ -34,6 +34,6 @@ var onReadyStrategies = function() {
 		$('#showTaggedMoments').click(showTaggedMoments);
 		$('#hideTaggedMoments').click(hideTaggedMoments);
 	}
-}
+};
 
 $(document).on("page:load ready", onReadyStrategies);
