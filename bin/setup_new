@@ -1,0 +1,195 @@
+#!/usr/bin/env bash
+# taken from https://gist.github.com/gvarela/9370838
+
+{
+  RUBY_VERSION=$(cat .ruby-version)
+  RUBY_VERSION=${RUBY_VERSION:=2.3.0}
+  PROJECT_NAME="ifme"
+} >/dev/null 2>&1
+
+## bootstrap function called at bottom of file comment out verification steps you don't need
+init (){
+  verify_ruby_version &&
+    verify_bundled_gems
+  copy_example_config_files
+  verify_postgres_running &&
+    verify_database_migrations
+}
+
+
+has_postgres (){
+  hash psql >/dev/null 2>&1
+}
+
+postgres_is_running (){
+  ps aux | grep [p]ostgres >/dev/null 2>&1
+}
+
+has_rvm (){
+  hash rvm >/dev/null 2>&1
+}
+
+rvm_use_ruby_version () {
+  check_rvm_is_function
+  rvm $RUBY_VERSION >/dev/null 2>&1 || {
+    rvm_install_ruby_version
+    rvm $RUBY_VERSION >/dev/null 2>&1 || {
+      echo "Unable to use $RUBY_VERSION using rvm."
+      exit 1
+    }
+  }
+}
+
+# https://rvm.io/workflow/scripting
+check_rvm_is_function () {
+  RVM_TYPE=$(type rvm | head -1)
+  [[ $RVM_TYPE == 'rvm is a function' ]] || load_rvm_as_function
+}
+
+load_rvm_as_function () {
+  if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+    # First try to load from a user install
+    source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
+  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+    # Then try to load from a root install
+    source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
+  else
+    printf "Unable to load rvm into shell session as a function.\n\n"
+    printf "Try \`rvm ${RUBY_VERSION}\` or see https://rvm.io/rvm for help.\n\n"
+    exit 1
+  fi
+}
+
+
+rvm_install_ruby_version () {
+  echo "Installing ruby $RUBY_VERSION using rvm..."
+  rvm install $RUBY_VERSION >/dev/null 2>&1 || {
+    echo "Unable to install $RUBY_VERSION using rvm."
+    exit 1
+  }
+  echo "Sucessfully installed $RUBY_VERSION."
+}
+
+has_rbenv (){
+  hash rbenv >/dev/null 2>&1
+}
+
+rbenv_install_ruby_version () {
+  rbenv install $RUBY_VERSION || {
+    echo "Unable to install ruby $RUBY_VERSION using rbenv."
+    exit 1
+  }
+  rbenv local $RUBY_VERSION
+}
+
+has_ruby_version (){
+  INSTALLED_RUBY_VERSION=$(ruby -e 'puts RUBY_VERSION')
+  [ "$INSTALLED_RUBY_VERSION" == "$RUBY_VERSION" ]
+}
+
+install_ruby_version (){
+  if has_rvm
+  then
+    rvm_use_ruby_version
+  elif has_rbenv
+  then
+    rbenv_install_ruby_version
+  else
+    echo "Please install either rbenv, rvm or ruby $RUBY_VERSION."
+    exit 1
+  fi
+}
+
+verify_ruby_version (){
+  has_ruby_version || install_ruby_version
+}
+
+has_bundler (){
+  hash bundle >/dev/null 2>&1
+}
+
+verify_bundled_gems () {
+  has_bundler || install_bundler
+  bundle_check || bundle_install || {
+    check_pg || pg_message
+    echo 'Unable to install all dependencies from Gemfile. Make sure `bundle install` succeeds before continuing.'
+    exit 1
+  }
+}
+
+install_bundler () {
+  echo 'Installing bundler...'
+  gem install bundler || {
+    echo 'Unable to install bundler.'
+    exit 1
+  }
+}
+
+bundle_install () {
+  echo 'Installing dependencies specified in Gemfile...'
+  bundle install
+}
+
+check_pg () {
+  gem list -i pg >/dev/null 2>&1
+}
+
+pg_message () {
+  printf "Unable to install pg gem.\n\n
+  If you are using homebrew, try `brew update` and `brew install
+  postgresql`.\n\n
+  If you are using Ubuntu, try `sudo apt-get install
+  libpq-dev`"
+}
+
+bundle_check () {
+  bundle check >/dev/null 2>&1
+}
+
+verify_postgres_running () {
+  echo "Verifying postgres is running..."
+  has_postgres || {
+    echo 'Please install postgresql.'
+    exit 1
+  }
+
+  postgres_is_running || {
+    echo 'Please ensure postgresql is running'
+    exit 1
+  }
+}
+
+verify_database_migrations () {
+  db_setup || {
+    echo 'Unable to setup the databases for you. Please ensure your
+    database.yml is configured for your system and run `rake db:setup`'
+    exit 1
+  }
+}
+
+db_setup () {
+  echo 'Creating the database, loading the schema and initializing it with the seed
+  data'
+  bundle exec rake db:setup >/dev/null 2>&1
+}
+
+copy_example_config_files () {
+  echo "Copying example config files..."
+  if [ ! -f config/application.yml ]
+  then
+    cp config/application.example.yml config/application.yml
+  fi
+  if [ ! -f config/smtp.yml ]
+  then
+    cp config/smtp.example.yml config/smtp.yml
+  fi
+  if [ ! -f config/database.yml ]
+  then
+    cp config/database.example.yml config/database.yml
+  fi
+}
+
+# start it up!!
+init
+echo 'Ready!'
+echo 'Run `rails s` to start the server'
