@@ -14,6 +14,7 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 * [Getting Started](#getting-started)
 * [Testing Accounts](#testing-accounts)
 * [Unit Tests](#unit-tests)
+* [Static Code Analysis](#static-code-analysis)
 * [Committing Work](#committing-work)
 * [Tracking Issues](#tracking-issues)
 * [License](#license)
