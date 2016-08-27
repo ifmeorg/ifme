@@ -1,16 +1,16 @@
 <div class="tip_notifications display_none no_center">
 	<div class="tip_notifications_text">
-		<div class="table small_margin_bottom">
-			<div class="table_row">
-				<div class="table_cell vertical_align_middle">
-					<h1 class="notification_name"><%= local_assigns[:data].name %></h1>
-				</div>
-				<div class="table_cell align_right">
-					<h1 class="tip_close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-				</div>
+		<div class="titlebar">
+			<div class="align_left">
+				<h1 class="notification_name"><%= local_assigns[:data].name %></h1>
 			</div>
+			<div class="align_right">
+				<h1 class="tip_close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
+			</div>
+			<div class="clear"></div>
 		</div>
 
+		<div class="modal_text">
 		<% if !local_assigns[:data].description.blank? && local_assigns[:data].description.length > 0 %>
 		<%= raw(local_assigns[:data].description) %>
 		<% elsif current_user.id == local_assigns[:data].userid %>
@@ -30,6 +30,7 @@
         <% else %>
         	<strong>Created by</strong>: <%= link_to User.where(id: local_assigns[:data].userid).first.name, profile_index_path(uid: get_uid(local_assigns[:data].userid)) %>
         <% end %>
+        </div>
         </div>
 	</div>
 </div>

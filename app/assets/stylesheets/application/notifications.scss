@@ -9,6 +9,48 @@
   left: 0;
 }
 
+.titlebar {
+  background: linear-gradient(90deg, $background-color 97%, $transparent 3%);
+  width: 50%;
+  position: fixed;
+
+  @media screen and (max-width: $small) {
+    width: 90%;
+  }
+
+  .align_left {
+    float: left !important;
+    display: inline-block !important;
+    width: auto !important;
+    padding: 40px 0px 20px 40px;
+
+    @media screen and (max-width: $small) {
+      padding: 20px 0px 20px 20px;
+    }
+  }
+
+  .align_right {
+    float: right !important;
+    display: inline-block !important;
+    width: auto !important;
+    padding: 40px 40px 20px 0px;
+
+    @media screen and (max-width: $small) {
+      padding: 20px 20px 20px 0px;
+    }
+  }
+}
+
+.modal_text {
+  margin-top: 100px;
+  padding: 0px 40px 40px 40px;
+
+  @media screen and (max-width: $small) {
+    margin-top: 80px;
+    padding: 0px 20px 20px 20px;
+  }
+}
+
 @media screen and (max-width: $medium) {
   .tip_notifications,
   .quick_notifications,
@@ -25,16 +67,15 @@
 #categories_moods_text {
   margin: 0 auto;
   width: 50%;
-  max-height: 250px;
-  padding: 40px;
+  max-height: 350px;
   overflow: scroll;
   border: 1px solid $container-color;
   box-shadow: 0 0 10px $container-color;
   background-color: $background-color;
 
   @media screen and (max-width: $small) {
-    width: 80%;
-    padding: 20px;
+    width: 90%;
+    max-height: 250px;
   }
 }
 
@@ -101,8 +142,12 @@ h1#close_categories_moods, {
   margin: 0px;
   color: $secondary-text-color;
 
+  @media screen and (max-width: $medium) {
+    font-size: 22px;
+  }
+
   @media screen and (max-width: $small) {
-    font-weight: 22px;
+    font-size: 20px;
   }
 }
 

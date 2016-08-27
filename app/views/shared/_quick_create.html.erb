@@ -1,16 +1,16 @@
 <div id=<%= local_assigns[:data_type].to_s + '_quick_create' %> class="quick_create display_none">
 	<div class="quick_create_text">
-		<div class="table small_margin_bottom">
-			<div class="table_row">
-				<div class="table_cell vertical_align_middle">
-					<h1 class="notification_name"><%= t('add') %> <%= local_assigns[:data_type].to_s.titleize %></h1>
-				</div>
-				<div class="table_cell align_right">
-					<h1 class="quick_create_close" class="align_right"><i class="fa fa-times"></i></h1>
-				</div>
+		<div class="titlebar">
+			<div class="align_left">
+				<h1 class="notification_name"><%= t('add') %> <%= local_assigns[:data_type].to_s.titleize %></h1>
 			</div>
+			<div class="align_right">
+				<h1 class="quick_create_close" class="align_right"><i class="fa fa-times"></i></h1>
+			</div>
+			<div class="clear"></div>
 		</div>
 
+		<div class="modal_text">
 		<%
 			if local_assigns[:data_type] == 'category'
 				url = quick_create_categories_path
@@ -47,5 +47,6 @@
 			</div>
 
 		<% end %>
+		</div>
 	</div>
 </div>

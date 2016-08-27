@@ -128,7 +128,7 @@
         <%= f.label t('moments.form.allow_comments') %>
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.comments_hint')) %>
         <div class="align_right">
-          <%= f.check_box :comment %>
+          <%= f.check_box :comment, class: 'no_margin_right' %>
         </div>
       </div>
     </div>
