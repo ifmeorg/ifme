@@ -82,7 +82,7 @@
         <%= f.label t('moments.form.strategies') %>
       </div>
 
-      <div id ="strategies" class="display_none">
+      <div id="strategies" class="display_none">
         <div id="strategies_list">
         <% if !@strategies.nil? && @strategies.length > 0 %>
           <% @strategies.each do |item| %>
@@ -101,16 +101,25 @@
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label">
+        <a href="#" class="toggle_button" id="showViewers">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <a href="#" class="toggle_button display_none" id="hideViewers">
+          <i class="fa fa-caret-up" ></i>
+        </a>
         <%= f.label t('moments.form.viewers') %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('moments.form.viewers_hint')) %>
-        </div>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
       </div>
+    </div>
+
+    <div id="viewers" class="display_none">
+      <div id="viewers_list">
       <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
       <br>
       <% @viewers.each do |item| %>
       <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %><%= User.where(id: item.id).first.name %><br>
       <% end %>
+      </div>
     </div>
     <% end %>
 

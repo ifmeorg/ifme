@@ -29,7 +29,7 @@
   padding: 40px;
   overflow: scroll;
   border: 1px solid $container-color;
-  box-shadow: 0 0 40px $container-color;
+  box-shadow: 0 0 10px $container-color;
   background-color: $background-color;
 
   @media screen and (max-width: $small) {

@@ -99,6 +99,20 @@ var onReadyApplication = function() {
 			$('#showStrategies').css({"display": "block"});
 			$('#hideStrategies').css({"display": "none"});
 		});
+
+		$('#showViewers').click(function(event) {
+			event.preventDefault();
+			$('#viewers').css({"display": "block"});
+			$('#showViewers').css({"display": "none"});
+			$('#hideViewers').css({"display": "block"});
+		});
+
+		$('#hideViewers').click(function(event) {
+			event.preventDefault();
+			$('#viewers').css({"display": "none"});
+			$('#showViewers').css({"display": "block"});
+			$('#hideViewers').css({"display": "none"});
+		});
 	}
 };
 
