@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature "UserVisitsGroupsPages", type: :feature do
   feature 'User vists groups page' do
     scenario 'successfully' do

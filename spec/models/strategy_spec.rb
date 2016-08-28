@@ -13,8 +13,6 @@
 #  name        :string(255)
 #
 
-require 'rails_helper'
-
 describe Strategy do
  	it "creates a strategy" do
  		new_user1 = create(:user1)

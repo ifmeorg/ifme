@@ -1,6 +1,4 @@
-require 'rails_helper'
-
-RSpec.feature 'UserCreatesGroups', type: :feature do
+describe 'UserCreatesGroups' do
   scenario 'successfully' do
     user = create :user
     login_as user

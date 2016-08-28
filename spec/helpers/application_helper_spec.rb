@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe ApplicationHelper do
   describe "#nav_link_to" do
     let(:is_active) { true }

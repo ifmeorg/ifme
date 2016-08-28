@@ -54,6 +54,11 @@ group :development, :test do
   gem 'jshint'
 end
 
+group :test do
+  gem 'selenium-webdriver',         '2.53.4'
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'rails_12factor',             '0.0.3'
 end

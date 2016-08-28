@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature "UserViewsAStrategy", type: :feature do
   let(:user) { create :user2 }
 

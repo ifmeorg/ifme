@@ -10,8 +10,6 @@
 #  updated_at :datetime
 #
 
-require 'rails_helper'
-
 describe MeetingMember do
   it "has a valid factory" do
     meeting_member = build :meeting_member
