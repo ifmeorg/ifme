@@ -19,6 +19,15 @@
 //= require underscore
 //= require_tree .
 
+/* Viewers */
+function isAllAlliesInputBoxIsChecked(inputTag) {
+	return inputTag.is(":checked") && $('#viewers_label').text() === ALL_ALLIES;
+}
+
+function setViewersCheckBoxToNotBeSelected() {
+	$(":checkbox[id='viewers_all']").prop("checked", false);
+}
+
 function newOrEdit(forms) {
 	var result = false;
 	_.each(forms, function(form) {

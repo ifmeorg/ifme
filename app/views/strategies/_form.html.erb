@@ -63,7 +63,7 @@
 
     <div id="viewers" class="display_none">
       <div id="viewers_list">
-      <input type="checkbox" id="viewers" /><span id="viewers_label"></span>
+      <input type="checkbox" id="viewers_all" /><span id="viewers_label"></span>
       <br>
       <% @viewers.each do |item| %>
       <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item.id)}, item.id, nil) %><%= User.where(:id => item.id).first.name %><br>

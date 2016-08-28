@@ -1,85 +1,57 @@
 describe("Strategies", function() {
-  var NO_ALLIES = "Unselect all";
-  var ALL_ALLIES = "Select all";
+  var newOrEdit;
+  var isAllAlliesInputBoxIsChecked;
+
   beforeAll(function() {
-    $("body").addClass("strategies new");
+    $(document.body).addClass("strategies new");
 
-    $("body")
-    .prepend(
-      $("<div>")
-      .attr("id", "test_body")
-      .append(
-        $('<label>')
-        .attr("id", "viewers_label")
-        .text(ALL_ALLIES),
+    var elements = [];
+    elements.push("<div id='test_body'></div>");
+    elements.push("<label id='viewers_label'></label>");
+    elements.push("<input type='checkbox' id='viewers_all'></input>");
+    elements.push("<input type='checkbox' name='strategy[viewers][]'></input>");
+    elements.push("<input type='checkbox' name='strategy[comment][]'></input>");
+    elements.push("<div id='moment_tag_usage' class='display_none'></div>");
+    elements.push("<div id='showTaggedMoments' class='display_inline_block'></div>");
+    elements.push("<div id='hideTaggedMoments' class='display_none'></div>");
+    for (var i = 0; i < elements.length; i++) {
+      $(document.body).append(elements[i]);
+    }
 
-        $('<input>')
-        .attr({
-          "type": "checkbox",
-          "id": "viewers"
-        }),
-
-        $('<input>')
-        .attr({
-          "type": "checkbox",
-          "name": "strategy[viewers][]"
-        }),
-
-        $('<input>')
-        .attr({
-          "type": "checkbox",
-          "name": "strategy[comment]"
-        }),
-
-        $('<div>')
-        .attr({
-          "id": "moment_tag_usage"
-        })
-        .addClass("display_none"),
-
-        $('<div>')
-        .attr({
-          "id": "showTaggedMoments"
-        })
-
-        .addClass("display_inline_block"),
-
-        $('<div>')
-        .attr({
-          "id": "hideTaggedMoments"
-        })
-        .addClass("display_none")
-      )
-    )
-    onReadyStrategies();
+    newOrEdit = spyOn(window, 'newOrEdit');
+    isAllAlliesInputBoxIsChecked = spyOn(window, 'isAllAlliesInputBoxIsChecked');
   });
+
   afterAll(function() {
     $("#test_body").remove();
     $("body").removeClass("strategies new");
   });
+
 	it("test all viewers not checked", function() {
     // all are unchecked
+    newOrEdit.and.returnValue(true);
+
+    onReadyStrategies();
+
     expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(false);
-    expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
+    expect($(":checkbox[id='viewers_all']").prop("checked")).toBe(false);
   	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
-    expect($(":checkbox[name='strategy[comment]']").prop("checked")).toBe(false);
   });
+
   it("test all viewers checked", function() {
     // check all
-    $(":checkbox[id='viewers']").prop("checked", true);
-    onChangeViewers.apply($(":checkbox[id='viewers']")[0]);
-    expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(true);
-    expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
+    isAllAlliesInputBoxIsChecked.and.returnValue(true);
+    $('#viewers_all').change();
   	expect($('#viewers_label').text()).toBe(NO_ALLIES);
   });
+
   it("test all viewers unchecked", function() {
     // uncheck all
-    $(":checkbox[id='viewers']").prop("checked", true);
-    onChangeViewers.apply($(":checkbox[id='viewers']")[0]);
-    expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(false);
-    expect($(":checkbox[id='viewers']").prop("checked")).toBe(false);
+    isAllAlliesInputBoxIsChecked.and.returnValue(false);
+    $('#viewers_all').change();
   	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
 	});
+
   it("test tagged moments hidden", function() {
     // hidden tagged moments
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
@@ -87,6 +59,7 @@ describe("Strategies", function() {
   	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
     showTaggedMoments();
 	});
+
   it("test tagged moments shown", function() {
     // shown tagged moments
     expect($('#moment_tag_usage').hasClass("display_block")).toBe(true);
@@ -94,6 +67,7 @@ describe("Strategies", function() {
   	expect($('#hideTaggedMoments').hasClass("display_inline_block")).toBe(true);
     hideTaggedMoments();
 	});
+
   it("test tagged moments re-hidden", function() {
     // hidden tagged moments
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);

@@ -1,23 +1,22 @@
 describe("Moments", function() {
-
   var newOrEdit;
   var isAllAlliesInputBoxIsChecked;
-  var selectAllAlliesWhoCanViewMomement;
+  var selectAllAlliesWhoCanViewMoment;
   var setViewersCheckBoxToNotBeSelected;
   var unselectAllAlliesWhoCanViewMoment;
 
-    beforeAll(function() {
+  beforeAll(function() {
     var elements = [];
     elements.push("<div id='test_body'></div>");
     elements.push("<label id='viewers_label'></label>");
-    elements.push("<input type='checkbox' id='viewers'></input>");
+    elements.push("<input type='checkbox' id='viewers_all'></input>");
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
 
     newOrEdit = spyOn(window, 'newOrEdit');
     isAllAlliesInputBoxIsChecked = spyOn(window, 'isAllAlliesInputBoxIsChecked');
-    selectAllAlliesWhoCanViewMomement = spyOn(window, 'selectAllAlliesWhoCanViewMomement');
+    selectAllAlliesWhoCanViewMoment = spyOn(window, 'selectAllAlliesWhoCanViewMoment');
 
     setViewersCheckBoxToNotBeSelected = spyOn(window, 'setViewersCheckBoxToNotBeSelected');
 
@@ -55,7 +54,7 @@ describe("Moments", function() {
   it("has called lableTextIsAllAllies when input box is checked", function() {
       newOrEdit.and.returnValue(true);
 
-     $('#viewers').change();
+     $('#viewers_all').change();
 
       expect(isAllAlliesInputBoxIsChecked).toHaveBeenCalled();
   });
@@ -63,15 +62,15 @@ describe("Moments", function() {
   it("has selected all allies who can view moment when ALL_ALLIES is selected",  function() {
       isAllAlliesInputBoxIsChecked.and.returnValue(true);
 
-      $('#viewers').change();
+      $('#viewers_all').change();
 
-      expect(selectAllAlliesWhoCanViewMomement).toHaveBeenCalled();
+      expect(selectAllAlliesWhoCanViewMoment).toHaveBeenCalled();
   });
 
-  it("has not selected #viewers checkbox when ALL_ALLIES is selected",  function() {
+  it("has not selected #viewers_all checkbox when ALL_ALLIES is selected",  function() {
       isAllAlliesInputBoxIsChecked.and.returnValue(true);
 
-      $('#viewers').change();
+      $('#viewers_all').change();
 
       expect(setViewersCheckBoxToNotBeSelected).toHaveBeenCalled();
   });
@@ -85,7 +84,7 @@ describe("Moments", function() {
   it("has unselected all allies who can view the moment when NO_ALLIES is selected", function() {
       isAllAlliesInputBoxIsChecked.and.returnValue(false);
 
-      $('#viewers').change();
+      $('#viewers_all').change();
 
       expect(unselectAllAlliesWhoCanViewMoment).toHaveBeenCalled();
   });
@@ -93,7 +92,7 @@ describe("Moments", function() {
   it("has not selected #viewers checkbox when NO_ALLIES is selected", function () {
       isAllAlliesInputBoxIsChecked.and.returnValue(false);
 
-      $('#viewers').change();
+      $('#viewers_all').change();
 
       expect(setViewersCheckBoxToNotBeSelected).toHaveBeenCalled();
   });
