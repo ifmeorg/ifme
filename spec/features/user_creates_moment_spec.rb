@@ -1,0 +1,94 @@
+describe "UserCreatesAMoment", js: true do
+  let(:user) { create :user2, :with_allies }
+  let!(:category) { create :category, userid: user.id }
+  let!(:mood) { create :mood, userid: user.id }
+  let!(:strategy) { create :strategy, userid: user.id }
+
+  feature 'Creating, viewing, and editing a moment' do
+    it 'is successful' do
+      login_as user
+      visit moments_path
+
+      within '#page_title_content' do
+        expect(page).to have_content 'Moments'
+      end
+
+      expect(page).to have_content 'Delve deep into your moments - events and situations that affect your mental health.'
+      expect(page).to have_content "You haven't written about any moments yet."
+      expect(page).to have_content 'Panicking over interview tomorrow!'
+
+      #CREATING
+      page.find('a[title="New Moment"]').click
+
+      within '#page_title_content' do
+        expect(page).to have_content 'New Moment'
+      end
+
+      page.fill_in "moment[name]", with: "My new moment"
+
+      page.find('#showCategories').click
+
+      within '#categories_list' do
+        page.find('input[type=checkbox]').click
+      end
+
+      page.find('#showMoods').click
+      within '#moods_list' do
+        page.find('input[type=checkbox]').click
+      end
+
+      scroll_to_and_click('#showStrategies')
+
+      scroll_to_and_click('#strategies_list input[type=checkbox]')
+
+      scroll_to_and_click('#showViewers')
+      within '#viewers_list' do
+        scroll_to_and_click('input#viewers_all')
+      end
+
+      # allow comments
+      scroll_to_and_click('input#moment_comment')
+
+      fill_in_ckeditor('moment_why', with: 'my moment why description')
+      fill_in_ckeditor('moment_fix', with: 'my moment fix description')
+
+      page.find('input[value="Create Moment"]').click
+
+      # VIEWING
+      within '#page_title_content' do
+        expect(page).to have_content 'My new moment'
+      end
+      expect(page).to have_content 'Created:'
+      expect(page).to have_content 'Category: Test Category'
+      expect(page).to have_content 'Mood: Test Mood'
+
+      expect(page).to have_content 'Describe the moment and how it affects your mood and behaviour.'
+      expect(page).to have_content 'my moment why description'
+
+      expect(page).to have_content 'What thoughts would you like to have instead?'
+      expect(page).to have_content 'my moment fix description'
+
+      expect(page).to have_content 'What strategies would help achieve these thoughts?'
+      expect(page).to have_content 'Test Strategy'
+
+      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
+      expect(page).to have_css('#new_comment')
+
+      #EDITING
+      page.find('a[title="Edit Moment"]').click
+      within '#page_title_content' do
+        expect(page).to have_content 'Edit My new moment'
+      end
+
+      fill_in_ckeditor('moment_why', with: 'I am changing my moment why description')
+
+      page.find('input[value="Update Moment"]').click
+
+      #VIEWING AFTER EDITING
+      within '#page_title_content' do
+        expect(page).to have_content 'My new moment'
+      end
+      expect(page).to have_content 'I am changing my moment why description'
+    end
+  end
+end
