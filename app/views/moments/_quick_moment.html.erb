@@ -8,8 +8,8 @@
 	<div class="table" id="quick_moment">
 		<div class="table_row">
 			<div class="table_cell small_padding_right vertical_align_middle">
-				<%= f.text_field :name, placeholder: t('moments.form.name') %>
-				<%= f.text_area :why, placeholder: t('moments.form.what_happened') %>
+				<%= f.text_field :name, placeholder: t('moments.form.name'), :required => true %>
+				<%= f.text_area :why, placeholder: t('moments.form.what_happened'), :required => true %>
 				<div class="quick_moment_disclaimer">
 					<%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
 					<%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
