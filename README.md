@@ -333,6 +333,8 @@ bin/rake db:create db:migrate RAILS_ENV=test
 
 ### Jasmine for JavaScript
 
+Make sure PhantomJS is installed locally, either through their [website](http://phantomjs.org) or by running `brew install phantomjs`.
+
 #### GUI
 
 In a new terminal window, run `rake jasmine`.
