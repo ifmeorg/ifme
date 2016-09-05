@@ -44,20 +44,22 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <div id="notifications" class="display_none">
       <div id="notifications_text">
-        <div class="table">
-          <div class="table_row">
-            <div class="table_cell vertical_align_middle">
-              <h1 class="notification_name">Notifications</h1>
-            </div>
-            <div class="table_cell align_right">
-              <h1 id="clear_notifcations" class="align_left small_margin_right">Clear</h1>
-              <h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-              <div class="clear"></div>
-            </div>
+        <div class="titlebar">
+          <div class="align_left">
+            <h1 class="notification_name"><%= t('notifications.title') %></h1>
           </div>
+          <div class="align_right">
+            <h1 id="clear_notifcations" class="align_left small_margin_right"><%= t('notifications.clear') %></h1>
+            <h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
         </div>
-        <i id="notifications_none" class="display_none">There are none</i>
-        <div id="notifications_list"></div>
+
+        <div class="modal_text">
+          <i id="notifications_none" class="display_none"><%= t('notifications.none') %></i>
+          <div id="notifications_list"></div>
+        </div>
       </div>
     </div>
 

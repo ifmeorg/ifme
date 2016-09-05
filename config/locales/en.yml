@@ -242,6 +242,9 @@ en:
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
 
  notifications:
+  title: 'Notifications'
+  none: 'There are none'
+  clear: 'Clear'
   members:
    title: 'List of Members'
    remove: 'Remove'
