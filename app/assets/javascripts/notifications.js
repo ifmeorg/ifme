@@ -179,6 +179,7 @@ function quickCreate(form, data_type) {
         $('#strategies_list').prepend(json.checkbox);
       }
 
+      $(form).trigger('reset');
       $('.quick_create_close').click();
   });
 }

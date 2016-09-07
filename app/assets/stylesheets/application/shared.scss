@@ -306,3 +306,15 @@ h1.tag_type {
 	}
 }
 
+#categories_list,
+#moods_list,
+#strategies_list,
+#viewers_list {
+	overflow: auto;
+	max-height: 200px;
+	width: 100%;
+
+	@media screen and (max-width: $small) {
+		max-height: 100px;
+	}
+}
