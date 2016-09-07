@@ -12,7 +12,7 @@
     <div class="field" >
       <div class="label">
         <%= f.label t('medications.form.name'), for: 'medication_name' %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
       <%= f.text_field :name, :class => "name_field" %>
@@ -38,7 +38,7 @@
         <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
         <div class="align_right">
           <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.strength_hint')) %>
-          <i class="fa fa-exclamation-circle"></i>
+          <i class="fa fa-asterisk"></i>
         </div>
         <div class="clear"></div>
       </div>
@@ -53,7 +53,7 @@
         <%= f.label :total, for: 'medication_total' %>
         <div class="align_right">
           <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.total_hint')) %>
-          <i class="fa fa-exclamation-circle"></i>
+          <i class="fa fa-asterisk"></i>
         </div>
         <div class="clear"></div>
       </div>
@@ -72,7 +72,7 @@
         <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
         <div class="align_right">
           <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.dosage_hint')) %>
-          <i class="fa fa-exclamation-circle"></i>
+          <i class="fa fa-asterisk"></i>
         </div>
         <div class="clear"></div>
       </div>
@@ -87,7 +87,7 @@
         <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
         <div class="align_right">
           <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_hint')) %>
-          <i class="fa fa-exclamation-circle"></i>
+          <i class="fa fa-asterisk"></i>
         </div>
         <div class="clear"></div>
       </div>

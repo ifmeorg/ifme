@@ -14,7 +14,7 @@
   <div class="field">
     <div class="label">
       <%= f.label t('groups.form.name'), for: 'group_name' %>
-      <i class="fa fa-exclamation-circle align_right"></i>
+      <i class="fa fa-asterisk align_right"></i>
       <div class="clear"></div>
     </div>
     <%= f.text_field :name, :class => "name_field" %>
@@ -23,7 +23,7 @@
   <div class="field">
     <div class="label">
       <%= f.label t('groups.form.description'), for: 'group_description' %>
-      <i class="fa fa-exclamation-circle align_right"></i>
+      <i class="fa fa-asterisk align_right"></i>
       <div class="clear"></div>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>

@@ -14,7 +14,7 @@
         <%= f.label t('strategies.form.name'), for: 'strategy_name' %>
         <div class="align_right">
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
-        <i class="fa fa-exclamation-circle"></i>
+        <i class="fa fa-asterisk"></i>
       </div>
       <div class="clear"></div>
       </div>
@@ -87,7 +87,7 @@
     <div class="field">
       <div class="label">
         <%= f.label t('strategies.form.describe'), for: 'strategy_description' %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>

@@ -12,7 +12,7 @@
     <div class="sidebar_field" >
       <div class="sidebar_label">
         <%= f.label t('moments.form.name'), for: 'moment_name' %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
       <%= f.text_field :name, :class => "name_field" %>
@@ -138,7 +138,7 @@
     <div class="field">
       <div class="label">
         <%= f.label t('moments.form.describe'), for: 'moment_why' %>
-        <i class="fa fa-exclamation-circle align_right"></i>
+        <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
       <%= f.cktext_area :why, class: 'no_title special_textarea ckeditor' %>
