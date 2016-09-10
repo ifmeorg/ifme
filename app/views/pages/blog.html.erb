@@ -4,42 +4,14 @@
 	}) %>
 <div class="spacer"></div>
 
-<div class="blog_post">
-	<h1 class="blog_name"><%= link_to "On Depression", "https://medium.com/invisible-illness/on-depression-33b3ebf2c7e1#.3l6rjzmb4", target: 'blank' %></h1>
-	Eloisa Guerrero
-</div>
 
-<div class="blog_post">
-	<h1 class="blog_name"><%= link_to "Undercover Mental Patient Survival Guide", "https://medium.com/@rosecheval_74352/stigma-equals-death-7a7d94b638ae#.bor3nudib", target: 'blank' %></h1>
-	Rose Cheval
-</div>
-
-<div class="blog_post">
-	<h1 class="blog_name"><%= link_to "Opening up your beliefs", "http://everybodyhasabrain.tumblr.com/post/111290701414/beliefs-tend-to-change-when-theyre-brought-out", target: 'blank' %></h1>
-	Matt Schroeter, Everybody Has a Brain
-</div>
-
-<div class="blog_post">
-	<h1 class="blog_name"><%= link_to "Nail biting and anxiety", "http://everybodyhasabrain.tumblr.com/post/60429876832/i-dont-remember-exactly-when-i-started-to-bite-my", target: 'blank' %></h1>
-	Daniela Pichardo, Everybody Has a Brain
-</div>
-
-<div class="blog_post">
-	<h1 class="blog_name"><%= link_to "How do you ignore your OCD compulsions?", "http://everybodyhasabrain.tumblr.com/post/117512957629/how-do-you-ignore-ocd-compulsions-its-sort-of", target: 'blank' %></h1>
-	Mark Freeman, Everybody Has a Brain
-</div>
-
-<div class="blog_post">
-  <h1 class="blog_name"><%= link_to "Immigrants also have to challenge their own culture's mental health stigma", "https://medium.com/aj-global-engagers/immigrants-also-have-to-challenge-their-own-culture-s-mental-health-stigmas-21944ee53f01", target: 'blank' %></h1>
-  Julia Nguyen
-</div>
-
-<div class="blog_post">
-  <h1 class="blog_name"><%= link_to "Thoughts on support groups for mental illness", "http://julianguyen.org/thoughts-on-support-groups-for-mental-illness/", target: 'blank' %></h1>
-  Julia Nguyen
-</div>
-
-<div class="blog_post no_margin_bottom">
-  <h1 class="blog_name"><%= link_to "Exploring options for help", "http://julianguyen.org/exploring-options-for-help/", target: 'blank' %></h1>
-  Julia Nguyen
-</div>
+<% @posts.each_with_index do |p, index| %>
+	<% if index + 1 == @posts.length %>
+		<div class="blog_post no_margin_bottom">
+	<% else %>
+		<div class="blog_post">
+	<% end %>
+			<h1 class="blog_name"><%= link_to p[:link_name], p[:link], target: 'blank' %></h1>
+  			<%= p[:author] %>
+  		</div>
+<% end %>

@@ -1,5 +1,6 @@
 <% title t('pages.about.title') %>
 <%= t('app_name') %> <%= raw t('pages.about.description', {
+		linebreak_link: link_to(t('linebreak'), 'https://linebreak.co', target: 'blank'),
 		patreon_link: link_to(t('patreon'), 'http://patreon.com/ifme', target: 'blank')
 	}) %>
 
