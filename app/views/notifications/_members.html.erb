@@ -1,16 +1,11 @@
 <div class="tip_notifications display_none">
   <div class="tip_notifications_text">
-    <div class="titlebar">
-      <div class="align_left">
-        <h1 class="notification_name"><%= t('notifications.members.title') %></h1>
-      </div>
-      <div class="align_right">
-        <h1 class="tip_close_notifications" class="align_right">
-          <i class="fa fa-times"></i>
-        </h1>
-      </div>
-      <div class="clear"></div>
-    </div>
+    <%= render :partial => '/shared/modal',
+      locals: {
+        modal_title: t('notifications.members.title'),
+        modal_close_class: 'tip_close_notifications',
+      }
+    %>
 
     <%# group can be an instance of either group or meeting %>
     <div class="modal_text">

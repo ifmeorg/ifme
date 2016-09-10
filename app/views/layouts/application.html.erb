@@ -44,17 +44,14 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <div id="notifications" class="display_none">
       <div id="notifications_text">
-        <div class="titlebar">
-          <div class="align_left">
-            <h1 class="notification_name"><%= t('notifications.title') %></h1>
-          </div>
-          <div class="align_right">
-            <h1 id="clear_notifcations" class="align_left small_margin_right"><%= t('notifications.clear') %></h1>
-            <h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-            <div class="clear"></div>
-          </div>
-          <div class="clear"></div>
-        </div>
+
+        <%= render :partial => '/shared/modal',
+          locals: {
+            modal_title: t('notifications.title'),
+            modal_close_id: 'close_categories_moods',
+            modal_clear: t('notifications.clear')
+          }
+        %>
 
         <div class="modal_text">
           <i id="notifications_none" class="display_none"><%= t('notifications.none') %></i>

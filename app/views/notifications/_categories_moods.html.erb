@@ -1,22 +1,19 @@
 <div id="categories_moods" class="display_none no_center">
 	<div id="categories_moods_text">
-		<div class="titlebar">
-			<div class="align_left">
-				<h1 class="notification_name">
-				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
-					!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-					<%= t('moments.categories_and_moods') %>
-				<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-					<%= t('categories.index.title') %>
-				<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-					<%= t('moods.index.title') %>
-				<% end %>
-			</div>
-			<div class="align_right">
-				<h1 id="close_categories_moods" class="align_right"><i class="fa fa-times"></i></h1>
-			</div>
-			<div class="clear"></div>
-		</div>
+		<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 && !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+			<% modal_title = t('moments.categories_and_moods') %>
+		<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+			<% modal_title = t('categories.index.title') %>
+		<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+			<% modal_title = t('moods.index.title') %>
+		<% end %>
+
+		<%= render :partial => '/shared/modal',
+			locals: {
+				modal_title: modal_title,
+				modal_close_id: 'close_categories_moods'
+			}
+		%>
 
 		<div class="modal_text">
 		<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>

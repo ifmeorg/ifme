@@ -1,14 +1,11 @@
-<div id=<%= local_assigns[:data_type].to_s + '_quick_create' %> class="quick_create display_none">
+<div id=<%= "#{local_assigns[:data_type].to_s}_quick_create" %> class="quick_create display_none">
 	<div class="quick_create_text">
-		<div class="titlebar">
-			<div class="align_left">
-				<h1 class="notification_name"><%= t('add') %> <%= local_assigns[:data_type].to_s.titleize %></h1>
-			</div>
-			<div class="align_right">
-				<h1 class="quick_create_close" class="align_right"><i class="fa fa-times"></i></h1>
-			</div>
-			<div class="clear"></div>
-		</div>
+		<%= render :partial => '/shared/modal',
+			locals: {
+				modal_title: "#{t('add')} #{local_assigns[:data_type].to_s.titleize}",
+				modal_close_class: 'quick_create_close',
+			}
+		%>
 
 		<div class="modal_text">
 		<%
@@ -22,7 +19,6 @@
 		%>
 
 		<%= form_for(local_assigns[:data], url: url) do |f| %>
-
 			<% if local_assigns[:data].errors.any? %>
 			  	<div class="error_explanation">
 			  	<% if local_assigns[:data_type] == 'category' %>
@@ -45,7 +41,6 @@
 				<%= f.hidden_field :userid, :value => current_user.id %>
 				<%= f.submit %>
 			</div>
-
 		<% end %>
 		</div>
 	</div>

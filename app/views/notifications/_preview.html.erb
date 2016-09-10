@@ -1,14 +1,11 @@
 <div class="tip_notifications display_none no_center">
 	<div class="tip_notifications_text">
-		<div class="titlebar">
-			<div class="align_left">
-				<h1 class="notification_name"><%= local_assigns[:data].name %></h1>
-			</div>
-			<div class="align_right">
-				<h1 class="tip_close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-			</div>
-			<div class="clear"></div>
-		</div>
+		<%= render :partial => '/shared/modal',
+			locals: {
+				modal_title: local_assigns[:data].name,
+				modal_close_class: 'tip_close_notifications',
+			}
+		%>
 
 		<div class="modal_text">
 		<% if !local_assigns[:data].description.blank? && local_assigns[:data].description.length > 0 %>
