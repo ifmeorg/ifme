@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature "UserLeavesGroups", type: :feature do
   scenario "user leaves group that they belong to" do
     user = create :user1

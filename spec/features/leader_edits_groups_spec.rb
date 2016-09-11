@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature "LeaderEditsGroups", type: :feature do
   scenario 'successfully' do
     user = create :user

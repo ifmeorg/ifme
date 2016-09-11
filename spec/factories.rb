@@ -67,6 +67,19 @@ FactoryGirl.define do
     password "password"
     location "Toronto, ON, Canada"
     timezone "-05:00"
+
+    trait :with_allies do
+      transient do
+        number_of_allies 3
+      end
+
+      after(:create) do |user, evaluator|
+        evaluator.number_of_allies.times do |i|
+          ally = create :user1, name: "Ally #{i}"
+          create :allyships_accepted, user_id: user.id, ally_id: ally.id
+        end
+      end
+    end
   end
 
   factory :user3, class: User do

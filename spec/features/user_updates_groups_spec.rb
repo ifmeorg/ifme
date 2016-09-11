@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.feature 'UserUpdatesGroups', type: :feature do
   scenario 'leader removes another leader' do
     leader = create :user1

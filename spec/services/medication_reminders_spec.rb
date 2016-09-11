@@ -1,5 +1,4 @@
 require "spec_helper"
-require "rails_helper"
 
 describe MedicationReminders do
   let(:deliveries) { ActionMailer::Base.deliveries }

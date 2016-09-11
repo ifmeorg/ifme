@@ -1,5 +1,3 @@
-require "rails_helper"
-
 describe "user adds a new medication" do
   let!(:user) { FactoryGirl.create(:user1) }
   before do

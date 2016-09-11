@@ -1,11 +1,6 @@
 <div class="viewers_indicator">
   <% viewers = local_assigns[:data].viewers %>
-  <% if local_assigns[:data].userid == current_user.id %>
-    <% viewer_names = viewers.map { |id| User.where(id: id).first.name } %>
-    <%= t('shared.viewers_indicator.viewers_html', count: viewers.count, names: viewer_names.to_sentence) %>
-  <% else %>
-    <%= t('shared.viewers_indicator.you_are_viewer_html', count: viewers.length) %>
-  <% end %>
+  <%= number_of_viewers(local_assigns[:data].userid, current_user.id, viewers) %>
 
   <% if !local_assigns[:data].comment %>
     <%= t('shared.viewers_indicator.disabled_comments') %>

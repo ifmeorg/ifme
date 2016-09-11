@@ -10,8 +10,6 @@
 #  updated_at :datetime
 #
 
-require 'rails_helper'
-
 describe GroupMember do
   it "has a valid factory" do
     group_member = build :group_member
