@@ -36,6 +36,9 @@ if (typeof(CKEDITOR) != 'undefined') {
 
     config.enterMode = CKEDITOR.ENTER_BR;
 
+    // Skin
+    config.skin = 'minimalist,/assets/ckeditor/minimalist/';
+
     // Rails CSRF token
     config.filebrowserParams = function(){
       var csrf_token, csrf_param, meta,
@@ -97,17 +100,14 @@ if (typeof(CKEDITOR) != 'undefined') {
 
     // Toolbar groups configuration.
     config.toolbar = [
-      // { name: 'document', groups: [ 'mode', 'document', 'doctools' ],
-      { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
       { name: 'links', items: [ 'Link', 'Unlink'] },
-      { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-      '/',
-      { name: 'styles', items: [ 'Format' ] },
+      { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList' ] },
       { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] }
     ];
 
     config.toolbar_mini = [
-      { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+      { name: 'links', items: [ 'Link', 'Unlink'] },
+      { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList' ] },
       { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] }
     ];
   };

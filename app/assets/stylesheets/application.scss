@@ -688,6 +688,12 @@ input[type="submit"]:hover {
   border: none;
 }
 
+.sidebar {
+	@media screen and (min-width: $medium) {
+		width: 30%;
+	}
+}
+
 .sidebar_field {
   padding: 15px 15px 15px 0px;
 

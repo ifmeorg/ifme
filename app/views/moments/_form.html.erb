@@ -7,7 +7,7 @@
 
 <div class="table">
 
-  <div class="table_cell padding_right vertical_align_top">
+  <div class="table_cell padding_right vertical_align_top sidebar">
 
     <div class="sidebar_field" >
       <div class="sidebar_label">
@@ -137,7 +137,7 @@
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
-        <%= f.label t('moments.form.describe'), for: 'moment_why' %>
+        <%= f.label t('moments.form.why'), for: 'moment_why' %>
         <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
@@ -147,7 +147,7 @@
     </div>
     <div class="field">
       <div class="label">
-        <%= f.label t('moments.form.desired') %>
+        <%= f.label t('moments.form.fix') %>
       </div>
       <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
 

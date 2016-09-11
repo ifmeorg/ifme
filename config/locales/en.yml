@@ -191,8 +191,8 @@ en:
    moods: 'Moods'
    strategies: 'Strategies'
    viewers: 'Viewers'
-   describe: 'Describe the moment and how it affects your mood and behaviour.'
-   desired: 'What thoughts would you like to have instead?'
+   why: 'What happened and how do you feel?'
+   fix: 'What thoughts would you like to have?'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields!'
    what_happened: 'What happened?'
@@ -211,9 +211,7 @@ en:
    viewers_hint: 'Control who can view and comment'
   show:
    created: 'Created:'
-   why: 'Describe the moment and how it affects your mood and behaviour.'
-   fix: 'What thoughts would you like to have instead?'
-   strategies: 'What strategies would help achieve these thoughts?'
+   strategies: 'What strategies would help?'
 
  moods:
   form:

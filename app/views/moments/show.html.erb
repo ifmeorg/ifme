@@ -3,14 +3,14 @@
 
 <% if !@moment.why.blank? %>
   <p>
-    <div class="label"><%= label_tag t('moments.show.why') %></div>
+    <div class="label"><%= label_tag t('moments.form.why') %></div>
     <%= raw(@moment.why) %>
   </p>
 <% end %>
 
 <% if !@moment.fix.blank? %>
   <p>
-    <div class="label"><%= label_tag t('moments.show.fix') %></div>
+    <div class="label"><%= label_tag t('moments.form.fix') %></div>
     <%= raw(@moment.fix) %>
   </p>
 <% end %>
