@@ -75,6 +75,7 @@ en:
    home_page: 'Return home'
 
  groups:
+  edit: "Edit %{group}"
   form:
    name: 'Name'
    description: 'Description'
@@ -82,6 +83,7 @@ en:
    only_leader: "You are the only leader, therefore you can't leave."
    cannot_delete: 'Please note that you cannot delete groups.'
    error_explanation: 'Please fill out the marked fields!'
+   error_save: "We can't save this group because: "
   index:
    title: 'Groups'
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
@@ -98,6 +100,7 @@ en:
   members:
    one: '%{count} member'
    other: '%{count} members'
+  new: 'New Group'
   show:
    led_by: 'Led by:'
    self: 'You'
