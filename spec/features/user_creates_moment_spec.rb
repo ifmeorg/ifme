@@ -62,13 +62,13 @@ describe "UserCreatesAMoment", js: true do
       expect(page).to have_content 'Category: Test Category'
       expect(page).to have_content 'Mood: Test Mood'
 
-      expect(page).to have_content 'Describe the moment and how it affects your mood and behaviour.'
+      expect(page).to have_content 'What happened and how do you feel?'
       expect(page).to have_content 'my moment why description'
 
-      expect(page).to have_content 'What thoughts would you like to have instead?'
+      expect(page).to have_content 'What thoughts would you like to have?'
       expect(page).to have_content 'my moment fix description'
 
-      expect(page).to have_content 'What strategies would help achieve these thoughts?'
+      expect(page).to have_content 'What strategies would help?'
       expect(page).to have_content 'Test Strategy'
 
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
