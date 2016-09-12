@@ -123,6 +123,16 @@ en:
    update_account: 'Customize your account'
    if: 'if'
    me: 'me'
+  mailer:
+   html:
+    app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
+    no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
+  title:
+   sign_in: Sign in
+   sign_up: Sign up
+   forgot_password: Forgot your password?
+   account: Account
+   reset_password: Reset your password
 
  medications:
   form:
