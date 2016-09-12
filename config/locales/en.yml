@@ -135,13 +135,13 @@ en:
    reset_password: Reset your password
 
  medications:
+  edit: "Edit %{medication}"
   form:
    name: 'Name'
    comments: 'Comments'
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
    total_placeholder: 'e.g. 30'
-   tablets: 'tablets'
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
@@ -155,6 +155,15 @@ en:
    refill_hint: 'When to refill this prescription'
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled"
    daily_reminder_hint: "We'll email you a daily reminder to take this medication"
+  new: 'New Medication'
+  units:
+   display: "%{count} %{unit}"
+   mg: 'mg'
+   ml: 'ml'
+   tablets:
+    one: 'tablet'
+    other: 'tablets'
+
 
   index:
    title: 'Medications'

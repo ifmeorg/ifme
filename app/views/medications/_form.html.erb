@@ -44,7 +44,7 @@
       </div>
       <div class="inline-block">
         <%= f.number_field :strength, :placeholder => t('medications.form.strength_placeholder') %>
-        <%= f.select(:strength_unit, [['mg', 'mg'], ['ml', 'ml']]) %>
+        <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
       </div>
     </div>
 
@@ -59,7 +59,10 @@
       </div>
       <div class="inline-block">
         <%= f.number_field :total, :placeholder => t('medications.form.total_placeholder') %>
-        <%= f.select(:total_unit, [[t('medications.form.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+        <%= f.select(:total_unit, [
+              [t('medications.units.tablets.other'), 'tablets'],
+              [t('medications.units.mg'), 'mg'],
+              [t('medications.units.ml'), 'ml']]) %>
       </div>
     </div>
 
@@ -78,7 +81,10 @@
       </div>
       <div class="inline-block">
         <%= f.number_field :dosage, :placeholder => t('medications.form.dosage_placeholder') %>
-        <%= f.select(:dosage_unit, [[t('medications.form.tablets'), 'tablets'], ['mg', 'mg'], ['ml', 'ml']]) %>
+        <%= f.select(:dosage_unit, [
+              [t('medications.units.tablets.other'), 'tablets'],
+              [t('medications.units.mg'), 'mg'],
+              [t('medications.units.ml'), 'ml']]) %>
       </div>
     </div>
 
