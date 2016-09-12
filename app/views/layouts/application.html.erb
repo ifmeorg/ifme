@@ -87,7 +87,7 @@
             (params[:controller] == "registrations" && action_name == "update") %>
           <%= t('layouts.application.update_account') %>
 
-        <% elsif !@page_edit.blank? %>
+        <% elsif !@page_edit.blank? && @page_tooltip %>
           <div class="align_left">
             <%= yield(:title) %>
           </div>
@@ -96,7 +96,7 @@
           </div>
           <div class="clear"></div>
 
-        <% elsif yield(:page_new).present? %>
+        <% elsif yield(:page_new).present? && @page_tooltip %>
           <div class="align_left">
             <%= yield(:title) %>
           </div>
