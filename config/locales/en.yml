@@ -23,16 +23,24 @@ en:
  add: 'Add'
  add_all: 'Add all'
  of: 'of'
+ cancel: 'Cancel'
+ accept: 'Accept'
+ reject: 'Reject'
+ remove: 'Remove'
+ delete: 'Delete'
+ ellipsis: " [...]"
 
  allies:
   index:
    title: 'Allies'
    outgoing: 'Outgoing Requests'
    incoming: 'Incoming Requests'
+   invite: 'Invite your loved ones!'
    confirm: 'Are you sure?'
    none: 'You currently have no allies! You can search for them or invite loved ones to join!'
 
  categories:
+  edit: "Edit %{category}"
   form:
    name: 'Name'
    description: 'Description'
@@ -56,6 +64,7 @@ en:
    premade4_name: 'Meditation'
    premade4_description: 'Meditation, deep breathing, and relaxing activities'
    instructions: "You haven't created any custom categories yet. Click %{icon} to add some!<br>You can also add the following premade categories and customize them another time."
+  new: "New Category"
 
  errors:
   internal_server_error:
