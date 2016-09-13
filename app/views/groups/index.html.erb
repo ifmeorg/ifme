@@ -13,7 +13,7 @@
     <div class="group <%= 'no_margin_bottom' if group == @groups.last %>">
       <h1 class="group_name">
         <%= link_to group.name, group %>
-        (<%= t('groups.index.leader') if user_is_leader_of? group %>)
+        <%= t('groups.index.leader') if user_is_leader_of? group %>
       </h1>
 
       <div class="notification_wrapper small_margin_bottom">

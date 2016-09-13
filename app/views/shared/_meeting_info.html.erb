@@ -26,14 +26,14 @@
 <div class="notification_wrapper">
   <strong class="tip_notifications_button">
     <i class="fa fa-list small_margin_right"></i>
-    <%= t('meetings.info.members', count: meeting.members.count) %>
+    <% if local_assigns[:show_group] %>
+      <%= t('meetings.info.members_of_group_html',
+            count: meeting.members.count,
+            group: link_to(meeting.group.name, meeting.group)) %>
+    <% else %>
+      <%= t('meetings.info.members', count: meeting.members.count) %>
+    <% end %>
   </strong>
-
-  <% if local_assigns[:show_group] %>
-    <strong>
-      <%= raw " #{t('of')} #{link_to(meeting.group.name, meeting.group)}" %>
-    </strong>
-  <% end %>
 
   <%= render partial: '/notifications/members', locals: { group: meeting } %>
 </div>

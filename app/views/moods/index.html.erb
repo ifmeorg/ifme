@@ -35,7 +35,7 @@
 
     <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>
     <% if t('moods.index.premade1_description').length >= 80 %>
-      <%= " [...]" %>
+      <%= t('ellipsis') %>
     <% end %>
   </div>
 
@@ -44,7 +44,7 @@
 
     <%= strip_tags(t('moods.index.premade2_description')[0..80]) %>
     <% if t('moods.index.premade2_description').length >= 80 %>
-      <%= " [...]" %>
+      <%= t('ellipsis') %>
     <% end %>
   </div>
 
@@ -53,7 +53,7 @@
 
     <%= strip_tags(t('moods.index.premade3_description')[0..80]) %>
     <% if t('moods.index.premade3_description').length >= 80 %>
-      <%= " [...]" %>
+      <%= t('ellipsis') %>
     <% end %>
   </div>
 
@@ -62,7 +62,7 @@
 
     <%= strip_tags(t('moods.index.premade4_description')[0..80]) %>
     <% if t('moods.index.premade4_description').length >= 80 %>
-      <%= " [...]" %>
+      <%= t('ellipsis') %>
     <% end %>
   </div>
 <% end %>

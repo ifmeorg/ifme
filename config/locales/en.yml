@@ -22,13 +22,15 @@ en:
  strategy: 'Strategy'
  add: 'Add'
  add_all: 'Add all'
- of: 'of'
  cancel: 'Cancel'
  accept: 'Accept'
  reject: 'Reject'
  remove: 'Remove'
  delete: 'Delete'
  ellipsis: " [...]"
+ view_more: 'View more'
+ stories: 'Stories'
+ welcome: 'Welcome'
 
  allies:
   index:
@@ -90,7 +92,7 @@ en:
    available_groups: 'Available Groups'
    joined_groups: 'Joined Groups'
    description: 'Description:'
-   leader: 'Leader'
+   leader: '(Leader)'
    edit: 'Edit'
    leave: 'Leave'
    join: 'Join'
@@ -190,6 +192,7 @@ en:
    comments: 'Comments:'
 
  meetings:
+  edit: "Edit %{meeting}"
   form:
    name: 'Name'
    location: 'Location'
@@ -212,10 +215,15 @@ en:
    members:
     one: '%{count} Member'
     other: '%{count} Members'
+   members_of_group_html:
+    one: '%{count} Member <strong>of</strong> %{group}'
+    other: '%{count} Members <strong>of</strong> %{group}'
+  new: 'New Meeting'
 
  moments:
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
+  edit: 'Edit %{moment}'
   form:
    name: 'Title'
    categories: 'Categories'
@@ -240,11 +248,13 @@ en:
    example_category: 'Career'
    example_moods: 'Nervous, Anxious, Hopeful'
    viewers_hint: 'Control who can view and comment'
+  new: 'New Moment'
   show:
    created: 'Created:'
    strategies: 'What strategies would help?'
 
  moods:
+  edit: 'Edit %{mood}'
   form:
    name: 'Name'
    description: 'Description'
@@ -271,11 +281,13 @@ en:
    premade5_name: 'Hopeless'
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
+  new: 'New Mood'
 
  notifications:
   title: 'Notifications'
   none: 'There are none'
   clear: 'Clear'
+  created_by_html: "<strong>Created by</strong>: %{name}"
   members:
    title: 'List of Members'
    remove: 'Remove'
@@ -384,16 +396,14 @@ en:
     footer_blog: 'Blog'
     footer_contributors: 'Contributors'
     footer_privacy: 'Privacy Policy'
-    copyright: 'Copyright'
+    copyright: 'Copyright © %{year} %{app_name}'
     faq: 'FAQ'
     connect: 'connect'
     email: 'Email'
   comments:
     share_everyone: 'Share with everyone'
-    share_with: 'Share with '
-    only: ' only'
+    share_with: 'Share with %{name} only'
     comment: 'Comment'
-    on_date: 'on'
     visible_only_between_you_and: 'Visible only between you and '
     error_explanation: 'Please fill out the marked fields'
     not_allies: '(not allies)'
@@ -413,10 +423,9 @@ en:
      zero: 'There are <strong>no</strong> viewers.'
      one: '%{names} is a viewer.'
      other: '%{names} are viewers.'
-   and: ' and '
-   comma_and: ', and '
   stats:
-    most_focus: ' focusing the most on'
+    you_are_focusing: 'You are focusing the most on'
+    user_is_focusing: '%{name} is focusing the most on'
   viewers_hover:
     only_you: 'Only you'
     visible_to: 'Visible to '
@@ -430,8 +439,11 @@ en:
   tag_usage:
     tagged_moments: 'Tagged Moments'
     tagged_strategies: 'Tagged Strategies'
+  quick_create:
+   add: 'Add %{name}'
 
  strategies:
+  edit: 'Edit %{strategy}'
   form:
    name: 'Title'
    categories: 'Categories'
@@ -456,6 +468,7 @@ en:
    premade1_description: '1) <b>Find a relaxed, comfortable position.</b> You could be seated on a chair or on the floor on a cushion. Keep your back upright, but not too tight. Hands resting wherever they’re comfortable. Tongue on the roof of your mouth or wherever it’s comfortable.<br><br>2) <b>Notice and relax your body.</b> Try to notice the shape of your body, its weight. Let yourself relax and become curious about your body seated here—the sensations it experiences, the touch, the connection with the floor or the chair. Relax any areas of tightness or tension. Just breathe.<br><br>3) <b>Tune into your breath.</b> Feel the natural flow of breath—in, out. You don’t need to do anything to your breath. Not long, not short, just natural. Notice where you feel your breath in your body. It might be in your abdomen. It may be in your chest or throat or in your nostrils. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Be kind to your wandering mind.</b> Now as you do this, you might notice that your mind may start to wander. You may start thinking about other things. If this happens, it is not a problem. It’s very natural. Just notice that your mind has wandered. You can say “thinking” or “wandering” in your head softly. And then gently redirect your attention right back to the breathing.<br><br>5) <b>Stay here for five to seven minutes.</b> Notice your breath, in silence. From time to time, you’ll get lost in thought, then return to your breath.<br><br>6) <b>Check in before you check out.</b> After a few minutes, once again notice your body, your whole body, seated here. Let yourself relax even more deeply and then offer yourself some appreciation for doing this practice today.<br><br><i>Taken from http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
    instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
    privacy: 'Control who can view and comment'
+  new: 'New Strategy'
   show:
    created: 'Created:'
 

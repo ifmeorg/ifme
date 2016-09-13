@@ -19,11 +19,7 @@
     <%= t('groups.show.led_by') %>
   </strong>
 
-  <!-- TODO I18N: use to_sentence here -->
-  <% @group.leaders.each do |leader| %>
-    <%= leader_link(leader) %>
-    <%= ',' unless leader == @group.leaders.last %>
-  <% end %>
+  <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence  %>
 
   <% if user_can_delete? @group %>
     <%= delete_group_link(@group, class: 'align_right') %>

@@ -14,9 +14,9 @@
 		<% end %>
 		<div class="small_margin_bottom">
 			<% if !local_assigns[:profile] || local_assigns[:profile] == current_user.id %>
-				<%= 'You are' + t('shared.stats.most_focus') %>
+				<%= t('shared.stats.you_are_focusing') %>
 			<% elsif local_assigns[:profile] %>
-				<%= User.where(id: local_assigns[:profile]).first.name + ' is ' + t('shared.stats.most_focus') %>
+				<%= t('shared.stats.user_is_focusing', name: User.where(id: local_assigns[:profile]).first.name) %>
 			<% end %>
 		</div>
 
