@@ -38,7 +38,7 @@
 
     <%= strip_tags(t('strategies.index.premade1_description')[0..80]) %>
     <% if t('strategies.index.premade1_description').length >= 80 %>
-      <%= " [...]" %>
+      <%= t('ellipsis') %>
     <% end %>
   </div>
 <% end %>

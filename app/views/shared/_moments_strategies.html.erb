@@ -13,7 +13,7 @@
 
       <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
-        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_moment_path(local_assigns[:item]) %>
+        <i class="fa fa-pencil action"></i><%= link_to t('edit'), edit_moment_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'moment' %>
         <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('moods.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('moods.index.confirm') } %>
         <% end %>
@@ -39,6 +39,7 @@
         <% local_assigns[:item].category.each do |item| %>
           <% if Category.where(id: item, userid: current_user.id).exists? %>
           <span class="notification_wrapper">
+            <!-- TODO I18N: use to_sentence here -->
             <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
             <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
           </span>
@@ -47,7 +48,7 @@
       <% end %>
       <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
-        <i class="fa fa-pencil action"></i><%= link_to 'Edit', edit_strategy_path(local_assigns[:item]) %>
+        <i class="fa fa-pencil action"></i><%= link_to t('edit'), edit_strategy_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'strategy' %>
         <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('strategies.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('strategies.index.confirm') } %>
         <% end %>
