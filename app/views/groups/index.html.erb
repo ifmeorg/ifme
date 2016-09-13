@@ -1,4 +1,4 @@
-<% title 'Groups' %>
+<% title t('groups.index.title') %>
 <% page_new new_group_path %>
 
 <div class="subtitle">
@@ -25,7 +25,7 @@
       </div>
 
       <%= strip_tags(group.description[0..80]) %>
-      <%= " [...]" if group.description.length >= 80 %>
+      <%= t('ellipsis') if group.description.length >= 80 %>
 
       <div class="small_margin_top">
         <% if user_can_edit?(group) %>
@@ -69,7 +69,7 @@
       </div>
 
       <%= strip_tags(group.description[0..80]) %>
-      <%= " [...]" if group.description.length >= 80 %>
+      <%= t('ellipsis') if group.description.length >= 80 %>
 
       <div class="small_margin_top">
         <%= join_group_link(group) %>

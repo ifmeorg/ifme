@@ -1,6 +1,6 @@
 <% title t('allies.index.title') %>
 <div class="align_left" id="invite">
-<%= link_to 'Invite your loved ones!', new_user_invitation_path %>
+<%= link_to t('allies.index.invite'), new_user_invitation_path %>
 </div>
 <div class="align_right">
   <%= render :partial => '/search/form' %>
@@ -26,7 +26,7 @@
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Cancel', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+        <%= link_to t('cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
       </div>
   <% end %>
 <% end %>
@@ -51,7 +51,7 @@
           <%= ally.location %>
         </div>
         <div class="clear"></div>
-        <%= link_to 'Accept', add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to 'Reject', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+        <%= link_to t('accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('reject'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
       </div>
   <% end %>
 <% end %>
@@ -77,7 +77,7 @@
             <%= ally.location %>
           </div>
           <div class="clear"></div>
-            <%= link_to 'Remove', remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+            <%= link_to t('remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
         </div>
       </div>
     </div>

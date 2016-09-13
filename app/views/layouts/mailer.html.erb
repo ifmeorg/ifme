@@ -7,11 +7,15 @@
    		</p>
 
    		<p>
-   			<%= link_to "if me", root_url %> is a community that encourages people to share their mental health stories with loved ones.
+        <%= t('layouts.mailer.html.app_description',
+              app_name: link_to(t('app_name'), root_url)
+        ) %>
    		</p>
 
 		<p>
-			You cannot reply to this email. If you have any questions, concerns, or feedback please email <%= link_to "join.ifme@gmail.com", "mailto:join.ifme@gmail.com" %>!
+      <%= t('layouts.mailer.html.no_reply',
+            email: link_to(t('email'), "mailto:join.ifme@gmail.com")
+      ) %>
 		</p>
   	</body>
 </html>

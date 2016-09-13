@@ -19,6 +19,7 @@
     <%= t('groups.show.led_by') %>
   </strong>
 
+  <!-- TODO I18N: use to_sentence here -->
   <% @group.leaders.each do |leader| %>
     <%= leader_link(leader) %>
     <%= ',' unless leader == @group.leaders.last %>
