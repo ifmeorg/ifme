@@ -1,4 +1,4 @@
-<% title user_signed_in? && @stories.any? ? 'Stories' : 'Welcome' %>
+<% title user_signed_in? && @stories.any? ? t('stories') : t('welcome') %>
 <% if !user_signed_in? %>
 	<%= render :partial => 'not_signed_in' %>
 <% elsif @stories.count > 0 %>

@@ -29,6 +29,9 @@ en:
  remove: 'Remove'
  delete: 'Delete'
  ellipsis: " [...]"
+ view_more: 'View more'
+ stories: 'Stories'
+ welcome: 'Welcome'
 
  allies:
   index:
@@ -282,6 +285,7 @@ en:
   title: 'Notifications'
   none: 'There are none'
   clear: 'Clear'
+  created_by_html: "<strong>Created by</strong>: %{name}"
   members:
    title: 'List of Members'
    remove: 'Remove'
