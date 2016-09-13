@@ -190,6 +190,7 @@ en:
    comments: 'Comments:'
 
  meetings:
+  edit: "Edit %{meeting}"
   form:
    name: 'Name'
    location: 'Location'
@@ -212,10 +213,12 @@ en:
    members:
     one: '%{count} Member'
     other: '%{count} Members'
+  new: 'New Meeting'
 
  moments:
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
+  edit: 'Edit %{moment}'
   form:
    name: 'Title'
    categories: 'Categories'
@@ -240,11 +243,13 @@ en:
    example_category: 'Career'
    example_moods: 'Nervous, Anxious, Hopeful'
    viewers_hint: 'Control who can view and comment'
+  new: 'New Moment'
   show:
    created: 'Created:'
    strategies: 'What strategies would help?'
 
  moods:
+  edit: 'Edit %{mood}'
   form:
    name: 'Name'
    description: 'Description'
@@ -271,6 +276,7 @@ en:
    premade5_name: 'Hopeless'
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
+  new: 'New Mood'
 
  notifications:
   title: 'Notifications'

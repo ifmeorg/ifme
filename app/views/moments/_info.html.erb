@@ -6,6 +6,7 @@
   </strong>
   <% local_assigns[:data].category.each do |item| %>
     <span class="notification_wrapper">
+      <!-- TODO I18N: use to_sentence here -->
       <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:data].category.last != item %><%= ', ' %><% end %>
       <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
     </span>
@@ -19,6 +20,7 @@
   </strong>
   <% local_assigns[:data].mood.each do |item| %>
     <span class="notification_wrapper">
+      <!-- TODO I18N: use to_sentence here -->
       <span class="tip_notifications_button link_style"><%= Mood.where(id: item).first.name %></span><% if local_assigns[:data].mood.last != item %><%= ', ' %><% end %>
       <%= render :partial => '/notifications/preview', locals: { data: Mood.where(id: item).first, edit: edit_mood_path(item) } %>
     </span>
@@ -32,6 +34,7 @@
   </strong>
   <% local_assigns[:data].strategies.each do |item| %>
     <span class="notification_wrapper">
+      <!-- TODO I18N: use to_sentence here -->
       <span class="tip_notifications_button link_style"><%= Strategy.where(id: item).first.name %></span><% if local_assigns[:data].strategies.last != item %><%= ', ' %><% end %>
       <%= render :partial => '/notifications/preview', locals: { data: Strategy.where(id: item).first, edit: edit_strategy_path(item) } %>
     </span>
@@ -43,12 +46,12 @@
   <% if local_assigns[:data].class.name == 'Moment' %>
   <%= strip_tags(local_assigns[:data].why[0..200]) %>
   <% if local_assigns[:data].why.length >= 200 %>
-    <%= " [...]" %>
+    <%= t('ellipsis') %>
   <% end %>
   <% elsif local_assigns[:data].class.name == 'Strategy' %>
   <%= strip_tags(local_assigns[:data].description[0..200]) %>
   <% if local_assigns[:data].description.length >= 200 %>
-    <%= " [...]" %>
+    <%= t('ellipsis') %>
   <% end %>
   <% end %>
 <% end %>
@@ -57,9 +60,9 @@
 <br>
 <div class="align_right subtle" id="class_name">
 <% if local_assigns[:data].class.name == 'Moment' %>
-  Moment
+  <%= t('moment') %>
 <% elsif local_assigns[:data].class.name == 'Strategy' %>
-  Strategy
+  <%= t('strategy') %>
 <% end %>
 </div>
 <% end %>
