@@ -39,7 +39,6 @@
         <% local_assigns[:item].category.each do |item| %>
           <% if Category.where(id: item, userid: current_user.id).exists? %>
           <span class="notification_wrapper">
-            <!-- TODO I18N: use to_sentence here -->
             <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
             <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
           </span>
