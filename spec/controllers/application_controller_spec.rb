@@ -1,3 +1,7 @@
+include ActionView::Helpers::DateHelper
+include ActionView::Helpers::TextHelper
+include LocalTimeHelper
+
 describe ApplicationController do
 	describe "most_focus" do
 		describe "categories" do
@@ -468,6 +472,24 @@ describe ApplicationController do
 			new_moment = create(:moment, userid: new_user1.id, category: Array.new(1, new_category.id), viewers: viewers)
 			result = controller.viewers_hover(viewers, new_category)
 			expect(result).to eq('<span class="yes_title" title="Visible to Oprah Chang, Plum Blossom, and Gentle Breezy"><a href="/categories/' + new_category.id.to_s + '">Test Category</a></span>')
+		end
+	end
+
+	describe "created_or_edited" do
+		it "returns created_at if updated_at does not exist" do
+			new_user1 = create(:user1)
+			new_moment = create(:moment, userid: new_user1.id)
+			result = controller.created_or_edited(new_moment)
+			expect(result).to eq("<strong>Created:</strong> #{local_time_ago(new_moment.created_at)}")
+		end
+
+		it "returns updated_at if it exists" do
+			new_user1 = create(:user1)
+			new_moment = create(:moment, userid: new_user1.id)
+			new_category = create(:category, userid: new_user1.id)
+			new_moment.update(category: Array.new(1, new_category.id))
+			result = controller.created_or_edited(new_moment)
+			expect(result).to eq("<strong>Created:</strong> #{local_time_ago(new_moment.created_at)} <em>(edited #{local_time_ago(new_moment.updated_at)})</em>")
 		end
 	end
 end

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :fetch_taxonomies, :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover
+  helper_method :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -55,59 +55,8 @@ class ApplicationController < ActionController::Base
     return uid
   end
 
-## Taxonomies are used for pluralization?
-## unless the pluralization is non-standard, Rails can do this with .pluralize.
-
   def no_taxonomies_error(taxonomy)
     return "<span id='#{taxonomy}_quick_button' class='link_style small_margin_top'>Add #{taxonomy}</span>".html_safe
-  end
-
-  def fetch_taxonomies(data, data_type, item, taxonomy, show, list)
-    if taxonomy == "category" && Category.where(:id => item.to_i).exists?
-      if !Category.where(:id => item.to_i).first.description.blank?
-        link_name = Category.where(:id => item.to_i).first.name
-        link_url = '/categories/' + item.to_s
-        if show
-          link_url += '?' + data_type.to_s + '=' + data.id.to_s
-        end
-        return_this = link_to link_name, link_url
-      else
-        return_this = Category.where(:id => item.to_i).first.name
-      end
-      if item != data.category.last and list
-        return_this += ', '
-      end
-    elsif taxonomy == "mood" && Mood.where(:id => item.to_i).exists?
-      if !Mood.where(:id => item.to_i).first.description.blank?
-        link_name = Mood.where(:id => item.to_i).first.name
-        link_url = '/moods/' + item.to_s
-        if show
-          link_url += '?' + data_type.to_s + '=' + data.id.to_s
-        end
-        return_this = link_to link_name, link_url
-      else
-        return_this = Mood.where(:id => item.to_i).first.name
-      end
-      if item != data.mood.last and list
-        return_this += ', '
-      end
-    elsif taxonomy == "strategy" && Strategy.where(:id => item.to_i).exists?
-      if !Strategy.where(:id => item.to_i).first.description.blank?
-        link_name = Strategy.where(:id => item.to_i).first.name
-        link_url = '/strategies/' + item.to_s
-        if show
-          link_url += '?' + data_type.to_s + '=' + data.id.to_s
-        end
-        return_this = link_to link_name, link_url
-      else
-        return_this = Strategy.where(:id => item.to_i).first.name
-      end
-      if item != data.strategies.last and list
-        return_this += ', '
-      end
-    end
-
-    return return_this
   end
 
   def fetch_profile_picture(avatar, class_name)
@@ -446,5 +395,13 @@ class ApplicationController < ActionController::Base
     end
 
     return result.html_safe
+  end
+
+  def created_or_edited(data)
+    if data.updated_at && data.created_at != data.updated_at
+      return t('edited', {created_at: local_time_ago(data.created_at), updated_at: local_time_ago(data.updated_at)}).html_safe
+    end
+
+    return t('created', {created_at: local_time_ago(data.created_at)}).html_safe
   end
 end

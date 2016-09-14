@@ -1,5 +1,5 @@
 <% title @strategy.name %>
-<strong><%= t('created') %></strong> <%= local_time_ago(@strategy.created_at) %>
+<%= created_or_edited(@strategy) %>
 <% if @strategy.category.count > 0 %>
   <br>
     <strong>

@@ -30,7 +30,7 @@
         <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
       </h1>
-      <strong><%= t('created') %></strong> <%= local_time_ago(local_assigns[:item].created_at) %>
+      <%= created_or_edited(local_assigns[:item]) %>
       <% if local_assigns[:item].category.count > 0 %>
         <br>
         <strong>
