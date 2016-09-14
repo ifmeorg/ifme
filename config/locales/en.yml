@@ -32,7 +32,8 @@ en:
  stories: 'Stories'
  welcome: 'Welcome'
  created: '<strong>Created:</strong> %{created_at}'
- edited: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
+ edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
+ edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  and: 'and'
 
  allies:

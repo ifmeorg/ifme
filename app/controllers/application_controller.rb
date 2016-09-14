@@ -398,8 +398,10 @@ class ApplicationController < ActionController::Base
   end
 
   def created_or_edited(data)
-    if data.updated_at && data.created_at != data.updated_at
-      return t('edited', {created_at: local_time_ago(data.created_at), updated_at: local_time_ago(data.updated_at)}).html_safe
+    if data.created_at != data.updated_at && local_time_ago(data.created_at) == local_time_ago(data.updated_at)
+      return t('edited', {created_at: local_time_ago(data.created_at)}).html_safe
+    elsif data.created_at != data.updated_at && local_time_ago(data.created_at) != local_time_ago(data.updated_at)
+      return t('edited_updated_at', {created_at: local_time_ago(data.created_at), updated_at: local_time_ago(data.updated_at)}).html_safe
     end
 
     return t('created', {created_at: local_time_ago(data.created_at)}).html_safe

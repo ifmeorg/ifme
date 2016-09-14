@@ -483,9 +483,18 @@ describe ApplicationController do
 			expect(result).to eq("<strong>Created:</strong> #{local_time_ago(new_moment.created_at)}")
 		end
 
-		it "returns updated_at if it exists" do
+		it "returns created_at with (edited) if local_time_ago formatting of updated_at is equal to created_at" do
 			new_user1 = create(:user1)
 			new_moment = create(:moment, userid: new_user1.id)
+			new_category = create(:category, userid: new_user1.id)
+			new_moment.update(category: Array.new(1, new_category.id))
+			result = controller.created_or_edited(new_moment)
+			expect(result).to eq("<strong>Created:</strong> #{local_time_ago(new_moment.created_at)} <em>(edited)</em>")
+		end
+
+		it "returns created_at with updated_at if local_time_ago formatting of updated_at is not equal to created_at" do
+			new_user1 = create(:user1)
+			new_moment = create(:moment, userid: new_user1.id, created_at: '2014-01-01 00:00:00')
 			new_category = create(:category, userid: new_user1.id)
 			new_moment.update(category: Array.new(1, new_category.id))
 			result = controller.created_or_edited(new_moment)
