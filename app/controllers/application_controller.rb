@@ -348,23 +348,19 @@ class ApplicationController < ActionController::Base
 
     if count > 1
       result += '<div class="center" id="stats">'
-      result += 'You have written a <strong>total</strong> of '
-      result += '<strong>' + count.to_s + '</strong>'
 
       if count == 1
-        result += ' moment.'
+        result += t('stats.total_moment', {count: count.to_s})
       else
-        result += ' moments.'
+        result += t('stats.total_moments', {count: count.to_s})
 
         monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
         if count != monthly_count
-          result += ' This <strong>month</strong> you wrote '
-          result += '<strong>' + monthly_count.to_s + '</strong>'
-
+          result += ' '
           if monthly_count == 1
-            result += ' moment.'
+            result += t('stats.monthly_moment', {count: monthly_count.to_s})
           else
-            result += ' moments.'
+            result += t('stats.monthly_moments', {count: monthly_count.to_s})
           end
         end
       end
@@ -423,9 +419,9 @@ class ApplicationController < ActionController::Base
 
     data.to_a.each do |viewer|
       if data.last == viewer && data.length > 1 &&  data.length == 2
-        viewers += ' and '
+        viewers += " #{t('and')} "
       elsif data.last == viewer && data.length > 1 &&  data.length != 2
-        viewers += ', and '
+        viewers += ", #{t('and')} "
       elsif data.last != viewer && data.length != 2 && viewer != data.first
         viewers += ', '
       end

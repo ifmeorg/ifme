@@ -31,6 +31,9 @@ en:
  view_more: 'View more'
  stories: 'Stories'
  welcome: 'Welcome'
+ created: 'Created:'
+ updated: 'Updated:'
+ and: 'and'
 
  allies:
   index:
@@ -240,7 +243,6 @@ en:
   index:
    title: 'Moments'
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-   created: 'Created:'
    delete: 'Delete'
    confirm: 'Are you sure?'
    instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
@@ -250,7 +252,6 @@ en:
    viewers_hint: 'Control who can view and comment'
   new: 'New Moment'
   show:
-   created: 'Created:'
    strategies: 'What strategies would help?'
 
  moods:
@@ -328,7 +329,6 @@ en:
     email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
   home:
     you: 'You'
-    created: 'Created:'
     not_signed_in:
       main_message_one: 'Better communication with loved ones leads to better mental health.'
       message_text_one: "We need each other's support to break down stigmas."
@@ -461,7 +461,6 @@ en:
   index:
    title: 'Strategies'
    subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
-   created: 'Created:'
    delete: 'Delete'
    confirm: 'Are you sure?'
    premade1_name: 'Five Minute Meditation'
@@ -469,8 +468,12 @@ en:
    instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
    privacy: 'Control who can view and comment'
   new: 'New Strategy'
-  show:
-   created: 'Created:'
+
+ stats:
+  total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'
+  total_moment: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moment.'
+  monthly_moments: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moments.'
+  monthly_moment: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moment.'
 
  warnings:
   no_description: "You didn't write a description!"
