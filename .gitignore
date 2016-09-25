@@ -25,3 +25,6 @@
 
 # PERSONAL: ignore changes to config/database.yml. This change was necessary for me to get PGSQL to run on Ubuntu
 /config/database.yml
+
+# Ignore coverage results
+/coverage
