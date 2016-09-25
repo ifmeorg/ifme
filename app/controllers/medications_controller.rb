@@ -58,7 +58,7 @@ class MedicationsController < ApplicationController
     respond_to do |format|
       if @medication.save
         # Save refill date to Google calendar
-        if (!current_user.token.blank?)
+        if current_user.google_oauth2_enabled? && params[:add_to_google_cal]
           summary = "Refill for " + @medication.name
           date = @medication.refill
           CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
@@ -139,7 +139,7 @@ class MedicationsController < ApplicationController
     def medication_params
       params.require(:medication).permit(
         :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
-        :total_unit, :strength_unit, :comments,
+        :total_unit, :strength_unit, :comments, :add_to_google,
         { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
       )
     end

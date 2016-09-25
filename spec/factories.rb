@@ -90,6 +90,15 @@ FactoryGirl.define do
     timezone "-05:00"
   end
 
+  factory :user_oauth, class: User do
+    name "Orange Southland"
+    email "orange.southland@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+    timezone "-05:00"
+    token "has_a_token"
+  end
+
   factory :allyships_accepted, class: Allyship do
     status :accepted
   end
