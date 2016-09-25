@@ -45,7 +45,7 @@ var onReadyAddComment = function() {
 				    		$('#add_comment_button').prop('disabled', false);
 				    		$('#comment_comment').prop('disabled', false);
 				    		$('#comment_comment').val('');
-							$('#add_comment_button').val('Comment');
+								$('#add_comment_button').val('Comment');
 
 				    		if (!json.no_save) {
 					    		var commentid = 'comment_' + json.commentid;
@@ -76,13 +76,13 @@ var onReadyAddComment = function() {
 					    		newComment += '<div class="comment_text">';
 					    		newComment += comment_text;
 					    		newComment += '</div>';
-					    		if (visibility != null && visibility.length > 0) {
+					    		if (visibility !== null && visibility.length > 0) {
 					    			newComment += visibility;
 					    		}
 					    		newComment += '</div>';
 
 
-					    		if (delete_comment != null && delete_comment.length > 0) {
+					    		if (delete_comment !== null && delete_comment.length > 0) {
 					    			newComment += delete_comment;
 					    		}
 
@@ -94,8 +94,8 @@ var onReadyAddComment = function() {
 					    		handleLocalTime();
 
 					    		if ($('.comment').length > 0) {
-									$('.actions').removeClass('no_margin_bottom');
-								}
+										$('.actions').removeClass('no_margin_bottom');
+									}
 					    	}
 				    	}
 				    },
