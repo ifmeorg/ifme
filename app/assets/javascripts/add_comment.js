@@ -45,7 +45,7 @@ var onReadyAddComment = function() {
 				    		$('#add_comment_button').prop('disabled', false);
 				    		$('#comment_comment').prop('disabled', false);
 				    		$('#comment_comment').val('');
-								$('#add_comment_button').val('Comment');
+							$('#add_comment_button').val('Comment');
 
 				    		if (!json.no_save) {
 					    		var commentid = 'comment_' + json.commentid;
@@ -94,8 +94,8 @@ var onReadyAddComment = function() {
 					    		handleLocalTime();
 
 					    		if ($('.comment').length > 0) {
-										$('.actions').removeClass('no_margin_bottom');
-									}
+									$('.actions').removeClass('no_margin_bottom');
+								}
 					    	}
 				    	}
 				    },
