@@ -76,13 +76,13 @@ var onReadyAddComment = function() {
 					    		newComment += '<div class="comment_text">';
 					    		newComment += comment_text;
 					    		newComment += '</div>';
-					    		if (visibility != null && visibility.length > 0) {
+					    		if (visibility !== null && visibility.length > 0) {
 					    			newComment += visibility;
 					    		}
 					    		newComment += '</div>';
 
 
-					    		if (delete_comment != null && delete_comment.length > 0) {
+					    		if (delete_comment !== null && delete_comment.length > 0) {
 					    			newComment += delete_comment;
 					    		}
 

@@ -3,7 +3,7 @@ Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
-if (typeof(CKEDITOR) != 'undefined') {
+if (typeof(CKEDITOR) !== 'undefined') {
   CKEDITOR.editorConfig = function( config )
   {
     // Define changes to default configuration here. For example:
@@ -43,7 +43,7 @@ if (typeof(CKEDITOR) != 'undefined') {
     config.filebrowserParams = function(){
       var csrf_token, csrf_param, meta,
           metas = document.getElementsByTagName('meta'),
-          params = new Object();
+          params = {};
 
       for ( var i = 0 ; i < metas.length ; i++ ){
         meta = metas[i];
@@ -74,10 +74,12 @@ if (typeof(CKEDITOR) != 'undefined') {
         return url;
       } else {
         for ( var i in params )
-          queryString.push( i + "=" + encodeURIComponent( params[ i ] ) );
+          if ({}.hasOwnProperty.call(params, i)) {
+            queryString.push( i + "=" + encodeURIComponent( params[ i ] ) );
+          }
       }
 
-      return url + ( ( url.indexOf( "?" ) != -1 ) ? "&" : "?" ) + queryString.join( "&" );
+      return url + ( ( url.indexOf( "?" ) !== -1 ) ? "&" : "?" ) + queryString.join( "&" );
     };
 
     // Integrate Rails CSRF token into file upload dialogs (link, image, attachment and flash)
