@@ -128,6 +128,7 @@ GEM
       devise (>= 3.0.0)
       railties (>= 3.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -394,6 +395,11 @@ GEM
       faraday (~> 0.9)
       jwt (~> 1.5)
       multi_json (~> 1.10)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -486,13 +492,14 @@ DEPENDENCIES
   sass-rails (= 5.0.4)
   sdoc (= 0.4.1)
   selenium-webdriver (= 2.53.4)
+  simplecov
   spring (= 1.3.6)
   turbolinks (= 2.5.3)
   uglifier (= 2.7.1)
   underscore-rails (= 1.8.3)
 
 RUBY VERSION
-   ruby 2.3.0p0
+   ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
