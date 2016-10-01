@@ -22,15 +22,13 @@
     </div>
 
     <div class="sidebar_field">
-      <div class="sidebar_label">
-        <a href="#" class="toggle_button" id="showCategories">
+      <div class="sidebar_label expand_toggle" data-toggle="#categories">
+        <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
-        </a>
-        <a href="#" class="toggle_button display_none" id="hideCategories">
-          <i class="fa fa-caret-up" ></i>
         </a>
         <%= f.label t('strategies.form.categories') %>
       </div>
+      
       <div id="categories" class="display_none">
         <div id="categories_list">
         <% if !@categories.nil? && @categories.length > 0 %>
@@ -49,12 +47,9 @@
 
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
-      <div class="sidebar_label">
-        <a href="#" class="toggle_button" id="showViewers">
+      <div class="sidebar_label expand_toggle" data-toggle="#viewers">
+        <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
-        </a>
-        <a href="#" class="toggle_button display_none" id="hideViewers">
-          <i class="fa fa-caret-up" ></i>
         </a>
         <%= f.label t('strategies.form.viewers') %>
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('strategies.form.viewers_hint')) %>

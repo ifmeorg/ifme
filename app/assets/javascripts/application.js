@@ -66,61 +66,12 @@ var onReadyApplication = function() {
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
 	if (newOrEdit(['moments', 'strategies'])) {
-
-		$('#showCategories').click(function(event) {
+		$('.expand_toggle').click(function(event){
+			var toggleID = $(this).data('toggle');
+			$(toggleID).toggle();
+			$(this).find('.toggle_button i').toggleClass('fa-caret-down');
+			$(this).find('.toggle_button i').toggleClass('fa-caret-up');
 			event.preventDefault();
-			$('#categories').css({"display": "block"});
-			$('#showCategories').css({"display": "none"});
-			$('#hideCategories').css({"display": "block"});
-		});
-
-		$('#hideCategories').click(function(event) {
-			event.preventDefault();
-			$('#categories').css({"display": "none"});
-			$('#showCategories').css({"display": "block"});
-			$('#hideCategories').css({"display": "none"});
-		});
-
-		$('#showMoods').click(function(event) {
-			event.preventDefault();
-			$('#moods').css({"display": "block"});
-			$('#showMoods').css({"display": "none"});
-			$('#hideMoods').css({"display": "block"});
-		});
-
-		$('#hideMoods').click(function(event) {
-			event.preventDefault();
-			$('#moods').css({"display": "none"});
-			$('#showMoods').css({"display": "block"});
-			$('#hideMoods').css({"display": "none"});
-		});
-
-		$('#showStrategies').click(function(event) {
-			event.preventDefault();
-			$('#strategies').css({"display": "block"});
-			$('#showStrategies').css({"display": "none"});
-			$('#hideStrategies').css({"display": "block"});
-		});
-
-		$('#hideStrategies').click(function(event) {
-			event.preventDefault();
-			$('#strategies').css({"display": "none"});
-			$('#showStrategies').css({"display": "block"});
-			$('#hideStrategies').css({"display": "none"});
-		});
-
-		$('#showViewers').click(function(event) {
-			event.preventDefault();
-			$('#viewers').css({"display": "block"});
-			$('#showViewers').css({"display": "none"});
-			$('#hideViewers').css({"display": "block"});
-		});
-
-		$('#hideViewers').click(function(event) {
-			event.preventDefault();
-			$('#viewers').css({"display": "none"});
-			$('#showViewers').css({"display": "block"});
-			$('#hideViewers').css({"display": "none"});
 		});
 	}
 };
