@@ -408,7 +408,7 @@ en:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
     comment: 'Comment'
-    visible_only_between_you_and: 'Visible only between you and '
+    visible_only_between_you_and: 'Visible only between you and %{name}'
     error_explanation: 'Please fill out the marked fields'
     not_allies: '(not allies)'
   header:
