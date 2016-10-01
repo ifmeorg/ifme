@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
+  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -53,10 +53,6 @@ class ApplicationController < ActionController::Base
   def get_uid(userid)
     uid = User.where(id: userid).first.uid
     return uid
-  end
-
-  def no_taxonomies_error(taxonomy)
-    return "<span id='#{taxonomy}_quick_button' class='link_style small_margin_top'>Add #{taxonomy}</span>".html_safe
   end
 
   def fetch_profile_picture(avatar, class_name)

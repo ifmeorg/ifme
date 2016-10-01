@@ -229,6 +229,9 @@ en:
   categories_and_moods: 'Categories and Moods'
   edit: 'Edit %{moment}'
   form:
+   add_category: 'Add category'
+   add_mood: 'Add mood'
+   add_strategy: 'Add strategy'
    name: 'Title'
    categories: 'Categories'
    moods: 'Moods'
