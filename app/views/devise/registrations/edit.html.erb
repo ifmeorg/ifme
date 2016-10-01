@@ -79,10 +79,13 @@
 	<% end %>
 
 	<div class="field"><div class="label"><%= f.label "Profile picture" %></div>
-	<% profile = User.where(:id => current_user.id).first %>
-	<%= fetch_profile_picture(profile.avatar.url, 'mini_profile_picture') %>
+	<%= fetch_profile_picture(resource.avatar.url, 'mini_profile_picture') %>
 	<br>
-	<%= f.file_field :avatar %></div>
+	<%= f.file_field :avatar %>
+	<% unless resource.avatar.blank? %>
+		<%= f.check_box :remove_avatar %> Remove picture
+	<% end %>
+	</div>
 
 	<div class="field"><div class="label"><%= f.label :about %></div>
 	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you" %></div>
@@ -116,4 +119,3 @@
 
 <div class="label"><label>Is <strong><%= t('app_name') %></strong> not working out for you?</label></div>
 <%= button_to "Permanently delete my account", registration_path(resource_name), data: { confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!" }, method: :delete %>
-

@@ -30,9 +30,38 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone, :about, :avatar, :comment_notify, :ally_notify, :group_notify, :meeting_notify) }
+    devise_parameter_sanitizer.permit(
+      :account_update,
+      keys: [
+        :location,
+        :name,
+        :email,
+        :password,
+        :password_confirmation,
+        :current_password,
+        :timezone,
+        :about,
+        :avatar,
+        :remove_avatar,
+        :comment_notify,
+        :ally_notify,
+        :group_notify,
+        :meeting_notify
+      ]
+    )
 
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:location, :name, :email, :password, :password_confirmation, :current_password, :timezone) }
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: [
+        :location,
+        :name,
+        :email,
+        :password,
+        :password_confirmation,
+        :current_password,
+        :timezone
+      ]
+    )
   end
 
   helper_method :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
