@@ -46,6 +46,7 @@ en:
 
  categories:
   edit: "Edit %{category}"
+  edit_category: "Edit Category"
   form:
    name: 'Name'
    description: 'Description'
@@ -89,6 +90,7 @@ en:
    cannot_delete: 'Please note that you cannot delete groups.'
    error_explanation: 'Please fill out the marked fields!'
    error_save: "We can't save this group because: "
+   error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
    title: 'Groups'
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
@@ -102,6 +104,11 @@ en:
    delete: 'Delete'
    confirm: 'Are you sure?'
    instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
+  join_success: 'You have joined this group.'
+  leave:
+    error: 'You cannot leave the group, you are the only leader.'
+    success: "You have left %{group}"
+    remove_member_success: "You have removed %{user} from %{group}"
   members:
    one: '%{count} member'
    other: '%{count} members'

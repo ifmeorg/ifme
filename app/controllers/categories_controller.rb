@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     else
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "#{t('new')} #{t('category')}"
+    @page_tooltip = "#{t('categories.new')}"
   end
 
   # GET /categories/1
@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
     if @category.userid == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
       if @category.userid == current_user.id
         @page_edit = edit_category_path(@category)
-        @page_tooltip = "#{t('edit')} #{t('category')}"
+        @page_tooltip = "#{t('categories.edit_category')}"
       else
         link_url = "/profile?uid=" + get_uid(@category.userid).to_s
         the_link = link_to User.where(:id => @category.userid).first.name, link_url
