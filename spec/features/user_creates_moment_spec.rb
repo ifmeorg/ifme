@@ -26,22 +26,22 @@ describe "UserCreatesAMoment", js: true do
 
       page.fill_in "moment[name]", with: "My new moment"
 
-      page.find('#showCategories').click
+      page.find('[data-toggle="#categories"]').click
 
       within '#categories_list' do
         page.find('input[type=checkbox]').click
       end
 
-      page.find('#showMoods').click
+      page.find('[data-toggle="#moods"]').click
       within '#moods_list' do
         page.find('input[type=checkbox]').click
       end
 
-      scroll_to_and_click('#showStrategies')
+      scroll_to_and_click('[data-toggle="#strategies"]')
 
       scroll_to_and_click('#strategies_list input[type=checkbox]')
 
-      scroll_to_and_click('#showViewers')
+      scroll_to_and_click('[data-toggle="#viewers"]')
       within '#viewers_list' do
         scroll_to_and_click('input#viewers_all')
       end

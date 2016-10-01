@@ -24,13 +24,13 @@ describe "UserCreatesAStrategy", js: true do
 
       page.fill_in "strategy[name]", with: "My new strategy"
 
-      page.find('#showCategories').click
+      page.find('[data-toggle="#categories"]').click
 
       within '#categories_list' do
         page.find('input[type=checkbox]').click
       end
 
-      page.find('#showViewers').click
+      page.find('[data-toggle="#viewers"]').click
       within '#viewers_list' do
         page.find('input#viewers_all').click
       end
