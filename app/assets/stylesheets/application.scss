@@ -708,7 +708,15 @@ input[type="submit"]:hover {
 }
 
 .sidebar_label label, .sidebar_label {
-  font-size: 24px;
+	font-size: 24px;
+}
+
+.sidebar_label.expand_toggle label {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
 }
 
 .special_textarea {
