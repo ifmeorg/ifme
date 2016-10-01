@@ -34,4 +34,6 @@ class Medication < ActiveRecord::Base
   validates :dosage, :numericality => { :greater_than_or_equal_to => 0 }
   validates :total, :numericality => { :greater_than_or_equal_to => 0 }
   validates :strength, :numericality => { :greater_than_or_equal_to => 0 }
+
+  attr_accessor :add_to_google_cal
 end

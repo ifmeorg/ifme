@@ -124,11 +124,27 @@
           </div>
           <div class="align_right">
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.add_to_google_cal')) %>
           </div>
           <div class="clear"></div>
         </div>
       <% end %>
     </div>
+
+    <% if current_user.google_oauth2_enabled? %>
+      <div class="field">
+        <div class="inline-block">
+          <%= f.check_box :add_to_google_cal %>
+          <div class="label">
+            <%= f.label t('.add_to_google_cal') %>
+            <div class="align_right">
+              <span class="yes_title" title="Adds a reminder for this medication onto your Google Calendar"><i class="fa fa-question-circle"></i></span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 </div>
