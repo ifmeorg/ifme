@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
     )
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :no_taxonomies_error, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
+  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
@@ -82,10 +82,6 @@ class ApplicationController < ActionController::Base
   def get_uid(userid)
     uid = User.where(id: userid).first.uid
     return uid
-  end
-
-  def no_taxonomies_error(taxonomy)
-    return "<span id='#{taxonomy}_quick_button' class='link_style small_margin_top'>Add #{taxonomy}</span>".html_safe
   end
 
   def fetch_profile_picture(avatar, class_name)
@@ -203,8 +199,52 @@ class ApplicationController < ActionController::Base
     return result
   end
 
+  private def logged_in_as_owner?(owner)
+    owner.id == current_user.id
+  end
+
+  private def logged_in_user_made_comment?(comment)
+    comment.comment_by == current_user.id
+  end
+
+  private def logged_in_user_is_viewer?(comment)
+    !comment.viewers.blank? && comment.viewers.include?(current_user.id)
+  end
+
+  private def logged_in_user_can_view_comment?(comment, owner)
+    logged_in_user_made_comment?(comment) || logged_in_as_owner?(owner) || logged_in_user_is_viewer?(comment)
+  end
+
+  private def visibility_html(comment, commented_on)
+    owner = User.find(commented_on.userid)
+
+    if comment.visibility == 'private' && logged_in_user_can_view_comment?(comment, owner)
+      visibility = '<div class="subtle">'
+
+      other_person = nil
+
+      if logged_in_as_owner?(owner)
+        if viewer = User.where(id: comment.viewers[0]).first
+          # you are logged in as owner, you made the comment, and it is visible to a viewer
+          other_person = viewer
+        else
+          # you are logged in as owner, and comment was made by somebody else
+          other_person = User.find(comment.comment_by)
+        end
+      else
+        # you are logged in as comment maker, and it is visible to you and owner
+        other_person = owner
+      end
+
+      visibility += t('shared.comments.visible_only_between_you_and',
+                      name: other_person.name)
+
+      visibility += '</div>'
+    end
+  end
+
   def generate_comment(data, data_type)
-    profile = User.where(:id => data.comment_by).first
+    profile = User.find(data.comment_by)
     profile_picture = fetch_profile_picture(profile.avatar.url, 'mini_profile_picture')
 
     comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
@@ -217,35 +257,9 @@ class ApplicationController < ActionController::Base
     comment_text = raw(data.comment)
 
     if data_type == 'moment'
-      moment_user = Moment.where(id: data.commented_on).first.userid
-      if data.visibility == 'private' && (data.comment_by == current_user.id || current_user.id == moment_user || (!data.viewers.blank? && data.viewers.include?(current_user.id)))
-        visibility = '<div class="subtle">'
-
-        if User.where(id: data.viewers[0]).exists? && Moment.where(id: data.commented_on).first.userid == current_user.id
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
-        elsif Moment.where(id: data.commented_on).first.userid == current_user.id
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.comment_by).first.name
-        else
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Moment.where(id: data.commented_on).first.userid).first.name
-        end
-
-        visibility += '</div>'
-      end
+      visibility = visibility_html(data, Moment.find(data.commented_on))
     elsif data_type == 'strategy'
-      strategy_user = Strategy.where(id: data.commented_on).first.userid
-      if data.visibility == 'private' && (data.comment_by == current_user.id || current_user.id == strategy_user || (!data.viewers.blank? && data.viewers.include?(current_user.id)))
-        visibility = '<div class="subtle">'
-
-        if User.where(id: data.viewers[0]).exists? && Strategy.where(id: data.commented_on).first.userid == current_user.id
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.viewers[0]).first.name
-        elsif Strategy.where(id: data.commented_on).first.userid == current_user.id
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: data.comment_by).first.name
-        else
-          visibility += t('shared.comments.visible_only_between_you_and') + ' ' + User.where(id: Strategy.where(id: data.commented_on).first.userid).first.name
-        end
-
-        visibility += '</div>'
-      end
+      visibility = visibility_html(data, Strategy.find(data.commented_on))
     end
 
     if (data_type == 'moment' && (Moment.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'strategy' && (Strategy.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commented_on, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
@@ -395,17 +409,9 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    data.to_a.each do |viewer|
-      if data.last == viewer && data.length > 1 &&  data.length == 2
-        viewers += " #{t('and')} "
-      elsif data.last == viewer && data.length > 1 &&  data.length != 2
-        viewers += ", #{t('and')} "
-      elsif data.last != viewer && data.length != 2 && viewer != data.first
-        viewers += ', '
-      end
+    viewer_names = data.to_a.map { |user_id| User.find(user_id).name }
 
-      viewers += User.where(id: viewer).first.name
-    end
+    viewers += viewer_names.to_sentence
 
     if link
       if link.class.name == 'Category'

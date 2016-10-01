@@ -34,7 +34,6 @@ en:
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
- and: 'and'
 
  allies:
   index:
@@ -230,6 +229,9 @@ en:
   categories_and_moods: 'Categories and Moods'
   edit: 'Edit %{moment}'
   form:
+   add_category: 'Add category'
+   add_mood: 'Add mood'
+   add_strategy: 'Add strategy'
    name: 'Title'
    categories: 'Categories'
    moods: 'Moods'
@@ -406,7 +408,7 @@ en:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
     comment: 'Comment'
-    visible_only_between_you_and: 'Visible only between you and '
+    visible_only_between_you_and: 'Visible only between you and %{name}'
     error_explanation: 'Please fill out the marked fields'
     not_allies: '(not allies)'
   header:
