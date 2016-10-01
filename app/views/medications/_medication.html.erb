@@ -1,9 +1,4 @@
-<% if @medications.last == medication %>
-	<div class="medication no_margin_bottom">
-<% else %>
-	<div class="medication">
-<% end %>
-
+<div class="medication">
 	<h1 class="medication_name"><%= link_to medication.name, medication %></h1>
 
   <strong><%= t('medications.index.strength') %></strong> <%= t('medications.units.display', count: medication.strength, unit: t("medications.units.#{medication.strength_unit}", count: medication.strength)) %>

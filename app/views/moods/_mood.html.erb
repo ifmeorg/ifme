@@ -1,9 +1,4 @@
-<% if @moods.last == mood %>
-	<div class="mood no_margin_bottom">
-<% else %>
-  	<div class="mood">
-<% end %>
-
+<div class="mood">
 	<h1 class="mood_name"><%= link_to mood.name, mood %></h1>
 
   	<%= strip_tags(mood.description[0..80]) %>

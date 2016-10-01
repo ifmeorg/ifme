@@ -4,34 +4,34 @@
 <% elsif @stories.count > 0 %>
 	<%= render :partial => '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
 
-	<% @stories.each_with_index do |story, index| %>
-		<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies(current_user.id, story.userid)) %>
-			<% if index+1 == @stories.length %>
-  				<div class="story no_margin_bottom">
-  			<% else %>
-				<div class="story">
-			<% end %>
-	      			<div class="align_left">
-					    <h1 class="story_name">
-					    	<%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
-					    	<%= link_to story.name, story %>
-					    </h1>
-					</div>
-					<div class="align_right">
-	        			<h1 class="ally_name">
-	        				<% if current_user.id == story.userid %>
-	        					<%= link_to t('pages.home.you'), profile_index_path(uid: current_user.uid) %>
-	        				<% else %>
-	        					<%= link_to User.where(:id => story.userid).first.name, profile_index_path(uid: get_uid(story.userid)) %>
-	        				<% end %>
-	        			</h1>
-	     			</div>
-	     			<div class="clear"></div>
+	<div id="pages">
+		<div class="page">
+			<% @stories.each_with_index do |story, index| %>
+				<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies(current_user.id, story.userid)) %>
+					<div class="story">
+		      			<div class="align_left">
+						    <h1 class="story_name">
+						    	<%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+						    	<%= link_to story.name, story %>
+						    </h1>
+						</div>
+						<div class="align_right">
+		        			<h1 class="ally_name">
+		        				<% if current_user.id == story.userid %>
+		        					<%= link_to t('pages.home.you'), profile_index_path(uid: current_user.uid) %>
+		        				<% else %>
+		        					<%= link_to User.where(:id => story.userid).first.name, profile_index_path(uid: get_uid(story.userid)) %>
+		        				<% end %>
+		        			</h1>
+		     			</div>
+		     			<div class="clear"></div>
 
-	     			<%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
-				</div>
-		<% end %>
-	<% end %>
+		     			<%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 
 	<%= paginate @stories %>
 <% else %>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   include LocalTimeHelper
 
   # Global Variables
-  $per_page = 5 # For Kaminari
+  $per_page = 6 # For Kaminari
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

@@ -1,9 +1,5 @@
 <% if local_assigns[:data_type] == 'moment' || local_assigns[:data_type] == 'moment_tag_usage' %>
-  <% if (local_assigns[:data_type] == 'moment' && local_assigns[:items].last == local_assigns[:item]) || (local_assigns[:data_type] == 'moment_tag_usage' && local_assigns[:items].last == local_assigns[:item].id) %>
-    <div class="moment no_margin_bottom">
-  <% else %>
     <div class="moment">
-  <% end %>
       <h1 class="moment_name">
         <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
@@ -21,11 +17,7 @@
       <% end %>
     </div>
 <% elsif local_assigns[:data_type] == 'strategy' || local_assigns[:data_type] == 'strategy_tag_usage' %>
-  <% if (local_assigns[:data_type] == 'strategy' && local_assigns[:items].last == local_assigns[:item]) || (local_assigns[:data_type] == 'strategy_tag_usage' && local_assigns[:items].last == local_assigns[:item].id) %>
-      <div class="strategy no_margin_bottom">
-    <% else %>
       <div class="strategy">
-    <% end %>
       <h1 class="strategy_name">
         <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
