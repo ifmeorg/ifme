@@ -13,6 +13,7 @@
   background: linear-gradient(90deg, $background-color 97%, $transparent 3%);
   width: 50%;
   position: fixed;
+  z-index: 20;
 
   @media screen and (max-width: $small) {
     width: 90%;
@@ -68,7 +69,8 @@
   margin: 0 auto;
   width: 50%;
   max-height: 350px;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   border: 1px solid $container-color;
   box-shadow: 0 0 10px $container-color;
   background-color: $background-color;
