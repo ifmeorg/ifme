@@ -380,17 +380,9 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    data.to_a.each do |viewer|
-      if data.last == viewer && data.length > 1 &&  data.length == 2
-        viewers += " #{t('and')} "
-      elsif data.last == viewer && data.length > 1 &&  data.length != 2
-        viewers += ", #{t('and')} "
-      elsif data.last != viewer && data.length != 2 && viewer != data.first
-        viewers += ', '
-      end
+    viewer_names = data.to_a.map { |user_id| User.find(user_id).name }
 
-      viewers += User.where(id: viewer).first.name
-    end
+    viewers += viewer_names.to_sentence
 
     if link
       if link.class.name == 'Category'
