@@ -162,7 +162,7 @@ en:
    refill: 'refill'
    error_explanation: 'Please fill out the marked fields!'
    comments_hint: 'Additional comments, log your symptoms here'
-   add_to_google_cal: 'Save to Google Calendar?'
+   add_to_google_cal: 'Adds a reminder for this medication onto your Google Calendar'
    strength_hint: 'Medication strength, usually found beside the name'
    total_hint: 'Total number of pills or amount of medication'
    dosage_hint: 'Number of pills or servings daily'
