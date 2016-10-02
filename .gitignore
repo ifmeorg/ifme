@@ -23,8 +23,11 @@
 /config/application.yml
 /config/smtp.yml
 
-# PERSONAL: ignore changes to config/database.yml. This change was necessary for me to get PGSQL to run on Ubuntu
+# Ignore changes to config/database.yml, this change was necessary for me to get PGSQL to run on Ubuntu
 /config/database.yml
 
 # Ignore coverage results
 /coverage
+
+# Ignore auto-generated translations.js
+/public/javascripts/translations.js
