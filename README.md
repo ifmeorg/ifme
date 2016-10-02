@@ -13,7 +13,7 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 * [Getting Involved](#getting-involved)
 * [Getting Started](#getting-started)
 * [Testing Accounts](#testing-accounts)
-* [Unit Tests](#unit-tests)
+* [Testing](#testing)
 * [Static Code Analysis](#static-code-analysis)
 * [Committing Work](#committing-work)
 * [Tracking Issues](#tracking-issues)
@@ -249,7 +249,7 @@ The following are not mandatory, but are required if you would like to test/use 
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
 
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect. 
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/application.yml`.
 
@@ -314,10 +314,12 @@ Email: test3@example.com
 Password: password99
 ```
 
-Unit Tests
-------------
+Testing
+--------
 
-Always write unit tests for the changes you've made! If you see any missing unit tests, write them!
+We are using Selenium for web browser automation, so you will *need* to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
+
+Always write tests for the changes you've made! If you see any missing tests, write them!
 
 ### Rspec for Ruby
 
@@ -365,6 +367,14 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 **Everyone is encouraged to participate in code reviews, so please do so!**
 
+### Style Guide
+
+* Make sure you run the test suite locally before you commit, don't rely on the Travis CI to do that for you
+* Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue"
+* Make sure pull requests reference the corresponding issue
+* Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots
+* As a pull request reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (you can either merge it yourself or ask the PR creator to do it themselves)
+
 ### Contributor Blurb
 
 In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
@@ -380,7 +390,8 @@ Tracking Issues
 Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
 
 ### Labelling Issues
-If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
+
+If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
 For bugs, please list the reproduction steps and specify if the bug was prodcued locally or on production. Please also mention what OS and browser you are using.
 
