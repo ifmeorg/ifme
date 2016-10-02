@@ -12,7 +12,7 @@ class MeetingsController < ApplicationController
 
     if @is_leader
       @page_edit = edit_meeting_path(@meeting)
-      @page_tooltip = "#{t('edit')} #{t('meeting')}"
+      @page_tooltip = "#{t('meetings.edit_meetings')}"
     end
 
     @no_hide_page = false
@@ -257,7 +257,7 @@ class MeetingsController < ApplicationController
       end
 
       respond_to do |format|
-          format.html { redirect_to meeting_path(meetingid), notice: 'You have joined this meeting.' }
+          format.html { redirect_to meeting_path(meetingid), notice: t('meetings.join_success') }
           format.json { render :show, status: :created, location: group_path(groupid) }
       end
     end
@@ -272,7 +272,7 @@ class MeetingsController < ApplicationController
     are_leaders = MeetingMember.where(meetingid: params[:meetingid], leader: true).count
     if (is_leader == 1 && are_leaders == is_leader)
       respond_to do |format|
-        format.html { redirect_to group_path(groupid), alert: 'You cannot leave the meeting, you are the only leader.' }
+        format.html { redirect_to group_path(groupid), alert: t('meetings.leave.error') }
         format.json { head :no_content }
       end
     else
@@ -281,7 +281,8 @@ class MeetingsController < ApplicationController
       meeting_member.destroy
 
       respond_to do |format|
-        format.html { redirect_to group_path(groupid), notice: 'You have left ' + meeting_name }
+        format.html { redirect_to group_path(groupid), notice: t('meetings.leave.success',
+                                                                 meeting: meeting_name) }
         format.json { head :no_content }
       end
     end

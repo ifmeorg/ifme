@@ -39,7 +39,7 @@
 </div>
 
 <strong>
-  <% if meeting.maxmembers == 0 %>
+  <% if meeting.maxmembers == 0 && !meeting.members.include?(current_user)%>
     <%= raw t('shared.meeting_info.not_attending', {
         join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
       }) %>

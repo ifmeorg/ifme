@@ -205,6 +205,7 @@ en:
 
  meetings:
   edit: "Edit %{meeting}"
+  edit_meeting: 'Edit Meeting'
   form:
    name: 'Name'
    location: 'Location'
@@ -215,6 +216,7 @@ en:
    maximum_placeholder: '0 if no maximum'
    description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
+  join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
    confirm: 'Are you sure?'
@@ -230,6 +232,9 @@ en:
    members_of_group_html:
     one: '%{count} Member <strong>of</strong> %{group}'
     other: '%{count} Members <strong>of</strong> %{group}'
+  leave:
+    error: 'You cannot leave the meeting, you are the only leader.'
+    success: 'You have left %{meeting}'
   new: 'New Meeting'
 
  moments:
