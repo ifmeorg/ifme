@@ -31,7 +31,8 @@ gem 'chronic',                    '0.10.2'
 gem 'pusher',                     '1.1.0'
 gem 'cloudinary',                 '1.1.6'
 gem 'kaminari',                   '0.17.0'
-gem "figaro",                     '1.1.1'
+gem 'figaro',                     '1.1.1'
+gem 'i18n-js',                    '>= 3.0.0.rc11'
 
 gem 'sdoc',                       '0.4.1', group: :doc
 

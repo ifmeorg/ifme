@@ -184,6 +184,8 @@ GEM
       domain_name (~> 0.5)
     httpclient (2.8.0)
     i18n (0.7.0)
+    i18n-js (3.0.0.rc14)
+      i18n (~> 0.6, >= 0.6.6)
     jasmine (2.4.0)
       jasmine-core (~> 2.4)
       phantomjs
@@ -468,6 +470,7 @@ DEPENDENCIES
   foundation-rails (= 6.2.3.0)
   google-api-client (~> 0.8.6)
   guard (= 2.14.0)
+  i18n-js (>= 3.0.0.rc11)
   jasmine (= 2.4.0)
   jbuilder (= 2.2.11)
   jquery-rails (= 4.1.1)
