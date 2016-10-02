@@ -222,16 +222,16 @@ var onReadyNotifications = function() {
 
   $('.notifications_button').click(function(event) {
     event.preventDefault();
-    $('#notifications').toggleClass('display_none');
-    $('.notifications_button').toggleClass('fade');
-    if ($('#notifications').is(':visible')){
-      fetchNotifications();
-    }
+    $('#notifications').addClass('display_block');
+    $('#notifications').removeClass('display_none');
+    $('.notifications_button').addClass('fade');
+    fetchNotifications();
   });
 
   $('#close_notifications').click(function() {
-    $('#notifications').toggleClass('display_none');
-    $('.notifications_button').toggleClass('fade');
+    $('#notifications').removeClass('display_block');
+    $('#notifications').addClass('display_none');
+    $('.notifications_button').removeClass('fade');
   });
 
    $('#clear_notifcations').click(function() {
