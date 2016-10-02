@@ -17,6 +17,26 @@
   	@media screen and (max-width: $medium) {
   		padding: 20px 0px;
   	}
+
+  	.license {
+  		text-align: right;
+
+  		@media screen and (max-width: $small) {
+  			text-align: center;
+  		}
+  	}
+
+  	.footer_subtitle {
+  		font-size: 14px;
+
+  		@media screen and (max-width: $medium) {
+				font-size: 12px;
+			}
+
+			a:link, a:visited, a:hover {
+				display: inline;
+			}
+  	}
 }
 
 #footer_content {

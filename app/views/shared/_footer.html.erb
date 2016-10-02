@@ -24,10 +24,13 @@
 			<div class="align_left">
 				<%= link_to(t('feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 			</div>
-			<div class="align_right">
-				<%= t('shared.footer.copyright',
-				      year: Time.now.strftime("%Y"),
-				      app_name: t('app_name')) %>
+			<div class="align_right license">
+				<%= content_tag(:span, raw(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>
+				<div class="footer_subtitle">
+					<%= raw t('shared.footer.license_subtitle',
+						license: link_to(t('shared.footer.licence_name'), "https://github.com/julianguyen/ifme/blob/master/LICENSE.txt", target: "blank"))
+					%>
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
