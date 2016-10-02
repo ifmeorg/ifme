@@ -23,7 +23,7 @@ class MomentsController < ApplicationController
     else
       @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "#{t('new')} #{t('moment')}"
+    @page_tooltip = "#{t('moments.new')}"
   end
 
   # GET /moments/1
@@ -31,7 +31,7 @@ class MomentsController < ApplicationController
   def show
     if current_user.id == @moment.userid
       @page_edit = edit_moment_path(@moment)
-      @page_tooltip = "#{t('edit')} #{t('moment')}"
+      @page_tooltip = "#{t('moments.edit_moment')}"
     else
       link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
       the_link = link_to User.where(:id => @moment.userid).first.name, link_url

@@ -21,7 +21,7 @@ class StrategiesController < ApplicationController
     else
       @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "#{t('new')} #{t('strategy')}"
+    @page_tooltip = "#{t('strategies.new')}"
   end
 
   # GET /strategies/1
@@ -29,7 +29,7 @@ class StrategiesController < ApplicationController
   def show
     if current_user.id == @strategy.userid
       @page_edit = edit_strategy_path(@strategy)
-      @page_tooltip = "#{t('edit')} #{t('strategy')}"
+      @page_tooltip = "#{t('strategies.edit_strategy')}"
     else
       link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
       the_link = link_to User.where(:id => @strategy.userid).first.name, link_url

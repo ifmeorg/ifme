@@ -241,6 +241,7 @@ en:
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
   edit: 'Edit %{moment}'
+  edit_moment: 'Edit Moment'
   form:
    add_category: 'Add category'
    add_mood: 'Add mood'
@@ -273,6 +274,7 @@ en:
 
  moods:
   edit: 'Edit %{mood}'
+  edit_mood: 'Edit Mood'
   form:
    name: 'Name'
    description: 'Description'
@@ -309,6 +311,10 @@ en:
   members:
    title: 'List of Members'
    remove: 'Remove'
+
+ omniauth:
+  google: 'Google'
+  access_denied: 'Access Denied'
 
  pages:
   about:
@@ -390,6 +396,9 @@ en:
    add_ally: 'Add to Allies'
    confirm: 'Are you sure?'
 
+ pusher:
+  not_authorized: 'Not Authorized'
+
  search:
   form:
    search_by_name: 'Search by name'
@@ -461,6 +470,7 @@ en:
 
  strategies:
   edit: 'Edit %{strategy}'
+  edit_strategy: 'Edit Strategy'
   form:
    name: 'Title'
    categories: 'Categories'
