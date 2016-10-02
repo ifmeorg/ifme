@@ -43,19 +43,19 @@
 		Stories
 	</div>
 
-	<% @stories.each_with_index do |item, index| %>
-		<% if index+1 == @stories.length %>
-				<div class="profile_container no_margin_bottom">
-			<% else %>
-			<div class="profile_container">
-		<% end %>
-				<h1 class="profile_name">
-					<%= render :partial => '/shared/viewers_hover', locals: { data: item } %>
-					<%= link_to item.name, item %>
+	<div id="pages">
+		<div class="page">
+		<% @stories.each do |story| %>
+			<div class="story">
+				<h1 class="story_name">
+					<%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+					<%= link_to story.name, story %>
 				</h1>
-				<%= render :partial => '/moments/info', locals: { data: item, show_strategies: true, home: true, class_name: true } %>
+				<%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
 			</div>
-	<% end %>
+		<% end %>
+		</div>
+	</div>
 
 	<%= paginate @stories %>
 <% end %>

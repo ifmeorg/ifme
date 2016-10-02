@@ -1,6 +1,5 @@
 .ally,
-.group,
-.profile_container {
+.group {
 	border: 1px solid $container-color;
 	padding: 20px;
 	box-shadow: 0 0 2px $container-color inset;
@@ -21,7 +20,6 @@
 .strategy {
 	@include box-sizing(border-box);
 	width: calc(50% - 10px);
-	// height: 210px;
 	border: 1px solid $container-color;
 	padding: 20px;
 	box-shadow: 0 0 2px $container-color inset;
