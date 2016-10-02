@@ -1,9 +1,4 @@
-<% if @categories.last == category %>
-<div class="category no_margin_bottom post">
-<% else %>
 <div class="category post">
-<% end %>
-
 	<h1 class="category_name"><%= link_to category.name, category %></h1>
 
   	<%= strip_tags(category.description[0..80]) %>
