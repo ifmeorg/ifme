@@ -179,6 +179,10 @@ function quickCreate(form, data_type) {
         $('#strategies_list').prepend(json.checkbox);
       }
 
+      // Checking the newly added checkbox.
+      var id = $(json.checkbox).attr('id');
+      $('#' + id).prop('checked', true);
+
       $(form).trigger('reset');
       $('.quick_create_close').click();
   });
