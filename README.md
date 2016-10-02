@@ -22,18 +22,13 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 Goals
 -----
 
-* Allows users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
+* Allow users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
 * Create personalized categories and moods to organize Moments and Strategies
-* Develop and share Strategies to solve problems and maintain healthy goals
+* Develop and share Strategies to solve problems and maintain healthy self-care goals
 * Keep track of medications and create alerts for them
 * Create support groups whether online or offline and keep track of sessions
 
-Current goals:
-
-* Improve test coverage
-* General clean up and tweaking of UI and UX, including language throughout the app
-* More helpful and visual documentation to help familiarize contributors with the project
-* Usability testing
+Check out our projects [page](https://github.com/julianguyen/ifme/projects) to see what we are currently working on!
 
 Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features!
 
@@ -317,7 +312,7 @@ Password: password99
 Testing
 --------
 
-We are using Selenium for web browser automation, so you will *need* to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
+We are using Selenium for web browser automation, so you will **need** to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
 
 Always write tests for the changes you've made! If you see any missing tests, write them!
 
@@ -369,11 +364,12 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ### Style Guide
 
-* Make sure you run the test suite locally before you commit, don't rely on the Travis CI to do that for you
-* Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue"
-* Make sure pull requests reference the corresponding issue
-* Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots
-* As a pull request reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (you can either merge it yourself or ask the PR creator to do it themselves)
+* We use **2 space** tabbing! Please stick with that, and if you see any files that aren't, please update them!
+* Make sure you run the test suite locally before you commit, don't rely on the Travis CI to do that for you.
+* Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue".
+* Make sure pull requests reference the corresponding issue.
+* Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
+* As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
 
 ### Contributor Blurb
 
