@@ -38,8 +38,6 @@ class Medication < ActiveRecord::Base
   attr_accessor :add_to_google_cal
 
   def active_reminders
-    [self.refill_reminder, self.take_medication_reminder].select do |reminder|
-      reminder.active?
-    end
+    [refill_reminder, take_medication_reminder].select(&:active?)
   end
 end

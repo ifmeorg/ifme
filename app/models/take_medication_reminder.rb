@@ -4,6 +4,6 @@ class TakeMedicationReminder < ActiveRecord::Base
   scope :active, -> { where(active: true) }
 
   def name
-    I18n.t("medications.daily_reminder")
+    I18n.t('medications.daily_reminder')
   end
 end

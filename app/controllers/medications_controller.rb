@@ -15,7 +15,7 @@ class MedicationsController < ApplicationController
     else
       @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "#{t('medications.new')}"
+    @page_tooltip = t('medications.new')
   end
 
   # GET /medications/1
@@ -23,7 +23,7 @@ class MedicationsController < ApplicationController
   def show
     if @medication.userid == current_user.id
       @page_edit = edit_medication_path(@medication)
-      @page_tooltip = "#{t('medications.edit_medication')}"
+      @page_tooltip = t('medications.edit_medication')
     else
       respond_to do |format|
         format.html { redirect_to medications_path }
@@ -103,9 +103,8 @@ class MedicationsController < ApplicationController
     if medication.active_reminders.any?
       return_this += '<div class="small_margin_top">'
       return_this += '<i class="fa fa-bell small_margin_right"></i>'
-      reminder_names = medication.active_reminders.map { |reminder| reminder.name }
-      return_this += reminder_names.to_sentence(two_words_connector:
-                                                t('support.array.words_connector'))
+      reminder_names = medication.active_reminders.map(&:name)
+      return_this += reminder_names.to_sentence(two_words_connector: t('support.array.words_connector'))
       return_this += '</div>'
     end
 

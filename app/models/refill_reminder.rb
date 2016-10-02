@@ -4,6 +4,6 @@ class RefillReminder < ActiveRecord::Base
   scope :active, -> { where(active: true) }
 
   def name
-    I18n.t("medications.refill_reminder")
+    I18n.t('medications.refill_reminder')
   end
 end

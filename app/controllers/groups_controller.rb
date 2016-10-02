@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
                           .includes(:group_members)
                           .order("groups.created_at DESC")
-    @page_tooltip = "#{t('groups.new')}"
+    @page_tooltip = t('groups.new')
     @available_groups = current_user.available_groups("groups.created_at DESC")
   end
 
@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
       @meetings = @group.meetings.includes(:leaders)
     end
 
-    @page_tooltip = "#{t('meetings.new')}" if @group.led_by?(current_user)
+    @page_tooltip = t('meetings.new') if @group.led_by?(current_user)
   end
 
   # GET /groups/new

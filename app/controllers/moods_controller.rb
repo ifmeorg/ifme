@@ -12,7 +12,7 @@ class MoodsController < ApplicationController
     else
       @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
     end
-    @page_tooltip = "#{t('moods.new')}"
+    @page_tooltip = t('moods.new')
   end
 
   # GET /moods/1
@@ -21,7 +21,7 @@ class MoodsController < ApplicationController
     if @mood.userid == current_user.id || is_viewer(params[:moment], @mood)
       if @mood.userid == current_user.id
         @page_edit = edit_mood_path(@mood)
-        @page_tooltip = "#{t('moods.edit_mood')}"
+        @page_tooltip = t('moods.edit_mood')
       else
         link_url = "/profile?uid=" + get_uid(@mood.userid).to_s
         the_link = link_to User.where(:id => @mood.userid).first.name, link_url
