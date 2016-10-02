@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe "NotificationMailer" do
   let(:recipient)  { FactoryGirl.create(:user1, email: "some@user.com") }
-  let(:medication) { FactoryGirl.create(:medication, userid: recipient.id) }
-  let(:reminder)   { FactoryGirl.create(:take_medication_reminder, medication_id: medication.id) }
+  let(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: recipient.id) }
+  let(:reminder)   { medication.take_medication_reminder }
 
   describe "#take_medication" do
     subject(:email) { NotificationMailer.take_medication(reminder) }

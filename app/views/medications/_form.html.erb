@@ -105,7 +105,7 @@
         <div class="label no_margin_bottom">
           <div class="inline-block">
             <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-            <%= reminder.label t('medications.form.refill_reminder'), for: 'refill_reminder' %>
+            <%= reminder.label t('medications.refill_reminder'), for: 'refill_reminder' %>
           </div>
           <div class="align_right">
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
@@ -120,7 +120,7 @@
         <div class="label no_margin_bottom">
           <div class="inline-block">
             <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-            <%= reminder.label t('medications.form.daily_reminder'), for: 'take_medication_reminder' %>
+            <%= reminder.label t('medications.daily_reminder'), for: 'take_medication_reminder' %>
           </div>
           <div class="align_right">
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>

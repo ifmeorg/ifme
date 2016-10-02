@@ -36,4 +36,10 @@ class Medication < ActiveRecord::Base
   validates :strength, :numericality => { :greater_than_or_equal_to => 0 }
 
   attr_accessor :add_to_google_cal
+
+  def active_reminders
+    [self.refill_reminder, self.take_medication_reminder].select do |reminder|
+      reminder.active?
+    end
+  end
 end
