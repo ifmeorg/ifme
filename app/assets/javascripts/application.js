@@ -18,6 +18,9 @@
 //= require bootstrap-datepicker
 //= require underscore
 //= require_tree .
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 
 /* Viewers */
 function isAllAlliesInputBoxIsChecked(inputTag) {

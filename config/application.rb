@@ -33,5 +33,8 @@ module Ifme
             "#{html_tag}".html_safe
         end
     }
+
+    # export translations for use in javascript
+    config.middleware.use I18n::JS::Middleware
   end
 end
