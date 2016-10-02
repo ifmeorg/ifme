@@ -11,7 +11,7 @@ describe PagesController do
 			expect(controller.print_contributors([{name: 'test', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test</a>')
 		end
 		it "returns correct result for two links" do
-			expect(controller.print_contributors([{name: 'test1', link: 'http://if-me.org'}, {name: 'test2', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test1</a>, <a target="blank" href="http://if-me.org">test2</a>')
+			expect(controller.print_contributors([{name: 'test1', link: 'http://if-me.org'}, {name: 'test2', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test1</a> and <a target="blank" href="http://if-me.org">test2</a>')
 		end
 		it "returns correct result for three links" do
 			expect(controller.print_contributors([{name: 'test1', link: 'http://if-me.org'}, {name: 'test2', link: 'http://if-me.org'}, {name: 'test3', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test1</a>, <a target="blank" href="http://if-me.org">test2</a>, and <a target="blank" href="http://if-me.org">test3</a>')

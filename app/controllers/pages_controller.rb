@@ -109,22 +109,12 @@ class PagesController < ApplicationController
   def faq
   end
 
-  def print_contributors(data)
-    return_this = ''
-    data.each_with_index do |d, index|
-      if d.kind_of?(Hash) && d[:name].kind_of?(String) && d[:link].kind_of?(String)
-        if data.length > 2 && index + 1 == data.length
-          return_this += ", and "
-        elsif index != 0
-          return_this += ", "
-        end
-        return_this += link_to d[:name], d[:link], target: 'blank'
-      else
-        break
+  def print_contributors(contributors)
+    contributors.map do |c|
+      if c.kind_of?(Hash) && c[:name].kind_of?(String) && c[:link].kind_of?(String)
+        link_to c[:name], c[:link], target: 'blank'
       end
-    end
-
-    return return_this.html_safe
+    end.to_sentence.html_safe
   end
 
   def print_partners(data)

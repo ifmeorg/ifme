@@ -46,6 +46,7 @@ en:
 
  categories:
   edit: "Edit %{category}"
+  edit_category: "Edit Category"
   form:
    name: 'Name'
    description: 'Description'
@@ -89,6 +90,7 @@ en:
    cannot_delete: 'Please note that you cannot delete groups.'
    error_explanation: 'Please fill out the marked fields!'
    error_save: "We can't save this group because: "
+   error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
    title: 'Groups'
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
@@ -102,6 +104,11 @@ en:
    delete: 'Delete'
    confirm: 'Are you sure?'
    instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
+  join_success: 'You have joined this group.'
+  leave:
+    error: 'You cannot leave the group, you are the only leader.'
+    success: "You have left %{group}"
+    remove_member_success: "You have removed %{user} from %{group}"
   members:
    one: '%{count} member'
    other: '%{count} members'
@@ -141,6 +148,9 @@ en:
 
  medications:
   edit: "Edit %{medication}"
+  edit_medication: 'Edit Medication'
+  daily_reminder: 'Daily reminder email'
+  refill_reminder: 'Refill reminder email'
   form:
    name: 'Name'
    comments: 'Comments'
@@ -150,8 +160,6 @@ en:
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
-   daily_reminder: 'Daily reminder email'
-   refill_reminder: 'Refill reminder email'
    error_explanation: 'Please fill out the marked fields!'
    comments_hint: 'Additional comments, log your symptoms here'
    add_to_google_cal: 'Save to Google Calendar?'
@@ -197,6 +205,7 @@ en:
 
  meetings:
   edit: "Edit %{meeting}"
+  edit_meeting: 'Edit Meeting'
   form:
    name: 'Name'
    location: 'Location'
@@ -207,6 +216,7 @@ en:
    maximum_placeholder: '0 if no maximum'
    description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
+  join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
    confirm: 'Are you sure?'
@@ -222,12 +232,16 @@ en:
    members_of_group_html:
     one: '%{count} Member <strong>of</strong> %{group}'
     other: '%{count} Members <strong>of</strong> %{group}'
+  leave:
+    error: 'You cannot leave the meeting, you are the only leader.'
+    success: 'You have left %{meeting}'
   new: 'New Meeting'
 
  moments:
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
   edit: 'Edit %{moment}'
+  edit_moment: 'Edit Moment'
   form:
    add_category: 'Add category'
    add_mood: 'Add mood'
@@ -260,6 +274,7 @@ en:
 
  moods:
   edit: 'Edit %{mood}'
+  edit_mood: 'Edit Mood'
   form:
    name: 'Name'
    description: 'Description'
@@ -296,6 +311,10 @@ en:
   members:
    title: 'List of Members'
    remove: 'Remove'
+
+ omniauth:
+  google: 'Google'
+  access_denied: 'Access Denied'
 
  pages:
   about:
@@ -377,6 +396,9 @@ en:
    add_ally: 'Add to Allies'
    confirm: 'Are you sure?'
 
+ pusher:
+  not_authorized: 'Not Authorized'
+
  search:
   form:
    search_by_name: 'Search by name'
@@ -448,6 +470,7 @@ en:
 
  strategies:
   edit: 'Edit %{strategy}'
+  edit_strategy: 'Edit Strategy'
   form:
    name: 'Title'
    categories: 'Categories'

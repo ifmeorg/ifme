@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
                           .includes(:group_members)
                           .order("groups.created_at DESC")
-    @page_tooltip = "#{t('new')} #{t('group')}"
+    @page_tooltip = t('groups.new')
     @available_groups = current_user.available_groups("groups.created_at DESC")
   end
 
@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
       @meetings = @group.meetings.includes(:leaders)
     end
 
-    @page_tooltip = "#{t('new')} #{t('meeting')}" if @group.led_by?(current_user)
+    @page_tooltip = t('meetings.new') if @group.led_by?(current_user)
   end
 
   # GET /groups/new
@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     unless @group.leaders.include?(current_user)
-      flash[:error] = 'You must be a leader of a group in order to edit it'
+      flash[:error] = t('groups.form.error_edit_permission')
       redirect_to_index
     end
   end
@@ -69,11 +69,11 @@ class GroupsController < ApplicationController
 
   def join
     @group_member = GroupMember.create!(group_member_params)
-    group = @group_member.group
-    GroupNotifier.new(group, 'new_group_member', current_user)
-                 .send_notifications_to(group.leaders)
+    @group = @group_member.group
+    GroupNotifier.new(@group, 'new_group_member', current_user)
+                 .send_notifications_to(@group.leaders)
 
-    flash[:notice] = 'You have joined this group.'
+    flash[:notice] = t('groups.join_success')
     redirect_to_group
   end
 
@@ -84,15 +84,16 @@ class GroupsController < ApplicationController
 
     # Cannot leave When you are the only leader
     if group.leader_ids == [member_id]
-      flash[:alert] = 'You cannot leave the group, you are the only leader.'
+      flash[:alert] = t('groups.leave.error')
     else
       group_member.destroy
 
       if member_id == current_user.id
-        flash[:notice] = "You have left #{group.name}"
+        flash[:notice] = t('groups.leave.success', group: group.name)
       else
-        flash[:notice] = "You have removed #{group_member.user.name} from \
-                         #{group.name}"
+        flash[:notice] = t('groups.leave.remove_member_success',
+                           user: group_member.user.name,
+                           group: group.name)
       end
     end
     redirect_to_index

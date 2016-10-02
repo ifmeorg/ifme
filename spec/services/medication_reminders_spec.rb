@@ -15,8 +15,8 @@ describe MedicationReminders do
 
     context "reminders exist" do
       let!(:user) { FactoryGirl.create(:user1) }
-      let!(:medication) { FactoryGirl.create(:medication, userid: user.id) }
-      let!(:reminder) { FactoryGirl.create(:take_medication_reminder, medication_id: medication.id) }
+      let!(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: user.id) }
+      let!(:reminder) { medication.take_medication_reminder }
 
       context "take medication reminder is active" do
         it "sends an email" do
@@ -46,8 +46,8 @@ describe MedicationReminders do
     context "reminders exist and it is one week before the refill" do
       let!(:user) { FactoryGirl.create(:user1) }
       let(:refill_date) { '01/01/2010' }
-      let!(:medication) { FactoryGirl.create(:medication, userid: user.id, refill: refill_date) }
-      let!(:reminder) { FactoryGirl.create(:refill_reminder, medication_id: medication.id) }
+      let!(:medication) { FactoryGirl.create(:medication, :with_refill_reminder, userid: user.id, refill: refill_date) }
+      let!(:reminder) { medication.refill_reminder }
 
       before "pretend its a week before the refill is happening" do
         allow(Time).to receive(:now).and_return(Time.strptime(refill_date, '%m/%d/%Y') - 1.week)
