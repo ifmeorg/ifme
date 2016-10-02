@@ -34,6 +34,17 @@
 	}
 }
 
+.story {
+	position: relative;
+	padding-bottom: 50px;
+
+	.class_name {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+}
+
 h1.ally_name,
 h1.category_name,
 h1.group_name,
@@ -108,6 +119,7 @@ h1.strategy_name a:visited {
 		display: inline-block;
 	}
 }
+
 
 #other_user,
 .story {
@@ -278,7 +290,7 @@ h1.tag_type {
 	}
 }
 
-#class_name,
+.class_name,
 #showTaggedMoments.align_right,
 #hideTaggedMoments.align_right  {
 	float: right !important;
