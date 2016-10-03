@@ -37,4 +37,12 @@
 			help: link_to(t('help'), contributors_path),
 			feedback: link_to(t('feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
 		}) %>
+    <div class="spacer"></div>
+    <div class="contributors_grid">
+      <% @blurbs.each do |blurb| %>
+        <div class="contributors_grid_child">
+          <%= fetch_profile_picture(blurb[:image], 'home_picture') %>
+        </div>
+      <% end %>
+    </div>
 </div>

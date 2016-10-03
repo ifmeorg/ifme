@@ -550,17 +550,32 @@ img {
 	border-radius: 150px;
 	border: 2px solid $container-color;
 	background-size: 100px !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    margin: 0 auto;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  margin: 0 auto;
 
 	@media screen and (min-width: $medium + 1) {
 		width: 200px;
 		height: 200px;
 		background-size: 200px !important;
-    	background-position: center center !important;
-    	background-repeat: no-repeat !important;
 	}
+}
+
+.home_picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 150px;
+  border: 2px solid $container-color;
+  background-size: 50px !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  margin: 0 auto;
+
+  @media screen and (min-width: $medium + 1) {
+    width: 100px;
+    height: 100px;
+    background-size: 100px !important;
+  }
 }
 
 .small_profile_picture_div {

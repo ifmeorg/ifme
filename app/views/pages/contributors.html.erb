@@ -5,6 +5,8 @@
 	github_link: link_to(t('github'), 'https://github.com/julianguyen/ifme', target: 'blank')
 	}) %>
 
+<div class="divider"></div>
+
 <div class="contributors table">
 	<% @blurbs.each do |blurb| %>
 		<div class="contributor table_row">
@@ -24,11 +26,8 @@
 	<% end %>
 </div>
 
+<div class="divider"></div>
+
 <div class="contributor-name"><%= t('pages.contributors.more_contributors') %></div>
 <div class="spacer"></div>
 <%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>
-
-<div class="spacer"></div>
-<div class="contributor-name"><%= t('pages.contributors.partners') %></div>
-<div class="spacer"></div>
-<%= print_partners(@organizations) %>
