@@ -343,3 +343,11 @@ h1.tag_type {
 		max-height: 100px;
 	}
 }
+
+#pages .page,
+#moment_tag_usage,
+#strategy_tag_usage {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}

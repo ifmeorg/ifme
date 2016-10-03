@@ -9,30 +9,30 @@
 		<% strategies = usage[1] %>
 
 		<% if moments.length > 0 %>
-			<h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
+		<h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
 
-			<div id="moment_tag_usage">
-			<% moments.each do |moment_id| %>
-				<% moment = Moment.where(id: moment_id).first %>
-				<% if moment.userid == current_user.id || moment.viewers.include?(current_user.id) %>
-				<%= render :partial => '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
-				<% end %>
+		<div id="moment_tag_usage">
+		<% moments.each do |moment_id| %>
+			<% moment = Moment.where(id: moment_id).first %>
+			<% if moment.userid == current_user.id || moment.viewers.include?(current_user.id) %>
+			<%= render :partial => '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
 			<% end %>
-			</div>
 		<% end %>
+		</div>
+	<% end %>
 
-		<% if strategies.length > 0 %>
-			<h1 class="tag_type margin_top"><%= t('shared.tag_usage.tagged_strategies') %></h1>
+	<% if strategies.length > 0 %>
+		<h1 class="tag_type margin_top"><%= t('shared.tag_usage.tagged_strategies') %></h1>
 
-			<div id="strategy_tag_usage">
-			<% strategies.each do |strategy_id| %>
-				<% strategy = Strategy.where(id: strategy_id).first %>
-				<% if strategy.userid == current_user.id || strategy.viewers.include?(current_user.id) %>
-				<%= render :partial => '/shared/moments_strategies', locals: { items: strategies, item: strategy, data_type: 'strategy_tag_usage' } %>
-				<% end %>
+		<div id="strategy_tag_usage">
+		<% strategies.each do |strategy_id| %>
+			<% strategy = Strategy.where(id: strategy_id).first %>
+			<% if strategy.userid == current_user.id || strategy.viewers.include?(current_user.id) %>
+			<%= render :partial => '/shared/moments_strategies', locals: { items: strategies, item: strategy, data_type: 'strategy_tag_usage' } %>
 			<% end %>
-			</div>
 		<% end %>
+		</div>
+	<% end %>
 	<% else %>
 		<% moments = usage %>
 
@@ -59,6 +59,5 @@
 			</div>
 		<% end %>
 	<% end %>
-
 </div>
 <% end %>
