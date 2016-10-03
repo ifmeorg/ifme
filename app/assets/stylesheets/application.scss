@@ -37,28 +37,28 @@
 
 body, html {
   margin: 0 auto;
-  font: 20px $font-family;
+  font: $body $font-family;
   font-weight: 400;
 
   @media screen and (max-width: $medium) {
     margin: 0 auto;
-    font: 18px $font-family;
+    font: $font18 $font-family;
     font-weight: 400;
   }
 
   @media screen and (max-width: $small) {
     margin: 0 auto;
-    font: 16px $font-family;
+    font: $font16 $font-family;
     font-weight: 400;
   }
 }
 
 .small_font {
-  font: 14px $font-family;
+  font: $small_font $font-family;
   font-weight: 400;
 
   @media screen and (max-width: $small) {
-    font: 12px $font-family;
+    font: $font12 $font-family;
     font-weight: 400;
   }
 }
@@ -343,12 +343,12 @@ ul.no_bullet_list li {
 
 #page_title_content {
   padding: 40px 60px;
-  font-size: 40px;
+  font-size: $page_title;
   font-weight: 300;
 
   @media screen and (max-width: $medium) {
       padding: 20px;
-      font-size: 30px;
+      font-size: $font30;
       font-weight: 300;
   }
 }
@@ -406,11 +406,11 @@ a.page_search:hover {
 
 .headline {
   color: $header-text-color;
-  font-size: 40px;
+  font-size: $page_title;
   text-shadow: 0px 0px 10px $font-family;
 
   @media screen and (max-width: $medium) {
-    font-size: 30px;
+    font-size: $font30;
   }
 }
 
@@ -445,24 +445,24 @@ a.page_search:hover {
 }
 
 .subtitle {
-  font: 34px $font-family;
+  font: $font34 $font-family;
   font-weight: 100;
   text-align: center;
 
   @media screen and (max-width: $medium) {
-    font: 30px $font-family;
+    font: $font30 $font-family;
     font-weight: 100;
     text-align: center;
   }
 }
 
 .emphasis {
-  font: 28px $font-family;
+  font: $emphasis $font-family;
   font-weight: 300;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font: 24px $font-family;
+    font: $emphasis_small $font-family;
     font-weight: 300;
     color: $secondary-text-color;
   }
@@ -604,22 +604,22 @@ img {
 /* Form Elements and Input fields */
 
 label {
-  font-size: 30px;
+  font-size: $font30;
   font-weight: 300;
 
   @media screen and (max-width: $medium) {
-    font-size: 26px;
+    font-size: $font26;
   }
 }
 
 .label {
   width: auto;
   display: inherit;
-  font-size: 30px;
+  font-size: $font30;
   margin-bottom: 20px;
 
   @media screen and (max-width: $medium) {
-    font-size: 26px;
+    font-size: $font26;
     margin-bottom: 20px;
   }
 }
@@ -641,7 +641,7 @@ fieldset {
   padding: 10px;
   box-shadow: 0 0 2px $field-color inset;
   background-color: $background-color;
-  font: 20px $font-family;
+  font: $font20 $font-family;
   margin-right: 10px;
   box-sizing: border-box;
 
@@ -669,7 +669,7 @@ input[type="submit"] {
   box-shadow: 0 0 2px $container-color inset;
   color: $container-color;
   background: $background-color;
-  font: 20px $font-family;
+  font: $font20 $font-family;
 }
 
 input[type="submit"]:hover {
@@ -691,7 +691,7 @@ input[type="submit"]:hover {
 
 .name_field {
   width: 100%;
-  font: 30px Lato;
+  font: $font30 Lato;
 }
 
 .full_field {
@@ -699,7 +699,7 @@ input[type="submit"]:hover {
 }
 
 .toggle_button:link, .toggle_button:visited {
-  font-size: 27px;
+  font-size: $font27;
   color: $primary-text-color;
   float: right;
   border: none;
@@ -721,7 +721,7 @@ input[type="submit"]:hover {
 }
 
 .sidebar_label label, .sidebar_label {
-  font-size: 24px;
+  font-size: $font24;
 }
 
 .sidebar_label.expand_toggle label {
@@ -819,23 +819,23 @@ div.table div.table_cell {
 #error_explanation,
 .error_explanation {
   color: $alert-color;
-  font-size: 30px;
+  font-size: $font30;
   font-weight: 300;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
-    font-size: 26px;
+    font-size: $font26;
   }
 
   h2 {
     font-weight: 300;
-    font-size: 30px;
+    font-size: $font30;
     padding: 0;
     margin: 0px 0px 20px 0px;
     color: $secondary-text-color;
 
     @media screen and (max-width: $medium) {
-      font-size: 26px;
+      font-size: $font26;
       margin: 0px 0px 10px 0px;
     }
   }
@@ -885,16 +885,16 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
 }
 
 #ui-datepicker-div {
-  font: 20px $font-family !important;
+  font: $font20 $font-family !important;
   font-weight: 400 !important;
 
   @media screen and (max-width: $medium) {
-    font: 18px $font-family !important;
+    font: $font18 $font-family !important;
     font-weight: 400 !important;
   }
 
   @media screen and (max-width: $small) {
-    font: 16px $font-family !important;
+    font: $font16 $font-family !important;
     font-weight: 400 !important;
   }
 }
