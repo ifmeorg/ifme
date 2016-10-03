@@ -20,7 +20,7 @@
 .top-nav {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: $font16;
   clear: left;
   float: left;
   width: auto;
@@ -29,7 +29,7 @@
   @media screen and (min-width: $small + 1) {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: $font18;
     clear: left;
     float: left;
     width: auto;
@@ -73,7 +73,7 @@
 
 #expand_moment, #expand_me {
   font-weight: 300;
-  margin-top: 30px;
+  margin-top: $font30;
 
   @media screen and (max-width: $medium) {
     margin-top: 10px;
@@ -88,7 +88,7 @@
   border: none;
   color: $header-text-color;
   float: right;
-  font-size: 20px;
+  font-size: $font20;
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -103,7 +103,7 @@
   }
 
   @media screen and (min-width: $small + 1) {
-    font-size: 30px;
+    font-size: $font30;
     padding-top: 4px;
   }
 
@@ -114,12 +114,12 @@
   .expand {
     color: $highlight-text-color;
     float: right;
-    font-size: 20px;
+    font-size: $font20;
     margin-left: 10px;
     padding-top: 6px;
 
     @media screen and (max-width: $small) {
-      font-size: 16px;
+      font-size: $font16;
       padding-top: 2px;
     }
   }
