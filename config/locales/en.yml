@@ -22,6 +22,7 @@ en:
  strategy: 'Strategy'
  add: 'Add'
  add_all: 'Add all'
+ select_all: 'Select all'
  cancel: 'Cancel'
  accept: 'Accept'
  reject: 'Reject'

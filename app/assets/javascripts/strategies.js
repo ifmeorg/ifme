@@ -1,14 +1,3 @@
-var NO_ALLIES = "Unselect all";
-var ALL_ALLIES = "Select all";
-
-function selectAllAlliesWhoCanViewStrategy() {
-	$(":checkbox[name='strategy[viewers][]']").prop("checked", true);
-}
-
-function unselectAllAlliesWhoCanViewStrategy() {
-	$(":checkbox[name='strategy[viewers][]']").prop("checked", false);
-}
-
 var showTaggedMoments = function() {
 	$('#moment_tag_usage').addClass('display_block').removeClass('display_none');
 	$('#showTaggedMoments').addClass('display_none').removeClass('display_inline_block');
@@ -22,21 +11,12 @@ var hideTaggedMoments = function() {
 };
 
 var onReadyStrategies = function() {
-	if ($('body').hasClass('strategies new') || $('body').hasClass('strategies edit') || $('body').hasClass('strategies create') || $('body').hasClass('strategies update')) {
-		$('#viewers_label').text(ALL_ALLIES);
-
-		$('#viewers_all').change(function() {
-			if (isAllAlliesInputBoxIsChecked($(this))) {
-				selectAllAlliesWhoCanViewStrategy();
-				setViewersCheckBoxToNotBeSelected();
-				$('#viewers_label').text(NO_ALLIES);
-			} else {
-				unselectAllAlliesWhoCanViewStrategy();
-				setViewersCheckBoxToNotBeSelected();
-				$('#viewers_label').text(ALL_ALLIES);
-			}
+	if (newOrEdit(['strategies'])) {
+		$('#viewers_all').click(function(){
+			$(":checkbox[name='strategy[viewers][]']").prop("checked", $(this).prop("checked"));
 		});
 	}
+
 	if (isShow(['strategies'])) {
 		$('#showTaggedMoments').click(showTaggedMoments);
 		$('#hideTaggedMoments').click(hideTaggedMoments);
