@@ -37,7 +37,7 @@
 
 body, html {
   margin: 0 auto;
-  font: $body_font_size $font-family;
+  font: $body-font-size $font-family;
   font-weight: 400;
 
   @media screen and (max-width: $medium) {
@@ -54,7 +54,7 @@ body, html {
 }
 
 .small_font {
-  font: $small_font $font-family;
+  font: $small-font $font-family;
   font-weight: 400;
 
   @media screen and (max-width: $small) {
@@ -343,7 +343,7 @@ ul.no_bullet_list li {
 
 #page_title_content {
   padding: 40px 60px;
-  font-size: $page_title;
+  font-size: $page-title;
   font-weight: 300;
 
   @media screen and (max-width: $medium) {
@@ -406,7 +406,7 @@ a.page_search:hover {
 
 .headline {
   color: $header-text-color;
-  font-size: $page_title;
+  font-size: $page-title;
   text-shadow: 0px 0px 10px $font-family;
 
   @media screen and (max-width: $medium) {
@@ -462,7 +462,7 @@ a.page_search:hover {
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font: $emphasis_small $font-family;
+    font: $emphasis-small $font-family;
     font-weight: 300;
     color: $secondary-text-color;
   }
