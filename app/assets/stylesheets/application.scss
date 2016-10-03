@@ -4,18 +4,18 @@
  *
  * Directory structure:
  *
- *	stylesheets/
- *	|
+ *  stylesheets/
+ *  |
  *  |-- application/          # Styles for specific pages.
- *	|   |-- allies.scss       # Etc...
- *	|   ...
- *	|
- *	|-- base/                 # Variables and other common project styles.
- *	|   |-- _colors.scss      # Color variables.
- *	|   |-- _fonts.css        # Font variables and imports.
- *	|   ...                   # etc.
- *	|
- *	`-- application.css.scss  # primary Sass file
+ *  |   |-- allies.scss       # Etc...
+ *  |   ...
+ *  |
+ *  |-- base/                 # Variables and other common project styles.
+ *  |   |-- _colors.scss      # Color variables.
+ *  |   |-- _fonts.css        # Font variables and imports.
+ *  |   ...                   # etc.
+ *  |
+ *  `-- application.css.scss  # primary Sass file
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -36,337 +36,337 @@
 /* Text */
 
 body, html {
-	margin: 0 auto;
-	font: 20px $font-family;
-	font-weight: 400;
+  margin: 0 auto;
+  font: 20px $font-family;
+  font-weight: 400;
 
-	@media screen and (max-width: $medium) {
-		margin: 0 auto;
-		font: 18px $font-family;
-		font-weight: 400;
-	}
+  @media screen and (max-width: $medium) {
+    margin: 0 auto;
+    font: 18px $font-family;
+    font-weight: 400;
+  }
 
-	@media screen and (max-width: $small) {
-		margin: 0 auto;
-		font: 16px $font-family;
-		font-weight: 400;
-	}
+  @media screen and (max-width: $small) {
+    margin: 0 auto;
+    font: 16px $font-family;
+    font-weight: 400;
+  }
 }
 
 .small_font {
-	font: 14px $font-family;
-	font-weight: 400;
+  font: 14px $font-family;
+  font-weight: 400;
 
-	@media screen and (max-width: $small) {
-		font: 12px $font-family;
-		font-weight: 400;
-	}
+  @media screen and (max-width: $small) {
+    font: 12px $font-family;
+    font-weight: 400;
+  }
 }
 
 p {
-	word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 a:link, a:visited, .link_style {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-	cursor: pointer;
+  text-decoration: none;
+  color: $link-color;
+  border-bottom: 1px dotted $link-color;
+  cursor: pointer;
 }
 
 a:hover, .link_style:hover {
-	text-decoration: none;
-	color: $link-color;
-	border-bottom: 1px dotted $link-color;
-	opacity: 0.5;
+  text-decoration: none;
+  color: $link-color;
+  border-bottom: 1px dotted $link-color;
+  opacity: 0.5;
 }
 
 // TODO(juliepagano): This is probably not what we want long-term. Come back
 // and clean up table css.
 table {
-	border-collapse: separate;
+  border-collapse: separate;
 }
 
 strong, b {
-	color: $secondary-text-color;
+  color: $secondary-text-color;
 }
 
 ul:not(.ui-autocomplete, .no_bullet_list),
 ol:not(.ui-autocomplete, .no_bullet_list)  {
-	padding-left: 0;
+  padding-left: 0;
 }
 
 ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list),
 ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
- 	list-style-position:inside;
+  list-style-position:inside;
 }
 
 
 li:not(.ui-autocomplete, .no_bullet_list) {
-	list-style-type: circle;
+  list-style-type: circle;
 }
 
 ul.no_bullet_list {
-	text-align: center;
-	padding: 0;
-	margin: 0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 ul.no_bullet_list li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 /* Padding */
 
 .padding_right {
-	padding-right: 40px !important;
+  padding-right: 40px !important;
 
-	@media screen and (max-width: $medium) {
-		padding-right: 0 !important;
-	}
+  @media screen and (max-width: $medium) {
+    padding-right: 0 !important;
+  }
 }
 
 .padding_left {
-	padding-left: 40px !important;
+  padding-left: 40px !important;
 }
 
 .padding_top {
-	padding-top: 40px !important;
+  padding-top: 40px !important;
 }
 
 .padding_bottom {
-	padding-bottom: 40px !important;
+  padding-bottom: 40px !important;
 }
 
 .small_padding_right {
-	padding-right: 20px !important;
+  padding-right: 20px !important;
 }
 
 .small_padding_left {
-	padding-left: 20px !important;
+  padding-left: 20px !important;
 }
 
 .small_padding_top {
-	padding-top: 20px !important;
+  padding-top: 20px !important;
 }
 
 .small_padding_bottom {
-	padding-bottom: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 /* Margin */
 
 .margin_right {
-	margin-right: 40px !important;
+  margin-right: 40px !important;
 }
 
 .small_margin_right {
-	margin-right: 20px !important;
+  margin-right: 20px !important;
 }
 
 .smaller_margin_right {
-	margin-right: 10px !important;
+  margin-right: 10px !important;
 }
 
 .margin_left {
-	margin-left: 40px !important;
+  margin-left: 40px !important;
 }
 
 .small_margin_left {
-	margin-left: 20px !important;
+  margin-left: 20px !important;
 }
 
 .smaller_margin_left {
-	margin-left: 10px !important;
+  margin-left: 10px !important;
 }
 
 .margin_top {
-	margin-top: 40px !important;
+  margin-top: 40px !important;
 }
 
 .small_margin_top {
-	margin-top: 20px !important;
+  margin-top: 20px !important;
 }
 
 .smaller_margin_top {
-	margin-top: 10px !important;
+  margin-top: 10px !important;
 }
 
 .margin_bottom {
-	margin-bottom: 40px !important;
+  margin-bottom: 40px !important;
 }
 
 .small_margin_bottom {
-	margin-bottom: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .smaller_margin_bottom {
-	margin-bottom: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .no_margin_top{
-	margin-top: 0px !important;
+  margin-top: 0px !important;
 }
 
 .no_margin_bottom {
-	margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .no_margin_left {
-	margin-left: 0px !important;
+  margin-left: 0px !important;
 }
 
 .no_margin_right {
-	margin-right: 0px !important;
+  margin-right: 0px !important;
 }
 
 /* Divs */
 
 .right {
-	text-align: right;
+  text-align: right;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .no_center {
-	text-align: left !important;
+  text-align: left !important;
 }
 
 .center_div {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .spacer {
-	width: 100%;
-	height: 40px;
+  width: 100%;
+  height: 40px;
 
-	@media screen and (max-width: $medium) {
-		height: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    height: 20px;
+  }
 }
 
 .divider {
-	width: 100%;
-	height: 1px;
-	background-color: $subtle-secondary-text-color;
-	margin-top: 40px;
-	margin-bottom: 40px;
+  width: 100%;
+  height: 1px;
+  background-color: $subtle-secondary-text-color;
+  margin-top: 40px;
+  margin-bottom: 40px;
 
-	@media screen and (max-width: $medium) {
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 .stats_divider {
-	width: 100%;
-	height: 1px;
-	background-color: $subtle-secondary-text-color;
-	margin-bottom: 40px;
+  width: 100%;
+  height: 1px;
+  background-color: $subtle-secondary-text-color;
+  margin-bottom: 40px;
 
-	@media screen and (max-width: $medium) {
-		margin-bottom: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    margin-bottom: 20px;
+  }
 }
 
 .align_left {
-	float: left;
-	display: inline-block;
+  float: left;
+  display: inline-block;
 }
 
 .align_right {
-	float: right;
-	display: inline-block;
+  float: right;
+  display: inline-block;
 }
 
 .align_left, .align_right {
-	@media screen and (max-width: $medium) {
-		display: block;
-		float: none;
-	}
+  @media screen and (max-width: $medium) {
+    display: block;
+    float: none;
+  }
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
 
 #container {
-	margin: 0 auto;
-	padding: 0;
-	background-color: $background-color;
+  margin: 0 auto;
+  padding: 0;
+  background-color: $background-color;
 }
 
 .display_none {
-	display: none;
+  display: none;
 }
 
 .display_block {
-	display: block !important;
+  display: block !important;
 }
 
 .display_inline {
-	display: inline !important;
+  display: inline !important;
 }
 
 .display_inline_block {
-	display: inline-block !important;
+  display: inline-block !important;
 }
 
 .no_title, .yes_title {
-	width: auto;
+  width: auto;
 }
 
 .yes_title {
-	cursor: help;
+  cursor: help;
 }
 
 /* Page Title */
 
 #page_title {
-	width: 100%;
-	background-image: url('/assets/welcome_small.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: bottom center;
-	color: $secondary-text-color;
-	text-shadow: 0px 0px 10px $highlight-text-color;
-	-moz-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
-	-webkit-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
-	box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
+  width: 100%;
+  background-image: url('/assets/welcome_small.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  color: $secondary-text-color;
+  text-shadow: 0px 0px 10px $highlight-text-color;
+  -moz-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
+  -webkit-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
+  box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
 }
 
 .overlay {
-	background: $overlay-color;
+  background: $overlay-color;
 }
 
 #page_title_content {
-	padding: 40px 60px;
-	font-size: 40px;
-	font-weight: 300;
+  padding: 40px 60px;
+  font-size: 40px;
+  font-weight: 300;
 
-	@media screen and (max-width: $medium) {
-		padding: 20px;
-		font-size: 30px;
-		font-weight: 300;
-	}
+  @media screen and (max-width: $medium) {
+      padding: 20px;
+      font-size: 30px;
+      font-weight: 300;
+  }
 }
 
 #page_title_content a:link,
 #page_title_content a:visited {
-	text-decoration: none;
-	border: none;
-	color: $header-text-color;
-	text-shadow: 0px 0px 10px $secondary-text-color;
+  text-decoration: none;
+  border: none;
+  color: $header-text-color;
+  text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 #page_title_content a:hover {
-	text-decoration: none;
-	border: none;
-	color: $header-text-color;
-	opacity: 0.5;
-	text-shadow: 0px 0px 10px $secondary-text-color;
+  text-decoration: none;
+  border: none;
+  color: $header-text-color;
+  opacity: 0.5;
+  text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 /* Page Edit and New */
@@ -377,188 +377,186 @@ a.page_new:link,
 a.page_new:visited,
 a.page_search:link,
 a.page_search:visited {
-	text-decoration: none;
-	border: none;
-	color: $header-text-color;
-	text-shadow: 0px 0px 20px $secondary-text-color;
+  text-decoration: none;
+  border: none;
+  color: $header-text-color;
+  text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 a.page_edit:hover,
 a.page_new:hover,
 a.page_search:hover {
-	text-decoration: none;
-	border: none;
-	color: $header-text-color;
-	opacity: 0.5;
-	text-shadow: 0px 0px 20px $secondary-text-color;
+  text-decoration: none;
+  border: none;
+  color: $header-text-color;
+  opacity: 0.5;
+  text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 /* Content */
 
 #content {
-	padding: 40px 60px;
-	line-height: 150%;
+  padding: 40px 60px;
+  line-height: 150%;
 
-	@media screen and (max-width: $medium) {
-		padding: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    padding: 20px;
+  }
 }
 
 .headline {
-	color: $header-text-color;
-	font-size: 40px;
-	text-shadow: 0px 0px 10px $font-family;
+  color: $header-text-color;
+  font-size: 40px;
+  text-shadow: 0px 0px 10px $font-family;
 
-	@media screen and (max-width: $medium) {
-		font-size: 30px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: 30px;
+  }
 }
 
 .branding_title {
-	font-family: $font-family;
-	font-weight: 300;
-	text-transform: lowercase;
-	color: $secondary-text-color;
-	text-shadow: none;
+  font-family: $font-family;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: $secondary-text-color;
+  text-shadow: none;
 }
 
 .branding_subtitle {
-	padding: 6px 0px 12px 0px;
-	border-top: 2px solid $secondary-text-color;
-	border-bottom: 2px solid $secondary-text-color;
+  padding: 6px 0px 12px 0px;
+  border-top: 2px solid $secondary-text-color;
+  border-bottom: 2px solid $secondary-text-color;
 
-	@media screen and (max-width: $medium) {
-		padding: 0px 0px 4px 0px;
-	}
+  @media screen and (max-width: $medium) {
+    padding: 0px 0px 4px 0px;
+  }
 }
 
 .subtle {
-	color: $subtle-secondary-text-color;
+  color: $subtle-secondary-text-color;
 }
 
 .text_align_left {
-	text-align: left !important;
+  text-align: left !important;
 }
 
 .text_align_right {
-	text-align: right !important;
+  text-align: right !important;
 }
 
 .subtitle {
-	font: 34px $font-family;
-	font-weight: 100;
-	text-align: center;
+  font: 34px $font-family;
+  font-weight: 100;
+  text-align: center;
 
-	@media screen and (max-width: $medium) {
-		font: 30px $font-family;
-		font-weight: 100;
-		text-align: center;
-	}
+  @media screen and (max-width: $medium) {
+    font: 30px $font-family;
+    font-weight: 100;
+    text-align: center;
+  }
 }
 
 .emphasis {
-	font: 28px $font-family;
-	font-weight: 300;
-	color: $secondary-text-color;
+  font: 28px $font-family;
+  font-weight: 300;
+  color: $secondary-text-color;
 
-	@media screen and (max-width: $medium) {
-		font: 24px $font-family;
-		font-weight: 300;
-		color: $secondary-text-color;
-	}
+  @media screen and (max-width: $medium) {
+    font: 24px $font-family;
+    font-weight: 300;
+    color: $secondary-text-color;
+  }
 }
 
 .block {
-	display: block !important;
+  display: block !important;
 }
 
 .inline-block {
-	display: inline-block;
-	overflow: hidden;
-	white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .spacing {
-	margin-right: 10px;
+  margin-right: 10px;
 
-	@media screen and (max-width: $medium) {
-		margin-right: 0;
-		margin-bottom: 10px;
-	}
+  @media screen and (max-width: $medium) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 /* Links */
 
 a.gravatar:link,
 a.gravatar:visited {
-	text-decoration: none;
-	border: none;
+  text-decoration: none;
+  border: none;
 }
 
 a.gravatar:hover {
-	text-decoration: none;
-	border: none;
-	opacity: 0.5;
+  text-decoration: none;
+  border: none;
+  opacity: 0.5;
 }
 
 a.highlight:link,
 a.highlight:visited {
-	text-decoration: none;
-	background-color: $secondary-text-color;
-	color: $header-text-color !important;
-	border-bottom: none !important;
-	padding: 5px;
+  text-decoration: none;
+  background-color: $secondary-text-color;
+  color: $header-text-color !important;
+  border-bottom: none !important;
+  padding: 5px;
 }
 
 a.highlight:hover {
-	text-decoration: none;
-	background-color: $secondary-text-color;
-	color: $header-text-color !important;
-	border-bottom: none !important;
-	opacity: 0.5;
-	padding: 5px;
+  text-decoration: none;
+  background-color: $secondary-text-color;
+  color: $header-text-color !important;
+  border-bottom: none !important;
+  opacity: 0.5;
+  padding: 5px;
 }
 
 /* Images */
 
 img {
-	 max-width: 100%;
+  max-width: 100%;
 }
 
 .mini_profile_picture {
-	width: 100px;
-	height: 100px;
-	border-radius: 150px;
-	border: 2px solid $container-color;
-	background-size: 100px !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  border: 2px solid $container-color;
+  background-size: 100px !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 
-	@media screen and (max-width: $small) {
-		width: 50px;
-		height: 50px;
-		background-size: 50px !important;
-    	background-position: center center !important;
-    	background-repeat: no-repeat !important;
-	}
+  @media screen and (max-width: $small) {
+    width: 50px;
+    height: 50px;
+    background-size: 50px !important;
+  }
 }
 
 .profile_picture,
 .contributor_picture {
-	width: 100px;
-	height: 100px;
-	border-radius: 150px;
-	border: 2px solid $container-color;
-	background-size: 100px !important;
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  border: 2px solid $container-color;
+  background-size: 100px !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   margin: 0 auto;
 
-	@media screen and (min-width: $medium + 1) {
-		width: 200px;
-		height: 200px;
-		background-size: 200px !important;
-	}
+    @media screen and (min-width: $medium + 1) {
+      width: 200px;
+      height: 200px;
+      background-size: 200px !important;
+    }
 }
 
 .home_picture {
@@ -579,116 +577,116 @@ img {
 }
 
 .small_profile_picture_div {
-	width: 100px;
-	height: 100px;
+  width: 100px;
+  height: 100px;
 
-	@media screen and (max-width: $small) {
-		width: 50px;
-		height: 50px;
-	}
+  @media screen and (max-width: $small) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .profile_picture_div {
-	width: 200px;
-	height: 200px;
+  width: 200px;
+  height: 200px;
 
-	@media screen and (max-width: $medium) {
-		width: 100px;
-		height: 100px;
-	}
+  @media screen and (max-width: $medium) {
+    width: 100px;
+    height: 100px;
+  }
 
-	@media screen and (max-width: $small) {
-		width: 50px;
-		height: 50px;
-	}
+  @media screen and (max-width: $small) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 /* Form Elements and Input fields */
 
 label {
-	font-size: 30px;
-	font-weight: 300;
+  font-size: 30px;
+  font-weight: 300;
 
-	@media screen and (max-width: $medium) {
-		font-size: 26px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: 26px;
+  }
 }
 
 .label {
-	width: auto;
-	display: inherit;
-	font-size: 30px;
-	margin-bottom: 20px;
+  width: auto;
+  display: inherit;
+  font-size: 30px;
+  margin-bottom: 20px;
 
-	@media screen and (max-width: $medium) {
-		font-size: 26px;
-		margin-bottom: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
 }
 
 .label i, .sidebar_label i {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 textarea {
-	width: 50%;
-	height: 100px;
+  width: 50%;
+  height: 100px;
 }
 
 input,
 textarea,
 select,
 fieldset {
-	border: 1px solid $field-color;
-	padding: 10px;
-	box-shadow: 0 0 2px $field-color inset;
-	background-color: $background-color;
-	font: 20px $font-family;
-	margin-right: 10px;
-	box-sizing: border-box;
+  border: 1px solid $field-color;
+  padding: 10px;
+  box-shadow: 0 0 2px $field-color inset;
+  background-color: $background-color;
+  font: 20px $font-family;
+  margin-right: 10px;
+  box-sizing: border-box;
 
-	@media screen and (max-width: $medium) {
-		width: 100%;
-	}
+  @media screen and (max-width: $medium) {
+    width: 100%;
+  }
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-	margin: 0 10px 0 5px;
-	width: auto;
-	height: auto;
+  margin: 0 10px 0 5px;
+  width: auto;
+  height: auto;
 }
 
 .field input[type="text"],
 .field input[type="passsword"],
 .field input[type="email"] {
-	margin-right: 0px;
+  margin-right: 0px;
 }
 
 
 input[type="submit"] {
-	border: 1px solid $container-color;
-	box-shadow: 0 0 2px $container-color inset;
-	color: $container-color;
-	background: $background-color;
-	font: 20px $font-family;
+  border: 1px solid $container-color;
+  box-shadow: 0 0 2px $container-color inset;
+  color: $container-color;
+  background: $background-color;
+  font: 20px $font-family;
 }
 
 input[type="submit"]:hover {
-	border: 1px solid $container-color;
-	box-shadow: 0 0 2px $container-color inset;
-	color: $container-color;
-	background: $background-color;
-	opacity: 0.5;
+  border: 1px solid $container-color;
+  box-shadow: 0 0 2px $container-color inset;
+  color: $container-color;
+  background: $background-color;
+  opacity: 0.5;
 }
 
 .field,
 .actions {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 
-	@media screen and (max-width: $medium) {
-		margin-bottom: 20px;
-	}
+  @media screen and (max-width: $medium) {
+    margin-bottom: 20px;
+  }
 }
 
 .name_field {
@@ -697,7 +695,7 @@ input[type="submit"]:hover {
 }
 
 .full_field {
-	width: 100%;
+  width: 100%;
 }
 
 .toggle_button:link, .toggle_button:visited {
@@ -708,197 +706,197 @@ input[type="submit"]:hover {
 }
 
 .sidebar {
-	@media screen and (min-width: $medium) {
-		width: 30%;
-	}
+  @media screen and (min-width: $medium) {
+    width: 30%;
+  }
 }
 
 .sidebar_field {
   padding: 15px 15px 15px 0px;
 
   @media screen and (max-width: $medium) {
-  	padding: 10px 10px 10px 0px;
-  	width: 100%;
+    padding: 10px 10px 10px 0px;
+    width: 100%;
   }
 }
 
 .sidebar_label label, .sidebar_label {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 .sidebar_label.expand_toggle label {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 .special_textarea {
-	height: 200px;
+  height: 200px;
 }
 
 /* Tables */
 
 .action {
-	color: $link-color;
-	margin-right: 10px;
+  color: $link-color;
+  margin-right: 10px;
 }
 
 .vertical_align_top {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 .vertical_align_middle {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 .vertical_align_bottom {
-	vertical-align: bottom;
+  vertical-align: bottom;
 }
 
 /* Table */
 
 div.table {
-	display: table;
-	table-layout: auto;
-	width: 100%;
-	border-collapse: separate;
+  display: table;
+  table-layout: auto;
+  width: 100%;
+  border-collapse: separate;
 }
 
 div.table div.table_row {
-	display: table-row;
+  display: table-row;
 
-	@media screen and (max-width: $medium) {
-		display: block;
-	}
+  @media screen and (max-width: $medium) {
+    display: block;
+  }
 }
 
 div.table div.table_cell {
-	display: table-cell;
-	word-break: break-word;
+  display: table-cell;
+  word-break: break-word;
 
-	@media screen and (max-width: $medium) {
-		display: block;
-	}
+  @media screen and (max-width: $medium) {
+    display: block;
+  }
 }
 
 /* Errors and Notices */
 
 .field_with_errors {
-	width: auto;
-	display: inherit;
-	color: $alert-color;
-	font-weight: bold;
+  width: auto;
+  display: inherit;
+  color: $alert-color;
+  font-weight: bold;
 }
 
 .notice {
-	color: $notice-color;
-	font-weight: bold;
-	margin-bottom: 40px;
-	border: 1px solid $notice-color !important;
-	box-shadow: 0 0 2px $notice-color inset !important;
-	padding: 10px;
+  color: $notice-color;
+  font-weight: bold;
+  margin-bottom: 40px;
+  border: 1px solid $notice-color !important;
+  box-shadow: 0 0 2px $notice-color inset !important;
+  padding: 10px;
 }
 
 .alert {
-	color: $alert-color;
-	font-weight: bold;
-	margin-bottom: 40px;
-	border: 1px solid $alert-color !important;
-	box-shadow: 0 0 2px $alert-color inset !important;
-	padding: 10px;
+  color: $alert-color;
+  font-weight: bold;
+  margin-bottom: 40px;
+  border: 1px solid $alert-color !important;
+  box-shadow: 0 0 2px $alert-color inset !important;
+  padding: 10px;
 }
 
 .viewers_indicator {
-	color: $subtle-secondary-text-color;
-	font-weight: bold;
-	border: 1px solid $subtle-secondary-text-color !important;
-	box-shadow: 0 0 2px $subtle-secondary-text-color inset !important;
-	padding: 10px;
+  color: $subtle-secondary-text-color;
+  font-weight: bold;
+  border: 1px solid $subtle-secondary-text-color !important;
+  box-shadow: 0 0 2px $subtle-secondary-text-color inset !important;
+  padding: 10px;
 }
 
 #error_explanation,
 .error_explanation {
-	color: $alert-color;
-	font-size: 30px;
-	font-weight: 300;
-	margin-bottom: 40px;
+  color: $alert-color;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 40px;
 
-	@media screen and (max-width: $medium) {
-		font-size: 26px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: 26px;
+  }
 
-	h2 {
-		font-weight: 300;
-		font-size: 30px;
-		padding: 0;
-		margin: 0px 0px 20px 0px;
-		color: $secondary-text-color;
+  h2 {
+    font-weight: 300;
+    font-size: 30px;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: $secondary-text-color;
 
-		@media screen and (max-width: $medium) {
-			font-size: 26px;
-			margin: 0px 0px 10px 0px;
-		}
-	}
+    @media screen and (max-width: $medium) {
+      font-size: 26px;
+      margin: 0px 0px 10px 0px;
+    }
+  }
 
-	ul {
-		padding-left: 0;
-		margin-top: 0;
-		margin-bottom: 40px;
-		list-style-position: inside;
+  ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 40px;
+    list-style-position: inside;
 
-		@media screen and (max-width: $medium) {
-			margin-bottom: 20px;
-		}
+    @media screen and (max-width: $medium) {
+      margin-bottom: 20px;
+    }
 
-		@media screen and (max-width: $small) {
-			margin-bottom: 10px;
-		}
-	}
+    @media screen and (max-width: $small) {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 /* Font Awesome */
 
 .fa-inline {
-	margin-right: 20px;
+  margin-right: 20px;
 }
 
 .fa-left {
-	margin-left: 20px;
+  margin-left: 20px;
 }
 
 /* close icon */
 .fa-times {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 /* Focused input fields */
 
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-	border-color: $field-color;
-	box-shadow: 0px 0px 2px $field-color;
+  border-color: $field-color;
+  box-shadow: 0px 0px 2px $field-color;
 }
 
 /* Date Picker */
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-	color: $secondary-text-color !important;
+  color: $secondary-text-color !important;
 }
 
 #ui-datepicker-div {
-	font: 20px $font-family !important;
-	font-weight: 400 !important;
+  font: 20px $font-family !important;
+  font-weight: 400 !important;
 
-	@media screen and (max-width: $medium) {
-		font: 18px $font-family !important;
-		font-weight: 400 !important;
-	}
+  @media screen and (max-width: $medium) {
+    font: 18px $font-family !important;
+    font-weight: 400 !important;
+  }
 
-	@media screen and (max-width: $small) {
-		font: 16px $font-family !important;
-		font-weight: 400 !important;
-	}
+  @media screen and (max-width: $small) {
+    font: 16px $font-family !important;
+    font-weight: 400 !important;
+  }
 }
 
 @import "application/*";

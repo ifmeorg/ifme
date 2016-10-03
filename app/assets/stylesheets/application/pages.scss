@@ -3,155 +3,155 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #version {
-	text-align: center;
-	font-weight: 300;
-	font-size: 26px;
-	margin-bottom: 40px;
-	color: $secondary-text-color;
+  text-align: center;
+  font-weight: 300;
+  font-size: 26px;
+  margin-bottom: 40px;
+  color: $secondary-text-color;
 
-	@media screen and (max-width: $medium) {
-		font-size: 24px;
-		margin-bottom: 20px;
-	}
+  @media screen and (max-width: $medium) {
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
 }
 
 .moment p {
-	margin : 0;
+    margin : 0;
 }
 
 .main_message {
-	font-weight: 300;
-	font-size: 40px;
-	line-height: 50px;
-	margin-top: auto;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 40px;
-	color: $secondary-text-color;
-	width: 60%;
-	text-align: center;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 50px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  color: $secondary-text-color;
+  width: 60%;
+  text-align: center;
 
-	@media screen and (max-width: $medium) {
-		font-size: 30px;
-		line-height: 40px;
-		margin-bottom: 20px;
-		width: 100%;
-	}
+  @media screen and (max-width: $medium) {
+      font-size: 30px;
+      line-height: 40px;
+      margin-bottom: 20px;
+      width: 100%;
+  }
 }
 
 .message_text {
-	margin-top: auto;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 40px;
-	width: 60%;
-	text-align: center;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  width: 60%;
+  text-align: center;
 
-	@media screen and (max-width: $medium) {
-		margin-bottom: 20px;
-		width: 100%;
-	}
+  @media screen and (max-width: $medium) {
+      margin-bottom: 20px;
+      width: 100%;
+  }
 }
 
 .message_text,
 .message {
-	text-align: center;
-	font-weight: 300;
-	font-size: 26px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 26px;
 
-	@media screen and (max-width: $medium) {
-		font-size: 24px;
-	}
+  @media screen and (max-width: $medium) {
+      font-size: 24px;
+  }
 }
 
 .message {
-	display: table;
-	table-layout: fixed;
-	width: 100%;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .message_row {
-	display: table-row;
+  display: table-row;
 
-	@media screen and (max-width: $medium) {
-		display: block;
-	}
+  @media screen and (max-width: $medium) {
+      display: block;
+  }
 }
 
 .message_cell {
-	display: table-cell;
-	width: 30%;
+  display: table-cell;
+  width: 30%;
 
-	@media screen and (max-width: $medium) {
-		display: block;
-		width: 100%;
-		margin-bottom: 30px;
-	}
+  @media screen and (max-width: $medium) {
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+  }
 }
 
 #book {
-	width: 106px;
-	height: 80px;
-	background-image: url('/assets/book.png');
-	background-size: 106px 80px;
-	background-repeat: no-repeat;
-	background-position: center;
-	margin: 0 auto;
+  width: 106px;
+  height: 80px;
+  background-image: url('/assets/book.png');
+  background-size: 106px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
 
-	@media screen and (max-width: $small) {
-		width: 80px;
-		height: 60px;
-		background-size: 80px 60px;
-	}
+  @media screen and (max-width: $small) {
+    width: 80px;
+    height: 60px;
+    background-size: 80px 60px;
+  }
 }
 
 #time {
-	width: 80px;
-	height: 80px;
-	background-image: url('/assets/time.png');
-	background-size: 80px 80px;
-	background-repeat: no-repeat;
-	background-position: center;
-	margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  background-image: url('/assets/time.png');
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
 
-	@media screen and (max-width: $small) {
-		width: 60px;
-		height: 60px;
-		background-size: 60px 60px;
-	}
+  @media screen and (max-width: $small) {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+  }
 }
 
 #you {
-	width: 198px;
-	height: 80px;
-	background-image: url('/assets/you.png');
-	background-size: 198px 80px;
-	background-repeat: no-repeat;
-	background-position: center;
-	margin: 0 auto;
+  width: 198px;
+  height: 80px;
+  background-image: url('/assets/you.png');
+  background-size: 198px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
 
-	@media screen and (max-width: $small) {
-		width: 149px;
-		height: 60px;
-		background-size: 149px 60px;
-	}
+  @media screen and (max-width: $small) {
+    width: 149px;
+    height: 60px;
+    background-size: 149px 60px;
+  }
 }
 
 .icon_border {
-	margin: 40px auto 40px auto;
-	height: 1px;
-	background-color: $primary-text-color;
-	width: 80px;
+  margin: 40px auto 40px auto;
+  height: 1px;
+  background-color: $primary-text-color;
+  width: 80px;
 
-	@media screen and (max-width: $medium) {
-		margin: 30px auto 30px auto;
-	}
+  @media screen and (max-width: $medium) {
+    margin: 30px auto 30px auto;
+  }
 }
 
 .contributors_grid {
-	justify-content: center;
-	display: flex;
-	flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 
   .contributors_grid_child {
     margin-left: 10px;
@@ -171,146 +171,146 @@
 /* Blog */
 
 .blog_post {
-	padding: 20px;
-	border: 1px solid $container-color;
-	box-shadow: 0 0 2px $container-color inset;
-	margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid $container-color;
+  box-shadow: 0 0 2px $container-color inset;
+  margin-bottom: 40px;
 
-	@media screen and (max-width: $medium) {
-		margin-bottom: 20px;
-		padding: 10px;
-	}
+  @media screen and (max-width: $medium) {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
 }
 
 h1.blog_name,
 h1.privacy_heading,
 h1.faq_heading {
-	font-weight: 300;
-	font-size: 26px;
-	padding: 0;
-	margin: 0;
-	color: $secondary-text-color;
+  font-weight: 300;
+  font-size: 26px;
+  padding: 0;
+  margin: 0;
+  color: $secondary-text-color;
 
-	@media screen and (max-width: $medium) {
-		font-size: 22px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: 22px;
+  }
 }
 
 /* Quick Moment */
 
 #quick_moment {
-	input[type="text"], textarea {
-		width: 100%;
-	}
+  input[type="text"], textarea {
+      width: 100%;
+  }
 
-	input[type="text"] {
-		margin-bottom: 20px;
-	}
+  input[type="text"] {
+      margin-bottom: 20px;
+  }
 
-	.character_count {
-		display: inline;
-	}
+  .character_count {
+      display: inline;
+  }
 
-	.actions {
-		margin-top: 20px;
-	}
+  .actions {
+      margin-top: 20px;
+  }
 
-	.quick_moment_disclaimer {
-		text-align: left;
-	}
+  .quick_moment_disclaimer {
+      text-align: left;
+  }
 
-	label {
-		font-size: 20px;
-		font-weight: 300;
-		display: block;
-		margin-bottom: 5px;
+  label {
+      font-size: 20px;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 5px;
 
-		@media screen and (max-width: $medium) {
-			font-size: 16px;
-		}
-	}
+      @media screen and (max-width: $medium) {
+          font-size: 16px;
+      }
+  }
 
-	.checkbox {
-		display: block;
-	}
+  .checkbox {
+      display: block;
+  }
 
-	@media screen and (max-width: $medium) {
-		.quick_moment_disclaimer {
-			text-align: center;
-		}
+  @media screen and (max-width: $medium) {
+    .quick_moment_disclaimer {
+      text-align: center;
+    }
 
-		.small_padding_right, .small_padding_bottom {
-			padding: 0 !important;
-		}
+    .small_padding_right, .small_padding_bottom {
+      padding: 0 !important;
+    }
 
-		input[type="text"] {
-			margin-bottom: 10px;
-		}
+    input[type="text"] {
+      margin-bottom: 10px;
+    }
 
-		.actions {
-			margin-top: 10px;
-		}
+    .actions {
+      margin-top: 10px;
+    }
 
-		textarea {
-			margin-bottom: 10px;
-		}
+    textarea {
+      margin-bottom: 10px;
+    }
 
-		.character_count {
-			text-align: center;
-			font: 14px $font-family;
-			font-weight: 400;
-			margin-bottom: 10px;
+    .character_count {
+      text-align: center;
+      font: 14px $font-family;
+      font-weight: 400;
+      margin-bottom: 10px;
 
-			@media screen and (max-width: $small) {
-				font: 12px $font-family;
-				font-weight: 400;
-			}
-		}
-	}
+      @media screen and (max-width: $small) {
+        font: 12px $font-family;
+        font-weight: 400;
+      }
+    }
+  }
 }
 
 .onboarding {
-	@media screen and (max-width: $medium) {
-		.message_cell {
-			padding: 0 !important;
-			margin: 0 !important;
-		}
+  @media screen and (max-width: $medium) {
+    .message_cell {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
 
-		.onboarding_message {
-			text-align: center;
-		}
+    .onboarding_message {
+      text-align: center;
+    }
 
-		.padding_bottom {
-			padding-bottom: 20px !important;
-		}
-	}
+    .padding_bottom {
+      padding-bottom: 20px !important;
+    }
+  }
 
-	@media screen and (min-width: $medium + 1) {
-		.padding_bottom {
-			padding-bottom: 0 !important;
-		}
-	}
+  @media screen and (min-width: $medium + 1) {
+    .padding_bottom {
+      padding-bottom: 0 !important;
+    }
+  }
 }
 
 .purple_yay {
-	color: $purple-yay;
-	text-align: center;
-	text-shadow: 0px 0px 5px $purple-yay;
-	font-size: 30px;
+  color: $purple-yay;
+  text-align: center;
+  text-shadow: 0px 0px 5px $purple-yay;
+  font-size: 30px;
 }
 
 .partner {
-	text-align: center;
+  text-align: center;
 
-	a:link, a:visited {
-		text-decoration: none;
-		border: none;
-		cursor: pointer;
-	}
+  a:link, a:visited {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
 
-	a:hover {
-		text-decoration: none;
-		border: none;
-		opacity: 0.5;
-	}
+  a:hover {
+    text-decoration: none;
+    border: none;
+    opacity: 0.5;
+  }
 }
