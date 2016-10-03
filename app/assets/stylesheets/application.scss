@@ -37,7 +37,7 @@
 
 body, html {
   margin: 0 auto;
-  font: $body $font-family;
+  font: $body_font_size $font-family;
   font-weight: 400;
 
   @media screen and (max-width: $medium) {
