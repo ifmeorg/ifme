@@ -364,7 +364,9 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ### Style Guide
 
-* We use **2 space** tabbing! Please stick with that, and if you see any files that aren't, please update them!
+* We use **2 space** identation.
+* We use **snakecase** for Ruby files and id/class names in HTML.
+* We use **camelcase** for JS files.
 * Make sure you run the test suite locally before you commit, don't rely on the Travis CI to do that for you.
 * Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
