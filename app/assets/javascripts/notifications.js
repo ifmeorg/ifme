@@ -240,6 +240,7 @@ var onReadyNotifications = function() {
     changeTitle(0);
 
     $.ajax("/notifications/clear");
+    $('#clear_notifcations').addClass('display_none');
   });
 
   /* Quick Moment */
