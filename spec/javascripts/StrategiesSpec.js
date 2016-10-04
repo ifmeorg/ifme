@@ -27,30 +27,27 @@ describe("Strategies", function() {
     $("body").removeClass("strategies new");
   });
 
-	it("test all viewers not checked", function() {
-    // all are unchecked
+	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
     newOrEdit.and.returnValue(true);
 
     onReadyStrategies();
 
-    expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(false);
-    expect($(":checkbox[id='viewers_all']").prop("checked")).toBe(false);
-  	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
+    $('#viewers_all').click();
+
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(true);
   });
 
-  it("test all viewers checked", function() {
-    // check all
-    isAllAlliesInputBoxIsChecked.and.returnValue(true);
-    $('#viewers_all').change();
-  	expect($('#viewers_label').text()).toBe(NO_ALLIES);
-  });
+  it("has unselected all allies who can view the strategy when \"Select all\" is unselected", function() {
+    newOrEdit.and.returnValue(true);
 
-  it("test all viewers unchecked", function() {
-    // uncheck all
-    isAllAlliesInputBoxIsChecked.and.returnValue(false);
-    $('#viewers_all').change();
-  	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
-	});
+    onReadyStrategies();
+    
+    $('#viewers_all').prop("checked", true);
+
+    $('#viewers_all').click();
+
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(false);
+  });
 
   it("test tagged moments hidden", function() {
     // hidden tagged moments

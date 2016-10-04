@@ -1,105 +1,40 @@
 describe("Moments", function() {
   var newOrEdit;
-  var isAllAlliesInputBoxIsChecked;
-  var selectAllAlliesWhoCanViewMoment;
-  var setViewersCheckBoxToNotBeSelected;
-  var unselectAllAlliesWhoCanViewMoment;
 
   beforeAll(function() {
     var elements = [];
-    elements.push("<div id='test_body'></div>");
-    elements.push("<label id='viewers_label'></label>");
     elements.push("<input type='checkbox' id='viewers_all'></input>");
+    elements.push("<input type='checkbox' name='moment[viewers][]'></input>");
     for (var i = 0; i < elements.length; i++) {
       $(document.body).append(elements[i]);
     }
 
     newOrEdit = spyOn(window, 'newOrEdit');
-    isAllAlliesInputBoxIsChecked = spyOn(window, 'isAllAlliesInputBoxIsChecked');
-    selectAllAlliesWhoCanViewMoment = spyOn(window, 'selectAllAlliesWhoCanViewMoment');
-
-    setViewersCheckBoxToNotBeSelected = spyOn(window, 'setViewersCheckBoxToNotBeSelected');
-
-    unselectAllAlliesWhoCanViewMoment = spyOn(window, 'unselectAllAlliesWhoCanViewMoment');
   });
 
   it("has called newOrEdit when onReadyMoments is executed", function () {
-      onReadyMoments();
-
-      expect(newOrEdit).toHaveBeenCalled();
+    onReadyMoments();
+    
+    expect(newOrEdit).toHaveBeenCalled();
   });
 
-  it("has set NO_ALLIES value to unselect all when creating or editing a new moment", function() {
+  it("has selected all allies who can view moment when \"Select all\" is selected",  function() {
     newOrEdit.and.returnValue(true);
 
     onReadyMoments();
 
-    expect(NO_ALLIES).toBe("Unselect all");
+    $('#viewers_all').click();
+
+    expect($(":checkbox[name='moment[viewers][]']").eq(0).prop("checked")).toBe(true);
   });
 
-  it("has set ALL_ALLIES value to select all when creating or editing a new moment", function() {
+  it("has unselected all allies who can view the moment when \"Select all\" is unselected", function() {
     newOrEdit.and.returnValue(true);
+    
+    $('#viewers_all').prop("checked", true);
 
-    onReadyMoments();
+    $('#viewers_all').click();
 
-    expect(ALL_ALLIES).toBe("Select all");
-  });
-
-  it("has set the default value of viewers_label text to ALL_ALLIES when creating or editing a new moment", function() {
-    newOrEdit.and.returnValue(true);
-
-    expect($('#viewers_label').text()).toBe(ALL_ALLIES);
-  });
-
-  it("has called lableTextIsAllAllies when input box is checked", function() {
-      newOrEdit.and.returnValue(true);
-
-     $('#viewers_all').change();
-
-      expect(isAllAlliesInputBoxIsChecked).toHaveBeenCalled();
-  });
-
-  it("has selected all allies who can view moment when ALL_ALLIES is selected",  function() {
-      isAllAlliesInputBoxIsChecked.and.returnValue(true);
-
-      $('#viewers_all').change();
-
-      expect(selectAllAlliesWhoCanViewMoment).toHaveBeenCalled();
-  });
-
-  it("has not selected #viewers_all checkbox when ALL_ALLIES is selected",  function() {
-      isAllAlliesInputBoxIsChecked.and.returnValue(true);
-
-      $('#viewers_all').change();
-
-      expect(setViewersCheckBoxToNotBeSelected).toHaveBeenCalled();
-  });
-
-  it("has set #viewers_label text to NO_ALLIES when ALL_ALLIES is selected", function() {
-      isAllAlliesInputBoxIsChecked.and.returnValue(true);
-
-      expect($('#viewers_label').text()).toBe(NO_ALLIES);
-  });
-
-  it("has unselected all allies who can view the moment when NO_ALLIES is selected", function() {
-      isAllAlliesInputBoxIsChecked.and.returnValue(false);
-
-      $('#viewers_all').change();
-
-      expect(unselectAllAlliesWhoCanViewMoment).toHaveBeenCalled();
-  });
-
-  it("has not selected #viewers checkbox when NO_ALLIES is selected", function () {
-      isAllAlliesInputBoxIsChecked.and.returnValue(false);
-
-      $('#viewers_all').change();
-
-      expect(setViewersCheckBoxToNotBeSelected).toHaveBeenCalled();
-  });
-
-  it("has set #viewers_label text to ALL_ALLIES when NO_ALLIES is selected", function() {
-      isAllAlliesInputBoxIsChecked.and.returnValue(false);
-
-      expect($('#viewers_label').text()).toBe(ALL_ALLIES);
+    expect($(":checkbox[name='moment[viewers][]']").eq(0).prop("checked")).toBe(false);
   });
 });
