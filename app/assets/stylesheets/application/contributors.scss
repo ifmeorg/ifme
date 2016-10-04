@@ -1,57 +1,13 @@
-.contributor {
-  @media screen and (max-width: $medium) {
-    margin: 0 0 20px;
-    padding: 10px;
-    border: 1px solid $secondary-text-color;
-  }
-
-  .about-contributor {
-    vertical-align: middle;
-  }
-
-  .contributor-image {
-    @media screen and (min-width: $medium + 1) {
-      width: 200px;
-      padding-right: 40px;
-      vertical-align: middle
-    }
-  }
-
-  .spacer {
-    @media screen and (max-width: $medium) {
-      height: 10px;
-
-      &:last-of-type {
-        height: 0;
-      }
-    }
-  }
-}
-
-div.table div.table_cell {
-  @media screen and (max-width: $medium) {
-    &.contributor-image {
-      text-align: center;
-    }
-  }
-}
-
-.contributor_picture {
-  margin: 0 auto;
-}
-
-.contributor-name {
-  font: $font34 $font-family;
-  font-weight: 100;
-  text-align: center;
-
-  @media screen and (max-width: $medium) {
-    font: $font30 $font-family;
-    font-weight: 100;
-    text-align: center;
-  }
-}
-
-.hide{
+.hide_content {
   display: none;
+}
+
+.read_more_show {
+  color: $link-color;
+  cursor: pointer;
+}
+
+.read_more_show:hover {
+  color: $link-color;
+  opacity: 0.5;
 }

@@ -263,7 +263,7 @@ class PagesController < ApplicationController
       {
         name: 'Lucy Yu',
         image: '/assets/contributors/lucy_yu.jpg',
-        profile: "\"The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.\" — John Milton, <i>Paradise Lost</i><br><br>Our minds are the very screens behind which we perceive the world, yet there is not enough discourse on the importance of sanity. <i>if me</i> is the community I wish existed during my dark times, and I'm hoping to help someone through theirs by contributing to this project.",
+        profile: "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven. — John Milton, Paradise Lost. Our minds are the very screens behind which we perceive the world, yet there is not enough discourse on the importance of sanity. if me is the community I wish existed during my dark times, and I'm hoping to help someone through theirs by contributing to this project.",
         location: 'Mississauga, Canada',
         link_name: 'lucyyu24',
         link: 'https://github.com/lucyyu24',
@@ -295,6 +295,15 @@ class PagesController < ApplicationController
         link_name: 'nagmak',
         link: 'https://nagmak.github.io/',
         social: 'globe'
+      },
+      {
+        name: 'Bee Martinez',
+        image: '/assets/contributors/bee_martinez.png',
+        profile: "Bee wanted to be a psychologist, became a teacher, and is now a Front-End Developer in training. She loves challenge, creativity, learning, connecting, and helping each other grow.<br><br>Bee thinks the mind is a beautiful and marvelous thing, and as such it should be explored with respect, understood with patience, and treated with kindness.<br><br>In if me, she's found a safe space to combine everything she's ever been passionate about. Her current role is taking over @ifmeorg on weekends and doing Spanish translations.",
+        location: 'Texas, USA',
+        link_name: 'itsbeemtz',
+        link: 'http://twitter.com/itsbeemtz',
+        social: 'twitter'
       }
     ]
   end
