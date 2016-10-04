@@ -54,13 +54,13 @@ h1.mood_name,
 h1.profile_name,
 h1.strategy_name {
   font-weight: 300;
-  font-size: 26px;
+  font-size: $font26;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font-size: 22px;
+    font-size: $font22;
     margin: 0px 0px 10px 0px;
   }
 }
@@ -144,14 +144,14 @@ h1.strategy_name a:visited {
 
   @media screen and (max-width: $small) {
     h1.story_name {
-      font-size: 20px;
+      font-size: $font20;
       margin: 0px 0px 5px 0px;
       padding-bottom: 5px;
       border-bottom: 1px solid $subtle-secondary-text-color;
     }
 
     h1.ally_name {
-      font-size: 18px;
+      font-size: $font18;
       margin: 0px 0px 10px 0px;
     }
   }
@@ -186,14 +186,14 @@ h1.strategy_name a:visited {
 }
 
 #stats {
-  font: 22px $font-family;
+  font: $font22 $font-family;
   font-weight: 300;
   margin-bottom: 40px;
 
   #most_focus {
     display: block;
     width: 100%;
-    font-size: 0;
+    font-size: $font-zero;
   }
 
   .some_focus {
@@ -201,12 +201,12 @@ h1.strategy_name a:visited {
     text-align: center;
     color: $highlight-text-color;
     background-color: $secondary-text-color;
-    font-size: 0;
+    font-size: $font-zero;
   }
 
   .some_focus_text {
     padding: 20px;
-    font: 22px $font-family;
+    font: $font22 $font-family;
     font-weight: 300;
 
     a:link, a:visited, .link_style {
@@ -224,19 +224,19 @@ h1.strategy_name a:visited {
   }
 
   @media screen and (max-width: $medium) {
-    font: 20px $font-family;
+    font: $font20 $font-family;
     font-weight: 300;
     margin-bottom: 20px;
 
     .some_focus_text {
       padding: 20px;
-      font: 20px $font-family;
+      font: $font20 $font-family;
       font-weight: 300;
     }
   }
 
   @media screen and (max-width: $small) {
-    font: 18px $font-family;
+    font: $font18 $font-family;
     font-weight: 300;
     margin-bottom: 20px;
 
@@ -245,13 +245,13 @@ h1.strategy_name a:visited {
       text-align: center;
       color: $highlight-text-color;
       background-color: $secondary-text-color;
-      font-size: 0;
+      font-size: $font-zero;
       width: 100% !important;
     }
 
     .some_focus_text {
       padding: 10px;
-      font: 18px $font-family;
+      font: $font18 $font-family;
       font-weight: 300;
     }
   }
@@ -278,12 +278,12 @@ h1.strategy_name a:visited {
 h1.group_type,
 h1.tag_type {
   font-weight: 100;
-  font-size: 30px;
+  font-size: $font30;
   padding: 0;
   margin: 0px 0px 20px 0px;
 
   @media screen and (max-width: $medium) {
-    font-size: 26px;
+    font-size: $font26;
     margin: 0px 0px 10px 0px;
   }
 }

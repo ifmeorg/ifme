@@ -139,17 +139,17 @@ h1#clear_notifcations,
 h1#close_notifications,
 h1#close_categories_moods, {
   font-weight: 300;
-  font-size: 26px;
+  font-size: $font26;
   padding: 0;
   margin: 0px;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font-size: 22px;
+    font-size: $font22;
   }
 
   @media screen and (max-width: $small) {
-    font-size: 20px;
+    font-size: $font20;
   }
 }
 
@@ -187,22 +187,22 @@ h1#clear_notifcations {
   }
 
   label {
-    font-size: 26px;
+    font-size: $font26;
     font-weight: 300;
 
     @media screen and (max-width: $medium) {
-      font-size: 24px;
+      font-size: $font24;
     }
   }
 
   .label {
     width: auto;
     display: inherit;
-    font-size: 26px;
+    font-size: $font26;
     margin-bottom: 10px;
 
     @media screen and (max-width: $medium) {
-      font-size: 24px;
+      font-size: $font24;
       margin-bottom: 5px;
     }
   }

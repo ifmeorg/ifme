@@ -27,10 +27,10 @@
 	}
 
 	.footer_subtitle {
-		font-size: 14px;
+		font-size: $small-font;
 
 		@media screen and (max-width: $medium) {
-			font-size: 12px;
+			font-size: $font12;
 		}
 
 		a:link, a:visited, a:hover {
@@ -41,12 +41,12 @@
 
 #footer_content {
 	padding: 0px 60px;
-	font-size: 16px;
+	font-size: $font16;
 	color: $secondary-text-color;
 	text-shadow: 0px 0px 50px $header-text-color;
 
 	@media screen and (max-width: $medium) {
-		font-size: 14px;
+		font-size: $small-font;
 		padding: 0px 20px;
 	}
 
@@ -148,7 +148,7 @@
 
 .footer_heading {
 	font-weight: 300;
-	font-size: 30px;
+	font-size: $font30;
 	padding: 0;
 	margin-top: 0;
 	margin-bottom: 20px;
@@ -157,7 +157,7 @@
 	text-shadow: 0px 0px 20px $secondary-text-color;
 
 	@media screen and (max-width: $medium) {
-		font-size: 26px;
+		font-size: $font26;
 		margin-top: 0;
 		margin-bottom: 10px;
 	}

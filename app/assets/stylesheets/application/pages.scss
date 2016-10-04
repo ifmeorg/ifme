@@ -5,12 +5,12 @@
 #version {
   text-align: center;
   font-weight: 300;
-  font-size: 26px;
+  font-size: $font26;
   margin-bottom: 40px;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-      font-size: 24px;
+      font-size: $font24;
       margin-bottom: 20px;
   }
 }
@@ -21,7 +21,7 @@
 
 .main_message {
   font-weight: 300;
-  font-size: 40px;
+  font-size: $page-title;
   line-height: 50px;
   margin-top: auto;
   margin-left: auto;
@@ -32,7 +32,7 @@
   text-align: center;
 
   @media screen and (max-width: $medium) {
-      font-size: 30px;
+      font-size: $font30;
       line-height: 40px;
       margin-bottom: 20px;
       width: 100%;
@@ -57,10 +57,10 @@
 .message {
   text-align: center;
   font-weight: 300;
-  font-size: 26px;
+  font-size: $font26;
 
   @media screen and (max-width: $medium) {
-      font-size: 24px;
+      font-size: $font24;
   }
 }
 
@@ -186,13 +186,13 @@ h1.blog_name,
 h1.privacy_heading,
 h1.faq_heading {
   font-weight: 300;
-  font-size: 26px;
+  font-size: $font26;
   padding: 0;
   margin: 0;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font-size: 22px;
+    font-size: $font22;
   }
 }
 
@@ -220,13 +220,13 @@ h1.faq_heading {
   }
 
   label {
-      font-size: 20px;
+      font-size: $font20;
       font-weight: 300;
       display: block;
       margin-bottom: 5px;
 
       @media screen and (max-width: $medium) {
-          font-size: 16px;
+          font-size: $font16;
       }
   }
 
@@ -257,12 +257,12 @@ h1.faq_heading {
 
     .character_count {
       text-align: center;
-      font: 14px $font-family;
+      font: $small-font $font-family;
       font-weight: 400;
       margin-bottom: 10px;
 
       @media screen and (max-width: $small) {
-        font: 12px $font-family;
+        font: $font12 $font-family;
         font-weight: 400;
       }
     }
@@ -296,7 +296,7 @@ h1.faq_heading {
   color: $purple-yay;
   text-align: center;
   text-shadow: 0px 0px 5px $purple-yay;
-  font-size: 30px;
+  font-size: $font30;
 }
 
 .partner {

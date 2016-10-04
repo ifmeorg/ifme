@@ -41,12 +41,12 @@ div.table div.table_cell {
 }
 
 .contributor-name {
-  font: 34px $font-family;
+  font: $font34 $font-family;
   font-weight: 100;
   text-align: center;
 
   @media screen and (max-width: $medium) {
-    font: 30px $font-family;
+    font: $font30 $font-family;
     font-weight: 100;
     text-align: center;
   }
