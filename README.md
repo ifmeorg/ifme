@@ -9,11 +9,14 @@ if me is a community for mental health experiences that encourages people to sha
 Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behavior. Getting them involved in mental health treatment is the key to recovery.
 
 # Table of Contents
+
 * [Goals](#goals)
 * [Getting Involved](#getting-involved)
-* [Getting Started](#getting-started)
+* [Installation](#installation)
+* [Configuration Files](#configuration-files)
+* [Running the App Locally](#running-the-app-locally)
 * [Testing Accounts](#testing-accounts)
-* [Testing](#testing)
+* [Testing Guidelines](#testing-guidelines)
 * [Static Code Analysis](#static-code-analysis)
 * [Committing Work](#committing-work)
 * [Tracking Issues](#tracking-issues)
@@ -55,8 +58,8 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 
 This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.1.0, available at [http://contributor-covenant.org/version/1/1/0/](http://contributor-covenant.org/version/1/1/0/)
 
-Getting Started
----------------
+Installation
+-------------
 
 The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions.
 
@@ -192,9 +195,10 @@ If using El Captian OS X 10.11+ and there are errors relating to libv8 and theru
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-### Setting up API Keys
+Configuration Files
+-------------------
 
-#### Mandatory
+### Mandatory
 
 The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally committing sensitive information.
 
@@ -208,7 +212,7 @@ Copy the sample files to create your own configuration files:
 
 Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
 
-##### Email Notifications
+### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
 
@@ -238,7 +242,9 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-#### Optional
+If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
+
+### Optional
 
 The following are not mandatory, but are required if you would like to test/use these features.
 
@@ -248,7 +254,8 @@ The following are not mandatory, but are required if you would like to test/use 
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/application.yml`.
 
-### Running the App Locally
+Running the App Locally
+-----------------------
 
 Create the developement and test databases:
 
@@ -263,9 +270,9 @@ rails s
 
 To view the app, go to `http://localhost:3000`.
 
-#### Possible Errors
+### Possible Errors
 
-##### Postgres
+#### Postgres
 
 ```
 PG::ConnectionBad (fe_sendauth: no password supplied )
@@ -309,8 +316,8 @@ Email: test3@example.com
 Password: password99
 ```
 
-Testing
---------
+Testing Guidelines
+------------------
 
 We are using Selenium for web browser automation, so you will **need** to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
 
@@ -380,7 +387,6 @@ In the spirit of open communication and community, we highly recommend that new 
 This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/images/contributors/firstname_lastname.png`!
 
 If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `app/controllers/pages_controller.rb`. Please note: The image url here appears different from the actual path you saved it at above. i.e. Write this as, image: `assets/contributors/firstname_lastname.png` within the `pages_controller.rb` file.
-
 
 Tracking Issues
 ----------------

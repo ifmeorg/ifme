@@ -1,33 +1,32 @@
 <% title t('pages.contributors.title') %>
 <%= raw t('pages.contributors.description', {
-	email_link: link_to(t('us'), "mailto:#{t('email')}"),
-	slack_link: link_to(t('slack'), 'https://ifme.slack.com', target: 'blank'),
-	github_link: link_to(t('github'), 'https://github.com/julianguyen/ifme', target: 'blank')
-	}) %>
+  email_link: link_to(t('us'), "mailto:#{t('email')}"),
+  slack_link: link_to(t('slack'), 'https://ifme.slack.com', target: 'blank'),
+  github_link: link_to(t('github'), 'https://github.com/julianguyen/ifme', target: 'blank')
+  })
+%>
 
 <div class="divider"></div>
 
-<div class="contributors table">
-	<% @blurbs.each do |blurb| %>
-		<div class="contributor table_row">
-			<div class="contributor-image table_cell">
-				<%= fetch_profile_picture(blurb[:image], 'contributor_picture') %>
-			</div>
-			<div class="about-contributor table_cell">
-				<div class="contributor-name"><%= blurb[:name] %></div>
-				<div class="spacer"></div>
-				<div class="contributor-profile"><%= blurb[:profile] %></div>
-				<div class="spacer"></div>
-				<i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb[:location]}" %>
-				<%= content_tag(:i, '', class: "fa fa-#{blurb[:social]} fa-inline fa-left") %><%= link_to(blurb[:link_name], blurb[:link], target: 'blank') %>
-				<div class="spacer"></div>
-			</div>
-		</div>
-	<% end %>
+<div class="contributors">
+  <% @blurbs.each do |blurb| %>
+    <div class="contributor">
+      <%= fetch_profile_picture(blurb[:image], 'contributor_picture') %>
+      <h1 class="contributor_name center"><%= blurb[:name] %></h1>
+      <div class="contributor_profile"><%= blurb[:profile] %></div>
+      <div class="spacer"></div>
+      <div class="align_left">
+        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb[:location]}" %>
+      </div>
+      <div class="align_right">
+        <%= content_tag(:i, '', class: "fa fa-#{blurb[:social]} fa-inline") %><%= link_to(blurb[:link_name], blurb[:link], target: 'blank') %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <% end %>
 </div>
 
-<div class="divider"></div>
-
-<div class="contributor-name"><%= t('pages.contributors.more_contributors') %></div>
 <div class="spacer"></div>
+
+<h1 class="contributor_name center"><%= t('pages.contributors.more_contributors') %></h1>
 <%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>

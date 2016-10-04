@@ -1,31 +1,30 @@
-var readMoreHideContent = function(){
-  $('.read-more-content').addClass('hide');
-  $('.read-more-show, .read-more-hide').removeClass('hide');
+var readMoreHideContent = function() {
+  $('.read_more_content').addClass('hide_content');
+  $('.read_more_show').removeClass('hide_content');
 };
 
 var readMoreShowContent = function(){
-  $('.read-more-show').on('click', function(e){
+  $('.read_more_show').on('click', function() {
     $(this).fadeOut(400, function(){
-      $(this).next('.read-more-content').removeClass('hide').slideDown(1000);
-      $(this).addClass('hide');
+      $(this).next('.read_more_content').removeClass('hide_content').slideDown(1000);
+      $(this).addClass('hide_content');
     });
-    e.preventDefault();
   });
 };
 
 var contributorReadMoreFeature = function(){
   var profileTextLength = 0;
-  const maxProfileLength = 200;
+  const maxProfileLength = 120;
 	var visibleProfileText, invisibleProfileText;
-  var contributorProfle = $('.contributor-profile');
+  var contributorProfile = $('.contributor_profile');
 
-	contributorProfle.each(function(i){
+	contributorProfile.each(function() {
 		profileTextLength = $(this).text().length;
     if (profileTextLength > maxProfileLength){
       visibleProfileText = $(this).text().substr(0, maxProfileLength);
       invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
 
-      var profileContent = visibleProfileText + '<a href="#" class="read-more-show hide">'+ I18n.t('ellipsis') +'</a><span class="read-more-content">' + invisibleProfileText + '</span>';
+      var profileContent = visibleProfileText + '<span class="read_more_show hide_content">'+ I18n.t('ellipsis') +'</span><span class="read_more_content">' + invisibleProfileText + '</span>';
 
       $(this).html(profileContent);
       readMoreHideContent();

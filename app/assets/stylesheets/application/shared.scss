@@ -17,7 +17,8 @@
 .moment,
 .mood,
 .story,
-.strategy {
+.strategy,
+.contributor {
   @include box-sizing(border-box);
   width: calc(50% - 10px);
   border: 1px solid $container-color;
@@ -52,7 +53,8 @@ h1.moment_name,
 h1.story_name,
 h1.mood_name,
 h1.profile_name,
-h1.strategy_name {
+h1.strategy_name,
+h1.contributor_name {
   font-weight: 300;
   font-size: $font26;
   padding: 0;
@@ -110,6 +112,18 @@ h1.strategy_name a:visited {
     @media screen and (max-width: $small) {
         width: 80%;
     }
+  }
+
+  .align_right {
+    float: right;
+    display: inline-block;
+  }
+}
+
+.contributor {
+  .align_left {
+    float: left;
+    display: inline-block;
   }
 
   .align_right {
@@ -345,7 +359,8 @@ h1.tag_type {
 }
 
 #pages .page,
-.tag_usage {
+.tag_usage,
+.contributors {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
