@@ -107,11 +107,11 @@
           <input type="checkbox" id="viewers_all" />
           <span id="viewers_label"><%= t('select_all') %></span>
         </label>
-        <br>
+        
         <% @viewers.each do |item| %>
           <label>
             <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %>
-            <%= User.where(id: item.id).first.name %><br>
+            <%= User.where(id: item.id).first.name %>
           </label>
         <% end %>
       </div>
