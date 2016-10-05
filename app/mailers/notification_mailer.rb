@@ -17,6 +17,14 @@ class NotificationMailer < ApplicationMailer
          subject: "Your refill for #{@medication.name} is coming up soon!")
   end
 
+  def meeting_reminder(meeting: , member: )
+    @meeting = meeting
+    @member = member
+
+    mail(to: @member.email,
+         subject: "Your meeting \"#{@meeting.name}\" is tomorrow at #{@meeting.time}!")
+  end
+
   def notification_email(recipientid, data)
     @data = JSON.parse(data)
     @recipient = User.where(id: recipientid).first

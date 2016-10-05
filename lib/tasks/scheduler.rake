@@ -8,4 +8,9 @@ namespace :scheduler do
   task send_refill_reminders: :environment do
     MedicationReminders.new.send_refill_reminder_emails
   end
+
+  desc 'Send meeting reminders'
+  task send_meeting_reminders: :environment do
+    MeetingReminders.new.send_meeting_reminder_emails
+  end
 end

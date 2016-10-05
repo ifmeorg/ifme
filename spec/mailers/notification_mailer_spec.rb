@@ -19,6 +19,16 @@ describe "NotificationMailer" do
     it { expect(email.subject).to eq("Your refill for Fancy Medication Name is coming up soon!") }
   end
 
+  describe '#meeting_reminder' do
+    let(:member) { FactoryGirl.create(:meeting_member, meeting: meeting).user }
+    let(:meeting) { FactoryGirl.create(:meeting) }
+
+    subject(:email) { NotificationMailer.meeting_reminder(meeting: meeting, member: member) }
+
+    it { expect(email.to).to eq([member.email]) }
+    it { expect(email.subject).to eq("Your meeting \"#{meeting.name}\" is tomorrow at #{meeting.time}!") }
+  end
+
   describe 'notification' do
     let(:who_triggered_event) { FactoryGirl.create(:user2) }
 
