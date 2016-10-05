@@ -66,8 +66,7 @@ class NotificationMailer < ApplicationMailer
     elsif (can_notify(@recipient, 'ally_notify') && ALLY_NOTIFY_TYPES.include?(@data['type']))
 
       if  @data['type'] == 'accepted_ally_request'
-        subject += @data['user'].to_s + ' accepted your ally request!'
-        @message = '<p>Congrats! You can now share Moments, Strategies, and more with ' + @data['user'].to_s + '.</p>'
+        notification = AllyNotifications.AcceptedAllyRequest.new(@recipient, @data)
       else
         subject += @data['user'].to_s + ' sent an ally request!'
         link = link_to("sign in", allies_url)

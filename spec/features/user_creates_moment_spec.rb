@@ -5,7 +5,7 @@ describe "UserCreatesAMoment", js: true do
   let!(:strategy) { create :strategy, userid: user.id }
 
   feature 'Creating, viewing, and editing a moment' do
-    it 'is successful' do
+    xit 'is successful' do
       login_as user
       visit moments_path
 
