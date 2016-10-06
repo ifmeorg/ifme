@@ -21,6 +21,8 @@ describe("Moments", function() {
   });
 
   it("has selected all allies who can view moment when \"Select all\" is selected",  function() {
+    expect($(":checkbox[name='moment[viewers][]']").eq(0).prop("checked")).toBe(false);
+
     $('#viewers_all').click();
 
     expect($(":checkbox[name='moment[viewers][]']").eq(0).prop("checked")).toBe(true);

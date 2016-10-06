@@ -29,6 +29,8 @@ describe("Strategies", function() {
   });
 
 	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(false);
+
     newOrEdit.and.returnValue(true);
 
     onReadyMomentsAndStrategies();
