@@ -200,7 +200,7 @@ class PagesController < ApplicationController
     @blurbs = [
       {
         name: 'Julia Nguyen',
-        image: '/assets/contributors/julia_nguyen.png',
+        image: '/assets/contributors/julia_nguyen.jpg',
         profile: 'Being open and honest about my journey with obsessive-compulsive disorder, anxiety, and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a daughter of Vietnamese refugee parents, it was difficult to talk about mental illness openly. I created if me as a tool to engage loved ones in mental health conversations. Working on the project openly has helped me to further explore my own mental health.',
         location: 'Toronto, Canada',
         link_name: 'julianguyen',
@@ -209,7 +209,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Jennifer Shen',
-        image: '/assets/contributors/jennifer_shen.png',
+        image: '/assets/contributors/jennifer_shen.jpg',
         profile: "I am contributing to if me because one's mental health is often disregarded. It is important that everybody watches and observes how they are feeling on a daily basis, and it is also important that we look out for each other.",
         location: 'Toronto, Canada',
         link_name: 'jzshen',
@@ -218,7 +218,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Jon Tan',
-        image: '/assets/contributors/jon_tan.png',
+        image: '/assets/contributors/jon_tan.jpg',
         profile: 'Among the millions of web applications, there are only a handful of web applications catering to individuals with mental heatlh. I am glad that Julia has created if me for the purpose of building this community.',
         location: 'Mississauga, Canada',
         link_name: '9bits',
@@ -227,7 +227,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Jenny Nguyen',
-        image: '/assets/contributors/jenny_nguyen.png',
+        image: '/assets/contributors/jenny_nguyen.jpg',
         profile: "As a health science student I have been exposed medical literature that focuses on neuroplasticity, the idea that our environment and actions can change neural circuitry and pathways, and its role in shaping mental health disorders. For example, studies shows the in people with OCD, there is hyperconnectivity between the orbitofrontal cortex and the caudate nucleus, structures of the brain that are responsible for decision-making and thinking. Thus novel treatment of OCD focuses on targeting these principles and beliefs these obsessions and compulsions are founded on in order to rewire the brain. I believe if me provides a platform to habitually reflect and help manage one's wellbeing in addition to formal medical treatment.",
         location: 'Toronto, Canada',
         link_name: 'nguyenjenny',
@@ -236,7 +236,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Srishti Gupta',
-        image: '/assets/contributors/srishti_gupta.png',
+        image: '/assets/contributors/srishti_gupta.jpg',
         profile: 'if me is important to me because I see the need for it to exist, because it aims to build support networks for its users and help them grow as individuals and externally be truthful to themselves about what they need to do and when they need to do it, as well as be able to reach out and get advice on how to do things better and can choose to be completely anonymous in the process if they so choose to be. And what makes it even more distinctive is its target audience – because with the stigmas surrounding mental health and various other things, it is very difficult for individuals with mental health concerns to find the right kind of support, because only the individual can determine if something is actually benefitting them. if me allows you to build your own support system and change it as you please which I find very unique, and something everyone should at least give a try, regardless of whether or not  you currently have mental health concerns. I enjoy learning and helping make a meaningful impact, and contributing to if me helps me do that.',
         location: 'Mombasa, Kenya',
         link_name: 'srishtig',
@@ -245,15 +245,16 @@ class PagesController < ApplicationController
       },
       {
         name: 'Alex Falconer-Athanassakos',
-        image: '/assets/contributors/alex_fa.png',
+        image: '/assets/contributors/alex_fa.jpg',
         profile: "People can struggle with their minds despite everything being \"right\" in their lives. People's minds can also give them remarkable resilience through serious adversity. I have been studying for years, in fields from biology to philosophy, to understand this and make a contribution. The internet needs a comprehensive, community-based mental health resource and if me has the kind of people behind it to make it happen.",
         location: 'Toronto, Canada',
         link_name: 'alexfa.net',
         link: 'http://alexfa.net',
-        social: 'globe'},
+        social: 'globe'
+      },
       {
         name: 'Gupreet Gill',
-        image: '/assets/contributors/gurpreet_gill.png',
+        image: '/assets/contributors/gurpreet_gill.jpg',
         profile: 'Being mentally healthy is very important because it not only helps you overcome everyday stress but also makes you more productive and a better contributor. If me allows you to find help and also gives you the opportunity to help others. It ensures that your mental health is in a well-being state by allowing you to share, relate and connect with others. I joined if me because it is a great web application which ensures we all are there for each other.',
         location: 'Brampton, Canada',
         link_name: 'gCrew',
@@ -271,7 +272,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Tara Wilkins',
-        image: '/assets/contributors/tara_wilkins.png',
+        image: '/assets/contributors/tara_wilkins.jpg',
         profile: "Tara works at the national workshop company #{link_to('Camp Tech', 'http://camptech.ca', target: 'blank')}, where she oversees marketing, runs the day-to-day operations and teaches digital marketing. Outside of her work with Camp Tech, she fosters semi-feral cats with the #{link_to('Annex Cat Rescue', 'http://annexcatrescue.ca', target: 'blank')}, curates creative events for the #{link_to('Makers Digest', 'http://themakersdigest.com', target: 'blank')} and is excited to now be a part of if me. Having personal experiences with mental health herself, Tara is acutely aware of the impact that mental illness can have on lives, families and the workplace. She strongly believes in the power of sharing to erase the stigma and break through barriers. And most of all, she believes in the power of getting help.",
         location: 'Toronto, Canada',
         link_name: 'TaraEWilkins',
@@ -280,7 +281,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Darryl Dixon',
-        image: '/assets/contributors/darryl_dixon.png',
+        image: '/assets/contributors/darryl_dixon.jpg',
         profile: "As the saying goes: \"You are your own worst enemy.\" Your experience regarding this quote may very, but remember: nothing happens without your brain. Mental health is an important topic of discussion, one that far too many people are afraid to be open about, and far too many don't believe that this is a legitimate concern, resulting in few people finding someone to simply vent to, let alone getting help. The goal of if me is to break that habit, to help others with mental illness find help and a to communicate with their loved ones about their issues.<br><br>Darryl Dixon is a rad cat that loves web development, is a generalist full-stack JavaScript developer, and loves to give back to the community in some way, anywhere.",
         location: 'Virginia, USA',
         link_name: 'PieceDigital.net',
@@ -289,7 +290,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Nagma Kapoor',
-        image: '/assets/contributors/nagma_kapoor.png',
+        image: '/assets/contributors/nagma_kapoor.jpg',
         profile: "I have a B.A in Neurobiology from Rutgers University and I am pursuing a 2nd BSc. in Computer Science from Ryerson University. Mental health is a personal topic but good mental health relies on support, and through my interdisciplinary background I hope to bring my unique perspective here. Mental illness has been minimized in my community as a South Asian. You hear stories of family or friends in whispers. Only within my generation onward, there has been a minor shift, and I hope to see it open further. Personally, I have learnt to silently cope and create methods to keep my trajectory towards success without alerting anyone. Which is why I understand the need for an open-source project like if me. Sometimes, you need support from accepting family or friends without the eyes of an entire community on you. I think if me provides us with a safe space that extends out from our own selves and into the few that we trust. Building a closed community, that is free and open to individuals from all backgrounds, is a necessity. Access to mental health and resources need to reach those who need it most, and having an open source platform has been vital for it.",
         location: 'Toronto, Canada',
         link_name: 'nagmak',
@@ -298,7 +299,7 @@ class PagesController < ApplicationController
       },
       {
         name: 'Bee Martinez',
-        image: '/assets/contributors/bee_martinez.png',
+        image: '/assets/contributors/bee_martinez.jpg',
         profile: "Bee wanted to be a psychologist, became a teacher, and is now a Front-End Developer in training. She loves challenge, creativity, learning, connecting, and helping each other grow.<br><br>Bee thinks the mind is a beautiful and marvelous thing, and as such it should be explored with respect, understood with patience, and treated with kindness.<br><br>In if me, she's found a safe space to combine everything she's ever been passionate about. Her current role is taking over @ifmeorg on weekends and doing Spanish translations.",
         location: 'Texas, USA',
         link_name: 'itsbeemtz',
