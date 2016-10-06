@@ -9,7 +9,7 @@ describe("Strategies", function() {
     elements.push("<div id='test_body'></div>");
     elements.push("<label id='viewers_label'></label>");
     elements.push("<input type='checkbox' id='viewers_all'></input>");
-    elements.push("<input type='checkbox' name='strategy[viewers][]'></input>");
+    elements.push("<div id='viewers_list'><input type='checkbox' name='strategy[viewers][]'></input></div>");
     elements.push("<input type='checkbox' name='strategy[comment][]'></input>");
     elements.push("<div id='moment_tag_usage' class='display_none'></div>");
     elements.push("<div id='showTaggedMoments' class='display_inline_block'></div>");
@@ -24,33 +24,33 @@ describe("Strategies", function() {
 
   afterAll(function() {
     $("#test_body").remove();
+    $("#viewers_list").remove();
     $("body").removeClass("strategies new");
   });
 
-	it("test all viewers not checked", function() {
-    // all are unchecked
+	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(false);
+
     newOrEdit.and.returnValue(true);
 
-    onReadyStrategies();
+    onReadyMomentsAndStrategies();
 
-    expect($(":checkbox[name='strategy[viewers][]']").prop("checked")).toBe(false);
-    expect($(":checkbox[id='viewers_all']").prop("checked")).toBe(false);
-  	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
+    $('#viewers_all').click();
+
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(true);
   });
 
-  it("test all viewers checked", function() {
-    // check all
-    isAllAlliesInputBoxIsChecked.and.returnValue(true);
-    $('#viewers_all').change();
-  	expect($('#viewers_label').text()).toBe(NO_ALLIES);
-  });
+  it("has unselected all allies who can view the strategy when \"Select all\" is unselected", function() {
+    newOrEdit.and.returnValue(true);
 
-  it("test all viewers unchecked", function() {
-    // uncheck all
-    isAllAlliesInputBoxIsChecked.and.returnValue(false);
-    $('#viewers_all').change();
-  	expect($('#viewers_label').text()).toBe(ALL_ALLIES);
-	});
+    onReadyMomentsAndStrategies();
+    
+    $('#viewers_all').prop("checked", true);
+
+    $('#viewers_all').click();
+
+    expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(false);
+  });
 
   it("test tagged moments hidden", function() {
     // hidden tagged moments
