@@ -1,11 +1,13 @@
-module AllyNotifications
-  class NewAllyRequest
-    include Rails.application.routes.url_helpers
+# frozen_string_literal: true
 
-    def initialize(recipient, data, allies_url)
+module AllyNotifications
+  # Class helper to build new ally request message
+  class NewAllyRequest
+    include ::UrlHelper
+
+    def initialize(recipient, data)
       @recipient  = recipient
       @data       = data
-      @allies_url = allies_url
     end
 
     def to
@@ -17,8 +19,7 @@ module AllyNotifications
     end
 
     def message
-      I18n.t('mailers.new_ally_request.message', allies_url: @allies_url)
+      I18n.t('mailers.new_ally_request.message', allies_url: allies_url)
     end
   end
 end
-

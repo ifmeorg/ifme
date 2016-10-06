@@ -18,7 +18,7 @@ class NotificationMailer < ApplicationMailer
   end
 
   def notification_email(recipientid, data)
-    @data = JSON.parse(data)
+    @data = HashWithIndifferentAccess.new(JSON.parse(data))
     @recipient = User.where(id: recipientid).first
     subject = 'if me | '
 
@@ -64,16 +64,9 @@ class NotificationMailer < ApplicationMailer
 
       mail(to: @recipient.email, subject: subject)
     elsif (can_notify(@recipient, 'ally_notify') && ALLY_NOTIFY_TYPES.include?(@data['type']))
-
-      if  @data['type'] == 'accepted_ally_request'
-        notification = AllyNotifications.AcceptedAllyRequest.new(@recipient, @data)
-      else
-        subject += @data['user'].to_s + ' sent an ally request!'
-        link = link_to("sign in", allies_url)
-        @message = '<p>Please ' + link + ' to accept or reject the request!</p>'
-      end
-
-      mail(to: @recipient.email, subject: subject)
+      notification = create_notifier
+      @message = notification.message
+      mail(to: notification.to, subject: notification.subject)
     elsif ((can_notify(@recipient, 'group_notify') &&
             (@data['type'] == 'new_group' ||
              @data['type'] == 'new_group_member' ||
@@ -156,5 +149,18 @@ class NotificationMailer < ApplicationMailer
 
       mail(to: @recipient.email, subject: subject)
     end
+  end
+
+  private
+
+  def notification_dictionary
+    {
+      'new_ally_request'      => AllyNotifications::NewAllyRequest,
+      'accepted_ally_request' => AllyNotifications::AcceptedAllyRequest
+    }
+  end
+
+  def create_notifier
+    notification_dictionary[@data[:type]].new(@recipient, @data)
   end
 end

@@ -15,7 +15,7 @@ describe AllyNotifications::NewAllyRequest do
     })
   end
 
-  subject(:notification) { described_class.new(recipient, data, allies_url) }
+  subject(:notification) { described_class.new(recipient, data) }
 
   it { expect(notification.to).to eq(recipient.email) }
   it { expect(notification.subject).to eq("if me | #{ally.name} sent an ally request!") }

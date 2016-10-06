@@ -24,7 +24,7 @@ module Ifme
 
     config.exceptions_app = self.routes
 
-    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.autoload_paths << Rails.root.join('lib')
 
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
         if html_tag.to_str.include?("label")

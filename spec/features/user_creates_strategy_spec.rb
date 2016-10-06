@@ -3,7 +3,7 @@ describe "UserCreatesAStrategy", js: true do
   let!(:category) { create :category, userid: user.id }
 
   feature 'Creating, viewing, and editing a strategy' do
-    xit 'is successful' do
+    it 'is successful' do
       login_as user
       visit strategies_path
 

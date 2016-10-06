@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module AllyNotifications
+  # Class helper to build accepted ally request message
   class AcceptedAllyRequest
     def initialize(recipient, data)
       @recipient = recipient
