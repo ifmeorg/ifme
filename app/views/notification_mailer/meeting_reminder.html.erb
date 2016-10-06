@@ -1,7 +1,6 @@
 <p>
-  Hi <%= @member.name %>,
+  <%= t('meetings.reminder_mailer.salutation', name: @member.name) %>
 </p>
 <p>
-Here's a friendly reminder that your meeting tomorrow, "<%= @meeting.name%>", will be taking place at <%= @meeting.time %> at 
-<%= @meeting.location %>!
+  <%= t('meetings.reminder_mailer.body', meeting_name: @meeting.name, time: @meeting.time, location: @meeting.location) %>
 </p>

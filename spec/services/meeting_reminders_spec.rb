@@ -7,7 +7,7 @@ describe MeetingReminders do
     let(:mail) { instance_double(ActionMailer::MessageDelivery) }
     let!(:member_one) { FactoryGirl.create(:meeting_member, meeting: meeting) }
     let!(:member_two) { FactoryGirl.create(:meeting_member, meeting: meeting) }
-    let(:meeting) do 
+    let(:meeting) do
       FactoryGirl.create(
         :meeting,
         maxmembers: 0,
@@ -35,17 +35,20 @@ describe MeetingReminders do
       let(:date) { 1.days.from_now.strftime('%m/%d/%Y') }
 
       before do
-        expect(mail).to receive(:deliver_now).twice
+        allow(mail).to receive(:deliver_now)
         subject.send_meeting_reminder_emails
       end
 
       it 'sends a notification email to each member' do
         expect(NotificationMailer)
           .to have_received(:meeting_reminder)
-          .with(meeting: meeting, member: member_one.user)
+          .with(meeting, member_one.user)
+
         expect(NotificationMailer)
           .to have_received(:meeting_reminder)
-          .with(meeting: meeting, member: member_two.user)
+          .with(meeting, member_two.user)
+
+        expect(mail).to have_received(:deliver_now).twice
       end
     end
   end

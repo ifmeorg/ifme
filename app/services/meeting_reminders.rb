@@ -1,9 +1,11 @@
-class MeetingReminders
+# frozen_string_literal: true
 
+# Public: Used for sending reminders regarding upcoming meetings
+class MeetingReminders
   def send_meeting_reminder_emails
     meetings_tomorrow.each do |meeting|
       meeting.members.each do |member|
-        NotificationMailer.meeting_reminder(meeting: meeting, member: member).deliver_now
+        NotificationMailer.meeting_reminder(meeting, member).deliver_now
       end
     end
   end

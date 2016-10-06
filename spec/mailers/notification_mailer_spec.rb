@@ -23,10 +23,45 @@ describe "NotificationMailer" do
     let(:member) { FactoryGirl.create(:meeting_member, meeting: meeting).user }
     let(:meeting) { FactoryGirl.create(:meeting) }
 
-    subject(:email) { NotificationMailer.meeting_reminder(meeting: meeting, member: member) }
+    subject(:email) { NotificationMailer.meeting_reminder(meeting, member) }
 
-    it { expect(email.to).to eq([member.email]) }
-    it { expect(email.subject).to eq("Your meeting \"#{meeting.name}\" is tomorrow at #{meeting.time}!") }
+    it 'sends the email to the correct recipient' do
+      expect(email.to).to eq([member.email])
+    end
+
+    it 'has the correct subject' do
+      expected_subject = I18n.t(
+        'meetings.reminder_mailer.subject',
+        meeting_name: meeting.name,
+        time: meeting.time
+      )
+
+      expect(email.subject).to eq(expected_subject)
+    end
+
+    it 'is addressed to the correct person' do
+      email.parts.each do |part|
+        expect(part.body.raw_source).to include(member.name)
+      end
+    end
+
+    it 'includes the meeting location' do
+      email.parts.each do |part|
+        expect(part.body.raw_source).to include(meeting.location)
+      end
+    end
+
+    it 'includes the meeting time' do
+      email.parts.each do |part|
+        expect(part.body.raw_source).to include(meeting.time)
+      end
+    end
+
+    it 'includes the meeting name' do
+      email.parts.each do |part|
+        expect(part.body.raw_source).to include(meeting.name)
+      end
+    end
   end
 
   describe 'notification' do

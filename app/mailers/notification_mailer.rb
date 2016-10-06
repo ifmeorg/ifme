@@ -1,7 +1,7 @@
 class NotificationMailer < ApplicationMailer
-   default from: ENV["DEFAULT_FROM_ADDRESS"]
+  default from: ENV['DEFAULT_FROM_ADDRESS']
 
-   ALLY_NOTIFY_TYPES = ["new_ally_request", "accepted_ally_request"]
+  ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
 
   def take_medication(reminder)
     @medication = reminder.medication
@@ -17,12 +17,17 @@ class NotificationMailer < ApplicationMailer
          subject: "Your refill for #{@medication.name} is coming up soon!")
   end
 
-  def meeting_reminder(meeting: , member: )
+  def meeting_reminder(meeting, member)
     @meeting = meeting
     @member = member
 
-    mail(to: @member.email,
-         subject: "Your meeting \"#{@meeting.name}\" is tomorrow at #{@meeting.time}!")
+    subject = I18n.t(
+      'meetings.reminder_mailer.subject',
+      meeting_name: @meeting.name,
+      time: @meeting.time
+    )
+
+    mail(to: @member.email, subject: subject)
   end
 
   def notification_email(recipientid, data)
