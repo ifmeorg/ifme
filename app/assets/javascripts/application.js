@@ -37,7 +37,7 @@ function newOrEdit(forms) {
 		if ($('body').hasClass(form + ' new') || $('body').hasClass(form + ' create') || $('body').hasClass(form + ' edit') || $('body').hasClass(form + ' update')) {
 			result = true;
 			return;
-	    }
+		}
 	});
 
 	return result;
@@ -49,33 +49,41 @@ function isShow(forms) {
 		if ($('body').hasClass(form + ' show')) {
 			result = true;
 			return;
-	    }
+		}
 	});
 
 	return result;
 }
 
+var onReadyMomentsAndStrategies = function() {
+	$('.expand_toggle').click(function(event){
+		var toggleID = $(this).data('toggle');
+		$(toggleID).toggle();
+		$(this).find('.toggle_button i').toggleClass('fa-caret-down');
+		$(this).find('.toggle_button i').toggleClass('fa-caret-up');
+		event.preventDefault();
+	});
+
+	$('#viewers_all').click(function(){
+		$("#viewers_list :checkbox").prop("checked", $(this).prop("checked"));
+	});
+}
+
 var onReadyApplication = function() {
 	$.ajaxSetup({
-  		headers: {
-    		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-  		}
+		headers: {
+			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+		}
 	});
 
 	// Timezone detection
 	var tz = jstz.determine();
-  	$.cookie('timezone', tz.name(), { path: '/' });
+	$.cookie('timezone', tz.name(), { path: '/' });
 
 	$('.yes_title').find(':not(.no_title)').tooltip();
 
 	if (newOrEdit(['moments', 'strategies'])) {
-		$('.expand_toggle').click(function(event){
-			var toggleID = $(this).data('toggle');
-			$(toggleID).toggle();
-			$(this).find('.toggle_button i').toggleClass('fa-caret-down');
-			$(this).find('.toggle_button i').toggleClass('fa-caret-up');
-			event.preventDefault();
-		});
+		onReadyMomentsAndStrategies();
 	}
 };
 

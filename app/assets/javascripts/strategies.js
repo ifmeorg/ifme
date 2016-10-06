@@ -11,12 +11,6 @@ var hideTaggedMoments = function() {
 };
 
 var onReadyStrategies = function() {
-	if (newOrEdit(['strategies'])) {
-		$('#viewers_all').click(function(){
-			$(":checkbox[name='strategy[viewers][]']").prop("checked", $(this).prop("checked"));
-		});
-	}
-
 	if (isShow(['strategies'])) {
 		$('#showTaggedMoments').click(showTaggedMoments);
 		$('#hideTaggedMoments').click(hideTaggedMoments);

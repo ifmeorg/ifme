@@ -9,7 +9,7 @@ describe("Strategies", function() {
     elements.push("<div id='test_body'></div>");
     elements.push("<label id='viewers_label'></label>");
     elements.push("<input type='checkbox' id='viewers_all'></input>");
-    elements.push("<input type='checkbox' name='strategy[viewers][]'></input>");
+    elements.push("<div id='viewers_list'><input type='checkbox' name='strategy[viewers][]'></input></div>");
     elements.push("<input type='checkbox' name='strategy[comment][]'></input>");
     elements.push("<div id='moment_tag_usage' class='display_none'></div>");
     elements.push("<div id='showTaggedMoments' class='display_inline_block'></div>");
@@ -24,13 +24,14 @@ describe("Strategies", function() {
 
   afterAll(function() {
     $("#test_body").remove();
+    $("#viewers_list").remove();
     $("body").removeClass("strategies new");
   });
 
 	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
     newOrEdit.and.returnValue(true);
 
-    onReadyStrategies();
+    onReadyMomentsAndStrategies();
 
     $('#viewers_all').click();
 
@@ -40,7 +41,7 @@ describe("Strategies", function() {
   it("has unselected all allies who can view the strategy when \"Select all\" is unselected", function() {
     newOrEdit.and.returnValue(true);
 
-    onReadyStrategies();
+    onReadyMomentsAndStrategies();
     
     $('#viewers_all').prop("checked", true);
 
