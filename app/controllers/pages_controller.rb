@@ -60,7 +60,9 @@ class PagesController < ApplicationController
       {name: 'SashaTlr', link: 'https://github.com/SashaTlr'},
       {name: 'Jon Friestedt', link: 'https://github.com/jfriestedt'},
       {name: 'Andy Fry', link: 'https://github.com/andyfry01'},
-      {name: 'Yigit Ozkavci', link: 'https://github.com/yigitozkavci'}
+      {name: 'Yigit Ozkavci', link: 'https://github.com/yigitozkavci'},
+      {name: 'Karol Musur', link: 'https://github.com/Wowu'},
+      {name: 'Tim Downey', link: 'http://downey.io'}
     ]
 
     @contributors.sort_by!{ |c| c[:name].downcase }

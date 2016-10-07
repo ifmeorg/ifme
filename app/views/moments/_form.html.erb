@@ -103,11 +103,17 @@
 
     <div id="viewers" class="display_none">
       <div id="viewers_list">
-      <input type="checkbox" id="viewers_all" /><span id="viewers_label"></span>
-      <br>
-      <% @viewers.each do |item| %>
-      <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %><%= User.where(id: item.id).first.name %><br>
-      <% end %>
+        <label>
+          <input type="checkbox" id="viewers_all" />
+          <span id="viewers_label"><%= t('select_all') %></span>
+        </label>
+        
+        <% @viewers.each do |item| %>
+          <label>
+            <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %>
+            <%= User.where(id: item.id).first.name %>
+          </label>
+        <% end %>
       </div>
     </div>
     <% end %>

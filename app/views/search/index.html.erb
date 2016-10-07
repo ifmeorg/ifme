@@ -1,40 +1,31 @@
 <% title t('search.index.title') %>
+<div class="align_left allies_nav_left">
+  <%= link_to t('allies.index.view_all_allies'), allies_path %>
+</div>
 <div class="align_right">
-	<%= render 'form' %>
+  <%= render 'form' %>
 </div>
 <div class="clear"></div>
 
 <div class="spacer"></div>
 
+<div class="allies_list">
 <% @matching_users.each do |user| %>
-	<% if @matching_users.last == user %>
-		<div class="ally no_margin_bottom">
-	<% else %>
-		<div class="ally">
-	<% end %>
-		<div class="table">
-        	<div class="table_cell profile_picture_div small_padding_right vertical_align_top">
-        		<%= fetch_profile_picture(user.avatar.url, 'profile_picture') %>
-          	</div>
-          	<div class="table_cell vertical_align_top">
-				<div class="align_left">
-	       			<h1 class="ally_name"><%= link_to user.name, profile_index_path(uid: get_uid(user.id)) %></h1>
-	       		</div>
-	       		<div class="align_right location">
-	       			<%= user.location %>
-	       		</div>
-	       		<div class="clear"></div>
+    <div class="ally center">
+      <%= fetch_profile_picture(user.avatar.url, 'profile_picture') %>
+      <h1 class="ally_name"><%= link_to user.name, profile_index_path(uid: get_uid(user.id)) %></h1>
+      <div class="location"><%= user.location %></div>
 
-	       		<% if current_user.allies_by_status(:pending_from_ally).include?(user) %>
-			        <%= link_to t('search.index.cancel_request'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('search.index.confirm') } %>
-			    <% elsif current_user.allies_by_status(:pending_from_user).include?(user) %>
-			    	<%= link_to t('search.index.accept_ally'), add_allies_path(ally_id: user.id), :method => :post %>
-			    <% elsif current_user.allies_by_status(:accepted).include?(user) %>
-			        <%= link_to t('search.index.remove_ally'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('search.index.confirm') } %>
-			    <% else %>
-			    	<%= link_to t('search.index.add_ally'), add_allies_path(ally_id: user.id), :method => :post %>
-			    <% end %>
-			</div>
-		</div>
-	</div>
+      <% if current_user.allies_by_status(:pending_from_ally).include?(user) %>
+        <%= link_to t('search.index.cancel_request'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('search.index.confirm') } %>
+      <% elsif current_user.allies_by_status(:pending_from_user).include?(user) %>
+        <%= link_to t('search.index.accept_ally'), add_allies_path(ally_id: user.id), :method => :post %>
+      <% elsif current_user.allies_by_status(:accepted).include?(user) %>
+        <%= link_to t('search.index.remove_ally'), remove_allies_path(ally_id: user.id), :method => :post, data: { confirm: t('search.index.confirm') } %>
+      <% else %>
+        <%= link_to t('search.index.add_ally'), add_allies_path(ally_id: user.id), :method => :post %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
+</div>

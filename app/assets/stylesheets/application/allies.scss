@@ -9,40 +9,6 @@
 	opacity: 0.5;
 }
 
-.ally {
-	@media screen and (max-width: $medium) {
-		.padding_right {
-			padding-right: 20px !important;
-		}
-	}
-
-	@media screen and (max-width: $small) {
-		.profile_picture {
-			width: 50px;
-			height: 50px;
-			background-size: 50px !important;
-    		background-position: center center !important;
-    		background-repeat: no-repeat !important;
-		}
-	}
-
-	div.table {
-		display: table;
-		table-layout: auto;
-		width: 100%;
-		border-collapse: separate;
-	}
-
-	div.table div.table_row {
-		display: table-row;
-	}
-
-	div.table div.table_cell {
-		display: table-cell;
-		word-break: break-word;
-	}
-}
-
 @media screen and (max-width: $medium) {
 	#search_email,
 	#search_name {
@@ -50,8 +16,7 @@
 		margin-bottom: 10px;
 	}
 
-	#invite {
+	.allies_nav_left {
 		margin-bottom: 10px;
 	}
 }
-
