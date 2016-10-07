@@ -1,5 +1,5 @@
 <% title t('allies.index.title') %>
-<div class="align_left" id="invite">
+<div class="align_left allies_nav_left">
 <%= link_to t('allies.index.invite'), new_user_invitation_path %>
 </div>
 <div class="align_right">
@@ -13,22 +13,16 @@
   <strong><%= t('allies.index.outgoing') %></strong>
   <br>
   <br>
-  <% @outgoing_ally_requests.each_with_index do |ally, index| %>
-    <% if index + 1 == @outgoing_ally_requests.length %>
-      <div class="ally no_margin_bottom">
-    <% else %>
-      <div class="ally">
-    <% end %>
-        <div class="align_left">
-          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
-        </div>
-        <div class="align_right location">
-          <%= ally.location %>
-        </div>
-        <div class="clear"></div>
-        <%= link_to t('cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
-      </div>
+  <div class="allies_list">
+  <% @outgoing_ally_requests.each do |ally| %>
+    <div class="ally center">
+      <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
+      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+      <div class="location"><%= ally.location %></div>
+      <%= link_to t('cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+    </div>
   <% end %>
+  </div>
 <% end %>
 
 <% if !@incoming_ally_requests.empty? %>
@@ -38,49 +32,36 @@
   <strong><%= t('allies.index.incoming') %></strong>
   <br>
   <br>
-  <% @incoming_ally_requests.each_with_index do |ally, index| %>
-    <% if index + 1 == @incoming_ally_requests.length %>
-      <div class="ally no_margin_bottom">
-    <% else %>
-      <div class="ally">
-    <% end %>
-        <div class="align_left">
-          <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
-        </div>
-        <div class="align_right location">
-          <%= ally.location %>
-        </div>
-        <div class="clear"></div>
-        <%= link_to t('accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('reject'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
-      </div>
+  <div class="allies_list">
+  <% @incoming_ally_requests.each do |ally| %>
+    <div class="ally center">
+      <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
+      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+      <div class="location"><%= ally.location %></div>
+      <%= link_to t('accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('reject'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+    </div>
   <% end %>
+  </div>
 <% end %>
 
-<% @accepted_allies.each_with_index do |ally, index| %>
-  <% if !@incoming_ally_requests.empty? || !@outgoing_ally_requests.empty? %>
-    <div class="spacer"></div>
-  <% end %>
-  <% if index+1 == @accepted_allies.length %>
-    <div class="ally no_margin_bottom">
-  <% else %>
-    <div class="ally">
-  <% end %>
-      <div class="table">
-        <div class="table_cell padding_right profile_picture_div">
-          <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
-        </div>
-        <div class="table_cell vertical_align_top">
-          <div class="align_left">
-            <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
-          </div>
-          <div class="align_right location">
-            <%= ally.location %>
-          </div>
-          <div class="clear"></div>
-            <%= link_to t('remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
-        </div>
-      </div>
-    </div>
+<% if !@incoming_ally_requests.empty? || !@outgoing_ally_requests.empty? %>
+  <div class="spacer"></div>
+  <strong><%= t('allies.index.title') %></strong>
+  <br>
+  <br>
+<% end %>
+
+<% if !@accepted_allies.empty? %>
+<div class="allies_list">
+<% @accepted_allies.each do |ally| %>
+  <div class="ally center">
+    <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
+    <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+    <div class="location"><%= ally.location %></div>
+    <%= link_to t('remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
+  </div>
+<% end %>
+</div>
 <% end %>
 
 <% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>

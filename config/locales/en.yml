@@ -44,6 +44,7 @@ en:
    invite: 'Invite your loved ones!'
    confirm: 'Are you sure?'
    none: 'You currently have no allies! You can search for them or invite loved ones to join!'
+   view_all_allies: 'View all allies'
 
  categories:
   edit: "Edit %{category}"

@@ -18,7 +18,8 @@
 .mood,
 .story,
 .strategy,
-.contributor {
+.contributor,
+.ally {
   @include box-sizing(border-box);
   width: calc(50% - 10px);
   border: 1px solid $container-color;
@@ -365,7 +366,8 @@ h1.tag_type {
 
 #pages .page,
 .tag_usage,
-.contributors {
+.contributors,
+.allies_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
