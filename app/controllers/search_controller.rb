@@ -6,10 +6,11 @@ class SearchController < ApplicationController
 
 		@matching_users = User
 
-		if !email.nil?
+		if email.present?
 			email.strip!
 			@matching_users = @matching_users.where(email: email)
 		end
+
 		@matching_users = @matching_users.where.not(id: current_user.id).all
 	end
 
@@ -48,12 +49,12 @@ class SearchController < ApplicationController
 
 	private
 
-		def if_not_signed_in
-			if !user_signed_in?
-				respond_to do |format|
-				  format.html { redirect_to new_user_session_path }
-				  format.json { head :no_content }
-				end
+	def if_not_signed_in
+		if !user_signed_in?
+			respond_to do |format|
+			  format.html { redirect_to new_user_session_path }
+			  format.json { head :no_content }
 			end
 		end
+	end
 end
