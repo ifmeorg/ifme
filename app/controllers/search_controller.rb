@@ -4,14 +4,8 @@ class SearchController < ApplicationController
   def index
     email = params[:search][:email]
 
-    @matching_users = User
-
-    if !email.nil?
-      email.strip!
-      @matching_users = @matching_users.where(email: email)
-    end
-
-    @matching_users = @matching_users.where.not(id: current_user.id).all
+    @matching_users = User.where.not(id: current_user.id)
+    @matching_users = @matching_users.where(email: email.strip) if email.present?
   end
 
   def posts

@@ -16,7 +16,7 @@ RSpec.describe SearchController, type: :controller do
 
       context 'when have passed email' do
         it 'strip passed string' do
-          expect_any_instance_of(String).to receive(:strip!)
+          expect_any_instance_of(String).to receive(:strip)
 
           get :index, search: { email: '  hi@email.com ' }
         end
