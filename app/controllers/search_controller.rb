@@ -4,40 +4,22 @@ class SearchController < ApplicationController
   def index
     email = params[:search][:email]
 
-    @matching_users = User.where.not(id: current_user.id)
+    @matching_users = User.where.not(id: current_user.id).all
     @matching_users = @matching_users.where(email: email.strip) if email.present?
   end
 
   def posts
-    if !params[:search][:name].blank?
-      if params[:search][:data_type] == 'moment'
-        path = moments_path(search: params[:search][:name])
-      elsif params[:search][:data_type] == 'category'
-        path = categories_path(search: params[:search][:name])
-      elsif params[:search][:data_type] == 'mood'
-        path = moods_path(search: params[:search][:name])
-      elsif params[:search][:data_type] == 'strategy'
-        path = strategies_path(search: params[:search][:name])
-      elsif params[:search][:data_type] == 'medication'
-        path = medications_path(search: params[:search][:name])
-      end
-    else
-      if params[:search][:data_type] == 'moment'
-        path = moments_path
-      elsif params[:search][:data_type] == 'category'
-        path = categories_path
-      elsif params[:search][:data_type] == 'mood'
-        path = moods_path
-      elsif params[:search][:data_type] == 'strategy'
-        path = strategies_path
-      elsif params[:search][:data_type] == 'medication'
-        path = medications_path
-      end
-    end
+    data_type = params[:search][:data_type]
+    term = params[:search][:name]
 
-    respond_to do |format|
-      format.html { redirect_to path }
-      format.json { head :no_content }
+    if %w(moment category mood strategy medication).include? data_type
+      search = { search: term } if term.present?
+      path = send("#{data_type.pluralize}_path", search)
+
+      respond_to do |format|
+        format.html { redirect_to path }
+        format.json { head :no_content }
+      end
     end
   end
 
