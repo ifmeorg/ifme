@@ -1,5 +1,4 @@
 class MomentsController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_moment, only: [:show, :edit, :update, :destroy]
 
   def default_params

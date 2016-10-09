@@ -2,7 +2,6 @@ require "google/api_client"
 
 class MedicationsController < ApplicationController
   helper_method :print_reminders
-  before_filter :if_not_signed_in
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
   # GET /medications
@@ -133,14 +132,5 @@ class MedicationsController < ApplicationController
         :total_unit, :strength_unit, :comments, :add_to_google_cal,
         { take_medication_reminder_attributes: [:active, :id] }, { refill_reminder_attributes: [:active, :id] }
       )
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
-        respond_to do |format|
-          format.html { redirect_to new_user_session_path }
-          format.json { head :no_content }
-        end
-      end
     end
 end
