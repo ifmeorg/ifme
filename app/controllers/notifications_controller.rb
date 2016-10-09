@@ -8,13 +8,13 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-        format.html { redirect_to :back }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
 
   def clear
-    Notification.where(userid: current_user.id).destroy_all if !Notification.where(userid: current_user.id).nil?
+    Notification.where(userid: current_user.id).destroy_all
     render :nothing => true
   end
 
