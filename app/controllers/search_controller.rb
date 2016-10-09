@@ -12,16 +12,19 @@ class SearchController < ApplicationController
     data_type = params[:search][:data_type]
     term = params[:search][:name]
 
-    search = { search: term } if term.present?
-    path = send("#{data_type.pluralize}_path", search)
-
-    respond_to do |format|
-      format.html { redirect_to path }
-      format.json { head :no_content }
+    if %w(moment category mood strategy medication).include? data_type
+      respond_to do |format|
+        format.html { redirect_to make_path(term, data_type) }
+        format.json { head :no_content }
+      end
     end
   end
 
   private
+
+  def make_path(term, data_type)
+    send("#{data_type.pluralize}_path", ({ search: term } if term.present?))
+  end
 
   def if_not_signed_in
     if !user_signed_in?
