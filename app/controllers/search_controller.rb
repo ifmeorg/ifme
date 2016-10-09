@@ -1,59 +1,37 @@
 class SearchController < ApplicationController
-	before_filter :if_not_signed_in
+  before_filter :if_not_signed_in
 
-	def index
-		email = params[:search][:email]
+  def index
+    mail = params[:search][:email]
 
-		@matching_users = User
+    @matching_users = User.where.not(id: current_user.id).all
+    @matching_users = @matching_users.where(email: mail.strip) if mail.present?
+  end
 
-		if !email.nil?
-			email.strip!
-			@matching_users = @matching_users.where(email: email)
-		end
-		@matching_users = @matching_users.where.not(id: current_user.id).all
-	end
+  def posts
+    data_type = params[:search][:data_type]
+    term = params[:search][:name]
 
-	def posts
-		if !params[:search][:name].blank?
-			if params[:search][:data_type] == 'moment'
-				path = moments_path(search: params[:search][:name])
-			elsif params[:search][:data_type] == 'category'
-				path = categories_path(search: params[:search][:name])
-			elsif params[:search][:data_type] == 'mood'
-				path = moods_path(search: params[:search][:name])
-			elsif params[:search][:data_type] == 'strategy'
-				path = strategies_path(search: params[:search][:name])
-			elsif params[:search][:data_type] == 'medication'
-				path = medications_path(search: params[:search][:name])
-			end
-		else
-			if params[:search][:data_type] == 'moment'
-				path = moments_path
-			elsif params[:search][:data_type] == 'category'
-				path = categories_path
-			elsif params[:search][:data_type] == 'mood'
-				path = moods_path
-			elsif params[:search][:data_type] == 'strategy'
-				path = strategies_path
-			elsif params[:search][:data_type] == 'medication'
-				path = medications_path
-			end
-		end
+    if %w(moment category mood strategy medication).include? data_type
+      respond_to do |format|
+        format.html { redirect_to make_path(term, data_type) }
+        format.json { head :no_content }
+      end
+    end
+  end
 
-		respond_to do |format|
-			format.html { redirect_to path }
-			format.json { head :no_content }
-		end
-	end
+  private
 
-	private
+  def make_path(term, data_type)
+    send("#{data_type.pluralize}_path", ({ search: term } if term.present?))
+  end
 
-		def if_not_signed_in
-			if !user_signed_in?
-				respond_to do |format|
-				  format.html { redirect_to new_user_session_path }
-				  format.json { head :no_content }
-				end
-			end
-		end
+  def if_not_signed_in
+    if !user_signed_in?
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path }
+        format.json { head :no_content }
+      end
+    end
+  end
 end
