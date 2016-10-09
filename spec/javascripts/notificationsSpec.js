@@ -40,7 +40,7 @@ describe("Notifications", function() {
 
   it("close notifications modal", function() {
     find('h1#close_notifications').click
-    expect($('a.notifications_button').hasClass("fade")).toBe(false);
+    expect($('div#notifications').toBeHidden();
   });
 
   it("clear notifications modal", function() {
