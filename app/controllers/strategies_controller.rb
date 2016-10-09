@@ -287,7 +287,6 @@ class StrategiesController < ApplicationController
     end
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
     params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})

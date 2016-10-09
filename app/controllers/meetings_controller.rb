@@ -364,9 +364,9 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def meeting_params
-    params.require(:meeting).permit(:name, :description, :location, :date, :time, :maxmembers, :groupid)
+    params.require(:meeting).permit(:name, :description, :location, :date,
+                                    :time, :maxmembers, :groupid)
   end
 
   def hide_page(meeting)
