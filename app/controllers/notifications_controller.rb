@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   before_filter :if_not_signed_in
   before_action :set_notification, only: [:destroy]
+  before_action :ensure_user_owns_notification!, only: [:destroy]
 
   # DELETE /notifications/1
   # DELETE /notifications/1.json
@@ -64,6 +65,14 @@ class NotificationsController < ApplicationController
           format.html { redirect_to new_user_session_path }
           format.json { head :no_content }
         end
+      end
+    end
+
+    # Stops here if the signed in user is not the owner of
+    # the notification set by :set_notification.
+    def ensure_user_owns_notification!
+      unless @notification.user == current_user
+        render :nothing => true
       end
     end
 end
