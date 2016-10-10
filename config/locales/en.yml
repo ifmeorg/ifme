@@ -516,3 +516,11 @@ en:
  warnings:
   no_description: "You didn't write a description!"
   yes_description: "Writing one can help you and others better understand in detail"
+
+ mailers:
+   accepted_ally_request:
+     subject: "if me | %{ally_name} accepted your ally request!"
+     message: "<p>Congrats! You can now share Moments, Strategies, and more with %{ally_name}.</p>"
+   new_ally_request:
+     subject: "if me | %{ally_name} sent an ally request!"
+     message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
