@@ -397,7 +397,7 @@ Please post any bugs, questions, or ideas on our [issues page](https://github.co
 
 If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
-For bugs, please list the reproduction steps and specify if the bug was prodcued locally or on production. Please also mention what OS and browser you are using.
+For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
 
 License
 -------
