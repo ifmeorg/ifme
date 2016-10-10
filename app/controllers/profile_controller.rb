@@ -1,6 +1,4 @@
 class ProfileController < ApplicationController
-	before_filter :if_not_signed_in
-
 	def index
 		# If the specified profile doesn't exist, view the current user's profile
 		user = User.find_by(uid: params[:uid])
@@ -15,15 +13,4 @@ class ProfileController < ApplicationController
 
 		@profile = user
 	end
-
-	private
-
-	def if_not_signed_in
-      if !user_signed_in?
-        respond_to do |format|
-          format.html { redirect_to new_user_session_path }
-          format.json { head :no_content }
-        end
-      end
-    end
 end

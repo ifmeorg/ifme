@@ -1,5 +1,4 @@
 class StrategiesController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -273,42 +272,32 @@ class StrategiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_strategy
-      begin
-        @strategy = Strategy.find(params[:id])
-      rescue
-        if @strategy.blank?
-          respond_to do |format|
-            format.html { redirect_to strategies_path }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def strategy_params
-      params[:strategy] = default_params[:strategy].merge(params[:strategy])
-      params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
-    end
-
-    def hide_page(strategy)
-      if Strategy.where(id: strategy.id).exists?
-        if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.userid, current_user.id)
-          return false
-        end
-      end
-      return true
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
+  # Use callbacks to share common setup or constraints between actions.
+  def set_strategy
+    begin
+      @strategy = Strategy.find(params[:id])
+    rescue
+      if @strategy.blank?
         respond_to do |format|
-          format.html { redirect_to new_user_session_path }
+          format.html { redirect_to strategies_path }
           format.json { head :no_content }
         end
       end
     end
+  end
 
+  def strategy_params
+    params[:strategy] = default_params[:strategy].merge(params[:strategy])
+    params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+  end
+
+  def hide_page(strategy)
+    if Strategy.where(id: strategy.id).exists?
+      if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.userid, current_user.id)
+        return false
+      end
+    end
+    return true
+  end
 end

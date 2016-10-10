@@ -1,5 +1,4 @@
 class MoodsController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_mood, only: [:show, :edit, :update, :destroy]
 
   # GET /moods
@@ -134,42 +133,33 @@ class MoodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mood
-      begin
-        @mood = Mood.find(params[:id])
-      rescue
-        if @mood.blank?
-          respond_to do |format|
-            format.html { redirect_to moods_path }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def mood_params
-      params.require(:mood).permit(:name, :description, :userid)
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
+  # Use callbacks to share common setup or constraints between actions.
+  def set_mood
+    begin
+      @mood = Mood.find(params[:id])
+    rescue
+      if @mood.blank?
         respond_to do |format|
-          format.html { redirect_to new_user_session_path }
+          format.html { redirect_to moods_path }
           format.json { head :no_content }
         end
       end
     end
+  end
 
-    def is_viewer(moment, mood)
-      if moment.blank?
-        return false
-      else
-        if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return true
-        end
-      end
+  def mood_params
+    params.require(:mood).permit(:name, :description, :userid)
+  end
+
+  def is_viewer(moment, mood)
+    if moment.blank?
       return false
+    else
+      if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
+        return true
+      end
     end
+    return false
+  end
 end

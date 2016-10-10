@@ -1,6 +1,4 @@
 class AlliesController < ApplicationController
-  before_filter :if_not_signed_in
-
   # GET /allies
   # GET /allies.json
   def index

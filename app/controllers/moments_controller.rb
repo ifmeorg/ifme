@@ -1,5 +1,4 @@
 class MomentsController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_moment, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -292,7 +291,6 @@ class MomentsController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def moment_params
       params[:moment] = default_params[:moment].merge(params[:moment])
       params.require(:moment).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})

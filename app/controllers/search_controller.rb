@@ -1,6 +1,4 @@
 class SearchController < ApplicationController
-  before_filter :if_not_signed_in
-
   def index
     mail = params[:search][:email]
 

@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :if_not_signed_in
 
   # Timezone
   around_filter :with_timezone
@@ -30,41 +31,29 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(
-      :account_update,
-      keys: [
-        :location,
-        :name,
-        :email,
-        :password,
-        :password_confirmation,
-        :current_password,
-        :timezone,
-        :about,
-        :avatar,
-        :remove_avatar,
-        :comment_notify,
-        :ally_notify,
-        :group_notify,
-        :meeting_notify
-      ]
-    )
+    common = %i(location name email password password_confirmation timezone
+                current_password)
 
-    devise_parameter_sanitizer.permit(
-      :sign_up,
-      keys: [
-        :location,
-        :name,
-        :email,
-        :password,
-        :password_confirmation,
-        :current_password,
-        :timezone
-      ]
-    )
+    devise_parameter_sanitizer.permit :account_update,
+      keys: %i(about avatar remove_avatar comment_notify ally_notify
+               group_notify meeting_notify) + common
+
+    devise_parameter_sanitizer.permit :sign_up, keys: common
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies, :get_uid, :most_focus, :tag_usage, :can_notify, :generate_comment, :get_stories, :moments_stats, :get_viewers_for, :viewers_hover, :created_or_edited
+  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies,
+                :viewers_hover, :created_or_edited, :get_viewers_for, :get_uid,
+                :most_focus, :tag_usage, :can_notify, :if_not_signed_in,
+                :generate_comment, :get_stories, :moments_stats
+
+  def if_not_signed_in
+    unless user_signed_in?
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path }
+        format.json { head :no_content }
+      end
+    end
+  end
 
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)

@@ -1,5 +1,4 @@
 class NotificationsController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_notification, only: [:destroy]
 
   # DELETE /notifications/1
@@ -39,31 +38,22 @@ class NotificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notification
-      begin
-        @notification = Notification.find(params[:id])
-      rescue
-        if @notification.blank?
-          respond_to do |format|
-            format.html { redirect_to :back }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def notification_params
-      params.require(:notification).permit(:name, :description, :userid)
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notification
+    begin
+      @notification = Notification.find(params[:id])
+    rescue
+      if @notification.blank?
         respond_to do |format|
-          format.html { redirect_to new_user_session_path }
+          format.html { redirect_to :back }
           format.json { head :no_content }
         end
       end
     end
+  end
+
+  def notification_params
+    params.require(:notification).permit(:name, :description, :userid)
+  end
 end

@@ -1,5 +1,4 @@
 class MeetingsController < ApplicationController
-  before_filter :if_not_signed_in
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   # GET /meetings/1
@@ -340,49 +339,40 @@ class MeetingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meeting
-      begin
-        @meeting = Meeting.find(params[:id])
-      rescue
-        if @meeting.blank?
-          respond_to do |format|
-            format.html { redirect_to groups_path }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    # Checks if user is a meeting leader, if not redirect to group_path
-    def not_a_leader(groupid)
-      if !GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meeting
+    begin
+      @meeting = Meeting.find(params[:id])
+    rescue
+      if @meeting.blank?
         respond_to do |format|
-          format.html { redirect_to group_path(groupid) }
+          format.html { redirect_to groups_path }
           format.json { head :no_content }
         end
       end
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def meeting_params
-      params.require(:meeting).permit(:name, :description, :location, :date, :time, :maxmembers, :groupid)
-    end
-
-    def hide_page(meeting)
-      if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
-        return false
-      end
-      return true
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
-        respond_to do |format|
-          format.html { redirect_to new_user_session_path }
-          format.json { head :no_content }
-        end
+  # Checks if user is a meeting leader, if not redirect to group_path
+  def not_a_leader(groupid)
+    if !GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+      respond_to do |format|
+        format.html { redirect_to group_path(groupid) }
+        format.json { head :no_content }
       end
     end
+  end
 
+  def meeting_params
+    params.require(:meeting).permit(:name, :description, :location, :date,
+                                    :time, :maxmembers, :groupid)
+  end
+
+  def hide_page(meeting)
+    if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
+      return false
+    end
+    return true
+  end
 end
