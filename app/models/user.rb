@@ -52,6 +52,8 @@ class User < ActiveRecord::Base
   has_many :notifications, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
+  validates :name, presence: { message: "must be given please" }
+
   def remove_leading_trailing_whitespace
     @email&.strip!
     @name&.strip!
