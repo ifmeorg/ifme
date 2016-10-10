@@ -238,9 +238,9 @@ var onReadyNotifications = function() {
     emptyNotificationsList();
     showNotificationsNone();
     changeTitle(0);
-    $('#notifications #clear_notifcations').hide();
 
     $.ajax("/notifications/clear");
+    $('#notifications #clear_notifcations').hide();
 
   });
 
