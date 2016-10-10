@@ -1,7 +1,7 @@
 describe User do
   describe ".find_for_google_oauth2" do
-    let(:access_token) { 
-      double({ 
+    let(:access_token) {
+      double({
                 info: double({ email: "some@user.com", name: "some name" }),
                 provider: "asdf",
                 credentials: double({ token: "some token" }),
@@ -10,7 +10,7 @@ describe User do
     }
 
     context "an existing user" do
-      let!(:user) { User.create(email: "some@user.com", password: "asdfasdf") }
+      let!(:user) { User.create(name: "some name", email: "some@user.com", password: "asdfasdf") }
 
       it "updates token information" do
         User.find_for_google_oauth2(access_token)
