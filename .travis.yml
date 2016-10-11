@@ -1,17 +1,19 @@
 language: ruby
 rvm:
-- 2.3.1
+  - 2.3.1
 addons:
   postgresql: 9.4
   firefox: 47.0.1
 services:
   - postgresql
 
-env: SECRET_KEY_BASE="$(bundle exec rake secret)" DEVISE_SECRET_KEY="$(bundle exec rake secret)"
+env: 
+  SECRET_KEY_BASE="$(bundle exec rake secret)"
+  DEVISE_SECRET_KEY="$(bundle exec rake secret)"
 
 before_script:
-  - "/bin/cp $TRAVIS_BUILD_DIR/config/database.example.yml $TRAVIS_BUILD_DIR/config/database.yml"
-  - "/bin/cp $TRAVIS_BUILD_DIR/config/smtp.example.yml $TRAVIS_BUILD_DIR/config/smtp.yml"
+  - /bin/cp $TRAVIS_BUILD_DIR/config/database.example.yml $TRAVIS_BUILD_DIR/config/database.yml
+  - /bin/cp $TRAVIS_BUILD_DIR/config/smtp.example.yml $TRAVIS_BUILD_DIR/config/smtp.yml
   - psql -c 'create database ifme_test;' -U postgres
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
@@ -27,5 +29,5 @@ deploy:
   on:
     repo: julianguyen/ifme
   run:
-     - "rake db:migrate"
-     - restart
+    - "rake db:migrate"
+    - restart
