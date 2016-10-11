@@ -8,20 +8,30 @@ module PagesHelper
   end
 
   def print_partners(data)
-    return_this = ''
-    data.each_with_index do |d, index|
-      if d.is_a?(Hash) && d['name'].is_a?(String) && d['link'].is_a?(String) && d['image_link'].is_a?(String)
-        image = image_tag(d['image_link'], alt: d['name'])
-        return_this += '<div class="partner">'
-        return_this += link_to image, d['link'], target: 'blank'
-        return_this += '</div>'
+    html = ''
 
-        return_this += '<div class="spacer"></div>' if index + 1 != data.length
-      else
-        break
-      end
+    data.each_with_index do |d, index|
+      break unless valid_hash? d
+
+      image = image_tag(d['image_link'], alt: d['name'])
+      link = link_to(image, d['link'], target: 'blank')
+
+      html.concat(content_tag(:div, link, class: 'partner'))
+      html.concat spacer_tag?(index, data.size)
     end
 
-    return_this.html_safe
+    html.html_safe
+  end
+
+  private
+
+  def valid_hash?(d)
+    check = [d['name'], d['link'], d['image_link']].all? { |e| e.is_a?(String) }
+
+    d.is_a?(Hash) && check
+  end
+
+  def spacer_tag?(index, size)
+    content_tag(:div, class: 'spacer') if index + 1 != size
   end
 end
