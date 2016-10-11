@@ -7,16 +7,14 @@ class PagesController < ApplicationController
       @stories = Kaminari.paginate_array(get_stories(current_user, true))
                          .page(params[:page]).per($per_page)
 
-      if !@stories.blank? && @stories.count.positive?
-        @moment = Moment.new
-        params = { userid: current_user.id }
-        @categories = Category.where(params).order(created_at: :desc)
-        @moods = Mood.where(params).order(created_at: :desc)
-      end
+      load_dashboard_data if !@stories.blank? && @stories.count.positive?
     end
   end
 
-  def about; end
+  def blog
+    @posts = JSON.parse(File.read('doc/contributors/posts.json'))
+    @posts.reverse!
+  end
 
   def contributors
     @contributors = JSON.parse(File.read('doc/contributors/contributors.json'))
@@ -28,18 +26,23 @@ class PagesController < ApplicationController
     @organizations.sort_by! { |o| o['name'].downcase }
   end
 
-  def blog
-    @posts = JSON.parse(File.read('doc/contributors/posts.json'))
-    @posts.reverse!
-  end
-
-  def privacy; end
+  def about; end
 
   def faq; end
+
+  def privacy; end
 
   private
 
   def set_blurbs
     @blurbs = JSON.parse(File.read('doc/contributors/blurbs.json'))
+  end
+
+  def load_dashboard_data
+    params = { userid: current_user.id }
+
+    @moment = Moment.new
+    @categories = Category.where(params).order(created_at: :desc)
+    @moods = Mood.where(params).order(created_at: :desc)
   end
 end
