@@ -7,9 +7,9 @@ class MoodsController < ApplicationController
     name = params[:search]
     search = Mood.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
-      @moods = search.order("created_at DESC").page(params[:page]).per($per_page)
+      @moods = search.order("created_at DESC").page(params[:page])
     else
-      @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+      @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
     end
     @page_tooltip = t('moods.new')
   end
