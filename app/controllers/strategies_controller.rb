@@ -16,9 +16,9 @@ class StrategiesController < ApplicationController
     name = params[:search]
     search = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
-      @strategies = search.order("created_at DESC").page(params[:page]).per($per_page)
+      @strategies = search.order("created_at DESC").page(params[:page])
     else
-      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page]).per($per_page)
+      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
     end
     @page_tooltip = t('strategies.new')
   end

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def home
     if user_signed_in?
       @stories = Kaminari.paginate_array(get_stories(current_user, true))
-                         .page(params[:page]).per($per_page)
+                         .page(params[:page])
 
       load_dashboard_data if !@stories.blank? && @stories.count.positive?
     end
