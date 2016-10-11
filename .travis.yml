@@ -24,7 +24,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: xxxxx
+    secure: ZpqbGq3JS2Lni9CIyAZvHtv69TmW33vP0q3bwxLKuEYiYA83xd8DypWgdQvImm7Lk39AFFXuMaMKh6RP5tFHUmFMtqRHIzYCGjZdKNRZ+HyKXXJJXomUFGbQp320cKvguXwpe6f6nYeCMzhMeAEN49IcU0mlFqYXYI8Fkr0fVc0=
   app: ifme
   on:
     repo: julianguyen/ifme
