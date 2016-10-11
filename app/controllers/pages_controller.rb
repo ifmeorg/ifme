@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   include ActionView::Helpers::AssetTagHelper
   helper_method :print_contributors, :print_partners
+  skip_before_filter :if_not_signed_in
 
   def home
     @blurbs = blurbs
