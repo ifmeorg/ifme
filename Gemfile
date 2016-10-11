@@ -53,6 +53,7 @@ group :development, :test do
   gem 'jasmine',                    '2.4.0'
   gem 'rubocop',                    '0.40.0'
   gem 'jshint'
+  gem "letter_opener"
 end
 
 group :test do
