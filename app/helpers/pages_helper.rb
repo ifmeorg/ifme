@@ -17,7 +17,7 @@ module PagesHelper
       link = link_to(image, d['link'], target: 'blank')
 
       html.concat(content_tag(:div, link, class: 'partner'))
-      html.concat spacer_tag?(index, data.size)
+          .concat(spacer_tag?(index, data.size))
     end
 
     html.html_safe
@@ -26,12 +26,13 @@ module PagesHelper
   private
 
   def valid_hash?(d)
-    check = [d['name'], d['link'], d['image_link']].all? { |e| e.is_a?(String) }
-
-    d.is_a?(Hash) && check
+    d.is_a?(Hash) && d['name'].is_a?(String) && d['link'].is_a?(String) &&
+      d['image_link'].is_a?(String)
   end
 
   def spacer_tag?(index, size)
-    content_tag(:div, class: 'spacer') if index + 1 != size
+    return '' unless index + 1 != size
+
+    tag :div, class: 'spacer'
   end
 end
