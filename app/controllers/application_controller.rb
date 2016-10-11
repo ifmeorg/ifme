@@ -13,9 +13,6 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include LocalTimeHelper
 
-  # Global Variables
-  $per_page = 6 # For Kaminari
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
