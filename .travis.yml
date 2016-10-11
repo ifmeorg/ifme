@@ -24,10 +24,12 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: ZpqbGq3JS2Lni9CIyAZvHtv69TmW33vP0q3bwxLKuEYiYA83xd8DypWgdQvImm7Lk39AFFXuMaMKh6RP5tFHUmFMtqRHIzYCGjZdKNRZ+HyKXXJJXomUFGbQp320cKvguXwpe6f6nYeCMzhMeAEN49IcU0mlFqYXYI8Fkr0fVc0=
-  app: ifme
+    secure: $SECURE_DEPLOY_KEY
+  app: $HEROKU_APP_NAME
   on:
     repo: julianguyen/ifme
   run:
     - "rake db:migrate"
     - restart
+
+
