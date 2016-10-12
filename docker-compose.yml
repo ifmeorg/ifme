@@ -1,0 +1,18 @@
+version: '2'
+services:
+  psql:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=
+      - POSTGRES_USER=root
+  app:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - psql
+    environment:
+      - PSQL_HOST=psql
