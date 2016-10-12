@@ -5,7 +5,7 @@ class MoodsController < ApplicationController
   # GET /moods
   # GET /moods.json
   def index
-    set(@moods, "moods")
+    set(@moods, 'moods')
   end
 
   # GET /moods/1

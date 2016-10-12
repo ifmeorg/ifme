@@ -14,7 +14,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    set(@strategies, "strategies")
+    set(@strategies, 'strategies')
   end
 
   # GET /strategies/1
