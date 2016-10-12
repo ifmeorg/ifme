@@ -1,158 +1,152 @@
-<%= form_for(@medication) do |f| %>
-<% if @medication.errors.any? %>
-  <div class="error_explanation">
-    <%= t('medications.form.error_explanation') %>
-  </div>
-<% end %>
-
-<div class="table">
-
-  <div class="table_cell padding_right vertical_align_top">
-
-    <div class="field" >
-      <div class="label">
-        <%= f.label t('medications.form.name'), for: 'medication_name' %>
-        <i class="fa fa-asterisk align_right"></i>
-        <div class="clear"></div>
-      </div>
-      <%= f.text_field :name, :class => "name_field" %>
+<div id="medication_content">
+  <%= form_for(@medication) do |f| %>
+  <% if @medication.errors.any? %>
+    <div class="error_explanation">
+      <%= t('medications.form.error_explanation') %>
     </div>
+  <% end %>
 
-    <div class="field">
-      <div class="label">
-        <%= f.label t('medications.form.comments') %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
+  <div class="table">
+
+    <div class="table_cell padding_right vertical_align_top">
+
+      <div class="field" >
+        <div class="label">
+          <%= f.label t('medications.form.name'), for: 'medication_name' %>
+          <i class="fa fa-asterisk align_right"></i>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
+        <%= f.text_field :name, :class => "name_field" %>
       </div>
-      <%= f.text_area :comments, :class => "comments" %>
-    </div>
 
-  </div>
-
-  <div class="table_cell padding_right vertical_align_top">
-
-    <div class="field">
-      <div class="label">
-        <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.strength_hint')) %>
-          <i class="fa fa-asterisk"></i>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="inline-block">
-        <%= f.number_field :strength, :placeholder => t('medications.form.strength_placeholder') %>
-        <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="label">
-        <%= f.label :total, for: 'medication_total' %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.total_hint')) %>
-          <i class="fa fa-asterisk"></i>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="inline-block">
-        <%= f.number_field :total, :placeholder => t('medications.form.total_placeholder') %>
-        <%= f.select(:total_unit, [
-              [t('medications.units.tablets.other'), 'tablets'],
-              [t('medications.units.mg'), 'mg'],
-              [t('medications.units.ml'), 'ml']]) %>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="table_cell vertical_align_top">
-
-    <div class="field">
-      <div class="label">
-        <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.dosage_hint')) %>
-          <i class="fa fa-asterisk"></i>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="inline-block">
-        <%= f.number_field :dosage, :placeholder => t('medications.form.dosage_placeholder') %>
-        <%= f.select(:dosage_unit, [
-              [t('medications.units.tablets.other'), 'tablets'],
-              [t('medications.units.mg'), 'mg'],
-              [t('medications.units.ml'), 'ml']]) %>
-      </div>
-    </div>
-
-    <div class="field">
-      <div class="label">
-        <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
-        <div class="align_right">
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_hint')) %>
-          <i class="fa fa-asterisk"></i>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <%= f.text_field :refill %>
-    </div>
-
-    <div class="field">
-      <%= f.fields_for :refill_reminder do | reminder | %>
-        <div class="label no_margin_bottom">
+      <div class="form_container">
+        <div class="field">
+          <div class="label">
+            <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.strength_hint')) %>
+              <i class="fa fa-asterisk"></i>
+            <div class="clear"></div>
+          </div>
           <div class="inline-block">
-            <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-            <%= reminder.label t('medications.refill_reminder'), for: 'refill_reminder' %>
-          </div>
-          <div class="align_right">
-            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
+            <%= f.number_field :strength, :placeholder => t('medications.form.strength_placeholder') %>
+            <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
           </div>
         </div>
-        <div class="clear"></div>
-      <% end %>
-    </div>
 
-    <div class="field">
-      <%= f.fields_for :take_medication_reminder do | reminder | %>
-        <div class="label no_margin_bottom">
-          <div class="inline-block">
-            <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-            <%= reminder.label t('medications.daily_reminder'), for: 'take_medication_reminder' %>
+        <div class="field">
+          <div class="label">
+            <%= f.label :total, for: 'medication_total' %>
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.total_hint')) %>
+              <i class="fa fa-asterisk"></i>
+            <div class="clear"></div>
           </div>
+          <div class="inline-block">
+            <%= f.number_field :total, :placeholder => t('medications.form.total_placeholder') %>
+            <%= f.select(:total_unit, [
+                  [t('medications.units.tablets.other'), 'tablets'],
+                  [t('medications.units.mg'), 'mg'],
+                  [t('medications.units.ml'), 'ml']]) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form_container">
+        <div class="field">
+          <div class="label">
+            <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
+            <div class="align_right">
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.dosage_hint')) %>
+              <i class="fa fa-asterisk"></i>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="inline-block">
+            <%= f.number_field :dosage, :placeholder => t('medications.form.dosage_placeholder') %>
+            <%= f.select(:dosage_unit, [
+                  [t('medications.units.tablets.other'), 'tablets'],
+                  [t('medications.units.mg'), 'mg'],
+                  [t('medications.units.ml'), 'ml']]) %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">
+            <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
+            <div class="align_right">
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_hint')) %>
+              <i class="fa fa-asterisk"></i>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <%= f.text_field :refill %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label">
+          <%= f.label t('medications.form.comments') %>
           <div class="align_right">
-            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
           </div>
           <div class="clear"></div>
         </div>
-      <% end %>
-    </div>
+        <%= f.text_area :comments, :class => "comments" %>
+      </div>
 
-    <% if current_user.google_oauth2_enabled? %>
       <div class="field">
-        <div class="inline-block">
-          <%= f.check_box :add_to_google_cal %>
-          <div class="label">
-            <%= f.label t('.add_to_google_cal') %>
+        <%= f.fields_for :refill_reminder do | reminder | %>
+          <div class="label no_margin_bottom">
+            <div class="inline-block">
+              <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+              <%= reminder.label t('medications.refill_reminder'), for: 'refill_reminder' %>
+            </div>
             <div class="align_right">
-               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.add_to_google_cal')) %>
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
             </div>
           </div>
           <div class="clear"></div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
 
+      <div class="field">
+        <%= f.fields_for :take_medication_reminder do | reminder | %>
+          <div class="label no_margin_bottom">
+            <div class="inline-block">
+              <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+              <%= reminder.label t('medications.daily_reminder'), for: 'take_medication_reminder' %>
+            </div>
+            <div class="align_right">
+              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
+            </div>
+            <div class="clear"></div>
+          </div>
+        <% end %>
+      </div>
+
+      <% if current_user.google_oauth2_enabled? %>
+        <div class="field">
+          <div class="inline-block">
+            <%= f.check_box :add_to_google_cal %>
+            <div class="label">
+              <%= f.label t('.add_to_google_cal') %>
+              <div class="align_right">
+                 <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.add_to_google_cal')) %>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
   </div>
+
+  <div class="align_right">
+    <%= f.hidden_field :userid, :value => current_user.id %>
+    <%= f.submit %>
+  </div>
+
+  <div class="clear"></div>
+
+  <% end %>
 </div>
-
-<div class="align_right">
-  <%= f.hidden_field :userid, :value => current_user.id %>
-  <%= f.submit %>
-</div>
-
-<div class="clear"></div>
-
-<% end %>

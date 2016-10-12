@@ -9,6 +9,16 @@
 	height: 150px;
 }
 
+#medication_content {
+  padding: 2.5em 10em;
+}
+
+.form_container {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em 0;
+}
+
 @media screen and (max-width: $medium) {
 	#medication_strength,
 	#medication_total,
