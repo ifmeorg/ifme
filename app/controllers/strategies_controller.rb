@@ -1,4 +1,5 @@
 class StrategiesController < ApplicationController
+  include PageToolTip
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -13,14 +14,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    name = params[:search]
-    search = Strategy.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
-    if !name.blank? && search.exists?
-      @strategies = search.order("created_at DESC").page(params[:page])
-    else
-      @strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
-    end
-    @page_tooltip = t('strategies.new')
+    set(@strategies, "strategies")
   end
 
   # GET /strategies/1

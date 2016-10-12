@@ -1,20 +1,14 @@
 require "google/api_client"
 
 class MedicationsController < ApplicationController
+  include PageToolTip
   helper_method :print_reminders
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
   # GET /medications
   # GET /medications.json
   def index
-    name = params[:search]
-    search = Medication.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
-    if !name.blank? && search.exists?
-      @medications = search.order("created_at DESC").page(params[:page])
-    else
-      @medications = Medication.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
-    end
-    @page_tooltip = t('medications.new')
+    set(@medications, "medications")
   end
 
   # GET /medications/1
