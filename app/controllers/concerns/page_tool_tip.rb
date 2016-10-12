@@ -8,6 +8,6 @@ module PageToolTip
     else
       instance_variable_set("#{collection}", ClassName.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
     end
-    page_tooltip = t("#{model_name.pluralize}.new")
+    @page_tooltip = t("#{model_name.pluralize}.new")
   end
 end
