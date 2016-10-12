@@ -1,7 +1,8 @@
 module PageToolTip
   def set(tips, mod_name)
     name = params[:search]
-    ClassName = tips.capitalize.constantize
+    capt_name = tips.capitalize
+    ClassName = capt_name.constantize
     search = ClassName.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
     if !name.blank? && search.exists?
       tips = search.order("created_at DESC").page(params[:page])
