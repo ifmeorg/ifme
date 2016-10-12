@@ -20,5 +20,3 @@ module PageToolTip
     )
   end
 end
-
-
