@@ -8,7 +8,7 @@ class MedicationsController < ApplicationController
   # GET /medications
   # GET /medications.json
   def index
-    set(@medications, 'medications')
+    set(@medications, 'medication')
   end
 
   # GET /medications/1

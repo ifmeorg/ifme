@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
 
   def index
-    set(@categories, 'categories')
+    set('@categories', 'category')
   end
 
   # GET /categories/1
