@@ -8,7 +8,6 @@ module PageToolTip
     else
       tips = ClassName.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
     end
-    mod_name = model_name.pluralize
     page_tooltip = t("#{mod_name}.new")
   end
 end
