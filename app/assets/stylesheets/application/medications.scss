@@ -19,6 +19,14 @@
 	padding: 1em 0;
 }
 
+.refill_medication {
+	padding-right: 5.7em;
+}
+
+.medication_tooltip_padding {
+	padding-left: 0.3em;
+}
+
 @media screen and (max-width: $medium) {
 	#medication_strength,
 	#medication_total,
