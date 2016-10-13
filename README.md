@@ -188,43 +188,19 @@ Configuration Files
 
 ### Mandatory
 
-The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally committing sensitive information.
+There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
 
 Copy the sample files to create your own configuration files:
 
-`cp config/application.example.yml config/application.yml`
+`cp config/env/test.example.env config/env/test.env`
 
-`cp config/smtp.example.yml config/smtp.yml`
+`cp config/env/development.example.env config/env/development.env`
 
-`cp config/database.example.yml config/database.yml`
-
-Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+Run `rake secret` to generate a `SECRET_KEY_BASE` value.
 
 ### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
-
-``` ruby
-development: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-
-test: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-```
 
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
 
