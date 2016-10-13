@@ -1,0 +1,27 @@
+[
+  {
+    "name":"Hacker Hours",
+    "link":"http://hackerhours.org",
+    "image_link":"/assets/partners/hacker_hours.png"
+  },
+  {
+    "name":"Open Sourcing Mental Illness",
+    "link":"https://osmihelp.org",
+    "image_link":"/assets/partners/osmi.png"
+  },
+  {
+    "name":"Contributor Convenant",
+    "link":"http://contributor-covenant.org",
+    "image_link":"/assets/partners/contributor_convenant.png"
+  },
+  {
+    "name":"Everybody Has a Brain",
+    "link":"http://everybodyhasabrain.com",
+    "image_link":"/assets/partners/everybody_has_a_brain.png"
+  },
+  {
+    "name":"Brown Sisters Speak",
+    "link":"http://brownsistersspeak.org",
+    "image_link":"/assets/partners/brown_sisters_speak.png"
+  }
+]

@@ -11,15 +11,15 @@
 <div class="contributors">
   <% @blurbs.each do |blurb| %>
     <div class="contributor">
-      <%= fetch_profile_picture(blurb[:image], 'contributor_picture') %>
-      <h1 class="contributor_name center"><%= blurb[:name] %></h1>
-      <div class="contributor_profile"><%= blurb[:profile] %></div>
+      <%= fetch_profile_picture(blurb["image"], 'contributor_picture') %>
+      <h1 class="contributor_name center"><%= blurb["name"] %></h1>
+      <div class="contributor_profile"><%= blurb["profile"] %></div>
       <div class="spacer"></div>
       <div class="align_left">
-        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb[:location]}" %>
+        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
       </div>
       <div class="align_right">
-        <%= content_tag(:i, '', class: "fa fa-#{blurb[:social]} fa-inline") %><%= link_to(blurb[:link_name], blurb[:link], target: 'blank') %>
+        <%= content_tag(:i, '', class: "fa fa-#{blurb["social"]} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
       </div>
       <div class="clear"></div>
     </div>

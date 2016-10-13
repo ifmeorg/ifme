@@ -1,37 +1,126 @@
-describe PagesController do
-	describe "print_contributors" do
-		it "returns empty result for empty array" do
-			expect(controller.print_contributors([])).to eq('')
-		end
-		it "returns empty result for malformed array" do
-			expect(controller.print_contributors(['test'])).to eq('')
-			expect(controller.print_contributors([['test']])).to eq('')
-		end
-		it "returns correct result for one link" do
-			expect(controller.print_contributors([{name: 'test', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test</a>')
-		end
-		it "returns correct result for two links" do
-			expect(controller.print_contributors([{name: 'test1', link: 'http://if-me.org'}, {name: 'test2', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test1</a> and <a target="blank" href="http://if-me.org">test2</a>')
-		end
-		it "returns correct result for three links" do
-			expect(controller.print_contributors([{name: 'test1', link: 'http://if-me.org'}, {name: 'test2', link: 'http://if-me.org'}, {name: 'test3', link: 'http://if-me.org'}])).to eq('<a target="blank" href="http://if-me.org">test1</a>, <a target="blank" href="http://if-me.org">test2</a>, and <a target="blank" href="http://if-me.org">test3</a>')
-		end
-	end
+RSpec.describe PagesController, type: :controller do
+  describe 'GET #home' do
+    it 'respond to request' do
+      get :home
 
-	describe "print_partners" do
-		it "returns empty result for empty array" do
-			expect(controller.print_partners([])).to eq('')
-		end
-		it "returns empty result for malformed array" do
-			expect(controller.print_partners(['test'])).to eq('')
-			expect(controller.print_partners([['test']])).to eq('')
-			expect(controller.print_partners([{name: 'test', link: 'http://if-me.org'}])).to eq('')
-		end
-		it "returns correct result for one link" do
-			expect(controller.print_partners([{name: 'test', link: 'http://if-me.org', image_link: 'test.png'}])).to eq('<div class="partner"><a target="blank" href="http://if-me.org"><img alt="test" src="/images/test.png" /></a></div>')
-		end
-		it "returns correct result for two links" do
-			expect(controller.print_partners([{name: 'test1', link: 'http://if-me.org', image_link: 'test1.png'}, {name: 'test2', link: 'http://if-me.org', image_link: 'test1.png'}])).to eq('<div class="partner"><a target="blank" href="http://if-me.org"><img alt="test1" src="/images/test1.png" /></a></div><div class="spacer"></div><div class="partner"><a target="blank" href="http://if-me.org"><img alt="test2" src="/images/test1.png" /></a></div>')
-		end
-	end
+      expect(response).to be_success
+    end
+
+    it 'before_filter' do
+      blurbs_file = File.read('doc/contributors/blurbs.json')
+
+      expect(JSON).to receive(:parse).with(blurbs_file)
+
+      get :home
+    end
+
+    context 'logged in' do
+      let(:user) { create(:user) }
+
+      include_context :logged_in_user
+
+      it 'if has no stories' do
+        list = double
+
+        expect(Kaminari).to receive(:paginate_array).and_return(list)
+        expect(list).to receive(:page)
+
+        get :home
+      end
+
+      it 'if have stories' do
+        create(:strategy, userid: user.id)
+        categories = create_list(:category, 2, userid: user.id)
+        moods = create_list(:mood, 2, userid: user.id)
+
+        get :home
+
+        expect(assigns(:moment)).to be_a_new(Moment)
+        expect(assigns(:categories)).to eq(categories.reverse)
+        expect(assigns(:moods)).to eq(moods.reverse)
+      end
+    end
+
+    context 'not logged in' do
+    end
+  end
+
+  describe 'GET #blog' do
+    it 'respond to request' do
+      get :blog
+
+      expect(response).to be_success
+    end
+
+    it 'read external JSON file' do
+      data = double([])
+
+      expect(JSON).to receive(:parse).with(File.read('doc/contributors/posts.json')).and_return(data)
+      expect(data).to receive(:reverse!)
+
+      get :blog
+    end
+  end
+
+  describe 'GET #contributors' do
+    it 'respond to request' do
+      get :contributors
+
+      expect(response).to be_success
+    end
+
+    it 'read external JSON file' do
+      data = []
+      blurbs_file = File.read('doc/contributors/blurbs.json')
+      contributors_file = File.read('doc/contributors/contributors.json')
+
+      expect(JSON).to receive(:parse).with(blurbs_file)
+      expect(JSON).to receive(:parse).with(contributors_file).and_return(data)
+      expect(data).to receive(:sort_by!)
+
+      get :contributors
+    end
+  end
+
+  describe 'GET #partners' do
+    it 'respond to request' do
+      get :partners
+
+      expect(response).to be_success
+    end
+
+    it 'read external JSON file' do
+      data = []
+      file = File.read('doc/contributors/partners.json')
+
+      expect(JSON).to receive(:parse).with(file).and_return(data)
+      expect(data).to receive(:sort_by!)
+
+      get :partners
+    end
+  end
+
+  describe 'GET #about' do
+    it 'respond to request' do
+      get :about
+
+      expect(response).to be_success
+    end
+  end
+
+  describe 'GET #faq' do
+    it 'respond to request' do
+      get :faq
+
+      expect(response).to be_success
+    end
+  end
+
+  describe 'GET #privacy' do
+    it 'respond to request' do
+      get :privacy
+
+      expect(response).to be_success
+    end
+  end
 end

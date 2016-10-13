@@ -52,7 +52,9 @@ group :development, :test do
   gem 'pry-rails',                 '0.3.4'
   gem 'jasmine',                    '2.4.0'
   gem 'rubocop',                    '0.40.0'
+  gem 'quiet_assets'
   gem 'jshint'
+  gem 'letter_opener'
 end
 
 group :test do
