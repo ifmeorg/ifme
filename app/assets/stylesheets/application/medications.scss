@@ -10,22 +10,22 @@
 }
 
 #medication_content {
-  padding: 2.5em 10em;
+  padding: 50px 200px;
 }
 
 .form_container {
 	display: flex;
 	justify-content: space-between;
-	padding: 1em 0;
+	padding: 20px 0;
 	flex-wrap: wrap;
 }
 
 .refill_medication {
-	padding-right: 5.7em;
+	padding-right: 112px;
 }
 
 .medication_tooltip_padding {
-	padding-left: 0.3em;
+	padding-left: 9px;
 }
 
 @media screen and (max-width: $medium) {
@@ -42,7 +42,7 @@
 	}
 
 	#medication_content {
-	  padding: 2.5em 1em;
+	  padding: 50px 20px;
 	}
 }
 
