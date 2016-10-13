@@ -17,6 +17,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 1em 0;
+	flex-wrap: wrap;
 }
 
 .refill_medication {
@@ -38,5 +39,15 @@
 	#medication_total_unit,
 	#medication_dosage_unit {
 		width: auto !important;
+	}
+
+	#medication_content {
+	  padding: 2.5em 1em;
+	}
+}
+
+@media screen and (max-width: $small) {
+	#medication_content {
+		padding: 0;
 	}
 }
