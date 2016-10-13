@@ -33,6 +33,6 @@ module PagesHelper
   def spacer_tag?(index, size)
     return '' unless index + 1 != size
 
-    tag :div, class: 'spacer'
+    content_tag(:div, '', class: 'spacer')
   end
 end
