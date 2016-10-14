@@ -80,38 +80,21 @@
 #   - wercker/postgresql
 # See more about services on our devcenter:
 # http://devcenter.wercker.com/articles/services/
-box: rvm
+box: donniewest/ubuntu12.04-rails-ruby-firefox-cucumber@0.0.4
 services:
   - postgres
 build:
   steps:
-    - script:
-        name: Enable virtual display
-        code: |-
-          export DISPLAY=:99.0
-          start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1024x768x24 -ac +extension GLX +render -noreset
-          sleep 3
-    - desmondmorris/selenium-install@0.0.2
-    - rvm-use:
-        version: 2.3.1
-
     - bundle-install
     - rails-database-yml
-
-    - script:
-        name: echo ruby information
-        code: |
-            echo "ruby version $(ruby --version) running"
-            echo "from location $(which ruby)"
-            echo -p "gem list: $(gem list)"
 
     - script:
         name: setup database
         code: bundle exec rake db:create db:migrate RAILS_ENV=test
 
     - script:
-           name: rspec
-           code: bundle exec rspec
+        name: rspec
+        code: bundle exec rspec
 deploy:
   steps:
     - heroku-deploy:
