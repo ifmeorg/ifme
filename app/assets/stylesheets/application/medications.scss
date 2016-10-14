@@ -50,4 +50,10 @@
 	#medication_content {
 		padding: 0;
 	}
+
+	label[for="refill_reminder"],
+	label[for="take_medication_reminder"],
+	label[for="medication_Google Calendar reminder"] {
+		font-size: 20px;
+	}
 }
