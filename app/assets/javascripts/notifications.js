@@ -239,9 +239,12 @@ var onReadyNotifications = function() {
     showNotificationsNone();
     changeTitle(0);
 
-    $.ajax("/notifications/clear");
-    $('#notifications #clear_notifcations').hide();
+    $.ajax({
+      url: '/notifications/clear',
+      type: 'DELETE'
+    });
 
+    $('#notifications #clear_notifcations').hide();
   });
 
   /* Quick Moment */

@@ -8,13 +8,13 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 
 #This is the only configuration value required to boot the application
-SECRET_KEY_BASE: "examplesecretkey123123"
+SECRET_KEY_BASE: "945a3eb9dfc2b5ffa394d3e084dc49e08be6a548fc926976bbc9d8a61adc917214e0c85b20288550cfaf0384dcdde3b07e91f851b1b91a7739f4d67a58b882ae"
 
 # Configuration values for sending email, set these to true, configure your default "from address",
 # and configure smtp.yml in order to send email
 SEND_EMAIL: "false"
 RAISE_DELIVERY_ERRORS: "false"
-DEFAULT_FROM_ADDRESS: "yourmail@gmail.com"
+DEFAULT_FROM_ADDRESS: "brunoocasali@gmail.com"
 
 # Configuration values for Oauth through Google
 GOOGLE_CLIENT_ID: ""

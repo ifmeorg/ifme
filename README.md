@@ -44,19 +44,7 @@ If you're looking to give feedback on the app, you can do so [here](http://goo.g
 
 ### Contributor Code of Conduct
 
-As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-
-We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
-
-Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.
-
-This code of conduct applies both within project spaces and in public spaces when an individual is representing the project or its community.
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.
-
-This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.1.0, available at [http://contributor-covenant.org/version/1/1/0/](http://contributor-covenant.org/version/1/1/0/)
+We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
 
 Installation
 -------------
@@ -200,43 +188,19 @@ Configuration Files
 
 ### Mandatory
 
-The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally committing sensitive information.
+There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
 
 Copy the sample files to create your own configuration files:
 
-`cp config/application.example.yml config/application.yml`
+`cp config/env/test.example.env config/env/test.env`
 
-`cp config/smtp.example.yml config/smtp.yml`
+`cp config/env/development.example.env config/env/development.env`
 
-`cp config/database.example.yml config/database.yml`
-
-Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+Run `rake secret` to generate a `SECRET_KEY_BASE` value.
 
 ### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
-
-``` ruby
-development: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-
-test: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-```
 
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
 
@@ -269,6 +233,20 @@ rails s
 ```
 
 To view the app, go to `http://localhost:3000`.
+
+### Docker
+
+Assuming [Docker](https://www.docker.com) is setup, you can start the server using
+
+```
+docker-compose up
+```
+
+or open a shell using
+
+```
+docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bash
+```
 
 ### Possible Errors
 
@@ -402,4 +380,4 @@ For bugs, please list the reproduction steps and specify if the bug was produced
 License
 -------
 
-The source code is licensed under GNU AGPLv3. For more information see http://www.gnu.org/licenses/agpl-3.0.txt or LICENSE.txt.
+The source code is licensed under GNU AGPLv3. For more information see http://www.gnu.org/licenses/agpl-3.0.txt or [LICENSE.txt](https://github.com/julianguyen/ifme/blob/master/LICENSE.txt).
