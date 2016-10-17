@@ -1,5 +1,5 @@
 class StrategiesController < ApplicationController
-  include PageToolTip
+  include CollectionPageSetup
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -14,7 +14,7 @@ class StrategiesController < ApplicationController
   # GET /strategies
   # GET /strategies.json
   def index
-    set('@strategies', 'strategy')
+    page_collection('@strategies', 'strategy')
   end
 
   # GET /strategies/1

@@ -1,14 +1,14 @@
 require "google/api_client"
 
 class MedicationsController < ApplicationController
-  include PageToolTip
+  include CollectionPageSetup
   helper_method :print_reminders
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
   # GET /medications
   # GET /medications.json
   def index
-    set('@medications', 'medication')
+    page_collection('@medications', 'medication')
   end
 
   # GET /medications/1

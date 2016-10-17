@@ -1,11 +1,11 @@
 class MoodsController < ApplicationController
-  include PageToolTip
+  include CollectionPageSetup
   before_action :set_mood, only: [:show, :edit, :update, :destroy]
 
   # GET /moods
   # GET /moods.json
   def index
-    set('@moods', 'mood')
+    page_collection('@moods', 'mood')
   end
 
   # GET /moods/1

@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
-  include PageToolTip
+  include CollectionPageSetup
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
 
   def index
-    set('@categories', 'category')
+    page_collection('@categories', 'category')
   end
 
   # GET /categories/1
