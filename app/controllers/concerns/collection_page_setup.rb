@@ -1,5 +1,5 @@
 module CollectionPageSetup
-    extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   included do
     helper_method :page_collection, :setup_collection

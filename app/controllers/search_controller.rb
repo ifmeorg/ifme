@@ -25,7 +25,7 @@ class SearchController < ApplicationController
   end
 
   def if_not_signed_in
-    if !user_signed_in?
+    unless user_signed_in?
       respond_to do |format|
         format.html { redirect_to new_user_session_path }
         format.json { head :no_content }

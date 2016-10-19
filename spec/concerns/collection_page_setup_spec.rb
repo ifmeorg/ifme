@@ -4,7 +4,7 @@ end
  
 describe CollectionPageSetupTestController do
  
-  # it "should mark an item out of stock" do
-  #   subject.page_collection
+  # it "should setup a page" do
+  #   subject.page_collection("muyiwa", "osiname")
   # end
 end

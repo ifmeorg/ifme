@@ -7,9 +7,9 @@ class GroupsController < ApplicationController
   def index
     @groups = current_user.groups
                           .includes(:group_members)
-                          .order("groups.created_at DESC")
+                          .order('groups.created_at DESC')
     @page_tooltip = t('groups.new')
-    @available_groups = current_user.available_groups("groups.created_at DESC")
+    @available_groups = current_user.available_groups('groups.created_at DESC')
   end
 
   # GET /groups/1
