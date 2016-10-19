@@ -1,4 +1,10 @@
 module CollectionPageSetup
+    extend ActiveSupport::Concern
+
+  included do
+    helper_method :page_collection, :setup_collection
+  end
+
   def page_collection(collection, model_name)
     name = params[:search]
     model = Object.const_get(model_name.capitalize)
