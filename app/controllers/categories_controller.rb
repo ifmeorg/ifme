@@ -1,17 +1,12 @@
 class CategoriesController < ApplicationController
+  include CollectionPageSetup
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
+
   def index
-    name = params[:search]
-    search = Category.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
-    if !name.blank? && search.exists?
-      @categories = search.order("created_at DESC").page(params[:page])
-    else
-      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
-    end
-    @page_tooltip = t('categories.new')
+    page_collection('@categories', 'category')
   end
 
   # GET /categories/1
@@ -22,8 +17,8 @@ class CategoriesController < ApplicationController
         @page_edit = edit_category_path(@category)
         @page_tooltip = t('categories.edit_category')
       else
-        link_url = "/profile?uid=" + get_uid(@category.userid).to_s
-        the_link = link_to User.where(:id => @category.userid).first.name, link_url
+        link_url = '/profile?uid=' + get_uid(@category.userid).to_s
+        the_link = link_to User.where(id: @category.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
     else
@@ -96,7 +91,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
       new_category = item.category.delete(@category.id)
@@ -119,7 +114,7 @@ class CategoriesController < ApplicationController
       checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + tag + '[category][]" id="' + tag + '_category_' + category.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else
@@ -133,33 +128,32 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      begin
-        @category = Category.find(params[:id])
-      rescue
-        if @category.blank?
-          respond_to do |format|
-            format.html { redirect_to categories_path }
-            format.json { head :no_content }
-          end
-        end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:id])
+  rescue
+    if @category.blank?
+      respond_to do |format|
+        format.html { redirect_to categories_path }
+        format.json { head :no_content }
       end
     end
+  end
 
-    def category_params
-      params.require(:category).permit(:name, :description, :userid)
-    end
+  def category_params
+    params.require(:category).permit(:name, :description, :userid)
+  end
 
-    def is_viewer(moment, strategy, category)
-      if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+  def is_viewer(moment, strategy, category)
+    if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+      return true
+    elsif !moment.blank?
+      if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
         return true
-      elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return true
-        end
       end
-
-      return false
     end
+
+    false
+  end
 end
