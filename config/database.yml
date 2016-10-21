@@ -1,0 +1,22 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['PSQL_HOST'] || 'localhost' %>
+  username: pguser
+  password: funmilayo
+  database: ifme_development
+  allow_concurrency: true
+  pool: 5
+  min_messages: warning
+
+test:
+  <<: *default
+  database: ifme_test
+  min_messages: error
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ifme_production
+  allow_concurrency: true
+  pool: 5
