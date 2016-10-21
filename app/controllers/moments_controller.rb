@@ -1,4 +1,5 @@
 class MomentsController < ApplicationController
+  include CollectionPageSetup
   before_action :set_moment, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -15,14 +16,7 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
-    name = params[:search]
-    search = Moment.where("name ilike ? AND userid = ?", "%#{name}%", current_user.id).all
-    if !name.blank? && search.exists?
-      @moments = search.order("created_at DESC").page(params[:page])
-    else
-      @moments = Moment.where(:userid => current_user.id).all.order("created_at DESC").page(params[:page])
-    end
-    @page_tooltip = t('moments.new')
+    page_collection('@moments', 'moment')
   end
 
   # GET /moments/1
