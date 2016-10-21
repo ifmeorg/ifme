@@ -1,7 +1,21 @@
-box: ruby
+ruby: 2.2.3
+box: phusion/passenger-ruby22
+services:
+  - postgres
 build:
-    steps:
-        - bundle-install
-        - script:
-            name: rspec
-            code: bundle exec rspec
+  steps:
+    - bundle-install
+    - rails-database-yml
+    - script:
+        name: echo ruby information
+        code: |
+            echo "ruby version $(ruby --version) running!"
+            echo "from location $(which ruby)"
+            echo -p "gem list: $(gem list)"
+    - script:
+        name: Set up db
+        code: bundle exec rake db:schema:load RAILS_ENV=test
+
+    - script:
+        name: rspec
+        code: bundle exec rspec
