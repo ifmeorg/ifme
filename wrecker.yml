@@ -1,0 +1,7 @@
+box: wercker/default
+build:
+  steps:
+    - jshint
+    - script:
+        name: echo
+        code: echo 1
