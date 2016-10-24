@@ -202,34 +202,6 @@ Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. 
 
 ### Email Notifications
 
-To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
-
-``` ruby
-development: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-
-test: {
-  address:              '[insert address]',
-    port:                 '[insert port]',
-    authentication:       'plain',
-    user_name:            '[insert email address]',
-    password:             '[insert email password]',
-    domain:               '[insert email domain]',
-    enable_starttls_auto: 'true'
-}
-```
-
-The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
-
-Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
-
 If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
 
 ### Optional
