@@ -75,10 +75,6 @@ var onReadyHeader = function() {
   $('.expand_moment_button').mouseover(expandMomentMouseover);
 
   $('#header').mouseleave(headerMouseLeave);
-
-  $(window).resize(function () {
-    setHeight();
-  });
 };
 
 $(document).on("page:load ready", onReadyHeader);
