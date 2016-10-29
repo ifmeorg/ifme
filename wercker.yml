@@ -1,29 +1,3 @@
-# box: mikewhy/selenium-cucumber
-# build:
-#   steps:
-#     - bundle-install
-#     - rails-database-yml
-
-#     - script:
-#         name: setup database
-#         code: bundle exec rake db:create db:migrate RAILS_ENV=test
-
-#     - script:
-#         name: rspec
-#         code: bundle exec rspec
-
-# deploy:
-#   steps:
-#     - heroku-deploy:
-#         key-name: DEPLOYMENT_KEY
-#         install-toolbelt: true
-#         retry: true
-#         run: rake db:migrate
-
-#         - npm-install
-#         - npm-test
-
-
 box: wercker/nodejs
 services:
   - postgres
