@@ -1,21 +1,45 @@
-box: 
-  id: donniewest/ubuntu12.04-rails-ruby-firefox-cucumber
-  env:
-    RUBY_VERSION: '2.3.1'
+# box: 
+#   id: donniewest/ubuntu12.04-rails-ruby-firefox-cucumber
+#   env:
+#     RUBY_VERSION: '2.3.1'
+# services:
+#   - postgres
+# build:
+#   steps:
+#     - bundle-install
+#     - rails-database-yml
+
+#     - script:
+#         name: echo ruby information
+#         code: |
+#             echo "ruby version $(ruby --version) running"
+#             echo "from location $(which ruby)"
+#             echo -p "gem list: $(gem list)"
+
+#     - script:
+#         name: setup database
+#         code: bundle exec rake db:create db:migrate RAILS_ENV=test
+
+#     - script:
+#         name: rspec
+#         code: bundle exec rspec
+# deploy:
+#   steps:
+#     - heroku-deploy:
+#         key-name: DEPLOYMENT_KEY
+#         install-toolbelt: true
+#         retry: true
+#         run: rake db:migrate    
+
+box: ruby:2.3.1
 services:
   - postgres
 build:
   steps:
     - bundle-install
     - rails-database-yml
-
-    - script:
-        name: echo ruby information
-        code: |
-            echo "ruby version $(ruby --version) running"
-            echo "from location $(which ruby)"
-            echo -p "gem list: $(gem list)"
-
+    - lrh-it-solutions/selenium-install@0.0.3
+    
     - script:
         name: setup database
         code: bundle exec rake db:create db:migrate RAILS_ENV=test
@@ -23,10 +47,28 @@ build:
     - script:
         name: rspec
         code: bundle exec rspec
+
 deploy:
   steps:
     - heroku-deploy:
         key-name: DEPLOYMENT_KEY
         install-toolbelt: true
         retry: true
-        run: rake db:migrate    
+        run: rake db:migrate
+
+
+# box: wercker/nodejs
+# build:
+#     steps:
+#         - script:
+#             name: install xvfb, firefox
+#             code: sudo apt-get install xvfb firefox
+#         - script:
+#             name: install selenium wrapper
+#             code: sudo npm i -g selenium-standalone@2.43 # 2.44 is bugged
+#         - script:
+#             name: start selenium
+#             code: xvfb-run start-selenium > /dev/null & # Sleep needed?
+
+#         - npm-install
+#         - npm-test

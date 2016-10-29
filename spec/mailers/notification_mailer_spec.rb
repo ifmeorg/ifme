@@ -92,5 +92,35 @@ describe "NotificationMailer" do
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} sent an ally request!") }
       it { expect(email.body.encoded).to match("<p>Please <a href=\"http://localhost:3000/allies\">sign in</a> to accept or reject the request!</p>") }
     end
+
+    describe 'when type is comment on moment' do
+      let(:moment_desc) { 'some_moment_description' }
+      let(:phrase_ally) { "<p>Your ally <strong>#{who_triggered_event.name}" }
+      let(:comment)     { "</strong> commented:</p><p><i>my_comment</i></p>" }
+      let(:link) do
+        "<p>You can read it all <a href=\"http://localhost:3000/moments/1\">here</a>!</p>"
+      end
+
+      let(:data) do
+        JSON.generate({
+          user: who_triggered_event.name,
+          momentid: 1,
+          moment: moment_desc,
+          commentid: 2,
+          comment: 'my_comment',
+          cutoff: false,
+          type: 'comment_on_moment',
+          uniqueid: 'some_unique_id'
+        })
+      end
+
+      subject(:email) { NotificationMailer.notification_email(recipient, data) }
+
+      it { expect(email.subject).to eq("if me | #{who_triggered_event.name} commented on your moment \"#{moment_desc}\"") }
+      it { expect(email.body.encoded).to match(phrase_ally) }
+      it { expect(email.body.encoded).to match(comment) }
+      it { expect(email.body.encoded).to match(link) }
+    end
   end
+
 end

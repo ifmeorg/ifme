@@ -163,14 +163,15 @@ en:
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
    error_explanation: 'Please fill out the marked fields!'
-   comments_hint: 'Additional comments, log your symptoms here'
-   add_to_google_cal: 'Adds a reminder for this medication onto your Google Calendar'
+   comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
+   add_to_google_cal: 'Google Calendar reminder'
+   google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
    strength_hint: 'Medication strength, usually found beside the name'
    total_hint: 'Total number of pills or amount of medication'
    dosage_hint: 'Number of pills or servings daily'
    refill_hint: 'When to refill this prescription'
-   refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled"
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
+   refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
+   daily_reminder_hint: "We'll email you a daily reminder to take this medication."
   new: 'New Medication'
   units:
    display: "%{count} %{unit}"
