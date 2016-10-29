@@ -25,7 +25,7 @@
 
 box: busybox
 build:
-  box: donniewest/ubuntu12.04-rails-ruby-firefox-cucumber:0.0.4
+  box: mikewhy/selenium-cucumber
   steps:
     - bundle-install
     - script:
