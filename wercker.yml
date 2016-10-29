@@ -31,7 +31,7 @@
 #         retry: true
 #         run: rake db:migrate    
 
-box: donniewest/ubuntu12.04-rails-ruby-firefox-cucumber:0.0.4
+box: mikewhy/selenium-cucumber
 build:
   steps:
     # - bundle-install
