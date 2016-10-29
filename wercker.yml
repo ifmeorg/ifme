@@ -38,7 +38,8 @@ build:
   steps:
     - bundle-install
     - rails-database-yml
-    - lrh-it-solutions/selenium-install@0.0.3
+    - captn3m0/selenium-install@0.0.2
+    # - lrh-it-solutions/selenium-install@0.0.3
     
     - script:
         name: setup database
