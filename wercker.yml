@@ -1,4 +1,4 @@
-box: wercker/nodejs
+box: nodejs
 services:
   - postgres
 build:
