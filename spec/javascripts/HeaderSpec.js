@@ -64,6 +64,7 @@ describe("Header", function() {
         $('#expand_nav').click();
 
         expect(showSmallTopNav).toHaveBeenCalled();
+        expect(setHeight).toHaveBeenCalled();
     });
 
     it("has called hideSmallTopNav when display_none is not a class on small_nav", function() {
@@ -71,6 +72,7 @@ describe("Header", function() {
         $('#expand_nav').click();
 
         expect(hideSmallTopNav).toHaveBeenCalled();
+        expect(setHeight).toHaveBeenCalled();
     });
 
     it("has called expandMomentMouseover when expand_moment_button is moused over", function() {

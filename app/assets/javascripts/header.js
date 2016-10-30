@@ -70,6 +70,7 @@ var onReadyHeader = function() {
     } else {
       hideSmallTopNav();
     }
+    setHeight();
   });
 
   $('.expand_moment_button').mouseover(expandMomentMouseover);
