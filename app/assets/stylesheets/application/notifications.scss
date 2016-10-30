@@ -3,10 +3,12 @@
 .quick_create,
 #categories_moods {
   width: 100%;
+  height: 100%;
   position: fixed;
-  top: 30%;
+  top: 0;
   z-index: 9001;
   left: 0;
+  background: $notification-backdrop;
 }
 
 .titlebar {
@@ -15,8 +17,12 @@
   position: fixed;
   z-index: 20;
 
+  @media screen and (max-width: $medium) {
+    width: 80%;
+  }
+
   @media screen and (max-width: $small) {
-    width: 90%;
+    width: 100%;
   }
 
   .align_left {
@@ -66,7 +72,7 @@
 .tip_notifications_text,
 .quick_create_text,
 #categories_moods_text {
-  margin: 0 auto;
+  margin: 10% auto;
   width: 50%;
   max-height: 350px;
   overflow-x: hidden;
@@ -75,9 +81,17 @@
   box-shadow: 0 0 10px $container-color;
   background-color: $background-color;
 
+  @media screen and (max-width: $medium) {
+    width: 80%;
+  }
+
   @media screen and (max-width: $small) {
-    width: 90%;
-    max-height: 250px;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: none;
   }
 }
 
@@ -210,4 +224,8 @@ h1#clear_notifcations {
 
 .notifications_button.fade{
   opacity: 0.5;
+}
+
+.show_backdrop {
+  overflow: hidden;
 }
