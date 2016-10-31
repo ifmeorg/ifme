@@ -1,39 +1,27 @@
 machine:
-  timezone:
-    America/Los_Angeles # Set the timezone
-
-  # Version of ruby to use
   ruby:
-    version:
-      2.3.1
+    version: 2.3.1
 
-## Customize dependencies
-# dependencies:
-#   pre:
-#     - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-#     - java -jar selenium-server-standalone-2.44.0.jar:
-#         background: true
-
-#   override:
-#     - 'bundle check --path=vendor/bundle || bundle install --local --path=vendor/bundle --jobs=4 --retry=3'
-
-#   cache_directories:
-#     - "vendor/bundle"
+dependencies:
+  pre:
+  override:
+    - gem install bundler --pre
+    - bundle install
+  cache_directories:
+    - /home/ubuntu/.rvm/gems
+    - vendor/bundle
 
 test:
   pre:
-    - bundle install
-
-## Customize database setup
-database:
-  override:
-    # replace CircleCI's generated database.yml
     - cp config/database.example.yml config/database.yml
-    - RAILS_ENV=test bundle exec rake db:create db:schema:load
+    - bundle exec rake db:create db:schema:load
+  override:
+    - bundle exec rake
+    - bundle exec rspec
 
 ## Customize deployment commands
 deployment:
   staging:
     branch: master
     heroku:
-      appname: ifme
+      appname: ifme    
