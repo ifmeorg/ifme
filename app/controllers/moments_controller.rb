@@ -38,17 +38,17 @@ class MomentsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(:commented_on => @moment.id, :comment_type => 'moment').all.order("created_at DESC")
+      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order("created_at DESC")
       @no_hide_page = true
     end
   end
 
   def comment
     if params[:viewers].blank?
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
+      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: params[:visibility])
     else
       # Can only get here if comment is from Moment creator
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
+      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
     end
 
     if !@comment.save
@@ -271,42 +271,33 @@ class MomentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_moment
-      begin
-        @moment = Moment.find(params[:id])
-      rescue
-        if @moment.blank?
-          respond_to do |format|
-            format.html { redirect_to moments_path }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    def moment_params
-      params[:moment] = default_params[:moment].merge(params[:moment])
-      params.require(:moment).permit(:name, :why, :fix, :userid, :comment, {:category => []}, {:mood => []}, {:viewers => []}, {:strategies => []})
-    end
-
-    def hide_page(moment)
-      if Moment.where(id: moment.id).exists?
-        if Moment.where(id: moment.id).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return false
-        end
-      end
-      return true
-    end
-
-    def if_not_signed_in
-      if !user_signed_in?
+  def set_moment
+    begin
+      @moment = Moment.find(params[:id])
+    rescue
+      if @moment.blank?
         respond_to do |format|
-          format.html { redirect_to new_user_session_path }
+          format.html { redirect_to moments_path }
           format.json { head :no_content }
         end
-      else
       end
     end
+  end
 
+  def moment_params
+    params[:moment] = default_params[:moment].merge(params[:moment])
+
+    params.require(:moment).permit(:name, :why, :fix, :userid, :comment,
+      category: [], mood: [], viewers: [], strategies: [])
+  end
+
+  def hide_page(moment)
+    if Moment.where(id: moment.id).exists?
+      if Moment.where(id: moment.id).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
+        return false
+      end
+    end
+    return true
+  end
 end
