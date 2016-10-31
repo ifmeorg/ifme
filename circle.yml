@@ -9,10 +9,12 @@ dependencies:
     - bundle install
   cache_directories:
     - /home/ubuntu/.rvm/gems
+    # - /opt/circleci/.rvm/gems/ruby-2.3.1@ifme
     - vendor/bundle
 
 test:
   pre:
+    - cp config/database.example.yml config/database.yml
     - RAILS_ENV=test bundle exec rake db:create db:schema:load
   override:
     - bundle exec rake
@@ -23,4 +25,4 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: ifme          
+      appname: ifme
