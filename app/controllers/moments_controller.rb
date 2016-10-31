@@ -38,7 +38,7 @@ class MomentsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order('created_at DESC')
+      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order("created_at DESC")
       @no_hide_page = true
     end
   end
@@ -278,24 +278,19 @@ class MomentsController < ApplicationController
 
   def moment_params
     params[:moment] = default_params[:moment].merge(params[:moment])
-    params.require(:moment).permit(:name, :why, :fix, :userid, :comment, { category: [] }, { mood: [] }, { viewers: [] }, strategies: [])
+
+    params.require(:moment).permit(:name, :why, :fix, :userid, :comment,
+      category: [], mood: [], viewers: [], strategies: [])
   end
 
   def hide_page(moment)
     if Moment.where(id: moment.id).exists?
-      if Moment.where(id: moment.id).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
+      if Moment.where(id: moment.id).first.viewers.include?(current_user.id) &&
+          are_allies(moment.userid, current_user.id)
         return false
       end
     end
-    true
-  end
 
-  def if_not_signed_in
-    unless user_signed_in?
-      respond_to do |format|
-        format.html { redirect_to new_user_session_path }
-        format.json { head :no_content }
-      end
-    end
+    return true
   end
 end

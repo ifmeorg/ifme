@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/julianguyen/ifme.svg?branch=master)](https://travis-ci.org/julianguyen/ifme)
+[![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
 [![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
 
 if me
@@ -188,19 +188,23 @@ Configuration Files
 
 ### Mandatory
 
-The two primary configuration files that you need to change are `config/application.yml` and `config/smtp.yml`. They are ignored in git to prevent accidentally committing sensitive information.
+There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
 
 Copy the sample files to create your own configuration files:
 
-`cp config/application.example.yml config/application.yml`
+`cp config/env/test.example.env config/env/test.env`
 
-`cp config/smtp.example.yml config/smtp.yml`
+`cp config/env/development.example.env config/env/development.env`
 
-`cp config/database.example.yml config/database.yml`
-
-Run `rake secret` to generate a `SECRET_KEY_BASE` for `config/application.yml`. This is the only required configuration change.
+Run `rake secret` to generate a `SECRET_KEY_BASE` value.
 
 ### Email Notifications
+
+To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
+
+The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
+
+Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
 If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
 
