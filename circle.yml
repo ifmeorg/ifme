@@ -16,7 +16,6 @@ test:
     - bundle exec rake
     - bundle exec rspec
 
-## Customize deployment commands
 deployment:
   staging:
     branch: master
