@@ -8,17 +8,21 @@ machine:
       2.3.1
 
 ## Customize dependencies
-dependencies:
-  pre:
-    - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
-    - java -jar selenium-server-standalone-2.44.0.jar:
-        background: true
+# dependencies:
+#   pre:
+#     - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+#     - java -jar selenium-server-standalone-2.44.0.jar:
+#         background: true
 
-  # # we automatically cache and restore many dependencies between
-  # # builds. If you need to, you can add custom paths to cache:
-  # cache_directories:
-  #   - "custom_1"   # relative to the build directory
-  #   - "~/custom_2" # relative to the user's home directory
+#   override:
+#     - 'bundle check --path=vendor/bundle || bundle install --local --path=vendor/bundle --jobs=4 --retry=3'
+
+#   cache_directories:
+#     - "vendor/bundle"
+
+test:
+  pre:
+    - bundle install
 
 ## Customize database setup
 database:
