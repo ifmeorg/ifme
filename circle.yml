@@ -1,0 +1,35 @@
+machine:
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.3.1
+
+## Customize dependencies
+dependencies:
+  pre:
+    - wget https://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar
+    - java -jar selenium-server-standalone-2.44.0.jar:
+        background: true
+
+  # # we automatically cache and restore many dependencies between
+  # # builds. If you need to, you can add custom paths to cache:
+  # cache_directories:
+  #   - "custom_1"   # relative to the build directory
+  #   - "~/custom_2" # relative to the user's home directory
+
+## Customize database setup
+database:
+  override:
+    # replace CircleCI's generated database.yml
+    - cp config/database.example.yml config/database.yml
+    - RAILS_ENV=test bundle exec rake db:create db:schema:load
+
+## Customize deployment commands
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: ifme
