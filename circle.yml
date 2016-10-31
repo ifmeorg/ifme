@@ -13,7 +13,6 @@ test:
     - cp config/database.example.yml config/database.yml  
     - RAILS_ENV=test bundle exec rake db:create db:schema:load
   override:
-    - bundle exec rake
     - bundle exec rspec
 
 deployment:
