@@ -29,3 +29,4 @@ database.yml
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
+
