@@ -5,16 +5,16 @@ class StrategyReminders
     end
   end
 
-  def send_refill_reminder_emails
-    ready_for_refill.each do | reminder |
-      NotificationMailer.refill_strategy(reminder).deliver_now
+  def send_weekly_reminder_emails
+    ready_for_self_care.each do | reminder |
+      NotificationMailer.weekly_self_care(reminder).deliver_now
     end
   end
 
   private
 
-  def ready_for_refill
-    RefillReminder.active.joins(:strategy).where('strategies.refill': one_week_from_now_as_string)
+  def ready_for_self_care
+    RefillReminder.active.joins(:strategy).where('strategies.self_care_strategy': one_week_from_now_as_string)
   end
 
   #Strategy Refill dates are currently stored as strings in the database

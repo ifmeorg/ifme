@@ -487,10 +487,12 @@ en:
   form:
    name: 'Title'
    categories: 'Categories'
+   self_care: 'self_care'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
    refill: 'refill'
    refill_hint: 'When to refill this prescription'
+   self_care_hint: 'When to perform self-care strategies'
    strategies_label: 'What strategies would help achieve these thoughts?'
    daily_reminder: 'Daily reminder email'
    refill_reminder: 'Refill reminder email'

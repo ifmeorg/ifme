@@ -24,11 +24,11 @@ class NotificationMailer < ApplicationMailer
          subject: "Your refill for #{@medication.name} is coming up soon!")
   end
 
-   def refill_strategy(reminder)
+   def weekly_self_care(reminder)
     @strategy = reminder.strategy
     @user = @strategy.user
     mail(to: @user.email,
-         subject: "Your refill for #{@strategy.name} is coming up soon!")
+         subject: "Have you perform your self_care #{@strategy.name} this week?")
   end
 
   def meeting_reminder(meeting, member)

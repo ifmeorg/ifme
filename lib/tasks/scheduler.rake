@@ -13,4 +13,14 @@ namespace :scheduler do
   task send_meeting_reminders: :environment do
     MeetingReminders.new.send_meeting_reminder_emails
   end
+
+   desc "Send strategy reminder"
+  task send_strategy_reminder_emails: :environment do
+    StrategyReminders.new.send_strategy_reminder_emails
+  end
+
+   desc "Send weekly reminders"
+  task send_weekly_reminder_emails: :environment do
+    StrategyReminders.new.send_weekly_reminder_emails
+  end
 end

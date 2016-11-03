@@ -186,7 +186,7 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    StrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
+    PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     RefillReminder.find_or_initialize_by(strategy_id: @strategy.id)
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
@@ -287,7 +287,7 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
-    params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+    params.require(:strategy).permit(:name, :description, :userid, :comment, :self_care_strategy, {:category => []}, {:viewers => []}, perform_strategy_reminder_attributes: [:name, :active])
   end
 
   def hide_page(strategy)

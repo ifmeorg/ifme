@@ -15,6 +15,6 @@ var onReadyStrategies = function() {
 		$('#showTaggedMoments').click(showTaggedMoments);
 		$('#hideTaggedMoments').click(hideTaggedMoments);
 	}
-};
 
+};
 $(document).on("page:load ready", onReadyStrategies);

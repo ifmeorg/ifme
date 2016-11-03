@@ -21,6 +21,18 @@
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
+<div class="sidebar_field">
+    <div class="sidebar_label">
+    <%= f.label t('strategies.form.self_care'), for: 'self_care_strategy' %> 
+    <div class="align_right">
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.self_care_hint')) %>
+        <i class="fa fa-asterisk"></i>
+      </div>
+      <div class="clear"></div>
+      </div>
+    <%= f.text_field :self_care_strategy, data: {provide: 'datepicker'} %>
+    </div>
+
     <div class="sidebar_field">
     <div class="sidebar_label">
       <%= f.fields_for :perform_strategy_reminder do | reminder | %>
