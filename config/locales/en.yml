@@ -483,16 +483,24 @@ en:
  strategies:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
+  refill_reminder: 'Refill reminder email'
   form:
    name: 'Title'
    categories: 'Categories'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
+   refill: 'refill'
+   refill_hint: 'When to refill this prescription'
    strategies_label: 'What strategies would help achieve these thoughts?'
+   daily_reminder: 'Daily reminder email'
+   refill_reminder: 'Refill reminder email'
    allow_comments: 'Allow Comments?'
    error_explanation: 'Please fill out the marked fields'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
+   daily_reminder_hint: "We'll email you a daily reminder to perform your strategies"
+   refill_hint: 'when to update your strategy self-care to achieve desired thoughts and attitudes towards your moments'
+   refill_reminder_hint: "We'll email you a reminder the week before your self-care strategy"
    comments_hint: 'Only you and viewers can comment'
   label:
    one: 'Strategy:'

@@ -178,12 +178,16 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
+    @strategy.build_perform_strategy_reminder
+    @strategy.build_refill_reminder
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
 
   # GET /strategies/1/edit
   def edit
+    StrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
+    RefillReminder.find_or_initialize_by(strategy_id: @strategy.id)
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")

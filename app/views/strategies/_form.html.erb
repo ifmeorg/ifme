@@ -22,6 +22,23 @@
     </div>
 
     <div class="sidebar_field">
+    <div class="sidebar_label">
+      <%= f.fields_for :perform_strategy_reminder do | reminder | %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.label t('strategies.form.daily_reminder'), for: 'perform_strategy_reminder' %>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.daily_reminder_hint')) %>
+          </div>
+          <div class="align_right">
+            <%= reminder.check_box(:active, { id: 'perform_strategy_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+          </div>
+          <div class="clear"></div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="sidebar_field">
       <div class="sidebar_label expand_toggle" data-toggle="#categories">
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
@@ -82,8 +99,8 @@
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
