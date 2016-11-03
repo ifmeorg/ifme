@@ -106,5 +106,14 @@
     "link_name":"itsbeemtz",
     "link":"http://twitter.com/itsbeemtz",
     "social":"twitter"
+  },
+  {
+    "name":"Rebecca Taylor",
+    "image":"/assets/contributors/rebecca_taylor.jpg",
+    "profile":"<b>if me</b> is doing something so important that I haven't seen before, and as someone who received a Bachelor's in pyschology (and has dealt with mental health issues myself) to then venture into front-end development and design as a way to help people, it's the perfect niche to get involved in. I'm so glad it's open source, mirroring in a sense how I believe the topic of personal mental health should be: open and honest, freed from any past stigma attached to it. We're not quite there yet, but <b>if me</b> is making its own vital contribution to progressing in how we approach talking about and living with mental illness.",
+    "location":"Tennessee, USA",
+    "link_name":"kindlingscript",
+    "link":"http://kindlingscript.com",
+    "social":"globe"
   }
 ]

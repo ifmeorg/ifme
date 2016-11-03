@@ -25,31 +25,37 @@ describe("Notifications", function() {
 
   it("test notifications show", function() {
     showNotifications();
+    expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#notifications').hasClass("display_block")).toBe(true);
   });
 
   it("show notifications none", function() {
     showNotificationsNone();
+    expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 
   it("show notifications modal", function() {
     find('.notifications_button').click
+    expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#notifications').hasClass("display_block")).toBe(true);
   });
 
   it("close notifications modal", function() {
     find('h1#close_notifications').click
+    expect($('body').hasClass("show_backdrop")).toBe(false);
     expect($('div#notifications').toBeHidden();
   });
 
   it("clear notifications modal", function() {
     find('#clear_notifcations').click
+    expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 
    it("close categories moods", function() {
     hideCategoriesMoods();
+    expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#categories_moods').hasClass("display_none")).toBe(true);
   });
 

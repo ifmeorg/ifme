@@ -71,7 +71,7 @@ Rails.application.routes.draw do
 
   resources :notifications, :except => [:show, :new, :create, :edit, :update] do
     collection do
-      get "clear"
+      delete 'clear'
       get "fetch_notifications"
       get "signed_in"
     end
