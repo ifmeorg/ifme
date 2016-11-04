@@ -15,7 +15,6 @@
 
 class Strategy < ActiveRecord::Base
   belongs_to :user, foreign_key: :userid
-
   has_one :strategy_email_reminder
   has_one :selfcare_reminder
   accepts_nested_attributes_for :strategy_email_reminder

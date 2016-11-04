@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104095654) do
+ActiveRecord::Schema.define(version: 20161104192433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,13 +135,6 @@ ActiveRecord::Schema.define(version: 20161104095654) do
     t.text     "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "perform_strategy_reminders", force: :cascade do |t|
-    t.integer  "strategy_id", null: false
-    t.boolean  "active",      null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "refill_reminders", force: :cascade do |t|

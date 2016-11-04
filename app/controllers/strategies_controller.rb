@@ -287,7 +287,18 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
-    params.require(:strategy).permit(:name, :description, :userid, :comment, :self_care_strategy, {:category => []}, {:viewers => []}, strategy_email_reminder_attributes: [:name, :active])
+    params.require(:strategy).permit(:name, :description, :userid,
+                                     :comment, :self_care_strategy,
+                                     { category: [] }, { viewers: [] },
+                                     strategy_email_reminder_attributes:
+                                      [
+                                        :id, :name, :active
+                                      ],
+                                     selfcare_reminder_attributes:
+                                      [
+                                        :id, :name, :active
+                                      ]
+                                     )
   end
 
   def hide_page(strategy)

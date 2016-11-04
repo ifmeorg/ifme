@@ -29,6 +29,8 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "compass/support";
 @import "compass/utilities";
 @import "base/*";
@@ -612,6 +614,11 @@ label {
   display: inherit;
   font-size: $font30;
   margin-bottom: 20px;
+  padding: 0;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit ;
+  border-radius: .25em;
 
   @media screen and (max-width: $medium) {
     font-size: $font26;
@@ -835,6 +842,11 @@ div.table div.table_cell {
       margin: 0px 0px 10px 0px;
     }
   }
+
+  td.active.day {
+    background: #6D0839 !important;
+    color: #fff !important;
+}
 
   ul {
     padding-left: 0;
