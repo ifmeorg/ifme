@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :strategy_email_reminder do
+    
+  end
   factory :notification do
     association :user, factory: :user1
     uniqueid "MyString"
