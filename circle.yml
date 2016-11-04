@@ -1,6 +1,6 @@
 machine:
   ruby:
-    version: rvm-2.3.1
+    version: rbx-2.3.1
 dependencies:
   pre:
     - npm install coffeescript # install from a different package manager
