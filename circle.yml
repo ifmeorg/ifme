@@ -1,3 +1,16 @@
 machine:
   ruby:
-    version: rbx-2.3.1
+    version: rvm-2.3.1
+dependencies:
+  pre:
+    - npm install coffeescript # install from a different package manager
+    - gem uninstall bundler # use a custom version of bundler
+    - gem install bundler --pre
+  post:
+    - bundle exec rake assets:precompile
+    test:
+  post:
+    - bundle exec rake test:custom
+override:
+    - bundle install: # note ':' here
+       
