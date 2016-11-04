@@ -21,6 +21,35 @@
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
+<div class="sidebar_field">
+    <div class="sidebar_label">
+    <%= f.label t('strategies.form.self_care'), for: 'self_care_strategy' %> 
+    <div class="align_right">
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.self_care_hint')) %>
+        <i class="fa fa-asterisk"></i>
+      </div>
+      <div class="clear"></div>
+      </div>
+    <%= f.text_field :self_care_strategy, data: {provide: 'datepicker'} %>
+    </div>
+
+    <div class="sidebar_field">
+    <div class="sidebar_label">
+      <%= f.fields_for :perform_strategy_reminder do | reminder | %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.label t('strategies.form.daily_reminder'), for: 'perform_strategy_reminder' %>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.daily_reminder_hint')) %>
+          </div>
+          <div class="align_right">
+            <%= reminder.check_box(:active, { id: 'perform_strategy_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+          </div>
+          <div class="clear"></div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
     <div class="sidebar_field">
       <div class="sidebar_label expand_toggle" data-toggle="#categories">
         <a href="#" class="toggle_button">
@@ -82,8 +111,8 @@
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">

@@ -178,12 +178,16 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
+    @strategy.build_perform_strategy_reminder
+    @strategy.build_refill_reminder
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
 
   # GET /strategies/1/edit
   def edit
+    PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
+    RefillReminder.find_or_initialize_by(strategy_id: @strategy.id)
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
@@ -283,7 +287,7 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
-    params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+    params.require(:strategy).permit(:name, :description, :userid, :comment, :self_care_strategy, {:category => []}, {:viewers => []}, perform_strategy_reminder_attributes: [:name, :active])
   end
 
   def hide_page(strategy)
