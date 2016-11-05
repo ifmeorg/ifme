@@ -6,18 +6,33 @@
 
 var CalendarDate, RelativeTime, domLoaded, iso8601, months, pad, parse, parseTimeZone, process, relativeDate, relativeTimeAgo, relativeTimeOrDate, relativeWeekday, run, strftime, update, weekdays;
 
+var getDateFromMatches = function(matches) {
+  if (!matches || matches.length < 8) { return {}; }
+
+  return {
+    _: matches[0],
+    year: matches[1],
+    month: matches[2],
+    day: matches[3],
+    hour: matches[4],
+    minute: matches[5],
+    second: matches[6],
+    zone: matches[7]
+  };
+};
+
 if (isNaN(Date.parse("2011-01-01T12:00:00-05:00"))) {
   parse = Date.parse;
   iso8601 = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(Z|[-+]?[\d:]+)$/;
   Date.parse = function(dateString) {
-    var _, day, hour, matches, minute, month, offset, second, year, zone;
+    var d, matches, offset;
     dateString = dateString.toString();
     if ((matches = dateString.match(iso8601))) {
-       _ = matches[0], year = matches[1], month = matches[2], day = matches[3], hour = matches[4], minute = matches[5], second = matches[6], zone = matches[7];
-      if (zone !== "Z") {
-        offset = zone.replace(":", "");
+      d = getDateFromMatches(matches);
+      if (d.zone !== "Z") {
+        offset = d.zone.replace(":", "");
       }
-      dateString = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second + " GMT" + [offset];
+      dateString = d.year + "/" + d.month + "/" + d.day + " " + d.hour + ":" + d.minute + ":" + d.second + " GMT" + [offset];
     }
     return parse(dateString);
   };
@@ -293,14 +308,14 @@ update = function(callback) {
   }
 };
 
-process = function(selector, callback) {
+process = function(selector, processElement) {
   return update(function() {
     var element, i, len, ref, results;
     ref = document.querySelectorAll(selector);
     results = [];
     for (i = 0, len = ref.length; i < len; i++) {
       element = ref[i];
-      results.push(callback(element));
+      results.push(processElement(element));
     }
     return results;
   });
