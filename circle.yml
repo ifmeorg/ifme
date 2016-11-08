@@ -15,8 +15,8 @@ test:
   override:
     - bundle exec rspec
 
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: ifme
+# deployment:
+#   staging:
+#     branch: master
+#     heroku:
+#       appname: ifme
