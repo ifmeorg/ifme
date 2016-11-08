@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/julianguyen/ifme.svg?branch=master)](https://travis-ci.org/julianguyen/ifme)
+[![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
 [![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
 
 if me
