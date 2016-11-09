@@ -3,44 +3,34 @@ class NotificationMailer < ApplicationMailer
 
   ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
 
-  def take_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
+  def all_reminder(reminder, model_name, key)
+    @model = reminder.send(model_name)
+    @user = @model.user
     subject = I18n.t(
-      'mailers.notification_mailer.medication_subject',
-      medication_name: @medication.name
+      key,
+      name: @model.name
     )
     mail(to: @user.email, subject: subject)
+  end
+
+  def take_medication(reminder)
+    key = 'mailers.notification_mailer.medication_subject'
+    all_reminder(reminder, 'medication', key)
   end
 
   def refill_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
-    subject = I18n.t(
-      'mailers.notification_mailer.refill_subject',
-      medication_name: @medication.name
-    )
-    mail(to: @user.email, subject: subject)
+    key = 'mailers.notification_mailer.refill_subject'
+    all_reminder(reminder, 'medication', key)
   end
 
   def perform_strategy(reminder)
-    @strategy = reminder.strategy
-    @user = @strategy.user
-    subject = I18n.t(
-      'mailers.notification_mailer.strategy_subject',
-      strategy_name: @strategy.name
-    )
-    mail(to: @user.email, subject: subject)
+    key = 'mailers.notification_mailer.strategy_subject'
+    all_reminder(reminder, 'strategy', key)
   end
 
   def weekly_self_care(reminder)
-    @strategy = reminder.strategy
-    @user = @strategy.user
-    subject = I18n.t(
-      'mailers.notification_mailer.selfcare_subject',
-      strategy_name: @strategy.name
-    )
-    mail(to: @user.email, subject: subject)
+    key = 'mailers.notification_mailer.selfcare_subject'
+    all_reminder(reminder, 'strategy', key)
   end
 
   def meeting_reminder(meeting, member)

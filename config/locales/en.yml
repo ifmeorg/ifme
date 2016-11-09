@@ -536,7 +536,7 @@ en:
      subject: "if me | %{ally_name} sent an ally request!"
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
    notification_mailer:
-    medication_subject: "Don't forget to take %{medication_name}!"
-    refill_subject: "Your refill for %{medication_name} is coming up soon!"
-    strategy_subject: "Don't forget to perform %{strategy_name}!"
-    selfcare_subject: "Have you done your %{strategy_name} this week?"
+    medication_subject: "Don't forget to take %{name}!"
+    refill_subject: "Your refill for %{name} is coming up soon!"
+    strategy_subject: "Don't forget to perform %{name}!"
+    selfcare_subject: "Have you done your %{name} this week?"
