@@ -6,28 +6,40 @@ class NotificationMailer < ApplicationMailer
   def take_medication(reminder)
     @medication = reminder.medication
     @user = @medication.user
-    subject = I18n.t('mailers.notification_mailer.medication_subject', medication_name: @medication.name)
-    mail(to: @user.email, subject: subject) 
+    subject = I18n.t(
+      'mailers.notification_mailer.medication_subject',
+      medication_name: @medication.name
+    )
+    mail(to: @user.email, subject: subject)
   end
 
   def refill_medication(reminder)
     @medication = reminder.medication
     @user = @medication.user
-    subject = I18n.t('mailers.notification_mailer.refill_subject', medication_name: @medication.name)
+    subject = I18n.t(
+      'mailers.notification_mailer.refill_subject',
+      medication_name: @medication.name
+    )
     mail(to: @user.email, subject: subject)
   end
 
   def perform_strategy(reminder)
     @strategy = reminder.strategy
     @user = @strategy.user
-    subject = I18n.t('mailers.notification_mailer.strategy_subject', strategy_name: @strategy.name)
+    subject = I18n.t(
+      'mailers.notification_mailer.strategy_subject',
+      strategy_name: @strategy.name
+    )
     mail(to: @user.email, subject: subject)
   end
 
   def weekly_self_care(reminder)
     @strategy = reminder.strategy
     @user = @strategy.user
-    subject = I18n.t('mailers.notification_mailer.selfcare_subject', strategy_name: @strategy.name)
+    subject = I18n.t(
+      'mailers.notification_mailer.selfcare_subject',
+      strategy_name: @strategy.name
+    )
     mail(to: @user.email, subject: subject)
   end
 
