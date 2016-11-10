@@ -18,11 +18,7 @@ describe "UserCreatesAMoment", js: true do
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
       #CREATING
-      page.find('a[title="New Moment"]').click
-
-      within '#page_title_content' do
-        expect(page).to have_content 'New Moment'
-      end
+      visit new_moment_path
 
       page.fill_in "moment[name]", with: "My new moment"
 

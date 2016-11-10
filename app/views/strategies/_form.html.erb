@@ -1,26 +1,49 @@
 <%= form_for(@strategy) do |f| %>
 <% if @strategy.errors.any? %>
-  <div class="error_explanation">
-    <%= t('strategies.form.error_explanation') %>
-  </div>
+<div class="error_explanation">
+  <%= t('strategies.form.error_explanation') %>
+</div>
 <% end %>
-
 <div class="table">
-
   <div class="table_cell padding_right vertical_align_top sidebar">
-
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('strategies.form.name'), for: 'strategy_name' %>
         <div class="align_right">
-        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
-        <i class="fa fa-asterisk"></i>
-      </div>
-      <div class="clear"></div>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
+          <i class="fa fa-asterisk"></i>
+        </div>
+        <div class="clear"></div>
       </div>
       <%= f.text_field :name, :class => "name_field" %>
     </div>
-
+    <div class="sidebar_field">
+      <div class="sidebar_label">
+        <%= f.label t('strategies.form.self_care'), for: 'self_care_strategy' %>
+        <div class="align_right">
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.self_care_hint')) %>
+          <i class="fa fa-asterisk"></i>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <%= f.text_field :self_care_strategy, data: {provide: 'datepicker'} %>
+    </div>
+    <div class="sidebar_field">
+      <div class="sidebar_label">
+        <%= f.fields_for :strategy_email_reminder do | reminder | %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.label t('strategies.form.daily_reminder'), for: 'strategy_email_reminder' %>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.daily_reminder_hint')) %>
+          </div>
+          <div class="align_right">
+            <%= reminder.check_box(:active, { id: 'strategy_email_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <div class="sidebar_field">
       <div class="sidebar_label expand_toggle" data-toggle="#categories">
         <a href="#" class="toggle_button">
@@ -31,7 +54,7 @@
       
       <div id="categories" class="display_none">
         <div id="categories_list">
-        <% if !@categories.nil? && @categories.length > 0 %>
+          <% if !@categories.nil? && @categories.length > 0 %>
           <% @categories.each do |item| %>
           <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
           <span class="notification_wrapper">
@@ -39,12 +62,11 @@
             <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
           </span>
           <% end %>
-        <% end %>
+          <% end %>
         </div>
         <span id='category_quick_button' class='link_style small_margin_top'><%= t('moments.form.add_category') %></span>
       </div>
     </div>
-
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">
       <div class="sidebar_label expand_toggle" data-toggle="#viewers">
@@ -55,24 +77,21 @@
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('strategies.form.viewers_hint')) %>
       </div>
     </div>
-
     <div id="viewers" class="display_none">
       <div id="viewers_list">
-      <label>
-        <input type="checkbox" id="viewers_all" />
-        <span id="viewers_label"><%= t('select_all') %></span>
-      </label>
-
-      <% @viewers.each do |item| %>
+        <label>
+          <input type="checkbox" id="viewers_all" />
+          <span id="viewers_label"><%= t('select_all') %></span>
+        </label>
+        <% @viewers.each do |item| %>
         <label>
           <%= f.check_box(:viewers, {:multiple => true, :checked => @strategy.viewers.include?(item.id)}, item.id, nil) %>
           <%= User.where(:id => item.id).first.name %>
         </label>
-      <% end %>
+        <% end %>
       </div>
     </div>
     <% end %>
-
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('strategies.form.allow_comments') %>
@@ -83,7 +102,6 @@
       </div>
     </div>
   </div>
-
   <div class="table_cell vertical_align_top">
     <div class="field">
       <div class="label">
@@ -92,22 +110,15 @@
         <div class="clear"></div>
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
-
       <%= render :partial => '/shared/character_count', locals: { data: 'strategy_description' } %>
     </div>
   </div>
-
 </div>
-
 <div class="clear"></div>
-
 <div class="actions align_right no_margin_bottom">
   <%= f.hidden_field :userid, :value => current_user.id %>
   <%= f.submit %>
 </div>
-
 <div class="clear"></div>
-
 <% end %>
-
 <%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'strategy' } %>
