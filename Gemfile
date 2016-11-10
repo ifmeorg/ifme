@@ -19,6 +19,7 @@ gem 'compass-rails',              '3.0.2'
 gem 'jquery-rails',               '4.1.1'
 gem 'foundation-rails',           '6.2.3.0'
 gem 'bootstrap-datepicker-rails', '1.6.1.1'
+gem 'bootstrap-sass',   '~> 3.3', '>=3.3.6'
 
 gem 'ckeditor',                   '4.1.6'
 gem 'carrierwave',                '0.11.2'

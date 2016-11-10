@@ -149,14 +149,24 @@ function fetchNotifications() {
   });
 }
 
+function showBackdrop() {
+  $('body').addClass('show_backdrop');
+}
+
+function hideBackdrop() {
+  $('body').removeClass('show_backdrop');
+}
+
 function showCategoriesMoods() {
   $('#categories_moods').removeClass('display_none');
   $('#categories_moods').addClass('display_block');
+  showBackdrop();
 }
 
 function hideCategoriesMoods() {
   $('#categories_moods').removeClass('display_block');
   $('#categories_moods').addClass('display_none');
+  hideBackdrop();
 }
 
 function quickCreate(form, data_type) {
@@ -225,6 +235,7 @@ var onReadyNotifications = function() {
     $('#notifications').addClass('display_block');
     $('#notifications').removeClass('display_none');
     $('.notifications_button').addClass('fade');
+    showBackdrop();
     fetchNotifications();
   });
 
@@ -232,6 +243,7 @@ var onReadyNotifications = function() {
     $('#notifications').removeClass('display_block');
     $('#notifications').addClass('display_none');
     $('.notifications_button').removeClass('fade');
+    hideBackdrop();
   });
 
    $('#clear_notifcations').click(function() {
@@ -263,23 +275,28 @@ var onReadyNotifications = function() {
   /* Tips */
   $('.tip_notifications_button').click(function(){
     $(this).siblings('.tip_notifications').toggleClass("display_none");
+    showBackdrop();
   });
 
   $('.tip_close_notifications').click(function(){
     $(this).closest('.tip_notifications').toggleClass("display_none");
+    hideBackdrop();
   });
 
   /* Quick Create */
   $('#category_quick_button').click(function() {
     $('#category_quick_create').toggleClass("display_none");
+    showBackdrop();
   });
 
   $('#mood_quick_button').click(function() {
     $('#mood_quick_create').toggleClass("display_none");
+    showBackdrop();
   });
 
   $('#strategy_quick_button').click(function() {
     $('#strategy_quick_create').toggleClass("display_none");
+    showBackdrop();
   });
 
   $('.quick_create_close').click(function() {
@@ -290,6 +307,7 @@ var onReadyNotifications = function() {
     } else if ($(this).closest('.quick_create').attr('id') === 'strategy_quick_create' && !$('#strategy_quick_create').hasClass('display_none')) {
       $('#strategy_quick_create').toggleClass("display_none");
     }
+    hideBackdrop();
   });
 
   if (newOrEdit(['moments', 'strategies'])) {
