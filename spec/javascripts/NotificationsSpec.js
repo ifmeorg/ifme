@@ -22,7 +22,6 @@ describe("Notifications", function() {
       expect(onReadyNotifications).toHaveBeenCalled();
     });
 
-
   it("test notifications show", function() {
     showNotifications();
     expect($('body').hasClass("show_backdrop")).toBe(true);
@@ -53,10 +52,9 @@ describe("Notifications", function() {
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 
-   it("close categories moods", function() {
+  it("close categories moods", function() {
     hideCategoriesMoods();
     expect($('body').hasClass("show_backdrop")).toBe(true);
     expect($('#categories_moods').hasClass("display_none")).toBe(true);
   });
-
 });
