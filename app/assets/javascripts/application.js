@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-readyselector
-//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require underscore
 //= require_tree .
