@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies,
                 :viewers_hover, :created_or_edited, :get_viewers_for, :get_uid,
                 :most_focus, :tag_usage, :can_notify, :if_not_signed_in,
-                :generate_comment, :get_stories, :moments_stats
+                :generate_comment, :get_stories, :moments_stats, :print_reminders
 
   def if_not_signed_in
     unless user_signed_in?
@@ -426,5 +426,19 @@ class ApplicationController < ActionController::Base
     end
 
     return t('created', {created_at: local_time_ago(data.created_at)}).html_safe
+  end
+
+  def print_reminders(data)
+    return_this = ''
+
+    if data.active_reminders.any?
+      return_this += '<div class="small_margin_top">'
+      return_this += '<i class="fa fa-bell small_margin_right"></i>'
+      reminder_names = data.active_reminders.map(&:name)
+      return_this += reminder_names.to_sentence(two_words_connector: t('support.array.words_connector'))
+      return_this += '</div>'
+    end
+
+    return return_this.html_safe
   end
 end

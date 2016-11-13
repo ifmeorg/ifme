@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :self_care_strategy_reminder do
+    active true
+  end
+  factory :strategy_reminder do
+    active true
+  end
   factory :notification do
     association :user, factory: :user1
     uniqueid "MyString"
@@ -182,5 +188,31 @@ FactoryGirl.define do
     name "Test Strategy"
     description "Test Description"
     comment true
+
+    after(:create) do |strategy|
+      create :strategy_reminder, strategy: strategy, active: false
+      create :self_care_strategy_reminder, strategy: strategy, active: false
+    end
+
+    trait :with_self_care_strategy_reminder do
+      after(:create) do |strategy|
+        create :strategy_reminder, strategy: strategy, active: false
+        create :self_care_strategy_reminder, strategy: strategy
+      end
+    end
+
+    trait :with_daily_reminder do
+      after(:create) do |strategy|
+        create :self_care_strategy_reminder, strategy: strategy, active: false
+        create :strategy_reminder, strategy: strategy
+      end
+    end
+
+    trait :with_both_reminders do
+      after(:create) do |strategy|
+        create :strategy_reminder, strategy: strategy
+        create :self_care_strategy_reminder, strategy: strategy
+      end
+    end
   end
 end

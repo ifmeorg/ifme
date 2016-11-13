@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  userid       :integer
-#  support_type :string(255)
+#  support_type :string
 #  support_ids  :text
 #  created_at   :datetime
 #  updated_at   :datetime

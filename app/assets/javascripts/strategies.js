@@ -15,6 +15,10 @@ var onReadyStrategies = function() {
 		$('#showTaggedMoments').click(showTaggedMoments);
 		$('#hideTaggedMoments').click(hideTaggedMoments);
 	}
+
+	if ($('body').hasClass('strategies new') || $('body').hasClass('strategies edit') || $('body').hasClass('strategies create') || $('body').hasClass('strategies update')) {
+		$("#strategy_self_care_strategy").datepicker();
+	}
 };
 
 $(document).on("page:load ready", onReadyStrategies);

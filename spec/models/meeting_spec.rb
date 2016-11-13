@@ -3,15 +3,15 @@
 # Table name: meetings
 #
 #  id          :integer          not null, primary key
-#  name        :string(255)
+#  name        :string
 #  description :text
 #  location    :text
-#  time        :string(255)
+#  time        :string
 #  maxmembers  :integer
 #  groupid     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
-#  date        :string(255)
+#  date        :string
 #
 
 describe Meeting do

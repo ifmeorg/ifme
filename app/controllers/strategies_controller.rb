@@ -178,12 +178,16 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
+    @strategy.build_strategy_reminder
+    @strategy.build_self_care_strategy_reminder
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
 
   # GET /strategies/1/edit
   def edit
+    StrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
+    SelfCareStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
@@ -262,7 +266,6 @@ class StrategiesController < ApplicationController
       format.html { redirect_to strategies_path }
       format.json { head :no_content }
     end
-
   end
 
   private
@@ -283,7 +286,16 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
-    params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+    params.require(:strategy).permit(
+      :name,
+      :description,
+      :userid,
+      :comment,
+      :self_care_strategy,
+      { category: [] },
+      { viewers: [] },
+      strategy_reminder_attributes: [:id, :name, :active],
+      self_care_reminder_attributes: [:id, :name, :active])
   end
 
   def hide_page(strategy)

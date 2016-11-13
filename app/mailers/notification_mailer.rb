@@ -3,18 +3,34 @@ class NotificationMailer < ApplicationMailer
 
   ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
 
+  def send_mail_reminders(reminder, model_name, key)
+    @model = reminder.send(model_name)
+    @user = @model.user
+    subject = I18n.t(
+      key,
+      name: @model.name
+    )
+    mail(to: @user.email, subject: subject)
+  end
+
   def take_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
-    mail(to: @user.email,
-         subject: "Don't forget to take #{@medication.name}!")
+    key = 'mailers.notification_mailer.medication_subject'
+    send_mail_reminders(reminder, 'medication', key)
   end
 
   def refill_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
-    mail(to: @user.email,
-         subject: "Your refill for #{@medication.name} is coming up soon!")
+    key = 'mailers.notification_mailer.refill_subject'
+    send_mail_reminders(reminder, 'medication', key)
+  end
+
+  def perform_strategy(reminder)
+    key = 'mailers.notification_mailer.strategy_subject'
+    send_mail_reminders(reminder, 'strategy', key)
+  end
+
+  def self_care_strategy(reminder)
+    key = 'mailers.notification_mailer.selfcare_subject'
+    send_mail_reminders(reminder, 'strategy', key)
   end
 
   def meeting_reminder(meeting, member)

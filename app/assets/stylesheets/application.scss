@@ -666,6 +666,7 @@ input[type="submit"] {
   color: $container-color;
   background: $background-color;
   font: $font20 $font-family;
+  margin-right: 0px;
 }
 
 input[type="submit"]:hover {
@@ -674,6 +675,7 @@ input[type="submit"]:hover {
   color: $container-color;
   background: $background-color;
   opacity: 0.5;
+  margin-right: 0px;
 }
 
 .field,
