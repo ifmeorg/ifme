@@ -483,27 +483,17 @@ en:
  strategies:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
-  refill_reminder: 'Refill reminder email'
   form:
    name: 'Title'
    categories: 'Categories'
-   self_care: 'self_care'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
-   refill: 'refill'
-   refill_hint: 'When to refill this prescription'
-   self_care_hint: 'When to perform self-care strategies'
    strategies_label: 'What strategies would help achieve these thoughts?'
    allow_comments: 'Allow Comments?'
-   daily_reminder: 'Daily reminder email'
-   refill_reminder: 'Refill reminder email'
    error_explanation: 'Please fill out the marked fields'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
-   daily_reminder_hint: "We'll email you a daily reminder to perform your strategies"
-   refill_hint: 'when to update your strategy self-care to achieve desired thoughts and attitudes towards your moments'
-   refill_reminder_hint: "We'll email you a reminder the week before your self-care strategy"
   label:
    one: 'Strategy:'
    other: 'Strategies:'
@@ -535,8 +525,3 @@ en:
    new_ally_request:
      subject: "if me | %{ally_name} sent an ally request!"
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
-   notification_mailer:
-    medication_subject: "Don't forget to take %{name}!"
-    refill_subject: "Your refill for %{name} is coming up soon!"
-    strategy_subject: "Don't forget to perform %{name}!"
-    selfcare_subject: "Have you done your %{name} this week?"

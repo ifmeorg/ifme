@@ -16,7 +16,11 @@ describe "UserCreatesAStrategy", js: true do
       expect(page).to have_content 'Five Minute Meditation'
 
       #CREATING
-      visit new_strategy_path
+      page.find('a[title="New Strategy"]').click
+
+      within '#page_title_content' do
+        expect(page).to have_content 'New Strategy'
+      end
 
       page.fill_in "strategy[name]", with: "My new strategy"
 
