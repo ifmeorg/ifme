@@ -2,7 +2,7 @@ require "google/api_client"
 
 class MedicationsController < ApplicationController
   include CollectionPageSetup
-  helper_method :print_reminders
+  helper_method :print_reminders, :save_refill_to_google_calendar
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
   # GET /medications
@@ -50,13 +50,7 @@ class MedicationsController < ApplicationController
     @medication = Medication.new(medication_params)
     respond_to do |format|
       if @medication.save
-        # Save refill date to Google calendar
-        if current_user.google_oauth2_enabled? && params[:add_to_google_cal]
-          summary = "Refill for " + @medication.name
-          date = @medication.refill
-          CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
-        end
-
+        save_refill_to_google_calendar(@medication)
         format.html { redirect_to medication_path(@medication) }
         format.json { render :show, status: :created, location: @medication }
       else
@@ -71,6 +65,7 @@ class MedicationsController < ApplicationController
   def update
     respond_to do |format|
       if @medication.update(medication_params)
+        save_refill_to_google_calendar(@medication)
         format.html { redirect_to medication_path(@medication) }
         format.json { render :show, status: :ok, location: @medication }
       else
@@ -102,6 +97,15 @@ class MedicationsController < ApplicationController
     end
 
     return return_this.html_safe
+  end
+
+  # Save refill date to Google calendar
+  def save_refill_to_google_calendar(medication)
+    if current_user.google_oauth2_enabled? && medication.add_to_google_cal
+      summary = "Refill for " + medication.name
+      date = medication.refill
+      CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
+    end
   end
 
   private
