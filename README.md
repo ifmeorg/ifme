@@ -136,11 +136,7 @@ Install via [Homebrew](http://brew.sh/)
 
 `brew install postgresql`
 
-then start the postgres server:
-
-`postgres -D /usr/local/var/postgres`
-
-For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
+After that, follow [this guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
 ##### Linux
 
