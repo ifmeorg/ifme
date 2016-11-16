@@ -39,6 +39,10 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
 
+ add_comment:
+  posting: 'Posting comment...'
+  comment_button: Comment
+
  allies:
   index:
    title: 'Allies'
