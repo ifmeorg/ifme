@@ -38,28 +38,28 @@
 body, html {
   margin: 0 auto;
   font: $body-font-size $font-family;
-  font-weight: 400;
+  font-weight: $xl;
 
   @media screen and (max-width: $medium) {
     margin: 0 auto;
     font: $font18 $font-family;
-    font-weight: 400;
+    font-weight: $xl;
   }
 
   @media screen and (max-width: $small) {
     margin: 0 auto;
     font: $font16 $font-family;
-    font-weight: 400;
+    font-weight: $xl;
   }
 }
 
 .small_font {
   font: $small-font $font-family;
-  font-weight: 400;
+  font-weight: $xl;
 
   @media screen and (max-width: $small) {
     font: $font12 $font-family;
-    font-weight: 400;
+    font-weight: $xl;
   }
 }
 
@@ -344,12 +344,12 @@ ul.no_bullet_list li {
 #page_title_content {
   padding: 40px 60px;
   font-size: $page-title;
-  font-weight: 300;
+  font-weight: $lg;
 
   @media screen and (max-width: $medium) {
       padding: 20px;
       font-size: $font30;
-      font-weight: 300;
+      font-weight: $lg;
   }
 }
 
@@ -416,7 +416,7 @@ a.page_search:hover {
 
 .branding_title {
   font-family: $font-family;
-  font-weight: 300;
+  font-weight: $lg;
   text-transform: lowercase;
   color: $secondary-text-color;
   text-shadow: none;
@@ -446,24 +446,24 @@ a.page_search:hover {
 
 .subtitle {
   font: $font34 $font-family;
-  font-weight: 100;
+  font-weight: $sm;
   text-align: center;
 
   @media screen and (max-width: $medium) {
     font: $font30 $font-family;
-    font-weight: 100;
+    font-weight: $sm;
     text-align: center;
   }
 }
 
 .emphasis {
   font: $emphasis $font-family;
-  font-weight: 300;
+  font-weight: $lg;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
     font: $emphasis-small $font-family;
-    font-weight: 300;
+    font-weight: $lg;
     color: $secondary-text-color;
   }
 }
@@ -600,7 +600,7 @@ img {
 
 label {
   font-size: $font30;
-  font-weight: 300;
+  font-weight: $lg;
 
   @media screen and (max-width: $medium) {
     font-size: $font26;
@@ -816,7 +816,7 @@ div.table div.table_cell {
 .error_explanation {
   color: $alert-color;
   font-size: $font30;
-  font-weight: 300;
+  font-weight: $lg;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
@@ -824,7 +824,7 @@ div.table div.table_cell {
   }
 
   h2 {
-    font-weight: 300;
+    font-weight: $lg;
     font-size: $font30;
     padding: 0;
     margin: 0px 0px 20px 0px;
@@ -882,16 +882,16 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
 
 #ui-datepicker-div {
   font: $font20 $font-family !important;
-  font-weight: 400 !important;
+  font-weight: $xl !important;
 
   @media screen and (max-width: $medium) {
     font: $font18 $font-family !important;
-    font-weight: 400 !important;
+    font-weight: $xl !important;
   }
 
   @media screen and (max-width: $small) {
     font: $font16 $font-family !important;
-    font-weight: 400 !important;
+    font-weight: $xl !important;
   }
 }
 
