@@ -110,6 +110,9 @@ gem install bundler
 gem install nokogiri
 ```
 
+On MacOS, if you run into nokogiri errors run `xcode-select --install`
+
+
 Make a gemset for the specific Ruby on Rails version (RVM)
 
 ```
