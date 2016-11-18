@@ -7,9 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
+# Ignore database (configuration or not) files.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -20,14 +21,12 @@
 *.byebug_history
 
 # Ignore application configuration
-/config/application.yml
-/config/smtp.yml
-
-# Ignore changes to config/database.yml, this change was necessary for me to get PGSQL to run on Ubuntu
-/config/database.yml
+/config/env/test.env
+/config/env/development.env
 
 # Ignore coverage results
 /coverage
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
+

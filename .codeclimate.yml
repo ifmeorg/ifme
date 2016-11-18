@@ -15,7 +15,7 @@ engines:
   eslint:
     enabled: true
     exclude_paths:
-    - public/
+    - public/javascripts/
   fixme:
     enabled: true
   rubocop:

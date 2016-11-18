@@ -37,6 +37,7 @@ gem 'i18n-js',                    '>= 3.0.0.rc11'
 gem 'sdoc',                       '0.4.1', group: :doc
 
 group :development, :test do
+  gem 'dotenv',                     '2.1.1'
   gem 'guard',                      '2.14.0'
   gem 'byebug',                     '9.0.5'
   gem 'spring',                     '1.3.6'
