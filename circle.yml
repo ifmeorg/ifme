@@ -16,8 +16,8 @@ test:
     - bundle exec rspec
     - bundle exec rake jasmine:ci
 
-# deployment:
-#   staging:
-#     branch: master
-#     heroku:
-#       appname: ifme
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: ifme
