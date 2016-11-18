@@ -53,7 +53,7 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 ### Installing Programs
 
-The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
+The steps below should be straightforward for Linux and OS X users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
 #### Ruby on Rails
 
@@ -110,7 +110,7 @@ gem install bundler
 gem install nokogiri
 ```
 
-On MacOS, if you run into nokogiri errors run `xcode-select --install`
+On OS X, if you run into nokogiri errors run `xcode-select --install`
 
 
 Make a gemset for the specific Ruby on Rails version (RVM)
@@ -133,7 +133,7 @@ Check that Rails has been updated by running `rails -v`.
 
 Check out http://www.postgresql.org/download/
 
-##### OSX
+##### OS X
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -147,7 +147,7 @@ For more information, follow [this postgresql guide](http://exponential.io/blog/
 
 ##### Linux
 
-Bulid from the source using yum, apt-get, etc. If you already have postgres installed, please update it.
+Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
 ##### Windows
 
@@ -219,16 +219,16 @@ If you want to test out scheduled emails, run the following commands: `bundle ex
 
 The following are not mandatory, but are required if you would like to test/use these features.
 
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in .
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
 Running the App Locally
 -----------------------
 
-Create the developement and test databases:
+Create the development and test databases:
 
 ```bash
 bin/rake db:setup db:test:prepare
@@ -264,6 +264,7 @@ PG::ConnectionBad (fe_sendauth: no password supplied )
 ```
 
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
+
 To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`, then add username and password to `config/database.yml`:
 
 ```
@@ -356,7 +357,7 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ### Style Guide
 
-* We use **2 space** identation.
+* We use **2 space** indentation.
 * We use **snakecase** for Ruby files and id/class names in HTML.
 * We use **camelcase** for JS files.
 * Make sure you run the test suite locally before you commit, don't rely on CircleCI to do that for you.
@@ -380,7 +381,7 @@ Please post any bugs, questions, or ideas on our [issues page](https://github.co
 
 ### Labelling Issues
 
-If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
+If you create an issue, please tag it with the appropriate label. We use `enhancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
 For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
 
