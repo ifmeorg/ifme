@@ -6,12 +6,10 @@ development: &default
   allow_concurrency: true
   pool: 5
   min_messages: warning
-
 test:
   <<: *default
   database: ifme_test
   min_messages: error
-
 production:
   adapter: postgresql
   encoding: unicode
