@@ -479,11 +479,11 @@ a.page_search:hover {
 }
 
 .spacing {
-  margin-right: 10px;
+  margin-right: 10px !important;
 
   @media screen and (max-width: $medium) {
-    margin-right: 0;
-    margin-bottom: 10px;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
   }
 }
 
