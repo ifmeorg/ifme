@@ -91,13 +91,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   # If you want to actually test emails, you will have to configure SMTP settings here
-  config.action_mailer.smtp_settings = {
-    :address        => '[insert address here]',
-    :port           => '[insert port here]',
-    :authentication => :plain,
-    :user_name      => '[insert email address here]',
-    :password       => '[insert password here]',
-    :domain         => '[insert domain here]',
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.smtp_settings = YAML.load_file("#{Rails.root}/config/smtp.yml")[Rails.env].symbolize_keys
+
+  config.force_ssl = true
 end
