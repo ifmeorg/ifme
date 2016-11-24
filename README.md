@@ -203,7 +203,7 @@ Copy the sample files to create your own configuration files:
 
 `cp config/env/development.example.env config/env/development.env`
 
-Run `rake secret` to generate a `SECRET_KEY_BASE` value.
+Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`.
 
 ### Email Notifications
 
