@@ -43,7 +43,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   # If you want to actually test emails, you will have to configure SMTP settings in smtp.yml
-  config.action_mailer.smtp_settings = YAML.load_file("#{Rails.root}/config/smtp.yml")[Rails.env].symbolize_keys
+  config.action_mailer.smtp_settings = {
+    address: ENV["SMTP_ADDRESS"],
+    port: ENV["SMTP_PORT"],
+    authentication: "plain",
+    user_name: ENV["SMTP_USER_NAME"],
+    password: ENV["SMTP_PASSWORD"],
+    domain: ENV["SMTP_DOMAIN"],
+    enable_starttls_auto: true
+  }
 
   config.force_ssl = false
 end
