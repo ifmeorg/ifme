@@ -93,5 +93,5 @@ Rails.application.configure do
   # If you want to actually test emails, you will have to configure SMTP settings here
   config.action_mailer.smtp_settings = YAML.load_file("#{Rails.root}/config/smtp.yml")[Rails.env].symbolize_keys
 
-  config.force_ssl = true
+  config.force_ssl = false
 end
