@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
-  default from: ENV["DEFAULT_FROM_ADDRESS"]
+  default from: ENV['SMTP_ADDRESS']
 	layout 'mailer'
 
   	def can_notify(user, notify_type)
