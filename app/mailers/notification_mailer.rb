@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: ENV['DEFAULT_FROM_ADDRESS']
+  default from: ENV['SMTP_ADDRESS']
 
   ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
 
