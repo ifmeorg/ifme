@@ -2,12 +2,14 @@
   display: none;
 }
 
-.read_more_show {
+.read_more_show,
+.read_less_show {
   color: $link-color;
   cursor: pointer;
 }
 
-.read_more_show:hover {
+.read_more_show:hover,
+.read_less_show:hover {
   color: $link-color;
   opacity: 0.5;
 }
