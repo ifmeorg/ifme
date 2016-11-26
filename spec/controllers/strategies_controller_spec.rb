@@ -31,7 +31,7 @@ RSpec.describe StrategiesController, :type => :controller do
         end
       end
     end
-    
+
     context 'when the user is not logged in' do
       before do
         get :index
@@ -408,4 +408,15 @@ RSpec.describe StrategiesController, :type => :controller do
     end
   end
 
+  describe '#print_reminders' do
+    let(:user)          { create(:user, id: 1) }
+    let(:strategy1)     { create(:strategy, name: 'test', userid: user.id) }
+    subject { controller.print_reminders(strategy1) }
+
+    describe 'when strategy has no reminders' do
+      it 'is empty' do
+        expect(subject).to eq('')
+      end
+    end
+  end
 end

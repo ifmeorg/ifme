@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id         :integer          not null, primary key
+#  userid     :integer
+#  uniqueid   :string
+#  data       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 describe Notification do
   it 'is valid with valid attributes' do
     notification = build(:notification)

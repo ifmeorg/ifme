@@ -483,6 +483,8 @@ en:
  strategies:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
+  strategy_calendar_reminder: 'Strategy Reminder'
+  daily_reminder: ' Daily Strategy Reminder'
   form:
    name: 'Title'
    categories: 'Categories'
@@ -494,6 +496,11 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
+   strategy_calendar_reminder: "Calendar reminder"
+   strategy_calendar_reminder_hint: 'A calendar reminder to perform your strategy'
+   strategy_email_reminder: "Email reminder"
+   strategy_email_reminder_hint: 'An email reminder to perform your strategy'
+
   label:
    one: 'Strategy:'
    other: 'Strategies:'
@@ -525,3 +532,11 @@ en:
    new_ally_request:
      subject: "if me | %{ally_name} sent an ally request!"
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+   notification_mailer:
+      medication_subject: "Don't forget to take %{name}!"
+      refill_subject: 'Your refill for %{name} is coming up soon!'
+      strategy_subject: "Don't forget to do %{name}!"
+   views:
+      strategy_text: "Here's a friendly reminder to perform your strategies"
+      medication_text: "Here's a friendly reminder to take your medication"
+      refill_text: "Here's a friendly reminder to refill your medication"

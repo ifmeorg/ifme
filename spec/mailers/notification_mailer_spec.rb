@@ -4,19 +4,39 @@ describe "NotificationMailer" do
   let(:recipient)  { FactoryGirl.create(:user1, email: "some@user.com") }
   let(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: recipient.id) }
   let(:reminder)   { medication.take_medication_reminder }
+  let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: recipient.id) }
+  let(:reminder)   { medication.take_medication_reminder }
+  let(:strategy_email_reminder)   { strategy.strategy_email_reminder }
+  let(:take_medication_text) { I18n.t('mailers.notification_mailer.medication_subject', name: medication.name) }
+  let(:refill_medication_text) { I18n.t('mailers.notification_mailer.refill_subject', name: medication.name) }
+  let(:perform_strategy_text) { I18n.t('mailers.notification_mailer.strategy_subject', name: strategy.name) }
 
   describe "#take_medication" do
     subject(:email) { NotificationMailer.take_medication(reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
-    it { expect(email.subject).to eq("Don't forget to take Fancy Medication Name!") }
+    it { expect(email.subject).to eq take_medication_text }
   end
 
   describe "#refill_medication" do
     subject(:email) { NotificationMailer.refill_medication(reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
-    it { expect(email.subject).to eq("Your refill for Fancy Medication Name is coming up soon!") }
+    it { expect(email.subject).to eq refill_medication_text }
+  end
+
+  describe "#perform_strategy" do
+    subject(:email) { NotificationMailer.perform_strategy(strategy_email_reminder) }
+
+    it { expect(email.to).to eq(["some@user.com"]) }
+    it { expect(email.subject).to eq perform_strategy_text }
+  end
+
+  describe "#reminders" do
+    subject(:email) { NotificationMailer.reminders(strategy_email_reminder) }
+
+    it { expect(email.to).to eq(["some@user.com"]) }
+    it { expect(email.subject).to eq perform_strategy_text }
   end
 
   describe '#meeting_reminder' do
@@ -122,5 +142,4 @@ describe "NotificationMailer" do
       it { expect(email.body.encoded).to match(link) }
     end
   end
-
 end

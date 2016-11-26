@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: allies
+# Table name: allyships
 #
 #  id         :integer          not null, primary key
-#  userid1    :integer
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  userid2    :integer
+#  ally_id    :integer
 #  status     :integer
 #
 

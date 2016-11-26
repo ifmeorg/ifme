@@ -3,17 +3,17 @@
 # Table name: medications
 #
 #  id            :integer          not null, primary key
-#  name          :string(255)
+#  name          :string
 #  dosage        :integer
-#  refill        :string(255)
+#  refill        :string
 #  created_at    :datetime
 #  updated_at    :datetime
 #  userid        :integer
 #  total         :integer
 #  strength      :integer
-#  strength_unit :string(255)
-#  dosage_unit   :string(255)
-#  total_unit    :string(255)
+#  strength_unit :string
+#  dosage_unit   :string
+#  total_unit    :string
 #  comments      :text
 #
 
