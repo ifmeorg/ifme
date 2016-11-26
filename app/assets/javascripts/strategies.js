@@ -17,7 +17,7 @@ var onReadyStrategies = function() {
 	}
 
 	if ($('body').hasClass('strategies new') || $('body').hasClass('strategies edit') || $('body').hasClass('strategies create') || $('body').hasClass('strategies update')) {
-		$("#strategy_self_care_strategy").datepicker();
+		$("#strategy_strategy_reminders").datepicker();
 	}
 };
 

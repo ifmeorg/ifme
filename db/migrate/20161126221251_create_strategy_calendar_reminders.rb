@@ -1,6 +1,6 @@
-class CreateStrategyReminders < ActiveRecord::Migration
+class CreateStrategyCalendarReminders < ActiveRecord::Migration
   def change
-    create_table :strategy_reminders do |t|
+    create_table :strategy_calendar_reminders do |t|
       t.integer :strategy_id, null: false
       t.boolean :active, null: false
 

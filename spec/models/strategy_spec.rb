@@ -11,7 +11,7 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  name                 :string
-#  self_care_strategy   :string
+#  strategy_reminders   :string
 #
 
 describe Strategy do
@@ -48,10 +48,10 @@ describe Strategy do
 	  	end
 
 		describe 'when strategy has self care strategy reminder' do
-	      let(:strategy) { FactoryGirl.create(:strategy, :with_self_care_strategy_reminder, userid: user.id) }
+	      let(:strategy) { FactoryGirl.create(:strategy, :with_strategy_calendar_reminder, userid: user.id) }
 
 	      it 'is a list containing self care reminders' do
-	        expect(subject).to eq([strategy.self_care_strategy_reminder])
+	        expect(subject).to eq([strategy.strategy_calendar_reminder])
 	      end
 	    end
 
@@ -59,7 +59,7 @@ describe Strategy do
 	      let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id) }
 
 	      it 'is a list containing the daily reminder' do
-	        expect(subject).to eq([strategy.strategy_reminder])
+	        expect(subject).to eq([strategy.strategy_email_reminder])
 	      end
 	    end
 
@@ -67,7 +67,7 @@ describe Strategy do
 	      let(:strategy) { FactoryGirl.create(:strategy, :with_both_reminders, userid: user.id) }
 
 	      it 'is a list containing both reminders' do
-	        expect(subject).to eq([strategy.self_care_strategy_reminder, strategy.strategy_reminder])
+	        expect(subject).to eq([strategy.strategy_calendar_reminder, strategy.strategy_email_reminder])
 	      end
 	    end
 	end

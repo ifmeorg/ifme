@@ -6,11 +6,10 @@ describe "NotificationMailer" do
   let(:reminder)   { medication.take_medication_reminder }
   let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: recipient.id) }
   let(:reminder)   { medication.take_medication_reminder }
-  let(:strategy_reminder)   { strategy.strategy_reminder }
+  let(:strategy_email_reminder)   { strategy.strategy_email_reminder }
   let(:take_medication_text) { I18n.t('mailers.notification_mailer.medication_subject', name: medication.name) }
   let(:refill_medication_text) { I18n.t('mailers.notification_mailer.refill_subject', name: medication.name) }
   let(:perform_strategy_text) { I18n.t('mailers.notification_mailer.strategy_subject', name: strategy.name) }
-  let(:self_care_text) { I18n.t('mailers.notification_mailer.selfcare_subject', name: strategy.name) }
 
   describe "#take_medication" do
     subject(:email) { NotificationMailer.take_medication(reminder) }
@@ -27,17 +26,17 @@ describe "NotificationMailer" do
   end
 
   describe "#perform_strategy" do
-    subject(:email) { NotificationMailer.perform_strategy(strategy_reminder) }
+    subject(:email) { NotificationMailer.perform_strategy(strategy_email_reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
     it { expect(email.subject).to eq perform_strategy_text }
   end
 
-  describe "#self_care_strategy" do
-    subject(:email) { NotificationMailer.self_care_strategy(strategy_reminder) }
+  describe "#reminders" do
+    subject(:email) { NotificationMailer.reminders(strategy_email_reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
-    it { expect(email.subject).to eq self_care_text }
+    it { expect(email.subject).to eq perform_strategy_text }
   end
 
   describe '#meeting_reminder' do

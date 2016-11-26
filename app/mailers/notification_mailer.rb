@@ -28,8 +28,8 @@ class NotificationMailer < ApplicationMailer
     send_mail_reminders(reminder, 'strategy', key)
   end
 
-  def self_care_strategy(reminder)
-    key = 'mailers.notification_mailer.selfcare_subject'
+  def strategy_reminders(reminder)
+    key = 'mailers.notification_mailer.strategy_subject'
     send_mail_reminders(reminder, 'strategy', key)
   end
 

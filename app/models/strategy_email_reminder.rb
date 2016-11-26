@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: strategy_reminders
+# Table name: strategy_email_reminders
 #
 #  id          :integer          not null, primary key
 #  strategy_id :integer          not null
@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class StrategyReminder < ActiveRecord::Base
+class StrategyEmailReminder < ActiveRecord::Base
   belongs_to :strategy
   validates_inclusion_of :active, in: [true, false]
   scope :active, -> { where(active: true) }

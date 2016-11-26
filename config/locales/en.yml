@@ -483,7 +483,7 @@ en:
  strategies:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
-  self_care: ' Self Care Strategy Reminder'
+  strategy_calendar_reminder: 'Strategy Reminder'
   daily_reminder: ' Daily Strategy Reminder'
   form:
    name: 'Title'
@@ -496,10 +496,10 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
-   self_care: "self-care strategy"
-   self_care_hint: 'A reminder to perform your self-care strategies'
-   daily_reminder: "Strategy Reminder"
-   daily_reminder_hint: 'A reminder to perform your strategies'
+   strategy_calendar_reminder: "Calendar reminder"
+   strategy_calendar_reminder_hint: 'A calendar reminder to perform your strategy'
+   strategy_email_reminder: "Email reminder"
+   strategy_email_reminder_hint: 'An email reminder to perform your strategy'
 
   label:
    one: 'Strategy:'
@@ -535,10 +535,8 @@ en:
    notification_mailer:
       medication_subject: "Don't forget to take %{name}!"
       refill_subject: 'Your refill for %{name} is coming up soon!'
-      strategy_subject: "Don't forget to perform %{name}!"
-      selfcare_subject: 'Have you done your %{name} this week?'
+      strategy_subject: "Don't forget to do %{name}!"
    views:
-      self_care_text: "Here's a friendly reminder for your self care strategies"
       strategy_text: "Here's a friendly reminder to perform your strategies"
       medication_text: "Here's a friendly reminder to take your medication"
       refill_text: "Here's a friendly reminder to refill your medication"

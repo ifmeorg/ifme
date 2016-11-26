@@ -1,5 +1,5 @@
 class AddRemindersToStrategies < ActiveRecord::Migration
   def change
-    add_column :strategies, :self_care_strategy, :string
+    add_column :strategies, :strategy_reminders, :string
   end
 end

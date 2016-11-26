@@ -11,16 +11,16 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  name                 :string
-#  self_care_strategy   :string
+#  reminders            :string
 #
 
 class Strategy < ActiveRecord::Base
   belongs_to :user, foreign_key: :userid
 
-  has_one :strategy_reminder
-  has_one :self_care_strategy_reminder
-  accepts_nested_attributes_for :strategy_reminder
-  accepts_nested_attributes_for :self_care_strategy_reminder
+  has_one :strategy_email_reminder
+  has_one :strategy_calendar_reminder
+  accepts_nested_attributes_for :strategy_email_reminder
+  accepts_nested_attributes_for :strategy_calendar_reminder
   serialize :category, Array
   serialize :viewers, Array
   validates :comment, inclusion: [true, false]
@@ -38,6 +38,6 @@ class Strategy < ActiveRecord::Base
   end
 
   def active_reminders
-    [self_care_strategy_reminder, strategy_reminder].select(&:active?)
+    [strategy_calendar_reminder, strategy_email_reminder].select(&:active?)
   end
 end

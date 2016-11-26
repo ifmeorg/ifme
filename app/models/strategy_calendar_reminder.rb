@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: self_care_strategy_reminders
+# Table name: strategy_calendar_reminders
 #
 #  id          :integer          not null, primary key
 #  strategy_id :integer          not null
@@ -9,12 +9,12 @@
 #  updated_at  :datetime         not null
 #
 
-class SelfCareStrategyReminder < ActiveRecord::Base
+class StrategyCalendarReminder < ActiveRecord::Base
   belongs_to :strategy
   validates_inclusion_of :active, in: [true, false]
   scope :active, -> { where(active: true) }
 
   def name
-    I18n.t('strategies.self_care')
+    I18n.t('strategies.strategy_calendar_reminder')
   end
 end

@@ -178,8 +178,8 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @strategy.build_strategy_reminder
-    @strategy.build_self_care_strategy_reminder
+    @strategy.build_strategy_calendar_reminder
+    @strategy.build_strategy_email_reminder
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
   end
@@ -187,7 +187,7 @@ class StrategiesController < ApplicationController
   # GET /strategies/1/edit
   def edit
     StrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
-    SelfCareStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
+    StrategyCalendarReminder.find_or_initialize_by(strategy_id: @strategy.id)
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
@@ -291,11 +291,11 @@ class StrategiesController < ApplicationController
       :description,
       :userid,
       :comment,
-      :self_care_strategy,
+      :strategy_reminders,
       { category: [] },
       { viewers: [] },
-      strategy_reminder_attributes: [:id, :name, :active],
-      self_care_reminder_attributes: [:id, :name, :active])
+      strategy_email_reminder_attributes: [:id, :name, :active],
+      strategy_calendar_reminder_attributes: [:id, :name, :active])
   end
 
   def hide_page(strategy)
