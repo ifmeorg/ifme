@@ -30,11 +30,11 @@ var readLessHideContent = function(){
 var contributorReadMoreFeature = function(){
   var profileTextLength = 0;
   const maxProfileLength = 120;
-	var visibleProfileText, invisibleProfileText;
+  var visibleProfileText, invisibleProfileText;
   var contributorProfile = $('.contributor_profile');
 
-	contributorProfile.each(function() {
-		profileTextLength = $(this).text().length;
+  contributorProfile.each(function() {
+    profileTextLength = $(this).text().length;
     if (profileTextLength > maxProfileLength){
       visibleProfileText = $(this).text().substr(0, maxProfileLength);
       invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
@@ -45,7 +45,7 @@ var contributorReadMoreFeature = function(){
       $(this).html(profileContent);
       readMoreHideContent();
     }
-	});
+  });
 
   readMoreShowContent();
   // [Less] collapse button
