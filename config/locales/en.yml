@@ -37,6 +37,7 @@ en:
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  daily_reminder: 'Daily reminder email'
  salutation: "Hi %{name},"
+ click_here: "click here"
 
  allies:
   index:
@@ -323,6 +324,31 @@ en:
   members:
    title: 'List of Members'
    remove: 'Remove'
+  mailer:
+    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
+    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
+    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
+    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+    comment_text: "<p><i>%{comment}</i></p>"
+    comment_link: "<p>To read it, %{link}!</p>"
+    new_group_subject: "if me | %{user} created a group \"%{group}\""
+    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
+    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
+    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
+    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
+    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
+    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
+    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
+    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
+    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
+    update_meeting_link: "<p>To learn more, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
+    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
+    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
 
  omniauth:
   google: 'Google'

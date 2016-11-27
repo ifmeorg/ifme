@@ -107,7 +107,7 @@ describe "NotificationMailer" do
       let(:phrase_ally) { "<p>Your ally <strong>#{who_triggered_event.name}" }
       let(:comment)     { "</strong> commented:</p><p><i>my_comment</i></p>" }
       let(:link) do
-        "<p>You can read it all <a href=\"http://localhost:3000/moments/1\">here</a>!</p>"
+        "<p>To read it, <a href=\"http://localhost:3000/moments/1\">click here</a>!</p>"
       end
 
       let(:data) do
