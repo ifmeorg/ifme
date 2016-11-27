@@ -6,7 +6,6 @@
 <% end %>
 
 <div class="table">
-
   <div class="table_cell padding_right vertical_align_top sidebar">
 
     <div class="sidebar_field">
@@ -28,7 +27,7 @@
         </a>
         <%= f.label t('strategies.form.categories') %>
       </div>
-      
+
       <div id="categories" class="display_none">
         <div id="categories_list">
         <% if !@categories.nil? && @categories.length > 0 %>
@@ -81,6 +80,18 @@
           <%= f.check_box :comment, class: 'no_margin_right' %>
         </div>
       </div>
+    </div>
+
+    <div class="sidebar_field">
+      <%= f.fields_for :perform_strategy_reminder do |reminder| %>
+        <div class="sidebar_label">
+          <%= reminder.label t('daily_reminder'), for: 'perform_strategy_reminder' %>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('strategies.form.daily_reminder_hint')) %>
+          <div class="align_right">
+            <%= reminder.check_box(:active, { id: 'perform_strategy_reminder', class: 'no_margin_right' }, 'true', 'false') %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 

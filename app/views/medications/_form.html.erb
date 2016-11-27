@@ -90,7 +90,7 @@
       </div>
 
       <div class="field">
-        <%= f.fields_for :refill_reminder do | reminder | %>
+        <%= f.fields_for :refill_reminder do |reminder| %>
           <div class="label no_margin_bottom">
             <div class="inline-block">
               <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
@@ -105,11 +105,11 @@
       </div>
 
       <div class="field">
-        <%= f.fields_for :take_medication_reminder do | reminder | %>
+        <%= f.fields_for :take_medication_reminder do |reminder| %>
           <div class="label no_margin_bottom">
             <div class="inline-block">
               <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-              <%= reminder.label t('medications.daily_reminder'), for: 'take_medication_reminder' %>
+              <%= reminder.label t('daily_reminder'), for: 'take_medication_reminder' %>
             </div>
             <span class="medication_tooltip_padding">
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
@@ -133,7 +133,6 @@
           </div>
         </div>
       <% end %>
-
     </div>
   </div>
 

@@ -16,6 +16,7 @@
 <% if !@strategy.description.blank? %>
   <p>
     <%= raw(@strategy.description) %>
+    <%= print_reminders(@strategy) %>
   </p>
 <% end %>
 

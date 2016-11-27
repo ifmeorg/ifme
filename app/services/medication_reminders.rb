@@ -1,12 +1,12 @@
 class MedicationReminders
   def send_take_medication_reminder_emails
-    TakeMedicationReminder.active.each do | reminder |
+    TakeMedicationReminder.active.each do |reminder|
       NotificationMailer.take_medication(reminder).deliver_now
     end
   end
 
   def send_refill_reminder_emails
-    ready_for_refill.each do | reminder |
+    ready_for_refill.each do |reminder|
       NotificationMailer.refill_medication(reminder).deliver_now
     end
   end

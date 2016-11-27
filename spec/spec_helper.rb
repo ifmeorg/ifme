@@ -34,7 +34,7 @@ end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include StubCurrentUserHelper
   config.mock_with :rspec do |mock_config|
     mock_config.syntax = [:expect, :should]
