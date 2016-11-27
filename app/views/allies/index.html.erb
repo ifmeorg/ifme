@@ -44,14 +44,14 @@
   </div>
 <% end %>
 
-<% if !@incoming_ally_requests.empty? || !@outgoing_ally_requests.empty? %>
+<% if @accepted_allies.present? %>
   <div class="spacer"></div>
   <strong><%= t('allies.index.title') %></strong>
   <br>
   <br>
 <% end %>
 
-<% if !@accepted_allies.empty? %>
+<% if @accepted_allies.present? %>
 <div class="allies_list">
 <% @accepted_allies.each do |ally| %>
   <div class="ally center">
