@@ -16,6 +16,14 @@ class PagesController < ApplicationController
     @posts.reverse!
   end
 
+  def letsencrypt
+    if params[:id].eql? ENV['LETSENCRYPT_CHALLENGE']
+      render text: ENV['LETSENCRYPT_ANSWER']
+    else
+      render text: 'Unknown id.'
+    end
+  end
+
   def contributors
     @contributors = JSON.parse(File.read('doc/contributors/contributors.json'))
     @contributors.sort_by! { |c| c['name'].downcase }
