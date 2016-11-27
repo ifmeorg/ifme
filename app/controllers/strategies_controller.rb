@@ -1,5 +1,6 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetup
+  include ReminderHelper
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -180,6 +181,7 @@ class StrategiesController < ApplicationController
     @strategy = Strategy.new
     @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
     @category = Category.new
+    @strategy.build_perform_strategy_reminder
   end
 
   # GET /strategies/1/edit
@@ -188,6 +190,7 @@ class StrategiesController < ApplicationController
       @viewers = current_user.allies_by_status(:accepted)
       @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
       @category = Category.new
+      PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
       respond_to do |format|
         format.html { redirect_to strategy_path(@strategy) }
@@ -283,7 +286,11 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
-    params.require(:strategy).permit(:name, :description, :userid, :comment, {:category => []}, {:viewers => []})
+    params.require(:strategy).permit(
+      :name, :description, :userid,
+      :comment, {:category => []}, {:viewers => []},
+      perform_strategy_reminder_attributes: [:active, :id]
+    )
   end
 
   def hide_page(strategy)

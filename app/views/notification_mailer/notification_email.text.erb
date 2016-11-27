@@ -1,3 +1,2 @@
-Hi <%= @recipient.name %>!
-
-<%= raw(@message) %> 
+<%= t('salutation', name: @recipient.name) %>
+<%= raw(@message) %>
