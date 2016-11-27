@@ -24,7 +24,8 @@ class PagesController < ApplicationController
       end
     end
 
-    mappings.key?(params[:id]) ? (render text: mappings[params[:id]]) : (render text: 'Unknown id.')
+    mappings.key?(params[:id]) ? 
+      (render text: mappings[params[:id]]) : (render text: 'Unknown id.')
   end
 
   def contributors
