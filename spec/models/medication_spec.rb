@@ -1,5 +1,4 @@
 describe Medication do
-
   describe '#active_reminders' do
     let(:user) { FactoryGirl.create(:user1) }
 

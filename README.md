@@ -213,7 +213,10 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
+If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders`
+`bundle exec rake scheduler:send_refill_reminders`
+`bundle exec rake scheduler:send_perform_strategy_reminders`
+`bundle exec rake scheduler:send_meeting_reminders`
 
 ### Optional
 

@@ -6,15 +6,31 @@ class NotificationMailer < ApplicationMailer
   def take_medication(reminder)
     @medication = reminder.medication
     @user = @medication.user
-    mail(to: @user.email,
-         subject: "Don't forget to take #{@medication.name}!")
+    subject = I18n.t(
+      'medications.reminder_mailer.subject',
+      name: @medication.name
+    )
+    mail(to: @user.email, subject: subject)
   end
 
   def refill_medication(reminder)
     @medication = reminder.medication
     @user = @medication.user
-    mail(to: @user.email,
-         subject: "Your refill for #{@medication.name} is coming up soon!")
+    subject = I18n.t(
+      'medications.refill_mailer.subject',
+      name: @medication.name
+    )
+    mail(to: @user.email, subject: subject)
+  end
+
+  def perform_strategy(reminder)
+    @strategy = reminder.strategy
+    @user = @strategy.user
+    subject = I18n.t(
+      'strategies.reminder_mailer.subject',
+      name: @strategy.name
+    )
+    mail(to: @user.email, subject: subject)
   end
 
   def meeting_reminder(meeting, member)

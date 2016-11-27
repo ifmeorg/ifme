@@ -1,3 +1,3 @@
-Hi <%= @user.name %>,
-Here's a friendly reminder to refill your medication <%= @medication.name %> on 
-<%= @medication.refill %>!
+<%= t('salutation', name: @user.name) %>
+<%= t('medications.refill_mailer.body',
+name: @medication.name, refill: @medication.refill) %>

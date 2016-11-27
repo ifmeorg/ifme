@@ -35,6 +35,8 @@ en:
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
+ daily_reminder: 'Daily reminder email'
+ salutation: "Hi %{name},"
 
  allies:
   index:
@@ -151,7 +153,6 @@ en:
  medications:
   edit: "Edit %{medication}"
   edit_medication: 'Edit Medication'
-  daily_reminder: 'Daily reminder email'
   refill_reminder: 'Refill reminder email'
   form:
    name: 'Name'
@@ -171,7 +172,7 @@ en:
    dosage_hint: 'Number of pills or servings daily'
    refill_hint: 'When to refill this prescription'
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication."
+   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
   new: 'New Medication'
   units:
    display: "%{count} %{unit}"
@@ -180,7 +181,12 @@ en:
    tablets:
     one: 'tablet'
     other: 'tablets'
-
+  reminder_mailer:
+    subject: "Don't forget to take %{name}!"
+    body: "Here's a friendly reminder to take your medication %{name}!"
+  refill_mailer:
+    subject: "Your refill for %{name} is coming up soon!"
+    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
 
   index:
    title: 'Medications'
@@ -237,7 +243,6 @@ en:
     other: '%{count} Members <strong>of</strong> %{group}'
   reminder_mailer:
     subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    salutation: "Hi %{name},"
     body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
   leave:
     error: 'You cannot leave the meeting, you are the only leader.'
@@ -494,6 +499,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
+   daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
   label:
    one: 'Strategy:'
    other: 'Strategies:'
@@ -507,6 +513,9 @@ en:
    instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
    privacy: 'Control who can view and comment'
   new: 'New Strategy'
+  reminder_mailer:
+    subject: "Don't forget to perform %{name}!"
+    body: "Here's a friendly reminder to perform %{name}!"
 
  stats:
   total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'

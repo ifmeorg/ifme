@@ -1,7 +1,7 @@
 <p>
-  Hi <%= @user.name %>,
+  <%= t('salutation', name: @user.name) %>
 </p>
 <p>
-Here's a friendly reminder to refill your medication <%= @medication.name %> on 
-<%= @medication.refill %>!
+  <%= t('medications.refill_mailer.body',
+  name: @medication.name, refill: @medication.refill) %>
 </p>

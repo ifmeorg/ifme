@@ -14,11 +14,14 @@
 #
 
 class Strategy < ActiveRecord::Base
+  belongs_to :user, foreign_key: :userid
   serialize :category, Array
   serialize :viewers, Array
   validates :comment, inclusion: [true, false]
   validates_presence_of :userid, :name, :description
   validates_length_of :description, :minimum => 1, :maximum => 2000
+  has_one :perform_strategy_reminder
+  accepts_nested_attributes_for :perform_strategy_reminder
   before_save :array_data
 
   def array_data
@@ -28,5 +31,9 @@ class Strategy < ActiveRecord::Base
     if !self.viewers.nil? && self.viewers.is_a?(Array)
       self.viewers = self.viewers.collect{|i| i.to_i}
     end
+  end
+
+  def active_reminders
+    [perform_strategy_reminder].select(&:active?)
   end
 end

@@ -1,6 +1,6 @@
 <p>
-  Hi <%= @user.name %>,
+  <%= t('salutation', name: @user.name) %>
 </p>
 <p>
-  Here's a friendly reminder to take your medication: <%= @medication.name %>!
+  <%= t('medications.reminder_mailer.body', name: @medication.name) %>
 </p>

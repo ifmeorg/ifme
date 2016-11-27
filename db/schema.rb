@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518220139) do
+ActiveRecord::Schema.define(version: 20161127002019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,11 +137,19 @@ ActiveRecord::Schema.define(version: 20160518220139) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "perform_strategy_reminders", force: :cascade do |t|
+    t.integer  "strategy_id", null: false
+    t.boolean  "active",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "refill_reminders", force: :cascade do |t|
     t.integer  "medication_id", null: false
     t.boolean  "active",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "strategy_id"
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -212,5 +220,4 @@ ActiveRecord::Schema.define(version: 20160518220139) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
-
 end

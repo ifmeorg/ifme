@@ -69,5 +69,4 @@ describe MedicationReminders do
       end
     end
   end
-
 end
