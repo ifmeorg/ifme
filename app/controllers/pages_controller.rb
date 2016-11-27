@@ -17,22 +17,14 @@ class PagesController < ApplicationController
   end
 
   def letsencrypt
-    entries = [] 
-    if ENV.key?('LETSENCRYPT_CHALLENGE')
-      entries = ENV['LETSENCRYPT_CHALLENGE'].split(',')
-    end
-
     mappings = {}
-    entries.each do | entry |
-      entry_parts = entry.split('.')
-      mappings[entry_parts[0]] = entry
+    if ENV.key?('LETSENCRYPT_CHALLENGE')
+      ENV['LETSENCRYPT_CHALLENGE'].split(',').each do |entry|
+        mappings[entry.split('.')[0]] = entry
+      end
     end
 
-    if mappings.key?(params[:id])
-      render text: mappings[params[:id]]
-    else
-      render text: 'Unknown id.'
-    end
+    mappings.key?(params[:id]) ? (render text: mappings[params[:id]]) : (render text: 'Unknown id.')
   end
 
   def contributors
