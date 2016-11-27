@@ -104,4 +104,8 @@ Rails.application.configure do
   }
 
   config.force_ssl = false 
+  # This is required or the host server will send headers telling us its from the *.herokuapp.com domain
+  # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
+  config.action_controller.default_url_options = { host: "www.moodnotes.me" }
+  config.action_controller.asset_host = "www.moodnotes.me"
 end
