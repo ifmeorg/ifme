@@ -368,6 +368,7 @@ If you've been added as a collaborator to the repository, please do not push unl
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
 * As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
+* If you add or modify a model, please run `annotate` to update the schema comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
 
 ### Contributor Blurb
 

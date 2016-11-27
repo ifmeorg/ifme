@@ -2,6 +2,7 @@ require "google/api_client"
 
 class MedicationsController < ApplicationController
   include CollectionPageSetup
+  include ReminderHelper
   helper_method :save_refill_to_google_calendar
   before_action :set_medication, only: [:show, :edit, :update, :destroy]
 
@@ -112,19 +113,12 @@ class MedicationsController < ApplicationController
 
   def medication_params
     params.require(:medication).permit(
-      :name,
-      :dosage,
-      :refill,
-      :userid,
-      :total,
-      :strength,
-      :dosage_unit,
-      :total_unit,
-      :strength_unit,
-      :comments,
-      :add_to_google_cal,
-      { take_medication_reminder_attributes: [:active, :id] },
-      { refill_reminder_attributes: [:active, :id] }
+      :name, :dosage, :refill,
+      :userid, :total, :strength,
+      :dosage_unit, :total_unit, :strength_unit,
+      :comments, :add_to_google_cal,
+      take_medication_reminder_attributes: [:active, :id],
+      refill_reminder_attributes: [:active, :id]
     )
   end
 end

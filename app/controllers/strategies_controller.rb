@@ -1,5 +1,6 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetup
+  include ReminderHelper
   before_action :set_strategy, only: [:show, :edit, :update, :destroy]
 
   def default_params
@@ -286,13 +287,9 @@ class StrategiesController < ApplicationController
   def strategy_params
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
     params.require(:strategy).permit(
-      :name,
-      :description,
-      :userid,
-      :comment,
-      {:category => []},
-      {:viewers => []},
-      { perform_strategy_reminder_attributes: [:active, :id] },
+      :name, :description, :userid,
+      :comment, {:category => []}, {:viewers => []},
+      perform_strategy_reminder_attributes: [:active, :id]
     )
   end
 

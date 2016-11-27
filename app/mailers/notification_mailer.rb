@@ -1,36 +1,18 @@
 class NotificationMailer < ApplicationMailer
+  include NotificationMailerHelper
   default from: ENV['SMTP_ADDRESS']
-
   ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
 
   def take_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
-    subject = I18n.t(
-      'medications.reminder_mailer.subject',
-      name: @medication.name
-    )
-    mail(to: @user.email, subject: subject)
+    reminder_mailer(reminder.medication, 'medications.reminder_mailer.subject')
   end
 
   def refill_medication(reminder)
-    @medication = reminder.medication
-    @user = @medication.user
-    subject = I18n.t(
-      'medications.refill_mailer.subject',
-      name: @medication.name
-    )
-    mail(to: @user.email, subject: subject)
+    reminder_mailer(reminder.medication, 'medications.refill_mailer.subject')
   end
 
   def perform_strategy(reminder)
-    @strategy = reminder.strategy
-    @user = @strategy.user
-    subject = I18n.t(
-      'strategies.reminder_mailer.subject',
-      name: @strategy.name
-    )
-    mail(to: @user.email, subject: subject)
+    reminder_mailer(reminder.strategy, 'strategies.reminder_mailer.subject')
   end
 
   def meeting_reminder(meeting, member)

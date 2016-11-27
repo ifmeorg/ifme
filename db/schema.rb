@@ -149,7 +149,6 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.boolean  "active",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "strategy_id"
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -220,4 +219,5 @@ ActiveRecord::Schema.define(version: 20161127002019) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true, using: :btree
+
 end
