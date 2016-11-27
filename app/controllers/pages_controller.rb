@@ -17,8 +17,19 @@ class PagesController < ApplicationController
   end
 
   def letsencrypt
-    if params[:id].eql? ENV['LETSENCRYPT_CHALLENGE']
-      render text: ENV['LETSENCRYPT_ANSWER']
+    entries = [] 
+    if ENV.key?('LETSENCRYPT_CHALLENGE')
+      entries = ENV['LETSENCRYPT_CHALLENGE'].split(',')
+    end
+
+    mappings = {}
+    entries.each do | entry |
+      entry_parts = entry.split('.')
+      mappings[entry_parts[0]] = entry
+    end
+
+    if mappings.key?(params[:id])
+      render text: mappings[params[:id]]
     else
       render text: 'Unknown id.'
     end

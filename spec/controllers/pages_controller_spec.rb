@@ -131,11 +131,18 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to be_success
       expect(response.body).to have_text 'Unknown id.'
     end
-    it 'responds ENV[\'LETSENCRYPT_ANSWER\'] to id param equal to ENV[\'LETSENCRYPT_CHALLENGE\']' do
-      get :letsencrypt, {:id => ENV['LETSENCRYPT_CHALLENGE']}
+    it 'responds value to id param equal to ENV[\'LETSENCRYPT_CHALLENGE\']' do
+      entries = ENV['LETSENCRYPT_CHALLENGE'].split(',')
+      mappings = {}
+      entries.each do | entry |
+        entry_parts = entry.split('.')
+        mappings[entry_parts[0]] = entry
+      end
+      
+      get :letsencrypt, {:id => mappings.keys[0]}
 
       expect(response).to be_success
-      expect(response.body).to have_text ENV['LETSENCRYPT_ANSWER']
+      expect(response.body).to have_text mappings[mappings.keys[0]] 
     end
   end
 end
