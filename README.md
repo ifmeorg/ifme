@@ -344,7 +344,9 @@ rake jasmine:ci
 
 #### Letter Opener
 
-The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. You can disable this gem when you deploy the app by commenting it out.
+The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. 
+
+You can disable this gem when you deploy the app by commenting it out.
 
 ```
 # gem "letter_opener", :group => :development
