@@ -199,6 +199,8 @@ There are three config files: `config/env/test.env`, `config/env/development.env
 
 Copy the sample files to create your own configuration files:
 
+`cp config/database.example.yml config/database.yml`
+
 `cp config/env/test.example.env config/env/test.env`
 
 `cp config/env/development.example.env config/env/development.env`
