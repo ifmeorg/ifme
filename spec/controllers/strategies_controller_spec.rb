@@ -1,5 +1,4 @@
 RSpec.describe StrategiesController, :type => :controller do
-
   describe 'GET index' do
     let(:user)          { create(:user, id: 1) }
     let(:strategy1)     { create(:strategy, name: 'test', userid: user.id) }
@@ -31,7 +30,7 @@ RSpec.describe StrategiesController, :type => :controller do
         end
       end
     end
-    
+
     context 'when the user is not logged in' do
       before do
         get :index
@@ -408,4 +407,26 @@ RSpec.describe StrategiesController, :type => :controller do
     end
   end
 
+  describe '#print_reminders' do
+    let(:user) { FactoryGirl.create(:user1) }
+    let(:strategy)     { create(:strategy, name: 'test', userid: user.id) }
+
+    subject { controller.print_reminders(strategy) }
+
+    describe 'when strategy has no reminders' do
+      let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
+
+      it 'is empty' do
+        expect(subject).to eq('')
+      end
+    end
+
+    describe 'when strategy has daily reminder' do
+      let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id) }
+
+      it 'prints the reminders' do
+        expect(subject).to eq('<div class="small_margin_top"><i class="fa fa-bell small_margin_right"></i>Daily reminder email</div>')
+      end
+    end
+  end
 end

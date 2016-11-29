@@ -10,7 +10,6 @@
 # Ignore database (configuration or not) files.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -26,7 +25,7 @@ database.yml
 
 # Ignore coverage results
 /coverage
+/config/application.yml
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
-

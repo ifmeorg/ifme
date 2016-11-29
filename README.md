@@ -213,7 +213,10 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
+If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders`
+`bundle exec rake scheduler:send_refill_reminders`
+`bundle exec rake scheduler:send_perform_strategy_reminders`
+`bundle exec rake scheduler:send_meeting_reminders`
 
 ### Optional
 
@@ -365,6 +368,7 @@ If you've been added as a collaborator to the repository, please do not push unl
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
 * As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
+* If you add or modify a model, please run `annotate` to update the schema comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
 
 ### Contributor Blurb
 

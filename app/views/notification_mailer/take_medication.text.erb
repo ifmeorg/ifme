@@ -1,2 +1,2 @@
-Hi <%= @user.name %>,
-Here's a friendly reminder to take your medication: <%= @medication.name %>!
+<%= t('salutation', name: @user.name) %>
+<%= t('medications.reminder_mailer.body', name: @model.name) %>

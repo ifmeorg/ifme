@@ -12,7 +12,7 @@ gem 'resque-scheduler',           '4.2.0'
 gem 'resque_mailer',              '2.3.0'
 
 gem 'turbolinks',                 '2.5.3'
-gem 'sass-rails',                 '5.0.4'
+gem 'sass-rails', '~> 5.0',       '>= 5.0.6'
 gem 'uglifier',                   '2.7.1'
 gem 'jbuilder',                   '2.2.11'
 gem 'compass-rails',              '3.0.2'
