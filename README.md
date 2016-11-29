@@ -218,6 +218,18 @@ If you want to test out scheduled emails, run the following commands: `bundle ex
 `bundle exec rake scheduler:send_perform_strategy_reminders`
 `bundle exec rake scheduler:send_meeting_reminders`
 
+#### Letter Opener
+
+The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. 
+
+You can disable this gem when you deploy the app by commenting it out.
+
+```
+# gem "letter_opener", :group => :development
+```
+
+You can read more about this gem [here](https://github.com/ryanb/letter_opener).
+
 ### Optional
 
 The following are not mandatory, but are required if you would like to test/use these features.
@@ -339,18 +351,6 @@ To view the test results, go to `http://localhost:8888`.
 ```
 rake jasmine:ci
 ```
-
-#### Letter Opener
-
-The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. 
-
-You can disable this gem when you deploy the app by commenting it out.
-
-```
-# gem "letter_opener", :group => :development
-```
-
-You can read more about this gem [here](https://github.com/ryanb/letter_opener).
 
 Static Code Analysis
 --------------------
