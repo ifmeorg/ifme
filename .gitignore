@@ -25,7 +25,6 @@
 
 # Ignore coverage results
 /coverage
-/config/application.yml
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
