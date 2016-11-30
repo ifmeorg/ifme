@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     mappings = Hash[challenges.collect { |v| [v.split('.')[0], v] }]
 
     if mappings.key?(params[:id])
-     render text: mappings[params[:id]]
+      render text: mappings[params[:id]]
     else
       render text: 'Unknown id.'
     end
