@@ -35,6 +35,9 @@ en:
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
+ daily_reminder: 'Daily reminder email'
+ salutation: "Hi %{name},"
+ click_here: "click here"
 
  allies:
   index:
@@ -151,7 +154,6 @@ en:
  medications:
   edit: "Edit %{medication}"
   edit_medication: 'Edit Medication'
-  daily_reminder: 'Daily reminder email'
   refill_reminder: 'Refill reminder email'
   form:
    name: 'Name'
@@ -171,7 +173,7 @@ en:
    dosage_hint: 'Number of pills or servings daily'
    refill_hint: 'When to refill this prescription'
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication."
+   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
   new: 'New Medication'
   units:
    display: "%{count} %{unit}"
@@ -180,7 +182,12 @@ en:
    tablets:
     one: 'tablet'
     other: 'tablets'
-
+  reminder_mailer:
+    subject: "Don't forget to take %{name}!"
+    body: "Here's a friendly reminder to take your medication %{name}!"
+  refill_mailer:
+    subject: "Your refill for %{name} is coming up soon!"
+    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
 
   index:
    title: 'Medications'
@@ -237,7 +244,6 @@ en:
     other: '%{count} Members <strong>of</strong> %{group}'
   reminder_mailer:
     subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    salutation: "Hi %{name},"
     body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
   leave:
     error: 'You cannot leave the meeting, you are the only leader.'
@@ -318,6 +324,31 @@ en:
   members:
    title: 'List of Members'
    remove: 'Remove'
+  mailer:
+    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
+    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
+    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
+    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+    comment_text: "<p><i>%{comment}</i></p>"
+    comment_link: "<p>To read it, %{link}!</p>"
+    new_group_subject: "if me | %{user} created a group \"%{group}\""
+    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
+    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
+    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
+    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
+    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
+    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
+    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
+    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
+    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
+    update_meeting_link: "<p>To learn more, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
+    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
+    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
 
  omniauth:
   google: 'Google'
@@ -494,6 +525,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
+   daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
   label:
    one: 'Strategy:'
    other: 'Strategies:'
@@ -507,6 +539,9 @@ en:
    instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
    privacy: 'Control who can view and comment'
   new: 'New Strategy'
+  reminder_mailer:
+    subject: "Don't forget to perform %{name}!"
+    body: "Here's a friendly reminder to perform %{name}!"
 
  stats:
   total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'

@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  category   :text
-#  name       :string(255)
-#  mood       :string(255)
+#  name       :string
+#  mood       :text
 #  why        :text
 #  fix        :text
 #  created_at :datetime
