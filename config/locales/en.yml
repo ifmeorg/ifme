@@ -9,6 +9,7 @@ en:
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
  click_here: "click here"
+ less: " [Less]"
 
  navigation:
    about: 'About'

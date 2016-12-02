@@ -6,17 +6,17 @@ describe("ContributorsReadMore", function() {
     	expect(checkFeature).toHaveBeenCalled();
   	});
 
-	it("has called readMoreShowContent", function() {
-    	checkFeature = spyOn(window, 'readMoreShowContent');
-    	contributorReadMoreFeature();
-    	expect(checkFeature).toHaveBeenCalled();
-  	});
-
 	it("has called readMoreHideContent", function(){
   		checkFeature = spyOn(window, 'readMoreHideContent');
   		readMoreHideContent();
   		expect(checkFeature).toHaveBeenCalled();
   	});
+
+  it("invokes toggleProfileBlurb event", function() {
+    checkFeature = spyOn(window, 'toggleProfileBlurb');
+    toggleProfileBlurb();
+    expect(checkFeature).toHaveBeenCalled();
+  });
 });
 
 

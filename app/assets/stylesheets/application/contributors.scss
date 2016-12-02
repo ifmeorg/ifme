@@ -2,7 +2,8 @@
   display: none;
 }
 
-.read_more_show {
+.read_more_show,
+.read_less_show {
   color: $link-color;
   cursor: pointer;
 }
