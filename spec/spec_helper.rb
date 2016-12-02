@@ -36,6 +36,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include StubCurrentUserHelper
+  config.mock_with :rspec do |mock_config|
+    mock_config.syntax = [:expect, :should]
+  end
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

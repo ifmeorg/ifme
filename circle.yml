@@ -10,11 +10,10 @@ dependencies:
 
 test:
   pre:
-    - cp config/database.example.yml config/database.yml
     - RAILS_ENV=test bundle exec rake db:create db:schema:load
   override:
     - bundle exec rspec
-    - bundle exec rake jasmine:ci
+    - RAILS_ENV=test bundle exec rake jasmine:ci
 
 deployment:
   staging:
