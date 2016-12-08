@@ -564,3 +564,9 @@ en:
    new_ally_request:
      subject: "if me | %{ally_name} sent an ally request!"
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+
+ devise:
+  confirmation:
+    link_instructions: "You can confirm your account email through the link below"
+    text: "Confirm my account"
+
