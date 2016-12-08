@@ -566,7 +566,21 @@ en:
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
 
  devise:
-  confirmation:
-    link_instructions: "You can confirm your account email through the link below"
-    text: "Confirm my account"
+  confirmations:
+    resend_confirmation: "Resend confirmation instructions"
+  mailer:
+    confirmation:
+      link_instructions: "You can confirm your account email through the link below"
+      link_text: "Confirm my account"
+    reset_password:
+      link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
+      link_text: "Change my password"
+      ignore: "If you didn't request this, please ignore this email."
+      info: "Your password won't change until you access the link above and create a new one."
+    unlock:
+      info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      link_instructions: "Click the link below to unlock your account"
+      link_text: "Unlock my account" 
+
+
 
