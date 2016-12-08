@@ -580,7 +580,18 @@ en:
     unlock:
       info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
       link_instructions: "Click the link below to unlock your account"
-      link_text: "Unlock my account" 
+      link_text: "Unlock my account"
+  passwords:
+    edit:
+      label: "New password"
+      autocomplete: "off"
+      confirmation: "Confirm new password"
+      submit: "Change my password"
+    new:
+      send_instructions: "Send me reset password instructions"
+
+
+
 
 
 
