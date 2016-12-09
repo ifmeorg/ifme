@@ -38,6 +38,8 @@ en:
  daily_reminder: 'Daily reminder email'
  salutation: "Hi %{name},"
  click_here: "click here"
+ email: "Email"
+ location: "location"
 
  add_comment:
   posting: 'Posting comment...'
@@ -125,7 +127,6 @@ en:
   show:
    led_by: 'Led by:'
    self: 'You'
-   location: 'Location:'
    date: 'Date:'
    meeting_time: 'Time:'
    cancel_meeting: 'Cancel meeting'
@@ -222,7 +223,6 @@ en:
   edit_meeting: 'Edit Meeting'
   form:
    name: 'Name'
-   location: 'Location'
    location_placeholder: 'URL or street address'
    meeting_time: 'Time'
    date: 'Date'
@@ -472,7 +472,6 @@ en:
     license_subtitle: 'Licensed under %{license}'
     faq: 'FAQ'
     connect: 'connect'
-    email: 'Email'
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
@@ -566,6 +565,8 @@ en:
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
 
  devise:
+  password: "Password"
+  new_password: "New password"
   confirmations:
     resend_confirmation: "Resend confirmation instructions"
   mailer:
@@ -583,12 +584,40 @@ en:
       link_text: "Unlock my account"
   passwords:
     edit:
-      label: "New password"
-      autocomplete: "off"
       confirmation: "Confirm new password"
       submit: "Change my password"
     new:
       send_instructions: "Send me reset password instructions"
+
+  registrations:
+    labels:
+      name: "Name"
+    placeholders:
+      repeat_password: "Repeat Password"
+    edit:
+      labels:
+        profile_picture: "Profile picture"
+        remove_picture: "Remove picture"
+        password_for: "Password for <strong><%= t('app_name') %></strong> account"
+        update: "Update"
+      placeholders:
+        optional: "Optional"
+        about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
+        required: "Required"
+      delete:
+        text: "Is <strong><%= t('app_name') %></strong> not working out for you?"
+        button: "Permanently delete my account"
+        confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
+    new:
+      subtitle: "Start telling your stories and maintaining your health in a safe, private space"
+      label: "A few details"
+      sign_up: "Sign up"
+
+
+
+
+
+
 
 
 

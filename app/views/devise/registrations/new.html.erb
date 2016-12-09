@@ -1,24 +1,24 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="subtitle">Start telling your stories and maintaining your health in a safe, private space</div>
+  <div class="subtitle"><%= t('devise.registrations.new.subtitle') %></div>
   <div class="spacer"></div>
 
   <div class="center">
-    <div class="field"><div class="label"><%= f.label 'Name' %></div>
+    <div class="field"><div class="label"><%= f.label t('devise.registrations.labels.name') %></div>
     <%= f.text_field :name %></div>
 
-    <div class="field"><div class="label"><%= f.label 'A few details' %></div>
-    <%= f.text_field :location, class: 'spacing', placeholder: 'Location' %>
-    <%= f.email_field :email, placeholder: 'Email' %></div>
+    <div class="field"><div class="label"><%= f.label t('devise.registrations.new.label') %></div>
+    <%= f.text_field :location, class: 'spacing', placeholder: t('location') %>
+    <%= f.email_field :email, placeholder: t('email') %></div>
 
     <div class="field"><div class="label"><%= f.label :password %></div>
-      <%= f.password_field :password, autocomplete: "off", class: 'spacing', placeholder: 'Password' %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Repeat password' %></div>
+      <%= f.password_field :password, autocomplete: "off", class: 'spacing', placeholder: t('devise.password') %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
 
     <div class="actions">
       <%= f.hidden_field :timezone %>
-      <%= f.submit "Sign up" %>
+      <%= f.submit t('devise.registrations.new.sign_up') %>
     </div>
   </div>
 <% end %>

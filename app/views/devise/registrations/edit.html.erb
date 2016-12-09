@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 	<%= devise_error_messages! %>
 
-	<div class="field"><div class="label"><%= f.label "Name" %></div>
+	<div class="field"><div class="label"><%= f.label t('devise.registrations.labels.name') %></div>
 	<%= f.text_field :name %></div>
 
 	<div class="field"><div class="label"><%= f.label :location %></div>
-	<%= f.text_field :location, placeholder: "Optional" %></div>
+	<%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional') %></div>
 
 	<div class="field">
 		<div class="label">
@@ -13,7 +13,7 @@
 		</div>
 		<% if current_user.provider == "google_oauth2" %>
 			<div class="small_font small_margin_bottom">
-				<%= raw t('devise.registrations.google_auth1') %>
+				<%= raw  t('devise.registrations.google_auth1') %>
 			</div>
 		<% end %>
 
@@ -32,21 +32,24 @@
 	<div class="field">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 	<% end %>
 
-	<div class="field"><div class="label"><%= f.label "Profile picture" %></div>
+	<div class="field"><div class="label"><%= f.label t('devise.registrations.edit.labels.profile_picture') %></div>
 	<%= fetch_profile_picture(resource.avatar.url, 'mini_profile_picture') %>
 	<br>
 	<%= f.file_field :avatar %>
 	<% unless resource.avatar.blank? %>
-		<%= f.check_box :remove_avatar %> Remove picture
+        <%= f.label :remove_avatar, class: 'checkbox' do %>
+            <%= f.check_box :remove_avatar %>
+            <%= t('devise.registrations.edit.labels.remove_picture')%>
+        <% end %>
 	<% end %>
 	</div>
 
 	<div class="field"><div class="label"><%= f.label :about %></div>
-	<%= f.text_area :about, placeholder: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you" %></div>
+	<%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about') %></div>
 
 	<div class="field">
 		<div class="label">
-			<label>Password for <strong><%= t('app_name') %></strong> account</label>
+			<label> <%= t('devise.registrations.edit.labels.password_for') %></label>
 		</div>
 
 		<% if current_user.provider == "google_oauth2" %>
@@ -56,20 +59,20 @@
 		<% end %>
 	</div>
 
-	<div class="field"><div class="label"><%= f.label "New password" %></div>
-	<%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %></div>
+	<div class="field"><div class="label"><%= f.label t('devise.new_password') %></div>
+	<%= f.password_field :password, autocomplete: "off", placeholder: t('devise.password') %>
+	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
 
 	<% if current_user.provider != "google_oauth2" %>
 	<div class="field"><div class="label"><%= f.label :current_password %></div>
-	<%= f.password_field :current_password, autocomplete: "off", placeholder: "Required" %></div>
+	<%= f.password_field :current_password, autocomplete: "off", placeholder: t('devise.registrations.edit.placeholders.required') %></div>
 	<% end %>
 
 	<div class="actions">
 		<%= f.hidden_field :timezone %>
-		<%= f.submit "Update" %>
+		<%= f.submit t('devise.registrations.edit.labels.update') %>
 	</div>
 <% end %>
 
-<div class="label"><label>Is <strong><%= t('app_name') %></strong> not working out for you?</label></div>
-<%= button_to "Permanently delete my account", registration_path(resource_name), data: { confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!" }, method: :delete %>
+<div class="label"><label><%= t('devise.registrations.edit.delete.text') %></label></div>
+<%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete %>

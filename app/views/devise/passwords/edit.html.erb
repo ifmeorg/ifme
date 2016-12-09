@@ -4,16 +4,16 @@
 
   	<div class="field">
 	  	<div class="label">
-	  		<%= f.label :password, t('devise.passwords.edit.label') %>
+	  		<%= f.label :password, t('devise.new_password') %>
 	  	</div>
-    	<%= f.password_field :password, autocomplete: t('devise.passwords.edit.autocomplete') %>
+    	<%= f.password_field :password, autocomplete: "off" %>
 	</div>
 
   	<div class="field">
   		<div class="label">
   			<%= f.label :password_confirmation, t('devise.passwords.edit.confirmation') %>
   		</div>
-    	<%= f.password_field :password_confirmation, autocomplete: t('devise.passwords.edit.autocomplete') %>
+    	<%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
   	<div class="actions">
