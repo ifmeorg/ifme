@@ -38,8 +38,13 @@ en:
  daily_reminder: 'Daily reminder email'
  salutation: "Hi %{name},"
  click_here: "click here"
- email: "Email"
- location: "location"
+
+ common:
+   email: "Email"
+   location: "location"
+   name: 'Name'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
 
  add_comment:
   posting: 'Posting comment...'
@@ -59,9 +64,6 @@ en:
   edit: "Edit %{category}"
   edit_category: "Edit Category"
   form:
-   name: 'Name'
-   description: 'Description'
-   error_explanation: 'Please fill out the marked fields!'
    name_hint: 'Categorize recurring people, places, things, activities, and more'
   label:
    one: 'Category:'
@@ -69,7 +71,6 @@ en:
   index:
    title: 'Categories'
    subtitle: 'Life is messy, categorize the different people, places, and things.'
-   name: 'Name'
    description: 'Description'
    confirm: 'Are you sure?'
    premade1_name: 'Family'
@@ -94,12 +95,9 @@ en:
  groups:
   edit: "Edit %{group}"
   form:
-   name: 'Name'
-   description: 'Description'
    leaders: 'Leaders'
    only_leader: "You are the only leader, therefore you can't leave."
    cannot_delete: 'Please note that you cannot delete groups.'
-   error_explanation: 'Please fill out the marked fields!'
    error_save: "We can't save this group because: "
    error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
@@ -161,7 +159,6 @@ en:
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   form:
-   name: 'Name'
    comments: 'Comments'
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
@@ -169,7 +166,6 @@ en:
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
-   error_explanation: 'Please fill out the marked fields!'
    comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
    add_to_google_cal: 'Google Calendar reminder'
    google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
@@ -222,14 +218,11 @@ en:
   edit: "Edit %{meeting}"
   edit_meeting: 'Edit Meeting'
   form:
-   name: 'Name'
    location_placeholder: 'URL or street address'
    meeting_time: 'Time'
    date: 'Date'
    maximum_members: 'Maximum Members'
    maximum_placeholder: '0 if no maximum'
-   description: 'Description'
-   error_explanation: 'Please fill out the marked fields!'
   join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
@@ -271,7 +264,6 @@ en:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
    allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields!'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
    comments_hint: 'Only you and viewers can comment'
@@ -293,8 +285,6 @@ en:
   edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
   form:
-   name: 'Name'
-   description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
   label:
    one: 'Mood:'
@@ -302,7 +292,6 @@ en:
   index:
    title: 'Moods'
    subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   name: 'Name'
    description: 'Description'
    edit: 'Edit'
    delete: 'Delete'
@@ -524,7 +513,6 @@ en:
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
    allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
@@ -590,8 +578,6 @@ en:
       send_instructions: "Send me reset password instructions"
 
   registrations:
-    labels:
-      name: "Name"
     placeholders:
       repeat_password: "Repeat Password"
     edit:

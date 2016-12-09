@@ -8,7 +8,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('categories.form.name'), for: 'category_name' %>
+      <%= f.label t('common.name'), for: 'category_name' %>
       <div class="align_right">
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('categories.form.name_hint')) %>
       </div>
@@ -19,7 +19,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('categories.form.description'), for: 'category_description' %>
+      <%= f.label t('common.description'), for: 'category_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
