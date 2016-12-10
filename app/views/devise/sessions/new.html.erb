@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	<div class="subtitle">Welcome back, we're looking forward to you helping you tackle your day</div>
+	<div class="subtitle"><%= t('devise.sessions.subtitle') %></div>
   	<div class="spacer"></div>
 
   	<div class="center">
@@ -13,7 +13,7 @@
 	    	<div class="field"><div class="label"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div></div>
 	  	<% end -%>
 
-	  	<div class="actions"><%= f.submit "Sign in" %></div>
+	  	<div class="actions"><%= f.submit t('devise.sessions.sign_in') %></div>
 	</div>
 <% end %>
 

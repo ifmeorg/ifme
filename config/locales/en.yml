@@ -598,6 +598,10 @@ en:
       subtitle: "Start telling your stories and maintaining your health in a safe, private space"
       label: "A few details"
       sign_up: "Sign up"
+  sessions:
+    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
+    sign_in: "Sign in"
+
 
 
 
