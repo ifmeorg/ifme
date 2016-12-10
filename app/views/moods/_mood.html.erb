@@ -7,7 +7,7 @@
   	<% end %>
 
   	<div class="small_margin_top">
-    	<i class="fa fa-pencil action"></i><%= link_to t('edit'), edit_mood_path(mood) %>
-    	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('delete'), mood, method: :delete, data: { confirm: t('common.actions.confirm') } %>
+    	<i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), edit_mood_path(mood) %>
+    	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), mood, method: :delete, data: { confirm: t('common.actions.confirm') } %>
   	</div>
 </div>

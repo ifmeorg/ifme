@@ -17,7 +17,7 @@ module GroupsHelper
   end
 
   def edit_group_link(group)
-    link_to t('groups.index.edit'), edit_group_path(group),
+    link_to t('common.actions.edit'), edit_group_path(group),
             class: 'small_margin_right'
   end
 
@@ -27,9 +27,9 @@ module GroupsHelper
   end
 
   def delete_group_link(group, attrs = {})
-    link_to t('.delete'), group,
+    link_to t('common.actions.delete'), group,
             { method: :delete,
-              data: { confirm: t('.confirm') }
+              data: { confirm: t('common.actions.confirm') }
             }.merge(attrs)
   end
 
