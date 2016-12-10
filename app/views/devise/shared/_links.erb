@@ -3,22 +3,22 @@
 <div class="small_margin_bottom">
   <%- resource_class.omniauth_providers.each do |provider| %>
   	<% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-      <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider) %>
+      <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name, provider) %>
     <% elsif provider.to_s == "google_oauth2" %>
-      <%= button_to "Sign up with Google", omniauth_authorize_path(resource_name, provider) %>
+      <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name, provider) %>
     <% end -%>
   <% end -%>
 </div>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br>
+  <%= link_to t('devise.shared.password'), new_password_path(resource_name) %><br>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br>
+  <%= link_to t('devise.shared.confirmation'), new_confirmation_path(resource_name) %><br>
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br>
+  <%= link_to t('devise.shared.unlock'), new_unlock_path(resource_name) %><br>
 <% end -%>
