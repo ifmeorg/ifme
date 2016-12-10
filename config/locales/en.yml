@@ -11,10 +11,6 @@ en:
  linebreak: 'Linebreak'
  feedback: 'feedback'
  help: 'help'
- new: 'New'
- add: 'Add'
- add_all: 'Add all'
- select_all: 'Select all'
  cancel: 'Cancel'
  accept: 'Accept'
  reject: 'Reject'
@@ -38,6 +34,9 @@ en:
     edit: 'Edit'
     join: 'Join'
     leave: 'Leave'
+    add: 'Add'
+    add_all: 'Add all'
+    select_all: 'Select all'
 
    form:
      email: "Email"
