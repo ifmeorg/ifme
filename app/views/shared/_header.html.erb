@@ -23,7 +23,7 @@
           <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
         <% else %>
           <%= nav_link_to(t('shared.header.signin'), new_user_session_path) %>
-          <%= nav_link_to(t('shared.header.join'), new_user_registration_path) %>
+          <%= nav_link_to(t('common.actions.join'), new_user_registration_path) %>
         <% end %>
       </ul>
     </div>
@@ -41,7 +41,7 @@
           <%= nav_link_to(t('allies.index.title'), allies_path) %>
         <% else %>
           <%= nav_link_to(t('shared.header.signin'), new_user_session_path) %>
-          <%= nav_link_to(t('shared.header.join'), new_user_registration_path) %>
+          <%= nav_link_to(t('common.actions.join'), new_user_registration_path) %>
         <% end %>
       </ul>
 

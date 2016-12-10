@@ -22,7 +22,7 @@ module GroupsHelper
   end
 
   def leader_link(leader)
-    name = leader == current_user ? t('.self') : leader.name
+    name = leader == current_user ? t('groups.form.self') : leader.name
     link_to name, profile_index_path(uid: leader.uid)
   end
 
@@ -34,12 +34,12 @@ module GroupsHelper
   end
 
   def leave_group_link(group, attrs = {})
-    link_to t('.leave'), leave_groups_path(groupid: group.id),
+    link_to t('common.actions.leave'), leave_groups_path(groupid: group.id),
             { id: 'leave' }.merge(attrs)
   end
 
   def join_group_link(group, attrs = {})
-    link_to t('.join'), join_groups_path(groupid: group.id),
+    link_to t('common.actions.join'), join_groups_path(groupid: group.id),
             { id: 'join' }.merge(attrs)
   end
 

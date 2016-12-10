@@ -36,6 +36,8 @@ en:
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
+    join: 'Join'
+    leave: 'Leave'
 
    form:
      email: "Email"
@@ -90,11 +92,12 @@ en:
   singular: 'Group'
   edit: "Edit %{group}"
   form:
-   leaders: 'Leaders'
-   only_leader: "You are the only leader, therefore you can't leave."
-   cannot_delete: 'Please note that you cannot delete groups.'
-   error_save: "We can't save this group because: "
-   error_edit_permission: 'You must be a leader of a group in order to edit it'
+    leaders: 'Leaders'
+    self: 'You'
+    only_leader: "You are the only leader, therefore you can't leave."
+    cannot_delete: 'Please note that you cannot delete groups.'
+    error_save: "We can't save this group because: "
+    error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
    title: 'Groups'
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
@@ -102,8 +105,6 @@ en:
    joined_groups: 'Joined Groups'
    description: 'Description:'
    leader: '(Leader)'
-   leave: 'Leave'
-   join: 'Join'
    instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
   join_success: 'You have joined this group.'
   leave:
@@ -116,14 +117,9 @@ en:
   new: 'New Group'
   show:
    led_by: 'Led by:'
-   self: 'You'
    date: 'Date:'
    meeting_time: 'Time:'
    cancel_meeting: 'Cancel meeting'
-   leave: 'Leave?'
-   leave_cta: 'Leave?'
-   join_cta: 'Join!'
-   join: 'Join!'
    delete: 'Delete group'
 
  layouts:
@@ -215,9 +211,6 @@ en:
   info:
    cancel_meeting: 'Cancel meeting'
    date: 'Date:'
-   join: 'join'
-   join_cta: 'Join!'
-   leave_cta: 'Leave?'
    location: 'Location'
    meeting_time: 'Time'
    members:
@@ -454,7 +447,6 @@ en:
    signin: 'Sign in'
    signout: 'Sign out'
    notifications: 'Notifications'
-   join: 'Join'
    home: 'Home'
   viewers_indicator:
    disabled_comments: 'Comments have been disabled.'
