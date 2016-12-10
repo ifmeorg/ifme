@@ -1,7 +1,7 @@
 <%= form_for(local_assigns[:moment], url: quick_moment_moments_path) do |f| %>
 	<% if local_assigns[:moment].errors.any? %>
 	  <div class="error_explanation">
-	    <%= t('moments.form.error_explanation') %>
+	    <%= t('common.error_explanation') %>
 	  </div>
 	<% end %>
 
@@ -36,16 +36,17 @@
 					</span>
 				</div>
 				<div class="actions no_margin_bottom">
-				<% else %>
-				<div class="actions no_margin_bottom no_margin_top">
-				<% end %>
+				    <% else %>
+				    <div class="actions no_margin_bottom no_margin_top">
+				    <% end %>
 					<%= f.hidden_field :userid, :value => current_user.id %>
 					<%= f.submit %>
-				</div>
-			</div>
-		</div>
-	</div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
 
-<% end %>
+        <% end %>
+    </div>
 
 <div class="spacer"></div>
