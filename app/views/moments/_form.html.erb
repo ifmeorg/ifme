@@ -47,7 +47,7 @@
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
         </a>
-        <%= f.label t('moments.form.moods') %>
+        <%= f.label t('moods.plural') %>
       </div>
 
       <div id="moods" class="display_none">
@@ -120,7 +120,7 @@
 
      <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('moments.form.allow_comments') %>
+        <%= f.label t('comment.allow_comments') %>
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.comments_hint')) %>
         <div class="align_right">
           <%= f.check_box :comment, class: 'no_margin_right' %>

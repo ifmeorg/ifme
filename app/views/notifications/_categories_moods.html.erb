@@ -5,7 +5,7 @@
 		<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
 			<% modal_title = t('categories.index.title') %>
 		<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-			<% modal_title = t('moods.index.title') %>
+			<% modal_title = t('moods.plural') %>
 		<% end %>
 
 		<%= render :partial => '/shared/modal',
@@ -37,7 +37,7 @@
 		<% if !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
 			<div id="moods_cell">
 				<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-				<%= local_assigns[:f].label t('moments.form.moods'), class: 'small_margin_top' %>
+				<%= local_assigns[:f].label t('moods.plural'), class: 'small_margin_top' %>
 				<% end %>
 				<% local_assigns[:moods].each do |item| %>
 					<div class="checkbox">

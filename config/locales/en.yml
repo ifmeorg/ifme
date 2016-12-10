@@ -10,11 +10,6 @@ en:
  slack: 'Slack'
  linebreak: 'Linebreak'
  feedback: 'feedback'
- help: 'help'
- cancel: 'Cancel'
- accept: 'Accept'
- reject: 'Reject'
- remove: 'Remove'
  ellipsis: " [...]"
  view_more: 'View more'
  stories: 'Stories'
@@ -37,6 +32,7 @@ en:
     add: 'Add'
     add_all: 'Add all'
     select_all: 'Select all'
+    remove: 'Remove'
 
    form:
      email: "Email"
@@ -44,18 +40,23 @@ en:
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
 
- add_comment:
+ comment:
+  singular: 'Comment'
+  plural: 'Comments'
   posting: 'Posting comment...'
-  comment_button: Comment
+  allow_comments: 'Allow Comments?'
 
  allies:
+  accept: 'Accept'
+  reject: 'Reject'
   index:
-   title: 'Allies'
-   outgoing: 'Outgoing Requests'
-   incoming: 'Incoming Requests'
-   invite: 'Invite your loved ones!'
-   none: 'You currently have no allies! You can search for them or invite loved ones to join!'
-   view_all_allies: 'View all allies'
+    title: 'Allies'
+    outgoing: 'Outgoing Requests'
+    incoming: 'Incoming Requests'
+    invite: 'Invite your loved ones!'
+    none: 'You currently have no allies! You can search for them or invite loved ones to join!'
+    view_all_allies: 'View all allies'
+    cancel: 'Cancel'
 
  categories:
   edit: "Edit %{category}"
@@ -80,12 +81,11 @@ en:
   new: "New Category"
 
  errors:
+  home_page: 'Return home'
   internal_server_error:
    header_message: 'This page cannot be displayed'
-   home_page: 'Return home'
   not_found:
    header_message: 'This page does not exist'
-   home_page: 'Return home'
 
  groups:
   singular: 'Group'
@@ -102,7 +102,6 @@ en:
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
    available_groups: 'Available Groups'
    joined_groups: 'Joined Groups'
-   description: 'Description:'
    leader: '(Leader)'
    instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
   join_success: 'You have joined this group.'
@@ -145,7 +144,6 @@ en:
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   form:
-   comments: 'Comments'
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
    total_placeholder: 'e.g. 30'
@@ -210,7 +208,6 @@ en:
   info:
    cancel_meeting: 'Cancel meeting'
    date: 'Date:'
-   location: 'Location'
    meeting_time: 'Time'
    members:
     one: '%{count} Member'
@@ -238,12 +235,10 @@ en:
    add_strategy: 'Add strategy'
    name: 'Title'
    categories: 'Categories'
-   moods: 'Moods'
    strategies: 'Strategies'
    viewers: 'Viewers'
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
-   allow_comments: 'Allow Comments?'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
    comments_hint: 'Only you and viewers can comment'
@@ -260,6 +255,8 @@ en:
    strategies: 'What strategies would help?'
 
  moods:
+  singular: 'Mood'
+  plural: 'Moods'
   edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
   form:
@@ -268,9 +265,7 @@ en:
    one: 'Mood:'
    other: 'Moods:'
   index:
-   title: 'Moods'
    subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   description: 'Description'
    premade1_name: 'Accepting'
    premade1_description: 'Accepting and being at peace with differences and limitations'
    premade2_name: 'Ambitious'
@@ -291,7 +286,6 @@ en:
   created_by_html: "<strong>Created by</strong>: %{name}"
   members:
    title: 'List of Members'
-   remove: 'Remove'
   mailer:
     comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
     comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
@@ -367,6 +361,7 @@ en:
       message_three: 'Document your moods, medications, and self-care'
       main_message_two: 'We are open source because mental health should be open.'
       message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      help: 'Help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'
       message_text_one: "Here's how you can start sharing your stories."
@@ -397,9 +392,6 @@ en:
    title: 'Profile'
    edit_user: 'Customize profile'
    cancel_request: 'Cancel Request'
-   remove_ally: 'Remove'
-   accept_ally: 'Accept'
-   reject_ally: 'Reject'
    add_ally: 'Add to Allies'
 
  pusher:
@@ -417,8 +409,6 @@ en:
   index:
    title: 'Search for Allies'
    cancel_request: 'Cancel Request'
-   remove_ally: 'Remove'
-   accept_ally: 'Accept'
    add_ally: 'Add to Allies'
 
  shared:
@@ -437,7 +427,6 @@ en:
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
-    comment: 'Comment'
     visible_only_between_you_and: 'Visible only between you and %{name}'
     error_explanation: 'Please fill out the marked fields'
     not_allies: '(not allies)'
@@ -485,7 +474,6 @@ en:
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
-   allow_comments: 'Allow Comments?'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
