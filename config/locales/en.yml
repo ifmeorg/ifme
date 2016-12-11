@@ -558,14 +558,14 @@ en:
       label: "A few details"
       sign_up: "Sign up"
   sessions:
-    subtitle: 'Welcome back, we're looking forward to you helping you tackle your day'
+    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
     sign_in: 'Sign in'
   shared:
     sign_in_google: 'Sign in with Google'
     sign_up_google: 'Sign up with Google'
     password: 'Forgot your password?'
-    confirmation: 'Didn't receive confirmation instructions?'
-    unlock: 'Didn't receive unlock instructions?'
+    confirmation: "Didn't receive confirmation instructions?"
+    unlock: "Didn't receive unlock instructions?"
   unlock:
     resend: 'Resend unlock instructions'
 
