@@ -1,13 +1,13 @@
 <%= t('app_name') %>
 <% if current_page?(new_user_session_path) ||
     (params[:controller] == "devise/sessions" && action_name == "new") %>
-  - <%= t('layouts.title.sign_in') %>
+  - <%= t('account.sign_in') %>
 <% elsif current_page?(new_user_registration_path) ||
   (params[:controller] == "devise/registrations" && action_name == "create") %>
-- <%= t('layouts.title.sign_up') %>
+- <%= t('account.sign_up') %>
     <% elsif current_page?(new_user_password_path) ||
       (params[:controller] == "devise/passwords" && action_name == "new") %>
-    - <%= t('layouts.title.forgot_password') %>
+    - <%= t('account.forgot_password') %>
   <% elsif current_page?(edit_user_registration_path) ||
     (params[:controller] == "registrations" && action_name == "update") %>
   - <%= t('layouts.title.account') %>

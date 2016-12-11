@@ -10,7 +10,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('strategies.form.name'), for: 'strategy_name' %>
+        <%= f.label t('common.title'), for: 'strategy_name' %>
         <div class="align_right">
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
         <i class="fa fa-asterisk"></i>
@@ -75,7 +75,7 @@
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('comment.allow_comments') %>
-        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('strategies.form.comments_hint')) %>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('comment.hint')) %>
         <div class="align_right">
           <%= f.check_box :comment, class: 'no_margin_right' %>
         </div>
