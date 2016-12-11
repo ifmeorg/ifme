@@ -46,6 +46,11 @@ en:
   posting: 'Posting comment...'
   allow_comments: 'Allow Comments?'
 
+ account:
+  sign_in: 'Sign in'
+  sign_up: 'Sign up'
+  forgot_password: 'Forgot your password?'
+
  allies:
   accept: 'Accept'
   reject: 'Reject'
@@ -124,7 +129,6 @@ en:
   application:
    signin: 'Tell your stories now'
    create_account: 'Join the community now'
-   forgot_password: 'Forgot your password?'
    update_account: 'Customize your account'
    if: 'if'
    me: 'me'
@@ -133,9 +137,6 @@ en:
     app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
     no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
   title:
-   sign_in: Sign in
-   sign_up: Sign up
-   forgot_password: Forgot your password?
    account: Account
    reset_password: Reset your password
 
@@ -432,7 +433,6 @@ en:
     not_allies: '(not allies)'
   header:
    account: 'Account'
-   signin: 'Sign in'
    signout: 'Sign out'
    notifications: 'Notifications'
    home: 'Home'
@@ -514,6 +514,7 @@ en:
  devise:
   password: "Password"
   new_password: "New password"
+  password_change: "Change my password"
   confirmations:
     resend_confirmation: "Resend confirmation instructions"
   mailer:
@@ -522,7 +523,6 @@ en:
       link_text: "Confirm my account"
     reset_password:
       link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
-      link_text: "Change my password"
       ignore: "If you didn't request this, please ignore this email."
       info: "Your password won't change until you access the link above and create a new one."
     unlock:
@@ -532,7 +532,6 @@ en:
   passwords:
     edit:
       confirmation: "Confirm new password"
-      submit: "Change my password"
     new:
       send_instructions: "Send me reset password instructions"
 
@@ -556,14 +555,11 @@ en:
     new:
       subtitle: "Start telling your stories and maintaining your health in a safe, private space"
       label: "A few details"
-      sign_up: "Sign up"
   sessions:
     subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
-    sign_in: 'Sign in'
   shared:
     sign_in_google: 'Sign in with Google'
     sign_up_google: 'Sign up with Google'
-    password: 'Forgot your password?'
     confirmation: "Didn't receive confirmation instructions?"
     unlock: "Didn't receive unlock instructions?"
   unlock:

@@ -84,7 +84,7 @@
 
             <% elsif current_page?(new_user_password_path) ||
               (params[:controller] == "devise/passwords" && action_name == "new") %>
-            <%= t('layouts.application.forgot_password') %>
+            <%= t('account.forgot_password') %>
 
           <% elsif current_page?(edit_user_registration_path) ||
             (params[:controller] == "registrations" && action_name == "update") %>

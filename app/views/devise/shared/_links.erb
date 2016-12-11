@@ -12,7 +12,7 @@
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t('devise.shared.password'), new_password_path(resource_name) %><br>
+  <%= link_to t('account.forgot_password'), new_password_path(resource_name) %><br>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
