@@ -22,7 +22,7 @@ module GroupsHelper
   end
 
   def leader_link(leader)
-    name = leader == current_user ? t('groups.form.self') : leader.name
+    name = leader == current_user ? t('common.you') : leader.name
     link_to name, profile_index_path(uid: leader.uid)
   end
 

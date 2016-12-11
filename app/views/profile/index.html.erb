@@ -24,7 +24,7 @@
       <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
         <br><%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to t('allies.reject'), remove_allies_path(:ally_id => @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
       <% else %>
-        <br><%= link_to t('profile.index.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
+        <br><%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
       <% end %>
     <% end %>
   </div>
