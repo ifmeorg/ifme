@@ -24,6 +24,7 @@ en:
  common:
    name: 'Name'
    you: 'You'
+   title: 'Title'
    actions:
     confirm: 'Are you sure?'
     delete: 'Delete'
@@ -56,6 +57,7 @@ en:
 
  allies:
   add_ally: 'Add to Allies'
+  cancel_ally_request: 'Cancel Request'
   accept: 'Accept'
   reject: 'Reject'
   index:
@@ -124,8 +126,6 @@ en:
   show:
    led_by: 'Led by:'
    date: 'Date:'
-   meeting_time: 'Time:'
-   cancel_meeting: 'Cancel meeting'
    delete: 'Delete group'
 
  layouts:
@@ -204,8 +204,6 @@ en:
   edit_meeting: 'Edit Meeting'
   form:
    location_placeholder: 'URL or street address'
-   meeting_time: 'Time'
-   date: 'Date'
    maximum_members: 'Maximum Members'
    maximum_placeholder: '0 if no maximum'
   join_success: 'You have joined this meeting.'
@@ -237,7 +235,6 @@ en:
    add_category: 'Add category'
    add_mood: 'Add mood'
    add_strategy: 'Add strategy'
-   name: 'Title'
    categories: 'Categories'
    strategies: 'Strategies'
    viewers: 'Viewers'
@@ -391,7 +388,6 @@ en:
   index:
    title: 'Profile'
    edit_user: 'Customize profile'
-   cancel_request: 'Cancel Request'
 
  pusher:
   not_authorized: 'Not Authorized'
@@ -405,7 +401,6 @@ en:
 
   index:
    title: 'Search for Allies'
-   cancel_request: 'Cancel Request'
 
  shared:
   footer:
@@ -463,7 +458,6 @@ en:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
   form:
-   name: 'Title'
    categories: 'Categories'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'

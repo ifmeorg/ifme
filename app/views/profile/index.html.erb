@@ -18,7 +18,7 @@
     <% end %>
     <% if @profile.id != current_user.id %>
       <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-        <br><%= link_to t('profile.index.cancel_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+        <br><%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
       <% elsif current_user.allies_by_status(:accepted).include? @profile %>
         <br><%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
       <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
