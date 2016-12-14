@@ -584,14 +584,14 @@ en:
       labels:
         profile_picture: "Profile picture"
         remove_picture: "Remove picture"
-        password_for: "Password for <strong><%= t('app_name') %></strong> account"
+        password_for: "Password for <strong>if me</strong> account"
         update: "Update"
       placeholders:
         optional: "Optional"
         about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
         required: "Required"
       delete:
-        text: "Is <strong><%= t('app_name') %></strong> not working out for you?"
+        text: "Is <strong>if me</strong> not working out for you?"
         button: "Permanently delete my account"
         confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
     new:
