@@ -41,7 +41,7 @@ en:
 
  common:
    email: "Email"
-   location: "location"
+   location: "Location"
    name: 'Name'
    description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
@@ -609,16 +609,3 @@ en:
     unlock: "Didn't receive unlock instructions?"
   unlock:
     resend: 'Resend unlock instructions'
-
-
-
-
-
-
-
-
-
-
-
-
-
