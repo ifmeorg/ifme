@@ -30,6 +30,7 @@ en:
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
+    edit_object: "Edit %{object}"
     join: 'Join'
     leave: 'Leave'
     add: 'Add'
@@ -76,7 +77,6 @@ en:
 
  categories:
   plural: 'Categories'
-  edit: "Edit %{category}"
   edit_category: "Edit Category"
   add_category: 'Add category'
   new: "New Category"
@@ -106,7 +106,6 @@ en:
 
  groups:
   singular: 'Group'
-  edit: "Edit %{group}"
   form:
     leaders: 'Leaders'
     only_leader: "You are the only leader, therefore you can't leave."
@@ -145,7 +144,6 @@ en:
    reset_password: Reset your password
 
  medications:
-  edit: "Edit %{medication}"
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   dosage: 'Daily Dosage:'
@@ -196,7 +194,6 @@ en:
    comments: 'Comments:'
 
  meetings:
-  edit: "Edit %{meeting}"
   edit_meeting: 'Edit Meeting'
   form:
    location_placeholder: 'URL or street address'
@@ -222,7 +219,6 @@ en:
   plural: 'Moments'
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
-  edit: 'Edit %{moment}'
   edit_moment: 'Edit Moment'
   tagged: 'Tagged Moments'
   new: 'New Moment'
@@ -243,7 +239,6 @@ en:
  moods:
   singular: 'Mood'
   plural: 'Moods'
-  edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
   add: 'Add mood'
   new: 'New Mood'
@@ -436,7 +431,6 @@ en:
  strategies:
   singular: 'Strategy'
   plural: 'Strategies'
-  edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
   tagged_strategies: 'Tagged Strategies'
   add_strategy: 'Add strategy'
