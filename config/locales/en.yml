@@ -35,7 +35,6 @@ en:
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'
-
    form:
      email: "Email"
      location: "Location"
@@ -54,6 +53,10 @@ en:
   sign_in: 'Sign in'
   sign_up: 'Sign up'
   forgot_password: 'Forgot your password?'
+
+ members:
+   one: '%{count} member'
+   other: '%{count} members'
 
  allies:
   add_ally: 'Add to Allies'
@@ -120,9 +123,6 @@ en:
     error: 'You cannot leave the group, you are the only leader.'
     success: "You have left %{group}"
     remove_member_success: "You have removed %{user} from %{group}"
-  members:
-   one: '%{count} member'
-   other: '%{count} members'
   new: 'New Group'
   show:
    led_by: 'Led by:'
@@ -212,9 +212,6 @@ en:
    cancel_meeting: 'Cancel meeting'
    date: 'Date:'
    meeting_time: 'Time'
-   members:
-    one: '%{count} Member'
-    other: '%{count} Members'
    members_of_group_html:
     one: '%{count} Member <strong>of</strong> %{group}'
     other: '%{count} Members <strong>of</strong> %{group}'
