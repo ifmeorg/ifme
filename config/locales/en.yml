@@ -148,6 +148,10 @@ en:
   edit: "Edit %{medication}"
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
+  dosage: 'Daily Dosage:'
+  refill: 'Refill:'
+  quantity: 'Total Quantity:'
+  strength: 'Strength:'
   form:
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
@@ -178,14 +182,9 @@ en:
   refill_mailer:
     subject: "Your refill for %{name} is coming up soon!"
     body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
-
   index:
    title: 'Medications'
    subtitle: 'Keep track of your medications, including dosage and refill information.'
-   strength: 'Strength:'
-   quantity: 'Total Quantity:'
-   dosage: 'Daily Dosage:'
-   refill: 'Refill:'
    total: 'Total:'
    instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
    example_name: 'Prozac'
@@ -194,10 +193,6 @@ en:
    example_dosage: '40 tablets'
    example_refill: '05/31/2016'
   show:
-   strength: 'Strength:'
-   quantity: 'Total Quantity:'
-   dosage: 'Daily Dosage:'
-   refill: 'Refill:'
    comments: 'Comments:'
 
  meetings:
