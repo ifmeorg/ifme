@@ -228,10 +228,12 @@ en:
 
  moments:
   singular: 'Moment'
+  plural: 'Moments'
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
   edit: 'Edit %{moment}'
   edit_moment: 'Edit Moment'
+  tagged: 'Tagged Moments'
   new: 'New Moment'
   form:
    add_mood: 'Add mood'
@@ -242,7 +244,6 @@ en:
    viewers_hint: 'Allies who can view your moment'
 
   index:
-   title: 'Moments'
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
    instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
    example_name: 'Panicking over interview tomorrow!'
@@ -444,8 +445,6 @@ en:
     not_attending_one_spot_left: 'You are not attending. There is one spot left to fill! %{join}'
     not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
     not_attending_no_spots_left: 'You are not attending. There is no room to join.'
-  tag_usage:
-    tagged_moments: 'Tagged Moments'
   quick_create:
    add: 'Add %{name}'
 

@@ -9,7 +9,7 @@
 
       <ul id="small_nav" class="display_none">
       <% if user_signed_in? %>
-          <%= nav_link_to(t('moments.index.title'), moments_path) %>
+          <%= nav_link_to(t('moments.plural'), moments_path) %>
           <%= nav_link_to(t('categories.plural'), categories_path) %>
           <%= nav_link_to(t('moods.plural'), moods_path) %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
@@ -34,7 +34,7 @@
       <ul class="top-nav primary-nav">
         <% if user_signed_in? %>
           <%= nav_link_to(t('shared.header.home'), root_path)  %>
-          <%= nav_link_to(t('moments.index.title'), moments_path, :class => "expand_moment_button") %>
+          <%= nav_link_to(t('moments.plural'), moments_path, :class => "expand_moment_button") %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
           <%= nav_link_to(t('groups.index.title'), groups_path) %>
