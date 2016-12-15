@@ -236,7 +236,6 @@ en:
   tagged: 'Tagged Moments'
   new: 'New Moment'
   form:
-   add_mood: 'Add mood'
    viewers: 'Viewers'
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
@@ -248,7 +247,6 @@ en:
    instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
    example_name: 'Panicking over interview tomorrow!'
    example_category: 'Career'
-   example_moods: 'Nervous, Anxious, Hopeful'
   show:
    strategies: 'What strategies would help?'
 
@@ -257,6 +255,9 @@ en:
   plural: 'Moods'
   edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
+  add: 'Add mood'
+  new: 'New Mood'
+  example_moods: 'Nervous, Anxious, Hopeful'
   label:
    one: 'Mood:'
    other: 'Moods:'
@@ -273,7 +274,6 @@ en:
    premade5_name: 'Hopeless'
    premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
-  new: 'New Mood'
 
  notifications:
   title: 'Notifications'
