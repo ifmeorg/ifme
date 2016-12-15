@@ -30,7 +30,7 @@ en:
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
-    edit_object: "Edit %{object}"
+    edit_instance: 'Edit %{instance}'
     join: 'Join'
     leave: 'Leave'
     add: 'Add'
