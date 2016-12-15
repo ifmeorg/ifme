@@ -32,6 +32,7 @@ en:
    name: 'Name'
    you: 'You'
    title: 'Title'
+   date: 'Date:'
    actions:
     confirm: 'Are you sure?'
     delete: 'Delete'
@@ -57,6 +58,7 @@ en:
   control: 'Control who can view and comment'
 
  account:
+  singular: 'Account'
   sign_in: 'Sign in'
   sign_up: 'Sign up'
   forgot_password: 'Forgot your password?'
@@ -133,7 +135,6 @@ en:
   new: 'New Group'
   show:
    led_by: 'Led by:'
-   date: 'Date:'
    delete: 'Delete group'
 
  layouts:
@@ -148,7 +149,6 @@ en:
     app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
     no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
   title:
-   account: Account
    reset_password: Reset your password
 
  medications:
@@ -217,7 +217,6 @@ en:
   join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
-   date: 'Date:'
    meeting_time: 'Time'
    members_of_group_html:
     one: '%{count} Member <strong>of</strong> %{group}'
@@ -412,7 +411,6 @@ en:
     visible_only_between_you_and: 'Visible only between you and %{name}'
     not_allies: '(not allies)'
   header:
-   account: 'Account'
    signout: 'Sign out'
    notifications: 'Notifications'
    home: 'Home'

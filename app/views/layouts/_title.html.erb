@@ -10,7 +10,7 @@
     - <%= t('account.forgot_password') %>
   <% elsif current_page?(edit_user_registration_path) ||
     (params[:controller] == "registrations" && action_name == "update") %>
-  - <%= t('layouts.title.account') %>
+  - <%= t('account.singular') %>
 <% elsif current_page?(root_path) %>
   - <%= t('app_description') %>
 <% elsif current_page?(new_user_invitation_path) ||
