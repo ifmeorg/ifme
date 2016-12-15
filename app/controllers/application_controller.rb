@@ -384,14 +384,14 @@ class ApplicationController < ActionController::Base
     viewers = ''
 
     if link
-      viewers += t('shared.viewers_hover.visible_to')
+      viewers += t('shared.viewers.visible_to')
     end
 
     if data.blank? || data.length == 0
       if link
-        viewers += t('shared.viewers_hover.only_you').downcase
+        viewers += t('shared.viewers.only_you').downcase
       else
-        viewers += t('shared.viewers_hover.only_you')
+        viewers += t('shared.viewers.only_you')
       end
     end
 

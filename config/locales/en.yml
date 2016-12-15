@@ -30,6 +30,7 @@ en:
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
+    edit_instance: 'Edit %{instance}'
     join: 'Join'
     leave: 'Leave'
     add: 'Add'
@@ -76,7 +77,6 @@ en:
 
  categories:
   plural: 'Categories'
-  edit: "Edit %{category}"
   edit_category: "Edit Category"
   add_category: 'Add category'
   new: "New Category"
@@ -106,7 +106,6 @@ en:
 
  groups:
   singular: 'Group'
-  edit: "Edit %{group}"
   form:
     leaders: 'Leaders'
     only_leader: "You are the only leader, therefore you can't leave."
@@ -145,9 +144,12 @@ en:
    reset_password: Reset your password
 
  medications:
-  edit: "Edit %{medication}"
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
+  dosage: 'Daily Dosage:'
+  refill: 'Refill:'
+  quantity: 'Total Quantity:'
+  strength: 'Strength:'
   form:
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
@@ -178,14 +180,9 @@ en:
   refill_mailer:
     subject: "Your refill for %{name} is coming up soon!"
     body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
-
   index:
    title: 'Medications'
    subtitle: 'Keep track of your medications, including dosage and refill information.'
-   strength: 'Strength:'
-   quantity: 'Total Quantity:'
-   dosage: 'Daily Dosage:'
-   refill: 'Refill:'
    total: 'Total:'
    instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
    example_name: 'Prozac'
@@ -194,14 +191,9 @@ en:
    example_dosage: '40 tablets'
    example_refill: '05/31/2016'
   show:
-   strength: 'Strength:'
-   quantity: 'Total Quantity:'
-   dosage: 'Daily Dosage:'
-   refill: 'Refill:'
    comments: 'Comments:'
 
  meetings:
-  edit: "Edit %{meeting}"
   edit_meeting: 'Edit Meeting'
   form:
    location_placeholder: 'URL or street address'
@@ -227,12 +219,10 @@ en:
   plural: 'Moments'
   quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
   categories_and_moods: 'Categories and Moods'
-  edit: 'Edit %{moment}'
   edit_moment: 'Edit Moment'
   tagged: 'Tagged Moments'
   new: 'New Moment'
   form:
-   viewers: 'Viewers'
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
    what_happened: 'What happened?'
@@ -249,7 +239,6 @@ en:
  moods:
   singular: 'Mood'
   plural: 'Moods'
-  edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
   add: 'Add mood'
   new: 'New Mood'
@@ -272,7 +261,7 @@ en:
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
 
  notifications:
-  title: 'Notifications'
+  plural: 'Notifications'
   none: 'There are none'
   clear: 'Clear'
   created_by_html: "<strong>Created by</strong>: %{name}"
@@ -412,7 +401,6 @@ en:
     not_allies: '(not allies)'
   header:
    signout: 'Sign out'
-   notifications: 'Notifications'
    home: 'Home'
   viewers_indicator:
    disabled_comments: 'Comments have been disabled.'
@@ -426,7 +414,8 @@ en:
   stats:
     you_are_focusing: 'You are focusing the most on'
     user_is_focusing: '%{name} is focusing the most on'
-  viewers_hover:
+  viewers:
+    plural: 'Viewers'
     only_you: 'Only you'
     visible_to: 'Visible to '
   character_count: 'You have %{number} characters left.'
@@ -442,13 +431,11 @@ en:
  strategies:
   singular: 'Strategy'
   plural: 'Strategies'
-  edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
   tagged_strategies: 'Tagged Strategies'
   add_strategy: 'Add strategy'
   new: 'New Strategy'
   form:
-   viewers: 'Viewers'
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'

@@ -17,7 +17,7 @@
           <%= nav_link_to(t('groups.index.title'), groups_path) %>
           <%= nav_link_to(t('allies.index.title'), allies_path) %>
           <div class="divider"></div>
-          <%= nav_link_to(t('shared.header.notifications'), "", class: 'notifications_button') %>
+          <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
           <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
           <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
           <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
@@ -52,7 +52,7 @@
         </ul>
 
         <ul id="expand_me" class="top-nav large-screen display_none">
-          <%= nav_link_to(t('shared.header.notifications'), "", class: 'notifications_button') %>
+          <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
           <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
           <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
           <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
