@@ -14,7 +14,7 @@
 <% end %>
 <br>
 <strong>
-  <%= t('meetings.info.date') %>
+  <%= t('common.date') %>
 </strong>
 <%= meeting.date %>
 <br>
@@ -31,7 +31,7 @@
             count: meeting.members.count,
             group: link_to(meeting.group.name, meeting.group)) %>
     <% else %>
-      <%= t('meetings.info.members', count: meeting.members.count) %>
+      <%= t('members', count: meeting.members.count) %>
     <% end %>
   </strong>
 

@@ -9,7 +9,7 @@
         <% strategies = usage[1] %>
 
         <% if moments.length > 0 %>
-        <h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
+        <h1 class="tag_type"><%= t('moments.tagged') %></h1>
 
         <div id="moment_tag_usage">
       <div class="tag_usage">
@@ -24,7 +24,7 @@
     <% end %>
 
     <% if strategies.length > 0 %>
-        <h1 class="tag_type margin_top"><%= t('shared.tag_usage.tagged_strategies') %></h1>
+        <h1 class="tag_type margin_top"><%= t('strategies.plural') %></h1>
 
         <div id="strategy_tag_usage">
       <div class="tag_usage">
@@ -43,7 +43,7 @@
         <% if moments.length > 0 %>
             <% if local_assigns[:data_type] == 'strategy' %>
                 <h1 class="tag_type">
-                    <%= t('shared.tag_usage.tagged_moments') %>
+                    <%= t('moments.tagged') %>
                     <span id="showTaggedMoments" class="align_right display_inline_block"><i class="fa fa-caret-down"></i></span>
                     <span id="hideTaggedMoments" class="align_right display_none"><i class="fa fa-caret-up"></i></span>
                 </h1>
@@ -51,7 +51,7 @@
                 <div id="moment_tag_usage" class="display_none">
         <div class="tag_usage">
             <% else %>
-                <h1 class="tag_type"><%= t('shared.tag_usage.tagged_moments') %></h1>
+                <h1 class="tag_type"><%= t('moments.tagged') %></h1>
                 <div id="moment_tag_usage">
         <div class="tag_usage">
             <% end %>
