@@ -227,7 +227,6 @@ en:
   tagged: 'Tagged Moments'
   new: 'New Moment'
   form:
-   viewers: 'Viewers'
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
    what_happened: 'What happened?'
@@ -267,7 +266,7 @@ en:
    instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
 
  notifications:
-  title: 'Notifications'
+  plural: 'Notifications'
   none: 'There are none'
   clear: 'Clear'
   created_by_html: "<strong>Created by</strong>: %{name}"
@@ -407,7 +406,6 @@ en:
     not_allies: '(not allies)'
   header:
    signout: 'Sign out'
-   notifications: 'Notifications'
    home: 'Home'
   viewers_indicator:
    disabled_comments: 'Comments have been disabled.'
@@ -421,7 +419,8 @@ en:
   stats:
     you_are_focusing: 'You are focusing the most on'
     user_is_focusing: '%{name} is focusing the most on'
-  viewers_hover:
+  viewers:
+    plural: 'Viewers'
     only_you: 'Only you'
     visible_to: 'Visible to '
   character_count: 'You have %{number} characters left.'
@@ -443,7 +442,6 @@ en:
   add_strategy: 'Add strategy'
   new: 'New Strategy'
   form:
-   viewers: 'Viewers'
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
