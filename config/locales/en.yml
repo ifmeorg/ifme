@@ -2,22 +2,11 @@ en:
  app_name: 'if me'
  app_description: 'a community for mental health experiences'
  email: 'join.ifme@gmail.com'
- github: 'GitHub'
- twitter: 'Twitter'
- facebook: 'Facebook'
  us: 'us'
- patreon: 'Patreon'
- slack: 'Slack'
- linebreak: 'Linebreak'
- feedback: 'feedback'
  ellipsis: " [...]"
- view_more: 'View more'
- stories: 'Stories'
- welcome: 'Welcome'
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
- daily_reminder: 'Daily reminder email'
  salutation: "Hi %{name},"
  click_here: "click here"
 
@@ -27,12 +16,16 @@ en:
    contributors: 'Contributors'
    partners: 'Partners'
    privacy: 'Privacy Policy'
+   github: 'GitHub'
+   patreon: 'Patreon'
+   feedback: 'feedback'
 
  common:
    name: 'Name'
    you: 'You'
    title: 'Title'
    date: 'Date:'
+   daily_reminder: 'Daily reminder email'
    actions:
     confirm: 'Are you sure?'
     delete: 'Delete'
@@ -283,6 +276,7 @@ en:
   none: 'There are none'
   clear: 'Clear'
   created_by_html: "<strong>Created by</strong>: %{name}"
+  preview: 'View more'
   members:
    title: 'List of Members'
   mailer:
@@ -319,12 +313,14 @@ en:
   about:
     email_us: 'Feel free to email %{email_link}!'
     description: "is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.<p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p><p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><div class=\"spacer\"></div><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p><p><strong>Wanna help fund us?</strong> Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets. As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}. You can support us by donating to our %{patreon_link}."
+    linebreak: 'Linebreak'
   blog:
     description: "If you're interested in sharing your article or writing a new article, let %{email_link} know!"
   contributors:
     description: "<span class=\"emphasis\">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span><p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
     thanks: 'A huge thanks to'
+    slack: 'Slack'
   faq:
     title: 'Frequently Asked Questions'
     data_access_question: 'Who has access to my data?'
@@ -346,6 +342,8 @@ en:
     email_notifications_question: 'How can I modify email notifications?'
     email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
   home:
+    stories: 'Stories'
+    welcome: 'Welcome'
     not_signed_in:
       main_message_one: 'Better communication with loved ones leads to better mental health.'
       message_text_one: "We need each other's support to break down stigmas."
@@ -405,6 +403,8 @@ en:
     license_subtitle: 'Licensed under %{license}'
     faq: 'FAQ'
     connect: 'connect'
+    twitter: 'Twitter'
+    facebook: 'Facebook'
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
