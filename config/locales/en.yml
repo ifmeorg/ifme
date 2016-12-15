@@ -70,15 +70,17 @@ en:
     cancel: 'Cancel'
 
  categories:
+  plural: 'Categories'
   edit: "Edit %{category}"
   edit_category: "Edit Category"
+  add_category: 'Add category'
+  new: "New Category"
   form:
    name_hint: 'Categorize recurring people, places, things, activities, and more'
   label:
    one: 'Category:'
    other: 'Categories:'
   index:
-   title: 'Categories'
    subtitle: 'Life is messy, categorize the different people, places, and things.'
    premade1_name: 'Family'
    premade1_description: 'Family related'
@@ -89,7 +91,6 @@ en:
    premade4_name: 'Meditation'
    premade4_description: 'Meditation, deep breathing, and relaxing activities'
    instructions: "You haven't created any custom categories yet. Click %{icon} to add some!<br>You can also add the following premade categories and customize them another time."
-  new: "New Category"
 
  errors:
   home_page: 'Return home'
@@ -232,10 +233,8 @@ en:
   edit: 'Edit %{moment}'
   edit_moment: 'Edit Moment'
   form:
-   add_category: 'Add category'
    add_mood: 'Add mood'
    add_strategy: 'Add strategy'
-   categories: 'Categories'
    strategies: 'Strategies'
    viewers: 'Viewers'
    why: 'What happened and how do you feel?'
@@ -458,7 +457,6 @@ en:
   edit: 'Edit %{strategy}'
   edit_strategy: 'Edit Strategy'
   form:
-   categories: 'Categories'
    viewers: 'Viewers'
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
