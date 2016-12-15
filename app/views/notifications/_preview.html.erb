@@ -17,7 +17,7 @@
 
 		<% if local_assigns[:data].class.name == 'Strategy' && (local_assigns[:data].viewers.include?(current_user.id) || local_assigns[:data].userid == current_user.id) %>
         <div class="small_margin_top">
-        	<%= link_to t('view_more'), local_assigns[:data], target: "blank" %>
+        	<%= link_to t('notifications.preview'), local_assigns[:data], target: "blank" %>
         </div>
         <% end %>
 
