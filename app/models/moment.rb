@@ -42,4 +42,8 @@ class Moment < ActiveRecord::Base
     end
   end
 
+  def strategy
+    self.strategies
+  end
+
 end

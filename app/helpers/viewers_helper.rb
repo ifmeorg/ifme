@@ -14,18 +14,10 @@ module ViewersHelper
   def viewers_hover(data, link)
     result = {:class => 'yes_title'}
     if data.blank? || data.length == 0
-      if link
-        viewers = t('shared.viewers.you_link')
-      else
-        viewers = t('shared.viewers.you')
-      end
+      viewers = link ? t('shared.viewers.you_link') : t('shared.viewers.you')
     else
       viewer_names = data.to_a.map { |user_id| User.find(user_id).name }.to_sentence()
-      if link
-        viewers = t('shared.viewers.many', viewers: viewer_names)
-      else
-        viewers = viewer_names
-      end
+      viewers = link ? t('shared.viewers.many', viewers: viewer_names) : viewer_names
     end
     result[:title] = viewers
     if link
@@ -43,14 +35,7 @@ module ViewersHelper
 
     if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
       Moment.where(userid: data.userid).all.order("created_at DESC").each do |moment|
-        if data_type == 'category'
-          item = moment.category
-        elsif data_type == 'mood'
-          item = moment.mood
-        else
-          item = moment.strategies
-        end
-
+        item = moment.send(data_type)
         if item.include?(data.id)
           result += moment.viewers
         end
