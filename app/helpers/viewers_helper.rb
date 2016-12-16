@@ -12,8 +12,7 @@ module ViewersHelper
   end
 
   def viewers_hover(data, link)
-    result = ''
-
+    result = {:class => 'yes_title'}
     if data.blank? || data.length == 0
       if link
         viewers = t('shared.viewers.you_link')
@@ -28,17 +27,15 @@ module ViewersHelper
         viewers = viewer_names
       end
     end
-
+    result[:title] = viewers
     if link
-      link_url =link.class.link + link.id.to_s
-      result += '<span class="yes_title" title="' + viewers + '">'
-      result += link_to link.name, link_url
-      result += '</span>'
+      content_tag(:span, result) do
+        link_to link.name, (link.class.link + link.id.to_s)
+      end
     else
-      result += '<span class="yes_title small_margin_right" title="' + viewers + '"><i class="fa fa-lock"></i></span>'
+      result[:class] += ' small_margin_right'
+      content_tag(:span, tag(:i, :class => 'fa fa-lock'), result)
     end
-
-    return result.html_safe
   end
 
   def get_viewers_for(data, data_type)
