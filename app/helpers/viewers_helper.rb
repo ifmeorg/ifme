@@ -10,6 +10,7 @@ module ViewersHelper
       t('shared.viewers_indicator.you_are_viewer_html', count: viewers.length)
     end
   end
+
   def viewers_hover(data, link)
     result = ''
 
@@ -29,14 +30,7 @@ module ViewersHelper
     end
 
     if link
-      if link.class.name == 'Category'
-        link_url = '/categories/' + link.id.to_s
-      elsif link.class.name == 'Mood'
-        link_url = '/moods/' + link.id.to_s
-      elsif link.class.name == 'Strategy'
-        link_url = '/strategies/' + link.id.to_s
-      end
-
+      link_url =link.class.link + link.id.to_s
       result += '<span class="yes_title" title="' + viewers + '">'
       result += link_to link.name, link_url
       result += '</span>'
