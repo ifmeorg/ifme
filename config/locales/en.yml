@@ -10,6 +10,12 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
 
+ support:
+  array:
+    words_connector: ", "
+    two_words_connector: " and "
+    last_word_connector: ", and "
+
  navigation:
    about: 'About'
    blog: 'Blog'
@@ -416,8 +422,9 @@ en:
     user_is_focusing: '%{name} is focusing the most on'
   viewers:
     plural: 'Viewers'
-    only_you: 'Only you'
-    visible_to: 'Visible to '
+    you: 'Only you'
+    you_link: 'Visible to only you'
+    many: 'Visible to %{viewers}'
   character_count: 'You have %{number} characters left.'
   meeting_info:
     attending: 'You are attending. Change your mind?'
