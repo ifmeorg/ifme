@@ -39,9 +39,8 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies,
-                :viewers_hover, :created_or_edited, :get_viewers_for, :get_uid,
-                :most_focus, :tag_usage, :can_notify, :if_not_signed_in,
-                :generate_comment, :get_stories, :moments_stats
+                :created_or_edited, :get_uid, :most_focus, :tag_usage, :can_notify,
+                :if_not_signed_in, :generate_comment, :get_stories, :moments_stats
 
   def if_not_signed_in
     unless user_signed_in?
@@ -348,37 +347,6 @@ class ApplicationController < ActionController::Base
 
     return result
   end
-
-  def get_viewers_for(data, data_type)
-    result = Array.new
-
-    if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
-      Moment.where(userid: data.userid).all.order("created_at DESC").each do |moment|
-        if data_type == 'category'
-          item = moment.category
-        elsif data_type == 'mood'
-          item = moment.mood
-        else
-          item = moment.strategies
-        end
-
-        if item.include?(data.id)
-          result += moment.viewers
-        end
-      end
-
-      if (data_type == 'category')
-        Strategy.where(userid: data.userid).all.order("created_at DESC").each do |strategy|
-          if strategy.category.include?(data.id)
-            result += strategy.viewers
-          end
-        end
-      end
-    end
-
-    return result.uniq
-  end
-
 
   def created_or_edited(data)
     if data.created_at != data.updated_at && local_time_ago(data.created_at) == local_time_ago(data.updated_at)

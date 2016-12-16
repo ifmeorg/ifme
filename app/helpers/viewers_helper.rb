@@ -40,4 +40,34 @@ module ViewersHelper
 
     return result.html_safe
   end
+
+  def get_viewers_for(data, data_type)
+    result = Array.new
+
+    if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
+      Moment.where(userid: data.userid).all.order("created_at DESC").each do |moment|
+        if data_type == 'category'
+          item = moment.category
+        elsif data_type == 'mood'
+          item = moment.mood
+        else
+          item = moment.strategies
+        end
+
+        if item.include?(data.id)
+          result += moment.viewers
+        end
+      end
+
+      if (data_type == 'category')
+        Strategy.where(userid: data.userid).all.order("created_at DESC").each do |strategy|
+          if strategy.category.include?(data.id)
+            result += strategy.viewers
+          end
+        end
+      end
+    end
+
+    return result.uniq
+  end
 end
