@@ -381,23 +381,21 @@ class ApplicationController < ActionController::Base
 
   def viewers_hover(data, link)
     result = ''
-    viewers = ''
-
-    if link
-      viewers += t('shared.viewers.visible_to')
-    end
 
     if data.blank? || data.length == 0
       if link
-        viewers += t('shared.viewers.only_you').downcase
+        viewers = t('shared.viewers.you_link')
       else
-        viewers += t('shared.viewers.only_you')
+        viewers = t('shared.viewers.you')
+      end
+    else
+      viewer_names = data.to_a.map { |user_id| User.find(user_id).name }.to_sentence()
+      if link
+        viewers = t('shared.viewers.many', viewers: viewer_names)
+      else
+        viewers = viewer_names
       end
     end
-
-    viewer_names = data.to_a.map { |user_id| User.find(user_id).name }
-
-    viewers += viewer_names.to_sentence
 
     if link
       if link.class.name == 'Category'
