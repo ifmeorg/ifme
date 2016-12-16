@@ -2,7 +2,7 @@
   <%= form_for(@medication) do |f| %>
   <% if @medication.errors.any? %>
     <div class="error_explanation">
-      <%= t('medications.form.error_explanation') %>
+      <%= t('common.error_explanation') %>
     </div>
   <% end %>
 
@@ -12,7 +12,7 @@
 
       <div class="field">
         <div class="label">
-          <%= f.label t('medications.form.name'), for: 'medication_name' %>
+          <%= f.label t('common.name'), for: 'medication_name' %>
           <i class="fa fa-asterisk align_right"></i>
           <div class="clear"></div>
         </div>

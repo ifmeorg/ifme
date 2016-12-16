@@ -1,7 +1,7 @@
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
     <div class="error_explanation">
-      <%= t('meetings.form.error_explanation') %>
+      <%= t('common.error_explanation') %>
     </div>
   <% end %>
 
@@ -11,7 +11,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('meetings.form.name'), for: 'meeting_name' %>
+        <%= f.label t('common.name'), for: 'meeting_name' %>
         <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
@@ -20,7 +20,7 @@
 
     <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('meetings.form.location'), for: 'meeting_location' %>
+        <%= f.label t('common.location'), for: 'meeting_location' %>:
         <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
@@ -60,7 +60,7 @@
 
     <div class="field">
       <div class="label">
-        <%= f.label t('meetings.form.description'), for: 'meeting_description' %>
+        <%= f.label t('common.description'), for: 'meeting_description' %>
         <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>

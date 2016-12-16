@@ -39,6 +39,13 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
 
+ common:
+   email: "Email"
+   location: "Location"
+   name: 'Name'
+   description: 'Description'
+   error_explanation: 'Please fill out the marked fields!'
+
  add_comment:
   posting: 'Posting comment...'
   comment_button: Comment
@@ -57,9 +64,6 @@ en:
   edit: "Edit %{category}"
   edit_category: "Edit Category"
   form:
-   name: 'Name'
-   description: 'Description'
-   error_explanation: 'Please fill out the marked fields!'
    name_hint: 'Categorize recurring people, places, things, activities, and more'
   label:
    one: 'Category:'
@@ -67,7 +71,6 @@ en:
   index:
    title: 'Categories'
    subtitle: 'Life is messy, categorize the different people, places, and things.'
-   name: 'Name'
    description: 'Description'
    confirm: 'Are you sure?'
    premade1_name: 'Family'
@@ -92,12 +95,9 @@ en:
  groups:
   edit: "Edit %{group}"
   form:
-   name: 'Name'
-   description: 'Description'
    leaders: 'Leaders'
    only_leader: "You are the only leader, therefore you can't leave."
    cannot_delete: 'Please note that you cannot delete groups.'
-   error_explanation: 'Please fill out the marked fields!'
    error_save: "We can't save this group because: "
    error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
@@ -125,7 +125,6 @@ en:
   show:
    led_by: 'Led by:'
    self: 'You'
-   location: 'Location:'
    date: 'Date:'
    meeting_time: 'Time:'
    cancel_meeting: 'Cancel meeting'
@@ -160,7 +159,6 @@ en:
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   form:
-   name: 'Name'
    comments: 'Comments'
    strength: 'Strength'
    strength_placeholder: 'e.g. 100'
@@ -168,7 +166,6 @@ en:
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
-   error_explanation: 'Please fill out the marked fields!'
    comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
    add_to_google_cal: 'Google Calendar reminder'
    google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
@@ -221,15 +218,11 @@ en:
   edit: "Edit %{meeting}"
   edit_meeting: 'Edit Meeting'
   form:
-   name: 'Name'
-   location: 'Location'
    location_placeholder: 'URL or street address'
    meeting_time: 'Time'
    date: 'Date'
    maximum_members: 'Maximum Members'
    maximum_placeholder: '0 if no maximum'
-   description: 'Description'
-   error_explanation: 'Please fill out the marked fields!'
   join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
@@ -271,7 +264,6 @@ en:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
    allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields!'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
    comments_hint: 'Only you and viewers can comment'
@@ -293,8 +285,6 @@ en:
   edit: 'Edit %{mood}'
   edit_mood: 'Edit Mood'
   form:
-   name: 'Name'
-   description: 'Description'
    error_explanation: 'Please fill out the marked fields!'
   label:
    one: 'Mood:'
@@ -302,7 +292,6 @@ en:
   index:
    title: 'Moods'
    subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   name: 'Name'
    description: 'Description'
    edit: 'Edit'
    delete: 'Delete'
@@ -472,7 +461,6 @@ en:
     license_subtitle: 'Licensed under %{license}'
     faq: 'FAQ'
     connect: 'connect'
-    email: 'Email'
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
@@ -525,7 +513,6 @@ en:
    describe: 'Describe the strategy.'
    strategies_label: 'What strategies would help achieve these thoughts?'
    allow_comments: 'Allow Comments?'
-   error_explanation: 'Please fill out the marked fields'
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    comments_hint: 'Only you and viewers can comment'
@@ -564,3 +551,61 @@ en:
    new_ally_request:
      subject: "if me | %{ally_name} sent an ally request!"
      message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+
+ devise:
+  password: "Password"
+  new_password: "New password"
+  confirmations:
+    resend_confirmation: "Resend confirmation instructions"
+  mailer:
+    confirmation:
+      link_instructions: "You can confirm your account email through the link below"
+      link_text: "Confirm my account"
+    reset_password:
+      link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
+      link_text: "Change my password"
+      ignore: "If you didn't request this, please ignore this email."
+      info: "Your password won't change until you access the link above and create a new one."
+    unlock:
+      info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      link_instructions: "Click the link below to unlock your account"
+      link_text: "Unlock my account"
+  passwords:
+    edit:
+      confirmation: "Confirm new password"
+      submit: "Change my password"
+    new:
+      send_instructions: "Send me reset password instructions"
+
+  registrations:
+    placeholders:
+      repeat_password: "Repeat Password"
+    edit:
+      labels:
+        profile_picture: "Profile picture"
+        remove_picture: "Remove picture"
+        password_for: "Password for <strong>if me</strong> account"
+        update: "Update"
+      placeholders:
+        optional: "Optional"
+        about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
+        required: "Required"
+      delete:
+        text: "Is <strong>if me</strong> not working out for you?"
+        button: "Permanently delete my account"
+        confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
+    new:
+      subtitle: "Start telling your stories and maintaining your health in a safe, private space"
+      label: "A few details"
+      sign_up: "Sign up"
+  sessions:
+    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
+    sign_in: 'Sign in'
+  shared:
+    sign_in_google: 'Sign in with Google'
+    sign_up_google: 'Sign up with Google'
+    password: 'Forgot your password?'
+    confirmation: "Didn't receive confirmation instructions?"
+    unlock: "Didn't receive unlock instructions?"
+  unlock:
+    resend: 'Resend unlock instructions'
