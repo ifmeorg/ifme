@@ -10,12 +10,6 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
 
- support:
-  array:
-    words_connector: ", "
-    two_words_connector: " and "
-    last_word_connector: ", and "
-
  navigation:
    about: 'About'
    blog: 'Blog'
@@ -112,6 +106,7 @@ en:
 
  groups:
   singular: 'Group'
+  plural: 'Groups'
   form:
     leaders: 'Leaders'
     only_leader: "You are the only leader, therefore you can't leave."
@@ -119,7 +114,6 @@ en:
     error_save: "We can't save this group because: "
     error_edit_permission: 'You must be a leader of a group in order to edit it'
   index:
-   title: 'Groups'
    subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
    available_groups: 'Available Groups'
    joined_groups: 'Joined Groups'

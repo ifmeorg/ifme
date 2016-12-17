@@ -2,29 +2,38 @@ module MeetingsHelper
   private def not_attending(id)
     t('shared.meeting_info.not_attending',
       join:
-        link_to(t('common.actions.join'),
-        join_meetings_path(meetingid: id)))
+        link_to(
+          t('common.actions.join'),
+          join_meetings_path(meetingid: id)
+        ))
   end
 
   private def attending(id)
-    t('shared.meeting_info.attending') + '\n' +
-      link_to(t('common.actions.leave'),
-      leave_meetings_path(meetingid: id))
+    t('shared.meeting_info.attending') +
+    '\n' +
+    link_to(
+      t('common.actions.leave'),
+      leave_meetings_path(meetingid: id)
+    )
   end
 
   private def one_spot(id)
     t('shared.meeting_info.not_attending_one_spot_left',
       join:
-        link_to(t('common.actions.join'),
-        join_meetings_path(meetingid: id)))
+        link_to(
+          t('common.actions.join'),
+          join_meetings_path(meetingid: id)
+        ))
   end
 
   private def many_spots(id, meeting_space)
     t('shared.meeting_info.not_attending_spots_left',
       number: meeting_space,
       join:
-        link_to(t('common.actions.join'),
-        join_meetings_path(meetingid: id)))
+        link_to(
+          t('common.actions.join'),
+          join_meetings_path(meetingid: id)
+        ))
   end
 
   private def in_meeting(meeting)

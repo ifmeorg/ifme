@@ -14,7 +14,7 @@
           <%= nav_link_to(t('moods.plural'), moods_path) %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
-          <%= nav_link_to(t('groups.index.title'), groups_path) %>
+          <%= nav_link_to(t('groups.plural'), groups_path) %>
           <%= nav_link_to(t('allies.index.title'), allies_path) %>
           <div class="divider"></div>
           <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
@@ -37,7 +37,7 @@
           <%= nav_link_to(t('moments.plural'), moments_path, :class => "expand_moment_button") %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
-          <%= nav_link_to(t('groups.index.title'), groups_path) %>
+          <%= nav_link_to(t('groups.plural'), groups_path) %>
           <%= nav_link_to(t('allies.index.title'), allies_path) %>
         <% else %>
           <%= nav_link_to(t('account.sign_in'), new_user_session_path) %>
