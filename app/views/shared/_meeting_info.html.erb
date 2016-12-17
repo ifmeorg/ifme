@@ -39,25 +39,7 @@
 </div>
 
 <strong>
-  <% if meeting.maxmembers == 0 && !meeting.members.include?(current_user)%>
-    <%= raw t('shared.meeting_info.not_attending', {
-        join: link_to(t('common.actions.join'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% elsif meeting.members.include? current_user %>
-    <%= t('shared.meeting_info.attending') %>
-    <%= link_to t('common.actions.leave'), leave_meetings_path(meetingid: meeting.id) %>
-  <% elsif meeting.maxmembers - meeting.members.count == 1 %>
-    <%= raw t('shared.meeting_info.not_attending_one_spot_left', {
-        join: link_to(t('common.actions.join'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% elsif meeting.maxmembers - meeting.members.count > 1 %> %>
-    <%= raw t('shared.meeting_info.not_attending_spots_left', {
-        number: meeting.maxmembers - meeting.members.count,
-        join: link_to(t('common.actions.join'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% else %>
-    <%= t('shared.meeting_info.not_attending_no_spots_left') %>
-  <% end %>
+  <%= get_meeting_members(meeting) %>
 </strong>
 
 <% if meeting.leaders.include? current_user %>

@@ -38,9 +38,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies,
-                :created_or_edited, :get_uid, :most_focus, :tag_usage, :can_notify,
-                :if_not_signed_in, :generate_comment, :get_stories, :moments_stats
+  helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
+                :are_allies, :created_or_edited, :get_uid, :most_focus,
+                :tag_usage, :can_notify, :if_not_signed_in,
+                :generate_comment, :get_stories, :moments_stats
 
   def if_not_signed_in
     unless user_signed_in?

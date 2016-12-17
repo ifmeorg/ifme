@@ -1,0 +1,31 @@
+describe MeetingsHelper do
+
+  describe "get_meeting_members" do
+    let(:meeting){FactoryGirl.create(:meeting, id:1)}
+    let(:current_user) { FactoryGirl.create(:meeting_member, meeting: meeting).user }
+
+    it "displays not attending with a link to join" do
+      meeting = create(:meeting,  members: [], maxmembers: 0, id: 2)
+      result = get_meeting_members(meeting)
+      expect(result).to eq("You are not attending. <a href=\"/meetings/join?meetingid=2\">Join</a>")
+    end
+
+    it "displays attending with a link to leave" do
+      result = get_meeting_members(meeting)
+      expect(result).to eq("You are attending. Change your mind?\\n<a href=\"/meetings/leave?meetingid=1\">Leave</a>")
+    end
+
+    it "displays there is room to join with a link" do
+      meeting = create(:meeting, id: 3)
+      result = get_meeting_members(meeting)
+      expect(result).to eq("You are not attending. There is one spot left to fill! <a href=\"/meetings/join?meetingid=3\">Join</a>")
+    end
+
+    it "displays there is no room to join " do
+      meeting = create(:meeting, id: 4)
+      member = create(:meeting_member, meeting: meeting)
+      result = get_meeting_members(meeting)
+      expect(result).to eq("You are not attending. There is no room to join.")
+    end
+  end
+end
