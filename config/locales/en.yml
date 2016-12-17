@@ -268,6 +268,22 @@ en:
   preview: 'View more'
   members:
    title: 'List of Members'
+  ally:
+   accepted: '%{name} accepted your ally request!'
+   sent_html: '%{link_to_user} sent an ally request!'
+  comment:
+   full: '%{name} commented "%{comment}" on %{commented_on}'
+   truncated: '%{name} commented "%{comment}" [...] on %{commented_on}'
+  group:
+   new_group: '%{name} created a group "%{group_name}"'
+   new_group_member: '%{name} joined your group "%{group_name}"'
+   add_group_leader: '%{name} became a leader of "%{group_name}"'
+   remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+  meeting:
+   new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
+   remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
+   update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
+   join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
   mailer:
     comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
     comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""

@@ -6,7 +6,7 @@ var onReadyAddComment = function() {
 			if (!$(this).prop('disabled')) {
 				$(this).prop('disabled', true);
 				$('#comment_comment').prop('disabled', true);
-				$(this).val(I18n.t('add_comment.posting'));
+				$(this).val(I18n.t('comment.posting'));
 
 				if ($('.comment').length > 0) {
 					$('.actions').removeClass('no_margin_bottom');
@@ -45,7 +45,7 @@ var onReadyAddComment = function() {
 				    		$('#add_comment_button').prop('disabled', false);
 				    		$('#comment_comment').prop('disabled', false);
 				    		$('#comment_comment').val('');
-							$('#add_comment_button').val(I18n.t('add_comment.comment_button'));
+							$('#add_comment_button').val(I18n.t('comment.singular'));
 
 				    		if (!json.no_save) {
 					    		var commentid = 'comment_' + json.commentid;
@@ -102,7 +102,7 @@ var onReadyAddComment = function() {
 				    error: function() {
 				    	$('#add_comment_button').prop('disabled', false);
 				    	$('#comment_comment').prop('disabled', false);
-						$('#add_comment_button').val(I18n.t('add_comment.comment_button'));
+						$('#add_comment_button').val(I18n.t('comment.singular'));
 				    }
 				});
 			}
