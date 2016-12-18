@@ -28,16 +28,25 @@ module ViewersHelper
     end
   end
 
+  private def add_link(link)
+    content_tag(:span, result) do
+      link_to link.name, (link.class.link + link.id.to_s)
+    end
+  end
+
+  private def no_link(result)
+    result[:class] += ' small_margin_right'
+    content_tag(:span,
+                content_tag(:i, ''.html_safe, class: 'fa fa-lock'),
+                result).html_safe
+  end
+
   def viewers_hover(data, link)
-    result = { class: 'yes_title',
-               title: get_viewer_list(data, link).html_safe }
     if link
-      content_tag(:span, result) do
-        link_to link.name, (link.class.link + link.id.to_s)
-      end
+      add_link(link)
     else
-      result[:class] += ' small_margin_right'
-      content_tag(:span, content_tag(:i, ''.html_safe, class: 'fa fa-lock'), result).html_safe
+      no_link(class: 'yes_title',
+              title: get_viewer_list(data, link).html_safe)
     end
   end
 
