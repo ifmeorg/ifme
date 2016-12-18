@@ -37,7 +37,7 @@ module ViewersHelper
       end
     else
       result[:class] += ' small_margin_right'
-      content_tag(:span, tag(:i, class: 'fa fa-lock'), result)
+      content_tag(:span, content_tag(:i, ''.html_safe, class: 'fa fa-lock'), result).html_safe
     end
   end
 
