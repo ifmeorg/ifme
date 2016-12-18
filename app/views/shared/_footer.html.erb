@@ -4,26 +4,26 @@
 				<div class="row">
 					<div class="table_cell large_padding_right">
 						<span class="footer_heading" id="if_me_links"><%= t('app_name') %></span>
-						<%= link_to(t('navigation.about'), about_path) %>
-						<%= link_to(t('navigation.blog'), blog_path) %>
-						<%= link_to(t('navigation.contributors'), contributors_path) %>
-						<%= link_to(t('navigation.partners'), partners_path) %>
+						<%= link_to(t('shared.footer.footer_about'), about_path) %>
+						<%= link_to(t('shared.footer.footer_blog'), blog_path) %>
+						<%= link_to(t('shared.footer.footer_contributors'), contributors_path) %>
+						<%= link_to(t('shared.footer.footer_partners'), partners_path) %>
 						<%= link_to(t('shared.footer.faq'), faq_path) %>
-						<%= link_to(t('navigation.privacy'), privacy_path) %>
+						<%= link_to(t('shared.footer.footer_privacy'), privacy_path) %>
 					</div>
 					<div class="table_cell">
 						<span class="footer_heading" id="connect_links"><%= t('shared.footer.connect') %></span>
-						<%= link_to(t('navigation.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
-						<%= link_to(t('shared.footer.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('shared.footer.facebook'), "http://facebook.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: "blank") %>
+						<%= link_to(t('github'), "https://github.com/julianguyen/ifme", target: "blank") %>
+						<%= link_to(t('twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
+						<%= link_to(t('facebook'), "http://facebook.com/ifmeorg", target: "blank") %>
+						<%= link_to(t('patreon'), 'http://patreon.com/ifme', target: "blank") %>
 						<%= link_to(t('email'), 'mailto:join.ifme@gmail.com') %>
 					</div>
 				</div>
 			</div>
 			<div class="spacer"></div>
 			<div class="align_left">
-				<%= link_to(t('navigation.feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
+				<%= link_to(t('feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 			</div>
 			<div class="align_right license">
 				<%= content_tag(:span, raw(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>

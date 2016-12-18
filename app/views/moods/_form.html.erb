@@ -1,7 +1,7 @@
 <%= form_for(@mood) do |f| %>
 <% if @mood.errors.any? %>
   <div class="error_explanation">
-    <%= t('common.form.error_explanation') %>
+    <%= t('common.error_explanation') %>
   </div>
 <% end %>
 
@@ -16,7 +16,7 @@
 
   <div class="field">
     <div class="label">
-      <%= f.label t('common.form.description'), for: 'mood_description' %>
+      <%= f.label t('common.description'), for: 'mood_description' %>
     </div>
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>

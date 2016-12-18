@@ -1,4 +1,4 @@
-<% title user_signed_in? && @stories.any? ? t('pages.home.stories') : t('pages.home.welcome') %>
+<% title user_signed_in? && @stories.any? ? t('stories') : t('welcome') %>
 <% if !user_signed_in? %>
 	<%= render :partial => 'not_signed_in' %>
 <% elsif @stories.count > 0 %>
@@ -18,7 +18,7 @@
 						<div class="align_right">
         			<h1 class="ally_name">
         				<% if current_user.id == story.userid %>
-        					<%= link_to t('common.you'), profile_index_path(uid: current_user.uid) %>
+        					<%= link_to t('pages.home.you'), profile_index_path(uid: current_user.uid) %>
         				<% else %>
         					<%= link_to User.where(:id => story.userid).first.name, profile_index_path(uid: get_uid(story.userid)) %>
         				<% end %>

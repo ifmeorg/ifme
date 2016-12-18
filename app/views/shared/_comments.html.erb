@@ -7,7 +7,7 @@
   <%= form_for local_assigns[:comment], :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>
     <% if local_assigns[:comment].errors.any? %>
         <div class="error_explanation">
-          <%= t('common.form.error_explanation') %>
+          <%= t('shared.comments.error_explanation') %>
         </div>
     <% end %>
 
@@ -37,7 +37,7 @@
              }, include_blank: t('shared.comments.share_everyone') %>
         <% end %>
       <% end %>
-      <%= f.submit t('comment.singular'), class: 'no_margin_right small_margin_top', id: 'add_comment_button' %>
+      <%= f.submit t('shared.comments.comment'), class: 'no_margin_right small_margin_top', id: 'add_comment_button' %>
     </div>
 
     <div class="clear"></div>

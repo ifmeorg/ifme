@@ -2,7 +2,7 @@
   <%= form_for(@medication) do |f| %>
   <% if @medication.errors.any? %>
     <div class="error_explanation">
-      <%= t('common.form.error_explanation') %>
+      <%= t('common.error_explanation') %>
     </div>
   <% end %>
 
@@ -80,7 +80,7 @@
 
       <div class="field">
         <div class="label">
-          <%= f.label t('comment.plural') %>
+          <%= f.label t('medications.form.comments') %>
           <div class="align_right">
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
           </div>
@@ -109,7 +109,7 @@
           <div class="label no_margin_bottom">
             <div class="inline-block">
               <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-              <%= reminder.label t('common.daily_reminder'), for: 'take_medication_reminder' %>
+              <%= reminder.label t('daily_reminder'), for: 'take_medication_reminder' %>
             </div>
             <span class="medication_tooltip_padding">
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
