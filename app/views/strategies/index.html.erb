@@ -1,4 +1,4 @@
-<% title t('strategies.plural') %>
+<% title t('strategies.index.title') %>
 <% page_new new_strategy_path %>
 
 <div class="subtitle">
@@ -25,14 +25,14 @@
     }) %>
 
   <div class="actions align_right">
-    <%= button_to t('common.actions.add'), premade_strategies_path %>
+    <%= button_to t('add'), premade_strategies_path %>
   </div>
 
   <div class="clear"></div>
 
   <div class="strategy no_margin_bottom">
     <h1 class="strategy_name">
-      <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
+      <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('strategies.index.privacy')) %>
       <%= t('strategies.index.premade1_name') %>
     </h1>
 

@@ -21,7 +21,7 @@
 		<div class="table_cell vertical_align_middle onboarding_message">
 			<%= raw t('pages.home.signed_in_empty.cell_one', {
 					profile: link_to(t('profile.index.title'), edit_user_registration_path),
-					moods: link_to(t('moods.plural'), moods_path),
+					moods: link_to(t('moods.index.title'), moods_path),
 					allies: link_to(t('allies.index.title'), allies_path)
 				}) %>
 		</div>
@@ -40,8 +40,8 @@
 
 		<div class="table_cell vertical_align_middle onboarding_message">
 			<%= raw t('pages.home.signed_in_empty.cell_two', {
-					categories: link_to(t('categories.plural'), categories_path),
-					moments: link_to(t('moments.plural'), moments_path)
+					categories: link_to(t('categories.index.title'), categories_path),
+					moments: link_to(t('moments.index.title'), moments_path)
 				}) %>
 		</div>
 	</div>
@@ -61,7 +61,7 @@
 			<%= raw t('pages.home.signed_in_empty.cell_three', {
 					strategize: link_to(t('pages.home.signed_in_empty.strategize'), strategies_path),
 					medications: link_to(t('medications.index.title'), medications_path),
-					group: link_to(t('groups.singular'), groups_path)
+					group: link_to(t('group'), groups_path)
 				}) %>
 		</div>
 	</div>

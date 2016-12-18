@@ -19,7 +19,7 @@
       <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
-      <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+      <%= link_to t('cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
     </div>
   <% end %>
   </div>
@@ -38,7 +38,7 @@
       <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
-      <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+      <%= link_to t('accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('reject'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
     </div>
   <% end %>
   </div>
@@ -58,7 +58,7 @@
     <%= fetch_profile_picture(ally.avatar.url, 'profile_picture') %>
     <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
     <div class="location"><%= ally.location %></div>
-    <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+    <%= link_to t('remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('allies.index.confirm') } %>
   </div>
 <% end %>
 </div>

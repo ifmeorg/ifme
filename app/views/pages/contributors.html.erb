@@ -1,8 +1,8 @@
-<% title t('navigation.contributors') %>
+<% title t('pages.contributors.title') %>
 <%= raw t('pages.contributors.description', {
   email_link: link_to(t('us'), "mailto:#{t('email')}"),
-  slack_link: link_to(t('pages.contributors.slack'), 'https://ifme.slack.com', target: 'blank'),
-  github_link: link_to(t('navigation.github'), 'https://github.com/julianguyen/ifme', target: 'blank')
+  slack_link: link_to(t('slack'), 'https://ifme.slack.com', target: 'blank'),
+  github_link: link_to(t('github'), 'https://github.com/julianguyen/ifme', target: 'blank')
   })
 %>
 

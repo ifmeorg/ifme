@@ -1,5 +1,5 @@
 module ApplicationHelper
-  include LocalTimeHelper, ViewersHelper
+  include LocalTimeHelper
 
   def nav_link_to(body, url, html_options = {})
     environment = html_options[:method] ? {:method => html_options[:method]} : {}
