@@ -28,7 +28,7 @@ module ViewersHelper
     end
   end
 
-  private def add_link(link)
+  private def add_link(link, result)
     content_tag(:span, result) do
       link_to link.name, (link.class.link + link.id.to_s)
     end
@@ -42,11 +42,11 @@ module ViewersHelper
   end
 
   def viewers_hover(data, link)
+    result = { class: 'yes_title', title: get_viewer_list(data, link) }
     if link
-      add_link(link)
+      add_link(link, result)
     else
-      no_link(class: 'yes_title',
-              title: get_viewer_list(data, link).html_safe)
+      no_link(result)
     end
   end
 
