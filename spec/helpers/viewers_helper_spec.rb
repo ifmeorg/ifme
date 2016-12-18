@@ -70,7 +70,7 @@ describe ViewersHelper do
   describe "viewers_hover" do
     it "displays only you when there are no viewers without link" do
       result = viewers_hover(nil, nil)
-      expect(result).to eq('<span class="yes_title small_margin_right" title="Only you"><i class="fa fa-lock" /></span>')
+      expect(result).to eq('<span class="yes_title small_margin_right" title="Only you"><i class="fa fa-lock"></i></span>')
     end
 
     it "displays only you when there are no viewers with link" do
@@ -86,7 +86,7 @@ describe ViewersHelper do
       new_user2 = create(:user2)
       new_user3 = create(:user3)
       result = viewers_hover([new_user1.id, new_user2.id, new_user3.id], nil)
-      expect(result).to eq('<span class="yes_title small_margin_right" title="Oprah Chang, Plum Blossom, and Gentle Breezy"><i class="fa fa-lock" /></span>')
+      expect(result).to eq('<span class="yes_title small_margin_right" title="Oprah Chang, Plum Blossom, and Gentle Breezy"><i class="fa fa-lock"></i></span>')
     end
 
     it "displays list of viewers with link" do
