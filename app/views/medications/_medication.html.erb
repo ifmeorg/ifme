@@ -1,15 +1,15 @@
 <div class="medication">
 	<h1 class="medication_name"><%= link_to medication.name, medication %></h1>
 
-  <strong><%= t('medications.index.strength') %></strong> <%= t('medications.units.display', count: medication.strength, unit: t("medications.units.#{medication.strength_unit}", count: medication.strength)) %>
+  <strong><%= t('medications.strength') %></strong> <%= t('medications.units.display', count: medication.strength, unit: t("medications.units.#{medication.strength_unit}", count: medication.strength)) %>
   <br><strong><%= t('medications.index.total') %></strong> <%= t('medications.units.display', count: medication.total, unit: t("medications.units.#{medication.total_unit}", count: medication.total)) %>
-  <br><strong><%= t('medications.index.dosage') %></strong> <%= t('medications.units.display', count: medication.dosage, unit: t("medications.units.#{medication.dosage_unit}", count: medication.dosage)) %>
-  <br><strong><%= t('medications.index.refill') %></strong> <%= medication.refill %>
+  <br><strong><%= t('medications.dosage') %></strong> <%= t('medications.units.display', count: medication.dosage, unit: t("medications.units.#{medication.dosage_unit}", count: medication.dosage)) %>
+  <br><strong><%= t('medications.refill') %></strong> <%= medication.refill %>
 
   <%= print_reminders(medication) %>
 
 	<div class="small_margin_top">
-  	<i class="fa fa-pencil action"></i><%= link_to t('medications.index.edit'), edit_medication_path(medication) %>
-  	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('medications.index.delete'), medication, method: :delete, data: { confirm: t('medications.index.confirm') } %>
+  	<i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), edit_medication_path(medication) %>
+  	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), medication, method: :delete, data: { confirm: t('common.actions.confirm') } %>
 	</div>
 </div>

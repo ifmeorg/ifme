@@ -36,4 +36,8 @@ class Strategy < ActiveRecord::Base
   def active_reminders
     [perform_strategy_reminder].select(&:active?)
   end
+
+  def self.link
+    '/strategies'
+  end
 end

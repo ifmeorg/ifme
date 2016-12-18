@@ -15,6 +15,6 @@ class PerformStrategyReminder < ActiveRecord::Base
   scope :active, -> { where(active: true) }
 
   def name
-    I18n.t('daily_reminder')
+    I18n.t('common.daily_reminder')
   end
 end

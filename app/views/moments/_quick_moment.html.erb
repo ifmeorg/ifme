@@ -1,14 +1,14 @@
 <%= form_for(local_assigns[:moment], url: quick_moment_moments_path) do |f| %>
 	<% if local_assigns[:moment].errors.any? %>
 	  <div class="error_explanation">
-	    <%= t('common.error_explanation') %>
+	    <%= t('common.form.error_explanation') %>
 	  </div>
 	<% end %>
 
 	<div class="table" id="quick_moment">
 		<div class="table_row">
 			<div class="table_cell small_padding_right vertical_align_middle">
-				<%= f.text_field :name, placeholder: t('moments.form.name'), :required => true %>
+				<%= f.text_field :name, placeholder: t('common.title'), :required => true %>
 				<%= f.text_area :why, placeholder: t('moments.form.what_happened'), :required => true %>
 				<div class="quick_moment_disclaimer">
 					<%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
@@ -29,9 +29,9 @@
 							!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
 							<%= t('moments.categories_and_moods') %>
 						<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-							<%= t('categories.index.title') %>
+							<%= t('categories.plural') %>
 						<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-							<%= t('moods.index.title') %>
+							<%= t('moods.plural') %>
 						<% end %>
 					</span>
 				</div>

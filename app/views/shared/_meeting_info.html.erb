@@ -3,7 +3,7 @@
 </div>
 
 <strong>
-  <%= t('meetings.info.location') %>:
+  <%= t('common.form.location') %>:
 </strong>
 
 <% if meeting.location.match(/^https?:\/\/|www\./) %>
@@ -14,7 +14,7 @@
 <% end %>
 <br>
 <strong>
-  <%= t('meetings.info.date') %>
+  <%= t('common.date') %>
 </strong>
 <%= meeting.date %>
 <br>
@@ -31,7 +31,7 @@
             count: meeting.members.count,
             group: link_to(meeting.group.name, meeting.group)) %>
     <% else %>
-      <%= t('meetings.info.members', count: meeting.members.count) %>
+      <%= t('members', count: meeting.members.count) %>
     <% end %>
   </strong>
 
@@ -39,30 +39,12 @@
 </div>
 
 <strong>
-  <% if meeting.maxmembers == 0 && !meeting.members.include?(current_user)%>
-    <%= raw t('shared.meeting_info.not_attending', {
-        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% elsif meeting.members.include? current_user %>
-    <%= t('shared.meeting_info.attending') %>
-    <%= link_to t('meetings.info.leave_cta'), leave_meetings_path(meetingid: meeting.id) %>
-  <% elsif meeting.maxmembers - meeting.members.count == 1 %>
-    <%= raw t('shared.meeting_info.not_attending_one_spot_left', {
-        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% elsif meeting.maxmembers - meeting.members.count > 1 %> %>
-    <%= raw t('shared.meeting_info.not_attending_spots_left', {
-        number: meeting.maxmembers - meeting.members.count,
-        join: link_to(t('meetings.info.join_cta'), join_meetings_path(meetingid: meeting.id))
-      }) %>
-  <% else %>
-    <%= t('shared.meeting_info.not_attending_no_spots_left') %>
-  <% end %>
+  <%= get_meeting_members(meeting) %>
 </strong>
 
 <% if meeting.leaders.include? current_user %>
   <br>
   <br>
   <i class="fa fa-trash-o action"></i>
-  <%= link_to t('meetings.info.cancel_meeting'), meeting, method: :delete, data: { confirm: t('meetings.info.confirm') } %>
+  <%= link_to t('meetings.info.cancel_meeting'), meeting, method: :delete, data: { confirm: t('common.actions.confirm') } %>
 <% end %>

@@ -1,4 +1,4 @@
-<div id=<%= "#{local_assigns[:data_type].to_s}_quick_create" %> class="quick_create display_none">
+<div class="quick_create display_none" id=<%= "#{local_assigns[:data_type].to_s}_quick_create" %> >
 	<div class="quick_create_text">
 		<%= render :partial => '/shared/modal',
 			locals: {
@@ -22,11 +22,11 @@
 			<% if local_assigns[:data].errors.any? %>
 			  	<div class="error_explanation">
 			  	<% if local_assigns[:data_type] == 'category' %>
-					<%= t('common.error_explanation') %>
+					<%= t('common.form.error_explanation') %>
 			  	<% elsif local_assigns[:data_type] == 'mood' %>
-					<%= t('moods.form.error_explanation') %>
+					<%= t('common.form.error_explanation') %>
 			  	<% elsif local_assigns[:data_type] == 'strategy' %>
-					<%= t('common.error_explanation') %>
+					<%= t('common.form.error_explanation') %>
 			  	<% end %>
 			  	</div>
 			<% end %>

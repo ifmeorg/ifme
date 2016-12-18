@@ -17,29 +17,29 @@ module GroupsHelper
   end
 
   def edit_group_link(group)
-    link_to t('groups.index.edit'), edit_group_path(group),
+    link_to t('common.actions.edit'), edit_group_path(group),
             class: 'small_margin_right'
   end
 
   def leader_link(leader)
-    name = leader == current_user ? t('.self') : leader.name
+    name = leader == current_user ? t('common.you') : leader.name
     link_to name, profile_index_path(uid: leader.uid)
   end
 
   def delete_group_link(group, attrs = {})
-    link_to t('.delete'), group,
+    link_to t('common.actions.delete'), group,
             { method: :delete,
-              data: { confirm: t('.confirm') }
+              data: { confirm: t('common.actions.confirm') }
             }.merge(attrs)
   end
 
   def leave_group_link(group, attrs = {})
-    link_to t('.leave'), leave_groups_path(groupid: group.id),
+    link_to t('common.actions.leave'), leave_groups_path(groupid: group.id),
             { id: 'leave' }.merge(attrs)
   end
 
   def join_group_link(group, attrs = {})
-    link_to t('.join'), join_groups_path(groupid: group.id),
+    link_to t('common.actions.join'), join_groups_path(groupid: group.id),
             { id: 'join' }.merge(attrs)
   end
 

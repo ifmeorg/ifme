@@ -1,7 +1,7 @@
 <%= form_for(@moment) do |f| %>
 <% if @moment.errors.any? %>
   <div class="error_explanation">
-    <%= t('common.error_explanation') %>
+    <%= t('common.form.error_explanation') %>
   </div>
 <% end %>
 
@@ -11,7 +11,7 @@
 
     <div class="sidebar_field" >
       <div class="sidebar_label">
-        <%= f.label t('moments.form.name'), for: 'moment_name' %>
+        <%= f.label t('common.title'), for: 'moment_name' %>
         <i class="fa fa-asterisk align_right"></i>
         <div class="clear"></div>
       </div>
@@ -23,7 +23,7 @@
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
         </a>
-        <%= f.label t('moments.form.categories') %>
+        <%= f.label t('categories.plural') %>
       </div>
 
       <div id="categories" class="display_none">
@@ -38,7 +38,7 @@
           <% end %>
         <% end %>
         </div>
-        <span id='category_quick_button' class='link_style small_margin_top'><%= t('moments.form.add_category') %></span>
+        <span id='category_quick_button' class='link_style small_margin_top'><%= t('categories.add_category') %></span>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
         </a>
-        <%= f.label t('moments.form.moods') %>
+        <%= f.label t('moods.plural') %>
       </div>
 
       <div id="moods" class="display_none">
@@ -62,7 +62,7 @@
           <% end %>
         <% end %>
         </div>
-        <span id='mood_quick_button' class='link_style small_margin_top'><%= t('moments.form.add_mood') %></span>
+        <span id='mood_quick_button' class='link_style small_margin_top'><%= t('moods.add') %></span>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
         </a>
-        <%= f.label t('moments.form.strategies') %>
+        <%= f.label t('strategies.plural') %>
       </div>
 
       <div id="strategies" class="display_none">
@@ -86,7 +86,7 @@
           <% end %>
         <% end %>
         </div>
-        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('moments.form.add_strategy') %></span>
+        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('strategies.plural') %></span>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
         <a href="#" class="toggle_button">
           <i class="fa fa-caret-down"></i>
         </a>
-        <%= f.label t('moments.form.viewers') %>
+        <%= f.label t('shared.viewers.plural') %>
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
       </div>
     </div>
@@ -105,7 +105,7 @@
       <div id="viewers_list">
         <label>
           <input type="checkbox" id="viewers_all" />
-          <span id="viewers_label"><%= t('select_all') %></span>
+          <span id="viewers_label"><%= t('common.actions.select_all') %></span>
         </label>
         
         <% @viewers.each do |item| %>
@@ -120,8 +120,8 @@
 
      <div class="sidebar_field">
       <div class="sidebar_label">
-        <%= f.label t('moments.form.allow_comments') %>
-        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.comments_hint')) %>
+        <%= f.label t('comment.allow_comments') %>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('comment.hint')) %>
         <div class="align_right">
           <%= f.check_box :comment, class: 'no_margin_right' %>
         </div>
