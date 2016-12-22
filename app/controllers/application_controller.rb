@@ -19,12 +19,19 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :if_not_signed_in, unless: :devise_controller?
 
+  before_action :set_locale
+
   # Timezone
   around_filter :with_timezone
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
     Time.use_zone(timezone) { yield }
+  end
+
+  # before_action
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def configure_permitted_parameters
