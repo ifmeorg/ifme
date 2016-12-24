@@ -1,52 +1,53 @@
 <%= form_for(local_assigns[:moment], url: quick_moment_moments_path) do |f| %>
-	<% if local_assigns[:moment].errors.any? %>
-	  <div class="error_explanation">
-	    <%= t('common.form.error_explanation') %>
-	  </div>
-	<% end %>
-
-	<div class="table" id="quick_moment">
-		<div class="table_row">
-			<div class="table_cell small_padding_right vertical_align_middle">
-				<%= f.text_field :name, placeholder: t('common.title'), :required => true %>
-				<%= f.text_area :why, placeholder: t('moments.form.what_happened'), :required => true %>
-				<div class="quick_moment_disclaimer">
-					<%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
-					<%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
-				</div>
-			</div>
-
-			<div class="table_cell center vertical_align_middle">
-
-				<%= render :partial => '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
-
-				<div class="clear"></div>
-
-				<% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
-				<div id="toggle_categories_moods">
-					<span class="link_style">
-						<% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
-							!local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-							<%= t('moments.categories_and_moods') %>
-						<% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
-							<%= t('categories.plural') %>
-						<% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
-							<%= t('moods.plural') %>
-						<% end %>
-					</span>
-				</div>
-				<div class="actions no_margin_bottom">
-				    <% else %>
-				    <div class="actions no_margin_bottom no_margin_top">
-				    <% end %>
-					<%= f.hidden_field :userid, :value => current_user.id %>
-					<%= f.submit %>
-				    </div>
-			    </div>
-		    </div>
-	    </div>
-
-        <% end %>
+  <% if local_assigns[:moment].errors.any? %>
+    <div class="error_explanation">
+      <%= t('common.form.error_explanation') %>
     </div>
+  <% end %>
+
+  <div class="table" id="quick_moment">
+    <div class="table_row">
+      <div class="table_cell small_padding_right vertical_align_middle">
+        <%= f.text_field :name, placeholder: t('common.title'), :required => true %>
+        <%= f.text_area :why, placeholder: t('moments.form.what_happened'), :required => true %>
+        <div class="quick_moment_disclaimer">
+          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
+          <%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
+        </div>
+      </div>
+
+      <div class="table_cell center vertical_align_middle">
+
+        <%= render :partial => '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
+
+        <div class="clear"></div>
+
+        <% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
+          <div id="toggle_categories_moods">
+            <span class="link_style">
+              <% if !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 &&
+                !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+                <%= t('moments.categories_and_moods') %>
+              <% elsif !local_assigns[:categories].nil? && local_assigns[:categories].length > 0 %>
+                <%= t('categories.plural') %>
+              <% elsif !local_assigns[:moods].nil? && local_assigns[:moods].length > 0 %>
+                <%= t('moods.plural') %>
+              <% end %>
+            </span>
+          </div>
+          <div class="actions no_margin_bottom">
+            <%= f.hidden_field :userid, :value => current_user.id %>
+            <%= f.submit %>
+          </div>
+        <% else %>
+          <div class="actions no_margin_bottom no_margin_top">
+            <%= f.hidden_field :userid, :value => current_user.id %>
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <div class="spacer"></div>
