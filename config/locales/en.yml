@@ -42,6 +42,7 @@ en:
      location: "Location"
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
+   time_ago: "%{date} ago"
 
  comment:
   singular: 'Comment'

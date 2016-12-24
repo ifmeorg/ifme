@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
-  include LocalTimeHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -46,7 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
-                :are_allies, :created_or_edited, :get_uid, :most_focus,
+                :are_allies, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
 
@@ -245,7 +244,7 @@ class ApplicationController < ActionController::Base
       comment_info += ' ' + t('shared.comments.not_allies')
     end
     comment_info += ' - '
-    comment_info += local_time_ago(data.created_at)
+    comment_info += TimeAgo.formatted_ago(data.created_at)
 
     comment_text = raw(data.comment)
 
@@ -354,15 +353,5 @@ class ApplicationController < ActionController::Base
     end
 
     return result
-  end
-
-  def created_or_edited(data)
-    if data.created_at != data.updated_at && local_time_ago(data.created_at) == local_time_ago(data.updated_at)
-      return t('edited', {created_at: local_time_ago(data.created_at)}).html_safe
-    elsif data.created_at != data.updated_at && local_time_ago(data.created_at) != local_time_ago(data.updated_at)
-      return t('edited_updated_at', {created_at: local_time_ago(data.created_at), updated_at: local_time_ago(data.updated_at)}).html_safe
-    end
-
-    return t('created', {created_at: local_time_ago(data.created_at)}).html_safe
   end
 end

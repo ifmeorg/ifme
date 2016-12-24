@@ -33,8 +33,8 @@ gem 'kaminari',                   '0.17.0'
 gem 'omniauth',                   '1.3.1'
 gem 'omniauth-google-oauth2',     '0.4.1'
 gem 'pusher',                     '1.1.0'
-gem 'underscore-rails',           '1.8.3'
 gem 'rails-i18n',                 '4.0.9'
+gem 'underscore-rails',           '1.8.3'
 
 gem 'sdoc',                       '0.4.1', group: :doc
 
