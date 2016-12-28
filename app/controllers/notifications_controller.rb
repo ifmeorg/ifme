@@ -4,7 +4,13 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1
   # DELETE /notifications/1.json
   def destroy
-    @notification.destroy
+    notification = Notification.find_by(
+      id: params[:id],
+      userid: current_user.id
+    )
+
+    notification.destroy if notification.present?
+
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
@@ -12,7 +18,7 @@ class NotificationsController < ApplicationController
   end
 
   def clear
-    Notification.where(userid: current_user.id)&.destroy_all
+    Notification.where(userid: current_user.id).destroy_all
     render nothing: true
   end
 
@@ -25,12 +31,7 @@ class NotificationsController < ApplicationController
   end
 
   def signed_in
-    signed_in = if !user_signed_in?
-                  -1
-                else
-                  current_user.id
-                end
-    result = { signed_in: signed_in }
+    result = { signed_in: current_user.id }
     respond_to do |format|
       format.html { render json: result }
       format.json { render json: result }

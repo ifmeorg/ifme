@@ -3,7 +3,7 @@
 # Table name: allyships
 #
 #  id         :integer          not null, primary key
-#  user_id   :integer
+#  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #  ally_id    :integer

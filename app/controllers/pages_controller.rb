@@ -16,6 +16,17 @@ class PagesController < ApplicationController
     @posts.reverse!
   end
 
+  def letsencrypt
+    challenges = ENV['LETSENCRYPT_CHALLENGE'].try(:split, ',') || []
+    mappings = Hash[challenges.collect { |v| [v.split('.')[0], v] }]
+
+    if mappings.key?(params[:id])
+      render text: mappings[params[:id]]
+    else
+      render text: 'Unknown id.'
+    end
+  end
+
   def contributors
     @contributors = JSON.parse(File.read('doc/contributors/contributors.json'))
     @contributors.sort_by! { |c| c['name'].downcase }

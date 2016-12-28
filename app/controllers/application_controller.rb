@@ -38,9 +38,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :is_viewer, :are_allies,
-                :viewers_hover, :created_or_edited, :get_viewers_for, :get_uid,
-                :most_focus, :tag_usage, :can_notify, :if_not_signed_in,
+  helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
+                :are_allies, :created_or_edited, :get_uid, :most_focus,
+                :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
 
   def if_not_signed_in
@@ -335,69 +335,6 @@ class ApplicationController < ActionController::Base
     end
 
     result
-  end
-
-  def get_viewers_for(data, data_type)
-    result = []
-
-    if data && (data_type == 'category' || data_type == 'mood' || data_type == 'strategy')
-      Moment.where(userid: data.userid).all.order('created_at DESC').each do |moment|
-        item = if data_type == 'category'
-                 moment.category
-               elsif data_type == 'mood'
-                 moment.mood
-               else
-                 moment.strategies
-               end
-
-        result += moment.viewers if item.include?(data.id)
-      end
-
-      if data_type == 'category'
-        Strategy.where(userid: data.userid).all.order('created_at DESC').each do |strategy|
-          result += strategy.viewers if strategy.category.include?(data.id)
-        end
-      end
-    end
-
-    result.uniq
-  end
-
-  def viewers_hover(data, link)
-    result = ''
-    viewers = ''
-
-    viewers += t('shared.viewers_hover.visible_to') if link
-
-    if data.blank? || data.empty?
-      viewers += if link
-                   t('shared.viewers_hover.only_you').downcase
-                 else
-                   t('shared.viewers_hover.only_you')
-                 end
-    end
-
-    viewer_names = data.to_a.map { |user_id| User.find(user_id).name }
-
-    viewers += viewer_names.to_sentence
-
-    if link
-      if link.class.name == 'Category'
-        link_url = '/categories/' + link.id.to_s
-      elsif link.class.name == 'Mood'
-        link_url = '/moods/' + link.id.to_s
-      elsif link.class.name == 'Strategy'
-        link_url = '/strategies/' + link.id.to_s
-      end
-
-      result += '<span class="yes_title" title="' + viewers + '">'
-      result += link_to link.name, link_url
-      result += '</span>'
-    else
-      result += '<span class="yes_title small_margin_right" title="' + viewers + '"><i class="fa fa-lock"></i></span>'
-    end
-
-    result.html_safe
   end
 
   def created_or_edited(data)

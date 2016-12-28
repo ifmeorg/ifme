@@ -123,4 +123,37 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to be_success
     end
   end
+
+  describe 'GET #letsencrypt' do
+    it 'responds \'Unknown id.\' to random id param' do
+      get :letsencrypt, {:id => 'blah'}
+
+      expect(response).to be_success
+      expect(response.body).to have_text 'Unknown id.'
+    end
+
+    it 'does not crash when ENV does not contain \'LETSENCRYPT_CHALLENGE\' key' do
+      ENV['LETSENCRYPT_CHALLENGE'] = nil
+
+      get :letsencrypt, {:id => 'blah'}
+      expect(response).to be_success
+      expect(response.body).to have_text 'Unknown id.'
+    end
+
+    it 'responds value to id param equal to ENV[\'LETSENCRYPT_CHALLENGE\']' do
+      ENV['LETSENCRYPT_CHALLENGE'] = 'test.success,test2.success'
+
+      entries = ENV['LETSENCRYPT_CHALLENGE'].split(',')
+      mappings = {}
+      entries.each do | entry |
+        entry_parts = entry.split('.')
+        mappings[entry_parts[0]] = entry
+      end
+
+      get :letsencrypt, {:id => mappings.keys[0]}
+
+      expect(response).to be_success
+      expect(response.body).to have_text mappings[mappings.keys[0]] 
+    end
+  end
 end

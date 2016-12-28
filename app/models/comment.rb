@@ -3,13 +3,14 @@
 # Table name: comments
 #
 #  id           :integer          not null, primary key
-#  comment_type :string(255)
+#  comment_type :string
 #  commented_on :integer
 #  comment_by   :integer
 #  comment      :text
 #  created_at   :datetime
 #  updated_at   :datetime
-#  visibility   :string(255)
+#  visibility   :string
+#  viewers      :text
 #
 
 class Comment < ActiveRecord::Base

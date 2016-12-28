@@ -223,6 +223,8 @@ h1.strategy_name a:visited {
     padding: 20px;
     font: $font22 $font-family;
     font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     a:link, a:visited, .link_style {
       text-decoration: none;

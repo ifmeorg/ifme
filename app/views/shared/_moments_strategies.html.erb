@@ -9,9 +9,9 @@
 
       <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
-        <i class="fa fa-pencil action"></i><%= link_to t('edit'), edit_moment_path(local_assigns[:item]) %>
+        <i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), edit_moment_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'moment' %>
-        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('moods.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('moods.index.confirm') } %>
+        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
         <% end %>
       </div>
       <% end %>
@@ -39,9 +39,9 @@
       <% end %>
       <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
-        <i class="fa fa-pencil action"></i><%= link_to t('edit'), edit_strategy_path(local_assigns[:item]) %>
+        <i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), edit_strategy_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'strategy' %>
-        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('strategies.index.delete'), local_assigns[:item], method: :delete, data: { confirm: t('strategies.index.confirm') } %>
+        <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
         <% end %>
       </div>
       <% end %>

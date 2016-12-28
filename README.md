@@ -53,7 +53,7 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 ### Installing Programs
 
-The steps below should be straightforward for Linux and OSX users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
+The steps below should be straightforward for Linux and OS X users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
 #### Ruby on Rails
 
@@ -110,6 +110,9 @@ gem install bundler
 gem install nokogiri
 ```
 
+On OS X, if you run into nokogiri errors run `xcode-select --install`
+
+
 Make a gemset for the specific Ruby on Rails version (RVM)
 
 ```
@@ -130,17 +133,21 @@ Check that Rails has been updated by running `rails -v`.
 
 Check out http://www.postgresql.org/download/
 
-##### OSX
+##### OS X
 
 Install via [Homebrew](http://brew.sh/)
 
 `brew install postgresql`
 
-After that, follow [this guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
+then start the postgres server:
+
+`postgres -D /usr/local/var/postgres`
+
+For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
 ##### Linux
 
-Bulid from the source using yum, apt-get, etc. If you already have postgres installed, please update it.
+Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
 ##### Windows
 
@@ -196,32 +203,47 @@ Copy the sample files to create your own configuration files:
 
 `cp config/env/development.example.env config/env/development.env`
 
-Run `rake secret` to generate a `SECRET_KEY_BASE` value.
+Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`.
 
 ### Email Notifications
 
-To get email notifications working, you must configure SMTP settings in `config/smtp.yml`.
+To get email notifications working, you must configure SMTP settings in `config/env/test.env` and `config/env/development.env`.
 
 The following [guide](https://launchschool.com/blog/handling-emails-in-rails) from Launch School is helpful.
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders` and `bundle exec rake scheduler:send_refill_reminders`.
+If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders`
+`bundle exec rake scheduler:send_refill_reminders`
+`bundle exec rake scheduler:send_perform_strategy_reminders`
+`bundle exec rake scheduler:send_meeting_reminders`
+
+#### Letter Opener
+
+The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. 
+
+You can disable this gem when you deploy the app by commenting it out.
+
+```
+# gem "letter_opener", :group => :development
+```
+
+You can read more about this gem [here](https://github.com/ryanb/letter_opener).
 
 ### Optional
 
 The following are not mandatory, but are required if you would like to test/use these features.
 
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/application.yml`.
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/application.yml`. You'll need activate both the Google+ API and the Contacts API for Oauth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
 
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/application.yml`.
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
 Running the App Locally
 -----------------------
 
-Create the developement and test databases:
+Create the development and test databases:
 
 ```bash
 bin/rake db:setup db:test:prepare
@@ -257,7 +279,8 @@ PG::ConnectionBad (fe_sendauth: no password supplied )
 ```
 
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/application.yml`, then add username and password to `config/database.yml`:
+
+To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`, then add username and password to `config/database.yml`:
 
 ```
 development: &default
@@ -349,14 +372,15 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ### Style Guide
 
-* We use **2 space** identation.
+* We use **2 space** indentation.
 * We use **snakecase** for Ruby files and id/class names in HTML.
 * We use **camelcase** for JS files.
-* Make sure you run the test suite locally before you commit, don't rely on the Travis CI to do that for you.
+* Make sure you run the test suite locally before you commit, don't rely on CircleCI to do that for you.
 * Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
 * As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
+* If you add or modify a model, please run `annotate` to update the schema comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
 
 ### Contributor Blurb
 
@@ -373,7 +397,7 @@ Please post any bugs, questions, or ideas on our [issues page](https://github.co
 
 ### Labelling Issues
 
-If you create an issue, please tag it with the appropriate label. We use `enchancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
+If you create an issue, please tag it with the appropriate label. We use `enhancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
 For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
 

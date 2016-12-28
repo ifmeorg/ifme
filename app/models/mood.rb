@@ -3,7 +3,7 @@
 # Table name: moods
 #
 #  id          :integer          not null, primary key
-#  name        :string(255)
+#  name        :string
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
@@ -13,4 +13,8 @@
 class Mood < ActiveRecord::Base
   validates_length_of :description, maximum: 2000
   validates_presence_of :userid, :name
+
+  def self.link
+    'moods'
+  end
 end

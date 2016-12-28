@@ -1,6 +1,5 @@
 <p>
-	Hi <%= @recipient.name %>!
+	<%= t('salutation', name: @recipient.name) %>
 </p>
 
-<%= raw(@message) %> 
-
+<%= raw(@message) %>

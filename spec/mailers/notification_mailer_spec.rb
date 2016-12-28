@@ -3,20 +3,29 @@ require "spec_helper"
 describe "NotificationMailer" do
   let(:recipient)  { FactoryGirl.create(:user1, email: "some@user.com") }
   let(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: recipient.id) }
-  let(:reminder)   { medication.take_medication_reminder }
+  let(:medication_reminder)   { medication.take_medication_reminder }
+  let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: recipient.id) }
+  let(:strategy_reminder)   { strategy.perform_strategy_reminder }
 
   describe "#take_medication" do
-    subject(:email) { NotificationMailer.take_medication(reminder) }
+    subject(:email) { NotificationMailer.take_medication(medication_reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
     it { expect(email.subject).to eq("Don't forget to take Fancy Medication Name!") }
   end
 
   describe "#refill_medication" do
-    subject(:email) { NotificationMailer.refill_medication(reminder) }
+    subject(:email) { NotificationMailer.refill_medication(medication_reminder) }
 
     it { expect(email.to).to eq(["some@user.com"]) }
     it { expect(email.subject).to eq("Your refill for Fancy Medication Name is coming up soon!") }
+  end
+
+  describe "#perform_strategy" do
+    subject(:email) { NotificationMailer.perform_strategy(strategy_reminder) }
+
+    it { expect(email.to).to eq(["some@user.com"]) }
+    it { expect(email.subject).to eq("Don't forget to perform Test Strategy!") }
   end
 
   describe '#meeting_reminder' do
@@ -98,7 +107,7 @@ describe "NotificationMailer" do
       let(:phrase_ally) { "<p>Your ally <strong>#{who_triggered_event.name}" }
       let(:comment)     { "</strong> commented:</p><p><i>my_comment</i></p>" }
       let(:link) do
-        "<p>You can read it all <a href=\"http://localhost:3000/moments/1\">here</a>!</p>"
+        "<p>To read it, <a href=\"http://localhost:3000/moments/1\">click here</a>!</p>"
       end
 
       let(:data) do
