@@ -23,6 +23,9 @@
 /config/env/test.env
 /config/env/development.env
 
+# Ignore all IDE, TextEditor configuration files
+.idea/
+
 # Ignore coverage results
 /coverage
 
