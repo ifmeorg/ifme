@@ -16,3 +16,4 @@ production:
   api_secret: ENV["CLOUDINARY_API_SECRET"]
   enhance_image_tag: true
   static_image_support: false
+  secure: true
