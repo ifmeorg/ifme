@@ -23,7 +23,7 @@ class NotificationsController < ApplicationController
   end
 
   def fetch_notifications
-    result = { fetch_notifications: Notification.where(userid: current_user.id).order("created_at ASC").all }
+    result = { fetch_notifications: Notification.where(userid: current_user.id).order('created_at ASC').all }
     respond_to do |format|
       format.html { render json: result }
       format.json { render json: result }
@@ -42,14 +42,12 @@ class NotificationsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_notification
-    begin
-      @notification = Notification.find(params[:id])
-    rescue
-      if @notification.blank?
-        respond_to do |format|
-          format.html { redirect_to :back }
-          format.json { head :no_content }
-        end
+    @notification = Notification.find(params[:id])
+  rescue
+    if @notification.blank?
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.json { head :no_content }
       end
     end
   end

@@ -10,6 +10,10 @@
 # Ignore database (configuration or not) files.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+database.yml
+
+# Ignore all IDE, Text Editor configs
+.idea/
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

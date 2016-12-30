@@ -1,4 +1,4 @@
-require "google/api_client"
+require 'google/api_client'
 
 class MedicationsController < ApplicationController
   include CollectionPageSetup
@@ -99,14 +99,12 @@ class MedicationsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_medication
-    begin
-      @medication = Medication.find(params[:id])
-    rescue
-      if @medication.blank?
-        respond_to do |format|
-          format.html { redirect_to medications_path }
-          format.json { head :no_content }
-        end
+    @medication = Medication.find(params[:id])
+  rescue
+    if @medication.blank?
+      respond_to do |format|
+        format.html { redirect_to medications_path }
+        format.json { head :no_content }
       end
     end
   end

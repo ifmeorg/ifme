@@ -43,14 +43,14 @@ group :development, :test do
   gem 'spring',                     '1.3.6'
   gem 'rspec-rails',                '~> 3.4'
   gem 'rspec-collection_matchers',  '1.1.2'
-  gem 'factory_girl_rails',         "~> 4.7"
+  gem 'factory_girl_rails',         '~> 4.7'
   gem 'capybara',                   '2.7.1'
   gem 'railroady',                  '1.4.2'
   gem 'ruby-graphviz',              '1.2.2'
   gem 'rails-erd',                  '~> 1.4', '>= 1.4.4'
   gem 'better_errors',              '~> 2.1', '>= 2.1.1'
   gem 'annotate',                   '~> 2.6', '>= 2.6.10'
-  gem 'pry-rails',                 '0.3.4'
+  gem 'pry-rails', '0.3.4'
   gem 'jasmine',                    '2.4.0'
   gem 'rubocop',                    '0.40.0'
   gem 'quiet_assets'
@@ -59,11 +59,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver',         '2.53.4'
+  gem 'selenium-webdriver', '2.53.4'
   gem 'database_cleaner'
   gem 'simplecov', require: false
 end
 
 group :production do
-  gem 'rails_12factor',             '0.0.3'
+  gem 'rails_12factor', '0.0.3'
 end
