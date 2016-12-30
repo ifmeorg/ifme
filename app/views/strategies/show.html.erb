@@ -1,19 +1,21 @@
 <% title @strategy.name %>
+
 <%= created_or_edited(@strategy) %>
 <% if @strategy.category.count > 0 %>
   <br>
-    <strong>
-      <%= t('categories.label', count: @strategy.category.count) %>
-    </strong>
-    <% @strategy.category.each do |item| %>
-      <span class="notification_wrapper">
-        <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if @strategy.category.last != item %><%= ', ' %><% end %>
-        <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
-       </span>
-    <% end %>
+
+  <strong>
+    <%= t('categories.label', count: @strategy.category.count) %>
+  </strong>
+  <% @strategy.category.each do |item| %>
+    <span class="notification_wrapper">
+      <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if @strategy.category.last != item %><%= ', ' %><% end %>
+      <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
+     </span>
+  <% end %>
 <% end %>
 
-<% if !@strategy.description.blank? %>
+<% if @strategy.description.present? %>
   <p>
     <%= raw(@strategy.description) %>
     <%= print_reminders(@strategy) %>
@@ -22,6 +24,6 @@
 
 <%= render :partial => '/shared/viewers_indicator', locals: { data: @strategy } %>
 
-<%= render :partial => '/shared/comments', locals: { data: @strategy, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'strategy' } %>
+<%= render :partial => '/shared/comments', locals: { data: @strategy, comments: @comments, no_hide_page: @no_hide_page, comment_type: 'strategy' } %>
 
 <%= render :partial => '/shared/tag_usage', locals: { data: @strategy.id, data_type: 'strategy', userid: @strategy.userid } %>
