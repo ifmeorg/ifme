@@ -12,15 +12,6 @@ var onReadyAddComment = function() {
 					$('.actions').removeClass('no_margin_bottom');
 				}
 
-				var url;
-				if (isShow(['moments'])) {
-					url = '/moments/comment';
-				} else if (isShow(['strategies'])) {
-					url = '/strategies/comment';
-				} else {
-					url = '/meetings/comment';
-				}
-
 				var viewers;
 				if ($('#comment_viewers').length) {
 					viewers = $('#comment_viewers').val();
@@ -37,7 +28,7 @@ var onReadyAddComment = function() {
 
 				$.ajax({
 				    dataType: 'json',
-				    url: url,
+				    url: '/comments',
 				    type: 'POST',
 				    data: data,
 				    success: function(json) {
