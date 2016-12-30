@@ -63,6 +63,8 @@ class User < ActiveRecord::Base
   has_many :medications, foreign_key: :userid
   has_many :strategies, foreign_key: :userid
   has_many :notifications, foreign_key: :userid
+  has_many :categories, foreign_key: :userid
+  has_many :moments, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: { message: "must be given please" }
