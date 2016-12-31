@@ -17,29 +17,21 @@
 #
 
 class Moment < ActiveRecord::Base
+  include SerializableData
+
+  validates :comment, inclusion: [true, false]
+  validates :userid, :name, :why, presence: true
+  validates :why, length: { minimum: 1, maximum: 2000 }
+  validates :fix, length: { maximum: 2000 }
+
   serialize :category, Array
   serialize :viewers, Array
   serialize :mood, Array
   serialize :strategies, Array
 
-  validates :comment, inclusion: [true, false]
-  validates_presence_of :userid, :name, :why
-  validates_length_of :why, minimum: 1, maximum: 2000
-  validates_length_of :fix, maximum: 2000
-
-  before_save :array_data
+  array_data_variables :category, :viewers, :mood, :strategies
 
   def strategy
     strategies
-  end
-
-  private
-
-  def array_data
-    %i(category viewers mood strategies).each do |item|
-      var = send(item)
-
-      send("#{item}=", var.collect(&:to_i)) if !var.nil? && var.is_a?(Array)
-    end
   end
 end

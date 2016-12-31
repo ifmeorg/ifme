@@ -10,7 +10,7 @@
 #
 
 class Group < ActiveRecord::Base
-  validates_presence_of :name, :description
+  validates :name, :description, presence: true
 
   has_many :group_members, foreign_key: :groupid, dependent: :destroy
   has_many :members, -> { order 'name' }, through: :group_members, source: :user

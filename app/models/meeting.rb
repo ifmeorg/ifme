@@ -15,7 +15,6 @@
 #
 
 class Meeting < ActiveRecord::Base
-  validates_presence_of :name, :description, :location, :time, :groupid, :date
 
   belongs_to :group, foreign_key: :groupid
 
@@ -24,4 +23,7 @@ class Meeting < ActiveRecord::Base
   has_many :meeting_members, foreign_key: :meetingid, dependent: :destroy
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user
+
+  validates :name, :description, :location, :time, :groupid, :date,
+            presence: true
 end
