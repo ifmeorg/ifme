@@ -1,8 +1,6 @@
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: [:destroy]
+  before_action :set_notification, only: :destroy
 
-  # DELETE /notifications/1
-  # DELETE /notifications/1.json
   def destroy
     notification = current_user.notifications.find_by(id: params[:id])
     notification.destroy if notification.present?
@@ -30,7 +28,6 @@ class NotificationsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_notification
     @notification = Notification.find(params[:id])
   rescue
@@ -45,13 +42,6 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       format.html { render json: result }
       format.json { render json: result }
-    end
-  end
-
-  def respond_to_nothing
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.json { head :no_content }
     end
   end
 end

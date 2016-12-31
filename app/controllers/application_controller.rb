@@ -51,6 +51,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def respond_to_nothing(path = :back)
+    respond_to do |format|
+      format.html { redirect_to path }
+      format.json { head :no_content }
+    end
+  end
+
   def are_allies(userid1, userid2)
     userid1_allies = User.find(userid1).allies_by_status(:accepted)
     userid1_allies.include? User.find(userid2)

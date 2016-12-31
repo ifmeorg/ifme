@@ -164,16 +164,9 @@ class MomentsController < ApplicationController
   private
 
   def set_moment
-    begin
-      @moment = Moment.find(params[:id])
-    rescue
-      if @moment.blank?
-        respond_to do |format|
-          format.html { redirect_to moments_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @moment = Moment.find(params[:id])
+  rescue
+    respond_to_nothing(moments_path) if @moment.blank?
   end
 
   def moment_params

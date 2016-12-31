@@ -8,8 +8,7 @@ module Comments
       @current_user = user
     end
 
-    def create
-    end
+    def create; end
 
     def delete
       return unless can_delete_comment?

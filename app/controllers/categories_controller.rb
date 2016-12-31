@@ -128,33 +128,26 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      begin
-        @category = Category.find(params[:id])
-      rescue
-        if @category.blank?
-          respond_to do |format|
-            format.html { redirect_to categories_path }
-            format.json { head :no_content }
-          end
-        end
-      end
-    end
 
-    def category_params
-      params.require(:category).permit(:name, :description, :userid)
-    end
+  def set_category
+    @category = Category.find(params[:id])
+  rescue
+    respond_to_nothing(categories_path) if @category.blank?
+  end
 
-    def is_viewer(moment, strategy, category)
-      if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+  def category_params
+    params.require(:category).permit(:name, :description, :userid)
+  end
+
+  def is_viewer(moment, strategy, category)
+    if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+      return true
+    elsif !moment.blank?
+      if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
         return true
-      elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return true
-        end
       end
-
-      return false
     end
+
+    false
+  end
 end

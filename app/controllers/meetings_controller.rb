@@ -90,8 +90,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
@@ -269,16 +267,9 @@ class MeetingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
-    begin
-      @meeting = Meeting.find(params[:id])
-    rescue
-      if @meeting.blank?
-        respond_to do |format|
-          format.html { redirect_to groups_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @meeting = Meeting.find(params[:id])
+  rescue
+    respond_to_nothing(meetings_path) if @meeting.blank?
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
