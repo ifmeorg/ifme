@@ -1,5 +1,5 @@
 <% title @strategy.name %>
-<%= created_or_edited(@strategy) %>
+<%= ::TimeAgo.created_or_edited(@strategy) %>
 <% if @strategy.category.count > 0 %>
   <br>
     <strong>
