@@ -35,5 +35,8 @@ module Ifme
 
     # export translations for use in javascript
     config.middleware.use I18n::JS::Middleware
+
+    config.i18n.available_locales = [:en, :es]
+    config.i18n.default_locale = :en
   end
 end

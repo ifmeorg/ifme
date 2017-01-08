@@ -43,6 +43,7 @@ en:
      location: "Location"
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
+   time_ago: "%{date} ago"
 
  comment:
   singular: 'Comment'
@@ -514,6 +515,13 @@ en:
       send_instructions: "Send me reset password instructions"
 
   registrations:
+    email_notifications: "Email Notifications"
+    comment_notify_text: "Comments on moments, strategies, and meetings"
+    ally_notify_text: "New and accepted ally requests"
+    group_notify_text: "Group updates"
+    meeting_notify_text: "Meeting updates"
+    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
+    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
     placeholders:
       repeat_password: "Repeat Password"
     edit:
