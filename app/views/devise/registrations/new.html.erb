@@ -1,9 +1,14 @@
+<div class="subtitle"><%= t('devise.registrations.new.subtitle') %></div>
+<div class="spacer"></div>
+
+<div class="center">
+  <%= render "devise/shared/links" %>
+</div>
+
+<div class="divider"></div>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="subtitle"><%= t('devise.registrations.new.subtitle') %></div>
-  <div class="spacer"></div>
-
   <div class="center">
     <div class="field"><div class="label"><%= f.label t('common.name') %></div>
     <%= f.text_field :name %></div>
@@ -22,7 +27,3 @@
     </div>
   </div>
 <% end %>
-
-<div class="center">
-  <%= render "devise/shared/links" %>
-</div>
