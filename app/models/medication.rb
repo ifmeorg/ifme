@@ -22,6 +22,8 @@ class Medication < ActiveRecord::Base
   # total: total quantity of medication
   # strength: strength of medication
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
   belongs_to :user, foreign_key: :userid
   has_one :take_medication_reminder
   has_one :refill_reminder
@@ -36,5 +38,9 @@ class Medication < ActiveRecord::Base
 
   def active_reminders
     [refill_reminder, take_medication_reminder].select(&:active?)
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 end

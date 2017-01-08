@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
         @page_tooltip = t('categories.edit_category')
       else
         link_url = "/profile?uid=" + get_uid(@category.userid).to_s
-        the_link = link_to User.where(:id => @category.userid).first.name, link_url
+        the_link = sanitize link_to User.where(:id => @category.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
     else
@@ -128,33 +128,37 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      begin
-        @category = Category.find(params[:id])
-      rescue
-        if @category.blank?
-          respond_to do |format|
-            format.html { redirect_to categories_path }
-            format.json { head :no_content }
-          end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    begin
+      @category = Category.friendly.find(params[:id])
+    rescue
+      if @category.blank?
+        respond_to do |format|
+          format.html { redirect_to categories_path }
+          format.json { head :no_content }
         end
       end
     end
+  end
 
-    def category_params
-      params.require(:category).permit(:name, :description, :userid)
+  def category_params
+    params.require(:category).permit(:name, :description, :userid)
+  end
+
+  def is_viewer(moment, strategy, category)
+    if strategy &&
+       Strategy.where(id: strategy).exists? &&
+       Strategy.where(id: strategy).first.viewers.include?(current_user.id)
+      return true
+    elsif moment && category &&
+          Moment.where(id: moment).exists? &&
+          Moment.where(id: moment).first.category.include?(category.id) &&
+          Moment.where(id: moment).first.viewers.include?(current_user.id) &&
+          are_allies(moment.userid, current_user.id)
+      return true
     end
-
-    def is_viewer(moment, strategy, category)
-      if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
-        return true
-      elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return true
-        end
-      end
-
-      return false
-    end
+    return false
+  end
 end

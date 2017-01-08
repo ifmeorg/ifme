@@ -26,7 +26,7 @@ class StrategiesController < ApplicationController
       @page_tooltip = t('strategies.edit_strategy')
     else
       link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
-      the_link = link_to User.where(:id => @strategy.userid).first.name, link_url
+      the_link = sanitize link_to User.where(:id => @strategy.userid).first.name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
@@ -273,7 +273,7 @@ class StrategiesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_strategy
     begin
-      @strategy = Strategy.find(params[:id])
+      @strategy = Strategy.friendly.find(params[:id])
     rescue
       if @strategy.blank?
         respond_to do |format|

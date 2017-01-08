@@ -17,7 +17,7 @@ class MoodsController < ApplicationController
         @page_tooltip = t('moods.edit_mood')
       else
         link_url = "/profile?uid=" + get_uid(@mood.userid).to_s
-        the_link = link_to User.where(:id => @mood.userid).first.name, link_url
+        the_link = sanitize link_to User.where(:id => @mood.userid).first.name, link_url
         @page_author = the_link.html_safe
       end
     else
@@ -131,7 +131,7 @@ class MoodsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_mood
     begin
-      @mood = Mood.find(params[:id])
+      @mood = Mood.friendly.find(params[:id])
     rescue
       if @mood.blank?
         respond_to do |format|
