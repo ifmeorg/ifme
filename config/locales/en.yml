@@ -360,7 +360,7 @@ en:
       message_three: 'Document your moods, medications, and self-care'
       main_message_two: 'We are open source because mental health should be open.'
       message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
-      help: 'Help'
+      help: 'help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'
       message_text_one: "Here's how you can start sharing your stories."
