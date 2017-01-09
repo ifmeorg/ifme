@@ -19,7 +19,7 @@
     <%= t('groups.show.led_by') %>
   </strong>
 
-  <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe  %>
+  <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
 
   <% if user_can_delete? @group %>
     <%= delete_group_link(@group, class: 'align_right') %>

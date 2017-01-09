@@ -16,7 +16,7 @@
 
 class Meeting < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name
   validates_presence_of :name, :description, :location, :time, :groupid, :date
   belongs_to :group, foreign_key: :groupid
   has_many :members, -> { order 'name' }, through: :meeting_members,
@@ -24,8 +24,4 @@ class Meeting < ActiveRecord::Base
   has_many :meeting_members, foreign_key: :meetingid, dependent: :destroy
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user
-
-  def should_generate_new_friendly_id?
-    name_changed? || super
-  end
 end

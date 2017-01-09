@@ -23,7 +23,7 @@ class Medication < ActiveRecord::Base
   # strength: strength of medication
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name
   belongs_to :user, foreign_key: :userid
   has_one :take_medication_reminder
   has_one :refill_reminder
@@ -37,10 +37,7 @@ class Medication < ActiveRecord::Base
   attr_accessor :add_to_google_cal
 
   def active_reminders
+    return unless refill_reminder && take_medication_reminder
     [refill_reminder, take_medication_reminder].select(&:active?)
-  end
-
-  def should_generate_new_friendly_id?
-    name_changed? || super
   end
 end

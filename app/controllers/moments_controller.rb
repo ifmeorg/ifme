@@ -27,7 +27,8 @@ class MomentsController < ApplicationController
       @page_tooltip = t('moments.edit_moment')
     else
       link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
-      the_link = sanitize link_to User.where(:id => @moment.userid).first.name, link_url
+      name = User.where(id: @moment.userid).first.name
+      the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false

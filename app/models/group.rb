@@ -11,7 +11,7 @@
 
 class Group < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name
   validates_presence_of :name, :description
   has_many :group_members, foreign_key: :groupid, dependent: :destroy
   has_many :members, -> { order 'name' }, through: :group_members, source: :user
@@ -35,9 +35,5 @@ class Group < ActiveRecord::Base
 
   def destroy_notifications
     notifications.each(&:destroy)
-  end
-
-  def should_generate_new_friendly_id?
-    name_changed? || super
   end
 end

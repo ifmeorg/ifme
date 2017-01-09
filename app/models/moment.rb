@@ -18,7 +18,7 @@
 
 class Moment < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name
   serialize :category, Array
   serialize :viewers, Array
   serialize :mood, Array
@@ -46,9 +46,5 @@ class Moment < ActiveRecord::Base
 
   def strategy
     strategies
-  end
-
-  def should_generate_new_friendly_id?
-    name_changed? || super
   end
 end

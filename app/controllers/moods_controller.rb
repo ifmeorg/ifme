@@ -11,15 +11,17 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.userid == current_user.id || is_viewer(params[:moment], @mood)
-      if @mood.userid == current_user.id
-        @page_edit = edit_mood_path(@mood)
-        @page_tooltip = t('moods.edit_mood')
-      else
-        link_url = "/profile?uid=" + get_uid(@mood.userid).to_s
-        the_link = sanitize link_to User.where(:id => @mood.userid).first.name, link_url
-        @page_author = the_link.html_safe
-      end
+    if @mood.userid == current_user.id
+      @page_edit = edit_mood_path(@mood)
+      @page_tooltip = t('moods.edit_mood')
+    elsif !(moment = params[:moment]).nil? &&
+          moment.first.mood.include?(@mood.id) &&
+          is_viewer(moment.first.viewers) &&
+          are_allies(moment.userid, current_user.id)
+      link_url = '/profile?uid=' + get_uid(@mood.userid).to_s
+      name = User.where(id: @mood.userid).first.name
+      the_link = sanitize link_to name, link_url
+      @page_author = the_link.html_safe
     else
       respond_to do |format|
         format.html { redirect_to moods_path }
@@ -144,16 +146,5 @@ class MoodsController < ApplicationController
 
   def mood_params
     params.require(:mood).permit(:name, :description, :userid)
-  end
-
-  def is_viewer(moment, mood)
-    if moment.blank?
-      return false
-    else
-      if Moment.where(:id => moment).exists? && Moment.where(:id => moment).first.mood.include?(mood.id) && Moment.where(:id => moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-        return true
-      end
-    end
-    return false
   end
 end

@@ -26,7 +26,8 @@ class StrategiesController < ApplicationController
       @page_tooltip = t('strategies.edit_strategy')
     else
       link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
-      the_link = sanitize link_to User.where(:id => @strategy.userid).first.name, link_url
+      name = User.where(id: @strategy.userid).first.name
+      the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
@@ -221,14 +222,32 @@ class StrategiesController < ApplicationController
   def premade
     premade_category = Category.where(name: 'Meditation', userid: current_user.id)
     if premade_category.exists?
-      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), category: [premade_category.first.id], comment: false)
+      premade1 = Strategy.new(
+        userid: current_user.id,
+        name: t('strategies.index.premade1_name'),
+        description: t('strategies.index.premade1_description'),
+        category: [premade_category.first.id], comment: false
+      )
     else
-      premade1 = Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'), description: t('strategies.index.premade1_description'), comment: false)
+      premade1 = Strategy.new(
+        userid: current_user.id,
+        name: t('strategies.index.premade1_name'),
+        description: t('strategies.index.premade1_description'),
+        comment: false
+      )
     end
 
     respond_to do |format|
-      format.html { redirect_to strategies_path }
-      format.json { render :no_content }
+      if premade1.save
+        PerformStrategyReminder.create(strategy_id: premade1.id, active: false)
+        format.html { redirect_to strategies_path }
+        format.json { render :no_content }
+      else
+        format.html { redirect_to strategies_path }
+        format.json do
+          render json: premade1.errors, status: :unprocessable_entity
+        end
+      end
     end
   end
 

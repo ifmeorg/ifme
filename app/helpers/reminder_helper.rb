@@ -2,7 +2,7 @@ module ReminderHelper
   def print_reminders(data)
     reminders = ''
 
-    if data.active_reminders.any?
+    if data.active_reminders && data.active_reminders.any?
       reminders = format_reminders(data.active_reminders.map(&:name))
     end
 
