@@ -22,6 +22,8 @@ class Medication < ActiveRecord::Base
   # total: total quantity of medication
   # strength: strength of medication
 
+  extend FriendlyId
+  friendly_id :name
   belongs_to :user, foreign_key: :userid
   has_one :take_medication_reminder
   has_one :refill_reminder
@@ -35,6 +37,7 @@ class Medication < ActiveRecord::Base
   attr_accessor :add_to_google_cal
 
   def active_reminders
+    return unless refill_reminder && take_medication_reminder
     [refill_reminder, take_medication_reminder].select(&:active?)
   end
 end

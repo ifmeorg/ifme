@@ -343,7 +343,7 @@ class MeetingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
     begin
-      @meeting = Meeting.find(params[:id])
+      @meeting = Meeting.friendly.find(params[:id])
     rescue
       if @meeting.blank?
         respond_to do |format|

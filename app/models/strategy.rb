@@ -14,6 +14,8 @@
 #
 
 class Strategy < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
   belongs_to :user, foreign_key: :userid
   serialize :category, Array
   serialize :viewers, Array
@@ -34,7 +36,7 @@ class Strategy < ActiveRecord::Base
   end
 
   def active_reminders
-    [perform_strategy_reminder].select(&:active?)
+    [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
   def self.link
