@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :medications
+  resources :medications 
 
   resources :moods do
     collection do
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :moments do
     collection do
       post "comment"
+      post "premade"
       post "quick_moment"
       get "delete_comment"
     end

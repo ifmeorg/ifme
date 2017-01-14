@@ -24,9 +24,11 @@
       icon: '<i class="fa fa-plus-circle"></i>'
     }) %>
 
-  <div class="actions align_right">
-    <%= button_to t('common.actions.add'), premade_strategies_path %>
-  </div>
+  <% if @strategies.blank? %>
+    <div class="actions align_right">
+      <%= button_to t('common.actions.premade_add'), premade_strategies_path %>
+    </div>
+  <% end %>
 
   <div class="clear"></div>
 
