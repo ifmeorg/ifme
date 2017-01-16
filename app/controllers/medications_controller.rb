@@ -100,7 +100,7 @@ class MedicationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_medication
     begin
-      @medication = Medication.find(params[:id])
+      @medication = Medication.friendly.find(params[:id])
     rescue
       if @medication.blank?
         respond_to do |format|

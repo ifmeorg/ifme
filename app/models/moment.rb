@@ -17,6 +17,8 @@
 #
 
 class Moment < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
   serialize :category, Array
   serialize :viewers, Array
   serialize :mood, Array
@@ -45,5 +47,4 @@ class Moment < ActiveRecord::Base
   def strategy
     strategies
   end
-
 end

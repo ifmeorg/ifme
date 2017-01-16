@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127002019) do
+ActiveRecord::Schema.define(version: 20161215060504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
+    t.string   "slug"
   end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment_type"
@@ -56,6 +59,19 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.string   "visibility"
     t.text     "viewers"
   end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "group_members", force: :cascade do |t|
     t.integer  "groupid"
@@ -70,7 +86,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.string   "slug"
   end
+
+  add_index "groups", ["slug"], name: "index_groups_on_slug", unique: true, using: :btree
 
   create_table "medications", force: :cascade do |t|
     t.string   "name"
@@ -85,7 +104,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.string   "dosage_unit"
     t.string   "total_unit"
     t.text     "comments"
+    t.string   "slug"
   end
+
+  add_index "medications", ["slug"], name: "index_medications_on_slug", unique: true, using: :btree
 
   create_table "meeting_members", force: :cascade do |t|
     t.integer  "meetingid"
@@ -105,7 +127,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
+    t.string   "slug"
   end
+
+  add_index "meetings", ["slug"], name: "index_meetings_on_slug", unique: true, using: :btree
 
   create_table "moments", force: :cascade do |t|
     t.text     "category"
@@ -119,7 +144,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.text     "viewers"
     t.boolean  "comment"
     t.text     "strategies"
+    t.string   "slug"
   end
+
+  add_index "moments", ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
 
   create_table "moods", force: :cascade do |t|
     t.string   "name"
@@ -127,7 +155,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "userid"
+    t.string   "slug"
   end
+
+  add_index "moods", ["slug"], name: "index_moods_on_slug", unique: true, using: :btree
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "userid"
@@ -160,7 +191,10 @@ ActiveRecord::Schema.define(version: 20161127002019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "slug"
   end
+
+  add_index "strategies", ["slug"], name: "index_strategies_on_slug", unique: true, using: :btree
 
   create_table "supports", force: :cascade do |t|
     t.integer  "userid"

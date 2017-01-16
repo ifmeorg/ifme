@@ -19,6 +19,7 @@ es:
    github: "GitHub"
    patreon: "Patreon"
    feedback: "feedback"
+   medium: "Medium"
 
  common:
    name: "Nombre"
@@ -358,7 +359,7 @@ es:
       message_three: "Documenta tus estados de ánimo, medicamentos, y cuidado personal."
       main_message_two: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
       message_text_two: "¡<strong>Siempre</strong> estamos abiertos a tu ayuda %{help} y retroalimentación %{feedback}!"
-      help: "Ayuda"
+      help: "ayuda"
     signed_in_empty:
       main_message_one: "¡Hola %{name}!"
       message_text_one: "Aquí te decimos cómo empezar a compartir tus historias."

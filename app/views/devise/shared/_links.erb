@@ -1,5 +1,4 @@
 <%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
-<div class="divider"></div>
 <div class="small_margin_bottom">
   <%- resource_class.omniauth_providers.each do |provider| %>
   	<% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>

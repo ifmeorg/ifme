@@ -86,7 +86,7 @@
           <% end %>
         <% end %>
         </div>
-        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('strategies.plural') %></span>
+        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('strategies.add_strategy') %></span>
       </div>
     </div>
 
@@ -107,7 +107,7 @@
           <input type="checkbox" id="viewers_all" />
           <span id="viewers_label"><%= t('common.actions.select_all') %></span>
         </label>
-        
+
         <% @viewers.each do |item| %>
           <label>
             <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %>

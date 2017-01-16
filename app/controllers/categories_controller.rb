@@ -12,15 +12,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id || is_viewer(params[:moment], params[:strategy], @category)
-      if @category.userid == current_user.id
-        @page_edit = edit_category_path(@category)
-        @page_tooltip = t('categories.edit_category')
-      else
-        link_url = "/profile?uid=" + get_uid(@category.userid).to_s
-        the_link = link_to User.where(:id => @category.userid).first.name, link_url
-        @page_author = the_link.html_safe
-      end
+    if @category.userid == current_user.id
+      @page_edit = edit_category_path(@category)
+      @page_tooltip = t('categories.edit_category')
+    elsif can_view_category(params[:moment].id, params[:strategy].id, @category)
+      link_url = '/profile?uid=' + get_uid(@category.userid).to_s
+      name = User.where(id: @category.userid).first.name
+      the_link = sanitize link_to name, link_url
+      @page_author = the_link.html_safe
     else
       respond_to do |format|
         format.html { redirect_to categories_path }
@@ -128,33 +127,35 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      begin
-        @category = Category.find(params[:id])
-      rescue
-        if @category.blank?
-          respond_to do |format|
-            format.html { redirect_to categories_path }
-            format.json { head :no_content }
-          end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    begin
+      @category = Category.friendly.find(params[:id])
+    rescue
+      if @category.blank?
+        respond_to do |format|
+          format.html { redirect_to categories_path }
+          format.json { head :no_content }
         end
       end
     end
+  end
 
-    def category_params
-      params.require(:category).permit(:name, :description, :userid)
+  def category_params
+    params.require(:category).permit(:name, :description, :userid)
+  end
+
+  def can_view_category(moment_id, strategy_id, category)
+    if !(strategy = Strategy.find(strategy_id)).nil? &&
+       is_viewer(strategy.viewers)
+      return true
+    elsif category && !(moment = Moment.find(moment_id)).nil? &&
+          moment.category.include?(category.id) &&
+          is_viewer(moment.viewers) &&
+          are_allies(moment.userid, current_user.id)
+      return true
     end
-
-    def is_viewer(moment, strategy, category)
-      if !strategy.blank? && Strategy.where(id: strategy).exists? && Strategy.where(id: strategy).first.viewers.include?(current_user.id)
-        return true
-      elsif !moment.blank?
-        if Moment.where(id: moment).exists? && Moment.where(id: moment).first.category.include?(category.id) && Moment.where(id: moment).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-          return true
-        end
-      end
-
-      return false
-    end
+    return false
+  end
 end
