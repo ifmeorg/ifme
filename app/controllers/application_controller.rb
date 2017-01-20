@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    common = %i(location name email password password_confirmation timezone
-                current_password)
+    common = %i(location name email password
+                password_confirmation current_password)
 
     devise_parameter_sanitizer.permit :account_update,
       keys: %i(about avatar remove_avatar comment_notify ally_notify

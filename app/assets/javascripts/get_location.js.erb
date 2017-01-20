@@ -1,0 +1,18 @@
+function initAutocomplete() {
+  var input = document.getElementById('user_location');
+  new google.maps.places.SearchBox(input);
+}
+
+var onReadyGetLocation = function() {
+  if ($('#user_location').length > 0) {
+    var apiKey = "<%= ENV['GOOGLE_API_KEY'] %>";
+    if (apiKey.length > 0) {
+      var src = "https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&key=" + apiKey;
+      if ($("script[src*='" + src + "']").length === 0) {
+        $.getScript(src);
+      }
+    }
+  }
+};
+
+$(document).on('page:load ready', onReadyGetLocation);
