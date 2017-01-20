@@ -1,16 +1,21 @@
 describe("GetLocation", function() {
-var src = 'https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete';
+  var getLocation;
 
-describe("onReadyGetLocation", function() {
-  it("does not load Google Maps autocomplete script to page", function() {
-    onReadyGetLocation();
-    expect($("script[src*='" + src + "']").length === 0).toBe(true);
-  });
+  describe("initAutocomplete", function() {
+    beforeEach(function() {
+      getLocation = spyOn(window, 'getLocation');
+    });
 
-  it("loads Google Maps autocomplete script to page", function() {
-    loadFixtures('get_location.html');
-    onReadyGetLocation();
-    expect($("script[src*='" + src + "']").length > 0).toBe(true);
+    it("does not call getLocation() if #user_location is not found", function() {
+      initAutocomplete();
+      expect(getLocation).not.toHaveBeenCalled();
+    });
+
+    it("calls getLocation() if #user_location is found", function() {
+      google = true;
+      loadFixtures('get_location.html');
+      initAutocomplete();
+      expect(getLocation).toHaveBeenCalled();
     });
   });
 });
