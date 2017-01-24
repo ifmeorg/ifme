@@ -3,27 +3,41 @@ class CommentsController < ApplicationController
 
   # WIP
   def create
-    klass = "Comments::#{safe_klass}Service".safe_constantize
-    klass.new(params: comment_params).create
+    result =
+      if service(comment_params).create
+        generate_comment(service.comment, service.comment)
+      else
+        { no_save: true }
+      end
 
-    render nothing: true
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
   end
 
   def destroy
-    klass = "Comments::#{safe_klass}Service".safe_constantize
-    klass.new(comment: @comment).delete
+    service.delete
 
     render nothing: true
   end
 
   private
 
+  def service(params = {})
+    @comment_service ||= safe_klass.new(comment: @comment, params: params)
+  end
+
   def safe_klass
+    "Comments::#{klass.camelize}Service".safe_constantize
+  end
+
+  def klass
     klass = params.fetch(:comment_type, 'base')
 
     raise ArgumentError unless %w(strategy meeting moment base).include?(klass)
 
-    klass.camelize
+    klass
   end
 
   def set_comment
