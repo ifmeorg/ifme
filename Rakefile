@@ -44,7 +44,7 @@ task :setup_workspace do
   secret_key_base = capture_stdout { Rake::Task["secret"].invoke }.strip.gsub(/\n\s+/, " ").squeeze(" ")
   # Must renable the task or else it won't execute again
   Rake::Task["secret"].reenable
-  devise_secret_key = capture_stdout  { Rake::Task["secret"].invoke }.strip.gsub(/\n\s+/, " ").squeeze(" ")
+  devise_secret_key = capture_stdout { Rake::Task["secret"].invoke }.strip.gsub(/\n\s+/, " ").squeeze(" ")
   
   # insert the secrets into the files
   files = [dev_target.to_s, test_target.to_s]
