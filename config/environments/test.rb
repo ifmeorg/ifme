@@ -40,4 +40,7 @@ Rails.application.configure do
   config.action_view.raise_on_missing_translations = true
 
   config.force_ssl = false
+  # This is the addon for pixielabs/letsencrypt-rails-heroku
+  # since force_ssl = false, we use the default middleware method
+  config.middleware.use Letsencrypt::Middleware
 end

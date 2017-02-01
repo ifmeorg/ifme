@@ -102,10 +102,14 @@ Rails.application.configure do
     domain: ENV["SMTP_DOMAIN"],
     enable_starttls_auto: true
   }
-
+  
+  # Start of SSL required Settings
   config.force_ssl = true
   # This is required or the host server will send headers telling us its from the *.herokuapp.com domain
   # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
   config.action_controller.default_url_options = { host: "www.if-me.org" }
   config.action_controller.asset_host = "www.if-me.org"
+  # This is the addon for pixielabs/letsencrypt-rails-heroku
+  config.middleware.insert_before ActionDispatch::SSL, Letsencrypt::Middleware
+  
 end
