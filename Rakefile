@@ -57,7 +57,7 @@ task :c9_psql_start do
   if !ENV.has_key?('C9_USER')
     raise 'not on cloud9 ide'
   end
-  
+
   # Run the command ignoring the results
   sh('sudo', 'service', 'postgresql', 'start') || true
 end
@@ -67,13 +67,22 @@ task :c9_psql_setup do
   if !ENV.has_key?('C9_USER')
     raise 'not on cloud9 ide'
   end
-  # http://stackoverflow.com/a/16737073/430031
-  # the unicode version for the C9 database is incorrect, and therefore needs more setup
-  database_config_file = Rails.root + 'config/database.yml'
-  database_config = YAML.load_file(database_config_file)
-  puts database_config['development']
-  database_config['development'].merge!(:template => "template0")
-  File.write(database_config_file, database_config.to_yaml)
+
+  # automating the steps from https://github.com/Aerogami/guides/wiki/Cloud9-workspace-setup-with-Rails-and-Postgresql#update-template1-postgresql-for-databaseyml-on-cloud9
+  update_template = %Q(UPDATE pg_database SET datistemplate = FALSE WHERE datname = 'template1';)
+  sh('sudo', 'sudo', '-u', 'postgres', 'psql', '-c', update_template) || true;
+
+  drop_template =  %Q(DROP DATABASE template1;)
+  sh('sudo', 'sudo', '-u', 'postgres', 'psql', '-c', drop_template) || true;
+
+  create_template =  %Q(CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UNICODE';)
+  sh('sudo', 'sudo', '-u', 'postgres', 'psql', '-c', create_template) || true;
+
+  replace_template =  %Q(UPDATE pg_database SET datistemplate = TRUE WHERE datname = 'template1';)
+  sh('sudo', 'sudo', '-u', 'postgres', 'psql', '-c', replace_template) || true;
+
+  vacuum_freeze =  %Q(VACUUM FREEZE;)
+  sh('sudo', 'sudo', '-u', 'postgres', 'psql', '-d', 'template1', '-c', vacuum_freeze) || true;
 end
 
 desc 'Start Rails on Cloud9 IDE'
