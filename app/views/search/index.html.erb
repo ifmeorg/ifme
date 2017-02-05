@@ -12,7 +12,7 @@
 <div class="allies_list">
     <% @matching_users.each do |user| %>
         <div class="ally center">
-          <%= fetch_profile_picture(user.avatar.url, 'profile_picture') %>
+          <%= ProfilePicture.fetch(user.avatar.url, 'profile_picture') %>
           <h1 class="ally_name"><%= link_to user.name, profile_index_path(uid: get_uid(user.id)) %></h1>
           <div class="location"><%= user.location %></div>
 
