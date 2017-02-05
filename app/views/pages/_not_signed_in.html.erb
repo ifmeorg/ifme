@@ -41,7 +41,7 @@
     <div class="contributors_grid">
       <% @blurbs.each do |blurb| %>
         <div class="contributors_grid_child">
-          <%= fetch_profile_picture(blurb['image'], 'home_picture') %>
+          <%= ProfilePicture.fetch(blurb['image'], 'home_picture') %>
         </div>
       <% end %>
     </div>

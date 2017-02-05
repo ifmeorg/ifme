@@ -1,7 +1,7 @@
 <% title @profile.name %>
 <div class="table" id="profile_info">
   <div class="table_cell profile_picture_div vertical_align_top padding_right">
-    <%= fetch_profile_picture(@profile.avatar.url, 'profile_picture') %>
+    <%= ProfilePicture.fetch(@profile.avatar.url, 'profile_picture') %>
   </div>
   <div class="table_cell vertical_align_middle">
     <% if @profile.about %>

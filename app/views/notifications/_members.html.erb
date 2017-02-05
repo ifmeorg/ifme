@@ -19,7 +19,7 @@
             <div class="table_cell small_profile_picture_div padding_right small_padding_bottom">
           <% end %>
 
-            <%= fetch_profile_picture(member.avatar.url, 'mini_profile_picture') %>
+            <%= ProfilePicture.fetch(member.avatar.url, 'mini_profile_picture') %>
             <br>
           </div>
 
