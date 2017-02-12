@@ -24,8 +24,8 @@ class CommentsController < ApplicationController
 
   private
 
-  def service(params = {})
-    @comment_service ||= safe_klass.new(comment: @comment, params: params)
+  def service(svc_params = {})
+    @comment_service ||= safe_klass.new(comment: @comment, user: current_user, params: svc_params)
   end
 
   def safe_klass
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   end
 
   def klass
-    klass = params.fetch(:comment_type, 'base')
+    klass = required[:comment_type] || 'base'
 
     raise ArgumentError unless %w(strategy meeting moment base).include?(klass)
 
@@ -47,7 +47,13 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:comment_type, :commented_on, :comment_by,
-                                    :comment, :visibility, :viewers)
+    hash = required.permit(:comment_type, :commented_on, :comment_by, :comment,
+                           :visibility, :viewers)
+
+    hash.merge!(viewers: hash[:viewers].split)
+  end
+
+  def required
+    params.require(:comment)
   end
 end

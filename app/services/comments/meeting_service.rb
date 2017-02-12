@@ -14,7 +14,7 @@ module Comments
       MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
         next unless member.userid != current_user.id
 
-        do_the_job!('comment_on_meeting', member.userid)
+        do_the_job!(@keys.first, member.userid)
       end
 
       @comment.save

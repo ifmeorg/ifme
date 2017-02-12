@@ -13,20 +13,20 @@ var onReadyDeleteComment = function() {
 				$('.comment').first().addClass('no_margin_top');
 			}
 
-			//
-			// var url;
-			// if ($('body').hasClass('moments show')) {
-			// 	url = "/moments/delete_comment?commentid=" + commentid;
-			// } else if ($('body').hasClass('strategies show')) {
-			// 	url = "/strategies/delete_comment?commentid=" + commentid;
-			// } else {
-			// 	url = "/meetings/delete_comment?commentid=" + commentid;
-			// }
+
+			var kind;
+			if ($('body').hasClass('moments show')) {
+				kind = "moment";
+			} else if ($('body').hasClass('strategies show')) {
+				kind = "strategy";
+			} else {
+				kind = "meeting";
+			}
 
 			$.ajax({
-                url: '/comments',
+                url: '/comments/' + comment_id,
                 type: 'DELETE',
-                data: { id: comment_id }
+                data: { comment: { comment_type: kind } }
             });
 		});
 	}

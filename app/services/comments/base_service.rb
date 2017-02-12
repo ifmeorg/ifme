@@ -50,7 +50,7 @@ module Comments
     end
 
     def do_the_job!(key, user)
-      name = klass.where(id: @comment.commented_on).first.name
+      name = @klass.where(id: @comment.commented_on).first.name
       uniqueid = "#{key}_#{@comment.id}"
 
       data = generate_data(name, uniqueid, key)
@@ -78,10 +78,10 @@ module Comments
 
     def check_params_for_create
       unless @params[:viewers].blank?
-        @params.merge(visibility: 'private', viewers: [params[:viewers].to_i])
+        @params.merge(visibility: 'private', viewers: @params[:viewers])
       end
 
-      @comment = Comment.new(params)
+      @comment = Comment.new(@params)
     end
   end
 end

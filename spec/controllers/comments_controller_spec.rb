@@ -79,7 +79,8 @@ RSpec.describe CommentsController, type: :controller do
 
       let(:user) { create(:user, id: 1) }
       let!(:comment) do
-        create(:comment, comment_by: 1, commented_on: 1, visibility: 'all')
+        create(:comment, comment_by: 1, commented_on: 1, visibility: 'all',
+                         comment_type: 'strategy')
       end
 
       let(:instance) do
@@ -88,24 +89,18 @@ RSpec.describe CommentsController, type: :controller do
 
       context 'with valid params' do
         it 'with klass needs to call correct service' do
-          expect(Comments::StrategyService).to receive(:new)
-            .with(comment: comment).and_return(instance)
-
-          expect(instance).to receive(:delete)
-
-          delete :destroy, id: comment.id, comment_type: 'strategy'
+          expect do
+            delete :destroy, id: comment.id, comment: { comment_type: 'strategy' }
+          end.to change(Comment, :count).by(-1)
         end
 
         it 'without klass needs to call base service' do
-          expect(Comments::BaseService).to receive(:new)
-            .with(comment: comment).and_return(instance)
+          expect_any_instance_of(Comments::BaseService).to receive(:delete)
 
-          expect(instance).to receive(:delete)
-
-          delete :destroy, id: comment.id
+          delete :destroy, id: comment.id, comment: { comment_type: nil }
         end
 
-        it 'renders nothing' do
+        xit 'renders nothing' do
           delete :destroy, id: comment.id
 
           expect(response.body).to be_empty
