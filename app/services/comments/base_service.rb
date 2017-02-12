@@ -83,5 +83,18 @@ module Comments
 
       @comment = Comment.new(@params)
     end
+
+    def generate_data(name, uniqueid, type)
+      data_klass = @klass.name.downcase
+
+      JSON.generate user: current_user.name,
+                    commentid: @comment.id,
+                    comment: @comment.comment[0..80],
+                    cutoff: @comment.comment.size > 80,
+                    type: type,
+                    uniqueid: uniqueid,
+                    "#{data_klass}id" => @comment.commented_on,
+                    data_klass => name
+    end
   end
 end

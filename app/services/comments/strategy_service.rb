@@ -21,18 +21,5 @@ module Comments
 
       current_user_comment? || is_my_strategy
     end
-
-    private
-
-    def generate_data(name, uniqueid, type)
-      JSON.generate(user: current_user.name,
-                    strategyid: @comment.commented_on,
-                    strategy: name,
-                    commentid: @comment.id,
-                    comment: @comment.comment[0..80],
-                    cutoff: @comment.comment.size > 80,
-                    type: type,
-                    uniqueid: uniqueid)
-    end
   end
 end
