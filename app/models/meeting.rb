@@ -15,9 +15,9 @@
 #
 
 class Meeting < ActiveRecord::Base
+  extend FriendlyId
 
   belongs_to :group, foreign_key: :groupid
-
   has_many :members, -> { order 'name' }, through: :meeting_members,
                                           source: :user
   has_many :meeting_members, foreign_key: :meetingid, dependent: :destroy
@@ -26,4 +26,6 @@ class Meeting < ActiveRecord::Base
 
   validates :name, :description, :location, :time, :groupid, :date,
             presence: true
+
+  friendly_id :name
 end

@@ -220,7 +220,7 @@ If you want to test out scheduled emails, run the following commands: `bundle ex
 
 #### Letter Opener
 
-The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP. 
+The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentaly to someone through SMTP.
 
 You can disable this gem when you deploy the app by commenting it out.
 
@@ -236,7 +236,9 @@ The following are not mandatory, but are required if you would like to test/use 
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
-[Google APIs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+
+[Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
@@ -248,6 +250,8 @@ Create the development and test databases:
 ```bash
 bin/rake db:setup db:test:prepare
 ```
+
+Run `rake slugs:slugify` to update existing entries in the database with slugs (e.g. `moments/fun-slug`)
 
 Start the local server:
 ```

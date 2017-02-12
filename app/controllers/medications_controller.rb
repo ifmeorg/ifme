@@ -86,7 +86,7 @@ class MedicationsController < ApplicationController
   private
 
   def set_medication
-    @medication = Medication.find(params[:id])
+    @medication = Medication.friendly.find(params[:id])
   rescue
     respond_to_nothing(medications_path) if @medication.blank?
   end

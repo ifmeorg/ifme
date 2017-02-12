@@ -17,6 +17,8 @@
 #
 
 class Moment < ActiveRecord::Base
+  extend FriendlyId
+
   include SerializableData
 
   validates :comment, inclusion: [true, false]
@@ -29,6 +31,7 @@ class Moment < ActiveRecord::Base
   serialize :mood, Array
   serialize :strategies, Array
 
+  friendly_id :name
   array_data_variables :category, :viewers, :mood, :strategies
 
   def strategy

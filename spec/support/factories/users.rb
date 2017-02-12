@@ -58,7 +58,6 @@ FactoryGirl.define do
     email "plum.blossom@example.com"
     password "password"
     location "Toronto, ON, Canada"
-    timezone "-05:00"
 
     trait :with_allies do
       transient do
@@ -79,7 +78,6 @@ FactoryGirl.define do
     email "gentle.breezy@example.com"
     password "password"
     location "Toronto, ON, Canada"
-    timezone "-05:00"
   end
 
   factory :user_oauth, class: User do
@@ -87,7 +85,6 @@ FactoryGirl.define do
     email "orange.southland@example.com"
     password "password"
     location "Toronto, ON, Canada"
-    timezone "-05:00"
     token "has_a_token"
   end
 end

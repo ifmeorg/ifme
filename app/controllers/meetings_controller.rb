@@ -267,7 +267,7 @@ class MeetingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
-    @meeting = Meeting.find(params[:id])
+    @meeting = Meeting.friendly.find(params[:id])
   rescue
     respond_to_nothing(meetings_path) if @meeting.blank?
   end
@@ -291,6 +291,7 @@ class MeetingsController < ApplicationController
     if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
       return false
     end
-    return true
+
+    true
   end
 end

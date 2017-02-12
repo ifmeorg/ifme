@@ -14,6 +14,7 @@
 #
 
 class Strategy < ActiveRecord::Base
+  extend FriendlyId
   include SerializableData
 
   belongs_to :user, foreign_key: :userid
@@ -29,8 +30,10 @@ class Strategy < ActiveRecord::Base
   accepts_nested_attributes_for :perform_strategy_reminder
   array_data_variables :category, :viewers
 
+  friendly_id :name
+
   def active_reminders
-    [perform_strategy_reminder].select(&:active?)
+    [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
   def self.link

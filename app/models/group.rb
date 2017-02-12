@@ -10,6 +10,8 @@
 #
 
 class Group < ActiveRecord::Base
+  extend FriendlyId
+
   validates :name, :description, presence: true
 
   has_many :group_members, foreign_key: :groupid, dependent: :destroy
@@ -18,8 +20,9 @@ class Group < ActiveRecord::Base
            foreign_key: :groupid, dependent: :destroy
   has_many :leaders, -> { where(group_members: { leader: true }) },
            through: :group_members, source: :user
-
   after_destroy :destroy_notifications
+
+  friendly_id :name
 
   def led_by?(user)
     leaders.include? user

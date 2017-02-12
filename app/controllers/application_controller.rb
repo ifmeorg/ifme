@@ -11,13 +11,14 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
-  include LocalTimeHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: proc { |c| c.request.format == 'application/json' }
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
+
+  before_action :set_locale
 
   # Timezone
   around_action :with_timezone
@@ -27,8 +28,13 @@ class ApplicationController < ActionController::Base
     Time.use_zone(timezone) { yield }
   end
 
+  # before_action
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
   def configure_permitted_parameters
-    common = %i(location name email password password_confirmation timezone
+    common = %i(location name email password password_confirmation
                 current_password)
     updating = %i(about avatar remove_avatar comment_notify ally_notify
                   group_notify meeting_notify)
@@ -38,7 +44,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
-                :are_allies, :created_or_edited, :get_uid, :most_focus,
+                :are_allies, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
 
@@ -177,7 +183,7 @@ class ApplicationController < ActionController::Base
       comment_info += ' ' + t('shared.comments.not_allies')
     end
     comment_info += ' - '
-    comment_info += local_time_ago(data.created_at)
+    comment_info += TimeAgo.formatted_ago(data.created_at)
 
     comment_text = raw(data.comment)
 

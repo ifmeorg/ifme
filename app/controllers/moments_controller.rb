@@ -27,7 +27,8 @@ class MomentsController < ApplicationController
       @page_tooltip = t('moments.edit_moment')
     else
       link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
-      the_link = link_to User.where(:id => @moment.userid).first.name, link_url
+      name = User.where(id: @moment.userid).first.name
+      the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
     end
     @no_hide_page = false
@@ -164,7 +165,7 @@ class MomentsController < ApplicationController
   private
 
   def set_moment
-    @moment = Moment.find(params[:id])
+    @moment = Moment.friendly.find(params[:id])
   rescue
     respond_to_nothing(moments_path) if @moment.blank?
   end
@@ -182,6 +183,7 @@ class MomentsController < ApplicationController
         return false
       end
     end
-    return true
+
+    true
   end
 end

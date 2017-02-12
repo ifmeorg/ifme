@@ -9,6 +9,7 @@ en:
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
  click_here: "click here"
+ less: " [Less]"
 
  navigation:
    about: 'About'
@@ -19,6 +20,7 @@ en:
    github: 'GitHub'
    patreon: 'Patreon'
    feedback: 'feedback'
+   medium: 'Medium'
 
  common:
    name: 'Name'
@@ -42,6 +44,7 @@ en:
      location: "Location"
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
+   time_ago: "%{date} ago"
 
  comment:
   singular: 'Comment'
@@ -357,7 +360,7 @@ en:
       message_three: 'Document your moods, medications, and self-care'
       main_message_two: 'We are open source because mental health should be open.'
       message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
-      help: 'Help'
+      help: 'help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'
       message_text_one: "Here's how you can start sharing your stories."
@@ -513,6 +516,13 @@ en:
       send_instructions: "Send me reset password instructions"
 
   registrations:
+    email_notifications: "Email Notifications"
+    comment_notify_text: "Comments on moments, strategies, and meetings"
+    ally_notify_text: "New and accepted ally requests"
+    group_notify_text: "Group updates"
+    meeting_notify_text: "Meeting updates"
+    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
+    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
     placeholders:
       repeat_password: "Repeat Password"
     edit:

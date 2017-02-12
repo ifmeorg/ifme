@@ -101,7 +101,7 @@ class GroupsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_group
-    @group = Group.find(params[:id])
+    @group = Group.friendly.find(params[:id])
   rescue
     respond_to_nothing(groups_path) if @group.blank?
   end
