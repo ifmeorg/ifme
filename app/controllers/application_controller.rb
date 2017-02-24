@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
+  helper_method :avatar_url, :is_viewer,
                 :are_allies, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
@@ -176,7 +176,8 @@ class ApplicationController < ActionController::Base
 
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
-    profile_picture = fetch_profile_picture(profile.avatar.url, 'mini_profile_picture')
+    profile_picture = ProfilePicture.fetch(profile.avatar.url,
+                                           'mini_profile_picture')
 
     comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
     if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
@@ -188,9 +189,13 @@ class ApplicationController < ActionController::Base
     comment_text = raw(data.comment)
 
     if data_type == 'moment'
-      visibility = visibility_html(data, Moment.find(data.commented_on))
+      visibility = CommentVisibility.build(data,
+                                           Moment.find(data.commented_on),
+                                           current_user)
     elsif data_type == 'strategy'
-      visibility = visibility_html(data, Strategy.find(data.commented_on))
+      visibility = CommentVisibility.build(data,
+                                           Strategy.find(data.commented_on),
+                                           current_user)
     end
 
     if (data_type == 'moment' && (Moment.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
@@ -256,9 +261,7 @@ class ApplicationController < ActionController::Base
                 strategies.flatten.compact
               end
 
-    stories = stories.sort_by(&:created_at).reverse!
-
-    stories
+    stories.sort_by(&:created_at).reverse!
   end
 
   def moments_stats
