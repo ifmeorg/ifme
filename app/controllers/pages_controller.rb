@@ -26,6 +26,14 @@ class PagesController < ApplicationController
     @organizations = set_organizations
   end
 
+  def toggle_locale
+    if user_signed_in?
+      user = User.find(current_user)
+      user.update!(locale: params[:locale])
+    end
+    render :nothing => true
+  end
+
   def about; end
 
   def faq; end
