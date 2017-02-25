@@ -10,6 +10,7 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
  less: " [Less]"
+ language: 'Language'
 
  navigation:
    about: 'About'

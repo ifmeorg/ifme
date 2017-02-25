@@ -9,6 +9,8 @@ es:
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
  click_here: "da click aquí"
+ less: " [Menos]"
+ language: 'Idioma'
 
  navigation:
    about: "Acerca de "

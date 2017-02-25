@@ -11,7 +11,7 @@
 						<%= link_to(t('shared.footer.faq'), faq_path) %>
 						<%= link_to(t('navigation.privacy'), privacy_path) %>
 					</div>
-					<div class="table_cell">
+					<div class="table_cell large_padding_right">
 						<span class="footer_heading" id="connect_links"><%= t('shared.footer.connect') %></span>
 						<%= link_to(t('navigation.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
 						<%= link_to(t('shared.footer.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
@@ -20,6 +20,10 @@
 						<%= link_to(t('navigation.medium'), 'https://medium.com/@ifmeorg', target: "blank") %>
 						<%= link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: "blank") %>
 						<%= link_to(t('email'), 'mailto:join.ifme@gmail.com') %>
+					</div>
+					<div class="table_cell">
+						<span class="footer_heading" id="language_links"><%= t('language') %></span>
+						<%= render partial: "shared/locale" %>
 					</div>
 				</div>
 			</div>

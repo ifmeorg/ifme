@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  name        :string
+#  slug        :string
 #
 
 describe Strategy do
