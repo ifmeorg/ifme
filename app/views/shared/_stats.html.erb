@@ -23,7 +23,6 @@
 		<div id="most_focus">
 			<% total = most_focus.values.inject(0){|sum,x| sum + x } %>
 			<% count = 0 %>
-			<% prev = 0 %>
 			<% most_focus.each do |key, value| %>
 				<% percentage_value = (value.to_f / total.to_f) * 100 %>
 				<% percentage = percentage_value.to_s + '%' %>
