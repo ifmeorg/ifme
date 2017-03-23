@@ -59,8 +59,11 @@ class ApplicationController < ActionController::Base
   end
 
   def are_allies(userid1, userid2)
-    userid1_allies = User.find(userid1).allies_by_status(:accepted)
-    return userid1_allies.include? User.find(userid2)
+    userid1 = User.find(userid1)
+    userid2 = User.find(userid2)
+    is_allies_userid1 = userid1.allies_by_status(:accepted).include?(userid2)
+    is_allies_userid2 = userid2.allies_by_status(:accepted).include?(userid1)
+    return is_allies_userid1 && is_allies_userid2
   end
 
   def is_viewer(viewers)
