@@ -59,7 +59,7 @@ The steps below should be straightforward for Linux and OS X users. Windows user
 ###### A. If you do not have Rails, use this link:
   http://installrails.com
 
-##### B. Updating existing Ruby installation using either RVM or rbenv
+##### B. Updating existing Ruby installation using either RVM or rbenv. Continue to step 1 or 2 below.
 
 ###### 1. RVM
 
