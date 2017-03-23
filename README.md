@@ -55,13 +55,13 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 The steps below should be straightforward for Linux and OS X users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-#### Ruby on Rails
+#### I. Ruby on Rails
+###### A. If you do not have Rails, use this link:
+  http://installrails.com
 
-http://installrails.com
+##### B. Updating existing Ruby installation using either RVM or rbenv
 
-##### Updating existing Ruby installation
-
-###### RVM
+###### 1. RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -77,7 +77,7 @@ rvm install ruby-2.3.1
 
 Check that Ruby has been updated by running `ruby -v`.
 
-###### rbenv
+###### 2. rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
@@ -94,7 +94,7 @@ cd ifme
 rbenv local 2.3.1
 ```
 
-###### After updating or installing Ruby
+###### II. Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
@@ -113,15 +113,19 @@ gem install nokogiri
 On OS X, if you run into nokogiri errors run `xcode-select --install`
 
 
-Make a gemset for the specific Ruby on Rails version (RVM)
+Make a gemset for the specific Ruby on Rails version (use either RVM or rbenv)
+
+1. Using RVM:
 
 ```
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 
-If you want to create a gemset using rbenv, you can install [rbenv-gemset](https://github.com/jf/rbenv-gemset)
+2. Using rbenv:
 
-##### Updating existing Rails installation
+ [rbenv-gemset](https://github.com/jf/rbenv-gemset)
+
+##### III. Updating existing Rails installation
 
 ```
 gem install rails --version=4.2.6
@@ -129,11 +133,11 @@ gem install rails --version=4.2.6
 
 Check that Rails has been updated by running `rails -v`.
 
-#### Postgres
+#### IV. Postgres
 
 Check out http://www.postgresql.org/download/
 
-##### OS X
+##### A. OS X
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -145,15 +149,15 @@ then start the postgres server:
 
 For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
-##### Linux
+##### B. Linux
 
 Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
-##### Windows
+##### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
-### Install Gems
+### D. Install Gems
 
 After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
