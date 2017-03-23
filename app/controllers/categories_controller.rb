@@ -128,18 +128,10 @@ class CategoriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_category
-    begin
-      @category = Category.friendly.find(params[:id])
-    rescue
-      if @category.blank?
-        respond_to do |format|
-          format.html { redirect_to categories_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @category = Category.friendly.find(params[:id])
+  rescue
+    respond_to_nothing(categories_path) if @category.blank?
   end
 
   def category_params
@@ -148,14 +140,15 @@ class CategoriesController < ApplicationController
 
   def can_view_category(moment_id, strategy_id, category)
     if !(strategy = Strategy.find(strategy_id)).nil? &&
-       is_viewer(strategy.viewers)
+      is_viewer(strategy.viewers)
       return true
     elsif category && !(moment = Moment.find(moment_id)).nil? &&
-          moment.category.include?(category.id) &&
-          is_viewer(moment.viewers) &&
-          are_allies(moment.userid, current_user.id)
+      moment.category.include?(category.id) &&
+      is_viewer(moment.viewers) &&
+      are_allies(moment.userid, current_user.id)
       return true
     end
-    return false
+
+    false
   end
 end

@@ -12,32 +12,25 @@ var onReadyAddComment = function() {
 					$('.actions').removeClass('no_margin_bottom');
 				}
 
-				var url;
-				if (isShow(['moments'])) {
-					url = '/moments/comment';
-				} else if (isShow(['strategies'])) {
-					url = '/strategies/comment';
-				} else {
-					url = '/meetings/comment';
-				}
-
-				var viewers;
+				var viewers = [];
 				if ($('#comment_viewers').length) {
 					viewers = $('#comment_viewers').val();
 				}
 
 				var data = {
-					comment_type: $('#comment_comment_type').val(),
-					commented_on:$('#comment_commented_on').val(),
-					comment_by: $('#comment_comment_by').val(),
-					comment: $('#comment_comment').val(),
-					visibility: $('#comment_visibility').val(),
-					viewers: viewers
+				    comment: {
+                        comment_type: $('#comment_comment_type').val(),
+                        commented_on: $('#comment_commented_on').val(),
+                        comment_by: $('#comment_comment_by').val(),
+                        comment: $('#comment_comment').val(),
+                        visibility: $('#comment_visibility').val(),
+                        viewers: viewers
+                    }
 				};
 
 				$.ajax({
 				    dataType: 'json',
-				    url: url,
+				    url: '/comments',
 				    type: 'POST',
 				    data: data,
 				    success: function(json) {

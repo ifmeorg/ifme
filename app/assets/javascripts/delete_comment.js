@@ -3,8 +3,8 @@ var onReadyDeleteComment = function() {
 		$(document).on('click', '.delete_comment_button', function(event) {
 			event.preventDefault();
 
-			var commentid = $(this).attr('id').replace('delete_comment_', '');
-			var comment = '#comment_' + commentid;
+			var comment_id = $(this).attr('id').replace('delete_comment_', '');
+			var comment = '#comment_' + comment_id;
 			$(comment).remove();
 
 			if ($('.comment').length === 0) {
@@ -13,16 +13,21 @@ var onReadyDeleteComment = function() {
 				$('.comment').first().addClass('no_margin_top');
 			}
 
-			var url;
+
+			var kind;
 			if ($('body').hasClass('moments show')) {
-				url = "/moments/delete_comment?commentid=" + commentid;
+				kind = "moment";
 			} else if ($('body').hasClass('strategies show')) {
-				url = "/strategies/delete_comment?commentid=" + commentid;
+				kind = "strategy";
 			} else {
-				url = "/meetings/delete_comment?commentid=" + commentid;
+				kind = "meeting";
 			}
 
-			$.ajax(url);
+			$.ajax({
+                url: '/comments/' + comment_id,
+                type: 'DELETE',
+                data: { comment: { comment_type: kind } }
+            });
 		});
 	}
 };

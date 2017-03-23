@@ -23,10 +23,7 @@ class MoodsController < ApplicationController
       the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
     else
-      respond_to do |format|
-        format.html { redirect_to moods_path }
-        format.json { head :no_content }
-      end
+      respond_to_nothing(moods_path)
     end
   end
 
@@ -132,16 +129,9 @@ class MoodsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_mood
-    begin
-      @mood = Mood.friendly.find(params[:id])
-    rescue
-      if @mood.blank?
-        respond_to do |format|
-          format.html { redirect_to moods_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @mood = Mood.friendly.find(params[:id])
+  rescue
+    respond_to_nothing(moods_path) if @mood.blank?
   end
 
   def mood_params

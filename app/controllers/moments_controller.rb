@@ -38,118 +38,9 @@ class MomentsController < ApplicationController
         format.json { head :no_content }
       end
     else
-      @comment = Comment.new
       @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order("created_at DESC")
       @no_hide_page = true
     end
-  end
-
-  def comment
-    if params[:viewers].blank?
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: params[:visibility])
-    else
-      # Can only get here if comment is from Moment creator
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
-    end
-
-    if !@comment.save
-      result = { no_save: true }
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-
-    # Notify commented_on user that they have a new comment
-    moment_user = Moment.where(id: @comment.commented_on).first.userid
-
-    if (moment_user != @comment.comment_by)
-      moment_name = Moment.where(id: @comment.commented_on).first.name
-      cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
-      uniqueid = 'comment_on_moment' + '_' + @comment.id.to_s
-
-      data = JSON.generate({
-        user: current_user.name,
-        momentid: @comment.commented_on,
-        moment: moment_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_moment',
-        uniqueid: uniqueid
-        })
-
-      Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: moment_user).order("created_at ASC").all
-      Pusher['private-' + moment_user.to_s].trigger('new_notification', {notifications: notifications})
-
-      NotificationMailer.notification_email(moment_user, data).deliver_now
-
-    # Notify viewer that they have a new comment
-    elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
-      private_user = User.where(id: @comment.viewers[0]).first.id
-      moment_name = Moment.where(id: @comment.commented_on).first.name
-      cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
-      uniqueid = 'comment_on_moment_private' + '_' + @comment.id.to_s
-
-      data = JSON.generate({
-        user: current_user.name,
-        momentid: @comment.commented_on,
-        moment: moment_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_moment_private',
-        uniqueid: uniqueid
-        })
-
-      Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order("created_at ASC").all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
-
-      NotificationMailer.notification_email(private_user, data).deliver_now
-    end
-
-    if @comment.save
-      result = generate_comment(@comment, 'moment')
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-  end
-
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
-
-    if comment_exists
-      momentid = Comment.where(id: params[:commentid]).first.commented_on
-      is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
-      is_a_viewer = is_viewer(Moment.where(id: momentid).first.viewers)
-    else
-      is_my_moment = false
-      is_a_viewer = false
-    end
-
-    if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifcations
-      public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-
-      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s
-      Notification.where(uniqueid: private_uniqueid).destroy_all
-    end
-
-    render :nothing => true
   end
 
   def quick_moment
@@ -274,16 +165,9 @@ class MomentsController < ApplicationController
   private
 
   def set_moment
-    begin
-      @moment = Moment.friendly.find(params[:id])
-    rescue
-      if @moment.blank?
-        respond_to do |format|
-          format.html { redirect_to moments_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @moment = Moment.friendly.find(params[:id])
+  rescue
+    respond_to_nothing(moments_path) if @moment.blank?
   end
 
   def moment_params
@@ -299,6 +183,7 @@ class MomentsController < ApplicationController
         return false
       end
     end
-    return true
+
+    true
   end
 end

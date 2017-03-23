@@ -11,14 +11,12 @@
 #
 
 class Support < ActiveRecord::Base
-  validates_presence_of :userid, :support_type, :support_ids
-  serialize :support_ids, Array
-  validates :support_type, inclusion: %w(category mood moment strategy)
-  before_save :array_data
+  include SerializableData
 
-  def array_data
-    if !self.support_ids.nil? && self.support_ids.is_a?(Array)
-      self.support_ids = self.support_ids.collect{|i| i.to_i}
-    end
-  end
+  validates :userid, :support_type, :support_ids, presence: true
+  validates :support_type, inclusion: %w(category mood moment strategy)
+
+  serialize :support_ids, Array
+
+  array_data_variables :support_ids
 end

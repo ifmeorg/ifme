@@ -11,6 +11,7 @@
 #
 
 class Notification < ActiveRecord::Base
-  validates_presence_of :userid, :uniqueid, :data
   belongs_to :user, foreign_key: :userid
+
+  validates :userid, :uniqueid, :data, presence: true
 end

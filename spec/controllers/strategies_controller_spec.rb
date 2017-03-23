@@ -1,22 +1,22 @@
-RSpec.describe StrategiesController, :type => :controller do
-  describe 'GET index' do
-    let(:user)          { create(:user, id: 1) }
-    let(:strategy1)     { create(:strategy, name: 'test', userid: user.id) }
+RSpec.describe StrategiesController, type: :controller do
+  describe 'GET #index' do
+    let(:user) { create(:user, id: 1) }
+    let(:strategy1) { create(:strategy, name: 'test', userid: user.id) }
 
     context 'when the user is logged in' do
       context 'when search params are provided' do
         include_context :logged_in_user
 
         it 'assigns @strategies' do
-          get :index, search: "test"
+          get :index, search: 'test'
 
           expect(assigns(:strategies)).to eq([strategy1])
         end
 
         it 'renders the index template' do
-          get :index, search: "test"
+          get :index, search: 'test'
 
-          expect(response).to render_template("index")
+          expect(response).to render_template('index')
         end
       end
 
@@ -26,23 +26,21 @@ RSpec.describe StrategiesController, :type => :controller do
         it 'renders the index template' do
           get :index
 
-          expect(response).to render_template("index")
+          expect(response).to render_template('index')
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before do
-        get :index
-      end
+      before { get :index }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'GET show' do
-    let(:user)          { create(:user, id: 1) }
-    let!(:strategy1)    { create(:strategy, id: 1, userid: 1) }
+  describe 'GET #show' do
+    let(:user) { create(:user, id: 1) }
+    let!(:strategy1) { create(:strategy, id: 1, userid: 1) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -57,7 +55,7 @@ RSpec.describe StrategiesController, :type => :controller do
         it 'renders the show template' do
           get :show, id: 1
 
-          expect(response).to render_template("show")
+          expect(response).to render_template('show')
         end
       end
 
@@ -71,111 +69,20 @@ RSpec.describe StrategiesController, :type => :controller do
         it 'renders no content for a json request' do
           get :show, format: 'json', id: 2
 
-          expect(response.body).to eq("")
+          expect(response.body).to eq('')
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before do
-        get :show, id: 1
-      end
+      before { get :show, id: 1 }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'POST comment' do
-    let(:user)          { create(:user, id: 1) }
-    let!(:strategy1)    { create(:strategy, id: 1, userid: 1) }
-    let(:valid_comment_params) { FactoryGirl.attributes_for(:comment).merge(comment_by: 1, commented_on: 1, visibility: 'all') }
-    let(:invalid_comment_params) { FactoryGirl.attributes_for(:comment, commented_on: 1)}
-
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-
-      context 'when the comment is saved' do
-        it 'responds with an OK status' do
-          post :comment, valid_comment_params
-
-          expect(response.status).to eq(200)
-        end
-      end
-
-      context 'when the comment is not saved' do
-        it 'responds with json no_save: true' do
-          post :comment, invalid_comment_params
-
-          expect(response.body).to eq({no_save: true}.to_json)
-        end
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before do
-        post :comment
-      end
-
-      it_behaves_like :with_no_logged_in_user
-    end
-  end
-
-  describe 'GET delete_comment' do
-    let(:user)          { create(:user, id: 1) }
-
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-
-      context 'when the comment exists and belongs to the current_user' do
-        let!(:comment)       { create(:comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all') }
-
-        it 'destroys the comment' do
-          expect { get :delete_comment, commentid: 1 }.to change(Comment, :count).by(-1)
-        end
-
-        it 'renders nothing' do
-          get :delete_comment, commentid: 1
-
-          expect(response.body).to eq("")
-        end
-      end
-
-      context 'when the comment exists and the strategy belongs to the current_user' do
-        let!(:comment)       { create(:comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all') }
-        let(:strategy)       { create(:strategy, userid: 1)}
-
-        it 'destroys the comment' do
-          expect { get :delete_comment, commentid: 1 }.to change(Comment, :count).by(-1)
-        end
-
-        it 'renders nothing' do
-          comment
-          get :delete_comment, commentid: 1
-
-          expect(response.body).to eq("")
-        end
-      end
-
-      context 'when the comment does not exist' do
-        it 'renders nothing' do
-          get :delete_comment, commentid: 1
-
-          expect(response.body).to eq("")
-        end
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before do
-        get :delete_comment
-      end
-
-      it_behaves_like :with_no_logged_in_user
-    end
-  end
-
-  describe 'POST premade' do
-    let(:user)          { create(:user, id: 1) }
+  describe 'POST #premade' do
+    let(:user) { create(:user, id: 1) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -190,26 +97,22 @@ RSpec.describe StrategiesController, :type => :controller do
     end
 
     context 'when the user is not logged in' do
-      before do
-        post :premade
-      end
+      before { post :premade }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'POST quick_create' do
+  describe 'POST #quick_create' do
     context 'when the user is not logged in' do
-      before do
-        post :quick_create
-      end
+      before { post :quick_create }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'GET new' do
-    let(:user)          { create(:user, id: 1) }
+  describe 'GET #new' do
+    let(:user) { create(:user, id: 1) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -217,21 +120,18 @@ RSpec.describe StrategiesController, :type => :controller do
       it 'renders the new template' do
         get :new
 
-        expect(response).to render_template("new")
+        expect(response).to render_template('new')
       end
-
     end
 
     context 'when the user is not logged in' do
-      before do
-        get :new
-      end
+      before { get :new }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'GET edit' do
+  describe 'GET #edit' do
     let(:user)        { create(:user, id: 1) }
     let!(:strategy1)  { create(:strategy, userid: 1, id: 1) }
     let!(:strategy2)  { create(:strategy, userid: 2, id: 2) }
@@ -240,11 +140,10 @@ RSpec.describe StrategiesController, :type => :controller do
       include_context :logged_in_user
 
       context 'when the strategy belongs to the current user' do
-
         it 'renders the edit template' do
           get :edit, id: 1
 
-          expect(response).to render_template("edit")
+          expect(response).to render_template('edit')
         end
       end
 
@@ -258,7 +157,7 @@ RSpec.describe StrategiesController, :type => :controller do
         it 'renders nothing for json requests' do
           get :edit, format: 'json', id: 2
 
-          expect(response.body).to eq("")
+          expect(response.body).to eq('')
         end
       end
     end
@@ -272,7 +171,7 @@ RSpec.describe StrategiesController, :type => :controller do
     end
   end
 
-  describe 'POST create' do
+  describe 'POST #create' do
     let(:user) { create(:user, id: 1) }
     let(:valid_strategy_params) { FactoryGirl.attributes_for(:strategy).merge(userid: 1) }
     let(:invalid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
@@ -282,17 +181,17 @@ RSpec.describe StrategiesController, :type => :controller do
 
       context 'when the params are valid' do
         it 'creates a new strategy' do
-           expect { post :create, :strategy => valid_strategy_params }.to change(Strategy, :count).by(1)
+          expect { post :create, strategy: valid_strategy_params }.to change(Strategy, :count).by(1)
         end
 
         it 'redirects to the strategy show page for html requests' do
-          post :create, :strategy => valid_strategy_params
+          post :create, strategy: valid_strategy_params
 
           expect(response).to redirect_to(strategy_path(assigns(:strategy)))
         end
 
         it 'redirects to the strategy show' do
-          post :create, :strategy => valid_strategy_params
+          post :create, strategy: valid_strategy_params
 
           expect(response.status).to eq(302)
           expect(response.location).to eq(strategy_url(assigns(:strategy)))
@@ -301,17 +200,17 @@ RSpec.describe StrategiesController, :type => :controller do
 
       context 'when the params are invalid' do
         it 'does not create a new strategy' do
-          expect { post :create, :strategy => invalid_strategy_params }.to_not change(Strategy, :count)
+          expect { post :create, strategy: invalid_strategy_params }.to_not change(Strategy, :count)
         end
 
         it 'renders the new template for html requests' do
-          post :create, :strategy => invalid_strategy_params
+          post :create, strategy: invalid_strategy_params
 
-          expect(response).to render_template("new")
+          expect(response).to render_template('new')
         end
 
         it 'responds with a 422 status' do
-          post :create, format: 'json', :strategy => invalid_strategy_params
+          post :create, format: 'json', strategy: invalid_strategy_params
 
           expect(response.status).to eq(422)
         end
@@ -327,24 +226,24 @@ RSpec.describe StrategiesController, :type => :controller do
     end
   end
 
-  describe 'PATCH update' do
+  describe 'PATCH #update' do
     let(:user)      { create(:user, id: 1) }
     let!(:strategy) { create(:strategy, userid: 1, id: 1) }
-    let(:valid_strategy_params)   { {description: 'updated description'} }
-    let(:invalid_strategy_params) { {description: nil} }
+    let(:valid_strategy_params)   { { description: 'updated description' } }
+    let(:invalid_strategy_params) { { description: nil } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the params are valid' do
         it 'updates the strategy record' do
-          patch :update, id: 1, :strategy => valid_strategy_params
+          patch :update, id: 1, strategy: valid_strategy_params
 
           expect(strategy.reload.description).to eq('updated description')
         end
 
         it 'redirects to the show page' do
-          patch :update, id: 1, :strategy => valid_strategy_params
+          patch :update, id: 1, strategy: valid_strategy_params
 
           expect(response).to redirect_to(strategy_path(strategy))
         end
@@ -352,15 +251,15 @@ RSpec.describe StrategiesController, :type => :controller do
 
       context 'when the params are invalid' do
         it 'does not update the record' do
-          patch :update, id: 1, :strategy => invalid_strategy_params
+          patch :update, id: 1, strategy: invalid_strategy_params
 
-          expect(strategy.reload.description).to eq("Test Description")
+          expect(strategy.reload.description).to eq('Test Description')
         end
 
         it 'renders the edit view' do
-          patch :update, id: 1, :strategy => invalid_strategy_params
+          patch :update, id: 1, strategy: invalid_strategy_params
 
-          expect(response).to render_template("edit")
+          expect(response).to render_template('edit')
         end
       end
     end
@@ -374,8 +273,8 @@ RSpec.describe StrategiesController, :type => :controller do
     end
   end
 
-  describe 'DELETE destroy' do
-    let(:user)      { create(:user, id: 1) }
+  describe 'DELETE #destroy' do
+    let(:user) { create(:user, id: 1) }
     let!(:strategy) { create(:strategy, userid: 1, id: 1) }
 
     context 'when the user is logged in' do
@@ -394,14 +293,16 @@ RSpec.describe StrategiesController, :type => :controller do
       it 'responds with no content to json requests' do
         delete :destroy, id: 1, format: 'json'
 
-        expect(response.body).to eq("")
+        expect(response.body).to be_empty
+      end
+
+      it 'destroys ' do
+
       end
     end
 
     context 'when the user is not logged in' do
-      before do
-        delete :destroy, id: 1
-      end
+      before { delete :destroy, id: 1 }
 
       it_behaves_like :with_no_logged_in_user
     end
@@ -409,7 +310,7 @@ RSpec.describe StrategiesController, :type => :controller do
 
   describe '#print_reminders' do
     let(:user) { FactoryGirl.create(:user1) }
-    let(:strategy)     { create(:strategy, name: 'test', userid: user.id) }
+    let(:strategy) { create(:strategy, name: 'test', userid: user.id) }
 
     subject { controller.print_reminders(strategy) }
 
@@ -417,7 +318,7 @@ RSpec.describe StrategiesController, :type => :controller do
       let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
 
       it 'is empty' do
-        expect(subject).to eq('')
+        expect(subject).to be_empty
       end
     end
 

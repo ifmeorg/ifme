@@ -10,3 +10,6 @@ AllCops:
     - 'config/**/*'
     - 'spec/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+
+Rails:
+  Enabled: true

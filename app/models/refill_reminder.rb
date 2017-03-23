@@ -11,7 +11,9 @@
 
 class RefillReminder < ActiveRecord::Base
   belongs_to :medication
-  validates_inclusion_of :active, in: [true, false]
+
+  validates :active, inclusion: [true, false]
+
   scope :active, -> { where(active: true) }
 
   def name

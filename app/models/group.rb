@@ -11,8 +11,9 @@
 
 class Group < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name
-  validates_presence_of :name, :description
+
+  validates :name, :description, presence: true
+
   has_many :group_members, foreign_key: :groupid, dependent: :destroy
   has_many :members, -> { order 'name' }, through: :group_members, source: :user
   has_many :meetings, -> { order 'meetings.created_at DESC' },
@@ -20,6 +21,8 @@ class Group < ActiveRecord::Base
   has_many :leaders, -> { where(group_members: { leader: true }) },
            through: :group_members, source: :user
   after_destroy :destroy_notifications
+
+  friendly_id :name
 
   def led_by?(user)
     leaders.include? user

@@ -12,9 +12,11 @@
 
 class Category < ActiveRecord::Base
   extend FriendlyId
+
+  validates :description, length: { maximum: 2000 }
+  validates :userid, :name, presence: true
+
   friendly_id :name
-  validates_length_of :description, :maximum => 2000
-  validates_presence_of :userid, :name
 
   def self.link
     '/categories/'

@@ -27,79 +27,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  def comment
-    @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'all')
-
-    if !@comment.save
-      result = { no_save: true }
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-
-    # Notify MeetingMembers except for commenter that there is a new comment
-    MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
-      if member.userid != current_user.id
-        meeting_name = Meeting.where(id: @comment.commented_on).first.name
-        cutoff = false
-        if @comment.comment.length > 80
-          cutoff = true
-        end
-        uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
-
-        data = JSON.generate({
-          user: current_user.name,
-          meetingid: @comment.commented_on,
-          meeting: meeting_name,
-          commentid: @comment.id,
-          comment: @comment.comment[0..80],
-          cutoff: cutoff,
-          type: 'comment_on_meeting',
-          uniqueid: uniqueid
-          })
-
-        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
-        Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
-
-        NotificationMailer.notification_email(member.userid, data).deliver_now
-      end
-    end
-
-    if @comment.save
-      result = generate_comment(@comment, 'meeting')
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-  end
-
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
-
-    if comment_exists
-      meetingid = Comment.where(id: params[:commentid]).first.commented_on
-      is_my_meeting = MeetingMember.where(meetingid: meetingid, userid: current_user.id, leader: true).exists?
-      is_member = MeetingMember.where(meetingid: meetingid, userid: current_user.id).exists?
-    else
-      is_my_meeting = false
-      is_member = false
-    end
-
-    if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifcations
-      public_uniqueid = 'comment_on_meeting_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-    end
-
-    render :nothing => true
-  end
-
   # GET /meetings/new
   def new
     @groupid = params[:groupid]
@@ -163,8 +90,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
@@ -342,16 +267,9 @@ class MeetingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
-    begin
-      @meeting = Meeting.friendly.find(params[:id])
-    rescue
-      if @meeting.blank?
-        respond_to do |format|
-          format.html { redirect_to groups_path }
-          format.json { head :no_content }
-        end
-      end
-    end
+    @meeting = Meeting.friendly.find(params[:id])
+  rescue
+    respond_to_nothing(meetings_path) if @meeting.blank?
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
@@ -373,6 +291,7 @@ class MeetingsController < ApplicationController
     if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
       return false
     end
-    return true
+
+    true
   end
 end

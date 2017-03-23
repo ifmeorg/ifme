@@ -2,8 +2,6 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
-  # GET /groups
-  # GET /groups.json
   def index
     @groups = current_user.groups
                           .includes(:group_members)
@@ -12,8 +10,6 @@ class GroupsController < ApplicationController
     @available_groups = current_user.available_groups("groups.created_at DESC")
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
   def show
     if @group.members.include? current_user
       @meetings = @group.meetings.includes(:leaders)
@@ -22,12 +18,10 @@ class GroupsController < ApplicationController
     @page_tooltip = t('meetings.new') if @group.led_by?(current_user)
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit
     unless @group.leaders.include?(current_user)
       flash[:error] = t('groups.form.error_edit_permission')
@@ -35,8 +29,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # POST /groups
-  # POST /groups.json
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -99,8 +91,6 @@ class GroupsController < ApplicationController
     redirect_to_index
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
     @group.destroy
 
@@ -112,11 +102,8 @@ class GroupsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_group
     @group = Group.friendly.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+  rescue
+    respond_to_nothing(groups_path) if @group.blank?
   end
 
   def group_params
