@@ -310,13 +310,14 @@ Testing Accounts
 
 They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
 
-|```                      |
-|Email: test1@example.com |
-|Password: password99     |
-|```                      |   |   |
-|-------------------------|---|---|
+|    Email: test1@example.com |   |   |
+|    Password: password99     |   |   |
+|-----------------------------|---|---|
 
-
+```
+Email: test1@example.com
+Password: password99
+```
 
 ```
 Email: test2@example.com
