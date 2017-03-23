@@ -1,8 +1,7 @@
 [![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
 [![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
 
-if me
-=====
+# if me
 
 if me is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
 
@@ -22,8 +21,7 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 * [Tracking Issues](#tracking-issues)
 * [License](#license)
 
-Goals
------
+# Goals
 
 * Allow users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
 * Create personalized categories and moods to organize Moments and Strategies
@@ -35,33 +33,29 @@ Check out our projects [page](https://github.com/julianguyen/ifme/projects) to s
 
 Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features!
 
-Getting Involved
----------------
+# Getting Involved
 
 Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
 
 If you're looking to give feedback on the app, you can do so [here](http://goo.gl/forms/8EqoJDDiXY)!
 
-### Contributor Code of Conduct
+## Contributor Code of Conduct
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
 
-Installation
--------------
+# Installation
 
 The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions.
 
-### Installing Programs
+The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-The steps below should be straightforward for Linux and OS X users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
+## Ruby on Rails
 
-#### I. Ruby on Rails
-###### A. If you do not have Rails, use this link:
-  http://installrails.com
+If you do not have Rails, use this handy [guide](http://installrails.com).
 
-##### B. Updating existing Ruby installation using either RVM or rbenv. Continue to step 1 or 2 below.
+If you're updating an existing installation through RVM or rbenv. Continue to 1) or 2).
 
-###### 1. RVM
+#### 1) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -77,7 +71,7 @@ rvm install ruby-2.3.1
 
 Check that Ruby has been updated by running `ruby -v`.
 
-###### 2. rbenv
+#### 2) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
@@ -94,7 +88,7 @@ cd ifme
 rbenv local 2.3.1
 ```
 
-###### II. Gems: After updating or installing Ruby
+### Gems
 
 Update the gem manager by running `gem update --system`.
 
@@ -110,22 +104,21 @@ gem install bundler
 gem install nokogiri
 ```
 
-On OS X, if you run into nokogiri errors run `xcode-select --install`
+On macOS, if you run into nokogiri errors run `xcode-select --install`
 
+Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
 
-Make a gemset for the specific Ruby on Rails version (use either RVM or rbenv)
-
-1. Using RVM:
+#### 1) RVM
 
 ```
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 
-2. Using rbenv:
+#### 2) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
-##### III. Updating existing Rails installation
+### Updating An Existing Rails Installation
 
 ```
 gem install rails --version=4.2.6
@@ -133,11 +126,11 @@ gem install rails --version=4.2.6
 
 Check that Rails has been updated by running `rails -v`.
 
-#### IV. Postgres
+## Postgres
 
 Check out http://www.postgresql.org/download/
 
-##### A. OS X
+### macOS
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -149,15 +142,15 @@ then start the postgres server:
 
 For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
-##### B. Linux
+### Linux
 
 Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
-##### C. Windows
+### Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
-### D. Install Gems
+## Install Gems
 
 After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
@@ -165,9 +158,9 @@ After cloning the app on your local machine, in your terminal run the following 
 bundle install
 ```
 
-### Possible Errors
+## Possible Errors
 
-#### Ruby
+### Ruby
 
 If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
 
@@ -183,21 +176,20 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
-#### libv8 and therubyracer
+### libv8 and therubyracer
 
-If using El Captian OS X 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
+If using macOS 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
 
 * libv8: https://github.com/cowboyd/libv8/issues/205
 * therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan, https://github.com/cowboyd/therubyracer/issues/359
 
-#### SSL
+### SSL
 
 On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-Configuration Files
--------------------
+# Configuration Files
 
-### Mandatory
+## Mandatory
 
 There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
 
@@ -207,7 +199,19 @@ Copy the sample files to create your own configuration files:
 
 `cp config/env/development.example.env config/env/development.env`
 
-Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`.
+Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
+
+## Optional
+
+The following are not mandatory, but are required if you would like to test/use these features.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
+
+[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+
+[Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
+
+[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
 ### Email Notifications
 
@@ -222,7 +226,7 @@ If you want to test out scheduled emails, run the following commands: `bundle ex
 `bundle exec rake scheduler:send_perform_strategy_reminders`
 `bundle exec rake scheduler:send_meeting_reminders`
 
-#### Letter Opener
+### Letter Opener
 
 The gem `letter_opener` enables test e-mails to be sent without actually sending an e-mail accidentally to someone through SMTP.
 
@@ -234,20 +238,7 @@ You can disable this gem when you deploy the app by commenting it out.
 
 You can read more about this gem [here](https://github.com/ryanb/letter_opener).
 
-### Optional
-
-The following are not mandatory, but are required if you would like to test/use these features.
-
-[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
-
-[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
-
-[Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
-
-[Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
-
-Running the App Locally
------------------------
+# Running the App Locally
 
 Create the development and test databases:
 
@@ -280,21 +271,21 @@ docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bas
 
 ### Vagrant
 
-Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. (Make sure to add it exactly as below - with ":" and not quotes, or it may not work properly.):
+Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. Make sure to add it exactly as below - with `:` and not quotes, or it may not work properly.
 
 ```
 config.vm.network :forwarded_port, guest: 3000, host: 3000
 ```
 
-rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting the server for localhost
+Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting the server for localhost.
 
 ```
 bin/rails server -b 0.0.0.0
 ```
 
-### Possible Errors
+## Possible Errors
 
-#### Postgres
+### Postgres
 
 ```
 PG::ConnectionBad (fe_sendauth: no password supplied )
@@ -311,7 +302,7 @@ development: &default
   password: <%= ENV["PSQL_PASSWORD"] %>
 ```
 
-### Accessing the Database
+## Accessing the Database
 
 ```
 rails db
@@ -319,8 +310,7 @@ rails db
 
 Note that `ifme_test` is used when running unit tests
 
-Testing Accounts
------------------
+# Testing Accounts
 
 They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to your development needs! You can also test with Google accounts.
 
@@ -339,14 +329,13 @@ Email: test3@example.com
 Password: password99
 ```
 
-Testing Guidelines
-------------------
+# Testing Guidelines
 
 We are using Selenium for web browser automation, so you will **need** to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
 
 Always write tests for the changes you've made! If you see any missing tests, write them!
 
-### Rspec for Ruby
+## Rspec for Ruby
 
 ```
 rspec
@@ -358,33 +347,31 @@ If you receive an error for having `'FATAL:  database "ifme_test" does not exist
 bin/rake db:create db:migrate RAILS_ENV=test
 ```
 
-### Jasmine for JavaScript
+## Jasmine for JavaScript
 
 Make sure PhantomJS is installed locally, either through their [website](http://phantomjs.org) or by running `brew install phantomjs`.
 
-#### GUI
+### GUI Version
 
 In a new terminal window, run `rake jasmine`.
 
 To view the test results, go to `http://localhost:8888`.
 
-#### Command Line
+### Command Line Version
 
 ```
 rake jasmine:ci
 ```
 
-Static Code Analysis
---------------------
+# Static Code Analysis
 
-### JSHint
+## JSHint
 
 ```
 bundle exec rake jshint
 ```
 
-Committing Work
-----------------
+# Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are working on! **Always make pull requests!**
 
@@ -392,7 +379,7 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 **Everyone is encouraged to participate in code reviews, so please do so!**
 
-### Style Guide
+## Style Guide
 
 * We use **2 space** indentation.
 * We use **snakecase** for Ruby files and id/class names in HTML.
@@ -404,7 +391,7 @@ If you've been added as a collaborator to the repository, please do not push unl
 * As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
 * If you add or modify a model, please run `annotate` to update the schema comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
 
-### Contributor Blurb
+## Contributor Blurb
 
 In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
 
@@ -412,18 +399,16 @@ This also helps people to familiarize themselves with the code base! The live co
 
 If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `app/controllers/pages_controller.rb`. Please note: The image url here appears different from the actual path you saved it at above. i.e. Write this as, image: `assets/contributors/firstname_lastname.png` within the `pages_controller.rb` file.
 
-Tracking Issues
-----------------
+# Tracking Issues
 
 Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
 
-### Labelling Issues
+## Labelling Issues
 
 If you create an issue, please tag it with the appropriate label. We use `enhancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
 For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
 
-License
--------
+# License
 
 The source code is licensed under GNU AGPLv3. For more information see http://www.gnu.org/licenses/agpl-3.0.txt or [LICENSE.txt](https://github.com/julianguyen/ifme/blob/master/LICENSE.txt).
