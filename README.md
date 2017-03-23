@@ -274,6 +274,20 @@ or open a shell using
 docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bash
 ```
 
+### Vagrant
+
+Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. (Make sure to add it exactly as below - with ":" and not quotes, or it may not work properly.):
+
+```
+config.vm.network :forwarded_port, guest: 3000, host: 3000
+```
+
+rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting the server for localhost
+
+```
+bin/rails server -b 0.0.0.0
+```
+
 ### Possible Errors
 
 #### Postgres
