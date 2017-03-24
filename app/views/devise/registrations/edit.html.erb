@@ -33,7 +33,7 @@
 	<% end %>
 
 	<div class="field"><div class="label"><%= f.label t('devise.registrations.edit.labels.profile_picture') %></div>
-	<%= fetch_profile_picture(resource.avatar.url, 'mini_profile_picture') %>
+	<%= ProfilePicture.fetch(resource.avatar.url, 'mini_profile_picture') %>
 	<br>
 	<%= f.file_field :avatar %>
 	<% unless resource.avatar.blank? %>

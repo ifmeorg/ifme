@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
 
-  helper_method :avatar_url, :fetch_profile_picture, :is_viewer,
+  helper_method :avatar_url, :is_viewer,
                 :are_allies, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
@@ -59,8 +59,11 @@ class ApplicationController < ActionController::Base
   end
 
   def are_allies(userid1, userid2)
-    userid1_allies = User.find(userid1).allies_by_status(:accepted)
-    return userid1_allies.include? User.find(userid2)
+    userid1 = User.find(userid1)
+    userid2 = User.find(userid2)
+    is_allies_userid1 = userid1.allies_by_status(:accepted).include?(userid2)
+    is_allies_userid2 = userid2.allies_by_status(:accepted).include?(userid1)
+    return is_allies_userid1 && is_allies_userid2
   end
 
   def is_viewer(viewers)
@@ -74,27 +77,6 @@ class ApplicationController < ActionController::Base
   def get_uid(userid)
     uid = User.where(id: userid).first.uid
     return uid
-  end
-
-  def fetch_profile_picture(avatar, class_name)
-    default = "/assets/default_ifme_avatar.png"
-
-    if avatar
-      if avatar.include?('/assets/contributors/')
-        profile = avatar
-      else
-        img_url = avatar
-        res = Net::HTTP.get_response(URI.parse(img_url))
-        img_url = default unless res.code.to_f >= 200 && res.code.to_f < 400
-        profile = img_url
-      end
-    else
-      profile = default
-    end
-
-    result = "<div class='" + class_name.to_s + "' style='background: url(" + profile + ")'></div>"
-
-    return result.html_safe
   end
 
   def most_focus(data_type, profile)
@@ -191,53 +173,10 @@ class ApplicationController < ActionController::Base
     return result
   end
 
-  private def logged_in_as_owner?(owner)
-    owner.id == current_user.id
-  end
-
-  private def logged_in_user_made_comment?(comment)
-    comment.comment_by == current_user.id
-  end
-
-  private def logged_in_user_is_viewer?(comment)
-    !comment.viewers.blank? && comment.viewers.include?(current_user.id)
-  end
-
-  private def logged_in_user_can_view_comment?(comment, owner)
-    logged_in_user_made_comment?(comment) || logged_in_as_owner?(owner) || logged_in_user_is_viewer?(comment)
-  end
-
-  private def visibility_html(comment, commented_on)
-    owner = User.find(commented_on.userid)
-
-    if comment.visibility == 'private' && logged_in_user_can_view_comment?(comment, owner)
-      visibility = '<div class="subtle">'
-
-      other_person = nil
-
-      if logged_in_as_owner?(owner)
-        if viewer = User.where(id: comment.viewers[0]).first
-          # you are logged in as owner, you made the comment, and it is visible to a viewer
-          other_person = viewer
-        else
-          # you are logged in as owner, and comment was made by somebody else
-          other_person = User.find(comment.comment_by)
-        end
-      else
-        # you are logged in as comment maker, and it is visible to you and owner
-        other_person = owner
-      end
-
-      visibility += t('shared.comments.visible_only_between_you_and',
-                      name: other_person.name)
-
-      visibility += '</div>'
-    end
-  end
-
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
-    profile_picture = fetch_profile_picture(profile.avatar.url, 'mini_profile_picture')
+    profile_picture = ProfilePicture.fetch(profile.avatar.url,
+                                           'mini_profile_picture')
 
     comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
     if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
@@ -249,9 +188,13 @@ class ApplicationController < ActionController::Base
     comment_text = raw(data.comment)
 
     if data_type == 'moment'
-      visibility = visibility_html(data, Moment.find(data.commented_on))
+      visibility = CommentVisibility.build(data,
+                                           Moment.find(data.commented_on),
+                                           current_user)
     elsif data_type == 'strategy'
-      visibility = visibility_html(data, Strategy.find(data.commented_on))
+      visibility = CommentVisibility.build(data,
+                                           Strategy.find(data.commented_on),
+                                           current_user)
     end
 
     if (data_type == 'moment' && (Moment.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'strategy' && (Strategy.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commented_on, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
