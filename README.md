@@ -49,6 +49,13 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
+NOTE: If a command is not working and
+  - you are using multiple terminal windows OR
+  - you are using one terminal window and prior installation step was successful
+please close all terminal windows (after the process has not running) and reopen.
+
+ERRORS: If you encounter an error during installation, please refer to [here](https://github.com/liirene1/ifme/blob/master/Errors.md) for help. Please read your error messages.
+
 ## I. Ruby on Rails
 
 If you do not have Rails, use this handy [guide](http://installrails.com).
@@ -107,9 +114,6 @@ gem install nokogiri
 On macOS, if you run into nokogiri errors run `xcode-select --install`
 
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
-
-<<<<<<< HEAD
-Make a gemset for the specific Ruby on Rails version (use either RVM or rbenv)
 
 #### 1) RVM
 
@@ -203,6 +207,8 @@ Copy the sample files to create your own configuration files:
 `cp config/env/development.example.env config/env/development.env`
 
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
+
+BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git. 
 
 ## Optional
 
