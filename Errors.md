@@ -11,7 +11,7 @@ please close all terminal windows (after the process has not running) and reopen
 
 ### Ruby
 
-##### ERROR: `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)`
+#### ERROR: `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)`
 
 TO FIX:
 
@@ -27,7 +27,7 @@ rvm reinstall ruby
 rvm gemset pristine
 ```
 
-##### ERROR: `Requirements installation failed with status: 1.`
+#### ERROR: `Requirements installation failed with status: 1.`
 `Failed to update Homebrew, follow instructions here:
     https://github.com/Homebrew/homebrew/wiki/Common-Issues
 and make sure `brew update` works before continuing.\n`
@@ -44,11 +44,27 @@ This will also prompt you for your password
 ###### ERROR: `Error: update-report should not be called directly!`
 TO FIX: `brew doctor`
 to may lead to this warning:
-`Warning: Your Xcode (8.0) is outdated.
+
+###### `Warning: Your Xcode (8.0) is outdated.
 Please update to Xcode 8.2 (or delete it).
 Xcode can be updated from the App Store.`
 
 TO FIX: `xcode-select --install`
+
+### GEMS
+###### ERROR: `ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
+    SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygems.org/specs.4.8.gz)`
+
+Encountering errors while trying to run
+`gem update --system`
+`gem update`
+
+TO FIX:
+`rvm use ruby-2.3.1@rails4.2.6 --create`
+
+###### ERRORS with nokogiri (macOS)
+TO FIX:
+`xcode-select --install`
 
 ### libv8 and therubyracer (macOS 10.11+)
 
@@ -57,39 +73,12 @@ TO FIX: `xcode-select --install`
 
 ### SSL (Windows)
 
-##### ERROR: `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`
+#### ERROR: `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`
 
 TO FIX: download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
-## Configuration
-
-## Testing
-
--------------------------------------
-
-Encountering errors while trying to run
-gem update --system
-gem update
-
-Error: ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
-    SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygems.org/specs.4.8.gz)
-
-To fix:
-rvm use ruby-2.3.1@rails4.2.6 --create
-
-
----------
-On macOS, if you run into nokogiri errors run `xcode-select --install`
-
-
-
-## Possible Errors
-
 ### Postgres
-
-```
-PG::ConnectionBad (fe_sendauth: no password supplied )
-```
+#### ERROR: `PG::ConnectionBad (fe_sendauth: no password supplied )`
 
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
 
@@ -102,10 +91,9 @@ development: &default
   password: <%= ENV["PSQL_PASSWORD"] %>
 ```
 
-
-Testing rspec
-If you receive an error for having `'FATAL:  database "ifme_test" does not exist'`, run the following.
-
+## Testing rpec
+#### ERROR: `FATAL:  database "ifme_test" does not exist`
+TO FIX: 
 ```
 bin/rake db:create db:migrate RAILS_ENV=test
 ```
