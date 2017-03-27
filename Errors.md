@@ -50,7 +50,7 @@ to may lead to this warning:
 TO FIX: `xcode-select --install`
 
 ### GEMS
-##### ERROR: `ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
+#### ERROR: `ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
     SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygems.org/specs.4.8.gz)`
 
 Encountering errors while trying to run
