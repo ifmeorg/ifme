@@ -49,18 +49,13 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-NOTE: If a command is not working and
-  - you are using multiple terminal windows OR
-  - you are using one terminal window and prior installation step was successful
-please close all terminal windows (after the process has not running) and reopen.
-
-ERRORS: If you encounter an error during installation, please refer to [here](https://github.com/liirene1/ifme/blob/master/Errors.md) for help. Please read your error messages.
+ERRORS: If you encounter an error during installation, please read your error messages and refer to this [guide](https://github.com/liirene1/ifme/blob/master/Errors.md) for help.  
 
 ## I. Ruby on Rails
 
 If you do not have Rails, use this handy [guide](http://installrails.com).
 
-If you're updating an existing installation through RVM or rbenv. Continue to 1) or 2).
+If you're updating an existing installation through RVM or rbenv, continue to 1) or 2).
 
 #### 1) RVM
 
@@ -70,7 +65,7 @@ Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the lat
 rvm get stable --autolibs=enable
 ```
 
-Close and re-open the terminal window
+**Close and re-open the terminal window**
 
 ```
 rvm install ruby-2.3.1
@@ -95,7 +90,7 @@ cd ifme
 rbenv local 2.3.1
 ```
 
-###### II. Gems: After updating or installing Ruby
+## II. Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
@@ -110,8 +105,6 @@ gem install bundler
 ```
 gem install nokogiri
 ```
-
-On macOS, if you run into nokogiri errors run `xcode-select --install`
 
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
 
@@ -133,11 +126,11 @@ gem install rails --version=4.2.6
 
 Check that Rails has been updated by running `rails -v`.
 
-#### IV. Postgres
+## IV. Postgres
 
 Check out http://www.postgresql.org/download/
 
-### A. macOS
+#### A. macOS
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -149,50 +142,21 @@ then start the postgres server:
 
 For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
-##### B. Linux
+#### B. Linux
 
 Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
-##### C. Windows
+#### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
-### D. Install Gems
+## V. Install Gems
 
 After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
 ```
 bundle install
 ```
-
-## Possible Errors
-
-### Ruby
-
-If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
-
-```
-rvm get stable
-```
-
-```
-rvm reinstall ruby
-```
-
-```
-rvm gemset pristine
-```
-
-### libv8 and therubyracer
-
-If using macOS 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
-
-* libv8: https://github.com/cowboyd/libv8/issues/205
-* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan, https://github.com/cowboyd/therubyracer/issues/359
-
-### SSL
-
-On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
 
 # Configuration Files
 
@@ -208,7 +172,7 @@ Copy the sample files to create your own configuration files:
 
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
-BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git. 
+BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git.
 
 ## Optional
 
@@ -230,9 +194,14 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders`
+If you want to test out scheduled emails, run the following commands:
+
+`bundle exec rake scheduler:send_take_medication_reminders`
+
 `bundle exec rake scheduler:send_refill_reminders`
+
 `bundle exec rake scheduler:send_perform_strategy_reminders`
+
 `bundle exec rake scheduler:send_meeting_reminders`
 
 ### Letter Opener
@@ -292,25 +261,6 @@ Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting t
 bin/rails server -b 0.0.0.0
 ```
 
-## Possible Errors
-
-### Postgres
-
-```
-PG::ConnectionBad (fe_sendauth: no password supplied )
-```
-
-You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
-
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`, then add username and password to `config/database.yml`:
-
-```
-development: &default
-  ...
-  username: <%= ENV["PSQL_USERNAME"] %>
-  password: <%= ENV["PSQL_PASSWORD"] %>
-```
-
 ## Accessing the Database
 
 ```
@@ -348,12 +298,6 @@ Always write tests for the changes you've made! If you see any missing tests, wr
 
 ```
 rspec
-```
-
-If you receive an error for having `'FATAL:  database "ifme_test" does not exist'`, run the following.
-
-```
-bin/rake db:create db:migrate RAILS_ENV=test
 ```
 
 ## Jasmine for JavaScript
