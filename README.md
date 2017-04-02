@@ -49,6 +49,7 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
+<<<<<<< HEAD
 ERRORS: If you encounter an error during installation, please read your error messages and refer to this [guide](https://github.com/liirene1/ifme/blob/master/Errors.md) for help.  
 
 ## I. Ruby on Rails
@@ -57,6 +58,14 @@ If you do not have Rails, use this handy [guide](http://installrails.com).
 
 If you're updating an existing installation through RVM or rbenv, continue to 1) or 2).
 
+=======
+## Ruby on Rails
+
+If you do not have Rails, use this handy [guide](http://installrails.com).
+
+If you're updating an existing installation through RVM or rbenv. Continue to 1) or 2).
+
+>>>>>>> upstream/master
 #### 1) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
@@ -90,7 +99,11 @@ cd ifme
 rbenv local 2.3.1
 ```
 
+<<<<<<< HEAD
 ## II. Gems: After updating or installing Ruby
+=======
+### Gems
+>>>>>>> upstream/master
 
 Update the gem manager by running `gem update --system`.
 
@@ -106,8 +119,15 @@ gem install bundler
 gem install nokogiri
 ```
 
+<<<<<<< HEAD
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
 
+=======
+On macOS, if you run into nokogiri errors run `xcode-select --install`
+
+Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
+
+>>>>>>> upstream/master
 #### 1) RVM
 
 ```
@@ -118,7 +138,11 @@ rvm use ruby-2.3.1@rails4.2.6 --create
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
+<<<<<<< HEAD
 ### III. Updating An Existing Rails Installation
+=======
+### Updating An Existing Rails Installation
+>>>>>>> upstream/master
 
 ```
 gem install rails --version=4.2.6
@@ -126,11 +150,19 @@ gem install rails --version=4.2.6
 
 Check that Rails has been updated by running `rails -v`.
 
+<<<<<<< HEAD
 ## IV. Postgres
 
 Check out http://www.postgresql.org/download/
 
 #### A. macOS
+=======
+## Postgres
+
+Check out http://www.postgresql.org/download/
+
+### macOS
+>>>>>>> upstream/master
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -142,6 +174,7 @@ then start the postgres server:
 
 For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
+<<<<<<< HEAD
 #### B. Linux
 
 Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
@@ -151,6 +184,17 @@ Build from the source using yum, apt-get, etc. If you already have Postgres inst
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
 ## V. Install Gems
+=======
+### Linux
+
+Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
+
+### Windows
+
+Install via [graphical installer](http://www.postgresql.org/download/windows/)
+
+## Install Gems
+>>>>>>> upstream/master
 
 After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
 
@@ -158,21 +202,67 @@ After cloning the app on your local machine, in your terminal run the following 
 bundle install
 ```
 
+<<<<<<< HEAD
 # Configuration Files
+=======
+## Possible Errors
+
+### Ruby
+
+If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
+
+```
+rvm get stable
+```
+
+```
+rvm reinstall ruby
+```
+>>>>>>> upstream/master
 
 ## Mandatory
 
+<<<<<<< HEAD
 There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
 
 Copy the sample files to create your own configuration files:
+=======
+### libv8 and therubyracer
+
+If using macOS 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
+>>>>>>> upstream/master
 
 `cp config/env/test.example.env config/env/test.env`
 
+<<<<<<< HEAD
 `cp config/env/development.example.env config/env/development.env`
+=======
+### SSL
+>>>>>>> upstream/master
 
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
+<<<<<<< HEAD
 BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git.
+
+## Optional
+=======
+# Configuration Files
+
+## Mandatory
+>>>>>>> upstream/master
+
+The following are not mandatory, but are required if you would like to test/use these features.
+
+[Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
+
+[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+
+[Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
+
+<<<<<<< HEAD
+=======
+Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
 ## Optional
 
@@ -184,6 +274,7 @@ The following are not mandatory, but are required if you would like to test/use 
 
 [Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
 
+>>>>>>> upstream/master
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
 ### Email Notifications
@@ -248,8 +339,27 @@ docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bas
 ```
 
 ### Vagrant
+<<<<<<< HEAD
 
 Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. Make sure to add it exactly as below - with `:` and not quotes, or it may not work properly.
+=======
+
+Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. Make sure to add it exactly as below - with `:` and not quotes, or it may not work properly.
+
+```
+config.vm.network :forwarded_port, guest: 3000, host: 3000
+```
+
+Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting the server for localhost.
+
+```
+bin/rails server -b 0.0.0.0
+```
+
+## Possible Errors
+
+### Postgres
+>>>>>>> upstream/master
 
 ```
 config.vm.network :forwarded_port, guest: 3000, host: 3000
@@ -300,6 +410,15 @@ Always write tests for the changes you've made! If you see any missing tests, wr
 rspec
 ```
 
+<<<<<<< HEAD
+=======
+If you receive an error for having `'FATAL:  database "ifme_test" does not exist'`, run the following.
+
+```
+bin/rake db:create db:migrate RAILS_ENV=test
+```
+
+>>>>>>> upstream/master
 ## Jasmine for JavaScript
 
 Make sure PhantomJS is installed locally, either through their [website](http://phantomjs.org) or by running `brew install phantomjs`.
