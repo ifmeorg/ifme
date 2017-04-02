@@ -262,16 +262,6 @@ Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting t
 bin/rails server -b 0.0.0.0
 ```
 
-```
-config.vm.network :forwarded_port, guest: 3000, host: 3000
-```
-
-Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting the server for localhost.
-
-```
-bin/rails server -b 0.0.0.0
-```
-
 ## Accessing the Database
 
 ```
