@@ -35,7 +35,7 @@ Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of exis
 
 # Getting Involved
 
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
+Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If you would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
 
 If you're looking to give feedback on the app, you can do so [here](http://goo.gl/forms/8EqoJDDiXY)!
 

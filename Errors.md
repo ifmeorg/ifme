@@ -30,9 +30,9 @@ rvm gemset pristine
 #### ERROR: `Requirements installation failed with status: 1.`
 `Failed to update Homebrew, follow instructions here:
     https://github.com/Homebrew/homebrew/wiki/Common-Issues
-and make sure `brew update` works before continuing.\n`
+and make sure brew update works before continuing.\n`
 
-encountered while trying to attempt `rvm install ruby-2.3.1`
+encountered while trying to run: `rvm install ruby-2.3.1`
 
 TO FIX: `brew update`
 which may lead to these errors:
@@ -53,9 +53,13 @@ TO FIX: `xcode-select --install`
 #### ERROR: `ERROR:  While executing gem ... (Gem::RemoteFetcher::FetchError)
     SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygems.org/specs.4.8.gz)`
 
-Encountering errors while trying to run
-`gem update --system`
-`gem update`
+Encountering errors while trying to run:
+```
+gem update --system
+```
+```
+gem update
+```
 
 TO FIX:
 `rvm use ruby-2.3.1@rails4.2.6 --create`
@@ -67,7 +71,9 @@ TO FIX:
 ### libv8 and therubyracer (macOS 10.11+)
 
 * libv8: https://github.com/cowboyd/libv8/issues/205
-* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan, https://github.com/cowboyd/therubyracer/issues/359
+* therubyracer:
+ http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan
+  https://github.com/cowboyd/therubyracer/issues/359
 
 ### SSL (Windows)
 
