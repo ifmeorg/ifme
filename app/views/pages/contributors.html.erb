@@ -11,7 +11,7 @@
 <div class="contributors">
   <% @blurbs.each do |blurb| %>
     <div class="contributor">
-      <%= fetch_profile_picture(blurb["image"], 'contributor_picture') %>
+      <%= ProfilePicture.fetch(blurb["image"], 'contributor_picture') %>
       <h1 class="contributor_name center"><%= blurb["name"] %></h1>
       <div class="contributor_profile"><%= blurb["profile"] %></div>
       <div class="spacer"></div>
