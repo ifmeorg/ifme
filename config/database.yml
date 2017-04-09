@@ -8,7 +8,7 @@ development: &default
   min_messages: warning
 test:
   <<: *default
-  database: ifme_test
+  database: PearlNetworks
   min_messages: error
 production:
   adapter: postgresql

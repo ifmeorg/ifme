@@ -18,6 +18,7 @@
 	    margin-right: 20px;
 	    width: 217px;
 	    padding: 9px;
+	    margin-top: -120px;
 	}
 	.confirmbtn{
 		border: 1px solid $secondary-text-color;
@@ -59,6 +60,7 @@
 	    padding: 15px;
     	font-size: 38px;
 	    font-weight: bold;
+	    margin-top: -20px;
 	}
 	.close:hover,
 	.close:focus {
@@ -68,5 +70,6 @@
 	}
 	.premade-box {
     	width: auto !important;
+    	margin: 30px 0px 20px;
 	}
 }

@@ -74,7 +74,7 @@ class MoodsController < ApplicationController
       format.json { render :no_content }
     end
   end
-
+  
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
