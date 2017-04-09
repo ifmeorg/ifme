@@ -12,9 +12,7 @@
         <% if t('strategies.index.premade1_description').length >= 150 %>
           <%= t('ellipsis') %>
         <% end %>
-      <button class="confirmbtn" class="actions align_right">
-    	 <%=link_to t('common.actions.confirm_add'), premade_strategies_path %>
-    </button>
+        <%= button_to t('common.actions.premade_add'), premade_strategies_path, class: "confirmbtn actions"%>
       </div>
     </div>
     </div>
