@@ -219,7 +219,7 @@ class StrategiesController < ApplicationController
   
   def premade
     premade1 = Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
-    
+
     respond_to do |format|
       if premade1.save
         Strategy.create(userid: current_user.id, name: t('strategies.index.premade1_name'),  
