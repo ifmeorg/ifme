@@ -2,7 +2,7 @@ development: &default
   adapter: postgresql
   encoding: unicode
   host: <%= ENV['PSQL_HOST'] || 'localhost' %>
-  database: ifme_development
+  database: PearlNetworks
   allow_concurrency: true
   pool: 5
   min_messages: warning

@@ -1,5 +1,8 @@
 <div class="actions align_right">
-  <%= button_to t('common.actions.premade_add'), premade_strategies_path %>
+  <button id="myBtn" class="actions align_right">
+  <%= t('common.actions.premade_add') %>
+  </button>
+  <%= render 'premade' %>
 </div>
 <% title "#{t('strategies.new')}" %>
 <%= render 'form' %>
