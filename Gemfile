@@ -38,7 +38,6 @@ gem 'underscore-rails',           '1.8.3'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'sdoc',                       '0.4.1', group: :doc
-gem 'platform-api', github: 'jalada/platform-api', branch: 'master'
 
 group :development, :test do
   gem 'dotenv',                     '2.1.1'
@@ -72,10 +71,8 @@ group :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver', '2.53.4'
   gem 'simplecov', require: false
-  gem 'letsencrypt-rails-heroku'
 end
 
 group :production do
   gem 'rails_12factor', '0.0.3'
-  gem 'letsencrypt-rails-heroku'
 end
