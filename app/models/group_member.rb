@@ -25,8 +25,7 @@ class GroupMember < ActiveRecord::Base
            through: :meetings, source: :meeting_members
 
   def destroy_meeting_memberships
-    # this can't be done through dependent: :destroy because nested associations
-    # are readonly
+    # can't be done through dependent: :destroy because nested associations are readonly
     MeetingMember.where(id: meeting_membership_ids).destroy_all
   end
 end
