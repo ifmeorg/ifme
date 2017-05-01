@@ -239,6 +239,14 @@ var onReadyNotifications = function() {
       return false;
     });
   }
+  $('#categories_moods_text').scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      $('.titlebar').addClass('scrolling');
+    }
+    else {
+      $('.titlebar').removeClass('scrolling');
+    }
+  })
 };
 
 $(document).on("page:load ready", onReadyNotifications);
