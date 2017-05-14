@@ -1,0 +1,376 @@
+.ally,
+.group {
+  border: 1px solid $container-color;
+  padding: 20px;
+  box-shadow: 0 0 2px $container-color inset;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: $medium) {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.category,
+.medication,
+.meeting,
+.moment,
+.mood,
+.story,
+.strategy,
+.contributor,
+.ally {
+  @include box-sizing(border-box);
+  width: calc(50% - 10px);
+  border: 1px solid $container-color;
+  padding: 20px;
+  box-shadow: 0 0 2px $container-color inset;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.story {
+  position: relative;
+  padding-bottom: 50px;
+
+  .class_name {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+h1.ally_name,
+h1.category_name,
+h1.group_name,
+h1.meeting_name,
+h1.medication_name,
+h1.moment_name,
+h1.story_name,
+h1.mood_name,
+h1.profile_name,
+h1.strategy_name,
+h1.contributor_name {
+  font-weight: 300;
+  font-size: $font26;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+  color: $secondary-text-color;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font22;
+    margin: 0px 0px 10px 0px;
+  }
+}
+
+h1.ally_name a:link,
+h1.ally_name a:visited,
+h1.category_name a:link,
+h1.category_name a:visited,
+h1.group_name a:link,
+h1.group_name a:visited,
+h1.meeting_name a:link,
+h1.meeting_name a:visited,
+h1.medication_name a:link,
+h1.medication_name a:visited,
+h1.moment_name a:link,
+h1.moment_name a:visited,
+h1.story_name a:link,
+h1.story_name a:visited,
+h1.mood_name a:link,
+h1.mood_name a:visited,
+h1.blog_name a:link,
+h1.blog_name a:visited,
+h1.profile_name a:link,
+h1.profile_name a:visited,
+h1.strategy_name a:link,
+h1.strategy_name a:visited {
+  color: $secondary-text-color;
+  text-decoration: none;
+  border: none;
+}
+
+#page_title_content,
+.sidebar_label,
+.label,
+.tip_notifications_text,
+#notifications_text,
+.quick_create_text,
+#categories_moods_text,
+.meeting,
+.group_info,
+.moment,
+.story {
+  .align_left {
+    float: left;
+    display: inline-block;
+
+    @media screen and (max-width: $small) {
+        width: 80%;
+    }
+  }
+
+  .align_right {
+    float: right;
+    display: inline-block;
+  }
+}
+
+.contributor {
+  .align_left {
+    float: left;
+    display: inline-block;
+  }
+
+  .align_right {
+    float: right;
+    display: inline-block;
+  }
+}
+
+
+#other_user,
+.story {
+  .align_left {
+    float: left;
+    display: inline-block;
+
+    @media screen and (max-width: $small) {
+      width: 100%;
+      float: none;
+      display: block;
+    }
+  }
+
+  .align_right:not(.table_cell) {
+    float: right;
+    display: inline-block;
+
+    @media screen and (max-width: $small) {
+      float: none;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: $small) {
+    h1.story_name {
+      font-size: $font20;
+      margin: 0px 0px 5px 0px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $subtle-secondary-text-color;
+    }
+
+    h1.ally_name {
+      font-size: $font18;
+      margin: 0px 0px 10px 0px;
+    }
+  }
+}
+
+#leave.align_left,
+#join.align_left {
+  float: left;
+  display: inline-block;
+
+  @media screen and (max-width: $small) {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: $small + 1) {
+  .ally .align_left {
+    float: left;
+    display: inline-block;
+  }
+
+  .ally .align_right {
+    float: right;
+    display: inline-block;
+  }
+}
+
+#leave.align_right,
+#join.align_right {
+  float: right;
+  display: inline-block;
+}
+
+#stats {
+  font: $font22 $font-family;
+  font-weight: 300;
+  margin-bottom: 40px;
+
+  #most_focus {
+    display: block;
+    width: 100%;
+    font-size: $font-zero;
+  }
+
+  .some_focus {
+    display: inline-block;
+    text-align: center;
+    color: $highlight-text-color;
+    background-color: $secondary-text-color;
+    font-size: $font-zero;
+  }
+
+  .some_focus_text {
+    padding: 20px;
+    font: $font22 $font-family;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a:link, a:visited, .link_style {
+      text-decoration: none;
+      color: $highlight-text-color;
+      border-bottom: none;
+    }
+
+    a:hover, .link_style:hover {
+      text-decoration: none;
+      color: $highlight-text-color;
+      border-bottom: none;
+      opacity: 0.5;
+    }
+  }
+
+  @media screen and (max-width: $medium) {
+    font: $font20 $font-family;
+    font-weight: 300;
+    margin-bottom: 20px;
+
+    .some_focus_text {
+      padding: 20px;
+      font: $font20 $font-family;
+      font-weight: 300;
+    }
+  }
+
+  @media screen and (max-width: $small) {
+    font: $font18 $font-family;
+    font-weight: 300;
+    margin-bottom: 20px;
+
+    .some_focus {
+      display: block;
+      text-align: center;
+      color: $highlight-text-color;
+      background-color: $secondary-text-color;
+      font-size: $font-zero;
+      width: 100% !important;
+    }
+
+    .some_focus_text {
+      padding: 10px;
+      font: $font18 $font-family;
+      font-weight: 300;
+    }
+  }
+}
+
+#tag_usage.margin_bottom {
+  margin-bottom: 20px !important;
+}
+
+.tag_type.margin_top {
+  margin-top: 20px !important;
+}
+
+@media screen and (max-width: $small) {
+  #tag_usage.margin_bottom {
+    margin-bottom: 10px !important;
+  }
+
+  .tag_type.margin_top {
+    margin-top: 10px !important;
+  }
+}
+
+h1.group_type,
+h1.tag_type {
+  font-weight: 100;
+  font-size: $font30;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font26;
+    margin: 0px 0px 10px 0px;
+  }
+}
+
+.class_name,
+#showTaggedMoments.align_right,
+#hideTaggedMoments.align_right  {
+  float: right !important;
+}
+
+.pagination {
+  color: $subtle-secondary-text-color;
+  margin-top: 40px;
+  text-align: center;
+
+  span.prev,
+  span.first {
+    margin-right: 10px;
+  }
+
+  span.next,
+  span.last {
+    margin-left: 10px;
+  }
+
+  a:link, a:visited {
+    text-decoration: none;
+    color: $secondary-text-color;
+    border: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: $secondary-text-color;
+    border-bottom: none;
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: $medium) {
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: $small) {
+    margin-top: 10px;
+  }
+}
+
+#categories_list,
+#moods_list,
+#strategies_list,
+#viewers_list {
+  overflow: auto;
+  max-height: 200px;
+  width: 100%;
+
+  label {
+    display: block;
+    font: inherit;
+  }
+
+  @media screen and (max-width: $small) {
+    max-height: 100px;
+  }
+}
+
+#pages .page,
+.tag_usage,
+.contributors,
+.allies_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

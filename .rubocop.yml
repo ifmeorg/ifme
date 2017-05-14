@@ -1,0 +1,12 @@
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'spec/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/

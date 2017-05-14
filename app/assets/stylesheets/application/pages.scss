@@ -1,0 +1,316 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#version {
+  text-align: center;
+  font-weight: 300;
+  font-size: $font26;
+  margin-bottom: 40px;
+  color: $secondary-text-color;
+
+  @media screen and (max-width: $medium) {
+      font-size: $font24;
+      margin-bottom: 20px;
+  }
+}
+
+.moment p {
+    margin : 0;
+}
+
+.main_message {
+  font-weight: 300;
+  font-size: $page-title;
+  line-height: 50px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  color: $secondary-text-color;
+  width: 60%;
+  text-align: center;
+
+  @media screen and (max-width: $medium) {
+      font-size: $font30;
+      line-height: 40px;
+      margin-bottom: 20px;
+      width: 100%;
+  }
+}
+
+.message_text {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  width: 60%;
+  text-align: center;
+
+  @media screen and (max-width: $medium) {
+      margin-bottom: 20px;
+      width: 100%;
+  }
+}
+
+.message_text,
+.message {
+  text-align: center;
+  font-weight: 300;
+  font-size: $font26;
+
+  @media screen and (max-width: $medium) {
+      font-size: $font24;
+  }
+}
+
+.message {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.message_row {
+  display: table-row;
+
+  @media screen and (max-width: $medium) {
+      display: block;
+  }
+}
+
+.message_cell {
+  display: table-cell;
+  width: 30%;
+
+  @media screen and (max-width: $medium) {
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+  }
+}
+
+#book {
+  width: 106px;
+  height: 80px;
+  background-image: url('/assets/book.png');
+  background-size: 106px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+
+  @media screen and (max-width: $small) {
+    width: 80px;
+    height: 60px;
+    background-size: 80px 60px;
+  }
+}
+
+#time {
+  width: 80px;
+  height: 80px;
+  background-image: url('/assets/time.png');
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+
+  @media screen and (max-width: $small) {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
+  }
+}
+
+#you {
+  width: 198px;
+  height: 80px;
+  background-image: url('/assets/you.png');
+  background-size: 198px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+
+  @media screen and (max-width: $small) {
+    width: 149px;
+    height: 60px;
+    background-size: 149px 60px;
+  }
+}
+
+.icon_border {
+  margin: 40px auto 40px auto;
+  height: 1px;
+  background-color: $primary-text-color;
+  width: 80px;
+
+  @media screen and (max-width: $medium) {
+    margin: 30px auto 30px auto;
+  }
+}
+
+.contributors_grid {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  .contributors_grid_child {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: $medium) {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+/* Blog */
+
+.blog_post {
+  padding: 20px;
+  border: 1px solid $container-color;
+  box-shadow: 0 0 2px $container-color inset;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: $medium) {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+}
+
+h1.blog_name,
+h1.privacy_heading,
+h1.faq_heading {
+  font-weight: 300;
+  font-size: $font26;
+  padding: 0;
+  margin: 0;
+  color: $secondary-text-color;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font22;
+  }
+}
+
+/* Quick Moment */
+
+#quick_moment {
+  input[type="text"], textarea {
+      width: 100%;
+  }
+
+  input[type="text"] {
+      margin-bottom: 20px;
+  }
+
+  .character_count {
+      display: inline;
+  }
+
+  .actions {
+      margin-top: 20px;
+  }
+
+  .quick_moment_disclaimer {
+      text-align: left;
+  }
+
+  label {
+      font-size: $font20;
+      font-weight: 300;
+      display: block;
+      margin-bottom: 5px;
+
+      @media screen and (max-width: $medium) {
+          font-size: $font16;
+      }
+  }
+
+  .checkbox {
+      display: block;
+  }
+
+  @media screen and (max-width: $medium) {
+    .quick_moment_disclaimer {
+      text-align: center;
+    }
+
+    .small_padding_right, .small_padding_bottom {
+      padding: 0 !important;
+    }
+
+    input[type="text"] {
+      margin-bottom: 10px;
+    }
+
+    .actions {
+      margin-top: 10px;
+    }
+
+    textarea {
+      margin-bottom: 10px;
+    }
+
+    .character_count {
+      text-align: center;
+      font: $small-font $font-family;
+      font-weight: 400;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: $small) {
+        font: $font12 $font-family;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.onboarding {
+  @media screen and (max-width: $medium) {
+    .message_cell {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .onboarding_message {
+      text-align: center;
+    }
+
+    .padding_bottom {
+      padding-bottom: 20px !important;
+    }
+  }
+
+  @media screen and (min-width: $medium + 1) {
+    .padding_bottom {
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+.purple_yay {
+  color: $purple-yay;
+  text-align: center;
+  text-shadow: 0px 0px 5px $purple-yay;
+  font-size: $font30;
+}
+
+.partner {
+  text-align: center;
+
+  a:link, a:visited {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: none;
+    border: none;
+    opacity: 0.5;
+  }
+}

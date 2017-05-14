@@ -1,0 +1,32 @@
+<% title t('navigation.contributors') %>
+<%= raw t('pages.contributors.description', {
+  email_link: link_to(t('us'), "mailto:#{t('email')}"),
+  slack_link: link_to(t('pages.contributors.slack'), 'https://ifme.slack.com', target: 'blank'),
+  github_link: link_to(t('navigation.github'), 'https://github.com/julianguyen/ifme', target: 'blank')
+  })
+%>
+
+<div class="divider"></div>
+
+<div class="contributors">
+  <% @blurbs.each do |blurb| %>
+    <div class="contributor">
+      <%= ProfilePicture.fetch(blurb["image"], 'contributor_picture') %>
+      <h1 class="contributor_name center"><%= blurb["name"] %></h1>
+      <div class="contributor_profile"><%= blurb["profile"] %></div>
+      <div class="spacer"></div>
+      <div class="align_left">
+        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
+      </div>
+      <div class="align_right">
+        <%= content_tag(:i, '', class: "fa fa-#{blurb["social"]} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+</div>
+
+<div class="spacer"></div>
+
+<h1 class="contributor_name center"><%= t('pages.contributors.more_contributors') %></h1>
+<%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>

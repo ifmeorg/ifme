@@ -1,0 +1,72 @@
+<% title t('moods.plural') %>
+<% page_new new_mood_path %>
+
+<div class="subtitle">
+  <%= t('moods.index.subtitle') %>
+</div>
+
+<div class="spacer"></div>
+
+<% if @moods.length > 0 %>
+  <%= render :partial => '/search/posts', locals: { data_type: 'mood' } %>
+
+  <%= render :partial => '/shared/stats', locals: { data_type: 'mood' } %>
+
+  <div id="pages">
+    <div class="page">
+    <%= render @moods %>
+    </div>
+  </div>
+
+  <%= paginate @moods %>
+<% else %>
+  <%= raw t('moods.index.instructions', {
+      icon: '<i class="fa fa-plus-circle"></i>'
+    }) %>
+
+  <div class="actions align_right">
+    <%= button_to t('common.actions.add_all'), premade_moods_path %>
+  </div>
+
+  <div class="clear"></div>
+
+  <div id="pages">
+    <div class="page">
+      <div class="mood">
+        <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>
+        <% if t('moods.index.premade1_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood">
+        <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade2_description')[0..80]) %>
+        <% if t('moods.index.premade2_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood">
+        <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade3_description')[0..80]) %>
+        <% if t('moods.index.premade3_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood no_margin_bottom">
+        <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade4_description')[0..80]) %>
+        <% if t('moods.index.premade4_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

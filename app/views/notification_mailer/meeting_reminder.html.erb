@@ -1,0 +1,6 @@
+<p>
+  <%= t('salutation', name: @member.name) %>
+</p>
+<p>
+  <%= t('meetings.reminder_mailer.body', meeting_name: @meeting.name, time: @meeting.time, location: @meeting.location) %>
+</p>

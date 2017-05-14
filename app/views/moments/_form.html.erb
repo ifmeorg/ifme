@@ -1,0 +1,170 @@
+<%= form_for(@moment) do |f| %>
+<% if @moment.errors.any? %>
+  <div class="error_explanation">
+    <%= t('common.form.error_explanation') %>
+  </div>
+<% end %>
+
+<div class="table">
+
+  <div class="table_cell padding_right vertical_align_top sidebar">
+
+    <div class="sidebar_field" >
+      <div class="sidebar_label">
+        <%= f.label t('common.title'), for: 'moment_name' %>
+        <i class="fa fa-asterisk align_right"></i>
+        <div class="clear"></div>
+      </div>
+      <%= f.text_field :name, :class => "name_field" %>
+    </div>
+
+    <div class="sidebar_field">
+      <div class="sidebar_label expand_toggle" data-toggle="#categories">
+        <a href="#" class="toggle_button">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <%= f.label t('categories.plural') %>
+      </div>
+
+      <div id="categories" class="display_none">
+        <div id="categories_list">
+        <% if !@categories.nil? && @categories.length > 0 %>
+          <% @categories.each do |item| %>
+          <%= f.check_box(:category, {:multiple => true, :checked => @moment.category.include?(item.id)}, item.id, nil) %>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
+          </span>
+          <% end %>
+        <% end %>
+        </div>
+        <span id='category_quick_button' class='link_style small_margin_top'><%= t('categories.add_category') %></span>
+      </div>
+    </div>
+
+    <div class="sidebar_field">
+      <div class="sidebar_label expand_toggle" data-toggle="#moods">
+        <a href="#" class="toggle_button">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <%= f.label t('moods.plural') %>
+      </div>
+
+      <div id="moods" class="display_none">
+      <div id="moods_list">
+        <% if !@moods.nil? && @moods.length > 0 %>
+          <% @moods.each do |item| %>
+          <%= f.check_box(:mood, {:multiple => true, :checked => @moment.mood.include?(item.id)}, item.id, nil) %>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
+          </span>
+          <% end %>
+        <% end %>
+        </div>
+        <span id='mood_quick_button' class='link_style small_margin_top'><%= t('moods.add') %></span>
+      </div>
+    </div>
+
+    <div class="sidebar_field">
+      <div class="sidebar_label expand_toggle" data-toggle="#strategies">
+        <a href="#" class="toggle_button">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <%= f.label t('strategies.plural') %>
+      </div>
+
+      <div id="strategies" class="display_none">
+        <div id="strategies_list">
+        <% if !@strategies.nil? && @strategies.length > 0 %>
+          <% @strategies.each do |item| %>
+          <%= f.check_box(:strategies, {:multiple => true, :checked => @moment.strategies.include?(item.id)}, item.id, nil) %>
+          <span class="notification_wrapper">
+            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
+            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_strategy_path(item) } %>
+          </span>
+          <% end %>
+        <% end %>
+        </div>
+        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('strategies.add_strategy') %></span>
+      </div>
+    </div>
+
+    <% if !@viewers.nil? && @viewers.length > 0 %>
+    <div class="sidebar_field">
+      <div class="sidebar_label expand_toggle" data-toggle="#viewers">
+        <a href="#" class="toggle_button">
+          <i class="fa fa-caret-down"></i>
+        </a>
+        <%= f.label t('shared.viewers.plural') %>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
+      </div>
+    </div>
+
+    <div id="viewers" class="display_none">
+      <div id="viewers_list">
+        <label>
+          <input type="checkbox" id="viewers_all" />
+          <span id="viewers_label"><%= t('common.actions.select_all') %></span>
+        </label>
+
+        <% @viewers.each do |item| %>
+          <label>
+            <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %>
+            <%= User.where(id: item.id).first.name %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+     <div class="sidebar_field">
+      <div class="sidebar_label">
+        <%= f.label t('comment.allow_comments') %>
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('comment.hint')) %>
+        <div class="align_right">
+          <%= f.check_box :comment, class: 'no_margin_right' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table_cell vertical_align_top">
+    <div class="field">
+      <div class="label">
+        <%= f.label t('moments.form.why'), for: 'moment_why' %>
+        <i class="fa fa-asterisk align_right"></i>
+        <div class="clear"></div>
+      </div>
+      <%= f.cktext_area :why, class: 'no_title special_textarea ckeditor' %>
+
+      <%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
+    </div>
+    <div class="field">
+      <div class="label">
+        <%= f.label t('moments.form.fix') %>
+      </div>
+      <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
+
+      <%= render :partial => '/shared/character_count', locals: { data: 'moment_fix' } %>
+    </div>
+  </div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="actions align_right no_margin_bottom">
+  <%= f.hidden_field :userid, :value => current_user.id %>
+  <%= f.submit %>
+</div>
+
+<div class="clear"></div>
+
+<% end %>
+
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'moment' } %>
+
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'mood', data: @mood , tag: 'moment' } %>
+
+<%= render :partial => '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy, tag: 'moment' } %>

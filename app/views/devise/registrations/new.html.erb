@@ -1,0 +1,28 @@
+<div class="subtitle"><%= t('devise.registrations.new.subtitle') %></div>
+<div class="spacer"></div>
+
+<div class="center">
+  <%= render "devise/shared/links" %>
+</div>
+
+<div class="divider"></div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="center">
+    <div class="field"><div class="label"><%= f.label t('common.name') %></div>
+    <%= f.text_field :name %></div>
+
+    <div class="field"><div class="label"><%= f.label t('devise.registrations.new.label') %></div>
+    <%= f.text_field :location, class: 'spacing', placeholder: t('common.form.location') %>
+    <%= f.email_field :email, placeholder: t('common.form.email') %></div>
+
+    <div class="field"><div class="label"><%= f.label :password %></div>
+      <%= f.password_field :password, autocomplete: "off", class: 'spacing', placeholder: t('devise.password') %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
+
+    <div class="actions">
+      <%= f.submit t('account.sign_up') %>
+    </div>
+  </div>
+<% end %>

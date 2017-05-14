@@ -1,0 +1,3 @@
+<% if local_assigns[:data].userid == current_user.id %>
+	<%= viewers_hover(local_assigns[:data].viewers, nil) %>
+<% end %>

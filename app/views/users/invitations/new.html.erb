@@ -1,0 +1,14 @@
+<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+  <%= devise_error_messages! %>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <div class="field">
+  	<div class="label"><%= f.label field %></div>
+  	<%= f.text_field field %>
+  </div>
+<% end -%>
+
+<div class="actions no_margin_bottom">
+	<%= f.submit t("devise.invitations.new.submit_button") %>
+</div>
+<% end %>

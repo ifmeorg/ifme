@@ -1,0 +1,22 @@
+// Place all the styles related to the Allies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Allies */
+
+.location {
+	color: $secondary-text-color;
+	opacity: 0.5;
+}
+
+@media screen and (max-width: $medium) {
+	#search_email,
+	#search_name {
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+
+	.allies_nav_left {
+		margin-bottom: 10px;
+	}
+}

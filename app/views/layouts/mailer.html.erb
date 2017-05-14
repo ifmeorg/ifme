@@ -1,0 +1,21 @@
+<html>
+  	<body>
+   		<%= yield %>
+
+   		<p>
+   		-----
+   		</p>
+
+   		<p>
+        <%= t('layouts.mailer.html.app_description',
+              app_name: link_to(t('app_name'), root_url)
+        ).html_safe %>
+   		</p>
+
+		<p>
+      <%= t('layouts.mailer.html.no_reply',
+            email: link_to(t('email'), "mailto:join.ifme@gmail.com")
+      ).html_safe %>
+		</p>
+  	</body>
+</html>

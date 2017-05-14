@@ -1,0 +1,34 @@
+<%= form_for(@category) do |f| %>
+
+<% if @category.errors.any? %>
+  <div class="error_explanation">
+    <%= t('common.form.error_explanation') %>
+  </div>
+<% end %>
+
+  <div class="field">
+    <div class="label">
+      <%= f.label t('common.name'), for: 'category_name' %>
+      <div class="align_right">
+        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('categories.form.name_hint')) %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <%= f.text_field :name, :class => "name_field" %>
+  </div>
+
+  <div class="field">
+    <div class="label">
+      <%= f.label t('common.form.description'), for: 'category_description' %>
+    </div>
+    <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
+  </div>
+
+  <div class="actions align_right no_margin_bottom">
+    <%= f.hidden_field :userid, :value => current_user.id %>
+    <%= f.submit %>
+  </div>
+
+  <div class="clear"></div>
+
+<% end %>

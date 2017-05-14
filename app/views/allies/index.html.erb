@@ -1,0 +1,69 @@
+<% title t('allies.index.title') %>
+<div class="align_left allies_nav_left">
+<%= link_to t('allies.index.invite'), new_user_invitation_path %>
+</div>
+<div class="align_right">
+  <%= render :partial => '/search/form' %>
+</div>
+<div class="clear"></div>
+
+<div class="spacer"></div>
+
+<% if !@outgoing_ally_requests.empty? %>
+  <strong><%= t('allies.index.outgoing') %></strong>
+  <br>
+  <br>
+  <div class="allies_list">
+  <% @outgoing_ally_requests.each do |ally| %>
+    <div class="ally center">
+      <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
+      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+      <div class="location"><%= ally.location %></div>
+      <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+<% if !@incoming_ally_requests.empty? %>
+  <% if !@outgoing_ally_requests.empty? %>
+    <div class="spacer"></div>
+  <% end %>
+  <strong><%= t('allies.index.incoming') %></strong>
+  <br>
+  <br>
+  <div class="allies_list">
+  <% @incoming_ally_requests.each do |ally| %>
+    <div class="ally center">
+      <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
+      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+      <div class="location"><%= ally.location %></div>
+      <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
+<% if @accepted_allies.present? %>
+  <div class="spacer"></div>
+  <strong><%= t('allies.index.title') %></strong>
+  <br>
+  <br>
+<% end %>
+
+<% if @accepted_allies.present? %>
+<div class="allies_list">
+<% @accepted_allies.each do |ally| %>
+  <div class="ally center">
+    <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
+    <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+    <div class="location"><%= ally.location %></div>
+    <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+  </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
+  <%= t('allies.index.none') %>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="subtitle"><%= t('devise.sessions.subtitle') %></div>
+<div class="spacer"></div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  	<div class="center">
+		<div class="field"><div class="label"><%= f.label :email %></div>
+	  	<%= f.email_field :email %></div>
+
+	  	<div class="field"><div class="label"><%= f.label :password %></div>
+	    <%= f.password_field :password, autocomplete: "off" %></div>
+
+	  	<% if devise_mapping.rememberable? -%>
+	    	<div class="field"><div class="label"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div></div>
+	  	<% end -%>
+
+	  	<div class="actions"><%= f.submit t('account.sign_in') %></div>
+	</div>
+<% end %>
+
+<div class="divider"></div>
+
+<div class="center">
+	<%= render "devise/shared/links" %>
+</div>

@@ -1,0 +1,59 @@
+// Place all the styles related to the Medications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Medications */
+
+.comments {
+	width: 100%;
+	height: 150px;
+}
+
+#medication_content {
+  padding: 50px 200px;
+}
+
+.form_container {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+	flex-wrap: wrap;
+}
+
+.refill_medication {
+	padding-right: 112px;
+}
+
+.medication_tooltip_padding {
+	padding-left: 9px;
+}
+
+@media screen and (max-width: $medium) {
+	#medication_strength,
+	#medication_total,
+	#medication_dosage{
+		width: 120px !important;
+	}
+
+	#medication_strength_unit,
+	#medication_total_unit,
+	#medication_dosage_unit {
+		width: auto !important;
+	}
+
+	#medication_content {
+	  padding: 50px 20px;
+	}
+}
+
+@media screen and (max-width: $small) {
+	#medication_content {
+		padding: 0;
+	}
+
+	label[for="refill_reminder"],
+	label[for="take_medication_reminder"],
+	label[for="medication_Google Calendar reminder"] {
+		font-size: 20px;
+	}
+}

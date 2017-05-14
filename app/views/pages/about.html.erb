@@ -1,0 +1,11 @@
+<% title t('navigation.about') %>
+<%= t('app_name') %> <%= raw t('pages.about.description', {
+		linebreak_link: link_to(t('pages.about.linebreak'), 'https://linebreak.co', target: 'blank'),
+		patreon_link: link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: 'blank')
+	}) %>
+
+<p class="no_margin_bottom">
+	<%= raw t('pages.about.email_us', {
+		email_link: link_to(t('us'), "mailto:#{t('email')}")
+	}) %>
+</p>

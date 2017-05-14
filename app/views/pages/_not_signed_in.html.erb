@@ -1,0 +1,48 @@
+<div class="main_message">
+	<%= t('pages.home.not_signed_in.main_message_one') %>
+</div>
+<div class="message_text">
+	<%= t('pages.home.not_signed_in.message_text_one') %>
+	<div class="spacer"></div>
+</div>
+<div class="center">
+	<div class="message">
+		<div class="message_row">
+			<div class="message_cell">
+				<div id="book"></div>
+				<div class="icon_border"></div>
+				<%= t('pages.home.not_signed_in.message_one') %>
+			</div>
+			<div class="message_cell">
+				<div id="you"></div>
+				<div class="icon_border"></div>
+				<%= t('pages.home.not_signed_in.message_two') %>
+			</div>
+			<div class="message_cell no_margin_bottom">
+				<div id="time"></div>
+				<div class="icon_border"></div>
+				<%= t('pages.home.not_signed_in.message_three') %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="spacer"></div>
+<div class="divider"></div>
+<div class="main_message">
+	<div class="spacer"></div>
+	<%= t('pages.home.not_signed_in.main_message_two') %>
+</div>
+<div class="message_text">
+	<%= raw t('pages.home.not_signed_in.message_text_two', {
+			help: link_to(t('pages.home.not_signed_in.help'), contributors_path),
+			feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+		}) %>
+    <div class="spacer"></div>
+    <div class="contributors_grid">
+      <% @blurbs.each do |blurb| %>
+        <div class="contributors_grid_child">
+          <%= ProfilePicture.fetch(blurb['image'], 'home_picture') %>
+        </div>
+      <% end %>
+    </div>
+</div>

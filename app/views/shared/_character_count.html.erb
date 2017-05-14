@@ -1,0 +1,5 @@
+<div class="character_count subtle">
+	<%= raw t('shared.character_count', {
+			number: content_tag(:span, '2000', id: local_assigns[:data].to_s + '_count')
+		}) %>
+</div>
