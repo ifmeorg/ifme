@@ -21,8 +21,8 @@ es:
    github: "GitHub"
    patreon: "Patreon"
    instagram: "Instagram"
-   feedback: "feedback"
    medium: "Medium"
+   feedback: "retroalimentación"
 
  common:
    name: "Nombre"
@@ -234,7 +234,7 @@ es:
    viewers_hint: "Aliados que pueden ver tu momento:"
 
   index:
-   subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental/"
+   subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
    instructions: "Aún no has escrito sobre tus momentos. ¡Da click en %{icon} para inciar! <br><br>¿No sabes por díbde empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir y discutir con tus seres queridos. ¡Puede ser positivo o negativo! No tienes que compartirlo ahora mismo - ¡Hazlo hasta que te sientas listo! Aquí hay un Momento de ejemplo."
    example_name: "¡Preocupación por una entrevsita de mañana!"
    example_category: "Carrera"
