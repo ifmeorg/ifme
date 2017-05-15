@@ -31,8 +31,11 @@ class ApplicationController < ActionController::Base
 
   # before_action
   def set_locale
-    @locales = [{name: 'English', locale: :en}, {name: 'Español', locale: :es}]
-    I18n.locale = params[:locale] || I18n.default_locale
+    @locales = [
+      { name: 'English', locale: :en },
+      { name: 'Español', locale: :es }
+    ]
+    I18n.locale = params[:locale]
     if user_signed_in?
       I18n.locale = current_user.locale
     end

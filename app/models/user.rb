@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
-  validates :locale, inclusion: { in: [nil, "en", "es"] }
+  validates :locale, inclusion: { in: [nil, 'en', 'es'] }
 
   def remove_leading_trailing_whitespace
     @email&.strip!
