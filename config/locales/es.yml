@@ -81,10 +81,10 @@ es:
     cancel: "Cancelar"
 
  categories:
-  plural: "Categorias"
+  plural: "Categorías"
   edit_category: "Editar categoría"
   add_category: "Agregar categoría"
-  new: "Nueva categoria"
+  new: "Nueva categoría"
   form:
    name_hint: "Categoriza personas, lugares, cosas, actividades, y más"
   label:
@@ -375,13 +375,13 @@ es:
       main_message_one: "¡Hola %{name}!"
       message_text_one: "Aquí te decimos cómo empezar a compartir tus historias."
       main_message_two: "Cuéntanos sobre ti."
-      cell_one: "Personaliza tu %{profile}perfil - agrega una biografía y foto de perfil. <br>Agrega %{moods}estados de ánimo personalizados para describir mejor tus emociones<br>. Agrega %{allies}aliados - amigos, familia, y seres queridos con los que quieras compartir."
+      cell_one: "Personaliza tu %{profile} - agrega una biografía y foto de perfil. <br>Agrega %{moods} para describir mejor tus emociones.<br>Agrega %{allies} - amigos, familia, y seres queridos con los que quieras compartir."
       main_message_three: "Escribe tus historias."
-      cell_two: "Crea %{categories}categorías personalizadas para organizar tus momentos.<br> Escribe sobre los %{moments} momentos - los eventos y situaciones que afectan tu salud mental."
+      cell_two: "Crea %{categories} personalizadas para organizar tus momentos.<br> Escribe sobre los %{moments} - los eventos y situaciones que afectan tu salud mental."
       main_message_four: "Cuídate."
-      cell_three: "¡Elabora tus %{strategize}Estrategias de cuidado personal!<br>. ¿Tomas un  %{medications}medicamento? ¡Realiza un seguimiento y crea recordatorios. <br>¿Necesitas apoyo extra? Únete a o crea un %{group} grupo para hablar sobre ello."
+      cell_three: "¡Elabora tus %{strategize} de cuidado personal!<br>. ¿Tomas un  %{medications}? ¡Realiza un seguimiento y crea recordatorios. <br>¿Necesitas apoyo extra? Únete a o crea un %{group} para hablar sobre ello."
       main_message_five: "¿Tienes alguna duda o pregunta?"
-      message_text_three: "¡Revisa nuestra página de %{faq}Preguntas Frecuentes o envíanos un mensaje%{email_link}."
+      message_text_three: "¡Revisa nuestra página de %{faq} o envíanos un mensaje %{email_link}."
       strategize: "Estrategias"
   privacy:
     summary: "Descripción"
