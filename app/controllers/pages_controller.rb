@@ -28,10 +28,10 @@ class PagesController < ApplicationController
 
   def toggle_locale
     if user_signed_in?
-      user = User.find(current_user)
-      user.update!(locale: params[:locale])
+      toggle_when_signed_in(params[:locale])
+    else
+      toggle_when_not_signed_in(params[:locale], params[:local_storage_locale])
     end
-    render :nothing => true
   end
 
   def about; end
@@ -41,6 +41,24 @@ class PagesController < ApplicationController
   def privacy; end
 
   private
+
+  def toggle_when_signed_in(locale)
+    user = User.find(current_user)
+    if locale && user && user.locale != locale
+      user.update!(locale: locale)
+      render json: { signed_in_reload: true, signed_out_reload: false }
+    else
+      render json: { signed_in_reload: false, signed_out_reload: false }
+    end
+  end
+
+  def toggle_when_not_signed_in(locale, local_storage_locale)
+    if local_storage_locale != locale
+      render json: { signed_in_reload: false, signed_out_reload: true }
+    else
+      render json: { signed_in_reload: false, signed_out_reload: false }
+    end
+  end
 
   def load_dashboard_data
     params = { userid: current_user.id }

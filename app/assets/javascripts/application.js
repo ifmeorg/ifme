@@ -24,7 +24,7 @@
 
 /* Viewers */
 function isAllAlliesInputBoxIsChecked(inputTag) {
-	return inputTag.is(":checked") && $('#viewers_label').text() === ALL_ALLIES;
+	return inputTag.is(":checked") && $("#viewers_label").text() === ALL_ALLIES;
 }
 
 function setViewersCheckBoxToNotBeSelected() {
@@ -34,7 +34,7 @@ function setViewersCheckBoxToNotBeSelected() {
 function newOrEdit(forms) {
 	var result = false;
 	_.each(forms, function(form) {
-		if ($('body').hasClass(form + ' new') || $('body').hasClass(form + ' create') || $('body').hasClass(form + ' edit') || $('body').hasClass(form + ' update')) {
+		if ($("body").hasClass(form + " new") || $("body").hasClass(form + " create") || $("body").hasClass(form + " edit") || $("body").hasClass(form + " update")) {
 			result = true;
 			return;
 		}
@@ -46,7 +46,7 @@ function newOrEdit(forms) {
 function isShow(forms) {
 	var result = false;
 	_.each(forms, function(form) {
-		if ($('body').hasClass(form + ' show')) {
+		if ($("body").hasClass(form + " show")) {
 			result = true;
 			return;
 		}
@@ -55,68 +55,18 @@ function isShow(forms) {
 	return result;
 }
 
-function toggleLocale(locale) {
-	$.ajax({
-		url: '/toggle_locale',
-		data: { locale: locale }
-	}).done(function() {
-		if (window.localStorage !== 'undefined') {
-			window.localStorage.setItem('locale', locale);
-		}
-		var href = window.document.URL;
-		if (href.indexOf(locale) === -1) {
-			window.location.href = `${href.split('?')[0]}?locale=${locale}`;
-		}
-	});
-}
-
-var onReadyLocale = function() {
-	var locale;
-	if (window.localStorage !== 'undefined' && window.localStorage.getItem('locale')) {
-		locale = window.localStorage.getItem('locale');
-		if ($('#locale').val() !== locale) {
-			toggleLocale(locale);
-		}
-	}
-	$('#locale').change(function() {
-		if ($(this).val() !== locale) {
-			toggleLocale($(this).val());
-		}
-	});
-}
-
-var onReadyMomentsAndStrategies = function() {
-	$('.expand_toggle').click(function(event) {
-		var toggleID = $(this).data('toggle');
-		$(toggleID).toggle();
-		$(this).find('.toggle_button i').toggleClass('fa-caret-down');
-		$(this).find('.toggle_button i').toggleClass('fa-caret-up');
-		event.preventDefault();
-	});
-
-	$('#viewers_all').click(function(){
-		$("#viewers_list :checkbox").prop("checked", $(this).prop("checked"));
-	});
-}
-
 var onReadyApplication = function() {
 	$.ajaxSetup({
 		headers: {
-			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+			"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
 		}
 	});
 
-	onReadyLocale();
-
 	// Timezone detection
 	var tz = jstz.determine();
-	$.cookie('timezone', tz.name(), { path: '/' });
+	$.cookie("timezone", tz.name(), { path: "/" });
 
-	$('.yes_title').find(':not(.no_title)').tooltip();
-
-	if (newOrEdit(['moments', 'strategies'])) {
-		onReadyMomentsAndStrategies();
-	}
+	$(".yes_title").find(":not(.no_title)").tooltip();
 };
 
 $(document).on("page:load ready", onReadyApplication);
