@@ -66,8 +66,8 @@ class User < ActiveRecord::Base
   has_many :notifications, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
-  validates :name, presence: { message: "must be given please" }
-  validates :locale, inclusion: %w{en es}
+  validates :name, presence: true
+  validates :locale, inclusion: { in: [nil, "en", "es"] }
 
   def remove_leading_trailing_whitespace
     @email&.strip!
