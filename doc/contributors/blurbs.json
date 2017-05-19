@@ -115,5 +115,14 @@
     "link_name":"kindlingscript",
     "link":"http://kindlingscript.com",
     "social":"globe"
+  },
+  {
+    "name":"Lisette Ruiz",
+    "image":"/assets/contributors/lisette_ruiz.jpg",
+    "profile":"This past year has been a tough one for me.<br><br>Bob Dylan won the Nobel over Don DeLillo.<br><br>Clinton lost to Trump.<br><br>And I started seeing a therapist.<br><br>At first, hesitantly, not sure what to expect & ashamed of the “patient” label I now identified with. And then suddenly, with a new sense of appreciation for the brave people doing this important work.<br><br>The entire process has been an absolute saving grace for me. The private, reflective conversations that help me feel recharged and stable are the reason I can read the news each day without bursting into manic tears. After learning about If Me, I was determined to contribute however possible, with the goal of helping even one person gain the benefits I experienced from therapy through this amazing open source platform.",
+    "location":"Seattle, USA",
+    "link_name":"bubsolow",
+    "link":"https://twitter.com/bubsolow",
+    "social":"twitter"
   }
 ]
