@@ -75,7 +75,7 @@ describe 'ToggleLanguage', js: true do
         end
 
         within '.large-screen' do
-          click_link('title_expand')
+          page.find("#title_expand").click
         end
 
         within '#expand_me' do
