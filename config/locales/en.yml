@@ -19,6 +19,7 @@ en:
    privacy: 'Privacy Policy'
    github: 'GitHub'
    patreon: 'Patreon'
+   instagram: 'Instagram'
    feedback: 'feedback'
    medium: 'Medium'
 
@@ -320,10 +321,15 @@ en:
  pages:
   about:
     email_us: 'Feel free to email %{email_link}!'
-    description: "is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.<p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p><p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><div class=\"spacer\"></div><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p><p><strong>Wanna help fund us?</strong> Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets. As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}. You can support us by donating to our %{patreon_link}."
+    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
+    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
+    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
+    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
+    main_message_three: "Wanna help fund us?"
+    message_text_three: "Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
     linebreak: 'Linebreak'
   blog:
-    description: "If you're interested in sharing your article or writing a new article, let %{email_link} know!"
+    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
   contributors:
     description: "<span class=\"emphasis\">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span><p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
@@ -358,8 +364,10 @@ en:
       message_one: 'Share your stories with loved ones and get the support you deserve'
       message_two: 'Be you, no strings attached and with security and privacy'
       message_three: 'Document your moods, medications, and self-care'
-      main_message_two: 'We are open source because mental health should be open.'
-      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      main_message_two: "Storytelling is the key to mental health education."
+      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
+      main_message_three: 'We are open source because mental health should be open.'
+      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
       help: 'help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'

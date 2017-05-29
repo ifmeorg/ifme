@@ -8,12 +8,15 @@ class PagesController < ApplicationController
                          .page(params[:page])
 
       load_dashboard_data if !@stories.blank? && @stories.count.positive?
+    else
+      @posts = fetch_medium_posts
     end
   end
 
   def blog
-    @posts = JSON.parse(File.read('doc/contributors/posts.json'))
-    @posts.reverse!
+    @posts = fetch_medium_posts
+    non_medium_posts = JSON.parse(File.read('doc/contributors/posts.json'))
+    @posts.concat(non_medium_posts.reverse)
   end
 
   def contributors
@@ -44,5 +47,22 @@ class PagesController < ApplicationController
     @moment = Moment.new
     @categories = Category.where(params).order(created_at: :desc)
     @moods = Mood.where(params).order(created_at: :desc)
+  end
+
+  def fetch_medium_posts
+    medium = Medium.new
+    posts = Array.new
+    medium.posts.each do |post|
+      author = ''
+      if (post[1]['previewContent']['bodyModel']['paragraphs'][1])
+        author = post[1]['previewContent']['bodyModel']['paragraphs'][1]['text']
+      end
+      posts.push({
+        'link_name' => post[1]['title'],
+        'link' => "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
+        'author' => author
+      })
+    end
+    posts
   end
 end
