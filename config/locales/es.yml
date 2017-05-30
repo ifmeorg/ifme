@@ -330,7 +330,8 @@ es:
   blog:
     description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
-    description: "<span class=\"emphasis\">if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades</span><p>¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software </strong>, y <strong>diseñadores de  experiencia del usuario</strong>! Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
+    main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
+    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software </strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
     thanks: "Un enorme agradecimiento a:"
     slack: "Slack"

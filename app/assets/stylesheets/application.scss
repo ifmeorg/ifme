@@ -456,18 +456,6 @@ a.page_search:hover {
   }
 }
 
-.emphasis {
-  font: $emphasis $font-family;
-  font-weight: $lg;
-  color: $secondary-text-color;
-
-  @media screen and (max-width: $medium) {
-    font: $emphasis-small $font-family;
-    font-weight: $lg;
-    color: $secondary-text-color;
-  }
-}
-
 .block {
   display: block !important;
 }
