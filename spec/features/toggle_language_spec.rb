@@ -43,7 +43,54 @@ describe 'ToggleLanguage', js: true do
     end
 
     describe 'when not signed in and then signed in' do
-      it 'language toggled when not signed in persists when signed in' do end
+      before(:each) do
+        logout(:user)
+        visit root_path
+      end
+
+      it 'language can be toggled on the same page' do
+        within '#page_title' do
+          expect(page).to have_content 'if me is a community for mental health experiences'
+        end
+
+        select 'Español', from: 'locale'
+        within '#page_title' do
+          expect(page).to have_content 'if me es una comunidad para compartir experiencias de salud mental'
+        end
+
+        select 'English', from: 'locale'
+        within '#page_title' do
+          expect(page).to have_content 'if me is a community for mental health experiences'
+        end
+      end
+
+      it 'language can be toggled on different pages' do
+        select 'Español', from: 'locale'
+        within '#page_title' do
+          expect(page).to have_content 'if me es una comunidad para compartir experiencias de salud mental'
+        end
+
+        click_link('Acerca de')
+        within '#page_title' do
+          expect(page).to have_content 'Acerca de'
+        end
+
+        login_as user
+
+        visit root_path
+
+        within '#page_title' do
+          expect(page).to have_content '¡Adelante!'
+        end
+
+        within '.large-screen' do
+          click_link('Momentos')
+        end
+
+        within '#page_title' do
+          expect(page).to have_content 'Momentos'
+        end
+      end
     end
 
     describe 'when signed in and then not signed in' do
