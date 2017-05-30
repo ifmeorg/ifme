@@ -2,16 +2,7 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #home' do
     it 'respond to request' do
       get :home
-
       expect(response).to be_success
-    end
-
-    it 'before_filter' do
-      blurbs_file = File.read('doc/contributors/blurbs.json')
-
-      expect(JSON).to receive(:parse).with(blurbs_file)
-
-      get :home
     end
 
     context 'logged in' do
@@ -42,23 +33,24 @@ RSpec.describe PagesController, type: :controller do
     end
 
     context 'not logged in' do
+      it 'has blurbs and posts' do
+        get :home
+        expect(assigns(:posts)[0].keys).to contain_exactly('link', 'link_name', 'author')
+        blurbs_file = File.read('doc/contributors/blurbs.json')
+        expect(assigns(:blurbs)).to eq(JSON.parse(blurbs_file))
+      end
     end
   end
 
   describe 'GET #blog' do
     it 'respond to request' do
       get :blog
-
       expect(response).to be_success
     end
 
-    it 'read external JSON file' do
-      data = double([])
-
-      expect(JSON).to receive(:parse).with(File.read('doc/contributors/posts.json')).and_return(data)
-      expect(data).to receive(:reverse!)
-
+    it 'has posts' do
       get :blog
+      expect(assigns(:posts)[0].keys).to contain_exactly('link', 'link_name', 'author')
     end
   end
 

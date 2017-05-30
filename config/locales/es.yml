@@ -12,12 +12,13 @@ es:
 
  navigation:
    about: "Acerca de "
-   blog: "Blog:"
+   blog: "Blog"
    contributors: "Contribuidores"
    partners: "Socios"
    privacy: "Política de Privacidad"
    github: "GitHub"
    patreon: "Patreon"
+   instagram: "Instagram"
    feedback: "feedback"
    medium: "Medium"
 
@@ -319,10 +320,15 @@ es:
  pages:
   about:
     email_us: "Envía un correo electrónico a: %{email_link}!"
-    description: "<em>if me<em>, por su significado en inglés, <em>si a mi<em>,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza. Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental <p> Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto. </p> <p> No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos. </p><div class=\"spacer\"></div><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p><p><strong>¿Quieres ayudar a financiarnos?</strong> Nuestra página es <u>completamente</u>open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales. Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud, maybe). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}. Puedes apoyarnos con una donación en nuestro %{patreon_link}."
+    main_message_one: "%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza."
+    message_text_one: "Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental."
+    main_message_two: "Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto."
+    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
+    main_message_three: "¿Quieres ayudar a financiarnos?"
+    message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud, maybe). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
     linebreak: "Linebreak"
   blog:
-    description: "Si quieres compartir tu artículo o escribir uno nuevo, dile a %{email_link}!"
+    description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
     description: "<span class=\"emphasis\">if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades</span><p>¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software </strong>, y <strong>diseñadores de  experiencia del usuario</strong>! Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
@@ -357,8 +363,10 @@ es:
       message_one: "Comparte tus historias con seres queridos y obtén el apoyo que mereces."
       message_two: "Sé tú mismo, sin condición, con seguridad y privacidad."
       message_three: "Documenta tus estados de ánimo, medicamentos, y cuidado personal."
-      main_message_two: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
-      message_text_two: "¡<strong>Siempre</strong> estamos abiertos a tu ayuda %{help} y retroalimentación %{feedback}!"
+      main_message_two: "Compartir nuestras historias es la clave de la educación en salud mental."
+      message_text_two: "Aprende con la <strong>comunidad</strong> en nuestro %{blog}"
+      main_message_three: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
+      message_text_three: "¡<strong>Siempre</strong> estamos abiertos a tu ayuda %{help} y retroalimentación %{feedback}!"
       help: "ayuda"
     signed_in_empty:
       main_message_one: "¡Hola %{name}!"

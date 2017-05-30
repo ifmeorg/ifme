@@ -33,6 +33,7 @@ if ENV['SELENIUM_REMOTE_HOST']
 end
 
 RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include StubCurrentUserHelper

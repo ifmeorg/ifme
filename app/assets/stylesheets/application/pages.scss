@@ -68,6 +68,7 @@
   display: table;
   table-layout: fixed;
   width: 100%;
+  border-spacing: 20px 0px;
 }
 
 .message_row {
@@ -145,6 +146,30 @@
 
   @media screen and (max-width: $medium) {
     margin: 30px auto 30px auto;
+  }
+}
+
+#medium_posts {
+  width: 90%;
+  margin: 0 auto;
+  font-size: $font24;
+
+  .post_author {
+    margin-top: 10px;
+    font-size: $font22;
+  }
+
+  .message_cell {
+    vertical-align: middle;
+  }
+
+  @media screen and (max-width: $medium) {
+    font-size: $font22;
+
+    .post_author {
+      margin-top: 5px;
+      font-size: $font20;
+    }
   }
 }
 
