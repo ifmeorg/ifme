@@ -31,6 +31,7 @@ es:
    date: "Fecha"
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
+    submit: "Enviar"
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -81,6 +82,7 @@ es:
     cancel: "Cancelar"
 
  categories:
+  singular: "Categoría"
   plural: "Categorías"
   edit_category: "Editar categoría"
   add_category: "Agregar categoría"
@@ -149,6 +151,7 @@ es:
    reset_password: "Reestablece tu contraseña"
 
  medications:
+  singular: "Medicamento"
   edit_medication: "Editar medicamento"
   refill_reminder: "Recordatorio para resurtir medicinas via correo electrónico"
   dosage: "Dósis diaria:"
@@ -199,6 +202,7 @@ es:
    comments: "Comentarios:"
 
  meetings:
+  singular: "Reunión"
   edit_meeting: "Editar Reunión"
   form:
    location_placeholder: "URL o dirección física"
@@ -333,7 +337,7 @@ es:
     description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
     main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
-    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software </strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
+    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
     thanks: "Un enorme agradecimiento a:"
     slack: "Slack"
@@ -504,7 +508,9 @@ es:
  devise:
   password: "Contraseña"
   new_password: "Nueva contraseña"
+  current_password: "Contraseña actual"
   password_change: "Cambiar contraseña"
+  remember_me: "Recordarme"
   confirmations:
     resend_confirmation: "Reenviar instrucciones de confirmación"
   mailer:
@@ -526,13 +532,13 @@ es:
       send_instructions: "Envíenme instrucciones para resetear mi contraseña"
 
   registrations:
-    email_notifications: "Email Notifications"
-    comment_notify_text: "Comments on moments, strategies, and meetings"
-    ally_notify_text: "New and accepted ally requests"
-    group_notify_text: "Group updates"
-    meeting_notify_text: "Meeting updates"
-    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
-    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
+    email_notifications: "Notificaciones por correo electrónico"
+    comment_notify_text: "Comentarios en momentos, estrategias, y reuniones"
+    ally_notify_text: "Solicitudes de Aliados nuevas y aceptadas"
+    group_notify_text: "Actualizaciones de grupo"
+    meeting_notify_text: "Actualizaciones de reuniones"
+    google_auth1: "Si ya no deseas verificar tu identidad a través de Google, por favor ingresa un nuevo correo electrónico y contraseña."
+    google_auth2: "Debido a que tu identidad ha sido confirmada a través de Google, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña."
     placeholders:
       repeat_password: "Repetir contraseña"
     edit:

@@ -44,7 +44,7 @@ class PagesController < ApplicationController
 
   def toggle_when_signed_in(locale)
     user = User.find(current_user)
-    if (!locale && user || locale == user.locale)
+    if !locale && user || locale == user.locale
       render json: { signed_in_no_reload: user.locale }
     else
       user.update!(locale: locale)

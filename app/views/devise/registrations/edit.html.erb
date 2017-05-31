@@ -64,7 +64,7 @@
 	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
 
 	<% if current_user.provider != "google_oauth2" %>
-	<div class="field"><div class="label"><%= f.label :current_password %></div>
+	<div class="field"><div class="label"><%= f.label t('devise.current_password') %></div>
 	<%= f.password_field :current_password, autocomplete: "off", placeholder: t('devise.registrations.edit.placeholders.required') %></div>
 	<% end %>
 
