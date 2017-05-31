@@ -10,7 +10,7 @@ module MeetingsHelper
 
   private def attending(id)
     t('shared.meeting_info.attending') +
-    '\n' +
+    ' ' +
     link_to(
       t('common.actions.leave'),
       leave_meetings_path(meetingid: id)
