@@ -31,6 +31,7 @@ en:
    date: 'Date:'
    daily_reminder: 'Daily reminder email'
    actions:
+    submit: 'Submit'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
@@ -149,6 +150,7 @@ en:
    reset_password: Reset your password
 
  medications:
+  singular: 'Medication'
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   dosage: 'Daily Dosage:'
@@ -504,7 +506,9 @@ en:
  devise:
   password: "Password"
   new_password: "New password"
+  current_password: "Current password"
   password_change: "Change my password"
+  remember_me: "Remember me"
   confirmations:
     resend_confirmation: "Resend confirmation instructions"
   mailer:
