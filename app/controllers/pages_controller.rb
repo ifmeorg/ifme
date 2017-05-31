@@ -30,7 +30,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       toggle_when_signed_in(params[:locale])
     else
-      toggle_when_not_signed_in(params[:locale], params[:local_storage_locale])
+      render json: { signed_out: true }
     end
   end
 
@@ -44,19 +44,11 @@ class PagesController < ApplicationController
 
   def toggle_when_signed_in(locale)
     user = User.find(current_user)
-    if locale && user && user.locale != locale
+    if (!locale && user || locale == user.locale)
+      render json: { signed_in_no_reload: user.locale }
+    else
       user.update!(locale: locale)
-      render json: { signed_in_reload: true, signed_out_reload: false }
-    else
-      render json: { signed_in_reload: false, signed_out_reload: false }
-    end
-  end
-
-  def toggle_when_not_signed_in(locale, local_storage_locale)
-    if local_storage_locale != locale
-      render json: { signed_in_reload: false, signed_out_reload: true }
-    else
-      render json: { signed_in_reload: false, signed_out_reload: false }
+      render json: { signed_in_reload: locale }
     end
   end
 

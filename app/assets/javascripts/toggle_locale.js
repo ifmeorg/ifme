@@ -1,28 +1,40 @@
-function toggleLocale(locale, localStorageLocale) {
+function whenSignedOut(locale, previousLocale) {
+	if (locale !== previousLocale) {
+		window.localStorage.setItem("locale", locale);
+		var href = window.location.href.split("?")[0];
+		window.location.replace(href + "?locale=" + locale);
+	} else {
+		window.localStorage.setItem("locale", previousLocale);
+	}
+}
+
+function toggleLocale(locale, previousLocale) {
 	$.ajax({
 		url: "/toggle_locale",
 		data: {
-			locale: locale,
-			local_storage_locale: localStorageLocale
+			locale: locale
 		}
 	}).done(function(data) {
-		if (data.signed_in_reload) {
-			window.localStorage.setItem("locale", locale);
+		if (data.signed_in_no_reload) {
+			window.localStorage.setItem("locale", data.signed_in_no_reload);
+		} else if (data.signed_in_reload) {
+			window.localStorage.setItem("locale", data.signed_in_reload);
 			window.location.reload();
-		} else if (data.signed_out_reload) {
-			var href = window.location.href.split("?")[0];
-			window.localStorage.setItem("locale", locale);
-			window.location.replace(href + "?locale=" + locale);
+		} else {
+			whenSignedOut(locale, previousLocale);
 		}
 	});
 }
 
 var onReadyToggleLocale = function() {
-  var localStorageLocale = window.localStorage.getItem("locale");
-  toggleLocale($("#locale").val(), localStorageLocale);
+  var locale = window.localStorage.getItem("locale");
+  toggleLocale(locale, $("#locale").val());
 	$("#locale").change(function() {
 		if ($(this).val()) {
-			toggleLocale($(this).val(), localStorageLocale);
+			var previousLocale = locale;
+			window.localStorage.setItem("locale", $(this).val());
+			locale = window.localStorage.getItem("locale");
+			toggleLocale(locale, previousLocale);
 		}
 	});
 }

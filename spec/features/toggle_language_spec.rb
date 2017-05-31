@@ -1,10 +1,13 @@
 describe 'ToggleLanguage', js: true do
   let(:user) { create :user1 }
 
+  after(:each) do
+    page.reset!
+  end
+
   feature 'Toggling the locale dropdown to change the language' do
-    describe 'When not signed in' do
+    describe 'When signed out' do
       before(:each) do
-        logout(:user)
         visit root_path
       end
 
@@ -42,26 +45,13 @@ describe 'ToggleLanguage', js: true do
       end
     end
 
-    describe 'when not signed in and then signed in' do
+    describe 'when signed out and then signed in' do
       before(:each) do
-        logout(:user)
         visit root_path
       end
 
-      it 'language can be toggled on the same page' do
-        within '#page_title' do
-          expect(page).to have_content 'if me is a community for mental health experiences'
-        end
-
-        select 'Español', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content 'if me es una comunidad para compartir experiencias de salud mental'
-        end
-
-        select 'English', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content 'if me is a community for mental health experiences'
-        end
+      after(:each) do
+        logout(:user)
       end
 
       it 'language can be toggled on different pages' do
@@ -75,9 +65,15 @@ describe 'ToggleLanguage', js: true do
           expect(page).to have_content 'Acerca de'
         end
 
-        login_as user
+        within '#header_content' do
+          click_link('Ingresar')
+        end
 
-        visit root_path
+        within '#new_user' do
+          fill_in('user_email', with: user.email)
+          fill_in('user_password', with: user.password)
+          click_button('Ingresar')
+        end
 
         within '#page_title' do
           expect(page).to have_content '¡Adelante!'
@@ -93,10 +89,14 @@ describe 'ToggleLanguage', js: true do
       end
     end
 
-    describe 'when signed in and then not signed in' do
+    describe 'when signed in and then signed out' do
       before(:each) do
         login_as user
         visit root_path
+      end
+
+      after(:each) do
+        logout(:user)
       end
 
       it 'language toggled when signed in persists when not signed in' do
@@ -154,6 +154,10 @@ describe 'ToggleLanguage', js: true do
       before(:each) do
         login_as user
         visit root_path
+      end
+
+      after(:each) do
+        logout(:user)
       end
 
       it 'language can be toggled on the same page' do
