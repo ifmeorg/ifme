@@ -62,6 +62,7 @@ group :development, :test do
   gem 'ruby-graphviz',              '1.2.2'
 
   gem 'letter_opener'
+  gem 'rspec_junit_formatter'
 
   gem 'jshint'
   gem 'rubocop',                    '0.40.0'
