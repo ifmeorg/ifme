@@ -2,7 +2,6 @@ en:
  app_name: 'if me'
  app_description: 'is a community for mental health experiences'
  email: 'join.ifme@gmail.com'
- us: 'us'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
@@ -48,6 +47,7 @@ en:
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
    time_ago: "%{date} ago"
+   write_to_us: "write to us"
 
  comment:
   singular: 'Comment'
@@ -323,6 +323,7 @@ en:
 
  pages:
   about:
+    send_us: 'us'
     email_us: 'Feel free to email %{email_link}!'
     main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
     message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
@@ -335,7 +336,7 @@ en:
     description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
   contributors:
     main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please email %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
+    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
     thanks: 'A huge thanks to'
     slack: 'Slack'
@@ -383,7 +384,7 @@ en:
       main_message_four: 'Take care of yourself.'
       cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
       main_message_five: 'Have any questions or concerns?'
-      message_text_three: 'Check out our %{faq} page or email %{email_link}!'
+      message_text_three: 'Check out our %{faq} page or %{email_link}!'
       strategize: 'Strategize'
   privacy:
     summary: 'Summary'
@@ -395,7 +396,7 @@ en:
     social_media: 'Social Media Platforms'
     social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
-    contact_description: "<p>Please email %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
 
  profile:
   index:

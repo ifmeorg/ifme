@@ -2,7 +2,6 @@ es:
  app_name: "if me"
  app_description: "es una comunidad para compartir experiencias de salud mental"
  email: "join.ifme@gmail.com"
- us: "nosotros"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
@@ -48,6 +47,7 @@ es:
      description: "Descripción"
      error_explanation: "Por favor completa los campos indicados"
    time_ago: 'hace %{date}'
+   write_to_us: "escríbenos"
 
  comment:
   singular: "Comentario"
@@ -325,19 +325,20 @@ es:
 
  pages:
   about:
-    email_us: "Envía un correo electrónico a: %{email_link}!"
+    send_us: "Envíanos"
+    email_us: "%{email_link} un correo electrónico!"
     main_message_one: "%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza."
     message_text_one: "Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental."
     main_message_two: "Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto."
     message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
     main_message_three: "¿Quieres ayudar a financiarnos?"
-    message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud, maybe). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
+    message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
     linebreak: "Linebreak"
   blog:
     description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
     main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
-    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
+    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
     thanks: "Un enorme agradecimiento a:"
     slack: "Slack"
@@ -371,9 +372,9 @@ es:
       message_two: "Sé tú mismo, sin condición, con seguridad y privacidad."
       message_three: "Documenta tus estados de ánimo, medicamentos, y cuidado personal."
       main_message_two: "Compartir nuestras historias es la clave de la educación en salud mental."
-      message_text_two: "Aprende con la <strong>comunidad</strong> en nuestro %{blog}"
+      message_text_two: "Aprende con la <strong>comunidad</strong> en nuestro %{blog}."
       main_message_three: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
-      message_text_three: "¡<strong>Siempre</strong> estamos abiertos a tu ayuda %{help} y retroalimentación %{feedback}!"
+      message_text_three: "¡Estamos <strong>siempre</strong> dispuestos a recibir %{help} y %{feedback}!"
       help: "ayuda"
     signed_in_empty:
       main_message_one: "¡Hola %{name}!"
@@ -385,7 +386,7 @@ es:
       main_message_four: "Cuídate."
       cell_three: "¡Elabora tus %{strategize} de cuidado personal!<br>. ¿Tomas un  %{medications}? ¡Realiza un seguimiento y crea recordatorios. <br>¿Necesitas apoyo extra? Únete a o crea un %{group} para hablar sobre ello."
       main_message_five: "¿Tienes alguna duda o pregunta?"
-      message_text_three: "¡Revisa nuestra página de %{faq} o envíanos un mensaje %{email_link}."
+      message_text_three: "¡Revisa nuestra página de %{faq} o %{email_link}."
       strategize: "Estrategias"
   privacy:
     summary: "Descripción"
@@ -397,7 +398,7 @@ es:
     social_media: "Redes Sociales"
     social_media_description: "<p> Comunicación, involucramiento, y acciones llevadas a cabo a través de plataformas de redes sociales externas en las que participa este sitio de internet están adscritas los t´rminos y condiciones de cada red social en cuestión.</p><p> Se aconseja a los usuarios emplear redes sociales cuidadosamente e involucrarse en ellas con la debida precaución al respecto de su privacidad e información personales. Este sitio jamás pedirá información de carácter personal o sensible a través de redes sociales y aconseja a los usuarios que deseen comentar detalles personales a contactarse de forma privada vía telefónica o correo electrónico.</p><p>Este sitio puede utilizar botones para compartir en redes sociales que sirven para contenido de páginas de internet a la red social en cuestión. Se aconseja a los usuarios que antes de emplear dichos botones para compartir lo hagan bajo su propia discreción y tomen en cuenta que la plataforma de la red social puede rastrear y guardar la solicitud para compartir una página de internet respectivamente a través de la cuenta perteneciente al usuario dentro de la plataforma de la red social.</p>"
     contact: "Contacto"
-    contact_description: "<p>Por favor escribe a %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
 
  profile:
   index:
