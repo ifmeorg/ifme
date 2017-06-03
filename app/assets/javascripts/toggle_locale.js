@@ -27,14 +27,14 @@ function toggleLocale(locale, previousLocale) {
 }
 
 var onReadyToggleLocale = function() {
-  var locale = window.localStorage.getItem("locale");
-  toggleLocale(locale, $("#locale").val());
+	var locale = window.localStorage.getItem("locale");
+	toggleLocale(locale, $("#locale").val());
 	$("#locale").change(function() {
 		if ($(this).val()) {
 			var previousLocale = locale;
-			window.localStorage.setItem("locale", $(this).val());
-			locale = window.localStorage.getItem("locale");
-			toggleLocale(locale, previousLocale);
+			var updatedLocale = $(this).val();
+			window.localStorage.setItem("locale", updatedLocale);
+			toggleLocale(updatedLocale, previousLocale);
 		}
 	});
 }

@@ -1,14 +1,14 @@
 describe 'ToggleLanguage', js: true do
   let(:user) { create :user1 }
 
-  after(:each) do
-    page.reset!
-  end
-
   feature 'Toggling the locale dropdown to change the language' do
-    describe 'When signed out' do
+    context 'When signed out' do
       before(:each) do
         visit root_path
+      end
+
+      after(:each) do
+        page.execute_script('window.localStorage.clear()')
       end
 
       it 'language can be toggled on the same page' do
@@ -45,13 +45,14 @@ describe 'ToggleLanguage', js: true do
       end
     end
 
-    describe 'when signed out and then signed in' do
+    context 'When signed out and then signed in' do
       before(:each) do
         visit root_path
       end
 
       after(:each) do
         logout(:user)
+        page.execute_script('window.localStorage.clear()')
       end
 
       it 'language can be toggled on different pages' do
@@ -89,7 +90,7 @@ describe 'ToggleLanguage', js: true do
       end
     end
 
-    describe 'when signed in and then signed out' do
+    context 'When signed in and then signed out' do
       before(:each) do
         login_as user
         visit root_path
@@ -97,6 +98,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
+        page.execute_script('window.localStorage.clear()')
       end
 
       it 'language toggled when signed in persists when not signed in' do
@@ -150,7 +152,7 @@ describe 'ToggleLanguage', js: true do
       end
     end
 
-    describe 'When signed in' do
+    context 'When signed in' do
       before(:each) do
         login_as user
         visit root_path
@@ -158,6 +160,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
+        page.execute_script('window.localStorage.clear()')
       end
 
       it 'language can be toggled on the same page' do
