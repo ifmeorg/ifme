@@ -8,7 +8,7 @@ describe 'ToggleLanguage', js: true do
       end
 
       after(:each) do
-        page.reset!
+        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
       end
 
       it 'toggles locale dropdown on the same page' do
@@ -52,7 +52,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.reset!
+        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
       end
 
       it 'persists locale selection in signed in state from signed out state' do
@@ -98,7 +98,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.reset!
+        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
       end
 
       it 'persists locale selection from signed in state in signed out state' do
@@ -160,7 +160,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.reset!
+        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
       end
 
       it 'toggles locale selection on the same page' do
