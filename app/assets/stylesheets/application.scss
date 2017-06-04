@@ -393,6 +393,23 @@ a.page_search:hover {
   text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
+/* Announcement */
+
+#announcement {
+  text-align: center;
+  background-color: $highlight-text-color;
+  padding: 20px 60px;
+
+  a {
+    color: $primary-text-color;
+    border-color: $primary-text-color;
+  }
+
+  @media screen and (max-width: $medium) {
+    padding: 20px;
+  }
+}
+
 /* Content */
 
 #content {
