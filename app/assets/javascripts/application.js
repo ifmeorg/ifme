@@ -85,3 +85,9 @@ var onReadyApplication = function() {
 };
 
 $(document).on("page:load ready", onReadyApplication);
+
+var beforeunloadApplication = function() {
+  $(window).scrollTop(0);
+};
+
+$(window).on("beforeunload", beforeunloadApplication);
