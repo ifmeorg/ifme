@@ -1,6 +1,19 @@
 describe 'ToggleLanguage', js: true do
   let(:user) { create :user1 }
 
+  def clear_cookies
+    browser = Capybara.current_session.driver.browser
+    if browser.respond_to?(:clear_cookies)
+      # Rack::MockSession
+      browser.clear_cookies
+    elsif browser.respond_to?(:manage) and browser.manage.respond_to?(:delete_all_cookies)
+      # Selenium::WebDriver
+      browser.manage.delete_all_cookies
+    else
+      raise "Don't know how to clear cookies. Weird driver?"
+    end
+  end
+
   feature 'Toggling the locale dropdown to change the language' do
     context 'When on pages that do not require sign in' do
       before(:each) do
@@ -8,7 +21,7 @@ describe 'ToggleLanguage', js: true do
       end
 
       after(:each) do
-        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
+        clear_cookies
       end
 
       it 'toggles locale dropdown on the same page' do
@@ -52,7 +65,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
+        clear_cookies
       end
 
       it 'persists locale selection in signed in state from signed out state' do
@@ -98,7 +111,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
+        clear_cookies
       end
 
       it 'persists locale selection from signed in state in signed out state' do
@@ -160,7 +173,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
+        clear_cookies
       end
 
       it 'toggles locale selection on the same page' do
