@@ -10,7 +10,7 @@ describe 'ToggleLanguage', js: true do
       # Selenium::WebDriver
       browser.manage.delete_all_cookies
     else
-      raise "Don't know how to clear cookies. Weird driver?"
+      page.execute_script('document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC"')
     end
   end
 
