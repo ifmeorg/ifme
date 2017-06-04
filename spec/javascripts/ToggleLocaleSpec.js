@@ -7,8 +7,16 @@ describe("toggleLocale", function() {
     onReadyToggleLocale();
   });
 
+  afterEach(function() {
+    document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+  });
+
   it("calls toggle_locale when value of #locale changes", function() {
-    $("#locale").val("es");
+    expect($("#locale").val()).toBe("en");
+    expect(getCookie("locale")).toBe(null);
+    $("#locale").val("es").change();
+    expect($("#locale").val()).toBe("es");
+    expect(getCookie("locale")).toBe("es");
     expect($.ajax).toHaveBeenCalled();
   });
 });
