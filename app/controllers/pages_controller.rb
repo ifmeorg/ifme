@@ -34,6 +34,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def press
+    @press = set_press
+  end
+
   def about; end
 
   def faq; end
@@ -97,5 +101,9 @@ class PagesController < ApplicationController
   def set_posts
     non_medium_posts = JSON.parse(File.read('doc/contributors/posts.json'))
     fetch_posts.concat(non_medium_posts.reverse)
+  end
+
+  def set_press
+    JSON.parse(File.read('doc/contributors/press.json')).reverse
   end
 end
