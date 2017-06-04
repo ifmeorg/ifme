@@ -1,7 +1,6 @@
 function whenSignedOut(locale, previousLocale) {
 	if (locale !== previousLocale) {
 		window.document.cookie = "locale=" + locale;
-		var href = window.location.href.split("?")[0];
 		window.location.reload();
 	}
 }

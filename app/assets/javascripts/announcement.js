@@ -3,15 +3,22 @@ function showAnnouncement() {
   $("#announcement").addClass("display_block");
 }
 
+function scrollToLocaleToggle() {
+  $("html, body").animate({ scrollTop: $("#locale_toggle").offset().top }, 1000);
+}
+
 function spanishTranslations() {
   if ($("body").hasClass("pages home") && $("html").attr("lang") === "en") {
-    $("#announcement").html("More communities need mental health support. Our site is now available in <a href=\"#language_links\">Español</a>!");
+    $("#announcement").html("More communities need mental health support. Our site is now available in <span id=\"spanish_translations_anchor\" class=\"anchor\">Español</span>!");
     showAnnouncement();
   }
 }
 
 var onReadyAnnouncement = function() {
-	spanishTranslations();
+  spanishTranslations();
+  $("#spanish_translations_anchor").click(function() {
+    scrollToLocaleToggle();
+  });
 };
 
 $(document).on("page:load ready", onReadyAnnouncement);

@@ -81,6 +81,11 @@ a:hover, .link_style:hover {
   opacity: 0.5;
 }
 
+.anchor {
+  border-bottom: 1px dotted $primary-text-color;
+  cursor: pointer;
+}
+
 // TODO(juliepagano): This is probably not what we want long-term. Come back
 // and clean up table css.
 table {
@@ -399,11 +404,6 @@ a.page_search:hover {
   text-align: center;
   background-color: $highlight-text-color;
   padding: 20px 60px;
-
-  a {
-    color: $primary-text-color;
-    border-color: $primary-text-color;
-  }
 
   @media screen and (max-width: $medium) {
     padding: 20px;
