@@ -20,8 +20,12 @@ es:
    github: "GitHub"
    patreon: "Patreon"
    instagram: "Instagram"
+   twitter: "Twitter"
+   facebook: "Facebook"
    medium: "Medium"
    feedback: "retroalimentación"
+   press: 'Prensa'
+   faq: 'Preguntas Frecuentes'
 
  common:
    name: "Nombre"
@@ -392,7 +396,7 @@ es:
     summary: "Descripción"
     summary_description: "<p>La política de privacidad de este sitio de internet gobierna la privacidad de los usuarios que eligen utilizarla.</p><p>Debido a la sensibilidad del contenido de la página, la privacidad de nuestros usuarios es una de nuestras preocupaciones más importantes. La política de privacidad delinea como los datos del usuario se recolectan, con qué finalidad, y cómo se protegen.</p>"
     user_data: "Información del Usuario"
-    user_data_description: "<p>Los usuarios nos proveen con extractos personales de su vida (en la propiedad de Momentos) y con información sobre medicamentos. La información los Momentos se comparte con quien el usuario lo desee. Información sobre los medicamentos es visible únicamente para el usuario. Ninguno de esos tipos de información será empleada para propósitos adicionales ni será brindada a terceros. </p><p>La página también contiene información respecto a grupos de apoyo y estrategias para contrarrestar retos de salud mental. Esta información sólo es accesible a los usuarios que reciben permiso para verla. La información proveniente de ambas propiedades puede ser mostrada públicamente para darla a conocer a usuarios actuales y futuros. De cualquier forma, se respetará el anonimato de los usuarios. </p>"
+    user_data_description: "<p>Los usuarios nos proveen con extractos personales de su vida (en la propiedad de Momentos) y con información sobre medicamentos. La información los Momentos se comparte con quien el usuario lo desee. Información sobre los medicamentos es visible únicamente para el usuario. Ninguno de esos tipos de información será empleada para propósitos adicionales ni será brindada a terceros. </p><p>La página también contiene información respecto a grupos de apoyo y estrategias para contrarrestar retos de salud mental. Esta información sólo es accesible a los usuarios que reciben permiso para verla. La información proveniente de ambas propiedades puede ser mostrada públicamente para darla a conocer a usuarios actuales y futuros. De cualquier forma, se respetará el anonimato de los usuarios.</p>"
     cookies: "Uso de Cookies"
     cookies_description: "<p> Este sitio de internet emplea cookies para mejorar la experiencia del usuario en sus visitas al mismo. Cuando pertinente, el sitio emplea un sistema de control de cookies que permite al usuario permitir o denegar el uso de cookies en su computadora o aparato desde la primera visita. </p><p>Las cookies son pequeños archivos que se guardan en el disco duro de la computadora del usuario para rastrear, guardar, y almacenar información sobre las interacciones y uso del sitio por parte del usuario. Esto permite al sitio, a través del servidor, proveer a los usuarios con una experiencia a la medida en sus visitas al mismo.</p><p>Se avisa a los usuarios que si desean negar el uso y almacenamiento de cookies por parte de este sitio en el disco duro de su computadora deberán tomar las medidas necesarias con la configuración de seguridad de sus exploradores de internet para bloquear todas las cookies de este sitio y sus proveedores externos de servicios. </p><p> Este sitio emplea programas de rastreo para monitorear a sus visitantes y comprender mejor cómo lo utilizan. Este programa es provisto por Google Analytics, el cual utiliza cookies para rastrear el uso de los visitantes. El programa guardará una cookie en el disco duro de tu computadora para rastrear y monitorear tu envolvimiento y uso del sitio, pero no guardará, almacenará, o recolectará información personal. Lee la %{google_privacy_policy} de Google para más información.</p>"
     social_media: "Redes Sociales"
@@ -424,10 +428,7 @@ es:
     license: "Nosotros &hearts; FOSS"
     foss: "Free and open source software (Programa gratuito y de fuente abierta)"
     license_subtitle: "Licencia bajo %{license}"
-    faq: "Preguntas Frecuentes"
     connect: "Conectarse"
-    twitter: "Twitter"
-    facebook: "Facebook"
   comments:
     share_everyone: "Compartir con todos"
     share_with: "Compartir con %{name} únicamente"
