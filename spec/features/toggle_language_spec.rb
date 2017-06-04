@@ -2,16 +2,16 @@ describe 'ToggleLanguage', js: true do
   let(:user) { create :user1 }
 
   feature 'Toggling the locale dropdown to change the language' do
-    context 'When signed out' do
+    context 'When on pages that do not require sign in' do
       before(:each) do
         visit root_path
       end
 
       after(:each) do
-        page.execute_script('window.localStorage.clear()')
+        page.reset!
       end
 
-      it 'language can be toggled on the same page' do
+      it 'toggles locale dropdown on the same page' do
         within '#page_title' do
           expect(page).to have_content 'if me is a community for mental health experiences'
         end
@@ -27,7 +27,7 @@ describe 'ToggleLanguage', js: true do
         end
       end
 
-      it 'language can be toggled on different pages' do
+      it 'persists locale selection on a different page' do
         select 'Español', from: 'locale'
         within '#page_title' do
           expect(page).to have_content 'if me es una comunidad para compartir experiencias de salud mental'
@@ -52,10 +52,10 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('window.localStorage.clear()')
+        page.reset!
       end
 
-      it 'language can be toggled on different pages' do
+      it 'persists locale selection in signed in state from signed out state' do
         select 'Español', from: 'locale'
         within '#page_title' do
           expect(page).to have_content 'if me es una comunidad para compartir experiencias de salud mental'
@@ -98,10 +98,10 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('window.localStorage.clear()')
+        page.reset!
       end
 
-      it 'language toggled when signed in persists when not signed in' do
+      it 'persists locale selection from signed in state in signed out state' do
         select 'Español', from: 'locale'
         within '#page_title' do
           expect(page).to have_content '¡Adelante!'
@@ -160,10 +160,10 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
-        page.execute_script('window.localStorage.clear()')
+        page.reset!
       end
 
-      it 'language can be toggled on the same page' do
+      it 'toggles locale selection on the same page' do
         within '#page_title' do
           expect(page).to have_content 'Welcome'
         end
@@ -179,7 +179,7 @@ describe 'ToggleLanguage', js: true do
         end
       end
 
-      it 'language can be toggle on different pages' do
+      it 'persists locale selection on a different page' do
         select 'Español', from: 'locale'
         within '#page_title' do
           expect(page).to have_content '¡Adelante!'
