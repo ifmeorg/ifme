@@ -1,4 +1,4 @@
-describe("toggleLocale", function() {
+describe("ToggleLocale", function() {
   beforeEach(function() {
     loadFixtures("toggle_locale.html");
     spyOn($, "ajax").and.callFake(function() {

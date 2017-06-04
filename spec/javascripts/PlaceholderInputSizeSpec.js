@@ -15,5 +15,6 @@ describe("PlaceholderInputSize", function() {
     $("body").addClass("allies index");
     onReadyPlaceholderInputSize();
     expect(setInputSize).toHaveBeenCalled();
+    $("body").removeClass("allies index");
   });
 });
