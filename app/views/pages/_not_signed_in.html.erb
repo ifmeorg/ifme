@@ -34,6 +34,28 @@
 </div>
 <div class="message_text">
 	<%= raw t('pages.home.not_signed_in.message_text_two', {
+			blog: link_to(t('navigation.blog').downcase, blog_path)
+		}) %>
+  <div class="spacer"></div>
+</div>
+<div class="message" id="medium_posts">
+	<div class="message_row">
+		<% @posts.first(3).each do |post, index| %>
+		<div class="message_cell">
+			<%= link_to "#{post['link_name']}", post['link'], target: true %>
+			<div class="post_author"><%= post['author'] %></div>
+		</div>
+		<% end %>
+	</div>
+</div>
+<div class="spacer"></div>
+<div class="divider"></div>
+<div class="main_message">
+	<div class="spacer"></div>
+	<%= t('pages.home.not_signed_in.main_message_three') %>
+</div>
+<div class="message_text">
+	<%= raw t('pages.home.not_signed_in.message_text_three', {
 			help: link_to(t('pages.home.not_signed_in.help'), contributors_path),
 			feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
 		}) %>

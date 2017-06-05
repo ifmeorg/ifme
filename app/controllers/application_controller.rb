@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :if_not_signed_in, unless: :devise_controller?
 
+  # i18n
   before_action :set_locale
 
   # Timezone
@@ -30,7 +31,12 @@ class ApplicationController < ActionController::Base
 
   # before_action
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    @locales = [
+      { name: 'English', locale: :en },
+      { name: 'Español', locale: :es }
+    ]
+    I18n.locale = user_signed_in? ? current_user.locale : cookies[:locale]
+    @locale = I18n.locale
   end
 
   def configure_permitted_parameters

@@ -1,0 +1,12 @@
+<% title t('navigation.press') %>
+
+<% @press.each_with_index do |p, index| %>
+	<% if index + 1 == @press.length %>
+		<div class="blog_post no_margin_bottom">
+	<% else %>
+		<div class="blog_post">
+	<% end %>
+			<h1 class="blog_name"><%= link_to p["link_name"], p["link"], target: 'blank' %></h1>
+  			<%= p["author"] %>
+  		</div>
+<% end %>

@@ -4,12 +4,12 @@
 	<div class="field"><div class="label"><%= f.label t('common.name') %></div>
 	<%= f.text_field :name %></div>
 
-	<div class="field"><div class="label"><%= f.label :location %></div>
+	<div class="field"><div class="label"><%= f.label t('common.form.location') %></div>
 	<%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional') %></div>
 
 	<div class="field">
 		<div class="label">
-			<%= f.label :email %>
+			<%= f.label t('common.form.email') %>
 		</div>
 		<% if current_user.provider == "google_oauth2" %>
 			<div class="small_font small_margin_bottom">
@@ -44,7 +44,7 @@
 	<% end %>
 	</div>
 
-	<div class="field"><div class="label"><%= f.label :about %></div>
+	<div class="field"><div class="label"><%= f.label t('navigation.about') %></div>
 	<%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about') %></div>
 
 	<div class="field">
@@ -64,7 +64,7 @@
 	<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
 
 	<% if current_user.provider != "google_oauth2" %>
-	<div class="field"><div class="label"><%= f.label :current_password %></div>
+	<div class="field"><div class="label"><%= f.label t('devise.current_password') %></div>
 	<%= f.password_field :current_password, autocomplete: "off", placeholder: t('devise.registrations.edit.placeholders.required') %></div>
 	<% end %>
 

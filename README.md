@@ -331,7 +331,7 @@ Password: password99
 
 # Testing Guidelines
 
-We are using Selenium for web browser automation, so you will **need** to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
+We are using Selenium for web browser automation, so you will **need** to install a version of Firefox that is compatible with Selenium, which is often not the latest build. [Firefox 46](https://ftp.mozilla.org/pub/firefox/releases/46.0/) is guaranteed to work (just make sure you don't update it).
 
 Always write tests for the changes you've made! If you see any missing tests, write them!
 
@@ -393,11 +393,11 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ## Contributor Blurb
 
-In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
+In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of the project.
 
-This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/images/contributors/firstname_lastname.png`!
+This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `app/assets/images/contributors/firstname_lastname.png`! Add your blurb to `doc/pages/blurbs.json`.
 
-If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `app/controllers/pages_controller.rb`. Please note: The image url here appears different from the actual path you saved it at above. i.e. Write this as, image: `assets/contributors/firstname_lastname.png` within the `pages_controller.rb` file.
+If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `doc/pages/contributors.json`.
 
 # Tracking Issues
 
