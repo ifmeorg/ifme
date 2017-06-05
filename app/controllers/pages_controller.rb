@@ -64,17 +64,17 @@ class PagesController < ApplicationController
   end
 
   def set_organizations
-    organizations = JSON.parse(File.read('doc/contributors/partners.json'))
+    organizations = JSON.parse(File.read('doc/pages/partners.json'))
     organizations.sort_by! { |o| o['name'].downcase }
   end
 
   def set_contributors
-    contributors = JSON.parse(File.read('doc/contributors/contributors.json'))
+    contributors = JSON.parse(File.read('doc/pages/contributors.json'))
     contributors.sort_by! { |c| c['name'].downcase }
   end
 
   def set_blurbs
-    JSON.parse(File.read('doc/contributors/blurbs.json'))
+    JSON.parse(File.read('doc/pages/blurbs.json'))
   end
 
   def parse_author(post)
@@ -99,11 +99,11 @@ class PagesController < ApplicationController
   end
 
   def set_posts
-    non_medium_posts = JSON.parse(File.read('doc/contributors/posts.json'))
+    non_medium_posts = JSON.parse(File.read('doc/pages/posts.json'))
     fetch_posts.concat(non_medium_posts.reverse)
   end
 
   def set_press
-    JSON.parse(File.read('doc/contributors/press.json')).reverse
+    JSON.parse(File.read('doc/pages/press.json')).reverse
   end
 end

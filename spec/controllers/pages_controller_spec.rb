@@ -31,7 +31,7 @@ RSpec.describe PagesController, type: :controller do
       it 'has blurbs and posts' do
         get :home
         expect(assigns(:posts)[0].keys).to contain_exactly('link', 'link_name', 'author')
-        blurbs_file = File.read('doc/contributors/blurbs.json')
+        blurbs_file = File.read('doc/pages/blurbs.json')
         expect(assigns(:blurbs)).to eq(JSON.parse(blurbs_file))
       end
     end
@@ -57,8 +57,8 @@ RSpec.describe PagesController, type: :controller do
 
     it 'read external JSON file' do
       data = []
-      blurbs_file = File.read('doc/contributors/blurbs.json')
-      contributors_file = File.read('doc/contributors/contributors.json')
+      blurbs_file = File.read('doc/pages/blurbs.json')
+      contributors_file = File.read('doc/pages/contributors.json')
       expect(JSON).to receive(:parse).with(blurbs_file)
       expect(JSON).to receive(:parse).with(contributors_file).and_return(data)
       expect(data).to receive(:sort_by!)
@@ -74,7 +74,7 @@ RSpec.describe PagesController, type: :controller do
 
     it 'read external JSON file' do
       data = []
-      file = File.read('doc/contributors/partners.json')
+      file = File.read('doc/pages/partners.json')
       expect(JSON).to receive(:parse).with(file).and_return(data)
       expect(data).to receive(:sort_by!)
       get :partners
