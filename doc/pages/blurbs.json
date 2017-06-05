@@ -124,5 +124,14 @@
     "link_name":"bubsolow",
     "link":"https://twitter.com/bubsolow",
     "social":"twitter"
+  },
+  {
+    "name":"Pedro Paulino",
+    "image":"/assets/contributors/pedro_paulino.jpg",
+    "profile":"Being a developer for 3 years , working on  personal projects, and learning how the open source can help people with depression.",
+    "location":"Maringá, Parana State, Brazil",
+    "link_name":"ThePedroPaulino",
+    "link":"https://github.com/ThePedroPaulino",
+    "social":"globe"
   }
 ]
