@@ -25,6 +25,11 @@
   }) %>
 
 <div class="spacer"></div>
+  <% if @moments.blank? %>
+    <div class="actions align_right">
+      <%= button_to t('common.actions.premade_add'), premade_moments_path %>
+    </div>
+  <% end %>
 
 <div id="pages">
   <div class="page">

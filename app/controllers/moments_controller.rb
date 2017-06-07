@@ -243,6 +243,22 @@ class MomentsController < ApplicationController
     end
   end
 
+  def premade
+    Moment.create(
+      userid: current_user.id,
+      name: t('moments.index.premade1_name'),
+      mood: [],
+      why: t('moments.index.premade1_why'),
+      fix: t('moments.index.premade1_fix'),
+      category: [],
+      comment: false
+    )
+    respond_to do |format|
+      format.html { redirect_to moments_path }
+      format.json { render :no_content }
+    end
+  end
+
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json
   def update

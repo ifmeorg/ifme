@@ -180,6 +180,14 @@ ActiveRecord::Schema.define(version: 20170225182017) do
     t.boolean  "active",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "strategy_id"
+  end
+
+  create_table "self_care_strategy_reminders", force: :cascade do |t|
+    t.integer  "strategy_id", null: false
+    t.boolean  "active",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -191,10 +199,19 @@ ActiveRecord::Schema.define(version: 20170225182017) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "self_care_strategy"
+    t.boolean  "daily_reminder_email"
     t.string   "slug"
   end
 
   add_index "strategies", ["slug"], name: "index_strategies_on_slug", unique: true, using: :btree
+
+  create_table "strategy_reminders", force: :cascade do |t|
+    t.integer  "strategy_id", null: false
+    t.boolean  "active",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "supports", force: :cascade do |t|
     t.integer  "userid"
