@@ -81,6 +81,11 @@ a:hover, .link_style:hover {
   opacity: 0.5;
 }
 
+.anchor {
+  border-bottom: 1px dotted $primary-text-color;
+  cursor: pointer;
+}
+
 // TODO(juliepagano): This is probably not what we want long-term. Come back
 // and clean up table css.
 table {
@@ -393,6 +398,18 @@ a.page_search:hover {
   text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
+/* Announcement */
+
+#announcement {
+  text-align: center;
+  background-color: $highlight-text-color;
+  padding: 20px 60px;
+
+  @media screen and (max-width: $medium) {
+    padding: 20px;
+  }
+}
+
 /* Content */
 
 #content {
@@ -453,18 +470,6 @@ a.page_search:hover {
     font: $font30 $font-family;
     font-weight: $sm;
     text-align: center;
-  }
-}
-
-.emphasis {
-  font: $emphasis $font-family;
-  font-weight: $lg;
-  color: $secondary-text-color;
-
-  @media screen and (max-width: $medium) {
-    font: $emphasis-small $font-family;
-    font-weight: $lg;
-    color: $secondary-text-color;
   }
 }
 

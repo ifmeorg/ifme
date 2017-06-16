@@ -1,8 +1,7 @@
 en:
  app_name: 'if me'
- app_description: 'a community for mental health experiences'
+ app_description: 'is a community for mental health experiences'
  email: 'join.ifme@gmail.com'
- us: 'us'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
@@ -10,6 +9,7 @@ en:
  salutation: "Hi %{name},"
  click_here: "click here"
  less: " [Less]"
+ language: 'Language'
 
  navigation:
    about: 'About'
@@ -19,8 +19,13 @@ en:
    privacy: 'Privacy Policy'
    github: 'GitHub'
    patreon: 'Patreon'
+   instagram: 'Instagram'
+   twitter: "Twitter"
+   facebook: "Facebook"
    feedback: 'feedback'
    medium: 'Medium'
+   press: 'Press'
+   faq: 'FAQ'
 
  common:
    name: 'Name'
@@ -29,6 +34,7 @@ en:
    date: 'Date:'
    daily_reminder: 'Daily reminder email'
    actions:
+    submit: 'Submit'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
@@ -45,6 +51,7 @@ en:
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
    time_ago: "%{date} ago"
+   write_to_us: "write to us"
 
  comment:
   singular: 'Comment'
@@ -147,6 +154,7 @@ en:
    reset_password: Reset your password
 
  medications:
+  singular: 'Medication'
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   dosage: 'Daily Dosage:'
@@ -319,13 +327,20 @@ en:
 
  pages:
   about:
+    send_us: 'us'
     email_us: 'Feel free to email %{email_link}!'
-    description: "is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.<p>Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it.</p><p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><div class=\"spacer\"></div><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p><p><strong>Wanna help fund us?</strong> Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets. As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}. You can support us by donating to our %{patreon_link}."
+    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
+    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
+    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
+    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
+    main_message_three: "Wanna help fund us?"
+    message_text_three: "Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
     linebreak: 'Linebreak'
   blog:
-    description: "If you're interested in sharing your article or writing a new article, let %{email_link} know!"
+    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
   contributors:
-    description: "<span class=\"emphasis\">if me is built and maintained by volunteers of many different backgrounds and skill sets.</span><p>We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>! Please email %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
+    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
+    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
     thanks: 'A huge thanks to'
     slack: 'Slack'
@@ -358,8 +373,10 @@ en:
       message_one: 'Share your stories with loved ones and get the support you deserve'
       message_two: 'Be you, no strings attached and with security and privacy'
       message_three: 'Document your moods, medications, and self-care'
-      main_message_two: 'We are open source because mental health should be open.'
-      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      main_message_two: "Storytelling is the key to mental health education."
+      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
+      main_message_three: 'We are open source because mental health should be open.'
+      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
       help: 'help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'
@@ -371,19 +388,19 @@ en:
       main_message_four: 'Take care of yourself.'
       cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
       main_message_five: 'Have any questions or concerns?'
-      message_text_three: 'Check out our %{faq} page or email %{email_link}!'
+      message_text_three: 'Check out our %{faq} page or %{email_link}!'
       strategize: 'Strategize'
   privacy:
     summary: 'Summary'
     summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
     user_data: 'User Data'
     user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
-    cookies: 'User of Cookies'
+    cookies: 'Use of Cookies'
     cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
     social_media: 'Social Media Platforms'
     social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
-    contact_description: "<p>Please email %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
 
  profile:
   index:
@@ -409,10 +426,7 @@ en:
     license: 'We &hearts; FOSS'
     foss: 'Free and open source software'
     license_subtitle: 'Licensed under %{license}'
-    faq: 'FAQ'
     connect: 'connect'
-    twitter: 'Twitter'
-    facebook: 'Facebook'
   comments:
     share_everyone: 'Share with everyone'
     share_with: 'Share with %{name} only'
@@ -494,7 +508,9 @@ en:
  devise:
   password: "Password"
   new_password: "New password"
+  current_password: "Current password"
   password_change: "Change my password"
+  remember_me: "Remember me"
   confirmations:
     resend_confirmation: "Resend confirmation instructions"
   mailer:

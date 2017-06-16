@@ -12,6 +12,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  date        :string
+#  slug        :string
 #
 
 class Meeting < ActiveRecord::Base

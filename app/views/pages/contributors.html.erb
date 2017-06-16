@@ -1,12 +1,18 @@
 <% title t('navigation.contributors') %>
-<%= raw t('pages.contributors.description', {
-  email_link: link_to(t('us'), "mailto:#{t('email')}"),
-  slack_link: link_to(t('pages.contributors.slack'), 'https://ifme.slack.com', target: 'blank'),
-  github_link: link_to(t('navigation.github'), 'https://github.com/julianguyen/ifme', target: 'blank')
-  })
-%>
 
-<div class="divider"></div>
+<div class="main_message">
+	<%= t('pages.contributors.main_message_one') %>
+</div>
+
+<div class="message_text">
+  <%= raw t('pages.contributors.message_text_one', {
+    email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}"),
+    slack_link: link_to(t('pages.contributors.slack'), 'https://ifme.slack.com', target: 'blank'),
+    github_link: link_to(t('navigation.github'), 'https://github.com/julianguyen/ifme', target: 'blank')
+    })
+  %>
+	<div class="spacer"></div>
+</div>
 
 <div class="contributors">
   <% @blurbs.each do |blurb| %>
@@ -28,5 +34,10 @@
 
 <div class="spacer"></div>
 
-<h1 class="contributor_name center"><%= t('pages.contributors.more_contributors') %></h1>
-<%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>
+<div class="main_message">
+  <%= t('pages.contributors.more_contributors') %>
+</div>
+
+<div class="message_text">
+  <%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>
+</div>

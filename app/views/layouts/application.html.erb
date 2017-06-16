@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= @locale %>">
   <head>
     <title>
       <%= render 'layouts/title' %>
@@ -121,7 +121,7 @@
     <%= t('devise.invitations.edit.header') %>
   <% elsif current_page?(edit_user_password_path) ||
     (params[:controller] == "devise/passwords" && action_name == "edit") %>
-  Reset your password
+  <%= t('layouts.title.reset_password') %>
 <% else %>
   <%= yield(:title) %>
 <% end %>
@@ -129,6 +129,8 @@
 
           </div>
         </div>
+
+        <div id="announcement" class="display_none"></div>
 
         <div id="content">
           <% if !notice.blank? %>

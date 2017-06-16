@@ -158,7 +158,6 @@ After cloning the app on your local machine, in your terminal run the following 
 bundle install
 ```
 
-
 # Configuration Files
 ## Mandatory
 
@@ -167,21 +166,18 @@ There are three config files: `config/env/test.env`, `config/env/development.env
 Copy the sample files to create your own configuration files:
 
 `cp config/env/test.example.env config/env/test.env`
-
 `cp config/env/development.example.env config/env/development.env`
 
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
-
 BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git.
 
 ## Optional
-
 The following are not mandatory, but are required if you would like to test/use these features.
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
-[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need to activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
 
 [Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
 
@@ -252,6 +248,7 @@ docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bas
 
 Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. Make sure to add it exactly as below - with `:` and not quotes, or it may not work properly.
 
+
 ```
 config.vm.network :forwarded_port, guest: 3000, host: 3000
 ```
@@ -291,7 +288,7 @@ Password: password99
 
 # Testing Guidelines
 
-We are using Selenium for web browser automation, so you will **need** to install [Firefox](https://www.mozilla.org/en-US/firefox/new/)!
+We are using Selenium for web browser automation, so you will **need** to install a version of Firefox that is compatible with Selenium, which is often not the latest build. [Firefox 46](https://ftp.mozilla.org/pub/firefox/releases/46.0/) is guaranteed to work (just make sure you don't update it).
 
 Always write tests for the changes you've made! If you see any missing tests, write them!
 
@@ -347,11 +344,11 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 ## Contributor Blurb
 
-In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of if me.
+In the spirit of open communication and community, we highly recommend that new contributors write a blurb on themselves, what mental health means to them, and why they are part of the project.
 
-This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `assets/images/contributors/firstname_lastname.png`!
+This also helps people to familiarize themselves with the code base! The live contributors page can be found [here](http://www.if-me.org/contributors). Contributor images must be at least 800x800 px and be in .jpg or .png format. Please save the image as `app/assets/images/contributors/firstname_lastname.png`! Add your blurb to `doc/pages/blurbs.json`.
 
-If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `app/controllers/pages_controller.rb`. Please note: The image url here appears different from the actual path you saved it at above. i.e. Write this as, image: `assets/contributors/firstname_lastname.png` within the `pages_controller.rb` file.
+If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `doc/pages/contributors.json`.
 
 # Tracking Issues
 

@@ -36,6 +36,7 @@
 #  ally_notify            :boolean
 #  group_notify           :boolean
 #  meeting_notify         :boolean
+#  locale                 :string
 #
 
 describe User do
