@@ -95,6 +95,19 @@ development: &default
   password: <%= ENV["PSQL_PASSWORD"] %>
 ```
 
+#### PostgreSQL 9.6.1 ERROR: 
+```
+FATAL:  database files are incompatible with server
+DETAIL:  The data directory was initialized by PostgreSQL version 9.4, which is not compatible with this version 9.6.1.
+```
+
+... you can do the following: 
+1) `brew install postgresql@9.4`
+2) `brew services start postgresql@9.4`
+
+And to stop the server:
+`brew services stop postgresql@9.4`
+
 ## Testing rpec
 #### ERROR: `FATAL:  database "ifme_test" does not exist`
 TO FIX:
