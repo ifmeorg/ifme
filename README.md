@@ -49,7 +49,9 @@ The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-ERRORS: If you encounter an error during installation, please read your error messages and refer to this [guide](https://github.com/liirene1/ifme/blob/master/Errors.md) for help.  
+## Common Errors
+
+Commons errors faced during installation are documented in this [guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
 
 ## I. Ruby on Rails
 
