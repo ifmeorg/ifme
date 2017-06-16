@@ -157,7 +157,7 @@ var onReadyNotifications = function() {
     hideBackdrop();
   });
 
-   $('#clear_notifcations').click(function() {
+   $('#clear_notifications').click(function() {
     emptyNotificationsList();
     showNotificationsNone();
     changeTitle(0);
@@ -167,7 +167,7 @@ var onReadyNotifications = function() {
       type: 'DELETE'
     });
 
-    $('#notifications #clear_notifcations').hide();
+    $('#notifications #clear_notifications').hide();
   });
 
   /* Quick Moment */

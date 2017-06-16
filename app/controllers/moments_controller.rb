@@ -141,7 +141,7 @@ class MomentsController < ApplicationController
     if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
       Comment.find(params[:commentid]).destroy
 
-      # Delete corresponding notifcations
+      # Delete corresponding notifications
       public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
 
