@@ -57,9 +57,9 @@ Commons errors faced during installation are documented in this [guide](https://
 
 If you do not have Rails, use this handy [guide](http://installrails.com).
 
-If you're updating an existing installation through RVM or rbenv, continue to 1) or 2).
+If you're updating an existing installation through RVM or rbenv, continue to (A) or (B).
 
-#### 1) RVM
+#### option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -75,7 +75,7 @@ rvm install ruby-2.3.1
 
 Check that Ruby has been updated by running `ruby -v`.
 
-#### 2) rbenv
+#### option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
@@ -108,15 +108,15 @@ gem install bundler
 gem install nokogiri
 ```
 
-Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
+Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to (A) or (B).
 
-#### 1) RVM
+#### option (A) RVM
 
 ```
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 
-#### 2) rbenv
+#### option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
@@ -125,6 +125,8 @@ rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 gem install rails --version=4.2.6
 ```
+
+Restart your terminal (or open a new tab)
 
 Check that Rails has been updated by running `rails -v`.
 
@@ -154,7 +156,7 @@ Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
 ## V. Install Gems
 
-After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
+After cloning the app on your local machine, in your terminal run the following command in the `/ifme` directory
 
 ```
 bundle install
