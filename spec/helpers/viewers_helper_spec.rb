@@ -78,7 +78,7 @@ describe ViewersHelper do
       new_category = create(:category, userid: new_user1.id)
       new_moment = create(:moment, userid: new_user1.id, category: Array.new(1, new_category.id))
       result = viewers_hover(nil, new_category)
-      expect(result).to eq('<span class="yes_title" title="Visible to only you"><a href="/categories/' + new_category.id.to_s + '">Test Category</a></span>')
+      expect(result).to eq('<span class="yes_title" title="Visible to only you"><a href="/categories/test-category">Test Category</a></span>')
     end
 
     it "displays list of viewers without link" do
@@ -97,7 +97,7 @@ describe ViewersHelper do
       new_category = create(:category, userid: new_user1.id)
       new_moment = create(:moment, userid: new_user1.id, category: Array.new(1, new_category.id), viewers: viewers)
       result = viewers_hover(viewers, new_category)
-      expect(result).to eq('<span class="yes_title" title="Visible to Oprah Chang, Plum Blossom, and Gentle Breezy"><a href="/categories/' + new_category.id.to_s + '">Test Category</a></span>')
+      expect(result).to eq('<span class="yes_title" title="Visible to Oprah Chang, Plum Blossom, and Gentle Breezy"><a href="/categories/test-category">Test Category</a></span>')
     end
   end
 
