@@ -61,7 +61,7 @@ group :development, :test do
   gem 'rspec-collection_matchers',  '1.1.2'
   gem 'ruby-graphviz',              '1.2.2'
 
-  # gem 'letter_opener'
+  gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
   gem 'jshint'

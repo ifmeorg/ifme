@@ -230,7 +230,7 @@ var onReadyNotifications = function() {
     showBackdrop();
   });
 
-  // TODO: move this function
+  // TODO: move this function!
   function closeQuickCreate() {
     if ($(this).closest('.quick_create').attr('id') === 'category_quick_create' && !$('#category_quick_create').hasClass('display_none')) {
       $('#category_quick_create').toggleClass("display_none");
@@ -272,8 +272,10 @@ var onReadyNotifications = function() {
   /* Handle Esc Key */
   $(document).keyup(function(event) {
     if (event.keyCode === 27) {
+      if (!$('#categories_moods').hasClass('display_none')) {
+        hideCategoriesMoods();
+      }
       closeQuickCreate.call($('.quick_create_close:not(.display_none)'));
-      hideCategoriesMoods() // TODO: find by ID and check if it's already open
       hideTipNotifications.call($('.tip_notifications:(.display_none)'));
     }
   });
