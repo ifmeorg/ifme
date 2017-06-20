@@ -137,10 +137,10 @@
   {
     "name":"Claire Wild",
     "image":"/assets/contributors/claire_wild.jpg",
-    "profile":"",
+    "profile":"I'm a personal trainer and gymnastics coach turned software developer. Sharing my own story about eating disorder recovery through my blog <a href='http://www.strengthwithoutbounds.com/' target='_blank'>Strength Without Bounds</a>has really helped me become more self aware, and more comfortable talking openly and honestly. I'm excited and grateful for the opportunity to contribute to <b>if me<b>to help others share their own stories.",
     "location":"San Francisco, USA",
-    "link_name":"",
-    "link":"",
-    "social":
+    "link_name":"clairewild",
+    "link":"https://clairewild.github.io/PortfolioSite/",
+    "social":"globe"
   }
 ]
