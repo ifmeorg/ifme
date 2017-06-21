@@ -92,7 +92,7 @@ class MeetingsController < ApplicationController
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
       Comment.find(params[:commentid]).destroy
 
-      # Delete corresponding notifications
+      # Delete corresponding notifcations
       public_uniqueid = 'comment_on_meeting_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
