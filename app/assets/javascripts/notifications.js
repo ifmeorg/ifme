@@ -114,6 +114,17 @@ function quickCreate(form, data_type) {
   });
 }
 
+function closeQuickCreate() {
+  if ($(this).closest('.quick_create').attr('id') === 'category_quick_create' && !$('#category_quick_create').hasClass('display_none')) {
+    $('#category_quick_create').toggleClass("display_none");
+  } else if ($(this).closest('.quick_create').attr('id') === 'mood_quick_create' && !$('#mood_quick_create').hasClass('display_none')) {
+    $('#mood_quick_create').toggleClass("display_none");
+  } else if ($(this).closest('.quick_create').attr('id') === 'strategy_quick_create' && !$('#strategy_quick_create').hasClass('display_none')) {
+    $('#strategy_quick_create').toggleClass("display_none");
+  }
+  hideBackdrop();
+}
+
 var onReadyNotifications = function() {
   /* Pusher */
   var pusher;
@@ -230,21 +241,13 @@ var onReadyNotifications = function() {
     showBackdrop();
   });
 
-  // TODO: move this function!
-  function closeQuickCreate() {
-    if ($(this).closest('.quick_create').attr('id') === 'category_quick_create' && !$('#category_quick_create').hasClass('display_none')) {
-      $('#category_quick_create').toggleClass("display_none");
-    } else if ($(this).closest('.quick_create').attr('id') === 'mood_quick_create' && !$('#mood_quick_create').hasClass('display_none')) {
-      $('#mood_quick_create').toggleClass("display_none");
-    } else if ($(this).closest('.quick_create').attr('id') === 'strategy_quick_create' && !$('#strategy_quick_create').hasClass('display_none')) {
-      $('#strategy_quick_create').toggleClass("display_none");
-    }
-    hideBackdrop();
-  }
+  $('.quick_create_close').click(function() {
+    closeQuickCreate.call(this);
+  });
 
-  $('.quick_create_close').click(closeQuickCreate);
-
-  $('.quick_create').click(closeQuickCreate);
+  $('.quick_create').click(function() {
+    closeQuickCreate.call(this);
+  });
 
   $('.quick_create_text').click(function(event) {
     event.stopPropagation();
@@ -275,8 +278,8 @@ var onReadyNotifications = function() {
       if (!$('#categories_moods').hasClass('display_none')) {
         hideCategoriesMoods();
       }
-      closeQuickCreate.call($('.quick_create_close:not(.display_none)'));
-      hideTipNotifications.call($('.tip_notifications:(.display_none)'));
+      closeQuickCreate.call($('.quick_create:not(.display_none)'));
+      hideTipNotifications.call($('.tip_notifications:not(.display_none)'));
     }
   });
 };
