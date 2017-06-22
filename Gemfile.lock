@@ -522,3 +522,9 @@ DEPENDENCIES
   turbolinks (= 2.5.3)
   uglifier (= 2.7.1)
   underscore-rails (= 1.8.3)
+
+RUBY VERSION
+   ruby 2.3.1p112
+
+BUNDLED WITH
+   1.13.6
