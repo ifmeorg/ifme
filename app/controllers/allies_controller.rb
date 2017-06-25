@@ -34,17 +34,17 @@ class AlliesController < ApplicationController
     user = User.where(id: current_user.id).first.name
     uniqueid = pusher_type.to_s + '_' + current_user.id.to_s
 
-    data = JSON.generate({
+    data = JSON.generate(
       user: user,
       userid: current_user.id,
       uid: get_uid(current_user.id),
       type: pusher_type,
       uniqueid: uniqueid
-      })
+    )
 
     Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
     notifications = Notification.where(userid: params[:ally_id]).order('created_at ASC').all
-    Pusher['private-' + params[:ally_id]].trigger('new_notification', { notifications: notifications })
+    Pusher['private-' + params[:ally_id]].trigger('new_notification', notifications: notifications)
 
     NotificationMailer.notification_email(params[:ally_id], data).deliver_now
 

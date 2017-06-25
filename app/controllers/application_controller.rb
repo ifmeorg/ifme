@@ -283,17 +283,17 @@ class ApplicationController < ActionController::Base
       result += '<div class="center" id="stats">'
 
       if count == 1
-        result += t('stats.total_moment', { count: count.to_s })
+        result += t('stats.total_moment', count: count.to_s)
       else
-        result += t('stats.total_moments', { count: count.to_s })
+        result += t('stats.total_moments', count: count.to_s)
 
         monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
         if count != monthly_count
           result += ' '
           if monthly_count == 1
-            result += t('stats.monthly_moment', { count: monthly_count.to_s })
+            result += t('stats.monthly_moment', count: monthly_count.to_s)
           else
-            result += t('stats.monthly_moments', { count: monthly_count.to_s })
+            result += t('stats.monthly_moments', count: monthly_count.to_s)
           end
         end
       end

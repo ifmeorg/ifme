@@ -23,7 +23,7 @@ class Allyship < ActiveRecord::Base
   after_destroy :destroy_inverses, if: :has_inverse?
 
   def create_inverse
-    self.class.create(inverse_allyship_options.merge({ status: User::ALLY_STATUS[:pending_from_user] }))
+    self.class.create(inverse_allyship_options.merge(status: User::ALLY_STATUS[:pending_from_user]))
   end
 
   def approve_inverse

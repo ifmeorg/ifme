@@ -71,7 +71,7 @@ class StrategiesController < ApplicationController
       end
       uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
 
-      data = JSON.generate({
+      data = JSON.generate(
         user: current_user.name,
         strategyid: @comment.commented_on,
         strategy: strategy_name,
@@ -80,11 +80,11 @@ class StrategiesController < ApplicationController
         cutoff: cutoff,
         type: 'comment_on_strategy',
         uniqueid: uniqueid
-        })
+      )
 
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: strategy_user).order('created_at ASC').all
-      Pusher['private-' + strategy_user.to_s].trigger('new_notification', { notifications: notifications })
+      Pusher['private-' + strategy_user.to_s].trigger('new_notification', notifications: notifications)
 
       NotificationMailer.notification_email(strategy_user, data).deliver_now
 
@@ -98,7 +98,7 @@ class StrategiesController < ApplicationController
       end
       uniqueid = 'comment_on_strategy_private' + '_' + @comment.id.to_s
 
-      data = JSON.generate({
+      data = JSON.generate(
         user: current_user.name,
         strategyid: @comment.commented_on,
         strategy: strategy_name,
@@ -107,11 +107,11 @@ class StrategiesController < ApplicationController
         cutoff: cutoff,
         type: 'comment_on_strategy_private',
         uniqueid: uniqueid
-        })
+      )
 
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: private_user).order('created_at ASC').all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', { notifications: notifications })
+      Pusher['private-' + private_user.to_s].trigger('new_notification', notifications: notifications)
 
       NotificationMailer.notification_email(private_user, data).deliver_now
     end
