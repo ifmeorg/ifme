@@ -139,7 +139,7 @@ class StrategiesController < ApplicationController
     if comment_exists && (is_my_comment || is_my_strategy)
       Comment.find(params[:commentid]).destroy
 
-      # Delete corresponding notifications
+      # Delete corresponding notifcations
       public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
 

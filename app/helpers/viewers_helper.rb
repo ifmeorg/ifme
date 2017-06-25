@@ -15,7 +15,6 @@ module ViewersHelper
       item = ob.send(data_type)
       return ob.viewers if item.include?(data.id)
     end
-    []
   end
 
   def number_of_viewers(current_user_id, strategy_owner_id, viewers)
@@ -31,7 +30,7 @@ module ViewersHelper
 
   private def add_link(link, result)
     content_tag(:span, result) do
-      link_to link.name, link.model_name.to_s.classify.constantize.find(link.id)
+      link_to link.name, "/#{link.model_name.plural}/#{link.id}"
     end
   end
 
