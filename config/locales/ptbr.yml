@@ -168,16 +168,16 @@ ptbr:
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
    refill: 'refill'
-   comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
-   add_to_google_cal: 'Google Calendar reminder'
-   google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
-   strength_hint: 'Medication strength, usually found beside the name'
-   total_hint: 'Total number of pills or amount of medication'
-   dosage_hint: 'Number of pills or servings daily'
-   refill_hint: 'When to refill this prescription'
-   refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
-  new: 'New Medication'
+   comments_hint: 'Adcione quasiquer comentários adcionais aqui, e.g. registrando os sintomas'
+   add_to_google_cal: 'Lembrete do Google Calendar'
+   google_cal_hint: " Nós iremos adcionar um lembrete sobre esse medicamento no Google Calendar"
+   strength_hint: 'Potência do medicamento, normalmente encontrado pŕoximo ao nome do medicamento'
+   total_hint: 'Quantidade total de comprimidos ou porções necessárias'
+   dosage_hint: 'Número de comprimidos ous Number of pills or servings daily'
+   refill_hint: 'Quando atualizar essa receita médica'
+   refill_reminder_hint: "Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento."
+   daily_reminder_hint: "Enviaremos um lembrete diário para tomar essa medicação."
+  new: 'Nova Medicação'
   units:
    display: "%{count} %{unit}"
    mg: 'mg'
@@ -186,170 +186,170 @@ ptbr:
     one: 'tablet'
     other: 'tablets'
   reminder_mailer:
-    subject: "Don't forget to take %{name}!"
-    body: "Here's a friendly reminder to take your medication %{name}!"
+    subject: "Não se esqueça de tomar o medicamento %{name}!"
+    body: "Um lembrete amigo para tomar o medicamento %{name}!"
   refill_mailer:
-    subject: "Your refill for %{name} is coming up soon!"
-    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
+    subject: "Está quase na hora de reabastecer o estoque do medicamento %{name}."
+    body: "Aqui um lembrete amigo para reabastecer o medicamento %{name} na %{refill}!"
   index:
-   title: 'Medications'
-   subtitle: 'Keep track of your medications, including dosage and refill information.'
+   title: 'Medicamentos'
+   subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
    total: 'Total:'
-   instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
+   instructions: "Você ainda não tem nenhum medicamento salvo. Clique %{icon} para adcionar um novo medicamento!<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a)."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '2 tablets'
    example_dosage: '40 tablets'
    example_refill: '05/31/2016'
   show:
-   comments: 'Comments:'
+   comments: 'Commentários:'
 
  meetings:
-  edit_meeting: 'Edit Meeting'
+  edit_meeting: 'Editar Reunião'
   form:
-   location_placeholder: 'URL or street address'
-   maximum_members: 'Maximum Members'
-   maximum_placeholder: '0 if no maximum'
-  join_success: 'You have joined this meeting.'
+   location_placeholder: 'URL ou endereço do local da reunião:'
+   maximum_members: 'Número máximo de participantes'
+   maximum_placeholder: 'Coloqeu 0(zero), caso não haja limite de participantes'
+  join_success: 'Agora você faz parte dessa reunião.'
   info:
-   cancel_meeting: 'Cancel meeting'
-   meeting_time: 'Time'
+   cancel_meeting: 'Cancelar reunião'
+   meeting_time: 'Horário'
    members_of_group_html:
-    one: '%{count} Member <strong>of</strong> %{group}'
-    other: '%{count} Members <strong>of</strong> %{group}'
+    one: '%{count} Membro <strong>do</strong> %{group}'
+    other: '%{count} Membros <strong>of</strong> %{group}'
   reminder_mailer:
-    subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
+    subject: "A reunião \"%{meeting_name}\" é amanhã as: %{time}!"
+    body: "Aqui um lembrete amigo sobre sua reunião, que acontecerá amanhã: \"%{meeting_name}\"i irá começar ás %{time} no endereço %{location}!"
   leave:
-    error: 'You cannot leave the meeting, you are the only leader.'
-    success: 'You have left %{meeting}'
-  new: 'New Meeting'
+    error: 'Você não pode abandonar a reunião, porque você é o único líder.'
+    success: 'Você ainda tem pendente a reunião %{meeting}'
+  new: 'Nova Reunião.'
 
  moments:
-  singular: 'Moment'
-  plural: 'Moments'
-  quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
-  categories_and_moods: 'Categories and Moods'
-  edit_moment: 'Edit Moment'
-  tagged: 'Tagged Moments'
-  new: 'New Moment'
+  singular: 'Momento'
+  plural: 'Momentos'
+  quick_moment_disclaimer: 'Esse momento será compartilhado com todos os aliados que comentarem nesse momento. You can always edit this later.'
+  categories_and_moods: 'Humor e categorias'
+  edit_moment: 'Editar Momento'
+  tagged: 'Momentos com Tags'
+  new: 'Novo Momento'
   form:
-   why: 'What happened and how do you feel?'
-   fix: 'What thoughts would you like to have?'
-   what_happened: 'What happened?'
-   viewers_hint: 'Allies who can view your moment'
+   why: 'O que aconteceu e como você se sente ?'
+   fix: 'Quais pensamentos você gostaria de ter ? '
+   what_happened: 'O que aconteceu ?'
+   viewers_hint: 'Aliads que podem ver esse momento seu:'
 
   index:
-   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-   instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
-   example_name: 'Panicking over interview tomorrow!'
-   example_category: 'Career'
+   subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
+   instructions: "Você ainda não escreveu sobre seus momentos. Clique aqui %{icon} para criar um novo!<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ? O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:"
+   example_name: 'Nervosismo por causa da entrevista de trabalho de amanhã.'
+   example_category: 'Carreira'
   show:
-   strategies: 'What strategies would help?'
+   strategies: 'Quais estratégias poderiam ajudar nesse momento ? '
 
  moods:
-  singular: 'Mood'
-  plural: 'Moods'
-  edit_mood: 'Edit Mood'
-  add: 'Add mood'
-  new: 'New Mood'
-  example_moods: 'Nervous, Anxious, Hopeful'
+  singular: 'Humor'
+  plural: 'Humor'
+  edit_mood: 'Editar Humor'
+  add: 'Adcionar humor'
+  new: 'Novo Humor'
+  example_moods: 'Nervoso, Ansioso, esperançoso'
   label:
-   one: 'Mood:'
-   other: 'Moods:'
+   one: 'Humor:'
+   other: 'Humor'
   index:
-   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   premade1_name: 'Accepting'
-   premade1_description: 'Accepting and being at peace with differences and limitations'
-   premade2_name: 'Ambitious'
-   premade2_description: 'Feeling optimistic about achieving goals'
-   premade3_name: 'Curious'
-   premade3_description: 'Feeling curious about uncertainty'
-   premade4_name: 'Resentful'
-   premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
-   premade5_name: 'Hopeless'
-   premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
-   instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
+   subtitle: 'Crie tags para descrever seu estado de espírito, sentimentos, e emoções.'
+   premade1_name: 'Aceitação'
+   premade1_description: 'Aceitação e estar em paz com diferenças e limitações.'
+   premade2_name: 'Ambição'
+   premade2_description: 'Se sentindo otimista com relação a alcançar metas'
+   premade3_name: 'Curiosidade'
+   premade3_description: 'Sentir curiosidade sobre fatos incertos.'
+   premade4_name: 'Sentir Resesentido'
+   premade4_description: 'Não aceitar certos fatos, sentir raiva, sentimento de vingança, e/ou ciúmes.'
+   premade5_name: 'Desanimado'
+   premade5_description: 'Se sentir triste e desanimado -incapaz de encontrar qualquer solução possível.'
+   instructions: "Você ainda não personalizou nenhum tipo de humor. Clique aqui %{icon} para adcionar algum!<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los."
 
  notifications:
-  plural: 'Notifications'
-  none: 'There are none'
-  clear: 'Clear'
-  created_by_html: "<strong>Created by</strong>: %{name}"
-  preview: 'View more'
+  plural: 'Notificações'
+  none: 'Não existem notificações no momento'
+  clear: 'Limpo(Clear)'
+  created_by_html: "<strong>Criado por</strong>: %{name}"
+  preview: 'Ver mais'
   members:
-   title: 'List of Members'
+   title: 'Lista dos membros'
   ally:
-   accepted: '%{name} accepted your ally request!'
-   sent_html: '%{link_to_user} sent an ally request!'
+   accepted: '%{name} aceitou seu pedido de aliado!'
+   sent_html: '%{link_to_user} enviar um pedido para se tornar aliado!'
   comment:
-   full: '%{name} commented "%{comment}" on %{commented_on}'
-   truncated: '%{name} commented "%{comment}" [...] on %{commented_on}'
+   full: '%{name} commentou "%{comment}" sobre %{commented_on}'
+   truncated: '%{name} commentado "%{comment}" [...] sobre %{commented_on}'
   group:
-   new_group: '%{name} created a group "%{group_name}"'
-   new_group_member: '%{name} joined your group "%{group_name}"'
-   add_group_leader: '%{name} became a leader of "%{group_name}"'
-   remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+   new_group: '%{name} criou um grupo chamado "%{group_name}"'
+   new_group_member: '%{name} se juntou ao grupo "%{group_name}"'
+   add_group_leader: '%{name} se tornou o líder do grupo "%{group_name}"'
+   remove_group_leader: '%{name} não é mais líder do grupo "%{group_name}"'
   meeting:
-   new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
-   remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
-   update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
-   join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
+   new_meeting: '%{name} criou uma nova reunião chamada"%{meeting_name}" do grupo "%{group_name}"'
+   remove_meeting: '%{name} cancelou a reunião "%{meeting_name}" do grupo "%{group_name}"'
+   update_meeting: '%{name} atualizou a reunião "%{meeting_name}" do grupo "%{group_name}"'
+   join_meeting: '%{name} se juntou a reunião "%{meeting_name}" do grupo "%{group_name}"'
   mailer:
-    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
+    comment_on_moment_subject: "if me | %{user} comentou no seu momento \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} comentou na sua estratégia \"%{strategy}\""
     comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
-    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
-    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_on_private_body: "<p>Seu aliado <strong>%{user}</strong> lhe enviou uma mensagem privada:</p>"
+    comment_on_body: "<p>Seu aliado <strong>%{user}</strong> comentou:</p>"
     comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
     comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>To read it, %{link}!</p>"
-    new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
-    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
-    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
-    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
-    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
-    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
-    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
-    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
-    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
-    update_meeting_link: "<p>To learn more, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
-    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
-    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
+    comment_link: "<p>Veja o comentário, %{link}!</p>"
+    new_group_subject: "if me | %{user} criou um grupo chamado \"%{group}\""
+    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p>"
+    new_group_member_subject: "if me | %{user} se juntou ao seu grupo \"%{group}\""
+    add_group_leader_you_subject: "if me | Você  se tornou lider do grupo  \"%{group}\""
+    add_group_leader_subject: "if me | %{user} se tornou líder do grupo \" %{group}\""
+    add_remove_group_leader_body: "<p>Link do grupo \"%{group}\", %{link}!</p>"
+    remove_group_leader_you_subject: "if me | Você não é mais líder do grupo \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} Não é mais líder do grupo \"%{group}\""
+    update_meeting_subject: "if me | %{user} atualizou a reunião \"%{meeting}\" for \"%{group}\""
+    new_meeting_subject: "if me | %{user} criou uma nova reunião  \"%{meeting}\" for \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Endereço:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p><strong>Hora:</strong> %{time}</p>"
+    new_meeting_link: "<p>Clique aqui para saber mais, %{link}!</p>"
+    update_meeting_link: "<p>Para saber mais, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} A reunião \"%{meeting}\" foi cancelada para o grupo \"%{group}\""
+    join_meeting_subject: "if me | %{user} Se juntou a reunião  \"%{meeting}\" para o grupo \"%{group}\""
+    join_meeting_body: "<p>Para ver detalhes da reunião \"%{meeting}\",clique aqui %{link}!</p>"
 
  omniauth:
   google: 'Google'
-  access_denied: 'Access Denied'
+  access_denied: 'Accesso Negado'
 
  pages:
   about:
-    send_us: 'us'
-    email_us: 'Feel free to email %{email_link}!'
-    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
-    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
-    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
-    main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>As we scale out our app, we will need money to pay for server hosting and comply to HIPAA standards. In Winter 2016, we received a community grant from %{linebreak_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
-    linebreak: 'Linebreak'
+    send_us: 'Envie pra nós'
+    email_us: 'Sinta-se livre para entrar em contato via email %{email_link}!'
+    main_message_one: "%{app_name} é uma comunidade para experiências relacionadas a saúde mental que encoraja as pessoas a compartilharem suas histórias pessoais com aliados de confiança."
+    message_text_one: "Aliados de confiança são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares , companheiros de trabalho, professores, e profissionais da área de saúde mental."
+    main_message_two: "Lidar com a saúde mental é o que nos faz humanos. Mas, para muitos de nós ,é um problema lidar com saúde mental de uma forma aberta."
+    message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"Está em sua mente, mas também ao seu redor.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
+    main_message_three: "Quer patrocinar o projeto?"
+    message_text_three: " Nosso aplicativo é <u>completamente</u> open source. É construido e mantido por voluntários com experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do Patreon %{patreon_link}.</p>"
+    linebreak: 'QuebraLinha'
   blog:
-    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+    description: "Se você estiver interessado em escrevre para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
   contributors:
-    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
-    more_contributors: 'More Fabulous Contributors!'
-    thanks: 'A huge thanks to'
+    main_message_one: "if me é desenvolvido e mantido por voluntários com diferentes experiências e habilidades."
+    message_text_one: "Estamos sempre procurando por novas idéias de diversas pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>profissionais da sáude</strong>, <strong>desenvolvedores de software</strong>, e <strong>UX Designers</strong>!<p class=\"no_margin_bottom\">Envie um email para %{email_link} e entraremos em contato com você! Você será convidado para participar do nosso grupo no Slack %{slack_link}, nossa principal ferramenta de comunicação.Faça o fork do nosso repositório hospedado no Github %{github_link}!</p>"
+    more_contributors: 'Mais Contribuidores Fabulosos!'
+    thanks: 'Um enorme agradecimento ao'
     slack: 'Slack'
   faq:
-    title: 'Frequently Asked Questions'
-    data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
-    moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
+    title: 'FAQ - Dúvidas Frequentes'
+    data_access_question: 'Quem pode acessar meus dados ?'
+    data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
+    moment_question: 'O que é um Momento ?'
+    moment_answer: 'Um <strong>Momento</strong>é um evento e situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar umcan tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
     strategy_question: 'What is a Strategy?'
     strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form or self-care that helps you cope or focus on recovery.<br><br>You can tag it with Categories. You can also choose which allies can view and comment. You can also make it only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
     category_question: 'What is a Category?'
