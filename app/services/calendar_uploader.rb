@@ -24,9 +24,9 @@ class CalendarUploader
 
     params = {
       api_method: service.events.insert,
-      parameters:         {'calendarId' => email, 'sendNotifications' => true},
+      parameters:         { 'calendarId' => email, 'sendNotifications' => true },
       body: JSON.dump(event),
-      headers:         {'Content-Type' => 'application/json'}
+      headers:         { 'Content-Type' => 'application/json' }
     }
 
     client.execute!(params)

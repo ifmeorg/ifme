@@ -84,7 +84,7 @@ class MomentsController < ApplicationController
 
       Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: moment_user).order('created_at ASC').all
-      Pusher['private-' + moment_user.to_s].trigger('new_notification', {notifications: notifications})
+      Pusher['private-' + moment_user.to_s].trigger('new_notification', { notifications: notifications })
 
       NotificationMailer.notification_email(moment_user, data).deliver_now
 
@@ -111,7 +111,7 @@ class MomentsController < ApplicationController
 
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: private_user).order('created_at ASC').all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
+      Pusher['private-' + private_user.to_s].trigger('new_notification', { notifications: notifications })
 
       NotificationMailer.notification_email(private_user, data).deliver_now
     end

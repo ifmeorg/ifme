@@ -84,7 +84,7 @@ class StrategiesController < ApplicationController
 
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: strategy_user).order('created_at ASC').all
-      Pusher['private-' + strategy_user.to_s].trigger('new_notification', {notifications: notifications})
+      Pusher['private-' + strategy_user.to_s].trigger('new_notification', { notifications: notifications })
 
       NotificationMailer.notification_email(strategy_user, data).deliver_now
 
@@ -111,7 +111,7 @@ class StrategiesController < ApplicationController
 
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
       notifications = Notification.where(userid: private_user).order('created_at ASC').all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
+      Pusher['private-' + private_user.to_s].trigger('new_notification', { notifications: notifications })
 
       NotificationMailer.notification_email(private_user, data).deliver_now
     end
@@ -307,7 +307,7 @@ class StrategiesController < ApplicationController
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
     params.require(:strategy).permit(
       :name, :description, :userid,
-      :comment, {category: []}, {viewers: []},
+      :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: [:active, :id]
     )
   end
