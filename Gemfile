@@ -37,7 +37,7 @@ gem 'rails-i18n',                 '4.0.9'
 gem 'underscore-rails',           '1.8.3'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'sdoc',                       '0.4.1', group: :doc
+gem 'sdoc', '0.4.1', group: :doc
 
 group :development, :test do
   gem 'dotenv',                     '2.1.1'
@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
 
   gem 'jshint'
-  gem 'rubocop',                    '0.40.0'
+  gem 'rubocop', '0.40.0'
 end
 
 group :test do
