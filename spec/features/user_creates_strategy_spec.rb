@@ -40,7 +40,7 @@ describe "UserCreatesAStrategy", js: true do
 
       fill_in_ckeditor('strategy_description', with: 'my strategy description')
 
-      page.find('input[value="Create Strategy"]').click
+      page.find('input[value="Submit"]').click
 
       # VIEWING
       within '#page_title_content' do
@@ -60,7 +60,7 @@ describe "UserCreatesAStrategy", js: true do
 
       fill_in_ckeditor('strategy_description', with: 'I am changing my strategy description')
 
-      page.find('input[value="Update Strategy"]').click
+      page.find('input[value="Submit"]').click
 
       #VIEWING AFTER EDITING
       within '#page_title_content' do

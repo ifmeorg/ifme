@@ -14,6 +14,7 @@
 #  viewers    :text
 #  comment    :boolean
 #  strategies :text
+#  slug       :string
 #
 
 class Moment < ActiveRecord::Base

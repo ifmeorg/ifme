@@ -13,7 +13,9 @@ user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', pas
 
 # Allies
 Allyship.create(user_id: user1.id, ally_id: user2.id, status: :accepted)
+Allyship.create(user_id: user2.id, ally_id: user1.id, status: :accepted)
 Allyship.create(user_id: user1.id, ally_id: user3.id, status: :accepted)
+Allyship.create(user_id: user3.id, ally_id: user1.id, status: :accepted)
 Allyship.create(user_id: user2.id, ally_id: user3.id, status: :pending_from_user)
 
 # User 1

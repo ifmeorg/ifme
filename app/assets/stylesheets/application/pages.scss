@@ -37,6 +37,11 @@
       margin-bottom: 20px;
       width: 100%;
   }
+
+  @media screen and (max-width: $small) {
+      font-size: $font26;
+      line-height: 36px;
+  }
 }
 
 .message_text {
@@ -57,10 +62,17 @@
 .message {
   text-align: center;
   font-weight: 300;
+  line-height: 40px;
   font-size: $font26;
 
   @media screen and (max-width: $medium) {
-      font-size: $font24;
+      font-size: $font20;
+      line-height: 26px;
+  }
+
+  @media screen and (max-width: $small) {
+      font-size: $font18;
+      line-height: 24px;
   }
 }
 
@@ -68,6 +80,7 @@
   display: table;
   table-layout: fixed;
   width: 100%;
+  border-spacing: 20px 0px;
 }
 
 .message_row {
@@ -145,6 +158,30 @@
 
   @media screen and (max-width: $medium) {
     margin: 30px auto 30px auto;
+  }
+}
+
+#medium_posts {
+  width: 90%;
+  margin: 0 auto;
+  font-size: $font24;
+
+  .post_author {
+    margin-top: 10px;
+    font-size: $font22;
+  }
+
+  .message_cell {
+    vertical-align: middle;
+  }
+
+  @media screen and (max-width: $medium) {
+    font-size: $font22;
+
+    .post_author {
+      margin-top: 5px;
+      font-size: $font20;
+    }
   }
 }
 

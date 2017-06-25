@@ -39,7 +39,7 @@
 				<%= f.hidden_field :tag, :value => local_assigns[:tag] %>
 				<%= f.hidden_field :data_type, :value => local_assigns[:data_type] %>
 				<%= f.hidden_field :userid, :value => current_user.id %>
-				<%= f.submit %>
+				<%= f.submit t('common.actions.add') %>
 			</div>
 		<% end %>
 		</div>

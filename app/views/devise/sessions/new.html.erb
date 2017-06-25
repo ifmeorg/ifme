@@ -3,14 +3,14 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   	<div class="center">
-		<div class="field"><div class="label"><%= f.label :email %></div>
+		<div class="field"><div class="label"><%= f.label t('common.form.email') %></div>
 	  	<%= f.email_field :email %></div>
 
-	  	<div class="field"><div class="label"><%= f.label :password %></div>
+	  	<div class="field"><div class="label"><%= f.label t('devise.password') %></div>
 	    <%= f.password_field :password, autocomplete: "off" %></div>
 
 	  	<% if devise_mapping.rememberable? -%>
-	    	<div class="field"><div class="label"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div></div>
+	    	<div class="field"><div class="label"><%= f.check_box :remember_me %> <%= f.label t('devise.remember_me') %></div></div>
 	  	<% end -%>
 
 	  	<div class="actions"><%= f.submit t('account.sign_in') %></div>

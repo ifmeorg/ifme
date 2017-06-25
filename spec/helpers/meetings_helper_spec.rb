@@ -12,7 +12,7 @@ describe MeetingsHelper do
 
     it "displays attending with a link to leave" do
       result = get_meeting_members(meeting)
-      expect(result).to eq("You are attending. Change your mind?\\n<a href=\"/meetings/leave?meetingid=1\">Leave</a>")
+      expect(result).to eq("You are attending. Change your mind? <a href=\"/meetings/leave?meetingid=1\">Leave</a>")
     end
 
     it "displays there is one spot to join with a link" do

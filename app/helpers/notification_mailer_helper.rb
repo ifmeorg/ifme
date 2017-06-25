@@ -43,6 +43,7 @@ module NotificationMailerHelper
   end
 
   def new_group_body(data)
+    link_name = I18n.t('click_here')
     I18n.t(
       val('new_group_body'),
       subject: new_group_subject(data),

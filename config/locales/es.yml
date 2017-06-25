@@ -1,25 +1,31 @@
 es:
  app_name: "if me"
- app_description: "una comunidad para compartir experiencias de salud mental"
+ app_description: "es una comunidad para compartir experiencias de salud mental"
  email: "join.ifme@gmail.com"
- us: "nosotros"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
  click_here: "da click aquí"
+ less: " [Menos]"
+ language: 'Idioma'
 
  navigation:
    about: "Acerca de "
-   blog: "Blog:"
+   blog: "Blog"
    contributors: "Contribuidores"
    partners: "Socios"
    privacy: "Política de Privacidad"
    github: "GitHub"
    patreon: "Patreon"
-   feedback: "feedback"
+   instagram: "Instagram"
+   twitter: "Twitter"
+   facebook: "Facebook"
    medium: "Medium"
+   feedback: "retroalimentación"
+   press: 'Prensa'
+   faq: 'Preguntas Frecuentes'
 
  common:
    name: "Nombre"
@@ -28,6 +34,7 @@ es:
    date: "Fecha"
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
+    submit: "Enviar"
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -44,6 +51,7 @@ es:
      description: "Descripción"
      error_explanation: "Por favor completa los campos indicados"
    time_ago: 'hace %{date}'
+   write_to_us: "escríbenos"
 
  comment:
   singular: "Comentario"
@@ -78,10 +86,11 @@ es:
     cancel: "Cancelar"
 
  categories:
-  plural: "Categorias"
+  singular: "Categoría"
+  plural: "Categorías"
   edit_category: "Editar categoría"
   add_category: "Agregar categoría"
-  new: "Nueva categoria"
+  new: "Nueva categoría"
   form:
    name_hint: "Categoriza personas, lugares, cosas, actividades, y más"
   label:
@@ -146,6 +155,7 @@ es:
    reset_password: "Reestablece tu contraseña"
 
  medications:
+  singular: "Medicamento"
   edit_medication: "Editar medicamento"
   refill_reminder: "Recordatorio para resurtir medicinas via correo electrónico"
   dosage: "Dósis diaria:"
@@ -196,6 +206,7 @@ es:
    comments: "Comentarios:"
 
  meetings:
+  singular: "Reunión"
   edit_meeting: "Editar Reunión"
   form:
    location_placeholder: "URL o dirección física"
@@ -231,7 +242,7 @@ es:
    viewers_hint: "Aliados que pueden ver tu momento:"
 
   index:
-   subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental/"
+   subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
    instructions: "Aún no has escrito sobre tus momentos. ¡Da click en %{icon} para inciar! <br><br>¿No sabes por díbde empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir y discutir con tus seres queridos. ¡Puede ser positivo o negativo! No tienes que compartirlo ahora mismo - ¡Hazlo hasta que te sientas listo! Aquí hay un Momento de ejemplo."
    example_name: "¡Preocupación por una entrevsita de mañana!"
    example_category: "Carrera"
@@ -318,13 +329,20 @@ es:
 
  pages:
   about:
-    email_us: "Envía un correo electrónico a: %{email_link}!"
-    description: "<em>if me<em>, por su significado en inglés, <em>si a mi<em>,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza. Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental <p> Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto. </p> <p> No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos. </p><div class=\"spacer\"></div><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div><div class=\"spacer\"></div><p>La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p><p><strong>¿Quieres ayudar a financiarnos?</strong> Nuestra página es <u>completamente</u>open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales. Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud, maybe). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}. Puedes apoyarnos con una donación en nuestro %{patreon_link}."
+    send_us: "Envíanos"
+    email_us: "%{email_link} un correo electrónico!"
+    main_message_one: "%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza."
+    message_text_one: "Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental."
+    main_message_two: "Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto."
+    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
+    main_message_three: "¿Quieres ayudar a financiarnos?"
+    message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>Debido al crecimiento de nuestro sitio, necesitamos recursos económicos para pagar por hosting y para cumplir con los estándares de HIPAA (Ley de Responsabilidad y Portabilidad del Seguro de Salud). En invierno de 2016 recibimos una subvención comunitaria por parte de %{linebreak_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
     linebreak: "Linebreak"
   blog:
-    description: "Si quieres compartir tu artículo o escribir uno nuevo, dile a %{email_link}!"
+    description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
-    description: "<span class=\"emphasis\">if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades</span><p>¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software </strong>, y <strong>diseñadores de  experiencia del usuario</strong>! Por favor, escribe a %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
+    main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
+    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
     thanks: "Un enorme agradecimiento a:"
     slack: "Slack"
@@ -357,32 +375,34 @@ es:
       message_one: "Comparte tus historias con seres queridos y obtén el apoyo que mereces."
       message_two: "Sé tú mismo, sin condición, con seguridad y privacidad."
       message_three: "Documenta tus estados de ánimo, medicamentos, y cuidado personal."
-      main_message_two: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
-      message_text_two: "¡<strong>Siempre</strong> estamos abiertos a tu ayuda %{help} y retroalimentación %{feedback}!"
+      main_message_two: "Compartir nuestras historias es la clave de la educación en salud mental."
+      message_text_two: "Aprende con la <strong>comunidad</strong> en nuestro %{blog}."
+      main_message_three: "Somos un proyecto de fuente abierta (open source) porque debería haber apertura hacia la salud mental."
+      message_text_three: "¡Estamos <strong>siempre</strong> dispuestos a recibir %{help} y %{feedback}!"
       help: "ayuda"
     signed_in_empty:
       main_message_one: "¡Hola %{name}!"
       message_text_one: "Aquí te decimos cómo empezar a compartir tus historias."
       main_message_two: "Cuéntanos sobre ti."
-      cell_one: "Personaliza tu %{profile}perfil - agrega una biografía y foto de perfil. <br>Agrega %{moods}estados de ánimo personalizados para describir mejor tus emociones<br>. Agrega %{allies}aliados - amigos, familia, y seres queridos con los que quieras compartir."
+      cell_one: "Personaliza tu %{profile} - agrega una biografía y foto de perfil. <br>Agrega %{moods} para describir mejor tus emociones.<br>Agrega %{allies} - amigos, familia, y seres queridos con los que quieras compartir."
       main_message_three: "Escribe tus historias."
-      cell_two: "Crea %{categories}categorías personalizadas para organizar tus momentos.<br> Escribe sobre los %{moments} momentos - los eventos y situaciones que afectan tu salud mental."
+      cell_two: "Crea %{categories} personalizadas para organizar tus momentos.<br> Escribe sobre los %{moments} - los eventos y situaciones que afectan tu salud mental."
       main_message_four: "Cuídate."
-      cell_three: "¡Elabora tus %{strategize}Estrategias de cuidado personal!<br>. ¿Tomas un  %{medications}medicamento? ¡Realiza un seguimiento y crea recordatorios. <br>¿Necesitas apoyo extra? Únete a o crea un %{group} grupo para hablar sobre ello."
+      cell_three: "¡Elabora tus %{strategize} de cuidado personal!<br>. ¿Tomas un  %{medications}? ¡Realiza un seguimiento y crea recordatorios. <br>¿Necesitas apoyo extra? Únete a o crea un %{group} para hablar sobre ello."
       main_message_five: "¿Tienes alguna duda o pregunta?"
-      message_text_three: "¡Revisa nuestra página de %{faq}Preguntas Frecuentes o envíanos un mensaje%{email_link}."
+      message_text_three: "¡Revisa nuestra página de %{faq} o %{email_link}."
       strategize: "Estrategias"
   privacy:
     summary: "Descripción"
     summary_description: "<p>La política de privacidad de este sitio de internet gobierna la privacidad de los usuarios que eligen utilizarla.</p><p>Debido a la sensibilidad del contenido de la página, la privacidad de nuestros usuarios es una de nuestras preocupaciones más importantes. La política de privacidad delinea como los datos del usuario se recolectan, con qué finalidad, y cómo se protegen.</p>"
     user_data: "Información del Usuario"
-    user_data_description: "<p>Los usuarios nos proveen con extractos personales de su vida (en la propiedad de Momentos) y con información sobre medicamentos. La información los Momentos se comparte con quien el usuario lo desee. Información sobre los medicamentos es visible únicamente para el usuario. Ninguno de esos tipos de información será empleada para propósitos adicionales ni será brindada a terceros. </p><p>La página también contiene información respecto a grupos de apoyo y estrategias para contrarrestar retos de salud mental. Esta información sólo es accesible a los usuarios que reciben permiso para verla. La información proveniente de ambas propiedades puede ser mostrada públicamente para darla a conocer a usuarios actuales y futuros. De cualquier forma, se respetará el anonimato de los usuarios. </p>"
+    user_data_description: "<p>Los usuarios nos proveen con extractos personales de su vida (en la propiedad de Momentos) y con información sobre medicamentos. La información los Momentos se comparte con quien el usuario lo desee. Información sobre los medicamentos es visible únicamente para el usuario. Ninguno de esos tipos de información será empleada para propósitos adicionales ni será brindada a terceros. </p><p>La página también contiene información respecto a grupos de apoyo y estrategias para contrarrestar retos de salud mental. Esta información sólo es accesible a los usuarios que reciben permiso para verla. La información proveniente de ambas propiedades puede ser mostrada públicamente para darla a conocer a usuarios actuales y futuros. De cualquier forma, se respetará el anonimato de los usuarios.</p>"
     cookies: "Uso de Cookies"
     cookies_description: "<p> Este sitio de internet emplea cookies para mejorar la experiencia del usuario en sus visitas al mismo. Cuando pertinente, el sitio emplea un sistema de control de cookies que permite al usuario permitir o denegar el uso de cookies en su computadora o aparato desde la primera visita. </p><p>Las cookies son pequeños archivos que se guardan en el disco duro de la computadora del usuario para rastrear, guardar, y almacenar información sobre las interacciones y uso del sitio por parte del usuario. Esto permite al sitio, a través del servidor, proveer a los usuarios con una experiencia a la medida en sus visitas al mismo.</p><p>Se avisa a los usuarios que si desean negar el uso y almacenamiento de cookies por parte de este sitio en el disco duro de su computadora deberán tomar las medidas necesarias con la configuración de seguridad de sus exploradores de internet para bloquear todas las cookies de este sitio y sus proveedores externos de servicios. </p><p> Este sitio emplea programas de rastreo para monitorear a sus visitantes y comprender mejor cómo lo utilizan. Este programa es provisto por Google Analytics, el cual utiliza cookies para rastrear el uso de los visitantes. El programa guardará una cookie en el disco duro de tu computadora para rastrear y monitorear tu envolvimiento y uso del sitio, pero no guardará, almacenará, o recolectará información personal. Lee la %{google_privacy_policy} de Google para más información.</p>"
     social_media: "Redes Sociales"
     social_media_description: "<p> Comunicación, involucramiento, y acciones llevadas a cabo a través de plataformas de redes sociales externas en las que participa este sitio de internet están adscritas los t´rminos y condiciones de cada red social en cuestión.</p><p> Se aconseja a los usuarios emplear redes sociales cuidadosamente e involucrarse en ellas con la debida precaución al respecto de su privacidad e información personales. Este sitio jamás pedirá información de carácter personal o sensible a través de redes sociales y aconseja a los usuarios que deseen comentar detalles personales a contactarse de forma privada vía telefónica o correo electrónico.</p><p>Este sitio puede utilizar botones para compartir en redes sociales que sirven para contenido de páginas de internet a la red social en cuestión. Se aconseja a los usuarios que antes de emplear dichos botones para compartir lo hagan bajo su propia discreción y tomen en cuenta que la plataforma de la red social puede rastrear y guardar la solicitud para compartir una página de internet respectivamente a través de la cuenta perteneciente al usuario dentro de la plataforma de la red social.</p>"
     contact: "Contacto"
-    contact_description: "<p>Por favor escribe a %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
 
  profile:
   index:
@@ -408,10 +428,7 @@ es:
     license: "Nosotros &hearts; FOSS"
     foss: "Free and open source software (Programa gratuito y de fuente abierta)"
     license_subtitle: "Licencia bajo %{license}"
-    faq: "Preguntas Frecuentes"
     connect: "Conectarse"
-    twitter: "Twitter"
-    facebook: "Facebook"
   comments:
     share_everyone: "Compartir con todos"
     share_with: "Compartir con %{name} únicamente"
@@ -493,7 +510,9 @@ es:
  devise:
   password: "Contraseña"
   new_password: "Nueva contraseña"
+  current_password: "Contraseña actual"
   password_change: "Cambiar contraseña"
+  remember_me: "Recordarme"
   confirmations:
     resend_confirmation: "Reenviar instrucciones de confirmación"
   mailer:
@@ -515,13 +534,13 @@ es:
       send_instructions: "Envíenme instrucciones para resetear mi contraseña"
 
   registrations:
-    email_notifications: "Email Notifications"
-    comment_notify_text: "Comments on moments, strategies, and meetings"
-    ally_notify_text: "New and accepted ally requests"
-    group_notify_text: "Group updates"
-    meeting_notify_text: "Meeting updates"
-    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
-    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
+    email_notifications: "Notificaciones por correo electrónico"
+    comment_notify_text: "Comentarios en momentos, estrategias, y reuniones"
+    ally_notify_text: "Solicitudes de Aliados nuevas y aceptadas"
+    group_notify_text: "Actualizaciones de grupo"
+    meeting_notify_text: "Actualizaciones de reuniones"
+    google_auth1: "Si ya no deseas verificar tu identidad a través de Google, por favor ingresa un nuevo correo electrónico y contraseña."
+    google_auth2: "Debido a que tu identidad ha sido confirmada a través de Google, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña."
     placeholders:
       repeat_password: "Repetir contraseña"
     edit:

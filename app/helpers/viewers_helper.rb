@@ -30,7 +30,7 @@ module ViewersHelper
 
   private def add_link(link, result)
     content_tag(:span, result) do
-      link_to link.name, (link.class.link + link.id.to_s)
+      link_to link.name, "/#{link.model_name.plural}/#{link.id}"
     end
   end
 

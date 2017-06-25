@@ -17,7 +17,7 @@
     <%= f.text_field :location, class: 'spacing', placeholder: t('common.form.location') %>
     <%= f.email_field :email, placeholder: t('common.form.email') %></div>
 
-    <div class="field"><div class="label"><%= f.label :password %></div>
+    <div class="field"><div class="label"><%= f.label t('devise.password') %></div>
       <%= f.password_field :password, autocomplete: "off", class: 'spacing', placeholder: t('devise.password') %>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %></div>
 

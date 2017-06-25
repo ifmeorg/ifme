@@ -15,6 +15,7 @@
 #  dosage_unit   :string
 #  total_unit    :string
 #  comments      :text
+#  slug          :string
 #
 
 class Medication < ActiveRecord::Base

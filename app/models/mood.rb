@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  userid      :integer
+#  slug        :string
 #
 
 class Mood < ActiveRecord::Base
