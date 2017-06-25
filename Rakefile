@@ -48,7 +48,15 @@ task :setup_workspace do
   devise_secret_key = capture_stdout { Rake::Task['secret'].invoke }.strip.gsub(/\n\s+/, ' ').squeeze(' ')
 
   # insert the secrets into the files
-  files = [dev_target.to_s, test_target.to_s]
-  files.each { |f| File.write(f, File.read(f).gsub(/SECRET_KEY_BASE=""/, 'SECRET_KEY_BASE="%s"' % [secret_key_base])) }
-  files.each { |f| File.write(f, File.read(f).gsub(/DEVISE_SECRET_KEY=""/, 'DEVISE_SECRET_KEY="%s"' % [devise_secret_key])) }
+  replacements = [
+    [/SECRET_KEY_BASE=""/, %(SECRET_KEY_BASE="#{secret_key_base}")],
+    [/DEVISE_SECRET_KEY=""/, %(DEVISE_SECRET_KEY="#{devise_secret_key}")]
+  ]
+  [dev_target.to_s, test_target.to_s].each do |file|
+    content = File.read(file)
+    replacements.each do |replacement|
+      content.gsub!(replacement[0], replacement[1])
+    end
+    File.write(file, content)
+  end
 end
