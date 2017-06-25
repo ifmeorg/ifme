@@ -16,7 +16,7 @@ class Allyship < ActiveRecord::Base
   validate :different_users
 
   belongs_to :user
-  belongs_to :ally, class_name: "User"
+  belongs_to :ally, class_name: 'User'
 
   after_create :create_inverse, unless: :has_inverse?
   after_update :approve_inverse, if: :inverse_unapproved?
@@ -51,8 +51,8 @@ class Allyship < ActiveRecord::Base
   end
 
   def different_users
-    self.errors.add(:user_id, "identical users") if self.user_id == self.ally_id
-    self.errors.add(:user_id, "user_id is nil") if self.user_id.nil?
-    self.errors.add(:ally_id, "ally_id is nil") if self.ally_id.nil?
+    self.errors.add(:user_id, 'identical users') if self.user_id == self.ally_id
+    self.errors.add(:user_id, 'user_id is nil') if self.user_id.nil?
+    self.errors.add(:ally_id, 'ally_id is nil') if self.ally_id.nil?
   end
 end

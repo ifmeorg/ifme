@@ -25,7 +25,7 @@ class StrategiesController < ApplicationController
       @page_edit = edit_strategy_path(@strategy)
       @page_tooltip = t('strategies.edit_strategy')
     else
-      link_url = "/profile?uid=" + get_uid(@strategy.userid).to_s
+      link_url = '/profile?uid=' + get_uid(@strategy.userid).to_s
       name = User.where(id: @strategy.userid).first.name
       the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
@@ -39,7 +39,7 @@ class StrategiesController < ApplicationController
     else
       @comment = Comment.new
       # @support = Support.new
-      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => "strategy").all.order("created_at DESC")
+      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => 'strategy').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
@@ -83,7 +83,7 @@ class StrategiesController < ApplicationController
         })
 
       Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: strategy_user).order("created_at ASC").all
+      notifications = Notification.where(userid: strategy_user).order('created_at ASC').all
       Pusher['private-' + strategy_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(strategy_user, data).deliver_now
@@ -110,7 +110,7 @@ class StrategiesController < ApplicationController
         })
 
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order("created_at ASC").all
+      notifications = Notification.where(userid: private_user).order('created_at ASC').all
       Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(private_user, data).deliver_now
@@ -180,7 +180,7 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+    @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
     @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
@@ -189,7 +189,7 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
+      @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else

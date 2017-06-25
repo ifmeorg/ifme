@@ -1,4 +1,4 @@
-require "google/api_client"
+require 'google/api_client'
 
 class CalendarUploader
   attr_reader :summary, :date, :access_token, :email
@@ -35,6 +35,6 @@ class CalendarUploader
   end
 
   def client
-    @client ||= Google::APIClient.new(:application_name => ENV["GOOGLE_APP_NAME"])
+    @client ||= Google::APIClient.new(:application_name => ENV['GOOGLE_APP_NAME'])
   end
 end

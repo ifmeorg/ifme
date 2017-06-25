@@ -26,7 +26,7 @@ class MomentsController < ApplicationController
       @page_edit = edit_moment_path(@moment)
       @page_tooltip = t('moments.edit_moment')
     else
-      link_url = "/profile?uid=" + get_uid(@moment.userid).to_s
+      link_url = '/profile?uid=' + get_uid(@moment.userid).to_s
       name = User.where(id: @moment.userid).first.name
       the_link = sanitize link_to name, link_url
       @page_author = the_link.html_safe
@@ -39,7 +39,7 @@ class MomentsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order("created_at DESC")
+      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
@@ -83,7 +83,7 @@ class MomentsController < ApplicationController
         })
 
       Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: moment_user).order("created_at ASC").all
+      notifications = Notification.where(userid: moment_user).order('created_at ASC').all
       Pusher['private-' + moment_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(moment_user, data).deliver_now
@@ -110,7 +110,7 @@ class MomentsController < ApplicationController
         })
 
       Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order("created_at ASC").all
+      notifications = Notification.where(userid: private_user).order('created_at ASC').all
       Pusher['private-' + private_user.to_s].trigger('new_notification', {notifications: notifications})
 
       NotificationMailer.notification_email(private_user, data).deliver_now
@@ -171,21 +171,21 @@ class MomentsController < ApplicationController
   # GET /moments/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
-    @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
-    @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
+    @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
+    @moods = Mood.where(:userid => current_user.id).all.order('created_at DESC')
 
     # current_user's strategies and all viewable strategies from allies
-    my_strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+    my_strategies = Strategy.where(:userid => current_user.id).all.order('created_at DESC')
     ally_strategies = []
     @viewers.each do |ally|
-      Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+      Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
         if strategy.viewers.include?(current_user.id)
           ally_strategies << strategy
         end
       end
     end
     my_strategies += ally_strategies
-    @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+    @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
     @moment = Moment.new
     @category = Category.new
@@ -197,21 +197,21 @@ class MomentsController < ApplicationController
   def edit
     if @moment.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(:userid => current_user.id).all.order("created_at DESC")
-      @moods = Mood.where(:userid => current_user.id).all.order("created_at DESC")
+      @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
+      @moods = Mood.where(:userid => current_user.id).all.order('created_at DESC')
 
       # current_user's strategies and all viewable strategies from allies
-      my_strategies = Strategy.where(:userid => current_user.id).all.order("created_at DESC")
+      my_strategies = Strategy.where(:userid => current_user.id).all.order('created_at DESC')
       ally_strategies = []
       @viewers.each do |ally|
-        Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+        Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
           if strategy.viewers.include?(current_user.id)
             ally_strategies << strategy
           end
         end
       end
       my_strategies += ally_strategies
-      @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+      @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
       @category = Category.new
       @mood = Mood.new

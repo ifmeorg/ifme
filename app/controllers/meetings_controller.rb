@@ -22,7 +22,7 @@ class MeetingsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(:commented_on => @meeting.id, :comment_type => "meeting").all.order("created_at DESC")
+      @comments = Comment.where(:commented_on => @meeting.id, :comment_type => 'meeting').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
@@ -60,7 +60,7 @@ class MeetingsController < ApplicationController
           })
 
         Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
+        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
         Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
 
         NotificationMailer.notification_email(member.userid, data).deliver_now
@@ -146,7 +146,7 @@ class MeetingsController < ApplicationController
               })
 
               Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-              notifications = Notification.where(userid: member.userid).order("created_at ASC").all
+              notifications = Notification.where(userid: member.userid).order('created_at ASC').all
               Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
 
               NotificationMailer.notification_email(member.userid, data).deliver_now
@@ -200,7 +200,7 @@ class MeetingsController < ApplicationController
             })
 
             Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-            notifications = Notification.where(userid: member.userid).order("created_at ASC").all
+            notifications = Notification.where(userid: member.userid).order('created_at ASC').all
             Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
 
             NotificationMailer.notification_email(member.userid, data).deliver_now
@@ -248,7 +248,7 @@ class MeetingsController < ApplicationController
           })
 
           Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
+          notifications = Notification.where(userid: leader.userid).order('created_at ASC').all
           Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
 
           NotificationMailer.notification_email(leader.userid, data).deliver_now
@@ -316,7 +316,7 @@ class MeetingsController < ApplicationController
         })
 
         Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
+        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
         Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
 
         NotificationMailer.notification_email(member.userid, data).deliver_now

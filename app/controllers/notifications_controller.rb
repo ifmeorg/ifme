@@ -23,7 +23,7 @@ class NotificationsController < ApplicationController
   end
 
   def fetch_notifications
-    result = { fetch_notifications: Notification.where(userid: current_user.id).order("created_at ASC").all }
+    result = { fetch_notifications: Notification.where(userid: current_user.id).order('created_at ASC').all }
     respond_to do |format|
       format.html { render json: result }
       format.json { render json: result }

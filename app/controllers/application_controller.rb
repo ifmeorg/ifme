@@ -148,7 +148,7 @@ class ApplicationController < ActionController::Base
     result = Array.new
     if (data_type == 'category')
       moments = Array.new
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.category.blank? && moment.category.length > 0 && moment.category.include?(data.to_i)
           moments.push(moment.id)
         end
@@ -156,20 +156,20 @@ class ApplicationController < ActionController::Base
       result.push(moments)
 
       strategies = Array.new
-      Strategy.where(userid: userid).order("created_at DESC").all.each do |strategy|
+      Strategy.where(userid: userid).order('created_at DESC').all.each do |strategy|
         if !strategy.category.blank? && strategy.category.length > 0 && strategy.category.include?(data.to_i)
           strategies.push(strategy.id)
         end
       end
       result.push(strategies)
     elsif (data_type == 'mood')
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.mood.blank? && moment.mood.length > 0 && moment.mood.include?(data.to_i)
           result.push(moment.id)
         end
       end
     elsif (data_type == 'strategy')
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.strategies.blank? && moment.strategies.length > 0 && moment.strategies.include?(data.to_i)
           result.push(moment.id)
         end
@@ -216,8 +216,8 @@ class ApplicationController < ActionController::Base
 
   def get_stories(user, include_allies)
     if user.id == current_user.id
-      my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
-      my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
+      my_moments = Moment.where(userid: user.id).all.order('created_at DESC')
+      my_strategies = Strategy.where(userid: user.id).all.order('created_at DESC')
     end
 
     if include_allies && user.id == current_user.id
@@ -226,13 +226,13 @@ class ApplicationController < ActionController::Base
       ally_strategies = []
 
       allies.each do |ally|
-        Moment.where(userid: ally.id).all.order("created_at DESC").each do |moment|
+        Moment.where(userid: ally.id).all.order('created_at DESC').each do |moment|
           if moment.viewers.include?(user.id)
             ally_moments << moment
           end
         end
 
-        Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
+        Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
           if strategy.viewers.include?(user.id)
             ally_strategies << strategy
           end
@@ -245,13 +245,13 @@ class ApplicationController < ActionController::Base
       ally_moments = []
       ally_strategies = []
 
-      Moment.where(userid: user.id).all.order("created_at DESC").each do |moment|
+      Moment.where(userid: user.id).all.order('created_at DESC').each do |moment|
         if moment.viewers.include?(current_user.id)
           ally_moments << moment
         end
       end
 
-      Strategy.where(userid: user.id).all.order("created_at DESC").each do |strategy|
+      Strategy.where(userid: user.id).all.order('created_at DESC').each do |strategy|
         if strategy.viewers.include?(current_user.id)
           ally_strategies << strategy
         end
@@ -261,8 +261,8 @@ class ApplicationController < ActionController::Base
       my_strategies = ally_strategies
     end
 
-    moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
-    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+    moments = Moment.where(id: my_moments.map(&:id)).all.order('created_at DESC')
+    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
     if moments.count > 0
       stories = moments.zip(strategies).flatten.compact
