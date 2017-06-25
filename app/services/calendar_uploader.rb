@@ -14,7 +14,7 @@ class CalendarUploader
     client.authorization.access_token = access_token
     
     service = client.discovered_api('calendar', 'v3')
-    parsed_date = Chronic.parse(date, :endian_precedence => [:little, :median]).to_time.iso8601
+    parsed_date = Chronic.parse(date, endian_precedence: [:little, :median]).to_time.iso8601
 
     event = {
       'summary' => summary,
@@ -23,18 +23,16 @@ class CalendarUploader
     }
 
     params = {
-      :api_method => service.events.insert,
-      :parameters =>
-        {'calendarId' => email, 'sendNotifications' => true},
-      :body => JSON.dump(event),
-      :headers =>
-        {'Content-Type' => 'application/json'}
+      api_method: service.events.insert,
+      parameters:         {'calendarId' => email, 'sendNotifications' => true},
+      body: JSON.dump(event),
+      headers:         {'Content-Type' => 'application/json'}
     }
 
     client.execute!(params)
   end
 
   def client
-    @client ||= Google::APIClient.new(:application_name => ENV['GOOGLE_APP_NAME'])
+    @client ||= Google::APIClient.new(application_name: ENV['GOOGLE_APP_NAME'])
   end
 end

@@ -149,7 +149,7 @@ class MomentsController < ApplicationController
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
-    render :nothing => true
+    render nothing: true
   end
 
   def quick_moment
@@ -171,11 +171,11 @@ class MomentsController < ApplicationController
   # GET /moments/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
-    @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
-    @moods = Mood.where(:userid => current_user.id).all.order('created_at DESC')
+    @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
+    @moods = Mood.where(userid: current_user.id).all.order('created_at DESC')
 
     # current_user's strategies and all viewable strategies from allies
-    my_strategies = Strategy.where(:userid => current_user.id).all.order('created_at DESC')
+    my_strategies = Strategy.where(userid: current_user.id).all.order('created_at DESC')
     ally_strategies = []
     @viewers.each do |ally|
       Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
@@ -197,11 +197,11 @@ class MomentsController < ApplicationController
   def edit
     if @moment.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
-      @moods = Mood.where(:userid => current_user.id).all.order('created_at DESC')
+      @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
+      @moods = Mood.where(userid: current_user.id).all.order('created_at DESC')
 
       # current_user's strategies and all viewable strategies from allies
-      my_strategies = Strategy.where(:userid => current_user.id).all.order('created_at DESC')
+      my_strategies = Strategy.where(userid: current_user.id).all.order('created_at DESC')
       ally_strategies = []
       @viewers.each do |ally|
         Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|

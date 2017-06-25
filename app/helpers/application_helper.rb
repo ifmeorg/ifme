@@ -2,7 +2,7 @@ module ApplicationHelper
   include ViewersHelper
 
   def nav_link_to(body, url, html_options = {})
-    environment = html_options[:method] ? {:method => html_options[:method]} : {}
+    environment = html_options[:method] ? {method: html_options[:method]} : {}
     active_class = is_active?(url, environment) ? 'active' : nil
 
     content_tag :li, class: active_class do

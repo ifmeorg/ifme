@@ -14,7 +14,7 @@
 class Category < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
-  validates_length_of :description, :maximum => 2000
+  validates_length_of :description, maximum: 2000
   validates_presence_of :userid, :name
 
   def self.link

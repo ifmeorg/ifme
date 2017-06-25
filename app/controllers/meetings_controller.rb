@@ -22,13 +22,13 @@ class MeetingsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(:commented_on => @meeting.id, :comment_type => 'meeting').all.order('created_at DESC')
+      @comments = Comment.where(commented_on: @meeting.id, comment_type: 'meeting').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
 
   def comment
-    @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'all')
+    @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
 
     if !@comment.save
       result = { no_save: true }
@@ -97,7 +97,7 @@ class MeetingsController < ApplicationController
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
 
-    render :nothing => true
+    render nothing: true
   end
 
   # GET /meetings/new

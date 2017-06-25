@@ -15,7 +15,7 @@
 
 class Comment < ActiveRecord::Base
   serialize :viewers, Array
-  validates_length_of :comment, :minimum => 0, :maximum => 1000
+  validates_length_of :comment, minimum: 0, maximum: 1000
   validates_presence_of :comment_type, :commented_on, :comment_by, :comment
   validates :comment_type, inclusion: %w(moment strategy meeting)
   validates :visibility, inclusion: %w(all private)

@@ -90,7 +90,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
       new_category = item.category.delete(@category.id)
@@ -113,7 +113,7 @@ class CategoriesController < ApplicationController
       checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + tag + '[category][]" id="' + tag + '_category_' + category.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else

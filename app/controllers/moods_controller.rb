@@ -93,7 +93,7 @@ class MoodsController < ApplicationController
   # DELETE /moods/1.json
   def destroy
     # Remove moods from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
       new_category = item.mood.delete(@mood.id)
@@ -115,7 +115,7 @@ class MoodsController < ApplicationController
       checkbox = '<input type="checkbox" value="' + mood.id.to_s + '" name="moment[mood][]" id="moment_mood_' + mood.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + mood.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: mood, edit: edit_mood_path(mood) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: mood, edit: edit_mood_path(mood) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else

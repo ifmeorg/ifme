@@ -39,17 +39,17 @@ class StrategiesController < ApplicationController
     else
       @comment = Comment.new
       # @support = Support.new
-      @comments = Comment.where(:commented_on => @strategy.id, :comment_type => 'strategy').all.order('created_at DESC')
+      @comments = Comment.where(commented_on: @strategy.id, comment_type: 'strategy').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
 
   def comment
     if params[:viewers].blank?
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => params[:visibility])
+      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: params[:visibility])
     else
       # Can only get here if comment is from Strategy creator
-      @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'private', :viewers => [params[:viewers].to_i])
+      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
     end
 
     if !@comment.save
@@ -147,7 +147,7 @@ class StrategiesController < ApplicationController
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
-    render :nothing => true
+    render nothing: true
   end
 
   def quick_create
@@ -163,7 +163,7 @@ class StrategiesController < ApplicationController
       checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else
@@ -180,7 +180,7 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
+    @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
     @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
@@ -189,7 +189,7 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(:userid => current_user.id).all.order('created_at DESC')
+      @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
@@ -271,7 +271,7 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1.json
   def destroy
     # Remove strategies from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
       new_strategy = item.strategies.delete(@strategy.id)
@@ -307,7 +307,7 @@ class StrategiesController < ApplicationController
     params[:strategy] = default_params[:strategy].merge(params[:strategy])
     params.require(:strategy).permit(
       :name, :description, :userid,
-      :comment, {:category => []}, {:viewers => []},
+      :comment, {category: []}, {viewers: []},
       perform_strategy_reminder_attributes: [:active, :id]
     )
   end

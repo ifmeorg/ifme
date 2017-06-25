@@ -22,7 +22,7 @@ class Strategy < ActiveRecord::Base
   serialize :viewers, Array
   validates :comment, inclusion: [true, false]
   validates_presence_of :userid, :name, :description
-  validates_length_of :description, :minimum => 1, :maximum => 2000
+  validates_length_of :description, minimum: 1, maximum: 2000
   has_one :perform_strategy_reminder
   accepts_nested_attributes_for :perform_strategy_reminder
   before_save :array_data
