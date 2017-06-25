@@ -29,10 +29,10 @@ class Strategy < ActiveRecord::Base
 
   def array_data
     if !self.category.nil? && self.category.is_a?(Array)
-      self.category = self.category.collect {|i| i.to_i}
+      self.category = self.category.collect { |i| i.to_i }
     end
     if !self.viewers.nil? && self.viewers.is_a?(Array)
-      self.viewers = self.viewers.collect {|i| i.to_i}
+      self.viewers = self.viewers.collect { |i| i.to_i }
     end
   end
 

@@ -18,7 +18,7 @@ class Support < ActiveRecord::Base
 
   def array_data
     if !self.support_ids.nil? && self.support_ids.is_a?(Array)
-      self.support_ids = self.support_ids.collect {|i| i.to_i}
+      self.support_ids = self.support_ids.collect { |i| i.to_i }
     end
   end
 end

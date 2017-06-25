@@ -270,7 +270,7 @@ class ApplicationController < ActionController::Base
       stories = strategies.flatten.compact
     end
 
-    stories = stories.sort_by {|x| x.created_at }.reverse!
+    stories = stories.sort_by { |x| x.created_at }.reverse!
 
     return stories
   end
