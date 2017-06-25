@@ -1,10 +1,14 @@
 Documentation:
   Enabled: false
 
+Rails:
+  Enabled: true
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
