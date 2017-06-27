@@ -52,6 +52,6 @@ Please join our `#socialmedia` channel on Slack! We post amazing content all ove
 * [Instagram](https://www.instagram.com/ifmeorg)
 * [Facebook](http://facebook.com/ifmeorg)
 
-[Bee Martinez](https://twitter.com/ifmeorg) is our social media manager. She curates all over our social media channels and will work with you to create your content!
+[Bee Martinez](https://twitter.com/thebeeletter) is our social media manager. She curates all over our social media channels and will work with you to create your content!
 
 As well as new and original content, we also accept content that has already been published.
