@@ -7,10 +7,12 @@ if me is a community for mental health experiences that encourages people to sha
 
 Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behavior. Getting them involved in mental health treatment is the key to recovery.
 
+**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
+
+We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
+
 # Table of Contents
 
-* [Goals](#goals)
-* [Getting Involved](#getting-involved)
 * [Installation](#installation)
 * [Configuration Files](#configuration-files)
 * [Running the App Locally](#running-the-app-locally)
@@ -20,28 +22,6 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 * [Committing Work](#committing-work)
 * [Tracking Issues](#tracking-issues)
 * [License](#license)
-
-# Goals
-
-* Allow users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
-* Create personalized categories and moods to organize Moments and Strategies
-* Develop and share Strategies to solve problems and maintain healthy self-care goals
-* Keep track of medications and create alerts for them
-* Create support groups whether online or offline and keep track of sessions
-
-Check out our projects [page](https://github.com/julianguyen/ifme/projects) to see what we are currently working on!
-
-Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features!
-
-# Getting Involved
-
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If you would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
-
-If you're looking to give feedback on the app, you can do so [here](http://goo.gl/forms/8EqoJDDiXY)!
-
-## Contributor Code of Conduct
-
-We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
 
 # Installation
 
