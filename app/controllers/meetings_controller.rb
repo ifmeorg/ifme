@@ -104,7 +104,6 @@ class MeetingsController < ApplicationController
     not_a_leader(@groupid)
 
     @meeting = Meeting.new
-
   end
 
   # GET /meetings/1/edit

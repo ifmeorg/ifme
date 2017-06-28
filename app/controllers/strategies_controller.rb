@@ -280,7 +280,6 @@ class StrategiesController < ApplicationController
       format.html { redirect_to strategies_path }
       format.json { head :no_content }
     end
-
   end
 
   private
