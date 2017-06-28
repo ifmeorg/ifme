@@ -66,9 +66,7 @@ class StrategiesController < ApplicationController
     if (strategy_user != @comment.comment_by)
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
+      cutoff = true if @comment.comment.length > 80
       uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
 
       data = JSON.generate(
@@ -93,9 +91,7 @@ class StrategiesController < ApplicationController
       private_user = User.where(id: @comment.viewers[0]).first.id
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
+      cutoff = true if @comment.comment.length > 80
       uniqueid = 'comment_on_strategy_private' + '_' + @comment.id.to_s
 
       data = JSON.generate(

@@ -43,9 +43,7 @@ class MeetingsController < ApplicationController
       if member.userid != current_user.id
         meeting_name = Meeting.where(id: @comment.commented_on).first.name
         cutoff = false
-        if @comment.comment.length > 80
-          cutoff = true
-        end
+        cutoff = true if @comment.comment.length > 80
         uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
 
         data = JSON.generate(

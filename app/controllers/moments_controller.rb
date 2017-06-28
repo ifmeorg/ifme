@@ -66,9 +66,7 @@ class MomentsController < ApplicationController
     if (moment_user != @comment.comment_by)
       moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
+      cutoff = true if @comment.comment.length > 80
       uniqueid = 'comment_on_moment' + '_' + @comment.id.to_s
 
       data = JSON.generate(
@@ -93,9 +91,7 @@ class MomentsController < ApplicationController
       private_user = User.where(id: @comment.viewers[0]).first.id
       moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false
-      if @comment.comment.length > 80
-        cutoff = true
-      end
+      cutoff = true if @comment.comment.length > 80
       uniqueid = 'comment_on_moment_private' + '_' + @comment.id.to_s
 
       data = JSON.generate(

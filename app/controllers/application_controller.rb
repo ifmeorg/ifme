@@ -122,16 +122,12 @@ class ApplicationController < ActionController::Base
       freq = {}
       for i in 0..2
         freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-          if freq.empty?
-            break
-          end
+        break if freq.empty?
 
-          max = data.max_by { |v| freq[v] }
-          if freq[max] == 0
-            break
-          end
+        max = data.max_by { |v| freq[v] }
+        break if freq[max] == 0
 
-          result[max] = freq[max]
+        result[max] = freq[max]
         freq.delete(max)
         data.delete(max)
       end
@@ -221,15 +217,11 @@ class ApplicationController < ActionController::Base
 
       allies.each do |ally|
         Moment.where(userid: ally.id).all.order('created_at DESC').each do |moment|
-          if moment.viewers.include?(user.id)
-            ally_moments << moment
-          end
+          ally_moments << moment if moment.viewers.include?(user.id)
         end
 
         Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
-          if strategy.viewers.include?(user.id)
-            ally_strategies << strategy
-          end
+          ally_strategies << strategy if strategy.viewers.include?(user.id)
         end
       end
 
@@ -240,9 +232,7 @@ class ApplicationController < ActionController::Base
       ally_strategies = []
 
       Moment.where(userid: user.id).all.order('created_at DESC').each do |moment|
-        if moment.viewers.include?(current_user.id)
-          ally_moments << moment
-        end
+        ally_moments << moment if moment.viewers.include?(current_user.id)
       end
 
       Strategy.where(userid: user.id).all.order('created_at DESC').each do |strategy|
