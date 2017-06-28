@@ -81,7 +81,7 @@ class ApplicationController < ActionController::Base
   end
 
   def most_focus(data_type, profile)
-    data = Array.new
+    data = []
 
     if profile.blank?
       userid = current_user.id
@@ -115,10 +115,10 @@ class ApplicationController < ActionController::Base
     end
 
     # Determine top three occurrences
-    result = Hash.new
+    result = {}
 
     if data.length > 0
-      freq = Hash.new
+      freq = {}
       for i in 0..2
         freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
           if freq.length == 0
@@ -140,9 +140,9 @@ class ApplicationController < ActionController::Base
   end
 
   def tag_usage(data, data_type, userid)
-    result = Array.new
+    result = []
     if (data_type == 'category')
-      moments = Array.new
+      moments = []
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.category.blank? && moment.category.length > 0 && moment.category.include?(data.to_i)
           moments.push(moment.id)
@@ -150,7 +150,7 @@ class ApplicationController < ActionController::Base
       end
       result.push(moments)
 
-      strategies = Array.new
+      strategies = []
       Strategy.where(userid: userid).order('created_at DESC').all.each do |strategy|
         if !strategy.category.blank? && strategy.category.length > 0 && strategy.category.include?(data.to_i)
           strategies.push(strategy.id)

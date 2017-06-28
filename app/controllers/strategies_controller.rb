@@ -152,7 +152,7 @@ class StrategiesController < ApplicationController
 
   def quick_create
     # Assumme all viewers and comments allowed
-    viewers = Array.new
+    viewers = []
     current_user.allies_by_status(:accepted).each do |item|
       viewers.push(item.id)
     end
