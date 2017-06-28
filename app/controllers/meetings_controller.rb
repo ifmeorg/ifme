@@ -40,29 +40,29 @@ class MeetingsController < ApplicationController
 
     # Notify MeetingMembers except for commenter that there is a new comment
     MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
-      if member.userid != current_user.id
-        meeting_name = Meeting.where(id: @comment.commented_on).first.name
-        cutoff = false
-        cutoff = true if @comment.comment.length > 80
-        uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
+      next if member.userid == current_user.id
 
-        data = JSON.generate(
-          user: current_user.name,
-          meetingid: @comment.commented_on,
-          meeting: meeting_name,
-          commentid: @comment.id,
-          comment: @comment.comment[0..80],
-          cutoff: cutoff,
-          type: 'comment_on_meeting',
-          uniqueid: uniqueid
-        )
+      meeting_name = Meeting.where(id: @comment.commented_on).first.name
+      cutoff = false
+      cutoff = true if @comment.comment.length > 80
+      uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
 
-        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-        Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+      data = JSON.generate(
+        user: current_user.name,
+        meetingid: @comment.commented_on,
+        meeting: meeting_name,
+        commentid: @comment.id,
+        comment: @comment.comment[0..80],
+        cutoff: cutoff,
+        type: 'comment_on_meeting',
+        uniqueid: uniqueid
+      )
 
-        NotificationMailer.notification_email(member.userid, data).deliver_now
-      end
+      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+      Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+
+      NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
     if @comment.save
@@ -133,22 +133,22 @@ class MeetingsController < ApplicationController
           uniqueid = 'new_meeting_' + current_user.id.to_s
 
           group_members.each do |member|
-            if member.userid != current_user.id
-              data = JSON.generate(
-                user: current_user.name,
-                meetingid: @meeting.id,
-                group: group,
-                meeting: @meeting.name,
-                type: 'new_meeting',
-                uniqueid: uniqueid
-              )
+            next if member.userid == current_user.id
 
-              Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-              notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-              Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+            data = JSON.generate(
+              user: current_user.name,
+              meetingid: @meeting.id,
+              group: group,
+              meeting: @meeting.name,
+              type: 'new_meeting',
+              uniqueid: uniqueid
+            )
 
-              NotificationMailer.notification_email(member.userid, data).deliver_now
-            end
+            Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+            notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+            Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+
+            NotificationMailer.notification_email(member.userid, data).deliver_now
           end
 
           format.html { redirect_to group_path(groupid) }
@@ -187,22 +187,22 @@ class MeetingsController < ApplicationController
         uniqueid = 'update_meeting_' + current_user.id.to_s
 
         meeting_members.each do |member|
-          if member.userid != current_user.id
-            data = JSON.generate(
-              user: current_user.name,
-              meetingid: @meeting.id,
-              group: group,
-              meeting: @meeting.name,
-              type: 'update_meeting',
-              uniqueid: uniqueid
-            )
+          next if member.userid == current_user.id
 
-            Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-            notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-            Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+          data = JSON.generate(
+            user: current_user.name,
+            meetingid: @meeting.id,
+            group: group,
+            meeting: @meeting.name,
+            type: 'update_meeting',
+            uniqueid: uniqueid
+          )
 
-            NotificationMailer.notification_email(member.userid, data).deliver_now
-          end
+          Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+          notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+          Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+
+          NotificationMailer.notification_email(member.userid, data).deliver_now
         end
 
         @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
@@ -235,22 +235,22 @@ class MeetingsController < ApplicationController
       uniqueid = 'join_meeting_' + current_user.id.to_s
 
       meeting_leaders.each do |leader|
-        if leader.userid != current_user.id
-          data = JSON.generate(
-            user: current_user.name,
-            meetingid: meetingid,
-            group: group,
-            meeting: meeting,
-            type: 'join_meeting',
-            uniqueid: uniqueid
-          )
+        next if leader.userid == current_user.id
 
-          Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: leader.userid).order('created_at ASC').all
-          Pusher['private-' + leader.userid.to_s].trigger('new_notification', notifications: notifications)
+        data = JSON.generate(
+          user: current_user.name,
+          meetingid: meetingid,
+          group: group,
+          meeting: meeting,
+          type: 'join_meeting',
+          uniqueid: uniqueid
+        )
 
-          NotificationMailer.notification_email(leader.userid, data).deliver_now
-        end
+        Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
+        notifications = Notification.where(userid: leader.userid).order('created_at ASC').all
+        Pusher['private-' + leader.userid.to_s].trigger('new_notification', notifications: notifications)
+
+        NotificationMailer.notification_email(leader.userid, data).deliver_now
       end
 
       respond_to do |format|
@@ -303,22 +303,22 @@ class MeetingsController < ApplicationController
     uniqueid = 'remove_meeting_' + current_user.id.to_s
 
     group_members.each do |member|
-      if member.userid != current_user.id
-        data = JSON.generate(
-          user: current_user.name,
-          groupid: @meeting.groupid,
-          group: group,
-          meeting: @meeting.name,
-          type: 'remove_meeting',
-          uniqueid: uniqueid
-        )
+      next if member.userid == current_user.id
 
-        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-        Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+      data = JSON.generate(
+        user: current_user.name,
+        groupid: @meeting.groupid,
+        group: group,
+        meeting: @meeting.name,
+        type: 'remove_meeting',
+        uniqueid: uniqueid
+      )
 
-        NotificationMailer.notification_email(member.userid, data).deliver_now
-      end
+      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+      Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+
+      NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
     # Remove corresponding meeting members
