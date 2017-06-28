@@ -19,7 +19,7 @@ class AlliesController < ApplicationController
 
       # Get rid of original new_ally_request notification
       uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-      Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+      Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
     else
       Allyship.create(
         user_id: current_user.id,
@@ -58,15 +58,15 @@ class AlliesController < ApplicationController
     # Remove original ally request notifications
     # Case 1: user terminating allyship did not initiate allyship
     uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
+    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy unless Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
 
     # Case 2: user terminating allyship did initiate allyship
     uniqueid = 'new_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy if !Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
+    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy unless Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
     uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy if !Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
 
     # Remove ally from all viewers lists
     Moment.where(userid: current_user.id.to_i).all.each do |moment|
@@ -102,7 +102,7 @@ class AlliesController < ApplicationController
     end
 
     # Destroy allyship
-    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy if !Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
+    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy unless Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
 
     respond_to do |format|
       format.html { redirect_to :back }
