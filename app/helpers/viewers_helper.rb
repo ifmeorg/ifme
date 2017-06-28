@@ -52,7 +52,7 @@ module ViewersHelper
 
   def get_viewers_for(data, data_type)
     result = []
-    if data && %w(category mood strategy).include?(data_type)
+    if data && %w[category mood strategy].include?(data_type)
       result += get_viewers(data, data_type, Moment)
       if data_type == 'category'
         result += get_viewers(data, data_type, Strategy)

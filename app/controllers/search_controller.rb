@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     data_type = params[:search][:data_type]
     term = params[:search][:name]
 
-    return unless data_type.in?(%w(moment category mood strategy medication))
+    return unless data_type.in?(%w[moment category mood strategy medication])
 
     respond_to do |format|
       format.html { redirect_to make_path(term, data_type) }
