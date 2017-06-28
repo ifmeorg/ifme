@@ -163,51 +163,54 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
-    respond_to do |format|
-      if @meeting.update(meeting_params)
-        error = false
-        meeting_members = MeetingMember.where(meetingid: @meeting.id).all
-        meeting_members.each do |member|
-          meeting_member_id = MeetingMember.where(meetingid: @meeting.id, userid: member.userid).first.id
-          if params[:meeting][:leader].nil?
-            error = true
-            format.html { redirect_to group_path(@meeting.groupid) }
-            format.json { render :show, status: :ok, location: @meeting }
-          elsif params[:meeting][:leader].include? member.userid.to_s
-            MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: true)
-          else
-            MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: false)
-          end
+    if @meeting.update(meeting_params)
+      error = false
+      meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+      meeting_members.each do |member|
+        meeting_member_id = MeetingMember.where(meetingid: @meeting.id, userid: member.userid).first.id
+        if params[:meeting][:leader].nil?
+          error = true
+          format.html { redirect_to group_path(@meeting.groupid) }
+          format.json { render :show, status: :ok, location: @meeting }
+        elsif params[:meeting][:leader].include? member.userid.to_s
+          MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: true)
+        else
+          MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: false)
         end
+      end
 
-        # Notify group members that the meeting has been updated
-        group = Group.where(id: @meeting.groupid).first.name
+      # Notify group members that the meeting has been updated
+      group = Group.where(id: @meeting.groupid).first.name
 
-        uniqueid = 'update_meeting_' + current_user.id.to_s
+      uniqueid = 'update_meeting_' + current_user.id.to_s
 
-        meeting_members.each do |member|
-          next if member.userid == current_user.id
+      meeting_members.each do |member|
+        next if member.userid == current_user.id
 
-          data = JSON.generate(
-            user: current_user.name,
-            meetingid: @meeting.id,
-            group: group,
-            meeting: @meeting.name,
-            type: 'update_meeting',
-            uniqueid: uniqueid
-          )
+        data = JSON.generate(
+          user: current_user.name,
+          meetingid: @meeting.id,
+          group: group,
+          meeting: @meeting.name,
+          type: 'update_meeting',
+          uniqueid: uniqueid
+        )
 
-          Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-          Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+        Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
 
-          NotificationMailer.notification_email(member.userid, data).deliver_now
-        end
+        NotificationMailer.notification_email(member.userid, data).deliver_now
+      end
 
-        @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+      @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+
+      respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.id) }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
-      else
+      end
+    else
+      respond_to do |format|
         format.html { render :edit }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
       end
