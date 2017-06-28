@@ -1,5 +1,4 @@
 class Users::InvitationsController < Devise::InvitationsController
-
   # POST /resource/invitation
   def create
     self.resource = invite_resource

@@ -26,5 +26,4 @@ class Comment < ActiveRecord::Base
       self.viewers = self.viewers.collect(&:to_i)
     end
   end
-
 end
