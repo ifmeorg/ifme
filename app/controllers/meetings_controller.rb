@@ -30,7 +30,7 @@ class MeetingsController < ApplicationController
   def comment
     @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
 
-    if !@comment.save
+    unless @comment.save
       result = { no_save: true }
       respond_to do |format|
         format.html { render json: result }
@@ -356,7 +356,7 @@ class MeetingsController < ApplicationController
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def not_a_leader(groupid)
-    if !GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+    unless GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
       respond_to do |format|
         format.html { redirect_to group_path(groupid) }
         format.json { head :no_content }

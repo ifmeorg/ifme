@@ -52,7 +52,7 @@ class MomentsController < ApplicationController
       @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
     end
 
-    if !@comment.save
+    unless @comment.save
       result = { no_save: true }
       respond_to do |format|
         format.html { render json: result }
