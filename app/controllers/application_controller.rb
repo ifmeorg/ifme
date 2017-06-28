@@ -249,7 +249,7 @@ class ApplicationController < ActionController::Base
     strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
     stories =
-      if moments.count > 0
+      if moments.count.positive?
         moments.zip(strategies).flatten.compact
       else
         strategies.flatten.compact
