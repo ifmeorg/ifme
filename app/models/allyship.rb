@@ -51,8 +51,8 @@ class Allyship < ActiveRecord::Base
   end
 
   def different_users
-    self.errors.add(:user_id, 'identical users') if self.user_id == self.ally_id
-    self.errors.add(:user_id, 'user_id is nil') if self.user_id.nil?
-    self.errors.add(:ally_id, 'ally_id is nil') if self.ally_id.nil?
+    errors.add(:user_id, 'identical users') if user_id == ally_id
+    errors.add(:user_id, 'user_id is nil') if user_id.nil?
+    errors.add(:ally_id, 'ally_id is nil') if ally_id.nil?
   end
 end

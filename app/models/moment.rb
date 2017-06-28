@@ -31,17 +31,17 @@ class Moment < ActiveRecord::Base
   before_save :array_data
 
   def array_data
-    if !self.category.nil? && self.category.is_a?(Array)
-      self.category = self.category.collect(&:to_i)
+    if !category.nil? && category.is_a?(Array)
+      self.category = category.collect(&:to_i)
     end
-    if !self.viewers.nil? && self.viewers.is_a?(Array)
-      self.viewers = self.viewers.collect(&:to_i)
+    if !viewers.nil? && viewers.is_a?(Array)
+      self.viewers = viewers.collect(&:to_i)
     end
-    if !self.mood.nil? && self.mood.is_a?(Array)
-      self.mood = self.mood.collect(&:to_i)
+    if !mood.nil? && mood.is_a?(Array)
+      self.mood = mood.collect(&:to_i)
     end
-    if !self.strategies.nil? && self.strategies.is_a?(Array)
-      self.strategies = self.strategies.collect(&:to_i)
+    if !strategies.nil? && strategies.is_a?(Array)
+      self.strategies = strategies.collect(&:to_i)
     end
   end
 

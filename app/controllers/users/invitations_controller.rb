@@ -8,8 +8,8 @@ module Users
       yield resource if block_given?
 
       if resource_invited
-        if is_flashing_format? && self.resource.invitation_sent_at
-          set_flash_message :notice, :send_instructions, email: self.resource.email
+        if is_flashing_format? && resource.invitation_sent_at
+          set_flash_message :notice, :send_instructions, email: resource.email
         end
         respond_with resource, location: new_user_invitation_path
       else
