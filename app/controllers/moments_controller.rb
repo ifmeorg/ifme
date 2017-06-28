@@ -87,7 +87,7 @@ class MomentsController < ApplicationController
       NotificationMailer.notification_email(moment_user, data).deliver_now
 
     # Notify viewer that they have a new comment
-    elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
+    elsif @comment.viewers.present? && User.where(id: @comment.viewers[0]).exists?
       private_user = User.where(id: @comment.viewers[0]).first.id
       moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false

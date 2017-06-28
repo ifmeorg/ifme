@@ -7,7 +7,7 @@ class PagesController < ApplicationController
       @stories = Kaminari.paginate_array(get_stories(current_user, true))
                          .page(params[:page])
 
-      load_dashboard_data if !@stories.blank? && @stories.count.positive?
+      load_dashboard_data if @stories.present? && @stories.count.positive?
     else
       @posts = set_posts
     end

@@ -106,7 +106,7 @@ class User < ActiveRecord::Base
   end
 
   def google_oauth2_enabled?
-    !token.blank?
+    token.present?
   end
 
   private

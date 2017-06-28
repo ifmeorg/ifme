@@ -87,7 +87,7 @@ class StrategiesController < ApplicationController
       NotificationMailer.notification_email(strategy_user, data).deliver_now
 
     # Notify viewer that they have a new comment
-    elsif !@comment.viewers.blank? && User.where(id: @comment.viewers[0]).exists?
+    elsif @comment.viewers.present? && User.where(id: @comment.viewers[0]).exists?
       private_user = User.where(id: @comment.viewers[0]).first.id
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
