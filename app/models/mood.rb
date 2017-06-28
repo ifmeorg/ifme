@@ -14,8 +14,8 @@
 class Mood < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
-  validates_length_of :description, maximum: 2000
-  validates_presence_of :userid, :name
+  validates :description, length: { maximum: 2000 }
+  validates :userid, :name, presence: true
 
   def self.link
     'moods'

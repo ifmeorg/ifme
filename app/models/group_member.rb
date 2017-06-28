@@ -13,7 +13,7 @@
 class GroupMember < ActiveRecord::Base
   after_destroy :destroy_meeting_memberships
 
-  validates_presence_of :groupid, :userid
+  validates :groupid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
   belongs_to :group, foreign_key: :groupid

@@ -30,7 +30,7 @@ class Medication < ActiveRecord::Base
   has_one :refill_reminder
   accepts_nested_attributes_for :take_medication_reminder
   accepts_nested_attributes_for :refill_reminder
-  validates_presence_of :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit
+  validates :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, presence: true
   validates :dosage, numericality: { greater_than_or_equal_to: 0 }
   validates :total, numericality: { greater_than_or_equal_to: 0 }
   validates :strength, numericality: { greater_than_or_equal_to: 0 }
