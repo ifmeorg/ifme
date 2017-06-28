@@ -10,7 +10,7 @@ module ApplicationHelper
     end
   end
 
-  def is_active?(link_path, environment={})
+  def is_active?(link_path, environment = {})
     current_controller = params[:controller]
     link_controller = Rails.application.routes.recognize_path(link_path, environment)[:controller]
 
