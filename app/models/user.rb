@@ -100,7 +100,6 @@ class User < ActiveRecord::Base
      @meeting_notify.nil? && @comment_notify = true
    end
 
-
    def available_groups(order)
      ally_groups.order(order) - groups
    end
