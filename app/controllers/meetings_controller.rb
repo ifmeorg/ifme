@@ -30,6 +30,10 @@ class MeetingsController < ApplicationController
   def comment
     @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
 
+    # TODO: it is quite unclear what the expected outcome is here. If nothing
+    #       more should be done, then a return statement should be added. If
+    #       the follow work should be performed, then the responce actions
+    #       should be grouped at the end of the method
     unless @comment.save
       result = { no_save: true }
       respond_to do |format|
