@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     accepted: 0,
     pending_from_user: 1,
     pending_from_ally: 2
-  }
+  }.freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
