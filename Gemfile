@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
 
   gem 'jshint'
-  gem 'rubocop', '0.40.0'
+  gem 'rubocop', '~> 0.49.0'
 end
 
 group :test do
