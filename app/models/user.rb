@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
       u.name = data.name
-      u.password = Devise.friendly_token[0,20]
+      u.password = Devise.friendly_token[0, 20]
     end
 
     user.update!(
