@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_filter :if_not_signed_in
+  skip_before_action :if_not_signed_in
 
   def home
     @blurbs = set_blurbs
