@@ -35,11 +35,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    if @category.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to category_path(@category) }
-        format.json { head :no_content }
-      end
+    return if @category.userid == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to category_path(@category) }
+      format.json { head :no_content }
     end
   end
 

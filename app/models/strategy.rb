@@ -31,9 +31,9 @@ class Strategy < ActiveRecord::Base
     if !category.nil? && category.is_a?(Array)
       self.category = category.collect(&:to_i)
     end
-    if !viewers.nil? && viewers.is_a?(Array)
-      self.viewers = viewers.collect(&:to_i)
-    end
+
+    return unless viewers.is_a?(Array)
+    self.viewers = viewers.collect(&:to_i)
   end
 
   def active_reminders

@@ -37,11 +37,11 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    if @mood.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to mood_path(@mood) }
-        format.json { head :no_content }
-      end
+    return if @mood.userid == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to mood_path(@mood) }
+      format.json { head :no_content }
     end
   end
 

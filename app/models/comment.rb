@@ -22,8 +22,7 @@ class Comment < ActiveRecord::Base
   before_save :array_data
 
   def array_data
-    if !viewers.nil? && viewers.is_a?(Array)
-      self.viewers = viewers.collect(&:to_i)
-    end
+    return unless viewers.is_a?(Array)
+    self.viewers = viewers.collect(&:to_i)
   end
 end

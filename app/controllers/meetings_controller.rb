@@ -69,12 +69,12 @@ class MeetingsController < ApplicationController
       NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
-    if @comment.save
-      result = generate_comment(@comment, 'meeting')
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
+    return unless @comment.save
+
+    result = generate_comment(@comment, 'meeting')
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
     end
   end
 

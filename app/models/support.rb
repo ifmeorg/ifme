@@ -17,8 +17,7 @@ class Support < ActiveRecord::Base
   before_save :array_data
 
   def array_data
-    if !support_ids.nil? && support_ids.is_a?(Array)
-      self.support_ids = support_ids.collect(&:to_i)
-    end
+    return unless support_ids.is_a?(Array)
+    self.support_ids = support_ids.collect(&:to_i)
   end
 end

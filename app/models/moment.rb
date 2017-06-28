@@ -40,9 +40,9 @@ class Moment < ActiveRecord::Base
     if !mood.nil? && mood.is_a?(Array)
       self.mood = mood.collect(&:to_i)
     end
-    if !strategies.nil? && strategies.is_a?(Array)
-      self.strategies = strategies.collect(&:to_i)
-    end
+
+    return unless strategies.is_a?(Array)
+    self.strategies = strategies.collect(&:to_i)
   end
 
   def strategy

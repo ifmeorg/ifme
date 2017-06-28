@@ -29,10 +29,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    unless @group.leaders.include?(current_user)
-      flash[:error] = t('groups.form.error_edit_permission')
-      redirect_to_index
-    end
+    return if @group.leaders.include?(current_user)
+    flash[:error] = t('groups.form.error_edit_permission')
+    redirect_to_index
   end
 
   # POST /groups
