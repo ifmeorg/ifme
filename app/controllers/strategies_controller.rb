@@ -7,7 +7,7 @@ class StrategiesController < ApplicationController
     @default_params ||= {
       strategy: {
         viewers: [],
-        category: [],
+        category: []
       }
     }
   end
