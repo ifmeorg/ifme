@@ -1,12 +1,3 @@
-Documentation:
-  Enabled: false
-
-Rails:
-  Enabled: true
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
@@ -15,3 +6,18 @@ AllCops:
     - 'config/**/*'
     - 'spec/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+
+Documentation:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+# There is a bug in the Rubocop 0.48 parser that causes it to incorrectly
+# complain about parenthese around blocks used with scopes. This should be
+# removed once it is possible to upgrade to 0.49 or above.
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
