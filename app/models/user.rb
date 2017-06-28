@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
     user.update!(
       provider: access_token.provider,
       token: access_token.credentials.token,
-      uid: access_token.uid,
+      uid: access_token.uid
     )
     user
   end
