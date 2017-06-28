@@ -121,7 +121,7 @@ class ApplicationController < ActionController::Base
     unless data.empty?
       freq = {}
       3.times do
-        freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+        freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
         break if freq.empty?
 
         max = data.max_by { |v| freq[v] }
