@@ -4,6 +4,10 @@ Documentation:
 Rails:
   Enabled: true
 
+# Rails 5 feature
+Rails/ApplicationRecord:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
