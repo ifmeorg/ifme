@@ -61,10 +61,10 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def premade
-    premade1 = Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
-    premade2 = Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
-    premade3 = Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
-    premade4 = Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
 
     respond_to do |format|
       format.html { redirect_to categories_path }
@@ -93,7 +93,7 @@ class CategoriesController < ApplicationController
     @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      new_category = item.category.delete(@category.id)
+      item.category.delete(@category.id)
       the_moment = Moment.find_by(id: item.id)
       the_moment.update(category: item.category)
     end

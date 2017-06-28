@@ -270,7 +270,7 @@ class StrategiesController < ApplicationController
     @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      new_strategy = item.strategies.delete(@strategy.id)
+      item.strategies.delete(@strategy.id)
       the_moment = Moment.find_by(id: item.id)
       the_moment.update(strategies: item.strategies)
     end

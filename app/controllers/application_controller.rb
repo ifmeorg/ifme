@@ -120,7 +120,7 @@ class ApplicationController < ActionController::Base
 
     unless data.empty?
       freq = {}
-      for i in 0..2
+      3.times do
         freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
         break if freq.empty?
 

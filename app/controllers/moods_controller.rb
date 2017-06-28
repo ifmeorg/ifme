@@ -63,11 +63,11 @@ class MoodsController < ApplicationController
   # POST /moods
   # POST /moods.json
   def premade
-    premade1 = Mood.create(userid: current_user.id, name: t('moods.index.premade1_name'), description: t('moods.index.premade1_description'))
-    premade2 = Mood.create(userid: current_user.id, name: t('moods.index.premade2_name'), description: t('moods.index.premade2_description'))
-    premade3 = Mood.create(userid: current_user.id, name: t('moods.index.premade3_name'), description: t('moods.index.premade3_description'))
-    premade4 = Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
-    premade5 = Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade1_name'), description: t('moods.index.premade1_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade2_name'), description: t('moods.index.premade2_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade3_name'), description: t('moods.index.premade3_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
 
     respond_to do |format|
       format.html { redirect_to moods_path }
@@ -96,7 +96,7 @@ class MoodsController < ApplicationController
     @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      new_category = item.mood.delete(@mood.id)
+      item.mood.delete(@mood.id)
       the_moment = Moment.find_by(id: item.id)
       the_moment.update(mood: item.mood)
     end
