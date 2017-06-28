@@ -4,10 +4,10 @@ ruby '2.3.1'
 gem 'rails',                      '4.2.6'
 
 gem 'bcrypt',                     '3.1.11'
-gem 'pg',                         '0.18.4'
 gem 'devise',                     '~> 4.1'
 gem 'devise_invitable',           '1.6.0'
 gem 'devise_uid',                 '0.1.1'
+gem 'pg',                         '0.18.4'
 gem 'resque',                     '1.26.0'
 gem 'resque-scheduler',           '4.2.0'
 gem 'resque_mailer',              '2.3.0'
@@ -43,8 +43,8 @@ group :development, :test do
   gem 'dotenv',                     '2.1.1'
 
   gem 'guard',                      '2.14.0'
-  gem 'spring',                     '1.3.6'
   gem 'quiet_assets'
+  gem 'spring',                     '1.3.6'
 
   gem 'annotate',                   '~> 2.6', '>= 2.6.10'
   gem 'railroady',                  '1.4.2'
@@ -57,8 +57,8 @@ group :development, :test do
   gem 'capybara',                   '2.7.1'
   gem 'factory_girl_rails',         '~> 4.7'
   gem 'jasmine',                    '2.4.0'
-  gem 'rspec-rails',                '~> 3.4'
   gem 'rspec-collection_matchers',  '1.1.2'
+  gem 'rspec-rails',                '~> 3.4'
   gem 'ruby-graphviz',              '1.2.2'
 
   gem 'letter_opener'
