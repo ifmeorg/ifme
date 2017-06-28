@@ -125,7 +125,7 @@ class ApplicationController < ActionController::Base
         break if freq.empty?
 
         max = data.max_by { |v| freq[v] }
-        break if freq[max] == 0
+        break if freq[max].zero?
 
         result[max] = freq[max]
         freq.delete(max)
