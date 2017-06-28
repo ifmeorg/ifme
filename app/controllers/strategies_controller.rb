@@ -217,21 +217,22 @@ class StrategiesController < ApplicationController
   # POST /strategies.json
   def premade
     premade_category = Category.where(name: 'Meditation', userid: current_user.id)
-    if premade_category.exists?
-      premade1 = Strategy.new(
-        userid: current_user.id,
-        name: t('strategies.index.premade1_name'),
-        description: t('strategies.index.premade1_description'),
-        category: [premade_category.first.id], comment: false
-      )
-    else
-      premade1 = Strategy.new(
-        userid: current_user.id,
-        name: t('strategies.index.premade1_name'),
-        description: t('strategies.index.premade1_description'),
-        comment: false
-      )
-    end
+    premade1 =
+      if premade_category.exists?
+        Strategy.new(
+          userid: current_user.id,
+          name: t('strategies.index.premade1_name'),
+          description: t('strategies.index.premade1_description'),
+          category: [premade_category.first.id], comment: false
+        )
+      else
+        Strategy.new(
+          userid: current_user.id,
+          name: t('strategies.index.premade1_name'),
+          description: t('strategies.index.premade1_description'),
+          comment: false
+        )
+      end
 
     respond_to do |format|
       if premade1.save
