@@ -76,9 +76,9 @@ class User < ActiveRecord::Base
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
-    user = find_or_initialize_by(email: data.email) do |user|
-      user.name = data.name
-      user.password = Devise.friendly_token[0,20]
+    user = find_or_initialize_by(email: data.email) do |u|
+      u.name = data.name
+      u.password = Devise.friendly_token[0,20]
     end
 
     user.update!(
