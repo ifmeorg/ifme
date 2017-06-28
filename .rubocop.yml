@@ -14,6 +14,7 @@ Style/FrozenStringLiteralComment:
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
+    - 'bin/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'spec/**/*'
