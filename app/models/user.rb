@@ -1,4 +1,4 @@
-# == Schema Information
+g# == Schema Information
 #
 # Table name: users
 #
@@ -82,40 +82,40 @@ class User < ActiveRecord::Base
     end
 
     user.update!(
-        provider: access_token.provider,
-        token: access_token.credentials.token,
-        uid: access_token.uid,
-      )
+      provider: access_token.provider,
+      token: access_token.credentials.token,
+      uid: access_token.uid,
+    )
     user
   end
 
-   def allies_by_status(status)
-     allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
-   end
+  def allies_by_status(status)
+    allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
+  end
 
-   def set_defaults
-     @comment_notify.nil? && @comment_notify = true
-     @ally_notify.nil? && @comment_notify = true
-     @group_notify.nil? && @comment_notify = true
-     @meeting_notify.nil? && @comment_notify = true
-   end
+  def set_defaults
+    @comment_notify.nil? && @comment_notify = true
+    @ally_notify.nil? && @comment_notify = true
+    @group_notify.nil? && @comment_notify = true
+    @meeting_notify.nil? && @comment_notify = true
+  end
 
-   def available_groups(order)
-     ally_groups.order(order) - groups
-   end
+  def available_groups(order)
+    ally_groups.order(order) - groups
+  end
 
-   def google_oauth2_enabled?
-     !token.blank?
-   end
+  def google_oauth2_enabled?
+    !token.blank?
+  end
 
-   private
+  private
 
-   def accepted_ally_ids
-     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
-   end
+  def accepted_ally_ids
+    allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
+  end
 
-   def ally_groups
-     Group.includes(:group_members)
-           .where(group_members: { userid: accepted_ally_ids })
-   end
+  def ally_groups
+    Group.includes(:group_members)
+         .where(group_members: { userid: accepted_ally_ids })
+  end
 end

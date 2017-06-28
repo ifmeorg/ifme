@@ -222,8 +222,8 @@ class MeetingsController < ApplicationController
 
     if MeetingMember.where(meetingid: params[:meetingid], userid: current_user.id).exists?
       respond_to do |format|
-          format.html { redirect_to group_path(groupid) }
-          format.json { render :show, location: group_path(groupid) }
+        format.html { redirect_to group_path(groupid) }
+        format.json { render :show, location: group_path(groupid) }
       end
     else
       @meeting_member = MeetingMember.create!(meetingid: params[:meetingid], userid: current_user.id, leader: false)
@@ -256,11 +256,11 @@ class MeetingsController < ApplicationController
       end
 
       respond_to do |format|
-          format.html do
-            redirect_to(meeting_path(meetingid),
-                        notice: t('meetings.join_success'))
-          end
-          format.json { render :show, status: :created, location: group_path(groupid) }
+        format.html do
+          redirect_to(meeting_path(meetingid),
+                      notice: t('meetings.join_success'))
+        end
+        format.json { render :show, status: :created, location: group_path(groupid) }
       end
     end
   end
