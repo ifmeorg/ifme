@@ -23,7 +23,7 @@ class Comment < ActiveRecord::Base
 
   def array_data
     if !self.viewers.nil? && self.viewers.is_a?(Array)
-      self.viewers = self.viewers.collect { |i| i.to_i }
+      self.viewers = self.viewers.collect(&:to_i)
     end
   end
 

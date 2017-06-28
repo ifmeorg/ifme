@@ -324,9 +324,7 @@ class MeetingsController < ApplicationController
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
 
-    @meeting_members.each do |item|
-      item.destroy
-    end
+    @meeting_members.each(&:destroy)
 
     groupid = @meeting.groupid
     @meeting.destroy

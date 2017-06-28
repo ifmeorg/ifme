@@ -255,7 +255,7 @@ class ApplicationController < ActionController::Base
         strategies.flatten.compact
       end
 
-    stories.sort_by { |x| x.created_at }.reverse!
+    stories.sort_by(&:created_at).reverse!
   end
 
   def moments_stats
