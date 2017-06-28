@@ -12,9 +12,9 @@ class CalendarUploader
 
   def upload_event
     client.authorization.access_token = access_token
-    
+
     service = client.discovered_api('calendar', 'v3')
-    parsed_date = Chronic.parse(date, endian_precedence: [:little, :median]).to_time.iso8601
+    parsed_date = Chronic.parse(date, endian_precedence: %i[little median]).to_time.iso8601
 
     event = {
       'summary' => summary,

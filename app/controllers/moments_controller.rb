@@ -1,6 +1,6 @@
 class MomentsController < ApplicationController
   include CollectionPageSetup
-  before_action :set_moment, only: [:show, :edit, :update, :destroy]
+  before_action :set_moment, only: %i[show edit update destroy]
 
   def default_params
     @default_params ||= {
