@@ -5,7 +5,6 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'spec/**/*'
-    - !ruby/regexp /old_and_unused\.rb$/
 
 Documentation:
   Enabled: false
