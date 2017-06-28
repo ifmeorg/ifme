@@ -132,15 +132,11 @@ class MoodsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_mood
-    begin
-      @mood = Mood.friendly.find(params[:id])
-    rescue
-      if @mood.blank?
-        respond_to do |format|
-          format.html { redirect_to moods_path }
-          format.json { head :no_content }
-        end
-      end
+    @mood = Mood.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to moods_path }
+      format.json { head :no_content }
     end
   end
 

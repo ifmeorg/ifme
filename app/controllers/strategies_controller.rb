@@ -287,15 +287,11 @@ class StrategiesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_strategy
-    begin
-      @strategy = Strategy.friendly.find(params[:id])
-    rescue
-      if @strategy.blank?
-        respond_to do |format|
-          format.html { redirect_to strategies_path }
-          format.json { head :no_content }
-        end
-      end
+    @strategy = Strategy.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to strategies_path }
+      format.json { head :no_content }
     end
   end
 

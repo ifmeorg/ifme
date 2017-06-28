@@ -130,15 +130,11 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    begin
-      @category = Category.friendly.find(params[:id])
-    rescue
-      if @category.blank?
-        respond_to do |format|
-          format.html { redirect_to categories_path }
-          format.json { head :no_content }
-        end
-      end
+    @category = Category.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to categories_path }
+      format.json { head :no_content }
     end
   end
 

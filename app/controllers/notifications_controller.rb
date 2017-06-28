@@ -42,15 +42,11 @@ class NotificationsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_notification
-    begin
-      @notification = Notification.find(params[:id])
-    rescue
-      if @notification.blank?
-        respond_to do |format|
-          format.html { redirect_to :back }
-          format.json { head :no_content }
-        end
-      end
+    @notification = Notification.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
     end
   end
 

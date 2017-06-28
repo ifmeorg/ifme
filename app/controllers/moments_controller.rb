@@ -270,15 +270,11 @@ class MomentsController < ApplicationController
   private
 
   def set_moment
-    begin
-      @moment = Moment.friendly.find(params[:id])
-    rescue
-      if @moment.blank?
-        respond_to do |format|
-          format.html { redirect_to moments_path }
-          format.json { head :no_content }
-        end
-      end
+    @moment = Moment.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to moments_path }
+      format.json { head :no_content }
     end
   end
 
