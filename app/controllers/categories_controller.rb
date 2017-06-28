@@ -156,6 +156,6 @@ class CategoriesController < ApplicationController
           are_allies(moment.userid, current_user.id)
       return true
     end
-    return false
+    false
   end
 end

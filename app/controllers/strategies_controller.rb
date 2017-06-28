@@ -318,6 +318,6 @@ class StrategiesController < ApplicationController
         return false
       end
     end
-    return true
+    true
   end
 end

@@ -69,20 +69,15 @@ class ApplicationController < ActionController::Base
     userid2 = User.find(userid2)
     is_allies_userid1 = userid1.allies_by_status(:accepted).include?(userid2)
     is_allies_userid2 = userid2.allies_by_status(:accepted).include?(userid1)
-    return is_allies_userid1 && is_allies_userid2
+    is_allies_userid1 && is_allies_userid2
   end
 
   def is_viewer(viewers)
-    if (viewers.include? current_user.id)
-      return true
-    end
-
-    return false
+    viewers.include? current_user.id
   end
 
   def get_uid(userid)
-    uid = User.where(id: userid).first.uid
-    return uid
+    User.where(id: userid).first.uid
   end
 
   def most_focus(data_type, profile)
@@ -141,7 +136,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    return result
+    result
   end
 
   def tag_usage(data, data_type, userid)
@@ -176,7 +171,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    return result
+    result
   end
 
   def generate_comment(data, data_type)
@@ -209,9 +204,7 @@ class ApplicationController < ActionController::Base
       delete_comment += '</div>'
     end
 
-    result = { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
-
-    return result
+    { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
   end
 
   def get_stories(user, include_allies)
@@ -270,9 +263,7 @@ class ApplicationController < ActionController::Base
       stories = strategies.flatten.compact
     end
 
-    stories = stories.sort_by { |x| x.created_at }.reverse!
-
-    return stories
+    stories.sort_by { |x| x.created_at }.reverse!
   end
 
   def moments_stats
@@ -301,6 +292,6 @@ class ApplicationController < ActionController::Base
       result += '</div>'
     end
 
-    return result
+    result
   end
 end

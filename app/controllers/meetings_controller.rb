@@ -373,6 +373,6 @@ class MeetingsController < ApplicationController
     if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
       return false
     end
-    return true
+    true
   end
 end
