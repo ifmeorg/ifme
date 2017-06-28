@@ -83,11 +83,12 @@ class ApplicationController < ActionController::Base
   def most_focus(data_type, profile)
     data = []
 
-    if profile.blank?
-      userid = current_user.id
-    else
-      userid = profile
-    end
+    userid =
+      if profile.blank?
+        current_user.id
+      else
+        profile
+      end
 
     if data_type == 'category'
       Moment.where(userid: userid).all.each do |moment|
@@ -257,11 +258,12 @@ class ApplicationController < ActionController::Base
     moments = Moment.where(id: my_moments.map(&:id)).all.order('created_at DESC')
     strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
-    if moments.count > 0
-      stories = moments.zip(strategies).flatten.compact
-    else
-      stories = strategies.flatten.compact
-    end
+    stories =
+      if moments.count > 0
+        moments.zip(strategies).flatten.compact
+      else
+        strategies.flatten.compact
+      end
 
     stories.sort_by { |x| x.created_at }.reverse!
   end
