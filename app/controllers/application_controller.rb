@@ -92,24 +92,24 @@ class ApplicationController < ActionController::Base
 
     if data_type == 'category'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if !moment.category.blank? && !moment.category.empty? && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.category
         end
       end
       Strategy.where(userid: userid).all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
+        if !strategy.category.blank? && !strategy.category.empty? && (profile.blank? || (!profile.blank? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
           data += strategy.category
         end
       end
     elsif data_type == 'mood'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if !moment.mood.blank? && !moment.mood.empty? && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.mood
         end
       end
     elsif data_type == 'strategy'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if !moment.strategies.blank? && !moment.strategies.empty? && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.strategies
         end
       end
@@ -118,11 +118,11 @@ class ApplicationController < ActionController::Base
     # Determine top three occurrences
     result = {}
 
-    if data.length > 0
+    if !data.empty?
       freq = {}
       for i in 0..2
         freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-          if freq.length == 0
+          if freq.empty?
             break
           end
 
@@ -145,7 +145,7 @@ class ApplicationController < ActionController::Base
     if (data_type == 'category')
       moments = []
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0 && moment.category.include?(data.to_i)
+        if !moment.category.blank? && !moment.category.empty? && moment.category.include?(data.to_i)
           moments.push(moment.id)
         end
       end
@@ -153,20 +153,20 @@ class ApplicationController < ActionController::Base
 
       strategies = []
       Strategy.where(userid: userid).order('created_at DESC').all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0 && strategy.category.include?(data.to_i)
+        if !strategy.category.blank? && !strategy.category.empty? && strategy.category.include?(data.to_i)
           strategies.push(strategy.id)
         end
       end
       result.push(strategies)
     elsif (data_type == 'mood')
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0 && moment.mood.include?(data.to_i)
+        if !moment.mood.blank? && !moment.mood.empty? && moment.mood.include?(data.to_i)
           result.push(moment.id)
         end
       end
     elsif (data_type == 'strategy')
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0 && moment.strategies.include?(data.to_i)
+        if !moment.strategies.blank? && !moment.strategies.empty? && moment.strategies.include?(data.to_i)
           result.push(moment.id)
         end
       end
