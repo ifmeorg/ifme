@@ -270,7 +270,7 @@ class MeetingsController < ApplicationController
     # Cannot leave When you are the only leader
     is_leader = MeetingMember.where(userid: current_user.id, meetingid: params[:meetingid], leader: true).count
     are_leaders = MeetingMember.where(meetingid: params[:meetingid], leader: true).count
-    if (is_leader == 1 && are_leaders == is_leader)
+    if is_leader == 1 && are_leaders == is_leader
       respond_to do |format|
         format.html do
           redirect_to(group_path(groupid), alert: t('meetings.leave.error'))

@@ -63,7 +63,7 @@ class StrategiesController < ApplicationController
     # Notify commented_on user that they have a new comment
     strategy_user = Strategy.where(id: @comment.commented_on).first.userid
 
-    if (strategy_user != @comment.comment_by)
+    if strategy_user != @comment.comment_by
       strategy_name = Strategy.where(id: @comment.commented_on).first.name
       cutoff = false
       cutoff = true if @comment.comment.length > 80

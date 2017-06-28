@@ -138,7 +138,7 @@ class ApplicationController < ActionController::Base
 
   def tag_usage(data, data_type, userid)
     result = []
-    if (data_type == 'category')
+    if data_type == 'category'
       moments = []
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.category.blank? && !moment.category.empty? && moment.category.include?(data.to_i)
@@ -154,13 +154,13 @@ class ApplicationController < ActionController::Base
         end
       end
       result.push(strategies)
-    elsif (data_type == 'mood')
+    elsif data_type == 'mood'
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.mood.blank? && !moment.mood.empty? && moment.mood.include?(data.to_i)
           result.push(moment.id)
         end
       end
-    elsif (data_type == 'strategy')
+    elsif data_type == 'strategy'
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
         if !moment.strategies.blank? && !moment.strategies.empty? && moment.strategies.include?(data.to_i)
           result.push(moment.id)

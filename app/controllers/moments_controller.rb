@@ -63,7 +63,7 @@ class MomentsController < ApplicationController
     # Notify commented_on user that they have a new comment
     moment_user = Moment.where(id: @comment.commented_on).first.userid
 
-    if (moment_user != @comment.comment_by)
+    if moment_user != @comment.comment_by
       moment_name = Moment.where(id: @comment.commented_on).first.name
       cutoff = false
       cutoff = true if @comment.comment.length > 80
