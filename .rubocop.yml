@@ -20,3 +20,9 @@ Lint/AmbiguousBlockAssociation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# Rubocop should be used for style guide adherence, not testing for code smell
+Rails/OutputSafety:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
