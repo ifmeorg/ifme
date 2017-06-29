@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MeetingsHelper
   private def not_attending(id)
     t('shared.meeting_info.not_attending',

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MedicationReminders
   def send_take_medication_reminder_emails
     TakeMedicationReminder.active.each do |reminder|

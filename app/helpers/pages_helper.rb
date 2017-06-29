@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PagesHelper
   def print_contributors(contributors)
     contributors.map do |c|
@@ -16,8 +18,8 @@ module PagesHelper
       image = image_tag(d['image_link'], alt: d['name'])
       link = link_to(image, d['link'], target: 'blank')
 
-      html.concat(content_tag(:div, link, class: 'partner'))
-          .concat(spacer_tag?(index, data.size))
+      html += content_tag(:div, link, class: 'partner') +
+              spacer_tag?(index, data.size)
     end
 
     html.html_safe
