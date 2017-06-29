@@ -1,6 +1,8 @@
 module ApplicationMailerHelper
-  GROUP = %w(new_group new_group_member add_group_leader remove_group_leader)
-  MEETING = %w(new_meeting remove_meeting update_meeting join_meeting)
+  GROUP = %w[
+    new_group new_group_member add_group_leader remove_group_leader
+  ].freeze
+  MEETING = %w[new_meeting remove_meeting update_meeting join_meeting].freeze
 
   def can_notify(user, notify_type)
     return user.comment_notify.nil? if notify_type == 'comment_notify'

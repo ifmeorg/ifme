@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_filter :if_not_signed_in
+  skip_before_action :if_not_signed_in
 
   def home
     @blurbs = set_blurbs
@@ -7,7 +7,7 @@ class PagesController < ApplicationController
       @stories = Kaminari.paginate_array(get_stories(current_user, true))
                          .page(params[:page])
 
-      load_dashboard_data if !@stories.blank? && @stories.count.positive?
+      load_dashboard_data if @stories.present? && @stories.count.positive?
     else
       @posts = set_posts
     end

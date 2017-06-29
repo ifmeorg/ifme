@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   include CollectionPageSetup
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
   # GET /categories.json
@@ -35,11 +35,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    if @category.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to category_path(@category) }
-        format.json { head :no_content }
-      end
+    return if @category.userid == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to category_path(@category) }
+      format.json { head :no_content }
     end
   end
 
@@ -61,10 +61,10 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def premade
-    premade1 = Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
-    premade2 = Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
-    premade3 = Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
-    premade4 = Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
+    Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
 
     respond_to do |format|
       format.html { redirect_to categories_path }
@@ -90,10 +90,10 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      new_category = item.category.delete(@category.id)
+      item.category.delete(@category.id)
       the_moment = Moment.find_by(id: item.id)
       the_moment.update(category: item.category)
     end
@@ -113,7 +113,7 @@ class CategoriesController < ApplicationController
       checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + tag + '[category][]" id="' + tag + '_category_' + category.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else
@@ -130,15 +130,11 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    begin
-      @category = Category.friendly.find(params[:id])
-    rescue
-      if @category.blank?
-        respond_to do |format|
-          format.html { redirect_to categories_path }
-          format.json { head :no_content }
-        end
-      end
+    @category = Category.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to categories_path }
+      format.json { head :no_content }
     end
   end
 
@@ -156,6 +152,6 @@ class CategoriesController < ApplicationController
           are_allies(moment.userid, current_user.id)
       return true
     end
-    return false
+    false
   end
 end

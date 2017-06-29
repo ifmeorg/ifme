@@ -48,7 +48,7 @@ class CommentVisibility
   end
 
   def logged_in_user_is_viewer?
-    !@comment.viewers.blank? && @comment.viewers.include?(@current_user.id)
+    @comment.viewers.present? && @comment.viewers.include?(@current_user.id)
   end
 
   def logged_in_user_can_view_comment?
