@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   include CollectionPageSetup
   before_action :set_category, only: %i[show edit update destroy]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserRelation
   mattr_accessor :myself, :ally, :incoming_request, :outgoing_request, :other
   MYSELF = 0

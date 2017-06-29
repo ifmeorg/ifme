@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper

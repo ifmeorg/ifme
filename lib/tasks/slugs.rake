@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :slugs do
   desc 'Add slugs to models'
   task slugify: :environment do

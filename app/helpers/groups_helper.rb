@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupsHelper
   def user_is_leader_of?(object)
     # object can be either group or meeting
