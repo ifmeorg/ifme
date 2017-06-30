@@ -25,7 +25,7 @@ describe("Notifications", function() {
   });
 
   it("clear notifications modal", function() {
-    $('#clear_notifcations').click();
+    $('#clear_notifications').click();
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 

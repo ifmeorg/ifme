@@ -2,30 +2,10 @@ describe("Strategies", function() {
   var newOrEdit;
   var isAllAlliesInputBoxIsChecked;
 
-  beforeAll(function() {
-    $(document.body).addClass("strategies new");
-
-    var elements = [];
-    elements.push("<div id='test_body'></div>");
-    elements.push("<label id='viewers_label'></label>");
-    elements.push("<input type='checkbox' id='viewers_all'></input>");
-    elements.push("<div id='viewers_list'><input type='checkbox' name='strategy[viewers][]'></input></div>");
-    elements.push("<input type='checkbox' name='strategy[comment][]'></input>");
-    elements.push("<div id='moment_tag_usage' class='display_none'></div>");
-    elements.push("<div id='showTaggedMoments' class='display_inline_block'></div>");
-    elements.push("<div id='hideTaggedMoments' class='display_none'></div>");
-    for (var i = 0; i < elements.length; i++) {
-      $(document.body).append(elements[i]);
-    }
-
+  beforeEach(function() {
+    loadFixtures("strategies.html");
     newOrEdit = spyOn(window, 'newOrEdit');
     isAllAlliesInputBoxIsChecked = spyOn(window, 'isAllAlliesInputBoxIsChecked');
-  });
-
-  afterAll(function() {
-    $("#test_body").remove();
-    $("#viewers_list").remove();
-    $("body").removeClass("strategies new");
   });
 
 	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
@@ -44,7 +24,7 @@ describe("Strategies", function() {
     newOrEdit.and.returnValue(true);
 
     onReadyMomentsAndStrategies();
-    
+
     $('#viewers_all').prop("checked", true);
 
     $('#viewers_all').click();
@@ -53,23 +33,20 @@ describe("Strategies", function() {
   });
 
   it("test tagged moments hidden", function() {
-    // hidden tagged moments
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
   	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
-    showTaggedMoments();
 	});
 
   it("test tagged moments shown", function() {
-    // shown tagged moments
+    showTaggedMoments();
     expect($('#moment_tag_usage').hasClass("display_block")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_none")).toBe(true);
   	expect($('#hideTaggedMoments').hasClass("display_inline_block")).toBe(true);
-    hideTaggedMoments();
 	});
 
   it("test tagged moments re-hidden", function() {
-    // hidden tagged moments
+    hideTaggedMoments();
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
   	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
