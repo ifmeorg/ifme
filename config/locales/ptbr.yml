@@ -350,220 +350,220 @@ ptbr:
     data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
     moment_question: 'O que é um Momento ?'
     moment_answer: 'Um <strong>Momento</strong>é um evento e situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar umcan tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
-    strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form or self-care that helps you cope or focus on recovery.<br><br>You can tag it with Categories. You can also choose which allies can view and comment. You can also make it only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
-    category_question: 'What is a Category?'
-    category_answer: 'A <strong>Category</strong> is a tag that can represent the people, places, and things that are important to you.'
-    mood_question: 'What is a Mood?'
-    mood_answer: 'A <strong>Mood</strong> is a tag describing your state of mind, feelings, and emotions.'
-    group_question: 'What is a Group?'
-    group_answer: 'A <strong>Group</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
-    medications_question: 'How do I use the Medications feature?'
-    medications_answer: 'The <strong>Medications</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
-    invite_question: 'How can I invite my loved ones to join the app?'
-    invite_answer: 'Go to the <strong>Allies</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
-    email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
+    strategy_question: 'O que é uma Estratégia ?'
+    strategy_answer: 'Uma <strong>Estratégia</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags(etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
+    category_question: 'O que é uma Categoria ? '
+    category_answer: 'Uma <strong>Categoria</strong> é uma tag(etiqueta) que pode representar as pessoas, lugares e coisas que são importantes para você.'
+    mood_question: 'O que é um Humor ?'
+    mood_answer: 'O <strong>Humor</strong> é uma tag(etiqueta) que descreve seu estado de espírito, sentimentos, e emoções.'
+    group_question: 'O que é um Grupo ?'
+    group_answer: 'Um <strong>Grupo</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
+    medications_question: 'Como eu uso o recuro de Medicamentos?'
+    medications_answer: 'O recurso de <strong>Medicamentos</strong> permite que você tenha um controle da receita médida sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
+    invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
+    invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que amo". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
+    email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
+    email_notifications_answer: "Vá para a página <strong>Conta</strong> ao clicar no ícone %{desktop_icon} (desktop) ou %{mobile_icon} (mobile) na barra de navegação. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
   home:
-    stories: 'Stories'
-    welcome: 'Welcome'
+    stories: 'Histórias'
+    welcome: 'Bem Vindo'
     not_signed_in:
-      main_message_one: 'Better communication with loved ones leads to better mental health.'
-      message_text_one: "We need each other's support to break down stigmas."
-      message_one: 'Share your stories with loved ones and get the support you deserve'
-      message_two: 'Be you, no strings attached and with security and privacy'
-      message_three: 'Document your moods, medications, and self-care'
-      main_message_two: "Storytelling is the key to mental health education."
-      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
-      main_message_three: 'We are open source because mental health should be open.'
-      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      main_message_one: 'Comunicação otimizada com as pessoas amadas leva a melhora da saúde mental.'
+      message_text_one: "Precisamos dar suporte uns aos outros para acabarmos com estigmas de problemas mentais."
+      message_one: 'Compartilhe suas histórias com pessoas amadas e receba o suporte que precisar.'
+      message_two: 'Seja você, sem máscaras, e com segurança e privacidade'
+      message_three: 'Registre suas alterações de humor, medicamentos e cuidado-próprio'
+      main_message_two: "Storytelling é a chave para educação de saúde mental."
+      message_text_two: "Aprenda mais com a  <strong>comunidade</strong> no nosso %{blog}."
+      main_message_three: 'Somos Open Source porque a saúde mental deve ser aberta.'
+      message_text_three: "Estamos <strong>sempre</strong> buscando por sua %{help} e seu %{feedback}!"
       help: 'help'
     signed_in_empty:
-      main_message_one: 'Hello %{name}!'
-      message_text_one: "Here's how you can start sharing your stories."
-      main_message_two: 'Tell us about yourself.'
-      cell_one: 'Customize your %{profile} - add a bio and profile picture<br>Add custom %{moods} to best describe your emotions<br>Add %{allies} - friends, family, and others who you want to share with'
-      main_message_three: 'Write your stories.'
-      cell_two: 'Create custom %{categories} to help organize your moments<br>Write about the %{moments} - the events and situations that affect your mental health'
-      main_message_four: 'Take care of yourself.'
-      cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
-      main_message_five: 'Have any questions or concerns?'
-      message_text_three: 'Check out our %{faq} page or %{email_link}!'
-      strategize: 'Strategize'
+      main_message_one: 'Olá %{name}!'
+      message_text_one: "Veja como você pode começar a compartilhar suas histórias."
+      main_message_two: 'Conte-nos sobre você.'
+      cell_one: 'Personalize seu  %{profile} - adcione um resumo sobre você e uma foto de perfil<br>Personalize suas alterações de %{moods} para melhor descrever suas emoções<br>Adcione %{allies} - amigos, familiares, e outras pessoas com as quais você gostaria de compartilhar suas experiências.'
+      main_message_three: 'Escreva suas histórias'
+      cell_two: 'Crie %{categories} personalizadas para te ajudar a organizar seus momentos<br>Escreva sobre seus %{moments} - os eventos e situações que afetam sua saúde mental'
+      main_message_four: 'Cuide de si mesmo.'
+      cell_three: '%{strategize} seu plano cuidado próprio!<br>Atualmente você precisa tomar %{medications}? Mantenha o registro de cada medicamento e crie lembretes!<br> Precisa de suporte extra ? Junte-se ou crie um %{group} para se abrir com outras pessoas'
+      main_message_five: 'Você tem dúvidas ou preocupações quanto ao uso do aplicativo ?'
+      message_text_three: 'Verifique nossa página de perguntas frequentes %{faq} ou entre em contato via email %{email_link}!'
+      strategize: 'Crie uma Estratégia'
   privacy:
-    summary: 'Summary'
-    summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
-    user_data: 'User Data'
-    user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
+    summary: 'Sumário'
+    summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente.Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
+    user_data: 'Dados do Usuário'
+    user_data_description: '<p>Usuário é a pessoa que utiliza este sítio web e tem a intenção de prover dados pessoais, incluindo trechos de suas vidas (na funcionalidade de Momentos, por exemplo) e anedotas sobre medicamentos. Dados do recurso de Momentos é compartilhado com qualquer pessoa da qual o usuário queira compartilhar seus dados. Dados de medicação são visíveis apenas para o usuário. Ambos os dados não serão utilizados para quaisquer propósitos extras e não deverão ser entregues a quaisquer entidades externas.</p><p>O aplicativo também contém dados que dizem respeito aos grupos de suporte e estratégias para gerar novos desafios para a saúde mental. Esses dados são acessíveis apenas para usuários que dão permissão de visualização para os usuários que desejam visualizar esses dados. Dados de ambos os recursos podem ser mostrados publicamente, para visualizadores atuais e futuros. No entando, a identidade dos usuarios serão mantidas privadas</p>'
     cookies: 'Use of Cookies'
-    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
-    social_media: 'Social Media Platforms'
-    social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
-    contact: 'Contact Us'
-    contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+    cookies_description: "<p>Este sítio web utiliza cookies para melhora a experiência do usuário enquanto visita o mesmo. Quando necessário, este sítio web utiliza o recurso do controle do cookie para permitir que usuário, em sua primeira visita, pergunte ao usuário se ele permite ou não o uso de cookies em seu computador / dispositivo móvel.</p><p>Cookies são pequenos arquivos salvos no disco rídigo do computador do usuário que permitem rastreio,e armazenamento de informações sobre o usuário, salva e armazena informações sobre como o usuário interage e utiliza o sítio web.Essa ação permite ao sítio web, através de seus servidores, possa dar ao usuário uma experiência personalizada enquanto visita este sítio web.</p><p>Usuários receberão uma notificação de que, caso não optem por utilizar cookies enquanto navegam por este sítio web, os próprios usuários deverão configurar seus navegadores para que os todos os cookies deste websítio sejam bloqueados, incluindo suas dependências externas.</p><p>Este sítio web utiliza software de rastreamento para monitorar visitantes e compreender melhor como eles utilizam este sítio web. Este software é fornecido pelo Google Analytics que utiliza cookies para rastrear o uso do sítio web pelo visitante. O software irá salvar um cookie no disco rígido do seu computador, para assim, rastrear e monitorar seu engajamento e uso do sítio web, mas não armazenar, salvar ou coletar informações pessoais. Você pode ler a política de privacidade do Google %{google_privacy_policy} para maiores informações.</p>"
+    social_media: 'Plataformas de Mídia Social'
+    social_media_description: '<p>Comunicação, engajamento e ações tomadas através de plataformas de mídia social das quais este sítio web participa, operam sobre termos  e condições personalizadas a seus respectivos proprietários, bem como suas políticas de privacidade</p><p> Usuários são aconselhados a utilizar plataformas de mídia social de forma sábia e com cuidado, no que diz respeito as políticas e detalhes pessoais de cada mídia social. Este sítio web em hipótese alguma irá requerer informações pessoais ou sensíveis através de mídia social. Encorajamos usuários dispostos a discutir detalhes de dados sensíveis para que entrem em contato com as plataformas de mídia social através de seus canais primários como telefone e email</p><p> Este sítio web pode utilizar botões de compartilhamento  de mídias sociais(social sharing buttons) que auxiliam a compartilhar conteúdo web diretamente das páginas web para a plataforma de mídia social em questão. Usuário são aconselhados antes de utilizar tais botões de compartilhamento de mídia social para que o conteúdo seja compartilhado de forma discreta e mesmo assim, a plataforma de mídia social pode rastrear o seu pedido para compartilhar uma página web através da sua conta da mídia social na qual você está compartilhando aquele conteúdo.</p>'
+    contact: 'Entre em contato conosco'
+    contact_description: "<p>Envie um email pelo endereço %{email_link} caso você tenha questionamentos ou preocupações.</p><p class=\"no_margin_bottom\"><em>Poítica de  Privacidade adaptada de %{jamie_king_media}.</em></p>"
 
  profile:
   index:
-   title: 'Profile'
-   edit_user: 'Customize profile'
+   title: 'Perfil'
+   edit_user: 'Personalizar Perfil'
 
  pusher:
-  not_authorized: 'Not Authorized'
+  not_authorized: 'Não Autorizado'
 
  search:
-  search: 'Search'
-  search_by_name: 'Search by name'
+  search: 'Buscar'
+  search_by_name: 'Buscar pelo nome'
   form:
-   search_by_location: 'Search by location'
-   search_by_email: 'Search by email'
+   search_by_location: 'Buscar por localização'
+   search_by_email: 'Buscar por email'
 
   index:
-   title: 'Search for Allies'
+   title: 'Buscar por Alidados'
 
  shared:
   footer:
     licence_name: 'AGPL-3.0'
-    license: 'We &hearts; FOSS'
-    foss: 'Free and open source software'
-    license_subtitle: 'Licensed under %{license}'
-    connect: 'connect'
+    license: 'Nós &hearts; FOSS'
+    foss: 'Software livre e de código aberto'
+    license_subtitle: 'Sob Licença %{license}'
+    connect: 'conectar'
   comments:
-    share_everyone: 'Share with everyone'
-    share_with: 'Share with %{name} only'
-    visible_only_between_you_and: 'Visible only between you and %{name}'
-    not_allies: '(not allies)'
+    share_everyone: 'Compartilhe como todo mundo'
+    share_with: 'Compartilhe com %{name}'
+    visible_only_between_you_and: 'Visível apenas para você e para %{name}'
+    not_allies: '(não são alidados)'
   header:
-   signout: 'Sign out'
+   signout: 'Sair'
    home: 'Home'
   viewers_indicator:
-   disabled_comments: 'Comments have been disabled.'
+   disabled_comments: 'Comentários estão desabilitados.'
    you_are_viewer_html:
-    one: 'You are the only viewer.'
-    other: 'You are <strong>not</strong> the only viewer.'
+    one: 'Somente você pode visualizar.'
+    other: 'Você <strong>não</strong> é a única pessoa que pode visualizar.'
    viewers_html:
-     zero: 'There are <strong>no</strong> viewers.'
-     one: '%{names} is a viewer.'
-     other: '%{names} are viewers.'
+     zero: 'Não existem <strong>visualizadores</strong>.'
+     one: '%{names} pode visualizar.'
+     other: '%{names} podem visualizar.'
   stats:
-    you_are_focusing: 'You are focusing the most on'
-    user_is_focusing: '%{name} is focusing the most on'
+    you_are_focusing: 'Você está se concentrando demais em'
+    user_is_focusing: '%{name} está se concentrando demais em'
   viewers:
-    plural: 'Viewers'
-    you: 'Only you'
-    you_link: 'Visible to only you'
-    many: 'Visible to %{viewers}'
-  character_count: 'You have %{number} characters left.'
+    plural: 'Visualizadores'
+    you: 'Apenas você'
+    you_link: 'Visível apenas para você'
+    many: 'Visível para %{viewers}'
+  character_count: 'Você tem %{number} caracteres restantes.'
   meeting_info:
-    attending: 'You are attending. Change your mind?'
-    not_attending: 'You are not attending. %{join}'
-    not_attending_one_spot_left: 'You are not attending. There is one spot left to fill! %{join}'
-    not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
-    not_attending_no_spots_left: 'You are not attending. There is no room to join.'
+    attending: 'Você irá participar.Quer mudar de idéia?'
+    not_attending: 'Você não irá participar. %{join}'
+    not_attending_one_spot_left: 'Você não irá participar.Existe apenas uma vaga disponível! %{join}'
+    not_attending_spots_left: 'Você não irá participar. Existem apenas %{number} vagas disponível! %{join}'
+    not_attending_no_spots_left: 'Você não irá participar.Não existem vagas disponíveis.'
   quick_create:
-   add: 'Add %{name}'
+   add: 'Adcionar %{name}'
 
  strategies:
-  singular: 'Strategy'
-  plural: 'Strategies'
-  edit_strategy: 'Edit Strategy'
-  tagged_strategies: 'Tagged Strategies'
-  add_strategy: 'Add strategy'
-  new: 'New Strategy'
+  singular: 'Estratégia'
+  plural: 'Estratégias'
+  edit_strategy: 'Editar Estratégia'
+  tagged_strategies: 'Estratégias Marcadas'
+  add_strategy: 'Adcionar estratégia '
+  new: 'Nova Estratégia'
   form:
-   describe: 'Describe the strategy.'
-   strategies_label: 'What strategies would help achieve these thoughts?'
-   name_hint: 'Any activity, train of thought, or form or self-care that helps you'
-   viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
-   daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
+   describe: 'Descreva a estratégia'
+   strategies_label: 'Quais estratégias poderiam te ajudar a alcançar suas metas?'
+   name_hint: 'Qualquer atividade, linha de pensamento, ou forma de cuidado próprio que ajude você'
+   viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar seus próprios comentários em cada estratégia'
+   daily_reminder_hint: "Iremos enviar para seu email um um lembrete diário para cumprir com sua estratégia."
   label:
-   one: 'Strategy:'
-   other: 'Strategies:'
+   one: 'Estratégia'
+   other: 'Estratégias'
   index:
-   subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
-   premade1_name: 'Five Minute Meditation'
-   premade1_description: '1) <b>Find a relaxed, comfortable position.</b> You could be seated on a chair or on the floor on a cushion. Keep your back upright, but not too tight. Hands resting wherever they’re comfortable. Tongue on the roof of your mouth or wherever it’s comfortable.<br><br>2) <b>Notice and relax your body.</b> Try to notice the shape of your body, its weight. Let yourself relax and become curious about your body seated here—the sensations it experiences, the touch, the connection with the floor or the chair. Relax any areas of tightness or tension. Just breathe.<br><br>3) <b>Tune into your breath.</b> Feel the natural flow of breath—in, out. You don’t need to do anything to your breath. Not long, not short, just natural. Notice where you feel your breath in your body. It might be in your abdomen. It may be in your chest or throat or in your nostrils. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Be kind to your wandering mind.</b> Now as you do this, you might notice that your mind may start to wander. You may start thinking about other things. If this happens, it is not a problem. It’s very natural. Just notice that your mind has wandered. You can say “thinking” or “wandering” in your head softly. And then gently redirect your attention right back to the breathing.<br><br>5) <b>Stay here for five to seven minutes.</b> Notice your breath, in silence. From time to time, you’ll get lost in thought, then return to your breath.<br><br>6) <b>Check in before you check out.</b> After a few minutes, once again notice your body, your whole body, seated here. Let yourself relax even more deeply and then offer yourself some appreciation for doing this practice today.<br><br><i>Taken from http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
+   subtitle: 'Crie uma Estratégia para cuidado-próprio para alcançar metas desejadadas e atitudes em direção aos seus momentos.'
+   premade1_name: 'Meditação em Cinco Minutos'
+   premade1_description: '1) <b>Encontre uma posição confortável e relaxante.</b> Você pode se sentar em uma cadeira ou em uma almofada no chão. Mantenha suas costas retas, mas não force muito. As mãos deve estar confortáveis. A língua deve estar no céu da boca ou de uma forma que esteja confortável para você.<br><br>2) <b> Perceba e relaxe cada parte do seu corpo.</b> Tente percener o formato do seu corpo, seu peso, temperatura. Permita-se relaxar e se tornar curioso sobre seu corpo nesta posição, as sensações, as experiências, o toque , a conexão com o chão, ou com a cadeira. Relaxe qualquer área que esteja tensionada ou rígida. Apenas respire.<br><br>3) <b>Entre em sintonia com sua respiração.</b> Sinta o fluxo natural do ar entrando, e do ar saindo. Você não precisa fazer nada com a respiração. Não respire muito rápido e nem muito devagar,apenas aja naturalmente. Perceba o fluxo do ar no seu corpo. Pode ser no seu abdomen. Pode ser no seu peito ou na sua garganta ou até mesmo nas suas narinas. Veja se você pode sentir as sensações da respiração, uma respiração de cada vez. Quando um ciclo terminar, o pŕoximo deve começar<br><br>4) <b>Seja gentil com sua mente distraída.</b> E enquanto você faz isso, você pode perceber que começa a ficar distraído. Você pode começar a pensar em qualquer outra coisa. Caso isso aconteça,não há problema algum. É algo muito natural. Apenas perceba que sua mente começou a se distrair. Você pode dizer mentalmente “pensando” ou “vagando” de forma bem calma. E aos poucos, redirecionar seu foco de volta a sua respiração.<br><br>5) <b>Fique nessa posição por 5 ou 7 minutos.</b> Perceba sua respiração, em silêncio. De tempos em tempos, você pode ficar perder a linha de pensamento, então foque na sua respiração.<br><br>6) <b>Verique sua respiração sempre que isso acontecer.</b> Depois de alguns minutos, novamente,começe a prestar atenção no seu corpo, em todo seu corpo, enquanto sentado. Permita-se relaxar mais profundamente e então permita-se sentir gratidão por ter realizado essa prática no dia de hoje.<br><br><i>Adaptado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+   instructions: "Você ainda não criou nenhuma estratégia personalizada. Clique aqui %{icon} para criar uma nova!<br> Você também pode adcionar as seguintes estratégias pré-definindas e customizá-las depois."
   reminder_mailer:
-    subject: "Don't forget to perform %{name}!"
-    body: "Here's a friendly reminder to perform %{name}!"
+    subject: "Não se esqueça de realizar %{name}!"
+    body: "Aqui está um lembrete amigo para realizar %{name}!"
 
  stats:
-  total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'
-  total_moment: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moment.'
-  monthly_moments: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moments.'
-  monthly_moment: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moment.'
+  total_moments: 'Você escreveu um <strong>total</strong> de <strong>%{count}</strong> momentos.'
+  total_moment: 'Você escreveu um <strong>total</strong> de <strong>%{count}</strong> momento.'
+  monthly_moments: 'Neste <strong>mês</strong> você escrever <strong>%{count}</strong> momentos.'
+  monthly_moment: 'Neste <strong>mês</strong> Você escreveu <strong>%{count}</strong> momento.'
 
  warnings:
-  no_description: "You didn't write a description!"
-  yes_description: "Writing one can help you and others better understand in detail"
+  no_description: "Você não escreveu uma descrição!"
+  yes_description: "Escrever uma descrição pode te auxiliar e auxiliar outras pessoas a entender sobre o tópico em questão"
 
  mailers:
    accepted_ally_request:
-     subject: "if me | %{ally_name} accepted your ally request!"
-     message: "<p>Congrats! You can now share Moments, Strategies, and more with %{ally_name}.</p>"
+     subject: "if me | %{ally_name} aceitou seu pedido para se torna aliado!"
+     message: "<p>Parabéns! Você pode compartilhar Momentos , Estratégias, e muito mais com seu aliado %{ally_name}.</p>"
    new_ally_request:
-     subject: "if me | %{ally_name} sent an ally request!"
-     message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+     subject: "if me | %{ally_name} emviou um pedido para se tornar um aliado!"
+     message: "<p>Por favor <a href=\"%{allies_url}\">faça login</a> para aceitar ou rejeitar o pedido!</p>"
 
  devise:
-  password: "Password"
-  new_password: "New password"
-  current_password: "Current password"
-  password_change: "Change my password"
-  remember_me: "Remember me"
+  password: "Senha"
+  new_password: "Nova Senha"
+  current_password: "Senha atual"
+  password_change: "Mudar minha senha"
+  remember_me: "Lembrar minha senha"
   confirmations:
-    resend_confirmation: "Resend confirmation instructions"
+    resend_confirmation: "Reenviar instruções de confirmação"
   mailer:
     confirmation:
-      link_instructions: "You can confirm your account email through the link below"
-      link_text: "Confirm my account"
+      link_instructions: "Você pode confirmar seu email através do link abaixo"
+      link_text: "Confirmar minha conta"
     reset_password:
-      link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
-      ignore: "If you didn't request this, please ignore this email."
-      info: "Your password won't change until you access the link above and create a new one."
+      link_instructions: "Alugém fez um pedido para alterar sua senha. Você pode alterar sua senha no link abaixo."
+      ignore: "Se você não fez o pedido de alteração de senha, você pode ignorar este email."
+      info: "Sua senha não será alterada até que você acesse o link acima e crie uma nova senha."
     unlock:
-      info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
-      link_instructions: "Click the link below to unlock your account"
-      link_text: "Unlock my account"
+      info: "Sua conta foi bloqueada devido a um número excessivo de tentativas de acesso."
+      link_instructions: "Clique no link abaixo para desbloquear sua conta"
+      link_text: "Desbloquear minha conta"
   passwords:
     edit:
-      confirmation: "Confirm new password"
+      confirmation: "Confirmar nova senha"
     new:
-      send_instructions: "Send me reset password instructions"
+      send_instructions: "Me envie as instruções para recuperar minha senha"
 
   registrations:
-    email_notifications: "Email Notifications"
-    comment_notify_text: "Comments on moments, strategies, and meetings"
-    ally_notify_text: "New and accepted ally requests"
-    group_notify_text: "Group updates"
-    meeting_notify_text: "Meeting updates"
-    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
-    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
+    email_notifications: "Notificações por email"
+    comment_notify_text: "Comentários em momentos , estratégias e reuniões"
+    ally_notify_text: "Pedidos de aliados novos e aceitos"
+    group_notify_text: "Atualizações de grupos"
+    meeting_notify_text: "Atualizações de reuniões"
+    google_auth1: "Caso você não queira mais fazer login com sua conta Google, por favor digite um novo email e uma nova senha."
+    google_auth2: "Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor digite um nov email e senha."
     placeholders:
-      repeat_password: "Repeat Password"
+      repeat_password: "Digite novamente sua senha"
     edit:
       labels:
-        profile_picture: "Profile picture"
-        remove_picture: "Remove picture"
-        password_for: "Password for <strong>if me</strong> account"
-        update: "Update"
+        profile_picture: "Foto de perfil"
+        remove_picture: "Remover foto"
+        password_for: "Senha para a conta do<strong>if me</strong>"
+        update: "Atualização"
       placeholders:
-        optional: "Optional"
-        about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
-        required: "Required"
+        optional: "Opcional"
+        about: "Apresente-se! Por que você está aqui e o que você almeja alcançar ? Lembre-se de que essa informação será visualizada quando usuários buscarem por você"
+        required: "Campo Obrigatório"
       delete:
-        text: "Is <strong>if me</strong> not working out for you?"
-        button: "Permanently delete my account"
-        confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
+        text: "<strong>if me</strong> não está funcionando para você?"
+        button: "Exclior minhaconta permanentemente"
+        confirm: "Você tem certeza ? Você perderá todos os seus dados. Mas você sempre pode se cadastrar novamente!"
     new:
-      subtitle: "Start telling your stories and maintaining your health in a safe, private space"
-      label: "A few details"
+      subtitle: "Começe a contar sua histórias e mantenha sua saúde em um lugar seguro e particular"
+      label: "Alguns detalhes"
   sessions:
-    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
+    subtitle: "Bem vindo novamente! Estamos ansiosos para lhe ajudar com seu dia"
   shared:
-    sign_in_google: 'Sign in with Google'
-    sign_up_google: 'Sign up with Google'
-    confirmation: "Didn't receive confirmation instructions?"
-    unlock: "Didn't receive unlock instructions?"
+    sign_in_google: 'Entrar com sua conta Google'
+    sign_up_google: 'Cadastre-se com sua conta Google'
+    confirmation: "Não recebeu as instruções de confirmação?"
+    unlock: "Não recebeu as instruções de desbloqueio ?"
   unlock:
-    resend: 'Resend unlock instructions'
+    resend: 'Reenviar instruções de liberação de senha'
