@@ -8,12 +8,12 @@ ptbr:
       send_instructions: "Dentro de alguns minutos, você receberá um email contendo as instruções de como confirmar sua conta."
       send_paranoid_instructions: "Dentro de alguns minutos, caso seu email já exista em nossa base de dados, você receberá um email contendo as instruções de como confirmar sua conta."
     failure:
-      already_authenticated: "Você já entrou no aplicativo"
+      already_authenticated: "Você já está autenticado!"
       inactive: "Sua conta ainda não foi ativada."
-      invalid: "Invalidado %{authentication_keys} ou senha."
+      invalid: "Login ou ou senha inválidos: %{authentication_keys} "
       locked: "Sua conta está bloqueada"
       last_attempt: "Você ainda pode tentar entrar mais uma vez, antes que sua conta seja bloqueada."
-      not_found_in_database: "Invalido %{authentication_keys} ou senha."
+      not_found_in_database: "Login ou ou senha inválidos: %{authentication_keys}"
       timeout: "Sua sessão terminou. Faça login novamente para continuar"
       unauthenticated: "Você precisa se cadastrar ou entrar no sistema antes de continuar."
       unconfirmed: "Você tem que confirmar seu endereço de email antes de continuar."
@@ -53,11 +53,11 @@ ptbr:
       unlocked: "Sua conta foi desbloqueada com sucesso.Por favor, faça login para continuar."
   errors:
     messages:
-      already_confirmed: "conta já confirmada, tente fazer login"
-      confirmation_period_expired: "conta preisa ser confirmada dentro de  %{period}, por favor, faça outro pedido de confirmação"
+      already_confirmed: "conta já confirmada, tente fazer login novamente"
+      confirmation_period_expired: "conta precisa ser confirmada dentro de  %{period}, por favor, faça outro pedido de confirmação de conta"
       expired: "expirado, por favor faça outro pedido"
       not_found: "não encontrado"
       not_locked: "não estava bloqueado"
       not_saved:
-        one: "1 error proibiu este %{resource} de ser salvo:"
-        other: "%{count} erros proibiram o recurso %{resource} de ser salvo:"
+        one: "1 erro proibiu este %{resource} de ser salvo:"
+        other: "%{count} erros proibiram os recursos %{resource} de serem salvos:"

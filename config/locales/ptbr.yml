@@ -1,6 +1,6 @@
 ptbr:
  app_name: 'if me'
- app_description: 'é uma comuninidad para o compartilhamento de experiências sobre saúde mental'
+ app_description: 'é uma comunidade para o compartilhamento de experiências sobre saúde mental'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Criada em:</strong> %{created_at}'
@@ -68,18 +68,18 @@ ptbr:
   forgot_password: 'Esqueceu sua senha ?'
 
  members:
-   one: '%{count} menbro'
+   one: '%{count} membro'
    other: '%{count} membros'
 
  allies:
   add_ally: 'Adcionar para os aliados'
   cancel_ally_request: 'Cancelar pedido'
-  accept: 'Adceitar'
+  accept: 'Aceitar'
   reject: 'Recusar'
   index:
     title: 'Aliados'
-    outgoing: 'Outgoing Requests'
-    incoming: 'Incoming Requests'
+    outgoing: 'Pedidos enviados'
+    incoming: 'Pedidos recebidos'
     invite: 'Convide as pessoas que você ama!'
     none: 'No momento você não tem aliados! Você pode buscar por eles ou convidar as pessoas que você ama!'
     view_all_allies: 'Ver todos os aliados'
@@ -133,7 +133,7 @@ ptbr:
   leave:
     error: 'Você não pode sair deste grupo, porque você é o único líder.'
     success: "Você saiu do grupo %{group}"
-    remove_member_success: "Você excluiu%{user} do grupo %{group}"
+    remove_member_success: "Você excluiu o usuário %{user} do grupo %{group}"
   new: 'Novo Grupo'
   show:
    led_by: 'Liderado por:'
@@ -148,8 +148,8 @@ ptbr:
    me: 'eu'
   mailer:
    html:
-    app_description: "%{app_name} é uma comudade que encoraja pessoas a compartilharem suas experiências relacionadas a saúde mental com as pessoas que você ama"
-    no_reply: "Você não pode responder a essa mensagem. Em caso de dúvidas, avisos ou feedback, envie uma mensagem via email para %{email}!"
+    app_description: "%{app_name} é uma comunidade que encoraja pessoas a compartilharem suas experiências relacionadas a saúde mental com as pessoas que você ama"
+    no_reply: "Você não precisa responder a essa mensagem. Em caso de dúvidas, questões ou feedback, envie uma mensagem via email para %{email}!"
   title:
    reset_password: Recuperar sua senha
 
@@ -163,17 +163,17 @@ ptbr:
   strength: 'Potência:'
   form:
    strength: 'Potência'
-   strength_placeholder: 'e.g. 100'
-   total_placeholder: 'e.g. 30'
-   dosage: 'dosage'
-   dosage_placeholder: 'e.g. 2'
-   refill: 'refill'
-   comments_hint: 'Adcione quasiquer comentários adcionais aqui, e.g. registrando os sintomas'
+   strength_placeholder: 'e.g. 100mg'
+   total_placeholder: 'e.g. 30mg'
+   dosage: 'dosagem'
+   dosage_placeholder: 'e.g. 2mg'
+   refill: 'refil'
+   comments_hint: 'Adcione quasiquer comentários adcionais aqui, por exemplo: registrando os sintomas'
    add_to_google_cal: 'Lembrete do Google Calendar'
    google_cal_hint: " Nós iremos adcionar um lembrete sobre esse medicamento no Google Calendar"
-   strength_hint: 'Potência do medicamento, normalmente encontrado pŕoximo ao nome do medicamento'
+   strength_hint: 'Potência do medicamento, normalmente é encontrada pŕoximo ao nome do medicamento'
    total_hint: 'Quantidade total de comprimidos ou porções necessárias'
-   dosage_hint: 'Número de comprimidos ous Number of pills or servings daily'
+   dosage_hint: 'Número de comprimidos ou dosagem diária'
    refill_hint: 'Quando atualizar essa receita médica'
    refill_reminder_hint: "Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento."
    daily_reminder_hint: "Enviaremos um lembrete diário para tomar essa medicação."
@@ -200,7 +200,7 @@ ptbr:
    example_strength: '10 mg'
    example_total: '2 tablets'
    example_dosage: '40 tablets'
-   example_refill: '05/31/2016'
+   example_refill: '31/05/2016'
   show:
    comments: 'Commentários:'
 
@@ -209,7 +209,7 @@ ptbr:
   form:
    location_placeholder: 'URL ou endereço do local da reunião:'
    maximum_members: 'Número máximo de participantes'
-   maximum_placeholder: 'Coloqeu 0(zero), caso não haja limite de participantes'
+   maximum_placeholder: 'Coloque 0(zero), caso não haja limite de participantes'
   join_success: 'Agora você faz parte dessa reunião.'
   info:
    cancel_meeting: 'Cancelar reunião'
@@ -219,7 +219,7 @@ ptbr:
     other: '%{count} Membros <strong>of</strong> %{group}'
   reminder_mailer:
     subject: "A reunião \"%{meeting_name}\" é amanhã as: %{time}!"
-    body: "Aqui um lembrete amigo sobre sua reunião, que acontecerá amanhã: \"%{meeting_name}\"i irá começar ás %{time} no endereço %{location}!"
+    body: "Aqui um lembrete amigo sobre sua reunião, que acontecerá amanhã: \"%{meeting_name}\"e irá começar ás %{time} no endereço %{location}!"
   leave:
     error: 'Você não pode abandonar a reunião, porque você é o único líder.'
     success: 'Você ainda tem pendente a reunião %{meeting}'
@@ -228,7 +228,7 @@ ptbr:
  moments:
   singular: 'Momento'
   plural: 'Momentos'
-  quick_moment_disclaimer: 'Esse momento será compartilhado com todos os aliados que comentarem nesse momento. You can always edit this later.'
+  quick_moment_disclaimer: 'Esse momento será compartilhado com todos os aliados que comentarem nesse momento. Você pode editar esse momento depois.'
   categories_and_moods: 'Humor e categorias'
   edit_moment: 'Editar Momento'
   tagged: 'Momentos com Tags'
@@ -237,11 +237,11 @@ ptbr:
    why: 'O que aconteceu e como você se sente ?'
    fix: 'Quais pensamentos você gostaria de ter ? '
    what_happened: 'O que aconteceu ?'
-   viewers_hint: 'Aliads que podem ver esse momento seu:'
+   viewers_hint: 'Aliados que podem ver esse momento seu:'
 
   index:
    subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
-   instructions: "Você ainda não escreveu sobre seus momentos. Clique aqui %{icon} para criar um novo!<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ? O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:"
+   instructions: "Você ainda não escreveu sobre seus momentos. Clique aqui %{icon} para criar um novo momento!<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ! O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:"
    example_name: 'Nervosismo por causa da entrevista de trabalho de amanhã.'
    example_category: 'Carreira'
   show:
@@ -265,11 +265,11 @@ ptbr:
    premade2_description: 'Se sentindo otimista com relação a alcançar metas'
    premade3_name: 'Curiosidade'
    premade3_description: 'Sentir curiosidade sobre fatos incertos.'
-   premade4_name: 'Sentir Resesentido'
+   premade4_name: 'Sentir-se Ressentido'
    premade4_description: 'Não aceitar certos fatos, sentir raiva, sentimento de vingança, e/ou ciúmes.'
    premade5_name: 'Desanimado'
-   premade5_description: 'Se sentir triste e desanimado -incapaz de encontrar qualquer solução possível.'
-   instructions: "Você ainda não personalizou nenhum tipo de humor. Clique aqui %{icon} para adcionar algum!<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los."
+   premade5_description: 'Sentir-se triste e desanimado - incapaz de encontrar qualquer solução possível.'
+   instructions: "Você ainda não personalizou nenhum tipo de humor. Clique aqui %{icon} para adcionar algum tipo de humor!<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los."
 
  notifications:
   plural: 'Notificações'
@@ -291,7 +291,7 @@ ptbr:
    add_group_leader: '%{name} se tornou o líder do grupo "%{group_name}"'
    remove_group_leader: '%{name} não é mais líder do grupo "%{group_name}"'
   meeting:
-   new_meeting: '%{name} criou uma nova reunião chamada"%{meeting_name}" do grupo "%{group_name}"'
+   new_meeting: '%{name} criou uma nova reunião chamada "%{meeting_name}" do grupo "%{group_name}"'
    remove_meeting: '%{name} cancelou a reunião "%{meeting_name}" do grupo "%{group_name}"'
    update_meeting: '%{name} atualizou a reunião "%{meeting_name}" do grupo "%{group_name}"'
    join_meeting: '%{name} se juntou a reunião "%{meeting_name}" do grupo "%{group_name}"'
@@ -311,7 +311,7 @@ ptbr:
     add_group_leader_subject: "if me | %{user} se tornou líder do grupo \" %{group}\""
     add_remove_group_leader_body: "<p>Link do grupo \"%{group}\", %{link}!</p>"
     remove_group_leader_you_subject: "if me | Você não é mais líder do grupo \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} Não é mais líder do grupo \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} não é mais líder do grupo \"%{group}\""
     update_meeting_subject: "if me | %{user} atualizou a reunião \"%{meeting}\" for \"%{group}\""
     new_meeting_subject: "if me | %{user} criou uma nova reunião  \"%{meeting}\" for \"%{group}\""
     meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Endereço:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p><strong>Hora:</strong> %{time}</p>"
@@ -328,16 +328,16 @@ ptbr:
  pages:
   about:
     send_us: 'Envie pra nós'
-    email_us: 'Sinta-se livre para entrar em contato via email %{email_link}!'
+    email_us: 'Sinta-se a vontade para entrar em contato via email %{email_link}!'
     main_message_one: "%{app_name} é uma comunidade para experiências relacionadas a saúde mental que encoraja as pessoas a compartilharem suas histórias pessoais com aliados de confiança."
     message_text_one: "Aliados de confiança são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares , companheiros de trabalho, professores, e profissionais da área de saúde mental."
     main_message_two: "Lidar com a saúde mental é o que nos faz humanos. Mas, para muitos de nós ,é um problema lidar com saúde mental de uma forma aberta."
     message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"Está em sua mente, mas também ao seu redor.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
     main_message_three: "Quer patrocinar o projeto?"
-    message_text_three: " Nosso aplicativo é <u>completamente</u> open source. É construido e mantido por voluntários com experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do Patreon %{patreon_link}.</p>"
+    message_text_three: " Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos o apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do Patreon %{patreon_link}.</p>"
     linebreak: 'QuebraLinha'
   blog:
-    description: "Se você estiver interessado em escrevre para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
+    description: "Se você estiver interessado em escrever para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
   contributors:
     main_message_one: "if me é desenvolvido e mantido por voluntários com diferentes experiências e habilidades."
     message_text_one: "Estamos sempre procurando por novas idéias de diversas pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>profissionais da sáude</strong>, <strong>desenvolvedores de software</strong>, e <strong>UX Designers</strong>!<p class=\"no_margin_bottom\">Envie um email para %{email_link} e entraremos em contato com você! Você será convidado para participar do nosso grupo no Slack %{slack_link}, nossa principal ferramenta de comunicação.Faça o fork do nosso repositório hospedado no Github %{github_link}!</p>"
@@ -349,7 +349,7 @@ ptbr:
     data_access_question: 'Quem pode acessar meus dados ?'
     data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
     moment_question: 'O que é um Momento ?'
-    moment_answer: 'Um <strong>Momento</strong>é um evento e situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar umcan tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
+    moment_answer: 'Um <strong>Momento</strong>é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira , pode tornar seus comentários visíveis apenas para você.'
     strategy_question: 'O que é uma Estratégia ?'
     strategy_answer: 'Uma <strong>Estratégia</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags(etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
     category_question: 'O que é uma Categoria ? '
@@ -357,11 +357,11 @@ ptbr:
     mood_question: 'O que é um Humor ?'
     mood_answer: 'O <strong>Humor</strong> é uma tag(etiqueta) que descreve seu estado de espírito, sentimentos, e emoções.'
     group_question: 'O que é um Grupo ?'
-    group_answer: 'Um <strong>Grupo</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
-    medications_question: 'Como eu uso o recuro de Medicamentos?'
+    group_answer: 'Um <strong>Grupo</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
+    medications_question: 'Como eu uso o recurso de Medicamentos?'
     medications_answer: 'O recurso de <strong>Medicamentos</strong> permite que você tenha um controle da receita médida sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
     invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
-    invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que amo". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
+    invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
     email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
     email_notifications_answer: "Vá para a página <strong>Conta</strong> ao clicar no ícone %{desktop_icon} (desktop) ou %{mobile_icon} (mobile) na barra de navegação. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
   home:
@@ -377,7 +377,7 @@ ptbr:
       message_text_two: "Aprenda mais com a  <strong>comunidade</strong> no nosso %{blog}."
       main_message_three: 'Somos Open Source porque a saúde mental deve ser aberta.'
       message_text_three: "Estamos <strong>sempre</strong> buscando por sua %{help} e seu %{feedback}!"
-      help: 'help'
+      help: 'ajuda'
     signed_in_empty:
       main_message_one: 'Olá %{name}!'
       message_text_one: "Veja como você pode começar a compartilhar suas histórias."
@@ -395,8 +395,8 @@ ptbr:
     summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente.Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
     user_data: 'Dados do Usuário'
     user_data_description: '<p>Usuário é a pessoa que utiliza este sítio web e tem a intenção de prover dados pessoais, incluindo trechos de suas vidas (na funcionalidade de Momentos, por exemplo) e anedotas sobre medicamentos. Dados do recurso de Momentos é compartilhado com qualquer pessoa da qual o usuário queira compartilhar seus dados. Dados de medicação são visíveis apenas para o usuário. Ambos os dados não serão utilizados para quaisquer propósitos extras e não deverão ser entregues a quaisquer entidades externas.</p><p>O aplicativo também contém dados que dizem respeito aos grupos de suporte e estratégias para gerar novos desafios para a saúde mental. Esses dados são acessíveis apenas para usuários que dão permissão de visualização para os usuários que desejam visualizar esses dados. Dados de ambos os recursos podem ser mostrados publicamente, para visualizadores atuais e futuros. No entando, a identidade dos usuarios serão mantidas privadas</p>'
-    cookies: 'Use of Cookies'
-    cookies_description: "<p>Este sítio web utiliza cookies para melhora a experiência do usuário enquanto visita o mesmo. Quando necessário, este sítio web utiliza o recurso do controle do cookie para permitir que usuário, em sua primeira visita, pergunte ao usuário se ele permite ou não o uso de cookies em seu computador / dispositivo móvel.</p><p>Cookies são pequenos arquivos salvos no disco rídigo do computador do usuário que permitem rastreio,e armazenamento de informações sobre o usuário, salva e armazena informações sobre como o usuário interage e utiliza o sítio web.Essa ação permite ao sítio web, através de seus servidores, possa dar ao usuário uma experiência personalizada enquanto visita este sítio web.</p><p>Usuários receberão uma notificação de que, caso não optem por utilizar cookies enquanto navegam por este sítio web, os próprios usuários deverão configurar seus navegadores para que os todos os cookies deste websítio sejam bloqueados, incluindo suas dependências externas.</p><p>Este sítio web utiliza software de rastreamento para monitorar visitantes e compreender melhor como eles utilizam este sítio web. Este software é fornecido pelo Google Analytics que utiliza cookies para rastrear o uso do sítio web pelo visitante. O software irá salvar um cookie no disco rígido do seu computador, para assim, rastrear e monitorar seu engajamento e uso do sítio web, mas não armazenar, salvar ou coletar informações pessoais. Você pode ler a política de privacidade do Google %{google_privacy_policy} para maiores informações.</p>"
+    cookies: 'Uso de Cookies'
+    cookies_description: "<p>Este sítio web utiliza cookies para melhorar a experiência do usuário enquanto visita o mesmo. Quando necessário, este sítio web utiliza o recurso do controle do cookie para permitir que usuário, em sua primeira visita, pergunte ao usuário se ele permite ou não o uso de cookies em seu computador / dispositivo móvel.</p><p>Cookies são pequenos arquivos salvos no disco rídigo do computador do usuário que permitem rastreio,e armazenamento de informações sobre o usuário, salva e armazena informações sobre como o usuário interage e utiliza o sítio web.Essa ação permite ao sítio web, através de seus servidores, possa dar ao usuário uma experiência personalizada enquanto visita este sítio web.</p><p>Usuários receberão uma notificação de que, caso não optem por utilizar cookies enquanto navegam por este sítio web, os próprios usuários deverão configurar seus navegadores para que os todos os cookies deste sítio web sejam bloqueados, incluindo suas dependências externas.</p><p>Este sítio web utiliza software de rastreamento para monitorar visitantes e compreender melhor como eles utilizam este sítio web. Este software é fornecido pelo Google Analytics que utiliza cookies para rastrear o uso do sítio web pelo visitante. O software irá salvar um cookie no disco rígido do seu computador, para assim, rastrear e monitorar seu engajamento e uso do sítio web, mas não armazenar, salvar ou coletar informações pessoais. Você pode ler a política de privacidade do Google %{google_privacy_policy} para maiores informações.</p>"
     social_media: 'Plataformas de Mídia Social'
     social_media_description: '<p>Comunicação, engajamento e ações tomadas através de plataformas de mídia social das quais este sítio web participa, operam sobre termos  e condições personalizadas a seus respectivos proprietários, bem como suas políticas de privacidade</p><p> Usuários são aconselhados a utilizar plataformas de mídia social de forma sábia e com cuidado, no que diz respeito as políticas e detalhes pessoais de cada mídia social. Este sítio web em hipótese alguma irá requerer informações pessoais ou sensíveis através de mídia social. Encorajamos usuários dispostos a discutir detalhes de dados sensíveis para que entrem em contato com as plataformas de mídia social através de seus canais primários como telefone e email</p><p> Este sítio web pode utilizar botões de compartilhamento  de mídias sociais(social sharing buttons) que auxiliam a compartilhar conteúdo web diretamente das páginas web para a plataforma de mídia social em questão. Usuário são aconselhados antes de utilizar tais botões de compartilhamento de mídia social para que o conteúdo seja compartilhado de forma discreta e mesmo assim, a plataforma de mídia social pode rastrear o seu pedido para compartilhar uma página web através da sua conta da mídia social na qual você está compartilhando aquele conteúdo.</p>'
     contact: 'Entre em contato conosco'
@@ -418,7 +418,7 @@ ptbr:
    search_by_email: 'Buscar por email'
 
   index:
-   title: 'Buscar por Alidados'
+   title: 'Buscar por Aliados'
 
  shared:
   footer:
@@ -431,7 +431,7 @@ ptbr:
     share_everyone: 'Compartilhe como todo mundo'
     share_with: 'Compartilhe com %{name}'
     visible_only_between_you_and: 'Visível apenas para você e para %{name}'
-    not_allies: '(não são alidados)'
+    not_allies: '(não são aliados)'
   header:
    signout: 'Sair'
    home: 'Home'
@@ -456,9 +456,9 @@ ptbr:
   meeting_info:
     attending: 'Você irá participar.Quer mudar de idéia?'
     not_attending: 'Você não irá participar. %{join}'
-    not_attending_one_spot_left: 'Você não irá participar.Existe apenas uma vaga disponível! %{join}'
-    not_attending_spots_left: 'Você não irá participar. Existem apenas %{number} vagas disponível! %{join}'
-    not_attending_no_spots_left: 'Você não irá participar.Não existem vagas disponíveis.'
+    not_attending_one_spot_left: 'Você não irá participar?.Existe apenas uma vaga disponível! %{join}'
+    not_attending_spots_left: 'Você não irá participar? Existem apenas %{number} vagas disponível! %{join}'
+    not_attending_no_spots_left: 'Você não irá participar! Não existem mais vagas disponíveis.'
   quick_create:
    add: 'Adcionar %{name}'
 
@@ -480,8 +480,8 @@ ptbr:
    other: 'Estratégias'
   index:
    subtitle: 'Crie uma Estratégia para cuidado-próprio para alcançar metas desejadadas e atitudes em direção aos seus momentos.'
-   premade1_name: 'Meditação em Cinco Minutos'
-   premade1_description: '1) <b>Encontre uma posição confortável e relaxante.</b> Você pode se sentar em uma cadeira ou em uma almofada no chão. Mantenha suas costas retas, mas não force muito. As mãos deve estar confortáveis. A língua deve estar no céu da boca ou de uma forma que esteja confortável para você.<br><br>2) <b> Perceba e relaxe cada parte do seu corpo.</b> Tente percener o formato do seu corpo, seu peso, temperatura. Permita-se relaxar e se tornar curioso sobre seu corpo nesta posição, as sensações, as experiências, o toque , a conexão com o chão, ou com a cadeira. Relaxe qualquer área que esteja tensionada ou rígida. Apenas respire.<br><br>3) <b>Entre em sintonia com sua respiração.</b> Sinta o fluxo natural do ar entrando, e do ar saindo. Você não precisa fazer nada com a respiração. Não respire muito rápido e nem muito devagar,apenas aja naturalmente. Perceba o fluxo do ar no seu corpo. Pode ser no seu abdomen. Pode ser no seu peito ou na sua garganta ou até mesmo nas suas narinas. Veja se você pode sentir as sensações da respiração, uma respiração de cada vez. Quando um ciclo terminar, o pŕoximo deve começar<br><br>4) <b>Seja gentil com sua mente distraída.</b> E enquanto você faz isso, você pode perceber que começa a ficar distraído. Você pode começar a pensar em qualquer outra coisa. Caso isso aconteça,não há problema algum. É algo muito natural. Apenas perceba que sua mente começou a se distrair. Você pode dizer mentalmente “pensando” ou “vagando” de forma bem calma. E aos poucos, redirecionar seu foco de volta a sua respiração.<br><br>5) <b>Fique nessa posição por 5 ou 7 minutos.</b> Perceba sua respiração, em silêncio. De tempos em tempos, você pode ficar perder a linha de pensamento, então foque na sua respiração.<br><br>6) <b>Verique sua respiração sempre que isso acontecer.</b> Depois de alguns minutos, novamente,começe a prestar atenção no seu corpo, em todo seu corpo, enquanto sentado. Permita-se relaxar mais profundamente e então permita-se sentir gratidão por ter realizado essa prática no dia de hoje.<br><br><i>Adaptado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+   premade1_name: 'Meditação em Cinco Minutos:'
+   premade1_description: '1) <b>Encontre uma posição confortável e relaxante.</b> Você pode se sentar em uma cadeira ou em uma almofada no chão. Mantenha suas costas retas, mas não force muito. As mãos deve estar confortáveis. A língua deve estar no céu da boca ou de uma forma que esteja confortável para você.<br><br>2) <b> Perceba e relaxe cada parte do seu corpo.</b> Tente percener o formato do seu corpo, seu peso, temperatura. Permita-se relaxar e tornar-se curioso sobre seu corpo nesta posição, as sensações, as experiências, o toque , a conexão com o chão, ou com a cadeira. Relaxe qualquer área que esteja tensionada ou rígida. Apenas respire.<br><br>3) <b>Entre em sintonia com sua respiração.</b> Sinta o fluxo natural do ar entrando, e do ar saindo. Você não precisa fazer nada com a respiração. Não respire muito rápido e nem muito devagar,apenas aja naturalmente. Perceba o fluxo do ar no seu corpo. Pode ser no seu abdomen. Pode ser no seu peito ou na sua garganta ou até mesmo nas suas narinas. Veja se você pode sentir as sensações da respiração, uma respiração de cada vez. Quando um ciclo terminar, o pŕoximo deve começar<br><br>4) <b>Seja gentil com sua mente distraída.</b> E enquanto você faz isso, você pode perceber que começa a ficar distraído. Você pode começar a pensar em qualquer outra coisa. Caso isso aconteça,não há problema algum. É algo muito natural. Caso perceba que sua mente começou a se distrair, você pode dizer mentalmente “pensando” ou “vagando” de forma bem calma. E aos poucos, redirecionar seu foco de volta a sua respiração.<br><br>5) <b>Fique nessa posição por 5 ou 7 minutos.</b> Perceba sua respiração, em silêncio. De tempos em tempos, você pode ficar perder a linha de pensamento, então foque na sua respiração.<br><br>6) <b>Verique sua respiração sempre que isso acontecer.</b> Depois de alguns minutos, novamente,começe a prestar atenção no seu corpo, em todo seu corpo, enquanto sentado. Permita-se relaxar mais profundamente e então permita-se sentir gratidão por ter realizado essa prática no dia de hoje.<br><br><i>Adaptado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
    instructions: "Você ainda não criou nenhuma estratégia personalizada. Clique aqui %{icon} para criar uma nova!<br> Você também pode adcionar as seguintes estratégias pré-definindas e customizá-las depois."
   reminder_mailer:
     subject: "Não se esqueça de realizar %{name}!"
@@ -538,7 +538,7 @@ ptbr:
     group_notify_text: "Atualizações de grupos"
     meeting_notify_text: "Atualizações de reuniões"
     google_auth1: "Caso você não queira mais fazer login com sua conta Google, por favor digite um novo email e uma nova senha."
-    google_auth2: "Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor digite um nov email e senha."
+    google_auth2: "Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor cadastre-se com um novo email e uma nova senha."
     placeholders:
       repeat_password: "Digite novamente sua senha"
     edit:

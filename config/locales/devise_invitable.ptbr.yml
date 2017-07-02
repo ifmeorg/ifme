@@ -14,7 +14,7 @@ ptbr:
         submit_button: "Enviar Convite"
       edit:
         header: "Definir sua senha"
-        submit_button: "Definir sua senha"
+        submit_button: "Defina sua senha"
     mailer:
       invitation_instructions:
         subject: "Você foi convidado para se juntar ao if me!"
