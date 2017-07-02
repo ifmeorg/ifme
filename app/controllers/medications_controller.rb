@@ -1,10 +1,10 @@
-require "google/api_client"
+require 'google/api_client'
 
 class MedicationsController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   helper_method :save_refill_to_google_calendar
-  before_action :set_medication, only: [:show, :edit, :update, :destroy]
+  before_action :set_medication, only: %i[show edit update destroy]
 
   # GET /medications
   # GET /medications.json
@@ -37,11 +37,11 @@ class MedicationsController < ApplicationController
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
-    if @medication.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to medication_path(@medication) }
-        format.json { head :no_content }
-      end
+    return if @medication.userid == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to medication_path(@medication) }
+      format.json { head :no_content }
     end
   end
 
@@ -88,26 +88,22 @@ class MedicationsController < ApplicationController
 
   # Save refill date to Google calendar
   def save_refill_to_google_calendar(medication)
-    if current_user.google_oauth2_enabled? && medication.add_to_google_cal
-      summary = "Refill for " + medication.name
-      date = medication.refill
-      CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
-    end
+    return unless current_user.google_oauth2_enabled? && medication.add_to_google_cal
+
+    summary = 'Refill for ' + medication.name
+    date = medication.refill
+    CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
   end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_medication
-    begin
-      @medication = Medication.friendly.find(params[:id])
-    rescue
-      if @medication.blank?
-        respond_to do |format|
-          format.html { redirect_to medications_path }
-          format.json { head :no_content }
-        end
-      end
+    @medication = Medication.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to medications_path }
+      format.json { head :no_content }
     end
   end
 
@@ -117,8 +113,8 @@ class MedicationsController < ApplicationController
       :userid, :total, :strength,
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
-      take_medication_reminder_attributes: [:active, :id],
-      refill_reminder_attributes: [:active, :id]
+      take_medication_reminder_attributes: %i[active id],
+      refill_reminder_attributes: %i[active id]
     )
   end
 end

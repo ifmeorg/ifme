@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
   # GET /meetings/1.json
@@ -22,57 +22,46 @@ class MeetingsController < ApplicationController
       end
     else
       @comment = Comment.new
-      @comments = Comment.where(:commented_on => @meeting.id, :comment_type => "meeting").all.order("created_at DESC")
+      @comments = Comment.where(commented_on: @meeting.id, comment_type: 'meeting').all.order('created_at DESC')
       @no_hide_page = true
     end
   end
 
   def comment
-    @comment = Comment.new(:comment_type => params[:comment_type], :commented_on => params[:commented_on], :comment_by => params[:comment_by], :comment => params[:comment], :visibility => 'all')
-
-    if !@comment.save
-      result = { no_save: true }
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
+    @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
+    return respond_with_not_saved unless @comment.save
 
     # Notify MeetingMembers except for commenter that there is a new comment
     MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
-      if member.userid != current_user.id
-        meeting_name = Meeting.where(id: @comment.commented_on).first.name
-        cutoff = false
-        if @comment.comment.length > 80
-          cutoff = true
-        end
-        uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
+      next if member.userid == current_user.id
 
-        data = JSON.generate({
-          user: current_user.name,
-          meetingid: @comment.commented_on,
-          meeting: meeting_name,
-          commentid: @comment.id,
-          comment: @comment.comment[0..80],
-          cutoff: cutoff,
-          type: 'comment_on_meeting',
-          uniqueid: uniqueid
-          })
+      meeting_name = Meeting.where(id: @comment.commented_on).first.name
+      cutoff = false
+      cutoff = true if @comment.comment.length > 80
+      uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
 
-        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
-        Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+      data = JSON.generate(
+        user: current_user.name,
+        meetingid: @comment.commented_on,
+        meeting: meeting_name,
+        commentid: @comment.id,
+        comment: @comment.comment[0..80],
+        cutoff: cutoff,
+        type: 'comment_on_meeting',
+        uniqueid: uniqueid
+      )
 
-        NotificationMailer.notification_email(member.userid, data).deliver_now
-      end
+      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+      Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
+
+      NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
-    if @comment.save
-      result = generate_comment(@comment, 'meeting')
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
+    result = generate_comment(@comment, 'meeting')
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
     end
   end
 
@@ -92,12 +81,12 @@ class MeetingsController < ApplicationController
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
       Comment.find(params[:commentid]).destroy
 
-      # Delete corresponding notifcations
+      # Delete corresponding notifications
       public_uniqueid = 'comment_on_meeting_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
 
-    render :nothing => true
+    render nothing: true
   end
 
   # GET /meetings/new
@@ -106,7 +95,6 @@ class MeetingsController < ApplicationController
     not_a_leader(@groupid)
 
     @meeting = Meeting.new
-
   end
 
   # GET /meetings/1/edit
@@ -135,22 +123,22 @@ class MeetingsController < ApplicationController
           uniqueid = 'new_meeting_' + current_user.id.to_s
 
           group_members.each do |member|
-            if member.userid != current_user.id
-              data = JSON.generate({
+            next if member.userid == current_user.id
+
+            data = JSON.generate(
               user: current_user.name,
               meetingid: @meeting.id,
               group: group,
               meeting: @meeting.name,
               type: 'new_meeting',
               uniqueid: uniqueid
-              })
+            )
 
-              Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-              notifications = Notification.where(userid: member.userid).order("created_at ASC").all
-              Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+            Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+            notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+            Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
 
-              NotificationMailer.notification_email(member.userid, data).deliver_now
-            end
+            NotificationMailer.notification_email(member.userid, data).deliver_now
           end
 
           format.html { redirect_to group_path(groupid) }
@@ -166,51 +154,54 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
-    respond_to do |format|
-      if @meeting.update(meeting_params)
-        error = false
-        meeting_members = MeetingMember.where(meetingid: @meeting.id).all
-        meeting_members.each do |member|
-          meeting_member_id = MeetingMember.where(meetingid: @meeting.id, userid: member.userid).first.id
-          if params[:meeting][:leader].nil?
-            error = true
-            format.html { redirect_to group_path(@meeting.groupid) }
-            format.json { render :show, status: :ok, location: @meeting }
-          elsif params[:meeting][:leader].include? member.userid.to_s
-            MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: true)
-          else
-            MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: false)
-          end
+    if @meeting.update(meeting_params)
+      error = false
+      meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+      meeting_members.each do |member|
+        meeting_member_id = MeetingMember.where(meetingid: @meeting.id, userid: member.userid).first.id
+        if params[:meeting][:leader].nil?
+          error = true
+          format.html { redirect_to group_path(@meeting.groupid) }
+          format.json { render :show, status: :ok, location: @meeting }
+        elsif params[:meeting][:leader].include? member.userid.to_s
+          MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: true)
+        else
+          MeetingMember.update(meeting_member_id, meetingid: @meeting.id, userid: member.userid, leader: false)
         end
+      end
 
-        # Notify group members that the meeting has been updated
-        group = Group.where(id: @meeting.groupid).first.name
+      # Notify group members that the meeting has been updated
+      group = Group.where(id: @meeting.groupid).first.name
 
-        uniqueid = 'update_meeting_' + current_user.id.to_s
+      uniqueid = 'update_meeting_' + current_user.id.to_s
 
-        meeting_members.each do |member|
-          if member.userid != current_user.id
-            data = JSON.generate({
-            user: current_user.name,
-            meetingid: @meeting.id,
-            group: group,
-            meeting: @meeting.name,
-            type: 'update_meeting',
-            uniqueid: uniqueid
-            })
+      meeting_members.each do |member|
+        next if member.userid == current_user.id
 
-            Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-            notifications = Notification.where(userid: member.userid).order("created_at ASC").all
-            Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+        data = JSON.generate(
+          user: current_user.name,
+          meetingid: @meeting.id,
+          group: group,
+          meeting: @meeting.name,
+          type: 'update_meeting',
+          uniqueid: uniqueid
+        )
 
-            NotificationMailer.notification_email(member.userid, data).deliver_now
-          end
-        end
+        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+        notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+        Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
 
-        @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+        NotificationMailer.notification_email(member.userid, data).deliver_now
+      end
+
+      @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+
+      respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.id) }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
-      else
+      end
+    else
+      respond_to do |format|
         format.html { render :edit }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
       end
@@ -222,8 +213,8 @@ class MeetingsController < ApplicationController
 
     if MeetingMember.where(meetingid: params[:meetingid], userid: current_user.id).exists?
       respond_to do |format|
-          format.html { redirect_to group_path(groupid) }
-          format.json { render :show, location: group_path(groupid) }
+        format.html { redirect_to group_path(groupid) }
+        format.json { render :show, location: group_path(groupid) }
       end
     else
       @meeting_member = MeetingMember.create!(meetingid: params[:meetingid], userid: current_user.id, leader: false)
@@ -237,30 +228,30 @@ class MeetingsController < ApplicationController
       uniqueid = 'join_meeting_' + current_user.id.to_s
 
       meeting_leaders.each do |leader|
-        if leader.userid != current_user.id
-          data = JSON.generate({
+        next if leader.userid == current_user.id
+
+        data = JSON.generate(
           user: current_user.name,
           meetingid: meetingid,
           group: group,
           meeting: meeting,
           type: 'join_meeting',
           uniqueid: uniqueid
-          })
+        )
 
-          Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
-          notifications = Notification.where(userid: leader.userid).order("created_at ASC").all
-          Pusher['private-' + leader.userid.to_s].trigger('new_notification', {notifications: notifications})
+        Notification.create(userid: leader.userid, uniqueid: uniqueid, data: data)
+        notifications = Notification.where(userid: leader.userid).order('created_at ASC').all
+        Pusher['private-' + leader.userid.to_s].trigger('new_notification', notifications: notifications)
 
-          NotificationMailer.notification_email(leader.userid, data).deliver_now
-        end
+        NotificationMailer.notification_email(leader.userid, data).deliver_now
       end
 
       respond_to do |format|
-          format.html do
-            redirect_to(meeting_path(meetingid),
-                        notice: t('meetings.join_success'))
-          end
-          format.json { render :show, status: :created, location: group_path(groupid) }
+        format.html do
+          redirect_to(meeting_path(meetingid),
+                      notice: t('meetings.join_success'))
+        end
+        format.json { render :show, status: :created, location: group_path(groupid) }
       end
     end
   end
@@ -272,7 +263,7 @@ class MeetingsController < ApplicationController
     # Cannot leave When you are the only leader
     is_leader = MeetingMember.where(userid: current_user.id, meetingid: params[:meetingid], leader: true).count
     are_leaders = MeetingMember.where(meetingid: params[:meetingid], leader: true).count
-    if (is_leader == 1 && are_leaders == is_leader)
+    if is_leader == 1 && are_leaders == is_leader
       respond_to do |format|
         format.html do
           redirect_to(group_path(groupid), alert: t('meetings.leave.error'))
@@ -305,30 +296,28 @@ class MeetingsController < ApplicationController
     uniqueid = 'remove_meeting_' + current_user.id.to_s
 
     group_members.each do |member|
-      if member.userid != current_user.id
-        data = JSON.generate({
+      next if member.userid == current_user.id
+
+      data = JSON.generate(
         user: current_user.name,
         groupid: @meeting.groupid,
         group: group,
         meeting: @meeting.name,
         type: 'remove_meeting',
         uniqueid: uniqueid
-        })
+      )
 
-        Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-        notifications = Notification.where(userid: member.userid).order("created_at ASC").all
-        Pusher['private-' + member.userid.to_s].trigger('new_notification', {notifications: notifications})
+      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
+      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
+      Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
 
-        NotificationMailer.notification_email(member.userid, data).deliver_now
-      end
+      NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
 
-    @meeting_members.each do |item|
-      item.destroy
-    end
+    @meeting_members.each(&:destroy)
 
     groupid = @meeting.groupid
     @meeting.destroy
@@ -342,21 +331,17 @@ class MeetingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
-    begin
-      @meeting = Meeting.friendly.find(params[:id])
-    rescue
-      if @meeting.blank?
-        respond_to do |format|
-          format.html { redirect_to groups_path }
-          format.json { head :no_content }
-        end
-      end
+    @meeting = Meeting.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to groups_path }
+      format.json { head :no_content }
     end
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def not_a_leader(groupid)
-    if !GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+    unless GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
       respond_to do |format|
         format.html { redirect_to group_path(groupid) }
         format.json { head :no_content }
@@ -373,6 +358,14 @@ class MeetingsController < ApplicationController
     if Meeting.where(id: meeting.id).exists? && MeetingMember.where(meetingid: meeting.id, userid: current_user.id).exists?
       return false
     end
-    return true
+    true
+  end
+
+  def respond_with_not_saved
+    result = { no_save: true }
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
   end
 end

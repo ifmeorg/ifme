@@ -11,7 +11,7 @@
 #
 
 class MeetingMember < ActiveRecord::Base
-  validates_presence_of :meetingid, :userid
+  validates :meetingid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
   belongs_to :meeting, foreign_key: :meetingid
