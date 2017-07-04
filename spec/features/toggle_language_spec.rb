@@ -21,6 +21,7 @@ describe 'ToggleLanguage', js: true do
       end
 
       after(:each) do
+        select 'English', from: 'locale'
         clear_cookies
       end
 
@@ -65,6 +66,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
+        select 'English', from: 'locale'
         clear_cookies
       end
 
@@ -111,6 +113,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
+        select 'English', from: 'locale'
         clear_cookies
       end
 
@@ -173,6 +176,7 @@ describe 'ToggleLanguage', js: true do
 
       after(:each) do
         logout(:user)
+        select 'English', from: 'locale'
         clear_cookies
       end
 
