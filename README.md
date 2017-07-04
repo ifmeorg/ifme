@@ -25,7 +25,7 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 
 # Installation
 
-The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions.
+The app uses  **Ruby 2.3.4** and **Rails 4.2.6**. Please stick to these versions.
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
@@ -50,7 +50,7 @@ rvm get stable --autolibs=enable
 **Close and re-open the terminal window**
 
 ```
-rvm install ruby-2.3.1
+rvm install ruby-2.3.4
 ```
 
 Check that Ruby has been updated by running `ruby -v`.
@@ -59,13 +59,13 @@ Check that Ruby has been updated by running `ruby -v`.
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
-Run the following to install Ruby 2.3.1:
+Run the following to install Ruby 2.3.4:
 
 ```
 rbenv install 2.3.1
 ```
 
-Once you have cloned the project, set the local Ruby version to 2.3.1:
+Once you have cloned the project, set the local Ruby version to 2.3.4:
 
 ```
 cd ifme
@@ -93,7 +93,7 @@ Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Conti
 #### option (A) RVM
 
 ```
-rvm use ruby-2.3.1@rails4.2.6 --create
+rvm use ruby-2.3.4@rails4.2.6 --create
 ```
 
 #### option (B) rbenv
