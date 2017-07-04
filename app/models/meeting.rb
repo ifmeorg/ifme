@@ -18,7 +18,7 @@
 class Meeting < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
-  validates_presence_of :name, :description, :location, :time, :groupid, :date
+  validates :name, :description, :location, :time, :groupid, :date, presence: true
   belongs_to :group, foreign_key: :groupid
   has_many :members, -> { order 'name' }, through: :meeting_members,
                                           source: :user

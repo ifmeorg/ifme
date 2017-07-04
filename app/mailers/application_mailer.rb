@@ -3,8 +3,8 @@ class ApplicationMailer < ActionMailer::Base
   include ApplicationMailerHelper
   include NotificationMailerHelper
   default from: ENV['SMTP_ADDRESS']
-	layout 'mailer'
-  ALLY_NOTIFY_TYPES = %w(new_ally_request accepted_ally_request).freeze
+  layout 'mailer'
+  ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
 
   def reminder_mailer(model, subject_text)
     @model = model
