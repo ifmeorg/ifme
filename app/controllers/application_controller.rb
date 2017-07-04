@@ -14,15 +14,15 @@ class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :if_not_signed_in, unless: :devise_controller?
+  protect_from_forgery with: :null_session, if: proc { |c| c.request.format == 'application/json' }
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :if_not_signed_in, unless: :devise_controller?
 
   # i18n
   before_action :set_locale
 
   # Timezone
-  around_filter :with_timezone
+  around_action :with_timezone
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
@@ -40,12 +40,12 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    common = %i(location name email password
-                password_confirmation current_password)
+    common = %i[location name email password
+                password_confirmation current_password]
 
     devise_parameter_sanitizer.permit :account_update,
-      keys: %i(about avatar remove_avatar comment_notify ally_notify
-               group_notify meeting_notify) + common
+      keys: %i[about avatar remove_avatar comment_notify ally_notify
+               group_notify meeting_notify] + common
 
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
@@ -56,11 +56,11 @@ class ApplicationController < ActionController::Base
                 :generate_comment, :get_stories, :moments_stats
 
   def if_not_signed_in
-    unless user_signed_in?
-      respond_to do |format|
-        format.html { redirect_to new_user_session_path }
-        format.json { head :no_content }
-      end
+    return if user_signed_in?
+
+    respond_to do |format|
+      format.html { redirect_to new_user_session_path }
+      format.json { head :no_content }
     end
   end
 
@@ -69,114 +69,106 @@ class ApplicationController < ActionController::Base
     userid2 = User.find(userid2)
     is_allies_userid1 = userid1.allies_by_status(:accepted).include?(userid2)
     is_allies_userid2 = userid2.allies_by_status(:accepted).include?(userid1)
-    return is_allies_userid1 && is_allies_userid2
+    is_allies_userid1 && is_allies_userid2
   end
 
   def is_viewer(viewers)
-    if (viewers.include? current_user.id)
-      return true
-    end
-
-    return false
+    viewers.include? current_user.id
   end
 
   def get_uid(userid)
-    uid = User.where(id: userid).first.uid
-    return uid
+    User.where(id: userid).first.uid
   end
 
   def most_focus(data_type, profile)
-    data = Array.new
+    data = []
 
-    if profile.blank?
-      userid = current_user.id
-    else
-      userid = profile
-    end
+    userid =
+      if profile.blank?
+        current_user.id
+      else
+        profile
+      end
 
     if data_type == 'category'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if moment.category.present? && !moment.category.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.category
         end
       end
       Strategy.where(userid: userid).all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
+        if strategy.category.present? && !strategy.category.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
           data += strategy.category
         end
       end
     elsif data_type == 'mood'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if moment.mood.present? && !moment.mood.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.mood
         end
       end
     elsif data_type == 'strategy'
       Moment.where(userid: userid).all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0 && (profile.blank? || (!profile.blank? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+        if moment.strategies.present? && !moment.strategies.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
           data += moment.strategies
         end
       end
     end
 
     # Determine top three occurrences
-    result = Hash.new
+    result = {}
 
-    if data.length > 0
-      freq = Hash.new
-      for i in 0..2
-        freq = data.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-          if freq.length == 0
-            break
-          end
+    unless data.empty?
+      freq = {}
+      3.times do
+        freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
+        break if freq.empty?
 
-          max = data.max_by { |v| freq[v] }
-          if freq[max] == 0
-            break
-          end
+        max = data.max_by { |v| freq[v] }
+        break if freq[max].zero?
 
-          result[max] = freq[max]
+        result[max] = freq[max]
         freq.delete(max)
         data.delete(max)
       end
     end
 
-    return result
+    result
   end
 
   def tag_usage(data, data_type, userid)
-    result = Array.new
-    if (data_type == 'category')
-      moments = Array.new
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
-        if !moment.category.blank? && moment.category.length > 0 && moment.category.include?(data.to_i)
+    result = []
+    if data_type == 'category'
+      moments = []
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
+        if moment.category.present? && !moment.category.empty? && moment.category.include?(data.to_i)
           moments.push(moment.id)
         end
       end
       result.push(moments)
 
-      strategies = Array.new
-      Strategy.where(userid: userid).order("created_at DESC").all.each do |strategy|
-        if !strategy.category.blank? && strategy.category.length > 0 && strategy.category.include?(data.to_i)
+      strategies = []
+      Strategy.where(userid: userid).order('created_at DESC').all.each do |strategy|
+        if strategy.category.present? && !strategy.category.empty? && strategy.category.include?(data.to_i)
           strategies.push(strategy.id)
         end
       end
       result.push(strategies)
-    elsif (data_type == 'mood')
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
-        if !moment.mood.blank? && moment.mood.length > 0 && moment.mood.include?(data.to_i)
+    elsif data_type == 'mood'
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
+        if moment.mood.present? && !moment.mood.empty? && moment.mood.include?(data.to_i)
           result.push(moment.id)
         end
       end
-    elsif (data_type == 'strategy')
-      Moment.where(userid: userid).order("created_at DESC").all.each do |moment|
-        if !moment.strategies.blank? && moment.strategies.length > 0 && moment.strategies.include?(data.to_i)
+    elsif data_type == 'strategy'
+      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
+        if moment.strategies.present? && !moment.strategies.empty? && moment.strategies.include?(data.to_i)
           result.push(moment.id)
         end
       end
     end
 
-    return result
+    result
   end
 
   def generate_comment(data, data_type)
@@ -209,15 +201,13 @@ class ApplicationController < ActionController::Base
       delete_comment += '</div>'
     end
 
-    result = { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
-
-    return result
+    { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
   end
 
   def get_stories(user, include_allies)
     if user.id == current_user.id
-      my_moments = Moment.where(userid: user.id).all.order("created_at DESC")
-      my_strategies = Strategy.where(userid: user.id).all.order("created_at DESC")
+      my_moments = Moment.where(userid: user.id).all.order('created_at DESC')
+      my_strategies = Strategy.where(userid: user.id).all.order('created_at DESC')
     end
 
     if include_allies && user.id == current_user.id
@@ -226,16 +216,12 @@ class ApplicationController < ActionController::Base
       ally_strategies = []
 
       allies.each do |ally|
-        Moment.where(userid: ally.id).all.order("created_at DESC").each do |moment|
-          if moment.viewers.include?(user.id)
-            ally_moments << moment
-          end
+        Moment.where(userid: ally.id).all.order('created_at DESC').each do |moment|
+          ally_moments << moment if moment.viewers.include?(user.id)
         end
 
-        Strategy.where(userid: ally.id).all.order("created_at DESC").each do |strategy|
-          if strategy.viewers.include?(user.id)
-            ally_strategies << strategy
-          end
+        Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
+          ally_strategies << strategy if strategy.viewers.include?(user.id)
         end
       end
 
@@ -245,13 +231,11 @@ class ApplicationController < ActionController::Base
       ally_moments = []
       ally_strategies = []
 
-      Moment.where(userid: user.id).all.order("created_at DESC").each do |moment|
-        if moment.viewers.include?(current_user.id)
-          ally_moments << moment
-        end
+      Moment.where(userid: user.id).all.order('created_at DESC').each do |moment|
+        ally_moments << moment if moment.viewers.include?(current_user.id)
       end
 
-      Strategy.where(userid: user.id).all.order("created_at DESC").each do |strategy|
+      Strategy.where(userid: user.id).all.order('created_at DESC').each do |strategy|
         if strategy.viewers.include?(current_user.id)
           ally_strategies << strategy
         end
@@ -261,18 +245,17 @@ class ApplicationController < ActionController::Base
       my_strategies = ally_strategies
     end
 
-    moments = Moment.where(id: my_moments.map(&:id)).all.order("created_at DESC")
-    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order("created_at DESC")
+    moments = Moment.where(id: my_moments.map(&:id)).all.order('created_at DESC')
+    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
 
-    if moments.count > 0
-      stories = moments.zip(strategies).flatten.compact
-    else
-      stories = strategies.flatten.compact
-    end
+    stories =
+      if moments.count.positive?
+        moments.zip(strategies).flatten.compact
+      else
+        strategies.flatten.compact
+      end
 
-    stories = stories.sort_by {|x| x.created_at }.reverse!
-
-    return stories
+    stories.sort_by(&:created_at).reverse!
   end
 
   def moments_stats
@@ -283,17 +266,17 @@ class ApplicationController < ActionController::Base
       result += '<div class="center" id="stats">'
 
       if count == 1
-        result += t('stats.total_moment', {count: count.to_s})
+        result += t('stats.total_moment', count: count.to_s)
       else
-        result += t('stats.total_moments', {count: count.to_s})
+        result += t('stats.total_moments', count: count.to_s)
 
         monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
         if count != monthly_count
           result += ' '
           if monthly_count == 1
-            result += t('stats.monthly_moment', {count: monthly_count.to_s})
+            result += t('stats.monthly_moment', count: monthly_count.to_s)
           else
-            result += t('stats.monthly_moments', {count: monthly_count.to_s})
+            result += t('stats.monthly_moments', count: monthly_count.to_s)
           end
         end
       end
@@ -301,6 +284,6 @@ class ApplicationController < ActionController::Base
       result += '</div>'
     end
 
-    return result
+    result
   end
 end

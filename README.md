@@ -7,10 +7,12 @@ if me is a community for mental health experiences that encourages people to sha
 
 Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behavior. Getting them involved in mental health treatment is the key to recovery.
 
+**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
+
+We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
+
 # Table of Contents
 
-* [Goals](#goals)
-* [Getting Involved](#getting-involved)
 * [Installation](#installation)
 * [Configuration Files](#configuration-files)
 * [Running the App Locally](#running-the-app-locally)
@@ -21,41 +23,23 @@ Dealing with mental health is what makes us human. But for a lot of us, it's a s
 * [Tracking Issues](#tracking-issues)
 * [License](#license)
 
-# Goals
-
-* Allow users to write about their experiences (Moments) similar to a blog and get feedback and support from their allies
-* Create personalized categories and moods to organize Moments and Strategies
-* Develop and share Strategies to solve problems and maintain healthy self-care goals
-* Keep track of medications and create alerts for them
-* Create support groups whether online or offline and keep track of sessions
-
-Check out our projects [page](https://github.com/julianguyen/ifme/projects) to see what we are currently working on!
-
-Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features!
-
-# Getting Involved
-
-Fork the repository, pick up an issue, or create an issue for a feature you would like to see. If would like to be added as a collaborator and added to our Slack [page](https://ifme.slack.com), email join.ifme@gmail.com.
-
-If you're looking to give feedback on the app, you can do so [here](http://goo.gl/forms/8EqoJDDiXY)!
-
-## Contributor Code of Conduct
-
-We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
-
 # Installation
 
 The app uses  **Ruby 2.3.1** and **Rails 4.2.6**. Please stick to these versions.
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
-## Ruby on Rails
+## Common Errors
+
+Commons errors faced during installation are documented in this [guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
+
+## I. Ruby on Rails
 
 If you do not have Rails, use this handy [guide](http://installrails.com).
 
-If you're updating an existing installation through RVM or rbenv. Continue to 1) or 2).
+If you're updating an existing installation through RVM or rbenv, continue to (A) or (B).
 
-#### 1) RVM
+#### option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -63,7 +47,7 @@ Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the lat
 rvm get stable --autolibs=enable
 ```
 
-Close and re-open the terminal window
+**Close and re-open the terminal window**
 
 ```
 rvm install ruby-2.3.1
@@ -71,7 +55,7 @@ rvm install ruby-2.3.1
 
 Check that Ruby has been updated by running `ruby -v`.
 
-#### 2) rbenv
+#### option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
@@ -88,7 +72,7 @@ cd ifme
 rbenv local 2.3.1
 ```
 
-### Gems
+## II. Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
@@ -104,33 +88,33 @@ gem install bundler
 gem install nokogiri
 ```
 
-On macOS, if you run into nokogiri errors run `xcode-select --install`
+Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to (A) or (B).
 
-Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to 1) or 2).
-
-#### 1) RVM
+#### option (A) RVM
 
 ```
 rvm use ruby-2.3.1@rails4.2.6 --create
 ```
 
-#### 2) rbenv
+#### option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
-### Updating An Existing Rails Installation
+### III. Updating An Existing Rails Installation
 
 ```
 gem install rails --version=4.2.6
 ```
 
+Restart your terminal (or open a new tab)
+
 Check that Rails has been updated by running `rails -v`.
 
-## Postgres
+## IV. Postgres
 
 Check out http://www.postgresql.org/download/
 
-### macOS
+#### A. macOS
 
 Install via [Homebrew](http://brew.sh/)
 
@@ -142,53 +126,23 @@ then start the postgres server:
 
 For more information, follow [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/) for a more detailed setup
 
-### Linux
+#### B. Linux
 
 Build from the source using yum, apt-get, etc. If you already have Postgres installed, please update it.
 
-### Windows
+#### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
-## Install Gems
+## V. Install Gems
 
-After cloning the app on your local machine, in your terminal run the following commands in the `/ifme` directory
+After cloning the app on your local machine, in your terminal run the following command in the `/ifme` directory
 
 ```
 bundle install
 ```
 
-## Possible Errors
-
-### Ruby
-
-If `Ruby Bundle Symbol not found: _SSLv2_client_method (LoadError)` is encountered, try running the following commands.
-
-```
-rvm get stable
-```
-
-```
-rvm reinstall ruby
-```
-
-```
-rvm gemset pristine
-```
-
-### libv8 and therubyracer
-
-If using macOS 10.11+ and there are errors relating to libv8 and therubyracer, view the links below for help.
-
-* libv8: https://github.com/cowboyd/libv8/issues/205
-* therubyracer: http://stackoverflow.com/questions/33475709/install-therubyracer-gem-on-osx-10-11-el-capitan, https://github.com/cowboyd/therubyracer/issues/359
-
-### SSL
-
-On Windows, you may encounter an error like `SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed`.  If this happens, download the [CURL CA bundle](http://curl.haxx.se/ca/cacert.pem) and set the environment variable `SSL_CERT_FILE` to point to it.
-
 # Configuration Files
-
 ## Mandatory
 
 There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
@@ -196,18 +150,18 @@ There are three config files: `config/env/test.env`, `config/env/development.env
 Copy the sample files to create your own configuration files:
 
 `cp config/env/test.example.env config/env/test.env`
-
 `cp config/env/development.example.env config/env/development.env`
 
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
-## Optional
+BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git.
 
+## Optional
 The following are not mandatory, but are required if you would like to test/use these features.
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to use this feature in your local environment, please create your own account, generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in `config/env/test.env` and `config/env/development.env`.
 
-[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
+[Google OAuth 2.0 IDs](https://console.developers.google.com) is used for OAuth (Sign in with Google) and Calendars (refill dates for Medications). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `config/env/test.env` and `config/env/development.env`. You'll need to activate both the Google+ API and the Contacts API for OAuth, and the Calendar API for Calendars. Under the credentials tab, make sure to add the Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`. Note, you may have to hit the Save button twice for this to take effect.
 
 [Google API](https://console.developers.google.com) is used for location autocomplete, specifically the Maps JavaScript API (which needs to be activated). If you would like to use this feature in your local environment, please create your own account, generate keys, and update `GOOGLE_API_KEY` in `config/env/test.env` and `config/env/development.env`.
 
@@ -221,9 +175,14 @@ The following [guide](https://launchschool.com/blog/handling-emails-in-rails) fr
 
 Please do not test these with the [Testing Accounts](#testing-accounts). Create new accounts with valid email addresses!
 
-If you want to test out scheduled emails, run the following commands: `bundle exec rake scheduler:send_take_medication_reminders`
+If you want to test out scheduled emails, run the following commands:
+
+`bundle exec rake scheduler:send_take_medication_reminders`
+
 `bundle exec rake scheduler:send_refill_reminders`
+
 `bundle exec rake scheduler:send_perform_strategy_reminders`
+
 `bundle exec rake scheduler:send_meeting_reminders`
 
 ### Letter Opener
@@ -273,6 +232,7 @@ docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bas
 
 Assuming [Vagrant](https://www.vagrantup.com/docs/installation/) is setup, you can add the following line to your Vagrantfile. Make sure to add it exactly as below - with `:` and not quotes, or it may not work properly.
 
+
 ```
 config.vm.network :forwarded_port, guest: 3000, host: 3000
 ```
@@ -281,25 +241,6 @@ Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting t
 
 ```
 bin/rails server -b 0.0.0.0
-```
-
-## Possible Errors
-
-### Postgres
-
-```
-PG::ConnectionBad (fe_sendauth: no password supplied )
-```
-
-You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
-
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`, then add username and password to `config/database.yml`:
-
-```
-development: &default
-  ...
-  username: <%= ENV["PSQL_USERNAME"] %>
-  password: <%= ENV["PSQL_PASSWORD"] %>
 ```
 
 ## Accessing the Database
@@ -339,12 +280,6 @@ Always write tests for the changes you've made! If you see any missing tests, wr
 
 ```
 rspec
-```
-
-If you receive an error for having `'FATAL:  database "ifme_test" does not exist'`, run the following.
-
-```
-bin/rake db:create db:migrate RAILS_ENV=test
 ```
 
 ## Jasmine for JavaScript

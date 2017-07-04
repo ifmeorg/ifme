@@ -1,15 +1,15 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: %i[show edit update destroy]
 
   # GET /groups
   # GET /groups.json
   def index
     @groups = current_user.groups
                           .includes(:group_members)
-                          .order("groups.created_at DESC")
+                          .order('groups.created_at DESC')
     @page_tooltip = t('groups.new')
-    @available_groups = current_user.available_groups("groups.created_at DESC")
+    @available_groups = current_user.available_groups('groups.created_at DESC')
   end
 
   # GET /groups/1
@@ -29,10 +29,9 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    unless @group.leaders.include?(current_user)
-      flash[:error] = t('groups.form.error_edit_permission')
-      redirect_to_index
-    end
+    return if @group.leaders.include?(current_user)
+    flash[:error] = t('groups.form.error_edit_permission')
+    redirect_to_index
   end
 
   # POST /groups

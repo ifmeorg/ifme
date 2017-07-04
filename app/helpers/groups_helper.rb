@@ -28,7 +28,8 @@ module GroupsHelper
 
   def delete_group_link(group, attrs = {})
     link_to t('common.actions.delete'), group,
-            { method: :delete,
+            {
+              method: :delete,
               data: { confirm: t('common.actions.confirm') }
             }.merge(attrs)
   end
