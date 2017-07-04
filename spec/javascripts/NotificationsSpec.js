@@ -1,8 +1,14 @@
+function keyPress(key) {
+  var e = jQuery.Event("keyup");
+  e.which = key;
+  e.keyCode = key;
+  $('input').trigger(e);
+}
+
 describe("Notifications", function() {
   beforeEach(function() {
     loadFixtures('notifications.html');
     onReadyNotifications();
-    keyPress = spyOn(window, "keyPress"); //???
   });
 
   it("test notifications show", function() {
@@ -30,10 +36,10 @@ describe("Notifications", function() {
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 
-  it("close tips notifications modal", function() { // ADDED
+  it("close tips notifications modal", function() { // Doesn't work!!
     $('.tip_close_notifications').click();
     expect($('.tip_notifications').hasClass("display_none")).toBe(true);
-  })
+  });
 
   it("keep tips modal open on modal click", function() { // ADDED
     $('.tip_notifications_text').click();
@@ -46,7 +52,7 @@ describe("Notifications", function() {
   });
 
   it("close tips modal on esc key press", function() { // ADDED
-    // ADD HERE!!!
+    keyPress(27);
     expect($('.tip_notifications').hasClass("display_none")).toBe(true);
   });
 
@@ -66,7 +72,7 @@ describe("Notifications", function() {
   });
 
   it("close categories moods on esc key press", function() { // ADDED
-    // ADD HERE!!!
+    keyPress(27);
     expect($('#categories_moods').hasClass("display_none")).toBe(true);
   });
 
@@ -86,7 +92,7 @@ describe("Notifications", function() {
   });
 
   it("close quick create on esc key press", function() { // ADDED
-    // ADD HERE!!!
+    keyPress(27);
     expect($('#category_quick_create').hasClass("display_none")).toBe(true);
     expect($('#mood_quick_create').hasClass("display_none")).toBe(true);
     expect($('#strategy_quick_create').hasClass("display_none")).toBe(true);
