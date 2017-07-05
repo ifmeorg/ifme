@@ -525,7 +525,7 @@ DEPENDENCIES
   underscore-rails (= 1.8.3)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.4p112
 
 BUNDLED WITH
    1.15.1
