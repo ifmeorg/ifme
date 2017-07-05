@@ -142,6 +142,14 @@
     "link_name":"liirene1",
     "link":"https://github.com/liirene1",
     "social":"github"
+  },
+  {
+    "name":"Sophie McDonald",
+    "image":"/assets/contributors/sophie_mcdonald.jpg",
+    "profile":"I feel honoured to be able to contribute to ifme, through the Rails Girls Summer of Code program. Having had my own battles with mental health, the project appealed to me instantly. I love that I can contribute to a project which supports and makes a positive difference to the lives of those dealing with mental health. I wish I had have known about ifme sooner.",
+    "location":"Melbourne, Australia",
+    "link_name":"sophierose239",
+    "link":"https://twitter.com/sophierose239",
+    "social":"Twitter"
   }
-
 ]
