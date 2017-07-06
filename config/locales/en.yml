@@ -42,6 +42,8 @@ en:
     join: 'Join'
     leave: 'Leave'
     add: 'Add'
+    premade_add: 'Add Premade Content'
+    confirm_add: 'Confirm Add Content'
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'

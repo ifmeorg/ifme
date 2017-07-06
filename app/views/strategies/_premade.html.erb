@@ -1,0 +1,20 @@
+<% if @strategies.blank? %>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+      <div id="pages">
+      <div class="strategy no_margin_bottom premade-box">
+        <h1 class="strategy_name">
+          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
+          <%= t('strategies.index.premade1_name') %>
+        </h1>
+        <%= strip_tags(t('strategies.index.premade1_description')[0..150]) %>
+        <% if t('strategies.index.premade1_description').length >= 150 %>
+          <%= t('ellipsis') %>
+        <% end %>
+          <%= button_to t('common.actions.premade_add'), premade_strategies_path, class: "confirmbtn actions"%>
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>

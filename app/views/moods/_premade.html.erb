@@ -1,0 +1,42 @@
+<% if @moods.blank? %>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+      <div class="mood premade-box">
+        <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
+        <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>
+        <% if t('moods.index.premade1_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood premade-box">
+        <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade2_description')[0..80]) %>
+        <% if t('moods.index.premade2_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood premade-box">
+        <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade3_description')[0..80]) %>
+        <% if t('moods.index.premade3_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+
+      <div class="mood premade-box no_margin_bottom">
+        <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
+
+        <%= strip_tags(t('moods.index.premade4_description')[0..80]) %>
+        <% if t('moods.index.premade4_description').length >= 80 %>
+          <%= t('ellipsis') %>
+        <% end %>
+      </div>
+      <%= button_to t('common.actions.premade_add'), premade_moods_path, class: "confirmbtn actions"%>
+    </div>
+  </div>
+<% end %>

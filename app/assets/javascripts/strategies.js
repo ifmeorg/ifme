@@ -18,3 +18,4 @@ var onReadyStrategies = function() {
 };
 
 $(document).on("page:load ready", onReadyStrategies);
+
