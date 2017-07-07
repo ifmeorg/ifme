@@ -151,5 +151,14 @@
     "link_name":"sophierose239",
     "link":"https://twitter.com/sophierose239",
     "social":"Twitter"
+  },
+  {
+    "name":"Jenny Nam",
+    "image":"/assets/contributors/jnamster.png",
+    "profile":"Contributing to an open source project on mental health is important to me. Mental health affects everyone regardless of where they live or work. ifme is a great platform to share experiences, increase awareness and understanding, and provide people a community of support around the world. I believe it is important that we recognise it is okay to share our experiences with mental health issues.",
+    "location":"Melbourne, Australia",
+    "link_name":"jennynamster",
+    "link":"https://github.com/jnamster",
+    "social":"github"
   }
 ]
