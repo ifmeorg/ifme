@@ -31,3 +31,6 @@
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
+
+# Ignore .env files
+.env
