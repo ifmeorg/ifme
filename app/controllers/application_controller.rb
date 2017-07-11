@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     @locales = [
       { name: 'English', locale: :en },
       { name: 'Español', locale: :es },
-      { name: 'Português', locale: :ptbr}
+      { name: 'Português', locale: :ptbr }
     ]
     I18n.locale = user_signed_in? ? current_user.locale : cookies[:locale]
     @locale = I18n.locale
