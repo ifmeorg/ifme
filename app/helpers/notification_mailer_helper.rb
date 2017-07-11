@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailerHelper
   def comment_on_moment_subject(data)
     I18n.t(

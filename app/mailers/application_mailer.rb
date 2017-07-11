@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
   include ApplicationMailerHelper

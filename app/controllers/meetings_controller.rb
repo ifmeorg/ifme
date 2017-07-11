@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: %i[show edit update destroy]
 
@@ -341,11 +343,11 @@ class MeetingsController < ApplicationController
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def not_a_leader(groupid)
-    unless GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
-      respond_to do |format|
-        format.html { redirect_to group_path(groupid) }
-        format.json { head :no_content }
-      end
+    return if GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
+
+    respond_to do |format|
+      format.html { redirect_to group_path(groupid) }
+      format.json { head :no_content }
     end
   end
 

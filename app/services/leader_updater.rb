@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LeaderUpdater
   def initialize(group, updated_leader_ids)
     @group = group

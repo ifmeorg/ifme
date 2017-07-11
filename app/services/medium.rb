@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'open-uri'
 require 'json'
 
@@ -15,7 +17,7 @@ class Medium
   def content
     content = ''
     open('https://medium.com/ifme?format=json') do |file|
-      file.each_line { |line| content << line }
+      file.each_line { |line| content += line }
     end
     content
   end
