@@ -1,6 +1,5 @@
 function changeEditorCount(editorCount, remaining) {
 	$(editorCount).html(remaining);
-
     if (remaining <= 0) {
     	$(editorCount).css('color', '#990019');
 
@@ -21,7 +20,7 @@ function noCKEditor(editor) {
   	var editorCount = '#' + editorName + '_count';
 	var remaining = 2000 - editorData.length;
 
-   changeEditorCount(editorCount, remaining);
+	 changeEditorCount(editorCount, remaining);
 }
 
 function yesCKEditor(editor) {
