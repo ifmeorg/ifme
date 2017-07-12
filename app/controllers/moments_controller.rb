@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MomentsController < ApplicationController
   include CollectionPageSetup
   before_action :set_moment, only: %i[show edit update destroy]
