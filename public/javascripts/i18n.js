@@ -65,7 +65,7 @@
   };
 
   var isString = function(val) {
-    return typeof value == 'string' || Object.prototype.toString.call(val) === '[object String]';
+    return typeof val == 'string' || Object.prototype.toString.call(val) === '[object String]';
   };
 
   var isNumber = function(val) {
