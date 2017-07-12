@@ -25,11 +25,11 @@ end
 desc 'Automate the Config Setup for New Environments'
 task :setup_workspace do
   dev_example = Rails.root + 'config/env/development.example.env'
-  dev_target = Rails.root + 'config/env/development.env'
+  dev_target = Rails.root + 'config/env/development.example.env'
   FileUtils.cp(dev_example, dev_target)
 
   test_example = Rails.root + 'config/env/test.example.env'
-  test_target = Rails.root + 'config/env/test.env'
+  test_target = Rails.root + 'config/env/test.example.env'
   FileUtils.cp(test_example, test_target)
 
   # Used code from http://stackoverflow.com/a/3543 on Rakefile output capture
