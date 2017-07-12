@@ -64,14 +64,14 @@
     return Object.prototype.toString.call(val) === '[object Array]';
   };
 
-  var isString = function(val) {
-    return typeof val == 'string' || Object.prototype.toString.call(val) === '[object String]';
+    var isStringNumber = function isStringOrNumber(value){
+      if(Object.prototype.toString.call(value) === '[object String]') {
+          return typeof value == 'string';
+      } else if(Object.prototype.toString.call(value) === '[object Number]') {
+          return typeof value == 'number'
+      }
 
-  };
-
-  var isNumber = function(val) {
-    return typeof val == 'number' || Object.prototype.toString.call(val) === '[object Number]';
-  };
+    }
 
   var isBoolean = function(val) {
     return val === true || val === false;
@@ -100,7 +100,7 @@
     var key, value;
     for (key in obj) if (obj.hasOwnProperty(key)) {
       value = obj[key];
-      if (isString(value) || isNumber(value) || isBoolean(value)) {
+      if (isStringNumber(value) || isBoolean(value)) {
         dest[key] = value;
       } else {
         if (dest[key] == null) dest[key] = {};
