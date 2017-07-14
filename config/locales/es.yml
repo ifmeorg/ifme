@@ -403,6 +403,11 @@ es:
     social_media_description: "<p> Comunicación, involucramiento, y acciones llevadas a cabo a través de plataformas de redes sociales externas en las que participa este sitio de internet están adscritas los t´rminos y condiciones de cada red social en cuestión.</p><p> Se aconseja a los usuarios emplear redes sociales cuidadosamente e involucrarse en ellas con la debida precaución al respecto de su privacidad e información personales. Este sitio jamás pedirá información de carácter personal o sensible a través de redes sociales y aconseja a los usuarios que deseen comentar detalles personales a contactarse de forma privada vía telefónica o correo electrónico.</p><p>Este sitio puede utilizar botones para compartir en redes sociales que sirven para contenido de páginas de internet a la red social en cuestión. Se aconseja a los usuarios que antes de emplear dichos botones para compartir lo hagan bajo su propia discreción y tomen en cuenta que la plataforma de la red social puede rastrear y guardar la solicitud para compartir una página de internet respectivamente a través de la cuenta perteneciente al usuario dentro de la plataforma de la red social.</p>"
     contact: "Contacto"
     contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
+  resources:
+    communities: Comunidades
+    education: Educación
+    hotlines: Líneas de Ayuda
+    services: Servicios
 
  profile:
   index:
@@ -429,6 +434,7 @@ es:
     foss: "Free and open source software (Programa gratuito y de fuente abierta)"
     license_subtitle: "Licencia bajo %{license}"
     connect: "Conectarse"
+    resources: "Recursos"
   comments:
     share_everyone: "Compartir con todos"
     share_with: "Compartir con %{name} únicamente"

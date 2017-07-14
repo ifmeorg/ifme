@@ -26,6 +26,7 @@ en:
    medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
+   resources: 'Resources'
 
  common:
    name: 'Name'
@@ -401,6 +402,11 @@ en:
     social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
     contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+  resources:
+    communities: Communities
+    education: Education
+    hotlines: Hotlines
+    services: Services
 
  profile:
   index:

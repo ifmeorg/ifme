@@ -1,0 +1,12 @@
+[
+  {
+    "name":"ATest",
+    "link":"Test Link",
+    "tags":["test", "hello"]
+  },
+  {
+    "name":"BTest",
+    "link":"Test Link",
+    "tags":["test", "hello"]
+  }
+]

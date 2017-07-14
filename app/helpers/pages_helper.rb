@@ -13,7 +13,7 @@ module PagesHelper
     html = ''
 
     data.each_with_index do |d, index|
-      break unless valid_hash? d
+      break unless valid_partners_hash? d
 
       image = image_tag(d['image_link'], alt: d['name'])
       link = link_to(image, d['link'], target: 'blank')
@@ -25,9 +25,27 @@ module PagesHelper
     html.html_safe
   end
 
+  def print_resources(data_type, data)
+    resource_items = ''
+    data.each do |d|
+      break unless valid_resources_hash? d
+
+      name_link = link_to(d['name'], d['link'], target: 'blank')
+      #tags = d['tags']
+      resource = name_link #+ tags
+
+      resource_items += content_tag(:div, resource, class: 'resource')
+    end
+
+    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type)
+    resource_list = content_tag(:div, resource_items, id: "#{data_type}_list")
+    html = resource_title + resource_list
+    html.html_safe
+  end
+
   private
 
-  def valid_hash?(d)
+  def valid_partners_hash?(d)
     d.is_a?(Hash) && d['name'].is_a?(String) && d['link'].is_a?(String) &&
       d['image_link'].is_a?(String)
   end
@@ -36,5 +54,10 @@ module PagesHelper
     return '' unless index + 1 != size
 
     content_tag(:div, '', class: 'spacer')
+  end
+
+  def valid_resources_hash?(d)
+    d.is_a?(Hash) && d['name'].is_a?(String) && d['link'].is_a?(String) &&
+      d['tags'].is_a?(Array)
   end
 end
