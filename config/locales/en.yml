@@ -198,8 +198,8 @@ en:
    instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
    example_name: 'Prozac'
    example_strength: '10 mg'
-   example_total: '2 tablets'
-   example_dosage: '40 tablets'
+   example_total: '40 tablets'
+   example_dosage: '2 tablets'
    example_refill: '05/31/2016'
   show:
    comments: 'Comments:'

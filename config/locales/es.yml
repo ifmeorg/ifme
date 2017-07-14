@@ -199,8 +199,8 @@ es:
    instructions: "Aún no has guardado información de ningún medicamento. ¡Da click en %{icon} para agregar uno!<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
    example_name: "Prozac"
    example_strength: "10 mg"
-   example_total: "2 tabletas"
-   example_dosage: "40 tabletas"
+   example_total: "40 tabletas"
+   example_dosage: "2 tabletas"
    example_refill: "05/31/2016"
   show:
    comments: "Comentarios:"
