@@ -41,7 +41,8 @@ module PagesHelper
       resource_items += content_tag(:div, resource.html_safe, class: 'resource')
     end
 
-    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type, class: 'resources')
+    resource_title_class = params[:resource] == data_type ? 'resources page_anchor' : 'resources'
+    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type, class: resource_title_class)
     resource_list = content_tag(:div, resource_items.html_safe, id: "#{data_type}_list", class: "resource_list")
     html = resource_title + resource_list
     html.html_safe

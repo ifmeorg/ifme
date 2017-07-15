@@ -396,6 +396,8 @@ h1.resources {
     margin: 0px 0px 10px 0px;
     line-height: 54px;
     font-size: $font20;
+    white-space: nowrap;
+    overflow-y: auto;
   }
 
   @media screen and (max-width: $small) {
