@@ -721,16 +721,23 @@ input[type="submit"]:hover {
   }
 }
 
+.sidebar_label{
+  padding: 7px 12px!important;
+  margin-bottom: 12px!important;
+  box-shadow:0px 2px 8px 0px #ccc!important;
+}
+
 .sidebar_label label, .sidebar_label {
   font-size: $font24;
 }
 
-.sidebar_label.expand_toggle label {
+.sidebar_label .expand_toggle label {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+  box-shadow: 0px 7px 15px -7px #ccc!important;
 }
 
 .special_textarea {
