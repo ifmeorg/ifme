@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module PagesHelper
+  include ApplicationHelper
+
   def print_contributors(contributors)
     contributors.map do |c|
       if c.is_a?(Hash) && c['name'].is_a?(String) && c['link'].is_a?(String)
@@ -27,8 +29,9 @@ module PagesHelper
 
   def print_resources(data_type, data)
     resource_items = ''
+    html = ''
     data.each do |d|
-      break unless valid_resources_hash? d
+      break unless valid_resources_hash?(d) && data_type.is_a?(String)
       name_link = link_to(d['name'], d['link'], target: 'blank')
       tags_list = ''
       d['tags'].each do |t|
@@ -41,10 +44,12 @@ module PagesHelper
       resource_items += content_tag(:div, resource.html_safe, class: 'resource')
     end
 
-    resource_title_class = params[:resource] == data_type ? 'resources page_anchor' : 'resources'
-    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type, class: resource_title_class)
-    resource_list = content_tag(:div, resource_items.html_safe, id: "#{data_type}_list", class: "resource_list")
-    html = resource_title + resource_list
+    if resource_items.length > 0
+      resource_title_class = params[:resource] == data_type ? 'resources page_anchor' : 'resources'
+      resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type, class: resource_title_class)
+      resource_list = content_tag(:div, resource_items.html_safe, id: "#{data_type}_list", class: 'resource_list')
+      html = resource_title + resource_list
+    end
     html.html_safe
   end
 
