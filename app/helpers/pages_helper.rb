@@ -29,16 +29,20 @@ module PagesHelper
     resource_items = ''
     data.each do |d|
       break unless valid_resources_hash? d
-
       name_link = link_to(d['name'], d['link'], target: 'blank')
-      #tags = d['tags']
-      resource = name_link #+ tags
-
-      resource_items += content_tag(:div, resource, class: 'resource')
+      tags_list = ''
+      d['tags'].each do |t|
+        if i18n_set? "pages.resources.tags.#{t}"
+          tags_list += content_tag(:span, t("pages.resources.tags.#{t}"), class: 'resource_tag')
+        end
+      end
+      tags = content_tag(:div, tags_list.html_safe, class: "resource_tags")
+      resource = name_link + tags
+      resource_items += content_tag(:div, resource.html_safe, class: 'resource')
     end
 
-    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type)
-    resource_list = content_tag(:div, resource_items, id: "#{data_type}_list")
+    resource_title = content_tag(:h1, t("pages.resources.#{data_type}"), id: data_type, class: 'resources')
+    resource_list = content_tag(:div, resource_items.html_safe, id: "#{data_type}_list", class: "resource_list")
     html = resource_title + resource_list
     html.html_safe
   end

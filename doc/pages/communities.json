@@ -1,12 +1,22 @@
 [
   {
-    "name":"ATest",
-    "link":"Test Link",
-    "tags":["test", "hello"]
+    "name":"Aloe",
+    "link":"https://aloe.club",
+    "tags":["self_care", "anonymous"]
   },
   {
-    "name":"BTest",
-    "link":"Test Link",
-    "tags":["test", "hello"]
+    "name":"Brown Sisters Speak",
+    "link":"https://www.facebook.com/Brownsistersspeak",
+    "tags":["women_of_colour", "self_care", "domestic_violence"]
+  },
+  {
+    "name":"Koko",
+    "link":"https://itskoko.com",
+    "tags":["chatbot", "anonymous"]
+  },
+  {
+    "name":"Lemonaid",
+    "link":"http://lemonaid.io",
+    "tags":["women", "self_care", "domestic_violence", "anonymous"]
   }
 ]

@@ -407,6 +407,18 @@ en:
     education: Education
     hotlines: Hotlines
     services: Services
+    tags:
+      women_of_colour: women of colour
+      domestic_violence: domestic violence
+      therapy: therapy
+      counseling: counseling
+      youth: youth
+      LGBTQ: LGBTQ
+      harassment: harassment
+      self_care: self-care
+      women: women
+      chatbot: chatbot
+      anonymous: anonymous
 
  profile:
   index:
