@@ -47,7 +47,7 @@ Please sign up for a account on our official site, if-me.org. Use the app for a 
 ### Writer
 
 Please join our `#socialmedia` channel on Slack! We post amazing content all over social media:
-* [Medium](http://medium.org/ifme)
+* [Medium](http://medium.com/ifme)
 * [Twitter](https://twitter.com/ifmeorg)
 * [Instagram](https://www.instagram.com/ifmeorg)
 * [Facebook](http://facebook.com/ifmeorg)
