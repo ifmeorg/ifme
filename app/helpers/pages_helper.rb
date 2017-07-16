@@ -54,33 +54,49 @@ module PagesHelper
     data.each do |d|
       break unless valid_hash?('resources', d) && data_type.is_a?(String)
       name_link = link_to(d['name'], d['link'], target: 'blank')
-      tags_list = fetch_tags(d)
-      tags = content_tag(:div, tags_list.html_safe, class: 'resource_tags')
-      resource = name_link + tags
+      languages = fetch_items('languages', d)
+      tags = fetch_items('tags', d)
+      resource = name_link + languages + tags
       resource_items += content_tag(:div, resource.html_safe, class: 'resource')
     end
     resource_items
   end
 
-  def fetch_tags(resource_item)
-    tags_list = ''
-    resource_item['tags'].each do |t|
-      if i18n_set? "pages.resources.tags.#{t}"
-        tags_list += content_tag(:span, t("pages.resources.tags.#{t}"),
-                                 class: 'resource_tag')
-      end
+  def fetch_items(item_type, items)
+    list = ''
+    items[item_type].each do |i|
+      list += fetch_item(item_type, i)
     end
-    tags_list
+    return list unless list.length.positive?
+    list += content_tag(:div, '', class: 'clear') if item_type == 'languages'
+    content_tag(:div, list.html_safe, class: "resource_#{item_type}")
+  end
+
+  def fetch_item(item_type, item)
+    if item_type == 'tags'
+      resource_key = "pages.resources.tags.#{item}"
+      resource_class = 'resource_tag'
+    elsif item_type == 'languages'
+      resource_key = "languages.#{item}"
+      resource_class = 'resource_language'
+    end
+    return '' unless i18n_set? resource_key
+    content_tag(:span, t(resource_key), class: resource_class)
   end
 
   def valid_hash?(data_type, data)
     basic_check = data.is_a?(Hash) && data['name'].is_a?(String) &&
                   data['link'].is_a?(String)
     return false unless basic_check
+    data_type_check(data_type, data)
+  end
+
+  def data_type_check(data_type, data)
     if data_type == 'partners'
       data_type_check = data['image_link'].is_a?(String)
     elsif data_type == 'resources'
-      data_type_check = data['tags'].is_a?(Array)
+      data_type_check = data['tags'].is_a?(Array) &&
+                        data['languages'].is_a?(Array)
     end
     data_type_check
   end

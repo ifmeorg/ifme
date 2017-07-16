@@ -1,42 +1,50 @@
 [
   {
-    "name":"National Queer & Trans Therapists of Color Network",
+    "name":"National Queer & Trans Therapists of Color Network (US)",
     "link":"http://www.nqttcn.com",
-    "tags":["lgbtqia", "people_of_colour", "therapy", "counseling"]
+    "tags":["lgbtqia", "people_of_colour", "therapy", "directory"],
+    "languages":["en"]
   },
   {
     "name":"Online SOS",
     "link":"https://www.onlinesosnetwork.org",
-    "tags":["cyberbullying", "harassment", "free", "counseling"]
+    "tags":["cyberbullying", "harassment", "free", "counseling"],
+    "languages":["en"]
   },
   {
     "name":"Talkspace",
     "link":"https://www.talkspace.com",
-    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"]
+    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"],
+    "languages":["en"]
   },
   {
     "name":"7 Cups",
     "link":"https://www.7cups.com",
-    "tags":["therapy", "counseling", "paid", "free", "texting"]
+    "tags":["therapy", "counseling", "paid", "free", "texting"],
+    "languages":["en"]
   },
   {
     "name":"Headspace",
     "link":"https://www.headspace.com",
-    "tags":["meditation", "paid"]
+    "tags":["meditation", "paid"],
+    "languages":["en"]
   },
   {
     "name":"Joyable",
     "link":"https://joyable.com",
-    "tags":["social_anxiety", "therapy", "paid"]
+    "tags":["social_anxiety", "therapy", "paid"],
+    "languages":["en"]
   },
   {
     "name":"Feerless",
     "link":"https://feerless.us",
-    "tags":["trigger_warnings", "netflix", "free", "open_source"]
+    "tags":["trigger_warnings", "netflix", "free", "open_source"],
+    "languages":["en"]
   },
   {
     "name":"BetterHelp",
     "link":"https://www.betterhelp.com",
-    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"]
+    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"],
+    "languages":["en"]
   }
 ]
