@@ -44,10 +44,8 @@ module ApplicationHelper
   end
 
   def i18n_set?(key)
-    begin
-      I18n.t key, raise: true
-    rescue
-      false
-    end
+    I18n.t key, raise: true
+  rescue
+    false
   end
 end
