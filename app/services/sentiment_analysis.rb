@@ -30,6 +30,8 @@ class SentimentAnalysis
         http.request(request)
     end
 
+    puts '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
     puts response.body
+    puts '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
   end
 end
