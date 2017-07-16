@@ -405,48 +405,48 @@ es:
     contact: "Contacto"
     contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
   resources:
-    description: "Welcome to our curated mental health resources organized by %{communities}, %{education}, %{hotlines}, and %{services}."
+    description: Te damos la bienvenida a nuestra lista de recursos para la salud mental organizados por %{communities}, %{education}, %{hotlines}, y %{services}.
     communities: Comunidades
     education: Educación
     hotlines: Líneas de Ayuda
     services: Servicios
     tags:
-      people_of_colour: people of colour
-      women_of_colour: women of colour
-      domestic_violence: domestic violence
-      dating_violence: dating violence
-      cyberbullying: cyberbullying
-      therapy: therapy
-      counseling: counseling
-      youth: youth
+      people_of_colour: personas de color
+      women_of_colour: mujeres de color
+      domestic_violence: violencia doméstica
+      dating_violence: violencia en el noviazgo
+      cyberbullying: acoso cibernético
+      therapy: terapia
+      counseling: asesoría
+      youth: juventud
       lgbtqia: LGBTQIA
-      harassment: harassment
-      self_care: self-care
-      women: women
+      harassment: acoso
+      self_care: autocuidado
+      women: mujeres
       chatbot: chatbot
-      anonymous: anonymous
-      free: free
-      paid: paid
+      anonymous: anónimo
+      free: gratuito
+      paid: con costo
       twenty_four_seven: 24/7
       videos: videos
       blog: blog
       podcast: podcast
-      books: books
-      publiciation: publication
-      video_chat: video chat
-      texting: texting
+      books: libros
+      publication: publicación
+      video_chat: vídeo chat
+      texting: mensajes de texto
       open_source: open source
-      workplace: workplace
-      social_justice: social justice
-      tech_industry: tech industry
-      meditation: meditation
-      social_anxiety: social anxiety
-      trigger_warnings: trigger warnings
+      workplace: lugar de trabajo
+      social_justice: justicia social
+      tech_industry: industria de la tecnología
+      meditation: meditación
+      social_anxiety: ansiedad social
+      trigger_warnings: advertencia
       netflix: netflix
-      homeless: homeless
-      talks: talks
-      voice_chat: voice chat
-      training: training
+      homeless: situación de calle
+      talks: pláticas
+      voice_chat: chat de voz
+      training: entrenamiento
 
  profile:
   index:
