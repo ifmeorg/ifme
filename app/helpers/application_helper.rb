@@ -43,7 +43,11 @@ module ApplicationHelper
     content_for(:page_new) { page_new_path }
   end
 
-  def i18n_set? key
-    I18n.t key, :raise => true rescue false
+  def i18n_set?(key)
+    begin
+      I18n.t key, raise: true
+    rescue
+      false
+    end
   end
 end
