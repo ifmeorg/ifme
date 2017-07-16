@@ -1,4 +1,4 @@
-describe("announcement", function() {
+describe("Announcement", function() {
   beforeEach(function() {
     loadFixtures("announcement.html");
   });

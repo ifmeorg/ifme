@@ -90,4 +90,77 @@ RSpec.describe PagesHelper, type: :helper do
       )
     end
   end
+
+  describe '#print_resources' do
+    it 'returns empty result for nil resource type and empty array' do
+      expect(print_resources(nil, [])).to eq('')
+    end
+
+    it 'returns empty result for malformed array' do
+      list = [{ 'name' => 'test', 'link' => 'http://if-me.org' }]
+
+      expect(print_resources('communities', list)).to eq('')
+      expect(print_resources('communities', ['test'])).to eq('')
+      expect(print_resources('communities', [['test']])).to eq('')
+    end
+
+    it 'returns correct result for one link with invalid tag' do
+      list = [{ 'name' => 'test', 'link' => 'http://if-me.org', 'tags' => ['tag_does_not_exist_in_i18n'] }]
+
+      expect(print_resources('communities', list)).to eq(
+        '<h1 id="communities" class="resources">Communities</h1>' \
+        '<div id="communities_list" class="resource_list">' \
+          '<div class="resource">' \
+            '<a target="blank" href="http://if-me.org">test</a>' \
+            '<div class="resource_tags"></div>' \
+          '</div>' \
+        '</div>'
+      )
+    end
+
+    it 'returns correct result for one link with valid tag' do
+      list = [{ 'name' => 'test', 'link' => 'http://if-me.org',
+                'tags' => ['self_care'] }]
+
+      expect(print_resources('communities', list)).to eq(
+        '<h1 id="communities" class="resources">Communities</h1>' \
+        '<div id="communities_list" class="resource_list">' \
+          '<div class="resource">' \
+            '<a target="blank" href="http://if-me.org">test</a>' \
+            '<div class="resource_tags">' \
+              '<span class="resource_tag">self-care</span>' \
+            '</div>' \
+          '</div>' \
+        '</div>'
+      )
+    end
+
+    it 'returns correct result for two links' do
+      list = [
+        { 'name' => 'tist', 'link' => 'http://if-me.org',
+          'tags' => ['self_care'] },
+        { 'name' => 'test', 'link' => 'http://if-me.org',
+          'tags' => ['anonymous', 'women'] }
+      ]
+
+      expect(print_resources('communities', list)).to eq(
+        '<h1 id="communities" class="resources">Communities</h1>' \
+        '<div id="communities_list" class="resource_list">' \
+          '<div class="resource">' \
+            '<a target="blank" href="http://if-me.org">tist</a>' \
+            '<div class="resource_tags">' \
+              '<span class="resource_tag">self-care</span>' \
+            '</div>' \
+          '</div>' \
+          '<div class="resource">' \
+            '<a target="blank" href="http://if-me.org">test</a>' \
+            '<div class="resource_tags">' \
+              '<span class="resource_tag">anonymous</span>' \
+              '<span class="resource_tag">women</span>' \
+            '</div>' \
+          '</div>' \
+        '</div>'
+      )
+    end
+  end
 end

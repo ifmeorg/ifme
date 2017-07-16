@@ -1,0 +1,32 @@
+[
+  {
+    "name":"Project UROK",
+    "link":"https://projecturok.org",
+    "tags":["youth", "videos", "blog"]
+  },
+  {
+    "name":"Open Sourcing Mental Illness (OSMI)",
+    "link":"https://osmihelp.org",
+    "tags":["open_source", "tech_industry", "workplace", "podcast", "books", "free"]
+  },
+  {
+    "name":"Everybody Has A Brain",
+    "link":"http://everybodyhasabrain.com",
+    "tags":["blog", "videos", "podcast", "books"]
+  },
+  {
+    "name":"The Icarus Project",
+    "link":"http://theicarusproject.net",
+    "tags":["social_justice", "books"]
+  },
+  {
+    "name":"Doll Hospital",
+    "link":"http://www.dollhospitaljournal.com",
+    "tags":["paid", "publication"]
+  },
+  {
+    "name":"Mental Health First Aid (US)",
+    "link":"https://www.mentalhealthfirstaid.org",
+    "tags":["training", "paid"]
+  }
+]

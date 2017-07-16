@@ -26,6 +26,7 @@ es:
    feedback: "retroalimentación"
    press: 'Prensa'
    faq: 'Preguntas Frecuentes'
+   resources: "Recursos"
 
  common:
    name: "Nombre"
@@ -403,6 +404,49 @@ es:
     social_media_description: "<p> Comunicación, involucramiento, y acciones llevadas a cabo a través de plataformas de redes sociales externas en las que participa este sitio de internet están adscritas los t´rminos y condiciones de cada red social en cuestión.</p><p> Se aconseja a los usuarios emplear redes sociales cuidadosamente e involucrarse en ellas con la debida precaución al respecto de su privacidad e información personales. Este sitio jamás pedirá información de carácter personal o sensible a través de redes sociales y aconseja a los usuarios que deseen comentar detalles personales a contactarse de forma privada vía telefónica o correo electrónico.</p><p>Este sitio puede utilizar botones para compartir en redes sociales que sirven para contenido de páginas de internet a la red social en cuestión. Se aconseja a los usuarios que antes de emplear dichos botones para compartir lo hagan bajo su propia discreción y tomen en cuenta que la plataforma de la red social puede rastrear y guardar la solicitud para compartir una página de internet respectivamente a través de la cuenta perteneciente al usuario dentro de la plataforma de la red social.</p>"
     contact: "Contacto"
     contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
+  resources:
+    description: Te damos la bienvenida a nuestra lista de recursos para la salud mental organizados por %{communities}, %{education}, %{hotlines}, y %{services}.
+    communities: Comunidades
+    education: Educación
+    hotlines: Líneas de Ayuda
+    services: Servicios
+    tags:
+      people_of_colour: personas de color
+      women_of_colour: mujeres de color
+      domestic_violence: violencia doméstica
+      dating_violence: violencia en el noviazgo
+      cyberbullying: acoso cibernético
+      therapy: terapia
+      counseling: asesoría
+      youth: juventud
+      lgbtqia: LGBTQIA
+      harassment: acoso
+      self_care: autocuidado
+      women: mujeres
+      chatbot: chatbot
+      anonymous: anónimo
+      free: gratuito
+      paid: con costo
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: libros
+      publication: publicación
+      video_chat: vídeo chat
+      texting: mensajes de texto
+      open_source: open source
+      workplace: lugar de trabajo
+      social_justice: justicia social
+      tech_industry: industria de la tecnología
+      meditation: meditación
+      social_anxiety: ansiedad social
+      trigger_warnings: advertencia
+      netflix: netflix
+      homeless: situación de calle
+      talks: pláticas
+      voice_chat: chat de voz
+      training: entrenamiento
 
  profile:
   index:

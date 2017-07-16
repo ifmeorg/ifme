@@ -351,3 +351,63 @@ h1.faq_heading {
     opacity: 0.5;
   }
 }
+
+/* Resources */
+
+h1.resources {
+  font-weight: 300;
+  font-size: $font30;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+  color: $secondary-text-color;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font26;
+    margin: 0px 0px 10px 0px;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: $font24;
+    margin: 0px 0px 10px 0px;
+  }
+}
+
+.resource_list,
+.resource_list a {
+  line-height: 56px;
+  font-size: $font24;
+
+  @media screen and (max-width: $medium) {
+    line-height: 52px;
+    font-size: $font20;
+  }
+
+  @media screen and (max-width: $small) {
+    line-height: 48px;
+    font-size: $font16;
+  }
+}
+
+.resource_tags {
+  float: right;
+
+  @media screen and (max-width: $medium) {
+    float: none;
+    margin: 0px 0px 10px 0px;
+    line-height: 48px;
+    font-size: $font16;
+    white-space: nowrap;
+    overflow-y: auto;
+  }
+}
+
+.resource_tag {
+  background-color: $tag-color;
+  color: $header-text-color;
+  padding: 10px;
+  margin-left: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
+}

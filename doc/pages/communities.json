@@ -1,0 +1,32 @@
+[
+  {
+    "name":"Aloe",
+    "link":"https://aloe.club",
+    "tags":["self_care", "anonymous"]
+  },
+  {
+    "name":"Brown Sisters Speak",
+    "link":"https://www.facebook.com/Brownsistersspeak",
+    "tags":["women_of_colour", "self_care", "domestic_violence"]
+  },
+  {
+    "name":"Koko",
+    "link":"https://itskoko.com",
+    "tags":["chatbot", "anonymous"]
+  },
+  {
+    "name":"Lemonaid",
+    "link":"http://lemonaid.io",
+    "tags":["women", "self_care", "domestic_violence", "anonymous"]
+  },
+  {
+    "name":"Tessera Collective",
+    "link":"https://www.facebook.com/tesseracollective",
+    "tags":["women_of_colour", "self_care", "domestic_violence"]
+  },
+  {
+    "name":"MHPrompt",
+    "link":"http://mhprompt.org",
+    "tags":["tech_industry", "talks"]
+  }
+]
