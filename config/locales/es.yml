@@ -26,6 +26,7 @@ es:
    feedback: "retroalimentación"
    press: 'Prensa'
    faq: 'Preguntas Frecuentes'
+   resources: "Recursos"
 
  common:
    name: "Nombre"
@@ -404,10 +405,48 @@ es:
     contact: "Contacto"
     contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
   resources:
+    description: "Welcome to our curated mental health resources organized by %{communities}, %{education}, %{hotlines}, and %{services}."
     communities: Comunidades
     education: Educación
     hotlines: Líneas de Ayuda
     services: Servicios
+    tags:
+      people_of_colour: people of colour
+      women_of_colour: women of colour
+      domestic_violence: domestic violence
+      dating_violence: dating violence
+      cyberbullying: cyberbullying
+      therapy: therapy
+      counseling: counseling
+      youth: youth
+      lgbtqia: LGBTQIA
+      harassment: harassment
+      self_care: self-care
+      women: women
+      chatbot: chatbot
+      anonymous: anonymous
+      free: free
+      paid: paid
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: books
+      publiciation: publication
+      video_chat: video chat
+      texting: texting
+      open_source: open source
+      workplace: workplace
+      social_justice: social justice
+      tech_industry: tech industry
+      meditation: meditation
+      social_anxiety: social anxiety
+      trigger_warnings: trigger warnings
+      netflix: netflix
+      homeless: homeless
+      talks: talks
+      voice_chat: voice chat
+      training: training
 
  profile:
   index:
@@ -434,7 +473,6 @@ es:
     foss: "Free and open source software (Programa gratuito y de fuente abierta)"
     license_subtitle: "Licencia bajo %{license}"
     connect: "Conectarse"
-    resources: "Recursos"
   comments:
     share_everyone: "Compartir con todos"
     share_with: "Compartir con %{name} únicamente"

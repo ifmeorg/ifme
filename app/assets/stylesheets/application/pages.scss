@@ -356,35 +356,35 @@ h1.faq_heading {
 
 h1.resources {
   font-weight: 300;
-  font-size: $font34;
+  font-size: $font30;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: $secondary-text-color;
 
   @media screen and (max-width: $medium) {
-    font-size: $font30;
+    font-size: $font26;
     margin: 0px 0px 10px 0px;
   }
 
   @media screen and (max-width: $small) {
-    font-size: $font26;
+    font-size: $font24;
     margin: 0px 0px 10px 0px;
   }
 }
 
 .resource_list,
 .resource_list a {
-  line-height: 60px;
-  font-size: $font26;
+  line-height: 56px;
+  font-size: $font24;
 
   @media screen and (max-width: $medium) {
-    line-height: 56px;
-    font-size: $font24;
+    line-height: 52px;
+    font-size: $font20;
   }
 
   @media screen and (max-width: $small) {
-    line-height: 54px;
-    font-size: $font20;
+    line-height: 48px;
+    font-size: $font16;
   }
 }
 
@@ -394,23 +394,20 @@ h1.resources {
   @media screen and (max-width: $medium) {
     float: none;
     margin: 0px 0px 10px 0px;
-    line-height: 54px;
-    font-size: $font20;
+    line-height: 48px;
+    font-size: $font16;
     white-space: nowrap;
     overflow-y: auto;
-  }
-
-  @media screen and (max-width: $small) {
-    float: none;
-    margin: 0px 0px 10px 0px;
-    line-height: 50px;
-    font-size: $font16;
   }
 }
 
 .resource_tag {
-  background-color: $secondary-text-color;
+  background-color: $tag-color;
   color: $header-text-color;
   padding: 10px;
   margin-left: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
 }

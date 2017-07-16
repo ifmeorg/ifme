@@ -1,12 +1,42 @@
 [
   {
-    "name":"ATest",
-    "link":"Test Link",
-    "tags":["test", "hello"]
+    "name":"National Queer & Trans Therapists of Color Network",
+    "link":"http://www.nqttcn.com",
+    "tags":["lgbtqia", "people_of_colour", "therapy", "counseling"]
   },
   {
-    "name":"BTest",
-    "link":"Test Link",
-    "tags":["test", "hello"]
+    "name":"Online SOS",
+    "link":"https://www.onlinesosnetwork.org",
+    "tags":["cyberbullying", "harassment", "free", "counseling"]
+  },
+  {
+    "name":"Talkspace",
+    "link":"https://www.talkspace.com",
+    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"]
+  },
+  {
+    "name":"7 Cups",
+    "link":"https://www.7cups.com",
+    "tags":["therapy", "counseling", "paid", "free", "texting"]
+  },
+  {
+    "name":"Headspace",
+    "link":"https://www.headspace.com",
+    "tags":["meditation", "paid"]
+  },
+  {
+    "name":"Joyable",
+    "link":"https://joyable.com",
+    "tags":["social_anxiety", "therapy", "paid"]
+  },
+  {
+    "name":"Feerless",
+    "link":"https://feerless.us",
+    "tags":["trigger_warnings", "netflix", "free", "open_source"]
+  },
+  {
+    "name":"BetterHelp",
+    "link":"https://www.betterhelp.com",
+    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat"]
   }
 ]

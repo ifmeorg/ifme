@@ -18,5 +18,15 @@
     "name":"Lemonaid",
     "link":"http://lemonaid.io",
     "tags":["women", "self_care", "domestic_violence", "anonymous"]
+  },
+  {
+    "name":"Tessera Collective",
+    "link":"https://www.facebook.com/tesseracollective",
+    "tags":["women_of_colour", "self_care", "domestic_violence"]
+  },
+  {
+    "name":"MHPrompt",
+    "link":"http://mhprompt.org",
+    "tags":["tech_industry", "talks"]
   }
 ]

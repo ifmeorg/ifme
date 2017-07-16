@@ -403,22 +403,48 @@ en:
     contact: 'Contact Us'
     contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
   resources:
+    description: "Welcome to our curated mental health resources organized by %{communities}, %{education}, %{hotlines}, and %{services}."
     communities: Communities
     education: Education
     hotlines: Hotlines
     services: Services
     tags:
+      people_of_colour: people of colour
       women_of_colour: women of colour
       domestic_violence: domestic violence
+      dating_violence: dating violence
+      cyberbullying: cyberbullying
       therapy: therapy
       counseling: counseling
       youth: youth
-      LGBTQ: LGBTQ
+      lgbtqia: LGBTQIA
       harassment: harassment
       self_care: self-care
       women: women
       chatbot: chatbot
       anonymous: anonymous
+      free: free
+      paid: paid
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: books
+      publiciation: publication
+      video_chat: video chat
+      texting: texting
+      open_source: open source
+      workplace: workplace
+      social_justice: social justice
+      tech_industry: tech industry
+      meditation: meditation
+      social_anxiety: social anxiety
+      trigger_warnings: trigger warnings
+      netflix: netflix
+      homeless: homeless
+      talks: talks
+      voice_chat: voice chat
+      training: training
 
  profile:
   index:
