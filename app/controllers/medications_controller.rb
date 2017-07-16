@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'google/api_client'
-
 class MedicationsController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
