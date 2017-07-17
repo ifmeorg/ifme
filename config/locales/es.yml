@@ -10,6 +10,12 @@ es:
  click_here: "da click aquí"
  less: " [Menos]"
  language: 'Idioma'
+ back_to_top: Regresar al Inicio
+
+ languages:
+   en: English
+   es: Español
+   various: Varios
 
  navigation:
    about: "Acerca de "
@@ -447,6 +453,7 @@ es:
       talks: pláticas
       voice_chat: chat de voz
       training: entrenamiento
+      directory: directorio
 
  profile:
   index:

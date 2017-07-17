@@ -207,15 +207,27 @@
 
 /* Blog */
 
-.blog_post {
+.blog_post,
+.resource {
   padding: 20px;
   border: 1px solid $container-color;
   box-shadow: 0 0 2px $container-color inset;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
+    padding: 0px 0px 20px 0px;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid $container-color;
     margin-bottom: 20px;
-    padding: 10px;
+  }
+}
+
+.blog_post:last-of-type,
+.resource:last-of-type {
+  @media screen and (max-width: $medium) {
+    padding: 0px;
+    border-bottom: none;
   }
 }
 
@@ -368,7 +380,6 @@ h1.resources {
 
   @media screen and (max-width: $small) {
     font-size: $font24;
-    margin: 0px 0px 10px 0px;
   }
 }
 
@@ -378,36 +389,70 @@ h1.resources {
   font-size: $font24;
 
   @media screen and (max-width: $medium) {
-    line-height: 52px;
+    line-height: normal;
     font-size: $font20;
   }
 
   @media screen and (max-width: $small) {
-    line-height: 48px;
+    line-height: normal;
     font-size: $font16;
   }
 }
 
-.resource_tags {
+.resource_languages {
   float: right;
 
   @media screen and (max-width: $medium) {
     float: none;
-    margin: 0px 0px 10px 0px;
-    line-height: 48px;
+    margin: 20px 0px 20px 0px;
+    line-height: 36px;
     font-size: $font16;
+  }
+
+  @media screen and (max-width: $small) {
+    line-height: 26px;
     white-space: nowrap;
-    overflow-y: auto;
+    overflow-x: auto;
   }
 }
 
-.resource_tag {
+
+.resource_tags {
+  margin-top: 20px;
+
+  @media screen and (max-width: $medium) {
+    margin-top: 0px;
+    line-height: 36px;
+    font-size: $font16;
+  }
+
+  @media screen and (max-width: $small) {
+    line-height: 26px;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}
+
+.resource_tag,
+.resource_language {
   background-color: $tag-color;
   color: $header-text-color;
   padding: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
 
   @media screen and (max-width: $small) {
     padding: 5px;
+  }
+}
+
+.resource_language {
+  background-color: $highlight-text-color;
+  color: $tag-text-color;
+  margin-left: 10px;
+  margin-right: 0px;
+
+  @media screen and (max-width: $medium) {
+    margin-left: 0px;
+    margin-right: 10px;
   }
 }

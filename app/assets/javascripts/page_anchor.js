@@ -1,5 +1,5 @@
 function scrollToPageAnchor() {
-  $("html, body").animate({ scrollTop: $(".page_anchor").offset().top - $("#header").height()}, 1000);
+  $("html, body").animate({ scrollTop: $(".page_anchor").offset().top - $("#header").height() }, 1000);
 }
 
 var onReadyPageAnchor = function() {

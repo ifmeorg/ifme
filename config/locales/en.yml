@@ -10,6 +10,12 @@ en:
  click_here: "click here"
  less: " [Less]"
  language: 'Language'
+ back_to_top: Back to Top
+
+ languages:
+   en: English
+   es: Español
+   various: Various
 
  navigation:
    about: 'About'
@@ -445,6 +451,7 @@ en:
       talks: talks
       voice_chat: voice chat
       training: training
+      directory: directory
 
  profile:
   index:
