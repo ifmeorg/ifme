@@ -25,7 +25,7 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 
 # Installation
 
-The app uses  **Ruby 2.3.4** and **Rails 4.2.6**. Please stick to these versions.
+The app uses  **Ruby 2.3.4** and **Rails 4.2.9**. Please stick to these versions.
 
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
 
@@ -93,7 +93,7 @@ Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Conti
 #### option (A) RVM
 
 ```
-rvm use ruby-2.3.4@rails4.2.6 --create
+rvm use ruby-2.3.4@rails4.2.9 --create
 ```
 
 #### option (B) rbenv
@@ -103,7 +103,7 @@ rvm use ruby-2.3.4@rails4.2.6 --create
 ### III. Updating An Existing Rails Installation
 
 ```
-gem install rails --version=4.2.6
+gem install rails --version=4.2.9
 ```
 
 Restart your terminal (or open a new tab)
