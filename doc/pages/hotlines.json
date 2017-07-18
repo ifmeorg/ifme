@@ -1,0 +1,38 @@
+[
+  {
+    "name":"Crisis Text Line (US)",
+    "link":"http://www.crisistextline.org",
+    "tags":["twenty_four_seven", "free", "anonymous"],
+    "languages":["en"]
+  },
+  {
+    "name":"The National Domestic Violence Hotline (US)",
+    "link":"http://www.thehotline.org",
+    "tags":["domestic_violence", "twenty_four_seven", "free", "anonymous"],
+    "languages":["en", "es"]
+  },
+  {
+    "name":"Your Life Matters",
+    "link":"http://www.yourlifecounts.org/need-help/crisis-lines",
+    "tags":["twenty_four_seven", "free", "anonymous"],
+    "languages":["various"]
+  },
+  {
+    "name":"Loveisrespect (US)",
+    "link":"http://www.loveisrespect.org",
+    "tags":["youth", "dating_violence", "domestic_violence", "twenty_four_seven", "free", "anonymous"],
+    "languages":["en", "es"]
+  },
+  {
+    "name":"Concrn (US)",
+    "link":"https://www.concrn.org",
+    "tags":["homeless", "anonymous", "free", "open_source"],
+    "languages":["en"]
+  },
+  {
+    "name":"The Trevor Project (US)",
+    "link":"http://www.thetrevorproject.org",
+    "tags":["lgbtqia", "youth", "twenty_four_seven", "free", "anonymous"],
+    "languages":["en"]
+  }
+]

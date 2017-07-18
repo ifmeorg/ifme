@@ -86,6 +86,7 @@ Rails.application.routes.draw do
   match 'faq', to: 'pages#faq', via: :get
   match 'toggle_locale', to: 'pages#toggle_locale', via: :get
   match 'press', to: 'pages#press', via: :get
+  match 'resources', to: 'pages#resources', via: :get
 
   devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks', :invitations => 'users/invitations' }
 

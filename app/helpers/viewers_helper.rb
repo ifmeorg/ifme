@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # helper for _viewers_indicators partial
 module ViewersHelper
   private def get_viewer_list(data, link)

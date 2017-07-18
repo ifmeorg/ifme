@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   include ViewersHelper
 
@@ -39,5 +41,11 @@ module ApplicationHelper
 
   def page_new(page_new_path)
     content_for(:page_new) { page_new_path }
+  end
+
+  def i18n_set?(key)
+    I18n.t key, raise: true
+  rescue
+    false
   end
 end

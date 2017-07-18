@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfileController < ApplicationController
   def index
     # If the specified profile doesn't exist, view the current user's profile

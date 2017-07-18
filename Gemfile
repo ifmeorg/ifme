@@ -1,7 +1,9 @@
-source 'https://rubygems.org'
-ruby '2.3.1'
+# frozen_string_literal: true
 
-gem 'rails',                      '4.2.6'
+source 'https://rubygems.org'
+ruby '2.3.4'
+
+gem 'rails',                      '4.2.9'
 
 gem 'bcrypt',                     '3.1.11'
 gem 'devise',                     '~> 4.1'

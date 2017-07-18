@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentVisibility
   attr_reader :comment, :owner, :current_user
 

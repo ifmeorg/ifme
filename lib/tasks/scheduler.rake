@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :scheduler do
   desc 'Send taking medication reminders'
   task send_take_medication_reminders: :environment do

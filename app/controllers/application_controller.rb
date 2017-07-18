@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserRelation
   mattr_accessor :myself, :ally, :incoming_request, :outgoing_request, :other
   MYSELF = 0
@@ -32,8 +34,8 @@ class ApplicationController < ActionController::Base
   # before_action
   def set_locale
     @locales = [
-      { name: 'English', locale: :en },
-      { name: 'Español', locale: :es }
+      { name: t('languages.en'), locale: :en },
+      { name: t('languages.es'), locale: :es }
     ]
     I18n.locale = user_signed_in? ? current_user.locale : cookies[:locale]
     @locale = I18n.locale
