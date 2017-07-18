@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
+Option[![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
 [![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
 
 # if me
@@ -39,7 +39,7 @@ If you do not have Rails, use this handy [guide](http://installrails.com).
 
 If you're updating an existing installation through RVM or rbenv, continue to (A) or (B).
 
-#### option (A) RVM
+#### Option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the latest version
 
@@ -55,7 +55,7 @@ rvm install ruby-2.3.4
 
 Check that Ruby has been updated by running `ruby -v`.
 
-#### option (B) rbenv
+#### Option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
@@ -90,13 +90,13 @@ gem install nokogiri
 
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv. Continue to (A) or (B).
 
-#### option (A) RVM
+#### Option (A) RVM
 
 ```
 rvm use ruby-2.3.4@rails4.2.9 --create
 ```
 
-#### option (B) rbenv
+#### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
@@ -112,7 +112,7 @@ Check that Rails has been updated by running `rails -v`.
 
 ## IV. Postgres
 
-Check out http://www.postgresql.org/download/
+After installing Postgres, if you are asked to create a new user, please follow these [instructions](https://github.com/julianguyen/ifme/blob/master/Errors.md#postgresql-bad-connection).
 
 #### A. macOS
 
