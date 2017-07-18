@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class MeetingMember < ActiveRecord::Base
+class MeetingMember < ApplicationRecord
   validates :meetingid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 

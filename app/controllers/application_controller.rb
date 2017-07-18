@@ -248,14 +248,14 @@ class ApplicationController < ActionController::Base
       my_strategies = ally_strategies
     end
 
-    moments = Moment.where(id: my_moments.map(&:id)).all.order('created_at DESC')
-    strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
+    moments = Moment.where(id: my_moments.map(&:id)).order(created_at: :desc)
+    strategies = Strategy.where(id: my_strategies.map(&:id)).order(created_at: :desc)
 
     stories =
       if moments.count.positive?
         moments.zip(strategies).flatten.compact
       else
-        strategies.flatten.compact
+        strategies.compact
       end
 
     stories.sort_by(&:created_at).reverse!

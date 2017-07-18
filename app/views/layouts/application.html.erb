@@ -17,7 +17,7 @@
     <% if user_signed_in? %>
       <!-- Pusher -->
       <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-      <%= tag :meta, :name => "pusher-key", :content => ENV["PUSHER_KEY"] %>
+      <%= tag :meta, :name => "pusher-key", :content => Rails.application.secrets.pusher[:key] %>
     <% end %>
 
     <!-- jQuery UI -->
@@ -43,7 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" type="text/javascript"></script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete"
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.secrets.google[:api_key] %>&libraries=places&callback=initAutocomplete"
         async defer></script>
   </head>
 

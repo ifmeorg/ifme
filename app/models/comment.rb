@@ -15,7 +15,7 @@
 #  viewers      :text
 #
 
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
   serialize :viewers, Array
   validates :comment, length: { minimum: 0, maximum: 1000 }
   validates :comment_type, :commented_on, :comment_by, :comment, presence: true

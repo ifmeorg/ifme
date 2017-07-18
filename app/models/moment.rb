@@ -19,7 +19,7 @@
 #  slug       :string
 #
 
-class Moment < ActiveRecord::Base
+class Moment < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   serialize :category, Array

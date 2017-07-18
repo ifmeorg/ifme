@@ -12,7 +12,7 @@
 #  updated_at :datetime         not null
 #
 
-class Notification < ActiveRecord::Base
+class Notification < ApplicationRecord
   validates :userid, :uniqueid, :data, presence: true
   belongs_to :user, foreign_key: :userid
 end
