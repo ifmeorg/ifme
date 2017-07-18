@@ -32,6 +32,8 @@
 @import "compass/support";
 @import "compass/utilities";
 @import "base/*";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* Text */
 
@@ -512,7 +514,11 @@ a.highlight:visited {
   background-color: $secondary-text-color;
   color: $header-text-color !important;
   border-bottom: none !important;
-  padding: 5px;
+  padding: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
 }
 
 a.highlight:hover {
@@ -521,7 +527,11 @@ a.highlight:hover {
   color: $header-text-color !important;
   border-bottom: none !important;
   opacity: 0.5;
-  padding: 5px;
+  padding: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
 }
 
 /* Images */

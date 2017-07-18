@@ -48,4 +48,10 @@ module ApplicationHelper
   rescue
     false
   end
+
+  def get_icon_text(icon, text)
+    html = "<i class=\"fa fa-#{icon} smaller_margin_right\"></i>"
+    html += text
+    html.html_safe
+  end
 end
