@@ -20,8 +20,8 @@
 *.byebug_history
 
 # Ignore application configuration
-/config/env/test.example.env
-/config/env/development.example.env
+/config/env/test.env
+/config/env/development.env
 
 # Ignore all IDE, TextEditor configuration files
 .idea/
