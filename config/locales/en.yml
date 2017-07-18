@@ -10,6 +10,12 @@ en:
  click_here: "click here"
  less: " [Less]"
  language: 'Language'
+ back_to_top: Back to Top
+
+ languages:
+   en: English
+   es: Español
+   various: Various
 
  navigation:
    about: 'About'
@@ -26,6 +32,7 @@ en:
    medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
+   resources: 'Resources'
 
  common:
    name: 'Name'
@@ -198,8 +205,8 @@ en:
    instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
    example_name: 'Prozac'
    example_strength: '10 mg'
-   example_total: '2 tablets'
-   example_dosage: '40 tablets'
+   example_total: '40 tablets'
+   example_dosage: '2 tablets'
    example_refill: '05/31/2016'
   show:
    comments: 'Comments:'
@@ -401,6 +408,50 @@ en:
     social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
     contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+  resources:
+    description: "Welcome to our curated mental health resources organized by %{communities}, %{education}, %{hotlines}, and %{services}."
+    communities: Communities
+    education: Education
+    hotlines: Hotlines
+    services: Services
+    tags:
+      people_of_colour: people of colour
+      women_of_colour: women of colour
+      domestic_violence: domestic violence
+      dating_violence: dating violence
+      cyberbullying: cyberbullying
+      therapy: therapy
+      counseling: counseling
+      youth: youth
+      lgbtqia: LGBTQIA
+      harassment: harassment
+      self_care: self-care
+      women: women
+      chatbot: chatbot
+      anonymous: anonymous
+      free: free
+      paid: paid
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: books
+      publication: publication
+      video_chat: video chat
+      texting: texting
+      open_source: open source
+      workplace: workplace
+      social_justice: social justice
+      tech_industry: tech industry
+      meditation: meditation
+      social_anxiety: social anxiety
+      trigger_warnings: trigger warnings
+      netflix: netflix
+      homeless: homeless
+      talks: talks
+      voice_chat: voice chat
+      training: training
+      directory: directory
 
  profile:
   index:

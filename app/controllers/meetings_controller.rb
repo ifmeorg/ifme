@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
-    @meeting = Meeting.find(params[:id])
+    @meeting = Meeting.friendly.find(params[:id])
     @is_member = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id).exists?
 
     @is_leader = MeetingMember.where(meetingid: @meeting.id, userid: current_user.id, leader: true).exists?

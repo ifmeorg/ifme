@@ -34,9 +34,14 @@ class ApplicationController < ActionController::Base
   # before_action
   def set_locale
     @locales = [
+<<<<<<< HEAD
       { name: 'English', locale: :en },
       { name: 'Español', locale: :es },
       { name: 'Português', locale: :ptbr }
+=======
+      { name: t('languages.en'), locale: :en },
+      { name: t('languages.es'), locale: :es }
+>>>>>>> upstream/master
     ]
     I18n.locale = user_signed_in? ? current_user.locale : cookies[:locale]
     @locale = I18n.locale

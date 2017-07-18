@@ -73,7 +73,7 @@ gem update
 #### Fix
 
 ```
-rvm use ruby-2.3.1@rails4.2.6 --create`
+rvm use ruby-2.3.1@rails4.2.9 --create`
 ```
 
 ### libv8 and therubyracer (macOS 10.11+)

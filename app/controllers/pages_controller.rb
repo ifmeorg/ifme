@@ -40,6 +40,13 @@ class PagesController < ApplicationController
     @press = set_press
   end
 
+  def resources
+    @communities = fetch_resources_for('communities')
+    @education = fetch_resources_for('education')
+    @hotlines = fetch_resources_for('hotlines')
+    @services = fetch_resources_for('services')
+  end
+
   def about; end
 
   def faq; end
@@ -107,5 +114,10 @@ class PagesController < ApplicationController
 
   def set_press
     JSON.parse(File.read('doc/pages/press.json')).reverse
+  end
+
+  def fetch_resources_for(resource_type)
+    resources = JSON.parse(File.read("doc/pages/#{resource_type}.json"))
+    resources.sort_by! { |r| r['name'].downcase }
   end
 end

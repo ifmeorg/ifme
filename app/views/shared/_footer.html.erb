@@ -18,9 +18,16 @@
 						<%= link_to(t('navigation.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
 						<%= link_to(t('navigation.facebook'), "http://facebook.com/ifmeorg", target: "blank") %>
 						<%= link_to(t('navigation.instagram'), 'https://www.instagram.com/ifmeorg', target: "blank") %>
-						<%= link_to(t('navigation.medium'), 'https://medium.com/@ifmeorg', target: "blank") %>
+						<%= link_to(t('navigation.medium'), 'https://medium.com/ifme', target: "blank") %>
 						<%= link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: "blank") %>
 						<%= link_to(t('email'), 'mailto:join.ifme@gmail.com') %>
+					</div>
+					<div class="table_cell large_padding_right">
+						<span class="footer_heading" id="resources_links"><%= t('navigation.resources') %></span>
+						<%= link_to(t('pages.resources.communities'), resources_path(resource: "communities")) %>
+						<%= link_to(t('pages.resources.education'), resources_path(resource: "education")) %>
+						<%= link_to(t('pages.resources.hotlines'), resources_path(resource: "hotlines")) %>
+						<%= link_to(t('pages.resources.services'), resources_path(resource: "services")) %>
 					</div>
 					<div id="locale_toggle" class="table_cell">
 						<span class="footer_heading" id="language_links"><%= t('language') %></span>

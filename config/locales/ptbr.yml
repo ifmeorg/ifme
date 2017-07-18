@@ -144,8 +144,13 @@ ptbr:
    signin: 'Conte-nos a sua história'
    create_account: 'Junte-se a comunidade'
    update_account: 'Personalize sua conta'
+<<<<<<< HEAD
    if: 'if'
    me: 'me'
+=======
+   if: 'se'
+   me: 'eu'
+>>>>>>> upstream/master
   mailer:
    html:
     app_description: "%{app_name} é uma comunidade que encoraja pessoas a compartilharem suas experiências relacionadas a saúde mental com as pessoas que você ama"
