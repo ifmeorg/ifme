@@ -454,6 +454,10 @@ es:
       voice_chat: chat de voz
       training: entrenamiento
       directory: directorio
+      self_injury: auto-agresión
+      treatment: tratamiento
+      care_planning: preparación de cuidado
+      depression: depresión
 
  profile:
   index:
