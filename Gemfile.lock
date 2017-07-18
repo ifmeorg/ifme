@@ -114,7 +114,7 @@ GEM
       sass-rails (< 5.1)
       sprockets (< 4.0)
     concurrent-ruby (1.0.5)
-    database_cleaner (1.6.1)
+    database_cleaner (1.5.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
