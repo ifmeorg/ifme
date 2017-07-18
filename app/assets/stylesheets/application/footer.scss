@@ -41,13 +41,13 @@
 
 #footer_content {
 	padding: 0px 60px;
-	font-size: $font16;
 	color: $secondary-text-color;
 	text-shadow: 0px 0px 50px $header-text-color;
+	line-height: 30px;
 
 	@media screen and (max-width: $medium) {
-		font-size: $small-font;
 		padding: 0px 20px;
+		line-height: 26px;
 	}
 
 	@media screen and (max-width: $small) {

@@ -7,20 +7,20 @@
 						<%= link_to(t('navigation.about'), about_path) %>
 						<%= link_to(t('navigation.blog'), blog_path) %>
 						<%= link_to(t('navigation.contributors'), contributors_path) %>
+						<%= link_to(t('navigation.faq'), faq_path) %>
 						<%= link_to(t('navigation.partners'), partners_path) %>
 						<%= link_to(t('navigation.press'), press_path) %>
-						<%= link_to(t('navigation.faq'), faq_path) %>
 						<%= link_to(t('navigation.privacy'), privacy_path) %>
 					</div>
 					<div class="table_cell large_padding_right">
 						<span class="footer_heading" id="connect_links"><%= t('shared.footer.connect') %></span>
-						<%= link_to(t('navigation.github'), "https://github.com/julianguyen/ifme", target: "blank") %>
-						<%= link_to(t('navigation.twitter'), "http://twitter.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('navigation.facebook'), "http://facebook.com/ifmeorg", target: "blank") %>
-						<%= link_to(t('navigation.instagram'), 'https://www.instagram.com/ifmeorg', target: "blank") %>
-						<%= link_to(t('navigation.medium'), 'https://medium.com/ifme', target: "blank") %>
-						<%= link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: "blank") %>
-						<%= link_to(t('email'), 'mailto:join.ifme@gmail.com') %>
+						<%= link_to(get_icon_text('envelope', t('common.form.email')), 'mailto:join.ifme@gmail.com') %>
+						<%= link_to(get_icon_text('facebook', t('navigation.facebook')), "http://facebook.com/ifmeorg", target: "blank") %>
+						<%= link_to(get_icon_text('github', t('navigation.github')), "https://github.com/julianguyen/ifme", target: "blank") %>
+						<%= link_to(get_icon_text('instagram', t('navigation.instagram')), 'https://www.instagram.com/ifmeorg', target: "blank") %>
+						<%= link_to(get_icon_text('medium', t('navigation.medium')), 'https://medium.com/ifme', target: "blank") %>
+						<%= link_to(get_icon_text('money', t('navigation.patreon')), 'http://patreon.com/ifme', target: "blank") %>
+						<%= link_to(get_icon_text('twitter', t('navigation.twitter')), "http://twitter.com/ifmeorg", target: "blank") %>
 					</div>
 					<div class="table_cell large_padding_right">
 						<span class="footer_heading" id="resources_links"><%= t('navigation.resources') %></span>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="spacer"></div>
 			<div class="align_left">
-				<%= link_to(t('navigation.feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
+				<%= link_to(t('navigation.give_feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
 			</div>
 			<div class="align_right license">
 				<%= content_tag(:span, raw(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>
