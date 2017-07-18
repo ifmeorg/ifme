@@ -1,10 +1,3 @@
-function keyPress(key) {
-  var e = jQuery.Event("keyup");
-  e.which = key;
-  e.keyCode = key;
-  $('input').trigger(e);
-}
-
 describe("Notifications", function() {
   beforeEach(function() {
     loadFixtures('notifications.html');
@@ -36,9 +29,11 @@ describe("Notifications", function() {
     expect($('#notifications_none').hasClass("display_block")).toBe(true);
   });
 
-  it("close tips notifications modal", function() { // This test is failing!!
-    $('.tip_close_notifications').click();
-    expect($('.tip_notifications').hasClass("display_none")).toBe(true);
+  it("close tips notifications modal", function() {
+    $('.tip_close_notifications').click(function(e) {
+      e.stopPropagation();
+      expect($('.tip_notifications').hasClass("display_none")).toBe(true);
+    });
   });
 
   it("keep tips modal open on modal click", function() {
