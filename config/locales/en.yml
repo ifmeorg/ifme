@@ -452,6 +452,10 @@ en:
       voice_chat: voice chat
       training: training
       directory: directory
+      self_injury: self-injury
+      treatment: treatment
+      care_planning: care planning
+      depression: depression
 
  profile:
   index:

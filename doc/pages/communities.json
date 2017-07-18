@@ -34,5 +34,17 @@
     "link":"http://mhprompt.org",
     "tags":["tech_industry", "talks"],
     "languages":["en"]
+  },
+  {
+    "name":"LifeSIGNS: Self Injury Guidance & Network Support (UK)",
+    "link":"http://www.lifesigns.org.uk/",
+    "tags":["self_injury", "blog", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"Blue Hackers",
+    "link":"http://bluehackers.org/",
+    "tags":["tech_industry", "depression", "blog"],
+    "languages":["en"]
   }
 ]

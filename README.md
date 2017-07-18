@@ -27,7 +27,8 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 
 The app uses  **Ruby 2.3.4** and **Rails 4.2.9**. Please stick to these versions.
 
-The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup.
+The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup. There is also a wiki page with
+[setup details for Debian GNU/Linux users](https://github.com/julianguyen/ifme/wiki/Development-setup-for-Debian).
 
 ## Common Errors
 
