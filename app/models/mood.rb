@@ -13,7 +13,7 @@
 #  slug        :string
 #
 
-class Mood < ActiveRecord::Base
+class Mood < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :description, length: { maximum: 2000 }

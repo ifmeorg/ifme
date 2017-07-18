@@ -20,7 +20,7 @@
 #  slug          :string
 #
 
-class Medication < ActiveRecord::Base
+class Medication < ApplicationRecord
   # dosage: amount of medication taken at one time
   # total: total quantity of medication
   # strength: strength of medication

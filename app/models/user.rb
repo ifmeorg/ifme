@@ -43,7 +43,7 @@
 #  refresh_token          :string
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,

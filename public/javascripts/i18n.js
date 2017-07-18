@@ -12,19 +12,23 @@
 // See tests for specific formatting like numbers and dates.
 //
 
-;(function(factory) {
-  if (typeof module !== 'undefined' && module.exports) {
-    // Node/CommonJS
-    module.exports = factory(this);
-  } else if (typeof define === 'function' && define.amd) {
-    // AMD
-    var global=this;
-    define('i18n', function(){ return factory(global);});
+// Using UMD pattern from
+// https://github.com/umdjs/umd#regular-module
+// `returnExports.js` version
+;(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define("i18n", function(){ return factory(root);});
+  } else if (typeof module === 'object' && module.exports) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory(root);
   } else {
-    // Browser globals
-    this.I18n = factory(this);
+    // Browser globals (root is window)
+    root.I18n = factory(root);
   }
-}(function(global) {
+}(this, function(global) {
   "use strict";
 
   // Use previously defined object if exists in current scope
@@ -53,11 +57,23 @@
 
   // Is a given value an array?
   // Borrowed from Underscore.js
-  var isArray = function(obj) {
+  var isArray = function(val) {
     if (Array.isArray) {
-      return Array.isArray(obj);
+      return Array.isArray(val);
     };
-    return Object.prototype.toString.call(obj) === '[object Array]';
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+
+  var isString = function(val) {
+    return typeof value == 'string' || Object.prototype.toString.call(val) === '[object String]';
+  };
+
+  var isNumber = function(val) {
+    return typeof val == 'number' || Object.prototype.toString.call(val) === '[object Number]';
+  };
+
+  var isBoolean = function(val) {
+    return val === true || val === false;
   };
 
   var decimalAdjust = function(type, value, exp) {
@@ -83,7 +99,7 @@
     var key, value;
     for (key in obj) if (obj.hasOwnProperty(key)) {
       value = obj[key];
-      if (Object.prototype.toString.call(value) === '[object String]') {
+      if (isString(value) || isNumber(value) || isBoolean(value)) {
         dest[key] = value;
       } else {
         if (dest[key] == null) dest[key] = {};
@@ -347,7 +363,6 @@
       if (!translations) {
         continue;
       }
-
       while (scopes.length) {
         translations = translations[scopes.shift()];
 
@@ -364,6 +379,75 @@
     if (this.isSet(options.defaultValue)) {
       return options.defaultValue;
     }
+  };
+
+  // lookup pluralization rule key into translations
+  I18n.pluralizationLookupWithoutFallback = function(count, locale, translations) {
+    var pluralizer = this.pluralization.get(locale)
+      , pluralizerKeys = pluralizer(count)
+      , pluralizerKey
+      , message;
+
+    if (isObject(translations)) {
+      while (pluralizerKeys.length) {
+        pluralizerKey = pluralizerKeys.shift();
+        if (this.isSet(translations[pluralizerKey])) {
+          message = translations[pluralizerKey];
+          break;
+        }
+      }
+    }
+
+    return message;
+  };
+
+  // Lookup dedicated to pluralization
+  I18n.pluralizationLookup = function(count, scope, options) {
+    options = this.prepareOptions(options);
+    var locales = this.locales.get(options.locale).slice()
+      , requestedLocale = locales[0]
+      , locale
+      , scopes
+      , translations
+      , message
+    ;
+    scope = this.getFullScope(scope, options);
+
+    while (locales.length) {
+      locale = locales.shift();
+      scopes = scope.split(this.defaultSeparator);
+      translations = this.translations[locale];
+
+      if (!translations) {
+        continue;
+      }
+
+      while (scopes.length) {
+        translations = translations[scopes.shift()];
+        if (!isObject(translations)) {
+          break;
+        }
+        if (scopes.length == 0) {
+          message = this.pluralizationLookupWithoutFallback(count, locale, translations);
+        }
+      }
+      if (message != null && message != undefined) {
+        break;
+      }
+    }
+
+    if (message == null || message == undefined) {
+      if (this.isSet(options.defaultValue)) {
+        if (isObject(options.defaultValue)) {
+          message = this.pluralizationLookupWithoutFallback(count, options.locale, options.defaultValue);
+        } else {
+          message = options.defaultValue;
+        }
+        translations = options.defaultValue;
+      }
+    }
+
+    return { message: message, translations: translations };
   };
 
   // Rails changed the way the meridian is stored.
@@ -445,6 +529,7 @@
   I18n.translate = function(scope, options) {
     options = this.prepareOptions(options);
 
+    var copiedOptions = this.prepareOptions(options);
     var translationOptions = this.createTranslationOptions(scope, options);
 
     var translation;
@@ -470,7 +555,7 @@
     if (typeof(translation) === "string") {
       translation = this.interpolate(translation, options);
     } else if (isObject(translation) && this.isSet(options.count)) {
-      translation = this.pluralize(options.count, translation, options);
+      translation = this.pluralize(options.count, scope, copiedOptions);
     }
 
     return translation;
@@ -516,32 +601,22 @@
   // which will be retrieved from `options`.
   I18n.pluralize = function(count, scope, options) {
     options = this.prepareOptions(options);
-    var translations, pluralizer, keys, key, message;
+    var pluralizer, message, result;
 
-    if (isObject(scope)) {
-      translations = scope;
-    } else {
-      translations = this.lookup(scope, options);
-    }
-
-    if (!translations) {
+    result = this.pluralizationLookup(count, scope, options);
+    if (result.translations == undefined || result.translations == null) {
       return this.missingTranslation(scope, options);
     }
 
-    pluralizer = this.pluralization.get(options.locale);
-    keys = pluralizer(count);
-
-    while (keys.length) {
-      key = keys.shift();
-
-      if (this.isSet(translations[key])) {
-        message = translations[key];
-        break;
-      }
-    }
-
     options.count = String(count);
-    return this.interpolate(message, options);
+
+    if (result.message != undefined && result.message != null) {
+      return this.interpolate(result.message, options);
+    }
+    else {
+      pluralizer = this.pluralization.get(options.locale);
+      return this.missingTranslation(scope + '.' + pluralizer(count)[0], options);
+    }
   };
 
   // Return a missing translation message for the given parameters.

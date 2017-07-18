@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NotificationMailer < ApplicationMailer
-  default from: ENV['SMTP_ADDRESS']
+  default from: Rails.application.secrets.smtp[:address]
 
   def take_medication(reminder)
     reminder_mailer(reminder.medication, 'medications.reminder_mailer.subject')

@@ -17,7 +17,7 @@
 #  slug        :string
 #
 
-class Meeting < ActiveRecord::Base
+class Meeting < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :name, :description, :location, :time, :groupid, :date, presence: true

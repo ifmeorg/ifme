@@ -33,6 +33,6 @@ class CalendarUploader
   end
 
   def client
-    @client ||= Google::APIClient.new(application_name: ENV['GOOGLE_APP_NAME'])
+    @client ||= Google::APIClient.new(application_name: Rails.application.secrets.google[:app_name])
   end
 end

@@ -16,7 +16,7 @@
 #  slug        :string
 #
 
-class Strategy < ActiveRecord::Base
+class Strategy < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   belongs_to :user, foreign_key: :userid
