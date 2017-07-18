@@ -231,6 +231,14 @@ describe("Header", function() {
       expandButton();
       expect(setHeight).toHaveBeenCalled();
     });
+
+    it("toggles sort icon in header logo", function() {
+      expect($("#title_expand .expand").hasClass("fa-sort-desc")).toBe(true);
+      expandButton();
+      expect($("#title_expand .expand").hasClass("fa-sort-asc")).toBe(true);
+      expandButton();
+      expect($("#title_expand .expand").hasClass("fa-sort-desc")).toBe(true);
+    });
   });
 
   describe("headerMouseLeave", function() {

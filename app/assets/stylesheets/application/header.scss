@@ -116,12 +116,19 @@
     float: right;
     font-size: $font20;
     margin-left: 10px;
-    padding-top: 6px;
 
     @media screen and (max-width: $small) {
       font-size: $font16;
       padding-top: 2px;
     }
+  }
+
+  .fa-sort-desc {
+    padding-top: 8px;
+  }
+
+  .fa-sort-asc {
+    padding-top: 17px;
   }
 }
 
