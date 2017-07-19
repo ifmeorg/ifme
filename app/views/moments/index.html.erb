@@ -12,6 +12,10 @@
 
   <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
 
+  <% # https://www.chartkick.com/ - (group_by_day) https://github.com/ankane/groupdate %>
+  <% # TODO: use @moments instead of the full data record ... requires understanding this ruby (@_@) https://github.com/ankane/groupdate#arrays-and-hashes %>
+  <%= area_chart Moment.group_by_day(:created_at).count, xtitle: "Date", ytitle: "Sentiment"  %>
+
   <div id="pages">
     <div class="page">
     <%= render @moments %>

@@ -94,6 +94,7 @@ class MomentsController < ApplicationController
     sentiment.get_sentiment
 
     @moment = Moment.new(moment_params)
+
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
