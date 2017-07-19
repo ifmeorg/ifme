@@ -41,6 +41,9 @@ gem 'underscore-rails',           '1.8.3'
 gem 'friendly_id', '~> 5.1.0'
 gem 'sdoc', '0.4.1', group: :doc
 
+gem 'chartkick',                  '2.2.4'
+gem 'groupdate',                  '3.0'
+
 group :development, :test do
   gem 'dotenv',                     '2.1.1'
 

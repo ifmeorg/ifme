@@ -75,6 +75,7 @@ GEM
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
     certified (1.0.0)
+    chartkick (2.2.4)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
@@ -174,6 +175,8 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
+    groupdate (3.0.0)
+      activesupport (>= 3)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -474,6 +477,7 @@ DEPENDENCIES
   capybara (= 2.7.1)
   carrierwave (= 0.11.2)
   certified (= 1.0.0)
+  chartkick (= 2.2.4)
   chronic (= 0.10.2)
   ckeditor (= 4.1.6)
   cloudinary (= 1.3.0)
@@ -488,6 +492,7 @@ DEPENDENCIES
   foundation-rails (= 6.2.3.0)
   friendly_id (~> 5.1.0)
   google-api-client (~> 0.8.6)
+  groupdate (= 3.0)
   guard (= 2.14.0)
   i18n-js (>= 3.0.0.rc11)
   jasmine (= 2.4.0)
@@ -528,4 +533,4 @@ RUBY VERSION
    ruby 2.3.4p112
 
 BUNDLED WITH
-   1.15.1
+   1.15.2
