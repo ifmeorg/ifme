@@ -33,5 +33,7 @@ class SentimentAnalysis
     puts '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
     puts response.body
     puts '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
+
+    response.body.to_f
   end
 end

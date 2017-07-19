@@ -17,6 +17,7 @@
 #  comment    :boolean
 #  strategies :text
 #  slug       :string
+#  sentiment  :float
 #
 
 class Moment < ActiveRecord::Base
