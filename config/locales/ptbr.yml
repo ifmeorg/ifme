@@ -144,8 +144,8 @@ ptbr:
    signin: 'Conte-nos a sua história'
    create_account: 'Junte-se a comunidade'
    update_account: 'Personalize sua conta'
-   if: 'se'
-   me: 'eu'
+   if: 'if'
+   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} é uma comunidade que encoraja pessoas a compartilharem suas experiências relacionadas a saúde mental com as pessoas que você ama"
@@ -401,6 +401,55 @@ ptbr:
     social_media_description: '<p>Comunicação, engajamento e ações tomadas através de plataformas de mídia social das quais este sítio web participa, operam sobre termos  e condições personalizadas a seus respectivos proprietários, bem como suas políticas de privacidade</p><p> Usuários são aconselhados a utilizar plataformas de mídia social de forma sábia e com cuidado, no que diz respeito as políticas e detalhes pessoais de cada mídia social. Este sítio web em hipótese alguma irá requerer informações pessoais ou sensíveis através de mídia social. Encorajamos usuários dispostos a discutir detalhes de dados sensíveis para que entrem em contato com as plataformas de mídia social através de seus canais primários como telefone e email</p><p> Este sítio web pode utilizar botões de compartilhamento  de mídias sociais(social sharing buttons) que auxiliam a compartilhar conteúdo web diretamente das páginas web para a plataforma de mídia social em questão. Usuário são aconselhados antes de utilizar tais botões de compartilhamento de mídia social para que o conteúdo seja compartilhado de forma discreta e mesmo assim, a plataforma de mídia social pode rastrear o seu pedido para compartilhar uma página web através da sua conta da mídia social na qual você está compartilhando aquele conteúdo.</p>'
     contact: 'Entre em contato conosco'
     contact_description: "<p>Envie um email pelo endereço %{email_link} caso você tenha questionamentos ou preocupações.</p><p class=\"no_margin_bottom\"><em>Poítica de  Privacidade adaptada de %{jamie_king_media}.</em></p>"
+
+  resources:
+      description: "Seja bem vindo a nossa seção de recursos sobre Saúde mental organizada e mantida por entidades como  %{communities}, %{education}, %{hotlines}, e %{services}."
+      communities: Grupos Comunitários
+      education: Escolas
+      hotlines: Denúncia Anônima
+      services: Serviços
+      tags:
+        people_of_colour: pessoas de cor
+        women_of_colour: mulheres de cor
+        domestic_violence: violência doméstica
+        dating_violence: relacionamento abusivo
+        cyberbullying: cyberbullying
+        therapy: terapia
+        counseling: aconselhamento
+        youth: juventude
+        lgbtqia: LGBTQIA
+        harassment: assédio
+        self_care: cuidados pessoais
+        women: mulheres
+        chatbot: chatbot
+        anonymous: anônimo
+        free: gratuito
+        paid: pago
+        twenty_four_seven: 24/7
+        videos: vídeos
+        blog: blog
+        podcast: podcast
+        books: livros
+        publication: publicações
+        video_chat: video chat
+        texting: mensagens de texto
+        open_source: open source
+        workplace: local de trabalho
+        social_justice: justiça social
+        tech_industry: indústria tecnológica
+        meditation: meditação
+        social_anxiety: ansiedade social
+        trigger_warnings: avisos de segurança
+        netflix: netflix
+        homeless: sem teto
+        talks: palestras
+        voice_chat: videoconferências
+        training: treinamento
+        directory: diretório
+        self_injury: auto ferimento
+        treatment: tratamento
+        care_planning: planejamento de cuidados
+        depression: depressão
 
  profile:
   index:
