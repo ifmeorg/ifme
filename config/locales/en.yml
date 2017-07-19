@@ -29,6 +29,7 @@ en:
    twitter: "Twitter"
    facebook: "Facebook"
    feedback: 'feedback'
+   give_feedback: 'Give Feedback'
    medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
@@ -354,7 +355,7 @@ en:
   faq:
     title: 'Frequently Asked Questions'
     data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
+    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
     moment_question: 'What is a Moment?'
     moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
     strategy_question: 'What is a Strategy?'
@@ -452,6 +453,10 @@ en:
       voice_chat: voice chat
       training: training
       directory: directory
+      self_injury: self-injury
+      treatment: treatment
+      care_planning: care planning
+      depression: depression
 
  profile:
   index:

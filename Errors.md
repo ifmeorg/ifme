@@ -1,4 +1,4 @@
-# Possible Errors
+# Common Errors
 
 If you've encountered an error that's not listed here and was able to resolve it, please contribute to this document. It will help tons of people!
 
@@ -107,14 +107,7 @@ PG::ConnectionBad (fe_sendauth: no password supplied )
 
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
 
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`, then add username and password to `config/database.yml`:
-
-```
-development: &default
-  ...
-  username: <%= ENV["PSQL_USERNAME"] %>
-  password: <%= ENV["PSQL_PASSWORD"] %>
-```
+To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`.
 
 ### PostgreSQL Incompatible Version
 

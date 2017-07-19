@@ -147,6 +147,8 @@ GEM
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     formatador (0.2.5)
     foundation-rails (6.2.3.0)
       railties (>= 3.1.0)
@@ -487,6 +489,7 @@ DEPENDENCIES
   dotenv (= 2.1.1)
   factory_girl_rails (~> 4.7)
   figaro (= 1.1.1)
+  font-awesome-sass
   foundation-rails (= 6.2.3.0)
   friendly_id (~> 5.1.0)
   google-api-client (~> 0.8.6)

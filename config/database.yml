@@ -3,6 +3,8 @@ development: &default
   encoding: unicode
   host: <%= ENV['PSQL_HOST'] || 'localhost' %>
   database: ifme_development
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
   allow_concurrency: true
   pool: 5
   min_messages: warning
@@ -14,5 +16,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: ifme_production
+  username: <%= ENV['PSQL_USERNAME'] %>
+  password: <%= ENV['PSQL_PASSWORD'] %>
   allow_concurrency: true
   pool: 5
