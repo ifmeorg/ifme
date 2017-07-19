@@ -10,6 +10,13 @@ ptbr:
  click_here: "clique aqui"
  less: " [Less]"
  language: 'Idioma'
+ back_to_top: 'Vá ao topo da página'
+
+ languages:
+   en: English
+   es: Español
+   ptbr: Português
+   various: Vários
 
  navigation:
    about: 'Sobre'
@@ -23,9 +30,11 @@ ptbr:
    twitter: "Twitter"
    facebook: "Facebook"
    feedback: 'feedback'
+   give_feedback: Dê Retorno
    medium: 'Medium'
    press: 'Contato'
    faq: 'FAQ'
+   resources: 'Recursos'
 
  common:
    name: 'Nome'
