@@ -402,6 +402,55 @@ ptbr:
     contact: 'Entre em contato conosco'
     contact_description: "<p>Envie um email pelo endereço %{email_link} caso você tenha questionamentos ou preocupações.</p><p class=\"no_margin_bottom\"><em>Poítica de  Privacidade adaptada de %{jamie_king_media}.</em></p>"
 
+  resources:
+      description: "Seja bem vindo a nossa seção de recursos sobre Saúde mental organizada e mantida por entidades como  %{communities}, %{education}, %{hotlines}, e %{services}."
+      communities: Grupos Comunitários
+      education: Escolas
+      hotlines: Denúncia Anônima
+      services: Serviços
+      tags:
+        people_of_colour: pessoas de cor
+        women_of_colour: mulheres de cor
+        domestic_violence: violência doméstica
+        dating_violence: relacionamento abusivo
+        cyberbullying: cyberbullying
+        therapy: terapia
+        counseling: aconselhamento
+        youth: juventude
+        lgbtqia: LGBTQIA
+        harassment: assédio
+        self_care: cuidados pessoais
+        women: mulheres
+        chatbot: chatbot
+        anonymous: anônimo
+        free: gratuito
+        paid: pago
+        twenty_four_seven: 24/7
+        videos: vídeos
+        blog: blog
+        podcast: podcast
+        books: livros
+        publication: publicações
+        video_chat: video chat
+        texting: mensagens de texto
+        open_source: open source
+        workplace: local de trabalho
+        social_justice: justiça social
+        tech_industry: indústria tecnológica
+        meditation: meditação
+        social_anxiety: ansiedade social
+        trigger_warnings: avisos de segurança
+        netflix: netflix
+        homeless: sem teto
+        talks: palestras
+        voice_chat: videoconferências
+        training: treinamento
+        directory: diretório
+        self_injury: auto ferimento
+        treatment: tratamento
+        care_planning: planejamento de cuidados
+        depression: depressão
+
  profile:
   index:
    title: 'Perfil'
