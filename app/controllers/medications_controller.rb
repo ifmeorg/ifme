@@ -90,11 +90,11 @@ class MedicationsController < ApplicationController
 
   # Save refill date to Google calendar
   def save_refill_to_google_calendar(medication)
-    return unless current_user.google_oauth2_enabled? && medication.add_to_google_cal
-
-    summary = 'Refill for ' + medication.name
-    date = medication.refill
-    CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
+    if current_user.google_oauth2_enabled? && medication.add_to_google_cal == "1"
+      summary = 'Refill for ' + medication.name
+      date = medication.refill
+      CalendarUploader.new(summary: summary, date: date, access_token: current_user.token, email: current_user.email).upload_event
+    end
   end
 
   private
