@@ -8,7 +8,7 @@ ptbr:
  edited_updated_at: '<strong>Data Criação:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Olá %{name},"
  click_here: "clique aqui"
- less: " [Less]"
+ less: " [Menos]"
  language: 'Idioma'
  back_to_top: 'Vá ao topo da página'
 
@@ -74,7 +74,7 @@ ptbr:
   singular: 'Conta'
   sign_in: 'Entrar'
   sign_up: 'Cadastrar'
-  forgot_password: 'Esqueceu sua senha ?'
+  forgot_password: 'Esqueceu sua senha?'
 
  members:
    one: '%{count} membro'
@@ -169,9 +169,9 @@ ptbr:
   dosage: 'Dosagem diária:'
   refill: 'Refil de medicamento:'
   quantity: 'Quantidade Total:'
-  strength: 'Potência:'
+  strength: 'Dosagem:'
   form:
-   strength: 'Potência'
+   strength: 'Dosagem'
    strength_placeholder: 'e.g. 100mg'
    total_placeholder: 'e.g. 30mg'
    dosage: 'dosagem'
