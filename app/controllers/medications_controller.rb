@@ -100,7 +100,7 @@ class MedicationsController < ApplicationController
       date: date,
       access_token: current_user.token,
       email: current_user.email
-      ).upload_event
+                        ).upload_event
   end
 
   private
