@@ -93,6 +93,18 @@ describe User do
                               password: "asdfasdf", 
                               token: "some token" )}
 
+    context "no expiration saved" do
+      it "updates the access token" do
+        User.stub(:update_access_token) {
+          "some new token"
+        }
+        user.access_expires_at = nil
+        
+        expect_any_instance_of(User).to receive(:update_access_token)
+        user.access_token
+      end
+    end
+
     context "an expired token" do
       before do
         user.access_expires_at = current_time - 600

@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
   end
 
   def access_token
-    if Time.zone.now > access_expires_at
+    if !access_expires_at || Time.zone.now > access_expires_at
       update_access_token
     else
       token
