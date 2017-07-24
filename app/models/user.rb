@@ -39,6 +39,7 @@
 #  meeting_notify         :boolean
 #  locale                 :string
 #  access_expires_at      :datetime
+#  refresh_token          :string
 #
 
 class User < ActiveRecord::Base
@@ -87,6 +88,7 @@ class User < ActiveRecord::Base
     user.update!(
       provider: access_token.provider,
       token: access_token.credentials.token,
+      refresh_token: access_token.credentials.refresh_token,
       uid: access_token.uid,
       access_expires_at: Time.at(access_token.credentials.expires_at)
     )

@@ -38,6 +38,7 @@
 #  meeting_notify         :boolean
 #  locale                 :string
 #  access_expires_at      :datetime
+#  refresh_token          :string
 #
 
 describe User do
@@ -48,7 +49,8 @@ describe User do
                 info: double({ email: "some@user.com", name: "some name" }),
                 provider: "asdf",
                 credentials: double({ token: "some token",
-                                 expires_at: current_time.to_i }),
+                                      expires_at: current_time.to_i,
+                                      refresh_token: "some refresh token"}),
                 uid: "some uid"
       })
     }
@@ -61,6 +63,7 @@ describe User do
         user.reload
         expect(user.provider).to eq("asdf")
         expect(user.token).to eq("some token")
+        expect(user.refresh_token).to eq("some refresh token")
         expect(user.uid).to eq("some uid")
         expect(user.access_expires_at).to eq(Time.at(current_time.to_i))
       end

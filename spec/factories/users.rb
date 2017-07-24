@@ -38,6 +38,7 @@
 #  meeting_notify         :boolean
 #  locale                 :string
 #  access_expires_at      :datetime
+#  refresh_token          :string
 #
 
 FactoryGirl.define do
