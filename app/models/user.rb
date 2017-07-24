@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -39,6 +38,7 @@
 #  group_notify           :boolean
 #  meeting_notify         :boolean
 #  locale                 :string
+#  access_expires_at      :datetime
 #
 
 class User < ActiveRecord::Base
@@ -87,7 +87,8 @@ class User < ActiveRecord::Base
     user.update!(
       provider: access_token.provider,
       token: access_token.credentials.token,
-      uid: access_token.uid
+      uid: access_token.uid,
+      access_expires_at: Time.at(access_token.credentials.expires_at)
     )
     user
   end

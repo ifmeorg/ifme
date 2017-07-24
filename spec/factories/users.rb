@@ -37,6 +37,7 @@
 #  group_notify           :boolean
 #  meeting_notify         :boolean
 #  locale                 :string
+#  access_expires_at      :datetime
 #
 
 FactoryGirl.define do

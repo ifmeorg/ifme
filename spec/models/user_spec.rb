@@ -37,6 +37,7 @@
 #  group_notify           :boolean
 #  meeting_notify         :boolean
 #  locale                 :string
+#  access_expires_at      :datetime
 #
 
 describe User do
@@ -45,7 +46,8 @@ describe User do
       double({
                 info: double({ email: "some@user.com", name: "some name" }),
                 provider: "asdf",
-                credentials: double({ token: "some token" }),
+                credentials: double({ token: "some token",
+                                 expires_at: Time.zone.now.to_i }),
                 uid: "some uid"
       })
     }
@@ -59,6 +61,7 @@ describe User do
         expect(user.provider).to eq("asdf")
         expect(user.token).to eq("some token")
         expect(user.uid).to eq("some uid")
+        expect(user.access_expires_at).to eq(Time.at(Time.zone.now.to_i))
       end
 
       it "returns a user" do
