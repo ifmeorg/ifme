@@ -344,7 +344,7 @@ ptbr:
     message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"Está em sua mente, mas também ao seu redor.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
     main_message_three: "Quer patrocinar o projeto?"
     message_text_three: " Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos o apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do Patreon %{patreon_link}.</p>"
-    linebreak: 'QuebraLinha'
+    linebreak: 'Linebreak'
   blog:
     description: "Se você estiver interessado em escrever para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
   contributors:

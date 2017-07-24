@@ -22,7 +22,7 @@
 //= require i18n.js
 //= require i18n/translations
 
-I18n.locale = getCookie("locale");
+I18n.locale = getCookie("locale") || I18n.defaultLocale;
 
 function getCookie(cname) {
   var name = cname + "=";
