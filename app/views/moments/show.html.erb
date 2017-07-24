@@ -1,6 +1,7 @@
 <% title @moment.name %>
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
-<%= button_to "Secret Share" %>
+<%= button_to "Secret Share", secret_shares_path(moment: @moment.name) %>
+<%= moment_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %>
 
 <% if !@moment.why.blank? %>
   <p>

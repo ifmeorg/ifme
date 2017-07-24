@@ -77,6 +77,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :secret_shares, :only => [:create]
+
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
   match 'contributors', to: 'pages#contributors', via: :get
