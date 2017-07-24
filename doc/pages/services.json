@@ -49,8 +49,14 @@
   },
   {
     "name":"Doc Ready (UK)",
-    "link":"http://www.docready.org/",
+    "link":"http://www.docready.org",
     "tags":["free", "care_planning"],
+    "languages":["en"]
+  },
+  {
+    "name":"Therapy For Black Girls (US)",
+    "link":"http://www.therapyforblackgirls.com",
+    "tags":["black_women", "therapy", "directory"],
     "languages":["en"]
   }
 ]
