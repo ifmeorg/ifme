@@ -22,11 +22,12 @@ module CompareLocalesHelper
   def compare(locale_1, locale_2)
     yaml_1 = YAML.load(File.open(File.expand_path(locale_1)))
     yaml_2 = YAML.load(File.open(File.expand_path(locale_2)))
-    # binding.pry
+
     keys_1 = flatten_keys(yaml_1[yaml_1.keys.first])
     keys_2 = flatten_keys(yaml_2[yaml_2.keys.first])
 
     missing = keys_2 - keys_1
+    binding.pry
     file = locale_1.split('/').last
     if missing.any?
       puts "Missing from #{file}:"
