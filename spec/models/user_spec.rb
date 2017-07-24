@@ -42,8 +42,9 @@
 #
 
 describe User do
+  let(:current_time) { Time.zone.now }
+  
   describe ".find_for_google_oauth2" do
-    let(:current_time) { Time.zone.now }
     let(:access_token) {
       double({
                 info: double({ email: "some@user.com", name: "some name" }),
@@ -82,6 +83,38 @@ describe User do
 
       it "returns a user" do
         expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
+      end
+    end
+  end
+
+  describe "#access_token" do
+    let!(:user) { User.create(name: "some name",
+                              email: "some@user.com", 
+                              password: "asdfasdf", 
+                              token: "some token" )}
+
+    context "an expired token" do
+      before do
+        user.access_expires_at = current_time - 600
+      end
+
+      it "updates the access token" do
+        User.stub(:update_access_token) {
+          "some new token"
+        }
+        expect_any_instance_of(User).to receive(:update_access_token)
+        user.access_token
+      end
+    end
+
+    context "a valid token" do
+      before do
+        user.access_expires_at = current_time + 600
+      end
+
+      it "returns the current token" do
+        expect_any_instance_of(User).not_to receive(:update_access_token)
+        expect(user.access_token).to eq("some token")
       end
     end
   end

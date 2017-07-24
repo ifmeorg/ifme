@@ -95,6 +95,37 @@ class User < ActiveRecord::Base
     user
   end
 
+  def access_token
+    if Time.zone.now > access_expires_at
+      update_access_token
+    else
+      token
+    end
+  end
+
+  def update_access_token
+    url = URI("https://accounts.google.com/o/oauth2/token")
+    refresh_token_params = { 'refresh_token' => refresh_token,
+                              'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+                              'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+                              'grant_type'    => 'refresh_token' }
+
+    time_of_request = Time.zone.now
+    # TODO handle a failed request
+    response = Net::HTTP.post_form(url, refresh_token_params)
+    decoded_response = JSON.parse(response.body)
+
+    new_expiration_time =  time_of_request + decoded_response["expires_in"]
+    new_access_token = decoded_response["access_token"]
+
+    self.update!(
+      token: new_access_token,
+      access_expires_at: new_expiration_time
+    )
+
+    new_access_token
+  end
+
   def allies_by_status(status)
     allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
   end
