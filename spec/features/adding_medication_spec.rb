@@ -1,6 +1,8 @@
 describe "user adds a new medication" do
   let!(:user) { FactoryGirl.create(:user_oauth) }
   before do
+    user.token = "some token"
+    user.access_expires_at = Time.zone.now + 600
     login_as user
     visit new_medication_path
   end
@@ -53,7 +55,7 @@ describe "user adds a new medication" do
     find(:css, "#refill_reminder").set(true)
     find(:css, "#medication_add_to_google_cal").set(true)
     CalendarUploader.stub_chain(:new, :upload_event)
-    expect_any_instance_of(CalendarUploader).to receive(:new)
+    expect(CalendarUploader).to receive_message_chain(:new, :upload_event)
     click_on "Submit"
     expect(page).to have_content("A medication name")
     new_medication = user.medications.last
