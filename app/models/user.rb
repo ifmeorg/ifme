@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
     new_expiration_time =  time_of_request + decoded_response["expires_in"]
     new_access_token = decoded_response["access_token"]
 
-    self.update!(
+    self.update(
       token: new_access_token,
       access_expires_at: new_expiration_time
     )
