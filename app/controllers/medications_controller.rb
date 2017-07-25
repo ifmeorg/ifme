@@ -51,12 +51,10 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication = Medication.new(medication_params)
-    respond_to do |format|
-      if @medication.save
-        save_refill_to_google_calendar(@medication)
-        format.html { redirect_to medication_path(@medication) }
-        format.json { render :show, status: :created, location: @medication }
-      else
+    if @medication.valid?
+      save_refill_to_google_calendar(@medication)
+    else
+    repond_to do |format|
         format.html { render :new }
         format.json { render json: @medication.errors, status: :unprocessable_entity }
       end
@@ -69,8 +67,6 @@ class MedicationsController < ApplicationController
     respond_to do |format|
       if @medication.update(medication_params)
         save_refill_to_google_calendar(@medication)
-        format.html { redirect_to medication_path(@medication) }
-        format.json { render :show, status: :ok, location: @medication }
       else
         format.html { render :edit }
         format.json { render json: @medication.errors, status: :unprocessable_entity }
@@ -95,10 +91,24 @@ class MedicationsController < ApplicationController
 
     summary = 'Refill for ' + medication.name
     date = medication.refill
-    CalendarUploader.new(summary: summary,
-                         date: date,
-                         access_token: current_user.access_token,
-                         email: current_user.email).upload_event
+    begin
+      CalendarUploader.new(summary: summary,
+                          date: date,
+                          access_token: current_user.access_token,
+                          email: current_user.email).upload_event
+    rescue
+      sign_out current_user
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path }
+        format.json { head :no_content }
+      end
+    else
+      medication.save
+      respond_to do |format|
+        format.html { redirect_to medication_path(medication) }
+        format.json { render :show, status: :ok, location: medication }
+      end
+    end
   end
 
   private

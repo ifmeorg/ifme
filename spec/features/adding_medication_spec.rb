@@ -60,4 +60,25 @@ describe "user adds a new medication" do
     expect(new_medication.take_medication_reminder.active?).to eq(true)
     expect(new_medication.refill_reminder.active?).to eq(true)
   end
+
+  context "when uploader raises an error" do
+    it "redirects to sign in" do
+      fill_in "Name", with: "A medication name"
+      fill_in "medication_comments", with: "A comment"
+      fill_in "Strength", with: 100
+      fill_in "Total", with: 30
+      fill_in "Dosage", with: 30
+      fill_in "Refill", with: "05/25/2016"
+      find(:css, "#take_medication_reminder").set(true)
+      find(:css, "#refill_reminder").set(true)
+      find(:css, "#medication_add_to_google_cal").set(true)
+      allow(CalendarUploader).to receive(:new).and_raise("boom")
+      expect(CalendarUploader).to receive_message_chain(:new)
+      click_on "Submit"
+      expect(page).to have_content("Sign in with Google")
+      new_medication = user.medications.last
+      expect(new_medication.take_medication_reminder.active?).to eq(true)
+      expect(new_medication.refill_reminder.active?).to eq(true)
+    end
+  end
 end

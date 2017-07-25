@@ -106,12 +106,11 @@ class User < ActiveRecord::Base
   def update_access_token
     url = URI("https://accounts.google.com/o/oauth2/token")
     refresh_token_params = { 'refresh_token' => refresh_token,
-                              'client_id'     => ENV['GOOGLE_CLIENT_ID'],
-                              'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+                              'client_id'     => nil,
+                              'client_secret' => nil,
                               'grant_type'    => 'refresh_token' }
 
     time_of_request = Time.zone.now
-    # TODO handle a failed request
     response = Net::HTTP.post_form(url, refresh_token_params)
     decoded_response = JSON.parse(response.body)
 
