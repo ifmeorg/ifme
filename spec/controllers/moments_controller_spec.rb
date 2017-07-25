@@ -119,4 +119,34 @@ describe MomentsController do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'GET analytics' do
+    before :each do
+      request.headers["accept"] = 'application/json'
+    end
+
+    it 'should retrieve analytics for moments' do
+      new_user = create(:user1)
+      sign_in new_user
+      new_category = create(:category, userid: new_user.id)
+      new_mood = create(:mood, userid: new_user.id)
+      create(:moment, userid: new_user.id, category: Array.new(1, new_category.id),
+                      mood: Array.new(1, new_mood.id), created_at: Date.parse('2017-07-25'))
+
+      get :analytics, group_by: 'day', value: 'count', end_date: '2017-07-25'
+
+      expected = {
+        '2017-07-18' => 0,
+        '2017-07-19' => 0,
+        '2017-07-20' => 0,
+        '2017-07-21' => 0,
+        '2017-07-22' => 0,
+        '2017-07-23' => 0,
+        '2017-07-24' => 0,
+        '2017-07-25' => 1
+      }
+      expect(JSON.parse(response.body)).to eq(expected)
+    end
+
+  end
 end
