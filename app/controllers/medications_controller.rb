@@ -54,7 +54,7 @@ class MedicationsController < ApplicationController
     if @medication.valid?
       save_refill_to_google_calendar(@medication)
     else
-    repond_to do |format|
+      repond_to do |format|
         format.html { render :new }
         format.json { render json: @medication.errors, status: :unprocessable_entity }
       end
@@ -93,9 +93,9 @@ class MedicationsController < ApplicationController
     date = medication.refill
     begin
       CalendarUploader.new(summary: summary,
-                          date: date,
-                          access_token: current_user.access_token,
-                          email: current_user.email).upload_event
+                           date: date,
+                           access_token: current_user.access_token,
+                           email: current_user.email).upload_event
     rescue
       sign_out current_user
       respond_to do |format|
