@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'groupdate'
 
 class MomentsController < ApplicationController
   include CollectionPageSetup
@@ -274,6 +275,28 @@ class MomentsController < ApplicationController
     end
   end
 
+  def analytics
+    period = params[:period].present? ? params[:period] : 'day'
+    value = params[:value].present? ? params[:value] : 'count'
+    end_date = params[:end_date].present? ? Date.parse(params[:end_date]) : Date.today
+    start_date = params[:start_date].present? ? Date.parse(params[:start_date]) : get_start_by_period(period, end_date)
+
+    case value
+      when 'count'
+        # restrict our moments to our current user id
+        result = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
+      when 'sentiment'
+        result = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
+      else
+        result = {}
+    end
+
+    respond_to do |format|
+      format.html { render json: result }
+      format.json { render json: result }
+    end
+  end
+
   private
 
   def set_moment
@@ -299,5 +322,18 @@ class MomentsController < ApplicationController
       end
     end
     true
+  end
+
+  def get_start_by_period(period, end_date)
+    case period
+    when 'day'
+      end_date - 1.weeks
+    when 'week'
+      end_date - 1.months
+    when 'month'
+      end_date - 1.years
+    else
+      end_date - 1.weeks
+    end
   end
 end

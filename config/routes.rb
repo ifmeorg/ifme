@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       post "comment"
       post "quick_moment"
       get "delete_comment"
+      get "analytics"
     end
   end
 
