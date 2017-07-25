@@ -53,7 +53,7 @@ describe "user adds a new medication" do
     find(:css, "#refill_reminder").set(true)
     find(:css, "#medication_add_to_google_cal").set(true)
     CalendarUploader.stub_chain(:new, :upload_event)
-    expect(CalendarUploader).to receive_message_chain(:new)
+    expect_any_instance_of(CalendarUploader).to receive(:new)
     click_on "Submit"
     expect(page).to have_content("A medication name")
     new_medication = user.medications.last
@@ -69,16 +69,14 @@ describe "user adds a new medication" do
       fill_in "Total", with: 30
       fill_in "Dosage", with: 30
       fill_in "Refill", with: "05/25/2016"
-      find(:css, "#take_medication_reminder").set(true)
       find(:css, "#refill_reminder").set(true)
       find(:css, "#medication_add_to_google_cal").set(true)
-      allow(CalendarUploader).to receive(:new).and_raise("boom")
-      expect(CalendarUploader).to receive_message_chain(:new)
+      CalendarUploader.stub_chain(:new, :upload_event).and_raise(StandardError.new("error"))
       click_on "Submit"
-      expect(page).to have_content("Sign in with Google")
+      expect(page).to have_content("Email")
       new_medication = user.medications.last
-      expect(new_medication.take_medication_reminder.active?).to eq(true)
-      expect(new_medication.refill_reminder.active?).to eq(true)
+      expect(new_medication).to eq(nil)
+      
     end
   end
 end

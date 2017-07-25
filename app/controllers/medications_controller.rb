@@ -51,25 +51,37 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication = Medication.new(medication_params)
-    if @medication.valid?
-      save_refill_to_google_calendar(@medication)
-    else
-      repond_to do |format|
-        format.html { render :new }
-        format.json { render json: @medication.errors, status: :unprocessable_entity }
+
+    if save_refill_to_google_calendar(@medication)
+      if @medication.save
+        respond_to do |format|
+          format.html { redirect_to medication_path(@medication) }
+          format.json { render :show, status: :ok, location: @medication }
+        end
+      else
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @medication.errors, status: :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # PATCH/PUT /medications/1
   # PATCH/PUT /medications/1.json
   def update
-    respond_to do |format|
+    if save_refill_to_google_calendar(@medication)
       if @medication.update(medication_params)
-        save_refill_to_google_calendar(@medication)
+        respond_to do |format|
+          format.html { redirect_to medication_path(@medication) }
+          format.json { render :show, status: :ok, location: @medication }
+        end
       else
-        format.html { render :edit }
-        format.json { render json: @medication.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @medication.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -86,8 +98,8 @@ class MedicationsController < ApplicationController
 
   # Save refill date to Google calendar
   def save_refill_to_google_calendar(medication)
-    return unless current_user.google_oauth2_enabled? &&
-                  medication.add_to_google_cal == '1'
+    return true unless current_user.google_oauth2_enabled? &&
+      medication.add_to_google_cal == '1'
 
     summary = 'Refill for ' + medication.name
     date = medication.refill
@@ -102,12 +114,9 @@ class MedicationsController < ApplicationController
         format.html { redirect_to new_user_session_path }
         format.json { head :no_content }
       end
+      false 
     else
-      medication.save
-      respond_to do |format|
-        format.html { redirect_to medication_path(medication) }
-        format.json { render :show, status: :ok, location: medication }
-      end
+      true
     end
   end
 
