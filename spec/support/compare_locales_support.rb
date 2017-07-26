@@ -1,7 +1,7 @@
 module CompareLocalesSupport
 
-  LOCALE_1 = "./config/locales/en.yml"
-  LOCALE_2 = "./config/locales/es.yml"
+  LOCALE_1 = './config/locales/en.yml'
+  LOCALE_2 = './config/locales/es.yml'
 
   require 'yaml'
 
@@ -22,16 +22,13 @@ module CompareLocalesSupport
     primary_keys - keys_to_compare
   end
 
-  def self.compare(locale_1, locale_2)
-    yaml_1 = YAML.load(File.open(File.expand_path(locale_1)))
-    yaml_2 = YAML.load(File.open(File.expand_path(locale_2)))
+  def self.compare(primary_locale_file_name, locale_file_name_to_compare)
+    primary_locale = YAML.load(File.open(File.expand_path(primary_locale_file_name)))
+    locale_to_compare = YAML.load(File.open(File.expand_path(locale_file_name_to_compare)))
 
-    keys_1 = flatten_keys(yaml_1[yaml_1.keys.first])
-    keys_2 = flatten_keys(yaml_2[yaml_2.keys.first])
-
-    missing = keys_2 - keys_1
+    missing = compare_locale_hashes(primary_locale, locale_to_compare)
     # binding.pry
-    file = locale_1.split('/').last
+    file = File.basename(locale_file_name_to_compare)
     if missing.any?
       puts "Missing from #{file}:"
       missing.each { |key| puts "  - #{key}" }
