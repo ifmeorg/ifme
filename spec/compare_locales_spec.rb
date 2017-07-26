@@ -31,6 +31,13 @@ let(:second_hash) {
     }
   }
 }
+  specify 'spanish locale file has nothing missing' do
+    english = './config/locales/en.yml'
+    spanish = './config/locales/es.yml'
+    expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+  end
+
+
   describe '#compare_locale_hashes' do
     let(:missing) { ['less', 'email'] }
     subject(:subject) { CompareLocalesSupport.compare_locale_hashes(main_hash, second_hash) }

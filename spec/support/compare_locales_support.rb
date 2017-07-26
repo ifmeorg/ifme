@@ -26,15 +26,8 @@ module CompareLocalesSupport
     primary_locale = YAML.load(File.open(File.expand_path(primary_locale_file_name)))
     locale_to_compare = YAML.load(File.open(File.expand_path(locale_file_name_to_compare)))
 
-    missing = compare_locale_hashes(primary_locale, locale_to_compare)
-    # binding.pry
-    file = File.basename(locale_file_name_to_compare)
-    if missing.any?
-      puts "Missing from #{file}:"
-      missing.each { |key| puts "  - #{key}" }
-    else
-      puts "Nothing missing from #{file}."
-    end
+    compare_locale_hashes(primary_locale, locale_to_compare)
+
   end
 
   # compare(LOCALE_1, LOCALE_2)
