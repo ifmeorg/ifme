@@ -30,7 +30,7 @@ ptbr:
    twitter: "Twitter"
    facebook: "Facebook"
    feedback: 'feedback'
-   give_feedback: Dê Retorno
+   give_feedback: "Feedback"
    medium: 'Medium'
    press: 'Contato'
    faq: 'FAQ'
@@ -60,7 +60,7 @@ ptbr:
      description: 'Descrição'
      error_explanation: 'Please fill out the marked fields!'
    time_ago: "%{date} atrás"
-   write_to_us: "Escreva pra gente"
+   write_to_us: "join.ifme@gmail.com"
 
  comment:
   singular: 'Comentário'
@@ -336,20 +336,20 @@ ptbr:
 
  pages:
   about:
-    send_us: 'Envie pra nós'
-    email_us: 'Sinta-se a vontade para entrar em contato via email %{email_link}!'
+    send_us: 'por email'
+    email_us: 'Sinta-se a vontade para entrar em contato conosco %{email_link}!'
     main_message_one: "%{app_name} é uma comunidade para experiências relacionadas a saúde mental que encoraja as pessoas a compartilharem suas histórias pessoais com aliados de confiança."
     message_text_one: "Aliados de confiança são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares , companheiros de trabalho, professores, e profissionais da área de saúde mental."
     main_message_two: "Lidar com a saúde mental é o que nos faz humanos. Mas, para muitos de nós ,é um problema lidar com saúde mental de uma forma aberta."
     message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"Está em sua mente, mas também ao seu redor.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
     main_message_three: "Quer patrocinar o projeto?"
-    message_text_three: " Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos o apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do Patreon %{patreon_link}.</p>"
+    message_text_three: " Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Enquanto o nosso aplicativo cresce , precisaremos de suporte financeiro para custear nossos servidores e estarmos em conformidade com os padrões do HIPAA . No inverno de 2016, recebemos o apoio de %{linebreak_link}.</p>Você pode nos dar suporte através do %{patreon_link}.</p>"
     linebreak: 'Linebreak'
   blog:
     description: "Se você estiver interessado em escrever para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
   contributors:
     main_message_one: "if me é desenvolvido e mantido por voluntários com diferentes experiências e habilidades."
-    message_text_one: "Estamos sempre procurando por novas idéias de diversas pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>profissionais da sáude</strong>, <strong>desenvolvedores de software</strong>, e <strong>UX Designers</strong>!<p class=\"no_margin_bottom\">Envie um email para %{email_link} e entraremos em contato com você! Você será convidado para participar do nosso grupo no Slack %{slack_link}, nossa principal ferramenta de comunicação.Faça o fork do nosso repositório hospedado no Github %{github_link}!</p>"
+    message_text_one: "Estamos sempre procurando por novas idéias de diversas pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>profissionais da sáude</strong>, <strong>desenvolvedores de software</strong>, e <strong>UX Designers</strong>!<p class=\"no_margin_bottom\">Envie um email para %{email_link} e entraremos em contato com você! Você será convidado para participar do nosso grupo no %{slack_link}, nossa principal ferramenta de comunicação.Faça o fork do nosso repositório hospedado no %{github_link}!</p>"
     more_contributors: 'Mais Contribuidores Fabulosos!'
     thanks: 'Um enorme agradecimento ao'
     slack: 'Slack'
@@ -358,7 +358,7 @@ ptbr:
     data_access_question: 'Quem pode acessar meus dados ?'
     data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
     moment_question: 'O que é um Momento ?'
-    moment_answer: 'Um <strong>Momento</strong>é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira , pode tornar seus comentários visíveis apenas para você.'
+    moment_answer: 'Um <strong>Momento</strong> é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira , pode tornar seus comentários visíveis apenas para você.'
     strategy_question: 'O que é uma Estratégia ?'
     strategy_answer: 'Uma <strong>Estratégia</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags(etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
     category_question: 'O que é uma Categoria ? '
@@ -368,7 +368,7 @@ ptbr:
     group_question: 'O que é um Grupo ?'
     group_answer: 'Um <strong>Grupo</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
     medications_question: 'Como eu uso o recurso de Medicamentos?'
-    medications_answer: 'O recurso de <strong>Medicamentos</strong> permite que você tenha um controle da receita médida sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
+    medications_answer: 'O recurso de <strong>Medicamentos</strong> permite que você tenha um controle da receita médica sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
     invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
     invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
     email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
