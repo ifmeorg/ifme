@@ -54,10 +54,7 @@ class MedicationsController < ApplicationController
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
-      respond_to do |format|
-        format.html { redirect_to medication_path(@medication) }
-        format.json { render :show, status: :ok, location: @medication }
-      end
+      redirect_to_medication(@medication)
     else
       render_unprocessable_medication
     end
@@ -68,10 +65,7 @@ class MedicationsController < ApplicationController
   def update
     return unless save_refill_to_google_calendar(@medication)
     if @medication.update(medication_params)
-      respond_to do |format|
-        format.html { redirect_to medication_path(@medication) }
-        format.json { render :show, status: :ok, location: @medication }
-      end
+      redirect_to_medication(@medication)
     else
       render_unprocessable_medication
     end
@@ -123,6 +117,13 @@ class MedicationsController < ApplicationController
         render(json: @medication.errors,
                status: :unprocessable_entity)
       end
+    end
+  end
+
+  def redirect_to_medication(medication)
+    respond_to do |format|
+      format.html { redirect_to medication_path(medication) }
+      format.json { render :show, status: :ok, location: medication }
     end
   end
 
