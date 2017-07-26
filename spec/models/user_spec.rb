@@ -37,15 +37,21 @@
 #  group_notify           :boolean
 #  meeting_notify         :boolean
 #  locale                 :string
+#  access_expires_at      :datetime
+#  refresh_token          :string
 #
 
 describe User do
+  let(:current_time) { Time.zone.now }
+
   describe ".find_for_google_oauth2" do
     let(:access_token) {
       double({
                 info: double({ email: "some@user.com", name: "some name" }),
                 provider: "asdf",
-                credentials: double({ token: "some token" }),
+                credentials: double({ token: "some token",
+                                      expires_at: current_time.to_i,
+                                      refresh_token: "some refresh token"}),
                 uid: "some uid"
       })
     }
@@ -58,7 +64,9 @@ describe User do
         user.reload
         expect(user.provider).to eq("asdf")
         expect(user.token).to eq("some token")
+        expect(user.refresh_token).to eq("some refresh token")
         expect(user.uid).to eq("some uid")
+        expect(user.access_expires_at).to eq(Time.at(current_time.to_i))
       end
 
       it "returns a user" do
@@ -75,6 +83,50 @@ describe User do
 
       it "returns a user" do
         expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
+      end
+    end
+  end
+
+  describe "#access_token" do
+    let!(:user) { User.create(name: "some name",
+                              email: "some@user.com", 
+                              password: "asdfasdf", 
+                              token: "some token" )}
+
+    context "no expiration saved" do
+      it "updates the access token" do
+        User.stub(:update_access_token) {
+          "some new token"
+        }
+        user.access_expires_at = nil
+
+        expect_any_instance_of(User).to receive(:update_access_token)
+        user.google_access_token
+      end
+    end
+
+    context "an expired token" do
+      before do
+        user.access_expires_at = current_time - 600
+      end
+
+      it "updates the access token" do
+        User.stub(:update_access_token) {
+          "some new token"
+        }
+        expect_any_instance_of(User).to receive(:update_access_token)
+        user.google_access_token
+      end
+    end
+
+    context "a valid token" do
+      before do
+        user.access_expires_at = current_time + 600
+      end
+
+      it "returns the current token" do
+        expect_any_instance_of(User).not_to receive(:update_access_token)
+        expect(user.google_access_token).to eq("some token")
       end
     end
   end
