@@ -18,7 +18,7 @@ module MedicationRefillHelper
   def calendar_uploader_params(medication)
     { summary: "Refill for #{medication.name}",
       date: medication.refill,
-      access_token: current_user.access_token,
+      access_token: current_user.google_access_token,
       email: current_user.email }
   end
 end

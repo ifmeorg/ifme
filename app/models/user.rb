@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def access_token
+  def google_access_token
     if !access_expires_at || Time.zone.now > access_expires_at
       update_access_token
     else

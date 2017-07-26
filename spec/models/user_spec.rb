@@ -43,7 +43,7 @@
 
 describe User do
   let(:current_time) { Time.zone.now }
-  
+
   describe ".find_for_google_oauth2" do
     let(:access_token) {
       double({
@@ -99,9 +99,9 @@ describe User do
           "some new token"
         }
         user.access_expires_at = nil
-        
+
         expect_any_instance_of(User).to receive(:update_access_token)
-        user.access_token
+        user.google_access_token
       end
     end
 
@@ -115,7 +115,7 @@ describe User do
           "some new token"
         }
         expect_any_instance_of(User).to receive(:update_access_token)
-        user.access_token
+        user.google_access_token
       end
     end
 
@@ -126,7 +126,7 @@ describe User do
 
       it "returns the current token" do
         expect_any_instance_of(User).not_to receive(:update_access_token)
-        expect(user.access_token).to eq("some token")
+        expect(user.google_access_token).to eq("some token")
       end
     end
   end
