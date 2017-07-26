@@ -59,11 +59,7 @@ class MedicationsController < ApplicationController
         format.json { render :show, status: :ok, location: @medication }
       end
     else
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @medication.errors,
-                             status: :unprocessable_entity }
-      end
+      render_unprocessable_medication
     end
   end
 
@@ -77,11 +73,7 @@ class MedicationsController < ApplicationController
         format.json { render :show, status: :ok, location: @medication }
       end
     else
-      respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @medication.errors,
-                              status: :unprocessable_entity }
-      end
+      render_unprocessable_medication
     end
   end
 
@@ -120,6 +112,16 @@ class MedicationsController < ApplicationController
   end
 
   private
+
+  def render_unprocessable_medication
+    respond_to do |format|
+      format.html { render :new }
+      format.json do
+        render(json: @medication.errors,
+               status: :unprocessable_entity)
+      end
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_medication
