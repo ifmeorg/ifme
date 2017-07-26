@@ -5,17 +5,14 @@ module CompareLocalesSupport
 
   require 'yaml'
 
-  def self.flatten_keys(hash, prefix="")
-    keys = []
-    hash.keys.each do |key|
-      if hash[key].is_a? Hash
-        current_prefix = prefix + "#{key}."
-        keys << flatten_keys(hash[key], current_prefix)
+  def self.flatten_keys(hash, prefix='')
+    hash.keys.each_with_object([]) do |key, keys|
+      if hash[key].respond_to?(:keys)
+        keys.concat(flatten_keys(hash[key], "#{prefix}#{key}."))
       else
         keys << "#{prefix}#{key}"
       end
     end
-    prefix == "" ? keys.flatten : keys
   end
 
   def self.compare_locale_hashes(primary_locale, locale_to_compare)
