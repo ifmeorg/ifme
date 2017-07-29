@@ -1,6 +1,6 @@
 machine:
   ruby:
-    version: 2.3.1
+    version: 2.3.4
 
 dependencies:
   pre:
@@ -12,7 +12,7 @@ test:
   pre:
     - RAILS_ENV=test bundle exec rake db:create db:schema:load
   override:
-    - bundle exec rspec
+    - bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
     - RAILS_ENV=test bundle exec rake jasmine:ci
 
 deployment:

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ProfilePicture
-  DEFAULT_AVATAR = '/assets/default_ifme_avatar.png'.freeze
+  DEFAULT_AVATAR = '/assets/default_ifme_avatar.png'
 
   class << self
     def fetch(avatar, class_name)

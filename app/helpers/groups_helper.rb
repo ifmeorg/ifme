@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupsHelper
   def user_is_leader_of?(object)
     # object can be either group or meeting
@@ -28,7 +30,8 @@ module GroupsHelper
 
   def delete_group_link(group, attrs = {})
     link_to t('common.actions.delete'), group,
-            { method: :delete,
+            {
+              method: :delete,
               data: { confirm: t('common.actions.confirm') }
             }.merge(attrs)
   end

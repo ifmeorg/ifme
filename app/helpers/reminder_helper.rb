@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ReminderHelper
   def print_reminders(data)
     reminders = ''

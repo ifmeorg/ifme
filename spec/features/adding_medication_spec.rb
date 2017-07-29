@@ -13,7 +13,8 @@ describe "user adds a new medication" do
     fill_in "Dosage", with: 2
     fill_in "Refill", with: "05/25/2016"
     CalendarUploader.stub_chain(:new, :upload_event)
-    click_on "Create Medication"
+    expect(CalendarUploader).to_not receive(:new)
+    click_on "Submit"
     expect(page).to have_content("A medication name")
     new_medication = user.medications.last
     expect(new_medication.name).to eq("A medication name")
@@ -32,7 +33,8 @@ describe "user adds a new medication" do
       find(:css, "#take_medication_reminder").set(true)
       find(:css, "#refill_reminder").set(true)
       CalendarUploader.stub_chain(:new, :upload_event)
-      click_on "Create Medication"
+      expect(CalendarUploader).to_not receive(:new)
+      click_on "Submit"
       expect(page).to have_content("A medication name")
       new_medication = user.medications.last
       expect(new_medication.take_medication_reminder.active?).to eq(true)
@@ -51,7 +53,8 @@ describe "user adds a new medication" do
     find(:css, "#refill_reminder").set(true)
     find(:css, "#medication_add_to_google_cal").set(true)
     CalendarUploader.stub_chain(:new, :upload_event)
-    click_on "Create Medication"
+    expect(CalendarUploader).to receive_message_chain(:new)
+    click_on "Submit"
     expect(page).to have_content("A medication name")
     new_medication = user.medications.last
     expect(new_medication.take_medication_reminder.active?).to eq(true)

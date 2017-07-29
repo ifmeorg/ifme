@@ -18,7 +18,6 @@ module Ifme
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
     config.active_record.raise_in_transactional_callbacks = true
 
     config.exceptions_app = self.routes
@@ -36,7 +35,7 @@ module Ifme
     # export translations for use in javascript
     config.middleware.use I18n::JS::Middleware
 
-    config.i18n.available_locales = [:en, :es]
+    config.i18n.available_locales = [:en, :es, :ptbr]
     config.i18n.default_locale = :en
   end
 end

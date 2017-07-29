@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class MoodsController < ApplicationController
   include CollectionPageSetup
-  before_action :set_mood, only: [:show, :edit, :update, :destroy]
+  before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
   # GET /moods.json
@@ -37,11 +39,11 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    if @mood.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to mood_path(@mood) }
-        format.json { head :no_content }
-      end
+    return if @mood.userid == current_user.id
+
+    respond_to do |format|
+      format.html { redirect_to mood_path(@mood) }
+      format.json { head :no_content }
     end
   end
 
@@ -63,11 +65,11 @@ class MoodsController < ApplicationController
   # POST /moods
   # POST /moods.json
   def premade
-    premade1 = Mood.create(userid: current_user.id, name: t('moods.index.premade1_name'), description: t('moods.index.premade1_description'))
-    premade2 = Mood.create(userid: current_user.id, name: t('moods.index.premade2_name'), description: t('moods.index.premade2_description'))
-    premade3 = Mood.create(userid: current_user.id, name: t('moods.index.premade3_name'), description: t('moods.index.premade3_description'))
-    premade4 = Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
-    premade5 = Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade1_name'), description: t('moods.index.premade1_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade2_name'), description: t('moods.index.premade2_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade3_name'), description: t('moods.index.premade3_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
+    Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
 
     respond_to do |format|
       format.html { redirect_to moods_path }
@@ -93,10 +95,10 @@ class MoodsController < ApplicationController
   # DELETE /moods/1.json
   def destroy
     # Remove moods from existing moments
-    @moments = Moment.where(:userid => current_user.id).all
+    @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      new_category = item.mood.delete(@mood.id)
+      item.mood.delete(@mood.id)
       the_moment = Moment.find_by(id: item.id)
       the_moment.update(mood: item.mood)
     end
@@ -115,7 +117,7 @@ class MoodsController < ApplicationController
       checkbox = '<input type="checkbox" value="' + mood.id.to_s + '" name="moment[mood][]" id="moment_mood_' + mood.id.to_s + '">'
       label = '<span class="notification_wrapper">
             <span class="tip_notifications_button link_style">' + mood.name + '</span><br>'
-      label += render_to_string :partial => '/notifications/preview', locals: { data: mood, edit: edit_mood_path(mood) }
+      label += render_to_string partial: '/notifications/preview', locals: { data: mood, edit: edit_mood_path(mood) }
       label += '</span>'
       result = { checkbox: checkbox, label: label }
     else
@@ -132,15 +134,11 @@ class MoodsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_mood
-    begin
-      @mood = Mood.friendly.find(params[:id])
-    rescue
-      if @mood.blank?
-        respond_to do |format|
-          format.html { redirect_to moods_path }
-          format.json { head :no_content }
-        end
-      end
+    @mood = Mood.friendly.find(params[:id])
+  rescue
+    respond_to do |format|
+      format.html { redirect_to moods_path }
+      format.json { head :no_content }
     end
   end
 

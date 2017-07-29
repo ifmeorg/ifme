@@ -32,6 +32,8 @@
 @import "compass/support";
 @import "compass/utilities";
 @import "base/*";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /* Text */
 
@@ -79,6 +81,11 @@ a:hover, .link_style:hover {
   color: $link-color;
   border-bottom: 1px dotted $link-color;
   opacity: 0.5;
+}
+
+.anchor {
+  border-bottom: 1px dotted $primary-text-color;
+  cursor: pointer;
 }
 
 // TODO(juliepagano): This is probably not what we want long-term. Come back
@@ -393,6 +400,18 @@ a.page_search:hover {
   text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
+/* Announcement */
+
+#announcement {
+  text-align: center;
+  background-color: $highlight-text-color;
+  padding: 20px 60px;
+
+  @media screen and (max-width: $medium) {
+    padding: 20px;
+  }
+}
+
 /* Content */
 
 #content {
@@ -456,18 +475,6 @@ a.page_search:hover {
   }
 }
 
-.emphasis {
-  font: $emphasis $font-family;
-  font-weight: $lg;
-  color: $secondary-text-color;
-
-  @media screen and (max-width: $medium) {
-    font: $emphasis-small $font-family;
-    font-weight: $lg;
-    color: $secondary-text-color;
-  }
-}
-
 .block {
   display: block !important;
 }
@@ -507,7 +514,11 @@ a.highlight:visited {
   background-color: $secondary-text-color;
   color: $header-text-color !important;
   border-bottom: none !important;
-  padding: 5px;
+  padding: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
 }
 
 a.highlight:hover {
@@ -516,7 +527,11 @@ a.highlight:hover {
   color: $header-text-color !important;
   border-bottom: none !important;
   opacity: 0.5;
-  padding: 5px;
+  padding: 10px;
+
+  @media screen and (max-width: $small) {
+    padding: 5px;
+  }
 }
 
 /* Images */

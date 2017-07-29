@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: group_members
@@ -13,7 +15,7 @@
 class GroupMember < ActiveRecord::Base
   after_destroy :destroy_meeting_memberships
 
-  validates_presence_of :groupid, :userid
+  validates :groupid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
   belongs_to :group, foreign_key: :groupid
@@ -21,7 +23,7 @@ class GroupMember < ActiveRecord::Base
 
   has_many :meetings, through: :group
   has_many :meeting_memberships,
-           -> (group_member) { where(meeting_members: { userid: group_member.userid }) },
+           ->(group_member) { where(meeting_members: { userid: group_member.userid }) },
            through: :meetings, source: :meeting_members
 
   def destroy_meeting_memberships

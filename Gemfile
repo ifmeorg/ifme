@@ -1,13 +1,15 @@
-source 'https://rubygems.org'
-ruby '2.3.1'
+# frozen_string_literal: true
 
-gem 'rails',                      '4.2.6'
+source 'https://rubygems.org'
+ruby '2.3.4'
+
+gem 'rails',                      '4.2.9'
 
 gem 'bcrypt',                     '3.1.11'
-gem 'pg',                         '0.18.4'
 gem 'devise',                     '~> 4.1'
 gem 'devise_invitable',           '1.6.0'
 gem 'devise_uid',                 '0.1.1'
+gem 'pg',                         '0.18.4'
 gem 'resque',                     '1.26.0'
 gem 'resque-scheduler',           '4.2.0'
 gem 'resque_mailer',              '2.3.0'
@@ -37,14 +39,16 @@ gem 'rails-i18n',                 '4.0.9'
 gem 'underscore-rails',           '1.8.3'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'sdoc',                       '0.4.1', group: :doc
+gem 'sdoc', '0.4.1', group: :doc
+
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'dotenv',                     '2.1.1'
 
   gem 'guard',                      '2.14.0'
-  gem 'spring',                     '1.3.6'
   gem 'quiet_assets'
+  gem 'spring',                     '1.3.6'
 
   gem 'annotate',                   '~> 2.6', '>= 2.6.10'
   gem 'railroady',                  '1.4.2'
@@ -57,14 +61,15 @@ group :development, :test do
   gem 'capybara',                   '2.7.1'
   gem 'factory_girl_rails',         '~> 4.7'
   gem 'jasmine',                    '2.4.0'
-  gem 'rspec-rails',                '~> 3.4'
   gem 'rspec-collection_matchers',  '1.1.2'
+  gem 'rspec-rails',                '~> 3.4'
   gem 'ruby-graphviz',              '1.2.2'
 
   gem 'letter_opener'
+  gem 'rspec_junit_formatter'
 
   gem 'jshint'
-  gem 'rubocop',                    '0.40.0'
+  gem 'rubocop', '~> 0.48.0'
 end
 
 group :test do

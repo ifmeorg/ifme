@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -36,6 +38,7 @@
 #  ally_notify            :boolean
 #  group_notify           :boolean
 #  meeting_notify         :boolean
+#  locale                 :string
 #
 
 class User < ActiveRecord::Base
@@ -43,12 +46,12 @@ class User < ActiveRecord::Base
     accepted: 0,
     pending_from_user: 1,
     pending_from_ally: 2
-  }
+  }.freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -65,56 +68,57 @@ class User < ActiveRecord::Base
   has_many :notifications, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
-  validates :name, presence: { message: "must be given please" }
+  validates :name, presence: true
+  validates :locale, inclusion: { in: [nil, 'en', 'es', 'ptbr'] }
 
   def remove_leading_trailing_whitespace
     @email&.strip!
     @name&.strip!
   end
 
-  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+  # TODO: _signed_in_resource is unused and should be removed
+  def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
-    user = find_or_initialize_by(email: data.email) do |user|
-      user.name = data.name
-      user.password = Devise.friendly_token[0,20]
+    user = find_or_initialize_by(email: data.email) do |u|
+      u.name = data.name
+      u.password = Devise.friendly_token[0, 20]
     end
 
     user.update!(
-        provider: access_token.provider,
-        token: access_token.credentials.token,
-        uid: access_token.uid,
-      )
+      provider: access_token.provider,
+      token: access_token.credentials.token,
+      uid: access_token.uid
+    )
     user
   end
 
-   def allies_by_status(status)
-     allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
-   end
+  def allies_by_status(status)
+    allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
+  end
 
-   def set_defaults
-     @comment_notify.nil? && @comment_notify = true
-     @ally_notify.nil? && @comment_notify = true
-     @group_notify.nil? && @comment_notify = true
-     @meeting_notify.nil? && @comment_notify = true
-   end
+  def set_defaults
+    @comment_notify.nil? && @comment_notify = true
+    @ally_notify.nil? && @comment_notify = true
+    @group_notify.nil? && @comment_notify = true
+    @meeting_notify.nil? && @comment_notify = true
+  end
 
+  def available_groups(order)
+    ally_groups.order(order) - groups
+  end
 
-   def available_groups(order)
-     ally_groups.order(order) - groups
-   end
+  def google_oauth2_enabled?
+    token.present?
+  end
 
-   def google_oauth2_enabled?
-     !token.blank?
-   end
+  private
 
-   private
+  def accepted_ally_ids
+    allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
+  end
 
-   def accepted_ally_ids
-     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
-   end
-
-   def ally_groups
-     Group.includes(:group_members)
-           .where(group_members: { userid: accepted_ally_ids })
-   end
+  def ally_groups
+    Group.includes(:group_members)
+         .where(group_members: { userid: accepted_ally_ids })
+  end
 end

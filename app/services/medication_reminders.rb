@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MedicationReminders
   def send_take_medication_reminder_emails
     TakeMedicationReminder.active.each do |reminder|
@@ -17,9 +19,9 @@ class MedicationReminders
     RefillReminder.active.joins(:medication).where('medications.refill': one_week_from_now_as_string)
   end
 
-  #Medication Refill dates are currently stored as strings in the database
-  #instead of timestamps. If we want to do more complicated reminders, we
-  #should migrate the data to timestamps.
+  # TODO: Medication Refill dates are currently stored as strings in the
+  # database instead of timestamps. If we want to do more complicated reminders,
+  # we should migrate the data to timestamps.
   def one_week_from_now_as_string
     (Time.now + 1.week).strftime('%m/%d/%Y')
   end

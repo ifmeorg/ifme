@@ -115,5 +115,59 @@
     "link_name":"kindlingscript",
     "link":"http://kindlingscript.com",
     "social":"globe"
+  },
+  {
+    "name":"Lisette Ruiz",
+    "image":"/assets/contributors/lisette_ruiz.jpg",
+    "profile":"This past year has been a tough one for me.<br><br>Bob Dylan won the Nobel over Don DeLillo.<br><br>Clinton lost to Trump.<br><br>And I started seeing a therapist.<br><br>At first, hesitantly, not sure what to expect & ashamed of the “patient” label I now identified with. And then suddenly, with a new sense of appreciation for the brave people doing this important work.<br><br>The entire process has been an absolute saving grace for me. The private, reflective conversations that help me feel recharged and stable are the reason I can read the news each day without bursting into manic tears. After learning about If Me, I was determined to contribute however possible, with the goal of helping even one person gain the benefits I experienced from therapy through this amazing open source platform.",
+    "location":"Seattle, USA",
+    "link_name":"bubsolow",
+    "link":"https://twitter.com/bubsolow",
+    "social":"twitter"
+  },
+  {
+    "name":"Pedro Paulino",
+    "image":"/assets/contributors/pedro_paulino.jpg",
+    "profile":"Being a developer for 3 years , working on  personal projects, and learning how the open source can help people with depression.",
+    "location":"Maringá, Parana State, Brazil",
+    "link_name":"ThePedroPaulino",
+    "link":"https://github.com/ThePedroPaulino",
+    "social":"globe"
+  },
+  {
+    "name":"Claire Wild",
+    "image":"/assets/contributors/claire_wild.jpg",
+    "profile":"I'm a personal trainer and gymnastics coach turned software developer. Sharing my own story about eating disorder recovery through my blog <a href='http://www.strengthwithoutbounds.com/' target='_blank'>Strength Without Bounds</a> has really helped me become more self aware, and more comfortable talking openly and honestly. I'm excited and grateful for the opportunity to contribute to <b>if me<b>to help others share their own stories.",
+    "location":"San Francisco, USA",
+    "link_name":"clairewild",
+    "link":"https://clairewild.github.io/PortfolioSite/",
+    "social":"globe"
+  },
+  {
+    "name":"Irene Li",
+    "image":"/assets/contributors/irene_li.jpg",
+    "profile":"I am contributing to if me because I have gone through phases of depression in the past and it was so hard to open up to people about it. I closed myself off in fear that loved ones would be disappointed in me. I learned that it is actually in those times that I needed help the most.",
+    "location":"San Francisco, USA",
+    "link_name":"liirene1",
+    "link":"https://github.com/liirene1",
+    "social":"github"
+  },
+  {
+    "name":"Sophie McDonald",
+    "image":"/assets/contributors/sophie_mcdonald.jpg",
+    "profile":"I feel honoured to be able to contribute to ifme, through the Rails Girls Summer of Code program. Having had my own battles with mental health, the project appealed to me instantly. I love that I can contribute to a project which supports and makes a positive difference to the lives of those dealing with mental health. I wish I had have known about ifme sooner.",
+    "location":"Melbourne, Australia",
+    "link_name":"sophierose239",
+    "link":"https://twitter.com/sophierose239",
+    "social":"Twitter"
+  },
+  {
+    "name":"Jenny Nam",
+    "image":"/assets/contributors/jnamster.png",
+    "profile":"Contributing to an open source project on mental health is important to me. Mental health affects everyone regardless of where they live or work. ifme is a great platform to share experiences, increase awareness and understanding, and provide people a community of support around the world. I believe it is important that we recognise it is okay to share our experiences with mental health issues.",
+    "location":"Melbourne, Australia",
+    "link_name":"jennynamster",
+    "link":"https://github.com/jnamster",
+    "social":"github"
   }
 ]

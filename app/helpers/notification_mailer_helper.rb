@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NotificationMailerHelper
   def comment_on_moment_subject(data)
     I18n.t(
@@ -43,6 +45,7 @@ module NotificationMailerHelper
   end
 
   def new_group_body(data)
+    link_name = I18n.t('click_here')
     I18n.t(
       val('new_group_body'),
       subject: new_group_subject(data),

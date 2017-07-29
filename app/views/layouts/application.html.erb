@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= @locale %>">
   <head>
     <title>
       <%= render 'layouts/title' %>
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
@@ -121,7 +120,7 @@
     <%= t('devise.invitations.edit.header') %>
   <% elsif current_page?(edit_user_password_path) ||
     (params[:controller] == "devise/passwords" && action_name == "edit") %>
-  Reset your password
+  <%= t('layouts.title.reset_password') %>
 <% else %>
   <%= yield(:title) %>
 <% end %>
@@ -129,6 +128,8 @@
 
           </div>
         </div>
+
+        <div id="announcement" class="display_none"></div>
 
         <div id="content">
           <% if !notice.blank? %>

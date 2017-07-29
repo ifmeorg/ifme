@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -8,13 +10,14 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  userid      :integer
+#  slug        :string
 #
 
 class Category < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
-  validates_length_of :description, :maximum => 2000
-  validates_presence_of :userid, :name
+  validates :description, length: { maximum: 2000 }
+  validates :userid, :name, presence: true
 
   def self.link
     '/categories/'

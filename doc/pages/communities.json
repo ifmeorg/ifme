@@ -1,0 +1,50 @@
+[
+  {
+    "name":"Aloe",
+    "link":"https://aloe.club",
+    "tags":["self_care", "anonymous"],
+    "languages":["en"]
+  },
+  {
+    "name":"Brown Sisters Speak",
+    "link":"https://www.facebook.com/Brownsistersspeak",
+    "tags":["women_of_colour", "self_care", "domestic_violence"],
+    "languages":["en", "es"]
+  },
+  {
+    "name":"Koko",
+    "link":"https://itskoko.com",
+    "tags":["chatbot", "anonymous"],
+    "languages":["en"]
+  },
+  {
+    "name":"Lemonaid",
+    "link":"http://lemonaid.io",
+    "tags":["women", "self_care", "domestic_violence", "anonymous"],
+    "languages":["en"]
+  },
+  {
+    "name":"Tessera Collective",
+    "link":"https://www.facebook.com/tesseracollective",
+    "tags":["women_of_colour", "self_care", "domestic_violence"],
+    "languages":["en"]
+  },
+  {
+    "name":"MHPrompt",
+    "link":"http://mhprompt.org",
+    "tags":["tech_industry", "talks"],
+    "languages":["en"]
+  },
+  {
+    "name":"LifeSIGNS: Self Injury Guidance & Network Support (UK)",
+    "link":"http://www.lifesigns.org.uk/",
+    "tags":["self_injury", "blog", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"Blue Hackers",
+    "link":"http://bluehackers.org/",
+    "tags":["tech_industry", "depression", "blog"],
+    "languages":["en"]
+  }
+]

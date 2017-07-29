@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchController < ApplicationController
   def index
     mail = params[:search][:email]
@@ -10,11 +12,11 @@ class SearchController < ApplicationController
     data_type = params[:search][:data_type]
     term = params[:search][:name]
 
-    if %w(moment category mood strategy medication).include? data_type
-      respond_to do |format|
-        format.html { redirect_to make_path(term, data_type) }
-        format.json { head :no_content }
-      end
+    return unless data_type.in?(%w[moment category mood strategy medication])
+
+    respond_to do |format|
+      format.html { redirect_to make_path(term, data_type) }
+      format.json { head :no_content }
     end
   end
 

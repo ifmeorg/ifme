@@ -17,14 +17,31 @@
 //= require jquery-readyselector
 //= require bootstrap-datepicker
 //= require underscore
-//= require_tree .
 //= require i18n
+//= require_tree .
 //= require i18n.js
 //= require i18n/translations
 
-/* Viewers */
+I18n.locale = getCookie("locale") || I18n.defaultLocale;
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return null;
+}
+
 function isAllAlliesInputBoxIsChecked(inputTag) {
-	return inputTag.is(":checked") && $('#viewers_label').text() === ALL_ALLIES;
+	return inputTag.is(":checked") && $("#viewers_label").text() === ALL_ALLIES;
 }
 
 function setViewersCheckBoxToNotBeSelected() {
@@ -34,7 +51,7 @@ function setViewersCheckBoxToNotBeSelected() {
 function newOrEdit(forms) {
 	var result = false;
 	_.each(forms, function(form) {
-		if ($('body').hasClass(form + ' new') || $('body').hasClass(form + ' create') || $('body').hasClass(form + ' edit') || $('body').hasClass(form + ' update')) {
+		if ($("body").hasClass(form + " new") || $("body").hasClass(form + " create") || $("body").hasClass(form + " edit") || $("body").hasClass(form + " update")) {
 			result = true;
 			return;
 		}
@@ -46,7 +63,7 @@ function newOrEdit(forms) {
 function isShow(forms) {
 	var result = false;
 	_.each(forms, function(form) {
-		if ($('body').hasClass(form + ' show')) {
+		if ($("body").hasClass(form + " show")) {
 			result = true;
 			return;
 		}
@@ -55,36 +72,24 @@ function isShow(forms) {
 	return result;
 }
 
-var onReadyMomentsAndStrategies = function() {
-	$('.expand_toggle').click(function(event){
-		var toggleID = $(this).data('toggle');
-		$(toggleID).toggle();
-		$(this).find('.toggle_button i').toggleClass('fa-caret-down');
-		$(this).find('.toggle_button i').toggleClass('fa-caret-up');
-		event.preventDefault();
-	});
-
-	$('#viewers_all').click(function(){
-		$("#viewers_list :checkbox").prop("checked", $(this).prop("checked"));
-	});
-}
-
 var onReadyApplication = function() {
 	$.ajaxSetup({
 		headers: {
-			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+			"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
 		}
 	});
 
 	// Timezone detection
 	var tz = jstz.determine();
-	$.cookie('timezone', tz.name(), { path: '/' });
+	$.cookie("timezone", tz.name(), { path: "/" });
 
-	$('.yes_title').find(':not(.no_title)').tooltip();
-
-	if (newOrEdit(['moments', 'strategies'])) {
-		onReadyMomentsAndStrategies();
-	}
+	$(".yes_title").find(":not(.no_title)").tooltip();
 };
 
 $(document).on("page:load ready", onReadyApplication);
+
+var beforeunloadApplication = function() {
+  $(window).scrollTop(0);
+};
+
+$(window).on("beforeunload", beforeunloadApplication);

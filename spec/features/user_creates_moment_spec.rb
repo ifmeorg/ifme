@@ -52,7 +52,7 @@ describe "UserCreatesAMoment", js: true do
       fill_in_ckeditor('moment_why', with: 'my moment why description')
       fill_in_ckeditor('moment_fix', with: 'my moment fix description')
 
-      page.find('input[value="Create Moment"]').click
+      page.find('input[value="Submit"]').click
 
       # VIEWING
       within '#page_title_content' do
@@ -82,7 +82,7 @@ describe "UserCreatesAMoment", js: true do
 
       fill_in_ckeditor('moment_why', with: 'I am changing my moment why description')
 
-      page.find('input[value="Update Moment"]').click
+      page.find('input[value="Submit"]').click
 
       #VIEWING AFTER EDITING
       within '#page_title_content' do

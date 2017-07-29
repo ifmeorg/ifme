@@ -8,7 +8,7 @@ describe "user adds a new strategy" do
   it "creates a new strategy" do
     fill_in "Title", with: "A strategy name"
     fill_in "Describe the strategy", with: "A description"
-    click_on "Create Strategy"
+    click_on "Submit"
     expect(page).to have_content("A strategy name")
     new_strategy = user.strategies.last
     expect(new_strategy.name).to eq("A strategy name")
@@ -20,7 +20,7 @@ describe "user adds a new strategy" do
       fill_in "Title", with: "A strategy name"
       fill_in "Describe the strategy", with: "A description"
       find(:css, "#perform_strategy_reminder").set(true)
-      click_on "Create Strategy"
+      click_on "Submit"
       expect(page).to have_content("A strategy name")
       new_strategy = user.strategies.last
       expect(new_strategy.perform_strategy_reminder.active?).to eq(true)

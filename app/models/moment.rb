@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: moments
@@ -14,6 +16,7 @@
 #  viewers    :text
 #  comment    :boolean
 #  strategies :text
+#  slug       :string
 #
 
 class Moment < ActiveRecord::Base
@@ -24,24 +27,16 @@ class Moment < ActiveRecord::Base
   serialize :mood, Array
   serialize :strategies, Array
   validates :comment, inclusion: [true, false]
-  validates_presence_of :userid, :name, :why
-  validates_length_of :why, :minimum => 1, :maximum => 2000
-  validates_length_of :fix, :maximum => 2000
+  validates :userid, :name, :why, presence: true
+  validates :why, length: { minimum: 1, maximum: 2000 }
+  validates :fix, length: { maximum: 2000 }
   before_save :array_data
 
   def array_data
-    if !self.category.nil? && self.category.is_a?(Array)
-      self.category = self.category.collect{|i| i.to_i}
-    end
-    if !self.viewers.nil? && self.viewers.is_a?(Array)
-      self.viewers = self.viewers.collect{|i| i.to_i}
-    end
-    if !self.mood.nil? && self.mood.is_a?(Array)
-      self.mood = self.mood.collect{|i| i.to_i}
-    end
-    if !self.strategies.nil? && self.strategies.is_a?(Array)
-      self.strategies = self.strategies.collect{|i| i.to_i}
-    end
+    self.category = category.collect(&:to_i) if category.is_a?(Array)
+    self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
+    self.mood = mood.collect(&:to_i) if mood.is_a?(Array)
+    self.strategies = strategies.collect(&:to_i) if strategies.is_a?(Array)
   end
 
   def strategy

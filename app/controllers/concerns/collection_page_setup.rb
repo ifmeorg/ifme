@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CollectionPageSetup
   extend ActiveSupport::Concern
 
@@ -19,7 +21,7 @@ module CollectionPageSetup
   end
 
   def setup_collection(collection, user, search, name)
-    search_query = search.exists? && !name.blank? ? search : user.all
+    search_query = search.exists? && name.present? ? search : user.all
     instance_variable_set(
       collection.to_s,
       search_query.order('created_at DESC').page(params[:page])

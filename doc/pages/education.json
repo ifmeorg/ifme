@@ -1,0 +1,68 @@
+[
+  {
+    "name":"Project UROK",
+    "link":"https://projecturok.org",
+    "tags":["youth", "videos", "blog"],
+    "languages":["en"]
+  },
+  {
+    "name":"Open Sourcing Mental Illness (OSMI)",
+    "link":"https://osmihelp.org",
+    "tags":["open_source", "tech_industry", "workplace", "podcast", "books", "free"],
+    "languages":["en"]
+  },
+  {
+    "name":"Everybody Has A Brain",
+    "link":"http://everybodyhasabrain.com",
+    "tags":["blog", "videos", "podcast", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"The Icarus Project",
+    "link":"http://theicarusproject.net",
+    "tags":["social_justice", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"Doll Hospital",
+    "link":"http://www.dollhospitaljournal.com",
+    "tags":["paid", "publication"],
+    "languages":["en"]
+  },
+  {
+    "name":"Mental Health First Aid (US)",
+    "link":"https://www.mentalhealthfirstaid.org",
+    "tags":["training", "paid"],
+    "languages":["en"]
+  },
+  {
+    "name":"Mental Health First Aid (International)",
+    "link":"http://www.mhfainternational.org/",
+    "tags":["training", "paid", "directory"],
+    "languages":["en"]
+  },
+  {
+    "name":"Partnership for Workplace Mental Health (US)",
+    "link":"http://www.workplacementalhealth.org/",
+    "tags":["workplace"],
+    "languages":["en"]
+  },
+  {
+    "name":"Self-Injury Outreach and Support (Canada)",
+    "link":"http://sioutreach.org/",
+    "tags":["self_injury"],
+    "languages":["en"]
+  },
+  {
+    "name":"Informed Choices about Depression (Canada)",
+    "link":"http://depression.informedchoices.ca/",
+    "tags":["depression", "treatment"],
+    "languages":["en"]
+  },
+  {
+    "name":"National Resource Center on Psychiatric Advance Directives (US)",
+    "link":"http://www.nrc-pad.org/",
+    "tags":["treatment", "care_planning", "videos"],
+    "languages":["en"]    
+  }
+]

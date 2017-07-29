@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GroupNotifier
   def initialize(group, type, current_user)
     @group = group
