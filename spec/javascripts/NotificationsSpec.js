@@ -33,4 +33,9 @@ describe("Notifications", function() {
     hideCategoriesMoods();
     expect($('#categories_moods').hasClass("display_none")).toBe(true);
   });
+
+  it("has titlebar border", function() {
+    $('.titlebar').parent().scroll();
+    expect($('.titlebar').hasClass("scrolling")).toBe(true);
+  });
 });

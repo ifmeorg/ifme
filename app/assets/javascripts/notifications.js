@@ -221,6 +221,15 @@ var onReadyNotifications = function() {
     hideBackdrop();
   });
 
+  $('.titlebar').parent().scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      $('.titlebar').addClass('scrolling');
+    }
+    else {
+      $('.titlebar').removeClass('scrolling');
+    }
+  });
+
   if (newOrEdit(['moments', 'strategies'])) {
     $('#new_category').submit(function() {
       quickCreate(this, 'category');
