@@ -35,7 +35,12 @@ describe("Notifications", function() {
   });
 
   it("has titlebar border", function() {
-    $('.titlebar').parent().scroll();
-    expect($('.titlebar').hasClass("scrolling")).toBe(true);
+    titlebarBorderShow();
+    expect($(".titlebar").hasClass("scrolling")).toBe(true);
+  });
+
+  it("does not have titlebar border", function() {
+    titlebarBorderHide();
+    expect($(".titlebar").hasClass("scrolling")).toBe(false);
   });
 });

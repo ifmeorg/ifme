@@ -17,6 +17,14 @@ function hideNotificationsNone() {
   $('#notifications_none').addClass('display_none');
 }
 
+function titlebarBorderShow() {
+  $('.titlebar').addClass('scrolling');
+}
+
+function titlebarBorderHide() {
+  $('.titlebar').removeClass('scrolling');
+}
+
 function changeTitle(count) {
   var title = document.title;
   var eliminate = title.substr(0, title.indexOf(') ')) + ')';
@@ -223,10 +231,10 @@ var onReadyNotifications = function() {
 
   $('.titlebar').parent().scroll(function() {
     if ($(this).scrollTop() > 0) {
-      $('.titlebar').addClass('scrolling');
+      titlebarBorderShow();
     }
     else {
-      $('.titlebar').removeClass('scrolling');
+      titlebarBorderHide();
     }
   });
 
