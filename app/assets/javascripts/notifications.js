@@ -17,6 +17,14 @@ function hideNotificationsNone() {
   $('#notifications_none').addClass('display_none');
 }
 
+function titlebarBorderShow() {
+  $('.titlebar').addClass('scrolling');
+}
+
+function titlebarBorderHide() {
+  $('.titlebar').removeClass('scrolling');
+}
+
 function changeTitle(count) {
   var title = document.title;
   var eliminate = title.substr(0, title.indexOf(') ')) + ')';
@@ -242,6 +250,15 @@ var onReadyNotifications = function() {
 
   $('.quick_create_close').click(function() {
     closeQuickCreate.call(this);
+  });
+
+  $('.titlebar').parent().scroll(function() {
+    if ($(this).scrollTop() > 0) {
+      titlebarBorderShow();
+    }
+    else {
+      titlebarBorderHide();
+    }
   });
 
   $('.quick_create').click(function() {

@@ -95,6 +95,10 @@
   }
 }
 
+.titlebar.scrolling {
+  box-shadow: 0 0 10px $secondary-text-color;
+}
+
 a.notification_link:link,
 a.notification_link:visited,
 a.tip_notification_link:link,

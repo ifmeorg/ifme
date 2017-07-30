@@ -71,6 +71,15 @@ describe("Notifications", function() {
     expect($('#categories_moods').hasClass("display_none")).toBe(true);
   });
 
+  it("has titlebar border", function() {
+    titlebarBorderShow();
+    expect($(".titlebar").hasClass("scrolling")).toBe(true);
+  });
+
+  it("does not have titlebar border", function() {
+    titlebarBorderHide();
+    expect($(".titlebar").hasClass("scrolling")).toBe(false);
+
   it("close quick create", function() {
     $('.quick_create_close').click();
     expect($('#category_quick_create').hasClass("display_none")).toBe(true);
