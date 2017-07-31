@@ -14,18 +14,18 @@ module CompareLocalesSupport
     end
   end
 
-  def self.compare_locale_hashes(primary_locale, locale_to_compare)
+  def self.compare_locale_hashes(primary_locale, comparison_locale)
     primary_keys = flatten_keys(primary_locale[primary_locale.keys.first])
-    keys_to_compare = flatten_keys(locale_to_compare[locale_to_compare.keys.first])
+    keys_to_compare = flatten_keys(comparison_locale[comparison_locale.keys.first])
 
     primary_keys - keys_to_compare
   end
 
   def self.compare(primary_locale_file_name, locale_file_name_to_compare)
     primary_locale = YAML.safe_load(File.open(File.expand_path(primary_locale_file_name)))
-    locale_to_compare = YAML.safe_load(File.open(File.expand_path(locale_file_name_to_compare)))
+    comparison_locale = YAML.safe_load(File.open(File.expand_path(locale_file_name_to_compare)))
 
-    compare_locale_hashes(primary_locale, locale_to_compare)
+    compare_locale_hashes(primary_locale, comparison_locale)
   end
 
   # compare(LOCALE_1, LOCALE_2)
