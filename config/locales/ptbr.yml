@@ -401,7 +401,7 @@ ptbr:
       message_text_three: 'Verifique nossa página de perguntas frequentes %{faq} ou entre em contato via email %{email_link}!'
       strategize: 'Crie uma Estratégia'
   partners:
-    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
+    description: 'Estas são as organizações incríveis pelas quais somos inspirados e tiveram o privilégio de trabalhar. Nós gostaríamos de trabalhar com sua organização, envie-nos um email para %{email}.'
   privacy:
     summary: 'Sumário'
     summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente.Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
