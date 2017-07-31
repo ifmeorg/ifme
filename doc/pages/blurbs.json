@@ -74,7 +74,7 @@
   {
     "name":"Tara Wilkins",
     "image":"/assets/contributors/tara_wilkins.jpg",
-    "profile":"Tara works at the national workshop company <a href='http://camptech.ca' target='_blank'>Camp Tech</a>, where she oversees marketing, runs the day-to-day operations and teaches digital marketing. Outside of her work with Camp Tech, she fosters semi-feral cats with the <a href='http://annexcatrescue.ca' target='_blank'>Annex Cat Rescue</a>, curates creative events for the <a href='http://themakersdigest.com' target='_blank'>Makers Digest</a> and is excited to now be a part of if me. Having personal experiences with mental health herself, Tara is acutely aware of the impact that mental illness can have on lives, families and the workplace. She strongly believes in the power of sharing to erase the stigma and break through barriers. And most of all, she believes in the power of getting help.",
+    "profile":"I work at the national workshop company <a href='http://camptech.ca' target='_blank'>Camp Tech</a>, where I oversee marketing, run the day-to-day operations and teach digital marketing. Outside of my work with Camp Tech, I foster semi-feral cats with the <a href='http://annexcatrescue.ca' target='_blank'>Annex Cat Rescue</a> and curate creative events for the <a href='http://themakersdigest.com' target='_blank'>Makers Digest</a>. I am excited to now be a part of if me. Having personal experiences with mental health, I am acutely aware of the impact that mental illness can have on lives, families and the workplace. I strongly believe in the power of sharing to erase the stigma and break through barriers. And most of all, I believe in the power of getting help.",
     "location":"Toronto, Canada",
     "link_name":"TaraEWilkins",
     "link":"https://twitter.com/TaraEWilkins",
@@ -101,7 +101,7 @@
   {
     "name":"Bee Martinez",
     "image":"/assets/contributors/bee_martinez.jpg",
-    "profile":"Bee wanted to be a psychologist, became a teacher, and is now a Front-End Developer in training. She loves challenge, creativity, learning, connecting, and helping each other grow.<br><br>Bee thinks the mind is a beautiful and marvelous thing, and as such it should be explored with respect, understood with patience, and treated with kindness.<br><br>In if me, she's found a safe space to combine everything she's ever been passionate about. Her current role is taking over @ifmeorg on weekends and doing Spanish translations.",
+    "profile":"I wanted to be a psychologist, became a teacher, and am now a Front-End Developer in training. I love challenge, creativity, learning, connecting, and helping each other grow.<br><br>I think the mind is a beautiful and marvelous thing, and as such it should be explored with respect, understood with patience, and treated with kindness.<br><br>In if me, I found a safe space to combine everything I've ever been passionate about. My current role is taking over @ifmeorg on weekends and doing Spanish translations.",
     "location":"Texas, USA",
     "link_name":"itsbeemtz",
     "link":"http://twitter.com/itsbeemtz",
@@ -159,15 +159,24 @@
     "location":"Melbourne, Australia",
     "link_name":"sophierose239",
     "link":"https://twitter.com/sophierose239",
-    "social":"Twitter"
+    "social":"twitter"
   },
   {
     "name":"Jenny Nam",
-    "image":"/assets/contributors/jnamster.png",
+    "image":"/assets/contributors/jenny_nam.jpg",
     "profile":"Contributing to an open source project on mental health is important to me. Mental health affects everyone regardless of where they live or work. ifme is a great platform to share experiences, increase awareness and understanding, and provide people a community of support around the world. I believe it is important that we recognise it is okay to share our experiences with mental health issues.",
     "location":"Melbourne, Australia",
     "link_name":"jennynamster",
     "link":"https://github.com/jnamster",
     "social":"github"
+  },
+  {
+    "name":"Desi Rottman",
+    "image":"/assets/contributors/desi_rottman.jpg",
+    "profile":"I'm a tech support specialist and writer. I'm excited to be working with if me in helping to break the stigma surrounding mental illness. I contribute here to the blog. I've had anxiety and depression for most of my life, and growing up I didn't know where to turn or how to cope with my feelings.",
+    "location":"Chicago, USA",
+    "link_name":"desilove",
+    "link":"https://twitter.com/desilove",
+    "social":"twitter"
   }
 ]
