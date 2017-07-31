@@ -105,7 +105,7 @@
 #book {
   width: 106px;
   height: 80px;
-  background-image: url('/assets/book.png');
+  background-image: image-url('/assets/book.png');
   background-size: 106px 80px;
   background-repeat: no-repeat;
   background-position: center;
@@ -121,7 +121,7 @@
 #time {
   width: 80px;
   height: 80px;
-  background-image: url('/assets/time.png');
+  background-image: image-url('/assets/time.png');
   background-size: 80px 80px;
   background-repeat: no-repeat;
   background-position: center;
@@ -137,7 +137,7 @@
 #you {
   width: 198px;
   height: 80px;
-  background-image: url('/assets/you.png');
+  background-image: image-url('/assets/you.png');
   background-size: 198px 80px;
   background-repeat: no-repeat;
   background-position: center;
