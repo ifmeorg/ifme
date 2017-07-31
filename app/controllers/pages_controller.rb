@@ -87,11 +87,7 @@ class PagesController < ApplicationController
   end
 
   def parse_author(post)
-    author = ''
-    if post[1]['previewContent']['bodyModel']['paragraphs'][1]
-      author = post[1]['previewContent']['bodyModel']['paragraphs'][1]['text']
-    end
-    author
+    post[1]['content']['subtitle'] || ''
   end
 
   def fetch_posts
