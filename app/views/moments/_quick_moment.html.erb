@@ -37,12 +37,12 @@
           </div>
           <div class="actions no_margin_bottom">
             <%= f.hidden_field :userid, :value => current_user.id %>
-            <%= f.submit t('shared.quick_create.add', name: t('moments.singular')) %>
+            <%= f.submit t('shared.quick_create.new', name: t('moments.singular')) %>
           </div>
         <% else %>
           <div class="actions no_margin_bottom no_margin_top">
             <%= f.hidden_field :userid, :value => current_user.id %>
-            <%= f.submit t('shared.quick_create.add', name: t('moments.singular')) %>
+            <%= f.submit t('shared.quick_create.new', name: t('moments.singular')) %>
           </div>
         <% end %>
       </div>

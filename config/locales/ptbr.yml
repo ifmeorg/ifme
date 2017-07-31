@@ -97,7 +97,6 @@ ptbr:
  categories:
   plural: 'Categorias'
   edit_category: "Editar Categoria"
-  add_category: 'Adcionar categoria'
   new: "Nova Categoria"
   form:
    name_hint: 'Classificar contatos recentes, lugares, coisas, atividades, e mais'
@@ -260,7 +259,6 @@ ptbr:
   singular: 'Humor'
   plural: 'Humor'
   edit_mood: 'Editar Humor'
-  add: 'Adcionar humor'
   new: 'Novo Humor'
   example_moods: 'Nervoso, Ansioso, esperançoso'
   label:
@@ -524,14 +522,13 @@ ptbr:
     not_attending_spots_left: 'Você não irá participar? Existem apenas %{number} vagas disponível! %{join}'
     not_attending_no_spots_left: 'Você não irá participar! Não existem mais vagas disponíveis.'
   quick_create:
-   add: 'Adcionar %{name}'
+   new: 'Nova %{name}'
 
  strategies:
   singular: 'Estratégia'
   plural: 'Estratégias'
   edit_strategy: 'Editar Estratégia'
   tagged_strategies: 'Estratégias Marcadas'
-  add_strategy: 'Adcionar estratégia '
   new: 'Nova Estratégia'
   form:
    describe: 'Descreva a estratégia'

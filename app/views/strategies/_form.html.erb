@@ -20,29 +20,13 @@
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
-    <div class="sidebar_field">
-      <div class="sidebar_label expand_toggle" data-toggle="#categories">
-        <a href="#" class="toggle_button">
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <%= f.label t('categories.plural') %>
-      </div>
-
-      <div id="categories" class="display_none">
-        <div id="categories_list">
-        <% if !@categories.nil? && @categories.length > 0 %>
-          <% @categories.each do |item| %>
-          <%= f.check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %>
-          <span class="notification_wrapper">
-            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
-          </span>
-          <% end %>
-        <% end %>
-        </div>
-        <span id='category_quick_button' class='link_style small_margin_top'><%= t('categories.add_category') %></span>
-      </div>
-    </div>
+    <%= render partial: '/shared/common_options', locals: {
+        f: f,
+        all_data: @categories,
+        this_data: @strategy.category,
+        data_type: 'category',
+        data_type_plural: 'categories'
+      } %>
 
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">

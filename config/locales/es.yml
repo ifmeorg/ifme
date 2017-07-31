@@ -98,7 +98,6 @@ es:
   singular: "Categoría"
   plural: "Categorías"
   edit_category: "Editar categoría"
-  add_category: "Agregar categoría"
   new: "Nueva categoría"
   form:
    name_hint: "Categoriza personas, lugares, cosas, actividades, y más"
@@ -262,7 +261,6 @@ es:
   singular: "Estado de Ánimo"
   plural: "Estados de Ánimo"
   edit_mood: "Editar Estados de Ánimo"
-  add: "Agregar Estado de Ánimo"
   new: "Nuevo Estado de Ánimo"
   example_moods: "Nervios, Ansiedad, Esperanza"
   label:
@@ -525,14 +523,13 @@ es:
     not_attending_spots_left: "No vas a asistir. ¡Quedan %{number} lugares! %{join}"
     not_attending_no_spots_left: "No vas a asistir. No hay lugar para que puedas unirte."
   quick_create:
-   add: "Agregar %{name}"
+   new: "Nueva %{name}"
 
  strategies:
   singular: "Estrategia"
   plural: "Estrategias"
   edit_strategy: "Editar estrategia"
   tagged_strategies: "Estrategias etiquetadas"
-  add_strategy: "Agregar estrategia"
   new: "Nueva estrategia"
   form:
    describe: "Describir estrategia"

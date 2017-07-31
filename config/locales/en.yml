@@ -97,7 +97,6 @@ en:
  categories:
   plural: 'Categories'
   edit_category: "Edit Category"
-  add_category: 'Add category'
   new: "New Category"
   form:
    name_hint: 'Categorize recurring people, places, things, activities, and more'
@@ -260,7 +259,6 @@ en:
   singular: 'Mood'
   plural: 'Moods'
   edit_mood: 'Edit Mood'
-  add: 'Add mood'
   new: 'New Mood'
   example_moods: 'Nervous, Anxious, Hopeful'
   label:
@@ -523,14 +521,13 @@ en:
     not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
     not_attending_no_spots_left: 'You are not attending. There is no room to join.'
   quick_create:
-   add: 'Add %{name}'
+   new: 'New %{name}'
 
  strategies:
   singular: 'Strategy'
   plural: 'Strategies'
   edit_strategy: 'Edit Strategy'
   tagged_strategies: 'Tagged Strategies'
-  add_strategy: 'Add strategy'
   new: 'New Strategy'
   form:
    describe: 'Describe the strategy.'

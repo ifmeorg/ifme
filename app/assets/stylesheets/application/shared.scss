@@ -352,17 +352,11 @@ h1.tag_type {
 #moods_list,
 #strategies_list,
 #viewers_list {
-  overflow: auto;
-  max-height: 200px;
   width: 100%;
 
   label {
     display: block;
     font: inherit;
-  }
-
-  @media screen and (max-width: $small) {
-    max-height: 100px;
   }
 }
 

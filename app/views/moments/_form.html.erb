@@ -18,77 +18,29 @@
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
-    <div class="sidebar_field">
-      <div class="sidebar_label expand_toggle" data-toggle="#categories">
-        <a href="#" class="toggle_button">
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <%= f.label t('categories.plural') %>
-      </div>
+    <%= render partial: '/shared/common_options', locals: {
+        f: f,
+        all_data: @categories,
+        this_data: @moment.category,
+        data_type: 'category',
+        data_type_plural: 'categories'
+      } %>
 
-      <div id="categories" class="display_none">
-        <div id="categories_list">
-        <% if !@categories.nil? && @categories.length > 0 %>
-          <% @categories.each do |item| %>
-          <%= f.check_box(:category, {:multiple => true, :checked => @moment.category.include?(item.id)}, item.id, nil) %>
-          <span class="notification_wrapper">
-            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
-          </span>
-          <% end %>
-        <% end %>
-        </div>
-        <span id='category_quick_button' class='link_style small_margin_top'><%= t('categories.add_category') %></span>
-      </div>
-    </div>
+    <%= render partial: '/shared/common_options', locals: {
+        f: f,
+        all_data: @moods,
+        this_data: @moment.mood,
+        data_type: 'mood',
+        data_type_plural: 'moods'
+      } %>
 
-    <div class="sidebar_field">
-      <div class="sidebar_label expand_toggle" data-toggle="#moods">
-        <a href="#" class="toggle_button">
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <%= f.label t('moods.plural') %>
-      </div>
-
-      <div id="moods" class="display_none">
-      <div id="moods_list">
-        <% if !@moods.nil? && @moods.length > 0 %>
-          <% @moods.each do |item| %>
-          <%= f.check_box(:mood, {:multiple => true, :checked => @moment.mood.include?(item.id)}, item.id, nil) %>
-          <span class="notification_wrapper">
-            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
-          </span>
-          <% end %>
-        <% end %>
-        </div>
-        <span id='mood_quick_button' class='link_style small_margin_top'><%= t('moods.add') %></span>
-      </div>
-    </div>
-
-    <div class="sidebar_field">
-      <div class="sidebar_label expand_toggle" data-toggle="#strategies">
-        <a href="#" class="toggle_button">
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <%= f.label t('strategies.plural') %>
-      </div>
-
-      <div id="strategies" class="display_none">
-        <div id="strategies_list">
-        <% if !@strategies.nil? && @strategies.length > 0 %>
-          <% @strategies.each do |item| %>
-          <%= f.check_box(:strategies, {:multiple => true, :checked => @moment.strategies.include?(item.id)}, item.id, nil) %>
-          <span class="notification_wrapper">
-            <span class="tip_notifications_button link_style"><%= item.name %></span><br>
-            <%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_strategy_path(item) } %>
-          </span>
-          <% end %>
-        <% end %>
-        </div>
-        <span id='strategy_quick_button' class='link_style small_margin_top'><%= t('strategies.add_strategy') %></span>
-      </div>
-    </div>
+    <%= render partial: '/shared/common_options', locals: {
+        f: f,
+        all_data: @strategies,
+        this_data: @moment.strategy,
+        data_type: 'strategy',
+        data_type_plural: 'strategies'
+      } %>
 
     <% if !@viewers.nil? && @viewers.length > 0 %>
     <div class="sidebar_field">

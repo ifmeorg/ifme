@@ -1,0 +1,30 @@
+<% f = local_assigns[:f] %>
+<% all_data = local_assigns[:all_data] %>
+<% this_data = local_assigns[:this_data] %>
+<% data_type = local_assigns[:data_type] %>
+<% data_type_plural = local_assigns[:data_type_plural] %>
+
+<div class="sidebar_field">
+  <div class="sidebar_label expand_toggle" data-toggle="<%= "##{data_type_plural}" %>">
+    <a href="#" class="toggle_button">
+      <i class="fa fa-caret-down"></i>
+    </a>
+    <%= f.label t("#{data_type_plural}.plural") %>
+  </div>
+
+  <div id="<%= data_type_plural %>" class="display_none">
+
+    <% if !all_data.nil? && all_data.length > 0 %>
+      <%= f.text_field "#{data_type}_name", data: { autocomplete_source: all_data.map(&:name), autocomplete_source_ids: all_data.map(&:id) }, class: 'full_field smaller_margin_top smaller_margin_bottom' %>
+    <% end %>
+
+    <div id="<%= "#{data_type_plural}_list" %>">
+      <% all_data.each do |item| %>
+        <div id="<%= "#{data_type}_name_#{item.id}" %>" class="<%= this_data.include?(item.id) ? 'display_block' : 'display_none' %>">
+          <%= f.check_box(data_type, { multiple: true, checked: this_data.include?(item.id) }, item.id, nil) %>
+          <span><%= item.name %></span><br>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

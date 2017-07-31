@@ -42,4 +42,16 @@ class Moment < ActiveRecord::Base
   def strategy
     strategies
   end
+
+  def category_name
+    category.try(:name)
+  end
+
+  def mood_name
+    mood.try(:name)
+  end
+
+  def strategy_name
+    strategy.try(:name)
+  end
 end

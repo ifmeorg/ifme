@@ -42,6 +42,10 @@ class Strategy < ActiveRecord::Base
     [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
+  def category_name
+    category.try(:name)
+  end
+
   def self.link
     '/strategies'
   end

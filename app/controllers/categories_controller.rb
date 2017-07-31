@@ -113,10 +113,7 @@ class CategoriesController < ApplicationController
     if category.save
       tag = params[:category][:tag].to_s
       checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + tag + '[category][]" id="' + tag + '_category_' + category.id.to_s + '">'
-      label = '<span class="notification_wrapper">
-            <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
-      label += render_to_string partial: '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
-      label += '</span>'
+      label = '<span>' + category.name + '</span><br>'
       result = { checkbox: checkbox, label: label }
     else
       result = { error: 'error' }

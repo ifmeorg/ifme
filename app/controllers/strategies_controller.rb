@@ -159,10 +159,7 @@ class StrategiesController < ApplicationController
 
     if strategy.save
       checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
-      label = '<span class="notification_wrapper">
-            <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
-      label += render_to_string partial: '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
-      label += '</span>'
+      label = '<span>' + strategy.name + '</span><br>'
       result = { checkbox: checkbox, label: label }
     else
       result = { error: 'error' }
