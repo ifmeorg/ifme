@@ -27,8 +27,7 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 
 The app uses  **Ruby 2.3.4** and **Rails 4.2.9**. Please stick to these versions.
 
-The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup. There is also a wiki page with
-[setup details for Debian GNU/Linux users](https://github.com/julianguyen/ifme/wiki/Development-setup-for-Debian).
+The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup. We have documentation for [Debian GNU/Linux users](https://github.com/julianguyen/ifme/wiki/Development-setup-for-Debian).
 
 Commons errors faced during installation are documented in this [guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
 
@@ -140,7 +139,7 @@ Build from the source using yum, apt-get, etc. If you already have Postgres inst
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
-## V. Install Gems
+## Install Gems
 
 After cloning the app on your local machine, in your terminal run the following command in the `/ifme` directory
 

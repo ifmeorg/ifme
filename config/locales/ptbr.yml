@@ -463,6 +463,7 @@ ptbr:
         treatment: tratamento
         care_planning: planejamento de cuidados
         depression: depressão
+        ocd: OCD
 
  profile:
   index:
