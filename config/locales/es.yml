@@ -402,6 +402,8 @@ es:
       main_message_five: "¿Tienes alguna duda o pregunta?"
       message_text_three: "¡Revisa nuestra página de %{faq} o %{email_link}."
       strategize: "Estrategias"
+  partners:
+    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
   privacy:
     summary: "Descripción"
     summary_description: "<p>La política de privacidad de este sitio de internet gobierna la privacidad de los usuarios que eligen utilizarla.</p><p>Debido a la sensibilidad del contenido de la página, la privacidad de nuestros usuarios es una de nuestras preocupaciones más importantes. La política de privacidad delinea como los datos del usuario se recolectan, con qué finalidad, y cómo se protegen.</p>"

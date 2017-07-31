@@ -400,6 +400,8 @@ en:
       main_message_five: 'Have any questions or concerns?'
       message_text_three: 'Check out our %{faq} page or %{email_link}!'
       strategize: 'Strategize'
+  partners:
+    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
   privacy:
     summary: 'Summary'
     summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'

@@ -21,7 +21,42 @@
   },
   {
     "name":"Brown Sisters Speak",
-    "link":"http://brownsistersspeak.org",
+    "link":"https://www.facebook.com/Brownsistersspeak",
     "image_link":"/assets/partners/brown_sisters_speak.png"
+  },
+  {
+    "name":"Write/Speak/Code",
+    "link":"http://www.writespeakcode.com",
+    "image_link":"/assets/partners/write_speak_code.png"
+  },
+  {
+    "name":"Rails Girls Summer of Code",
+    "link":"https://railsgirlssummerofcode.org",
+    "image_link":"/assets/partners/rails_girls_summer_of_code.png"
+  },
+  {
+    "name":"MHPrompt",
+    "link":"http://mhprompt.org",
+    "image_link":"/assets/partners/mh_prompt.png"
+  },
+  {
+    "name":"OS4W",
+    "link":"https://www.os4w.org",
+    "image_link":"/assets/partners/os4w.png"
+  },
+  {
+    "name":"Tessera Collective",
+    "link":"https://www.facebook.com/tesseracollective",
+    "image_link":"/assets/partners/tessera_collective.png"
+  },
+  {
+    "name":"Model View Culture",
+    "link":"https://modelviewculture.com",
+    "image_link":"/assets/partners/model_view_culture.png"
+  },
+  {
+    "name":"Vietnamese Youth Development Center - San Francisco",
+    "link":"http://www.vydc.org",
+    "image_link":"/assets/partners/vydc.png"
   }
 ]
