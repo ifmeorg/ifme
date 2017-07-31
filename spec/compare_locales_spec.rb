@@ -3,29 +3,29 @@
 RSpec.describe CompareLocalesSupport do
   main_hash = {
     'en' => {
-      'app_name' => 'if me',
-      'app_description' => 'is a community for mental health experiences',
-      'email' => 'join.ifme@gmail.com',
-      'ellipsis' => '[...]',
-      'created' => '<strong>Created:</strong> %{created_at}',
-      'edited' => '<strong>Created:</strong> %{created_at} <em>(edited)</em>',
-      'salutation' => 'Hi %{name},',
-      'click_here' => 'click here',
-      'less' => ' [Less]',
-      'language' => 'Language'
+      'app_name'=>'if me',
+      'app_description'=>'is a community for mental health experiences',
+      'email'=>'join.ifme@gmail.com',
+      'ellipsis'=>'[...]',
+      'created'=>'<strong>Created:</strong> %{created_at}',
+      'edited'=>'<strong>Created:</strong> %{created_at} <em>(edited)</em>',
+      'salutation'=>'Hi %{name},',
+      'click_here'=>'click here',
+      'less'=>'[Less]',
+      'language'=>'Language'
     }
   }
 
   second_hash = {
     'en' => {
-      'app_name' => 'if me',
-      'app_description' => 'is a community for mental health experiences',
-      'ellipsis' => '[...]',
-      'created' => '<strong>Created:</strong> %{created_at}',
-      'edited' => '<strong>Created:</strong> %{created_at} <em>(edited)</em>',
-      'salutation' => 'Hi %{name},',
-      'click_here' => 'click here',
-      'language' => 'Language'
+      'app_name'=>'if me',
+      'app_description'=>'is a community for mental health experiences',
+      'ellipsis'=>'[...]',
+      'created'=>'<strong>Created:</strong> %{created_at}',
+      'edited'=>'<strong>Created:</strong> %{created_at} <em>(edited)</em>',
+      'salutation'=>'Hi %{name},',
+      'click_here'=>'click here',
+      'language'=>'Language'
     }
   }
 
@@ -33,6 +33,12 @@ RSpec.describe CompareLocalesSupport do
     english = './config/locales/en.yml'
     spanish = './config/locales/es.yml'
     expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+  end
+
+  specify 'ptbr locale file has nothing missing' do
+    english = './config/locales/en.yml'
+    ptbr = './config/locales/ptbr.yml'
+    expect(CompareLocalesSupport.compare(english, ptbr)).to match_array([])
   end
 
   describe '#compare_locale_hashes' do
