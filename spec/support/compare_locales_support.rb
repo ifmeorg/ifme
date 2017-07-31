@@ -1,11 +1,10 @@
-module CompareLocalesSupport
+# frozen_string_literal: true
 
+module CompareLocalesSupport
   LOCALE_1 = './config/locales/en.yml'
   LOCALE_2 = './config/locales/es.yml'
 
-  require 'yaml'
-
-  def self.flatten_keys(hash, prefix='')
+  def self.flatten_keys(hash, prefix = '')
     hash.keys.each_with_object([]) do |key, keys|
       if hash[key].respond_to?(:keys)
         keys.concat(flatten_keys(hash[key], "#{prefix}#{key}."))
@@ -23,11 +22,10 @@ module CompareLocalesSupport
   end
 
   def self.compare(primary_locale_file_name, locale_file_name_to_compare)
-    primary_locale = YAML.load(File.open(File.expand_path(primary_locale_file_name)))
-    locale_to_compare = YAML.load(File.open(File.expand_path(locale_file_name_to_compare)))
+    primary_locale = YAML.safe_load(File.open(File.expand_path(primary_locale_file_name)))
+    locale_to_compare = YAML.safe_load(File.open(File.expand_path(locale_file_name_to_compare)))
 
     compare_locale_hashes(primary_locale, locale_to_compare)
-
   end
 
   # compare(LOCALE_1, LOCALE_2)
