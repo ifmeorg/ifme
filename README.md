@@ -30,11 +30,12 @@ The app uses  **Ruby 2.3.4** and **Rails 4.2.9**. Please stick to these versions
 The steps below should be straightforward for Linux and macOS users. Windows users please refer to this [guide](https://gist.github.com/KelseyDH/11198922) for tips on setup. There is also a wiki page with
 [setup details for Debian GNU/Linux users](https://github.com/julianguyen/ifme/wiki/Development-setup-for-Debian).
 
-## Common Errors
-
 Commons errors faced during installation are documented in this [guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
 
-## I. Ruby on Rails
+<details>
+  <summary>1) Install Ruby on Rails</summary>
+
+## Ruby on Rails
 
 If you do not have Rails, use this handy [guide](http://installrails.com).
 
@@ -73,7 +74,7 @@ cd ifme
 rbenv local 2.3.4
 ```
 
-## II. Gems: After updating or installing Ruby
+## Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
@@ -101,7 +102,7 @@ rvm use ruby-2.3.4@rails4.2.9 --create
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 
-### III. Updating An Existing Rails Installation
+### Updating An Existing Rails Installation
 
 ```
 gem install rails --version=4.2.9
@@ -110,8 +111,12 @@ gem install rails --version=4.2.9
 Restart your terminal (or open a new tab)
 
 Check that Rails has been updated by running `rails -v`.
+</details>
 
-## IV. Postgres
+<details>
+  <summary>2) Install Postgres</summary>
+
+## Postgres
 
 After installing Postgres, if you are asked to create a new user, please follow these [instructions](https://github.com/julianguyen/ifme/blob/master/Errors.md#postgresql-bad-connection).
 
@@ -142,8 +147,13 @@ After cloning the app on your local machine, in your terminal run the following 
 ```
 bundle install
 ```
+</details>
 
 # Configuration Files
+
+<details>
+  <summary>Mandatory</summary>
+
 ## Mandatory
 
 There are three config files: `config/env/test.env`, `config/env/development.env`, and `config/env/production.env`. To run the app locally, you should modify `test.env` and `development.env`. They are ignored in git to prevent accidentally committing sensitive information.
@@ -156,6 +166,10 @@ Copy the sample files to create your own configuration files:
 Run `rake secret` twice to generate values for `SECRET_KEY_BASE` and `DEVISE_SECRET_KEY`. The values in `test.env` and `development.env` can be the same.
 
 BE CAREFUL: The secret should be in the test.env and development.env NOT the config/env/test.example.env or config/env/development.example.env files. The example files are not ignored by git.
+</details>
+
+<details>
+  <summary>Optional</summary>
 
 ## Optional
 The following are not mandatory, but are required if you would like to test/use these features.
@@ -207,6 +221,7 @@ You can disable this gem when you deploy the app by commenting it out.
 ```
 
 You can read more about this gem [here](https://github.com/ryanb/letter_opener).
+</details>
 
 # Running the App Locally
 
@@ -225,6 +240,9 @@ rails s
 
 To view the app, go to `http://localhost:3000`.
 
+<details>
+  <summary>Docker</summary>
+
 ### Docker
 
 Assuming [Docker](https://www.docker.com) is setup, you can start the server using
@@ -238,6 +256,10 @@ or open a shell using
 ```
 docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app bash
 ```
+</details>
+
+<details>
+  <summary>Vagrant</summary>
 
 ### Vagrant
 
@@ -253,6 +275,7 @@ Rails 4.2 binds to 127.0.0.1, so you may need to specify 0.0.0.0 when starting t
 ```
 bin/rails server -b 0.0.0.0
 ```
+</details>
 
 ## Accessing the Database
 
