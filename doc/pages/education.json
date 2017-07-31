@@ -63,6 +63,18 @@
     "name":"National Resource Center on Psychiatric Advance Directives (US)",
     "link":"http://www.nrc-pad.org/",
     "tags":["treatment", "care_planning", "videos"],
-    "languages":["en"]    
+    "languages":["en"]
+  },
+  {
+    "name":"The OCD Stories",
+    "link":"http://theocdstories.com",
+    "tags":["ocd", "blog", "podcast"],
+    "languages":["en"]
+  },
+  {
+    "name":"Anxy Magazine",
+    "link":"http://www.anxymag.com",
+    "tags":["paid", "publication", "blog"],
+    "languages":["en"]
   }
 ]
