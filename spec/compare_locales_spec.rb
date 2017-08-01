@@ -29,16 +29,64 @@ RSpec.describe CompareLocalesSupport do
     }
   }
 
-  specify 'spanish locale file has nothing missing' do
-    english = './config/locales/en.yml'
-    spanish = './config/locales/es.yml'
-    expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+  describe 'compare default locale files' do
+
+    specify 'spanish locale file has nothing missing' do
+      english = './config/locales/en.yml'
+      spanish = './config/locales/es.yml'
+      expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+    end
+
+    specify 'portuguese locale file has nothing missing' do
+      english ='./config/locales/en.yml'
+      portuguese ='./config/locales/ptbr.yml'
+      expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
+    end
   end
 
-  specify 'portuguese locale file has nothing missing' do
-    english ='./config/locales/en.yml'
-    portuguese ='./config/locales/ptbr.yml'
-    expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
+  describe 'compare default devise locale files' do
+
+    specify 'spanish  devise locale file has nothing missing' do
+      english = './config/locales/devise.en.yml'
+      spanish = './config/locales/devise.es.yml'
+      expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+    end
+
+    specify 'portuguese devise locale file has nothing missing' do
+      english ='./config/locales/devise.en.yml'
+      portuguese ='./config/locales/devise.ptbr.yml'
+      expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
+    end
+  end
+
+  describe 'compare default devise invitable locale files' do
+
+    specify 'spanish devise invitable locale file has nothing missing' do
+      english = './config/locales/devise_invitable.en.yml'
+      spanish = './config/locales/devise_invitable.es.yml'
+      expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+    end
+
+    specify 'portuguese devise invitable locale file has nothing missing' do
+      english ='./config/locales/devise_invitable.en.yml'
+      portuguese ='./config/locales/devise_invitable.ptbr.yml'
+      expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
+    end
+  end
+
+  describe 'compare kaminari locale files' do
+
+    specify 'spanish kaminari locale file has nothing missing' do
+      english = './config/locales/kaminari.en.yml'
+      spanish = './config/locales/kaminari.es.yml'
+      expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
+    end
+
+    specify 'portuguese kaminari locale file has nothing missing' do
+      english ='./config/locales/kaminari.en.yml'
+      portuguese ='./config/locales/kaminari.ptbr.yml'
+      expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
+    end
   end
 
   describe '#compare_locale_hashes' do
@@ -51,8 +99,7 @@ RSpec.describe CompareLocalesSupport do
   end
 
   describe '#flatten_keys' do
-    english = './config/locales.en.yml'
-    subject(:subject) { CompareLocalesSupport.flatten_keys(english) }
+    subject(:subject) { CompareLocalesSupport.flatten_keys(main_hash) }
     let(:result) do
       ['en.app_name', 'en.app_description', 'en.email', 'en.ellipsis', 'en.created', 'en.edited', 'en.salutation', 'en.click_here', 'en.less', 'en.language']
     end
