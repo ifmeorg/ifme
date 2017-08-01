@@ -5,6 +5,7 @@ es:
     invitations:
       send_instructions: "Una invitación de correo se ha enviado para %{email}."
       invitation_token_invalid: "El token de invitación no es valido!"
+      updated_not_active: "Your password was set successfully."
       updated: "Tu contraseña se ha captura con éxito, ya te encuentras dentro del sistema."
       no_invitations_remaining: "No quedan más invitaciones"
       invitation_removed: "Your invitation was removed."
