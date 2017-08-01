@@ -47,6 +47,8 @@ gem 'font-awesome-sass'
 gem 'chartkick',                  '2.2.4'
 gem 'groupdate',                  '3.0'
 
+gem 'react_on_rails', '8.0.0'
+
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
 
@@ -71,7 +73,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'jshint'
+  # not compatible with react_on_rails
+  # gem 'jshint'
   gem 'rubocop', '~> 0.48.0'
 end
 
