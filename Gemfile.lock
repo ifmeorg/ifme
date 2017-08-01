@@ -208,7 +208,11 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    libv8 (3.16.14.19)
+    libv8 (5.9.211.38.1)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     little-plugger (1.1.4)
     logging (2.2.2)
       little-plugger (~> 1.1)
@@ -225,6 +229,9 @@ GEM
     mini_mime (0.1.4)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    mini_racer (0.1.12)
+      libv8 (~> 5.9)
+    minitest (5.10.2)
     mono_logger (1.1.0)
     multi_json (1.12.1)
     multi_xml (0.6.0)
@@ -458,6 +465,11 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    webpacker_lite (2.1.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
+    websocket (1.2.3)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -499,6 +511,7 @@ DEPENDENCIES
   jquery-rails (= 4.1.1)
   kaminari (= 0.17.0)
   letter_opener
+  mini_racer
   omniauth (~> 1.6.1)
   omniauth-google-oauth2 (~> 0.5.2)
   pg (= 0.18.4)
@@ -527,6 +540,7 @@ DEPENDENCIES
   turbolinks (~> 5.0.0)
   uglifier (= 2.7.1)
   underscore-rails (= 1.8.3)
+  webpacker_lite
 
 RUBY VERSION
    ruby 2.3.4p112
