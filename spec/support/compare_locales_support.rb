@@ -3,6 +3,7 @@
 module CompareLocalesSupport
   LOCALE_1 = './config/locales/en.yml'
   LOCALE_2 = './config/locales/es.yml'
+  LOCALE_3 = './config/locales/ptbr.yml'
 
   def self.flatten_keys(hash, prefix = '')
     hash.keys.each_with_object([]) do |key, keys|
