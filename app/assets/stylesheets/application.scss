@@ -426,7 +426,7 @@ a.page_search:hover {
 .headline {
   color: $header-text-color;
   font-size: $page-title;
-  text-shadow: 0px 0px 10px $font-family;
+  text-shadow: 0px 0px 10px $header-text-color;
 
   @media screen and (max-width: $medium) {
     font-size: $font30;
