@@ -43,8 +43,8 @@ export default class Chart extends React.Component {
     render() {
         return (
             <div>
-                <h1> I AM CHART </h1>
-                <AreaChart data={{"2013-02-10 00:00:00 -0800": 11, "2013-02-11 00:00:00 -0800": 6}} />
+                <h1>{"I AM CHART"}</h1>
+                <AreaChart id={"users-chart"} data={{"2013-02-10 00:00:00 -0800": 11, "2013-02-11 00:00:00 -0800": 6}} />
             </div>);
     }
 }
