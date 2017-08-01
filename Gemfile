@@ -87,3 +87,6 @@ end
 group :production do
   gem 'rails_12factor', '0.0.3'
 end
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'
