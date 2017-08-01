@@ -35,10 +35,10 @@ RSpec.describe CompareLocalesSupport do
     expect(CompareLocalesSupport.compare(english, spanish)).to match_array([])
   end
 
-  specify 'ptbr locale file has nothing missing' do
-    english = './config/locales/en.yml'
-    ptbr = './config/locales/ptbr.yml'
-    expect(CompareLocalesSupport.compare(english, ptbr)).to match_array([])
+  specify 'portuguese locale file has nothing missing' do
+    english ='./config/locales/en.yml'
+    portuguese ='./config/locales/ptbr.yml'
+    expect(CompareLocalesSupport.compare(english, portuguese)).to match_array([])
   end
 
   describe '#compare_locale_hashes' do
@@ -51,9 +51,10 @@ RSpec.describe CompareLocalesSupport do
   end
 
   describe '#flatten_keys' do
-    subject(:subject) { CompareLocalesSupport.flatten_keys(main_hash) }
+    english = './config/locales.en.yml'
+    subject(:subject) { CompareLocalesSupport.flatten_keys(english) }
     let(:result) do
-      ['en.app_name', 'en.app_description', 'en.email', 'en.ellipsis', 'en.created', 'en.edited', 'en.edited_updated_at', 'en.salutation', 'en.click_here', 'en.less', 'en.language']
+      ['en.app_name', 'en.app_description', 'en.email', 'en.ellipsis', 'en.created', 'en.edited', 'en.salutation', 'en.click_here', 'en.less', 'en.language']
     end
 
     it 'puts keys of the hash' do
