@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 
 module CompareLocalesSupport
-  LOCALE_1 = './config/locales/en.yml'
-  LOCALE_2 = './config/locales/es.yml'
-  LOCALE_3 = './config/locales/ptbr.yml'
+  LOCALES_DIR = './config/locales'
+  LOCALES_FILES = {
+    english: "#{LOCALES_DIR}/en.yml",
+    spanish: "#{LOCALES_DIR}/es.yml",
+    portuguese: "#{LOCALES_DIR}/ptbr.yml",
+    devise_english: "#{LOCALES_DIR}/devise.en.yml",
+    devise_spanish: "#{LOCALES_DIR}/devise.es.yml",
+    devise_portuguese: "#{LOCALES_DIR}/devise.ptbr.yml",
+    devise_invitable_english: "#{LOCALES_DIR}/devise_invitable.en.yml",
+    devise_invitable_spanish: "#{LOCALES_DIR}/devise_invitable.es.yml",
+    devise_invitable_portuguese: "#{LOCALES_DIR}/devise_invitable.ptbr.yml",
+    kaminari_english: "#{LOCALES_DIR}/kaminari.en.yml",
+    kaminari_spanish: "#{LOCALES_DIR}/kaminari.es.yml",
+    kaminari_portuguese: "#{LOCALES_DIR}/kaminari.ptbr.yml",
+  }.freeze
 
   def self.flatten_keys(hash, prefix = '')
     hash.keys.each_with_object([]) do |key, keys|
@@ -22,14 +34,11 @@ module CompareLocalesSupport
     primary_keys - keys_to_compare
   end
 
-  def self.compare(primary_locale_file_name, locale_file_name_to_compare)
-    primary_locale = YAML.safe_load(File.open(File.expand_path(primary_locale_file_name)))
-    comparison_locale = YAML.safe_load(File.open(File.expand_path(locale_file_name_to_compare)))
+  def self.compare(primary_locale_path, comparison_locale_symbol)
+    primary_locale = YAML.safe_load(File.read(primary_locale_path))
+    comparison_locale_path = LOCALES_FILES[comparison_locale_symbol]
+    comparison_locale = YAML.safe_load(File.read(comparison_locale_path))
 
     compare_locale_hashes(primary_locale, comparison_locale)
   end
-
-  # compare(LOCALE_1, LOCALE_2)
-  # puts
-  # compare(LOCALE_2, LOCALE_1)
 end
