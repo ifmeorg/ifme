@@ -12,6 +12,8 @@
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- Webpack Assets -->
+    <%= javascript_pack_tag 'webpack-bundle' %>
     <%= csrf_meta_tags %>
 
     <% if user_signed_in? %>
