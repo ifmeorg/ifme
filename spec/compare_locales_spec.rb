@@ -2,15 +2,15 @@
 
 RSpec.describe CompareLocalesSupport do
   describe 'check non english locales include all keys' do
-    context 'when the source is English' do
+    context 'when the source is english' do
       let(:source) { described_class::LOCALES_FILES[:english] }
 
-      context 'when comparing to Spanish' do
+      context 'when comparing to spanish' do
         subject { described_class.compare(source, :spanish) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to Portuguese' do
+      context 'when comparing to portuguese' do
         subject { described_class.compare(source, :portuguese) }
         it { is_expected.to be_empty }
       end
