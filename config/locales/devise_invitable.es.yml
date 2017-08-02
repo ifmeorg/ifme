@@ -22,4 +22,4 @@ es:
         someone_invited_you: "%{name} te ha invitado a unirte a http://if-me.org, una comunidad para compartir experiencias de salud mental con tus seres queridos y mantener un registro de tus emociones, medicamento, y auto-cuidado. Puedes aceptar la invitación a través del hipervínculo de abajo."
         accept: "¡Aceptar la invitación!"
         accept_until: "Esta invitación expirará el día %{due_date}."
-        ignore: "Si no deseas aceptar la invitación, por favor ignora este mensaje.<br />\Tu cuenta no será creada hasta que accedas al hipervínculo de arriba y establezcas tu contraseña."
+        ignore: "Si no deseas aceptar la invitación, por favor ignora este mensaje.<br />Tu cuenta no será creada hasta que accedas al hipervínculo de arriba y establezcas tu contraseña."
