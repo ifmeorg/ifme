@@ -21,7 +21,7 @@ describe "UserCreatesPremadetrategy", js: true do
         login_as user
         visit new_strategy_path
 
-        expect(page).to have_css('button#myBtn.actions.align_right')
+        expect(page).to have_css('button#add_modal_button.actions.align_right')
       end
     end
 

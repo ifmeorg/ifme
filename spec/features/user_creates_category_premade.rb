@@ -21,7 +21,7 @@ describe "UserCreatesCategoryPremade", js: true do
         login_as user
         visit new_category_path
 
-        expect(page).to have_css('button#myBtn.align_right')
+        expect(page).to have_css('button#add_modal_button.align_right')
       end
     end
 

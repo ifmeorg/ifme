@@ -1,7 +1,7 @@
 <% if @moods.blank? %>
-  <div id="myModal" class="modal">
+  <div id="premade_modal" class="modal">
     <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close_premade_modal">&times;</span>
       <div class="mood premade-box">
         <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
         <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>

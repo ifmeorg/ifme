@@ -16,12 +16,12 @@ describe "UserCreatesStrategyPremadetrategy", js: true do
       end
     end
 
-    context 'when a user visit new startegies path' do
+    context 'when a user visit new strategies path' do
       it 'displays an add premade content button' do
         login_as user
         visit new_strategy_path
 
-        expect(page).to have_css('button#myBtn.actions.align_right')
+        expect(page).to have_css('button#add_modal_button.actions.align_right')
       end
     end
 

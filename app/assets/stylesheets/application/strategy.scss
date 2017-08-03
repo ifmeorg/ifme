@@ -9,7 +9,7 @@
 }
 
 @media only screen and (min-width: $medium){
-  #myBtn{
+  #add_modal_button{
     border: 1px solid $secondary-text-color;
     box-shadow: 0 0 2px $secondary-text-color inset;
     color: $secondary-text-color;
@@ -53,7 +53,7 @@
     border: 1px solid #888;
     width: 50%;
   }
-  .close {
+  .close_premade_modal {
     color: #aaa;
     float: right;
     padding: 15px;
@@ -61,8 +61,8 @@
     font-weight: bold;
     margin-top: -20px;
   }
-  .close:hover,
-  .close:focus {
+  .close_premade_modal:hover,
+  .close_premade_modal:focus {
     color: $secondary-text-color;
     text-decoration: none;
     cursor: pointer;
@@ -74,7 +74,7 @@
 }
 
 @media only screen and (min-width: $small){
-  #myBtn{
+  #add_modal_button{
     border: 1px solid $secondary-text-color;
     box-shadow: 0 0 2px $secondary-text-color inset;
     color: $secondary-text-color;
@@ -118,7 +118,7 @@
     border: 1px solid #888;
     width: 50%;
   }
-  .close {
+  .close_premade_modal {
     color: #aaa;
     float: right;
     padding: 15px;
@@ -126,8 +126,8 @@
     font-weight: bold;
     margin-top: -20px;
   }
-  .close:hover,
-  .close:focus {
+  .close_premade_modal:hover,
+  .close_premade_modal:focus {
     color: $secondary-text-color;
     text-decoration: none;
     cursor: pointer;
@@ -138,7 +138,7 @@
   }
 }
 @media only screen and (max-width: $xsmall){
-  #myBtn{
+  #add_modal_button{
     border: 1px solid $secondary-text-color;
     box-shadow: 0 0 2px $secondary-text-color inset;
     color: $secondary-text-color;
@@ -182,7 +182,7 @@
     border: 1px solid #888;
     width: 50%;
   }
-  .close {
+  .close_premade_modal {
     color: #aaa;
     float: right;
     padding: 15px;
@@ -190,8 +190,8 @@
     font-weight: bold;
     margin-top: -20px;
   }
-  .close:hover,
-  .close:focus {
+  .close_premade_modal:hover,
+  .close_premade_modal:focus {
     color: $secondary-text-color;
     text-decoration: none;
     cursor: pointer;
