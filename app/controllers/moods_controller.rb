@@ -114,9 +114,7 @@ class MoodsController < ApplicationController
     mood = Mood.new(userid: current_user.id, name: params[:mood][:name], description: params[:mood][:description])
 
     if mood.save
-      checkbox = '<input type="checkbox" value="' + mood.id.to_s + '" name="moment[mood][]" id="moment_mood_' + mood.id.to_s + '">'
-      label = '<span>' + mood.name + '</span><br>'
-      result = { checkbox: checkbox, label: label }
+      result = render_checkbox(mood, 'mood', 'moment')
     else
       result = { error: 'error' }
     end

@@ -7,15 +7,14 @@ function quickCreate(form, data_type) {
       dataType: 'json'
   }).success(function(json) {
       // Update moments/strategies form
+      var wrapper = "<div id=\"" + json.wrapper_id + "\" class=\"display_block\">";
+      var content = wrapper + json.checkbox + json.label + "</div>";
       if (data_type === 'category') {
-        $('#categories_list').prepend(json.label);
-        $('#categories_list').prepend(json.checkbox);
+        $('#categories_list').prepend(content);
       } else if (data_type === 'mood') {
-        $('#moods_list').prepend(json.label);
-        $('#moods_list').prepend(json.checkbox);
+        $('#moods_list').prepend(content);
       } else if (data_type === 'strategy') {
-        $('#strategies_list').prepend(json.label);
-        $('#strategies_list').prepend(json.checkbox);
+        $('#strategies_list').prepend(content);
       }
 
       // Checking the newly added checkbox.
