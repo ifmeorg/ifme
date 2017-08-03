@@ -42,15 +42,15 @@ var onReadyMomentsAndStrategies = function() {
   		$("#viewers_list :checkbox").prop("checked", $(this).prop("checked"));
   	});
 
-    $("#categories_list :checkbox").click(function() {
+    $(document).on("click", '#categories_list :checkbox', function() {
       hideInputFieldIfUnchecked(this, "category");
     });
 
-    $("#moods_list :checkbox").click(function() {
+    $(document).on("click", '#moods_list :checkbox', function() {
       hideInputFieldIfUnchecked(this, "mood");
     });
 
-    $("#strategies_list :checkbox").click(function() {
+    $(document).on("click", '#strategies_list :checkbox', function() {
       hideInputFieldIfUnchecked(this, "strategy");
     });
 

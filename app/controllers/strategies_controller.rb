@@ -3,6 +3,7 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
+  include QuickCreate
   before_action :set_strategy, only: %i[show edit update destroy]
 
   def default_params

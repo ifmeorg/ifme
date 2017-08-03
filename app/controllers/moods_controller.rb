@@ -2,6 +2,7 @@
 
 class MoodsController < ApplicationController
   include CollectionPageSetup
+  include QuickCreate
   before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
