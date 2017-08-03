@@ -1,4 +1,4 @@
-describe "user adds a new medication" do
+describe "user adds a new medication", js: true do
   let!(:user) { FactoryGirl.create(:user_oauth) }
   before do
     user.token = "some token"
@@ -13,7 +13,7 @@ describe "user adds a new medication" do
     fill_in "Strength", with: 100
     fill_in "Total", with: 30
     fill_in "Dosage", with: 2
-    fill_in "Refill", with: "05/25/2016"
+    page.execute_script("$('#medication_refill').val('05/25/2016')")
     CalendarUploader.stub_chain(:new, :upload_event)
     expect(CalendarUploader).to_not receive(:new)
     click_on "Submit"
@@ -31,7 +31,7 @@ describe "user adds a new medication" do
       fill_in "Strength", with: 100
       fill_in "Total", with: 30
       fill_in "Dosage", with: 2
-      fill_in "Refill", with: "05/25/2016"
+      page.execute_script("$('#medication_refill').val('05/25/2016')")
       find(:css, "#take_medication_reminder").set(true)
       find(:css, "#refill_reminder").set(true)
       CalendarUploader.stub_chain(:new, :upload_event)
@@ -50,7 +50,7 @@ describe "user adds a new medication" do
     fill_in "Strength", with: 100
     fill_in "Total", with: 30
     fill_in "Dosage", with: 30
-    fill_in "Refill", with: "05/25/2016"
+    page.execute_script("$('#medication_refill').val('05/25/2016')")
     find(:css, "#take_medication_reminder").set(true)
     find(:css, "#refill_reminder").set(true)
     find(:css, "#medication_add_to_google_cal").set(true)
@@ -70,7 +70,7 @@ describe "user adds a new medication" do
       fill_in "Strength", with: 100
       fill_in "Total", with: 30
       fill_in "Dosage", with: 30
-      fill_in "Refill", with: "05/25/2016"
+      page.execute_script("$('#medication_refill').val('05/25/2016')")
       find(:css, "#refill_reminder").set(true)
       find(:css, "#medication_add_to_google_cal").set(true)
       CalendarUploader.stub_chain(:new, :upload_event).and_raise(StandardError.new("error"))
@@ -78,7 +78,7 @@ describe "user adds a new medication" do
       expect(page).to have_content("Email")
       new_medication = user.medications.last
       expect(new_medication).to eq(nil)
-      
+
     end
   end
 end
