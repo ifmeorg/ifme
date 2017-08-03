@@ -1,3 +1,13 @@
+function addToAutocomplete(json) {
+  var source = JSON.parse($("#" + json.autocomplete_id).attr("data-autocomplete-source"));
+  source.unshift(json.name)
+  $("#" + json.autocomplete_id).attr("data-autocomplete-source", JSON.stringify(source));
+  var sourceIds = JSON.parse($("#" + json.autocomplete_id).attr("data-autocomplete-source-ids"));
+  sourceIds.unshift(json.id);
+  $("#" + json.autocomplete_id).attr("data-autocomplete-source-ids", JSON.stringify(sourceIds));
+  $("#" + json.autocomplete_id).autocomplete({ source: source });
+}
+
 function quickCreate(form, data_type) {
   var values = $(form).serialize();
   $.ajax({
@@ -20,6 +30,8 @@ function quickCreate(form, data_type) {
       // Checking the newly added checkbox.
       var id = $(json.checkbox).attr('id');
       $('#' + id).prop('checked', true);
+
+      addToAutocomplete(json);
 
       $(form).trigger('reset');
       $('.quick_create_close').click();

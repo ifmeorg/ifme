@@ -9,6 +9,14 @@ module QuickCreate
     checkbox = "<input type=\"checkbox\" value=\"#{data.id.to_s}\" name=\"#{createType}[#{dataType}][]\" id=\"#{createType}_#{dataType}_#{data.id.to_s}\">"
     label = "<span>#{data.name}</span><br>"
     wrapper_id = "#{dataType}_name_#{data.id.to_s}"
-    { checkbox: checkbox, label: label, wrapper_id: wrapper_id }
+    autocomplete_id = "#{createType}_#{dataType}_name"
+    {
+      checkbox: checkbox,
+      label: label,
+      wrapper_id: wrapper_id,
+      autocomplete_id: autocomplete_id,
+      name: data.name,
+      id: data.id
+    }
   end
 end

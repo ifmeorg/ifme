@@ -20,7 +20,7 @@
       <%= f.text_field :name, :class => "name_field" %>
     </div>
 
-    <%= render partial: '/shared/common_options', locals: {
+    <%= render partial: '/shared/autocomplete_checkboxes', locals: {
         f: f,
         all_data: @categories,
         this_data: @strategy.category,
