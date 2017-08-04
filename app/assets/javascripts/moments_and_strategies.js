@@ -1,3 +1,10 @@
+function hitEnter(event, element, formType, inputType) {
+  if (event.which === 13) {
+    enterOnAutocomplete(element, formType, inputType);
+    return false;
+  }
+}
+
 function openQuickCreate(input, inputType) {
   showBackdrop();
   $("#" + inputType + "_quick_create").toggleClass("display_none");
@@ -14,7 +21,7 @@ function enterOnAutocomplete(element, formType, inputType) {
     $("#" + formType + "_" + inputType + "_" + id).prop("checked", true);
     $(inputField).removeClass("display_none");
     $(inputField).addClass("display_block");
-  } else {
+  } else if ($(element).val().length > 0) {
     openQuickCreate($(element).val(), inputType);
   }
   $(element).val("");
@@ -56,44 +63,36 @@ var onReadyMomentsAndStrategies = function() {
 
     // Strategy Category
     $("#strategy_category_name").keypress(function(event) {
-      if (event.which === 13) {
-        enterOnAutocomplete(this, "strategy", "category");
-        return false;
-      }
+      return hitEnter(event, this, "strategy", "category");
     });
+
     $("#strategy_category_name").autocomplete({
       source: $("#strategy_category_name").data("autocomplete-source")
     });
 
     // Moment Category
     $("#moment_category_name").keypress(function(event) {
-      if (event.which === 13) {
-        enterOnAutocomplete(this, "moment", "category");
-        return false;
-      }
+      return hitEnter(event, this, "moment", "category");
     });
+
     $("#moment_category_name").autocomplete({
       source: $("#moment_category_name").data("autocomplete-source")
     });
 
     // Moment Mood
     $("#moment_mood_name").keypress(function(event) {
-      if (event.which === 13) {
-        enterOnAutocomplete(this, "moment", "mood");
-        return false;
-      }
+      return hitEnter(event, this, "moment", "mood");
     });
+
     $("#moment_mood_name").autocomplete({
       source: $("#moment_mood_name").data("autocomplete-source")
     });
 
     // Moment Strategies
     $("#moment_strategies_name").keypress(function(event) {
-      if (event.which === 13) {
-        enterOnAutocomplete(this, "moment", "strategies");
-        return false;
-      }
+      return hitEnter(event, this, "moment", "strategies");
     });
+
     $("#moment_strategies_name").autocomplete({
       source: $("#moment_strategies_name").data("autocomplete-source")
     });
