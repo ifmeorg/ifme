@@ -51,7 +51,7 @@ class Moment < ActiveRecord::Base
     mood.try(:name)
   end
 
-  def strategy_name
+  def strategies_name
     strategy.try(:name)
   end
 end

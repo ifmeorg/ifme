@@ -51,7 +51,7 @@ var onReadyMomentsAndStrategies = function() {
     });
 
     $(document).on("click", '#strategies_list :checkbox', function() {
-      hideInputFieldIfUnchecked(this, "strategy");
+      hideInputFieldIfUnchecked(this, "strategies");
     });
 
     // Strategy Category
@@ -87,15 +87,15 @@ var onReadyMomentsAndStrategies = function() {
       source: $("#moment_mood_name").data("autocomplete-source")
     });
 
-    // Moment Strategy
-    $("#moment_strategy_name").keypress(function(event) {
+    // Moment Strategies
+    $("#moment_strategies_name").keypress(function(event) {
       if (event.which === 13) {
-        enterOnAutocomplete(this, "moment", "strategy");
+        enterOnAutocomplete(this, "moment", "strategies");
         return false;
       }
     });
-    $("#moment_strategy_name").autocomplete({
-      source: $("#moment_strategy_name").data("autocomplete-source")
+    $("#moment_strategies_name").autocomplete({
+      source: $("#moment_strategies_name").data("autocomplete-source")
     });
 	}
 };

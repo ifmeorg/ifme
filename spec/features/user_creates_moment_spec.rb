@@ -33,29 +33,27 @@ describe 'UserCreatesAMoment', js: true do
 
       page.find('[data-toggle="#categories"]').click
 
-      within '#categories_list' do
-        debugger
+      within '#categories' do
         page.fill_in 'moment[category_name]', with: 'Test Category'
         hit_down_arrow
         page.find('#moment_category_name').native.send_keys(:return)
       end
 
       page.find('[data-toggle="#moods"]').click
-      within '#moods_list' do
+      within '#moods' do
         page.fill_in 'moment[mood_name]', with: 'Test Mood'
         hit_down_arrow
         page.find('#moment_mood_name').native.send_keys(:return)
       end
 
       scroll_to_and_click('[data-toggle="#strategies"]')
-
-      within '#strategies_list' do
-        page.fill_in 'moment[strategy_name]', with: 'Test Strategy'
+      scroll_to_and_click('[data-toggle="#viewers"]')
+      within '#strategies' do
+        page.fill_in 'moment[strategies_name]', with: 'Test Strategy'
         hit_down_arrow
-        page.find('#moment_strategy_name').native.send_keys(:return)
+        page.find('#moment_strategies_name').native.send_keys(:return)
       end
 
-      scroll_to_and_click('[data-toggle="#viewers"]')
       within '#viewers_list' do
         scroll_to_and_click('input#viewers_all')
       end
