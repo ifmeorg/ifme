@@ -159,7 +159,7 @@ class StrategiesController < ApplicationController
     strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
 
     if strategy.save
-      result = render_checkbox(strategy, 'strategies', 'moment')
+      result = render_checkbox(strategy, 'strategy', 'moment')
     else
       result = { error: 'error' }
     end

@@ -1,8 +1,13 @@
-describe "UserCreatesAMoment", js: true do
+describe 'UserCreatesAMoment', js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, userid: user.id }
   let!(:mood) { create :mood, userid: user.id }
   let!(:strategy) { create :strategy, userid: user.id }
+
+  def hit_down_arrow
+    keypress = "var e = $.Event('keydown', { keyCode: 40 }); $('body').trigger(e);"
+    page.driver.execute_script(keypress)
+  end
 
   feature 'Creating, viewing, and editing a moment' do
     it 'is successful' do
@@ -14,7 +19,7 @@ describe "UserCreatesAMoment", js: true do
       end
 
       expect(page).to have_content 'Delve deep into your moments - events and situations that affect your mental health.'
-      expect(page).to have_content "You haven't written about any moments yet."
+      expect(page).to have_content 'You haven\'t written about any moments yet.'
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
       #CREATING
@@ -24,22 +29,31 @@ describe "UserCreatesAMoment", js: true do
         expect(page).to have_content 'New Moment'
       end
 
-      page.fill_in "moment[name]", with: "My new moment"
+      page.fill_in 'moment[name]', with: 'My new moment'
 
       page.find('[data-toggle="#categories"]').click
 
       within '#categories_list' do
-        page.find('input[type=checkbox]').click
+        debugger
+        page.fill_in 'moment[category_name]', with: 'Test Category'
+        hit_down_arrow
+        page.find('#moment_category_name').native.send_keys(:return)
       end
 
       page.find('[data-toggle="#moods"]').click
       within '#moods_list' do
-        page.find('input[type=checkbox]').click
+        page.fill_in 'moment[mood_name]', with: 'Test Mood'
+        hit_down_arrow
+        page.find('#moment_mood_name').native.send_keys(:return)
       end
 
       scroll_to_and_click('[data-toggle="#strategies"]')
 
-      scroll_to_and_click('#strategies_list input[type=checkbox]')
+      within '#strategies_list' do
+        page.fill_in 'moment[strategy_name]', with: 'Test Strategy'
+        hit_down_arrow
+        page.find('#moment_strategy_name').native.send_keys(:return)
+      end
 
       scroll_to_and_click('[data-toggle="#viewers"]')
       within '#viewers_list' do
