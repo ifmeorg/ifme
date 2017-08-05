@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
-[![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
+[![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme) [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
 # if me
 
@@ -376,6 +376,36 @@ Please post any bugs, questions, or ideas on our [issues page](https://github.co
 If you create an issue, please tag it with the appropriate label. We use `enhancement` for feature work and `bug` for bugs. If you created an issue and are not working on it, please tag it as `help wanted`. The majority of technical contributors are up and coming developers, so be sure to tag appropriate issues as `newbiefriendly`! If you are working on an issue, please assign it to yourself. If you are unable to do so, please let us know and we will add you as a collaborator.
 
 For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
+<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ifme#backer)]
+
+<a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/ifme#sponsor)]
+
+<a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/2/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/3/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/4/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/5/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/6/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/7/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
+
+
 
 # License
 
