@@ -12,10 +12,16 @@ describe MomentsController do
       sign_in new_user
       new_category = create(:category, userid: new_user.id)
       new_mood = create(:mood, userid: new_user.id)
-      new_moment = attributes_for(:moment).merge(userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id))
+      new_moment = attributes_for(:moment).merge(
+        userid: new_user.id,
+        category: [new_category.id],
+        mood: [new_mood.id]
+      )
       get :new
       expect(response).to render_template(:new)
-      expect{post :create,  moment: new_moment}.to change(Moment, :count).by(1)
+      expect{ post :create,  params: { moment: new_moment } }.to(
+        change(Moment, :count).by(1)
+      )
     end
 
     it "GET show" do
@@ -24,24 +30,33 @@ describe MomentsController do
       new_category = create(:category, userid: new_user.id)
       new_mood = create(:mood, userid: new_user.id)
       new_strategies = create(:strategy, userid: new_user.id)
-      new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), strategy: Array.new(1, new_strategies.id))
-      get :show, id: new_moment
+      new_moment = create(
+        :moment,
+        userid: new_user.id,
+        category: [new_category.id],
+        mood: [new_mood.id],
+        strategies: [new_strategies.id]
+      )
+      get :show, params: { id: new_moment }
       expect(response).to render_template(:show)
     end
   end
 
   describe 'POST comment' do
-    let(:user)          { create(:user, id: 1) }
-    let!(:new_moment)    { create(:moment, id: 1, userid: 1) }
-    let(:valid_comment_params) { attributes_for(:comment).merge(comment_by: 1, commented_on: 1, visibility: 'all') }
-    let(:invalid_comment_params) { attributes_for(:comment, commented_on: 1)}
+    let(:user) { create(:user, id: 1) }
+    let!(:new_moment) { create(:moment, id: 1, userid: 1) }
+    let(:valid_comment_params) do
+      attributes_for(:comment)
+        .merge(comment_by: 1, commented_on: 1, visibility: 'all')
+    end
+    let(:invalid_comment_params) { attributes_for(:comment, commented_on: 1) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the comment is saved' do
         it 'responds with an OK status' do
-          post :comment, valid_comment_params
+          post :comment, :params => valid_comment_params
 
           expect(response.status).to eq(200)
         end
@@ -49,7 +64,7 @@ describe MomentsController do
 
       context 'when the comment is not saved' do
         it 'responds with json no_save: true' do
-          post :comment, invalid_comment_params
+          post :comment, :params => invalid_comment_params
 
           expect(response.body).to eq({no_save: true}.to_json)
         end
@@ -57,46 +72,56 @@ describe MomentsController do
     end
 
     context 'when the user is not logged in' do
-      before do
-        post :comment
-      end
+      before { post :comment }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe 'GET delete_comment' do
-    let(:user)          { create(:user, id: 1) }
+    let(:user) { create(:user, id: 1) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the comment exists and belongs to the current_user' do
-        let!(:new_moment)    { create(:moment, id: 1, userid: 1) }
-        let!(:comment)       { create(:comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all') }
+        let!(:new_moment) { create(:moment, id: 1, userid: 1) }
+        let!(:comment) do
+          create(
+            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+          )
+        end
 
         it 'destroys the comment' do
-          expect { get :delete_comment, commentid: 1 }.to change(Comment, :count).by(-1)
+          expect { get :delete_comment, params: { commentid: 1 } }.to(
+            change(Comment, :count).by(-1)
+          )
         end
 
         it 'renders nothing' do
-          get :delete_comment, commentid: 1
+          get :delete_comment, params: { commentid: 1 }
 
           expect(response.body).to eq("")
         end
       end
 
       context 'when the comment exists and the strategy belongs to the current_user' do
-        let!(:comment)       { create(:comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all') }
-        let!(:new_moment)    { create(:moment, id: 1, userid: 1) }
+        let!(:comment) do
+          create(
+            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+          )
+        end
+        let!(:new_moment) { create(:moment, id: 1, userid: 1) }
 
         it 'destroys the comment' do
-          expect { get :delete_comment, commentid: 1 }.to change(Comment, :count).by(-1)
+          expect { get :delete_comment, params: { commentid: 1 } }.to(
+            change(Comment, :count).by(-1)
+          )
         end
 
         it 'renders nothing' do
           comment
-          get :delete_comment, commentid: 1
+          get :delete_comment, params: { commentid: 1 }
 
           expect(response.body).to eq("")
         end
@@ -104,7 +129,7 @@ describe MomentsController do
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, commentid: 1
+          get :delete_comment, params: { commentid: 1 }
 
           expect(response.body).to eq("")
         end

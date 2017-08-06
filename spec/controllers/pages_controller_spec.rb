@@ -30,7 +30,9 @@ RSpec.describe PagesController, type: :controller do
     context 'not logged in' do
       it 'has blurbs and posts' do
         get :home
-        expect(assigns(:posts)[0].keys).to contain_exactly('link', 'link_name', 'author')
+        expect(assigns(:posts)[0].keys).to(
+          contain_exactly('link', 'link_name', 'author')
+        )
         blurbs_file = File.read('doc/pages/blurbs.json')
         expect(assigns(:blurbs)).to eq(JSON.parse(blurbs_file))
       end
@@ -45,7 +47,9 @@ RSpec.describe PagesController, type: :controller do
 
     it 'has posts' do
       get :blog
-      expect(assigns(:posts)[0].keys).to contain_exactly('link', 'link_name', 'author')
+      expect(assigns(:posts)[0].keys).to(
+        contain_exactly('link', 'link_name', 'author')
+      )
     end
   end
 
@@ -109,21 +113,21 @@ RSpec.describe PagesController, type: :controller do
 
       it 'returns signed_in_reload object' do
         user.update!(locale: 'en')
-        get :toggle_locale, locale: 'es'
-        expect(JSON.parse(response.body)).to eq({"signed_in_reload"=>"es"})
+        get :toggle_locale, params: { locale: 'es' }
+        expect(JSON.parse(response.body)).to eq('signed_in_reload' => 'es')
       end
 
       it 'returns signed_in_no_reload object' do
         user.update!(locale: 'en')
-        get :toggle_locale, locale: 'en'
-        expect(JSON.parse(response.body)).to eq({"signed_in_no_reload"=>"en"})
+        get :toggle_locale, params: { locale: 'en' }
+        expect(JSON.parse(response.body)).to eq('signed_in_no_reload' => 'en')
       end
     end
 
     context 'When not signed in' do
       it 'returns signed_out object' do
-        get :toggle_locale, locale: 'es'
-        expect(JSON.parse(response.body)).to eq({"signed_out"=>true})
+        get :toggle_locale, params: { locale: 'es' }
+        expect(JSON.parse(response.body)).to eq('signed_out' => true)
       end
     end
   end

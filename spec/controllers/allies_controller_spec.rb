@@ -54,7 +54,7 @@ describe AlliesController do
         }
       end
 
-      subject { post :add, { ally_id: ally.id.to_s, format: :json } }
+      subject { post :add, params: { ally_id: ally.id.to_s, format: :json } }
 
       context 'with an existing ally request' do
         let!(:allyship) { Allyship.create(user_id: user.id, ally_id: ally.id, status: :pending_from_ally) }
@@ -126,7 +126,7 @@ describe AlliesController do
 
   describe 'DELETE #remove' do
     let!(:allyship) { double(:allyship) }
-    subject { delete :remove, { ally_id: ally.id, format: :json } }
+    subject { delete :remove, params: { ally_id: ally.id, format: :json } }
 
     context 'when user is logged in' do
       include_context :logged_in_user

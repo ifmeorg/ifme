@@ -147,7 +147,7 @@ class MomentsController < ApplicationController
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
-    render nothing: true
+    head :ok
   end
 
   def quick_moment
