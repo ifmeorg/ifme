@@ -382,11 +382,9 @@ Password: password99
 
 # Testing Guidelines
 
-We are using Selenium for web browser automation, so you will **need** to
-install a version of Firefox that is compatible with Selenium, which is often
-not the latest build.
-[Firefox 46](https://ftp.mozilla.org/pub/firefox/releases/46.0/) is guaranteed
-to work (just make sure you don't update it).
+We are using Selenium with Firefox for web browser automation. It is necessary
+to install [GeckoDriver](https://github.com/mozilla/geckodriver/releases). macOS
+users can install with HomeBrew with `brew install geckodriver`.
 
 Always write tests for the changes you've made! If you see any missing tests,
 write them!
