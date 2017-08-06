@@ -22,7 +22,7 @@ function enterOnAutocomplete(element, formType, inputType) {
     $(inputField).removeClass("display_none");
     $(inputField).addClass("display_block");
   } else if ($(element).val().length > 0) {
-    openQuickCreate($(element).val(), inputType);
+    openQuickCreate($(element).val(), inputType === "strategies" ? "strategy" : inputType);
   }
   $(element).val("");
 }

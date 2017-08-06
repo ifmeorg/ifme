@@ -5,7 +5,7 @@ describe 'UserCreatesAMoment', js: true do
   let!(:strategy) { create :strategy, userid: user.id }
 
   def hit_down_arrow
-    keypress = "var e = $.Event('keydown', { keyCode: 40 }); $('body').trigger(e);"
+    keypress = 'var e = $.Event("keydown", { keyCode: 40 }); $("body").trigger(e);'
     page.driver.execute_script(keypress)
   end
 
@@ -22,7 +22,7 @@ describe 'UserCreatesAMoment', js: true do
       expect(page).to have_content 'You haven\'t written about any moments yet.'
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
-      #CREATING
+      # CREATING
       page.find('a[title="New Moment"]').click
 
       within '#page_title_content' do
@@ -32,33 +32,73 @@ describe 'UserCreatesAMoment', js: true do
       page.fill_in 'moment[name]', with: 'My new moment'
 
       page.find('[data-toggle="#categories"]').click
-
       within '#categories' do
         page.fill_in 'moment[category_name]', with: 'Test Category'
         hit_down_arrow
         page.find('#moment_category_name').native.send_keys(:return)
+        page.fill_in 'moment[category_name]', with: 'Some New Category'
+        page.find('#moment_category_name').native.send_keys(:return)
       end
+      within '#category_quick_create' do
+        page.find('#new_category input[type="submit"]').click
+      end
+      within '#categories' do
+        page.fill_in 'moment[category_name]', with: 'Another New Category'
+        page.find('#moment_category_name').native.send_keys(:return)
+      end
+      within '#category_quick_create' do
+        page.find('#new_category input[type="submit"]').click
+      end
+      within '#categories_list' do
+        page.find('#moment_category_1').click
+      end
+      page.find('[data-toggle="#categories"]').click
 
       page.find('[data-toggle="#moods"]').click
       within '#moods' do
         page.fill_in 'moment[mood_name]', with: 'Test Mood'
         hit_down_arrow
         page.find('#moment_mood_name').native.send_keys(:return)
+        page.fill_in 'moment[mood_name]', with: 'Some New Mood'
+        page.find('#moment_mood_name').native.send_keys(:return)
       end
+      within '#mood_quick_create' do
+        page.find('#new_mood input[type="submit"]').click
+      end
+      within '#moods_list' do
+        page.find('#moment_mood_2').click
+      end
+      within '#moods' do
+        page.fill_in 'moment[mood_name]', with: 'Another New Mood'
+        page.find('#moment_mood_name').native.send_keys(:return)
+      end
+      within '#mood_quick_create' do
+        page.find('#new_mood input[type="submit"]').click
+      end
+      page.find('[data-toggle="#moods"]').click
+
 
       scroll_to_and_click('[data-toggle="#strategies"]')
-      scroll_to_and_click('[data-toggle="#viewers"]')
       within '#strategies' do
         page.fill_in 'moment[strategies_name]', with: 'Test Strategy'
         hit_down_arrow
         page.find('#moment_strategies_name').native.send_keys(:return)
+        page.fill_in 'moment[strategies_name]', with: 'Some New Strategy'
+        page.find('#moment_strategies_name').native.send_keys(:return)
       end
+      within '#strategy_quick_create' do
+        page.fill_in 'strategy[description]', with: 'Hello some description'
+        scroll_to_and_click('#new_strategy input[type="submit"]')
+      end
+      scroll_to_and_click('[data-toggle="#strategies"]')
 
+      scroll_to_and_click('[data-toggle="#viewers"]')
       within '#viewers_list' do
         scroll_to_and_click('input#viewers_all')
       end
+      scroll_to_and_click('[data-toggle="#viewers"]')
 
-      # allow comments
+      # ALLOW COMMENTS
       scroll_to_and_click('input#moment_comment')
 
       fill_in_ckeditor('moment_why', with: 'my moment why description')
@@ -71,8 +111,8 @@ describe 'UserCreatesAMoment', js: true do
         expect(page).to have_content 'My new moment'
       end
       expect(page).to have_content 'Created:'
-      expect(page).to have_content 'Category: Test Category'
-      expect(page).to have_content 'Mood: Test Mood'
+      expect(page).to have_content 'Categories: Another New Category, Some New Category'
+      expect(page).to have_content 'Moods: Another New Mood, Test Mood'
 
       expect(page).to have_content 'What happened and how do you feel?'
       expect(page).to have_content 'my moment why description'
@@ -81,12 +121,12 @@ describe 'UserCreatesAMoment', js: true do
       expect(page).to have_content 'my moment fix description'
 
       expect(page).to have_content 'What strategies would help?'
-      expect(page).to have_content 'Test Strategy'
+      expect(page).to have_content 'Some New Strategy, Test Strategy'
 
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
       expect(page).to have_css('#new_comment')
 
-      #EDITING
+      # EDITING
       page.find('a[title="Edit Moment"]').click
       within '#page_title_content' do
         expect(page).to have_content 'Edit My new moment'
@@ -96,7 +136,7 @@ describe 'UserCreatesAMoment', js: true do
 
       page.find('input[value="Submit"]').click
 
-      #VIEWING AFTER EDITING
+      # VIEWING AFTER EDITING
       within '#page_title_content' do
         expect(page).to have_content 'My new moment'
       end
