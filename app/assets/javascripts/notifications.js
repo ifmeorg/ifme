@@ -126,27 +126,6 @@ var onReadyNotifications = function() {
     $('#notifications #clear_notifications').hide();
   });
 
-  /* Quick Moment */
-  $('#toggle_categories_moods').click(function() {
-    if ($('#categories_moods')[0].classList.contains('display_none')) {
-      showCategoriesMoods();
-    } else {
-      hideCategoriesMoods();
-    }
-  });
-
-  $('#close_categories_moods').click(function() {
-    hideCategoriesMoods();
-  });
-
-  $('#categories_moods').click(function() {
-    hideCategoriesMoods();
-  });
-
-  $('#categories_moods_text').click(function(event) {
-    event.stopPropagation();
-  });
-
   /* Tips */
   $('.tip_notifications_button').click(function() {
     $(this).siblings('.tip_notifications').toggleClass("display_none");

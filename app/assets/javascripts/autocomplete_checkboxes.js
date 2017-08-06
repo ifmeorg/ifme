@@ -35,20 +35,8 @@ function hideInputFieldIfUnchecked(element, inputType) {
   }
 }
 
-var onReadyMomentsAndStrategies = function() {
+var onReadyAutocompleteCheckboxes = function() {
   if (newOrEdit(["moments", "strategies"])) {
-    $(".expand_toggle").click(function(event) {
-  		var toggleID = $(this).data("toggle");
-  		$(toggleID).toggle();
-  		$(this).find(".toggle_button i").toggleClass("fa-caret-down");
-  		$(this).find(".toggle_button i").toggleClass("fa-caret-up");
-  		event.preventDefault();
-  	});
-
-  	$("#viewers_all").click(function() {
-  		$("#viewers_list :checkbox").prop("checked", $(this).prop("checked"));
-  	});
-
     $(document).on("click", '#categories_list :checkbox', function() {
       hideInputFieldIfUnchecked(this, "category");
     });
@@ -99,4 +87,4 @@ var onReadyMomentsAndStrategies = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyMomentsAndStrategies);
+$(document).on("page:load ready", onReadyAutocompleteCheckboxes);

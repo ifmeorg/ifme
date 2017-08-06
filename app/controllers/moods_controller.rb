@@ -114,11 +114,11 @@ class MoodsController < ApplicationController
   def quick_create
     mood = Mood.new(userid: current_user.id, name: params[:mood][:name], description: params[:mood][:description])
 
-    if mood.save
-      result = render_checkbox(mood, 'mood', 'moment')
-    else
-      result = { error: 'error' }
-    end
+    result = if mood.save
+               render_checkbox(mood, 'mood', 'moment')
+             else
+               { error: 'error' }
+             end
 
     respond_to do |format|
       format.html { render json: result }
