@@ -16,7 +16,7 @@ RSpec.describe NotificationsController, type: :controller do
         allow(controller).to receive(:current_user).and_return(user)
         request.env['HTTP_REFERER'] = previous_page
 
-        delete :destroy, id: notification_id, format: format
+        delete :destroy, format: format, params: { id: notification_id }
       end
 
       context 'and the notification to be deleted exists' do
@@ -92,7 +92,7 @@ RSpec.describe NotificationsController, type: :controller do
       before do
         allow(controller).to receive(:user_signed_in?).and_return(false)
 
-        delete :destroy, id: 'foo', format: format
+        delete :destroy, format: format, params: { id: 'foo' }
       end
 
       context 'and the requested format is html' do

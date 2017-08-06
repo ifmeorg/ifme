@@ -249,7 +249,8 @@ class ApplicationController < ActionController::Base
     end
 
     moments = Moment.where(id: my_moments.map(&:id)).order(created_at: :desc)
-    strategies = Strategy.where(id: my_strategies.map(&:id)).order(created_at: :desc)
+    strategies = Strategy.where(id: my_strategies.map(&:id))
+                         .order(created_at: :desc)
 
     stories =
       if moments.count.positive?
