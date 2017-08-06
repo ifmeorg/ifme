@@ -15,7 +15,7 @@
 #  userid     :integer
 #  viewers    :text
 #  comment    :boolean
-#  strategies :text
+#  strategy   :text
 #  slug       :string
 #
 
@@ -25,7 +25,7 @@ class Moment < ActiveRecord::Base
   serialize :category, Array
   serialize :viewers, Array
   serialize :mood, Array
-  serialize :strategies, Array
+  serialize :strategy, Array
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
@@ -36,11 +36,7 @@ class Moment < ActiveRecord::Base
     self.category = category.collect(&:to_i) if category.is_a?(Array)
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
     self.mood = mood.collect(&:to_i) if mood.is_a?(Array)
-    self.strategies = strategies.collect(&:to_i) if strategies.is_a?(Array)
-  end
-
-  def strategy
-    strategies
+    self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
   end
 
   def category_name
@@ -51,7 +47,7 @@ class Moment < ActiveRecord::Base
     mood.try(:name)
   end
 
-  def strategies_name
+  def strategy_name
     strategy.try(:name)
   end
 end

@@ -10,7 +10,7 @@ class MomentsController < ApplicationController
         category: [],
         mood: [],
         viewers: [],
-        strategies: []
+        strategy: []
       }
     }
   end
@@ -283,8 +283,10 @@ class MomentsController < ApplicationController
   def moment_params
     params[:moment] = default_params[:moment].merge(params[:moment])
 
-    params.require(:moment).permit(:name, :why, :fix, :userid, :comment,
-      category: [], mood: [], viewers: [], strategies: [])
+    params.require(:moment).permit(
+      :name, :why, :fix, :userid, :comment,
+      category: [], mood: [], viewers: [], strategy: []
+    )
   end
 
   def hide_page(moment)

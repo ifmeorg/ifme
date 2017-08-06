@@ -22,7 +22,7 @@ function enterOnAutocomplete(element, formType, inputType) {
     $(inputField).removeClass("display_none");
     $(inputField).addClass("display_block");
   } else if ($(element).val().length > 0) {
-    openQuickCreate($(element).val(), inputType === "strategies" ? "strategy" : inputType);
+    openQuickCreate($(element).val(), inputType);
   }
   $(element).val("");
 }
@@ -46,7 +46,7 @@ var onReadyAutocompleteCheckboxes = function() {
     });
 
     $(document).on("click", '#strategies_list :checkbox', function() {
-      hideInputFieldIfUnchecked(this, "strategies");
+      hideInputFieldIfUnchecked(this, "strategy");
     });
 
     // Strategy Category
@@ -77,12 +77,12 @@ var onReadyAutocompleteCheckboxes = function() {
     });
 
     // Moment Strategies
-    $("#moment_strategies_name").keypress(function(event) {
-      return hitEnter(event, this, "moment", "strategies");
+    $("#moment_strategy_name").keypress(function(event) {
+      return hitEnter(event, this, "moment", "strategy");
     });
 
-    $("#moment_strategies_name").autocomplete({
-      source: $("#moment_strategies_name").data("autocomplete-source")
+    $("#moment_strategy_name").autocomplete({
+      source: $("#moment_strategy_name").data("autocomplete-source")
     });
 	}
 };

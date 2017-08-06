@@ -80,11 +80,11 @@ describe 'UserCreatesAMoment', js: true do
 
       scroll_to_and_click('[data-toggle="#strategies"]')
       within '#strategies' do
-        page.fill_in 'moment[strategies_name]', with: 'Test Strategy'
+        page.fill_in 'moment[strategy_name]', with: 'Test Strategy'
         hit_down_arrow
-        page.find('#moment_strategies_name').native.send_keys(:return)
-        page.fill_in 'moment[strategies_name]', with: 'Some New Strategy'
-        page.find('#moment_strategies_name').native.send_keys(:return)
+        page.find('#moment_strategy_name').native.send_keys(:return)
+        page.fill_in 'moment[strategy_name]', with: 'Some New Strategy'
+        page.find('#moment_strategy_name').native.send_keys(:return)
       end
       within '#strategy_quick_create' do
         page.fill_in 'strategy[description]', with: 'Hello some description'
