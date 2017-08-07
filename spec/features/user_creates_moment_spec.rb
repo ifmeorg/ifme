@@ -49,8 +49,8 @@ describe 'UserCreatesAMoment', js: true do
       within '#category_quick_create' do
         page.find('#new_category input[type="submit"]').click
       end
-      within '#categories_list' do
-        page.find('#moment_category_1').click
+      if page.has_css?('#moment_category_1') && page.has_css?('#moment_category_2')
+        scroll_to_and_click('#moment_category_1')
       end
       page.find('[data-toggle="#categories"]').click
 
@@ -65,8 +65,8 @@ describe 'UserCreatesAMoment', js: true do
       within '#mood_quick_create' do
         page.find('#new_mood input[type="submit"]').click
       end
-      within '#moods_list' do
-        page.find('#moment_mood_2').click
+      if page.has_css?('#moment_mood_1') && page.has_css?('#moment_mood_2')
+        scroll_to_and_click('#moment_mood_2')
       end
       within '#moods' do
         page.fill_in 'moment[mood_name]', with: 'Another New Mood'
@@ -76,7 +76,6 @@ describe 'UserCreatesAMoment', js: true do
         page.find('#new_mood input[type="submit"]').click
       end
       page.find('[data-toggle="#moods"]').click
-
 
       scroll_to_and_click('[data-toggle="#strategies"]')
       within '#strategies' do

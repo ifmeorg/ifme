@@ -84,7 +84,7 @@ var onReadyAutocompleteCheckboxes = function() {
     $("#moment_strategy_name").autocomplete({
       source: $("#moment_strategy_name").data("autocomplete-source")
     });
-	}
+  }
 };
 
 $(document).on("page:load ready", onReadyAutocompleteCheckboxes);
