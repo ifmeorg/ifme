@@ -16,7 +16,7 @@ describe 'AddingMedication', js: true do
     page.execute_script('$("#medication_refill").val("05/25/2016")')
     CalendarUploader.stub_chain(:new, :upload_event)
     expect(CalendarUploader).to_not receive(:new)
-    scroll_to_and_click('Submit')
+    click_on('Submit')
     expect(page).to have_content('A medication name')
     new_medication = user.medications.last
     expect(new_medication.name).to eq('A medication name')
@@ -32,11 +32,11 @@ describe 'AddingMedication', js: true do
       fill_in 'Total', with: 30
       fill_in 'Dosage', with: 2
       page.execute_script('$("#medication_refill").val("05/25/2016")')
-      find(:css, '#take_medication_reminder').set(true)
-      find(:css, '#refill_reminder').set(true)
+      scroll_to_and_click('input#take_medication_reminder')
+      scroll_to_and_click('input#refill_reminder')
       CalendarUploader.stub_chain(:new, :upload_event)
       expect(CalendarUploader).to_not receive(:new)
-      scroll_to_and_click('Submit')
+      click_on('Submit')
       expect(page).to have_content('A medication name')
       new_medication = user.medications.last
       expect(new_medication.take_medication_reminder.active?).to eq(true)
@@ -51,12 +51,12 @@ describe 'AddingMedication', js: true do
     fill_in 'Total', with: 30
     fill_in 'Dosage', with: 30
     page.execute_script('$("#medication_refill").val("05/25/2016")')
-    find(:css, '#take_medication_reminder').set(true)
-    find(:css, '#refill_reminder').set(true)
-    find(:css, '#medication_add_to_google_cal').set(true)
+    scroll_to_and_click('input#take_medication_reminder')
+    scroll_to_and_click('input#refill_reminder')
+    scroll_to_and_click('input#medication_add_to_google_cal')
     CalendarUploader.stub_chain(:new, :upload_event)
     expect(CalendarUploader).to receive_message_chain(:new, :upload_event)
-    scroll_to_and_click('Submit')
+    click_on('Submit')
     expect(page).to have_content('A medication name')
     new_medication = user.medications.last
     expect(new_medication.take_medication_reminder.active?).to eq(true)
@@ -71,10 +71,10 @@ describe 'AddingMedication', js: true do
       fill_in 'Total', with: 30
       fill_in 'Dosage', with: 30
       page.execute_script('$("#medication_refill").val("05/25/2016")')
-      find(:css, '#refill_reminder').set(true)
-      find(:css, '#medication_add_to_google_cal').set(true)
+      scroll_to_and_click('input#refill_reminder')
+      scroll_to_and_click('input#medication_add_to_google_cal')
       CalendarUploader.stub_chain(:new, :upload_event).and_raise(StandardError.new('error'))
-      scroll_to_and_click('Submit')
+      click_on('Submit')
       expect(page).to have_content('Email')
       new_medication = user.medications.last
       expect(new_medication).to eq(nil)
