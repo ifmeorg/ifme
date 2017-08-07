@@ -76,6 +76,7 @@ group :development, :test do
   # not compatible with react_on_rails
   # gem 'jshint'
   gem 'rubocop', '~> 0.48.0'
+  gem 'foreman'
 end
 
 group :test do
