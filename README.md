@@ -391,15 +391,15 @@ For bugs, please list the reproduction steps and specify if the bug was produced
 We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/ifme).
 Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
 
-We also have a [Patreon](https://www.patreon.com/ifme) page you pledge monthly donates to.
+We also have a [Patreon](https://www.patreon.com/ifme) page where you can give monthly donations.
 
 ### Backers
 
-Thank you to all our backers! [Become a backer!](https://opencollective.com/ifme#backer)
+Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
+
+Thank you to all our OpenCollective backers! [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
-
-Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
 
 ### Sponsors
 
