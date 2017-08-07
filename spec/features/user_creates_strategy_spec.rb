@@ -46,8 +46,8 @@ describe 'UserCreatesAStrategy', js: true do
       within '#category_quick_create' do
         page.find('#new_category input[type="submit"]').click
       end
-      if page.has_css?('#strategy_category_1') && page.has_css?('#strategy_category_2')
-        scroll_to_and_click('#strategy_category_1')
+      within '#categories_list' do
+        page.all('input[name="strategy[category][]"]')[2].click
       end
       page.find('[data-toggle="#categories"]').click
 

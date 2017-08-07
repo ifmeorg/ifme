@@ -59,6 +59,7 @@ en:
      location: "Location"
      description: 'Description'
      error_explanation: 'Please fill out the marked fields!'
+     press_enter: 'Press ENTER to add'
    time_ago: "%{date} ago"
    write_to_us: "write to us"
 

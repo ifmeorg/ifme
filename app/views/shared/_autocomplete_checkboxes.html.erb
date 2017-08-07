@@ -15,15 +15,12 @@
   <div id="<%= data_type_plural %>" class="display_none">
 
     <% if !all_data.nil? && all_data.length > 0 %>
-      <%= f.text_field "#{data_type}_name", data: { autocomplete_source: all_data.map(&:name), autocomplete_source_ids: all_data.map(&:id) }, class: 'full_field smaller_margin_top smaller_margin_bottom' %>
+      <%= f.text_field "#{data_type}_name", data: { autocomplete_source: all_data.map(&:name), autocomplete_source_ids: all_data.map(&:id) }, class: 'full_field smaller_margin_top smaller_margin_bottom', placeholder: t('common.form.press_enter') %>
     <% end %>
 
     <div id="<%= "#{data_type_plural}_list" %>">
       <% all_data.each do |item| %>
-        <div id="<%= "#{data_type}_name_#{item.id}" %>" class="<%= this_data.include?(item.id) ? 'display_block' : 'display_none' %>">
-          <%= f.check_box(data_type, { multiple: true, checked: this_data.include?(item.id) }, item.id, nil) %>
-          <span><%= item.name %></span><br>
-        </div>
+        <div id="<%= "#{data_type}_name_#{item.id}" %>" class="<%= this_data.include?(item.id) ? 'display_block' : 'display_none' %>"><%= f.check_box(data_type, { multiple: true, checked: this_data.include?(item.id) }, item.id, nil) %><span><%= item.name %></span><br></div>
       <% end %>
     </div>
   </div>

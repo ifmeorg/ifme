@@ -59,6 +59,7 @@ es:
      location: "Ubicación"
      description: "Descripción"
      error_explanation: "Por favor completa los campos indicados"
+     press_enter: 'Presione ENTER para agregar'
    time_ago: 'hace %{date}'
    write_to_us: "escríbenos"
 
