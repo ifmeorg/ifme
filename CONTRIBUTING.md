@@ -39,7 +39,6 @@ You **must** also read these sections in order to contribute:
 * [Committing Work](https://github.com/julianguyen/ifme/blob/master/README.md#committing-work)
 * [Tracking Issues](https://github.com/julianguyen/ifme/blob/master/README.md#tracking-issues)
 
-
 ### User Tester
 
 Please sign up for a account on our official site, if-me.org. Use the app for a couple of days before raising issues or filing bugs. You can raise issues on our [GitHub issues](https://github.com/julianguyen/ifme/issues) page or through [Feedback Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfqT0qNylzJom87MBwZvUx9LayA_DpUeZa7xAhwMPkcbTldFQ/viewform?c=0&w=1) (the link can also be found on our site footer). Please raise any discussions on Slack!
@@ -56,28 +55,24 @@ Please join our `#socialmedia` channel on Slack! We post amazing content all ove
 
 As well as new and original content, we also accept content that has already been published.
 
+## Contributors via GitHub
 
-## Financial contributions
+<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
+
+## Donate
 
 We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/ifme).
 Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
 
-
-## Credits
-
-
-### Contributors
-
-Thank you to all the people who have already contributed to ifme!
-<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
-
+We also have a [Patreon](https://www.patreon.com/ifme) page you pledge monthly donates to.
 
 ### Backers
 
-Thank you to all our backers! [[Become a backer](https://opencollective.com/ifme#backer)]
+Thank you to all our backers! [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
+Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
 
 ### Sponsors
 

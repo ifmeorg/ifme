@@ -21,6 +21,7 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 * [Static Code Analysis](#static-code-analysis)
 * [Committing Work](#committing-work)
 * [Tracking Issues](#tracking-issues)
+* [Donate](#donate)
 * [License](#license)
 
 # Installation
@@ -367,6 +368,10 @@ This also helps people to familiarize themselves with the code base! The live co
 
 If you've contributed to the project but do not want to write a blurb, please add your name and desired social media link to `doc/pages/contributors.json`.
 
+Below are folks who have contributed via GitHub!
+
+<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
+
 # Tracking Issues
 
 Please post any bugs, questions, or ideas on our [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
@@ -377,22 +382,24 @@ If you create an issue, please tag it with the appropriate label. We use `enhanc
 
 For bugs, please list the reproduction steps and specify if the bug was produced locally or on production. Please also mention what OS and browser you are using.
 
-## Contributors
+## Donate
 
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
+We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/ifme).
+Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
 
+We also have a [Patreon](https://www.patreon.com/ifme) page you pledge monthly donates to.
 
-## Backers
+### Backers
 
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/ifme#backer)]
+Thank you to all our backers! [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
+Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-## Sponsors
+### Sponsors
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/ifme#sponsor)]
+Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
 
 <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
@@ -404,8 +411,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/ifme/sponsor/7/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/7/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
-
-
 
 # License
 
