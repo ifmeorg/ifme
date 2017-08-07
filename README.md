@@ -240,6 +240,8 @@ rails s
 
 To view the app, go to `http://localhost:3000`.
 
+To view the app on your mobile device, go to `http://[YOUR IP ADDRESS]:3000`.
+
 <details>
   <summary>Docker</summary>
 
@@ -352,7 +354,9 @@ If you've been added as a collaborator to the repository, please do not push unl
 
 * We use **2 space** indentation.
 * We use **snakecase** for Ruby files and id/class names in HTML.
+* We use **single quotes** for Ruby files.
 * We use **camelcase** for JS files.
+* We use **double quotes** for JS files.
 * Make sure you run the test suite locally before you commit, don't rely on CircleCI to do that for you.
 * Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
