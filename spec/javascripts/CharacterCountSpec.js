@@ -34,7 +34,7 @@ describe("CharacterCount", function(); {
           charLimit('aaaaaaa');
           var input = $('input[type="submit"]');
 
-          expect(input.attr('disabled')).toBeFalsy();
+          expect(input.attr('disabled')).toBeTrue();
         });
 
         it("submit button should not be disabled", function(); {
@@ -42,7 +42,7 @@ describe("CharacterCount", function(); {
           charLimit(overLimit);
           var input = $('input[type="submit"]');
 
-          expect(input.attr('disabled')).toBeTruthy();
+          expect(input.attr('disabled')).toBeTrue();
         });
       });
     });
