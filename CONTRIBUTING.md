@@ -70,7 +70,7 @@ We also have a [Patreon](https://www.patreon.com/ifme) page where you can give m
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our OpenCollective backers! [Become a backer!](https://opencollective.com/ifme#backer)
+Thank you to all our open collective backers! [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
