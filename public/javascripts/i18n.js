@@ -64,12 +64,17 @@
     return Object.prototype.toString.call(val) === '[object Array]';
   };
 
-  var isString = function(val) {
-    return typeof value == 'string' || Object.prototype.toString.call(val) === '[object String]';
+  var isType = function(type, value) {
+    return typeof value == type.toLowerCase() ||
+           Object.prototype.toString.call(value) === '[object ' + value + ']';
+  }
+
+  var isString = function(value) {
+    return isType('String', value);
   };
 
-  var isNumber = function(val) {
-    return typeof val == 'number' || Object.prototype.toString.call(val) === '[object Number]';
+  var isNumber = function(value) {
+    return isType('Number', value);
   };
 
   var isBoolean = function(val) {

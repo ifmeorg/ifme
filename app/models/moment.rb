@@ -20,7 +20,9 @@
 #
 
 class Moment < ApplicationRecord
+  include Viewer
   extend FriendlyId
+
   friendly_id :name
   serialize :category, Array
   serialize :viewers, Array

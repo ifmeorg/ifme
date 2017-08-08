@@ -4,7 +4,7 @@ class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
   include ApplicationMailerHelper
   include NotificationMailerHelper
-  default from: Rails.application.secrets.smtp[:address]
+  default from: ENV['SMTP_ADDRESS']
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
 

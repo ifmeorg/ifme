@@ -21,4 +21,4 @@ var onReadyAnnouncement = function() {
   });
 };
 
-$(document).on("page:load ready", onReadyAnnouncement);
+$(document).on("turbolinks:load", onReadyAnnouncement);

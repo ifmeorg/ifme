@@ -52,19 +52,20 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  config.action_mailer.perform_deliveries = Rails.application.secrets.smtp[:send_email]
-  config.action_mailer.raise_delivery_errors = Rails.application.secrets.smtp[:raise_delivery_errors]
+  config.action_mailer.perform_deliveries = ENV['SEND_EMAIL']
+  config.action_mailer.raise_delivery_errors = ENV['RAISE_DELIVERY_ERRORS']
+
   # To preview email in browser rather than to send a mail to actual user during development
   config.action_mailer.delivery_method = :letter_opener
 
   # If you want to actually test emails, you will have to configure SMTP settings in smtp.yml
   config.action_mailer.smtp_settings = {
-    address: Rails.application.secrets.smtp[:address],
-    port: Rails.application.secrets.smtp[:port],
+    address: ENV['SMTP_ADDRESS'],
+    port: ENV['SMTP_PORT'],
     authentication: "plain",
-    user_name: Rails.application.secrets.smtp[:user_name],
-    password: Rails.application.secrets.smtp[:password],
-    domain: Rails.application.secrets.smtp[:domain],
+    user_name: ENV['SMTP_USER_NAME'],
+    password: ENV['SMTP_PASSWORD'],
+    domain: ENV['SMTP_DOMAIN'],
     enable_starttls_auto: true
   }
 

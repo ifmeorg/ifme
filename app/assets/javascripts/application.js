@@ -86,7 +86,7 @@ var onReadyApplication = function() {
 	$(".yes_title").find(":not(.no_title)").tooltip();
 };
 
-$(document).on("page:load ready", onReadyApplication);
+$(document).on("turbolinks:load", onReadyApplication);
 
 var beforeunloadApplication = function() {
   $(window).scrollTop(0);

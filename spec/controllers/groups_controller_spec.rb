@@ -99,7 +99,7 @@ RSpec.describe GroupsController, :type => :controller do
       user = create :user
       non_leader = create :group_member, group: group, leader: false, user: user
 
-      put :update, id: group.id, params: { group: { leader: [user.id] } }
+      put :update, params: { id: group.id, group: { leader: [user.id] } }
 
       non_leader.reload
       expect(non_leader.leader).to be true

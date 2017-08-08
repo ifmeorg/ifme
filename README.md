@@ -382,9 +382,10 @@ Password: password99
 
 # Testing Guidelines
 
-We are using Selenium with Firefox for web browser automation. It is necessary
-to install [GeckoDriver](https://github.com/mozilla/geckodriver/releases). macOS
-users can install with HomeBrew with `brew install geckodriver`.
+We are using Selenium with Chrome for web browser automation. It is necessary
+to install
+[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+macOS users can install with HomeBrew with `brew install chromedriver`.
 
 Always write tests for the changes you've made! If you see any missing tests,
 write them!
@@ -438,12 +439,17 @@ review. If you're unsure about this, please ask!
 * We use **single quotes** for Ruby files.
 * We use **camelcase** for JS files.
 * We use **double quotes** for JS files.
-* Make sure you run the test suite locally before you commit, don't rely on CircleCI to do that for you.
-* Make sure commit messages are clear and concise are tagged with the issue number e.g. "[#99] Fixes some sample issue".
+* Make sure you run the test suite locally before you commit, don't rely on
+CircleCI to do that for you.
+* Make sure commit messages are clear and concise are tagged with the issue
+number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
-* As a pull request (PR) reviewer, if you think the PR is good to go (including passing tests) make sure to comment with LGTM (looks good to me). You can either merge it yourself or tell the PR creator to do it themselves.
-* If you add or modify a model, please run `annotate` to update the schema comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
+* As a pull request (PR) reviewer, if you think the PR is good to go
+(including passing tests) make sure to comment with LGTM (looks good to me).
+You can either merge it yourself or tell the PR creator to do it themselves.
+* If you add or modify a model, please run `annotate` to update the schema
+comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update `db/schema.rb`.
 
 ## Contributor Blurb
 
@@ -486,22 +492,30 @@ locally or on production. Please also mention what OS and browser you are using.
 
 ## Donate
 
-We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/ifme).
-Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
+We also welcome financial contributions in full transparency on our
+[open collective](https://opencollective.com/ifme).
+Anyone can file an expense. If the expense makes sense for the development of
+the community, it will be "merged" in the ledger of our open collective by the
+core contributors and the person who filed the expense will be reimbursed.
 
-We also have a [Patreon](https://www.patreon.com/ifme) page where you can give monthly donations.
+We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
+monthly donations.
 
 ### Backers
 
-Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
+Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
+[Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our open collective backers! [Become a backer!](https://opencollective.com/ifme#backer)
+Thank you to all our open collective backers!
+[Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
 ### Sponsors
 
-Thank you to all our sponsors! (please ask your company to also support this open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
+Thank you to all our sponsors! (please ask your company to also support this
+open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
 
 <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>

@@ -1,5 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
 SimpleCov.start 'rails'
@@ -21,16 +21,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-if ENV['SELENIUM_REMOTE_HOST']
-  Capybara.javascript_driver = :selenium_remote_firefox
-  Capybara.register_driver "selenium_remote_firefox".to_sym do |app|
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :remote,
-      url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox)
-  end
-end
+Capybara.javascript_driver = :selenium_chrome
 
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller

@@ -31,6 +31,3 @@
 
 # Ignore auto-generated translations.js
 /public/javascripts/translations.js
-
-# Secrets should be secret
-/config/secrets.yml

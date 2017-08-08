@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: strategies
@@ -15,38 +17,41 @@
 #
 
 describe Strategy do
- 	it "creates a strategy" do
- 		new_user1 = create(:user1)
- 		new_category = create(:category, userid: new_user1.id)
- 		new_user2 = create(:user2)
- 		new_strategy = create(:strategy, userid: new_user1.id, category: Array.new(1, new_category.id), viewers: Array.new(1, new_user2.id))
-	  	expect(Strategy.count).to eq(1)
- 	end
+  let(:category) { [1] }
+  let(:viewers) { [1] }
+  let(:strategy) { build(:strategy, category: category, viewers: viewers) }
 
- 	it "does not create a strategy" do
- 		new_user1 = create(:user1)
- 		new_category = create(:category, userid: new_user1.id)
- 		new_user2 = create(:user2)
- 		new_strategy = build(:strategy, category: Array.new(1, new_category.id), viewers: Array.new(1, new_user2.id))
-	  	expect(new_strategy).to have(1).error_on(:userid)
- 	end
+  describe 'validation' do
+    specify { expect(strategy).to be_valid }
+
+    context 'without a userid' do
+      let(:strategy) do
+        build(:strategy, userid: nil, category: category, viewers: viewers)
+      end
+
+      specify { expect(strategy).to be_invalid }
+    end
+  end
+
+  describe '#array_data_to_i!' do
+    specify do
+      strategy.array_data_to_i!
+      expect(strategy.category).to eq([1])
+      expect(strategy.viewers).to eq([1])
+    end
+  end
 
   describe '#active_reminders' do
-    let(:user) { FactoryGirl.create(:user1) }
-    let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
-
     subject { strategy.active_reminders }
 
     describe 'when strategy has no reminders' do
-      let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
+      let(:strategy) { create(:strategy) }
 
-      it 'is an empty list' do
-        expect(subject).to eq([])
-      end
+      specify { expect(subject).to eq([]) }
     end
 
     describe 'when strategy has daily reminder' do
-      let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id) }
+      let(:strategy) { create(:strategy, :with_daily_reminder) }
 
       it 'is a list containing the daily reminder' do
         expect(subject).to eq([strategy.perform_strategy_reminder])

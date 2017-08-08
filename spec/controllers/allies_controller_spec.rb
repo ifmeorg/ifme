@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe AlliesController do
   let(:user) { create(:user) }
   let(:ally) { create(:user, name: 'Marco') }
@@ -54,29 +56,32 @@ describe AlliesController do
         }
       end
 
-      subject { post :add, params: { ally_id: ally.id.to_s, format: :json } }
+      subject { post :add, params: { ally_id: ally.id, format: :json } }
 
       context 'with an existing ally request' do
-        let!(:allyship) { Allyship.create(user_id: user.id, ally_id: ally.id, status: :pending_from_ally) }
+        let!(:allyship) do
+          Allyship.create(
+            user_id: user.id,
+            ally_id: ally.id,
+            status: :pending_from_ally
+          )
+        end
         let!(:notification_type) { 'accepted_ally_request' }
 
         it 'updates the allyship status to "accepted"' do
           subject
-
           expect(allyship.reload.status).to eq 'accepted'
         end
 
         it 'deletes the allyship request notification' do
-          allow(Notification).to receive(:find_by).and_return(notification)
-
-          expect(notification).to receive(:destroy)
-
+          allow(Notification).to receive(:where).and_return(notification)
+          allow(notification).to receive(:order).and_return(notification)
+          expect(notification).to receive(:destroy_all)
           subject
         end
 
         it 'creates an accepted allyship request notification' do
           expect(Notification).to receive(:create).with(notification_params)
-
           subject
         end
 
@@ -111,7 +116,6 @@ describe AlliesController do
 
         it 'creates a new allyship request notification' do
           expect(Notification).to receive(:create).with(notification_params)
-        
           subject
         end
       end
@@ -132,35 +136,44 @@ describe AlliesController do
       include_context :logged_in_user
 
       it 'deletes the allyship' do
-        allow(Allyship).to receive(:find_by).and_return(allyship)
-        expect(allyship).to receive(:destroy)
+        allow(Allyship).to receive(:where).and_return(allyship)
+        expect(allyship).to receive(:destroy_all)
 
         subject
       end
 
-      it 'deletes pertinent allyship request notifications' do
-        # Case 1: user terminating allyship did not initiate allyship
-        args = { userid: user.id, uniqueid: "new_ally_request_#{ally.id}" }
-        allow(Notification).to receive(:find_by).with(args).and_return(notification)
-        expect(notification).to receive(:destroy)
+      describe 'deletes pertinent allyship request notifications' do
+        before do
+          Notification.import([
+            build(
+              :notification,
+              user: user, uniqueid: "new_ally_request_#{ally.id}"
+            ),
+            build(
+              :notification,
+              user: user, uniqueid: "accepted_ally_request_#{ally.id}"),
+            build(
+              :notification,
+              user: ally, uniqueid: "new_ally_request_#{user.id}"
+            ),
+            build(
+              :notification,
+              user: ally, uniqueid: "accepted_ally_request_#{user.id}"
+            ),
+            build(
+              :notification,
+              user: user, uniqueid: "new_ally_request_#{ally.id + 10}"
+            ),
+            build(
+              :notification,
+              user: ally, uniqueid: "new_ally_request_#{user.id + 10}"
+            )
+          ])
+        end
 
-        args = { userid: ally.id, uniqueid: "accepted_ally_request_#{user.id}" }
-        notification2 = double(:notification)
-        allow(Notification).to receive(:find_by).with(args).and_return(notification2)
-        expect(notification2).to receive(:destroy)
-
-        #Case 2: user terminating allyship did initiate allyship
-        args = { userid: ally.id, uniqueid: "new_ally_request_#{user.id}" }
-        notification3 = double(:notification)
-        allow(Notification).to receive(:find_by).with(args).and_return(notification3)
-        expect(notification3).to receive(:destroy)
-        
-        args = { userid: user.id, uniqueid: "accepted_ally_request_#{ally.id}" }
-        notification4 = double(:notification)
-        allow(Notification).to receive(:find_by).with(args).and_return(notification4)
-        expect(notification4).to receive(:destroy)
-
-        subject
+        it 'deletes the ally notifications' do
+          expect{ subject }.to change{ Notification.count }.from(6).to(2)
+        end
       end
     end
 

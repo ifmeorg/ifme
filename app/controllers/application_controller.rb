@@ -37,9 +37,12 @@ class ApplicationController < ActionController::Base
       { name: t('languages.en'), locale: :en },
       { name: t('languages.es'), locale: :es },
       { name: t('languages.ptbr'), locale: :ptbr }
-    ]
-    I18n.locale = user_signed_in? ? current_user.locale : cookies[:locale]
-    @locale = I18n.locale
+    ].freeze
+    @locale = I18n.locale = locale
+  end
+
+  def locale
+    current_user&.locale || cookies[:locale] || I18n.default_locale
   end
 
   def configure_permitted_parameters
@@ -80,7 +83,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_uid(userid)
-    User.where(id: userid).first.uid
+    User.find(userid).uid
   end
 
   def most_focus(data_type, profile)
