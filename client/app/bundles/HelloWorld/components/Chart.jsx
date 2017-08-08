@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { AreaChart } from 'react-chartkick';
-import request from 'superagent';
+import "chartjs";
 
-export default class HelloWorld extends React.Component {
+// const request = require('superagent');
+
+export default class Chart extends React.Component {
     static propTypes = {
         name: PropTypes.string.isRequired, // this is passed from the Rails view
     };
@@ -22,14 +24,15 @@ export default class HelloWorld extends React.Component {
     }
 
     componentDidMount() {
-        request
-            .get('/moments/analytics')
-            .end(function(err, res){
-                if (err === null && res) {
-                    console.log('it works!')
-                    this.setState({ data: res })
-                }
-            });
+        console.log('COMPONENT DID MOUNT');
+        // request
+        //     .get('/moments/analytics')
+        //     .end(function(err, res){
+        //         if (err === null && res) {
+        //             console.log('it works!')
+        //             this.setState({ data: res })
+        //         }
+        //     });
     }
 
 
@@ -40,8 +43,8 @@ export default class HelloWorld extends React.Component {
     render() {
         return (
             <div>
-                <h1> I AM CHART </h1>
-                <AreaChart data={this.state.data} />
+                <h1>{"I AM CHART"}</h1>
+                <AreaChart id={"users-chart"} data={{"2013-02-10 00:00:00 -0800": 11, "2013-02-11 00:00:00 -0800": 6}} />
             </div>);
     }
 }
