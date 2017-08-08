@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :secret_shares, :only => [:create]
+
   resources :strategies do
     collection do
       post "comment"
@@ -76,8 +78,6 @@ Rails.application.routes.draw do
       get "signed_in"
     end
   end
-
-  resources :secret_shares, :only => [:create]
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
