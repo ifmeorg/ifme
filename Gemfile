@@ -5,6 +5,7 @@ ruby '2.3.4'
 
 gem 'rails', '~> 5.0.5'
 
+gem 'activerecord-import'
 gem 'bcrypt', '3.1.11'
 gem 'devise', '~> 4.3'
 gem 'devise_invitable'

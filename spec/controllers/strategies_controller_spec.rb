@@ -251,52 +251,49 @@ RSpec.describe StrategiesController, :type => :controller do
 
   describe 'POST create' do
     let(:user) { create(:user, id: 1) }
-    let(:valid_strategy_params) do
-      FactoryGirl.attributes_for(:strategy).merge(userid: 1)
-    end
-    let(:invalid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
+    let(:valid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
+    let(:invalid_strategy_params) { valid_strategy_params.merge(userid: nil) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the params are valid' do
+        let(:strategy_params) { { :strategy => valid_strategy_params } }
+
         it 'creates a new strategy' do
           expect do
-            post :create, params: { :strategy => valid_strategy_params }
+            post :create, params: strategy_params
           end.to change(Strategy, :count).by(1)
         end
 
         it 'redirects to the strategy show page for html requests' do
-          post :create, params: { :strategy => valid_strategy_params }
+          post :create, params: strategy_params
           expect(response).to redirect_to(strategy_path(assigns(:strategy)))
         end
 
         it 'redirects to the strategy show' do
-          post :create, params: { :strategy => valid_strategy_params }
+          post :create, params: strategy_params
           expect(response.status).to eq(302)
           expect(response.location).to eq(strategy_url(assigns(:strategy)))
         end
       end
 
       context 'when the params are invalid' do
+        let(:strategy_params) { { :strategy => invalid_strategy_params } }
+
         it 'does not create a new strategy' do
-          expect do
-            post :create, params: { :strategy => invalid_strategy_params }
-          end.to_not change(Strategy, :count)
+          expect { post :create, params: strategy_params }.to_not(
+            change(Strategy, :count)
+          )
         end
 
         it 'renders the new template for html requests' do
-          post :create, params: { :strategy => invalid_strategy_params }
+          post :create, params: strategy_params
           expect(response).to render_template('new')
         end
 
         it 'responds with a 422 status' do
-          post(
-            :create,
-            format: 'json',
-            params: { :strategy => invalid_strategy_params }
-          )
-
+          post(:create, format: 'json', params: strategy_params)
           expect(response.status).to eq(422)
         end
       end

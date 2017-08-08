@@ -1,7 +1,7 @@
 development: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= Rails.application.secrets.psql[:host] %>
+  host: <%= ENV['PSQL_HOST'] || 'localhost' %>
   database: ifme_development
   username: <%= ENV['PSQL_USERNAME'] %>
   password: <%= ENV['PSQL_PASSWORD'] %>

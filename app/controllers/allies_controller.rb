@@ -5,13 +5,19 @@ class AlliesController < ApplicationController
   # GET /allies.json
   def index
     @page_search = true
-    @accepted_allies = current_user.allies_by_status(:accepted).sort_by! { |n| n.name.downcase }
-    @incoming_ally_requests = current_user.allies_by_status(:pending_from_user).sort_by! { |n| n.name.downcase }
-    @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally).sort_by! { |n| n.name.downcase }
+    @accepted_allies = current_user.allies_by_status(:accepted)
+                                   .sort_by! { |n| n.name.downcase }
+    @incoming_ally_requests = current_user.allies_by_status(:pending_from_user)
+                                          .sort_by! { |n| n.name.downcase }
+    @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally)
+                                          .sort_by! { |n| n.name.downcase }
   end
 
   def add
-    allyship = Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id])
+    ally_id = params[:ally_id]
+    allyship = Allyship.find_by(
+      user_id: current_user.id, ally_id: ally_id
+    )
 
     if allyship
       allyship.update(status: User::ALLY_STATUS[:accepted])
@@ -20,12 +26,14 @@ class AlliesController < ApplicationController
       pusher_type = 'accepted_ally_request'
 
       # Get rid of original new_ally_request notification
-      uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-      Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+      Notification.where(
+        userid: current_user.id,
+        uniqueid: "new_ally_request_#{ally_id}"
+      ).destroy_all
     else
       Allyship.create(
         user_id: current_user.id,
-        ally_id: params[:ally_id],
+        ally_id: ally_id,
         status: User::ALLY_STATUS[:pending_from_ally]
       )
 
@@ -33,22 +41,26 @@ class AlliesController < ApplicationController
       pusher_type = 'new_ally_request'
     end
 
-    user = User.where(id: current_user.id).first.name
-    uniqueid = pusher_type.to_s + '_' + current_user.id.to_s
-
+    uniqueid = "#{pusher_type}_#{current_user.id}"
     data = JSON.generate(
-      user: user,
+      user: current_user.name,
       userid: current_user.id,
-      uid: get_uid(current_user.id),
+      uid: current_user.uid,
       type: pusher_type,
       uniqueid: uniqueid
     )
 
-    Notification.create(userid: params[:ally_id], uniqueid: uniqueid, data: data)
-    notifications = Notification.where(userid: params[:ally_id]).order('created_at ASC').all
-    Pusher['private-' + params[:ally_id]].trigger('new_notification', notifications: notifications)
+    Notification.create(
+      userid: ally_id,
+      uniqueid: uniqueid,
+      data: data
+    )
 
-    NotificationMailer.notification_email(params[:ally_id], data).deliver_now
+    notifications = Notification.where(userid: ally_id).order(:created_at)
+    Pusher["private-#{ally_id}"]
+      .trigger('new_notification', notifications: notifications)
+
+    NotificationMailer.notification_email(ally_id, data).deliver_now
 
     respond_to do |format|
       format.html { redirect_to :back }
@@ -57,54 +69,21 @@ class AlliesController < ApplicationController
   end
 
   def remove
-    # Remove original ally request notifications
-    # Case 1: user terminating allyship did not initiate allyship
-    uniqueid = 'new_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
-    uniqueid = 'accepted_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy unless Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
+    user_id = current_user.id
+    ally_id = params[:ally_id].to_i
 
-    # Case 2: user terminating allyship did initiate allyship
-    uniqueid = 'new_ally_request_' + current_user.id.to_s
-    Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).destroy unless Notification.find_by(userid: params[:ally_id], uniqueid: uniqueid).nil?
-    uniqueid = 'accepted_ally_request_' + params[:ally_id].to_s
-    Notification.find_by(userid: current_user.id, uniqueid: uniqueid).destroy unless Notification.find_by(userid: current_user.id, uniqueid: uniqueid).nil?
+    Notification.for_ally(user_id, ally_id).or(
+      Notification.for_ally(ally_id, user_id)
+    ).destroy_all
 
     # Remove ally from all viewers lists
-    Moment.where(userid: current_user.id.to_i).all.each do |moment|
-      viewers = moment.viewers
-      if viewers.include? params[:ally_id].to_i
-        viewers.delete(params[:ally_id].to_i)
-        Moment.update(moment.id, viewers: viewers)
-      end
-    end
-
-    Moment.where(userid: params[:ally_id].to_i).all.each do |moment|
-      viewers = moment.viewers
-      if viewers.include? current_user.id.to_i
-        viewers.delete(current_user.id.to_i)
-        Moment.update(moment.id, viewers: viewers)
-      end
-    end
-
-    Strategy.where(userid: current_user.id.to_i).all.each do |strategy|
-      viewers = strategy.viewers
-      if viewers.include? params[:ally_id].to_i
-        viewers.delete(params[:ally_id].to_i)
-        Strategy.update(strategy.id, viewers: viewers)
-      end
-    end
-
-    Strategy.where(userid: params[:ally_id].to_i).all.each do |strategy|
-      viewers = strategy.viewers
-      if viewers.include? current_user.id.to_i
-        viewers.delete(current_user.id.to_i)
-        Strategy.update(strategy.id, viewers: viewers)
-      end
+    [Moment, Strategy].each do |viewed_class|
+      viewed_class.destroy_viewer(user_id, ally_id)
+      viewed_class.destroy_viewer(ally_id, user_id)
     end
 
     # Destroy allyship
-    Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).destroy unless Allyship.find_by(user_id: current_user.id, ally_id: params[:ally_id]).nil?
+    Allyship.where(user_id: user_id, ally_id: ally_id).destroy_all
 
     respond_to do |format|
       format.html { redirect_to :back }

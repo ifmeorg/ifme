@@ -24,36 +24,34 @@ end
 
 desc 'Automate the Config Setup for New Environments'
 task :setup_workspace do
-  secrets_example = "#{Rails.root}/config/secrets.example.yml"
-  secrets_target = "#{Rails.root}/config/secrets.yml"
-  FileUtils.cp(secrets_example, secrets_target)
+  SECRETS = {
+    SECRET_KEY_BASE: generate_secret,
+    DEVISE_SECRET_KEY: generate_secret
+  }.freeze
 
-  secret_key_base = generate_secret
-  # Must renable the task or else it won't execute again
-  Rake::Task['secret'].reenable
-  devise_secret_key = generate_secret
+  %w[development test].each do |environment|
+    example = Rails.root.join('config', 'env', "#{environment}.example.env")
+    target = Rails.root.join('config', 'env', "#{environment}.env")
+    FileUtils.cp(example, target)
 
-  content = File.read(secrets_target)
-  content.gsub!(/secret_key_base:$/, %(secret_key_base: "#{secret_key_base}"))
-  content.gsub!(/devise_secret_key:$/, %(devise_secret_key: "#{devise_secret_key}"))
-  File.write(secrets_target.to_s, content)
-end
-
-# Used code from http://stackoverflow.com/a/3543 on Rakefile output capture
-def capture_stdout
-  s = StringIO.new
-  oldstdout = $stdout
-  $stdout = s
-  yield
-  s.string
-ensure
-  $stdout = oldstdout
+    # insert the secrets into the file
+    content = File.read(target)
+    %w[SECRET_KEY_BASE DEVISE_SECRET_KEY].each do |key|
+      content.sub!(%(#{key}=""), %(#{key}="#{SECRETS[key.to_sym]}"))
+    end
+    File.write(target, content)
+  end
 end
 
 # Run the secret task, grab the output, strip the new lines
 def generate_secret
-  capture_stdout { Rake::Task['secret'].invoke }
-    .strip
-    .gsub(/\n\s+/, ' ')
-    .squeeze(' ')
+  s = StringIO.new
+  oldstdout = $stdout
+  $stdout = s
+  Rake::Task['secret'].invoke
+  s.string.strip
+ensure
+  # Must renable the task or else it won't execute again
+  Rake::Task['secret'].reenable
+  $stdout = oldstdout
 end

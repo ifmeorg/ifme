@@ -109,4 +109,4 @@ var onReadyAddComment = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyAddComment);
+$(document).on("turbolinks:load", onReadyAddComment);

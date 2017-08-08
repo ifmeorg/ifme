@@ -8,4 +8,4 @@ var onReadyBackToTop = function() {
   });
 };
 
-$(document).on("page:load ready", onReadyBackToTop);
+$(document).on("turbolinks:load", onReadyBackToTop);

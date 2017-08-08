@@ -34,4 +34,4 @@ var onReadyToggleLocale = function() {
 	});
 };
 
-$(document).on("page:load ready", onReadyToggleLocale);
+$(document).on("turbolinks:load", onReadyToggleLocale);

@@ -289,12 +289,15 @@ class MomentsController < ApplicationController
     )
   end
 
+  # OPTIMIZE: the need to call find_by is rather smelly. Why would the moment
+  #           not exist and why wouldn't the moment be referred to by the
+  #           existing @moment variable?
   def hide_page(moment)
-    if Moment.where(id: moment.id).exists?
-      if Moment.where(id: moment.id).first.viewers.include?(current_user.id) && are_allies(moment.userid, current_user.id)
-        return false
-      end
-    end
-    true
+    moment = Moment.find_by(id: moment.id)
+    return true if moment.nil?
+
+    user_is_a_viewer = moment.viewers.include?(current_user.id)
+    user_is_an_ally = are_allies(moment.userid, current_user.id)
+    user_is_a_viewer && user_is_an_ally ? false : true
   end
 end

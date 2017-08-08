@@ -114,8 +114,6 @@ and password to `config/database.yml`:
 ```
 development: &default
   ...
-  username: <%= Rails.application.secrets.psql[:username] %>
-  password: <%= Rails.application.secrets.psql[:password] %>
 ```
 
 ### PostgreSQL Incompatible Version
