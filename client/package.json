@@ -2,6 +2,7 @@
   "name": "ifme",
   "private": true,
   "scripts": {
+    "test": "jest",
     "build:test": "NODE_ENV=test webpack --config webpack.config.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "NODE_ENV=development webpack -w --config webpack.config.js"
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.23.0",
+    "chartjs": "^0.3.24",
     "chartkick": "^2.2.4",
     "es5-shim": "^4.5.9",
     "expose-loader": "^0.7.3",
@@ -33,5 +35,11 @@
     "webpack": "^2.3.3",
     "webpack-manifest-plugin": "^1.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "jest": "^20.0.4",
+    "react-test-render": "^1.0.3",
+    "react-test-renderer": "^15.6.1",
+    "superagent-mock": "^3.5.0"
+  }
 }
