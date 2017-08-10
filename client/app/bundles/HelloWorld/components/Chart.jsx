@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { AreaChart } from 'react-chartkick';
-import "chartjs";
+import 'chartjs';
 
 // const request = require('superagent');
 
@@ -24,17 +24,8 @@ export default class Chart extends React.Component {
     }
 
     componentDidMount() {
-        console.log('COMPONENT DID MOUNT');
-        // request
-        //     .get('/moments/analytics')
-        //     .end(function(err, res){
-        //         if (err === null && res) {
-        //             console.log('it works!')
-        //             this.setState({ data: res })
-        //         }
-        //     });
+        
     }
-
 
     updateName = (name) => {
         this.setState({ name });
