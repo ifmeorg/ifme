@@ -1,0 +1,9 @@
+{
+  "plugins": ["jasmine", "flowtype"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "parser": "babel-eslint",
+  "env": {
+    "jasmine": true
+  },
+  "root": true
+}
