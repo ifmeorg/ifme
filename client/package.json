@@ -6,7 +6,9 @@
     "test:watch": "karma start --no-single-run",
     "build:test": "NODE_ENV=test webpack --config webpack.config.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:development": "NODE_ENV=development webpack -w --config webpack.config.js"
+    "build:development": "NODE_ENV=development webpack -w --config webpack.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "cacheDirectories": [
     "node_modules",
@@ -21,6 +23,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.23.0",
+    "chart.js": "^2.6.0",
     "chartjs": "^0.3.24",
     "chartkick": "^2.2.4",
     "es5-shim": "^4.5.9",
@@ -28,6 +31,7 @@
     "imports-loader": "^0.7.1",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-chartkick": "^0.1.3",
     "react-dom": "^15.5.4",
@@ -38,8 +42,18 @@
     "webpack-manifest-plugin": "^1.1.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.0",
+    "@storybook/react": "^3.2.3",
+    "babel-eslint": "^7.2.3",
     "babel-preset-flow": "^6.23.0",
     "enzyme": "^2.9.1",
+    "eslint": "^3.19.0 || ^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jasmine": "^2.8.4",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "flow-bin": "^0.52.0",
     "jasmine": "^2.7.0",
     "jasmine-enzyme": "^3.7.0",
