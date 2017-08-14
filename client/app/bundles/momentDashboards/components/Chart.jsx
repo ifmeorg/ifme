@@ -6,15 +6,19 @@ import { AreaChart } from 'react-chartkick';
 
 // const request = require('superagent');
 
+type chartProps = {
+  title: string,
+    data: {},
+};
+
+type chartState = {
+  title: string,
+  data: {},
+};
+
 export default class Chart extends React.Component {
-    props: {
-        title: string,
-        data: {},
-    };
-    state: {
-        title: string,
-        data: {},
-    };
+    props: chartProps;
+    state: chartState;
     static propTypes = {
       title: PropTypes.string.isRequired, // this is passed from the Rails view
     };
@@ -23,7 +27,7 @@ export default class Chart extends React.Component {
      * @param props - Comes from your rails view.
      * @param _railsContext - Comes from React on Rails
      */
-    constructor(props, railsContext) {
+    constructor(props: chartProps, railsContext: {}) {
       super(props);
       console.log('ON CONSTRUCTION');
 
