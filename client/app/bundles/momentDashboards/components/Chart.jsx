@@ -21,33 +21,15 @@ export default class Chart extends React.Component {
     /**
      * @param props - Comes from your rails view.
      */
-    constructor(props: chartShape) {
-      super(props);
-      console.log('ON CONSTRUCTION');
-
-      this.state = {
-        xtitle: this.props.xtitle,
-        ytitle: this.props.ytitle,
-        data: this.props.data,
-      };
-    }
-
-    componentDidMount() {
-
-    }
-
-    updateTitle = (xtitle: string, ytitle: string) => {
-      this.setState({ xtitle, ytitle });
-    };
 
     render() {
       return (
         <div>
           <AreaChart
-            xtitle={this.state.xtitle}
-            ytitle={this.state.ytitle}
+            xtitle={this.props.xtitle}
+            ytitle={this.props.ytitle}
             id={'moments-chart'}
-            data={this.state.data}
+            data={this.props.data}
           />
         </div>);
     }
