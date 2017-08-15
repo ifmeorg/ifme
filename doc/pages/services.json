@@ -58,5 +58,11 @@
     "link":"http://www.therapyforblackgirls.com",
     "tags":["black_women", "therapy", "directory"],
     "languages":["en"]
+  },
+  {
+    "name":"Unstuck",
+    "link":"https://www.unstuck.com",
+    "tags":["advice", "blog"],
+    "languages":["en"]
   }
 ]
