@@ -1,38 +1,33 @@
 // @flow
 import 'chart.js';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { AreaChart } from 'react-chartkick';
 
-// const request = require('superagent');
-
-type chartProps = {
-  title: string,
-    data: {},
-};
-
-type chartState = {
-  title: string,
+type chartShape = {
+  xtitle: string,
+  ytitle: string,
   data: {},
 };
 
+/**
+ * Renders a Chart Kick element.
+ *
+ * We wrap the element here in case we want to replace ChartKick with another library.
+ */
 export default class Chart extends React.Component {
-    props: chartProps;
-    state: chartState;
-    static propTypes = {
-      title: PropTypes.string.isRequired, // this is passed from the Rails view
-    };
+    props: chartShape;
+    state: chartShape;
 
     /**
      * @param props - Comes from your rails view.
-     * @param _railsContext - Comes from React on Rails
      */
-    constructor(props: chartProps, railsContext: {}) {
+    constructor(props: chartShape) {
       super(props);
       console.log('ON CONSTRUCTION');
 
       this.state = {
-        title: this.props.title,
+        xtitle: this.props.xtitle,
+        ytitle: this.props.ytitle,
         data: this.props.data,
       };
     }
@@ -41,14 +36,19 @@ export default class Chart extends React.Component {
 
     }
 
-    updateTitle = (title: string) => {
-      this.setState({ title });
+    updateTitle = (xtitle: string, ytitle: string) => {
+      this.setState({ xtitle, ytitle });
     };
 
     render() {
       return (
         <div>
-          <AreaChart id={'users-chart'} data={this.state.data} />
+          <AreaChart
+            xtitle={this.state.xtitle}
+            ytitle={this.state.ytitle}
+            id={'moments-chart'}
+            data={this.state.data}
+          />
         </div>);
     }
 }

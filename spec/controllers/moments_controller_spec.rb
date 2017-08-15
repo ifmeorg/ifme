@@ -133,7 +133,7 @@ describe MomentsController do
       create(:moment, userid: new_user.id, category: Array.new(1, new_category.id),
                       mood: Array.new(1, new_mood.id), created_at: Date.parse('2017-07-25'))
 
-      get :analytics, group_by: 'day', value: 'count', end_date: '2017-07-25'
+      get :analytics, group_by: 'day', value: 'Moments', end_date: '2017-07-25'
 
       expected = {
         '2017-07-18' => 0,

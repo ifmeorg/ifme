@@ -5,7 +5,7 @@ const webpack = require('webpack');
 webpackConfig.plugins = [
   new webpack.EnvironmentPlugin({
     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-    DEBUG: false,
+    DEBUG: true,
   }),
 ];
 webpackConfig.devtool = 'eval-source-map';
@@ -24,13 +24,16 @@ module.exports = function (config) {
     singleRun: true,
     frameworks: ['jasmine'],
     files: [
+      // collect all our test files
       { pattern: 'app/**/*.spec.js', watched: true },
       { pattern: 'app/**/*.spec.jsx', watched: true },
     ],
     preprocessors: {
+      // make sure we run all the discovered files through webpack
       'app/**/*.js': ['webpack', 'sourcemap'],
       'app/**/*.jsx': ['webpack', 'sourcemap'],
     },
+    // todo output test debugger
     reporters: ['dots'],
     webpack: webpackConfig,
     webpackServer: {
