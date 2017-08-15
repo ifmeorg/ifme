@@ -1,6 +1,6 @@
 <div class="viewers_indicator">
   <% viewers = local_assigns[:data].viewers %>
-  <%= number_of_viewers(local_assigns[:data].userid, current_user.id, viewers) %>
+  <%= number_of_viewers(local_assigns[:data].userid, current_user.try(:id), viewers) %>
 
   <% if !local_assigns[:data].comment %>
     <%= t('shared.viewers_indicator.disabled_comments') %>

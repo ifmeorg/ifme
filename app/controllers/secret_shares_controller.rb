@@ -2,7 +2,7 @@
 
 class SecretSharesController < ApplicationController
 
-  skip_before_action :if_not_signed_in, except: :create
+  skip_before_action :if_not_signed_in, only: [:show]
 
   def create
     moment = Moment.friendly.find(params[:moment])
@@ -11,6 +11,9 @@ class SecretSharesController < ApplicationController
   end
 
   def show
+    @moment = Moment.find_by(secret_share_identifier: params[:id])
+    render 'moments/show'
   end
+
 
 end

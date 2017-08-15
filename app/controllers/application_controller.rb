@@ -50,8 +50,8 @@ class ApplicationController < ActionController::Base
                 password_confirmation current_password]
 
     devise_parameter_sanitizer.permit :account_update,
-      keys: %i[about avatar remove_avatar comment_notify ally_notify
-               group_notify meeting_notify] + common
+                                      keys: %i[about avatar remove_avatar comment_notify ally_notify
+                                               group_notify meeting_notify] + common
 
     devise_parameter_sanitizer.permit :sign_up, keys: common
   end
