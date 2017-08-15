@@ -36,26 +36,15 @@ export default class ChartControl extends React.Component {
 
     this.state = {
       type: initialParams.type,
+      data: initialParams.data,
       aggregateFunc: initialParams.aggregateFunc,
-      data: null,
     };
   }
 
-  componentDidMount() {
-    this.triggerOnChange(this.state.type);
-  }
-
-  triggerOnChange(type: string) {
-    const { onChange } = this.props;
-    onChange(type, (data: {}) => this.updateChart(type, data));
-  }
-
-  updateChart(type: string, data: {}) {
-    this.setState({ data, type });
-  }
-
-  onSelectType(type: string): () => void {
-    return () => this.triggerOnChange(type);
+  onSelectType(value: string){
+    return () => {
+      this.setState({ type: value })
+    }
   }
 
   render() {
@@ -67,9 +56,7 @@ export default class ChartControl extends React.Component {
     return (
       <div>
         {buttons}
-        { _.isNil(this.state.data) ? null
-          : <Chart ytitle={`${this.state.type} ${this.state.aggregateFunc}`} xtitle="Date" data={this.state.data} />
-        }
+        <Chart ytitle={`${this.state.type} ${this.state.aggregateFunc}`} xtitle="Date" data={this.state.data[this.state.type]} />
       </div>
     );
   }
