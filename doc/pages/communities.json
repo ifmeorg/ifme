@@ -50,13 +50,13 @@
   {
     "name":"The Mental Illness Happy Hour",
     "link":"http://mentalpod.com/forum/",
-    "tags":["podcast", "blog", "forum"], "",
+    "tags":["podcast", "blog", "forum"],
     "languages":["en"]
 },
   {
     "name":"Kinions",
     "link":"http://www.katimorton.com",
-    "tags":["forum", "videos"], "",
+    "tags":["forum", "videos"],
     "languages":["en"]
 }
 ]
