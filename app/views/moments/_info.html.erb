@@ -25,14 +25,14 @@
   <% end %>
 <% end %>
 
-<% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].strategies.count > 0 && local_assigns[:show_strategies] %>
+<% if local_assigns[:data].class.name == 'Moment' && local_assigns[:data].strategy.count > 0 && local_assigns[:show_strategies] %>
   <br>
   <strong>
-    <%= t('strategies.label', count: local_assigns[:data].strategies.count) %>
+    <%= t('strategies.label', count: local_assigns[:data].strategy.count) %>
   </strong>
-  <% local_assigns[:data].strategies.each do |item| %>
+  <% local_assigns[:data].strategy.each do |item| %>
     <span class="notification_wrapper">
-      <span class="tip_notifications_button link_style"><%= Strategy.where(id: item).first.name %></span><% if local_assigns[:data].strategies.last != item %><%= ', ' %><% end %>
+      <span class="tip_notifications_button link_style"><%= Strategy.where(id: item).first.name %></span><% if local_assigns[:data].strategy.last != item %><%= ', ' %><% end %>
       <%= render :partial => '/notifications/preview', locals: { data: Strategy.where(id: item).first, edit: edit_strategy_path(item) } %>
     </span>
   <% end %>
@@ -65,4 +65,3 @@
 <% end %>
 
 <div class="clear"></div>
-

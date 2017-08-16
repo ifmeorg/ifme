@@ -16,7 +16,7 @@ describe Support do
 	  new_category = create(:category, userid: new_user.id)
 	  new_mood = create(:mood, userid: new_user.id)
 	  new_strategies = create(:strategy, userid: new_user.id)
-	  new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), strategies: Array.new(1, new_strategies.id))
+	  new_moment = create(:moment, userid: new_user.id, category: Array.new(1, new_category.id), mood: Array.new(1, new_mood.id), strategy: Array.new(1, new_strategies.id))
 	  new_support = Support.create(:userid => new_user.id, :support_type => "moment", :support_ids => Array.new(1, new_moment.id))
 	  expect(Support.count).to eq(1)
 	end

@@ -13,7 +13,7 @@ describe("Strategies", function() {
 
     newOrEdit.and.returnValue(true);
 
-    onReadyMomentsAndStrategies();
+    onReadyViewers();
 
     $('#viewers_all').click();
 
@@ -23,7 +23,7 @@ describe("Strategies", function() {
   it("has unselected all allies who can view the strategy when \"Select all\" is unselected", function() {
     newOrEdit.and.returnValue(true);
 
-    onReadyMomentsAndStrategies();
+    onReadyViewers();
 
     $('#viewers_all').prop("checked", true);
 

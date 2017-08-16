@@ -112,8 +112,8 @@ class ApplicationController < ActionController::Base
       end
     elsif data_type == 'strategy'
       Moment.where(userid: userid).all.each do |moment|
-        if moment.strategies.present? && !moment.strategies.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
-          data += moment.strategies
+        if moment.strategy.present? && !moment.strategy.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
+          data += moment.strategy
         end
       end
     end
@@ -165,7 +165,7 @@ class ApplicationController < ActionController::Base
       end
     elsif data_type == 'strategy'
       Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if moment.strategies.present? && !moment.strategies.empty? && moment.strategies.include?(data.to_i)
+        if moment.strategy.present? && !moment.strategy.empty? && moment.strategy.include?(data.to_i)
           result.push(moment.id)
         end
       end

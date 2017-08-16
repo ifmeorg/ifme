@@ -2,7 +2,7 @@
 	<div class="quick_create_text">
 		<%= render :partial => '/shared/modal',
 			locals: {
-				modal_title: "#{t('shared.quick_create.add', name: local_assigns[:data_type].to_s.titleize)}",
+				modal_title: "#{t('shared.quick_create.new', name: local_assigns[:data_type].to_s.titleize)}",
 				modal_close_class: 'quick_create_close',
 			}
 		%>
