@@ -29,6 +29,19 @@ describe SecretSharesController, type: :controller do
     end
   end
 
+    describe '#owned_by?' do
+    let(:moment) { build(:moment, :with_user) }
+    let(:user) { moment.user }
+    let(:subject) { moment.owned_by?(user) }
+
+    it { is_expected.to be true }
+
+    context 'when the user does not own the moment' do
+      let(:user) { create(:user) }
+      it { is_expected.to be false }
+    end
+  end
+
   describe 'GET show' do
     let(:moment) { create(:moment, :with_user, :with_secret_share) }
     before { get :show, id: moment.secret_share_identifier }
