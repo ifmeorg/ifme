@@ -3,6 +3,7 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
+  include QuickCreate
   before_action :set_strategy, only: %i[show edit update destroy]
 
   def default_params
@@ -157,16 +158,11 @@ class StrategiesController < ApplicationController
 
     strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
 
-    if strategy.save
-      checkbox = '<input type="checkbox" value="' + strategy.id.to_s + '" name="moment[strategies][]" id="moment_strategies_' + strategy.id.to_s + '">'
-      label = '<span class="notification_wrapper">
-            <span class="tip_notifications_button link_style">' + strategy.name + '</span><br>'
-      label += render_to_string partial: '/notifications/preview', locals: { data: strategy, edit: edit_strategy_path(strategy) }
-      label += '</span>'
-      result = { checkbox: checkbox, label: label }
-    else
-      result = { error: 'error' }
-    end
+    result = if strategy.save
+               render_checkbox(strategy, 'strategy', 'moment')
+             else
+               { error: 'error' }
+             end
 
     respond_to do |format|
       format.html { render json: result }
@@ -273,9 +269,9 @@ class StrategiesController < ApplicationController
     @moments = Moment.where(userid: current_user.id).all
 
     @moments.each do |item|
-      item.strategies.delete(@strategy.id)
+      item.strategy.delete(@strategy.id)
       the_moment = Moment.find_by(id: item.id)
-      the_moment.update(strategies: item.strategies)
+      the_moment.update(strategy: item.strategy)
     end
 
     @strategy.destroy

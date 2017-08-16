@@ -155,7 +155,7 @@ describe ApplicationController do
           new_user = create(:user1)
           sign_in new_user
           new_strategy = create(:strategy, userid: new_user.id)
-          new_moment = create(:moment, userid: new_user.id, strategies: Array.new(1, new_strategy.id))
+          new_moment = create(:moment, userid: new_user.id, strategy: Array.new(1, new_strategy.id))
           result = controller.most_focus('strategy', nil)
           expect(result.length).to eq(1)
           expect(result[new_strategy.id]).to eq(1)
@@ -166,7 +166,7 @@ describe ApplicationController do
           sign_in new_user
           new_strategy1 = create(:strategy, userid: new_user.id)
           new_strategy2 = create(:strategy, userid: new_user.id)
-          new_moment = create(:moment, userid: new_user.id, strategies: [new_strategy1.id, new_strategy2.id])
+          new_moment = create(:moment, userid: new_user.id, strategy: [new_strategy1.id, new_strategy2.id])
           result = controller.most_focus('strategy', nil)
           expect(result.length).to eq(2)
           expect(result[new_strategy1.id]).to eq(1)
@@ -180,8 +180,8 @@ describe ApplicationController do
           new_strategy2 = create(:strategy, userid: new_user.id)
           new_strategy3 = create(:strategy, userid: new_user.id)
           new_strategy4 = create(:strategy, userid: new_user.id)
-          new_moment1 = create(:moment, userid: new_user.id, strategies: Array.new(1, new_strategy2.id))
-          new_moment2 = create(:moment, userid: new_user.id, strategies: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
+          new_moment1 = create(:moment, userid: new_user.id, strategy: Array.new(1, new_strategy2.id))
+          new_moment2 = create(:moment, userid: new_user.id, strategy: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
           result = controller.most_focus('strategy', nil)
           expect(result.length).to eq(3)
           expect(result[new_strategy1.id]).to eq(1)
@@ -198,8 +198,8 @@ describe ApplicationController do
           new_strategy2 = create(:strategy, userid: new_user2.id)
           new_strategy3 = create(:strategy, userid: new_user2.id)
           new_strategy4 = create(:strategy, userid: new_user2.id)
-          new_moment1 = create(:moment, userid: new_user2.id, strategies: Array.new(1, new_strategy2.id), viewers: Array.new(1, new_user1.id))
-          new_moment2 = create(:moment, userid: new_user2.id, strategies: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
+          new_moment1 = create(:moment, userid: new_user2.id, strategy: Array.new(1, new_strategy2.id), viewers: Array.new(1, new_user1.id))
+          new_moment2 = create(:moment, userid: new_user2.id, strategy: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
           result = controller.most_focus('strategy', new_user2.id)
           expect(result.length).to eq(1)
           expect(result[new_strategy1.id]).to eq(nil)
@@ -253,7 +253,7 @@ describe ApplicationController do
     it "is looking for strategies tagged in moments" do
       new_user = create(:user1)
       new_strategy = create(:strategy, userid: new_user.id)
-        new_moment = create(:moment, userid: new_user.id, strategies: Array.new(1, new_strategy.id))
+        new_moment = create(:moment, userid: new_user.id, strategy: Array.new(1, new_strategy.id))
         result = controller.tag_usage(new_strategy.id, 'strategy', new_user.id)
         expect(result.length).to eq(1)
     end
