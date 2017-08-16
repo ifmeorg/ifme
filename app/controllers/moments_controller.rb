@@ -2,18 +2,8 @@
 
 class MomentsController < ApplicationController
   include CollectionPageSetup
-  before_action :set_moment, only: %i[show edit update destroy]
 
-  def default_params
-    @default_params ||= {
-      moment: {
-        category: [],
-        mood: [],
-        viewers: [],
-        strategy: []
-      }
-    }
-  end
+  before_action :set_moment, only: %i[show edit update destroy]
 
   # GET /moments
   # GET /moments.json
@@ -24,103 +14,11 @@ class MomentsController < ApplicationController
   # GET /moments/1
   # GET /moments/1.json
   def show
-    if current_user.id == @moment.userid
-      @page_edit = edit_moment_path(@moment)
-      @page_tooltip = t('moments.edit_moment')
-    else
-      link_url = '/profile?uid=' + get_uid(@moment.userid).to_s
-      name = User.where(id: @moment.userid).first.name
-      the_link = sanitize link_to name, link_url
-      @page_author = the_link.html_safe
-    end
-    @no_hide_page = false
-    if hide_page(@moment) && @moment.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to moments_path }
-        format.json { head :no_content }
-      end
-    else
-      @comment = Comment.new
-      @comments = Comment.where(commented_on: @moment.id, comment_type: 'moment').all.order('created_at DESC')
-      @no_hide_page = true
-    end
+    show_with_comments(@moment)
   end
 
   def comment
-    if params[:viewers].blank?
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: params[:visibility])
-    else
-      # Can only get here if comment is from Moment creator
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
-    end
-
-    unless @comment.save
-      result = { no_save: true }
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-
-    # Notify commented_on user that they have a new comment
-    moment_user = Moment.where(id: @comment.commented_on).first.userid
-
-    if moment_user != @comment.comment_by
-      moment_name = Moment.where(id: @comment.commented_on).first.name
-      cutoff = false
-      cutoff = true if @comment.comment.length > 80
-      uniqueid = 'comment_on_moment' + '_' + @comment.id.to_s
-
-      data = JSON.generate(
-        user: current_user.name,
-        momentid: @comment.commented_on,
-        moment: moment_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_moment',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: moment_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: moment_user).order('created_at ASC').all
-      Pusher['private-' + moment_user.to_s].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(moment_user, data).deliver_now
-
-    # Notify viewer that they have a new comment
-    elsif @comment.viewers.present? && User.where(id: @comment.viewers[0]).exists?
-      private_user = User.where(id: @comment.viewers[0]).first.id
-      moment_name = Moment.where(id: @comment.commented_on).first.name
-      cutoff = false
-      cutoff = true if @comment.comment.length > 80
-      uniqueid = 'comment_on_moment_private' + '_' + @comment.id.to_s
-
-      data = JSON.generate(
-        user: current_user.name,
-        momentid: @comment.commented_on,
-        moment: moment_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_moment_private',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order('created_at ASC').all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(private_user, data).deliver_now
-    end
-
-    return unless @comment.save
-
-    result = generate_comment(@comment, 'moment')
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    comment_for('moment')
   end
 
   def delete_comment
@@ -157,8 +55,15 @@ class MomentsController < ApplicationController
       viewers.push(item.id)
     end
 
-    moment = Moment.new(userid: current_user.id, name: params[:moment][:name], why: params[:moment][:why], comment: true, viewers: viewers, category: params[:moment][:category], mood: params[:moment][:mood])
-    moment.save
+    Moment.create!(
+      user: current_user,
+      name: params[:moment][:name],
+      why: params[:moment][:why],
+      comment: true,
+      viewers: viewers,
+      category: params[:moment][:category],
+      mood: params[:moment][:mood]
+    )
 
     respond_to do |format|
       format.html { redirect_to root_path }
@@ -168,58 +73,20 @@ class MomentsController < ApplicationController
 
   # GET /moments/new
   def new
-    @viewers = current_user.allies_by_status(:accepted)
-    @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
-    @moods = Mood.where(userid: current_user.id).all.order('created_at DESC')
-
-    # current_user's strategies and all viewable strategies from allies
-    my_strategies = Strategy.where(userid: current_user.id).all.order('created_at DESC')
-    ally_strategies = []
-    @viewers.each do |ally|
-      Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
-        if strategy.viewers.include?(current_user.id)
-          ally_strategies << strategy
-        end
-      end
-    end
-    my_strategies += ally_strategies
-    @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
-
     @moment = Moment.new
-    @category = Category.new
-    @mood = Mood.new
-    @strategy = Strategy.new
+    set_association_variables!
   end
 
   # GET /moments/1/edit
   def edit
-    if @moment.userid == current_user.id
-      @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
-      @moods = Mood.where(userid: current_user.id).all.order('created_at DESC')
-
-      # current_user's strategies and all viewable strategies from allies
-      my_strategies = Strategy.where(userid: current_user.id).all.order('created_at DESC')
-      ally_strategies = []
-      @viewers.each do |ally|
-        Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
-          if strategy.viewers.include?(current_user.id)
-            ally_strategies << strategy
-          end
-        end
-      end
-      my_strategies += ally_strategies
-      @strategies = Strategy.where(id: my_strategies.map(&:id)).all.order('created_at DESC')
-
-      @category = Category.new
-      @mood = Mood.new
-      @strategy = Strategy.new
-    else
-      respond_to do |format|
+    unless @moment.userid == current_user.id
+      return respond_to do |format|
         format.html { redirect_to moment_path(@moment) }
         format.json { head :no_content }
       end
     end
+
+    set_association_variables!
   end
 
   # POST /moments
@@ -281,23 +148,35 @@ class MomentsController < ApplicationController
   end
 
   def moment_params
-    params[:moment] = default_params[:moment].merge(params[:moment])
-
     params.require(:moment).permit(
       :name, :why, :fix, :userid, :comment,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
 
-  # OPTIMIZE: the need to call find_by is rather smelly. Why would the moment
-  #           not exist and why wouldn't the moment be referred to by the
-  #           existing @moment variable?
-  def hide_page(moment)
-    moment = Moment.find_by(id: moment.id)
-    return true if moment.nil?
+  def set_association_variables!
+    @viewers = current_user.allies_by_status(:accepted)
 
-    user_is_a_viewer = moment.viewers.include?(current_user.id)
-    user_is_an_ally = are_allies(moment.userid, current_user.id)
-    user_is_a_viewer && user_is_an_ally ? false : true
+    @categories = Category.where(user: current_user).order(created_at: :desc)
+    @category = Category.new
+
+    @moods = Mood.where(user: current_user).order(created_at: :desc)
+    @mood = Mood.new
+
+    @strategies = associated_strategies
+    @strategy = Strategy.new
+  end
+
+  def associated_strategies
+    # current_user's strategies and all viewable strategies from allies
+    strategy_ids = Strategy.where(user: current_user).pluck(:id)
+
+    @viewers.each do |ally|
+      Strategy.where(userid: ally.id).each do |strategy|
+        strategy_ids << strategy.id if strategy.viewer?(current_user)
+      end
+    end
+
+    Strategy.where(id: strategy_ids).order(created_at: :desc)
   end
 end

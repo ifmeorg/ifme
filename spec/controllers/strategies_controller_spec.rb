@@ -1,26 +1,28 @@
-RSpec.describe StrategiesController, :type => :controller do
+# frozen_string_literal: true
+
+describe StrategiesController do
+  let(:user) { create(:user) }
+  let(:strategy) { create(:strategy, user: user) }
+
   describe 'GET index' do
-    let(:user)          { create(:user, id: 1) }
-    let(:strategy1)     { create(:strategy, name: 'test', userid: user.id) }
+    let(:strategy) { create(:strategy, name: 'test', user: user) }
 
     context 'when the user is logged in' do
+      include_context :logged_in_user
+
       context 'when search params are provided' do
-        include_context :logged_in_user
+        before { get :index, params: { search: 'test' } }
 
         it 'assigns @strategies' do
-          get :index, params: { search: 'test' }
-          expect(assigns(:strategies)).to eq([strategy1])
+          expect(assigns(:strategies)).to eq([strategy])
         end
 
         it 'renders the index template' do
-          get :index, params: { search: 'test' }
           expect(response).to render_template('index')
         end
       end
 
       context 'when no search params are provided' do
-        include_context :logged_in_user
-
         it 'renders the index template' do
           get :index
           expect(response).to render_template('index')
@@ -35,67 +37,66 @@ RSpec.describe StrategiesController, :type => :controller do
   end
 
   describe 'GET show' do
-    let(:user)          { create(:user, id: 1) }
-    let!(:strategy1)    { create(:strategy, id: 1, userid: 1) }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the strategy exists' do
+        before { get :show, params: { id: strategy.id } }
+
         it 'sets the strategy' do
-          get :show, params: { id: 1 }
-          expect(assigns(:strategy)).to eq(strategy1)
+          expect(assigns(:strategy)).to eq(strategy)
         end
 
         it 'renders the show template' do
-          get :show, params: { id: 1 }
           expect(response).to render_template('show')
         end
       end
 
       context 'when the strategy does not exist' do
+        let(:id) { strategy.id + 1 }
+
         it 'redirects an html request' do
-          get :show, params: { id: 2 }
+          get :show, params: { id: id }
           expect(response).to redirect_to(strategies_path)
         end
 
         it 'renders no content for a json request' do
-          get :show, format: 'json', params: { id: 2 }
+          get :show, format: 'json', params: { id: id }
           expect(response.body).to eq('')
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :show, params: { id: 1 } }
+      before { get :show, params: { id: strategy.id } }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe 'POST comment' do
-    let(:user)          { create(:user, id: 1) }
-    let!(:strategy1)    { create(:strategy, id: 1, userid: 1) }
+    let(:comment) do
+      build(:comment, comment_by: user.id, comment_type: 'strategy')
+    end
     let(:valid_comment_params) do
-      FactoryGirl.attributes_for(:comment)
-                 .merge(comment_by: 1, commented_on: 1, visibility: 'all')
+      comment.attributes.merge(
+        'commented_on' => strategy.id, 'visibility' => 'all'
+      )
     end
-    let(:invalid_comment_params) do
-      FactoryGirl.attributes_for(:comment, commented_on: 1)
-    end
+    let(:invalid_comment_params) { comment.attributes }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the comment is saved' do
         it 'responds with an OK status' do
-          post :comment, :params => valid_comment_params
+          post :comment, params: valid_comment_params
           expect(response.status).to eq(200)
         end
       end
 
       context 'when the comment is not saved' do
         it 'responds with json no_save: true' do
-          post :comment, :params => invalid_comment_params
+          post :comment, params: invalid_comment_params
           expect(response.body).to eq({no_save: true}.to_json)
         end
       end
@@ -108,43 +109,35 @@ RSpec.describe StrategiesController, :type => :controller do
   end
 
   describe 'GET delete_comment' do
-    let(:user) { create(:user, id: 1) }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the comment exists' do
-        context 'when the comment belongs to the current_user' do
-          let!(:comment) do
-            create(
-              :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
-            )
-          end
+        let!(:comment) do
+          create(
+            :comment,
+            comment_by: user.id,
+            commented_on: strategy.id,
+            visibility: 'all'
+          )
+        end
 
+        context 'when the comment belongs to the current_user' do
           it 'destroys the comment' do
-            expect { get :delete_comment, params: { commentid: 1 } }.to(
-              change(Comment, :count).by(-1)
-            )
+            expect { get :delete_comment, params: { commentid: comment.id } }
+              .to change(Comment, :count).by(-1)
           end
 
           it 'renders nothing' do
-            get :delete_comment, params: { commentid: 1 }
+            get :delete_comment, params: { commentid: comment.id }
             expect(response.body).to eq('')
           end
         end
 
         context 'when the strategy belongs to the current_user' do
-          let!(:comment) do
-            create(
-              :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
-            )
-          end
-          let(:strategy) { create(:strategy, userid: 1)}
-
           it 'destroys the comment' do
-            expect { get :delete_comment, params: { commentid: 1 } }.to(
-              change(Comment, :count).by(-1)
-            )
+            expect { get :delete_comment, params: { commentid: comment.id } }
+              .to change(Comment, :count).by(-1)
           end
 
           it 'renders nothing' do

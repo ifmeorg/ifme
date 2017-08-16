@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :avatar_url, :is_viewer,
-                :are_allies, :get_uid, :most_focus,
+                :are_allies?, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
 
@@ -70,12 +70,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def are_allies(userid1, userid2)
-    userid1 = User.find(userid1)
-    userid2 = User.find(userid2)
-    is_allies_userid1 = userid1.allies_by_status(:accepted).include?(userid2)
-    is_allies_userid2 = userid2.allies_by_status(:accepted).include?(userid1)
-    is_allies_userid1 && is_allies_userid2
+  def are_allies?(user_id1, user_id2)
+    users = User.where(id: [user_id1, user_id2])
+    users.first.mutual_allies?(users.last)
   end
 
   def is_viewer(viewers)
@@ -182,13 +179,13 @@ class ApplicationController < ActionController::Base
     profile_picture = ProfilePicture.fetch(profile.avatar.url,
                                            'mini_profile_picture')
 
-    comment_info = link_to profile.name, profile_index_path(uid: get_uid(data.comment_by))
-    if !are_allies(current_user.id, data.comment_by) && current_user.id != data.comment_by
+    comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
+
+    if current_user != profile && !current_user.mutual_allies?(profile)
       comment_info += ' ' + t('shared.comments.not_allies')
     end
-    comment_info += ' - '
-    comment_info += TimeAgo.formatted_ago(data.created_at)
 
+    comment_info += ' - ' + TimeAgo.formatted_ago(data.created_at)
     comment_text = raw(data.comment)
 
     if data_type == 'moment'
@@ -292,5 +289,66 @@ class ApplicationController < ActionController::Base
     end
 
     result
+  end
+
+  private
+
+  def comment_for(model_name)
+    @comment = Comment.create_from!(params)
+    @comment.notify_of_creation!(current_user)
+
+    respond_with_json(
+      generate_comment(@comment, model_name)
+    )
+  rescue ActiveRecord::RecordInvalid
+    respond_not_saved
+  end
+
+  def show_with_comments(subject)
+    model_name = record_model_name(subject)
+
+    if current_user.id != subject.userid && hide_page?(subject)
+      path = send("#{model_name.pluralize}_path")
+      return redirect_to_path(path)
+    end
+
+    set_show_with_comments_variables(subject, model_name)
+  end
+
+  def set_show_with_comments_variables(subject, model_name)
+    @page_edit = send("edit_#{model_name}_path", subject)
+    @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
+    @no_hide_page = true
+    @comment = Comment.new
+    @comments = Comment.where(
+      commented_on: subject.id,
+      comment_type: model_name
+    ).order(created_at: :desc)
+  end
+
+  def record_model_name(record)
+    record.class.name.downcase
+  end
+
+  def redirect_to_path(path)
+    respond_to do |format|
+      format.html { redirect_to path }
+      format.json { head :no_content }
+    end
+  end
+
+  def respond_not_saved
+    respond_with_json(no_save: true)
+  end
+
+  def respond_with_json(reponse)
+    respond_to do |format|
+      format.html { render json: reponse }
+      format.json { render json: reponse }
+    end
+  end
+
+  def hide_page?(subject)
+    subject.viewer?(current_user) && current_user.mutual_allies?(subject.user)
   end
 end

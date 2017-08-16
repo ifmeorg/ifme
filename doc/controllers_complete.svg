@@ -55,7 +55,7 @@
 <text text-anchor="middle" x="-250.196" y="244.886" font-family="Times,serif" font-size="14.00">ApplicationController</text>
 <polyline fill="none" stroke="black" points="-349.162,251.686 -151.23,251.686 "/>
 <polyline fill="none" stroke="black" points="-349.162,275.686 -151.23,275.686 "/>
-<text text-anchor="start" x="-341.162" y="290.886" font-family="Times,serif" font-size="14.00">are_allies</text>
+<text text-anchor="start" x="-341.162" y="290.886" font-family="Times,serif" font-size="14.00">are_allies?</text>
 <text text-anchor="start" x="-341.162" y="304.886" font-family="Times,serif" font-size="14.00">are_pending_allies</text>
 <text text-anchor="start" x="-341.162" y="318.886" font-family="Times,serif" font-size="14.00">configure_permitted_parameters</text>
 <text text-anchor="start" x="-341.162" y="332.886" font-family="Times,serif" font-size="14.00">fetch_profile_picture</text>

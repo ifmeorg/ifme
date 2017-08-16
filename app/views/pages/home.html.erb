@@ -7,7 +7,7 @@
 	<div id="pages">
 		<div class="page">
 			<% @stories.each do |story| %>
-				<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies(current_user.id, story.userid)) %>
+				<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies?(current_user.id, story.userid)) %>
 					<div class="story">
 		      	<div class="align_left">
 						  <h1 class="story_name">

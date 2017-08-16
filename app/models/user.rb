@@ -127,6 +127,14 @@ class User < ApplicationRecord
     new_access_token
   end
 
+  def ally?(user)
+    allies_by_status(:accepted).include?(user)
+  end
+
+  def mutual_allies?(user)
+    ally?(user) && user.ally?(self)
+  end
+
   def allies_by_status(status)
     allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
   end

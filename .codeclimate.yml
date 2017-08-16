@@ -16,6 +16,7 @@ engines:
     enabled: true
     exclude_paths:
     - public/javascripts/
+    - vendor/assets/javascripts
   fixme:
     enabled: true
   rubocop:

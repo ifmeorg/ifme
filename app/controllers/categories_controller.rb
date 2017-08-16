@@ -118,10 +118,7 @@ class CategoriesController < ApplicationController
       result = { error: 'error' }
     end
 
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   private
@@ -147,7 +144,7 @@ class CategoriesController < ApplicationController
     elsif category && !(moment = Moment.find(moment_id)).nil? &&
           moment.category.include?(category.id) &&
           is_viewer(moment.viewers) &&
-          are_allies(moment.userid, current_user.id)
+          are_allies?(moment.userid, current_user.id)
       return true
     end
     false

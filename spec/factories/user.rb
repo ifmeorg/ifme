@@ -90,5 +90,6 @@ FactoryGirl.define do
     password "password"
     location "Toronto, ON, Canada"
     token "has_a_token"
+    access_expires_at { Time.zone.now + 600 }
   end
 end

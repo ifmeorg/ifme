@@ -46,9 +46,6 @@ for tips on setup.
 Commons errors faced during installation are documented in this
 [guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
 
-Commons errors faced during installation are documented in this
-[guide](https://github.com/julianguyen/ifme/blob/master/Errors.md).
-
 <details>
   <summary>1) Install Ruby on Rails</summary>
 
@@ -78,9 +75,8 @@ Check that Ruby has been updated by running `ruby -v`.
 
 #### Option (B) rbenv
 
-Follow instructions for updating rbenv at the project's
-[GitHub](https://github.com/rbenv/rbenv). Make sure you also upgrade
-`ruby-build` if you used Homebrew to install rbenv.
+Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv).
+Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
 
 Run the following to install Ruby 2.3.4:
 
@@ -183,15 +179,15 @@ bundle install
 
 ## Mandatory
 
-There are three config files: `config/env/test.env`, `config/env/development.env`,
-and `config/env/production.env`. To run the app locally, you should modify
+There are two config files: `config/env/test.env` and
+`config/env/development.env`. To run the app locally, you should modify
 `test.env` and `development.env`. They are ignored in git to prevent
 accidentally committing sensitive information.
 
 ### Automatic setup
 
 For your development and test environments, you can automatically generate the
-env files by runnning `bin/rake setup_workspace`.
+env files by running `bin/rake setup_workspace`.
 
 ## Manual setup
 
@@ -382,13 +378,8 @@ Password: password99
 
 # Testing Guidelines
 
-We are using Selenium with Chrome for web browser automation. It is necessary
-to install
-[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
-macOS users can install with HomeBrew with `brew install chromedriver`.
-
-Always write tests for the changes you've made! If you see any missing tests,
-write them!
+We are using Selenium with Chrome for web browser automation. Always write tests
+for the changes you've made! If you see any missing tests, write them!
 
 ## Rspec for Ruby
 
