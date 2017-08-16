@@ -21,15 +21,19 @@ class Strategy < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name
-  belongs_to :user, foreign_key: :userid
   serialize :category, Array
   serialize :viewers, Array
+
+  before_save :array_data_to_i!
+
+  belongs_to :user, foreign_key: :userid
+
+  has_one :perform_strategy_reminder
+  accepts_nested_attributes_for :perform_strategy_reminder
+
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :description, presence: true
   validates :description, length: { minimum: 1, maximum: 2000 }
-  has_one :perform_strategy_reminder
-  accepts_nested_attributes_for :perform_strategy_reminder
-  before_save :array_data_to_i!
 
   def array_data_to_i!
     category.map!(&:to_i)

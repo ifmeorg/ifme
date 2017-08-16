@@ -26,7 +26,6 @@ Capybara.javascript_driver = :selenium_chrome
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include StubCurrentUserHelper
   config.mock_with :rspec do |mock_config|
     mock_config.syntax = [:expect, :should]
@@ -40,7 +39,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = Rails.root.join('spec', 'fixtures')
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -56,17 +55,17 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 
   config.infer_spec_type_from_file_location!
 
   config.before(:each) do
     if /selenium_remote/.match Capybara.current_driver.to_s
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`
-      ip = ip.gsub "\n", ""
-      Capybara.server_port = "3000"
+      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.gsub("\n", '')
+      server = Capybara.current_session.server
+      Capybara.server_port = '3000'
       Capybara.server_host = ip
-      Capybara.app_host = "http://#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}"
+      Capybara.app_host = "http://#{server.host}:#{server.port}"
     end
   end
 

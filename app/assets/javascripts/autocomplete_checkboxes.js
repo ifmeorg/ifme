@@ -87,4 +87,4 @@ var onReadyAutocompleteCheckboxes = function() {
   }
 };
 
-$(document).on("page:load ready", onReadyAutocompleteCheckboxes);
+$(document).on("turbolinks:load", onReadyAutocompleteCheckboxes);

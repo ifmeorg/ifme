@@ -29,5 +29,5 @@
 # Ignore coverage results
 /coverage
 
-# Ignore auto-generated translations.js
-/public/javascripts/translations.js
+# Ignore auto-generated JavaScript
+/public/javascripts

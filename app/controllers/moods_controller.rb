@@ -20,7 +20,7 @@ class MoodsController < ApplicationController
     elsif !(moment = params[:moment]).nil? &&
           moment.first.mood.include?(@mood.id) &&
           is_viewer(moment.first.viewers) &&
-          are_allies(moment.userid, current_user.id)
+          are_allies?(moment.userid, current_user.id)
       link_url = '/profile?uid=' + get_uid(@mood.userid).to_s
       name = User.where(id: @mood.userid).first.name
       the_link = sanitize link_to name, link_url
@@ -120,10 +120,7 @@ class MoodsController < ApplicationController
                { error: 'error' }
              end
 
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   private

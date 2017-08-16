@@ -28,11 +28,15 @@ class Moment < ApplicationRecord
   serialize :viewers, Array
   serialize :mood, Array
   serialize :strategy, Array
+
+  before_save :array_data
+
+  belongs_to :user, foreign_key: :userid
+
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
-  before_save :array_data
 
   def array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)

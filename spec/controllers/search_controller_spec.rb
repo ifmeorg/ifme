@@ -26,9 +26,9 @@ RSpec.describe SearchController, type: :controller do
 
       context 'when have no passed email' do
         it 'sets the correct instance variables' do
-          get :index, search: {}
+          get :index, params: { search: {} }
 
-          response.should redirect_to '/allies'
+          expect(response).to redirect_to('/allies')
         end
       end
     end

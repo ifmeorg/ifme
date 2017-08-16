@@ -27,20 +27,13 @@ class NotificationsController < ApplicationController
   def fetch_notifications
     result = {
       fetch_notifications: Notification.where(userid: current_user.id)
-                                       .order('created_at ASC')
+                                       .order(:created_at)
     }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   def signed_in
-    result = { signed_in: current_user.id }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(signed_in: current_user.id)
   end
 
   private

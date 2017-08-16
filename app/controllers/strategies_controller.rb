@@ -4,16 +4,8 @@ class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   include QuickCreate
-  before_action :set_strategy, only: %i[show edit update destroy]
 
-  def default_params
-    @default_params ||= {
-      strategy: {
-        viewers: [],
-        category: []
-      }
-    }
-  end
+  before_action :set_strategy, only: %i[show edit update destroy]
 
   # GET /strategies
   # GET /strategies.json
@@ -24,104 +16,11 @@ class StrategiesController < ApplicationController
   # GET /strategies/1
   # GET /strategies/1.json
   def show
-    if current_user.id == @strategy.userid
-      @page_edit = edit_strategy_path(@strategy)
-      @page_tooltip = t('strategies.edit_strategy')
-    else
-      link_url = '/profile?uid=' + get_uid(@strategy.userid).to_s
-      name = User.where(id: @strategy.userid).first.name
-      the_link = sanitize link_to name, link_url
-      @page_author = the_link.html_safe
-    end
-    @no_hide_page = false
-    if hide_page(@strategy) && @strategy.userid != current_user.id
-      respond_to do |format|
-        format.html { redirect_to strategies_path }
-        format.json { head :no_content }
-      end
-    else
-      @comment = Comment.new
-      # @support = Support.new
-      @comments = Comment.where(commented_on: @strategy.id, comment_type: 'strategy').all.order('created_at DESC')
-      @no_hide_page = true
-    end
+    show_with_comments(@strategy)
   end
 
   def comment
-    if params[:viewers].blank?
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: params[:visibility])
-    else
-      # Can only get here if comment is from Strategy creator
-      @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'private', viewers: [params[:viewers].to_i])
-    end
-
-    unless @comment.save
-      result = { no_save: true }
-      respond_to do |format|
-        format.html { render json: result }
-        format.json { render json: result }
-      end
-    end
-
-    # Notify commented_on user that they have a new comment
-    strategy_user = Strategy.where(id: @comment.commented_on).first.userid
-
-    if strategy_user != @comment.comment_by
-      strategy_name = Strategy.where(id: @comment.commented_on).first.name
-      cutoff = false
-      cutoff = true if @comment.comment.length > 80
-      uniqueid = 'comment_on_strategy' + '_' + @comment.id.to_s
-
-      data = JSON.generate(
-        user: current_user.name,
-        strategyid: @comment.commented_on,
-        strategy: strategy_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_strategy',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: strategy_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: strategy_user).order('created_at ASC').all
-      Pusher['private-' + strategy_user.to_s].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(strategy_user, data).deliver_now
-
-    # Notify viewer that they have a new comment
-    elsif @comment.viewers.present? && User.where(id: @comment.viewers[0]).exists?
-      private_user = User.where(id: @comment.viewers[0]).first.id
-      strategy_name = Strategy.where(id: @comment.commented_on).first.name
-      cutoff = false
-      cutoff = true if @comment.comment.length > 80
-      uniqueid = 'comment_on_strategy_private' + '_' + @comment.id.to_s
-
-      data = JSON.generate(
-        user: current_user.name,
-        strategyid: @comment.commented_on,
-        strategy: strategy_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_strategy_private',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: private_user, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: private_user).order('created_at ASC').all
-      Pusher['private-' + private_user.to_s].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(private_user, data).deliver_now
-    end
-
-    return unless @comment.save
-
-    result = generate_comment(@comment, 'strategy')
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    comment_for('strategy')
   end
 
   def delete_comment
@@ -164,10 +63,7 @@ class StrategiesController < ApplicationController
                { error: 'error' }
              end
 
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   # GET /strategies/new
@@ -206,7 +102,7 @@ class StrategiesController < ApplicationController
         format.json { render :show, status: :created, location: @strategy }
       else
         format.html { render :new }
-        format.json { render json: @strategy.errors, status: :unprocessable_entity }
+        format.json { render_errors(@strategy) }
       end
     end
   end
@@ -214,34 +110,23 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def premade
-    premade_category = Category.where(name: 'Meditation', userid: current_user.id)
-    premade1 =
-      if premade_category.exists?
-        Strategy.new(
-          userid: current_user.id,
-          name: t('strategies.index.premade1_name'),
-          description: t('strategies.index.premade1_description'),
-          category: [premade_category.first.id], comment: false
-        )
-      else
-        Strategy.new(
-          userid: current_user.id,
-          name: t('strategies.index.premade1_name'),
-          description: t('strategies.index.premade1_description'),
-          comment: false
-        )
-      end
+    category = Category.find_by(name: 'Meditation', user: current_user)
+    strategy = Strategy.new(
+      user: current_user,
+      name: t('strategies.index.premade1_name'),
+      description: t('strategies.index.premade1_description'),
+      category: category ? [category.id] : nil,
+      comment: false
+    )
 
     respond_to do |format|
-      if premade1.save
-        PerformStrategyReminder.create(strategy_id: premade1.id, active: false)
+      if strategy.save
+        PerformStrategyReminder.create!(strategy: strategy, active: false)
         format.html { redirect_to strategies_path }
         format.json { render :no_content }
       else
         format.html { redirect_to strategies_path }
-        format.json do
-          render json: premade1.errors, status: :unprocessable_entity
-        end
+        format.json { render_errors(strategy) }
       end
     end
   end
@@ -257,7 +142,7 @@ class StrategiesController < ApplicationController
         format.json { render :show, status: :ok, location: @strategy }
       else
         format.html { render :edit }
-        format.json { render json: @strategy.errors, status: :unprocessable_entity }
+        format.json { render_errors(@strategy) }
       end
     end
   end
@@ -283,6 +168,10 @@ class StrategiesController < ApplicationController
 
   private
 
+  def render_errors(strategy)
+    render json: strategy.errors, status: :unprocessable_entity
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_strategy
     @strategy = Strategy.friendly.find(params[:id])
@@ -294,20 +183,10 @@ class StrategiesController < ApplicationController
   end
 
   def strategy_params
-    params[:strategy] = default_params[:strategy].merge(params[:strategy])
     params.require(:strategy).permit(
       :name, :description, :userid,
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
-  end
-
-  def hide_page(strategy)
-    if Strategy.where(id: strategy.id).exists?
-      if Strategy.where(id: strategy.id).first.viewers.include?(current_user.id) && are_allies(strategy.userid, current_user.id)
-        return false
-      end
-    end
-    true
   end
 end

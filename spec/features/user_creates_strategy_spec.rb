@@ -63,7 +63,7 @@ describe 'UserCreatesAStrategy', js: true do
       within '#viewers_list' do
         page.find('input#viewers_all').click
       end
-      page.find('[data-toggle="#viewers"]').click
+      page.find('[data-toggle="#viewers"] .toggle_button').click
 
       # ALLOW COMMENTS
       page.find('input#strategy_comment').click
