@@ -76,5 +76,17 @@
     "link":"http://www.anxymag.com",
     "tags":["paid", "publication", "blog"],
     "languages":["en"]
+  },
+  {
+    "name":"KhanAcademy - Mental health (free online learning)",
+    "link":"https://www.khanacademy.org/science/health-and-medicine/mental-health",
+    "tags":["videos", "free", "learning"],
+    "languages":["en"]
+  },
+  {
+    "name":"Crash Course Psychology - Psychological Disorders",
+    "link":"https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
+    "tags":["videos", "free", "learning"],
+    "languages":["en"]
   }
 ]
