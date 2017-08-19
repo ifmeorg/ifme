@@ -2,6 +2,7 @@
 
 class CategoriesController < ApplicationController
   include CollectionPageSetup
+  include QuickCreate
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
@@ -112,12 +113,7 @@ class CategoriesController < ApplicationController
 
     if category.save
       tag = params[:category][:tag].to_s
-      checkbox = '<input type="checkbox" value="' + category.id.to_s + '" name="' + tag + '[category][]" id="' + tag + '_category_' + category.id.to_s + '">'
-      label = '<span class="notification_wrapper">
-            <span class="tip_notifications_button link_style">' + category.name + '</span><br>'
-      label += render_to_string partial: '/notifications/preview', locals: { data: category, edit: edit_category_path(category) }
-      label += '</span>'
-      result = { checkbox: checkbox, label: label }
+      result = render_checkbox(category, 'category', tag)
     else
       result = { error: 'error' }
     end
