@@ -16,12 +16,11 @@ storiesOf('Chart', module)
       types={['Moments', 'Categories', 'Moods']}
       initialParams={{
         type: 'Categories',
-        aggregateFunc: 'count',
         data: {
           Categories: { '2013-02-10': 11, '2013-02-11': 6, '2013-02-12': 15 },
           Moods: { '2013-02-10': 10, '2013-02-11': 16, '2013-02-12': 15 },
           Moments: { '2013-02-10': 10, '2013-02-11': 16, '2013-02-12': 2 },
-          }
+        },
       }}
     />
   ));

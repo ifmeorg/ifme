@@ -16,7 +16,6 @@ type chartShape = {
  */
 export default class Chart extends React.Component {
     props: chartShape;
-    state: chartShape;
 
     /**
      * @param props - Comes from your rails view.
@@ -28,7 +27,7 @@ export default class Chart extends React.Component {
           <AreaChart
             xtitle={this.props.xtitle}
             ytitle={this.props.ytitle}
-            id={'moments-chart'}
+            id={'breakdown-chart'}
             data={this.props.data}
           />
         </div>);
