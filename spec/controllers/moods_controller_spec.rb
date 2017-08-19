@@ -38,4 +38,32 @@ RSpec.describe MoodsController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe "GET #edit" do
+    let(:user_mood) { create(:mood, userid: user.id) }
+    let(:other_mood) { create(:mood, userid: user.id+1) }
+
+    context "when the user is logged in" do
+      before do
+        sign_in user
+      end
+      context "user is trying to edit a mood they created" do
+        it "renders the edit form" do
+          get :edit, id: user_mood.id
+          expect(response).to render_template(:edit)
+        end
+      end
+      context "user is trying to edit a mood another user created" do
+        it "redirects to the mood path" do
+          get :edit, id: other_mood.id
+          expect(response).to redirect_to mood_path(other_mood)
+        end
+      end
+    end
+
+    context "when the user is not logged in" do
+      before { get :new }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
