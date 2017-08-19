@@ -7,21 +7,18 @@
 
 <div class="spacer"></div>
 
-<% if @user_logged_in %>
-<h1>whatever</h1>
+<% if @moments.length > 0 %>
+  <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
+
   <%= react_component("ChartControl", props: {
       types: ['Moments'],
       initialParams: {
-        type: 'Moments',
-        data: {
-        Moments: @react_moments
+          type: 'Moments',
+          data: {
+              Moments: @react_moments,
+          },
       }
-    }
   })%>
-<% end %>
-
-<% if @moments.length > 0 %>
-  <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
 
   <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
 

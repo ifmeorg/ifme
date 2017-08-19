@@ -7,21 +7,16 @@ import ChartControl from '../ChartControl';
 describe('ChartControl', () => {
   it('renders', () => {
     let wrapper = null;
-    const onChange = jasmine.createSpy('change');
 
     expect(() => {
       // shallow render only lists the first level of components
       wrapper = shallow(<ChartControl
-        types={['Categories', 'Moments']}
-        onChange={onChange}
+        types={['Moments']}
         initialParams={{
           type: 'Moments',
-          aggregateFunc: 'count',
+          data: { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 },
         }}
       />);
-      wrapper.setState({
-        data: { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 },
-      });
     }).not.toThrow();
 
     expect(wrapper).not.toBeNull();

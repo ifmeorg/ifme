@@ -5,16 +5,14 @@ import Chart from './Chart';
 
 type chartControlState = {
   type: string;
-  aggregateFunc: string;
   data: any;
 }
 
 type chartControlProp = {
-  onChange: (type: string, callback: (data: {}) => void) => void;
   types: string[];
   initialParams: {
     type: string,
-    aggregateFunc: string,
+    data: {}
   };
 }
 
@@ -37,14 +35,13 @@ export default class ChartControl extends React.Component {
     this.state = {
       type: initialParams.type,
       data: initialParams.data,
-      aggregateFunc: initialParams.aggregateFunc,
     };
   }
 
-  onSelectType(value: string){
+  onSelectType(value: string) {
     return () => {
-      this.setState({ type: value })
-    }
+      this.setState({ type: value });
+    };
   }
 
   render() {
@@ -56,7 +53,7 @@ export default class ChartControl extends React.Component {
     return (
       <div>
         {buttons}
-        <Chart ytitle={`${this.state.type} ${this.state.aggregateFunc}`} xtitle="Date" data={this.state.data[this.state.type]} />
+        <Chart ytitle={`${this.state.type}`} xtitle="Date" data={this.state.data[this.state.type]} />
       </div>
     );
   }
