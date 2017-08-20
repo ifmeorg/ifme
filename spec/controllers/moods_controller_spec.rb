@@ -109,4 +109,36 @@ RSpec.describe MoodsController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe "PATCH/PUT #update" do
+    let(:user_mood) { create(:mood, userid: user.id) }
+    let(:valid_mood_params) { { name: "updated name" } }
+    let(:invalid_mood_params) { { name: nil } }
+
+    context "when the user is logged in" do
+      include_context :logged_in_user
+      context "when valid params are supplied" do
+        before { patch :update, id: user_mood.id, mood: valid_mood_params }
+        it "updates the mood" do
+          expect(user_mood.reload.name).to eq "updated name"
+        end
+        it "redirects to the mood page" do
+          expect(response).to redirect_to mood_path(assigns(:mood))
+        end
+      end
+      context "when invalid params are supplied" do
+        before { patch :update, id: user_mood.id, mood: invalid_mood_params }
+        it "re-renders the edit form" do
+          expect(response).to render_template(:edit)
+        end
+        it "adds errors to the mood ivar" do
+          expect(assigns(:mood).errors).not_to be_empty
+        end
+      end
+    end
+    context "when the user is not logged in" do
+      before { patch :update, id: user_mood.id }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
