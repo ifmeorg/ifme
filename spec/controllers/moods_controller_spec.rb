@@ -66,4 +66,38 @@ RSpec.describe MoodsController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe "POST #create" do
+    let(:valid_mood_params) { FactoryGirl.attributes_for(:mood).merge(userid: user.id) }
+    let(:invalid_mood_params) { FactoryGirl.attributes_for(:mood) }
+
+    context "when the user is logged in" do
+      before do
+        sign_in user
+      end
+      context "when valid params are supplied" do
+        it "creates a mood" do
+          expect{ post :create, mood: valid_mood_params }.to change(Mood, :count).by(1)
+        end
+        it "redirects to the mood page" do
+          post :create, mood: valid_mood_params
+          expect(response).to redirect_to mood_path(assigns(:mood))
+        end
+      end
+      context "when invalid params are supplied" do
+        before { post :create, mood: invalid_mood_params }
+        it "re-renders the creation form" do
+          expect(response).to render_template(:new)
+        end
+        it "adds errors to the mood ivar" do
+          expect(assigns(:mood).errors).not_to be_empty
+        end
+      end
+    end
+
+    context "when the user is not logged in" do
+      before { post :create }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
