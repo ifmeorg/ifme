@@ -141,4 +141,28 @@ RSpec.describe MoodsController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe "DELETE #destroy" do
+    let(:user_mood) { create(:mood, userid: user.id) }
+    let!(:moment) { create(:moment, userid: user.id, mood: [user_mood.id]) }
+
+    context "when the user is logged in" do
+      include_context :logged_in_user
+      it "deletes the mood" do
+        expect{ delete :destroy, id: user_mood.id }.to change(Mood, :count).by(-1)
+      end
+      it "removes moods from existing moments" do
+        delete :destroy, id: user_mood.id
+        expect(moment.reload.mood).not_to include(user_mood.id)
+      end
+      it "redirects to the mood index page" do
+        delete :destroy, id: user_mood.id
+        expect(response).to redirect_to moods_path
+      end
+    end
+    context "when the user is not logged in" do
+      before { delete :destroy, id: user_mood.id }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
