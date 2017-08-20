@@ -69,7 +69,7 @@ RSpec.describe MoodsController, type: :controller do
       include_context :logged_in_user
       context "when valid params are supplied" do
         it "creates a mood" do
-          expect{ post :create, mood: valid_mood_params }.to change(Mood, :count).by(1)
+          expect{ post :create, mood: valid_mood_params }.to change(Mood, :count).by 1
         end
         it "redirects to the mood page" do
           post :create, mood: valid_mood_params
@@ -89,6 +89,23 @@ RSpec.describe MoodsController, type: :controller do
 
     context "when the user is not logged in" do
       before { post :create }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe "POST #premade" do
+    context "when the user is logged in" do
+      include_context :logged_in_user
+      it "creates 5 premade moods" do
+        expect{ post :premade }.to change(Mood, :count).by 5
+      end
+      it "redirects to the mood index page" do
+        post :premade
+        expect(response).to redirect_to moods_path
+      end
+    end
+    context "when the user is not logged in" do
+      before { post :premade }
       it_behaves_like :with_no_logged_in_user
     end
   end
