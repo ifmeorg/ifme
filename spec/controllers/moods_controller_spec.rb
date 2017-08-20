@@ -3,9 +3,8 @@ RSpec.describe MoodsController, type: :controller do
 
   describe "GET #index" do
     context "when the user is logged in" do
-      before do
-        sign_in user
-      end
+      include_context :logged_in_user
+
       it "renders the page" do
         get :index
         expect(response).to render_template(:index)
@@ -24,9 +23,8 @@ RSpec.describe MoodsController, type: :controller do
 
   describe "GET #new" do
     context "when the user is logged in" do
-      before do
-        sign_in user
-      end
+      include_context :logged_in_user
+
       it "renders the page" do
         get :new
         expect(response).to render_template(:new)
@@ -44,9 +42,8 @@ RSpec.describe MoodsController, type: :controller do
     let(:other_mood) { create(:mood, userid: user.id+1) }
 
     context "when the user is logged in" do
-      before do
-        sign_in user
-      end
+      include_context :logged_in_user
+
       context "user is trying to edit a mood they created" do
         it "renders the edit form" do
           get :edit, id: user_mood.id
@@ -72,9 +69,8 @@ RSpec.describe MoodsController, type: :controller do
     let(:invalid_mood_params) { FactoryGirl.attributes_for(:mood) }
 
     context "when the user is logged in" do
-      before do
-        sign_in user
-      end
+      include_context :logged_in_user
+
       context "when valid params are supplied" do
         it "creates a mood" do
           expect{ post :create, mood: valid_mood_params }.to change(Mood, :count).by(1)
