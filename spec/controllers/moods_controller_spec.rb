@@ -56,7 +56,7 @@ RSpec.describe MoodsController, type: :controller do
     end
 
     context "when the user is not logged in" do
-      before { get :new }
+      before { get :edit, id: user_mood.id }
       it_behaves_like :with_no_logged_in_user
     end
   end
