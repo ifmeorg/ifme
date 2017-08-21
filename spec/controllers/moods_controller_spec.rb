@@ -1,5 +1,7 @@
 RSpec.describe MoodsController, type: :controller do
   let(:user) { create(:user1) }
+  let(:user_mood) { create(:mood, userid: user.id) }
+  let(:other_mood) { create(:mood, userid: user.id+1) }
 
   describe "GET #index" do
     context "when the user is logged in" do
@@ -17,9 +19,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe "GET #show" do
-    let(:user_mood) { create(:mood, userid: user.id) }
-    let(:other_mood) { create(:mood, userid: user.id+1) }
-
     context "when the user is logged in" do
       include_context :logged_in_user
       context "when the user created the mood" do
@@ -62,9 +61,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe "GET #edit" do
-    let(:user_mood) { create(:mood, userid: user.id) }
-    let(:other_mood) { create(:mood, userid: user.id+1) }
-
     context "when the user is logged in" do
       include_context :logged_in_user
       context "user is trying to edit a mood they created" do
@@ -137,7 +133,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe "PATCH/PUT #update" do
-    let(:user_mood) { create(:mood, userid: user.id) }
     let(:valid_mood_params) { { name: "updated name" } }
     let(:invalid_mood_params) { { name: nil } }
 
@@ -169,7 +164,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    let(:user_mood) { create(:mood, userid: user.id) }
     let!(:moment) { create(:moment, userid: user.id, mood: [user_mood.id]) }
 
     context "when the user is logged in" do
