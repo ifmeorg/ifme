@@ -187,6 +187,32 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe "POST #quick_create" do
-    # TODO
+    let(:valid_mood_params) { {name: "Test Mood", description: "Test Mood Description"} }
+    let(:invalid_mood_params) { {name: nil, description: nil} }
+
+    context "when the user is logged in" do
+      include_context :logged_in_user
+      context "when valid params are supplied" do
+        it "creates the mood" do
+          expect{ post :quick_create, mood: valid_mood_params }.to change(Mood, :count).by 1
+        end
+        it "responds with a checkbox in json format" do
+          post :quick_create, mood: valid_mood_params
+          response_keys = JSON.parse(response.body).keys
+          expect(response_keys).to contain_exactly('checkbox', 'label', 'wrapper_id', 'autocomplete_id', 'name','id')
+        end
+      end
+      context "when invalid params are supplied" do
+        it "responds with an error in json format" do
+          post :quick_create, mood: invalid_mood_params
+          expect(response.body).to eq({error: 'error'}.to_json)
+        end
+      end
+    end
+
+    context "when the user is not logged in" do
+      before { post :quick_create }
+      it_behaves_like :with_no_logged_in_user
+    end
   end
 end
