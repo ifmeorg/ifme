@@ -18,26 +18,22 @@ RSpec.describe MoodsController, type: :controller do
 
   describe "GET #show" do
     let(:user_mood) { create(:mood, userid: user.id) }
-    let(:other_mood) { create(:mood, userid: ally.id) }
+    let(:other_mood) { create(:mood, userid: user.id+1) }
 
     context "when the user is logged in" do
       include_context :logged_in_user
-      it "renders the page" do
-        get :show, id: user_mood.id
-        expect(response).to render_template(:show)
-      end
       context "when the user created the mood" do
         before { get :show, id: user_mood.id }
         it "passes the edit link and tooltip text to the template" do
           expect(assigns(:page_edit)).to eq edit_mood_path(user_mood)
           expect(assigns(:page_tooltip)).to eq I18n.t('moods.edit_mood')
         end
-      end
-      context "when the user is an ally and viewer" do
-        xit "passes a link to the author to the template" do
+        it "renders the page" do
+          get :show, id: user_mood.id
+          expect(response).to render_template(:show)
         end
       end
-      context "by default" do
+      context "when the user didn't create the mood" do
         before { get :show, id: other_mood.id }
         it "redirects to the mood index page" do
           expect(response).to redirect_to moods_path
@@ -196,7 +192,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe "#quick_create" do
+  describe "POST #quick_create" do
     # TODO
   end
 end
