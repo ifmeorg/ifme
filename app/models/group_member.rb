@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class GroupMember < ActiveRecord::Base
+class GroupMember < ApplicationRecord
   after_destroy :destroy_meeting_memberships
 
   validates :groupid, :userid, presence: true

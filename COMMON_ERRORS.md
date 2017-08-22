@@ -107,7 +107,14 @@ PG::ConnectionBad (fe_sendauth: no password supplied )
 
 You may need to create a new PSQL user. Follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-ruby-on-rails-application-on-ubuntu-14-04) to define a username and password.
 
-To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under `config/env/test.env` and `config/env/development.env`.
+To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD`
+under `config/env/test.env` and `config/env/development.env`, then add username
+and password to `config/database.yml`:
+
+```
+development: &default
+  ...
+```
 
 ### PostgreSQL Incompatible Version
 
@@ -115,7 +122,8 @@ To keep this information private, list `PSQL_USERNAME` and `PSQL_PASSWORD` under
 
 ```
 FATAL:  database files are incompatible with server
-DETAIL:  The data directory was initialized by PostgreSQL version 9.4, which is not compatible with this version 9.6.1.
+DETAIL:  The data directory was initialized by PostgreSQL version 9.4, which is
+not compatible with this version 9.6.1.
 ```
 
 #### Fix
@@ -123,6 +131,21 @@ DETAIL:  The data directory was initialized by PostgreSQL version 9.4, which is 
 1) `brew install postgresql@9.4`
 2) `brew services start postgresql@9.4`
 3) Stop the server by running `brew services stop postgresql@9.4`.
+
+### PostgreSQL Connection Bad
+
+#### Error
+
+```
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+)
+```
+
+#### Fix
+
+`rm -rf /usr/local/var/postgres/postmaster.pid`
 
 ## Testing
 

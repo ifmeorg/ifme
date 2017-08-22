@@ -1,4 +1,4 @@
-class SetLimitsOnText < ActiveRecord::Migration
+class SetLimitsOnText < ActiveRecord::Migration[4.2]
   def change
   	change_column :categories, :description, :text, :limit => nil
   	change_column :comments, :comment, :text, :limit => nil

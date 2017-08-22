@@ -156,4 +156,4 @@ var onReadyNotifications = function() {
   });
 };
 
-$(document).on("page:load ready", onReadyNotifications);
+$(document).on("turbolinks:load", onReadyNotifications);

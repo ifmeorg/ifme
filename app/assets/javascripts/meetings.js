@@ -5,4 +5,4 @@ var onReadyMeetings = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyMeetings);
+$(document).on("turbolinks:load", onReadyMeetings);

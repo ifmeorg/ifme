@@ -1,4 +1,4 @@
-class AddSlugToModels < ActiveRecord::Migration
+class AddSlugToModels < ActiveRecord::Migration[4.2]
   def change
     add_column :strategies, :slug, :string
     add_index :strategies, :slug, unique: true

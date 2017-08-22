@@ -43,7 +43,7 @@
 #  refresh_token          :string
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,
@@ -125,6 +125,14 @@ class User < ActiveRecord::Base
     )
 
     new_access_token
+  end
+
+  def ally?(user)
+    allies_by_status(:accepted).include?(user)
+  end
+
+  def mutual_allies?(user)
+    ally?(user) && user.ally?(self)
   end
 
   def allies_by_status(status)

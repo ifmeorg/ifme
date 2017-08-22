@@ -13,8 +13,9 @@ module ScrollSpecSupport
   # .click(), but it's closer to real-life interactions
   # if we scroll the page first.
   def scroll_to_and_click(selector)
-    page.execute_script "$('#{selector}')[0].scrollIntoView(false)"
-    page.execute_script "$('#{selector}').click()"
+    element = "$('#{selector}')"
+    page.execute_script "#{element}[0].scrollIntoView(false)"
+    page.execute_script "#{element}.click()"
   end
 end
 

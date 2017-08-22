@@ -8,15 +8,19 @@ describe("ToggleLocale", function() {
   });
 
   afterEach(function() {
-    document.cookie = "locale=; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    Cookies.remove("locale");
   });
 
   it("calls toggle_locale when value of #locale changes", function() {
-    expect($("#locale").val()).toBe("en");
-    expect(getCookie("locale")).toBe(null);
-    $("#locale").val("es").change();
-    expect($("#locale").val()).toBe("es");
-    expect(getCookie("locale")).toBe("es");
+    const $locale = $("#locale");
+
+    expect($locale.val()).toBe("en");
+    expect(Cookies.get("locale")).toBe(undefined);
+
+    $locale.val("es").change();
+
+    expect($locale.val()).toBe("es");
+    expect(Cookies.get("locale")).toBe("es");
     expect($.ajax).toHaveBeenCalled();
   });
 });

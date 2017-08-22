@@ -12,7 +12,7 @@
 #  status     :integer
 #
 
-class Allyship < ActiveRecord::Base
+class Allyship < ApplicationRecord
   enum status: %i[accepted pending_from_user pending_from_ally]
 
   validate :different_users

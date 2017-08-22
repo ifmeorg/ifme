@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'UserCreatesAStrategy', js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, userid: user.id }
@@ -8,7 +10,7 @@ describe 'UserCreatesAStrategy', js: true do
   end
 
   feature 'Creating, viewing, and editing a strategy' do
-    it 'is successful' do
+    specify do
       login_as user
       visit strategies_path
 
@@ -16,12 +18,18 @@ describe 'UserCreatesAStrategy', js: true do
         expect(page).to have_content 'Strategies'
       end
 
-      expect(page).to have_content 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
-      expect(page).to have_content 'You haven\'t created any custom strategies yet.'
+      expect(page).to have_content(
+        'Strategize self-care to achieve desired thoughts and attitudes ' \
+        'towards your moments.'
+      )
+      expect(page).to have_content(
+        "You haven't created any custom strategies yet."
+      )
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
       page.find('a[title="New Strategy"]').click
+
       within '#page_title_content' do
         expect(page).to have_content 'New Strategy'
       end
@@ -55,7 +63,7 @@ describe 'UserCreatesAStrategy', js: true do
       within '#viewers_list' do
         page.find('input#viewers_all').click
       end
-      page.find('[data-toggle="#viewers"]').click
+      page.find('[data-toggle="#viewers"] .toggle_button').click
 
       # ALLOW COMMENTS
       page.find('input#strategy_comment').click
@@ -80,7 +88,9 @@ describe 'UserCreatesAStrategy', js: true do
         expect(page).to have_content 'Edit My new strategy'
       end
 
-      fill_in_ckeditor('strategy_description', with: 'I am changing my strategy description')
+      fill_in_ckeditor(
+        'strategy_description', with: 'I am changing my strategy description'
+      )
 
       page.find('input[value="Submit"]').click
 

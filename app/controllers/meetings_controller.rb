@@ -31,7 +31,7 @@ class MeetingsController < ApplicationController
 
   def comment
     @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
-    return respond_with_not_saved unless @comment.save
+    return respond_not_saved unless @comment.save
 
     # Notify MeetingMembers except for commenter that there is a new comment
     MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
@@ -60,11 +60,9 @@ class MeetingsController < ApplicationController
       NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
-    result = generate_comment(@comment, 'meeting')
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(
+      generate_comment(@comment, 'meeting')
+    )
   end
 
   def delete_comment
@@ -361,13 +359,5 @@ class MeetingsController < ApplicationController
       return false
     end
     true
-  end
-
-  def respond_with_not_saved
-    result = { no_save: true }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
   end
 end
