@@ -6,22 +6,21 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
+      # Specify the version you desire here
       - image: circleci/ruby:2.3.4-browsers
         environment:
           PSQL_HOST: 127.0.0.1
           PSQL_USERNAME: ifme
           RAILS_ENV: test
-      
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # Documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:9.4.11
         environment:
           POSTGRES_USER: ifme
           POSTGRES_DB: ifme_test
           POSTGRES_PASSWORD: ""
-      - image: selenium/standalone-chrome:3.4.0
 
     working_directory: ~/repo
 
@@ -32,11 +31,11 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
+          # Fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install Dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
@@ -44,23 +43,34 @@ jobs:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
+      # Run Rspec
       - run:
-          name: run tests
+          name: Run Rspec
           command: |
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
                             --format progress
 
-      # collect reports
+      # Run Jasmine
+      - run:
+          name: Run Jasmine
+          command: |
+            RAILS_ENV=test bundle exec rake jasmine:ci
+
+      # Collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: ifme
