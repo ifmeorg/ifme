@@ -253,7 +253,7 @@ ul.no_bullet_list li {
   }
 }
 
-.divider {
+.horizonal_divider {
   width: 100%;
   height: 1px;
   background-color: $subtle-secondary-text-color;
@@ -264,6 +264,12 @@ ul.no_bullet_list li {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+}
+
+.vertical_divider {
+  width: 1px;
+  background-color: $subtle-secondary-text-color;
+  height: 100%;
 }
 
 .stats_divider {

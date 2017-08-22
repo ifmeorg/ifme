@@ -465,6 +465,15 @@ en:
       advice: advice
       forum: forum
       learning: learning
+      crisis_prevention: crisis prevention
+      safety_planning: safety planning
+      suicide_prevention: suicide prevention
+      android: android
+      ios: iOS
+      support_groups: support groups
+      mindfulness: mindfulness
+      journaling: journaling
+      mood_tracking: mood tracking
 
  profile:
   index:

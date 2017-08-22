@@ -466,6 +466,15 @@ ptbr:
         advice: conselho
         forum: fórum
         learning: aprender
+        crisis_prevention: Prevenção de Crises
+        safety_planning: Planejamento de Segurança
+        suicide_prevention: Prevenção de Suicídio
+        android: android
+        ios: iOS
+        support_groups: grupos de suporte
+        mindfulness: paz de espírito
+        journaling: Diário
+        mood_tracking: Registro de alterações de humor
 
  profile:
   index:
