@@ -180,8 +180,8 @@ GEM
     i18n-js (3.0.0)
       i18n (~> 0.6, >= 0.6.6)
     io-like (0.3.0)
-    jasmine (2.4.0)
-      jasmine-core (~> 2.4)
+    jasmine (2.7.0)
+      jasmine-core (>= 2.7.0, < 3.0.0)
       phantomjs
       rack (>= 1.2.1)
       rake
@@ -483,7 +483,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   google-api-client (~> 0.13.1)
   i18n-js (>= 3.0.0.rc11)
-  jasmine (~> 2.4.0)
+  jasmine (~> 2.7.0)
   jbuilder (~> 2.7.0)
   jquery-rails (= 4.1.1)
   jshint
