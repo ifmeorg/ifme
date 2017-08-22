@@ -270,6 +270,13 @@ ul.no_bullet_list li {
   width: 1px;
   background-color: $subtle-secondary-text-color;
   height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  @media screen and (max-width: $medium) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 .stats_divider {
