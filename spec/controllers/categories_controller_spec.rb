@@ -5,7 +5,7 @@ RSpec.describe CategoriesController, type: :controller do
   let(:category) { create(:category, userid: user.id) }
   let(:other_category) { create(:category, userid: user.id + 1) }
   let(:valid_category_params) { attributes_for(:category).merge(userid: user.id) }
-  let(:invalid_category_params) { { name: nil, description: nil }}
+  let(:invalid_category_params) { { name: nil, description: nil } }
 
   describe 'GET #index' do
     context 'when the user is logged in' do
@@ -15,7 +15,6 @@ RSpec.describe CategoriesController, type: :controller do
         expect(response).to render_template(:index)
       end
     end
-
     context 'when the user is not logged in' do
       before { get :index }
       it_behaves_like :with_no_logged_in_user
@@ -113,7 +112,7 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-  describe "POST #premade" do
+  describe 'POST #premade' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       it 'creates 4 premade categories' do
@@ -130,7 +129,7 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-  describe "PATCH/PUT #update" do
+  describe 'PATCH/PUT #update' do
     let(:valid_update_params) { { name: 'updated name' } }
     let(:invalid_update_params) { { name: nil } }
 
@@ -156,7 +155,7 @@ RSpec.describe CategoriesController, type: :controller do
       end
     end
     context 'when the user is not logged in' do
-      before { patch :update, params: { id: category.id }  }
+      before { patch :update, params: { id: category.id } }
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -181,6 +180,38 @@ RSpec.describe CategoriesController, type: :controller do
     end
     context 'when the user is not logged in' do
       before { delete :destroy, params: { id: category.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe 'POST #quick_create' do
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      context 'when valid params are supplied' do
+        it 'creates the category' do
+          expect { post :quick_create, params: { category: valid_category_params } }
+            .to change(Category, :count).by 1
+        end
+        it 'responds with a checkbox in json format' do
+          post :quick_create, params: { category: valid_category_params }
+          response_keys = JSON.parse(response.body).keys
+          expect(response_keys).to contain_exactly('checkbox',
+                                                   'label',
+                                                   'wrapper_id',
+                                                   'autocomplete_id',
+                                                   'name',
+                                                   'id')
+        end
+      end
+      context 'when invalid params are supplied' do
+        it 'responds with an error in json format' do
+          post :quick_create, params: { category: invalid_category_params }
+          expect(response.body).to eq({ error: 'error' }.to_json)
+        end
+      end
+    end
+    context 'when the user is not logged in' do
+      before { post :quick_create }
       it_behaves_like :with_no_logged_in_user
     end
   end
