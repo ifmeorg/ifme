@@ -132,6 +132,21 @@ not compatible with this version 9.6.1.
 2) `brew services start postgresql@9.4`
 3) Stop the server by running `brew services stop postgresql@9.4`.
 
+### PostgreSQL Connection Bad
+
+#### Error
+
+```
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+)
+```
+
+#### Fix
+
+`rm -rf /usr/local/var/postgres/postmaster.pid`
+
 ## Testing
 
 ### Test Database Doesn't exist
