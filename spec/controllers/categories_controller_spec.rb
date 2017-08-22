@@ -109,5 +109,20 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
-
+  describe "POST #premade" do
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      it 'creates 4 premade categories' do
+        expect { post :premade }.to change(Category, :count).by 4
+      end
+      it 'redirects to the mood index page' do
+        post :premade
+        expect(response).to redirect_to categories_path
+      end
+    end
+    context 'when the user is not logged in' do
+      before { post :premade }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
