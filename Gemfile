@@ -60,7 +60,7 @@ group :development, :test do
   gem 'capybara', '~> 2.15.1'
   gem 'chromedriver-helper'
   gem 'factory_girl_rails'
-  gem 'jasmine', '~> 2.4.0'
+  gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'ruby-graphviz', '~> 1.2.3'
