@@ -160,4 +160,28 @@ RSpec.describe CategoriesController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:moment) { create(:moment, userid: user.id, category: [category.id]) }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      it 'deletes the category' do
+        expect { delete :destroy, params: { id: category.id } }
+          .to change(Category, :count).by(-1)
+      end
+      it 'removes categories from existing moments' do
+        delete :destroy, params: { id: category.id }
+        expect(moment.reload.category).not_to include(category.id)
+      end
+      it 'redirects to the category index page' do
+        delete :destroy, params: { id: category.id }
+        expect(response).to redirect_to categories_path
+      end
+    end
+    context 'when the user is not logged in' do
+      before { delete :destroy, params: { id: category.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
