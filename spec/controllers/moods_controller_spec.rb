@@ -4,6 +4,8 @@ RSpec.describe MoodsController, type: :controller do
   let(:user) { create(:user1) }
   let(:user_mood) { create(:mood, userid: user.id) }
   let(:other_mood) { create(:mood, userid: user.id + 1) }
+  let(:valid_mood_params) { attributes_for(:mood).merge(userid: user.id) }
+  let(:invalid_mood_params) { { name: nil, description: nil } }
 
   describe 'GET #index' do
     context 'when the user is logged in' do
@@ -86,11 +88,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:valid_mood_params) do
-      FactoryGirl.attributes_for(:mood).merge(userid: user.id)
-    end
-    let(:invalid_mood_params) { FactoryGirl.attributes_for(:mood) }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do
@@ -138,15 +135,13 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe 'PATCH/PUT #update' do
-    let(:valid_mood_params) { { name: 'updated name' } }
-    let(:invalid_mood_params) { { name: nil } }
+    let(:valid_update_params) { { name: 'updated name' } }
+    let(:invalid_update_params) { { name: nil } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do
-        before do
-          patch :update, params: { id: user_mood.id, mood: valid_mood_params }
-        end
+        before { patch :update, params: { id: user_mood.id, mood: valid_update_params } }
         it 'updates the mood' do
           expect(user_mood.reload.name).to eq 'updated name'
         end
@@ -155,9 +150,7 @@ RSpec.describe MoodsController, type: :controller do
         end
       end
       context 'when invalid params are supplied' do
-        before do
-          patch :update, params: { id: user_mood.id, mood: invalid_mood_params }
-        end
+        before { patch :update, params: { id: user_mood.id, mood: invalid_update_params } }
         it 're-renders the edit form' do
           expect(response).to render_template(:edit)
         end
@@ -197,14 +190,6 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe 'POST #quick_create' do
-    let(:valid_mood_params) do
-      {
-        name: 'Test Mood',
-        description: 'Test Mood Description'
-      }
-    end
-    let(:invalid_mood_params) { { name: nil, description: nil } }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do
