@@ -32,7 +32,6 @@ RSpec.describe MoodsController, type: :controller do
           expect(assigns(:page_tooltip)).to eq I18n.t('moods.edit_mood')
         end
         it 'renders the page' do
-          get :show, params: { id: user_mood.id }
           expect(response).to render_template(:show)
         end
       end
