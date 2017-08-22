@@ -56,7 +56,6 @@ RSpec.describe MoodsController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
-
     context 'when the user is not logged in' do
       before { get :new }
       it_behaves_like :with_no_logged_in_user
@@ -79,7 +78,6 @@ RSpec.describe MoodsController, type: :controller do
         end
       end
     end
-
     context 'when the user is not logged in' do
       before { get :edit, params: { id: user_mood.id } }
       it_behaves_like :with_no_logged_in_user
@@ -109,7 +107,6 @@ RSpec.describe MoodsController, type: :controller do
         end
       end
     end
-
     context 'when the user is not logged in' do
       before { post :create }
       it_behaves_like :with_no_logged_in_user
@@ -214,7 +211,6 @@ RSpec.describe MoodsController, type: :controller do
         end
       end
     end
-
     context 'when the user is not logged in' do
       before { post :quick_create }
       it_behaves_like :with_no_logged_in_user
