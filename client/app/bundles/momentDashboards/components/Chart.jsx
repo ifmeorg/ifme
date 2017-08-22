@@ -1,12 +1,13 @@
 // @flow
 import 'chart.js';
 import React from 'react';
-import { AreaChart } from 'react-chartkick';
+import { AreaChart, LineChart } from 'react-chartkick';
 
 type chartShape = {
   xtitle: string,
   ytitle: string,
   data: {},
+  chartType: "Line" | "Area",
 };
 
 /**
@@ -20,16 +21,24 @@ export default class Chart extends React.Component {
     /**
      * @param props - Comes from your rails view.
      */
-
     render() {
       return (
         <div>
-          <AreaChart
-            xtitle={this.props.xtitle}
-            ytitle={this.props.ytitle}
-            id={'breakdown-chart'}
-            data={this.props.data}
-          />
+          {this.props.chartType === 'Line' ?
+            <LineChart
+              xtitle={this.props.xtitle}
+              ytitle={this.props.ytitle}
+              id={'breakdown-chart'}
+              data={this.props.data}
+              colors={['#6D0839']}
+            /> : <AreaChart
+              xtitle={this.props.xtitle}
+              ytitle={this.props.ytitle}
+              id={'breakdown-chart'}
+              data={this.props.data}
+              colors={['#6D0839']}
+            />}
+
         </div>);
     }
 }
