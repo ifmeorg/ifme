@@ -40,7 +40,9 @@ describe 'ToggleLanguage', js: true do
           expect(page).to have_content es_root_title
         end
 
-        click_link('Acerca de')
+        within '#footer' do
+          click_link('Acerca de')
+        end
 
         within '#page_title' do
           expect(page).to have_content 'Acerca de'
