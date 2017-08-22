@@ -1,7 +1,7 @@
 <% if ((local_assigns[:comment_type] == 'moment' || local_assigns[:comment_type] == 'strategy') && local_assigns[:data].comment && (current_user.id == local_assigns[:data].userid || local_assigns[:no_hide_page])) ||
   (local_assigns[:comment_type] == 'meeting' && local_assigns[:is_member]) %>
 
-  <div class="divider"></div>
+  <div class="horizonal_divider"></div>
 
   <div class="small_margin_top">
   <%= form_for local_assigns[:comment], :url => { :action => "comment" }, :html => { :method => "post" } do |f| %>

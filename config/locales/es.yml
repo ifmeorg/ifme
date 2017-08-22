@@ -467,6 +467,15 @@ es:
       advice: consejo
       forum: foro
       learning: aprender
+      crisis_prevention: prevención de crisis
+      safety_planning: plan de seguridad
+      suicide_prevention: prevención de suicidio
+      android: android
+      ios: iOS
+      support_groups: grupos de apoyo
+      mindfulness: atención consciente
+      journaling: mi diario
+      mood_tracking: registro de estados de ánimo
 
  profile:
   index:
