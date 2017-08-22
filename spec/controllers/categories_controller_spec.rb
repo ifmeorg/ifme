@@ -4,6 +4,8 @@ RSpec.describe CategoriesController, type: :controller do
   let(:user) { create(:user1) }
   let(:category) { create(:category, userid: user.id) }
   let(:other_category) { create(:category, userid: user.id + 1) }
+  let(:valid_category_params) { attributes_for(:category).merge(userid: user.id) }
+  let(:invalid_category_params) { { name: nil, description: nil }}
 
   describe 'GET #index' do
     context 'when the user is logged in' do
@@ -58,6 +60,29 @@ RSpec.describe CategoriesController, type: :controller do
 
     context 'when the user is not logged in' do
       before { get :new }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe 'POST #create' do
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      context 'when valid params are supplied' do
+        it 'creates a new category' do
+          expect { post :create, params: { category: valid_category_params } }
+            .to change(Category, :count).by 1
+        end
+        it 'redirects to the category page' do
+          post :create, params: { category: valid_category_params }
+          expect(response).to redirect_to category_path(assigns(:category))
+        end
+      end
+      context 'when invalid params are supplied' do
+
+      end
+    end
+    context 'when the user is not logged in' do
+      before { post :create }
       it_behaves_like :with_no_logged_in_user
     end
   end
