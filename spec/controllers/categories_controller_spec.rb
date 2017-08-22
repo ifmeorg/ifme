@@ -98,7 +98,13 @@ RSpec.describe CategoriesController, type: :controller do
         end
       end
       context 'when invalid params are supplied' do
-
+        before { post :create, params: { category: invalid_category_params } }
+        it 're-renders the creation form' do
+          expect(response).to render_template(:new)
+        end
+        it 'adds errors to the mood ivar' do
+          expect(assigns(:category).errors).not_to be_empty
+        end
       end
     end
     context 'when the user is not logged in' do
