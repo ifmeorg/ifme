@@ -465,12 +465,12 @@ a.page_search:hover {
 
 .subtitle {
   font: $font34 $font-family;
-  font-weight: $sm;
+  font-weight: $md;
   text-align: center;
 
   @media screen and (max-width: $medium) {
     font: $font30 $font-family;
-    font-weight: $sm;
+    font-weight: $md;
     text-align: center;
   }
 }
