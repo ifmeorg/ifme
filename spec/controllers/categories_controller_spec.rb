@@ -46,4 +46,19 @@ RSpec.describe CategoriesController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'GET #new' do
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      it 'renders the page' do
+        get :new
+        expect(response).to render_template(:new)
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get :new }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
