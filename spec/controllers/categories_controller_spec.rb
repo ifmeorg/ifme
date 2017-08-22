@@ -42,7 +42,6 @@ RSpec.describe CategoriesController, type: :controller do
         end
       end
     end
-
     context 'when the user is not logged in' do
       before { get :show, params: { id: category.id } }
       it_behaves_like :with_no_logged_in_user
@@ -57,7 +56,6 @@ RSpec.describe CategoriesController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
-
     context 'when the user is not logged in' do
       before { get :new }
       it_behaves_like :with_no_logged_in_user
@@ -122,6 +120,37 @@ RSpec.describe CategoriesController, type: :controller do
     end
     context 'when the user is not logged in' do
       before { post :premade }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe "PATCH/PUT #update" do
+    let(:valid_update_params) { { name: 'updated name' } }
+    let(:invalid_update_params) { { name: nil } }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      context 'when valid params are supplied' do
+        before { patch :update, params: { id: category.id, category: valid_update_params } }
+        it 'updates the category' do
+          expect(category.reload.name).to eq 'updated name'
+        end
+        it 'redirects to the category page' do
+          expect(response).to redirect_to category_path(assigns(:category))
+        end
+      end
+      context 'when invalid params are supplied' do
+        before { patch :update, params: { id: category.id, category: invalid_update_params } }
+        it 're-renders the edit form' do
+          expect(response).to render_template(:edit)
+        end
+        it 'adds errors to the category ivar' do
+          expect(assigns(:category).errors).not_to be_empty
+        end
+      end
+    end
+    context 'when the user is not logged in' do
+      before { patch :update, params: { id: category.id }  }
       it_behaves_like :with_no_logged_in_user
     end
   end
