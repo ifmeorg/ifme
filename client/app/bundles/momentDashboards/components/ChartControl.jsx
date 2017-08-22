@@ -53,7 +53,7 @@ export default class ChartControl extends React.Component {
     return (
       <div>
         {buttons}
-        <Chart ytitle={`${this.state.type}`} xtitle="Date" data={this.state.data[this.state.type]} />
+        <Chart ytitle={`${this.state.type}`} xtitle="Date" data={this.state.data[this.state.type]} chartType="Area" />
       </div>
     );
   }

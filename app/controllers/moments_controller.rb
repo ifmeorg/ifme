@@ -21,14 +21,11 @@ class MomentsController < ApplicationController
   def index
     if current_user
       @user_logged_in = true
-      # TODO other types
-      # @categories = current_user.categories
-      # @moods = current_user.moods
 
-      period = params[:period].present? ? params[:period] : 'day'
-      value = params[:value].present? ? params[:value] : 'Moments'
-      end_date = params[:end_date].present? ? Date.parse(params[:end_date]) : Date.today
-      start_date = params[:start_date].present? ? Date.parse(params[:start_date]) : get_start_by_period(period, end_date)
+      period = 'day'
+      # +1 day buffer to ensure we include today as well
+      end_date = Date.current + 1.days
+      start_date = get_start_by_period(period, end_date)
 
       @react_moments = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
     else

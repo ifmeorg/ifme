@@ -11,12 +11,12 @@
   <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
 
   <%= react_component("ChartControl", props: {
-      types: ['Moments'],
+      types: [],
       initialParams: {
           type: 'Moments',
           data: {
               Moments: @react_moments,
-          },
+          }
       }
   })%>
 

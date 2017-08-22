@@ -14,7 +14,12 @@ describe('ChartControl', () => {
         types={['Moments']}
         initialParams={{
           type: 'Moments',
-          data: { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 },
+          data: {
+            Moments: {
+              '2013-02-10 00:00:00 -0800': 11,
+              '2013-02-11 00:00:00 -0800': 6,
+            },
+          },
         }}
       />);
     }).not.toThrow();
@@ -22,7 +27,7 @@ describe('ChartControl', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find('div').length).toBe(1);
     // one button factoried for each element in types
-    expect(wrapper.find('button').length).toBe(2);
+    expect(wrapper.find('button').length).toBe(1);
     expect(wrapper.find('Chart').length).toBe(1);
   });
 });

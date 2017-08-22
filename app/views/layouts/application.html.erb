@@ -6,14 +6,16 @@
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Webpack Assets -->
+    <%= javascript_pack_tag 'webpack-bundle' %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <!-- Webpack Assets -->
-    <%= javascript_pack_tag 'webpack-bundle' %>
     <%= csrf_meta_tags %>
 
     <% if user_signed_in? %>
