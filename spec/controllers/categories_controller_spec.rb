@@ -71,7 +71,7 @@ RSpec.describe CategoriesController, type: :controller do
         end
       end
       context 'user is trying to edit a category another user created' do
-        it 'redirects to the mood path' do
+        it 'redirects to the category path' do
           get :edit, params: { id: other_category.id }
           expect(response).to redirect_to category_path(other_category)
         end
@@ -101,7 +101,7 @@ RSpec.describe CategoriesController, type: :controller do
         it 're-renders the creation form' do
           expect(response).to render_template(:new)
         end
-        it 'adds errors to the mood ivar' do
+        it 'adds errors to the category ivar' do
           expect(assigns(:category).errors).not_to be_empty
         end
       end
@@ -118,7 +118,7 @@ RSpec.describe CategoriesController, type: :controller do
       it 'creates 4 premade categories' do
         expect { post :premade }.to change(Category, :count).by 4
       end
-      it 'redirects to the mood index page' do
+      it 'redirects to the category index page' do
         post :premade
         expect(response).to redirect_to categories_path
       end
