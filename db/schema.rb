@@ -141,11 +141,9 @@ ActiveRecord::Schema.define(version: 20170806232047) do
     t.string   "slug"
     t.uuid     "secret_share_identifier"
     t.datetime "secret_share_expires_at"
+    t.index ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true, using: :btree
     t.index ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
   end
-
-  add_index "moments", ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true, using: :btree
-  add_index "moments", ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
 
   create_table "moods", force: :cascade do |t|
     t.string   "name"

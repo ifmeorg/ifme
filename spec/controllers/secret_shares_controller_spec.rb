@@ -6,7 +6,7 @@ describe SecretSharesController, type: :controller do
     context 'signed in as creator of the moment' do
       before do
         sign_in moment.user
-        post :create, moment: moment
+        post :create, params: { moment: moment }
       end
 
       it 'Creates Secret Share Identifier' do
@@ -16,7 +16,7 @@ describe SecretSharesController, type: :controller do
 
     context 'not signed in' do
       before do
-        post :create, moment: moment
+        post :create, params: { moment: moment }
       end
 
       it 'does not create Secret Share Identifier' do
@@ -48,7 +48,7 @@ describe SecretSharesController, type: :controller do
 
   describe 'GET show' do
     let(:moment) { create(:moment, :with_user, :with_secret_share) }
-    before { get :show, id: moment.secret_share_identifier }
+    before { get :show, params: { id: moment.secret_share_identifier } }
 
     specify do
       expect(response).to render_template(:show)
