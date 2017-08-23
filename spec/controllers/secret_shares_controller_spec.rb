@@ -42,10 +42,6 @@ describe SecretSharesController, type: :controller do
     end
   end
 
-  context 'secret share has expired' do
-    specify { expect(response.status).to eq 404 }
-  end
-
   describe 'GET show' do
     let(:moment) { create(:moment, :with_user, :with_secret_share) }
     before { get :show, params: { id: moment.secret_share_identifier } }

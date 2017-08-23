@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :secret_shares, only: [:create, :show, :destroy]
+  resources :secret_shares, only: [:create, :show]
 
   resources :strategies do
     collection do
