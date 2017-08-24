@@ -10,12 +10,15 @@ RSpec.describe MoodsController, type: :controller do
   describe 'GET #index' do
     context 'when the user is logged in' do
       include_context :logged_in_user
+      before { get :index }
+      it 'sets the categories and page tooltip ivar' do
+        expect(assigns(:moods)).not_to be_nil
+        expect(assigns(:page_tooltip)).to eq I18n.t('moods.new')
+      end
       it 'renders the page' do
-        get :index
         expect(response).to render_template(:index)
       end
     end
-
     context 'when the user is not logged in' do
       before { get :index }
       it_behaves_like :with_no_logged_in_user
