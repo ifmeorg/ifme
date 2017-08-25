@@ -17,14 +17,6 @@ class MoodsController < ApplicationController
     if @mood.userid == current_user.id
       @page_edit = edit_mood_path(@mood)
       @page_tooltip = t('moods.edit_mood')
-    elsif !(moment = params[:moment]).nil? &&
-          moment.first.mood.include?(@mood.id) &&
-          is_viewer(moment.first.viewers) &&
-          are_allies?(moment.userid, current_user.id)
-      link_url = '/profile?uid=' + get_uid(@mood.userid).to_s
-      name = User.where(id: @mood.userid).first.name
-      the_link = sanitize link_to name, link_url
-      @page_author = the_link.html_safe
     else
       respond_to do |format|
         format.html { redirect_to moods_path }
