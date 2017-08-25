@@ -493,6 +493,7 @@ ptbr:
 
   index:
    title: 'Buscar por Aliados'
+   user_not_found: 'Usuário %{email} não encontrado'
 
  shared:
   footer:

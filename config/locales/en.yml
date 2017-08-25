@@ -492,6 +492,7 @@ en:
 
   index:
    title: 'Search for Allies'
+   user_not_found: 'User %{email} not found'
 
  shared:
   footer:
