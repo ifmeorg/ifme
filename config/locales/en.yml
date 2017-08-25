@@ -342,7 +342,7 @@ en:
     main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
     message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
     main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
+    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
@@ -358,9 +358,9 @@ en:
     data_access_question: 'Who has access to my data?'
     data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
     moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag it with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make it only visible to you.'
+    moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
     strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form or self-care that helps you cope or focus on recovery.<br><br>You can tag it with Categories. You can also choose which allies can view and comment. You can also make it only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
+    strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Memories with Categories. You can also choose which allies can view and comment. You can also make Memories only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
     category_question: 'What is a Category?'
     category_answer: 'A <strong>Category</strong> is a tag that can represent the people, places, and things that are important to you.'
     mood_question: 'What is a Mood?'
@@ -372,7 +372,7 @@ en:
     invite_question: 'How can I invite my loved ones to join the app?'
     invite_answer: 'Go to the <strong>Allies</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
     email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account."
+    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
   home:
     stories: 'Stories'
     welcome: 'Welcome'
