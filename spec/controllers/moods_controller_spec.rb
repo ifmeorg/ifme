@@ -12,7 +12,7 @@ RSpec.describe MoodsController, type: :controller do
       include_context :logged_in_user
       before { get :index }
       it 'sets the categories and page tooltip ivar' do
-        expect(assigns(:moods)).not_to be_nil
+        expect(assigns(:moods)).to eq [user_mood]
         expect(assigns(:page_tooltip)).to eq I18n.t('moods.new')
       end
       it 'renders the page' do

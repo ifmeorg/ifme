@@ -12,7 +12,7 @@ RSpec.describe CategoriesController, type: :controller do
       include_context :logged_in_user
       before { get :index }
       it 'sets the categories and page tooltip ivar' do
-        expect(assigns(:categories)).not_to be_nil
+        expect(assigns(:categories)).to eq [category]
         expect(assigns(:page_tooltip)).to eq I18n.t('categories.new')
       end
       it 'renders the page' do
