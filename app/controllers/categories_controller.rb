@@ -19,10 +19,7 @@ class CategoriesController < ApplicationController
       @page_edit = edit_category_path(@category)
       @page_tooltip = t('categories.edit_category')
     else
-      respond_to do |format|
-        format.html { redirect_to categories_path }
-        format.json { head :no_content }
-      end
+      redirect_to_path(categories_path)
     end
   end
 
@@ -35,10 +32,7 @@ class CategoriesController < ApplicationController
   def edit
     return if @category.userid == current_user.id
 
-    respond_to do |format|
-      format.html { redirect_to category_path(@category) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(category_path(@category))
   end
 
   # POST /categories
@@ -64,10 +58,7 @@ class CategoriesController < ApplicationController
     Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
     Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
 
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { render :no_content }
-    end
+    redirect_to_path(categories_path)
   end
 
   # PATCH/PUT /categories/1
@@ -97,10 +88,8 @@ class CategoriesController < ApplicationController
     end
 
     @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { head :no_content }
-    end
+
+    redirect_to_path(categories_path)
   end
 
   def quick_create
@@ -122,10 +111,7 @@ class CategoriesController < ApplicationController
   def set_category
     @category = Category.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(categories_path)
   end
 
   def category_params

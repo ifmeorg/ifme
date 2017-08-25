@@ -114,10 +114,7 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(groups_path)
   end
 
   def group_params
@@ -153,10 +150,7 @@ class GroupsController < ApplicationController
   end
 
   def redirect_to_index
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(groups_path)
   end
 
   def render_new(errors)

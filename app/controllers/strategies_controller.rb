@@ -83,10 +83,7 @@ class StrategiesController < ApplicationController
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
-      respond_to do |format|
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { head :no_content }
-      end
+      redirect_to_path(strategy_path(@strategy))
     end
   end
 
@@ -160,10 +157,7 @@ class StrategiesController < ApplicationController
     end
 
     @strategy.destroy
-    respond_to do |format|
-      format.html { redirect_to strategies_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(strategies_path)
   end
 
   private
@@ -176,10 +170,7 @@ class StrategiesController < ApplicationController
   def set_strategy
     @strategy = Strategy.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to strategies_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(strategies_path)
   end
 
   def strategy_params
