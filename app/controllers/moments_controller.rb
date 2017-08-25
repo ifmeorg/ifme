@@ -80,10 +80,7 @@ class MomentsController < ApplicationController
   # GET /moments/1/edit
   def edit
     unless @moment.userid == current_user.id
-      return respond_to do |format|
-        format.html { redirect_to moment_path(@moment) }
-        format.json { head :no_content }
-      end
+      redirect_to_path(moment_path(@moment))
     end
 
     set_association_variables!
@@ -130,10 +127,7 @@ class MomentsController < ApplicationController
   # DELETE /moments/1.json
   def destroy
     @moment.destroy
-    respond_to do |format|
-      format.html { redirect_to moments_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moments_path)
   end
 
   private
@@ -141,10 +135,7 @@ class MomentsController < ApplicationController
   def set_moment
     @moment = Moment.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to moments_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moments_path)
   end
 
   def moment_params
