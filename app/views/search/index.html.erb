@@ -10,6 +10,7 @@
 <div class="spacer"></div>
 
 <div class="allies_list">
+  <% if @matching_users.present? %>
     <% @matching_users.each do |user| %>
         <div class="ally center">
           <%= ProfilePicture.fetch(user.avatar.url, 'profile_picture') %>
@@ -27,4 +28,7 @@
           <% end %>
         </div>
     <% end %>
+  <% else %>
+    <%= t('search.index.user_not_found', email: @email_query) %>
+  <% end %>
 </div>

@@ -494,6 +494,7 @@ es:
 
   index:
    title: "Búsqueda por Aliados"
+   user_not_found: 'Usuario %{email} no encontrado'
 
  shared:
   footer:
