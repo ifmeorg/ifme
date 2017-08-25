@@ -21,4 +21,4 @@ var onReadyAnnouncement = function() {
   });
 };
 
-$(document).on("turbolinks:load", onReadyAnnouncement);
+document.addEventListener("turbolinks:load", onReadyAnnouncement);
