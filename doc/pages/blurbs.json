@@ -178,5 +178,14 @@
     "link_name":"desilove",
     "link":"https://twitter.com/desilove",
     "social":"twitter"
+  },
+   {
+    "name":"Tracy P Holmes",
+    "image":"/assets/images/contributors/tracy_holmes.png",
+    "profile":"I fight anxiety on a daily basis. I also come from a family of strong-willed women that historically don't ask for help, nor take care of themselves. I feel contributing to this project will help me pay more attention.",
+    "location":"Austin, USA",
+    "link_name":"tracypholmes",
+    "link":"https://twitter.com/tracypholmes",
+    "social":"twitter"
   }
 ]
