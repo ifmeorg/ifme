@@ -87,4 +87,4 @@ var onReadyAutocompleteCheckboxes = function() {
   }
 };
 
-$(document).on("turbolinks:load", onReadyAutocompleteCheckboxes);
+document.addEventListener("turbolinks:load", onReadyAutocompleteCheckboxes);
