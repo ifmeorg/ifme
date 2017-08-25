@@ -179,7 +179,7 @@
     "link":"https://twitter.com/desilove",
     "social":"twitter"
   },
-   {
+  {
     "name":"Tracy P Holmes",
     "image":"/assets/images/contributors/tracy_holmes.png",
     "profile":"I fight anxiety on a daily basis. I also come from a family of strong-willed women that historically don't ask for help, nor take care of themselves. I feel contributing to this project will help me pay more attention.",
@@ -187,5 +187,14 @@
     "link_name":"tracypholmes",
     "link":"https://twitter.com/tracypholmes",
     "social":"twitter"
+  },
+  {
+    "name":"Tara Swenson",
+    "image":"/assets/contributors/tara_swenson.jpg",
+    "profile":"Growing up struggling with anxiety and depression, I was drawn to others experiencing the same. After losing a friend to suicide, I feel compelled to be honest about my own struggles with mental health. I want to pay forward the same level of support I've personally received from loved ones. This app is helping to fill the support gaps of a broken mental healthcare system.",
+    "location":"Portland, USA",
+    "link_name":"kavixiu",
+    "link":"https://github.com/kavixiu",
+    "social":"github"
   }
 ]
