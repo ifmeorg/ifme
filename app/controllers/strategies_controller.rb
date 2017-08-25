@@ -28,7 +28,7 @@ class StrategiesController < ApplicationController
     is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
 
     if comment_exists
-      strategyid = Comment.where(id: params[:commentid]).first.commented_on
+      strategyid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_strategy = Strategy.where(id: strategyid, userid: current_user.id).exists?
     else
       is_my_strategy = false
