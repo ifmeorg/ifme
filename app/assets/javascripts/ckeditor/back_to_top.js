@@ -8,4 +8,4 @@ function onReadyBackToTop() {
   });
 }
 
-$(document).on("turbolinks:load", onReadyBackToTop);
+document.addEventListener("turbolinks:load", onReadyBackToTop);

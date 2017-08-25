@@ -38,4 +38,4 @@ var onReadyMedications = function() {
   }
 };
 
-$(document).on("turbolinks:load", onReadyMedications);
+document.addEventListener("turbolinks:load", onReadyMedications);
