@@ -21,7 +21,7 @@ var toggleProfileBlurb = function() {
 
 var contributorReadMoreFeature = function(){
   var profileTextLength = 0;
-  const maxProfileLength = 120;
+  var maxProfileLength = 120;
   var visibleProfileText, invisibleProfileText;
   var contributorProfile = $('.contributor_profile');
 
