@@ -103,10 +103,6 @@ class MomentsController < ApplicationController
   # POST /moments
   # POST /moments.json
   def create
-    # TODO: Testing out SentimentAnalysis
-    sentiment = SentimentAnalysis.new(language: "en", id: "test", text: moment_params[:why])
-    sentiment.get_sentiment
-
     @moment = Moment.new(moment_params)
 
     @viewers = current_user.allies_by_status(:accepted)
