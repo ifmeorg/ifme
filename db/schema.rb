@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 20170806232047) do
     t.boolean  "comment"
     t.text     "strategy"
     t.string   "slug"
-    t.float    "sentiment"
     t.index ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
   end
 
