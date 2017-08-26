@@ -44,8 +44,7 @@ gem 'sdoc', '0.4.1', group: :doc
 
 gem 'font-awesome-sass'
 
-gem 'chartkick',                  '2.2.4'
-gem 'groupdate',                  '3.0'
+gem 'groupdate',                  '3.2'
 
 gem 'react_on_rails', '8.0.0'
 

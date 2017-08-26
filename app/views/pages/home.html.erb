@@ -5,7 +5,6 @@
 	<%= render :partial => '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
 
 	<div id="pages">
-    <%= react_component('HelloWorld') %>
 		<div class="page">
 			<% @stories.each do |story| %>
 				<% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies?(current_user.id, story.userid)) %>
