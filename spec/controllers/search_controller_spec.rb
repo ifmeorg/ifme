@@ -22,6 +22,13 @@ RSpec.describe SearchController, type: :controller do
           expect(assigns(:matching_users)).to include(user_three)
           expect(response).to render_template(:index)
         end
+
+        it 'keeps a reference to the email queried' do
+          get :index, params: { search: { email: 'bar@email.com' } }
+
+          expect(assigns(:email_query)).to include('bar@email.com')
+          expect(response).to render_template(:index)
+        end
       end
 
       context 'when have no passed email' do
