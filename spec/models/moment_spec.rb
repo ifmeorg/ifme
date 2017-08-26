@@ -13,7 +13,7 @@
 #  userid     :integer
 #  viewers    :text
 #  comment    :boolean
-#  strategies :text
+#  strategy   :text
 #  slug       :string
 #
 

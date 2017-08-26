@@ -46,5 +46,23 @@
     "link":"http://bluehackers.org/",
     "tags":["tech_industry", "depression", "blog"],
     "languages":["en"]
+  },
+  {
+    "name":"The Mental Illness Happy Hour",
+    "link":"http://mentalpod.com/forum/",
+    "tags":["podcast", "blog", "forum"],
+    "languages":["en"]
+  },
+  {
+    "name":"Kinions",
+    "link":"http://www.katimorton.com",
+    "tags":["forum", "videos"],
+    "languages":["en"]
+  },
+  {
+    "name":"Project Toe",
+    "link":"http://www.projecttoe.com/",
+    "tags":["support_groups", "android", "ios"],
+    "languages":["en"]
   }
 ]

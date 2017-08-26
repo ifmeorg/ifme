@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'google/api_client'
-
 class CalendarUploader
   attr_reader :summary, :date, :access_token, :email
 

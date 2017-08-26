@@ -14,30 +14,26 @@ class NotificationsController < ApplicationController
     notification.destroy if notification.present?
 
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_back(fallback_location: notifications_path) }
       format.json { head :no_content }
     end
   end
 
   def clear
     Notification.where(userid: current_user.id).destroy_all
-    render nothing: true
+    head :ok
   end
 
   def fetch_notifications
-    result = { fetch_notifications: Notification.where(userid: current_user.id).order('created_at ASC').all }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    result = {
+      fetch_notifications: Notification.where(userid: current_user.id)
+                                       .order(:created_at)
+    }
+    respond_with_json(result)
   end
 
   def signed_in
-    result = { signed_in: current_user.id }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(signed_in: current_user.id)
   end
 
   private
@@ -47,7 +43,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.find(params[:id])
   rescue
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_back(fallback_location: notifications_path) }
       format.json { head :no_content }
     end
   end

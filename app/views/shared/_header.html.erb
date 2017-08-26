@@ -16,14 +16,19 @@
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
           <%= nav_link_to(t('groups.plural'), groups_path) %>
           <%= nav_link_to(t('allies.index.title'), allies_path) %>
-          <div class="divider"></div>
+          <div class="horizonal_divider"></div>
           <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
           <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
           <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
+          <%= nav_link_to(t('navigation.resources'), resources_path) %>
           <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
         <% else %>
           <%= nav_link_to(t('account.sign_in'), new_user_session_path) %>
           <%= nav_link_to(t('common.actions.join'), new_user_registration_path) %>
+          <div class="horizonal_divider"></div>
+          <%= nav_link_to(t('navigation.about'), about_path) %>
+          <%= nav_link_to(t('navigation.blog'), blog_path) %>
+          <%= nav_link_to(t('navigation.resources'), resources_path) %>
         <% end %>
       </ul>
     </div>
@@ -42,7 +47,12 @@
         <% else %>
           <%= nav_link_to(t('account.sign_in'), new_user_session_path) %>
           <%= nav_link_to(t('common.actions.join'), new_user_registration_path) %>
+          <li><div class="vertical_divider"></div></li>
+          <%= nav_link_to(t('navigation.about'), about_path) %>
+          <%= nav_link_to(t('navigation.blog'), blog_path) %>
+          <%= nav_link_to(t('navigation.resources'), resources_path) %>
         <% end %>
+        <div class="clear"></div>
       </ul>
 
       <% if user_signed_in? %>
@@ -55,6 +65,7 @@
           <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
           <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
           <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
+          <%= nav_link_to(t('navigation.resources'), resources_path) %>
           <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
         </ul>
       <% end %>

@@ -27,4 +27,4 @@ var onReadyDeleteComment = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyDeleteComment);
+document.addEventListener("turbolinks:load", onReadyDeleteComment);

@@ -18,10 +18,7 @@ class MeetingsController < ApplicationController
 
     @no_hide_page = false
     if hide_page(@meeting)
-      respond_to do |format|
-        format.html { redirect_to group_path(@meeting.groupid) }
-        format.json { head :no_content }
-      end
+      redirect_to_path(group_path(@meeting.groupid))
     else
       @comment = Comment.new
       @comments = Comment.where(commented_on: @meeting.id, comment_type: 'meeting').all.order('created_at DESC')
@@ -31,7 +28,7 @@ class MeetingsController < ApplicationController
 
   def comment
     @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
-    return respond_with_not_saved unless @comment.save
+    return respond_not_saved unless @comment.save
 
     # Notify MeetingMembers except for commenter that there is a new comment
     MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
@@ -60,11 +57,9 @@ class MeetingsController < ApplicationController
       NotificationMailer.notification_email(member.userid, data).deliver_now
     end
 
-    result = generate_comment(@comment, 'meeting')
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(
+      generate_comment(@comment, 'meeting')
+    )
   end
 
   def delete_comment
@@ -323,10 +318,8 @@ class MeetingsController < ApplicationController
 
     groupid = @meeting.groupid
     @meeting.destroy
-    respond_to do |format|
-      format.html { redirect_to group_path(groupid) }
-      format.json { head :no_content }
-    end
+
+    redirect_to_path(group_path(groupid))
   end
 
   private
@@ -335,20 +328,14 @@ class MeetingsController < ApplicationController
   def set_meeting
     @meeting = Meeting.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to groups_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(groups_path)
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def not_a_leader(groupid)
     return if GroupMember.where(groupid: groupid, userid: current_user.id, leader: true).exists?
 
-    respond_to do |format|
-      format.html { redirect_to group_path(groupid) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(group_path(groupid))
   end
 
   def meeting_params
@@ -361,13 +348,5 @@ class MeetingsController < ApplicationController
       return false
     end
     true
-  end
-
-  def respond_with_not_saved
-    result = { no_save: true }
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
   end
 end

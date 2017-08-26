@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class SetupDatabase < ActiveRecord::Migration
+class SetupDatabase < ActiveRecord::Migration[4.2]
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 

@@ -59,6 +59,7 @@ ptbr:
      location: "Localização"
      description: 'Descrição'
      error_explanation: 'Please fill out the marked fields!'
+     press_enter: 'Pressione ENTER para adicionar'
    time_ago: "%{date} atrás"
    write_to_us: "join.ifme@gmail.com"
 
@@ -97,7 +98,6 @@ ptbr:
  categories:
   plural: 'Categorias'
   edit_category: "Editar Categoria"
-  add_category: 'Adcionar categoria'
   new: "Nova Categoria"
   form:
    name_hint: 'Classificar contatos recentes, lugares, coisas, atividades, e mais'
@@ -260,7 +260,6 @@ ptbr:
   singular: 'Humor'
   plural: 'Humor'
   edit_mood: 'Editar Humor'
-  add: 'Adcionar humor'
   new: 'Novo Humor'
   example_moods: 'Nervoso, Ansioso, esperançoso'
   label:
@@ -401,7 +400,7 @@ ptbr:
       message_text_three: 'Verifique nossa página de perguntas frequentes %{faq} ou entre em contato via email %{email_link}!'
       strategize: 'Crie uma Estratégia'
   partners:
-    description: 'Estas são as organizações incríveis pelas quais somos inspirados e tiveram o privilégio de trabalhar. Nós gostaríamos de trabalhar com sua organização, envie-nos um email para %{email}.'
+    description: 'Essas são as incríves instituições que nos inspiram e que tivemos o privilégio de trabalhar juntos. Adoraríamos trabalhar junto da sua instituição. Entre em contato conosco via email %{email}.'
   privacy:
     summary: 'Sumário'
     summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente.Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
@@ -464,6 +463,18 @@ ptbr:
         care_planning: planejamento de cuidados
         depression: depressão
         ocd: OCD
+        advice: conselho
+        forum: fórum
+        learning: aprender
+        crisis_prevention: Prevenção de Crises
+        safety_planning: Planejamento de Segurança
+        suicide_prevention: Prevenção de Suicídio
+        android: android
+        ios: iOS
+        support_groups: grupos de suporte
+        mindfulness: paz de espírito
+        journaling: Diário
+        mood_tracking: Registro de alterações de humor
 
  profile:
   index:
@@ -523,14 +534,13 @@ ptbr:
     not_attending_spots_left: 'Você não irá participar? Existem apenas %{number} vagas disponível! %{join}'
     not_attending_no_spots_left: 'Você não irá participar! Não existem mais vagas disponíveis.'
   quick_create:
-   add: 'Adcionar %{name}'
+   new: 'Nova %{name}'
 
  strategies:
   singular: 'Estratégia'
   plural: 'Estratégias'
   edit_strategy: 'Editar Estratégia'
   tagged_strategies: 'Estratégias Marcadas'
-  add_strategy: 'Adcionar estratégia '
   new: 'Nova Estratégia'
   form:
    describe: 'Descreva a estratégia'

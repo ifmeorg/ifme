@@ -1,10 +1,4 @@
 FactoryGirl.define do
-  factory :notification do
-    association :user, factory: :user1
-    uniqueid "MyString"
-    data "MyText"
-  end
-
   factory :group_member do
     association :user, factory: :user1
     group
@@ -22,22 +16,22 @@ FactoryGirl.define do
   end
 
   factory :meeting do
-    name "Test Name"
-    description "Test Description"
-    location "Test Location"
-    time "Test Time"
+    name 'Test Name'
+    description 'Test Description'
+    location 'Test Location'
+    time 'Test Time'
     maxmembers 1
     date Date.tomorrow
     sequence(:groupid)
   end
 
   factory :bad_group, class: Group do
-    name "Test Group"
+    name 'Test Group'
   end
 
   factory :group do
-    name "Test Group"
-    description "Group description"
+    name 'Test Group'
+    description 'Group description'
 
     factory :group_with_member do
       transient do
@@ -53,48 +47,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :user1, class: User do
-    name "Oprah Chang"
-    sequence(:email) { |n| "oprah.chang#{n}@example.com" }
-    password "password"
-    location "Toronto, ON, Canada"
-  end
-
-  factory :user2, class: User do
-    name "Plum Blossom"
-    email "plum.blossom@example.com"
-    password "password"
-    location "Toronto, ON, Canada"
-
-    trait :with_allies do
-      transient do
-        number_of_allies 3
-      end
-
-      after(:create) do |user, evaluator|
-        evaluator.number_of_allies.times do |i|
-          ally = create :user1, name: "Ally #{i}"
-          create :allyships_accepted, user_id: user.id, ally_id: ally.id
-        end
-      end
-    end
-  end
-
-  factory :user3, class: User do
-    name "Gentle Breezy"
-    email "gentle.breezy@example.com"
-    password "password"
-    location "Toronto, ON, Canada"
-  end
-
-  factory :user_oauth, class: User do
-    name "Orange Southland"
-    email "orange.southland@example.com"
-    password "password"
-    location "Toronto, ON, Canada"
-    token "has_a_token"
-  end
-
   factory :allyships_accepted, class: Allyship do
     status :accepted
   end
@@ -108,19 +60,19 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name  "Test Category"
-    description "Test Description"
+    name  'Test Category'
+    description 'Test Description'
   end
 
   factory :medication do
-    name "Fancy Medication Name"
+    name 'Fancy Medication Name'
     dosage 10
-    dosage_unit "tablet"
+    dosage_unit 'tablet'
     refill 01/01/2020
     strength 12
-    strength_unit "mg"
-    total "30"
-    total_unit "tablets"
+    strength_unit 'mg'
+    total '30'
+    total_unit 'tablets'
 
     after(:create) do |medication|
       create :take_medication_reminder, medication: medication, active: false
@@ -150,20 +102,20 @@ FactoryGirl.define do
   end
 
   factory :mood do
-    name  "Test Mood"
-    description "Test Mood"
+    name  'Test Mood'
+    description 'Test Mood'
   end
 
   factory :moment do
-    name  "Test Moment"
-    why "Test Why"
-    fix "Test fix"
+    name  'Test Moment'
+    why 'Test Why'
+    fix 'Test fix'
     comment true
   end
 
   factory :comment do
-    comment_type "moment"
-    comment "Test Comment"
+    comment_type 'moment'
+    comment 'Test Comment'
   end
 
   factory :take_medication_reminder do
@@ -171,26 +123,6 @@ FactoryGirl.define do
   end
 
   factory :refill_reminder do
-    active true
-  end
-
-  factory :strategy do
-    name "Test Strategy"
-    description "Test Description"
-    comment true
-
-    after(:create) do |strategy|
-      create :perform_strategy_reminder, strategy: strategy, active: false
-    end
-
-    trait :with_daily_reminder do
-      after(:create) do |strategy|
-        create :perform_strategy_reminder, strategy: strategy
-      end
-    end
-  end
-
-  factory :perform_strategy_reminder do
     active true
   end
 end

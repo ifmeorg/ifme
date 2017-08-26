@@ -2,7 +2,14 @@
   "presets": ["flow", "es2015", "stage-2", "react"],
   "env": {
     "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "flow-react-proptypes"
+      ]
     }
   }
 }

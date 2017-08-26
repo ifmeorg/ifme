@@ -43,7 +43,7 @@
 #  refresh_token          :string
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,
@@ -68,6 +68,7 @@ class User < ActiveRecord::Base
   has_many :medications, foreign_key: :userid
   has_many :strategies, foreign_key: :userid
   has_many :notifications, foreign_key: :userid
+  has_many :moments, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
@@ -124,6 +125,14 @@ class User < ActiveRecord::Base
     )
 
     new_access_token
+  end
+
+  def ally?(user)
+    allies_by_status(:accepted).include?(user)
+  end
+
+  def mutual_allies?(user)
+    ally?(user) && user.ally?(self)
   end
 
   def allies_by_status(status)

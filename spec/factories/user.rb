@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -46,5 +48,48 @@ FactoryGirl.define do
     sequence(:email) { |n| "some-email#{n}@ifme.org" }
     sequence(:name) { |n| "Some Person#{n}" }
     password 'password'
+  end
+
+  factory :user1, class: User do
+    name "Oprah Chang"
+    sequence(:email) { |n| "oprah.chang#{n}@example.com" }
+    password "password"
+    location "Toronto, ON, Canada"
+  end
+
+  factory :user2, class: User do
+    name "Plum Blossom"
+    email "plum.blossom@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+
+    trait :with_allies do
+      transient do
+        number_of_allies 3
+      end
+
+      after(:create) do |user, evaluator|
+        evaluator.number_of_allies.times do |i|
+          ally = create :user1, name: "Ally #{i}"
+          create :allyships_accepted, user_id: user.id, ally_id: ally.id
+        end
+      end
+    end
+  end
+
+  factory :user3, class: User do
+    name "Gentle Breezy"
+    email "gentle.breezy@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+  end
+
+  factory :user_oauth, class: User do
+    name "Orange Southland"
+    email "orange.southland@example.com"
+    password "password"
+    location "Toronto, ON, Canada"
+    token "has_a_token"
+    access_expires_at { Time.zone.now + 600 }
   end
 end

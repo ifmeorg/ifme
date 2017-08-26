@@ -59,6 +59,7 @@ es:
      location: "Ubicación"
      description: "Descripción"
      error_explanation: "Por favor completa los campos indicados"
+     press_enter: 'Presione ENTER para agregar'
    time_ago: 'hace %{date}'
    write_to_us: "escríbenos"
 
@@ -98,7 +99,6 @@ es:
   singular: "Categoría"
   plural: "Categorías"
   edit_category: "Editar categoría"
-  add_category: "Agregar categoría"
   new: "Nueva categoría"
   form:
    name_hint: "Categoriza personas, lugares, cosas, actividades, y más"
@@ -262,7 +262,6 @@ es:
   singular: "Estado de Ánimo"
   plural: "Estados de Ánimo"
   edit_mood: "Editar Estados de Ánimo"
-  add: "Agregar Estado de Ánimo"
   new: "Nuevo Estado de Ánimo"
   example_moods: "Nervios, Ansiedad, Esperanza"
   label:
@@ -465,6 +464,18 @@ es:
       care_planning: preparación de cuidado
       depression: depresión
       ocd: OCD
+      advice: consejo
+      forum: foro
+      learning: aprender
+      crisis_prevention: prevención de crisis
+      safety_planning: plan de seguridad
+      suicide_prevention: prevención de suicidio
+      android: android
+      ios: iOS
+      support_groups: grupos de apoyo
+      mindfulness: atención consciente
+      journaling: mi diario
+      mood_tracking: registro de estados de ánimo
 
  profile:
   index:
@@ -524,14 +535,13 @@ es:
     not_attending_spots_left: "No vas a asistir. ¡Quedan %{number} lugares! %{join}"
     not_attending_no_spots_left: "No vas a asistir. No hay lugar para que puedas unirte."
   quick_create:
-   add: "Agregar %{name}"
+   new: "Nueva %{name}"
 
  strategies:
   singular: "Estrategia"
   plural: "Estrategias"
   edit_strategy: "Editar estrategia"
   tagged_strategies: "Estrategias etiquetadas"
-  add_strategy: "Agregar estrategia"
   new: "Nueva estrategia"
   form:
    describe: "Describir estrategia"

@@ -29,7 +29,7 @@ RSpec.describe GroupsController, :type => :controller do
       it "sets the group" do
         stub_current_user
 
-        get :show, id: group.id
+        get :show, params: { id: group.id }
 
         expect(assigns(:group)).to eq(group)
       end
@@ -40,7 +40,7 @@ RSpec.describe GroupsController, :type => :controller do
           group = create :group_with_member, userid: controller.current_user.id
           meeting = create :meeting, groupid: group.id
 
-          get :show, id: group.id
+          get :show, params: { id: group.id }
 
           expect(assigns(:meetings)).to eq [meeting]
         end
@@ -50,7 +50,7 @@ RSpec.describe GroupsController, :type => :controller do
     context "when group doesn't exist" do
       it "redirects to the index" do
         stub_current_user
-        get :show, id: 999
+        get :show, params: { id: 999 }
 
         expect(response).to redirect_to(groups_path)
       end
@@ -58,7 +58,7 @@ RSpec.describe GroupsController, :type => :controller do
 
     context "when user isn't signed in" do
       it "redirects to sign in" do
-        get :show, id: 999
+        get :show, params: { id: 999 }
 
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -69,7 +69,7 @@ RSpec.describe GroupsController, :type => :controller do
     it 'redirects to groups path when current_user is not a leader' do
       stub_current_user
       group = create :group
-      get :edit, id: group.id
+      get :edit, params: { id: group.id }
 
       expect(response).to redirect_to(groups_path)
     end
@@ -82,7 +82,7 @@ RSpec.describe GroupsController, :type => :controller do
         group_member = create :group_member, userid: controller.current_user.id,
                                              leader: true
 
-        get :leave, groupid: group_member.group.id
+        get :leave, params: { groupid: group_member.group.id }
 
         expect(response).to redirect_to(groups_path)
         expect(flash[:alert]).to eq(
@@ -99,7 +99,7 @@ RSpec.describe GroupsController, :type => :controller do
       user = create :user
       non_leader = create :group_member, group: group, leader: false, user: user
 
-      put :update, id: group.id, group: { leader: [user.id] }
+      put :update, params: { id: group.id, group: { leader: [user.id] } }
 
       non_leader.reload
       expect(non_leader.leader).to be true

@@ -1,4 +1,4 @@
-class CreateMedicationReminders < ActiveRecord::Migration
+class CreateMedicationReminders < ActiveRecord::Migration[4.2]
   def change
     create_table :take_medication_reminders do |t|
       t.integer :medication_id, null: false

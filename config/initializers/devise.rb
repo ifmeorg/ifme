@@ -5,11 +5,11 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = ENV['DEVISE_SECRET_KEY']
-  
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.
+  # with default "from" parameter[:
   config.mailer_sender = ENV['SMTP_ADDRESS']
 
   # Configure the class responsible to send e-mails.
@@ -307,8 +307,14 @@ Devise.setup do |config|
   end
 
   require 'omniauth-google-oauth2'
-    config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'],
-    ENV['GOOGLE_CLIENT_SECRET'],
-    { access_type: "offline", approval_prompt: "select_account consent force",
-    scope: 'userinfo.email,userinfo.profile,calendar' }
+    config.omniauth(
+      :google_oauth2,
+      ENV['GOOGLE_CLIENT_ID'],
+      ENV['GOOGLE_CLIENT_SECRET'],
+      {
+        access_type: 'offline',
+        approval_prompt: 'select_account consent force',
+        scope: 'userinfo.email,userinfo.profile,calendar'
+      }
+    )
 end

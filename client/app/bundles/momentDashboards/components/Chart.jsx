@@ -1,54 +1,48 @@
 // @flow
 import 'chart.js';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { AreaChart } from 'react-chartkick';
+import { AreaChart, LineChart } from 'react-chartkick';
 
-// const request = require('superagent');
-
-type chartProps = {
-  title: string,
-    data: {},
-};
-
-type chartState = {
-  title: string,
+type chartShape = {
+  xtitle: string,
+  ytitle: string,
   data: {},
+  chartType: "Line" | "Area",
 };
 
+// ifme themed chart colors
+// TODO: auto-generate based on size of inputs if we hit > 5 categories per graph
+const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
+
+/**
+ * Renders a Chart Kick element.
+ *
+ * We wrap the element here in case we want to replace ChartKick with another library.
+ */
+// We keep the class otherwise our enzyme tests can't reference this component by name
+// eslint-disable-next-line react/prefer-stateless-function
 export default class Chart extends React.Component {
-    props: chartProps;
-    state: chartState;
-    static propTypes = {
-      title: PropTypes.string.isRequired, // this is passed from the Rails view
-    };
+    props: chartShape;
 
     /**
      * @param props - Comes from your rails view.
-     * @param _railsContext - Comes from React on Rails
      */
-    constructor(props: chartProps, railsContext: {}) {
-      super(props);
-      console.log('ON CONSTRUCTION');
-
-      this.state = {
-        title: this.props.title,
-        data: this.props.data,
-      };
-    }
-
-    componentDidMount() {
-
-    }
-
-    updateTitle = (title: string) => {
-      this.setState({ title });
-    };
-
     render() {
       return (
         <div>
-          <AreaChart id={'users-chart'} data={this.state.data} />
+          {this.props.chartType === 'Line' ?
+            <LineChart
+              xtitle={this.props.xtitle}
+              ytitle={this.props.ytitle}
+              data={this.props.data}
+              colors={colorSchemes}
+            /> : <AreaChart
+              xtitle={this.props.xtitle}
+              ytitle={this.props.ytitle}
+              data={this.props.data}
+              colors={colorSchemes}
+            />}
+
         </div>);
     }
 }

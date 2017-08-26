@@ -2,10 +2,11 @@
 
 class SearchController < ApplicationController
   def index
-    mail = params[:search][:email]
-
-    @matching_users = User.where.not(id: current_user.id).all
-    @matching_users = @matching_users.where(email: mail.strip) if mail.present?
+    permitted = params.require(:search).permit(:email)
+    raise ActionController::ParameterMissing if permitted.blank?
+    @matching_users = search_by_email(permitted[:email].strip)
+  rescue ActionController::ParameterMissing
+    redirect_to_path(allies_path)
   end
 
   def posts
@@ -14,13 +15,14 @@ class SearchController < ApplicationController
 
     return unless data_type.in?(%w[moment category mood strategy medication])
 
-    respond_to do |format|
-      format.html { redirect_to make_path(term, data_type) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(make_path(term, data_type))
   end
 
   private
+
+  def search_by_email(email)
+    User.where(email: email).where.not(id: current_user.id)
+  end
 
   def make_path(term, data_type)
     send("#{data_type.pluralize}_path", ({ search: term } if term.present?))

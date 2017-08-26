@@ -1,4 +1,4 @@
-RSpec.feature "UserVisitsGroupsPages", type: :feature do
+RSpec.feature "UserVisitsGroupsPages", type: :feature, js: true do
   feature 'User vists groups page' do
     scenario 'successfully' do
       user = create :user1
