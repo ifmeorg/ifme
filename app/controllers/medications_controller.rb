@@ -67,7 +67,7 @@ class MedicationsController < ApplicationController
   # DELETE /medications/1.json
   def destroy
     @medication.destroy
-    redirect_to_path(medications)
+    redirect_to_path(medications_path)
   end
 
   def return_to_sign_in
