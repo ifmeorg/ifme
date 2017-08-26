@@ -11,7 +11,7 @@
 #  updated_at    :datetime
 #
 
-class RefillReminder < ActiveRecord::Base
+class RefillReminder < ApplicationRecord
   belongs_to :medication
   validates :active, inclusion: { in: [true, false] }
   scope :active, -> { where(active: true) }

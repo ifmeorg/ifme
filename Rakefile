@@ -24,41 +24,34 @@ end
 
 desc 'Automate the Config Setup for New Environments'
 task :setup_workspace do
-  dev_example = Rails.root + 'config/env/development.example.env'
-  dev_target = Rails.root + 'config/env/development.env'
-  FileUtils.cp(dev_example, dev_target)
+  SECRETS = {
+    SECRET_KEY_BASE: generate_secret,
+    DEVISE_SECRET_KEY: generate_secret
+  }.freeze
 
-  test_example = Rails.root + 'config/env/test.example.env'
-  test_target = Rails.root + 'config/env/test.env'
-  FileUtils.cp(test_example, test_target)
+  %w[development test].each do |environment|
+    example = Rails.root.join('config', 'env', "#{environment}.example.env")
+    target = Rails.root.join('config', 'env', "#{environment}.env")
+    FileUtils.cp(example, target)
 
-  # Used code from http://stackoverflow.com/a/3543 on Rakefile output capture
-  def capture_stdout
-    s = StringIO.new
-    oldstdout = $stdout
-    $stdout = s
-    yield
-    s.string
-  ensure
-    $stdout = oldstdout
+    # insert the secrets into the file
+    content = File.read(target)
+    %w[SECRET_KEY_BASE DEVISE_SECRET_KEY].each do |key|
+      content.sub!(%(#{key}=""), %(#{key}="#{SECRETS[key.to_sym]}"))
+    end
+    File.write(target, content)
   end
+end
 
-  # Run the secret task, grab the output, strip the new lines
-  secret_key_base = capture_stdout { Rake::Task['secret'].invoke }.strip.gsub(/\n\s+/, ' ').squeeze(' ')
+# Run the secret task, grab the output, strip the new lines
+def generate_secret
+  s = StringIO.new
+  oldstdout = $stdout
+  $stdout = s
+  Rake::Task['secret'].invoke
+  s.string.strip
+ensure
   # Must renable the task or else it won't execute again
   Rake::Task['secret'].reenable
-  devise_secret_key = capture_stdout { Rake::Task['secret'].invoke }.strip.gsub(/\n\s+/, ' ').squeeze(' ')
-
-  # insert the secrets into the files
-  replacements = [
-    [/SECRET_KEY_BASE=""/, %(SECRET_KEY_BASE="#{secret_key_base}")],
-    [/DEVISE_SECRET_KEY=""/, %(DEVISE_SECRET_KEY="#{devise_secret_key}")]
-  ]
-  [dev_target.to_s, test_target.to_s].each do |file|
-    content = File.read(file)
-    replacements.each do |replacement|
-      content.gsub!(replacement[0], replacement[1])
-    end
-    File.write(file, content)
-  end
+  $stdout = oldstdout
 end

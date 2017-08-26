@@ -11,7 +11,7 @@
 #  updated_at    :datetime
 #
 
-class TakeMedicationReminder < ActiveRecord::Base
+class TakeMedicationReminder < ApplicationRecord
   belongs_to :medication
   validates :active, inclusion: { in: [true, false] }
   scope :active, -> { where(active: true) }

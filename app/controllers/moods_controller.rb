@@ -17,19 +17,8 @@ class MoodsController < ApplicationController
     if @mood.userid == current_user.id
       @page_edit = edit_mood_path(@mood)
       @page_tooltip = t('moods.edit_mood')
-    elsif !(moment = params[:moment]).nil? &&
-          moment.first.mood.include?(@mood.id) &&
-          is_viewer(moment.first.viewers) &&
-          are_allies(moment.userid, current_user.id)
-      link_url = '/profile?uid=' + get_uid(@mood.userid).to_s
-      name = User.where(id: @mood.userid).first.name
-      the_link = sanitize link_to name, link_url
-      @page_author = the_link.html_safe
     else
-      respond_to do |format|
-        format.html { redirect_to moods_path }
-        format.json { head :no_content }
-      end
+      redirect_to_path(moods_path)
     end
   end
 
@@ -41,11 +30,7 @@ class MoodsController < ApplicationController
   # GET /moods/1/edit
   def edit
     return if @mood.userid == current_user.id
-
-    respond_to do |format|
-      format.html { redirect_to mood_path(@mood) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(mood_path(@mood))
   end
 
   # POST /moods
@@ -72,10 +57,7 @@ class MoodsController < ApplicationController
     Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
     Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
 
-    respond_to do |format|
-      format.html { redirect_to moods_path }
-      format.json { render :no_content }
-    end
+    redirect_to_path(moods_path)
   end
 
   # PATCH/PUT /moods/1
@@ -105,10 +87,7 @@ class MoodsController < ApplicationController
     end
 
     @mood.destroy
-    respond_to do |format|
-      format.html { redirect_to moods_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moods_path)
   end
 
   def quick_create
@@ -120,10 +99,7 @@ class MoodsController < ApplicationController
                { error: 'error' }
              end
 
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   private
@@ -132,10 +108,7 @@ class MoodsController < ApplicationController
   def set_mood
     @mood = Mood.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to moods_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moods_path)
   end
 
   def mood_params

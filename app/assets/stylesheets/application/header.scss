@@ -14,6 +14,12 @@
   @media screen and (min-width: $medium + 1) {
     padding: 30px 60px;
   }
+
+  .vertical_divider {
+    height: 52px;
+    margin: 0;
+    opacity: 0.5;
+  }
 }
 
 // Main Navigation Links

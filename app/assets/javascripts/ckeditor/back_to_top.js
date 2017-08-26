@@ -2,10 +2,10 @@ function scrollToBackToTop() {
   $("html, body").animate({ scrollTop: 0 }, 1000);
 }
 
-var onReadyBackToTop = function() {
+function onReadyBackToTop() {
   $(".back_to_top").click(function() {
     scrollToBackToTop();
   });
-};
+}
 
-$(document).on("page:load ready", onReadyBackToTop);
+document.addEventListener("turbolinks:load", onReadyBackToTop);

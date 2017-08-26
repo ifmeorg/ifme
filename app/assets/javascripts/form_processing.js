@@ -138,4 +138,4 @@ var onReadyFormProcessing = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyFormProcessing);
+document.addEventListener("turbolinks:load", onReadyFormProcessing);

@@ -29,7 +29,6 @@
  *= require_self
  */
 
-@import "compass/support";
 @import "compass/utilities";
 @import "base/*";
 @import "font-awesome-sprockets";
@@ -254,7 +253,7 @@ ul.no_bullet_list li {
   }
 }
 
-.divider {
+.horizonal_divider {
   width: 100%;
   height: 1px;
   background-color: $subtle-secondary-text-color;
@@ -264,6 +263,19 @@ ul.no_bullet_list li {
   @media screen and (max-width: $medium) {
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+}
+
+.vertical_divider {
+  width: 1px;
+  background-color: $subtle-secondary-text-color;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  @media screen and (max-width: $medium) {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 
@@ -465,12 +477,12 @@ a.page_search:hover {
 
 .subtitle {
   font: $font34 $font-family;
-  font-weight: $sm;
+  font-weight: $md;
   text-align: center;
 
   @media screen and (max-width: $medium) {
     font: $font30 $font-family;
-    font-weight: $sm;
+    font-weight: $md;
     text-align: center;
   }
 }

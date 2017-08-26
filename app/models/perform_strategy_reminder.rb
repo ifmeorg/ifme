@@ -11,7 +11,7 @@
 #  updated_at  :datetime
 #
 
-class PerformStrategyReminder < ActiveRecord::Base
+class PerformStrategyReminder < ApplicationRecord
   belongs_to :strategy
   validates :active, inclusion: { in: [true, false] }
   scope :active, -> { where(active: true) }

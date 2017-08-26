@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require js.cookie.js
 //= require ckeditor/init
 //= require jquery
 //= require jquery_ujs
-//= require Chart.bundle
-//= require chartkick
 //= require turbolinks
 //= require jquery-readyselector
 //= require bootstrap-datepicker
@@ -24,23 +23,7 @@
 //= require i18n.js
 //= require i18n/translations
 
-I18n.locale = getCookie("locale") || I18n.defaultLocale;
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) === " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return null;
-}
+I18n.locale = Cookies.get("locale") || I18n.defaultLocale;
 
 function isAllAlliesInputBoxIsChecked(inputTag) {
 	return inputTag.is(":checked") && $("#viewers_label").text() === ALL_ALLIES;
@@ -82,13 +65,12 @@ var onReadyApplication = function() {
 	});
 
 	// Timezone detection
-	var tz = jstz.determine();
-	$.cookie("timezone", tz.name(), { path: "/" });
+	Cookies.set("timezone", jstz.determine().name());
 
 	$(".yes_title").find(":not(.no_title)").tooltip();
 };
 
-$(document).on("page:load ready", onReadyApplication);
+document.addEventListener("turbolinks:load", onReadyApplication);
 
 var beforeunloadApplication = function() {
   $(window).scrollTop(0);

@@ -12,7 +12,7 @@
 #  slug        :string
 #
 
-class Group < ActiveRecord::Base
+class Group < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :name, :description, presence: true

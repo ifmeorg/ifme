@@ -13,11 +13,13 @@
 #  slug        :string
 #
 
-class Mood < ActiveRecord::Base
+class Mood < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :description, length: { maximum: 2000 }
   validates :userid, :name, presence: true
+
+  belongs_to :user, foreign_key: :userid
 
   def self.link
     'moods'

@@ -18,16 +18,8 @@ class CategoriesController < ApplicationController
     if @category.userid == current_user.id
       @page_edit = edit_category_path(@category)
       @page_tooltip = t('categories.edit_category')
-    elsif can_view_category(params[:moment].id, params[:strategy].id, @category)
-      link_url = '/profile?uid=' + get_uid(@category.userid).to_s
-      name = User.where(id: @category.userid).first.name
-      the_link = sanitize link_to name, link_url
-      @page_author = the_link.html_safe
     else
-      respond_to do |format|
-        format.html { redirect_to categories_path }
-        format.json { head :no_content }
-      end
+      redirect_to_path(categories_path)
     end
   end
 
@@ -40,10 +32,7 @@ class CategoriesController < ApplicationController
   def edit
     return if @category.userid == current_user.id
 
-    respond_to do |format|
-      format.html { redirect_to category_path(@category) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(category_path(@category))
   end
 
   # POST /categories
@@ -69,10 +58,7 @@ class CategoriesController < ApplicationController
     Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
     Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
 
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { render :no_content }
-    end
+    redirect_to_path(categories_path)
   end
 
   # PATCH/PUT /categories/1
@@ -102,10 +88,8 @@ class CategoriesController < ApplicationController
     end
 
     @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { head :no_content }
-    end
+
+    redirect_to_path(categories_path)
   end
 
   def quick_create
@@ -118,10 +102,7 @@ class CategoriesController < ApplicationController
       result = { error: 'error' }
     end
 
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
+    respond_with_json(result)
   end
 
   private
@@ -130,26 +111,10 @@ class CategoriesController < ApplicationController
   def set_category
     @category = Category.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to categories_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(categories_path)
   end
 
   def category_params
     params.require(:category).permit(:name, :description, :userid)
-  end
-
-  def can_view_category(moment_id, strategy_id, category)
-    if !(strategy = Strategy.find(strategy_id)).nil? &&
-       is_viewer(strategy.viewers)
-      return true
-    elsif category && !(moment = Moment.find(moment_id)).nil? &&
-          moment.category.include?(category.id) &&
-          is_viewer(moment.viewers) &&
-          are_allies(moment.userid, current_user.id)
-      return true
-    end
-    false
   end
 end

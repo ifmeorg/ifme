@@ -12,7 +12,7 @@
 #  updated_at   :datetime
 #
 
-class Support < ActiveRecord::Base
+class Support < ApplicationRecord
   validates :userid, :support_type, :support_ids, presence: true
   serialize :support_ids, Array
   validates :support_type, inclusion: %w[category mood moment strategy]

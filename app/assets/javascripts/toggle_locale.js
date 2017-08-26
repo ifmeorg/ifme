@@ -13,9 +13,9 @@ function toggleLocale(locale, previousLocale) {
 		}
 	}).done(function(data) {
 		if (data.signed_in_no_reload) {
-			window.document.cookie = "locale=" + data.signed_in_no_reload;
+			Cookies.set("locale", data.signed_in_no_reload);
 		} else if (data.signed_in_reload) {
-			window.document.cookie = "locale=" + data.signed_in_reload;
+			Cookies.set("locale", data.signed_in_reload);
 			window.location.reload();
 		} else {
 			whenSignedOut(locale, previousLocale);
@@ -23,15 +23,15 @@ function toggleLocale(locale, previousLocale) {
 	});
 }
 
-var onReadyToggleLocale = function() {
+onReadyToggleLocale = function() {
 	$("#locale").change(function() {
 		if ($(this).val()) {
-			var previousLocale = getCookie("locale");
+			var previousLocale = Cookies.get("locale");
 			var updatedLocale = $(this).val();
-			window.document.cookie = "locale=" + updatedLocale;
+			Cookies.set("locale", updatedLocale);
 			toggleLocale(updatedLocale, previousLocale);
 		}
 	});
 };
 
-$(document).on("page:load ready", onReadyToggleLocale);
+document.addEventListener("turbolinks:load", onReadyToggleLocale);

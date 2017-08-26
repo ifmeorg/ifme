@@ -10,4 +10,4 @@ var onReadyExpandToggle = function() {
 	}
 };
 
-$(document).on("page:load ready", onReadyExpandToggle);
+document.addEventListener("turbolinks:load", onReadyExpandToggle);
