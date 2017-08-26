@@ -16,12 +16,18 @@ type chartControlProp = {
   };
 }
 
-const ChartControlButton = (index: number, type: string, onClick: (type: string) => void) => {
-  return (<button key={index} onClick={onClick}>{type}</button>);
-};
+const ChartControlButton =
+  (index: number, type: string, onClick: (type: string) => void) => (
+    <button
+      className={'ui-button ui-widget ui-corner-all'}
+      key={index}
+      onClick={onClick}
+    >
+      {type}
+    </button>);
 
 /**
- * Control Panel for selecting different objects to analyze for moments.
+ * Control Panel for selecting different objects to graph.
  */
 export default class ChartControl extends React.Component {
   props: chartControlProp;
@@ -40,12 +46,12 @@ export default class ChartControl extends React.Component {
 
   onSelectType(value: string) {
     return () => {
-      this.setState({ type: value });
+      this.setState({type: value});
     };
   }
 
   render() {
-    const { types } = this.props;
+    const {types} = this.props;
     const buttons: any[] = [];
     _.each(types, (value, index: number) => {
       buttons.push(new ChartControlButton(index, value, this.onSelectType(value)));
@@ -53,7 +59,12 @@ export default class ChartControl extends React.Component {
     return (
       <div>
         {buttons}
-        <Chart ytitle={`${this.state.type}`} xtitle="Date" data={this.state.data[this.state.type]} chartType="Area" />
+        <Chart
+          ytitle={`${this.state.type}`}
+          xtitle="Date"
+          data={this.state.data[this.state.type]}
+          chartType="Area"
+        />
       </div>
     );
   }
