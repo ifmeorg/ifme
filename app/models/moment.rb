@@ -38,6 +38,11 @@ class Moment < ApplicationRecord
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
 
+  scope :from_secret_share, lambda { |identifier|
+  where(secret_share_identifier: identifier)
+    .where('expires_at > NOW()')
+  }
+
   def array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)

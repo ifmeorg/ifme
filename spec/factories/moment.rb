@@ -9,6 +9,7 @@ FactoryGirl.define do
 
     trait :with_secret_share do
       secret_share_identifier SecureRandom.uuid
+      secret_share_expires_at 1.day.from_now
     end
 
     trait :with_user do

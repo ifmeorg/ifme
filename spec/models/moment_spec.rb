@@ -38,4 +38,17 @@ describe Moment do
 			expect(new_moment.viewers.count).to eq(1)
 		end
 	end
+
+	describe '#owned_by?' do
+		let(:moment) { build(:moment, :with_user) }
+		let(:user) { moment.user }
+		let(:subject) { moment.owned_by?(user) }
+
+		it { is_expected.to be true }
+
+		context 'when the user does not own the moment' do
+			let(:user) { create(:user) }
+			it { is_expected.to be false }
+		end
+	end	
 end
