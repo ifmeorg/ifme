@@ -14,7 +14,7 @@ class MomentsController < ApplicationController
 
       period = 'day'
       # +1 day buffer to ensure we include today as well
-      end_date = Date.current + 1.days
+      end_date = Date.current + 1.day
       start_date = get_start_by_period(period, end_date)
 
       @react_moments = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
@@ -217,13 +217,13 @@ class MomentsController < ApplicationController
   def get_start_by_period(period, end_date)
     case period
     when 'day'
-      end_date - 1.weeks
+      end_date - 1.week
     when 'week'
-      end_date - 1.months
+      end_date - 1.month
     when 'month'
-      end_date - 1.years
+      end_date - 1.year
     else
-      end_date - 1.weeks
+      end_date - 1.week
     end
   end
 end
