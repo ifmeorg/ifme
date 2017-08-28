@@ -23,5 +23,3 @@ class Notification < ApplicationRecord
     )
   }
 end
-
-Notifications.for_ally(user_id, ally_id)
