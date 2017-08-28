@@ -10,6 +10,16 @@
 <% if @moments.length > 0 %>
   <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
 
+  <%= react_component("ChartControl", props: {
+      types: [],
+      initialParams: {
+          type: 'Moments',
+          data: {
+              Moments: @react_moments,
+          }
+      }
+  })%>
+
   <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
 
   <div id="pages">
@@ -25,6 +35,7 @@
   }) %>
 
 <div class="spacer"></div>
+
 
 <div id="pages">
   <div class="page">

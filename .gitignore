@@ -31,3 +31,10 @@
 
 # Ignore auto-generated JavaScript
 /public/javascripts
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/public/webpack/*
+

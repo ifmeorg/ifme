@@ -44,6 +44,10 @@ gem 'sdoc', '0.4.1', group: :doc
 
 gem 'font-awesome-sass'
 
+gem 'groupdate',                  '3.2'
+
+gem 'react_on_rails', '8.0.0'
+
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
 
@@ -68,8 +72,10 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'jshint'
+  # not compatible with react_on_rails
+  # gem 'jshint'
   gem 'rubocop', '~> 0.48.0'
+  gem 'foreman'
 end
 
 group :test do
@@ -82,3 +88,6 @@ end
 group :production do
   gem 'rails_12factor', '0.0.3'
 end
+
+gem 'mini_racer', platforms: :ruby
+gem 'webpacker_lite'

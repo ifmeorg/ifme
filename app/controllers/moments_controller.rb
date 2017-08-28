@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'groupdate'
 
 class MomentsController < ApplicationController
   include CollectionPageSetup
@@ -8,6 +9,19 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
+    if current_user
+      @user_logged_in = true
+
+      period = 'day'
+      # +1 day buffer to ensure we include today as well
+      end_date = Date.current + 1.days
+      start_date = get_start_by_period(period, end_date)
+
+      @react_moments = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
+    else
+      @user_logged_in = false
+    end
+
     page_collection('@moments', 'moment')
   end
 
@@ -90,6 +104,7 @@ class MomentsController < ApplicationController
   # POST /moments.json
   def create
     @moment = Moment.new(moment_params)
+
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
@@ -169,5 +184,18 @@ class MomentsController < ApplicationController
     end
 
     Strategy.where(id: strategy_ids).order(created_at: :desc)
+  end
+
+  def get_start_by_period(period, end_date)
+    case period
+    when 'day'
+      end_date - 1.weeks
+    when 'week'
+      end_date - 1.months
+    when 'month'
+      end_date - 1.years
+    else
+      end_date - 1.weeks
+    end
   end
 end
