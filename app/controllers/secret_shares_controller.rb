@@ -5,8 +5,8 @@ class SecretSharesController < ApplicationController
   skip_before_action :if_not_signed_in, only: [:show]
 
   def create
-    #need to add an authorisation check here
-    moment = Moment.friendly.find(params[:moment])
+    #Authorisation check will automatically raise ActiveRecord::RecordNotFound
+    moment = Moment.where(userid: current_user.id).friendly.find(params[:moment])
     moment.update!(secret_share_identifier: SecureRandom.uuid, secret_share_expires_at: 1.day.from_now)
     redirect_to moment_path(moment)
   end
@@ -21,8 +21,8 @@ class SecretSharesController < ApplicationController
     end
   end
 
-  def delete
-    moment = Moment.friendly.find(params[:moment])
+  def destroy
+    moment = Moment.find_by!(userid: current_user.id, secret_share_identifier: params[:id])
     moment.update!(secret_share_identifier: nil)
     redirect_to moment_path(moment)
   end
