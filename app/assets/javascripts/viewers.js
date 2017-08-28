@@ -6,4 +6,4 @@ var onReadyViewers = function() {
 	}
 };
 
-document.addEventListener("turbolinks:load", onReadyViewers);
+loadPage(onReadyViewers);

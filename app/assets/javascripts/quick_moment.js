@@ -41,4 +41,4 @@ var onReadyQuickMoment = function() {
   });
 };
 
-document.addEventListener("turbolinks:load", onReadyQuickMoment);
+loadPage(onReadyQuickMoment);

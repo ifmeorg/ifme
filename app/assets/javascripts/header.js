@@ -84,4 +84,4 @@ var onReadyHeader = function() {
   });
 };
 
-document.addEventListener("turbolinks:load", onReadyHeader);
+loadPage(onReadyHeader);

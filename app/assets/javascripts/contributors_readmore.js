@@ -40,4 +40,4 @@ var contributorReadMoreFeature = function(){
 };
 
 $(document).on('click', '.toggle', toggleProfileBlurb);
-document.addEventListener("turbolinks:load", contributorReadMoreFeature);
+loadPage(contributorReadMoreFeature);

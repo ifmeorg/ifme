@@ -17,4 +17,4 @@ var onReadyStrategies = function() {
 	}
 };
 
-document.addEventListener("turbolinks:load", onReadyStrategies);
+loadPage(onReadyStrategies);

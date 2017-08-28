@@ -9,4 +9,4 @@ var initAutocomplete = function() {
   }
 }
 
-$(document).on('turbolinks:load', initAutocomplete);
+loadPage(initAutocomplete);
