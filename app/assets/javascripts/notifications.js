@@ -156,4 +156,4 @@ var onReadyNotifications = function() {
   });
 };
 
-document.addEventListener("turbolinks:load", onReadyNotifications);
+loadPage(onReadyNotifications);

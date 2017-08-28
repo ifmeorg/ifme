@@ -90,4 +90,4 @@ var onReadyQuickCreate = function() {
   }
 };
 
-document.addEventListener("turbolinks:load", onReadyQuickCreate);
+loadPage(onReadyQuickCreate);

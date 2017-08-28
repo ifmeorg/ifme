@@ -8,4 +8,4 @@ var onReadyPageAnchor = function() {
   }
 };
 
-document.addEventListener("turbolinks:load", onReadyPageAnchor);
+loadPage(onReadyPageAnchor);

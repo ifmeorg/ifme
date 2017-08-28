@@ -109,4 +109,4 @@ var onReadyAddComment = function() {
 	}
 };
 
-document.addEventListener("turbolinks:load", onReadyAddComment);
+loadPage(onReadyAddComment);

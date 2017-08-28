@@ -63,4 +63,4 @@ var onReadyCharacterCount = function() {
   }
 };
 
-document.addEventListener("turbolinks:load", onReadyCharacterCount);
+loadPage(onReadyCharacterCount);
