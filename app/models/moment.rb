@@ -65,4 +65,8 @@ class Moment < ApplicationRecord
   def owned_by?(user)
     user.id == userid
   end
+
+  def shared?
+    !!secret_share_identifier
+  end
 end

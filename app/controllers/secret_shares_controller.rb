@@ -14,7 +14,6 @@ class SecretSharesController < ApplicationController
   def show
     @moment = Moment.find_by(secret_share_identifier: params[:id])
     if Time.now < @moment.secret_share_expires_at
-      #expiry may be after 30mins, to discuss.
       render 'moments/show'
     else
       raise ActiveRecord::RecordNotFound
@@ -26,5 +25,4 @@ class SecretSharesController < ApplicationController
     moment.update!(secret_share_identifier: nil)
     redirect_to moment_path(moment)
   end
-
 end

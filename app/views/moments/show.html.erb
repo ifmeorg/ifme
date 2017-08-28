@@ -2,7 +2,10 @@
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
 <% if current_user.try(:id) == @moment.userid %>
   <p>
-    <%= button_to t('moments.secret_share'), secret_shares_path(moment: @moment.id) %>
+    <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id) %>
+    <% if @moment.shared? %>
+      <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), method: :delete %>
+    <% end %>
     <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %>
   </p>
 <% end %>
