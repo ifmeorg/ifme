@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806232047) do
+ActiveRecord::Schema.define(version: 20170830075513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20170806232047) do
     t.string   "total_unit"
     t.text     "comments"
     t.string   "slug"
+    t.boolean  "add_to_google_cal"
     t.index ["slug"], name: "index_medications_on_slug", unique: true, using: :btree
   end
 
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170806232047) do
     t.boolean  "comment"
     t.text     "strategy"
     t.string   "slug"
+    t.float    "sentiment"
     t.index ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
   end
 
