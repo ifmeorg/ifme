@@ -1,0 +1,25 @@
+sv:
+  devise:
+    failure:
+      invited: "Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto."
+    invitations:
+      send_instructions: "Ett inbjudningsbrev har skickats till %{email}."
+      invitation_token_invalid: "Inbjudan tillkännagivandet är inte giltigt!"
+      updated: "Ditt lösenord har upprättats. Du är nu inloggad."
+      updated_not_active: "Ditt lösenord har upprättats."
+      no_invitations_remaining: "Inga inbjudningar kvar"
+      invitation_removed: "Din inbjudan har tagits bort."
+      new:
+        header: "Skicka en allierad inbjudan"
+        submit_button: "Skicka en inbjudan"
+      edit:
+        header: "Ange ditt lösenord"
+        submit_button: "Ange mitt lösenord"
+    mailer:
+      invitation_instructions:
+        subject: "Du har blivit inbjuden att gå med if me!"
+        hello: "Hej %{email}!"
+        someone_invited_you: "%{name} har bjudit in dig att gå med http://if-me.org, ett samhälle att dela mentala hälsopreparationer med dina nära och kära och hålla reda på dina humör, mediciner och egenvård. Du kan acceptera inbjudan via länken nedan."
+        accept: "Acceptera inbjudan!"
+        accept_until: "Denna inbjudan upphör att gälla den %{due_date}."
+        ignore: "Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />\nDitt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord."
