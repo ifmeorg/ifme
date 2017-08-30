@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: moments
@@ -17,6 +16,7 @@
 #  comment    :boolean
 #  strategy   :text
 #  slug       :string
+#  sentiment  :float
 #
 
 class Moment < ApplicationRecord

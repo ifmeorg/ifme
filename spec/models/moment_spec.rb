@@ -15,6 +15,7 @@
 #  comment    :boolean
 #  strategy   :text
 #  slug       :string
+#  sentiment  :float
 #
 
 describe Moment do

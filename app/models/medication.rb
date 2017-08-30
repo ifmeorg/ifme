@@ -1,23 +1,23 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: medications
 #
-#  id            :integer          not null, primary key
-#  name          :string
-#  dosage        :integer
-#  refill        :string
-#  created_at    :datetime
-#  updated_at    :datetime
-#  userid        :integer
-#  total         :integer
-#  strength      :integer
-#  strength_unit :string
-#  dosage_unit   :string
-#  total_unit    :string
-#  comments      :text
-#  slug          :string
+#  id                :integer          not null, primary key
+#  name              :string
+#  dosage            :integer
+#  refill            :string
+#  created_at        :datetime
+#  updated_at        :datetime
+#  userid            :integer
+#  total             :integer
+#  strength          :integer
+#  strength_unit     :string
+#  dosage_unit       :string
+#  total_unit        :string
+#  comments          :text
+#  slug              :string
+#  add_to_google_cal :boolean
 #
 
 class Medication < ApplicationRecord
