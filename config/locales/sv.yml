@@ -34,7 +34,7 @@ sv:
    give_feedback: 'Ge Återkoppling'
    medium: 'Medium'
    press: 'Press'
-   faq: 'Vanliga Frågor'
+   faq: 'FAQ'
    resources: 'Medel'
 
  common:
@@ -42,9 +42,9 @@ sv:
    you: 'Du'
    title: 'Titel'
    date: 'Datum:'
-   daily_reminder: 'Daglig påminnelse email'
+   daily_reminder: 'Daglig påminnelse via email'
    actions:
-    submit: 'Lämna'
+    submit: 'Lämna in'
     confirm: 'Är du säker?'
     delete: 'Radera'
     edit: 'Redigera'
@@ -108,7 +108,7 @@ sv:
   index:
    subtitle: 'Livet är rörigt, kategorisera olika människor, platser och saker.'
    premade1_name: 'Familj'
-   premade1_description: 'Familjelaterade'
+   premade1_description: 'Familjrelaterade'
    premade2_name: 'Vänner'
    premade2_description: 'Vänner relaterade'
    premade3_name: 'Arbete'
@@ -146,12 +146,12 @@ sv:
     remove_member_success: "Du har tagit bort %{user} från %{group}"
   new: 'Ny Grupp'
   show:
-   led_by: 'Ledd av:'
+   led_by: 'Leds av:'
    delete: 'Radera grupp'
 
  layouts:
   application:
-   signin: 'Berätta för dina historier nu'
+   signin: 'Berätta dina historier nu'
    create_account: 'Gå med i samhället nu'
    update_account: 'Anpassa ditt konto'
    if: 'if'
@@ -185,8 +185,8 @@ sv:
    total_hint: 'Totalt antal piller eller mängd medicinering'
    dosage_hint: 'Antal piller eller portioner dagligen'
    refill_hint: 'När ska du fylla på receptet'
-   refill_reminder_hint: "Vi skickar e-post till dig en påminnelse veckan innan läkemedlet behöver fyllas på igen."
-   daily_reminder_hint: "Vi skickar e-post till dig en daglig påminnelse för att ta detta läkemedel"
+   refill_reminder_hint: "Vi skickar e-post till dig med en påminnelse veckan innan läkemedlet behöver fyllas på igen."
+   daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att ta detta läkemedel"
   new: 'Ny Medicinering'
   units:
    display: "%{count} %{unit}"
@@ -229,7 +229,7 @@ sv:
     other: '%{count} Medlem <strong>i</strong> %{group}'
   reminder_mailer:
     subject: "Ditt möte \"%{meeting_name}\" är imorgon på %{time}!"
-    body: "Här är en vänlig påminnelse om att ditt möte imorgon, \"%{meeting_name}\", kommer att äga rum på %{time} i %{location}!"
+    body: "Här är en vänlig påminnelse om att ditt möte imorgon, \"%{meeting_name}\", kommer att äga rum %{time} i %{location}!"
   leave:
     error: 'Du kan inte lämna mötet, du är den enda ledaren.'
     success: 'Du har lämnat %{meeting}'
@@ -239,10 +239,10 @@ sv:
   singular: 'Ögonblick'
   plural: 'Ögonblicken'
   quick_moment_disclaimer: 'Detta kommer att delas med alla allierade med kommentarer på. Du kan alltid redigera det senare.'
-  categories_and_moods: 'Kategorier och Humören'
+  categories_and_moods: 'Kategorier och Humör'
   edit_moment: 'Redigera Ögonblick'
   tagged: 'Taggade Ögonblick'
-  new: 'Ny Ögonblick'
+  new: 'Nya Ögonblick'
   form:
    why: 'Vad hände och hur känner du dig?'
    fix: 'Vilka tankar skulle du vilja ha?'
@@ -251,21 +251,21 @@ sv:
 
   index:
    subtitle: 'Fördjupa dig djupt i dina ögonblick - händelser och situationer som påverkar din mentala hälsa.'
-   instructions: "Du har inte skrivit några stunder än. Klicka %{icon} för att lägga till några!<br><br>Vet inte vart du ska börja? Vad har hänt i dag att du vill dela och diskutera med en älskad? Det kan vara positivt eller negativt! Du kan inte behöva dela det direkt - bara när du är redo att! Här är ett exempel på en stund."
-   example_name: 'Panik över intervju imorgon!'
+   instructions: "Du har inte skrivit några ögonblick än. Klicka %{icon} för att lägga till några!<br><br>Vet inte vart du ska börja? Vad har hänt i dag som du vill dela och diskutera med en älskad? Det kan vara positivt eller negativt! Du behöver inte dela det direkt - bara när du är redo att! Här är ett exempel på ett ögonblick."
+   example_name: 'Panik över en intervju imorgon!'
    example_category: 'Karriär'
   show:
    strategies: 'Vilka strategier skulle hjälpa till?'
 
  moods:
   singular: 'Humör'
-  plural: 'Humören'
-  edit_mood: 'Redigera humör'
+  plural: 'Humör'
+  edit_mood: 'Redigera Humör'
   new: 'Nytt Humör'
   example_moods: 'Nervös, Orolig, Förhoppningsfull'
   label:
    one: 'Humör:'
-   other: 'Humören:'
+   other: 'Humör:'
   index:
    subtitle: 'Skapa taggar som beskriver din sinnesstämning, känslor och känslor.'
    premade1_name: 'Acceptera'
@@ -278,16 +278,16 @@ sv:
    premade4_description: 'Inte acceptera vissa fakta, känner sig arg, hämnd och/eller avundsjuk'
    premade5_name: 'Hopplös'
    premade5_description: 'Känner sig ledsen och hopplös - kan inte hitta några möjliga lösningar'
-   instructions: "Du har inte skapat några anpassade humören än. Klicka på %{icon} för att lägga till några!<br>Du kan också lägga till följande premade humör och anpassa dem till en annan gång."
+   instructions: "Du har inte skapat några anpassade humör än. Klicka på %{icon} för att lägga till några!<br>Du kan också lägga till tidigare humör och anpassa dem till en annan gång."
 
  notifications:
-  plural: 'Anmälningar'
+  plural: 'Notis'
   none: 'Det finns inga'
   clear: 'Klar'
   created_by_html: "<strong>Skapad av</strong>: %{name}"
   preview: 'Visa mer'
   members:
-   title: 'Förteckning över Medlemmar'
+   title: 'Lista över Medlemmar'
   ally:
    accepted: '%{name} accepterade din allierade begäran!'
    sent_html: '%{link_to_user} skickade en allierad begäran!'
@@ -305,9 +305,9 @@ sv:
    update_meeting: '%{name} har uppdaterat "%{meeting_name}" för "%{group_name}"'
    join_meeting: '%{name} anslöt sig "%{meeting_name}" för "%{group_name}"'
   mailer:
-    comment_on_moment_subject: "if me | %{user} kommenterade just nu \"%{moment}\""
+    comment_on_moment_subject: "if me | %{user} kommenterade ditt ögonblick \"%{moment}\""
     comment_on_strategy_subject: "if me | %{user} kommenterade din strategi \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} kommenterade mötet \"%{meeting}\" in the group \"%{group}\""
+    comment_on_meeting_subject: "if me | %{user} kommenterade mötet \"%{meeting}\" i gruppen \"%{group}\""
     comment_on_private_body: "<p>Din allierade <strong>%{user}</strong> kommenterade privat:</p>"
     comment_on_body: "<p>Din allierade <strong>%{user}</strong> kommenterade:</p>"
     comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
@@ -337,56 +337,56 @@ sv:
  pages:
   about:
     send_us: 'oss'
-    email_us: 'Feel free to email %{email_link}!'
-    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
-    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
-    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
-    main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
+    email_us: 'Skicka gärna email %{email_link}!'
+    main_message_one: "%{app_name} är en gemenskap för mentala erfarenheter som uppmuntrar människor att dela sina personliga historier med betrodda allierade."
+    message_text_one: "Tillförlitliga allierade är de människor vi samarbetar med dagligen, inklusive vänner, familjemedlemmar, medarbetare, lärare och psykiatriska arbetstagare."
+    main_message_two: "Att hantera mental hälsa är det som gör oss mänskliga. Men för många av oss är det en kamp att vara öppen om det."
+    message_text_two: "Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class=\"subtitle block\">\"Det är i ditt huvud, men det är också runt omkring dig.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod</p>"
+    main_message_three: "Vill du hjälpa till att finansiera oss?"
+    message_text_three: "Vår app är en <u>fullständigt</u> öppen källprojekt. Det är byggt och underhållet av volontärer med många olika bakgrunder och färdighetssätt.</p><p>År 2016 mottog vi ett stipendium från %{linebreak_link}. År 2017 mottog vi finansiering från %{fund_club_link}.</p>Du kan stödja oss genom att donera till vår %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
-    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+    description: "Om du är intresserad av att skriva för oss, pitcha oss på %{email}! Vi välkomnar anonyma inlägg också."
   contributors:
-    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
-    more_contributors: 'More Fabulous Contributors!'
-    thanks: 'A huge thanks to'
+    main_message_one: "if me är byggs och underhålls av volontärer med många olika bakgrunder och färdighetssätt."
+    message_text_one: "Vi letar alltid efter idéer från alla, inklusive <strong>mentala hälsa förespråkare</strong>, <strong>hälsoproffs</strong>, <strong>mjukvaruutvecklare</strong>, och <strong>användarupplevelse designers</strong>!<p class=\"no_margin_bottom\">Vänligen %{email_link} och vi kommer att ansluta till dig! Du kommer bli inbjuden att delta i vår %{slack_link} sida, vårt primära kommunikationsverktyg. Var noga med att gaffla vårt arkiv värd för %{github_link}!</p>"
+    more_contributors: 'Mer Fantastiska Bidragsgivare!'
+    thanks: 'Ett stort tack till'
     slack: 'Slack'
   faq:
-    title: 'Vanliga frågor'
-    data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
-    moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
-    strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Memories with Categories. You can also choose which allies can view and comment. You can also make Memories only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
-    category_question: 'What is a Category?'
-    category_answer: 'A <strong>Category</strong> is a tag that can represent the people, places, and things that are important to you.'
-    mood_question: 'What is a Mood?'
-    mood_answer: 'A <strong>Mood</strong> is a tag describing your state of mind, feelings, and emotions.'
-    group_question: 'What is a Group?'
-    group_answer: 'A <strong>Group</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
-    medications_question: 'How do I use the Medications feature?'
-    medications_answer: 'The <strong>Medications</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
-    invite_question: 'How can I invite my loved ones to join the app?'
-    invite_answer: 'Go to the <strong>Allies</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
-    email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+    title: 'FAQ'
+    data_access_question: 'Vem har tillgång till mina uppgifter?'
+    data_access_answer: 'Data ges inte eller görs tillgänglig för någon tredje part. Om du tar bort ditt konto tas alla data bort.<br><br>Användaruppgifter analyseras i appen för att ge anpassade rekommendationer.'
+    moment_question: 'Vad är ett Ögonblick?'
+    moment_answer: 'Ett <strong>Ögonblick</strong> är en händelse och situation som påverkar din mentala hälsa. Det kan vara positivt eller negativt. Tänk på det som en journalpost eller en statusuppdatering.<br><br>Du kan märka Minnen med Strategier, Kategorier och Humör. Du kan också välja vilka allierade kan se och kommentera. Du kan också göra Minnen bara synliga för dig.'
+    strategy_question: 'Vad är en Strategi?'
+    strategy_answer: 'En <strong>Strategi</strong> är en aktivitet, tankegång eller egenvård som hjälper dig att hantera eller fokusera på återhämtning.<br><br>Du kan märka Minnen med Kategorier. Du kan också välja vilka allierade kan se och kommentera. Du kan också göra Minnen bara synliga för dig. Delade Strategier kommer att vara synliga för alla allierade som anges, vilket innebär att du kan märka dina Ögonblick med sina Strategier!'
+    category_question: 'Vad är en Kategori?'
+    category_answer: 'En <strong>Kategori</strong> är en etikett som kan representera de människor, platser och saker som är viktiga för dig.'
+    mood_question: 'Vad är ett Humör?'
+    mood_answer: 'Ett <strong>Humör</strong> är en tagg som beskriver din sinnesstämning, känslor och känslor.'
+    group_question: 'Vad är en Grupp?'
+    group_answer: 'En <strong>Grupp</strong> erbjuder stöd, mentorskap och diskussioner om mental hälsa. Du kan skapa Grupper och dina allierade har möjlighet att gå med. Du kan bara gå med i grupper som skapas av dina allierade.<br><br>Som Gruppledare kan du skapa <strong>Möten</strong>. Möten har en plats och tid. Platsen kan vara en fysisk plats eller en Google Hangout URL. Möten tillåter också kommentarer. Om du är Gruppledare kan du inte lämna en grupp om inte en annan ledare finns. Grupper kan bara raderas när du är den enda medlemmen.'
+    medications_question: 'Hur använder jag Läkemedelsfunktionen?'
+    medications_answer: '<strong>Läkemedlen</strong> funktionen låter dig logga på receptbelagda läkemedel du tar. Du kan också logga in dina symptom.'
+    invite_question: 'Hur kan jag bjuda in mina älskade att ansluta till appen?'
+    invite_answer: 'Gå till den <strong>Allierade</strong> sidan och klicka på länken "Bjud in dina älskade". Du kommer att kunna bjuda in dem via email. När din älskade accepterar inbjudan kommer de att läggas till din allierade lista.'
+    email_notifications_question: 'Hur kan jag ändra e-postmeddelanden?'
+    email_notifications_answer: "Gå till <strong>Konto</strong> sidan genom att slå %{desktop_icon} (skrivbordet) eller %{mobile_icon} (mobil) i navigeringsfältet. Du kan ändra ditt email, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
   home:
-    stories: 'Stories'
-    welcome: 'Welcome'
+    stories: 'Berättelser'
+    welcome: 'Välkommen'
     not_signed_in:
-      main_message_one: 'Better communication with loved ones leads to better mental health.'
-      message_text_one: "We need each other's support to break down stigmas."
-      message_one: 'Share your stories with loved ones and get the support you deserve'
-      message_two: 'Be you, no strings attached and with security and privacy'
-      message_three: 'Document your moods, medications, and self-care'
-      main_message_two: "Storytelling is the key to mental health education."
-      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
-      main_message_three: 'We are open source because mental health should be open.'
-      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      main_message_one: 'Bättre kommunikation med nära och kära leder till bättre mental hälsa.'
+      message_text_one: "Vi behöver varandras stöd för att bryta ner stigmas."
+      message_one: 'Dela dina historier med dina nära och få det stöd du förtjänar'
+      message_two: 'Var du, inga strängar kopplade och med säkerhet och integritet'
+      message_three: 'Dokumentera dina humör, mediciner och egenvård'
+      main_message_two: "Storytelling är nyckeln till psykisk hälsoutbildning."
+      message_text_two: "Lär dig från <strong>samhället</strong> i vår %{blog}."
+      main_message_three: 'Vi är öppna källor eftersom mental hälsa borde vara öppen.'
+      message_text_three: "Vi letar <strong>alltid</strong> efter din %{help} och %{feedback}!"
       help: 'hjälpa'
     signed_in_empty:
       main_message_one: 'Hej %{name}!'
