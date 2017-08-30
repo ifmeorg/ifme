@@ -37,10 +37,13 @@ class Moment < ApplicationRecord
   validates :userid, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
+  validates :secret_share_expires_at, presence: true, if: :secret_share_identifier?
 
-  scope :from_secret_share, lambda { |identifier|
-  where(secret_share_identifier: identifier)
-    .where('expires_at > NOW()')
+  scope :find_secret_share!, lambda { |identifier|
+    find_by!(
+      secret_share_identifier: identifier,
+      'secret_share_expires_at > NOW()'
+    )
   }
 
   def array_data
@@ -67,6 +70,7 @@ class Moment < ApplicationRecord
   end
 
   def shared?
-    !!secret_share_identifier
+    secret_share_identifier? &&
+      Time.zone.now < secret_share_expires_at
   end
 end

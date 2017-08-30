@@ -40,7 +40,7 @@ describe SecretSharesController, type: :controller do
   describe 'GET show' do
 
     context 'secret share has expired' do
-      let(:moment) { create(:moment, :with_user, :with_secret_share, secret_share_expires_at: 1.day.ago) }
+      let(:moment) { create(:moment, :with_user, :with_secret_share, secret_share_expires_at: NOW()) }
       specify { expect { get :show, params: { id: moment.secret_share_identifier } }.to raise_error(ActiveRecord::RecordNotFound) }
     end
 

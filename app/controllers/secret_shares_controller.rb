@@ -12,12 +12,8 @@ class SecretSharesController < ApplicationController
   end
 
   def show
-    @moment = Moment.find_by(secret_share_identifier: params[:id])
-    if Time.now < @moment.secret_share_expires_at
-      render 'moments/show'
-    else
-      raise ActiveRecord::RecordNotFound
-    end
+    @moment = Moment.find_secret_share!(params[:id])
+    render 'moments/show'
   end
 
   def destroy
