@@ -41,8 +41,9 @@ class Moment < ApplicationRecord
 
   scope :find_secret_share!, lambda { |identifier|
     find_by!(
-      secret_share_identifier: identifier,
-      'secret_share_expires_at > NOW()'
+      'secret_share_expires_at > NOW()',
+      secret_share_identifier: identifier
+
     )
   }
 

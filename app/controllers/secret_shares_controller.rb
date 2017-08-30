@@ -14,6 +14,8 @@ class SecretSharesController < ApplicationController
   def show
     @moment = Moment.find_secret_share!(params[:id])
     render 'moments/show'
+  rescue ActiveRecord::RecordNotFound
+    raise ActiveRecord::RecordNotFound
   end
 
   def destroy
