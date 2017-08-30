@@ -37,8 +37,6 @@ class Medication < ApplicationRecord
   validates :total, numericality: { greater_than_or_equal_to: 0 }
   validates :strength, numericality: { greater_than_or_equal_to: 0 }
 
-  attr_accessor :add_to_google_cal
-
   def active_reminders
     return unless refill_reminder && take_medication_reminder
     [refill_reminder, take_medication_reminder].select(&:active?)
