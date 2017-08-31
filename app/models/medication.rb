@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: medications
@@ -32,7 +33,8 @@ class Medication < ApplicationRecord
   has_one :refill_reminder
   accepts_nested_attributes_for :take_medication_reminder
   accepts_nested_attributes_for :refill_reminder
-  validates :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit, :total_unit, :strength_unit, presence: true
+  validates :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
+            :total_unit, :strength_unit, presence: true
   validates :dosage, numericality: { greater_than_or_equal_to: 0 }
   validates :total, numericality: { greater_than_or_equal_to: 0 }
   validates :strength, numericality: { greater_than_or_equal_to: 0 }
@@ -44,8 +46,8 @@ class Medication < ApplicationRecord
 
   def new_cal_refill_reminder_needed?
     if add_to_google_cal &&
-        refill &&
-        ( add_to_google_cal_changed? || refill_changed? )
+       refill &&
+       (add_to_google_cal_changed? || refill_changed?)
       true
     else
       false
