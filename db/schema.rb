@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20170830075513) do
     t.string   "total_unit"
     t.text     "comments"
     t.string   "slug"
-    t.boolean  "add_to_google_cal"
+    t.boolean  "add_to_google_cal", default: false
     t.index ["slug"], name: "index_medications_on_slug", unique: true, using: :btree
   end
 
