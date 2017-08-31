@@ -4,7 +4,7 @@ module MedicationRefillHelper
   # Save refill date to Google calendar
   def save_refill_to_google_calendar(medication)
     return true unless current_user.google_oauth2_enabled? &&
-                       medication.add_to_google_cal == '1'
+                       medication.new_cal_refill_reminder_needed?
     begin
       args = calendar_uploader_params(medication)
       CalendarUploader.new(args).upload_event
