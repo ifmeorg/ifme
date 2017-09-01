@@ -103,7 +103,6 @@ class MomentsController < ApplicationController
   # POST /moments.json
   def create
     @moment = Moment.new(moment_params)
-
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
@@ -143,35 +142,7 @@ class MomentsController < ApplicationController
     @moment.destroy
     redirect_to_path(moments_path)
   end
-
-  # GET /moments/analytics
-  # GET /moments/analytics.json
-  def analytics
-    period = params[:period].present? ? params[:period] : 'day'
-    value = params[:value].present? ? params[:value] : 'Moments'
-    end_date = params[:end_date].present? ? Date.parse(params[:end_date]) : Date.today
-    start_date = params[:start_date].present? ? Date.parse(params[:start_date]) : get_start_by_period(period, end_date)
-
-    case value
-      when 'Moments'
-        # restrict our moments to our current user id
-        result = Moment.where('userid = ?', current_user.id).group_by_period(period, :created_at, range: start_date..end_date).count
-      when 'Categories'
-        # TODO: implement
-        result = {}
-      when 'Moods'
-        # TODO: implement
-        result = {}
-      else
-        result = {}
-    end
-
-    respond_to do |format|
-      format.html { render json: result }
-      format.json { render json: result }
-    end
-  end
-
+  
   private
 
   def set_moment
