@@ -1,8 +1,12 @@
 machine:
   ruby:
     version: 2.3.4
+  node:
+    version: 6
 
 dependencies:
+  cache_directories:
+    - "~/.cache/yarn"
   pre:
     - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - sudo dpkg -i google-chrome.deb
@@ -12,6 +16,7 @@ dependencies:
     - gem install bundler --pre
     - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       --jobs=4 --retry=3
+    - yarn
 
 test:
   pre:

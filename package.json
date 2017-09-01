@@ -4,5 +4,12 @@
   "dependencies": {},
   "scripts": {
     "postinstall": "cd client && yarn install"
-  }
+  },
+  "engines": {
+    "node": "6.x"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ]
 }
