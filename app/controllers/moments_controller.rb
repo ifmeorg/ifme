@@ -142,7 +142,7 @@ class MomentsController < ApplicationController
     @moment.destroy
     redirect_to_path(moments_path)
   end
-  
+
   private
 
   def set_moment
