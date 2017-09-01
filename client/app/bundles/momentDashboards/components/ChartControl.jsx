@@ -16,11 +16,15 @@ type chartControlProp = {
   };
 }
 
+type ChartControlButtonProps = {
+  type: string,
+  onClick: (type: string) => void,
+}
+
 const ChartControlButton =
-  (index: number, type: string, onClick: (type: string) => void) => (
+  ({ type, onClick }: ChartControlButtonProps) => (
     <button
       className={'ui-button ui-widget ui-corner-all'}
-      key={index}
       onClick={onClick}
     >
       {type}
@@ -51,10 +55,14 @@ export default class ChartControl extends React.Component {
   }
 
   render() {
-    const {types} = this.props;
+    const { types } = this.props;
     const buttons: any[] = [];
-    _.each(types, (value, index: number) => {
-      buttons.push(new ChartControlButton(index, value, this.onSelectType(value)));
+    _.each(types, (value: string, index: number) => {
+      buttons.push(<ChartControlButton
+        key={index}
+        type={value}
+        onClick={this.onSelectType(value)}
+      />);
     });
     return (
       <div>
