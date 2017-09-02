@@ -198,7 +198,10 @@ class ApplicationController < ActionController::Base
                                            current_user)
     end
 
-    if (data_type == 'moment' && (Moment.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'strategy' && (Strategy.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
+    if (data_type == 'moment' && (Moment.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
+       (data_type == 'strategy' && (Strategy.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
+       (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
+
       delete_comment = '<div class="table_cell delete_comment">'
       delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: 'delete_comment_' + data.id.to_s, class: 'delete_comment_button'
       delete_comment += '</div>'

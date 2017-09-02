@@ -21,13 +21,23 @@ class MeetingsController < ApplicationController
       redirect_to_path(group_path(@meeting.groupid))
     else
       @comment = Comment.new
-      @comments = Comment.where(commentable_id: @meeting.id, commentable_type: 'meeting').all.order('created_at DESC')
+      @comments = Comment.where(
+        commentable_id: @meeting.id,
+        commentable_type: 'meeting'
+      ).all.order('created_at DESC')
+
       @no_hide_page = true
     end
   end
 
   def comment
-    @comment = Comment.new(commentable_type: params[:commentable_type], commentable_id: params[:commentable_id], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
+    @comment = Comment.new(
+      commentable_type: params[:commentable_type],
+      commentable_id: params[:commentable_id],
+      comment_by: params[:comment_by],
+      comment: params[:comment],
+      visibility: 'all'
+    )
     return respond_not_saved unless @comment.save
 
     # Notify MeetingMembers except for commenter that there is a new comment
