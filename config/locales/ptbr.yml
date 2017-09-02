@@ -291,8 +291,8 @@ ptbr:
    accepted: '%{name} aceitou seu pedido de aliado!'
    sent_html: '%{link_to_user} enviar um pedido para se tornar aliado!'
   comment:
-   full: '%{name} commentou "%{comment}" sobre %{commented_on}'
-   truncated: '%{name} commentado "%{comment}" [...] sobre %{commented_on}'
+   full: '%{name} commentou "%{comment}" sobre %{commentable_id}'
+   truncated: '%{name} commentado "%{comment}" [...] sobre %{commentable_id}'
   group:
    new_group: '%{name} criou um grupo chamado "%{group_name}"'
    new_group_member: '%{name} se juntou ao grupo "%{group_name}"'

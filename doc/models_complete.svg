@@ -66,8 +66,8 @@
 <text text-anchor="middle" x="527.505" y="-225.3" font-family="Times,serif" font-size="14.00">Comment</text>
 <polyline fill="none" stroke="black" points="453.221,-218.5 601.79,-218.5 "/>
 <text text-anchor="start" x="461.221" y="-203.3" font-family="Times,serif" font-size="14.00">id :integer</text>
-<text text-anchor="start" x="461.221" y="-189.3" font-family="Times,serif" font-size="14.00">comment_type :string</text>
-<text text-anchor="start" x="461.221" y="-175.3" font-family="Times,serif" font-size="14.00">commented_on :integer</text>
+<text text-anchor="start" x="461.221" y="-189.3" font-family="Times,serif" font-size="14.00">commentable_type :string</text>
+<text text-anchor="start" x="461.221" y="-175.3" font-family="Times,serif" font-size="14.00">commentable_id :integer</text>
 <text text-anchor="start" x="461.221" y="-161.3" font-family="Times,serif" font-size="14.00">comment_by :integer</text>
 <text text-anchor="start" x="461.221" y="-147.3" font-family="Times,serif" font-size="14.00">comment :text</text>
 <text text-anchor="start" x="461.221" y="-133.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>

@@ -291,8 +291,8 @@ en:
    accepted: '%{name} accepted your ally request!'
    sent_html: '%{link_to_user} sent an ally request!'
   comment:
-   full: '%{name} commented "%{comment}" on %{commented_on}'
-   truncated: '%{name} commented "%{comment}" [...] on %{commented_on}'
+   full: '%{name} commented "%{comment}" on %{commentable_id}'
+   truncated: '%{name} commented "%{comment}" [...] on %{commentable_id}'
   group:
    new_group: '%{name} created a group "%{group_name}"'
    new_group_member: '%{name} joined your group "%{group_name}"'
