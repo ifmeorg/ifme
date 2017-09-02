@@ -69,7 +69,7 @@ class Comment < ApplicationRecord
 
   def send_notification!(commentable_type, creator, association, user_id,
                          private: false)
-    return unless User.find_by(id: user_id).exists?
+    return if User.find(user_id).nil?
 
     type = "comment_on_#{commentable_type}#{private ? '_private' : ''}"
     unique_id = "#{type}_#{id}"
@@ -78,7 +78,7 @@ class Comment < ApplicationRecord
     Notification.create!(userid: user_id, uniqueid: unique_id, data: data)
 
     notifications = Notification.where(userid: user_id).order(:created_at)
-    Pusher["private-#{userid}"]
+    Pusher["private-#{user_id}"]
       .trigger('new_notification', notifications: notifications)
 
     NotificationMailer.notification_email(user_id, data).deliver_now
