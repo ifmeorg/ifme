@@ -11,7 +11,6 @@ type chartShape = {
 };
 
 // ifme themed chart colors
-// TODO: auto-generate based on size of inputs if we hit > 5 categories per graph
 const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
 
 /**

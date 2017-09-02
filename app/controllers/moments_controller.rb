@@ -16,7 +16,8 @@ class MomentsController < ApplicationController
       end_date = Date.current + 1.day
       start_date = get_start_by_period(period, end_date)
 
-      @react_moments = Moment.where(user: current_user).group_by_period(period, :created_at, range: start_date..end_date).count
+      @react_moments = Moment.where(user: current_user)
+                         .group_by_period(period, :created_at, range: start_date..end_date).count
     else
       @user_logged_in = false
     end
