@@ -64,5 +64,11 @@
     "link":"http://www.projecttoe.com/",
     "tags":["support_groups", "android", "ios"],
     "languages":["en"]
+  },
+  {
+    "name":"Hadit.com Veteran to Veteran LLC",
+    "link":"https://www.hadit.com/",
+    "tags":["veterans", "free", "forum", "advice", "podcast"],
+    "languages":["en"]
   }
 ]
