@@ -43,14 +43,4 @@ class Medication < ApplicationRecord
     return unless refill_reminder && take_medication_reminder
     [refill_reminder, take_medication_reminder].select(&:active?)
   end
-
-  def new_cal_refill_reminder_needed?
-    if add_to_google_cal &&
-       refill &&
-       (add_to_google_cal_changed? || refill_changed?)
-      true
-    else
-      false
-    end
-  end
 end
