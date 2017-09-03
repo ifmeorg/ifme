@@ -18,7 +18,7 @@
 #  total_unit        :string
 #  comments          :text
 #  slug              :string
-#  add_to_google_cal :boolean
+#  add_to_google_cal :boolean          default(FALSE)
 #
 
 class Medication < ApplicationRecord

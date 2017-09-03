@@ -18,7 +18,7 @@
 #  total_unit        :string
 #  comments          :text
 #  slug              :string
-#  add_to_google_cal :boolean
+#  add_to_google_cal :boolean          default(FALSE)
 #
 
 describe Medication do
@@ -36,7 +36,11 @@ describe Medication do
     end
 
     describe 'when medication has refill reminder' do
-      let(:medication) { FactoryGirl.create(:medication, :with_refill_reminder, userid: user.id) }
+      let(:medication) do
+        FactoryGirl.create(:medication,
+                           :with_refill_reminder,
+                           userid: user.id)
+      end
 
       it 'is a list containing the refill reminder' do
         expect(subject).to eq([medication.refill_reminder])
@@ -44,7 +48,11 @@ describe Medication do
     end
 
     describe 'when medication has daily reminder' do
-      let(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: user.id) }
+      let(:medication) do
+        FactoryGirl.create(:medication,
+                           :with_daily_reminder,
+                           userid: user.id)
+      end
 
       it 'is a list containing the daily reminder' do
         expect(subject).to eq([medication.take_medication_reminder])
@@ -52,10 +60,15 @@ describe Medication do
     end
 
     describe 'when medication has both reminders' do
-      let(:medication) { FactoryGirl.create(:medication, :with_both_reminders, userid: user.id) }
+      let(:medication) do
+        FactoryGirl.create(:medication,
+                           :with_both_reminders,
+                           userid: user.id)
+      end
 
       it 'is a list containing both reminders' do
-        expect(subject).to eq([medication.refill_reminder, medication.take_medication_reminder])
+        expect(subject).to eq([medication.refill_reminder,
+                               medication.take_medication_reminder])
       end
     end
   end

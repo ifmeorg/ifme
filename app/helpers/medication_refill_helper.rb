@@ -36,7 +36,7 @@ module MedicationRefillHelper
     if medication.add_to_google_cal &&
        medication.refill &&
        (medication.add_to_google_cal_changed? || medication.refill_changed?)
-      false 
+      false
     else
       true
     end
