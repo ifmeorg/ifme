@@ -46,7 +46,8 @@ gem 'font-awesome-sass'
 
 gem 'groupdate', '3.2'
 
-gem 'react_on_rails', '8.0.0'
+gem 'react_on_rails', '8.0.6'
+gem 'webpacker_lite'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
@@ -88,6 +89,3 @@ end
 group :production do
   gem 'rails_12factor', '0.0.3'
 end
-
-gem 'webpacker_lite'
-

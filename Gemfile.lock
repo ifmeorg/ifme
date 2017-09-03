@@ -326,12 +326,12 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
-    react_on_rails (8.0.0)
+    react_on_rails (8.0.6)
       addressable
       connection_pool
       execjs (~> 2.5)
       rails (>= 3.2)
-      rainbow (~> 2.1)
+      rainbow (~> 2.2)
     redis (3.3.3)
     redis-namespace (1.5.3)
       redis (~> 3.0, >= 3.0.4)
@@ -517,7 +517,7 @@ DEPENDENCIES
   rails-erd (~> 1.4, >= 1.4.4)
   rails-i18n (~> 5.0.0)
   rails_12factor (= 0.0.3)
-  react_on_rails (= 8.0.0)
+  react_on_rails (= 8.0.6)
   resque (= 1.26.0)
   resque-scheduler (= 4.2.0)
   resque_mailer (= 2.3.0)
