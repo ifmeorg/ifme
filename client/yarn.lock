@@ -5452,9 +5452,9 @@ react-modal@^1.7.7:
     prop-types "^15.5.7"
     react-dom-factories "^1.0.0"
 
-react-on-rails@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-8.0.0.tgz#97fda265cdc5e4cd4334ae7a7f2bacd85346161e"
+react-on-rails@8.0.6:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-8.0.6.tgz#b0f30772a850dca6fa2c508576455557a2dd40ea"
 
 react-shallow-testutils@2.0.x:
   version "2.0.0"
