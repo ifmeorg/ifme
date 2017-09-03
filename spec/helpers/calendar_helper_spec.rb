@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe MedicationRefillHelper do
-  include MedicationRefillHelper
+describe CalendarHelper do
+  include CalendarHelper
   describe 'new_cal_refill_reminder_needed?' do
     let(:user) { FactoryGirl.create(:user1) }
     let(:medication) { FactoryGirl.create(:medication, userid: user.id) }
