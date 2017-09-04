@@ -6,12 +6,14 @@ import { storiesOf } from '@storybook/react';
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
+const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
+
 storiesOf('Chart', module)
   .add('Chart Display Area', () => (
-    <Chart title="Sample" data={{ '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 }} chartType="Area" />
+    <Chart title="Sample" data={sampleChartData} chartType="Area" />
   ))
   .add('Chart Display Line', () => (
-    <Chart title="Sample" data={{ '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 }} chartType="Line" />
+    <Chart title="Sample" data={sampleChartData} chartType="Line" />
   ))
   .add('Chart Control', () => (
     <ChartControl
