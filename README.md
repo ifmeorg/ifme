@@ -47,7 +47,7 @@ Commons errors faced during installation are documented in this
 [guide](https://github.com/julianguyen/ifme/blob/master/COMMON_ERRORS.md).
 
 <details>
-  <summary>1) Install Ruby on Rails</summary>
+  <summary>1) Install Ruby on Rails (click to expand)</summary>
 
 ## Ruby on Rails
 
@@ -132,7 +132,7 @@ Check that Rails has been updated by running `rails -v`.
 </details>
 
 <details>
-  <summary>2) Install Postgres</summary>
+  <summary>2) Install Postgres (click to expand)</summary>
 
 ## Postgres
 
@@ -175,7 +175,7 @@ bundle install
 # Configuration Files
 
 <details>
-  <summary>Mandatory</summary>
+  <summary>Mandatory (click to expand)</summary>
 
 ## Mandatory
 
@@ -206,7 +206,7 @@ The example files are not ignored by git.
 </details>
 
 <details>
-  <summary>Optional</summary>
+  <summary>Optional (click to expand)</summary>
 
 ## Optional
 The following are not mandatory, but are required if you would like to test/use
@@ -307,7 +307,7 @@ To view the app, go to `http://localhost:3000`.
 To view the app on your mobile device, go to `http://[YOUR IP ADDRESS]:3000`.
 
 <details>
-  <summary>Docker</summary>
+  <summary>Docker (click to expand)</summary>
 
 ### Docker
 
@@ -327,7 +327,7 @@ bash
 </details>
 
 <details>
-  <summary>Vagrant</summary>
+  <summary>Vagrant (click to expand)</summary>
 
 ### Vagrant
 
@@ -406,11 +406,23 @@ rake jasmine:ci
 
 # Static Code Analysis
 
+These tools helps us to find bugs and ensure quality without having to execute code.
+
 ## JSHint
 
 ```
 bundle exec rake jshint
 ```
+
+You can read about JSHint [here](http://jshint.com/docs/).
+
+## Rubocop
+
+```
+rubocop
+```
+
+You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 
 # Committing Work
 
@@ -430,13 +442,13 @@ review. If you're unsure about this, please ask!
 * We use **single quotes** for Ruby files.
 * We use **camelcase** for JS files.
 * We use **double quotes** for JS files.
-* Make sure you run the test suite locally before you commit, don't rely on
+* Please run [Static Code Analysis](#static-code-analysis) locally before you make a pull request, don't rely on Codeclimate to do that for you.
+* Make sure you run the test suite locally before you make a pull request, don't rely on
 CircleCI to do that for you.
 * Make sure commit messages are clear and concise are tagged with the issue
 number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
-* Make sure to run `rubocop` on all ruby files that you edit so that style remains consistent. You can read more about Rubocop [here.](http://rubocop.readthedocs.io/en/latest/)
 * As a pull request (PR) reviewer, if you think the PR is good to go
 (including passing tests) make sure to comment with LGTM (looks good to me).
 You can either merge it yourself or tell the PR creator to do it themselves.
@@ -485,9 +497,9 @@ locally or on production. Please also mention what OS and browser you are using.
 ## Donate
 
 We also welcome financial contributions in full transparency on our
-[open collective](https://opencollective.com/ifme).
+[Open Collective](https://opencollective.com/ifme).
 Anyone can file an expense. If the expense makes sense for the development of
-the community, it will be "merged" in the ledger of our open collective by the
+the community, it will be "merged" in the ledger of our Open Collective by the
 core contributors and the person who filed the expense will be reimbursed.
 
 We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
@@ -499,7 +511,7 @@ Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=32
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our open collective backers!
+Thank you to all our Open Collective backers!
 [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
