@@ -97,14 +97,10 @@ Update the gem manager by running `gem update --system`.
 
 Update your gems by running `gem update`.
 
-If you are missing `bundler` and `nokogiri`, please install them
+If you are missing `bundler`, please install it
 
 ```
 gem install bundler
-```
-
-```
-gem install nokogiri
 ```
 
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv.
