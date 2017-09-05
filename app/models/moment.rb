@@ -17,7 +17,6 @@
 #  comment    :boolean
 #  strategy   :text
 #  slug       :string
-#  sentiment  :float
 #
 
 class Moment < ApplicationRecord
