@@ -78,6 +78,15 @@ postgresql-server-dev-X.Y (e.g. postgresql-server-dev-9.4). If you are unsure of
 what the package is for your distribution, continue following the instructions;
 usually bundler will let you know what you need to install.
 
+Most likely, PostgreSQL will be running under a new user called "postgresql" and
+your user will not have permission to connect to the database. You can add
+yourself as a user by running:
+
+```
+sudo -u postgres createuser -s $(whoami)
+createdb $(whoami)
+```
+
 #### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
