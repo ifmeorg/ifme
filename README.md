@@ -436,6 +436,7 @@ CircleCI to do that for you.
 number e.g. "[#99] Fixes some sample issue".
 * Make sure pull requests reference the corresponding issue.
 * Make sure any issues or pull requests that are UI/UX focused have appropriate screenshots.
+* Make sure to run `rubocop` on all ruby files that you edit so that style remains consistent. You can read more about Rubocop [here.](http://rubocop.readthedocs.io/en/latest/)
 * As a pull request (PR) reviewer, if you think the PR is good to go
 (including passing tests) make sure to comment with LGTM (looks good to me).
 You can either merge it yourself or tell the PR creator to do it themselves.
