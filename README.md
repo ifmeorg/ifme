@@ -134,8 +134,13 @@ for a more detailed setup
 
 #### B. Linux
 
-Build from the source using yum, apt-get, etc. If you already have Postgres
-installed, please update it.
+Install using your package management software (e.g. apt, yum, etc.).
+
+It may also be necessary to install a separate development files package or the
+Ruby gem may not compile. On Ubuntu/Debian, this package is called
+postgresql-server-dev-X.Y (e.g. postgresql-server-dev-9.4). If you are unsure of
+what the package is for your distribution, continue following the instructions;
+usually bundler will let you know what you need to install.
 
 #### C. Windows
 
