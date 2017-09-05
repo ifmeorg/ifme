@@ -84,13 +84,6 @@ Run the following to install Ruby 2.3.4:
 rbenv install 2.3.4
 ```
 
-Once you have cloned the project, set the local Ruby version to 2.3.4:
-
-```
-cd ifme
-rbenv local 2.3.4
-```
-
 ## Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
