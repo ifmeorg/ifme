@@ -231,6 +231,9 @@ the Calendar API for Calendars. Under the credentials tab, make sure to add the
 Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`.
 Note, you may have to hit the Save button twice for this to take effect.
 
+We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
+with step by step instructions if you get lost in the process.
+
 ### Google API
 
 [Google API](https://console.developers.google.com) is used for location
@@ -238,6 +241,9 @@ autocomplete, specifically the Maps JavaScript API (which needs to be activated)
 If you would like to use this feature in your local environment, please create]
 your own account, generate keys, and update `GOOGLE_API_KEY` in
 `config/env/test.env` and `config/env/development.env`.
+
+We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
+with step by step instructions if you get lost in the process.
 
 ### Cloudinary
 
