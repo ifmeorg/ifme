@@ -108,16 +108,6 @@ rvm use ruby-2.3.4@rails5.0.5 --create
 #### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
-
-### Updating An Existing Rails Installation
-
-```
-gem install rails --version=5.0.5
-```
-
-Restart your terminal (or open a new tab)
-
-Check that Rails has been updated by running `rails -v`.
 </details>
 
 <details>
