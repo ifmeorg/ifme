@@ -16,7 +16,8 @@ class CalendarUploader
   end
 
   def upload_event
-    parsed_date = Chronic.parse(date, endian_precedence: %i[little median]).to_time.iso8601
+    parsed_date = Chronic.parse(date, endian_precedence: %i[little median])
+                         .to_time.iso8601
 
     event = {
       summary: summary,
@@ -24,6 +25,6 @@ class CalendarUploader
       end: { date_time: parsed_date }
     }
 
-    event = @calendar_service.insert_event('primary', event, send_notifications: true)
+    @calendar_service.insert_event('primary', event, send_notifications: true)
   end
 end
