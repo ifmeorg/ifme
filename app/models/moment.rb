@@ -37,7 +37,8 @@ class Moment < ApplicationRecord
   validates :userid, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
-  validates :secret_share_expires_at, presence: true, if: :secret_share_identifier?
+  validates :secret_share_expires_at,
+            presence: true, if: :secret_share_identifier?
 
   scope :find_secret_share!, lambda { |identifier|
     find_by!(
@@ -54,19 +55,19 @@ class Moment < ApplicationRecord
   end
 
   def category_name
-    category.try!(:name)
+    category&.try(:name)
   end
 
   def mood_name
-    mood.try!(:name)
+    mood&.try(:name)
   end
 
   def strategy_name
-    strategy.try!(:name)
+    strategy&.try(:name)
   end
 
   def owned_by?(user)
-    user.try!(:id) == userid
+    user&.id == userid
   end
 
   def shared?
