@@ -24,6 +24,12 @@
     "languages":["en"]
   },
   {
+    "name":"DBT | What is Dialectical Behavior Therapy?",
+    "link":"https://behavioraltech.org/resources/faqs/what-is-dbt/",
+    "tags":["anonymous", "free", "mindfulness", "therapy", "treatment"],
+    "languages":["en"]
+  },
+  {
     "name":"Doll Hospital",
     "link":"http://www.dollhospitaljournal.com",
     "tags":["paid", "publication"],
@@ -45,6 +51,12 @@
     "name":"Partnership for Workplace Mental Health (US)",
     "link":"http://www.workplacementalhealth.org/",
     "tags":["workplace"],
+    "languages":["en"]
+  },
+  {
+    "name":"Psych Central (web portal)",
+    "link":"https://psychcentral.com/",
+    "tags":["forum", "blog", "directory", "free", "advice"],
     "languages":["en"]
   },
   {

@@ -61,8 +61,8 @@ As well as new and original content, we also accept content that has already bee
 
 ## Donate
 
-We also welcome financial contributions in full transparency on our [open collective](https://opencollective.com/ifme).
-Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our open collective by the core contributors and the person who filed the expense will be reimbursed.
+We also welcome financial contributions in full transparency on our [Open Collective](https://opencollective.com/ifme).
+Anyone can file an expense. If the expense makes sense for the development of the community, it will be "merged" in the ledger of our Open Collective by the core contributors and the person who filed the expense will be reimbursed.
 
 We also have a [Patreon](https://www.patreon.com/ifme) page where you can give monthly donations.
 
@@ -70,7 +70,7 @@ We also have a [Patreon](https://www.patreon.com/ifme) page where you can give m
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857), [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our open collective backers! [Become a backer!](https://opencollective.com/ifme#backer)
+Thank you to all our Open Collective backers! [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
