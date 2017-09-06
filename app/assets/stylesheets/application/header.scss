@@ -9,9 +9,9 @@
 
 // Main Navigation Links
 .top-nav {
+  margin: 0;
   padding: 0;
   font-size: $font16;
-  width: auto;
   text-align: left;
 
   @media screen and (min-width: $small + 1) {
@@ -77,13 +77,11 @@
   padding: 0 20px;
   background-color: $header-secondary-navigation-background;
   transition: max-height 300ms;
-  max-height: 75px;
   overflow: hidden;
-  position: absolute;
-  left: 0;
-  right: 0;
+  max-height: 75px;
+  position: relative;
 
-  &.transition-hidden {
+  &.collapsed {
     max-height: 0;
   }
 

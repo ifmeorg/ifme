@@ -59,18 +59,20 @@
       </ul>
 
       <% if user_signed_in? %>
-        <ul data-primary-parent="moments" class="top-nav secondary-nav transition-hidden">
-          <%= nav_link_to(t('categories.plural'), categories_path) %>
-          <%= nav_link_to(t('moods.plural'), moods_path) %>
-        </ul>
+        <div class="secondary-nav collapsed">
+          <ul data-primary-parent="moments" class="top-nav display_none">
+            <%= nav_link_to(t('categories.plural'), categories_path) %>
+            <%= nav_link_to(t('moods.plural'), moods_path) %>
+          </ul>
 
-        <ul id="nav-me" data-primary-parent="me" class="top-nav secondary-nav transition-hidden">
-          <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
-          <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
-          <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
-          <%= nav_link_to(t('navigation.resources'), resources_path) %>
-          <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
-        </ul>
+          <ul id="nav-me" data-primary-parent="me" class="top-nav display_none">
+            <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
+            <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
+            <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
+            <%= nav_link_to(t('navigation.resources'), resources_path) %>
+            <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
+          </ul>
+        </div>
       <% end %>
     </nav>
   </div>
