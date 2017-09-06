@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 describe SecretSharesController, type: :controller do
-
   context 'when secret share is disabled' do
     before do
       Rails.configuration.secret_share_enabled = false
@@ -117,7 +116,7 @@ describe SecretSharesController, type: :controller do
         delete :destroy, params: { id: moment.secret_share_identifier }
       end
 
-      it 'Deletes Secret Share Identifier' do
+      it 'deletes Secret Share Identifier' do
         expect(moment.reload.secret_share_identifier).to be_nil
       end
     end
@@ -135,12 +134,12 @@ describe SecretSharesController, type: :controller do
         delete :destroy, params: { id: moment.secret_share_identifier }
       end
 
-      it 'does not delete Secret Share Identifier' do
-        expect(moment.reload.secret_share_identifier).not_to be_nil
-      end
-
       it 'redirects to sign in page' do
         expect(response).to redirect_to new_user_session_path
+      end
+
+      it 'does not delete Secret Share Identifier' do
+        expect(moment.reload.secret_share_identifier).not_to be_nil
       end
     end
   end
