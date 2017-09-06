@@ -1,6 +1,6 @@
 <% title @moment.name %>
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
-<% if current_user.try(:id) == @moment.userid %>
+<% if Rails.configuration.secret_share_enabled && current_user.try(:id) == @moment.userid %>
   <p>
     <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id) %>
     <% if @moment.shared? %>

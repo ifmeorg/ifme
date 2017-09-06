@@ -74,4 +74,6 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.force_ssl = false
+
+  config.secret_share_enabled = true
 end
