@@ -45,8 +45,8 @@ sv:
       updated: "Ditt konto har uppdaterats framgångsrikt."
     sessions:
       signed_in: "Inloggad med framgång."
-      signed_out: "Redan utloggad."
-      already_signed_out: "Utloggad framgångsrikt."
+      signed_out: "Utloggad framgångsrikt."
+      already_signed_out: "Redan utloggad."
     unlocks:
       send_instructions: "Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter."
       send_paranoid_instructions: "Om ditt konto finns, får du inom några minuter ett mail med instruktioner om hur du låser upp det."
