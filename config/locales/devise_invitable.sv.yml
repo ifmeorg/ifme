@@ -1,16 +1,16 @@
 sv:
   devise:
     failure:
-      invited: "Du har en väntande inbjudan, acceptera den för att slutföra skapa ditt konto."
+      invited: "Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto."
     invitations:
       send_instructions: "Ett inbjudningsbrev har skickats till %{email}."
-      invitation_token_invalid: "Inbjudan tillkännagivandet är inte giltigt!"
+      invitation_token_invalid: "Nyckeln i inbjudan är inte giltig!"
       updated: "Ditt lösenord har upprättats. Du är nu inloggad."
       updated_not_active: "Ditt lösenord har upprättats."
       no_invitations_remaining: "Inga inbjudningar kvar"
       invitation_removed: "Din inbjudan har tagits bort."
       new:
-        header: "Skicka en allierad inbjudan"
+        header: "Skicka en inbjudan till en allierad"
         submit_button: "Skicka en inbjudan"
       edit:
         header: "Ange ditt lösenord"

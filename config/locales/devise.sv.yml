@@ -28,9 +28,9 @@ sv:
         subject: "Lösenordet ändrat"
     omniauth_callbacks:
       failure: "Det gick inte att autentisera dig från %{kind} eftersom \"%{reason}\"."
-      success: "Succesfullt autentiserat från %{kind} konto."
+      success: "Det gick att autentisera från %{kind} konto."
     passwords:
-      no_token: "Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen."
+      no_token: "Du kan inte komma åt den här sidan utan att komma från ett lösenordsåterställnings-meddelande. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen."
       send_instructions: "Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter."
       send_paranoid_instructions: "Om din e-postadress finns i vår databas, får du en länk för lösenordsåterställning på din e-postadress om några minuter."
       updated: "Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad."
@@ -40,17 +40,17 @@ sv:
       signed_up: "Välkommen! Du har anmält dig framgångsrikt."
       signed_up_but_inactive: "Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto ännu inte är aktiverat."
       signed_up_but_locked: "Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst."
-      signed_up_but_unconfirmed: "Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto."
-      update_needs_confirmation: "Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress."
+      signed_up_but_unconfirmed: "Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto."
+      update_needs_confirmation: "Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ länken för att bekräfta din nya e-postadress."
       updated: "Ditt konto har uppdaterats framgångsrikt."
     sessions:
       signed_in: "Inloggad med framgång."
-      signed_out: "Undertecknad framgångsrikt."
-      already_signed_out: "Undertecknad framgångsrikt."
+      signed_out: "Redan utloggad."
+      already_signed_out: "Utloggad framgångsrikt."
     unlocks:
       send_instructions: "Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter."
-      send_paranoid_instructions: "Om ditt konto finns, får du ett mail med instruktioner om hur du låser upp det på några minuter."
-      unlocked: "Ditt konto har låsats upp. Vänligen logga in för att fortsätta."
+      send_paranoid_instructions: "Om ditt konto finns, får du inom några minuter ett mail med instruktioner om hur du låser upp det."
+      unlocked: "Ditt konto har låsts upp. Vänligen logga in för att fortsätta."
   errors:
     messages:
       already_confirmed: "var redan bekräftad, var god försök att logga in"
@@ -59,5 +59,5 @@ sv:
       not_found: "hittades inte"
       not_locked: "var inte låst"
       not_saved:
-        one: "1 fel förbjudet att denna %{resource} sparas:"
-        other: "%{count} fel förbjuds att denna %{resource} sparas:"
+        one: "Ett fel hindrade denna %{resource} från att sparas:"
+        other: "%{count} fel hindrade denna %{resource} från att sparas:"

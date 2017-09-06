@@ -11,7 +11,7 @@ sv:
       one_page:
         display_entries:
           zero: "Ingen %{entry_name} hittades"
-          one: "Visning <b>1</b> %{entry_name}"
+          one: "Visar <b>1</b> %{entry_name}"
           other: "Visar <b>alla %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Visning %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> av <b>%{total}</b> totalt"
+        display_entries: "Visar %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> av <b>%{total}</b> totalt"
