@@ -5,13 +5,18 @@ class CalendarUploader
 
   attr_reader :summary, :date, :access_token, :email
 
-  def initialize(summary:, date:, access_token:, email:)
+  def initialize(summary:,
+                 date:,
+                 access_token:,
+                 email:,
+                 service: Google::Apis::CalendarV3::CalendarService.new)
+
     @summary = summary
     @date = date
     @access_token = access_token
     @email = email
 
-    @calendar_service = Google::Apis::CalendarV3::CalendarService.new
+    @calendar_service = service
     @calendar_service.authorization = AccessToken.new(@access_token)
   end
 
