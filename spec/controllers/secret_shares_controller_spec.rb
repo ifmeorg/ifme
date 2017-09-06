@@ -31,7 +31,7 @@ describe SecretSharesController, type: :controller do
       end
       context 'no secret share' do
         specify do
-          expect{ get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
+          expect { get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
         end
       end
     end
@@ -103,7 +103,7 @@ describe SecretSharesController, type: :controller do
     end
     context 'no secret share' do
       specify do
-        expect{ get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
+        expect { get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
