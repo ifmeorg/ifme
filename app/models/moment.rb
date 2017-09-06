@@ -43,7 +43,6 @@ class Moment < ApplicationRecord
     find_by!(
       'secret_share_expires_at > NOW()',
       secret_share_identifier: identifier
-
     )
   }
 
@@ -55,19 +54,19 @@ class Moment < ApplicationRecord
   end
 
   def category_name
-    category.try(:name)
+    category.try!(:name)
   end
 
   def mood_name
-    mood.try(:name)
+    mood.try!(:name)
   end
 
   def strategy_name
-    strategy.try(:name)
+    strategy.try!(:name)
   end
 
   def owned_by?(user)
-    user.id == userid
+    user.try!(:id) == userid
   end
 
   def shared?
