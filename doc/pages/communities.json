@@ -70,5 +70,11 @@
     "link":"https://www.hadit.com/",
     "tags":["veterans", "free", "forum", "advice", "podcast"],
     "languages":["en"]
+  },
+  {
+    "name":"A Canvas of the Minds",
+    "link":"https://acanvasoftheminds.com/",
+    "tags":["free", "blog"],
+    "languages":["en"]
   }
 ]
