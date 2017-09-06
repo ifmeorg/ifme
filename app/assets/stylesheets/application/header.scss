@@ -7,16 +7,6 @@
   z-index: 9000;
 }
 
-#header_content {
-  @include clearfix;
-
-  .vertical_divider {
-    height: 52px;
-    margin: 0;
-    opacity: 0.5;
-  }
-}
-
 // Main Navigation Links
 .top-nav {
   padding: 0;
@@ -32,6 +22,7 @@
     display: inline-block;
     list-style: none;
     margin-right: 24px;
+    vertical-align: middle;
 
     @media screen and (max-width: $medium) {
       margin-right: 16px;
@@ -62,6 +53,12 @@
       border-top: 2px solid $header-navigation-text-color-focus;
       opacity: 1;
     }
+  }
+
+  .vertical_divider {
+    height: 52px;
+    margin: 0;
+    opacity: 0.5;
   }
 }
 
