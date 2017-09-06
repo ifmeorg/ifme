@@ -5,10 +5,17 @@
   <% if f.object.class.require_password_on_accepting %>
 
   <div class="field">
-  	<div class="label">
-  		<%= f.label t('devise.password') %>
-  	</div>
-  	<%= f.password_field :password %>
+    <div class="label">
+      <%= f.label t('common.name') %>
+    </div>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <div class="label">
+      <%= f.label t('devise.password') %>
+    </div>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
