@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'puma'
 gem 'rack-rewrite'
 gem 'rails', '~> 5.0.5'
 
@@ -81,5 +82,6 @@ group :test do
 end
 
 group :production do
+  gem 'rack-timeout'
   gem 'rails_12factor', '0.0.3'
 end
