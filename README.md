@@ -47,7 +47,62 @@ Commons errors faced during installation are documented in this
 [guide](https://github.com/julianguyen/ifme/blob/master/COMMON_ERRORS.md).
 
 <details>
-  <summary>1) Install Ruby on Rails (click to expand)</summary>
+  <summary>1) Install Postgres (click to expand)</summary>
+
+## Postgres
+
+After installing Postgres, if you are asked to create a new user, please follow
+these [instructions](https://github.com/julianguyen/ifme/blob/master/COMMON_ERRORS.md#postgresql-bad-connection).
+
+#### A. macOS
+
+Install via [Homebrew](http://brew.sh/)
+
+`brew install postgresql`
+
+then start the postgres server:
+
+`postgres -D /usr/local/var/postgres`
+
+For more information, follow
+[this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/)
+for a more detailed setup
+
+#### B. Linux
+
+Install using your package management software (e.g. apt, yum, etc.).
+
+It may also be necessary to install a separate development files package or the
+Ruby gem may not compile. On Ubuntu/Debian, this package is called
+postgresql-server-dev-X.Y (e.g. postgresql-server-dev-9.4). If you are unsure of
+what the package is for your distribution, continue following the instructions;
+usually bundler will let you know what you need to install.
+
+Most likely, PostgreSQL will be running under a new user called "postgresql" and
+your user will not have permission to connect to the database. You can add
+yourself as a user by running:
+
+```
+sudo -u postgres createuser -s $(whoami)
+createdb $(whoami)
+```
+
+#### C. Windows
+
+Install via [graphical installer](http://www.postgresql.org/download/windows/)
+
+## Install Gems
+
+After cloning the app on your local machine, in your terminal run the following
+command in the `/ifme` directory
+
+```
+bundle install
+```
+</details>
+
+<details>
+  <summary>2) Install Ruby on Rails (click to expand)</summary>
 
 ## Ruby on Rails
 
@@ -84,27 +139,16 @@ Run the following to install Ruby 2.3.4:
 rbenv install 2.3.4
 ```
 
-Once you have cloned the project, set the local Ruby version to 2.3.4:
-
-```
-cd ifme
-rbenv local 2.3.4
-```
-
 ## Gems: After updating or installing Ruby
 
 Update the gem manager by running `gem update --system`.
 
 Update your gems by running `gem update`.
 
-If you are missing `bundler` and `nokogiri`, please install them
+If you are missing `bundler`, please install it
 
 ```
 gem install bundler
-```
-
-```
-gem install nokogiri
 ```
 
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv.
@@ -119,57 +163,6 @@ rvm use ruby-2.3.4@rails5.0.5 --create
 #### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
-
-### Updating An Existing Rails Installation
-
-```
-gem install rails --version=5.0.5
-```
-
-Restart your terminal (or open a new tab)
-
-Check that Rails has been updated by running `rails -v`.
-</details>
-
-<details>
-  <summary>2) Install Postgres (click to expand)</summary>
-
-## Postgres
-
-After installing Postgres, if you are asked to create a new user, please follow
-these [instructions](https://github.com/julianguyen/ifme/blob/master/COMMON_ERRORS.md#postgresql-bad-connection).
-
-#### A. macOS
-
-Install via [Homebrew](http://brew.sh/)
-
-`brew install postgresql`
-
-then start the postgres server:
-
-`postgres -D /usr/local/var/postgres`
-
-For more information, follow
-[this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/)
-for a more detailed setup
-
-#### B. Linux
-
-Build from the source using yum, apt-get, etc. If you already have Postgres
-installed, please update it.
-
-#### C. Windows
-
-Install via [graphical installer](http://www.postgresql.org/download/windows/)
-
-## Install Gems
-
-After cloning the app on your local machine, in your terminal run the following
-command in the `/ifme` directory
-
-```
-bundle install
-```
 </details>
 
 # Configuration Files
