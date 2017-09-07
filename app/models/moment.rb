@@ -54,17 +54,11 @@ class Moment < ApplicationRecord
     self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
   end
 
-  def category_name
-    category&.try(:name)
-  end
+  delegate :category_name, to: :category
 
-  def mood_name
-    mood&.try(:name)
-  end
+  delegate :mood_name, to: :mood
 
-  def strategy_name
-    strategy&.try(:name)
-  end
+  delegate :strategy_name, to: :strategy
 
   def owned_by?(user)
     user&.id == userid
