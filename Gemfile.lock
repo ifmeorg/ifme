@@ -271,6 +271,7 @@ GEM
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     railroady (1.4.2)
@@ -494,6 +495,7 @@ DEPENDENCIES
   pg (= 0.18.4)
   pry-rails
   pusher (= 1.1.0)
+  rack-rewrite
   railroady (= 1.4.2)
   rails (~> 5.0.5)
   rails-controller-testing

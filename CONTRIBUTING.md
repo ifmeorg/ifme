@@ -1,12 +1,23 @@
 # Contributing to if me
 
-[if me](http://if-me.org) is a community for mental health experiences that encourages people to share their personal stories with trusted allies. Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.
+[if me](http://www.if-me.org) is a community for mental health experiences that
+encourages people to share their personal stories with trusted allies. Trusted
+allies are the people we interact with on a daily basis, including friends,
+family members, co-workers, teachers, and mental health workers.
 
-Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it. Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behavior. Getting them involved in mental health treatment is the key to recovery.
+Dealing with mental health is what makes us human. But for a lot of us, it's a
+struggle to be open about it. Not everyone is a counsellor or therapist. The
+people who we interact with everyday shape our emotions and behavior. Getting
+them involved in mental health treatment is the key to recovery.
 
-We're built and maintained by volunteers of many different backgrounds and skill sets.We're always looking for ideas from everyone, including mental health advocates, health professionals, software developers, and user experience designers!
+We're built and maintained by volunteers of many different backgrounds and skill
+sets. We're always looking for ideas from everyone, including mental health
+advocates, health professionals, software developers, and user experience
+designers!
 
-We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md) before joining our project.
+We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
+our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md)
+before joining our project.
 
 ### Goals
 
@@ -41,7 +52,7 @@ You **must** also read these sections in order to contribute:
 
 ### User Tester
 
-Please sign up for a account on our official site, if-me.org. Use the app for a couple of days before raising issues or filing bugs. You can raise issues on our [GitHub issues](https://github.com/julianguyen/ifme/issues) page or through [Feedback Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfqT0qNylzJom87MBwZvUx9LayA_DpUeZa7xAhwMPkcbTldFQ/viewform?c=0&w=1) (the link can also be found on our site footer). Please raise any discussions on Slack!
+Please sign up for a account on our official site, www.if-me.org. Use the app for a couple of days before raising issues or filing bugs. You can raise issues on our [GitHub issues](https://github.com/julianguyen/ifme/issues) page or through [Feedback Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfqT0qNylzJom87MBwZvUx9LayA_DpUeZa7xAhwMPkcbTldFQ/viewform?c=0&w=1) (the link can also be found on our site footer). Please raise any discussions on Slack!
 
 ### Writer
 
