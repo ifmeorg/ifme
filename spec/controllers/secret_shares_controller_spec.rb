@@ -12,7 +12,11 @@ describe SecretSharesController, type: :controller do
           sign_in moment.user
         end
 
-        specify { expect { post :create, params: { moment: moment } }.to raise_error(ActiveRecord::RecordNotFound) }
+        specify do
+          expect do
+            post(:create, params: { moment: moment }
+          end.to.raise_error(ActiveRecord::RecordNotFound)
+        end
       end
 
       context 'signed in as another user' do
@@ -20,18 +24,27 @@ describe SecretSharesController, type: :controller do
           new_user = create(:user)
           sign_in new_user
         end
-        specify { expect { post :create, params: { moment: moment } }.to raise_error(ActiveRecord::RecordNotFound) }
+        specify do
+          expect do
+            post(:create, params: { moment: moment }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
       end
     end
 
     describe 'GET show' do
       context 'secret share is valid' do
         let(:moment) { create(:moment, :with_user, :with_secret_share) }
-        specify { expect { get :show, params: { id: moment.secret_share_identifier } }.to raise_error(ActiveRecord::RecordNotFound) }
+        specify do
+          expect do
+            get :show, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
       end
       context 'no secret share' do
         specify do
-          expect { get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
+          expect do
+            get :show, params: { id: 'foobar' }
+          end.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
     end
@@ -43,7 +56,10 @@ describe SecretSharesController, type: :controller do
           sign_in moment.user
         end
 
-        specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_error(ActiveRecord::RecordNotFound) }
+        specify do
+          expect do
+            delete :destroy, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       context 'signed in as another user' do
@@ -51,9 +67,14 @@ describe SecretSharesController, type: :controller do
           new_user = create(:user)
           sign_in new_user
         end
-        specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_error(ActiveRecord::RecordNotFound) }
+
+        specify do
+          expect do
+            delete :destroy, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
       end
-    end
+
     after do
       Rails.configuration.secret_share_enabled = true
     end
@@ -77,7 +98,11 @@ describe SecretSharesController, type: :controller do
         new_user = create(:user)
         sign_in new_user
       end
-      specify { expect { post :create, params: { moment: moment } }.to raise_error(ActiveRecord::RecordNotFound) }
+
+      specify do
+        expect do
+          post :create, params: { moment: moment }
+        end.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     context 'not signed in' do
@@ -103,7 +128,9 @@ describe SecretSharesController, type: :controller do
     end
     context 'no secret share' do
       specify do
-        expect { get :show, params: { id: 'foobar' } }.to raise_error ActiveRecord::RecordNotFound
+        expect do
+          get :show, params: { id: 'foobar' }
+        end.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
@@ -126,7 +153,11 @@ describe SecretSharesController, type: :controller do
         new_user = create(:user)
         sign_in new_user
       end
-      specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_error(ActiveRecord::RecordNotFound) }
+
+      specify do
+        expect do
+          delete :destroy, params: { id: moment.secret_share_identifier }
+      end.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     context 'not signed in' do
