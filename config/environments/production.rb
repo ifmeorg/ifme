@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+primary_domain = 'www.if-me.org'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -41,7 +45,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  # config.action_cable.allowed_request_origins = ['http://example.com', /http:\/\/example.*/]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -51,7 +55,7 @@ Rails.application.configure do
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -89,7 +93,7 @@ Rails.application.configure do
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
 
-  config.action_mailer.default_url_options = { host: 'if-me.org' }
+  config.action_mailer.default_url_options = { host: primary_domain }
 
   config.action_mailer.perform_deliveries = ENV['SEND_EMAIL']
   config.action_mailer.raise_delivery_errors = ENV['RAISE_DELIVERY_ERRORS']
@@ -99,13 +103,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: ENV['SMTP_ADDRESS'],
     port: ENV['SMTP_PORT'],
-    authentication: "plain",
+    authentication: 'plain',
     user_name: ENV['SMTP_USER_NAME'],
     password: ENV['SMTP_PASSWORD'],
     domain: ENV['SMTP_DOMAIN'],
     enable_starttls_auto: true
   }
-
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
@@ -114,7 +117,6 @@ Rails.application.configure do
   config.force_ssl = true
   # This is required or the host server will send headers telling us its from the *.herokuapp.com domain
   # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
-  config.action_controller.default_url_options = { host: "www.if-me.org" }
-  config.action_controller.asset_host = "www.if-me.org"
-
+  config.action_controller.default_url_options = { host: primary_domain }
+  config.action_controller.asset_host = primary_domain
 end
