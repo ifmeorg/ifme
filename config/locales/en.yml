@@ -26,6 +26,7 @@ en:
    privacy: 'Privacy Policy'
    github: 'GitHub'
    patreon: 'Patreon'
+   opencollective: 'Open Collective'
    instagram: 'Instagram'
    twitter: "Twitter"
    facebook: "Facebook"
@@ -474,6 +475,9 @@ en:
       mindfulness: mindfulness
       journaling: journaling
       mood_tracking: mood tracking
+      veterans: veterans
+      music: music
+      integrative: integrative
 
  profile:
   index:

@@ -49,11 +49,28 @@ class ApplicationController < ActionController::Base
     common = %i[location name email password
                 password_confirmation current_password]
 
-    devise_parameter_sanitizer.permit :account_update,
-      keys: %i[about avatar remove_avatar comment_notify ally_notify
-               group_notify meeting_notify] + common
+    configure_for_account_update(common)
+    configure_for_sign_up(common)
+    configure_for_accept_invitation
+  end
 
+  def configure_for_account_update(common)
+    devise_parameter_sanitizer.permit :account_update,
+                                      keys: %i[about avatar
+                                               remove_avatar comment_notify
+                                               ally_notify group_notify
+                                               meeting_notify] + common
+  end
+
+  def configure_for_sign_up(common)
     devise_parameter_sanitizer.permit :sign_up, keys: common
+  end
+
+  def configure_for_accept_invitation
+    devise_parameter_sanitizer.permit :accept_invitation,
+                                      keys: %i[name password
+                                               password_confirmation
+                                               invitation_token]
   end
 
   helper_method :avatar_url, :is_viewer,

@@ -1,5 +1,6 @@
-describe ProfilePicture do
+# frozen_string_literal: true
 
+describe ProfilePicture do
   subject { described_class }
 
   describe '.fetch' do
@@ -25,7 +26,7 @@ describe ProfilePicture do
       end
 
       context 'and is not a contributor avatar' do
-        let(:avatar) { 'http://if-me.org/totally-valid' }
+        let(:avatar) { 'http://www.if-me.org/totally-valid' }
 
         before do
           response_double = double('Net::HTTPResponse', code: response_code)

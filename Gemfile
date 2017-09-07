@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'rack-rewrite'
 gem 'rails', '~> 5.0.5'
 
 gem 'activerecord-import'
