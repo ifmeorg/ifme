@@ -21,27 +21,37 @@ class MeetingsController < ApplicationController
       redirect_to_path(group_path(@meeting.groupid))
     else
       @comment = Comment.new
-      @comments = Comment.where(commented_on: @meeting.id, comment_type: 'meeting').all.order('created_at DESC')
+      @comments = Comment.where(
+        commentable_id: @meeting.id,
+        commentable_type: 'meeting'
+      ).all.order('created_at DESC')
+
       @no_hide_page = true
     end
   end
 
   def comment
-    @comment = Comment.new(comment_type: params[:comment_type], commented_on: params[:commented_on], comment_by: params[:comment_by], comment: params[:comment], visibility: 'all')
+    @comment = Comment.new(
+      commentable_type: params[:commentable_type],
+      commentable_id: params[:commentable_id],
+      comment_by: params[:comment_by],
+      comment: params[:comment],
+      visibility: 'all'
+    )
     return respond_not_saved unless @comment.save
 
     # Notify MeetingMembers except for commenter that there is a new comment
-    MeetingMember.where(meetingid: @comment.commented_on).all.each do |member|
+    MeetingMember.where(meetingid: @comment.commentable_id).all.each do |member|
       next if member.userid == current_user.id
 
-      meeting_name = Meeting.where(id: @comment.commented_on).first.name
+      meeting_name = Meeting.where(id: @comment.commentable_id).first.name
       cutoff = false
       cutoff = true if @comment.comment.length > 80
       uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
 
       data = JSON.generate(
         user: current_user.name,
-        meetingid: @comment.commented_on,
+        meetingid: @comment.commentable_id,
         meeting: meeting_name,
         commentid: @comment.id,
         comment: @comment.comment[0..80],
@@ -67,7 +77,7 @@ class MeetingsController < ApplicationController
     is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
 
     if comment_exists
-      meetingid = Comment.where(id: params[:commentid]).first.commented_on
+      meetingid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_meeting = MeetingMember.where(meetingid: meetingid, userid: current_user.id, leader: true).exists?
       is_member = MeetingMember.where(meetingid: meetingid, userid: current_user.id).exists?
     else
