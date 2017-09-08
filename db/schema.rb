@@ -48,14 +48,15 @@ ActiveRecord::Schema.define(version: 20170830075513) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "comment_type"
-    t.integer  "commented_on"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
     t.integer  "comment_by"
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "visibility"
     t.text     "viewers"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
