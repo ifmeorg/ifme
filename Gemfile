@@ -46,6 +46,11 @@ gem 'sdoc', '0.4.1', group: :doc
 
 gem 'font-awesome-sass'
 
+gem 'groupdate', '3.2'
+
+gem 'react_on_rails', '8.0.6'
+gem 'webpacker_lite'
+
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
 
@@ -72,6 +77,8 @@ group :development, :test do
 
   gem 'jshint'
   gem 'rubocop', '~> 0.48.0'
+
+  gem 'foreman'
 end
 
 group :test do

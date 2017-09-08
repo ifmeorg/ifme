@@ -8,6 +8,22 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
+    if current_user
+      @user_logged_in = true
+
+      period = 'day'
+      # +1 day buffer to ensure we include today as well
+      end_date = Date.current + 1.day
+      start_date = get_start_by_period(period, end_date)
+
+      @react_moments = Moment.where(user: current_user)
+                             .group_by_period(period,
+                                              :created_at,
+                                              range: start_date..end_date).count
+    else
+      @user_logged_in = false
+    end
+
     page_collection('@moments', 'moment')
   end
 
@@ -169,5 +185,18 @@ class MomentsController < ApplicationController
     end
 
     Strategy.where(id: strategy_ids).order(created_at: :desc)
+  end
+
+  def get_start_by_period(period, end_date)
+    case period
+    when 'day'
+      end_date - 1.week
+    when 'week'
+      end_date - 1.month
+    when 'month'
+      end_date - 1.year
+    else
+      end_date - 1.week
+    end
   end
 end

@@ -126,4 +126,22 @@ describe MomentsController do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'Moment Analytic Charts' do
+
+    it 'should contain react analytics objects' do
+      create_time = Date.current
+      new_user = create(:user1)
+      sign_in new_user
+      new_category = create(:category, userid: new_user.id)
+      new_mood = create(:mood, userid: new_user.id)
+      create(:moment, userid: new_user.id, category: Array.new(1, new_category.id),
+             mood: Array.new(1, new_mood.id), created_at: create_time)
+
+      get :index
+
+      expect(assigns(:react_moments)).to have_key(create_time)
+      expect(assigns(:react_moments)[create_time]).to eq(1)
+    end
+  end
 end

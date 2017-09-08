@@ -1,0 +1,21 @@
+{
+  "plugins": ["jasmine", "flowtype"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "parser": "babel-eslint",
+  "env": {
+    "jasmine": true
+  },
+  "root": true,
+  "rules": {
+    "react/sort-comp": [2, {
+      "order": [
+        "type-annotations",
+        "static-methods",
+        "lifecycle",
+        "everything-else",
+        "/^render.+$/",
+        "render"
+      ]
+    }]
+  }
+}
