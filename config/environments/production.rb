@@ -90,6 +90,10 @@ Rails.application.configure do
   end
 
   config.public_file_server.enabled = true
+  config.public_file_server.headers = {
+    'Cache-Control' => "public, maxage=#{1.year.to_i}",
+    'Expires' => 1.year.from_now.to_formatted_s(:rfc822)
+  }
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
 
