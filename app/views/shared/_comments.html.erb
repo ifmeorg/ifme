@@ -1,5 +1,5 @@
-<% if ((local_assigns[:comment_type] == 'moment' || local_assigns[:comment_type] == 'strategy') && local_assigns[:data].comment && (current_user.id == local_assigns[:data].userid || local_assigns[:no_hide_page])) ||
-  (local_assigns[:comment_type] == 'meeting' && local_assigns[:is_member]) %>
+<% if ((local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].comment && (current_user.id == local_assigns[:data].userid || local_assigns[:no_hide_page])) ||
+  (local_assigns[:commentable_type] == 'meeting' && local_assigns[:is_member]) %>
 
   <div class="horizonal_divider"></div>
 
@@ -21,17 +21,17 @@
     <% else %>
     <div class="actions align_right">
     <% end %>
-      <%= f.hidden_field :comment_type, :value => local_assigns[:comment_type] %>
+      <%= f.hidden_field :commentable_type, :value => local_assigns[:commentable_type] %>
       <%= f.hidden_field :comment_by, :value => current_user.id %>
-      <%= f.hidden_field :commented_on, :value => local_assigns[:data].id %>
-      <% if (local_assigns[:comment_type] == 'moment' || local_assigns[:comment_type] == 'strategy') && local_assigns[:data].userid != current_user.id %>
+      <%= f.hidden_field :commentable_id, :value => local_assigns[:data].id %>
+      <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].userid != current_user.id %>
         <%= f.select :visibility, [
           [t('shared.comments.share_everyone'), 'all'],
           [t('shared.comments.share_with', name: User.where(:id => local_assigns[:data].userid).first.name), 'private']
         ] %>
       <% else %>
         <%= f.hidden_field :visibility, :value => 'all' %>
-        <% if (local_assigns[:comment_type] == 'moment' || local_assigns[:comment_type] == 'strategy') && !local_assigns[:data].viewers.blank? && local_assigns[:data].viewers.length > 0 %>
+        <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && !local_assigns[:data].viewers.blank? && local_assigns[:data].viewers.length > 0 %>
          <%= f.select :viewers, local_assigns[:data].viewers.collect { |v|
               [ t('shared.comments.share_with', name: User.where(id: v).first.name), v ]
              }, include_blank: t('shared.comments.share_everyone') %>
@@ -52,7 +52,7 @@
         current_user.id == local_assigns[:data].userid ||
         (!comment.viewers.blank? && comment.viewers.include?(current_user.id))
         )) %>
-        <% result = generate_comment(comment, comment.comment_type) %>
+        <% result = generate_comment(comment, comment.commentable_type) %>
         <% if local_assigns[:comments].first == comment %>
         <div class="comment no_margin_top" id=<%= 'comment_' + comment.id.to_s %>>
         <% else %>

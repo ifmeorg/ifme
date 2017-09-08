@@ -15,16 +15,16 @@ describe CommentVisibility do
     }
 
     [:strategy, :moment].each do |commentable_name|
-      let(:commented_on) { commentable[commentable_name] }
+      let(:commentable_id) { commentable[commentable_name] }
 
-      let(:comment) { Comment.create!(:comment_type => commentable_name,
-                                      :commented_on => commented_on.id,
+      let(:comment) { Comment.create!(:commentable_type => commentable_name,
+                                      :commentable_id => commentable_id.id,
                                       :comment_by => commenter.id,
                                       :comment => 'test comment',
                                       :visibility => visibility,
                                       :viewers => viewers) }
 
-      subject { CommentVisibility.build(comment, commented_on, current_user) }
+      subject { CommentVisibility.build(comment, commentable_id, current_user) }
 
       describe 'private comments (visible to you and 1 ally)' do
         let(:visibility) { 'private' }

@@ -36,6 +36,18 @@
     "languages":["en"]
   },
   {
+    "name":"Everything Matters - Beyond Meds",
+    "link":"https://beyondmeds.com/",
+    "tags":["free", "blog", "integrative"],
+    "languages":["en"]
+  },
+  {
+    "name":"HelpGuide.org",
+    "link":"https://www.helpguide.org/",
+    "tags":["free", "learning"],
+    "languages":["en"]
+  },
+  {
     "name":"Mental Health First Aid (US)",
     "link":"https://www.mentalhealthfirstaid.org",
     "tags":["training", "paid"],
@@ -45,6 +57,12 @@
     "name":"Mental Health First Aid (International)",
     "link":"http://www.mhfainternational.org/",
     "tags":["training", "paid", "directory"],
+    "languages":["en"]
+  },
+  {
+    "name":"Music Therapy | What is it?",
+    "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
+    "tags":["music", "therapy", "learning"],
     "languages":["en"]
   },
   {
@@ -99,6 +117,12 @@
     "name":"Crash Course Psychology - Psychological Disorders",
     "link":"https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
     "tags":["videos", "free", "learning"],
+    "languages":["en"]
+  },
+  {
+    "name":"Safe Harbor - Alternative Mental Health",
+    "link":"https://www.alternativementalhealth.com/",
+    "tags":["videos", "free", "learning", "integrative"],
     "languages":["en"]
   }
 ]

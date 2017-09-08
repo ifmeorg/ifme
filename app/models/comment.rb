@@ -4,23 +4,25 @@
 #
 # Table name: comments
 #
-#  id           :integer          not null, primary key
-#  comment_type :string
-#  commented_on :integer
-#  comment_by   :integer
-#  comment      :text
-#  created_at   :datetime
-#  updated_at   :datetime
-#  visibility   :string
-#  viewers      :text
+#  id               :integer          not null, primary key
+#  commentable_type :string
+#  commentable_id   :integer
+#  comment_by       :integer
+#  comment          :text
+#  created_at       :datetime
+#  updated_at       :datetime
+#  visibility       :string
+#  viewers          :text
 #
 
 class Comment < ApplicationRecord
   serialize :viewers, Array
-  validates :comment, length: { minimum: 0, maximum: 1000 }
-  validates :comment_type, :commented_on, :comment_by, :comment, presence: true
-  validates :comment_type, inclusion: %w[moment strategy meeting]
+  belongs_to :commentable, polymorphic: true
+
+  validates :comment, length: { minimum: 0, maximum: 1000 }, presence: true
+  validates :commentable_type, :commentable_id, :comment_by, presence: true
   validates :visibility, inclusion: %w[all private]
+
   before_save :array_data
 
   def array_data
@@ -33,8 +35,8 @@ class Comment < ApplicationRecord
       viewers = params[:viewers].blank? ? [] : [params[:viewers].to_i]
 
       Comment.create!(
-        comment_type: params[:comment_type],
-        commented_on: params[:commented_on],
+        commentable_type: params[:commentable_type],
+        commentable_id: params[:commentable_id],
         comment_by: params[:comment_by],
         comment: params[:comment],
         visibility: viewers.any? ? 'private' : params[:visibility],
@@ -43,13 +45,13 @@ class Comment < ApplicationRecord
     end
   end
 
-  # Notify commented_on user that they have a new comment
+  # Notify commentable_id user that they have a new comment
   def notify_of_creation!(creator)
     association = associated_record
     return unless notify_of_creation?(association)
 
     send_notification!(
-      comment_type,
+      commentable_type,
       creator,
       association,
       association.userid == comment_by ? viewers.first : association.userid,
@@ -60,25 +62,25 @@ class Comment < ApplicationRecord
   private
 
   def associated_record
-    comment_type.classify.constantize.find(commented_on)
+    commentable_type.classify.constantize.find(commentable_id)
   end
 
   def notify_of_creation?(association)
     association.userid != comment_by || viewers.first
   end
 
-  def send_notification!(comment_type, creator, association, user_id,
+  def send_notification!(commentable_type, creator, association, user_id,
                          private: false)
-    return unless User.find_by(id: user_id).exists?
+    return if User.find(user_id).nil?
 
-    type = "comment_on_#{comment_type}#{private ? '_private' : ''}"
+    type = "comment_on_#{commentable_type}#{private ? '_private' : ''}"
     unique_id = "#{type}_#{id}"
     data = notification_data(creator, association, type, unique_id)
 
     Notification.create!(userid: user_id, uniqueid: unique_id, data: data)
 
     notifications = Notification.where(userid: user_id).order(:created_at)
-    Pusher["private-#{userid}"]
+    Pusher["private-#{user_id}"]
       .trigger('new_notification', notifications: notifications)
 
     NotificationMailer.notification_email(user_id, data).deliver_now
