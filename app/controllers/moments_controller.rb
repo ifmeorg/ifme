@@ -42,7 +42,7 @@ class MomentsController < ApplicationController
     is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
 
     if comment_exists
-      momentid = Comment.where(id: params[:commentid]).first.commented_on
+      momentid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
       is_a_viewer = is_viewer(Moment.where(id: momentid).first.viewers)
     else

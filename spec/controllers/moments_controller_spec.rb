@@ -31,7 +31,7 @@ describe MomentsController do
     let(:moment) { create(:moment, user: user) }
     let(:comment) { build(:comment, comment_by: user.id) }
     let(:valid_comment_params) do
-      comment.attributes.merge(commented_on: moment.id, visibility: 'all')
+      comment.attributes.merge(commentable_id: moment.id, visibility: 'all')
     end
     let(:invalid_comment_params) { comment.attributes }
 
@@ -70,7 +70,7 @@ describe MomentsController do
         let!(:new_moment) { create(:moment, id: 1, userid: 1) }
         let!(:comment) do
           create(
-            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+            :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
 
@@ -90,7 +90,7 @@ describe MomentsController do
       context 'when the comment exists and the strategy belongs to the current_user' do
         let!(:comment) do
           create(
-            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+            :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
         let!(:new_moment) { create(:moment, id: 1, userid: 1) }
