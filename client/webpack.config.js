@@ -63,6 +63,11 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
+        include: path.resolve(__dirname, './app'),
+      },
     ],
   },
 };
