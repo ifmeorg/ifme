@@ -20,7 +20,7 @@ const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
  */
 // We keep the class otherwise our enzyme tests can't reference this component by name
 // eslint-disable-next-line react/prefer-stateless-function
-export default class Chart extends React.Component {
+export default class Chart extends React.Component<chartShape, {}> {
     props: chartShape;
 
     /**

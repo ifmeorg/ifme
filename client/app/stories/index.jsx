@@ -6,6 +6,16 @@ import { storiesOf } from '@storybook/react';
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
+import Logo from '../bundles/shared/components/Logo';
+
+storiesOf('Logo', module)
+  .add('Small', () => (
+    <Logo size="small" />
+  ))
+  .add('Medium', () => (
+    <Logo />
+  ))
+
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
 storiesOf('Chart', module)
