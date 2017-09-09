@@ -1,4 +1,4 @@
-<div id="header">
+<header id="header">
   <div id="header_content">
 
     <nav class="small-screen">
@@ -55,7 +55,6 @@
           <%= nav_link_to(t('navigation.blog'), blog_path) %>
           <%= nav_link_to(t('navigation.resources'), resources_path) %>
         <% end %>
-        <div class="clear"></div>
       </ul>
 
       <% if user_signed_in? %>
@@ -76,4 +75,4 @@
       <% end %>
     </nav>
   </div>
-</div>
+</header>
