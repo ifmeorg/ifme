@@ -2,6 +2,7 @@
 
 class CalendarUploader
   require 'google/apis/calendar_v3'
+  require 'access_token'
 
   attr_reader :summary, :date, :access_token, :email
 
