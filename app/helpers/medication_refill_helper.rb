@@ -9,7 +9,9 @@ module MedicationRefillHelper
     begin
       args = calendar_uploader_params(medication)
       CalendarUploader.new(args).upload_event
-    rescue
+    rescue => error
+      puts error
+      puts error.inspect
       return_to_sign_in
     else
       true
