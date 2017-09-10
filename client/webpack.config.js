@@ -3,7 +3,8 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
-const { resolve } = require('path');
+const path = require('path');
+const { resolve } = path;
 
 const ManifestPlugin = require('webpack-manifest-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
