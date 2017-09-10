@@ -74,7 +74,7 @@
   {
     "name":"Psych Central (web portal)",
     "link":"https://psychcentral.com/",
-    "tags":["forum", "blog", "directory", "free", "advice"],
+    "tags":["forum", "blog", "directory", "free", "advice", "news", "books"],
     "languages":["en"]
   },
   {
@@ -123,6 +123,36 @@
     "name":"Safe Harbor - Alternative Mental Health",
     "link":"https://www.alternativementalhealth.com/",
     "tags":["videos", "free", "learning", "integrative"],
+    "languages":["en"]
+  },
+  {
+    "name":"About Face - National Center for PTSD (US)",
+    "link":"https://www.ptsd.va.gov/apps/AboutFace/",
+    "tags":["veterans", "ptsd", "videos", "learning"],
+    "languages":["en"]
+  },
+  {
+    "name":"Understanding Traumatic Brain Injury (US)",
+    "link":"https://www.polytrauma.va.gov/understanding-tbi/",
+    "tags":["veterans", "tbi", "learning"],
+    "languages":["en"]
+  },
+  {
+    "name":"RxISK",
+    "link":"https://rxisk.org/",
+    "tags":["free", "learning", "blog", "treatment"],
+    "languages":["en"]
+  },
+  {
+    "name":"Unified Therapy",
+    "link":"http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
+    "tags":["free", "learning", "integrative", "treatment", "therapy"],
+    "languages":["en"]
+  },
+  {
+    "name":"The Carlat Psychiatry Blog",
+    "link":"http://carlatpsychiatry.blogspot.com/",
+    "tags":["free", "learning", "blog", "books", "news"],
     "languages":["en"]
   }
 ]
