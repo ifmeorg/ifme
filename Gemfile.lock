@@ -76,6 +76,7 @@ GEM
       mime-types (>= 1.16)
     certified (1.0.0)
     childprocess (0.7.1)
+      ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
     chromedriver-helper (1.1.0)
       archive-zip (~> 0.7.0)
