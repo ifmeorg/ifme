@@ -21,7 +21,15 @@ describe SecretSharesController, type: :controller do
           sign_in moment.user
         end
 
+<<<<<<< HEAD
         specify { expect { post_create }.to raise_record_not_found }
+=======
+        specify do
+          expect do
+            post(:create, params: { moment: moment }
+          end.to.raise_error(ActiveRecord::RecordNotFound)
+        end
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
       end
 
       context 'signed in as another user' do
@@ -29,19 +37,40 @@ describe SecretSharesController, type: :controller do
           new_user = create(:user)
           sign_in new_user
         end
+<<<<<<< HEAD
 
         specify { expect { post_create }.to raise_record_not_found }
+=======
+        specify do
+          expect do
+            post(:create, params: { moment: moment }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
       end
     end
 
     describe 'GET show' do
       context 'secret share is valid' do
         let(:moment) { create(:moment, :with_user, :with_secret_share) }
+<<<<<<< HEAD
         specify { expect { get :show, params: { id: moment.secret_share_identifier } }.to raise_record_not_found) }
       end
       context 'no secret share' do
         specify do
           expect { get :show, params: { id: 'foobar' } }.to raise_record_not_found
+=======
+        specify do
+          expect do
+            get :show, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+      end
+      context 'no secret share' do
+        specify do
+          expect do
+            get :show, params: { id: 'foobar' }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
         end
       end
     end
@@ -53,7 +82,14 @@ describe SecretSharesController, type: :controller do
           sign_in moment.user
         end
 
+<<<<<<< HEAD
         specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+=======
+        specify do
+          expect do
+            delete :destroy, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
       end
 
       context 'signed in as another user' do
@@ -61,9 +97,19 @@ describe SecretSharesController, type: :controller do
           new_user = create(:user)
           sign_in new_user
         end
+<<<<<<< HEAD
         specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
       end
     end
+=======
+
+        specify do
+          expect do
+            delete :destroy, params: { id: moment.secret_share_identifier }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
 
     after do
       Rails.configuration.secret_share_enabled = true
@@ -88,7 +134,15 @@ describe SecretSharesController, type: :controller do
         new_user = create(:user)
         sign_in new_user
       end
+<<<<<<< HEAD
       specify { expect { post :create, params: { moment: moment } }.to raise_record_not_found }
+=======
+
+      specify do
+        expect do
+          post :create, params: { moment: moment }
+        end.to raise_error(ActiveRecord::RecordNotFound)
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
     end
 
     context 'not signed in' do
@@ -114,7 +168,13 @@ describe SecretSharesController, type: :controller do
     end
     context 'no secret share' do
       specify do
+<<<<<<< HEAD
         expect { get :show, params: { id: 'foobar' } }.to raise_record_not_found
+=======
+        expect do
+          get :show, params: { id: 'foobar' }
+        end.to raise_error ActiveRecord::RecordNotFound
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
       end
     end
   end
@@ -137,7 +197,15 @@ describe SecretSharesController, type: :controller do
         new_user = create(:user)
         sign_in new_user
       end
+<<<<<<< HEAD
       specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+=======
+
+      specify do
+        expect do
+          delete :destroy, params: { id: moment.secret_share_identifier }
+      end.to raise_error(ActiveRecord::RecordNotFound)
+>>>>>>> 9fc3ac32dfd64b48287c25fa0915af9f892a17d9
     end
 
     context 'not signed in' do
