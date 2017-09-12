@@ -6,6 +6,10 @@ describe SecretSharesController, type: :controller do
     raise_error(ActiveRecord::RecordNotFound)
   end
 
+  def moment_id
+    id: moment.secret_share_identifier
+  end
+
   context 'when secret share is disabled' do
     before do
       Rails.configuration.secret_share_enabled = false
@@ -39,7 +43,7 @@ describe SecretSharesController, type: :controller do
       context 'secret share is valid' do
         let(:moment) { create(:moment, :with_user, :with_secret_share) }
 
-        specify { expect { get :show, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+        specify { expect { get :show, params: { moment_id } }.to raise_record_not_found }
       end
       context 'no secret share' do
 
@@ -54,7 +58,7 @@ describe SecretSharesController, type: :controller do
           sign_in moment.user
         end
 
-        specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+        specify { expect { delete :destroy, params: { moment_id } }.to raise_record_not_found }
       end
 
       context 'signed in as another user' do
@@ -63,7 +67,7 @@ describe SecretSharesController, type: :controller do
           sign_in new_user
         end
 
-        specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+        specify { expect { delete :destroy, params: { moment_id } }.to raise_record_not_found }
       end
     end
 
@@ -111,7 +115,7 @@ describe SecretSharesController, type: :controller do
 
   describe 'GET show' do
     context 'secret share is valid' do
-      before { get :show, params: { id: moment.secret_share_identifier } }
+      before { get :show, params: { moment_id } }
       let(:moment) { create(:moment, :with_user, :with_secret_share) }
       specify { expect(response).to render_template(:show) }
     end
@@ -126,7 +130,7 @@ describe SecretSharesController, type: :controller do
     context 'signed in as creator of the moment' do
       before do
         sign_in moment.user
-        delete :destroy, params: { id: moment.secret_share_identifier }
+        delete :destroy, params: { moment_id}
       end
 
       it 'deletes Secret Share Identifier' do
@@ -140,12 +144,12 @@ describe SecretSharesController, type: :controller do
         sign_in new_user
       end
 
-      specify { expect { delete :destroy, params: { id: moment.secret_share_identifier } }.to raise_record_not_found }
+      specify { expect { delete :destroy, params: { moment_id } }.to raise_record_not_found }
     end
 
     context 'not signed in' do
       before do
-        delete :destroy, params: { id: moment.secret_share_identifier }
+        delete :destroy, params: { moment_id }
       end
 
       it 'redirects to sign in page' do
