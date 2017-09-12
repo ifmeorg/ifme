@@ -27,8 +27,8 @@ var onReadyAddComment = function() {
 				}
 
 				var data = {
-					comment_type: $('#comment_comment_type').val(),
-					commented_on:$('#comment_commented_on').val(),
+					commentable_type: $('#comment_commentable_type').val(),
+					commentable_id:$('#comment_commentable_id').val(),
 					comment_by: $('#comment_comment_by').val(),
 					comment: $('#comment_comment').val(),
 					visibility: $('#comment_visibility').val(),
@@ -109,4 +109,4 @@ var onReadyAddComment = function() {
 	}
 };
 
-$(document).on("turbolinks:load", onReadyAddComment);
+loadPage(onReadyAddComment);

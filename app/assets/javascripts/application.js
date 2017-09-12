@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require load_page.js
 //= require js.cookie.js
 //= require ckeditor/init
 //= require jquery
@@ -19,9 +20,9 @@
 //= require bootstrap-datepicker
 //= require underscore
 //= require i18n
-//= require_tree .
 //= require i18n.js
 //= require i18n/translations
+//= require_tree .
 
 I18n.locale = Cookies.get("locale") || I18n.defaultLocale;
 
@@ -70,7 +71,7 @@ var onReadyApplication = function() {
 	$(".yes_title").find(":not(.no_title)").tooltip();
 };
 
-$(document).on("turbolinks:load", onReadyApplication);
+loadPage(onReadyApplication);
 
 var beforeunloadApplication = function() {
   $(window).scrollTop(0);

@@ -21,7 +21,7 @@ var toggleProfileBlurb = function() {
 
 var contributorReadMoreFeature = function(){
   var profileTextLength = 0;
-  const maxProfileLength = 120;
+  var maxProfileLength = 120;
   var visibleProfileText, invisibleProfileText;
   var contributorProfile = $('.contributor_profile');
 
@@ -40,4 +40,4 @@ var contributorReadMoreFeature = function(){
 };
 
 $(document).on('click', '.toggle', toggleProfileBlurb);
-$(document).on("turbolinks:load", contributorReadMoreFeature);
+loadPage(contributorReadMoreFeature);

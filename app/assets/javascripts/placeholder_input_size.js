@@ -9,4 +9,4 @@ var onReadyPlaceholderInputSize = function() {
   }
 };
 
-$(document).on("turbolinks:load", onReadyPlaceholderInputSize);
+loadPage(onReadyPlaceholderInputSize);

@@ -19,10 +19,7 @@ class MedicationsController < ApplicationController
       @page_edit = edit_medication_path(@medication)
       @page_tooltip = t('medications.edit_medication')
     else
-      respond_to do |format|
-        format.html { redirect_to medications_path }
-        format.json { head :no_content }
-      end
+      redirect_to_path(medications_path)
     end
   end
 
@@ -39,10 +36,7 @@ class MedicationsController < ApplicationController
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     return if @medication.userid == current_user.id
 
-    respond_to do |format|
-      format.html { redirect_to medication_path(@medication) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(medication_path(@medication))
   end
 
   # POST /medications
@@ -73,18 +67,12 @@ class MedicationsController < ApplicationController
   # DELETE /medications/1.json
   def destroy
     @medication.destroy
-    respond_to do |format|
-      format.html { redirect_to medications_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(medications_path)
   end
 
   def return_to_sign_in
     sign_out current_user
-    respond_to do |format|
-      format.html { redirect_to new_user_session_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(new_user_session_path)
     false
   end
 
@@ -111,10 +99,7 @@ class MedicationsController < ApplicationController
   def set_medication
     @medication = Medication.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to medications_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(medications_path)
   end
 
   def medication_params

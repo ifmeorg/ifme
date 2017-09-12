@@ -75,11 +75,11 @@ describe StrategiesController do
 
   describe 'POST comment' do
     let(:comment) do
-      build(:comment, comment_by: user.id, comment_type: 'strategy')
+      build(:comment, comment_by: user.id, commentable_type: 'strategy')
     end
     let(:valid_comment_params) do
       comment.attributes.merge(
-        'commented_on' => strategy.id, 'visibility' => 'all'
+        'commentable_id' => strategy.id, 'visibility' => 'all'
       )
     end
     let(:invalid_comment_params) { comment.attributes }
@@ -117,7 +117,7 @@ describe StrategiesController do
           create(
             :comment,
             comment_by: user.id,
-            commented_on: strategy.id,
+            commentable_id: strategy.id,
             visibility: 'all'
           )
         end

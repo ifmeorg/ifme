@@ -8,6 +8,22 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
+    if current_user
+      @user_logged_in = true
+
+      period = 'day'
+      # +1 day buffer to ensure we include today as well
+      end_date = Date.current + 1.day
+      start_date = get_start_by_period(period, end_date)
+
+      @react_moments = Moment.where(user: current_user)
+                             .group_by_period(period,
+                                              :created_at,
+                                              range: start_date..end_date).count
+    else
+      @user_logged_in = false
+    end
+
     page_collection('@moments', 'moment')
   end
 
@@ -26,7 +42,7 @@ class MomentsController < ApplicationController
     is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
 
     if comment_exists
-      momentid = Comment.where(id: params[:commentid]).first.commented_on
+      momentid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
       is_a_viewer = is_viewer(Moment.where(id: momentid).first.viewers)
     else
@@ -80,10 +96,7 @@ class MomentsController < ApplicationController
   # GET /moments/1/edit
   def edit
     unless @moment.userid == current_user.id
-      return respond_to do |format|
-        format.html { redirect_to moment_path(@moment) }
-        format.json { head :no_content }
-      end
+      redirect_to_path(moment_path(@moment))
     end
 
     set_association_variables!
@@ -130,10 +143,7 @@ class MomentsController < ApplicationController
   # DELETE /moments/1.json
   def destroy
     @moment.destroy
-    respond_to do |format|
-      format.html { redirect_to moments_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moments_path)
   end
 
   private
@@ -141,10 +151,7 @@ class MomentsController < ApplicationController
   def set_moment
     @moment = Moment.friendly.find(params[:id])
   rescue
-    respond_to do |format|
-      format.html { redirect_to moments_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(moments_path)
   end
 
   def moment_params
@@ -178,5 +185,18 @@ class MomentsController < ApplicationController
     end
 
     Strategy.where(id: strategy_ids).order(created_at: :desc)
+  end
+
+  def get_start_by_period(period, end_date)
+    case period
+    when 'day'
+      end_date - 1.week
+    when 'week'
+      end_date - 1.month
+    when 'month'
+      end_date - 1.year
+    else
+      end_date - 1.week
+    end
   end
 end

@@ -32,4 +32,4 @@ var onReadyMobileTip = function() {
   }
 };
 
-$(document).on("turbolinks:load", onReadyMobileTip);
+loadPage(onReadyMobileTip);

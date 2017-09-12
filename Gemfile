@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+gem 'puma'
+gem 'rack-rewrite'
 gem 'rails', '~> 5.0.5'
 
 gem 'activerecord-import'
@@ -44,6 +46,11 @@ gem 'sdoc', '0.4.1', group: :doc
 
 gem 'font-awesome-sass'
 
+gem 'groupdate', '3.2'
+
+gem 'react_on_rails', '8.0.6'
+gem 'webpacker_lite'
+
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
 
@@ -60,7 +67,7 @@ group :development, :test do
   gem 'capybara', '~> 2.15.1'
   gem 'chromedriver-helper'
   gem 'factory_girl_rails'
-  gem 'jasmine', '~> 2.4.0'
+  gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'ruby-graphviz', '~> 1.2.3'
@@ -70,6 +77,8 @@ group :development, :test do
 
   gem 'jshint'
   gem 'rubocop', '~> 0.48.0'
+
+  gem 'foreman'
 end
 
 group :test do
@@ -80,5 +89,6 @@ group :test do
 end
 
 group :production do
+  gem 'rack-timeout'
   gem 'rails_12factor', '0.0.3'
 end

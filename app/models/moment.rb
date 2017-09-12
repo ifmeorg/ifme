@@ -32,6 +32,7 @@ class Moment < ApplicationRecord
   before_save :array_data
 
   belongs_to :user, foreign_key: :userid
+  has_many :comments, as: :commentable
 
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :why, presence: true
