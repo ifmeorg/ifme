@@ -2,8 +2,8 @@
 
 .container {
   display: inline-block;
-  width: 3em;
-  height: 3em;
+  width: 6ex;
+  height: 6ex;
   box-sizing: border-box;
 
   background-color: $container-color;
@@ -15,7 +15,8 @@
   text-transform: lowercase;
 
   margin: 0;
-  padding: 0.8em 0.4em 0;
+  padding: 1.7ex 0 0;
+  text-align: center;
   outline: 0;
 
   @media screen and (max-width: $small) {
@@ -34,10 +35,10 @@
 
   .me {
     display: inline-block;
-    border-bottom: 0.05em solid $highlight-text-color;
-    border-top: 0.05em solid $highlight-text-color;
+    border-bottom: 0.11ex solid $highlight-text-color;
+    border-top: 0.11ex solid $highlight-text-color;
     color: $highlight-text-color;
-    margin: 0 0 0 0.3em;
-    padding: 0 0 0.25em;
+    margin: 0 0 0 0.5ex;
+    padding: 0 0 0.55ex;
   }
 }
