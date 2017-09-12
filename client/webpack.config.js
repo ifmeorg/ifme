@@ -56,19 +56,15 @@ const config = {
     }),
     new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
     new ExtractTextPlugin(`${outputFilename}.css`),
-  ].concat(
-    devBuild
-      ? []
-      : [
-        new OptimizeCssAssetsPlugin({
-          cssProcessorOptions: {
-            discardComments: {
-              removeAll: true,
-            },
-          },
-        }),
-      ],
-  ),
+  ].concat(devBuild ? [] : [
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        discardComments: {
+          removeAll: true,
+        },
+      },
+    }),
+  ]),
 
   module: {
     rules: [
