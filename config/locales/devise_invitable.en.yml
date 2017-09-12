@@ -17,7 +17,7 @@ en:
         submit_button: "Set my password"
     mailer:
       invitation_instructions:
-        subject: "You've been invited to join if me!"
+        subject: "%{name} invited you to join if me!"
         hello: "Hey %{email}!"
         someone_invited_you: "%{name} has invited you to join http://www.if-me.org, a community to share mental health experiences with your loved ones and keep track of your moods, medications, and self-care. You can accept the invite through the link below."
         accept: "Accept invitation!"
