@@ -5,11 +5,9 @@ class SearchController < ApplicationController
     permitted = params.require(:search).permit(:email)
     raise ActionController::ParameterMissing if permitted.blank?
     @matching_users = search_by_email(permitted[:email].strip)
+    @email_query = permitted[:email]
   rescue ActionController::ParameterMissing
-    respond_to do |format|
-      format.html { redirect_to allies_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(allies_path)
   end
 
   def posts
@@ -18,10 +16,7 @@ class SearchController < ApplicationController
 
     return unless data_type.in?(%w[moment category mood strategy medication])
 
-    respond_to do |format|
-      format.html { redirect_to make_path(term, data_type) }
-      format.json { head :no_content }
-    end
+    redirect_to_path(make_path(term, data_type))
   end
 
   private

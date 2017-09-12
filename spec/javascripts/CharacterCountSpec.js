@@ -1,15 +1,15 @@
-describe("CharacterCount", function(); {
-  describe("onReadyCharacterCount", function(); {
+describe("CharacterCount", function() {
+  describe("onReadyCharacterCount", function() {
     var noCKEditor, changeEditorCount;
 
-    beforeEach(function(); {
+    beforeEach(function() {
       changeEditorCount = spyOn(window, 'changeEditorCount').and.callThrough();
       noCKEditor = spyOn(window, 'noCKEditor').and.callThrough();
     });
 
-    describe('noCKEditor', function(); {
-      describe('home page', function(); {
-        beforeEach(function(); {
+    describe('noCKEditor', function() {
+      describe('home page', function() {
+        beforeEach(function() {
           $('body').addClass('pages home');
           loadFixtures('character_count.html');
 
@@ -17,32 +17,32 @@ describe("CharacterCount", function(); {
           $('#moment_why').keyup();
         });
 
-        it("noCKEditor to be called", function(); {
+        it("noCKEditor to be called", function() {
           expect(noCKEditor).toHaveBeenCalled();
         });
       });
 
-      describe('character limit', function(); {
-        function charLimit(val); {
+      describe('character limit', function() {
+        function charLimit(val) {
           loadFixtures('character_count.html');
           var editor = $('#moment_why');
           editor.val(val);
           noCKEditor(editor);
         }
 
-        it("submit button should not be disabled", function(); {
+        it("submit button should not be disabled", function() {
           charLimit('aaaaaaa');
           var input = $('input[type="submit"]');
 
-          expect(input.attr('disabled')).toBeTrue();
+          expect(input.prop('disabled')).toBe(false);
         });
 
-        it("submit button should not be disabled", function(); {
+        it("submit button should be disabled", function() {
           var overLimit = new Array(2002).join('a');
           charLimit(overLimit);
           var input = $('input[type="submit"]');
 
-          expect(input.attr('disabled')).toBeTrue();
+          expect(input.prop('disabled')).toBe(true);
         });
       });
     });

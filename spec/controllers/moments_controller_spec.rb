@@ -31,7 +31,7 @@ describe MomentsController do
     let(:moment) { create(:moment, user: user) }
     let(:comment) { build(:comment, comment_by: user.id) }
     let(:valid_comment_params) do
-      comment.attributes.merge(commented_on: moment.id, visibility: 'all')
+      comment.attributes.merge(commentable_id: moment.id, visibility: 'all')
     end
     let(:invalid_comment_params) { comment.attributes }
 
@@ -70,7 +70,7 @@ describe MomentsController do
         let!(:new_moment) { create(:moment, id: 1, userid: 1) }
         let!(:comment) do
           create(
-            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+            :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
 
@@ -90,7 +90,7 @@ describe MomentsController do
       context 'when the comment exists and the strategy belongs to the current_user' do
         let!(:comment) do
           create(
-            :comment, id: 1, comment_by: 1, commented_on: 1, visibility: 'all'
+            :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
         let!(:new_moment) { create(:moment, id: 1, userid: 1) }
@@ -124,6 +124,24 @@ describe MomentsController do
       end
 
       it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe 'Moment Analytic Charts' do
+
+    it 'should contain react analytics objects' do
+      create_time = Date.current
+      new_user = create(:user1)
+      sign_in new_user
+      new_category = create(:category, userid: new_user.id)
+      new_mood = create(:mood, userid: new_user.id)
+      create(:moment, userid: new_user.id, category: Array.new(1, new_category.id),
+             mood: Array.new(1, new_mood.id), created_at: create_time)
+
+      get :index
+
+      expect(assigns(:react_moments)).to have_key(create_time)
+      expect(assigns(:react_moments)[create_time]).to eq(1)
     end
   end
 end

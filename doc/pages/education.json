@@ -24,9 +24,27 @@
     "languages":["en"]
   },
   {
+    "name":"DBT | What is Dialectical Behavior Therapy?",
+    "link":"https://behavioraltech.org/resources/faqs/what-is-dbt/",
+    "tags":["anonymous", "free", "mindfulness", "therapy", "treatment"],
+    "languages":["en"]
+  },
+  {
     "name":"Doll Hospital",
     "link":"http://www.dollhospitaljournal.com",
     "tags":["paid", "publication"],
+    "languages":["en"]
+  },
+  {
+    "name":"Everything Matters - Beyond Meds",
+    "link":"https://beyondmeds.com/",
+    "tags":["free", "blog", "integrative"],
+    "languages":["en"]
+  },
+  {
+    "name":"HelpGuide.org",
+    "link":"https://www.helpguide.org/",
+    "tags":["free", "learning"],
     "languages":["en"]
   },
   {
@@ -42,9 +60,21 @@
     "languages":["en"]
   },
   {
+    "name":"Music Therapy | What is it?",
+    "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
+    "tags":["music", "therapy", "learning"],
+    "languages":["en"]
+  },
+  {
     "name":"Partnership for Workplace Mental Health (US)",
     "link":"http://www.workplacementalhealth.org/",
     "tags":["workplace"],
+    "languages":["en"]
+  },
+  {
+    "name":"Psych Central (web portal)",
+    "link":"https://psychcentral.com/",
+    "tags":["forum", "blog", "directory", "free", "advice"],
     "languages":["en"]
   },
   {
@@ -87,6 +117,12 @@
     "name":"Crash Course Psychology - Psychological Disorders",
     "link":"https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
     "tags":["videos", "free", "learning"],
+    "languages":["en"]
+  },
+  {
+    "name":"Safe Harbor - Alternative Mental Health",
+    "link":"https://www.alternativementalhealth.com/",
+    "tags":["videos", "free", "learning", "integrative"],
     "languages":["en"]
   }
 ]

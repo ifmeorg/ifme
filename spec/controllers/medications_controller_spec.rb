@@ -35,5 +35,28 @@ describe MedicationsController do
         expect(subject).to eq('<div class="small_margin_top"><i class="fa fa-bell small_margin_right"></i>Refill reminder email, Daily reminder email</div>')
       end
     end
+
+    describe 'DELETE #destroy' do
+      let(:user) { create(:user) }
+      let!(:medication) { create(:medication, user: user) }
+
+      context 'when the user is logged in' do
+        include_context :logged_in_user
+        it 'deletes the medication' do
+          expect { delete :destroy, params: { id: medication.id } }
+            .to change(Medication, :count).by(-1)
+        end
+
+        it 'redirects to the medications index page' do
+          delete :destroy, params: { id: medication.id }
+          expect(response).to redirect_to medications_path
+        end
+      end
+
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: medication.id } }
+        it_behaves_like :with_no_logged_in_user
+      end
+    end
   end
 end
