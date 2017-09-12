@@ -13,7 +13,7 @@ const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const configPath = resolve('..', 'config');
 const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
-const outputFilename = '[name]-[hash]' + (devBuild ? '' : '.min');
+const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 
 const config = {
 
@@ -50,7 +50,7 @@ const config = {
     new webpack.optimize.UglifyJsPlugin({
       compress: devBuild ? false : {
         dead_code: true,
-        warnings: false
+        warnings: false,
       },
       mangle: !devBuild,
     }),
@@ -63,11 +63,11 @@ const config = {
         new OptimizeCssAssetsPlugin({
           cssProcessorOptions: {
             discardComments: {
-              removeAll: true
+              removeAll: true,
             },
           },
-        })
-      ]
+        }),
+      ],
   ),
 
   module: {
