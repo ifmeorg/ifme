@@ -483,6 +483,7 @@ es:
       ptsd: TEPT
       tbi: TCE
       news: noticia
+      government: gobierno
 
  profile:
   index:

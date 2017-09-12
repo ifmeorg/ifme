@@ -482,6 +482,7 @@ ptbr:
         ptsd: TEPT
         tbi: LCT
         news: noticia
+        government: governo
 
  profile:
   index:

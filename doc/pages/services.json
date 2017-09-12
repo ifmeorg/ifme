@@ -98,7 +98,7 @@
   {
     "name":"US Department of Veteran's Affairs | Mental Health",
     "link":"https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags":["free", "suicide prevention", "homeless", "directory", "veterans"],
+    "tags":["free", "suicide prevention", "homeless", "directory", "veterans", "government"],
     "languages":["en"]
   },
   {
@@ -110,7 +110,7 @@
   {
     "name":"MedWatch: The FDA Safety Information and Adverse Event Reporting Program (US)",
     "link":"https://www.fda.gov/Safety/MedWatch/default.htm",
-    "tags":["news", "free"],
+    "tags":["news", "free", "government"],
     "languages":["en", "es", "ptbr"]
   }
 ]

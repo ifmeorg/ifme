@@ -128,13 +128,13 @@
   {
     "name":"About Face - National Center for PTSD (US)",
     "link":"https://www.ptsd.va.gov/apps/AboutFace/",
-    "tags":["veterans", "ptsd", "videos", "learning"],
+    "tags":["veterans", "ptsd", "videos", "learning", "government"],
     "languages":["en"]
   },
   {
     "name":"Understanding Traumatic Brain Injury (US)",
     "link":"https://www.polytrauma.va.gov/understanding-tbi/",
-    "tags":["veterans", "tbi", "learning"],
+    "tags":["veterans", "tbi", "learning", "government"],
     "languages":["en"]
   },
   {
