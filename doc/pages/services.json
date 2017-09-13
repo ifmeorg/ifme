@@ -96,9 +96,21 @@
     "languages":["en"]
   },
   {
-    "name":"US Department of Veteran's Affairs | Mental Health",
+    "name":"Department of Veteran's Affairs | Mental Health (US)",
     "link":"https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags":["free", "suicide prevention", "homeless", "directory", "veterans"],
+    "tags":["free", "suicide prevention", "homeless", "directory", "veterans", "government"],
     "languages":["en"]
+  },
+  {
+    "name":"Disabled Veterans National Foundation Resources (US)",
+    "link":"http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
+    "tags":["directory", "veterans"],
+    "languages":["en"]
+  },
+  {
+    "name":"MedWatch: The FDA Safety Information and Adverse Event Reporting Program (US)",
+    "link":"https://www.fda.gov/Safety/MedWatch/default.htm",
+    "tags":["news", "free", "government"],
+    "languages":["en", "es", "ptbr"]
   }
 ]
