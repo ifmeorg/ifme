@@ -114,7 +114,7 @@ FactoryGirl.define do
   end
 
   factory :comment do
-    comment_type 'moment'
+    commentable_type 'moment'
     comment 'Test Comment'
   end
 

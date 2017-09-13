@@ -27,6 +27,7 @@ en:
    privacy: 'Privacy Policy'
    github: 'GitHub'
    patreon: 'Patreon'
+   opencollective: 'Open Collective'
    instagram: 'Instagram'
    twitter: "Twitter"
    facebook: "Facebook"
@@ -292,8 +293,8 @@ en:
    accepted: '%{name} accepted your ally request!'
    sent_html: '%{link_to_user} sent an ally request!'
   comment:
-   full: '%{name} commented "%{comment}" on %{commented_on}'
-   truncated: '%{name} commented "%{comment}" [...] on %{commented_on}'
+   full: '%{name} commented "%{comment}" on %{commentable_id}'
+   truncated: '%{name} commented "%{comment}" [...] on %{commentable_id}'
   group:
    new_group: '%{name} created a group "%{group_name}"'
    new_group_member: '%{name} joined your group "%{group_name}"'
@@ -475,6 +476,15 @@ en:
       mindfulness: mindfulness
       journaling: journaling
       mood_tracking: mood tracking
+      veterans: veterans
+      music: music
+      integrative: integrative
+      ptsd: PTSD
+      tbi: TBI
+      news: news
+      government: government
+      christian: christian
+      humor: humor
 
  profile:
   index:

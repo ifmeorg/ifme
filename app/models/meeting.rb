@@ -27,4 +27,5 @@ class Meeting < ApplicationRecord
   has_many :meeting_members, foreign_key: :meetingid, dependent: :destroy
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user
+  has_many :comments, as: :commentable
 end

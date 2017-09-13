@@ -3,13 +3,13 @@
 class CommentVisibility
   attr_reader :comment, :owner, :current_user
 
-  def self.build(comment, commented_on, current_user)
-    new(comment, commented_on, current_user).build
+  def self.build(comment, commentable_id, current_user)
+    new(comment, commentable_id, current_user).build
   end
 
-  def initialize(comment, commented_on, current_user)
+  def initialize(comment, commentable_id, current_user)
     @comment = comment
-    @owner = User.find(commented_on.userid)
+    @owner = User.find(commentable_id.userid)
     @current_user = current_user
   end
 
