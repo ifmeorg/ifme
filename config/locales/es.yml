@@ -484,6 +484,8 @@ es:
       tbi: TCE
       news: noticia
       government: gobierno
+      christian: cristiano
+      humor: humor
 
  profile:
   index:

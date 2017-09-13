@@ -483,6 +483,8 @@ ptbr:
         tbi: LCT
         news: noticia
         government: governo
+        christian: cristão
+        humor: humor
 
  profile:
   index:
