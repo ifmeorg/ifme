@@ -1,9 +1,9 @@
 sv:
   views:
     pagination:
-      first: "&laquo; Först"
+      first: "&laquo; Första"
       last: "Sista &raquo;"
-      previous: "&lsaquo; Tidigare"
+      previous: "&lsaquo; Föregående"
       next: "Nästa &rsaquo;"
       truncate: "&hellip;"
   helpers:

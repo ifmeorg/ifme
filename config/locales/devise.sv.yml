@@ -21,31 +21,31 @@ sv:
       confirmation_instructions:
         subject: "Bekräftelsesinstruktioner"
       reset_password_instructions:
-        subject: "Återställ lösenordsinstruktioner"
+        subject: "Instruktioner för lösenordsåterställning"
       unlock_instructions:
-        subject: "Lås upp instruktionerna"
+        subject: "Upplåsningsinstruktioner"
       password_change:
         subject: "Lösenordet ändrat"
     omniauth_callbacks:
       failure: "Det gick inte att autentisera dig från %{kind} eftersom \"%{reason}\"."
-      success: "Det gick att autentisera från %{kind} konto."
+      success: "Det gick att inloggad från %{kind} konto."
     passwords:
       no_token: "Du kan inte komma åt den här sidan utan att komma från ett lösenordsåterställnings-meddelande. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen."
       send_instructions: "Du får ett mail med instruktioner om hur du återställer ditt lösenord om några minuter."
       send_paranoid_instructions: "Om din e-postadress finns i vår databas, får du en länk för lösenordsåterställning på din e-postadress om några minuter."
-      updated: "Ditt lösenord har ändrats framgångsrikt. Du är nu inloggad."
-      updated_not_active: "Ditt lösenord har ändrats framgångsrikt."
+      updated: "Ditt lösenord har ändrats. Du är nu inloggad."
+      updated_not_active: "Ditt lösenord har ändrats."
     registrations:
-      destroyed: "Adjö! Ditt konto har blivit avstängt. Vi hoppas att vi ses snart igen."
-      signed_up: "Välkommen! Du har anmält dig framgångsrikt."
-      signed_up_but_inactive: "Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto ännu inte är aktiverat."
-      signed_up_but_locked: "Du har anmält dig framgångsrikt. Vi kunde dock inte logga in eftersom ditt konto är låst."
+      destroyed: "Hejdå! Ditt konto har blivit avstängt. Vi hoppas att vi ses snart igen."
+      signed_up: "Välkommen! Du har anmält dig."
+      signed_up_but_inactive: "Du har anmält dig. Vi kunde dock inte logga in eftersom ditt konto ännu inte är aktiverat."
+      signed_up_but_locked: "Du har anmält dig. Vi kunde dock inte logga in eftersom ditt konto är låst."
       signed_up_but_unconfirmed: "Ett meddelande med en bekräftelselänk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto."
-      update_needs_confirmation: "Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ länken för att bekräfta din nya e-postadress."
-      updated: "Ditt konto har uppdaterats framgångsrikt."
+      update_needs_confirmation: "Du har uppdaterat ditt konto, men vi måste verifiera din nya e-postadress. Vänligen kolla din e-post och följ länken för att bekräfta din nya e-postadress."
+      updated: "Ditt konto har uppdaterats."
     sessions:
-      signed_in: "Inloggad med framgång."
-      signed_out: "Utloggad framgångsrikt."
+      signed_in: "Inloggad."
+      signed_out: "Du är nu utloggad."
       already_signed_out: "Redan utloggad."
     unlocks:
       send_instructions: "Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter."
@@ -55,7 +55,7 @@ sv:
     messages:
       already_confirmed: "var redan bekräftad, var god försök att logga in"
       confirmation_period_expired: "måste bekräftas inom %{period}, var god be om en ny"
-      expired: "Har gått ut, vänligen be om en ny"
+      expired: "har gått ut, vänligen be om en ny"
       not_found: "hittades inte"
       not_locked: "var inte låst"
       not_saved:
