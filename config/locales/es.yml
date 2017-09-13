@@ -27,6 +27,7 @@ es:
    privacy: "Política de Privacidad"
    github: "GitHub"
    patreon: "Patreon"
+   opencollective: 'Open Collective'
    instagram: "Instagram"
    twitter: "Twitter"
    facebook: "Facebook"
@@ -294,8 +295,8 @@ es:
    accepted: "¡%{name} ha aceptado tu solicitud de alianza!"
    sent_html: "¡%{link_to_user} te ha enviado una solicitud de alianza!"
   comment:
-   full: "%{name} comentó \"%{comment}\" en %{commented_on}"
-   truncated: "%{name} comentó \"%{comment}\" [...] en %{commented_on}"
+   full: "%{name} comentó \"%{comment}\" en %{commentable_id}"
+   truncated: "%{name} comentó \"%{comment}\" [...] en %{commentable_id}"
   group:
    new_group: "%{name} ha creado el grupo \"%{group_name}\""
    new_group_member: "%{name} se unió a tu grupo \"%{group_name}\""
@@ -477,6 +478,15 @@ es:
       mindfulness: atención consciente
       journaling: mi diario
       mood_tracking: registro de estados de ánimo
+      veterans: veteranos
+      music: música
+      integrative: integrativo
+      ptsd: TEPT
+      tbi: TCE
+      news: noticia
+      government: gobierno
+      christian: cristiano
+      humor: humor
 
  profile:
   index:

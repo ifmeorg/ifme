@@ -22,21 +22,21 @@ NotificationRenderer.prototype.render = function() {
 function momentComment(data) {
   return {
     path: '/moments/' + data.momentid,
-    commented_on: data.moment
+    commentable_id: data.moment
   }
 }
 
 function strategyComment(data) {
   return {
     path: '/strategies/' + data.strategyid,
-    commented_on: data.strategy
+    commentable_id: data.strategy
   }
 }
 
 function meetingComment(data) {
   return {
     path: '/meetings/' + data.meetingid,
-    commented_on: data.meeting
+    commentable_id: data.meeting
   }
 }
 
@@ -57,7 +57,7 @@ function commentNotificationLink(uniqueid, data) {
   var notification = I18n.t('notifications.comment.' + i18nKey,
                             { name: data.user,
                               comment: data.comment,
-                              commented_on: comment.commented_on });
+                              commentable_id: comment.commentable_id });
 
   return notificationLink(uniqueid, comment.path, notification);
 }

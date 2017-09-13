@@ -50,11 +50,28 @@ class ApplicationController < ActionController::Base
     common = %i[location name email password
                 password_confirmation current_password]
 
-    devise_parameter_sanitizer.permit :account_update,
-      keys: %i[about avatar remove_avatar comment_notify ally_notify
-               group_notify meeting_notify] + common
+    configure_for_account_update(common)
+    configure_for_sign_up(common)
+    configure_for_accept_invitation
+  end
 
+  def configure_for_account_update(common)
+    devise_parameter_sanitizer.permit :account_update,
+                                      keys: %i[about avatar
+                                               remove_avatar comment_notify
+                                               ally_notify group_notify
+                                               meeting_notify] + common
+  end
+
+  def configure_for_sign_up(common)
     devise_parameter_sanitizer.permit :sign_up, keys: common
+  end
+
+  def configure_for_accept_invitation
+    devise_parameter_sanitizer.permit :accept_invitation,
+                                      keys: %i[name password
+                                               password_confirmation
+                                               invitation_token]
   end
 
   helper_method :avatar_url, :is_viewer,
@@ -191,15 +208,18 @@ class ApplicationController < ActionController::Base
 
     if data_type == 'moment'
       visibility = CommentVisibility.build(data,
-                                           Moment.find(data.commented_on),
+                                           Moment.find(data.commentable_id),
                                            current_user)
     elsif data_type == 'strategy'
       visibility = CommentVisibility.build(data,
-                                           Strategy.find(data.commented_on),
+                                           Strategy.find(data.commentable_id),
                                            current_user)
     end
 
-    if (data_type == 'moment' && (Moment.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'strategy' && (Strategy.where(id: data.commented_on, userid: current_user.id).exists? || data.comment_by == current_user.id)) || (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commented_on, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
+    if (data_type == 'moment' && (Moment.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
+       (data_type == 'strategy' && (Strategy.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
+       (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
+
       delete_comment = '<div class="table_cell delete_comment">'
       delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: 'delete_comment_' + data.id.to_s, class: 'delete_comment_button'
       delete_comment += '</div>'
@@ -322,8 +342,8 @@ class ApplicationController < ActionController::Base
     @no_hide_page = true
     @comment = Comment.new
     @comments = Comment.where(
-      commented_on: subject.id,
-      comment_type: model_name
+      commentable_id: subject.id,
+      commentable_type: model_name
     ).order(created_at: :desc)
   end
 

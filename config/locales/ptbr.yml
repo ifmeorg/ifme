@@ -27,6 +27,7 @@ ptbr:
    privacy: 'Política de Privacidade'
    github: 'GitHub'
    patreon: 'Patreon'
+   opencollective: 'Open Collective'
    instagram: 'Instagram'
    twitter: "Twitter"
    facebook: "Facebook"
@@ -292,8 +293,8 @@ ptbr:
    accepted: '%{name} aceitou seu pedido de aliado!'
    sent_html: '%{link_to_user} enviar um pedido para se tornar aliado!'
   comment:
-   full: '%{name} commentou "%{comment}" sobre %{commented_on}'
-   truncated: '%{name} commentado "%{comment}" [...] sobre %{commented_on}'
+   full: '%{name} commentou "%{comment}" sobre %{commentable_id}'
+   truncated: '%{name} commentado "%{comment}" [...] sobre %{commentable_id}'
   group:
    new_group: '%{name} criou um grupo chamado "%{group_name}"'
    new_group_member: '%{name} se juntou ao grupo "%{group_name}"'
@@ -476,6 +477,15 @@ ptbr:
         mindfulness: paz de espírito
         journaling: Diário
         mood_tracking: Registro de alterações de humor
+        veterans: veteranos
+        music: música
+        integrative: integrativo
+        ptsd: TEPT
+        tbi: LCT
+        news: noticia
+        government: governo
+        christian: cristão
+        humor: humor
 
  profile:
   index:
