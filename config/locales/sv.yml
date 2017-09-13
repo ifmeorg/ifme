@@ -42,7 +42,7 @@ sv:
    you: 'Du'
    title: 'Titel'
    date: 'Datum:'
-   daily_reminder: 'Daglig påminnelse via email'
+   daily_reminder: 'Daglig påminnelse via e-post'
    actions:
     submit: 'Skicka'
     confirm: 'Är du säker?'
@@ -56,7 +56,7 @@ sv:
     select_all: 'Välj alla'
     remove: 'Ta bort'
    form:
-     email: "Email"
+     email: "E-post"
      location: "Plats"
      description: 'Beskrivning'
      error_explanation: 'Vänligen fyll i de markerade fälten!'
@@ -226,7 +226,7 @@ sv:
    meeting_time: 'Tid'
    members_of_group_html:
     one: '%{count} Medlem <strong>i</strong> %{group}'
-    other: '%{count} Medlem <strong>i</strong> %{group}'
+    other: '%{count} Medlemmar <strong>i</strong> %{group}'
   reminder_mailer:
     subject: "Ditt möte \"%{meeting_name}\" imorgon kl %{time}!"
     body: "Här är en vänlig påminnelse om att ditt möte imorgon, \"%{meeting_name}\", kommer att äga rum %{time} i %{location}!"
@@ -337,7 +337,7 @@ sv:
  pages:
   about:
     send_us: 'oss'
-    email_us: 'Skicka gärna email %{email_link}!'
+    email_us: 'Skicka gärna e-post %{email_link}!'
     main_message_one: "%{app_name} är en gemenskap för mentala erfarenheter som uppmuntrar människor att dela sina personliga historier med betrodda allierade."
     message_text_one: "Tillförlitliga allierade är de människor vi samarbetar med dagligen, inklusive vänner, familjemedlemmar, medarbetare, lärare och psykiatriska arbetstagare."
     main_message_two: "Att hantera mental hälsa är det som gör oss mänskliga. Men för många av oss är det en kamp att vara öppen om det."
@@ -371,9 +371,9 @@ sv:
     medications_question: 'Hur använder jag Läkemedelsfunktionen?'
     medications_answer: '<strong>Läkemedlen</strong> funktionen låter dig logga på receptbelagda läkemedel du tar. Du kan också föra logg över dina symptom.'
     invite_question: 'Hur kan jag bjuda in mina älskade att ansluta till appen?'
-    invite_answer: 'Gå till sidan <strong>Allierade</strong> och klicka på länken "Bjud in dina älskade". Du kommer att kunna bjuda in dem via email. När din älskade accepterar inbjudan kommer de att läggas till din allierade lista.'
+    invite_answer: 'Gå till sidan <strong>Allierade</strong> och klicka på länken "Bjud in dina älskade". Du kommer att kunna bjuda in dem via e-post. När din älskade accepterar inbjudan kommer de att läggas till din allierade lista.'
     email_notifications_question: 'Hur kan jag ändra e-postmeddelanden?'
-    email_notifications_answer: "Gå till <strong>Konto</strong> sidan genom att slå %{desktop_icon} (skrivbordet) eller %{mobile_icon} (mobil) i navigeringsfältet. Du kan ändra din emailadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
+    email_notifications_answer: "Gå till <strong>Konto</strong> sidan genom att slå %{desktop_icon} (skrivbordet) eller %{mobile_icon} (mobil) i navigeringsfältet. Du kan ändra din e-postadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
   home:
     stories: 'Berättelser'
     welcome: 'Välkommen'
@@ -489,7 +489,7 @@ sv:
   search_by_name: 'Sök på namn'
   form:
    search_by_location: 'Sök efter plats'
-   search_by_email: 'Sök via email'
+   search_by_email: 'Sök via e-post'
 
   index:
    title: 'Sök efter Allierade'
@@ -589,7 +589,7 @@ sv:
     resend_confirmation: "Skicka om bekräftelsesinstruktionerna igen"
   mailer:
     confirmation:
-      link_instructions: "Du kan bekräfta ditt konto email via länken nedan"
+      link_instructions: "Du kan bekräfta ditt konto e-post via länken nedan"
       link_text: "Bekräfta mitt konto"
     reset_password:
       link_instructions: "Någon har begärt en länk för att ändra ditt lösenord. Du kan göra det genom länken nedan."
