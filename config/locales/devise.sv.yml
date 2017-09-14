@@ -5,7 +5,7 @@ sv:
   devise:
     confirmations:
       confirmed: "Din e-postadress har bekräftats."
-      send_instructions: "Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter."
+      send_instructions: "Du kommer att få e-post med instruktioner för hur du bekräftar din e-postadress om några minuter."
       send_paranoid_instructions: "Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter."
     failure:
       already_authenticated: "Du är redan inloggad."
