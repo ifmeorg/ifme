@@ -301,7 +301,7 @@ Run `rake slugs:slugify` to update existing entries in the database with slugs
 
 Start the local server:
 ```
-rails s
+foreman start -f Procfile.dev
 ```
 
 To view the app, go to `http://localhost:3000`.
