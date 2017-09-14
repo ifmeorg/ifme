@@ -1,4 +1,5 @@
+// @flow
 export type HeaderProps = {
-  size?: string; // TODO: ScreenSize enum
+  size?: string; // Future Task: ScreenSize enum
   userSignedIn?: boolean;
 }
