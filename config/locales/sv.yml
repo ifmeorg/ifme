@@ -27,7 +27,9 @@ sv:
    privacy: 'Integritetspolicy'
    github: 'GitHub'
    patreon: 'Patreon'
+   opencollective: 'Open Collective'
    instagram: 'Instagram'
+   rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
    feedback: 'återkoppling'
