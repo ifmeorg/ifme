@@ -4,7 +4,7 @@ import css from './Logo.scss';
 
 type Props = {
   onClick?: () => any;
-  size?: string; // TODO: ScreenSize enum
+  size?: string; // Future Task: Use ScreenSize enum
 }
 
 export default class Logo extends React.Component<Props, {}> {

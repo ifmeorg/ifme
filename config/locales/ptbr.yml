@@ -28,6 +28,7 @@ ptbr:
    patreon: 'Patreon'
    opencollective: 'Open Collective'
    instagram: 'Instagram'
+   rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
    feedback: 'feedback'
@@ -479,6 +480,12 @@ ptbr:
         veterans: veteranos
         music: música
         integrative: integrativo
+        ptsd: TEPT
+        tbi: LCT
+        news: noticia
+        government: governo
+        christian: cristão
+        humor: humor
 
  profile:
   index:

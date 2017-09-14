@@ -5,15 +5,18 @@
 
 # if me
 
-if me is a community for mental health experiences that encourages people to
-share their personal stories with trusted allies. Trusted allies are the people
-we interact with on a daily basis, including friends, family members,
-co-workers, teachers, and mental health workers.
+[_if me_](https://www.if-me.org/) is a community for mental health experiences
+that encourages people to share their personal stories with trusted allies.
+Trusted allies are the people we interact with on a daily basis, including
+friends, family members, co-workers, teachers, and mental health workers.
 
 Dealing with mental health is what makes us human. But for a lot of us, it's a
 struggle to be open about it. Not everyone is a counsellor or therapist. The
 people who we interact with everyday shape our emotions and behavior. Getting
 them involved in mental health treatment is the key to recovery.
+
+To use (or try) _if me_, no installation or configuration is required - the web
+site is live at https://www.if-me.org/
 
 **Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
 

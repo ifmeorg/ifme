@@ -1,4 +1,8 @@
 [ignore]
+.*/__tests__/.*
+.*/node_modules/enzyme-matchers/.*
+.*/node_modules/jasmine-enzyme/.*
+.*/node_modules/radium/.*
 
 [include]
 
@@ -7,4 +11,4 @@
 [lints]
 
 [options]
-module.name_mapper='.*\(.css\)' -> 'empty/object'
+module.name_mapper='.*\(.s?css\)' -> 'empty/object'
