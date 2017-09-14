@@ -33,7 +33,7 @@ const ChartControlButton =
 /**
  * Control Panel for selecting different objects to graph.
  */
-export default class ChartControl extends React.Component {
+export default class ChartControl extends React.Component<chartControlProp, chartControlState> {
   props: chartControlProp;
   state: chartControlState;
 
