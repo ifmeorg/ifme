@@ -5,12 +5,15 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
 const configPath = resolve('..', 'config');
 const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
+const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 
 const config = {
 
@@ -22,12 +25,13 @@ const config = {
       'es5-shim/es5-sham',
       'babel-polyfill',
       './app/bundles/momentDashboards/startup/registration',
+      './app/bundles/shared/startup/registration',
     ],
   },
 
   output: {
     // Name comes from the entry section.
-    filename: '[name]-[hash].js',
+    filename: `${outputFilename}.js`,
 
     // Leading slash is necessary
     publicPath: `/${webpackPublicOutputDir}`,
@@ -43,8 +47,24 @@ const config = {
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false,
     }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: devBuild ? false : {
+        dead_code: true,
+        warnings: false,
+      },
+      mangle: !devBuild,
+    }),
     new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
-  ],
+    new ExtractTextPlugin(`${outputFilename}.css`),
+  ].concat(devBuild ? [] : [
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        discardComments: {
+          removeAll: true,
+        },
+      },
+    }),
+  ]),
 
   module: {
     rules: [
@@ -62,6 +82,14 @@ const config = {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
+        }),
+        include: resolve(__dirname, './app/bundles'),
       },
     ],
   },
