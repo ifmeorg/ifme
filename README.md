@@ -178,18 +178,7 @@ There are step-by-steps [here](https://yarnpkg.com/en/docs/install) for all of t
 ```
 cd client/
 yarn install
-yarn flow
 ```
-
-## NPM Packages
-Some NPM packages have flow type enabled but fail the flow checks (e.g. radium). You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
-
-```
-[ignore]
-.*/node_modules/radium/.*
-```
-
-If you're wondering why we don't just ignore the entire `node_modules` folder, it's because some NPM Packages _do_ have correct type definitions, and we don't want to ignore those.
 
 </details>
 
@@ -451,7 +440,7 @@ yarn test:watch
 
 These tools helps us to find bugs and ensure quality without having to execute code.
 
-## JSHint
+## JSHint for Rails JavaScript
 
 ```
 bundle exec rake jshint
@@ -459,7 +448,7 @@ bundle exec rake jshint
 
 You can read about JSHint [here](http://jshint.com/docs/).
 
-## ESLint
+## ESLint for React JavaScript
 
 ```
 cd client/
@@ -468,7 +457,26 @@ yarn eslint app
 
 You can read about ESLint [here](https://eslint.org/).
 
-## Rubocop
+## Flow for React JavaScript
+
+```
+cd client/
+yarn flow
+```
+
+You can read about Flow [here](https://flow.org/en/).
+
+## NPM Packages
+Some NPM packages have flow type enabled but fail the flow checks (e.g. radium) because it relies on an older Flow version compared to the main project. You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
+
+```
+[ignore]
+.*/node_modules/radium/.*
+```
+
+If you're wondering why we don't just ignore the entire `node_modules` folder, it's because some NPM Packages _do_ have correct type definitions, and we don't want to ignore those.
+
+## Rubocop for Ruby
 
 ```
 rubocop
