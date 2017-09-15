@@ -5,6 +5,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 
+const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -56,6 +57,13 @@ const config = {
     }),
     new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
     new ExtractTextPlugin(`${outputFilename}.css`),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
   ].concat(devBuild ? [] : [
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
