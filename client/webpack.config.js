@@ -57,20 +57,28 @@ const config = {
     }),
     new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
     new ExtractTextPlugin(`${outputFilename}.css`),
+  ].concat(devBuild ? [] : [
+    /**
+     * OptimizeCssAssetsPlugin doesn't play nicely with CompressionPlugin; enabling OptimizeCssAssetsPlugin
+     * prevents the CSS from being gzipped. Since we use OptimizeCssAssetsPlugin primarily to remove
+     * comments, I value gzip over comment removal for now.
+     *
+     * A GitHub issue is already filed for this problem:
+     * https://github.com/webpack-contrib/compression-webpack-plugin/issues/62
+     */
+    // new OptimizeCssAssetsPlugin({
+    //   cssProcessorOptions: {
+    //     discardComments: {
+    //       removeAll: true,
+    //     },
+    //   },
+    // }),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
+      test: /\.(js|css|html)$/,
       threshold: 10240,
       minRatio: 0.8
-    }),
-  ].concat(devBuild ? [] : [
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: {
-        discardComments: {
-          removeAll: true,
-        },
-      },
     }),
   ]),
 
