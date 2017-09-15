@@ -5,7 +5,7 @@
 
 # if me
 
-[_if me_](https://www.if-me.org/) is a community for mental health experiences
+[if me](https://www.if-me.org/) is a community for mental health experiences
 that encourages people to share their personal stories with trusted allies.
 Trusted allies are the people we interact with on a daily basis, including
 friends, family members, co-workers, teachers, and mental health workers.
@@ -15,8 +15,7 @@ struggle to be open about it. Not everyone is a counsellor or therapist. The
 people who we interact with everyday shape our emotions and behavior. Getting
 them involved in mental health treatment is the key to recovery.
 
-To use (or try) _if me_, no installation or configuration is required - the web
-site is live at https://www.if-me.org/
+The live site can found at [if-me.org](https://www.if-me.org/).
 
 **Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
 
@@ -30,6 +29,7 @@ before joining our project.
 * [Installation](#installation)
 * [Configuration Files](#configuration-files)
 * [Running the App Locally](#running-the-app-locally)
+* [UI Development Environment](#ui-development-environment)
 * [Testing Accounts](#testing-accounts)
 * [Testing Guidelines](#testing-guidelines)
 * [Static Code Analysis](#static-code-analysis)
@@ -166,6 +166,20 @@ rvm use ruby-2.3.4@rails5.0.5 --create
 #### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
+</details>
+
+<details>
+  <summary>3) Install Yarn (click to expand)</summary>
+
+# Install Yarn
+
+There are step-by-steps [here](https://yarnpkg.com/en/docs/install) for all of the major operating systems.
+
+```
+cd client/
+yarn install
+```
+
 </details>
 
 # Configuration Files
@@ -358,6 +372,15 @@ rails db
 
 Note that `ifme_test` is used when running unit tests
 
+# UI Development Environment
+
+We use [Storybook](https://storybook.js.org/) for interactive development and testing for our React UI components.
+
+```
+cd client/
+yarn run storybook
+```
+
 # Testing Accounts
 
 They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to
@@ -389,7 +412,7 @@ for the changes you've made! If you see any missing tests, write them!
 rspec
 ```
 
-## Jasmine for JavaScript
+## Jasmine for Rails JavaScript
 
 Make sure PhantomJS is installed locally, either through their
 [website](http://phantomjs.org) or by running `brew install phantomjs`.
@@ -406,11 +429,18 @@ To view the test results, go to `http://localhost:8888`.
 rake jasmine:ci
 ```
 
+## Jasmine for React JavaScript
+
+```
+cd client/
+yarn test:watch
+```
+
 # Static Code Analysis
 
 These tools helps us to find bugs and ensure quality without having to execute code.
 
-## JSHint
+## JSHint for Rails JavaScript
 
 ```
 bundle exec rake jshint
@@ -418,7 +448,35 @@ bundle exec rake jshint
 
 You can read about JSHint [here](http://jshint.com/docs/).
 
-## Rubocop
+## ESLint for React JavaScript
+
+```
+cd client/
+yarn eslint app
+```
+
+You can read about ESLint [here](https://eslint.org/).
+
+## Flow for React JavaScript
+
+```
+cd client/
+yarn flow
+```
+
+You can read about Flow [here](https://flow.org/en/).
+
+## NPM Packages
+Some NPM packages have flow type enabled but fail the flow checks (e.g. radium) because it relies on an older Flow version compared to the main project. You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
+
+```
+[ignore]
+.*/node_modules/radium/.*
+```
+
+If you're wondering why we don't just ignore the entire `node_modules` folder, it's because some NPM Packages _do_ have correct type definitions, and we don't want to ignore those.
+
+## Rubocop for Ruby
 
 ```
 rubocop

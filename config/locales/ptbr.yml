@@ -17,7 +17,8 @@ ptbr:
    es: Español
    ptbr: Português
    sv: Svenska
-   various: Vários
+   various: Outros
+   vn: Tiếng Việt
 
  navigation:
    about: 'Sobre'
@@ -487,6 +488,9 @@ ptbr:
         government: governo
         christian: cristão
         humor: humor
+        conference: conferência
+        addiction: vício
+        rehabilitation: reabilitação
 
  profile:
   index:
