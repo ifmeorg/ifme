@@ -8,7 +8,7 @@ const { resolve } = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
 const configPath = resolve('..', 'config');
@@ -59,12 +59,15 @@ const config = {
     new ExtractTextPlugin(`${outputFilename}.css`),
   ].concat(devBuild ? [] : [
     /**
-     * OptimizeCssAssetsPlugin doesn't play nicely with CompressionPlugin; enabling OptimizeCssAssetsPlugin
-     * prevents the CSS from being gzipped. Since we use OptimizeCssAssetsPlugin primarily to remove
-     * comments, I value gzip over comment removal for now.
+     * OptimizeCssAssetsPlugin doesn't play nicely with CompressionPlugin; enabling
+     * OptimizeCssAssetsPlugin prevents the CSS from being gzipped. Since we use
+     * OptimizeCssAssetsPlugin primarily to remove comments, I value gzip over comment
+     * removal for now.
      *
      * A GitHub issue is already filed for this problem:
      * https://github.com/webpack-contrib/compression-webpack-plugin/issues/62
+     *
+     * Re-enable this plugin once the issue has been resolved.
      */
     // new OptimizeCssAssetsPlugin({
     //   cssProcessorOptions: {
@@ -78,7 +81,7 @@ const config = {
       algorithm: 'gzip',
       test: /\.(js|css|html)$/,
       threshold: 10240,
-      minRatio: 0.8
+      minRatio: 0.8,
     }),
   ]),
 
