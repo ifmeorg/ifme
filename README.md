@@ -29,6 +29,7 @@ before joining our project.
 * [Installation](#installation)
 * [Configuration Files](#configuration-files)
 * [Running the App Locally](#running-the-app-locally)
+* [UI Development Environment](#ui-development-environment)
 * [Testing Accounts](#testing-accounts)
 * [Testing Guidelines](#testing-guidelines)
 * [Static Code Analysis](#static-code-analysis)
@@ -165,6 +166,31 @@ rvm use ruby-2.3.4@rails5.0.5 --create
 #### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
+</details>
+
+<details>
+  <summary>3) Install Yarn (click to expand)</summary>
+
+# Install Yarn
+
+There are step-by-steps [here](https://yarnpkg.com/en/docs/install) for all of the major operating systems.
+
+```
+cd client/
+yarn install
+yarn flow
+```
+
+## NPM Packages
+Some NPM packages have flow type enabled but fail the flow checks (e.g. radium). You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
+
+```
+[ignore]
+.*/node_modules/radium/.*
+```
+
+If you're wondering why we don't just ignore the entire `node_modules` folder, it's because some NPM Packages _do_ have correct type definitions, and we don't want to ignore those.
+
 </details>
 
 # Configuration Files
@@ -357,6 +383,15 @@ rails db
 
 Note that `ifme_test` is used when running unit tests
 
+# UI Development Environment
+
+We use [Storybook](https://storybook.js.org/) for interactive development and testing for our React UI components.
+
+```
+cd client/
+yarn run storybook
+```
+
 # Testing Accounts
 
 They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to
@@ -388,7 +423,7 @@ for the changes you've made! If you see any missing tests, write them!
 rspec
 ```
 
-## Jasmine for JavaScript
+## Jasmine for Rails JavaScript
 
 Make sure PhantomJS is installed locally, either through their
 [website](http://phantomjs.org) or by running `brew install phantomjs`.
@@ -405,6 +440,13 @@ To view the test results, go to `http://localhost:8888`.
 rake jasmine:ci
 ```
 
+## Jasmine for React JavaScript
+
+```
+cd client/
+yarn test:watch
+```
+
 # Static Code Analysis
 
 These tools helps us to find bugs and ensure quality without having to execute code.
@@ -416,6 +458,15 @@ bundle exec rake jshint
 ```
 
 You can read about JSHint [here](http://jshint.com/docs/).
+
+## ESLint
+
+```
+cd client/
+yarn eslint app
+```
+
+You can read about ESLint [here](https://eslint.org/).
 
 ## Rubocop
 
