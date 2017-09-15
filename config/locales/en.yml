@@ -18,6 +18,7 @@ en:
    ptbr: Português
    sv: Svenska
    various: Various
+   vn: Tiếng Việt
 
  navigation:
    about: 'About'
@@ -486,6 +487,9 @@ en:
       government: government
       christian: christian
       humor: humor
+      conference: conference
+      addiction: addiction
+      rehabilitation: rehabilitation
 
  profile:
   index:

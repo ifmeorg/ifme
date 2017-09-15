@@ -166,5 +166,11 @@
     "link":"https://blogs.psychcentral.com/humor/",
     "tags":["blog", "free", "depression", "humor"],
     "languages":["en"]
+  },
+  {
+    "name":"DrugRehab (US)",
+    "link":"https://www.drugrehab.com/",
+    "tags":["addiction", "podcast", "youth"],
+    "languages":["en"]
   }
 ]

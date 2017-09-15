@@ -18,6 +18,7 @@ es:
    ptbr: Português
    sv: Svenska
    various: Varios
+   vn: Tiếng Việt
 
  navigation:
    about: "Acerca de "
@@ -488,6 +489,9 @@ es:
       government: gobierno
       christian: cristiano
       humor: humor
+      conference: conferencia
+      addiction: adicción
+      rehabilitation: rehabilitación
 
  profile:
   index:

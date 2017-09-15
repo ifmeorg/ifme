@@ -18,6 +18,7 @@ sv:
    ptbr: Português
    sv: Svenska
    various: Olika
+   vn: Tiếng Việt
 
  navigation:
    about: 'Om'
@@ -486,6 +487,9 @@ sv:
       government: regering
       christian: kristen
       humor: humör
+      conference: konferens
+      addiction: missbruk
+      rehabilitation: rehabilitering
 
  profile:
   index:
