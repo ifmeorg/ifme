@@ -7,18 +7,22 @@ module CompareLocalesSupport
     spanish: "#{LOCALES_DIR}/es.yml",
     portuguese: "#{LOCALES_DIR}/ptbr.yml",
     swedish: "#{LOCALES_DIR}/sv.yml",
+    german: "#{LOCALES_DIR}/de.yml",
     devise_english: "#{LOCALES_DIR}/devise.en.yml",
     devise_spanish: "#{LOCALES_DIR}/devise.es.yml",
     devise_portuguese: "#{LOCALES_DIR}/devise.ptbr.yml",
     devise_swedish: "#{LOCALES_DIR}/devise.sv.yml",
+    devise_german: "#{LOCALES_DIR}/devise.de.yml",
     devise_invitable_english: "#{LOCALES_DIR}/devise_invitable.en.yml",
     devise_invitable_spanish: "#{LOCALES_DIR}/devise_invitable.es.yml",
     devise_invitable_portuguese: "#{LOCALES_DIR}/devise_invitable.ptbr.yml",
     devise_invitable_swedish: "#{LOCALES_DIR}/devise_invitable.sv.yml",
+    devise_invitable_german: "#{LOCALES_DIR}/devise_invitable.de.yml",
     kaminari_english: "#{LOCALES_DIR}/kaminari.en.yml",
     kaminari_spanish: "#{LOCALES_DIR}/kaminari.es.yml",
     kaminari_portuguese: "#{LOCALES_DIR}/kaminari.ptbr.yml",
     kaminari_swedish: "#{LOCALES_DIR}/kaminari.sv.yml",
+    kaminari_german: "#{LOCALES_DIR}/kaminari.de.yml",
   }.freeze
 
   def self.flatten_keys(hash, prefix = '')
