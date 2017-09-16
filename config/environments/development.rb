@@ -78,4 +78,5 @@ Rails.application.configure do
   config.force_ssl = false
   config.action_controller.default_url_options = { host: primary_domain }
   config.action_controller.asset_host = primary_domain
+  config.action_controller.asset_protocol = 'http'
 end
