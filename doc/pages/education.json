@@ -60,6 +60,12 @@
     "languages":["en"]
   },
   {
+    "name":"MHFA - Första hjälpen till psykisk hälsa",
+    "link":"http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
+    "tags":["training", "paid", "directory"],
+    "languages":["sv"]
+  },
+  {
     "name":"Music Therapy | What is it?",
     "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
     "tags":["music", "therapy", "learning"],
