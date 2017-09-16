@@ -36,7 +36,7 @@ class ProfilePicture
     end
 
     def full_url(path)
-      "https://#{primary_domain}#{path}"
+      "https://#{Rails.application.config.action_controller.asset_host}#{path}"
     end
 
     def cl_img(id_or_url, is_image_id, class_name)
