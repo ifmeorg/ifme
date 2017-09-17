@@ -178,5 +178,11 @@
     "link":"https://www.drugrehab.com/",
     "tags":["addiction", "podcast", "youth"],
     "languages":["en"]
+  },
+  {
+    "name":"Madness Radio",
+    "link":"http://www.madnessradio.net/",
+    "tags":["free", "podcast", "talks", "learning", "books"],
+    "languages":["en"]
   }
 ]
