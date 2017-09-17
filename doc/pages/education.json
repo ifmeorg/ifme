@@ -184,5 +184,11 @@
     "link":"http://www.madnessradio.net/",
     "tags":["free", "podcast", "talks", "learning", "books"],
     "languages":["en"]
+  },
+  {
+    "name":"bi[polar] curious",
+    "link":"https://thebipolarcuriousblog.com/",
+    "tags":["free", "blog", "learning"],
+    "languages":["en"]
   }
 ]
