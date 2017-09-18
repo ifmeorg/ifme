@@ -117,7 +117,7 @@
 		padding-right: 80px;
 	}
 
-	@medium screen and (max-width: $medium) {
+	@media screen and (max-width: $medium) {
 		.large_padding_right {
 			padding-right: 40px;
 		}
@@ -167,4 +167,9 @@
 		text-align: center;
 		margin-top: 10px;
 	}
+}
+
+#connect_links ~ a .fa {
+	text-align: center;
+	width: 1em;
 }
