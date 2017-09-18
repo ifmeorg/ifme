@@ -123,5 +123,5 @@ Rails.application.configure do
   # subsequently, this will cause the SSL certs registered for our private DNS address to fail.
   config.action_controller.default_url_options = { host: primary_domain }
   config.action_controller.asset_host = primary_domain
-  config.action_controller.asset_protocol = 'https'
+  config.asset_protocol = 'https'
 end
