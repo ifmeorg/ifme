@@ -1,5 +1,11 @@
 <% title @moment.name %>
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
+<% if current_user.try(:id) == @moment.userid %>
+  <p>
+    <%= button_to t('moments.secret_share'), secret_shares_path(moment: @moment.id) %>
+    <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %>
+  </p>
+<% end %>
 
 <% if !@moment.why.blank? %>
   <p>
@@ -29,4 +35,6 @@
 
 <%= render :partial => '/shared/viewers_indicator', locals: { data: @moment } %>
 
-<%= render :partial => '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>
+<% if @comment.present? %>
+  <%= render :partial => '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, comment_type: 'moment' } %>
+<% end %>

@@ -57,4 +57,8 @@ class Moment < ApplicationRecord
   def strategy_name
     strategy.try(:name)
   end
+
+  def owned_by?(user)
+    user.id == userid
+  end
 end
