@@ -1,0 +1,8 @@
+If Me ChangeLog
+
+This file documents significant or noteworthy changes
+
+
+2017-09-15:
+
+  Swedish translations added
