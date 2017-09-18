@@ -60,6 +60,12 @@
     "languages":["en"]
   },
   {
+    "name":"MHFA - Första hjälpen till psykisk hälsa",
+    "link":"http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
+    "tags":["training", "paid", "directory"],
+    "languages":["sv"]
+  },
+  {
     "name":"Music Therapy | What is it?",
     "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
     "tags":["music", "therapy", "learning"],
@@ -171,6 +177,24 @@
     "name":"DrugRehab (US)",
     "link":"https://www.drugrehab.com/",
     "tags":["addiction", "podcast", "youth"],
+    "languages":["en"]
+  },
+  {
+    "name":"Madness Radio",
+    "link":"http://www.madnessradio.net/",
+    "tags":["free", "podcast", "talks", "learning", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"bi[polar] curious",
+    "link":"https://thebipolarcuriousblog.com/",
+    "tags":["free", "blog", "learning", "directory"],
+    "languages":["en"]
+  },
+  {
+    "name":"Center for the Study of Empathic Therapy, Education & Living",
+    "link":"http://www.empathictherapy.org/",
+    "tags":["conference", "directory", "learning"],
     "languages":["en"]
   }
 ]

@@ -21,7 +21,7 @@
     "name":"7 Cups",
     "link":"https://www.7cups.com",
     "tags":["therapy", "counseling", "paid", "free", "texting", "android", "ios"],
-    "languages":["en"]
+    "languages":["en", "es"]
   },
   {
     "name":"Headspace",
@@ -111,6 +111,6 @@
     "name":"MedWatch: The FDA Safety Information and Adverse Event Reporting Program (US)",
     "link":"https://www.fda.gov/Safety/MedWatch/default.htm",
     "tags":["news", "free", "government"],
-    "languages":["en", "es", "ptbr"]
+    "languages":["en", "es", "ptbr", "vn"]
   }
 ]
