@@ -36,7 +36,7 @@ class ProfilePicture
     end
 
     def full_url(path)
-      "#{Rails.application.config.asset_protocol}://"\
+      "#{Rails.application.config.force_ssl ? 'https' : 'http'}://"\
       "#{Rails.application.config.action_controller.asset_host}#{path}"
     end
 
