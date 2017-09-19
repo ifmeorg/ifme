@@ -46,7 +46,7 @@ class ProfilePicture
         type: is_image_id ? 'upload' : 'fetch', format: 'jpg',
         quality: 'auto:good', width: DEFAULT_SIZE, height: DEFAULT_SIZE,
         crop: 'fill', dpr: 'auto', client_hints: true, class: class_name,
-        onerror: DEFAULT_AVATAR_JS
+        onerror: DEFAULT_AVATAR_JS, sign_url: true
       )
     end
 
