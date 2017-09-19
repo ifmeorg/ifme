@@ -2,9 +2,9 @@
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
 <% if Rails.configuration.secret_share_enabled && @moment.owned_by?(current_user) %>
   <p>
-    <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id) %>
+    <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id), {form_class: 'secret-share-button'} %>
     <% if @moment.shared? %>
-      <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), method: :delete %>
+      <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), {method: :delete, form_class: 'secret-share-button'} %>
     <% end %>
     <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %>
   </p>
