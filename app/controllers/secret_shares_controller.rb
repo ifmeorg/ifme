@@ -4,11 +4,6 @@ class SecretSharesController < ApplicationController
   before_action :ensure_secret_share_enabled!
   skip_before_action :if_not_signed_in, only: [:show]
 
-  def ensure_secret_share_enabled!
-    return if Rails.configuration.secret_share_enabled
-    raise ActiveRecord::RecordNotFound
-  end
-
   def create
     # Authorisation check will automatically raise ActiveRecord::RecordNotFound
     moment = Moment.where(user: current_user).friendly.find(params[:moment])
@@ -30,5 +25,12 @@ class SecretSharesController < ApplicationController
     )
     moment.update!(secret_share_identifier: nil)
     redirect_to moment_path(moment)
+  end
+
+  private
+
+  def ensure_secret_share_enabled!
+    return if Rails.configuration.secret_share_enabled
+    raise ActiveRecord::RecordNotFound
   end
 end
