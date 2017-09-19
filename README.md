@@ -15,7 +15,7 @@ struggle to be open about it. Not everyone is a counsellor or therapist. The
 people who we interact with everyday shape our emotions and behavior. Getting
 them involved in mental health treatment is the key to recovery.
 
-The live site can found at [if-me.org](https://www.if-me.org/).
+The live site can be found at [if-me.org](https://www.if-me.org/).
 
 **Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
 
