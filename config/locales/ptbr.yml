@@ -243,9 +243,9 @@ ptbr:
   edit_moment: 'Editar Momento'
   tagged: 'Momentos com Tags'
   new: 'Novo Momento'
-  secret_share: 'Compartilhar Segredo'
-    create: 'Secret Share'
-    cancel: 'Cancel'
+  secret_share:
+    create: 'Compartilhar Segredo'
+    cancel: 'Cancelar'
   form:
    why: 'O que aconteceu e como você se sente ?'
    fix: 'Quais pensamentos você gostaria de ter ? '
