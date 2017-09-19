@@ -246,6 +246,8 @@ es:
   tagged: "Etiquetar Momento"
   new: "Nuevo Momento"
   secret_share: 'Compártelo en Secreto'
+    create: 'Secret Share'
+    cancel: 'Cancel'
   form:
    why: "¿Qué ocurrió y cómo te sentiste"
    fix: "¿Qué pensamientos te gustaría tener?"
