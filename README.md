@@ -466,7 +466,7 @@ yarn flow
 
 You can read about Flow [here](https://flow.org/en/).
 
-## NPM Packages
+### NPM Packages
 Some NPM packages have flow type enabled but fail the flow checks (e.g. radium) because it relies on an older Flow version compared to the main project. You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
 
 ```
