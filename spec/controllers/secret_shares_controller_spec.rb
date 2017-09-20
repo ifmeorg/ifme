@@ -135,6 +135,14 @@ describe SecretSharesController, type: :controller do
           .to raise_record_not_found
       end
     end
+
+    context 'when secret share has expired' do
+      let(:moment) { create(:moment, :with_user, :with_expired_secret_share) }
+      specify do
+        expect { get :show, params: { id: moment.secret_share_identifier } }
+          .to raise_record_not_found
+      end
+    end
   end
 
   describe 'DELETE' do
