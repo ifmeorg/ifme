@@ -41,12 +41,12 @@ class Moment < ApplicationRecord
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
 
-  scope :find_secret_share!, lambda { |identifier|
+  def self.find_secret_share!(identifier)
     find_by!(
       'secret_share_expires_at > NOW()',
       secret_share_identifier: identifier
     )
-  }
+  end
 
   def array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)
