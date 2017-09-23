@@ -5,14 +5,8 @@
 /* Footer */
 
 #footer {
-	background-image: image-url('/assets/welcome_small_blur.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: bottom center;
+	background-color: $secondary-background-color;
 	padding: 40px 0px;
-	-moz-box-shadow: inset 0 50px 100px -50px $secondary-text-color;
- 	-webkit-box-shadow: inset 0 50px 100px -50px $secondary-text-color;
- 	box-shadow: inset 0 50px 100px -50px $secondary-text-color;
 
 	@media screen and (max-width: $medium) {
 		padding: 20px 0px;
@@ -20,6 +14,7 @@
 
 	.license {
 		text-align: right;
+		color: $secondary-text-color;
 
 		@media screen and (max-width: $small) {
 			text-align: center;
@@ -35,14 +30,14 @@
 
 		a:link, a:visited, a:hover {
 			display: inline;
+			color: $secondary-text-color;
 		}
 	}
 }
 
 #footer_content {
 	padding: 0px 60px;
-	color: $secondary-text-color;
-	text-shadow: 0px 0px 50px $header-text-color;
+	color: $footer-text-color;
 	line-height: 30px;
 
 	@media screen and (max-width: $medium) {
@@ -58,7 +53,7 @@
 #footer a:link,
 #footer a:visited {
 	text-decoration: none;
-	color: $secondary-text-color;
+	color: $footer-text-color;
 	border: none;
 	display: block;
 	margin: 0;
@@ -70,7 +65,7 @@
 
 #footer a:hover {
 	text-decoration: none;
-	color: $secondary-text-color;
+	color: $footer-text-color;
 	border: none;
 	opacity: 0.5;
 	display: block;
@@ -154,8 +149,7 @@
 	margin-top: 0;
 	margin-bottom: 20px;
 	display: block;
-	color: $header-text-color;
-	text-shadow: 0px 0px 20px $secondary-text-color;
+	color: $footer-text-color;
 
 	@media screen and (max-width: $medium) {
 		font-size: $font26;

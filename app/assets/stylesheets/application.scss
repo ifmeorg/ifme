@@ -345,15 +345,10 @@ ul.no_bullet_list li {
 
 #page_title {
   width: 100%;
-  background-image: image-url('/assets/welcome_small.jpg');
+  background-image: image-url('/assets/welcome.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom center;
-  color: $secondary-text-color;
-  text-shadow: 0px 0px 10px $highlight-text-color;
-  -moz-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
-  -webkit-box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
-  box-shadow: inset 0 -10px 40px -10px $secondary-text-color;
+  background-position: left center;
 }
 
 .overlay {
@@ -364,6 +359,7 @@ ul.no_bullet_list li {
   padding: 40px 60px;
   font-size: $page-title;
   font-weight: $lg;
+  color: $header-text-color;
 
   @media screen and (max-width: $medium) {
       padding: 20px;
@@ -377,7 +373,6 @@ ul.no_bullet_list li {
   text-decoration: none;
   border: none;
   color: $header-text-color;
-  text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 #page_title_content a:hover {
@@ -385,7 +380,6 @@ ul.no_bullet_list li {
   border: none;
   color: $header-text-color;
   opacity: 0.5;
-  text-shadow: 0px 0px 10px $secondary-text-color;
 }
 
 /* Page Edit and New */
@@ -399,7 +393,6 @@ a.page_search:visited {
   text-decoration: none;
   border: none;
   color: $header-text-color;
-  text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 a.page_edit:hover,
@@ -409,7 +402,6 @@ a.page_search:hover {
   border: none;
   color: $header-text-color;
   opacity: 0.5;
-  text-shadow: 0px 0px 20px $secondary-text-color;
 }
 
 /* Announcement */
@@ -418,9 +410,11 @@ a.page_search:hover {
   text-align: center;
   background-color: $highlight-text-color;
   padding: 20px 60px;
+  line-height: 30px;
 
   @media screen and (max-width: $medium) {
     padding: 20px;
+    line-height: 26px;
   }
 }
 
@@ -438,10 +432,15 @@ a.page_search:hover {
 .headline {
   color: $header-text-color;
   font-size: $page-title;
-  text-shadow: 0px 0px 10px $header-text-color;
 
   @media screen and (max-width: $medium) {
-    font-size: $font30;
+    font-size: $font26;
+    line-height: 40px;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: $font22;
+    line-height: 36px;
   }
 }
 
@@ -449,14 +448,13 @@ a.page_search:hover {
   font-family: $font-family;
   font-weight: $lg;
   text-transform: lowercase;
-  color: $secondary-text-color;
-  text-shadow: none;
+  color: $header-text-color;
 }
 
 .branding_subtitle {
   padding: 6px 0px 12px 0px;
-  border-top: 2px solid $secondary-text-color;
-  border-bottom: 2px solid $secondary-text-color;
+  border-top: 2px solid $header-text-color;
+  border-bottom: 2px solid $header-text-color;
 
   @media screen and (max-width: $medium) {
     padding: 0px 0px 4px 0px;
