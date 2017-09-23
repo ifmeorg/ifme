@@ -5,6 +5,7 @@ module Viewer
 
   include do
     def viewer?(user)
+      debugger
       id = user&.id || user
       viewers.include?(id)
     end
