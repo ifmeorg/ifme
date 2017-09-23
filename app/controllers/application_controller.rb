@@ -337,14 +337,20 @@ class ApplicationController < ActionController::Base
   end
 
   def set_show_with_comments_variables(subject, model_name)
-    @page_edit = send("edit_#{model_name}_path", subject)
-    @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
+    if current_user.id == subject.userid
+      @page_edit = send("edit_#{model_name}_path", subject)
+      @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
+    else
+      @page_author = User.find(subject.userid).try(:name)
+    end
     @no_hide_page = true
-    @comment = Comment.new
-    @comments = Comment.where(
-      commentable_id: subject.id,
-      commentable_type: model_name
-    ).order(created_at: :desc)
+    if subject.comment
+      @comment = Comment.new
+      @comments = Comment.where(
+        commentable_id: subject.id,
+        commentable_type: model_name
+      ).order(created_at: :desc)
+    end
   end
 
   def record_model_name(record)
@@ -370,6 +376,6 @@ class ApplicationController < ActionController::Base
   end
 
   def hide_page?(subject)
-    subject.viewer?(current_user) && current_user.mutual_allies?(subject.user)
+    !current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)
   end
 end
