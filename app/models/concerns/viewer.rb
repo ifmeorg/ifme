@@ -3,12 +3,9 @@
 module Viewer
   extend ActiveSupport::Concern
 
-  include do
-    def viewer?(user)
-      debugger
-      id = user&.id || user
-      viewers.include?(id)
-    end
+  def viewer?(user)
+    id = user&.id || user
+    viewers.include?(id)
   end
 
   class_methods do
