@@ -359,12 +359,14 @@ ul.no_bullet_list li {
   padding: 40px 60px;
   font-size: $page-title;
   font-weight: $lg;
+  line-height: $page-title;
   color: $header-text-color;
 
   @media screen and (max-width: $medium) {
       padding: 20px;
       font-size: $font30;
       font-weight: $lg;
+      line-height: $font30;
   }
 }
 

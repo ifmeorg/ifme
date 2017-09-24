@@ -341,7 +341,8 @@ class ApplicationController < ActionController::Base
       @page_edit = send("edit_#{model_name}_path", subject)
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else
-      @page_author = User.find(subject.userid).try(:name)
+      ally = User.find(subject.userid)
+      @page_author = link_to ally.name, profile_index_path(uid: get_uid(ally.id))
     end
     @no_hide_page = true
     if subject.comment
