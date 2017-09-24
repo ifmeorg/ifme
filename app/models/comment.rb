@@ -48,23 +48,16 @@ class Comment < ApplicationRecord
   # Notify commentable_id user that they have a new comment
   def notify_of_creation!(creator)
     association = associated_record
-
-    if commentable_type == 'meeting'
-      handle_for_meeting(association, creator)
-    else
-      return unless notify_of_creation?(association)
-
-      send_notification!(
-        commentable_type,
-        creator,
-        association,
-        association.userid == comment_by ? viewers.first : association.userid,
-        private: association.userid == comment_by
-      )
-    end
+    return handle_meeting(association, creator) if commentable_type == 'meeting'
+    return unless notify_of_creation?(association)
+    send_notification!(creator, association, user_to_notify(association))
   end
 
   private
+
+  def user_to_notify(association)
+    association.userid == comment_by ? viewers.first : association.userid
+  end
 
   def associated_record
     commentable_type.classify.constantize.find(commentable_id)
@@ -74,64 +67,52 @@ class Comment < ApplicationRecord
     association.userid != comment_by && association.viewers.include?(comment_by)
   end
 
-  def send_notification!(commentable_type, creator, association, user_id,
-                         private: false)
-    return if User.find(user_id).nil?
-
-    type = "comment_on_#{commentable_type}#{private ? '_private' : ''}"
-    unique_id = "#{type}_#{id}"
-    data = notification_data(creator, association, type, unique_id)
-
-    Notification.create!(userid: user_id, uniqueid: unique_id, data: data)
-
-    notifications = Notification.where(userid: user_id).order(:created_at)
+  def send_notification(data, notifications, user_id)
     Pusher["private-#{user_id}"]
       .trigger('new_notification', notifications: notifications)
-
     NotificationMailer.notification_email(user_id, data).deliver_now
   end
 
+  def send_notification!(creator, association, user_id)
+    return if User.find(user_id).nil?
+    data = notification_data(creator, association, type, unique_id(type))
+    send_notification(data, notifications(data, user_id), user_id)
+  end
+
   def notification_data(creator, association, type, unique_id)
-    json = {
+    JSON.generate(
       user: creator.name,
       commentid: id,
       comment: comment[0..80],
       cutoff: comment.length > 80,
       type: type,
-      uniqueid: unique_id
-    }
-    case commentable_type
-    when 'moment'
-      json[:momentid] = association.id
-      json[:moment] = association.name
-    when 'strategy'
-      json[:strategyid] = association.id
-      json[:strategy] = association.name
-    else
-      json[:meetingid] = association.id
-      json[:meeting] = association.name
-    end
-    JSON.generate(json)
+      typeid: association.id,
+      uniqueid: unique_id,
+      typename: association.name
+    )
   end
 
-  # TODO: More reactoring
+  def type
+    "comment_on_#{commentable_type}#{visibility == 'private' ? '_private' : ''}"
+  end
+
+  def unique_id(type)
+    "#{type}_#{id}"
+  end
+
+  def notifications(data, userid)
+    Notification.create!(userid: userid, uniqueid: unique_id(type), data: data)
+    model_data = Notification.where(userid: userid)
+    model_data.order('created_at ASC') if commentable_type == 'meeting'
+    model_data.order(:created_at)
+  end
+
   # Notify MeetingMembers except for commenter that there is a new comment
-  def handle_for_meeting(association, creator)
-    MeetingMember.where(meetingid: commentable_id).all.each do |member|
+  def handle_meeting(association, creator)
+    MeetingMember.where(meetingid: commentable_id).find_each do |member|
       next if member.userid == creator.id
-
-      meeting_name = Meeting.where(id: commentable_id).first.name
-      cutoff = false
-      cutoff = true if comment.length > 80
-      uniqueid = "comment_on_meeting_#{id.to_s}"
-
-      data = notification_data(creator, association, 'comment_on_meeting', uniqueid)
-
-      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-      Pusher["private-#{member.userid.to_s}"].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(member.userid, data).deliver_now
+      data = notification_data(creator, association, type, unique_id(type))
+      send_notification(data, notifications(data, member.userid), member.userid)
     end
   end
 end

@@ -25,8 +25,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is false', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            momentid: 5,
-            moment: 'test moment',
+            typeid: 5,
+            typename: 'test moment',
             type: 'comment_on_moment',
             cutoff: false
           }));
@@ -40,8 +40,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is true', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            momentid: 5,
-            moment: 'test moment',
+            typeid: 5,
+            typename: 'test moment',
             type: 'comment_on_moment',
             cutoff: true
           }));
@@ -57,8 +57,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is false', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            strategyid: 5,
-            strategy: 'test strategy',
+            typeid: 5,
+            typename: 'test strategy',
             type: 'comment_on_strategy',
             cutoff: false
           }));
@@ -72,8 +72,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is true', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            strategyid: 5,
-            strategy: 'test strategy',
+            typeid: 5,
+            typename: 'test strategy',
             type: 'comment_on_strategy',
             cutoff: true
           }));
@@ -89,8 +89,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is false', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            meetingid: 5,
-            meeting: 'test meeting',
+            typeid: 5,
+            typename: 'test meeting',
             type: 'comment_on_meeting',
             cutoff: false
           }));
@@ -104,8 +104,8 @@ describe('NotificationRenderer', function() {
       describe('when cutoff is true', function() {
         beforeEach(function() {
           testNotification($.extend(commentData, {
-            meetingid: 5,
-            meeting: 'test meeting',
+            typeid: 5,
+            typename: 'test meeting',
             type: 'comment_on_meeting',
             cutoff: true
           }));
@@ -137,7 +137,7 @@ describe('NotificationRenderer', function() {
         testNotification({
           uid: 3,
           userid: 7,
-          type: 'new_ally_request',
+          type: 'new_ally_request'
         });
       });
 
@@ -206,8 +206,8 @@ describe('NotificationRenderer', function() {
     var meetingData = {
       group: 'test group',
       groupid: 7,
-      meeting: 'test meeting',
-      meetingid: 13
+      typename: 'test meeting',
+      typeid: 13
     };
 
     describe('new meeting', function() {
