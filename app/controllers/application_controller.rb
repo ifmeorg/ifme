@@ -200,10 +200,10 @@ class ApplicationController < ActionController::Base
     comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
 
     if current_user != profile && !current_user.mutual_allies?(profile)
-      comment_info += ' ' + t('shared.comments.not_allies')
+      comment_info += " #{t('shared.comments.not_allies')}"
     end
 
-    comment_info += ' - ' + TimeAgo.formatted_ago(data.created_at)
+    comment_info += " - #{TimeAgo.formatted_ago(data.created_at)}"
     comment_text = raw(data.comment)
 
     if data_type == 'moment'
@@ -216,12 +216,9 @@ class ApplicationController < ActionController::Base
                                            current_user)
     end
 
-    if (data_type == 'moment' && (Moment.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
-       (data_type == 'strategy' && (Strategy.where(id: data.commentable_id, userid: current_user.id).exists? || data.comment_by == current_user.id)) ||
-       (data_type == 'meeting' && (MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists? || data.comment_by == current_user.id))
-
+    if comment_by_current_user?(data, data_type)
       delete_comment = '<div class="table_cell delete_comment">'
-      delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: 'delete_comment_' + data.id.to_s, class: 'delete_comment_button'
+      delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: "delete_comment_#{data.id.to_s}", class: 'delete_comment_button'
       delete_comment += '</div>'
     end
 
@@ -313,6 +310,20 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def comment_by_current_user?(data, data_type)
+    result = case data_type
+    when 'moment'
+      Moment.where(id: data.commentable_id, userid: current_user.id).exists?
+    when 'strategy'
+      Strategy.where(id: data.commentable_id, userid: current_user.id).exists?
+    when 'meeting'
+      MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists?
+    else
+      false
+    end
+    result || data.comment_by == current_user.id
+  end
 
   def comment_for(model_name)
     @comment = Comment.create_from!(params)
