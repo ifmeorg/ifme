@@ -244,7 +244,7 @@ en:
   tagged: 'Tagged Moments'
   new: 'New Moment'
   secret_share:
-    create: 'Secret Share'
+    create: 'Create'
     cancel: 'Cancel'
   form:
    why: 'What happened and how do you feel?'
