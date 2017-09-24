@@ -21,22 +21,22 @@ NotificationRenderer.prototype.render = function() {
 
 function momentComment(data) {
   return {
-    path: '/moments/' + data.momentid,
-    commentable_id: data.moment
+    path: '/moments/' + data.typeid,
+    commentable_id: data.commentable_id
   }
 }
 
 function strategyComment(data) {
   return {
-    path: '/strategies/' + data.strategyid,
-    commentable_id: data.strategy
+    path: '/strategies/' + data.typeid,
+    commentable_id: data.commentable_id
   }
 }
 
 function meetingComment(data) {
   return {
-    path: '/meetings/' + data.meetingid,
-    commentable_id: data.meeting
+    path: '/meetings/' + data.typeid,
+    commentable_id: data.commentable_id
   }
 }
 
@@ -57,18 +57,18 @@ function commentNotificationLink(uniqueid, data) {
   var notification = I18n.t('notifications.comment.' + i18nKey,
                             { name: data.user,
                               comment: data.comment,
-                              commentable_id: comment.commentable_id });
+                              typename: data.typename });
 
   return notificationLink(uniqueid, comment.path, notification);
 }
 
 function meetingNotificationLink(uniqueid, data) {
   var notification = I18n.t('notifications.meeting.' + data.type,
-                     { name: data.user, group_name: data.group, meeting_name: data.meeting });
+                     { name: data.user, group_name: data.group, meeting_name: data.typename });
 
   var link = data.type.includes('remove') ?
              '/groups/' + data.groupid :
-             '/meetings/' + data.meetingid;
+             '/meetings/' + data.typeid;
 
   return notificationLink(uniqueid, link, notification);
 }

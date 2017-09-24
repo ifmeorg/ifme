@@ -317,7 +317,7 @@ sv:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>För att läsa den, %{link}!</p>"
     new_group_subject: "if me | %{user} skapade en grupp \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p>"
+    new_group_body: "<p>%{user} skapade en grupp \"%{group}\":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p>"
     new_group_member_subject: "if me | %{user} gick med i din grupp \"%{group}\""
     add_group_leader_you_subject: "if me | Du blev ledare för \"%{group}\""
     add_group_leader_subject: "if me | %{user} blev ledare för \" %{group}\""

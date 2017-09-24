@@ -103,92 +103,46 @@ class ApplicationController < ActionController::Base
 
   def most_focus(data_type, profile)
     data = []
-
-    userid =
-      if profile.blank?
-        current_user.id
-      else
-        profile
-      end
-
+    userid = profile.blank? ? current_user.id : profile
+    moments = Moment.where(userid: userid)
     if data_type == 'category'
-      Moment.where(userid: userid).all.each do |moment|
-        if moment.category.present? && !moment.category.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
-          data += moment.category
+      strategies = Strategy.where(userid: userid)
+      [moments, strategies].each do |records|
+        records.where(userid: userid).find_each do |r|
+          if r.category.any? && (profile.blank? || profile_exists?(profile, r))
+            data += r.category
+          end
         end
       end
-      Strategy.where(userid: userid).all.each do |strategy|
-        if strategy.category.present? && !strategy.category.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || strategy.viewers.include?(current_user.id))))
-          data += strategy.category
-        end
-      end
-    elsif data_type == 'mood'
-      Moment.where(userid: userid).all.each do |moment|
-        if moment.mood.present? && !moment.mood.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
-          data += moment.mood
-        end
-      end
-    elsif data_type == 'strategy'
-      Moment.where(userid: userid).all.each do |moment|
-        if moment.strategy.present? && !moment.strategy.empty? && (profile.blank? || (profile.present? && (current_user.id == profile || moment.viewers.include?(current_user.id))))
-          data += moment.strategy
+    elsif data_type == 'mood' || data_type == 'strategy'
+      moments.find_each do |m|
+        data_obj = data_type == 'mood' ? m.mood : m.strategy
+        if data_obj.any? && (profile.blank? || profile_exists?(profile, m))
+          data += data_obj
         end
       end
     end
 
-    # Determine top three occurrences
-    result = {}
-
-    unless data.empty?
-      freq = {}
-      3.times do
-        freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
-        break if freq.empty?
-
-        max = data.max_by { |v| freq[v] }
-        break if freq[max].zero?
-
-        result[max] = freq[max]
-        freq.delete(max)
-        data.delete(max)
-      end
-    end
-
-    result
+    data.empty? ? {} : top_three_focus(data)
   end
 
-  def tag_usage(data, data_type, userid)
+  def tag_usage(data_id, data_type, userid)
     result = []
+    moments = Moment.where(userid: userid).order('created_at DESC')
     if data_type == 'category'
-      moments = []
-      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if moment.category.present? && !moment.category.empty? && moment.category.include?(data.to_i)
-          moments.push(moment.id)
+      strategies = Strategy.where(userid: userid).order('created_at DESC')
+      [moments, strategies].each do |records|
+        objs = []
+        records.find_each do |r|
+          objs.push(r.id) if data_included?(data_type, data_id, r)
         end
+        result.push(objs)
       end
-      result.push(moments)
-
-      strategies = []
-      Strategy.where(userid: userid).order('created_at DESC').all.each do |strategy|
-        if strategy.category.present? && !strategy.category.empty? && strategy.category.include?(data.to_i)
-          strategies.push(strategy.id)
-        end
-      end
-      result.push(strategies)
-    elsif data_type == 'mood'
-      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if moment.mood.present? && !moment.mood.empty? && moment.mood.include?(data.to_i)
-          result.push(moment.id)
-        end
-      end
-    elsif data_type == 'strategy'
-      Moment.where(userid: userid).order('created_at DESC').all.each do |moment|
-        if moment.strategy.present? && !moment.strategy.empty? && moment.strategy.include?(data.to_i)
-          result.push(moment.id)
-        end
+    elsif data_type == 'mood' || data_type == 'strategy'
+      moments.find_each do |m|
+        result.push(m.id) if data_included?(data_type, data_id, m)
       end
     end
-
     result
   end
 
@@ -216,9 +170,12 @@ class ApplicationController < ActionController::Base
                                            current_user)
     end
 
-    if comment_by_current_user?(data, data_type)
+    if comment_deletable?(data, data_type)
       delete_comment = '<div class="table_cell delete_comment">'
-      delete_comment += link_to raw('<i class="fa fa-times"></i>'), '', id: "delete_comment_#{data.id.to_s}", class: 'delete_comment_button'
+      delete_comment += link_to raw('<i class="fa fa-times"></i>'),
+                                '',
+                                id: "delete_comment_#{data.id}",
+                                class: 'delete_comment_button'
       delete_comment += '</div>'
     end
 
@@ -311,18 +268,50 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def comment_by_current_user?(data, data_type)
-    result = case data_type
+  def data_included?(data_type, data_id, data)
+    obj = data.category if data_type == 'category'
+    obj = data.mood if data_type == 'mood'
+    obj = data.strategy if data_type == 'strategy'
+    obj.any? && obj.include?(data_id)
+  end
+
+  def top_three_focus(data)
+    result, freq = {}
+    3.times do
+      freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
+      break if freq.empty?
+      max = data.max_by { |v| freq[v] }
+      break if freq[max].zero?
+      result[max] = freq[max]
+      freq.delete(max)
+      data.delete(max)
+    end
+    result
+  end
+
+  def profile_exists?(profile, data)
+    profile.present? &&
+      (current_user.id == profile ||
+       data.viewers.include?(current_user.id))
+  end
+
+  def user_created_data?(id, data_type)
+    case data_type
     when 'moment'
-      Moment.where(id: data.commentable_id, userid: current_user.id).exists?
+      Moment.where(id: id, userid: current_user.id).exists?
     when 'strategy'
-      Strategy.where(id: data.commentable_id, userid: current_user.id).exists?
+      Strategy.where(id: id, userid: current_user.id).exists?
     when 'meeting'
-      MeetingMember.where(meetingid: data.commentable_id, userid: current_user.id, leader: true).exists?
+      MeetingMember.where(meetingid: id, leader: true,
+                          userid: current_user.id).exists?
     else
       false
     end
-    result || data.comment_by == current_user.id
+  end
+
+  def comment_deletable?(data, data_type)
+    data.comment_by == current_user.id ||
+      user_created_data?(data.commentable_id, data_type)
   end
 
   def comment_for(model_name)
@@ -353,7 +342,8 @@ class ApplicationController < ActionController::Base
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else
       ally = User.find(subject.userid)
-      @page_author = link_to ally.name, profile_index_path(uid: get_uid(ally.id))
+      @page_author = link_to(ally.name,
+                             profile_index_path(uid: get_uid(ally.id)))
     end
     @no_hide_page = true
     if subject.comment

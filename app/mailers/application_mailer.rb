@@ -38,11 +38,11 @@ class ApplicationMailer < ActionMailer::Base
     @message += comment_text(@data, key)
 
     if comment_on_moment(@data) || comment_on_moment_private(@data)
-      link = link_to(I18n.t('click_here'), moment_url(@data['momentid']))
+      link = link_to(I18n.t('click_here'), moment_url(@data['typeid']))
     elsif comment_on_strategy(@data) || comment_on_strategy_private(@data)
-      link = link_to(I18n.t('click_here'), strategy_url(@data['strategyid']))
+      link = link_to(I18n.t('click_here'), strategy_url(@data['typeid']))
     else
-      link = link_to(I18n.t('click_here'), meeting_url(@data['meetingid']))
+      link = link_to(I18n.t('click_here'), meeting_url(@data['typeid']))
     end
     @message += comment_link(link)
 

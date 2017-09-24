@@ -98,9 +98,9 @@ class MeetingsController < ApplicationController
 
             data = JSON.generate(
               user: current_user.name,
-              meetingid: @meeting.id,
+              typeid: @meeting.id,
               group: group,
-              meeting: @meeting.name,
+              typename: @meeting.name,
               type: 'new_meeting',
               uniqueid: uniqueid
             )
@@ -151,9 +151,9 @@ class MeetingsController < ApplicationController
 
         data = JSON.generate(
           user: current_user.name,
-          meetingid: @meeting.id,
+          typeid: @meeting.id,
           group: group,
-          meeting: @meeting.name,
+          typename: @meeting.name,
           type: 'update_meeting',
           uniqueid: uniqueid
         )
@@ -203,9 +203,9 @@ class MeetingsController < ApplicationController
 
         data = JSON.generate(
           user: current_user.name,
-          meetingid: meetingid,
+          typeid: meetingid,
           group: group,
-          meeting: meeting,
+          typename: meeting,
           type: 'join_meeting',
           uniqueid: uniqueid
         )
@@ -273,7 +273,7 @@ class MeetingsController < ApplicationController
         user: current_user.name,
         groupid: @meeting.groupid,
         group: group,
-        meeting: @meeting.name,
+        typename: @meeting.name,
         type: 'remove_meeting',
         uniqueid: uniqueid
       )
