@@ -1,13 +1,16 @@
 <% title @moment.name %>
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
 <% if Rails.configuration.secret_share_enabled && @moment.owned_by?(current_user) %>
-<div class="secret-share-button"><input type="submit" value="Secret Share" onclick="$('#secret_share_area').toggleClass('display_none')"></div>
-  <div class="<%= @moment.shared? ? '' : 'display_none' %>" id="secret_share_area">
+<div class="secret-share-button" id="secret_share_show"><input type="submit" value="Secret Share" onclick="$('#secret-share-area').toggleClass('display_none')"></div>
+  <div class="<%= @moment.shared? ? '' : 'display_none' %>" id="secret-share-area">
     <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id), {form_class: 'secret-share-button'} %>
     <% if @moment.shared? %>
       <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), {method: :delete, form_class: 'secret-share-button'} %>
     <% end %>
-    <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %>
+    <% if @moment.secret_share_identifier %>
+      <input type=text value="<%= secret_share_url(@moment.secret_share_identifier) %>">
+    <% end %>
+    <!-- <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %> -->
   </div>
 <% end %>
 
