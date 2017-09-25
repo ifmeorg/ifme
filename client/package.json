@@ -47,6 +47,9 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-flow-react-proptypes": "^4.1.0",
     "babel-preset-flow": "^6.23.0",
+    "compression-webpack-plugin": "^1.0.0",
+    "css-loader": "^0.28.7",
+    "empty": "^0.10.1",
     "enzyme": "^2.9.1",
     "eslint": "^3.19.0 || ^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -55,7 +58,8 @@
     "eslint-plugin-jasmine": "^2.8.4",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "flow-bin": "^0.52.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "flow-bin": "^0.54.1",
     "flow-typed": "^2.1.5",
     "jasmine": "^2.7.0",
     "jasmine-enzyme": "^3.7.0",
@@ -64,9 +68,13 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
+    "node-sass": "^4.5.3",
+    "optimize-css-assets-webpack-plugin": "^3.1.1",
     "react-addons-test-utils": "^15.6.0",
     "react-test-render": "^1.0.3",
     "react-test-renderer": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
     "superagent-mock": "^3.5.0"
   }
 }

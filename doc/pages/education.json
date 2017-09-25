@@ -60,6 +60,12 @@
     "languages":["en"]
   },
   {
+    "name":"MHFA - Första hjälpen till psykisk hälsa",
+    "link":"http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
+    "tags":["training", "paid", "directory"],
+    "languages":["sv"]
+  },
+  {
     "name":"Music Therapy | What is it?",
     "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
     "tags":["music", "therapy", "learning"],
@@ -74,7 +80,7 @@
   {
     "name":"Psych Central (web portal)",
     "link":"https://psychcentral.com/",
-    "tags":["forum", "blog", "directory", "free", "advice"],
+    "tags":["forum", "blog", "directory", "free", "advice", "news", "books"],
     "languages":["en"]
   },
   {
@@ -123,6 +129,72 @@
     "name":"Safe Harbor - Alternative Mental Health",
     "link":"https://www.alternativementalhealth.com/",
     "tags":["videos", "free", "learning", "integrative"],
+    "languages":["en"]
+  },
+  {
+    "name":"About Face - National Center for PTSD (US)",
+    "link":"https://www.ptsd.va.gov/apps/AboutFace/",
+    "tags":["veterans", "ptsd", "videos", "learning", "government"],
+    "languages":["en"]
+  },
+  {
+    "name":"Understanding Traumatic Brain Injury (US)",
+    "link":"https://www.polytrauma.va.gov/understanding-tbi/",
+    "tags":["veterans", "tbi", "learning", "government"],
+    "languages":["en"]
+  },
+  {
+    "name":"RxISK",
+    "link":"https://rxisk.org/",
+    "tags":["free", "learning", "blog", "treatment"],
+    "languages":["en"]
+  },
+  {
+    "name":"Unified Therapy",
+    "link":"http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
+    "tags":["free", "learning", "integrative", "treatment", "therapy"],
+    "languages":["en"]
+  },
+  {
+    "name":"The Carlat Psychiatry Blog",
+    "link":"http://carlatpsychiatry.blogspot.com/",
+    "tags":["free", "learning", "blog", "books", "news"],
+    "languages":["en"]
+  },
+  {
+    "name":"In the Wake of Suicide...trying to understand",
+    "link":"https://lensgirl53.wordpress.com/",
+    "tags":["blog", "trigger_warnings", "suicide_prevention", "christian"],
+    "languages":["en"]
+  },
+  {
+    "name":"Mental Health Humor & Cartoons - Chato B. Stewart",
+    "link":"https://blogs.psychcentral.com/humor/",
+    "tags":["blog", "free", "depression", "humor"],
+    "languages":["en"]
+  },
+  {
+    "name":"DrugRehab (US)",
+    "link":"https://www.drugrehab.com/",
+    "tags":["addiction", "podcast", "youth"],
+    "languages":["en"]
+  },
+  {
+    "name":"Madness Radio",
+    "link":"http://www.madnessradio.net/",
+    "tags":["free", "podcast", "talks", "learning", "books"],
+    "languages":["en"]
+  },
+  {
+    "name":"bi[polar] curious",
+    "link":"https://thebipolarcuriousblog.com/",
+    "tags":["free", "blog", "learning", "directory"],
+    "languages":["en"]
+  },
+  {
+    "name":"Center for the Study of Empathic Therapy, Education & Living",
+    "link":"http://www.empathictherapy.org/",
+    "tags":["conference", "directory", "learning"],
     "languages":["en"]
   }
 ]

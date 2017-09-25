@@ -16,7 +16,9 @@ es:
    en: English
    es: Español
    ptbr: Português
+   sv: Svenska
    various: Varios
+   vn: Tiếng Việt
 
  navigation:
    about: "Acerca de "
@@ -28,11 +30,12 @@ es:
    patreon: "Patreon"
    opencollective: 'Open Collective'
    instagram: "Instagram"
+   rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
-   medium: "Medium"
    feedback: "retroalimentación"
    give_feedback: 'Retroalimentar'
+   medium: "Medium"
    press: 'Prensa'
    faq: 'Preguntas Frecuentes'
    resources: "Recursos"
@@ -346,7 +349,7 @@ es:
     main_message_one: "%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza."
     message_text_one: "Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental."
     main_message_two: "Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto."
-    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
+    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Nada está sólo en tu mente, está todo alrededor de ti. Podemos sanar juntos.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
     main_message_three: "¿Quieres ayudar a financiarnos?"
     message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>En 2016, recibimos una subvención comunitaria por parte de %{linebreak_link}. En 2017, recibimos fondos de %{fund_club_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
     linebreak: "Linebreak"
@@ -355,7 +358,7 @@ es:
     description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
   contributors:
     main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
-    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>, y <strong>diseñadores de  experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
+    message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>,  <strong>translators</strong>, <strong>traductores</strong>, y <strong>diseñadores de experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
     thanks: "Un enorme agradecimiento a:"
     slack: "Slack"
@@ -483,6 +486,15 @@ es:
       veterans: veteranos
       music: música
       integrative: integrativo
+      ptsd: TEPT
+      tbi: TCE
+      news: noticia
+      government: gobierno
+      christian: cristiano
+      humor: humor
+      conference: conferencia
+      addiction: adicción
+      rehabilitation: rehabilitación
 
  profile:
   index:
