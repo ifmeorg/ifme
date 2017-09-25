@@ -17,6 +17,7 @@
   color: white;
   background-color: $container-color;
   float: right;
+  margin-right: 1px;
 }
 
 #secret-share-area {
@@ -31,4 +32,12 @@
     width: 400px;
     font-size: 10px;
   }
+}
+
+.secret-share-expire {
+  font-size: 18px;
+  margin-top: 6px;
+  input[type=date] {
+  font-size: 12px;
+}
 }

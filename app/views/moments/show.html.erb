@@ -9,6 +9,11 @@
     <% end %>
     <% if @moment.secret_share_identifier %>
       <input type=text value="<%= secret_share_url(@moment.secret_share_identifier) %>">
+      <form class="secret-share-expire">
+        Expire at:
+        <input type="date" name="expire">
+        <input type="submit">
+      </form>
     <% end %>
     <!-- <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %> -->
   </div>
