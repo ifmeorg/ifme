@@ -246,6 +246,11 @@ ptbr:
   edit_moment: 'Editar Momento'
   tagged: 'Momentos com Tags'
   new: 'Novo Momento'
+  secret_share:
+    singular: 'Compartilhar Segredo'
+    expires_at: 'Expirar em'
+    create: 'Crio'
+    cancel: 'Cancelar'
   form:
    why: 'O que aconteceu e como você se sente ?'
    fix: 'Quais pensamentos você gostaria de ter ? '

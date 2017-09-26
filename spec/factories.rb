@@ -106,13 +106,6 @@ FactoryGirl.define do
     description 'Test Mood'
   end
 
-  factory :moment do
-    name  'Test Moment'
-    why 'Test Why'
-    fix 'Test fix'
-    comment true
-  end
-
   factory :comment do
     commentable_type 'moment'
     comment 'Test Comment'

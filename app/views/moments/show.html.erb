@@ -1,5 +1,25 @@
 <% title @moment.name %>
 <%= render :partial => '/moments/info', locals: { data: @moment } %>
+<% if Rails.configuration.secret_share_enabled && @moment.owned_by?(current_user) %>
+  <button class="secret-share-button" onclick="$('#secret-share-area').toggleClass('display_none')">
+    <%= t ('moments.secret_share.singular') %>
+  </button>
+  <div class="<%= @moment.shared? ? '' : 'display_none' %>" id="secret-share-area">
+    <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id), {class: 'secret-share-button'} %>
+    <% if @moment.shared? %>
+      <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), {method: :delete, class: 'secret-share-button'} %>
+    <% end %>
+    <% if @moment.secret_share_identifier %>
+      <input type=text value="<%= secret_share_url(@moment.secret_share_identifier) %>">
+      <form class="secret-share-expire">
+        <%= t('moments.secret_share.expires_at') %>:
+        <input type="date" name="expire">
+        <input type="submit" value="<%= t('common.actions.submit') %>">
+      </form>
+    <% end %>
+    <!-- <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %> -->
+  </div>
+<% end %>
 
 <% if !@moment.why.blank? %>
   <p>
@@ -29,4 +49,6 @@
 
 <%= render :partial => '/shared/viewers_indicator', locals: { data: @moment } %>
 
-<%= render :partial => '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>
+<% if @comment.present? %>
+  <%= render :partial => '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>
+<% end %>

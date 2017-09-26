@@ -246,6 +246,11 @@ en:
   edit_moment: 'Edit Moment'
   tagged: 'Tagged Moments'
   new: 'New Moment'
+  secret_share:
+    singular: 'Secret Share'
+    expires_at: 'Expire at'
+    create: 'Create'
+    cancel: 'Cancel'
   form:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
