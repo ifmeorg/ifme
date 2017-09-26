@@ -62,6 +62,7 @@ group :development, :test do
 
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'pry-rails'
 
   gem 'capybara', '~> 2.15.1'
