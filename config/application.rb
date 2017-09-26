@@ -38,7 +38,7 @@ module Ifme
     }
 
     # gzip the html/json responses
-    config.middleware.use Rack::Deflater, include: %w[text/html application/json]
+    config.middleware.use Rack::Deflater, include: %w[text/html application/json image/svg+xml]
     # export translations for use in javascript
     config.middleware.use I18n::JS::Middleware
 
