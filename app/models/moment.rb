@@ -38,6 +38,15 @@ class Moment < ApplicationRecord
   validates :userid, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
+  validates :secret_share_expires_at,
+            presence: true, if: :secret_share_identifier?
+
+  def self.find_secret_share!(identifier)
+    find_by!(
+      'secret_share_expires_at > NOW()',
+      secret_share_identifier: identifier
+    )
+  end
 
   def array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)
@@ -56,5 +65,14 @@ class Moment < ApplicationRecord
 
   def strategy_name
     strategy.try(:name)
+  end
+
+  def owned_by?(user)
+    user&.id == userid
+  end
+
+  def shared?
+    secret_share_identifier? &&
+      Time.zone.now < secret_share_expires_at
   end
 end

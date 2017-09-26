@@ -300,6 +300,13 @@ You can disable this gem when you deploy the app by commenting it out.
 ```
 
 You can read more about this gem [here](https://github.com/ryanb/letter_opener).
+
+### Secret Share
+
+Secret Share is a feature to share a moment, with a secret URL for a certain amount of time.
+
+You can enable this feature by adding `config.secret_share_enabled = true` to the development.rb file.
+
 </details>
 
 # Running the App Locally

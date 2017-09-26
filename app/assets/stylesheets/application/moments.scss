@@ -13,3 +13,32 @@
   }
 }
 
+.secret-share-button,
+input.secret-share-button {
+  color: white;
+  background-color: $container-color;
+  float: right;
+  margin-right: 1px;
+}
+
+#secret-share-area {
+  border: 1px solid $container-color;
+  padding: 10px;
+  width: 600px;
+  float: right;
+  background-color: white;
+  clear: right;
+  margin-top: 6px;
+  input[type=text]{
+    width: 400px;
+    font-size: 10px;
+  }
+}
+
+.secret-share-expire {
+  font-size: 18px;
+  margin-top: 6px;
+  input[type=date] {
+  font-size: 12px;
+}
+}

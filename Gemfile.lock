@@ -266,6 +266,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.4.3)
+      byebug (>= 9.0, < 9.1)
+      pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (2.0.5)
@@ -520,6 +523,7 @@ DEPENDENCIES
   omniauth (~> 1.6.1)
   omniauth-google-oauth2 (~> 0.5.2)
   pg (= 0.18.4)
+  pry-byebug
   pry-rails
   puma
   pusher (= 1.1.0)
