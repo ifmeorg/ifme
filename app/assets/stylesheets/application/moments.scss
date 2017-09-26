@@ -13,7 +13,8 @@
   }
 }
 
-.secret-share-button input {
+.secret-share-button,
+input.secret-share-button {
   color: white;
   background-color: $container-color;
   float: right;

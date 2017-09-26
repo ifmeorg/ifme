@@ -247,7 +247,9 @@ ptbr:
   tagged: 'Momentos com Tags'
   new: 'Novo Momento'
   secret_share:
-    create: 'Compartilhar Segredo'
+    singular: 'Compartilhar Segredo'
+    expires_at: 'Expirar em'
+    create: 'Crio'
     cancel: 'Cancelar'
   form:
    why: 'O que aconteceu e como você se sente ?'

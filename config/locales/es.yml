@@ -249,7 +249,9 @@ es:
   tagged: "Etiquetar Momento"
   new: "Nuevo Momento"
   secret_share:
-    create: 'Compártelo en Secreto'
+    singular: 'Compartir en Secreto'
+    expires_at: 'Caducar en'
+    create: 'Crear'
     cancel: 'Cancelar'
   form:
    why: "¿Qué ocurrió y cómo te sentiste"

@@ -247,6 +247,8 @@ en:
   tagged: 'Tagged Moments'
   new: 'New Moment'
   secret_share:
+    singular: 'Secret Share'
+    expires_at: 'Expire at'
     create: 'Create'
     cancel: 'Cancel'
   form:
