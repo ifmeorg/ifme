@@ -172,6 +172,16 @@ h1.strategy_name a:visited {
   }
 }
 
+#page_author {
+  font-size: $font24;
+  vertical-align: middle;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font20;
+  }
+}
+
+
 #leave.align_left,
 #join.align_left {
   float: left;

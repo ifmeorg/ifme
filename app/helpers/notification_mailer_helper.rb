@@ -5,7 +5,7 @@ module NotificationMailerHelper
     I18n.t(
       val('comment_on_moment_subject'),
       user: data['user'].to_s,
-      moment: data['moment'].to_s
+      moment: data['typename'].to_s
     )
   end
 
@@ -13,17 +13,17 @@ module NotificationMailerHelper
     I18n.t(
       val('comment_on_strategy_subject'),
       user: data['user'].to_s,
-      strategy: data['strategy'].to_s
+      strategy: data['typename'].to_s
     )
   end
 
   def comment_on_meeting_subject(data)
-    groupid = Meeting.where(id: data['meetingid']).first.groupid
+    groupid = Meeting.find(data['typeid']).groupid
     group = Group.where(id: groupid).first.name
     I18n.t(
       val('comment_on_meeting_subject'),
       user: data['user'].to_s,
-      meeting: data['meeting'].to_s,
+      meeting: data['typename'].to_s,
       group: group.to_s
     )
   end
@@ -48,7 +48,8 @@ module NotificationMailerHelper
     link_name = I18n.t('click_here')
     I18n.t(
       val('new_group_body'),
-      subject: new_group_subject(data),
+      user: data['user'].to_s,
+      group: data['group'].to_s,
       description: Group.where(id: data['groupid']).first.description,
       link: link_to(link_name, group_url(data['groupid']))
     )
@@ -73,7 +74,9 @@ module NotificationMailerHelper
   def add_remove_group_leader_body(data)
     link_name = I18n.t('click_here')
     link = link_to(link_name, group_url(data['groupid']))
-    I18n.t(val('add_group_leader_body'), group: data['group'].to_s, link: link)
+    I18n.t(val('add_remove_group_leader_body'),
+           group: data['group'].to_s,
+           link: link)
   end
 
   def remove_group_leader_you_subject(data)
@@ -93,7 +96,7 @@ module NotificationMailerHelper
   end
 
   def meeting_body(data)
-    meeting = Meeting.where(id: data['meetingid']).first
+    meeting = Meeting.find(data['typeid'])
     I18n.t(
       val('meeting_body'),
       subject: new_meeting_subject(data),
@@ -106,13 +109,13 @@ module NotificationMailerHelper
 
   def new_meeting_link(data)
     link_name = I18n.t('click_here')
-    link = link_to(link_name, meeting_url(data['meetingid']))
+    link = link_to(link_name, meeting_url(data['typeid']))
     I18n.t(val('new_meeting_link'), link: link)
   end
 
   def update_meeting_link(data)
     link_name = I18n.t('click_here')
-    link = link_to(link_name, meeting_url(data['meetingid']))
+    link = link_to(link_name, meeting_url(data['typeid']))
     I18n.t(val('update_meeting_link'), link: link)
   end
 
@@ -126,8 +129,8 @@ module NotificationMailerHelper
 
   def join_meeting_body(data)
     link_name = I18n.t('click_here')
-    link = link_to(link_name, meeting_url(data['meetingid']))
-    I18n.t(val('join_meeting_body'), meeting: data['meeting'].to_s, link: link)
+    link = link_to(link_name, meeting_url(data['typeid']))
+    I18n.t(val('join_meeting_body'), meeting: data['typename'].to_s, link: link)
   end
 
   def val(key)
@@ -140,7 +143,7 @@ module NotificationMailerHelper
     I18n.t(
       val(key),
       user: data['user'].to_s,
-      meeting: data['meeting'].to_s,
+      meeting: data['typename'].to_s,
       group: data['group'].to_s
     )
   end

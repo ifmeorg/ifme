@@ -322,7 +322,7 @@ ptbr:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Veja o comentário, %{link}!</p>"
     new_group_subject: "if me | %{user} criou um grupo chamado \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p>"
+    new_group_body: "<p>%{user} criou um grupo chamado \"%{group}\":</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p>"
     new_group_member_subject: "if me | %{user} se juntou ao seu grupo \"%{group}\""
     add_group_leader_you_subject: "if me | Você  se tornou lider do grupo  \"%{group}\""
     add_group_leader_subject: "if me | %{user} se tornou líder do grupo \" %{group}\""
