@@ -393,11 +393,11 @@ describe ApplicationController do
     let(:comment) { 'Hello from the outside'}
 
     def delete_comment(comment_id)
-      "<div class=\"table_cell delete_comment\"><a id=\"delete_comment_#{comment_id}\" class=\"delete_comment_button\" href=\"\"><i class=\"fa fa-times\"></i></a></div>"
+      %(<div class="table_cell delete_comment"><a id="delete_comment_#{comment_id}" class="delete_comment_button" href=""><i class="fa fa-times"></i></a></div>)
     end
 
     def comment_info(user)
-      "<a href=\"/profile?uid=#{controller.get_uid(user.id)}\">#{user.name}</a> - less than a minute ago"
+      %(<a href="/profile?uid=#{controller.get_uid(user.id)}">#{user.name}</a> - less than a minute ago)
     end
 
     before do

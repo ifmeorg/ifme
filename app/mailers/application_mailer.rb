@@ -37,13 +37,8 @@ class ApplicationMailer < ActionMailer::Base
     key = @data['cutoff'] ? val('comment_text_cutoff') : val('comment_text')
     @message += comment_text(@data, key)
 
-    if comment_on_moment(@data) || comment_on_moment_private(@data)
-      link = link_to(I18n.t('click_here'), moment_url(@data['typeid']))
-    elsif comment_on_strategy(@data) || comment_on_strategy_private(@data)
-      link = link_to(I18n.t('click_here'), strategy_url(@data['typeid']))
-    else
-      link = link_to(I18n.t('click_here'), meeting_url(@data['typeid']))
-    end
+    url = send("#{commented_model(@data)}_url", @data['typeid'])
+    link = link_to(I18n.t('click_here'), url)
     @message += comment_link(link)
 
     mail(to: @recipient.email, subject: subject)
@@ -103,5 +98,11 @@ class ApplicationMailer < ActionMailer::Base
       @message = join_meeting_body(@data)
     end
     mail(to: @recipient.email, subject: subject)
+  end
+
+  private
+
+  def commented_model(data)
+    data['type'].match(/comment_on_([^_]+)/)[1]
   end
 end

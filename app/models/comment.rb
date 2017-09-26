@@ -76,7 +76,7 @@ class Comment < ApplicationRecord
   def send_notification!(creator, association, user_id)
     return if User.find(user_id).nil?
     data = notification_data(creator, association, type, unique_id(type))
-    send_notification(data, notifications(data, user_id), user_id)
+    send_notification(data, notifications!(data, user_id), user_id)
   end
 
   def notification_data(creator, association, type, unique_id)
@@ -100,19 +100,20 @@ class Comment < ApplicationRecord
     "#{type}_#{id}"
   end
 
-  def notifications(data, userid)
+  def notifications!(data, userid)
     Notification.create!(userid: userid, uniqueid: unique_id(type), data: data)
     model_data = Notification.where(userid: userid)
-    model_data.order('created_at ASC') if commentable_type == 'meeting'
-    model_data.order(:created_at)
+    model_data.order('created_at')
   end
 
   # Notify MeetingMembers except for commenter that there is a new comment
   def handle_meeting(association, creator)
-    MeetingMember.where(meetingid: commentable_id).find_each do |member|
-      next if member.userid == creator.id
+    MeetingMember.where(meetingid: commentable_id)
+                 .where.not(userid: creator.id)
+                 .find_each do |member|
       data = notification_data(creator, association, type, unique_id(type))
-      send_notification(data, notifications(data, member.userid), member.userid)
+      send_notification(data, notifications!(data, member.userid),
+                        member.userid)
     end
   end
 end

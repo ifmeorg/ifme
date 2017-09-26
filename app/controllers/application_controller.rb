@@ -101,23 +101,25 @@ class ApplicationController < ActionController::Base
     User.find(userid).uid
   end
 
-  def most_focus(data_type, profile)
+  def most_focus(data_type, profile_id)
     data = []
-    userid = profile.blank? ? current_user.id : profile
-    moments = Moment.where(userid: userid)
+    userid = profile_id || current_user.id
+    moments = user_moments(userid)
     if data_type == 'category'
-      strategies = Strategy.where(userid: userid)
+      strategies = user_strategies(userid)
       [moments, strategies].each do |records|
         records.where(userid: userid).find_each do |r|
-          if r.category.any? && (profile.blank? || profile_exists?(profile, r))
+          if r.category.any? && (profile_id.blank? ||
+                                 profile_exists?(profile_id, r))
             data += r.category
           end
         end
       end
-    elsif data_type == 'mood' || data_type == 'strategy'
+    elsif data_type.in?(%w[mood strategy])
       moments.find_each do |m|
-        data_obj = data_type == 'mood' ? m.mood : m.strategy
-        if data_obj.any? && (profile.blank? || profile_exists?(profile, m))
+        data_obj = m[data_type]
+        if data_obj.any? && (profile_id.blank? ||
+                             profile_exists?(profile_id, m))
           data += data_obj
         end
       end
@@ -128,19 +130,19 @@ class ApplicationController < ActionController::Base
 
   def tag_usage(data_id, data_type, userid)
     result = []
-    moments = Moment.where(userid: userid).order('created_at DESC')
+    moments = user_moments(userid).order('created_at DESC')
     if data_type == 'category'
-      strategies = Strategy.where(userid: userid).order('created_at DESC')
+      strategies = user_strategies(userid).order('created_at DESC')
       [moments, strategies].each do |records|
         objs = []
         records.find_each do |r|
           objs.push(r.id) if data_included?(data_type, data_id, r)
         end
-        result.push(objs)
+        result << objs
       end
-    elsif data_type == 'mood' || data_type == 'strategy'
+    elsif data_type.in?(%w[mood strategy])
       moments.find_each do |m|
-        result.push(m.id) if data_included?(data_type, data_id, m)
+        result << m.id if data_included?(data_type, data_id, m)
       end
     end
     result
@@ -269,10 +271,8 @@ class ApplicationController < ActionController::Base
   private
 
   def data_included?(data_type, data_id, data)
-    obj = data.category if data_type == 'category'
-    obj = data.mood if data_type == 'mood'
-    obj = data.strategy if data_type == 'strategy'
-    obj.any? && obj.include?(data_id)
+    return false unless data_type.in?(%w[category mood strategy])
+    data_id.in?(data[data_type])
   end
 
   def top_three_focus(data)
@@ -379,5 +379,13 @@ class ApplicationController < ActionController::Base
 
   def hide_page?(subject)
     !current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)
+  end
+
+  def user_strategies(userid)
+    Strategy.where(userid: userid)
+  end
+
+  def user_moments(userid)
+    Moment.where(userid: userid)
   end
 end

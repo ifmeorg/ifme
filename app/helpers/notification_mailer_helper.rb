@@ -18,7 +18,7 @@ module NotificationMailerHelper
   end
 
   def comment_on_meeting_subject(data)
-    groupid = Meeting.where(id: data['typeid']).first.groupid
+    groupid = Meeting.find(data['typeid']).groupid
     group = Group.where(id: groupid).first.name
     I18n.t(
       val('comment_on_meeting_subject'),
@@ -96,7 +96,7 @@ module NotificationMailerHelper
   end
 
   def meeting_body(data)
-    meeting = Meeting.where(id: data['typeid']).first
+    meeting = Meeting.find(data['typeid'])
     I18n.t(
       val('meeting_body'),
       subject: new_meeting_subject(data),
