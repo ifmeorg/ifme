@@ -415,6 +415,13 @@ for the changes you've made! If you see any missing tests, write them!
 
 ## Rspec for Ruby
 
+Build the files beforehand:
+```
+cd client/
+yarn build:test
+```
+
+Then at your project root directory:
 ```
 rspec
 ```
