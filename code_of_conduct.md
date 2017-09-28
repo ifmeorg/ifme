@@ -55,7 +55,7 @@ further defined and clarified by project maintainers.
 ## Enforcement / Reporting a Problem or Concern
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting @julianguyen via a private Slack message, or by emailing
+reported by contacting julianguyen via a private Slack message, or by emailing
 the project team at join.ifme@gmail.com. All complaints will be reviewed and
 investigated and will result in a response that is deemed necessary and
 appropriate to the circumstances. The project team is obligated to maintain
