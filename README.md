@@ -484,6 +484,18 @@ rubocop
 
 You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 
+## Debugging with Foreman
+
+Edit `config/puma.rb` and add `worker_timeout 3600`
+In one terminal tab, run
+ ```
+ bundle exec foreman start client -f Procfile.dev
+ ```
+In a second tab, run
+```
+bundle exec rails s
+```
+
 # Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are
