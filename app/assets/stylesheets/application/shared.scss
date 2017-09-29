@@ -378,3 +378,14 @@ h1.tag_type {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+#search_email,
+#search_name {
+  width: 600px;
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

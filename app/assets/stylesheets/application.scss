@@ -868,6 +868,12 @@ div.table div.table_cell {
   }
 }
 
+.hide_on_mobile {
+  @media screen and (max-width: $small) {
+    display: none;
+  }
+}
+
 /* Font Awesome */
 
 .fa-inline {
