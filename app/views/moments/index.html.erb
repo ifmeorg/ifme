@@ -12,17 +12,19 @@
 
   <div class="stats_divider"></div>
 
-  <%= react_component("ChartControl", props: {
-      types: [],
-      initialParams: {
-          type: 'Moments',
-          data: {
-              Moments: @react_moments,
-          }
-      }
-  })%>
+  <div class="hide_on_mobile">
+    <%= react_component("ChartControl", props: {
+        types: [],
+        initialParams: {
+            type: 'Moments',
+            data: {
+                Moments: @react_moments,
+            }
+        }
+    })%>
 
-  <div class="spacer"></div>
+    <div class="spacer"></div>
+ </div>
 
   <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
 
