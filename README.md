@@ -26,16 +26,16 @@ before joining our project.
 
 # Quick-Start Guide
 
-## Installation
+### Installation
 Information about installing and configuring if-me is located in INSTALLTION.md. Both local and production instances are covered.
 
-## UI Development Environment and Design
+### UI Development Environment and Design
 UI development and design specs are located in DESIGN.md.
 
-## Testing Guidelines
+### Testing Guidelines
 Code and account testing guidelines are located in TESTING.md.
 
-## Tracking Issues and COmmiting Code
+### Tracking Issues and COmmiting Code
 Information about workflows and contributions can be found in WORKFLOW.md.
 
 * [Donate](#donate)
