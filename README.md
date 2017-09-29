@@ -38,9 +38,6 @@ Code and account testing guidelines are located in TESTING.md.
 ### Tracking Issues and Commiting Code
 Information about workflows and contributions can be found in WORKFLOW.md.
 
-* [Donate](#donate)
-* [License](#license)
-
 ## Donate
 
 We also welcome financial contributions in full transparency on our
