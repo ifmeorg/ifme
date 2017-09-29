@@ -35,7 +35,7 @@ UI development and design specs are located in DESIGN.md.
 ### Testing Guidelines
 Code and account testing guidelines are located in TESTING.md.
 
-### Tracking Issues and COmmiting Code
+### Tracking Issues and Commiting Code
 Information about workflows and contributions can be found in WORKFLOW.md.
 
 * [Donate](#donate)
