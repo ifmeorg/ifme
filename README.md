@@ -27,7 +27,7 @@ before joining our project.
 # Quick-Start Guide
 
 ### Installation
-Information about installing and configuring if-me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/INSTALLATION.md). Both local and production instances are covered.
+Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/INSTALLATION.md). Both local and production instances are covered.
 
 ### UI Development Environment and Design
 UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/DESIGN.md).
