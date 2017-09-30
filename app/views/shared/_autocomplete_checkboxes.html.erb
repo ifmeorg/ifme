@@ -19,8 +19,10 @@
     <% end %>
 
     <div id="<%= "#{data_type_plural}_list" %>">
-      <% all_data.each do |item| %>
-        <div id="<%= "#{data_type}_name_#{item.id}" %>" class="<%= this_data.include?(item.id) ? 'display_block' : 'display_none' %>"><%= f.check_box(data_type, { multiple: true, checked: this_data.include?(item.id) }, item.id, nil) %><span><%= item.name %></span><br></div>
+      <% if !all_data.nil? && all_data.length > 0 %>
+        <% all_data.each do |item| %>
+          <div id="<%= "#{data_type}_name_#{item.id}" %>" class="<%= this_data.include?(item.id) ? 'display_block' : 'display_none' %>"><%= f.check_box(data_type, { multiple: true, checked: this_data.include?(item.id) }, item.id, nil) %><span><%= item.name %></span><br></div>
+        <% end %>
       <% end %>
     </div>
   </div>
