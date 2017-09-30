@@ -27,16 +27,16 @@ before joining our project.
 # Quick-Start Guide
 
 ### Installation
-Information about installing and configuring if-me is located in INSTALLTION.md. Both local and production instances are covered.
+Information about installing and configuring if-me is located in [INSTALLTION.md](https://www.github.com/julianguyen/ifme/INSTALLATION.md). Both local and production instances are covered.
 
 ### UI Development Environment and Design
 UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/DESIGN.md).
 
 ### Testing Guidelines
-Code and account testing guidelines are located in TESTING.md.
+Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/TESTING.md).
 
 ### Tracking Issues and Commiting Code
-Information about workflows and contributions can be found in WORKFLOW.md.
+Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/WORKFLOW.md).
 
 # Donate
 
