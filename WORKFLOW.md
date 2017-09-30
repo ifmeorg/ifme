@@ -81,29 +81,9 @@ comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update 
 * We use **double quotes** for JS files.
 
 * We follow airbnb's Ruby and Javascript Style Guides.
-* The guides are available on GitHub in the following repositories:
-https://github.com/airbnb/ruby
+The guides are available on GitHub in the following repositories:
+https://github.com/airbnb/ruby and 
 https://github.com/airbnb/javascript
-
-## Contributor Blurb
-
-In the spirit of open communication and community, we highly recommend that new
-contributors write a blurb on themselves, what mental health means to them, and
-why they are part of the project.
-
-This also helps people to familiarize themselves with the code base! The live
-contributors page can be found [here](http://www.if-me.org/contributors).
-Contributor images must be at least 800x800 px and be in .jpg or .png format.
-Please save the image as
-`app/assets/images/contributors/firstname_lastname.png`! Add your blurb to
-`doc/pages/blurbs.json`.
-
-If you've contributed to the project but do not want to write a blurb, please
-add your name and desired social media link to `doc/pages/contributors.json`.
-
-Below are folks who have contributed via GitHub!
-
-<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
 
 # Tracking Issues
 
