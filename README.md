@@ -30,7 +30,7 @@ before joining our project.
 Information about installing and configuring if-me is located in INSTALLTION.md. Both local and production instances are covered.
 
 ### UI Development Environment and Design
-UI development and design specs are located in DESIGN.md.
+UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/DESIGN.md).
 
 ### Testing Guidelines
 Code and account testing guidelines are located in TESTING.md.
