@@ -5,11 +5,6 @@ var onReadyMobileCke = function() {
   var focused_editor = null;
   var modal_editor = CKEDITOR.instances.modal_editor;
 
-  modal_editor.on('instanceReady', function(event) {
-    this.resize(this.parent.width(),
-                  this.parent.height());
-  });
-
   $('#close_editor').click(function() {
     $('#editor_modal').removeClass('display_block');
     $('#editor_modal').addClass('display_none');
