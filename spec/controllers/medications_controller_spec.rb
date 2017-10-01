@@ -59,4 +59,39 @@ describe MedicationsController do
       end
     end
   end
+
+  describe 'GET #index' do 
+    let(:user) { create(:user) }
+    let!(:medication) { create(:medication, user: user) }
+
+    context 'when signed in' do 
+      before { sign_in user }
+      it 'renders index page' do 
+        get :index 
+        expect(response).to render_template(:index)  
+      end 
+    end 
+    context 'when not signed in' do 
+      before { get :index }
+      it_behaves_like :with_no_logged_in_user
+    end 
+  end 
+
+  describe 'POST new' do 
+    let(:user) { create(:user) }
+    let(:medication) { create(:medication, user: user) }
+
+    context 'when signed in' do 
+      before { sign_in user }
+      it 'renders the new page' do 
+        get :new
+        expect(response).to render_template(:new)
+      end 
+    end 
+
+    context 'when not signed in' do 
+      before { post :new }
+      it_behaves_like :with_no_logged_in_user
+    end 
+  end 
 end
