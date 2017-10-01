@@ -8,9 +8,9 @@ class MedicationsController < ApplicationController
 
   # GET /medications
   # GET /medications.json
-  # def index
-  #   page_collection('@medications', 'medication')
-  # end
+  def index
+    page_collection('@medications', 'medication')
+  end
 
   # GET /medications/1
   # GET /medications/1.json
