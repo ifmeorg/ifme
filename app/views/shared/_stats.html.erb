@@ -21,20 +21,10 @@
 		</div>
 
 		<div id="most_focus">
-			<% total = most_focus.values.inject(0){|sum,x| sum + x } %>
-			<% count = 0 %>
 			<% most_focus.each do |key, value| %>
-				<% percentage_value = (value.to_f / total.to_f) * 100 %>
-				<% percentage = percentage_value.to_s + '%' %>
-				<% count = count + 1 %>
-
-				<% if count == 1 %>
-				<div class="some_focus" style='width: <%= percentage %>;'>
-				<% elsif count == 2 %>
-				<div class="some_focus" style='opacity: 0.8; width: <%= percentage %>;'>
-				<% elsif count == 3 %>
-				<div class="some_focus" style='opacity: 0.6; width: <%= percentage %>;'>
-				<% end %>
+				
+				<div class="some_focus">
+				
 					<div class="some_focus_text">
 					<% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
 						<%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>
