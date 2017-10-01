@@ -72,16 +72,6 @@ class AlliesController < ApplicationController
     user_id = current_user.id
     ally_id = params[:ally_id].to_i
 
-    Notification.for_ally(user_id, ally_id).or(
-      Notification.for_ally(ally_id, user_id)
-    ).destroy_all
-
-    # Remove ally from all viewers lists
-    [Moment, Strategy].each do |viewed_class|
-      viewed_class.destroy_viewer(user_id, ally_id)
-      viewed_class.destroy_viewer(ally_id, user_id)
-    end
-
     # Destroy allyship
     Allyship.where(user_id: user_id, ally_id: ally_id).destroy_all
 
