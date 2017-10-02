@@ -49,6 +49,28 @@ describe Allyship do
 	  new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: nil)
 	  expect(new_allies).to have(1).error_on(:ally_id)
 	end
+  context 'when destroying' do
+    describe 'deletes pertinent allyship' do
+      let!(:user) { create(:user1) }
+      let!(:ally) { create(:user2) }
+
+      before do
+        Allyship.create(user_id: user.id,
+                        ally_id: ally.id,
+                        status: 'accepted')
+        Allyship.create(user_id: ally.id,
+                        ally_id: user.id,
+                        status: 'accepted')
+      end
+
+      it 'deletes the allyship' do
+        allyship_expected = Allyship.where(user_id: user.id,
+                                           ally_id: ally.id)[0]
+        expect { allyship_expected.destroy }
+          .to change { Allyship.count }
+      end
+    end
+  end
 
   context 'when destroying' do
     describe 'deletes pertinent allyship request notifications' do
@@ -96,6 +118,7 @@ describe Allyship do
           )
         ])
       end
+
 
       it 'deletes the ally notifications' do
         allyship_expected = Allyship.find_by(user_id: user.id)
