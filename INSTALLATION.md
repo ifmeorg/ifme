@@ -74,7 +74,7 @@ If you do not have Rails, use this handy [guide](http://installrails.com).
 If you're updating an existing installation through RVM or rbenv, continue to
 (A) or (B).
 
-### Option (A) RVM
+#### Option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the
 latest version
@@ -91,7 +91,7 @@ rvm install ruby-2.3.4
 
 Check that Ruby has been updated by running `ruby -v`.
 
-### Option (B) rbenv
+#### Option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv).
 Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
@@ -227,7 +227,7 @@ If want to generate
 [static images](http://cloudinary.com/blog/how_to_deliver_your_static_images_through_a_cdn_in_ruby_on_rails)
 through the Cloudinary CDN, run `heroku run rake cloudinary:sync_static`.
 
-### Email Notifications
+#### Email Notifications
 
 To get email notifications working, you must configure SMTP settings in
 `config/env/test.env` and `config/env/development.env`.
