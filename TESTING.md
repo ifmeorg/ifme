@@ -1,6 +1,6 @@
-# Testing
+## Testing
 
-# Testing Accounts
+## Testing Accounts
 
 They have been created in `db/seeds.rb`. Feel free to modify seeds.rb to help to
 your development needs! You can also test with Google accounts.
@@ -20,12 +20,12 @@ Email: test3@example.com
 Password: password99
 ```
 
-# Testing Guidelines
+## Testing Guidelines
 
 We are using Selenium with Chrome for web browser automation. Always write tests
 for the changes you've made! If you see any missing tests, write them!
 
-## Rspec for Ruby
+### Rspec for Ruby
 
 Build the files beforehand:
 ```
@@ -38,24 +38,24 @@ Then at your project root directory:
 rspec
 ```
 
-## Jasmine for Rails JavaScript
+### Jasmine for Rails JavaScript
 
 Make sure PhantomJS is installed locally, either through their
 [website](http://phantomjs.org) or by running `brew install phantomjs`.
 
-### GUI Version
+#### GUI Version
 
 In a new terminal window, run `rake jasmine`.
 
 To view the test results, go to `http://localhost:8888`.
 
-### Command Line Version
+#### Command Line Version
 
 ```
 rake jasmine:ci
 ```
 
-## Jasmine for React JavaScript
+### Jasmine for React JavaScript
 
 ```
 cd client/
