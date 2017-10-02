@@ -1,10 +1,10 @@
-# Workflow
+## Workflow
 
-# Static Code Analysis
+## Static Code Analysis
 
 These tools helps us to find bugs and ensure quality without having to execute code.
 
-## JSHint for Rails JavaScript
+### JSHint for Rails JavaScript
 
 ```
 bundle exec rake jshint
@@ -12,7 +12,7 @@ bundle exec rake jshint
 
 You can read about JSHint [here](http://jshint.com/docs/).
 
-## ESLint for React JavaScript
+### ESLint for React JavaScript
 
 ```
 cd client/
@@ -21,7 +21,7 @@ yarn eslint app
 
 You can read about ESLint [here](https://eslint.org/).
 
-## Flow for React JavaScript
+### Flow for React JavaScript
 
 ```
 cd client/
@@ -30,7 +30,7 @@ yarn flow
 
 You can read about Flow [here](https://flow.org/en/).
 
-### NPM Packages
+#### NPM Packages
 Some NPM packages have flow type enabled but fail the flow checks (e.g. radium) because it relies on an older Flow version compared to the main project. You'll want to put the package path under the `[ignore]` section of `.flowconfig`, for example:
 
 ```
@@ -40,7 +40,7 @@ Some NPM packages have flow type enabled but fail the flow checks (e.g. radium) 
 
 If you're wondering why we don't just ignore the entire `node_modules` folder, it's because some NPM Packages _do_ have correct type definitions, and we don't want to ignore those.
 
-## Rubocop for Ruby
+### Rubocop for Ruby
 
 ```
 rubocop
@@ -48,7 +48,7 @@ rubocop
 
 You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 
-# Committing Work
+## Committing Work
 
 Make a fork of the repository, create a new branch for every feature you are
 working on! **Always make pull requests!**
@@ -72,7 +72,7 @@ comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update 
 
 **Everyone is encouraged to participate in code reviews, so please do so!**
 
-## Code Style Guide
+### Code Style Guide
 
 * We use **2 space** indentation.
 * We use **snakecase** for Ruby files and id/class names in HTML.
@@ -85,13 +85,13 @@ The guides are available on GitHub in the following repositories:
 https://github.com/airbnb/ruby and 
 https://github.com/airbnb/javascript
 
-# Tracking Issues
+## Tracking Issues
 
 Please post any bugs, questions, or ideas on our
 [issues page](https://github.com/julianguyen/ifme/issues). If you prefer not to
 post publicly, you can post [here](http://goo.gl/forms/8EqoJDDiXY).
 
-## Labelling Issues
+### Labelling Issues
 
 If you create an issue, please tag it with the appropriate label. We use
 `enhancement` for feature work and `bug` for bugs. If you created an issue and
