@@ -31,7 +31,7 @@ For more information, follow
 [this postgresql guide](http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/)
 for a more detailed setup
 
-#### B. Linux
+### B. Linux
 
 Install using your package management software (e.g. apt, yum, etc.).
 
@@ -50,7 +50,7 @@ sudo -u postgres createuser -s $(whoami)
 createdb $(whoami)
 ```
 
-#### C. Windows
+### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
 
@@ -74,7 +74,7 @@ If you do not have Rails, use this handy [guide](http://installrails.com).
 If you're updating an existing installation through RVM or rbenv, continue to
 (A) or (B).
 
-#### Option (A) RVM
+### Option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the
 latest version
@@ -91,7 +91,7 @@ rvm install ruby-2.3.4
 
 Check that Ruby has been updated by running `ruby -v`.
 
-#### Option (B) rbenv
+### Option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv).
 Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
@@ -131,7 +131,7 @@ rvm use ruby-2.3.4@rails5.0.5 --create
 <details>
   <summary>3) Install Yarn (click to expand)</summary>
 
-# Install Yarn
+## Install Yarn
 
 There are step-by-steps [here](https://yarnpkg.com/en/docs/install) for all of the major operating systems.
 
@@ -142,24 +142,24 @@ yarn install
 
 </details>
 
-# Configuration Files
+## Configuration Files
 
 <details>
   <summary>Mandatory (click to expand)</summary>
 
-## Mandatory
+### Mandatory
 
 There are two config files: `config/env/test.env` and
 `config/env/development.env`. To run the app locally, you should modify
 `test.env` and `development.env`. They are ignored in git to prevent
 accidentally committing sensitive information.
 
-### Automatic setup
+#### Automatic setup
 
 For your development and test environments, you can automatically generate the
 env files by running `bin/rake setup_workspace`.
 
-## Manual setup
+#### Manual setup
 
 Copy the sample files to create your own configuration files:
 
@@ -178,18 +178,18 @@ The example files are not ignored by git.
 <details>
   <summary>Optional (click to expand)</summary>
 
-## Optional
+### Optional
 The following are not mandatory, but are required if you would like to test/use
 these features.
 
-### Pusher
+#### Pusher
 
 [Pusher](http://pusher.com) is used in-app notifications. If you would like to
 use this feature in your local environment, please create your own account,
 generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in
 `config/env/test.env` and `config/env/development.env`.
 
-### Google OAuth 2.0 IDs
+#### Google OAuth 2.0 IDs
 
 [Google OAuth 2.0 IDs](https://console.developers.google.com) is used for
 OAuth (Sign in with Google) and Calendars (refill dates for Medications).
@@ -204,7 +204,7 @@ Note, you may have to hit the Save button twice for this to take effect.
 We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
 with step by step instructions if you get lost in the process.
 
-### Google API
+#### Google API
 
 [Google API](https://console.developers.google.com) is used for location
 autocomplete, specifically the Maps JavaScript API (which needs to be activated).
@@ -215,7 +215,7 @@ your own account, generate keys, and update `GOOGLE_API_KEY` in
 We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
 with step by step instructions if you get lost in the process.
 
-### Cloudinary
+#### Cloudinary
 
 [Cloudinary](https://cloudinary.com) is used to store profile pictures. If you
 would like to use this feature in your local environment, please create your own
@@ -248,7 +248,7 @@ If you want to test out scheduled emails, run the following commands:
 
 `bundle exec rake scheduler:send_meeting_reminders`
 
-### Letter Opener
+#### Letter Opener
 
 The gem `letter_opener` enables test e-mails to be sent without actually sending
 an e-mail accidentally to someone through SMTP.
@@ -261,7 +261,7 @@ You can disable this gem when you deploy the app by commenting it out.
 
 You can read more about this gem [here](https://github.com/ryanb/letter_opener).
 
-### Secret Share
+#### Secret Share
 
 Secret Share is a feature to share a moment, with a secret URL for a certain amount of time.
 
@@ -269,7 +269,7 @@ You can enable this feature by adding `config.secret_share_enabled = true` to th
 
 </details>
 
-# Running the App Locally
+## Running the App Locally
 
 Create the development and test databases:
 
