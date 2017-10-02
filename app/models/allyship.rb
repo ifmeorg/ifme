@@ -60,15 +60,19 @@ class Allyship < ApplicationRecord
   end
 
   private
+
   def remove_activities_between_users
-    Notification.for_ally(self.user_id, self.ally_id).or(
-      Notification.for_ally(self.ally_id, self.user_id)
+    user_id = self.user_id
+    ally_id = self.ally_id
+
+    Notification.for_ally(user_id, ally_id).or(
+      Notification.for_ally(ally_id, user_id)
     ).destroy_all
 
     # Remove ally from all viewers lists
     [Moment, Strategy].each do |viewed_class|
-      viewed_class.destroy_viewer(self.user_id, self.ally_id)
-      viewed_class.destroy_viewer(self.ally_id, self.user_id)
+      viewed_class.destroy_viewer(user_id, ally_id)
+      viewed_class.destroy_viewer(ally_id, user_id)
     end
   end
 end
