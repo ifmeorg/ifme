@@ -2,91 +2,91 @@
   {
     "name": "Aloe",
     "link": "https://aloe.club",
-    "tags":["self_care", "anonymous"],
-    "languages":["en"]
+    "tags": ["self_care", "anonymous"],
+    "languages": ["en"]
   },
   {
     "name": "Brown Sisters Speak",
     "link": "https://www.facebook.com/Brownsistersspeak",
-    "tags":["women_of_colour", "self_care", "domestic_violence"],
-    "languages":["en", "es"]
+    "tags": ["women_of_colour", "self_care", "domestic_violence"],
+    "languages": ["en", "es"]
   },
   {
     "name": "Koko",
     "link": "https://itskoko.com",
-    "tags":["chatbot", "anonymous"],
-    "languages":["en"]
+    "tags": ["chatbot", "anonymous"],
+    "languages": ["en"]
   },
   {
     "name": "Lemonaid",
     "link": "http://lemonaid.io",
-    "tags":["women", "self_care", "domestic_violence", "anonymous"],
-    "languages":["en"]
+    "tags": ["women", "self_care", "domestic_violence", "anonymous"],
+    "languages": ["en"]
   },
   {
     "name": "Tessera Collective",
     "link": "https://www.facebook.com/tesseracollective",
-    "tags":["women_of_colour", "self_care", "domestic_violence"],
-    "languages":["en"]
+    "tags": ["women_of_colour", "self_care", "domestic_violence"],
+    "languages": ["en"]
   },
   {
     "name": "MHPrompt",
     "link": "http://mhprompt.org",
-    "tags":["tech_industry", "talks"],
-    "languages":["en"]
+    "tags": ["tech_industry", "talks"],
+    "languages": ["en"]
   },
   {
     "name": "LifeSIGNS: Self Injury Guidance & Network Support (UK)",
     "link": "http://www.lifesigns.org.uk/",
-    "tags":["self_injury", "blog", "books"],
-    "languages":["en"]
+    "tags": ["self_injury", "blog", "books"],
+    "languages": ["en"]
   },
   {
     "name": "Blue Hackers",
     "link": "http://bluehackers.org/",
-    "tags":["tech_industry", "depression", "blog"],
-    "languages":["en"]
+    "tags": ["tech_industry", "depression", "blog"],
+    "languages": ["en"]
   },
   {
     "name": "The Mental Illness Happy Hour",
     "link": "http://mentalpod.com/forum/",
-    "tags":["podcast", "blog", "forum"],
-    "languages":["en"]
+    "tags": ["podcast", "blog", "forum"],
+    "languages": ["en"]
   },
   {
     "name": "Kinions",
     "link": "http://www.katimorton.com",
-    "tags":["forum", "videos"],
-    "languages":["en"]
+    "tags": ["forum", "videos"],
+    "languages": ["en"]
   },
   {
     "name": "Project Toe",
     "link": "http://www.projecttoe.com/",
-    "tags":["support_groups", "android", "ios"],
-    "languages":["en"]
+    "tags": ["support_groups", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Hadit.com Veteran to Veteran LLC (US)",
     "link": "https://www.hadit.com/",
-    "tags":["veterans", "free", "forum", "advice", "podcast"],
-    "languages":["en"]
+    "tags": ["veterans", "free", "forum", "advice", "podcast"],
+    "languages": ["en"]
   },
   {
     "name": "A Canvas of the Minds",
     "link": "https://acanvasoftheminds.com/",
-    "tags":["free", "blog"],
-    "languages":["en"]
+    "tags": ["free", "blog"],
+    "languages": ["en"]
   },
   {
     "name": "Emotions Anonymous",
     "link": "http://emotionsanonymous.org/",
-    "tags":["free", "support_groups"],
-    "languages":["en"]
+    "tags": ["free", "support_groups"],
+    "languages": ["en"]
   },
   {
     "name": "Viet-C.A.R.E (US)",
     "link": "https://www.viet-care.org/",
-    "tags":["free", "support_groups", "conference"],
-    "languages":["en", "vn"]
+    "tags": ["free", "support_groups", "conference"],
+    "languages": ["en", "vn"]
   }
 ]
