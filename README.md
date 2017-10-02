@@ -24,21 +24,21 @@ our code of conduct. Please
 [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
-# Quick-Start Guide
+## Table of Contents
 
-### Installation
+## Installation
 Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/INSTALLATION.md). Both local and production instances are covered.
 
-### UI Development Environment and Design
+## UI Development Environment and Design
 UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/DESIGN.md).
 
-### Testing Guidelines
+## Testing Guidelines
 Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/TESTING.md).
 
 ## Tracking Issues and Committing Code
 Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/WORKFLOW.md).
 
-# Contributor Blurb
+## Contributor Blurb
 
 In the spirit of open communication and community, we highly recommend that new
 contributors write a blurb on themselves, what mental health means to them, and
@@ -58,7 +58,7 @@ Below are folks who have contributed via GitHub!
 
 <a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
 
-# Donate
+## Donate
 
 We also welcome financial contributions in full transparency on our
 [Open Collective](https://opencollective.com/ifme).
