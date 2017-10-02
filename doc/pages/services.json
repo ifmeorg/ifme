@@ -2,115 +2,115 @@
   {
     "name": "National Queer & Trans Therapists of Color Network (US)",
     "link": "http://www.nqttcn.com",
-    "tags":["lgbtqia", "people_of_colour", "therapy", "directory"],
-    "languages":["en"]
+    "tags": ["lgbtqia", "people_of_colour", "therapy", "directory"],
+    "languages": ["en"]
   },
   {
     "name": "Online SOS",
     "link": "https://www.onlinesosnetwork.org",
-    "tags":["cyberbullying", "harassment", "free", "counseling"],
-    "languages":["en"]
+    "tags": ["cyberbullying", "harassment", "free", "counseling"],
+    "languages": ["en"]
   },
   {
     "name": "Talkspace",
     "link": "https://www.talkspace.com",
-    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
-    "languages":["en"]
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "7 Cups",
     "link": "https://www.7cups.com",
-    "tags":["therapy", "counseling", "paid", "free", "texting", "android", "ios"],
-    "languages":["en", "es"]
+    "tags": ["therapy", "counseling", "paid", "free", "texting", "android", "ios"],
+    "languages": ["en", "es"]
   },
   {
     "name": "Headspace",
     "link": "https://www.headspace.com",
-    "tags":["meditation", "paid", "android", "ios"],
-    "languages":["en"]
+    "tags": ["meditation", "paid", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Joyable",
     "link": "https://joyable.com",
-    "tags":["social_anxiety", "therapy", "paid", "android", "ios"],
-    "languages":["en"]
+    "tags": ["social_anxiety", "therapy", "paid", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Feerless",
     "link": "https://feerless.us",
-    "tags":["trigger_warnings", "netflix", "free", "open_source"],
-    "languages":["en"]
+    "tags": ["trigger_warnings", "netflix", "free", "open_source"],
+    "languages": ["en"]
   },
   {
     "name": "BetterHelp",
     "link": "https://www.betterhelp.com",
-    "tags":["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
-    "languages":["en"]
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Doc Ready (UK)",
     "link": "http://www.docready.org",
-    "tags":["free", "care_planning"],
-    "languages":["en"]
+    "tags": ["free", "care_planning"],
+    "languages": ["en"]
   },
   {
     "name": "Therapy For Black Girls (US)",
     "link": "http://www.therapyforblackgirls.com",
-    "tags":["black_women", "therapy", "directory"],
-    "languages":["en"]
+    "tags": ["black_women", "therapy", "directory"],
+    "languages": ["en"]
   },
   {
     "name": "Unstuck",
     "link": "https://www.unstuck.com",
-    "tags":["advice", "blog"],
-    "languages":["en"]
+    "tags": ["advice", "blog"],
+    "languages": ["en"]
   },
   {
     "name": "nOCD",
     "link": "https://www.treatmyocd.com/",
-    "tags":["free", "ocd", "ios"],
-    "languages":["en"]
+    "tags": ["free", "ocd", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Be Safe",
     "link": "https://play.google.com/store/apps/details?id=com.mindyourmind.besafe",
-    "tags":["free", "crisis_prevention", "safety_planning", "android"],
-    "languages":["en"]
+    "tags": ["free", "crisis_prevention", "safety_planning", "android"],
+    "languages": ["en"]
   },
   {
     "name": "MY3",
     "link": "http://my3app.org",
-    "tags":["free", "suicide_prevention", "safety_planning", "android", "ios"],
-    "languages":["en"]
+    "tags": ["free", "suicide_prevention", "safety_planning", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Happier",
     "link": "http://www.happier.com",
-    "tags":["free", "mindfulness", "journaling", "android", "ios"],
-    "languages":["en"]
+    "tags": ["free", "mindfulness", "journaling", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Stigma",
     "link": "http://www.getstigma.com",
-    "tags":["free", "journaling", "mood_tracking", "android", "ios"],
-    "languages":["en"]
+    "tags": ["free", "journaling", "mood_tracking", "android", "ios"],
+    "languages": ["en"]
   },
   {
     "name": "Department of Veteran's Affairs | Mental Health (US)",
     "link": "https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags":["free", "suicide prevention", "homeless", "directory", "veterans", "government"],
-    "languages":["en"]
+    "tags": ["free", "suicide prevention", "homeless", "directory", "veterans", "government"],
+    "languages": ["en"]
   },
   {
     "name": "Disabled Veterans National Foundation Resources (US)",
     "link": "http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
-    "tags":["directory", "veterans"],
-    "languages":["en"]
+    "tags": ["directory", "veterans"],
+    "languages": ["en"]
   },
   {
     "name": "MedWatch: The FDA Safety Information and Adverse Event Reporting Program (US)",
     "link": "https://www.fda.gov/Safety/MedWatch/default.htm",
-    "tags":["news", "free", "government"],
-    "languages":["en", "es", "ptbr", "vn"]
+    "tags": ["news", "free", "government"],
+    "languages": ["en", "es", "ptbr", "vn"]
   }
 ]
