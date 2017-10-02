@@ -138,42 +138,7 @@ describe AlliesController do
       it 'deletes the allyship' do
         allow(Allyship).to receive(:where).and_return(allyship)
         expect(allyship).to receive(:destroy_all)
-
         subject
-      end
-
-      describe 'deletes pertinent allyship request notifications' do
-        before do
-          Notification.import([
-            build(
-              :notification,
-              user: user, uniqueid: "new_ally_request_#{ally.id}"
-            ),
-            build(
-              :notification,
-              user: user, uniqueid: "accepted_ally_request_#{ally.id}"),
-            build(
-              :notification,
-              user: ally, uniqueid: "new_ally_request_#{user.id}"
-            ),
-            build(
-              :notification,
-              user: ally, uniqueid: "accepted_ally_request_#{user.id}"
-            ),
-            build(
-              :notification,
-              user: user, uniqueid: "new_ally_request_#{ally.id + 10}"
-            ),
-            build(
-              :notification,
-              user: ally, uniqueid: "new_ally_request_#{user.id + 10}"
-            )
-          ])
-        end
-
-        it 'deletes the ally notifications' do
-          expect{ subject }.to change{ Notification.count }.from(6).to(2)
-        end
       end
     end
 
