@@ -1,200 +1,206 @@
 [
   {
-    "name":"Project UROK",
-    "link":"https://projecturok.org",
-    "tags":["youth", "videos", "blog"],
-    "languages":["en"]
+    "name": "Project UROK",
+    "link": "https://projecturok.org",
+    "tags": ["youth", "videos", "blog"],
+    "languages": ["en"]
   },
   {
-    "name":"Open Sourcing Mental Illness (OSMI)",
-    "link":"https://osmihelp.org",
-    "tags":["open_source", "tech_industry", "workplace", "podcast", "books", "free"],
-    "languages":["en"]
+    "name": "Open Sourcing Mental Illness (OSMI)",
+    "link": "https://osmihelp.org",
+    "tags": ["open_source", "tech_industry", "workplace", "podcast", "books", "free"],
+    "languages": ["en"]
   },
   {
-    "name":"Everybody Has A Brain",
-    "link":"http://everybodyhasabrain.com",
-    "tags":["blog", "videos", "podcast", "books"],
-    "languages":["en"]
+    "name": "Everybody Has A Brain",
+    "link": "http://everybodyhasabrain.com",
+    "tags": ["blog", "videos", "podcast", "books"],
+    "languages": ["en"]
   },
   {
-    "name":"The Icarus Project",
-    "link":"http://theicarusproject.net",
-    "tags":["social_justice", "books"],
-    "languages":["en"]
+    "name": "The Icarus Project",
+    "link": "http://theicarusproject.net",
+    "tags": ["social_justice", "books"],
+    "languages": ["en"]
   },
   {
-    "name":"DBT | What is Dialectical Behavior Therapy?",
-    "link":"https://behavioraltech.org/resources/faqs/what-is-dbt/",
-    "tags":["anonymous", "free", "mindfulness", "therapy", "treatment"],
-    "languages":["en"]
+    "name": "What is Dialectical Behavior Therapy (DBT)?",
+    "link": "https://behavioraltech.org/resources/faqs/what-is-dbt/",
+    "tags": ["anonymous", "free", "mindfulness", "therapy", "treatment"],
+    "languages": ["en"]
   },
   {
-    "name":"Doll Hospital",
-    "link":"http://www.dollhospitaljournal.com",
-    "tags":["paid", "publication"],
-    "languages":["en"]
+    "name": "Doll Hospital",
+    "link": "http://www.dollhospitaljournal.com",
+    "tags": ["paid", "publication"],
+    "languages": ["en"]
   },
   {
-    "name":"Everything Matters - Beyond Meds",
-    "link":"https://beyondmeds.com/",
-    "tags":["free", "blog", "integrative"],
-    "languages":["en"]
+    "name": "Everything Matters - Beyond Meds",
+    "link": "https://beyondmeds.com/",
+    "tags": ["free", "blog", "integrative"],
+    "languages": ["en"]
   },
   {
-    "name":"HelpGuide.org",
-    "link":"https://www.helpguide.org/",
-    "tags":["free", "learning"],
-    "languages":["en"]
+    "name": "HelpGuide.org",
+    "link": "https://www.helpguide.org/",
+    "tags": ["free", "learning"],
+    "languages": ["en"]
   },
   {
-    "name":"Mental Health First Aid (US)",
-    "link":"https://www.mentalhealthfirstaid.org",
-    "tags":["training", "paid"],
-    "languages":["en"]
+    "name": "Mental Health First Aid (US)",
+    "link": "https://www.mentalhealthfirstaid.org",
+    "tags": ["training", "paid"],
+    "languages": ["en"]
   },
   {
-    "name":"Mental Health First Aid (International)",
-    "link":"http://www.mhfainternational.org/",
-    "tags":["training", "paid", "directory"],
-    "languages":["en"]
+    "name": "Mental Health First Aid (International)",
+    "link": "http://www.mhfainternational.org/",
+    "tags": ["training", "paid", "directory"],
+    "languages": ["en"]
   },
   {
-    "name":"MHFA - Första hjälpen till psykisk hälsa",
-    "link":"http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
-    "tags":["training", "paid", "directory"],
-    "languages":["sv"]
+    "name": "MHFA - Första hjälpen till psykisk hälsa",
+    "link": "http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
+    "tags": ["training", "paid", "directory"],
+    "languages": ["sv"]
   },
   {
-    "name":"Music Therapy | What is it?",
-    "link":"http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
-    "tags":["music", "therapy", "learning"],
-    "languages":["en"]
+    "name": "Music Therapy - University of New Hampshire",
+    "link": "http://www.unh.edu/health/ohep/complementaryalternative-health-practices/music-therapy",
+    "tags": ["music", "therapy", "learning"],
+    "languages": ["en"]
   },
   {
-    "name":"Partnership for Workplace Mental Health (US)",
-    "link":"http://www.workplacementalhealth.org/",
-    "tags":["workplace"],
-    "languages":["en"]
+    "name": "Partnership for Workplace Mental Health (US)",
+    "link": "http://www.workplacementalhealth.org/",
+    "tags": ["workplace"],
+    "languages": ["en"]
   },
   {
-    "name":"Psych Central (web portal)",
-    "link":"https://psychcentral.com/",
-    "tags":["forum", "blog", "directory", "free", "advice", "news", "books"],
-    "languages":["en"]
+    "name": "Psych Central",
+    "link": "https://psychcentral.com/",
+    "tags": ["forum", "blog", "directory", "free", "advice", "news", "books"],
+    "languages": ["en"]
   },
   {
-    "name":"Self-Injury Outreach and Support (Canada)",
-    "link":"http://sioutreach.org/",
-    "tags":["self_injury"],
-    "languages":["en"]
+    "name": "Self-Injury Outreach and Support (Canada)",
+    "link": "http://sioutreach.org/",
+    "tags": ["self_injury"],
+    "languages": ["en"]
   },
   {
-    "name":"Informed Choices about Depression (Canada)",
-    "link":"http://depression.informedchoices.ca/",
-    "tags":["depression", "treatment"],
-    "languages":["en"]
+    "name": "Informed Choices about Depression (Canada)",
+    "link": "http://depression.informedchoices.ca/",
+    "tags": ["depression", "treatment"],
+    "languages": ["en"]
   },
   {
-    "name":"National Resource Center on Psychiatric Advance Directives (US)",
-    "link":"http://www.nrc-pad.org/",
-    "tags":["treatment", "care_planning", "videos"],
-    "languages":["en"]
+    "name": "National Resource Center on Psychiatric Advance Directives (US)",
+    "link": "http://www.nrc-pad.org/",
+    "tags": ["treatment", "care_planning", "videos"],
+    "languages": ["en"]
   },
   {
-    "name":"The OCD Stories",
-    "link":"http://theocdstories.com",
-    "tags":["ocd", "blog", "podcast"],
-    "languages":["en"]
+    "name": "The OCD Stories",
+    "link": "http://theocdstories.com",
+    "tags": ["ocd", "blog", "podcast"],
+    "languages": ["en"]
   },
   {
-    "name":"Anxy Magazine",
-    "link":"http://www.anxymag.com",
-    "tags":["paid", "publication", "blog"],
-    "languages":["en"]
+    "name": "Anxy Magazine",
+    "link": "http://www.anxymag.com",
+    "tags": ["paid", "publication", "blog"],
+    "languages": ["en"]
   },
   {
-    "name":"Khan Academy - Mental Health",
-    "link":"https://www.khanacademy.org/science/health-and-medicine/mental-health",
-    "tags":["videos", "free", "learning"],
-    "languages":["en"]
+    "name": "Mental Health - Khan Academy",
+    "link": "https://www.khanacademy.org/science/health-and-medicine/mental-health",
+    "tags": ["videos", "free", "learning"],
+    "languages": ["en"]
   },
   {
-    "name":"Crash Course Psychology - Psychological Disorders",
-    "link":"https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
-    "tags":["videos", "free", "learning"],
-    "languages":["en"]
+    "name": "Psychological Disorders - Crash Course Psychology",
+    "link": "https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
+    "tags": ["videos", "free", "learning"],
+    "languages": ["en"]
   },
   {
-    "name":"Safe Harbor - Alternative Mental Health",
-    "link":"https://www.alternativementalhealth.com/",
-    "tags":["videos", "free", "learning", "integrative"],
-    "languages":["en"]
+    "name": "Safe Harbor - Alternative Mental Health",
+    "link": "https://www.alternativementalhealth.com/",
+    "tags": ["videos", "free", "learning", "integrative"],
+    "languages": ["en"]
   },
   {
-    "name":"About Face - National Center for PTSD (US)",
-    "link":"https://www.ptsd.va.gov/apps/AboutFace/",
-    "tags":["veterans", "ptsd", "videos", "learning", "government"],
-    "languages":["en"]
+    "name": "About Face - National Center for PTSD (US)",
+    "link": "https://www.ptsd.va.gov/apps/AboutFace/",
+    "tags": ["veterans", "ptsd", "videos", "learning", "government"],
+    "languages": ["en"]
   },
   {
-    "name":"Understanding Traumatic Brain Injury (US)",
-    "link":"https://www.polytrauma.va.gov/understanding-tbi/",
-    "tags":["veterans", "tbi", "learning", "government"],
-    "languages":["en"]
+    "name": "Understanding Traumatic Brain Injury (US)",
+    "link": "https://www.polytrauma.va.gov/understanding-tbi/",
+    "tags": ["veterans", "tbi", "learning", "government"],
+    "languages": ["en"]
   },
   {
-    "name":"RxISK",
-    "link":"https://rxisk.org/",
-    "tags":["free", "learning", "blog", "treatment"],
-    "languages":["en"]
+    "name": "RxISK",
+    "link": "https://rxisk.org/",
+    "tags": ["free", "learning", "blog", "treatment"],
+    "languages": ["en"]
   },
   {
-    "name":"Unified Therapy",
-    "link":"http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
-    "tags":["free", "learning", "integrative", "treatment", "therapy"],
-    "languages":["en"]
+    "name": "Unified Therapy",
+    "link": "http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
+    "tags": ["free", "learning", "integrative", "treatment", "therapy"],
+    "languages": ["en"]
   },
   {
-    "name":"The Carlat Psychiatry Blog",
-    "link":"http://carlatpsychiatry.blogspot.com/",
-    "tags":["free", "learning", "blog", "books", "news"],
-    "languages":["en"]
+    "name": "The Carlat Psychiatry Blog",
+    "link": "http://carlatpsychiatry.blogspot.com/",
+    "tags": ["free", "learning", "blog", "books", "news"],
+    "languages": ["en"]
   },
   {
-    "name":"In the Wake of Suicide...trying to understand",
-    "link":"https://lensgirl53.wordpress.com/",
-    "tags":["blog", "trigger_warnings", "suicide_prevention", "christian"],
-    "languages":["en"]
+    "name": "In the Wake of Suicide...Trying to Understand",
+    "link": "https://lensgirl53.wordpress.com/",
+    "tags": ["blog", "trigger_warnings", "suicide_prevention", "christian"],
+    "languages": ["en"]
   },
   {
-    "name":"Mental Health Humor & Cartoons - Chato B. Stewart",
-    "link":"https://blogs.psychcentral.com/humor/",
-    "tags":["blog", "free", "depression", "humor"],
-    "languages":["en"]
+    "name": "Mental Health Humor & Cartoons - Chato B. Stewart",
+    "link": "https://blogs.psychcentral.com/humor/",
+    "tags": ["blog", "free", "depression", "humor"],
+    "languages": ["en"]
   },
   {
-    "name":"DrugRehab (US)",
-    "link":"https://www.drugrehab.com/",
-    "tags":["addiction", "podcast", "youth"],
-    "languages":["en"]
+    "name": "DrugRehab (US)",
+    "link": "https://www.drugrehab.com/",
+    "tags": ["addiction", "podcast", "youth"],
+    "languages": ["en"]
   },
   {
-    "name":"Madness Radio",
-    "link":"http://www.madnessradio.net/",
-    "tags":["free", "podcast", "talks", "learning", "books"],
-    "languages":["en"]
+    "name": "Madness Radio",
+    "link": "http://www.madnessradio.net/",
+    "tags": ["free", "podcast", "talks", "learning", "books"],
+    "languages": ["en"]
   },
   {
-    "name":"bi[polar] curious",
-    "link":"https://thebipolarcuriousblog.com/",
-    "tags":["free", "blog", "learning", "directory"],
-    "languages":["en"]
+    "name": "bi[polar] curious",
+    "link": "https://thebipolarcuriousblog.com/",
+    "tags": ["free", "blog", "learning", "directory"],
+    "languages": ["en"]
   },
   {
-    "name":"Center for the Study of Empathic Therapy, Education & Living",
-    "link":"http://www.empathictherapy.org/",
-    "tags":["conference", "directory", "learning"],
-    "languages":["en"]
+    "name": "Center for the Study of Empathic Therapy, Education & Living",
+    "link": "http://www.empathictherapy.org/",
+    "tags": ["conference", "directory", "learning"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Teen Addiction - The Recovery Village",
+    "link": "https://www.therecoveryvillage.com/teen-addiction/",
+    "tags": ["youth", "addiction", "rehabilitation"],
+    "languages": ["en"]
   }
 ]
