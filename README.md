@@ -35,7 +35,7 @@ UI development and design specs are located in [DESIGN.md](https://www.github.co
 ### Testing Guidelines
 Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/TESTING.md).
 
-### Tracking Issues and Committing Code
+## Tracking Issues and Committing Code
 Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/WORKFLOW.md).
 
 # Contributor Blurb
