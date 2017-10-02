@@ -30,6 +30,7 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
+  config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
   config.mock_with :rspec do |mock_config|
     mock_config.syntax = [:expect, :should]

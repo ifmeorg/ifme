@@ -1,3 +1,5 @@
+primary_domain = 'localhost:3000'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -51,7 +53,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: primary_domain }
   config.action_mailer.perform_deliveries = ENV['SEND_EMAIL']
   config.action_mailer.raise_delivery_errors = ENV['RAISE_DELIVERY_ERRORS']
 
@@ -74,4 +76,11 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.force_ssl = false
+
+
+  config.secret_share_enabled = true
+
+  config.action_controller.default_url_options = { host: primary_domain }
+  config.action_controller.asset_host = primary_domain
+
 end

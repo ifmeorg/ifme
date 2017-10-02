@@ -172,6 +172,16 @@ h1.strategy_name a:visited {
   }
 }
 
+#page_author {
+  font-size: $font24;
+  vertical-align: middle;
+
+  @media screen and (max-width: $medium) {
+    font-size: $font20;
+  }
+}
+
+
 #leave.align_left,
 #join.align_left {
   float: left;
@@ -206,17 +216,38 @@ h1.strategy_name a:visited {
   margin-bottom: 40px;
 
   #most_focus {
-    display: block;
     width: 100%;
     font-size: $font-zero;
   }
 
+  // Align .small_focus children linearly only
+  // when min-width is at least 1025px i.e. $medium
+  
+  @media screen and (min-width: $medium + 1) {
+    #most_focus {
+      display: flex;
+    }
+  }
+
   .some_focus {
-    display: inline-block;
+    flex: 1;
     text-align: center;
     color: $highlight-text-color;
     background-color: $secondary-text-color;
     font-size: $font-zero;
+
+    // The first .some_focus child of #most_focus
+    // has opacity 1, 2nd has 0.8 and 3rd has 0.6
+
+    &:nth-child(1) {
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      opacity: 0.8;
+    }
+    &:nth-child(3) {
+      opacity: 0.6;
+    }
   }
 
   .some_focus_text {
@@ -367,4 +398,15 @@ h1.tag_type {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+#search_email,
+#search_name {
+  width: 600px;
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
