@@ -50,47 +50,59 @@ describe Allyship do
 	  expect(new_allies).to have(1).error_on(:ally_id)
 	end
 
-  context "when destroying" do
-      describe 'deletes pertinent allyship request notifications' do
-        let!(:user) {create(:user1)}
-        let!(:ally) {create(:user2)}
+  context 'when destroying' do
+    describe 'deletes pertinent allyship request notifications' do
+      let!(:user) { create(:user1) }
+      let!(:ally) { create(:user2) }
 
-        before do
-          Allyship.create(user_id: user.id, ally_id: ally.id, status: "accepted")
-          Allyship.create(user_id: ally.id, ally_id: user.id, status: "accepted")
+      before do
+        Allyship.create(user_id: user.id,
+                        ally_id: ally.id,
+                        status: 'accepted')
+        Allyship.create(user_id: ally.id,
+                        ally_id: user.id,
+                        status: 'accepted')
 
-          Notification.import([
-            build(
-              :notification,
-              user: user, uniqueid: "new_ally_request_#{ally.id}"
-            ),
-            build(
-              :notification,
-              user: user, uniqueid: "accepted_ally_request_#{ally.id}"),
-            build(
-              :notification,
-              user: ally, uniqueid: "new_ally_request_#{user.id}"
-            ),
-            build(
-              :notification,
-              user: ally, uniqueid: "accepted_ally_request_#{user.id}"
-            ),
-            build(
-              :notification,
-              user: user, uniqueid: "new_ally_request_#{ally.id + 10}"
-            ),
-            build(
-              :notification,
-              user: ally, uniqueid: "new_ally_request_#{user.id + 10}"
-            )
-          ])
-        end
+        Notification.import([
+          build(
+            :notification,
+            user: user,
+            uniqueid: "new_ally_request_#{ally.id}"
+          ),
+          build(
+            :notification,
+            user: user,
+            uniqueid: "accepted_ally_request_#{ally.id}"
+          ),
+          build(
+            :notification,
+            user: ally,
+            uniqueid: "new_ally_request_#{user.id}"
+          ),
+          build(
+            :notification,
+            user: ally,
+            uniqueid: "accepted_ally_request_#{user.id}"
+          ),
+          build(
+            :notification,
+            user: user,
+            uniqueid: "new_ally_request_#{ally.id + 10}"
+          ),
+          build(
+            :notification,
+            user: ally,
+            uniqueid: "new_ally_request_#{user.id + 10}"
+          )
+        ])
+      end
 
-        it 'deletes the ally notifications' do
-          allyship_expected = Allyship.find_by(user_id: user.id)
-          expect{ allyship_expected.destroy }.to change{ Notification.count }.from(6).to(2)
-        end
-
+      it 'deletes the ally notifications' do
+        allyship_expected = Allyship.find_by(user_id: user.id)
+        expect { allyship_expected.destroy }
+          .to change { Notification.count }
+          .from(6).to(2)
       end
     end
+  end
 end
