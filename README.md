@@ -24,18 +24,20 @@ our code of conduct. Please
 [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
-## Table of Contents
-
 ## Installation
+
 Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
 
 ## UI Development Environment and Design
+
 UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/blob/master/DESIGN.md).
 
 ## Testing Guidelines
+
 Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/TESTING.md).
 
 ## Tracking Issues and Committing Code
+
 Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/blob/master/WORKFLOW.md).
 
 ## Contributor Blurb
@@ -96,7 +98,7 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
 <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
 
-# License
+## License
 
 The source code is licensed under GNU AGPLv3. For more information see
 http://www.gnu.org/licenses/agpl-3.0.txt or
