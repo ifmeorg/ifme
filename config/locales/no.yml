@@ -135,72 +135,72 @@ en:
     only_leader: "Du er den eneste lederen, du kan derfor ikke dra."
     cannot_delete: 'Vennligst legg merke til at du ikke kan slette grupper.'
     error_save: "Vi kan ikke lagre denne gruppen fordi: "
-    error_edit_permission: 'Du maa vaere lederen av gruppen for aa kunne rediegere den'
+    error_edit_permission: 'Du maa vaere lederen av gruppen for aa kunne redigere den'
   index:
-   subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
-   available_groups: 'Available Groups'
-   joined_groups: 'Joined Groups'
-   leader: '(Leader)'
-   instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
-  join_success: 'You have joined this group.'
+   subtitle: 'Opprett og bli med i grupper som tilbyr stotte, mentorskap, og diskusjoner.'
+   available_groups: 'Tilgjengelige grupper'
+   joined_groups: 'Grupper du deltar i'
+   leader: '(Leder)'
+   instructions: "Du er ikke en del av noen grupper enda! Klikk %{icon} for aa opprette en eller bli med i en av de tilgjengelige gruppene nedenfor.<br><br>Stottegrupper are bra for aa ha aapne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere moter online eller offline. Du kan ogsaa bli med i grupper som dine allierte har opprettet."
+  join_success: 'Du har blitt med i denne gruppen.'
   leave:
-    error: 'You cannot leave the group, you are the only leader.'
-    success: "You have left %{group}"
-    remove_member_success: "You have removed %{user} from %{group}"
-  new: 'New Group'
+    error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
+    success: "Du har forlatt %{group}"
+    remove_member_success: "Du har fjernet %{user} fra %{group}"
+  new: 'Ny gruppe'
   show:
-   led_by: 'Led by:'
-   delete: 'Delete group'
+   led_by: 'Ledet av:'
+   delete: 'Slett gruppe'
 
  layouts:
   application:
-   signin: 'Tell your stories now'
-   create_account: 'Join the community now'
-   update_account: 'Customize your account'
-   if: 'if'
-   me: 'me'
+   signin: 'Del dine historier naa'
+   create_account: 'Bli med i dette samfunnet naa'
+   update_account: 'Tilpass kontoen din'
+   if: 'hvis'
+   me: 'meg'
   mailer:
    html:
-    app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
-    no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
+    app_description: "%{app_name} er et samfunn som oppfordrer folk til aa dele sine mental helse historier med sine kjente."
+    no_reply: "Du kan ikke svare paa denne e-posten. Hvis du har noen sporsmaal, bekymringer, eller tilbakemeldinger vennligst send epost til %{email}!"
   title:
-   reset_password: Reset your password
+   reset_password: Tilbakestill passordet ditt
 
  medications:
-  singular: 'Medication'
-  edit_medication: 'Edit Medication'
-  refill_reminder: 'Refill reminder email'
-  dosage: 'Daily Dosage:'
-  refill: 'Refill:'
-  quantity: 'Total Quantity:'
-  strength: 'Strength:'
+  singular: 'Medisinering'
+  edit_medication: 'Rediger medisinering'
+  refill_reminder: 'Paamindelsesepost om naar du maa fylle paa'
+  dosage: 'Daglig dose:'
+  refill: 'Paafyllelse:'
+  quantity: 'Total kvantitet:'
+  strength: 'Styrke:'
   form:
-   strength: 'Strength'
-   strength_placeholder: 'e.g. 100'
-   total_placeholder: 'e.g. 30'
-   dosage: 'dosage'
-   dosage_placeholder: 'e.g. 2'
-   refill: 'refill'
-   comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
-   add_to_google_cal: 'Google Calendar reminder'
-   google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
-   strength_hint: 'Medication strength, usually found beside the name'
-   total_hint: 'Total number of pills or amount of medication'
-   dosage_hint: 'Number of pills or servings daily'
-   refill_hint: 'When to refill this prescription'
-   refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
-  new: 'New Medication'
+   strength: 'Styrke'
+   strength_placeholder: 'f.eks. 100'
+   total_placeholder: 'f.eks. 30'
+   dosage: 'dose'
+   dosage_placeholder: 'f.eks. 2'
+   refill: 'paafyll'
+   comments_hint: 'Legg til ytterlige kommentarer her f.eks. loggforing av symptomer'
+   add_to_google_cal: 'Google Kalender paaminnelse'
+   google_cal_hint: "Vi legger til en paaminnelse for denne medisinen til din Google kalendar."
+   strength_hint: 'Medisin styrke, vanligvis beskrevet ved siden av navnet'
+   total_hint: 'Totalt nummer av piller eller mengde medisin'
+   dosage_hint: 'Nummer av piller eller daglig mengde'
+   refill_hint: 'Naar resepten maa fylles paa'
+   refill_reminder_hint: "Vi sender deg en paaminnelse uken for medisinen maa fylles paa."
+   daily_reminder_hint: "Vi sender deg en daglig paamindelse om aa ta denne medisinen"
+  new: 'Ny medisin'
   units:
    display: "%{count} %{unit}"
    mg: 'mg'
    ml: 'ml'
    tablets:
-    one: 'tablet'
-    other: 'tablets'
+    one: 'tablett'
+    other: 'tabletter'
   reminder_mailer:
-    subject: "Don't forget to take %{name}!"
-    body: "Here's a friendly reminder to take your medication %{name}!"
+    subject: "Ikke glem aa ta %{name}!"
+    body: "Her er en vennlig paaminnelse om aa ta %{name}!"
   refill_mailer:
     subject: "Your refill for %{name} is coming up soon!"
     body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
