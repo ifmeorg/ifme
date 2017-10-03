@@ -81,6 +81,9 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
         expect(page).to have_content 'My new moment'
       end
 
+      # RESTORE WINDOW SIZE
+      window.resize_to(1280, 1024)
+
       expect(page).to have_content moment_why_text
       expect(page).to have_content moment_fix_text
     end
@@ -135,6 +138,9 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       page.find('#close_editor').click
 
       page.find('input[value="Submit"]').click
+
+      # RESTORE WINDOW SIZE
+      window.resize_to(1280, 1024)
 
       # VIEWING AFTER EDITING
       within '#page_title_content' do
