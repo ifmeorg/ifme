@@ -74,7 +74,7 @@ If you do not have Rails, use this handy [guide](http://installrails.com).
 If you're updating an existing installation through RVM or rbenv, continue to
 (A) or (B).
 
-#### Option (A) RVM
+### Option (A) RVM
 
 Assuming you have [RVM](https://rvm.io/rvm/install) installed, update to the
 latest version
@@ -91,7 +91,7 @@ rvm install ruby-2.3.4
 
 Check that Ruby has been updated by running `ruby -v`.
 
-#### Option (B) rbenv
+### Option (B) rbenv
 
 Follow instructions for updating rbenv at the project's [GitHub](https://github.com/rbenv/rbenv).
 Make sure you also upgrade `ruby-build` if you used Homebrew to install rbenv.
@@ -117,13 +117,13 @@ gem install bundler
 Make a gemset for the specific Ruby on Rails version through RVM or rbenv.
 Continue to (A) or (B).
 
-#### Option (A) RVM
+### Option (A) RVM
 
 ```
 rvm use ruby-2.3.4@rails5.0.5 --create
 ```
 
-#### Option (B) rbenv
+### Option (B) rbenv
 
  [rbenv-gemset](https://github.com/jf/rbenv-gemset)
 </details>
