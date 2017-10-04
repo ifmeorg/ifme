@@ -202,60 +202,60 @@ en:
     subject: "Ikke glem aa ta %{name}!"
     body: "Her er en vennlig paaminnelse om aa ta %{name}!"
   refill_mailer:
-    subject: "Your refill for %{name} is coming up soon!"
-    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
+    subject: "Du maa fylle opp %{name} snart!"
+    body: "Her er en vennlig paaminnelse om aa fylle opp %{name} paa %{refill}!"
   index:
-   title: 'Medications'
-   subtitle: 'Keep track of your medications, including dosage and refill information.'
-   total: 'Total:'
-   instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
+   title: 'Medisiner'
+   subtitle: 'Hold styr paa medisinene dine, inkludert dose og paafyllingsinformasjon.'
+   total: 'Totalt:'
+   instructions: "Du har ikke lagret noen medisiner enda. Klikk %{icon} for aa legge til noen!<br><br>Her er et eksempel paa en lagret medisin! Du kan ogsaa skrive om din opplevelse."
    example_name: 'Prozac'
    example_strength: '10 mg'
-   example_total: '40 tablets'
-   example_dosage: '2 tablets'
-   example_refill: '05/31/2016'
+   example_total: '40 tabletter'
+   example_dosage: '2 tabletter'
+   example_refill: '31/05/2016'
   show:
-   comments: 'Comments:'
+   comments: 'Kommentarer:'
 
  meetings:
-  edit_meeting: 'Edit Meeting'
+  edit_meeting: 'Rediger mote'
   form:
-   location_placeholder: 'URL or street address'
-   maximum_members: 'Maximum Members'
-   maximum_placeholder: '0 if no maximum'
-  join_success: 'You have joined this meeting.'
+   location_placeholder: 'URL eller gateaddresse'
+   maximum_members: 'Maks medlemmer'
+   maximum_placeholder: '0 hvis ingen maks'
+  join_success: 'Du har blitt med i dette motet.'
   info:
-   cancel_meeting: 'Cancel meeting'
-   meeting_time: 'Time'
+   cancel_meeting: 'Avlys mote'
+   meeting_time: 'Tid'
    members_of_group_html:
-    one: '%{count} Member <strong>of</strong> %{group}'
-    other: '%{count} Members <strong>of</strong> %{group}'
+    one: '%{count} Medlem <strong>av</strong> %{group}'
+    other: '%{count} Medlemmer <strong>av</strong> %{group}'
   reminder_mailer:
-    subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
+    subject: "Ditt mote \"%{meeting_name}\" er i morgen kl %{time}!"
+    body: "Her er en vennlig paaminnelse om at motet ditt i moregn, \"%{meeting_name}\", vil finne sted kl %{time} paa %{location}!"
   leave:
-    error: 'You cannot leave the meeting, you are the only leader.'
-    success: 'You have left %{meeting}'
-  new: 'New Meeting'
+    error: 'Du kan ikke forlate motet, du er den eneste lederen.'
+    success: 'Du har forlatt %{meeting}'
+  new: 'Nytt mote'
 
  moments:
-  singular: 'Moment'
-  plural: 'Moments'
-  quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
-  categories_and_moods: 'Categories and Moods'
-  edit_moment: 'Edit Moment'
-  tagged: 'Tagged Moments'
-  new: 'New Moment'
+  singular: 'Oyeblikk'
+  plural: 'Oyeblikk'
+  quick_moment_disclaimer: 'Dette vil bli delt med alle allierte med kommentarer inkludert. Du kan alltids redigere dette senere.'
+  categories_and_moods: 'Kategorier og humor'
+  edit_moment: 'Rediger oyeblikk'
+  tagged: 'tag oyeblikk'
+  new: 'Nytt oyeblikk'
   secret_share:
-    singular: 'Secret Share'
-    expires_at: 'Expire at'
-    create: 'Create'
-    cancel: 'Cancel'
+    singular: 'Hemmelig deling'
+    expires_at: 'Utloper'
+    create: 'Lag'
+    cancel: 'Avbryt'
   form:
-   why: 'What happened and how do you feel?'
-   fix: 'What thoughts would you like to have?'
-   what_happened: 'What happened?'
-   viewers_hint: 'Allies who can view your moment'
+   why: 'Hva skjedde og hvordan foler du deg?'
+   fix: 'Hva slags tanker vil du ha?'
+   what_happened: 'Hva skjedde?'
+   viewers_hint: 'Allierte som kan se oyeblikket ditt'
 
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
