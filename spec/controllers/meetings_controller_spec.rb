@@ -179,8 +179,10 @@ RSpec.describe MeetingsController, :type => :controller do
   end
 
   describe 'GET #new' do
-    let(:user) { create(:user) }
-    let(:group_member) { create(:group_member, user: user, leader: true) }
+    let!(:user) { create(:user) }
+    let!(:group_member) do
+      create(:group_member, groupid: 1, id: 1, user: user, leader: true)
+    end
 
     context 'when the user is not logged in' do
       before do
@@ -191,9 +193,9 @@ RSpec.describe MeetingsController, :type => :controller do
     end
 
     context 'when the user is logged in' do
-      context 'user is the group leader' do
-        include_context :logged_in_user
+      include_context :logged_in_user
 
+      context 'user is the group leader' do
         before do
           get :new, params: { groupid: group_member.id }
         end
@@ -202,14 +204,47 @@ RSpec.describe MeetingsController, :type => :controller do
       end
 
       context 'user is not the leader' do
-        let(:another_group) { create(:group_member, user:user) }
-
         before do
-          sign_in user
-          get :new, params: { groupid: another_group.id }
+          group_member.update!(leader: false)
+          get :new, params: { groupid: group_member.id }
         end
 
-        it { expect(response).to redirect_to group_path(another_group.id) }
+        it { expect(response).to redirect_to group_path(group_member.id) }
+      end
+    end
+  end
+
+  describe 'GET #edit' do
+    let!(:user) { create(:user, id: 1) }
+    let(:meeting) { create(:meeting, groupid: 1, id: 1) }
+    let!(:group_member) { create(:group_member, groupid: 1, id: 1, user: user, leader: true) }
+    let(:meeting_member) { create(:meeting_member, user: user, meeting: meeting) }
+
+    context 'when the user is not logged in' do
+      before do
+        get :edit, params: { id: meeting.id }
+      end
+
+      it_behaves_like :with_no_logged_in_user
+    end
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      context 'user is the group leader' do
+        before do
+          get :edit, params: { id: meeting.id }
+        end
+        it { expect(response).to have_http_status(:ok) }
+      end
+
+      context 'user is not the group leader' do
+        before do
+          group_member.update!(leader: false)
+          get :edit, params: { id: meeting.id }
+        end
+
+        it { expect(response).to redirect_to group_path(group_member.id) }
       end
     end
   end
