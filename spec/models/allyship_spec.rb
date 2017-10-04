@@ -49,6 +49,7 @@ describe Allyship do
 	  new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: nil)
 	  expect(new_allies).to have(1).error_on(:ally_id)
 	end
+
   context 'when destroying' do
     describe 'deletes pertinent allyship' do
       let!(:user) { create(:user1) }
@@ -71,6 +72,69 @@ describe Allyship do
       end
     end
   end
+
+  context 'when destroying' do
+    describe 'deletes pertinent viewer' do
+      let!(:user) { create(:user1) }
+      let!(:ally) { create(:user2) }
+
+      before do
+        Allyship.create(user_id: user.id,
+                        ally_id: ally.id,
+                        status: 'accepted')
+        Allyship.create(user_id: ally.id,
+                        ally_id: user.id,
+                        status: 'accepted')
+
+        Moment.create(category: [1],
+                      name: "Presentation for ENGL 101",
+                      mood: [1,2],
+                      why: "I am presenting in front of"+
+                      "my classmates and I am worried I"+
+                      " will make a fool out of myself",
+                      comment: true,
+                      userid: user.id,
+                      viewers: [ally.id])
+
+        Moment.create(category: [1],
+                      name: "Presentation for ENGL 101",
+                      mood: [1,2],
+                      why: "I am presenting in front of"+
+                      "my classmates and I am worried I"+
+                      " will make a fool out of myself",
+                      comment: true,
+                      userid: ally.id,
+                      viewers: [user.id])
+
+        Strategy.create(category: [1],
+                        name: "I am a name!",
+                        description: "I am a description!",
+                        comment: true,
+                        userid: user.id,
+                        viewers: [ally.id])
+
+        Strategy.create(category: [1],
+                        name: "I am a name!",
+                        description: "I am a description!",
+                        comment: true,
+                        userid: ally.id,
+                        viewers: [user.id])
+
+      end
+
+      it 'deletes viewer' do
+        allyship_expected = Allyship.where(user_id: user.id,
+                                           ally_id: ally.id)[0]
+        moment_expected = Moment.where(userid: user.id)[0]
+        strategy_expected = Strategy.where(userid: user.id)[0]
+
+        expect { allyship_expected.destroy }
+          .to change { Moment.where(userid: user.id)[0].viewers.count }.from(1).to(0)
+          .and change { Strategy.where(userid: user.id)[0].viewers.count }.from(1).to(0)
+      end
+    end
+  end
+
 
   context 'when destroying' do
     describe 'deletes pertinent allyship request notifications' do
@@ -118,7 +182,6 @@ describe Allyship do
           )
         ])
       end
-
 
       it 'deletes the ally notifications' do
         allyship_expected = Allyship.find_by(user_id: user.id)
