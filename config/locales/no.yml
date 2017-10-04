@@ -258,114 +258,114 @@ en:
    viewers_hint: 'Allierte som kan se oyeblikket ditt'
 
   index:
-   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-   instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
-   example_name: 'Panicking over interview tomorrow!'
-   example_category: 'Career'
+   subtitle: 'Dykk dypt inn i oyeblikkene dine - hendelser og situasjoner som paavirker din mentale helse.'
+   instructions: "Du har ikke skrevet om noen oyeblikk enda. Klikk %{icon} for aa legge til noen!<br><br>Vet ikke hvor du skal begynne? Er det noe som har skjedd i dag som du har lyst til aa dele og diskutere med kjente? Det kan vaere positivt eller negativt! Du maa ikke dele det med en gang - bare naar du er klar! Her er ett eksempel paa ett oyeblikk."
+   example_name: 'Har panikk over intervju i morgen!'
+   example_category: 'Karriere'
   show:
-   strategies: 'What strategies would help?'
+   strategies: 'Hvilke strategier kan hjelpe?'
 
  moods:
-  singular: 'Mood'
-  plural: 'Moods'
-  edit_mood: 'Edit Mood'
-  new: 'New Mood'
-  example_moods: 'Nervous, Anxious, Hopeful'
+  singular: 'Humor'
+  plural: 'Humor'
+  edit_mood: 'Rediger humor'
+  new: 'Nytt humor'
+  example_moods: 'Nervos, engstelig, haapefull'
   label:
-   one: 'Mood:'
-   other: 'Moods:'
+   one: 'Humor:'
+   other: 'Humor:'
   index:
-   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   premade1_name: 'Accepting'
-   premade1_description: 'Accepting and being at peace with differences and limitations'
-   premade2_name: 'Ambitious'
-   premade2_description: 'Feeling optimistic about achieving goals'
-   premade3_name: 'Curious'
-   premade3_description: 'Feeling curious about uncertainty'
-   premade4_name: 'Resentful'
-   premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
-   premade5_name: 'Hopeless'
-   premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
-   instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
+   subtitle: 'Lag tagger som beskriver din sinnstilstand, folelser, og tanker.'
+   premade1_name: 'Aksepterende'
+   premade1_description: 'Aksepterende og i fred med forskjeller og begrensninger'
+   premade2_name: 'Ambisios'
+   premade2_description: 'Optimistiske folelser om oppnaaelse av maal'
+   premade3_name: 'Nysgjerrig'
+   premade3_description: 'Nysgjerrige folelser om uvitenhet'
+   premade4_name: 'Ergelig'
+   premade4_description: 'Aksepterer ikke enkelte fakta, folelser av sinne, hevngjerighet, og/eller sjalu'
+   premade5_name: 'Hjelpeslos'
+   premade5_description: 'Fole seg lei og hjelpeslos - ute av stand til aa finne noen mulige losninger'
+   instructions: "Du har ikke laget noen tilpassede humor enda. Klikk %{icon} for aa legge til noen!<br>Du kan ogsaa legge til de folgende forhaandslagde humorene og tilpasse de senere."
 
  notifications:
-  plural: 'Notifications'
-  none: 'There are none'
-  clear: 'Clear'
-  created_by_html: "<strong>Created by</strong>: %{name}"
-  preview: 'View more'
+  plural: 'Notifikasjoner'
+  none: 'Det er ingen'
+  clear: 'Klar'
+  created_by_html: "<strong>Laget av</strong>: %{name}"
+  preview: 'Se mer'
   members:
-   title: 'List of Members'
+   title: 'Liste over medlemmer'
   ally:
-   accepted: '%{name} accepted your ally request!'
-   sent_html: '%{link_to_user} sent an ally request!'
+   accepted: '%{name} aksepterte din allianseforesporsel!'
+   sent_html: '%{link_to_user} sendte en allianseforesporsel!'
   comment:
-   full: '%{name} commented "%{comment}" on %{typename}'
-   truncated: '%{name} commented "%{comment}" [...] on %{typename}'
+   full: '%{name} kommenterte "%{comment}" paa %{typename}'
+   truncated: '%{name} kommenterte "%{comment}" [...] paa %{typename}'
   group:
-   new_group: '%{name} created a group "%{group_name}"'
-   new_group_member: '%{name} joined your group "%{group_name}"'
-   add_group_leader: '%{name} became a leader of "%{group_name}"'
-   remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+   new_group: '%{name} lagde en gruppe "%{group_name}"'
+   new_group_member: '%{name} ble med i gruppen din "%{group_name}"'
+   add_group_leader: '%{name} ble en leder av "%{group_name}"'
+   remove_group_leader: '%{name} er ikke lenger leder av "%{group_name}"'
   meeting:
-   new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
-   remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
-   update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
-   join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
+   new_meeting: '%{name} lagde ett nytt mote "%{meeting_name}" for "%{group_name}"'
+   remove_meeting: '%{name} har kansellert "%{meeting_name}" i "%{group_name}"'
+   update_meeting: '%{name} har oppdatert "%{meeting_name}" i "%{group_name}"'
+   join_meeting: '%{name} has blitt med "%{meeting_name}" i "%{group_name}"'
   mailer:
-    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
-    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
-    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_on_moment_subject: "hvis meg | %{user} kommenterte paa ditt oyeblikk \"%{moment}\""
+    comment_on_strategy_subject: "hvis meg | %{user} kommenterte paa din strategi \"%{strategy}\""
+    comment_on_meeting_subject: "hvis meg | %{user} kommenterte paa motet \"%{meeting}\" i gruppen \"%{group}\""
+    comment_on_private_body: "<p>Din allierte <strong>%{user}</strong> kommenterte privat:</p>"
+    comment_on_body: "<p>Din allierte <strong>%{user}</strong> kommenterte:</p>"
     comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
     comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>To read it, %{link}!</p>"
-    new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
-    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
-    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
-    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
-    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
-    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
-    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
-    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
-    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
-    update_meeting_link: "<p>To learn more, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
-    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
-    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
+    comment_link: "<p>For aa lese det, %{link}!</p>"
+    new_group_subject: "hvis meg | %{user} lagde en gruppe \"%{group}\""
+    new_group_body: "<p>%{user} lagde en gruppe \"%{group}\":</p><p><i>%{description}</i></p><p>For aa laere mer og bli med, %{link}!</p>"
+    new_group_member_subject: "hvis meg | %{user} ble med i gruppe \"%{group}\""
+    add_group_leader_you_subject: "hvis meg | Du ble leder for gruppen \"%{group}\""
+    add_group_leader_subject: "hvis meg | %{user} ble en leder for gruppen \" %{group}\""
+    add_remove_group_leader_body: "<p>For aa see \"%{group}\", %{link}!</p>"
+    remove_group_leader_you_subject: "hvis meg | Du er ikke lenger en leder for \"%{group}\""
+    remove_group_leader_subject: "hvis meg | %{user} er ikke lenger en leder for gruppen \"%{group}\""
+    update_meeting_subject: "hvis meg | %{user} har oppdatert motet \"%{meeting}\" i \"%{group}\""
+    new_meeting_subject: "hvis meg | %{user} har laget ett nytt mote \"%{meeting}\" i \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Plassering:</strong> %{location}</p><p><strong>Dato:</strong> %{date}</p><p><strong>Tid:</strong> %{time}</p>"
+    new_meeting_link: "<p>For aa laere mer og bli med, %{link}!</p>"
+    update_meeting_link: "<p>For aa laere mer, %{link}!</p>"
+    remove_meeting_subject: "hvis meg | %{user} har kansellert \"%{meeting}\" i \"%{group}\""
+    join_meeting_subject: "hvis meg | %{user} har blitt med i \"%{meeting}\" i \"%{group}\""
+    join_meeting_body: "<p>For aa se \"%{meeting}\", %{link}!</p>"
 
  omniauth:
   google: 'Google'
-  access_denied: 'Access Denied'
+  access_denied: 'Adgang avvist'
 
  pages:
   about:
-    send_us: 'us'
-    email_us: 'Feel free to email %{email_link}!'
-    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
-    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
-    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
-    main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
-    linebreak: 'Linebreak'
-    fund_club: 'Fund Club'
+    send_us: 'oss'
+    email_us: 'Fol deg fri til aa sende epost %{email_link}!'
+    main_message_one: "%{app_name} er et samfunn for mental helse opplevelser som oppmuntrer folk til aa dele sine personlige historier med betrodde allierte."
+    message_text_one: "Betrodde allierte er folkene vi samhandler med paa en daglig basis, inkludert venner, familiemedlemmer, kollegaer, laerere, and mental helse arbeidere."
+    main_message_two: "Aa takle mental helse er det som gjor oss til mennesker. Men for mange av oss, er det strevsomt aa vaere open om det."
+    message_text_two: "Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med paa en daglig basis former vaare folelser og handlinger. Aa faa dem involvert i mental helse behandling er nokkelen til forbedring.<p><div class=\"subtitle block\">\"Det er ikke bare i hodet ditt, det er alt rundt deg. Vi kan helbredes sammen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Aa takle problemet krever ideer fra alle, som er hvorfor dette prosjektet er fri programvare.</p>"
+    main_message_three: "Vil du stotte oss?"
+    message_text_three: "Applikasjonen vaar er en <u>helt</u> fri programvare. Den er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.</p><p>I 2016, mottok vi et samfunnsstipend fra %{linebreak_link}. I 2017, mottok vi stotte fra %{fund_club_link}.</p>Du kan stotte oss ved til aa donere til vaar %{patreon_link}.</p>"
+    linebreak: 'Linjeskift'
+    fund_club: 'Fond klubb'
   blog:
-    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+    description: "Hvis du er interessert i aa skrive for oss, kontakt oss paa %{email}! Vi tar ogsaa imot anonyme innleveringer."
   contributors:
-    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
-    more_contributors: 'More Fabulous Contributors!'
-    thanks: 'A huge thanks to'
+    main_message_one: "hvis meg er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett."
+    message_text_one: "Vi er alltid paa utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>translators</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class=\"no_margin_bottom\">Vennligst %{email_link} saa kommer vi i kontakt med deg! Du vil bli invitert til aa delta i vaar %{slack_link} side, vaart hovedkommunikasjonsmiddel. Forsikr deg at du 'forker' vaart oppbevaringssted paa %{github_link}!</p>"
+    more_contributors: 'Flere fabelaktige bidragsytere!'
+    thanks: 'Masse takk til'
     slack: 'Slack'
   faq:
-    title: 'Frequently Asked Questions'
-    data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
+    title: 'Ofte stilte sporsmaal'
+    data_access_question: 'Hvem har tillgang til min informasjon?'
+    data_access_answer: 'Informasjon er ikke gitt eller Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
     moment_question: 'What is a Moment?'
     moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
     strategy_question: 'What is a Strategy?'
