@@ -364,61 +364,61 @@ en:
     slack: 'Slack'
   faq:
     title: 'Ofte stilte sporsmaal'
-    data_access_question: 'Hvem har tillgang til min informasjon?'
-    data_access_answer: 'Informasjon er ikke gitt eller Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
-    moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
-    strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>Strategy</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Memories with Categories. You can also choose which allies can view and comment. You can also make Memories only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
-    category_question: 'What is a Category?'
-    category_answer: 'A <strong>Category</strong> is a tag that can represent the people, places, and things that are important to you.'
-    mood_question: 'What is a Mood?'
-    mood_answer: 'A <strong>Mood</strong> is a tag describing your state of mind, feelings, and emotions.'
-    group_question: 'What is a Group?'
-    group_answer: 'A <strong>Group</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
-    medications_question: 'How do I use the Medications feature?'
-    medications_answer: 'The <strong>Medications</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
-    invite_question: 'How can I invite my loved ones to join the app?'
-    invite_answer: 'Go to the <strong>Allies</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
-    email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>Account</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+    data_access_question: 'Hvem har tilgang til min informasjon?'
+    data_access_answer: 'Informasjon er ikke delt eller offentliggjort til noen tredjepart. Slettelse av kontoen di vil fjerne all informasjonen din.<br><br>Brukerdata er analysert innenfor applikasjonen for aa gi tilpassede anbefalinger.'
+    moment_question: 'Hva er ett oyeblikk?'
+    moment_answer: 'Ett <strong>oyeblikk</strong> er en hendelse eller situasjon som paavirker din mentale helse. Det kan enten vaere positivt eller negativt. Tenk paa det som en side av en dagbok eller en statusoppdatering.<br><br>Du kan tagge minner med strategier, kategorier, og humor. Du kan ogsaa velge hvilke allierte som kan se og kommentere. Du kan ogsaa lage minner som kun du kan se.'
+    strategy_question: 'Hva er en strategi?'
+    strategy_answer: 'En <strong>strategi</strong> er en aktivitet, tankerekke, eller form for selvpleie som hjelper deg med aa takle eller fokusere paa helbredelse.<br><br>Du kan tagge minner med kategorier. Du kan ogsaa velge hvilke allierte som kan se og kommentere. Du kan ogsaa lage minner som kun du kan se. Delte strategier vil kun vaere synlige for alle spefiserte allierte, som betyr at du kan tagge minnene dine med deres strategier!'
+    category_question: 'Hva er en kategori?'
+    category_answer: 'En <strong>kategori</strong> er en tag som kan representere menneskene, stedene, og tingene som er viktige for deg.'
+    mood_question: 'Hva er et humor?'
+    mood_answer: 'Et <strong>humor</strong> er en tag som beksiver din sinnstilstand og folelser.'
+    group_question: 'Hva er en gruppe?'
+    group_answer: 'En <strong>gruppe</strong> tilbyr stotte, mentorskap, og diskusjoner om mental helse. Du kan lage grupper og dine allierte har muligheten til aa bli med. DU kan bli med i grupper som er laget av dine allierte.<br><br>Som en gruppeleder, kan du opprette <strong>moter</strong>. Moter har en plassering og tid. Plasseringen kan vaere et fysisk sted eller en Google Hangout link. Moter tillater ogsaa kommentarer. Hvis du er en gruppeleder, saa kan du ikke forlate gruppen hvis det ikke er en annen leder. Grupper kan kun slettes hvis du er det eneste medlemmet.'
+    medications_question: 'Hvordan bruker jeg medisineringsegenskapen?'
+    medications_answer: '<strong>medisineringsegenskapen</strong> lar deg loggfore resept-medisinene du tar. Du kan ogsaa loggfore symptomene dine.'
+    invite_question: 'Hvordan kan jeg invitere kjente til aa bli med i applikasjonen?'
+    invite_answer: 'Gaa til <strong>allierte</strong> siden og klikk paa "Inviter dine kjente" linken. Du kan da invitere dem via e-post. Naar dine kjente aksepterer invitasjonen, blir de lagt til din liste over allierte.'
+    email_notifications_question: 'Hvordan kan jeg forandre e-post paaminnelser?'
+    email_notifications_answer: "Gaa til <strong>konto</strong> siden ved aa trykke paa %{desktop_icon} (desktop) or %{mobile_icon} (mobil) i navigasjonsbaren. Du kan forandre e-posten din, passordet, pfilbildet, og biografien din her. Du kan ogsaa slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din."
   home:
-    stories: 'Stories'
-    welcome: 'Welcome'
+    stories: 'Historier'
+    welcome: 'Velkommen'
     not_signed_in:
-      main_message_one: 'Better communication with loved ones leads to better mental health.'
-      message_text_one: "We need each other's support to break down stigmas."
-      message_one: 'Share your stories with loved ones and get the support you deserve'
-      message_two: 'Be you, no strings attached and with security and privacy'
-      message_three: 'Document your moods, medications, and self-care'
-      main_message_two: "Storytelling is the key to mental health education."
-      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
-      main_message_three: 'We are open source because mental health should be open.'
-      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
-      help: 'help'
+      main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'
+      message_text_one: "Vi trenger hverandres stotte for aa bryte ned stigmaer."
+      message_one: 'Del dine historier med kjente og faa stotten du fortjener'
+      message_two: 'Vaer deg, ingen forpliktelser og med sikkerhet og personvern'
+      message_three: 'Dokumenter ditt humor, medisiner, og selvpleie'
+      main_message_two: "Historiefortelling er nokkelen til mental helse opplaering."
+      message_text_two: "Laer fra det <strong>samfunnet</strong> i vaar %{blog}."
+      main_message_three: 'Vi er fri programvare fordi mental helse burde vaere aapent.'
+      message_text_three: "Vi er <strong>alltid</strong> paa utkikk etter din %{help} og %{feedback}!"
+      help: 'hjelp'
     signed_in_empty:
-      main_message_one: 'Hello %{name}!'
-      message_text_one: "Here's how you can start sharing your stories."
-      main_message_two: 'Tell us about yourself.'
-      cell_one: 'Customize your %{profile} - add a bio and profile picture<br>Add custom %{moods} to best describe your emotions<br>Add %{allies} - friends, family, and others who you want to share with'
-      main_message_three: 'Write your stories.'
-      cell_two: 'Create custom %{categories} to help organize your moments<br>Write about the %{moments} - the events and situations that affect your mental health'
-      main_message_four: 'Take care of yourself.'
-      cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
-      main_message_five: 'Have any questions or concerns?'
-      message_text_three: 'Check out our %{faq} page or %{email_link}!'
-      strategize: 'Strategize'
+      main_message_one: 'Hallo %{name}!'
+      message_text_one: "Slik kan du begynne aa dele dine historier."
+      main_message_two: 'Fortell oss om deg selv.'
+      cell_one: 'Tilpass din %{profile} - legg til en bio og profilbilde<br>Legg til tilpassede %{moods} for aa best beskrive dine foleleser<br>Del %{allies} - venner, familie, og andre du vil dele med'
+      main_message_three: 'Skriv dine historier.'
+      cell_two: 'Lag tilpassede %{categories} for aa organisere oyeblikkene dine<br>Skriv om %{moments} - hendelsene og situasjonene som paavirker din mentale helse'
+      main_message_four: 'Ta vare paa deg selv.'
+      cell_three: '%{strategize} din plan for selvpleie!<br>Tar for tiden %{medications}? Hold styr paa det og lag paaminnelser!<br>Trenger du ekstra stotte? Bli med i eller lag en %{group} for aa snakke ut'
+      main_message_five: 'Har du noen sporsmaal eller bekymringer?'
+      message_text_three: 'Sjekk ut vaar %{faq} side eller %{email_link}!'
+      strategize: 'Lag en strategize'
   partners:
-    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
+    description: 'Disse er de fantastiske organisasjonene som har inspirert oss og som vi har privileget til aa jobbe med. Vi vil gjerne jobbe med din organisasjon, send oss en e-post til %{email}.'
   privacy:
-    summary: 'Summary'
-    summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
-    user_data: 'User Data'
-    user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
-    cookies: 'Use of Cookies'
-    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
-    social_media: 'Social Media Platforms'
-    social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
+    summary: 'Oppsummering'
+    summary_description: '<p>Denne personvaersaerklaeringen er for denne nettsiden og regjerer personvaernet til brukerene som velger aa bruke den.</p><p>Gitt det sensitive innholdet til nettsiden er personvern et ekstremt viktig konsern for oss. Retningslinjene omrisser hvordan brukerinformasjon er samlet, hva det brukes til, og hvordan det beskyttes.</p>'
+    user_data: 'Brukerinformasjpn'
+    user_data_description: '<p>Brukere er tiltenkt aa gi oss personlige utdrag fra sine liv (i oyeblikksegenskapen) og anekdoter om medisin. Informasjon fra oyeblikksegenskapen er delt med de brukeren velger aa dele det med. Informasjon fra medisineringsegenskapene er kun synlig for brukeren. Ingen av de vil bli brukt til ytterlige aarsaker eller delt med eksterne kilder.</p><p>Applikasjonen inneholder ogsaa informasjon med tanke paa stottegrupper og strategier for aa takle mental helse utfordringer. Denne informasjonen er kun tilgjengelig for brukere som har spesiell tillatelse til aa se det. Informasjon fra begge egenskapene kan vises offentlig for aa vise dem frem til naavaerende og fremtidige brukere. Derimot, brukeridentitet vil forbli privat.</p>'
+    cookies: 'Bruk av cookies'
+    cookies_description: "<p>Denne nettsiden bruker cookies for aa bedre brukeropplevelsen naar man besoker siden. Der det er egnet bruker nettsiden ett cookie kontrolleringssystem som tillater brukeren ved forste besok aa tillate eller forby cookies paa computeren/enheten.</p><p>Cookies er smaa filer lagret paa brukerens computers hard drive som sporer, lagrer informasjon om brukerens interaksjoner og bruk av nettsiden. Dette tillater nettsiden, gjennom serveren aa tilby brukere en skreddersydd opplevelse innenfor nettsiden.</p><p>Brukere raades at hvis de onsker aa benekte bruken og lagringen av cookies fra denne nettsiden paa deres datamaskins hard drive at de bor ta nodvendige steg innenfor deres nettlesers sikkerhetsinstillinger for aa blokkere alle cookies fra denne nettsiden og dens eksterne serverings leverandorer.</p><p>Denne nettsiden bruker sporingsprogramvare for aa overvaake besokende slik at de bedre kan forstaa hvordan de bruker det. Denne programvaren er forsorget av Google Analytics som bruker cookies for aa overvaake besoksbruk. Programvaren lagrer en cookie paa datamaskinen din sin hard drive sli at den kan overvaake og registere ditt ingrep og bruk av nettsiden, men vil ikke lagre eller samle inn personlig informasjon. Du kan lese Googles %{google_privacy_policy} for mer informasjon.</p>"
+    social_media: 'Sosiale medier platformer'
+    social_media_description: '<p>Kommunikasjon, engasjement og handlinger tatt gjennom eksterne sosiale medie platformer som denne nettsiden deltar paa er tilpasset vilkaarene og betingelsene participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
     contact: 'Contact Us'
     contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
   resources:
