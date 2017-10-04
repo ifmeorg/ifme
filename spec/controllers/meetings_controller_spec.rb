@@ -144,6 +144,7 @@ RSpec.describe MeetingsController, :type => :controller do
             :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
+
         let!(:new_moment) { create(:moment, id: 1, userid: 1) }
 
         it 'destroys the comment' do
@@ -174,6 +175,42 @@ RSpec.describe MeetingsController, :type => :controller do
       end
 
       it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe 'GET #new' do
+    let(:user) { create(:user) }
+    let(:group_member) { create(:group_member, user: user, leader: true) }
+
+    context 'when the user is not logged in' do
+      before do
+        get :new, params: { groupid: group_member.id }
+      end
+
+      it { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'when the user is logged in' do
+      context 'user is the group leader' do
+        include_context :logged_in_user
+
+        before do
+          get :new, params: { groupid: group_member.id }
+        end
+
+        it { expect(response).to have_http_status(:ok) }
+      end
+
+      context 'user is not the leader' do
+        let(:another_group) { create(:group_member, user:user) }
+
+        before do
+          sign_in user
+          get :new, params: { groupid: another_group.id }
+        end
+
+        it { expect(response).to redirect_to group_path(another_group.id) }
+      end
     end
   end
 end
