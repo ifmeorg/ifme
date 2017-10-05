@@ -53,7 +53,7 @@ You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 Make a fork of the repository, create a new branch for every feature you are
 working on! **Always make pull requests!**
 
-### HOWTO: Pull Requests & Syncing
+### HOW TO: Pull Requests & Syncing
 
 1. Fork the if me repo (if you haven't already done so).
 2. [Clone](https://help.github.com/articles/cloning-a-repository/) it to your computer.
@@ -74,7 +74,7 @@ Periodically, you'll need to sync your repo with mine (the upstream). GitHub has
 1. [Configuring a remote for a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/)
   - For step 3 on that page, use https://github.com/julianguyen/ifme.git for the URL.
 2. [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/)
-On that page, it shows how to merge the master branch (steps 4 & 5).
+  - On that page, it shows how to merge the master branch (steps 4 & 5).
 3. When your patch is completed, do not merge your patch into the master branch of your locally cloned fork. Your patch will be merged when you sync with the remote fork.
 
 If you've been added as a collaborator to the repository, please do not push
