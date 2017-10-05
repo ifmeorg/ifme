@@ -575,89 +575,89 @@ en:
   index:
    subtitle: 'Planlegg selvpleie for aa oppnaa onskede tanker og innstillinger for oyeblikkene dine.'
    premade1_name: 'Fem minutters meditasjon'
-   premade1_description: '1) <b>Finn en rolig og behagelig stilling.</b> Du kan sitte paa en stol eller paa gulvet paa en pute. Hold ryggen din rett, men ikke for stramt. Hendene hviler hvor de er komfortabele. Tungen i taket av munnen eller hvor det er komfortabelt.<br><br>2) <b>Legg merke til og slapp av i kroppen din.</b> Prov aa legge merke til formen til kroppen, vekten dens. Let yourself relax and become curious about your body seated here—the sensations it experiences, the touch, the connection with the floor or the chair. Relax any areas of tightness or tension. Just breathe.<br><br>3) <b>Tune into your breath.</b> Feel the natural flow of breath—in, out. You don’t need to do anything to your breath. Not long, not short, just natural. Notice where you feel your breath in your body. It might be in your abdomen. It may be in your chest or throat or in your nostrils. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Be kind to your wandering mind.</b> Now as you do this, you might notice that your mind may start to wander. You may start thinking about other things. If this happens, it is not a problem. It’s very natural. Just notice that your mind has wandered. You can say “thinking” or “wandering” in your head softly. And then gently redirect your attention right back to the breathing.<br><br>5) <b>Stay here for five to seven minutes.</b> Notice your breath, in silence. From time to time, you’ll get lost in thought, then return to your breath.<br><br>6) <b>Check in before you check out.</b> After a few minutes, once again notice your body, your whole body, seated here. Let yourself relax even more deeply and then offer yourself some appreciation for doing this practice today.<br><br><i>Taken from http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "You haven't created any custom strategies yet. Click %{icon} to add some!<br>You can also add the following premade strategy and customize it another time."
+   premade1_description: '1) <b>Finn en rolig og behagelig stilling.</b> Du kan sitte paa en stol eller paa gulvet paa en pute. Hold ryggen din rett, men ikke for stramt. Hendene hviler hvor de er komfortabele. Tungen i taket av munnen eller hvor det er komfortabelt.<br><br>2) <b>Legg merke til og slapp av i kroppen din.</b> Prov aa legge merke til formen til kroppen, vekten dens. La deg selv slappe av bli nyskjerrig paa kroppen din sittende her-sensasjonene den opplever, beroringen, tilknyttningen med gulvet eller stolen. Avslapp omraader med tranghet eller spenning. Bare pust.<br><br>3) <b>Bli en med pusten din.</b> Fol den naturlige stromningen av innpust og utpust. Du trenger ikke aa gjore noe med pusten din. Ikke lang, ikke kort, kun naturlig. Legg merke til hvor du foler pusten din i kroppen. Det er kanskje i magen. Det kan vaere i brystet, halsen eller i neseborene dine. Se om du kan fole sensasjonen av pusten, ett pust av gangen. Narar ett pust ender, begynner det neste.<br><br>4) <b>Vaer snill med ditt vandrende sinn.</b> Naa som du gjor dette, legger du kanskje merke til at tankene dine begynner aa vandre. Du begynner kanskje aa tenke paa andre ting. Hvis dette skjer, saa er ikke det et problem. Det er veldig naturlig. Legg bare merke til at tankene dine har vandret. Du kan si "tenkende" eller "vandrende" i hodet ditt rolig. Og deretter vennlig omdiriger oppmerksomheten din tilbake til pusten din.<br><br>5) <b>Bli her i fem til syv minutter.</b> Legg merke til pusten din, i stillhet. Fra tid til annen, blir du tapt i en tanke, returner til pusten din.<br><br>6) <b>Sjekk inn for du sjekker ut.</b> Etter ett par minutter, legg merke til kroppen din igjen, hele kroppen din, sittende her. La deg selv slappe av enda dypere og deretter tilby deg selv verdsettelse for at du gjorde denne ovelsen i dag.<br><br><i>Tatt fra http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+   instructions: "Du har ikke laget noen tilpassede strategier enda. Klikk paa %{icon} for aa legge til noen!<br>Du kan ogsaa legge til de folgende forhaandslagde strategien og tilpasse den fra tid til annen."
   reminder_mailer:
-    subject: "Don't forget to perform %{name}!"
-    body: "Here's a friendly reminder to perform %{name}!"
+    subject: "Ikke glem aa utfor %{name}!"
+    body: "Her en en vennlig paaminnelse om aa utfore %{name}!"
 
  stats:
-  total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'
-  total_moment: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moment.'
-  monthly_moments: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moments.'
-  monthly_moment: 'This <strong>month</strong> you wrote <strong>%{count}</strong> moment.'
+  total_moments: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> oyeblikk.'
+  total_moment: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> oyeblikk.'
+  monthly_moments: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> oyeblikk.'
+  monthly_moment: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> oyeblikk.'
 
  warnings:
-  no_description: "You didn't write a description!"
-  yes_description: "Writing one can help you and others better understand in detail"
+  no_description: "Du skrev ikke en beskrivelse!"
+  yes_description: "A skrive en kan hjelpe deg og andre bedre forstaa i detalj"
 
  mailers:
    accepted_ally_request:
-     subject: "if me | %{ally_name} accepted your ally request!"
-     message: "<p>Congrats! You can now share Moments, Strategies, and more with %{ally_name}.</p>"
+     subject: "hvis meg | %{ally_name} aksepterte din allianseforesporsel!"
+     message: "<p>Gratulerer! Du kan naa dele oyeblikk, strategier og mer med %{ally_name}.</p>"
    new_ally_request:
-     subject: "if me | %{ally_name} sent an ally request!"
-     message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+     subject: "hvis meg | %{ally_name} sendte en allianseforesporsel!"
+     message: "<p>Vennligst <a href=\"%{allies_url}\">logg inn</a> for aa akseptere eller avvise foresporselen!</p>"
 
  devise:
-  password: "Password"
-  new_password: "New password"
-  current_password: "Current password"
-  password_change: "Change my password"
-  remember_me: "Remember me"
+  password: "Passord"
+  new_password: "Nytt passord"
+  current_password: "Naavaerende passord"
+  password_change: "Rediger passordet mitt"
+  remember_me: "Husk meg"
   confirmations:
-    resend_confirmation: "Resend confirmation instructions"
+    resend_confirmation: "Send bekreftelsesinstruksjoner paa nytt"
   mailer:
     confirmation:
-      link_instructions: "You can confirm your account email through the link below"
-      link_text: "Confirm my account"
+      link_instructions: "Du kan bekrefte konto e-posten gjennom linken nedenfor"
+      link_text: "Bekreft kontoen min"
     reset_password:
-      link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
-      ignore: "If you didn't request this, please ignore this email."
-      info: "Your password won't change until you access the link above and create a new one."
+      link_instructions: "Noen har spurt om en link til aa forandre passordet ditt. Du kan gjore dette gjennom linken nedenfor."
+      ignore: "Hvis du ikke spurte om dette, vennligst ignorer denne e-posten."
+      info: "Passordet ditt forandres ikke for du klikken paa linken ovenfor og lager ett nytt."
     unlock:
-      info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
-      link_instructions: "Click the link below to unlock your account"
-      link_text: "Unlock my account"
+      info: "Kontoen din har blitt laast paa grunn av et overdrevent nummer av mislykkede innloggingsforsok."
+      link_instructions: "Klikk paa linken nedenfor for aa laase opp kontoen din"
+      link_text: "Laas opp kontoen min"
   passwords:
     edit:
-      confirmation: "Confirm new password"
+      confirmation: "Bekreft nytt passord"
     new:
-      send_instructions: "Send me reset password instructions"
+      send_instructions: "Send meg instruksjoner for tilbakestilling av passord"
 
   registrations:
-    email_notifications: "Email Notifications"
-    comment_notify_text: "Comments on moments, strategies, and meetings"
-    ally_notify_text: "New and accepted ally requests"
-    group_notify_text: "Group updates"
-    meeting_notify_text: "Meeting updates"
-    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
-    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
+    email_notifications: "E-post varslinger"
+    comment_notify_text: "Kommentarer paa oyeblikk, strategier og moter"
+    ally_notify_text: "Nye og aksepterte allianseforesporsler"
+    group_notify_text: "Gruppeoppdateringer"
+    meeting_notify_text: "Moteoppdateringer"
+    google_auth1: "Hvis du ikke lenger onsker aa bli autorisert med Google, vennligst fyll inn en ny e-post og passord."
+    google_auth2: "Siden du ikke er autorisert med Google trenger du ikke aa taste inn passordet ditt.<br>Hvis du onsker aa forandre dette, vennlisgt fyll inn en ny e-post og passord."
     placeholders:
-      repeat_password: "Repeat Password"
+      repeat_password: "Gjenta passord"
     edit:
       labels:
-        profile_picture: "Profile picture"
-        remove_picture: "Remove picture"
-        password_for: "Password for <strong>if me</strong> account"
-        update: "Update"
+        profile_picture: "Profilbilde"
+        remove_picture: "Fjern bilde"
+        password_for: "Passord for <strong>hvis meg</strong> konto"
+        update: "Oppdater"
       placeholders:
-        optional: "Optional"
-        about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
-        required: "Required"
+        optional: "Valgfritt"
+        about: "Introduser deg selv! Hvorfor du er her og hva du er ute etter aa oppnaa? Vennligst legg merke til at dette kan sees av alle brukere som soker etter deg"
+        required: "Krevet"
       delete:
-        text: "Is <strong>if me</strong> not working out for you?"
-        button: "Permanently delete my account"
-        confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
+        text: "Hvis <strong>hvis meg</strong> ikke fungerer for deg?"
+        button: "Slett kontoen min permanent"
+        confirm: "Er du sikker? Du kommer til aa miste all informasjonen din. Men du kan alltids registere deg paa nytt!"
     new:
-      subtitle: "Start telling your stories and maintaining your health in a safe, private space"
-      label: "A few details"
+      subtitle: "Begynn aa fortelle historiene dine og vedlikehoold helsen din i et trygt, privat sted"
+      label: "Ett par detaljer"
   sessions:
-    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
+    subtitle: "Velkommen tilbake, vi ser frem til aa hjelpe deg takle dagen din"
   shared:
-    sign_in_google: 'Sign in with Google'
-    sign_up_google: 'Sign up with Google'
-    confirmation: "Didn't receive confirmation instructions?"
-    unlock: "Didn't receive unlock instructions?"
+    sign_in_google: 'Logg inn med Google'
+    sign_up_google: 'Register deg med Google'
+    confirmation: "Mottok ikke bekreftelsesinstruksjoner?"
+    unlock: "Mottok ikke opplaasningsinnstruksjoner?"
   unlock:
-    resend: 'Resend unlock instructions'
+    resend: 'Send opplaasningsinnstruksjoner paa nytt'
