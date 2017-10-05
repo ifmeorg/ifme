@@ -20,18 +20,24 @@ var onReadyModalEditor = function() {
     hideEditorModal(focused_editor, modal_editor);
   });
 
+  function focusEditor(editor) {
+    editor.on("focus", function(event) {
+      if ($(window).width() <= MEDIUM_BREAKPOINT) {
+        $("body").addClass("no_scroll");
+        showEditorModal();
+        focused_editor = this;
+        ui = $(this);
+        modal_editor.setData(this.getData());
+      }
+    });
+  }
+
   for (var instance in CKEDITOR.instances) {
-    var editor = CKEDITOR.instances[instance];
-    if (editor.name !== "modal_editor") {
-      editor.on("focus", function(event) {
-        if ($(window).width() <= MEDIUM_BREAKPOINT) {
-          $("body").addClass("no_scroll");
-          showEditorModal();
-          focused_editor = this;
-          ui = $(this);
-          modal_editor.setData(this.getData());
-        }
-      });
+    if( CKEDITOR.instances.hasOwnProperty(instance) ) {
+      var editor = CKEDITOR.instances[instance];
+      if (editor.name !== "modal_editor") {
+        focusEditor(editor);
+      }
     }
   }
 };
