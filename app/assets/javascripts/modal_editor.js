@@ -20,7 +20,7 @@ var onReadyModalEditor = function() {
     hideEditorModal(focused_editor, modal_editor);
   });
 
-  for (let instance in CKEDITOR.instances) {
+  for (var instance in CKEDITOR.instances) {
     var editor = CKEDITOR.instances[instance];
     if (editor.name !== "modal_editor") {
       editor.on("focus", function(event) {

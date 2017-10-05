@@ -20,6 +20,6 @@ describe("ModalEditor", function() {
       showEditorModal();
       $("#editor_modal").click();
       expect($("#editor_modal")).toBeVisible();
-      expect($("#editor_modal")).toBeVisible();
+      expect($("#modal_text")).toBeVisible();
   });
 });
