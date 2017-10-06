@@ -58,7 +58,7 @@ add your name and desired social media link to `doc/pages/contributors.json`.
 
 Below are folks who have contributed via GitHub!
 
-<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
+<a href="https://github.com/julianguyen/ifme/graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
 
 ## Donate
 
