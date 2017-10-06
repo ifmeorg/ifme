@@ -4,6 +4,7 @@ es:
  email: "join.ifme@gmail.com"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
+ draft: "Borrador"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
@@ -48,6 +49,9 @@ es:
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
     submit: "Enviar"
+    submit_draft: 'Guardar borrador'
+    submit_publish: 'Publicar'
+    submit_unpublish: 'Volver a guardar como borrador'
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"

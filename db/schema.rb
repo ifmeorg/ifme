@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830075513) do
+ActiveRecord::Schema.define(version: 20171006164223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20170830075513) do
     t.string   "slug"
     t.uuid     "secret_share_identifier"
     t.datetime "secret_share_expires_at"
+    t.datetime "published_at"
     t.index ["secret_share_identifier"], name: "index_moments_on_secret_share_identifier", unique: true, using: :btree
     t.index ["slug"], name: "index_moments_on_slug", unique: true, using: :btree
   end
@@ -189,6 +190,7 @@ ActiveRecord::Schema.define(version: 20170830075513) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "slug"
+    t.datetime "published_at"
     t.index ["slug"], name: "index_strategies_on_slug", unique: true, using: :btree
   end
 

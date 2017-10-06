@@ -1,4 +1,10 @@
 <% title @strategy.name %>
+<% if !@strategy.published? %>
+  <span class="draft-badge">
+    <i class="fa fa-tag" aria-hidden="true"></i>
+    <%= I18n.t 'draft' %>
+  </span>
+<% end %>
 <%= ::TimeAgo.created_or_edited(@strategy) %>
 <% if @strategy.category.count > 0 %>
   <br>

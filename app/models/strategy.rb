@@ -52,4 +52,8 @@ class Strategy < ApplicationRecord
   def self.link
     '/strategies'
   end
+
+  def published?
+    !published_at.nil?
+  end
 end

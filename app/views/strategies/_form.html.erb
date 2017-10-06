@@ -100,7 +100,13 @@
 
 <div class="actions align_right no_margin_bottom">
   <%= f.hidden_field :userid, :value => current_user.id %>
-  <%= f.submit t('common.actions.submit') %>
+  <% if @strategy.published? %>
+    <%= f.submit t('common.actions.submit_publish') %>
+    <%= f.submit t('common.actions.submit_unpublish'), params: {draft:true}, class:'submit' %>
+  <% else %>
+    <%= f.submit t('common.actions.submit_publish') %>
+    <%= f.submit t('common.actions.submit_draft'), params: {draft:true}, class:'submit' %>
+  <% end %>
 </div>
 
 <div class="clear"></div>

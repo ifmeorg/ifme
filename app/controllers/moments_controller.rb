@@ -112,6 +112,7 @@ class MomentsController < ApplicationController
     @strategy = Strategy.new
     respond_to do |format|
       if @moment.save
+        @moment.update(published_at: Time.zone.now) if publishing?
         format.html { redirect_to moment_path(@moment) }
         format.json { render :show, status: :created, location: @moment }
       else
@@ -128,8 +129,10 @@ class MomentsController < ApplicationController
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
+    @moment.published_at = nil if saving_as_draft?
     respond_to do |format|
       if @moment.update(moment_params)
+        @moment.update(published_at: Time.zone.now) if publishing?
         format.html { redirect_to moment_path(@moment) }
         format.json { render :show, status: :ok, location: @moment }
       else
@@ -156,7 +159,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :userid, :comment,
+      :name, :why, :fix, :userid, :comment, :published_at,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
@@ -198,5 +201,13 @@ class MomentsController < ApplicationController
     else
       end_date - 1.week
     end
+  end
+
+  def publishing?
+    params[:commit] == (I18n.t 'common.actions.submit_publish')
+  end
+
+  def saving_as_draft?
+    params[:commit] == (I18n.t 'common.actions.submit_unpublish')
   end
 end

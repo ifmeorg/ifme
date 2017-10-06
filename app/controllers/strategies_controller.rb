@@ -95,6 +95,7 @@ class StrategiesController < ApplicationController
     @category = Category.new
     respond_to do |format|
       if @strategy.save
+        @strategy.update(published_at: Time.zone.now) if publishing?
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :created, location: @strategy }
       else
@@ -133,8 +134,10 @@ class StrategiesController < ApplicationController
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
+    @strategy.published_at = nil if saving_as_draft?
     respond_to do |format|
       if @strategy.update(strategy_params)
+        @strategy.update(published_at: Time.zone.now) if publishing?
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :ok, location: @strategy }
       else
@@ -175,9 +178,21 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params.require(:strategy).permit(
-      :name, :description, :userid,
+      :name, :description, :userid, :published_at,
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
+  end
+
+  def publishing?
+    params[:commit] == (I18n.t 'common.actions.submit_publish')
+  end
+
+  def saving_as_draft?
+    params[:commit] == (I18n.t 'common.actions.submit_unpublish')
+  end
+
+  def published?
+    @strategy.published_at
   end
 end

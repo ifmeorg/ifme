@@ -75,4 +75,8 @@ class Moment < ApplicationRecord
     secret_share_identifier? &&
       Time.zone.now < secret_share_expires_at
   end
+
+  def published?
+    !published_at.nil?
+  end
 end

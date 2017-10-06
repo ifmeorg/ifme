@@ -4,6 +4,7 @@ en:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
+ draft: "Draft"
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
@@ -48,6 +49,9 @@ en:
    daily_reminder: 'Daily reminder email'
    actions:
     submit: 'Submit'
+    submit_publish: 'Publish'
+    submit_unpublish: 'Unpublish'
+    submit_draft: 'Save as draft'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
