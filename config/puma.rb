@@ -8,6 +8,9 @@
 #
 workers ENV.fetch('WEB_CONCURRENCY') { 2 }
 
+# Debugging with foreman
+worker_timeout 3600 unless ENV['RAILS_ENV'] == 'production'
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
