@@ -1,30 +1,30 @@
 en:
  app_name: 'if me'
- app_description: 'is a community for mental health experiences'
+ app_description: 'is een gemeenschap voor geestelijke gezondheidservaringen'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
- created: '<strong>Created:</strong> %{created_at}'
- edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
- edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
- salutation: "Hi %{name},"
- click_here: "click here"
- less: " [Less]"
- language: 'Language'
- back_to_top: Back to Top
+ created: '<strong>Aangemaakt op:</strong> %{created_at}'
+ edited: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt)</em>'
+ edited_updated_at: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt op %{updated_at})</em>'
+ salutation: "Hallo %{name},"
+ click_here: "klik hier"
+ less: " [Minder]"
+ language: 'Taal'
+ back_to_top: Terug naar boven
 
  languages:
    en: English
    es: Español
    ptbr: Português
    sv: Svenska
-   various: Various
+   various: Verscheidende
    vn: Tiếng Việt
    nl: Nederlands
 
  navigation:
-   about: 'About'
+   about: 'Over'
    blog: 'Blog'
-   contributors: 'Contributors'
+   contributors: 'Bijdragers'
    partners: 'Partners'
    privacy: 'Privacy Policy'
    github: 'GitHub'
@@ -34,339 +34,339 @@ en:
    rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
-   feedback: 'feedback'
-   give_feedback: 'Give Feedback'
+   feedback: 'terugkoppeling'
+   give_feedback: 'Geef Terugkoppeling'
    medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
-   resources: 'Resources'
+   resources: 'Bronnen'
 
  common:
-   name: 'Name'
-   you: 'You'
-   title: 'Title'
-   date: 'Date:'
-   daily_reminder: 'Daily reminder email'
+   name: 'Naam'
+   you: 'Jij'
+   title: 'Titel'
+   date: 'Datum:'
+   daily_reminder: 'Dagelijkse herinnering email'
    actions:
-    submit: 'Submit'
-    confirm: 'Are you sure?'
-    delete: 'Delete'
-    edit: 'Edit'
-    edit_instance: 'Edit %{instance}'
-    join: 'Join'
-    leave: 'Leave'
-    add: 'Add'
-    add_all: 'Add all'
-    select_all: 'Select all'
-    remove: 'Remove'
+    submit: 'Versturen'
+    confirm: 'Weet je het zeker?'
+    delete: 'Verwijderen'
+    edit: 'Bewerken'
+    edit_instance: 'Bewerk %{instance}'
+    join: 'Toetreden'
+    leave: 'Verlaten'
+    add: 'Toevoegen'
+    add_all: 'Voeg alles toe'
+    select_all: 'Alles selecteren'
+    remove: 'Verwijderen'
    form:
      email: "Email"
-     location: "Location"
-     description: 'Description'
-     error_explanation: 'Please fill out the marked fields!'
-     press_enter: 'Press ENTER to add'
-   time_ago: "%{date} ago"
-   write_to_us: "write to us"
+     location: "Locatie"
+     description: 'Omschrijving'
+     error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
+     press_enter: 'Druk op ENTER om toe te voegen'
+   time_ago: "%{date} geleden"
+   write_to_us: "schrijf ons"
 
  comment:
-  singular: 'Comment'
-  plural: 'Comments'
-  posting: 'Posting comment...'
-  allow_comments: 'Allow Comments?'
-  hint: 'Only you and viewers can comment'
-  control: 'Control who can view and comment'
+  singular: 'Commentaar'
+  plural: 'Commentaren'
+  posting: 'Plaatsen van commentaar...'
+  allow_comments: 'Commentaren toestaan?'
+  hint: 'Alleen jij en kijkers kunnen commentaar plaatsen'
+  control: 'Beheer wie kan bekijken en commentaar kan plaatsen'
 
  account:
   singular: 'Account'
-  sign_in: 'Sign in'
-  sign_up: 'Sign up'
-  forgot_password: 'Forgot your password?'
+  sign_in: 'Inloggen'
+  sign_up: 'Inschrijven'
+  forgot_password: 'Wachtwoord vergeten?'
 
  members:
-   one: '%{count} member'
-   other: '%{count} members'
+   one: '%{count} lid'
+   other: '%{count} leden'
 
  allies:
-  add_ally: 'Add to Allies'
-  cancel_ally_request: 'Cancel Request'
-  accept: 'Accept'
-  reject: 'Reject'
+  add_ally: 'Toevoegen aan Lotgenoten'
+  cancel_ally_request: 'Verzoek annuleren'
+  accept: 'Accepteren'
+  reject: 'Afwijzen'
   index:
-    title: 'Allies'
-    outgoing: 'Outgoing Requests'
-    incoming: 'Incoming Requests'
-    invite: 'Invite your loved ones!'
-    none: 'You currently have no allies! You can search for them or invite loved ones to join!'
-    view_all_allies: 'View all allies'
-    cancel: 'Cancel'
+    title: 'Lotgenoten'
+    outgoing: 'Uitgaande Verzoeken'
+    incoming: 'Binnenkomende Verzoeken'
+    invite: 'Nodig je naasten uit!'
+    none: 'Je hebt op dit moment geen lotgenoten! Je kan op zoek naar hun gaan of naasten uitnodigen om lid te worden!'
+    view_all_allies: 'Bekijk alle lotgenoten'
+    cancel: 'Annuleren'
 
  categories:
-  plural: 'Categories'
-  edit_category: "Edit Category"
-  new: "New Category"
+  plural: 'Categorieën'
+  edit_category: "Bewerk Categorie"
+  new: "Nieuwe Categorie"
   form:
-   name_hint: 'Categorize recurring people, places, things, activities, and more'
+   name_hint: 'Categoriseer personen, dingen, activiteiten en meer'
   label:
-   one: 'Category:'
-   other: 'Categories:'
+   one: 'Categorie:'
+   other: 'Categorieën:'
   index:
-   subtitle: 'Life is messy, categorize the different people, places, and things.'
-   premade1_name: 'Family'
-   premade1_description: 'Family related'
-   premade2_name: 'Friends'
-   premade2_description: 'Friends related'
-   premade3_name: 'Work'
-   premade3_description: 'Work related'
-   premade4_name: 'Meditation'
-   premade4_description: 'Meditation, deep breathing, and relaxing activities'
-   instructions: "You haven't created any custom categories yet. Click %{icon} to add some!<br>You can also add the following premade categories and customize them another time."
+   subtitle: 'Het leven is een rommeltje, categoriseer mensen, plaatsen en dingen.'
+   premade1_name: 'Familie'
+   premade1_description: 'Familie gerelateerd'
+   premade2_name: 'Vrienden'
+   premade2_description: 'Vrienden gerelateerd'
+   premade3_name: 'Werk'
+   premade3_description: 'Werk gerelateerd'
+   premade4_name: 'Meditatie'
+   premade4_description: 'Meditatie, diep ademhalen en ontspannende activiteiten'
+   instructions: "Je hebt nog geen aangepaste categorieën gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kunt de volgende voorafgemaakte categorieën ook toevoegen en ze op elk later moment aanpassen."
 
  errors:
-  home_page: 'Return home'
+  home_page: 'Terug naar thuis'
   internal_server_error:
-   header_message: 'This page cannot be displayed'
+   header_message: 'Deze pagina kan niet worden weergegeven'
   not_found:
-   header_message: 'This page does not exist'
+   header_message: 'Deze pagina bestaat niet'
 
  groups:
-  singular: 'Group'
-  plural: 'Groups'
+  singular: 'Groep'
+  plural: 'Groepen'
   form:
-    leaders: 'Leaders'
-    only_leader: "You are the only leader, therefore you can't leave."
-    cannot_delete: 'Please note that you cannot delete groups.'
-    error_save: "We can't save this group because: "
-    error_edit_permission: 'You must be a leader of a group in order to edit it'
+    leaders: 'Leiders'
+    only_leader: "Je bent de enkele leider, daarom kan je de groep niet verlaten."
+    cannot_delete: 'Merk op dat je groepen niet kunt verwijderen.'
+    error_save: "We kunnen deze groep niet opslaan omdat: "
+    error_edit_permission: 'Je moet een leider van de groep zijn em deze te kunnen bewerken'
   index:
-   subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
-   available_groups: 'Available Groups'
-   joined_groups: 'Joined Groups'
-   leader: '(Leader)'
-   instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
-  join_success: 'You have joined this group.'
+   subtitle: 'Maak en wordt lid van groepen die ondersteuning, lidmaatschap en discussies bieden.'
+   available_groups: 'Beschikbare groepen'
+   joined_groups: 'Groepslidmaatschappen'
+   leader: '(Leider)'
+   instructions: "Je bent nog niet lid van een groep! Klik op %{icon} om er een te maken of wordt lid van een van de beschikbare groepen hier onder.<br><br>Ondersteuningsgroepen zijn goed voor het voeren van openbare discussies over geestelijke gezondheid! Je kan groepen maken, leden uitnodigen en ontmoeting evenementen organiseren zowel online als offline. Je kan ook lid worden van groepen die je lotgenoten hebben gemaakt."
+  join_success: 'Je bent lid geworden van deze groep.'
   leave:
-    error: 'You cannot leave the group, you are the only leader.'
-    success: "You have left %{group}"
-    remove_member_success: "You have removed %{user} from %{group}"
-  new: 'New Group'
+    error: 'Je kan de groep niet verlaten, je bent de enige leider van de groep.'
+    success: "Je hebt %{group} verlaten"
+    remove_member_success: "Je hebt %{user} uit %{group} gezet"
+  new: 'Nieuwe groep'
   show:
-   led_by: 'Led by:'
-   delete: 'Delete group'
+   led_by: 'Geleid door:'
+   delete: 'Verwijder group'
 
  layouts:
   application:
-   signin: 'Tell your stories now'
-   create_account: 'Join the community now'
-   update_account: 'Customize your account'
+   signin: 'Vertel je verhalen'
+   create_account: 'Wordt nu lid van de gemeenschap'
+   update_account: 'Pas je account aan'
    if: 'if'
    me: 'me'
   mailer:
    html:
-    app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
-    no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
+    app_description: "%{app_name} is een gemeenschap die mensen aanmoedigd om hun verhalen over geestelijke gezondheid te delen met hun naasten."
+    no_reply: "Je kunt niet antwoorden op deze email. Als je vragen, opmerkingen of terugkoppeling hebt kun je mailen met %{email}!"
   title:
-   reset_password: Reset your password
+   reset_password: Wachtwoord herstellen
 
  medications:
-  singular: 'Medication'
-  edit_medication: 'Edit Medication'
-  refill_reminder: 'Refill reminder email'
-  dosage: 'Daily Dosage:'
-  refill: 'Refill:'
-  quantity: 'Total Quantity:'
-  strength: 'Strength:'
+  singular: 'Medicatie'
+  edit_medication: 'Bewerk Medicatie'
+  refill_reminder: 'Bijvul herinnering email'
+  dosage: 'Dagelijkse dosis:'
+  refill: 'Bijvullen:'
+  quantity: 'Totale Hoeveelheid:'
+  strength: 'Sterkte:'
   form:
-   strength: 'Strength'
-   strength_placeholder: 'e.g. 100'
-   total_placeholder: 'e.g. 30'
-   dosage: 'dosage'
-   dosage_placeholder: 'e.g. 2'
-   refill: 'refill'
-   comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
-   add_to_google_cal: 'Google Calendar reminder'
-   google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
-   strength_hint: 'Medication strength, usually found beside the name'
-   total_hint: 'Total number of pills or amount of medication'
-   dosage_hint: 'Number of pills or servings daily'
-   refill_hint: 'When to refill this prescription'
-   refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
-   daily_reminder_hint: "We'll email you a daily reminder to take this medication"
-  new: 'New Medication'
+   strength: 'Sterkte'
+   strength_placeholder: 'b.v. 100'
+   total_placeholder: 'b.v. 30'
+   dosage: 'dosis'
+   dosage_placeholder: 'b.v. 2'
+   refill: 'bijvullen'
+   comments_hint: 'Voeg hier additioneel commentaar toe, bijvoorbeeld je symptomen'
+   add_to_google_cal: 'Google Kalendar herinnering'
+   google_cal_hint: "We voegen een herinnering toe voor dit medicijn in je Google kalendar."
+   strength_hint: 'Medicatie sterkte, meestal gevonden naast de naam'
+   total_hint: 'Totale hoeveelheid pillen of hoeveelheid medicatie'
+   dosage_hint: 'Hoeveelheid pillen of dosis per dag'
+   refill_hint: 'Wanneer dit voorschrift bijgevult moet worden'
+   refill_reminder_hint: "We emailen je een herinnering een week voordat je medicatie bijgevult moet worden."
+   daily_reminder_hint: "We mailen je dagelijks een herinnering om je medicatie in te nemen"
+  new: 'Nieuwe Medicatie'
   units:
    display: "%{count} %{unit}"
    mg: 'mg'
    ml: 'ml'
    tablets:
     one: 'tablet'
-    other: 'tablets'
+    other: 'tabletten'
   reminder_mailer:
-    subject: "Don't forget to take %{name}!"
-    body: "Here's a friendly reminder to take your medication %{name}!"
+    subject: "Vergeet niet om %{name} in te nemen!"
+    body: "Hierbij een vriendelijke herinnering om %{name} in te nemen!"
   refill_mailer:
-    subject: "Your refill for %{name} is coming up soon!"
-    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
+    subject: "Het in binnenkort weer tijd om %{name} bij te vullen!"
+    body: "Hierbij een vriendelijke herinnering om %{name} bij te vullen voor %{refill}!"
   index:
-   title: 'Medications'
-   subtitle: 'Keep track of your medications, including dosage and refill information.'
-   total: 'Total:'
-   instructions: "You haven't saved any medications yet. Click %{icon} to add some!<br><br>Here's an example of a saved medication! You can also write about your experience."
+   title: 'Medicatie'
+   subtitle: 'Houd je medicatie bij, inclusief informatie over dosis en bijvuldata.'
+   total: 'Totaal:'
+   instructions: "Je hebt nog geen medicatie opgeslagen. Klik op %{icon} om toe te voegen!<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven."
    example_name: 'Prozac'
    example_strength: '10 mg'
-   example_total: '40 tablets'
-   example_dosage: '2 tablets'
+   example_total: '40 tabletten'
+   example_dosage: '2 tabletten'
    example_refill: '05/31/2016'
   show:
-   comments: 'Comments:'
+   comments: 'Commentaar:'
 
  meetings:
-  edit_meeting: 'Edit Meeting'
+  edit_meeting: 'Bewerk Samenkomst'
   form:
-   location_placeholder: 'URL or street address'
-   maximum_members: 'Maximum Members'
-   maximum_placeholder: '0 if no maximum'
-  join_success: 'You have joined this meeting.'
+   location_placeholder: 'URL of straat'
+   maximum_members: 'Maximum Leden'
+   maximum_placeholder: '0 indien geen maximum'
+  join_success: 'Je bent lid geworden van deze samenkomst.'
   info:
-   cancel_meeting: 'Cancel meeting'
-   meeting_time: 'Time'
+   cancel_meeting: 'Samenkomst annuleren'
+   meeting_time: 'Tijd'
    members_of_group_html:
-    one: '%{count} Member <strong>of</strong> %{group}'
-    other: '%{count} Members <strong>of</strong> %{group}'
+    one: '%{count} Lid <strong>van</strong> %{group}'
+    other: '%{count} Leden <strong>van</strong> %{group}'
   reminder_mailer:
-    subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
+    subject: "Je samenkomst \"%{meeting_name}\" is morgen om %{time}!"
+    body: "Hierbij een vriendelijke herinnering dat je samenkomst, \"%{meeting_name}\", morgen is om %{time} bij %{location}!"
   leave:
-    error: 'You cannot leave the meeting, you are the only leader.'
-    success: 'You have left %{meeting}'
-  new: 'New Meeting'
+    error: 'Je kunt deze samenkomst niet verlaten, je bent de enige leider.'
+    success: 'Je hebt %{meeting} verlaten'
+  new: 'Nieuwe Samenkomst'
 
  moments:
   singular: 'Moment'
-  plural: 'Moments'
-  quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
-  categories_and_moods: 'Categories and Moods'
-  edit_moment: 'Edit Moment'
-  tagged: 'Tagged Moments'
-  new: 'New Moment'
+  plural: 'Momenten'
+  quick_moment_disclaimer: 'Dit wordt gedeeld met alle lotgenoten met commentaar ingeschakeld. Je kunt dit altijd later aanpassen.'
+  categories_and_moods: 'Categorieën en Stemming'
+  edit_moment: 'Bewerk Moment'
+  tagged: 'Getagde Momenten'
+  new: 'Nieuw Moment'
   secret_share:
-    singular: 'Secret Share'
-    expires_at: 'Expire at'
-    create: 'Create'
-    cancel: 'Cancel'
+    singular: 'Geheim Delen'
+    expires_at: 'Verloopt op'
+    create: 'Aanmaken'
+    cancel: 'Annuleren'
   form:
-   why: 'What happened and how do you feel?'
-   fix: 'What thoughts would you like to have?'
-   what_happened: 'What happened?'
-   viewers_hint: 'Allies who can view your moment'
+   why: 'Wat is er gebeurd en hoe wat is je gevoel?'
+   fix: 'Welke gedachten zou je willen hebben?'
+   what_happened: 'Wat is er gebeurd?'
+   viewers_hint: 'Lotgenoten die je moment kunnen bekijken'
 
   index:
-   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-   instructions: "You haven't written about any moments yet. Click %{icon} to add some!<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
-   example_name: 'Panicking over interview tomorrow!'
-   example_category: 'Career'
+   subtitle: 'Duik diep in je momenten - gebeurtenissen en situaties die invloed hebben op je geestelijke gezondheid.'
+   instructions: "Je hebt nog niet geschreven over je momenten. Klik op %{icon} om wat toe te voegen!<br><br>Weet je niet waar je beginnen zult? Is er iets dat vandaag gebeurd dat je zou willen delen en over wilt praten met een naaste? Het kan zowel positief als negatief zijn! Je hoeft het niet meteen te delen - deel het wanneer jij er klaar voor bent! Hier is een veerbeeld van een Moment."
+   example_name: 'In paniek voor het interview van morgen!'
+   example_category: 'Carrière'
   show:
-   strategies: 'What strategies would help?'
+   strategies: 'Welke strategiën zouden helpen?'
 
  moods:
-  singular: 'Mood'
-  plural: 'Moods'
-  edit_mood: 'Edit Mood'
-  new: 'New Mood'
-  example_moods: 'Nervous, Anxious, Hopeful'
+  singular: 'Stemming'
+  plural: 'Stemmingen'
+  edit_mood: 'Bewerk Stemming'
+  new: 'Nieuwe Stemming'
+  example_moods: 'Nerveus, Angstig, Hoopvol'
   label:
-   one: 'Mood:'
-   other: 'Moods:'
+   one: 'Stemming:'
+   other: 'Stemmingen:'
   index:
-   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   premade1_name: 'Accepting'
-   premade1_description: 'Accepting and being at peace with differences and limitations'
-   premade2_name: 'Ambitious'
-   premade2_description: 'Feeling optimistic about achieving goals'
-   premade3_name: 'Curious'
-   premade3_description: 'Feeling curious about uncertainty'
-   premade4_name: 'Resentful'
-   premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
-   premade5_name: 'Hopeless'
-   premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
-   instructions: "You haven't created any custom moods yet. Click %{icon} to add some!<br>You can also add the following premade moods and customize them another time."
+   subtitle: 'Maak tags aan die je gemoedstoestand, gevoelens en emoties omschrijven.'
+   premade1_name: 'Accepterend'
+   premade1_description: 'Accepteren en vrede hebben met verschillen en beperkingen'
+   premade2_name: 'Ambitieus'
+   premade2_description: 'Optimistisch voelen over het bereiken van doelen'
+   premade3_name: 'Nieuwsgierig'
+   premade3_description: 'Nieuwsgierig zijn naar het onbekende'
+   premade4_name: 'Wrokkig'
+   premade4_description: 'Feiten niet aannemend, boosheid, wraakvol en/of jaloezie'
+   premade5_name: 'Hopeloos'
+   premade5_description: 'Somberheid en hopeloosheid - onmogelijk om oplossingen te vinden'
+   instructions: "Je hebt nog geen aangepaste stemming gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kan ook een van de volgende voorbeelden toevoegen en ze op elk later moment aanpassen."
 
  notifications:
-  plural: 'Notifications'
-  none: 'There are none'
-  clear: 'Clear'
-  created_by_html: "<strong>Created by</strong>: %{name}"
-  preview: 'View more'
+  plural: 'Notificaties'
+  none: 'Er zijn er geen'
+  clear: 'Opruimen'
+  created_by_html: "<strong>Aangemaakt door</strong>: %{name}"
+  preview: 'Bekijk meer'
   members:
-   title: 'List of Members'
+   title: 'Lijst van leden'
   ally:
-   accepted: '%{name} accepted your ally request!'
-   sent_html: '%{link_to_user} sent an ally request!'
+   accepted: '%{name} heeft je lotgenoot verzoek geaccepteerd!'
+   sent_html: '%{link_to_user} heeft een lotgenoot verzoek gestuurd!'
   comment:
-   full: '%{name} commented "%{comment}" on %{typename}'
-   truncated: '%{name} commented "%{comment}" [...] on %{typename}'
+   full: '%{name} heeft het commentaar "%{comment}" geplaatst op %{typename}'
+   truncated: '%{name} heeft het commentaar "%{comment}" [...] geplaatst op %{typename}'
   group:
-   new_group: '%{name} created a group "%{group_name}"'
-   new_group_member: '%{name} joined your group "%{group_name}"'
-   add_group_leader: '%{name} became a leader of "%{group_name}"'
-   remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+   new_group: '%{name} heeft de groep "%{group_name} " gemaakt'
+   new_group_member: '%{name} is bij de groep "%{group_name}" gekomen'
+   add_group_leader: '%{name} is een leider geworden in de groep "%{group_name}"'
+   remove_group_leader: '%{name} is niet langer een leider in de groep "%{group_name}"'
   meeting:
-   new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
-   remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
-   update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
-   join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
+   new_meeting: '%{name} heeft een nieuwe samenkomst "%{meeting_name}" gemaakt voor de groep "%{group_name}"'
+   remove_meeting: '%{name} heeft de samenkomst "%{meeting_name}" geannuleerd voor de groep "%{group_name}"'
+   update_meeting: '%{name} heeft de samenkomst "%{meeting_name}" bijgewerkt voor de groep "%{group_name}"'
+   join_meeting: '%{name} heeft zich aangesloten bij de samenkomst "%{meeting_name}" voor de groep "%{group_name}"'
   mailer:
-    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
-    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
-    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_on_moment_subject: "if me | %{user} heeft commentaar geplaatst op je moment \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} heeft commentaar geplaatst op je strategie \"%{strategy}\""
+    comment_on_meeting_subject: "if me | %{user} heeft commentaar geplaatst op de samenkomst \"%{meeting}\" van de groep \"%{group}\""
+    comment_on_private_body: "<p>Je lotgenoot <strong>%{user}</strong> heeft privè commentaar geplaatst:</p>"
+    comment_on_body: "<p>Je lotgenoot <strong>%{user}</strong> heeft commentaar geplaatst:</p>"
     comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
     comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>To read it, %{link}!</p>"
-    new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
-    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
-    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
-    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
-    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
-    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
-    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
-    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
-    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
-    update_meeting_link: "<p>To learn more, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
-    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
-    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
+    comment_link: "<p>Om het te lezen, %{link}!</p>"
+    new_group_subject: "if me | %{user} heeft de groep \"%{group}\" gemaakt"
+    new_group_body: "<p>%{user} maakte de groep \"%{group}\":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p>"
+    new_group_member_subject: "if me | %{user} is lid geworden van je groep \"%{group}\""
+    add_group_leader_you_subject: "if me | Je bent een leider geworden in de groep \"%{group}\""
+    add_group_leader_subject: "if me | %{user} is een leider geworden van de groep \" %{group}\""
+    add_remove_group_leader_body: "<p>Em de groep \"%{group}\" te bekijken, %{link}!</p>"
+    remove_group_leader_you_subject: "if me | Je bent niet langer een leider in de groep \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} is niet langer een leider in de groep \"%{group}\""
+    update_meeting_subject: "if me | %{user} heeft de samenkomst \"%{meeting}\" bijgewerkt voor de groep \"%{group}\""
+    new_meeting_subject: "if me | %{user} heeft een nieuwe samenkomst \"%{meeting}\" gemaakt voor de groep \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Locatie:</strong> %{location}</p><p><strong>Datum:</strong> %{date}</p><p><strong>Tijd:</strong> %{time}</p>"
+    new_meeting_link: "<p>Om meer te weten te komen en ook te komen, %{link}!</p>"
+    update_meeting_link: "<p>Om meer te weten te komen, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} heeft de samenkomst \"%{meeting}\" geannuleerd voor de groep \"%{group}\""
+    join_meeting_subject: "if me | %{user} heeft zich aangesloten bij de samenkomst \"%{meeting}\" voor de groep \"%{group}\""
+    join_meeting_body: "<p>Om \"%{meeting}\" te bekijken, %{link}!</p>"
 
  omniauth:
   google: 'Google'
-  access_denied: 'Access Denied'
+  access_denied: 'Toegang geweigerd'
 
  pages:
   about:
-    send_us: 'us'
-    email_us: 'Feel free to email %{email_link}!'
-    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
-    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
-    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
-    main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
+    send_us: 'ons'
+    email_us: 'Voel je vrij en stuur een email naar %{email_link}!'
+    main_message_one: "%{app_name} is een gemeenschap voor geestelijke gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen te delen met hun vertrouwde lotgenoten."
+    message_text_one: "Vertrouwde lotgenoten zijn de mensen met wie we dagelijks contact mee hebben, zoals vrienden, familie leden, collega's leraren en GGZ medewerkers."
+    main_message_two: "Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn."
+    message_text_two: "Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.<p><div class=\"subtitle block\">\"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>"
+    main_message_three: "Wil je ons financieel helpen?"
+    message_text_three: "Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van %{linebreak_link}. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
-    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+    description: "Als je voor ons wilt schrijven, stuur ons een email op %{email}! We staan open voor anonieme bijdragen."
   contributors:
-    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
-    more_contributors: 'More Fabulous Contributors!'
-    thanks: 'A huge thanks to'
+    main_message_one: "if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achteggronden met verschillende vaardigheden."
+    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
+    more_contributors: 'Meer fantastische bijdragers!'
+    thanks: 'Enorme dank gaat naar'
     slack: 'Slack'
   faq:
-    title: 'Frequently Asked Questions'
-    data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
+    title: 'Veel gestelde vragen'
+    data_access_question: 'Wie heeft er toegang tot mijn data?'
+    data_access_answer: 'Data wordt niet gegeven aan en wordt niet toegankelijk gemaakt aan derden.<br><br>Gebruikers data wordt geanalyseerd binnen de applicatie voor persoonlijke aanbevelingen.'
     moment_question: 'What is a Moment?'
     moment_answer: 'A <strong>Moment</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
     strategy_question: 'What is a Strategy?'

@@ -19,6 +19,11 @@ RSpec.describe CompareLocalesSupport do
         subject { described_class.compare(source, :swedish) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to dutch' do
+        subject { described_class.compare(source, :dutch) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -39,6 +44,11 @@ RSpec.describe CompareLocalesSupport do
 
       context 'when comparing to devise_swedish' do
         subject { described_class.compare(source, :devise_swedish) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to devise_dutch' do
+        subject { described_class.compare(source, :devise_dutch) }
         it { is_expected.to be_empty }
       end
     end
@@ -63,6 +73,11 @@ RSpec.describe CompareLocalesSupport do
         subject { described_class.compare(source, :devise_invitable_swedish) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to devise_invitable_dutch' do
+        subject { described_class.compare(source, :devise_invitable_dutch) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -82,6 +97,11 @@ RSpec.describe CompareLocalesSupport do
 
       context 'when comparing to devise_invitable_swedish' do
         subject { described_class.compare(source, :kaminari_swedish) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to devise_invitable_dutch' do
+        subject { described_class.compare(source, :kaminari_dutch) }
         it { is_expected.to be_empty }
       end
     end
