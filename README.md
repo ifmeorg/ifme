@@ -56,10 +56,6 @@ Please save the image as
 If you've contributed to the project but do not want to write a blurb, please
 add your name and desired social media link to `doc/pages/contributors.json`.
 
-Below are folks who have contributed via GitHub!
-
-<a href="https://github.com/julianguyen/ifme/graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
-
 ## Donate
 
 We also welcome financial contributions in full transparency on our
