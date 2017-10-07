@@ -17,7 +17,7 @@ them involved in mental health treatment is the key to recovery.
 
 The live site can be found at [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/documentation/CONTRIBUTING.md).**
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
@@ -26,19 +26,19 @@ before joining our project.
 
 ## Installation
 
-Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
+Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/INSTALLATION.md). Both local and production instances are covered.
 
 ## UI Development Environment and Design
 
-UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/blob/master/DESIGN.md).
+UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/DESIGN.md).
 
 ## Testing Guidelines
 
-Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/TESTING.md).
+Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
 
 ## Tracking Issues and Committing Code
 
-Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/blob/master/WORKFLOW.md).
+Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/WORKFLOW.md).
 
 ## Contributor Blurb
 
