@@ -104,7 +104,12 @@ class ApplicationController < ActionController::Base
   def most_focus(data_type, profile_id)
     data = []
     userid = profile_id || current_user.id
-    moments = user_moments(userid)
+    if current_user.id == profile_id
+      moments = user_moments(userid)
+    else
+      moments = user_moments(userid).where.not(published_at: nil)
+    end
+    puts moments
     if data_type == 'category'
       strategies = user_strategies(userid)
       [moments, strategies].each do |records|
@@ -378,7 +383,7 @@ class ApplicationController < ActionController::Base
   end
 
   def hide_page?(subject)
-    (!current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)) || !subject.published? 
+    (!current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)) || !subject.published?
   end
 
   def user_strategies(userid)
