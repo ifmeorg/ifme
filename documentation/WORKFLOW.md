@@ -1,4 +1,4 @@
-## Workflow
+# Workflow
 
 ## Static Code Analysis
 
@@ -79,11 +79,7 @@ comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update 
 * We use **single quotes** for Ruby files.
 * We use **camelcase** for JS files.
 * We use **double quotes** for JS files.
-
-* We follow airbnb's Ruby and Javascript Style Guides.
-The guides are available on GitHub in the following repositories:
-https://github.com/airbnb/ruby and 
-https://github.com/airbnb/javascript
+* We follow Airbnb's [Ruby](https://github.com/airbnb/ruby) and [Javascript](https://github.com/airbnb/javascript) style guides.
 
 ## Tracking Issues
 
