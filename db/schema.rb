@@ -234,8 +234,8 @@ ActiveRecord::Schema.define(version: 20170830075513) do
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
     t.boolean  "comment_notify"
     t.boolean  "ally_notify"

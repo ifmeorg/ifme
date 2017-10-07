@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+# Ignore .env secret files.
+.env
+
 *.DS_Store
 *.keep
 *.byebug_history
