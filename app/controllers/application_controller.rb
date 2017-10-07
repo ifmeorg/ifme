@@ -378,7 +378,7 @@ class ApplicationController < ActionController::Base
   end
 
   def hide_page?(subject)
-    !current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)
+    (!current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)) || !subject.published? 
   end
 
   def user_strategies(userid)
