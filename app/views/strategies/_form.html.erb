@@ -98,7 +98,7 @@
       <%= f.label t('moments.form.draft_question') %>
     </div>
     <label class="switch">
-      <% if @moment.published? %>
+      <% if @strategy.published? %>
         <%= check_box_tag 'draft', 1, true, {id:'togBtn'} %>
       <% else %>
         <%= check_box_tag 'draft', 1, false, {id:'togBtn'} %>
