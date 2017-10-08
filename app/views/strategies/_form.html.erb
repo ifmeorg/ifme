@@ -98,7 +98,11 @@
       <%= f.label t('moments.form.draft_question') %>
     </div>
     <label class="switch">
-      <%= check_box_tag 'draft', 1, true, {id:'togBtn'} %>
+      <% if @moment.published? %>
+        <%= check_box_tag 'draft', 1, true, {id:'togBtn'} %>
+      <% else %>
+        <%= check_box_tag 'draft', 1, false, {id:'togBtn'} %>
+      <% end %>
       <div class="slider round">
         <span class="on"><%= I18n.t 'common.actions.submit_publish' %></span>
         <span class="off"><%= I18n.t 'common.actions.submit_draft' %></span>

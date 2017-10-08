@@ -1,5 +1,6 @@
 describe 'UserCreatesADraftMoment', js: true do
   let(:user) { create :user2, :with_allies }
+  let(:ally) { user.allies.first }
   let!(:category) { create :category, userid: user.id }
   let!(:mood) { create :mood, userid: user.id }
   let!(:strategy) { create :strategy, userid: user.id }
@@ -11,7 +12,7 @@ describe 'UserCreatesADraftMoment', js: true do
     JS
   end
 
-  feature 'Creating, viewing, and editing a moment' do
+  feature 'Creating, viewing, and editing a draft moment' do
     it 'is successful' do
       login_as user
       visit moments_path
@@ -123,25 +124,27 @@ describe 'UserCreatesADraftMoment', js: true do
       fill_in_ckeditor('moment_why', with: 'my moment why description')
       fill_in_ckeditor('moment_fix', with: 'my moment fix description')
 
+      # SAVE AS DRAFT
+
+
       page.find('input[value="Submit"]').click
 
-      # VIEWING
+      # VIEWING AS OWNER
       within '#page_title_content' do
         expect(page).to have_content 'My new moment'
       end
+      expect(page).to have_selector 'span.draft-badge'
+      back = current_url
 
-      expect(page).to have_content 'Created:'
-      expect(page).to have_content 'Categories: Another New Category, ' \
-                                   'Some New Category'
-      expect(page).to have_content 'Moods: Another New Mood, Test Mood'
-      expect(page).to have_content 'What happened and how do you feel?'
-      expect(page).to have_content 'my moment why description'
-      expect(page).to have_content 'What thoughts would you like to have?'
-      expect(page).to have_content 'my moment fix description'
-      expect(page).to have_content 'What strategies would help?'
-      expect(page).to have_content 'Some New Strategy, Test Strategy'
-      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
-      expect(page).to have_css('#new_comment')
+      # TRYING TO VIEW AS ALLY
+      login_as ally
+      visit back
+      within '#page_title_content' do
+        expect(page).not_to have_content 'My new moment'
+      end
+
+      login_as user
+      visit back
 
       # EDITING
       page.find('a[title="Edit Moment"]').click
@@ -153,14 +156,23 @@ describe 'UserCreatesADraftMoment', js: true do
       moment_why_text = 'I am changing my moment why description'
       fill_in_ckeditor('moment_why', with: moment_why_text)
 
+      # PUBLISH
+      scroll_to_and_click('input#togBtn')
+
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
       within '#page_title_content' do
         expect(page).to have_content 'My new moment'
       end
+      expect(page).not_to have_selector 'span.draft-badge'
 
-      expect(page).to have_content moment_why_text
+      # TRYING TO VIEW AS ALLY
+      login_as ally
+      visit back
+      within '#page_title_content' do
+        expect(page).to have_content 'My new moment'
+      end
     end
   end
 end
