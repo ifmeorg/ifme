@@ -10,6 +10,7 @@
 #  fix        :text
 #  created_at :datetime
 #  updated_at :datetime
+#  published_at :datetime
 #  userid     :integer
 #  viewers    :text
 #  comment    :boolean
@@ -54,6 +55,20 @@ describe Moment do
 
     context 'when the user does not own the moment' do
       let(:user) { create(:user) }
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "#published?" do
+    context 'when it has a publication date' do
+      let(:moment) { build(:moment, :with_user, :with_published_at)}
+      let(:subject) { moment.published? }
+
+      it { is_expected.to be true }
+    end
+    context 'when it does not have a publication date' do
+      let(:moment) { create(:moment, :with_user) }
+      let(:subject) { moment.published? }
       it { is_expected.to be false }
     end
   end

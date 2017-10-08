@@ -12,6 +12,7 @@
 #  fix        :text
 #  created_at :datetime
 #  updated_at :datetime
+#  published_at :datetime
 #  userid     :integer
 #  viewers    :text
 #  comment    :boolean
