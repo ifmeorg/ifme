@@ -41,6 +41,10 @@
 <strong>
   <%= get_meeting_members(meeting) %>
 </strong>
+<br>
+<strong>
+ <%= google_calendar(meeting) %>
+</strong>
 
 <% if meeting.leaders.include? current_user %>
   <br>

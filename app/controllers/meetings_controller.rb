@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MeetingsController < ApplicationController
+  include MeetingsHelper
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -226,7 +227,29 @@ class MeetingsController < ApplicationController
       end
     end
   end
-
+  #Google Calendar
+  def delete_gcal_event
+    meeting = Meeting.find(params[:meetingid])
+    groupid= meeting.groupid
+    res = remove_event_from_google_calendar(meeting)
+    if res
+      redirect_to(group_path(groupid), notice:t('meetings.form.del_gcalendar_succes'))
+    else
+      redirect_to(group_path(groupid), alert: t('meetings.form.del_gcalendar_fail'))
+    end
+  end
+  def add_gcal_event
+    meeting  = Meeting.find(params[:meetingid])
+    meeting_name = meeting.name
+    groupid = meeting.groupid
+    res = add_event_to_google_calendar(meeting)
+    if res 
+      redirect_to(group_path(groupid), notice: t('meetings.form.add_gcalendar_success'))
+    else
+      redirect_to(group_path(groupid), alert: t('meetings.form.add_gcalendar_fail'))
+    end
+  end
+  
   def leave
     meeting_name = Meeting.where(id: params[:meetingid]).first.name
     groupid = Meeting.where(id: params[:meetingid]).first.groupid
@@ -295,7 +318,11 @@ class MeetingsController < ApplicationController
 
     redirect_to_path(group_path(groupid))
   end
-
+  def return_to_sign_in
+    sign_out current_user
+    redirect_to_path(new_user_session_path)
+    false
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.
