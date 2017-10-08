@@ -575,6 +575,7 @@ es:
    name_hint: "Cualquier actividad, tren de pensamiento, o forma de auto cuidado que te ayude"
    viewers_hint: "Los aliados que pueden ver tu estrategia y etiquetar con ella sus propios momentos"
    daily_reminder_hint: "Diariamente te enviaremos un correo electrónico para llevar a cabo esta estrategia"
+   draft_question: '¿Quieres guardar tu estrategia como borradr?'
   label:
    one: "Estrategia:"
    other: "Estrategias:"

@@ -573,6 +573,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
+   draft_question: 'Do you want to save your strategy as draft?'
   label:
    one: 'Strategy:'
    other: 'Strategies:'

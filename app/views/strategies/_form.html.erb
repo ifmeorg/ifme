@@ -93,20 +93,25 @@
       <%= render :partial => '/shared/character_count', locals: { data: 'strategy_description' } %>
     </div>
   </div>
-
+  <div class="field">
+    <div class="label draft_label">
+      <%= f.label t('moments.form.draft_question') %>
+    </div>
+    <label class="switch">
+      <%= check_box_tag 'draft', 1, true, {id:'togBtn'} %>
+      <div class="slider round">
+        <span class="on"><%= I18n.t 'common.actions.submit_publish' %></span>
+        <span class="off"><%= I18n.t 'common.actions.submit_draft' %></span>
+      </div>
+    </label>
+  </div>
 </div>
 
 <div class="clear"></div>
 
 <div class="actions align_right no_margin_bottom">
   <%= f.hidden_field :userid, :value => current_user.id %>
-  <% if @strategy.published? %>
-    <%= f.submit t('common.actions.submit_publish') %>
-    <%= f.submit t('common.actions.submit_unpublish'), params: {draft:true}, class:'submit' %>
-  <% else %>
-    <%= f.submit t('common.actions.submit_publish') %>
-    <%= f.submit t('common.actions.submit_draft'), params: {draft:true}, class:'submit' %>
-  <% end %>
+  <%= f.submit t('common.actions.submit') %>
 </div>
 
 <div class="clear"></div>
