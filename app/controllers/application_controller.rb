@@ -109,7 +109,6 @@ class ApplicationController < ActionController::Base
     else
       moments = user_moments(userid).where.not(published_at: nil)
     end
-    puts moments
     if data_type == 'category'
       strategies = user_strategies(userid)
       [moments, strategies].each do |records|
