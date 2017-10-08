@@ -159,7 +159,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :userid, :comment, :published_at,
+      :name, :why, :fix, :userid, :comment, :published_at, :draf,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
@@ -204,10 +204,10 @@ class MomentsController < ApplicationController
   end
 
   def publishing?
-    params[:commit] == (I18n.t 'common.actions.submit_publish')
+    params[:draft] == "1"
   end
 
   def saving_as_draft?
-    params[:commit] == (I18n.t 'common.actions.submit_unpublish')
+    params[:draft] != "1"
   end
 end

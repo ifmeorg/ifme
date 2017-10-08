@@ -178,21 +178,17 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params.require(:strategy).permit(
-      :name, :description, :userid, :published_at,
+      :name, :description, :userid, :published_at, :draft,
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
   end
 
   def publishing?
-    params[:commit] == (I18n.t 'common.actions.submit_publish')
+    params[:draft] == "1"
   end
 
   def saving_as_draft?
-    params[:commit] == (I18n.t 'common.actions.submit_unpublish')
-  end
-
-  def published?
-    @strategy.published_at
+    params[:draft] != "1"
   end
 end

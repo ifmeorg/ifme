@@ -49,9 +49,8 @@ es:
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
     submit: "Enviar"
-    submit_draft: 'Guardar borrador'
     submit_publish: 'Publicar'
-    submit_unpublish: 'Volver a guardar como borrador'
+    submit_draft: 'Borrador'
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -262,6 +261,7 @@ es:
    fix: "¿Qué pensamientos te gustaría tener?"
    what_happened: "¿Qué ocurrió?"
    viewers_hint: "Aliados que pueden ver tu momento:"
+   draft_question: "¿Quieres guardar tu momento como borrador?"
 
   index:
    subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
