@@ -7,47 +7,47 @@ module MeetingsHelper
     return false unless current_user.google_oauth2_enabled?
     begin
       args = calendar_uploader_params(meeting)
-      res =  CalendarUploader.new(args).upload_event
+      res = CalendarUploader.new(args).upload_event
       meeting_member = meeting.meeting_members.where(userid: current_user).first
       meeting_member.google_event_id = res.id
-      meeting_member.save()
-    rescue Exception => e
+      meeting_member.save
+    rescue
       false
     end
   end
-  #
+
   def remove_event_from_google_calendar(meeting)
-    return false  unless current_user.google_oauth2_enabled?
-    google_event_id = meeting.meeting_members
+    return false unless current_user.google_oauth2_enabled?
     begin
       args = empty_calendar_uploader_params(meeting)
-      res = CalendarUploader.new(args).delete_event
-    rescue Exception => e
+      CalendarUploader.new(args).delete_event
+    rescue
       false
     end
   end
+
   def calendar_uploader_params(meeting)
-    d = Date.strptime(meeting.date, "%m/%d/%Y")
+    d = Date.strptime(meeting.date, '%m/%d/%Y')
     t = Time.parse(meeting.time)
-    fd = DateTime.new(d.year,d.month,d.day,t.hour,t.min,t.sec)
-    fulldate = fd.strftime("%Y/%m/%d %H:%M:%S")
+    fd = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+    fulldate = fd.strftime('%Y/%m/%d %H:%M:%S')
     { summary: meeting.name,
       date: fulldate,
-      calendar_id:'primary',
+      calendar_id: 'primary',
       access_token: current_user.google_access_token,
       email: current_user.email }
   end
+
   def empty_calendar_uploader_params(meeting)
     google_event_id = meeting.meeting_members.where(userid: current_user).first.google_event_id
-    {
-      summary:nil,
-      date:nil,
-      calendar_id:'primary',
+    { summary: nil,
+      date: nil,
+      calendar_id: 'primary',
       access_token: current_user.google_access_token,
       event_id: google_event_id,
-      email: current_user.email}
+      email: current_user.email }
   end
-  
+
   private def not_attending(id)
     t('shared.meeting_info.not_attending',
       join:
@@ -104,23 +104,22 @@ module MeetingsHelper
   private def google_calendar_event_exists?(event_id)
     begin
       event = CalendarUploader.new(
-        summary:'',
-        date:'',
-        email:'',
+        summary: '',
+        date: '',
+        email: '',
         access_token: current_user.google_access_token,
         calendar_id: 'primary',
-        event_id: event_id).get_event
-      if event
-        return true unless "cancelled".eql? event.status
-        false
-      else
-        false
-      end
+        event_id: event_id
+      ).get_event
     rescue
       false
     end
+    if event
+      return true unless 'cancelled'.eql? event.status
+    end
+
   end
-  
+
   def get_meeting_members(meeting)
     meeting_spots = spots(meeting)
     in_meeting = in_meeting(meeting)
@@ -145,20 +144,18 @@ module MeetingsHelper
               delete_gcal_event_meetings_path(meetingid: id)
             )
           else
-           link_to(
-            t('common.actions.schedule_gmaps'),
-            add_gcal_event_meetings_path(meetingid: id)
-          )
+            link_to(
+              t('common.actions.schedule_gmaps'),
+              add_gcal_event_meetings_path(meetingid: id)
+            )
           end
         else
           link_to(
             t('common.actions.schedule_gmaps'),
             delete_gcal_event_meetings_path(meetingid: id)
-          )  
+          )
         end
-                  
       end
     end
   end
-  
 end
