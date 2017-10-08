@@ -259,7 +259,7 @@ ptbr:
    fix: 'Quais pensamentos você gostaria de ter ? '
    what_happened: 'O que aconteceu ?'
    viewers_hint: 'Aliados que podem ver esse momento seu:'
-   draft_question: 'Deseja salvar seu momento como rascunho?'
+   draft_question: 'Você quer salvar seu momento com um rascunho?'
 
   index:
    subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
@@ -574,7 +574,7 @@ ptbr:
    name_hint: 'Qualquer atividade, linha de pensamento, ou forma de cuidado próprio que ajude você'
    viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar seus próprios comentários em cada estratégia'
    daily_reminder_hint: "Iremos enviar para seu email um um lembrete diário para cumprir com sua estratégia."
-   draft_question: 'Deseja salvar sua estratégia como rascunho?'
+   draft_question: Você quer salvar sua estratégia com um rascunho?'
   label:
    one: 'Estratégia'
    other: 'Estratégias'
