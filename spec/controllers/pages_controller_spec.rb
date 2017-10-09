@@ -53,9 +53,9 @@ RSpec.describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #contributors' do
+  describe 'GET #contribute' do
     it 'respond to request' do
-      get :contributors
+      get :contribute
       expect(response).to be_success
     end
 
@@ -66,7 +66,7 @@ RSpec.describe PagesController, type: :controller do
       expect(JSON).to receive(:parse).with(blurbs_file)
       expect(JSON).to receive(:parse).with(contributors_file).and_return(data)
       expect(data).to receive(:sort_by!)
-      get :contributors
+      get :contribute
     end
   end
 
