@@ -259,7 +259,7 @@ sv:
    fix: 'Vilka tankar skulle du vilja ha?'
    what_happened: 'Vad hände?'
    viewers_hint: 'Allierade som kan se ditt ögonblick'
-   draft_question: "Vill du spara den här stunden som utkast?"
+   draft_question: "Vill du spara ditt ögonblick som ett utkast?"
 
   index:
    subtitle: 'Fördjupa dig djupt i dina ögonblick - händelser och situationer som påverkar din mentala hälsa.'
@@ -573,7 +573,7 @@ sv:
    name_hint: 'Eventuella aktiviteter, tankegång eller form eller självomsorg som hjälper dig'
    viewers_hint: 'Allierade som kan se din strategi och tagga egna ögonblicken med det'
    daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att utföra denna strategi"
-   draft_question: 'Vill du spara denna strategi som utkast?'
+   draft_question: 'Vill du spara din strategi som utkast?'
   label:
    one: 'Strategi:'
    other: 'Strategier:'
