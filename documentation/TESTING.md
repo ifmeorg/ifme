@@ -1,4 +1,12 @@
-## Testing
+# Testing
+
+## Debugging With Foreman
+
+In one terminal tab, run `bin/start_app` which runs `bundle exec foreman start client -f Procfile.dev`.
+
+In a second terminal tab, run `bundle exec rails s`.
+
+This will allow you to place `debugger` in Ruby files and successfully debug.
 
 ## Testing Accounts
 

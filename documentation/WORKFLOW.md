@@ -1,4 +1,4 @@
-## Workflow
+# Workflow
 
 ## Static Code Analysis
 
@@ -53,6 +53,10 @@ You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 Make a fork of the repository, create a new branch for every feature you are
 working on! **Always make pull requests!**
 
+### Pull Requests & Syncing
+
+You can learn more about how to create a pull request and sync your forked repo with the upstream (ifme) repo [here](https://github.com/julianguyen/ifme/wiki/Pull-Requests-&-Syncing).
+
 If you've been added as a collaborator to the repository, please do not push
 unless the commit you are making is _trivial_ i.e. doesn't require a code
 review. If you're unsure about this, please ask!
@@ -79,11 +83,7 @@ comments and `rake db:drop db:create db:migrate; rake db:schema:load` to update 
 * We use **single quotes** for Ruby files.
 * We use **camelcase** for JS files.
 * We use **double quotes** for JS files.
-
-* We follow airbnb's Ruby and Javascript Style Guides.
-The guides are available on GitHub in the following repositories:
-https://github.com/airbnb/ruby and 
-https://github.com/airbnb/javascript
+* We follow Airbnb's [Ruby](https://github.com/airbnb/ruby) and [Javascript](https://github.com/airbnb/javascript) style guides.
 
 ## Tracking Issues
 
