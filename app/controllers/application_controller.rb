@@ -202,12 +202,12 @@ class ApplicationController < ActionController::Base
 
       allies.each do |ally|
         Moment.where(userid: ally.id).where.not(published_at: nil).all
-                            .order('created_at DESC').each do |moment|
+              .order('created_at DESC').each do |moment|
           ally_moments << moment if moment.viewers.include?(user.id)
         end
 
         Strategy.where(userid: ally.id).where.not(published_at: nil).all
-                            .order('created_at DESC').each do |strategy|
+                .order('created_at DESC').each do |strategy|
           ally_strategies << strategy if strategy.viewers.include?(user.id)
         end
       end
@@ -219,12 +219,12 @@ class ApplicationController < ActionController::Base
       ally_strategies = []
 
       Moment.where(userid: user.id).where.not(published_at: nil).all
-                          .order('created_at DESC').each do |moment|
+            .order('created_at DESC').each do |moment|
         ally_moments << moment if moment.viewers.include?(current_user.id)
       end
 
       Strategy.where(userid: user.id).where.not(published_at: nil).all
-                          .order('created_at DESC').each do |strategy|
+              .order('created_at DESC').each do |strategy|
         if strategy.viewers.include?(current_user.id)
           ally_strategies << strategy
         end
