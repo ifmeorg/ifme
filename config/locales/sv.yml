@@ -49,7 +49,7 @@ sv:
    daily_reminder: 'Daglig påminnelse via e-post'
    actions:
     submit: 'Skicka'
-    submit_publish: 'Publicar'
+    submit_publish: 'Publicera'
     submit_draft: 'Utkast'
     confirm: 'Är du säker?'
     delete: 'Radera'
