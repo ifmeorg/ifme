@@ -77,6 +77,7 @@ class MomentsController < ApplicationController
       why: params[:moment][:why],
       comment: true,
       viewers: viewers,
+      published_at: Time.zone.now,
       category: params[:moment][:category],
       mood: params[:moment][:mood]
     )

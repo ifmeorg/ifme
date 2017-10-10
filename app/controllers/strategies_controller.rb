@@ -55,7 +55,12 @@ class StrategiesController < ApplicationController
       viewers.push(item.id)
     end
 
-    strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
+    strategy = Strategy.new(userid: current_user.id,
+                            name: params[:strategy][:name],
+                            description: params[:strategy][:description],
+                            category: params[:strategy][:category],
+                            published_at: Time.zone.now,
+                            comment: true, viewers: viewers)
 
     result = if strategy.save
                render_checkbox(strategy, 'strategy', 'moment')
