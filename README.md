@@ -17,7 +17,7 @@ them involved in mental health treatment is the key to recovery.
 
 The live site can be found at [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/documentation/CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](CONTRIBUTING.md).**
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
