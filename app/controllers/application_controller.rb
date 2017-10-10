@@ -104,10 +104,11 @@ class ApplicationController < ActionController::Base
   def most_focus(data_type, profile_id)
     data = []
     userid = profile_id || current_user.id
+    moments =
     if current_user.id == profile_id
-      moments = user_moments(userid)
+      user_moments(userid)
     else
-      moments = user_moments(userid).where.not(published_at: nil)
+      user_moments(userid).where.not(published_at: nil)
     end
     if data_type == 'category'
       strategies = user_strategies(userid)
@@ -200,11 +201,13 @@ class ApplicationController < ActionController::Base
       ally_strategies = []
 
       allies.each do |ally|
-        Moment.where(userid: ally.id).where.not(published_at: nil).all.order('created_at DESC').each do |moment|
+        Moment.where(userid: ally.id).where.not(published_at: nil).all.
+                              order('created_at DESC').each do |moment|
           ally_moments << moment if moment.viewers.include?(user.id)
         end
 
-        Strategy.where(userid: ally.id).where.not(published_at: nil).all.order('created_at DESC').each do |strategy|
+        Strategy.where(userid: ally.id).where.not(published_at: nil).all.
+                              order('created_at DESC').each do |strategy|
           ally_strategies << strategy if strategy.viewers.include?(user.id)
         end
       end
@@ -215,11 +218,13 @@ class ApplicationController < ActionController::Base
       ally_moments = []
       ally_strategies = []
 
-      Moment.where(userid: user.id).where.not(published_at: nil).all.order('created_at DESC').each do |moment|
+      Moment.where(userid: user.id).where.not(published_at: nil).all.
+                            order('created_at DESC').each do |moment|
         ally_moments << moment if moment.viewers.include?(current_user.id)
       end
 
-      Strategy.where(userid: user.id).where.not(published_at: nil).all.order('created_at DESC').each do |strategy|
+      Strategy.where(userid: user.id).where.not(published_at: nil).all.
+                            order('created_at DESC').each do |strategy|
         if strategy.viewers.include?(current_user.id)
           ally_strategies << strategy
         end
@@ -382,7 +387,9 @@ class ApplicationController < ActionController::Base
   end
 
   def hide_page?(subject)
-    (!current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)) || !subject.published?
+    (!current_user.mutual_allies?(subject.user) \
+    && !subject.viewer?(current_user)) \
+    || !subject.published?
   end
 
   def user_strategies(userid)

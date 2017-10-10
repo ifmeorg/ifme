@@ -204,10 +204,10 @@ class MomentsController < ApplicationController
   end
 
   def publishing?
-    params[:draft] == "1"
+    params[:draft] == '1'
   end
 
   def saving_as_draft?
-    params[:draft] != "1"
+    params[:draft] != '1'
   end
 end
