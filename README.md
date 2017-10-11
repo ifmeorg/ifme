@@ -34,7 +34,11 @@ UI development and design specs are located in [DESIGN.md](https://www.github.co
 
 ## Testing Guidelines
 
-Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
+Testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
+
+## Translations
+
+The process for how to add translations for new languages can be found [here](https://github.com/julianguyen/ifme/wiki/Translations).
 
 ## Tracking Issues and Committing Code
 
