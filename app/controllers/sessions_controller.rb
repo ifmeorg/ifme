@@ -9,8 +9,6 @@ class SessionsController < Devise::SessionsController
   private
 
   def set_user_locale
-    unless cookies[:locale].eql?(I18n.default_locale)
-      current_user.update(locale: cookies[:locale])
-    end
+    current_user.update(locale: cookies[:locale]) unless cookies[:locale].eql?(I18n.default_locale)
   end
 end
