@@ -53,6 +53,10 @@ You can read about Rubocop [here](http://rubocop.readthedocs.io/en/latest/).
 Make a fork of the repository, create a new branch for every feature you are
 working on! **Always make pull requests!**
 
+### Pull Requests & Syncing
+
+You can learn more about how to create a pull request and sync your forked repo with the upstream (ifme) repo [here](https://github.com/julianguyen/ifme/wiki/Pull-Requests-&-Syncing).
+
 If you've been added as a collaborator to the repository, please do not push
 unless the commit you are making is _trivial_ i.e. doesn't require a code
 review. If you're unsure about this, please ask!

@@ -81,12 +81,8 @@ Rails.application.routes.draw do
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
-  match 'contribute', to: 'pages#contribute', via: :get 
-<<<<<<< HEAD
+  match 'contribute', to: 'pages#contribute', via: :get
   match 'partners', to: 'pages#partners', via: :get
-=======
-  match 'partners', to: 'pages#partners', via: :get 
->>>>>>> 311f67d... emove package.json
   match 'blog', to: 'pages#blog', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
   match 'faq', to: 'pages#faq', via: :get
