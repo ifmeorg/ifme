@@ -51,7 +51,7 @@ contributors write a blurb on themselves, what mental health means to them, and
 why they are part of the project.
 
 This also helps people to familiarize themselves with the code base! The live
-contributors page can be found [here](http://www.if-me.org/contributors).
+contributors page can be found [here](https://www.if-me.org/contribute).
 Contributor images must be at least 800x800 px and be in .jpg or .png format.
 Please save the image as
 `app/assets/images/contributors/firstname_lastname.png`! Add your blurb to
