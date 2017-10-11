@@ -66,10 +66,6 @@ Please join our `#socialmedia` channel on Slack! We post amazing content all ove
 
 As well as new and original content, we also accept content that has already been published.
 
-## Contributors via GitHub
-
-<a href="graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
-
 ## Donate
 
 We also welcome financial contributions in full transparency on our [Open Collective](https://opencollective.com/ifme).
