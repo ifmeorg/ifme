@@ -60,6 +60,8 @@ Rails.application.routes.draw do
       get "leave"
       post "comment"
       get "delete_comment"
+      get "add_gcal_event"
+      get "delete_gcal_event"
     end
   end
 

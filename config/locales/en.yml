@@ -58,6 +58,8 @@ en:
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'
+    schedule_gmaps: 'Add to google calendar'
+    schedule_gmaps_delete: 'Remove from google calendar'
    form:
      email: "Email"
      location: "Location"
@@ -222,7 +224,11 @@ en:
   form:
    location_placeholder: 'URL or street address'
    maximum_members: 'Maximum Members'
-   maximum_placeholder: '0 if no maximum'
+   maximum_placeholder: '0 if no maximum'   
+   add_gcalendar_fail: 'Something went wrong'
+   del_gcalendar_fail: 'Something went wrong'
+   del_gcalendar_succes: 'Deleted from google calendar succesfully'            
+   add_gcalendar_success: 'Added to google calendar succesfully'
   join_success: 'You have joined this meeting.'
   info:
    cancel_meeting: 'Cancel meeting'
