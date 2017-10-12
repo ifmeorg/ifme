@@ -196,5 +196,14 @@
     "link_name": "kavixiu",
     "link": "https://github.com/kavixiu",
     "social": "github"
+  },
+  {
+    "name": "Jennifer Lyn Parsons",
+    "image": "/assets/contributors/jennifer_parsons.jpg",
+    "profile": "I've struggled with depression and anxiety for most of my life, but I've been lucky to have the support of my dear family to help me through the rough patches. I'm here to apply my skills as a web developer, writer, and designer toward hopefully helping others share their stories and breaking down the stigmas surrounding mental health.",
+    "location": "New Jersey, USA",
+    "link_name": "jenniferlynparsons",
+    "link": "http://github.com/jenniferlynparsons",
+    "social": "github"
   }
 ]
