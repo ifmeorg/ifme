@@ -229,7 +229,7 @@ es:
    maximum_placeholder: "0 si no hay máximo"
    add_gcalendar_fail: 'Algo fue mal'
    del_gcalendar_fail: 'Algo fue mal'
-   del_gcalendar_succes: 'Se eliminó de google calendar correctamente.'            
+   del_gcalendar_success: 'Se eliminó de google calendar correctamente.'            
    add_gcalendar_success: 'Se agregó a google calendar correctamente.'
   join_success: 'You have joined this meeting.'
   join_success: "Te has unido a esta reunión"

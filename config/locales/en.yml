@@ -227,7 +227,7 @@ en:
    maximum_placeholder: '0 if no maximum'   
    add_gcalendar_fail: 'Something went wrong'
    del_gcalendar_fail: 'Something went wrong'
-   del_gcalendar_succes: 'Deleted from google calendar succesfully'            
+   del_gcalendar_success: 'Deleted from google calendar succesfully'            
    add_gcalendar_success: 'Added to google calendar succesfully'
   join_success: 'You have joined this meeting.'
   info:
