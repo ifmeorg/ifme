@@ -17,7 +17,7 @@ them involved in mental health treatment is the key to recovery.
 
 The live site can be found at [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/documentation/CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](CONTRIBUTING.md).**
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
@@ -34,7 +34,11 @@ UI development and design specs are located in [DESIGN.md](https://www.github.co
 
 ## Testing Guidelines
 
-Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
+Testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
+
+## Translations
+
+The process for how to add translations for new languages can be found [here](https://github.com/julianguyen/ifme/wiki/Translations).
 
 ## Tracking Issues and Committing Code
 
@@ -47,7 +51,7 @@ contributors write a blurb on themselves, what mental health means to them, and
 why they are part of the project.
 
 This also helps people to familiarize themselves with the code base! The live
-contributors page can be found [here](http://www.if-me.org/contributors).
+contributors page can be found [here](https://www.if-me.org/contribute).
 Contributor images must be at least 800x800 px and be in .jpg or .png format.
 Please save the image as
 `app/assets/images/contributors/firstname_lastname.png`! Add your blurb to

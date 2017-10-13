@@ -2,19 +2,21 @@
 #
 # Table name: moments
 #
-#  id         :integer          not null, primary key
-#  category   :text
-#  name       :string
-#  mood       :text
-#  why        :text
-#  fix        :text
-#  created_at :datetime
-#  updated_at :datetime
-#  userid     :integer
-#  viewers    :text
-#  comment    :boolean
-#  strategy   :text
-#  slug       :string
+#  id                      :integer          not null, primary key
+#  category                :text
+#  name                    :string
+#  mood                    :text
+#  why                     :text
+#  fix                     :text
+#  created_at              :datetime
+#  updated_at              :datetime
+#  userid                  :integer
+#  viewers                 :text
+#  comment                 :boolean
+#  strategy                :text
+#  slug                    :string
+#  secret_share_identifier :uuid
+#  secret_share_expires_at :datetime
 #
 
 describe Moment do
