@@ -13,6 +13,7 @@
 #
 
 class Allyship < ApplicationRecord
+  before_destroy :remove_activities_between_users
   enum status: %i[accepted pending_from_user pending_from_ally]
 
   validate :different_users
@@ -56,5 +57,29 @@ class Allyship < ApplicationRecord
     errors.add(:user_id, 'identical users') if user_id == ally_id
     errors.add(:user_id, 'user_id is nil') if user_id.nil?
     errors.add(:ally_id, 'ally_id is nil') if ally_id.nil?
+  end
+
+  private
+
+  def remove_ally_notifications
+    user_id = self.user_id
+    ally_id = self.ally_id
+    Notification.for_ally(user_id, ally_id).or(
+      Notification.for_ally(ally_id, user_id)
+    ).destroy_all
+  end
+
+  def remove_ally_viewers
+    user_id = self.user_id
+    ally_id = self.ally_id
+    [Moment, Strategy].each do |viewed_class|
+      viewed_class.destroy_viewer(user_id, ally_id)
+      viewed_class.destroy_viewer(ally_id, user_id)
+    end
+  end
+
+  def remove_activities_between_users
+    remove_ally_notifications
+    remove_ally_viewers
   end
 end

@@ -1,13 +1,13 @@
-<% title t('navigation.contributors') %>
+<% title t('navigation.contribute') %>
 
 <div class="main_message">
-	<%= t('pages.contributors.main_message_one') %>
+	<%= t('pages.contribute.main_message_one') %>
 </div>
 
 <div class="message_text">
-  <%= raw t('pages.contributors.message_text_one', {
+  <%= raw t('pages.contribute.message_text_one', {
     email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}"),
-    slack_link: link_to(t('pages.contributors.slack'), 'https://ifme.slack.com', target: 'blank'),
+    slack_link: link_to(t('pages.contribute.slack'), 'https://ifme.slack.com', target: 'blank'),
     github_link: link_to(t('navigation.github'), 'https://github.com/julianguyen/ifme', target: 'blank')
     })
   %>
@@ -35,9 +35,9 @@
 <div class="spacer"></div>
 
 <div class="main_message">
-  <%= t('pages.contributors.more_contributors') %>
+  <%= t('pages.contribute.more_contributors') %>
 </div>
 
 <div class="message_text">
-  <%= t('pages.contributors.thanks') %> <%= print_contributors(@contributors) %>
+  <%= t('pages.contribute.thanks') %> <%= print_contributors(@contributors) %>
 </div>
