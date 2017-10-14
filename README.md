@@ -17,7 +17,7 @@ them involved in mental health treatment is the key to recovery.
 
 The live site can be found at [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/julianguyen/ifme/blob/master/CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](CONTRIBUTING.md).**
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
@@ -26,19 +26,23 @@ before joining our project.
 
 ## Installation
 
-Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
+Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/INSTALLATION.md). Both local and production instances are covered.
 
 ## UI Development Environment and Design
 
-UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/blob/master/DESIGN.md).
+UI development and design specs are located in [DESIGN.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/DESIGN.md).
 
 ## Testing Guidelines
 
-Code and account testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/TESTING.md).
+Testing guidelines are located in [TESTING.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/TESTING.md).
+
+## Translations
+
+The process for how to add translations for new languages can be found [here](https://github.com/julianguyen/ifme/wiki/Translations).
 
 ## Tracking Issues and Committing Code
 
-Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/blob/master/WORKFLOW.md).
+Information about workflows and contributions can be found in [WORKFLOW.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/WORKFLOW.md).
 
 ## Contributor Blurb
 
@@ -47,7 +51,7 @@ contributors write a blurb on themselves, what mental health means to them, and
 why they are part of the project.
 
 This also helps people to familiarize themselves with the code base! The live
-contributors page can be found [here](http://www.if-me.org/contributors).
+contributors page can be found [here](https://www.if-me.org/contribute).
 Contributor images must be at least 800x800 px and be in .jpg or .png format.
 Please save the image as
 `app/assets/images/contributors/firstname_lastname.png`! Add your blurb to
@@ -55,10 +59,6 @@ Please save the image as
 
 If you've contributed to the project but do not want to write a blurb, please
 add your name and desired social media link to `doc/pages/contributors.json`.
-
-Below are folks who have contributed via GitHub!
-
-<a href="https://github.com/julianguyen/ifme/graphs/contributors"><img src="https://opencollective.com/ifme/contributors.svg?width=890" /></a>
 
 ## Donate
 
