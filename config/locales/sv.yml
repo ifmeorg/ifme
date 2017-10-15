@@ -661,3 +661,49 @@ sv:
     unlock: "Fick du inte upplåsningsinstruktioner?"
   unlock:
     resend: 'Skicka upplåsningsinstruktionerna igen'
+
+ datetime:
+  distance_in_words:
+    about_x_hours:
+      one: ungefär en timme
+      other: ungefär %{count} timmar
+    about_x_months:
+      one: ungefär en månad
+      other: ungefär %{count} månader
+    about_x_years:
+      one: ungefär ett år
+      other: ungefär %{count} år
+    almost_x_years:
+      one: nästan ett år
+      other: nästan %{count} år
+    half_a_minute: en halv minut
+    less_than_x_minutes:
+      one: mindre än en minut
+      other: mindre än %{count} minuter
+    less_than_x_seconds:
+      one: mindre än en sekund
+      other: mindre än %{count} sekunder
+    over_x_years:
+      one: mer än ett år
+      other: mer än %{count} år
+    x_days:
+      one: en dag
+      other: "%{count} dagar"
+    x_minutes:
+      one: en minut
+      other: "%{count} minuter"
+    x_months:
+      one: en månad
+      other: "%{count} månader"
+    x_years:
+      one: ett år
+      other: "%{count} år"
+    x_seconds:
+      one: en sekund
+      other: "%{count} sekunder"
+
+ date:
+  formats:
+    default: "%Y-%m-%d"
+    long: "%e %B %Y"
+    short: "%e %b"
