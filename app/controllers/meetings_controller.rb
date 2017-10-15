@@ -58,7 +58,7 @@ class MeetingsController < ApplicationController
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
 
-    render nothing: true
+    head :ok
   end
 
   # GET /meetings/new

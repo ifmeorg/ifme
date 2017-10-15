@@ -83,7 +83,7 @@ Rails.application.routes.draw do
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
-  match 'contributors', to: 'pages#contributors', via: :get
+  match 'contribute', to: 'pages#contribute', via: :get
   match 'partners', to: 'pages#partners', via: :get
   match 'blog', to: 'pages#blog', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
@@ -92,7 +92,10 @@ Rails.application.routes.draw do
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
 
-  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks', :invitations => 'users/invitations' }
+  devise_for :users, :controllers => { :registrations => :registrations,
+                                       :omniauth_callbacks => 'omniauth_callbacks',
+                                       :invitations => 'users/invitations',
+                                       :sessions => :sessions }
 
   mount Ckeditor::Engine => "/ckeditor"
 
