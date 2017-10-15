@@ -58,6 +58,8 @@ ptbr:
     add_all: 'Adcionar tudo'
     select_all: 'Selecionar tudo'
     remove: 'Remover'
+    google_cal_add: 'Adicionar ao calendário do Google'    
+    google_cal_delete: 'Excluir do calendário do Google'
    form:
      email: "Email"
      location: "Localização"

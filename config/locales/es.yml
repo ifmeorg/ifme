@@ -58,8 +58,8 @@ es:
     add_all: "Agregar todo"
     select_all: "Seleccionar todo"
     remove: "Remover"
-    schedule_gmaps: 'Agregar a google calendar'
-    schedule_gmaps_delete: 'Eliminar de google calendar'
+    google_cal_add: 'Agregar al calendario de google'
+    google_cal_delete: 'Eliminar del calendario de google'
    form:
      email: "Correo electrónico"
      location: "Ubicación"
@@ -227,10 +227,10 @@ es:
    location_placeholder: "URL o dirección física"
    maximum_members: "Cantidad máxima de miembros"
    maximum_placeholder: "0 si no hay máximo"
-   add_gcalendar_fail: 'Algo fue mal'
-   del_gcalendar_fail: 'Algo fue mal'
-   del_gcalendar_success: 'Se eliminó de google calendar correctamente.'            
-   add_gcalendar_success: 'Se agregó a google calendar correctamente.'
+   add_gcalendar_fail: 'Ocurrió un error'
+   del_gcalendar_fail: 'Ocurrió un error'
+   del_gcalendar_success: 'Se eliminó del calendario de google correctamente.'            
+   add_gcalendar_success: 'Se agregó al calendario de google correctamente.'
   join_success: 'You have joined this meeting.'
   join_success: "Te has unido a esta reunión"
   info:

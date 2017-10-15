@@ -58,8 +58,8 @@ en:
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'
-    schedule_gmaps: 'Add to google calendar'
-    schedule_gmaps_delete: 'Remove from google calendar'
+    google_cal_add: 'Add to google calendar'
+    google_cal_delete: 'Remove from google calendar'
    form:
      email: "Email"
      location: "Location"

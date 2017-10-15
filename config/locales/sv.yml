@@ -58,6 +58,8 @@ sv:
     add_all: 'Lägg till alla'
     select_all: 'Välj alla'
     remove: 'Ta bort'
+    google_cal_add: 'Lägg till i Google-kalendern'
+    google_cal_delete: 'Ta bort från Google Kalender'
    form:
      email: "E-post"
      location: "Plats"
@@ -223,6 +225,10 @@ sv:
    location_placeholder: 'URL eller gatuadress'
    maximum_members: 'Högsta antal medlemmar'
    maximum_placeholder: 'Skriv 0 för ingen begränsning'
+   add_gcalendar_fail: 'Något gick fel'
+   del_gcalendar_fail: 'Något gick fel'
+   del_gcalendar_success: 'Släckt från google kalender framgångsrikt'            
+   add_gcalendar_success: 'Tillagd till google kalender framgångsrikt'
   join_success: 'Du har gått med i det här mötet.'
   info:
    cancel_meeting: 'Avbryt möte'

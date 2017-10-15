@@ -123,14 +123,15 @@ module MeetingsHelper
   end
 
   def google_calendar(meeting)
-    if (meeting.members.include? current_user) && current_user.google_oauth2_enabled? && gcal_event_exists?(meeting)
+    if (meeting.members.include? current_user) &&
+       current_user.google_oauth2_enabled? && gcal_event_exists?(meeting)
       link_to(
-        t('common.actions.schedule_gmaps_delete'),
+        t('common.actions.google_cal_delete'),
         delete_gcal_event_meetings_path(meetingid: meeting.id)
       )
     else
       link_to(
-        t('common.actions.schedule_gmaps'),
+        t('common.actions.google_cal_add'),
         add_gcal_event_meetings_path(meetingid: meeting.id)
       )
     end
