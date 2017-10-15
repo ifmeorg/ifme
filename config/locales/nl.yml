@@ -24,7 +24,7 @@ nl:
  navigation:
    about: 'Over'
    blog: 'Blog'
-   contributors: 'Bijdragers'
+   contribute: 'Draag bij'
    partners: 'Partners'
    privacy: 'Privacy Policy'
    github: 'GitHub'
@@ -357,7 +357,7 @@ nl:
     fund_club: 'Fund Club'
   blog:
     description: "Als je voor ons wilt schrijven, stuur ons een email op %{email}! We staan open voor anonieme bijdragen."
-  contributors:
+  contribute:
     main_message_one: "if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achteggronden met verschillende vaardigheden."
     message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
     more_contributors: 'Meer fantastische bijdragers!'
