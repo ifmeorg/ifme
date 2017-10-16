@@ -1,11 +1,6 @@
 <%= render partial: 'shared/editor_modal' %>
 
 <%= form_for(@moment) do |f| %>
-<% if @moment.errors.any? %>
-  <div class="error_explanation">
-    <%= t('common.form.error_explanation') %>
-  </div>
-<% end %>
 
 <div class="table">
 
