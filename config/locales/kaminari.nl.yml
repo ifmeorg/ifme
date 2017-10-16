@@ -10,7 +10,7 @@ nl:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "%{entry_name} neit gevonden"
+          zero: "%{entry_name} niet gevonden"
           one: "Weergeven van <b>1</b> %{entry_name}"
           other: "Weergeven van <b>alle %{count}</b> %{entry_name}"
       more_pages:
