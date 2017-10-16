@@ -4,8 +4,8 @@
 nl:
   devise:
     confirmations:
-      confirmed: "Je emailadres is met succes bevestigd."
-      send_instructions: "Je zult binnen enkele minuten een email ontvangen met instructies om je emailadres te bevestigen."
+      confirmed: "Je e-mailadres is met succes bevestigd."
+      send_instructions: "Je zult binnen enkele minuten een e-mail ontvangen met instructies om je e-mailadres te bevestigen."
       send_paranoid_instructions: "mail ontvangen met instructies om je account te activeren."
     failure:
       already_authenticated: "Je bent reeds ingelogd."
@@ -16,7 +16,7 @@ nl:
       not_found_in_database: "Invalide %{authentication_keys} of wachtwoord."
       timeout: "Je sessie is verlopen. Log nogmaals in om door te gaan."
       unauthenticated: "Je moet inloggen of aanmelden voordat je door kunt gaan."
-      unconfirmed: "Je moet je emailadres bevestigen voordat je door kunt gaan."
+      unconfirmed: "Je moet je e-mailadres bevestigen voordat je door kunt gaan."
     mailer:
       confirmation_instructions:
         subject: "Bevestig je account"
@@ -30,9 +30,9 @@ nl:
       failure: "Kan je niet authenticeren via %{kind} omdat \"%{reason}\"."
       success: "Successvol geauthenticeerd via %{kind} account."
     passwords:
-      no_token: "Je kan niet op deze pagina komen zonder uit een wachtwoord reset email te komen. Indien je wel uit zo'n email komt, let er op dat je de volledige URL hebt overgenomen."
-      send_instructions: "Binnen enkele minuten zul je een email ontvangen met instructies over hoe je je wachtwoord kunt resetten."
-      send_paranoid_instructions: "Als je emailadres reeds in onze database staat, dan zul je instructies ontvangen om je wachtwoord te resetten."
+      no_token: "Je kan niet op deze pagina komen zonder uit een wachtwoord reset e-mail te komen. Indien je wel uit zo'n e-mail komt, let er op dat je de volledige URL hebt overgenomen."
+      send_instructions: "Binnen enkele minuten zul je een e-mail ontvangen met instructies over hoe je je wachtwoord kunt resetten."
+      send_paranoid_instructions: "Als je e-mailadres reeds in onze database staat, dan zul je instructies ontvangen om je wachtwoord te resetten."
       updated: "Je wachtwoord is ingesteld. Je bent nu ingelogd."
       updated_not_active: "Je wachtwoord is met succes aangepast."
     registrations:
@@ -40,16 +40,16 @@ nl:
       signed_up: "Welkom! Je hebt je met succes aangemeld."
       signed_up_but_inactive: "Je hebt je met succes aangemeld, maar we konden je niet inloggen omdat je account nog niet is geactiveerd."
       signed_up_but_locked: "Je hebt je met succes aangemeld, maar we konden je niet inloggen omdat je account is vergrendeld."
-      signed_up_but_unconfirmed: "Een bericht met een bevestigingslink is via email naar je toegestuurd. Volg alsjeblieft de link om te bevestigen."
-      update_needs_confirmation: "Je hebt je account met succes aangepast, maar we moeten je nieuwe emailadres bevestigen. Controleer je email en volg de bevestigingslink om door te gaan."
+      signed_up_but_unconfirmed: "Een bericht met een bevestigingslink is via e-mail naar je toegestuurd. Volg alsjeblieft de link om te bevestigen."
+      update_needs_confirmation: "Je hebt je account met succes aangepast, maar we moeten je nieuwe e-mailadres bevestigen. Controleer je e-mail en volg de bevestigingslink om door te gaan."
       updated: "Je account is met succes bijgewerkt."
     sessions:
       signed_in: "Ingelogd."
       signed_out: "Uitgelogd."
-      already_signed_out: "Uitgelogd."
+      already_signed_out: "Reeds uitgelogd."
     unlocks:
-      send_instructions: "Je zult binnen enkele minuten een email ontvangen met instructies om je account te ontgrendelen."
-      send_paranoid_instructions: "Indien je account bestaat zul je binnen enkele minuten een email ontvangen met instructies om je account te ontgrendelen."
+      send_instructions: "Je zult binnen enkele minuten een e-mail ontvangen met instructies om je account te ontgrendelen."
+      send_paranoid_instructions: "Indien je account bestaat zul je binnen enkele minuten een e-mail ontvangen met instructies om je account te ontgrendelen."
       unlocked: "Je account is met succes ontgrendeld. Log in om door te gaan."
   errors:
     messages:
@@ -60,4 +60,4 @@ nl:
       not_locked: "was niet vergrendeld"
       not_saved:
         one: "1 fout voorkwam dat %{resource} opgeslagen kon worden:"
-        other: "%{count} fouten voorkwamen %{resource} dat opgeslagen kon worden:"
+        other: "%{count} fouten voorkwamen dat %{resource} opgeslagen kon worden:"

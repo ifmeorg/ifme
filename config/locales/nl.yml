@@ -46,7 +46,7 @@ nl:
    you: 'Jij'
    title: 'Titel'
    date: 'Datum:'
-   daily_reminder: 'Dagelijkse herinnering email'
+   daily_reminder: 'Dagelijkse herinnering e-mail'
    actions:
     submit: 'Versturen'
     confirm: 'Weet je het zeker?'
@@ -60,7 +60,7 @@ nl:
     select_all: 'Alles selecteren'
     remove: 'Verwijderen'
    form:
-     email: "Email"
+     email: "E-mail"
      location: "Locatie"
      description: 'Omschrijving'
      error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
@@ -163,14 +163,14 @@ nl:
   mailer:
    html:
     app_description: "%{app_name} is een gemeenschap die mensen aanmoedigd om hun verhalen over geestelijke gezondheid te delen met hun naasten."
-    no_reply: "Je kunt niet antwoorden op deze email. Als je vragen, opmerkingen of terugkoppeling hebt kun je mailen met %{email}!"
+    no_reply: "Je kunt niet antwoorden op deze e-mail. Als je vragen, opmerkingen of terugkoppeling hebt kun je mailen met %{e-mail}!"
   title:
    reset_password: Wachtwoord herstellen
 
  medications:
   singular: 'Medicatie'
   edit_medication: 'Bewerk Medicatie'
-  refill_reminder: 'Bijvul herinnering email'
+  refill_reminder: 'Bijvul herinnering e-mail'
   dosage: 'Dagelijkse dosis:'
   refill: 'Bijvullen:'
   quantity: 'Totale Hoeveelheid:'
@@ -189,7 +189,7 @@ nl:
    total_hint: 'Totale hoeveelheid pillen of hoeveelheid medicatie'
    dosage_hint: 'Hoeveelheid pillen of dosis per dag'
    refill_hint: 'Wanneer dit voorschrift bijgevult moet worden'
-   refill_reminder_hint: "We emailen je een herinnering een week voordat je medicatie bijgevult moet worden."
+   refill_reminder_hint: "We e-mailen je een herinnering een week voordat je medicatie bijgevult moet worden."
    daily_reminder_hint: "We mailen je dagelijks een herinnering om je medicatie in te nemen"
   new: 'Nieuwe Medicatie'
   units:
@@ -346,7 +346,7 @@ nl:
  pages:
   about:
     send_us: 'ons'
-    email_us: 'Voel je vrij en stuur een email naar %{email_link}!'
+    e-mail_us: 'Voel je vrij en stuur een e-mail naar %{e-mail_link}!'
     main_message_one: "%{app_name} is een gemeenschap voor geestelijke gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen te delen met hun vertrouwde bondgenoten."
     message_text_one: "Vertrouwde bondgenoten zijn de mensen met wie we dagelijks contact mee hebben, zoals vrienden, familie leden, collega's leraren en GGZ medewerkers."
     main_message_two: "Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn."
@@ -356,10 +356,10 @@ nl:
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
-    description: "Als je voor ons wilt schrijven, stuur ons een email op %{email}! We staan open voor anonieme bijdragen."
+    description: "Als je voor ons wilt schrijven, stuur ons een e-mail op %{e-mail}! We staan open voor anonieme bijdragen."
   contribute:
     main_message_one: "if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achteggronden met verschillende vaardigheden."
-    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
+    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{e-mail_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
     more_contributors: 'Meer fantastische bijdragers!'
     thanks: 'Enorme dank gaat naar'
     slack: 'Slack'
@@ -380,9 +380,9 @@ nl:
     medications_question: 'Hoe gebruik ik de Medicatie functie?'
     medications_answer: 'De <strong>Medicatie</strong> functie stelt je in staat om een log bij te houden van de voorgeschreven medicatie die je gebruikt. Je kunt hier tevens je symptomen bij kwijt.'
     invite_question: 'Hoe kan ik mijn naasten uitnodigen om de app te gebruiken?'
-    invite_answer: 'Ga naar de <strong>Bondgenoten</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per email uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
-    email_notifications_question: 'Hoe pas ik mijn email notificaties aan?'
-    email_notifications_answer: "Ga naar de <strong>Account</strong> pagina door te drukken op %{desktop_icon} (desktop) of %{mobile_icon} (mobiel) in de navigatie balk. Je kunt je email, wachtwoord, profiel foto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
+    invite_answer: 'Ga naar de <strong>Bondgenoten</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per e-mail uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
+    e-mail_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
+    e-mail_notifications_answer: "Ga naar de <strong>Account</strong> pagina door te drukken op %{desktop_icon} (desktop) of %{mobile_icon} (mobiel) in de navigatie balk. Je kunt je e-mail, wachtwoord, profiel foto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
   home:
     stories: 'Verhalen'
     welcome: 'Welkom'
@@ -407,10 +407,10 @@ nl:
       main_message_four: 'Zorg veer jezelf.'
       cell_three: '%{strategize} je self-care plan!<br>Neem je op dit moment %{medications}? Hou ze bij en maak er herinneringen voor aan!<br>Heb je extra hulp nodig? Wordt lid van of maak een %{group} em er over te praten'
       main_message_five: 'Heb je vragen of opmerkingen?'
-      message_text_three: 'Bekijk onze %{faq} pagina of %{email_link}!'
+      message_text_three: 'Bekijk onze %{faq} pagina of %{e-mail_link}!'
       strategize: 'Strategiseer'
   partners:
-    description: 'Dit zijn de geweldige organisaties die ons inspireren en met wij de eer hebben gehad om mee samen te werken. We zouden het geweldig vinden om met jouw organisatie samen te werken, email ons op %{email}.'
+    description: 'Dit zijn de geweldige organisaties die ons inspireren en met wij de eer hebben gehad om mee samen te werken. We zouden het geweldig vinden om met jouw organisatie samen te werken, e-mail ons op %{e-mail}.'
   privacy:
     summary: 'Samenvatting'
     summary_description: '<p>Deze privacy policy is voor deze website, en bewaakt de privacy van haar gebruikers.</p><p>Gegeven de gevoelige aard van de inhoud van de website, is privacy van cruciaal belang voor ons. Het omschreven beleid beschrijft hoe gebruikersdata wordt verzameld, waar het voor wordt gebruikt en hoe het is beveiligd.</p>'
@@ -419,9 +419,9 @@ nl:
     cookies: 'Gebruik van Cookues'
     cookies_description: "<p>Deze website gebruikt cookies om de gebruikerservaring te verbeteren. Waar van toepassing gebruikt deze website een cookie control system om de gebruiker op zijn eerste bezoek te vrage om cookies toe te staan voor zijn/haar apparaat.</p><p>Cookies zijn kleine bestanden op de harde schijf van de gebruiker die je volgen, en informatie opslaan over de gebruiker zijn/haar interactie en het gebruik van de website. Dit staat de website toe, en de server, de gebruiker een ervaring op maat te geven.</p><p>Gebruikers wordt geadviseerd om, indien ze geen Cookies willen gebruiken voor deze website, de nodige stappen te ondernemen binnen de web browser haar beveiligings instellingen om alle Cookies te blokkeren van deze website en zijn externe partners.</p><p>Deze website gebruikt tracking software om beter te begrijpen hoe bezoekers haar gebruiken. Deze software wordt geleverd door Google Analytics welke Cookies gebruikt om gebruikers te volgen. De software zal een Cookie plaatsen op je computer om het gebruik van de website te monitoren, maar zal geen persoonlijke informatie opslaan of verzamelen. Je kunt Google's %{google_privacy_policy} voor meer informatie.</p>"
     social_media: 'Social Media Platformen'
-    social_media_description: '<p>Communicatie, loyaliteit en acties vanuit externe social media platformen waar deze website in participeert zijn onderhevig aan de voorwaarden en privacy policies van deze respectievelijke platformen.</p><p>Gebruikers wordt geadviseerd om social media platformen wijs en spaarzaam op te communiceren met betrekking tot hun eigen privacy en persoonlijke details. Deze website zal nooit om persoonlijke of gevoelige informatie vragen via sociale media platformen en raad gebruikers aan om gevoelige details te delen door primaire middelen van communicatie zoals telefoon of email.</p><p>Deze website kan gebruik maken van knoppen voor delen op social media om te helpen bij het delen van web content met anderen direct op de gebruikte sociale media. Gebruikers wordt geadviseerd alvorens het gebruik na te denken over het feit dat het platform de gegevens kan volgen en plaatsen door jouw account.</p>'
+    social_media_description: '<p>Communicatie, loyaliteit en acties vanuit externe social media platformen waar deze website in participeert zijn onderhevig aan de voorwaarden en privacy policies van deze respectievelijke platformen.</p><p>Gebruikers wordt geadviseerd om social media platformen wijs en spaarzaam op te communiceren met betrekking tot hun eigen privacy en persoonlijke details. Deze website zal nooit om persoonlijke of gevoelige informatie vragen via sociale media platformen en raad gebruikers aan om gevoelige details te delen door primaire middelen van communicatie zoals telefoon of e-mail.</p><p>Deze website kan gebruik maken van knoppen voor delen op social media om te helpen bij het delen van web content met anderen direct op de gebruikte sociale media. Gebruikers wordt geadviseerd alvorens het gebruik na te denken over het feit dat het platform de gegevens kan volgen en plaatsen door jouw account.</p>'
     contact: 'Neem contact met ons op'
-    contact_description: "<p>Gaarne %{email_link} indien je vragen of opmerkingen hebt.</p><p class=\"no_margin_bottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Gaarne %{e-mail_link} indien je vragen of opmerkingen hebt.</p><p class=\"no_margin_bottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
   resources:
     description: "Welkom op onze samengestelde lijst van bronnen georganiseerd op %{communities}, %{education}, %{hotlines}, en %{services}."
     communities: Gemeenschappen
@@ -510,11 +510,11 @@ nl:
   search_by_name: 'Zoeken op naam'
   form:
    search_by_location: 'Zoeken op locatie'
-   search_by_email: 'Zoeken op email'
+   search_by_email: 'Zoeken op e-mail'
 
   index:
    title: 'Zoeken op Bondgenoten'
-   user_not_found: 'Gebruiker %{email} niet gevonden'
+   user_not_found: 'Gebruiker %{e-mail} niet gevonden'
 
  shared:
   footer:
@@ -569,7 +569,7 @@ nl:
    strategies_label: 'Welke Strategieën zouden helpen deze gedachten te vervullen?'
    name_hint: 'Elke activiteit, gedachtenstroom of vorm van self-care die je helpt'
    viewers_hint: 'Bondgenoten die je strategie kunnen bekijken en hun eigen momenten mee kunnen taggen'
-   daily_reminder_hint: "We zullen je dagelijks emailen omdeze strategie uit te voeren"
+   daily_reminder_hint: "We zullen je dagelijks e-mailen omdeze strategie uit te voeren"
   label:
    one: 'Strategie:'
    other: 'Strategieën:'
@@ -610,11 +610,11 @@ nl:
     resend_confirmation: "Verstuur bevestigings instructies opnieuw"
   mailer:
     confirmation:
-      link_instructions: "Je kunt je account email bevestigen met onderstaande link"
+      link_instructions: "Je kunt je account e-mail bevestigen met onderstaande link"
       link_text: "Bevestig mijn account"
     reset_password:
       link_instructions: "Iemand heeft ons verzocht je een link te sturen om je wachtwoord te wijzigen. Je kunt dit doen met onderstaande link."
-      ignore: "Als jij dit niet was, kun je deze email negeren."
+      ignore: "Als jij dit niet was, kun je deze e-mail negeren."
       info: "Je wachtwoord zal niet veranderen totdat je de bovenstaande link volgt en een nieuwe opgeeft."
     unlock:
       info: "Je account is vergrendeld wegens een excessief aantal ongeldige inlogpogingen."
@@ -627,13 +627,13 @@ nl:
       send_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
 
   registrations:
-    email_notifications: "Email Notificaties"
+    e-mail_notifications: "E-mail Notificaties"
     comment_notify_text: "Commentaren op momenten, strategieën en samenkomsten"
     ally_notify_text: "Nieuwe en geaccepteerde bondgenoot verzoeken"
     group_notify_text: "Groep updates"
     meeting_notify_text: "Samenkomst updates"
-    google_auth1: "Als je niet langer via Google wilt authenticeren, geef dan een nieuw email en wachtwoord op."
-    google_auth2: "Omdat je via Google authenticeerd, hef je geen wachtwoord op te geven.<br>Als je dit wilt wijzigen geef dan een nieuw email en wachtwoord op."
+    google_auth1: "Als je niet langer via Google wilt authenticeren, geef dan een nieuw e-mail en wachtwoord op."
+    google_auth2: "Omdat je via Google authenticeerd, hef je geen wachtwoord op te geven.<br>Als je dit wilt wijzigen geef dan een nieuw e-mail en wachtwoord op."
     placeholders:
       repeat_password: "Herhaal Wachtwoord"
     edit:
