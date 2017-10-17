@@ -53,7 +53,7 @@ nl:
       unlocked: "Je account is met succes ontgrendeld. Log in om door te gaan."
   errors:
     messages:
-      already_confirmed: "was reeds bevestigd, probeer eens in te loggen"
+      already_confirmed: "was reeds bevestigd, probeer in te loggen"
       confirmation_period_expired: "moet bevestigd worden voor %{period}, plaats een nieuw verzoek"
       expired: "is verlopen, verzoek een nieuwe"
       not_found: "niet gevonden"
