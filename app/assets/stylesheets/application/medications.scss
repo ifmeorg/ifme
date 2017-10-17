@@ -36,6 +36,10 @@
 
 		.inline-block {
 			display: flex;
+
+			select {
+				margin-right: 0;
+			}
 		}
 	}
 
