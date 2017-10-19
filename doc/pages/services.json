@@ -112,5 +112,11 @@
     "link": "https://www.fda.gov/Safety/MedWatch/default.htm",
     "tags": ["news", "free", "government"],
     "languages": ["en", "es", "ptbr", "vn"]
+  },
+  {
+    "name": "Insight Timer",
+    "link": "https://insighttimer.com",
+    "tags": ["free", "meditation", "teachers", "support_groups", "self_care", "android", "ios"],
+    "languages": ["en"]
   }
 ]
