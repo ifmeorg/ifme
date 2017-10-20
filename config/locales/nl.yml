@@ -486,7 +486,7 @@ nl:
       mood_tracking: stemmings tracking
       veterans: veteranen
       music: muziek
-      integrative: integratieve
+      integrative: integratief
       ptsd: PTSD
       tbi: TBI
       news: nieuws
@@ -494,8 +494,9 @@ nl:
       christian: christendom
       humor: humor
       conference: conferentie
-      addiction: verslavinng
+      addiction: verslaving
       rehabilitation: rehabilitatie
+      teachers: leraren
 
  profile:
   index:
