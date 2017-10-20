@@ -94,19 +94,9 @@
     </div>
     <div class="field">
       <div class="label draft_label">
-        <%= f.label t('moments.form.draft_question') %>
+        <%= f.label t('strategies.form.draft_question') %>
       </div>
-      <label class="switch">
-        <% if @strategy.published? %>
-          <%= check_box_tag 'draft', 1, true, {id:'togBtn'} %>
-        <% else %>
-          <%= check_box_tag 'draft', 1, false, {id:'togBtn'} %>
-        <% end %>
-        <div class="slider round">
-          <span class="on"><%= I18n.t 'common.actions.submit_publish' %></span>
-          <span class="off"><%= I18n.t 'common.actions.submit_draft' %></span>
-        </div>
-      </label>
+      <%= render :partial => '/shared/draft_slider', locals: {published: @strategy.published? } %>
     </div>
   </div>
 </div>
