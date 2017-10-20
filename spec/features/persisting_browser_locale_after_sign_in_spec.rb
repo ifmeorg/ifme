@@ -10,7 +10,10 @@ RSpec.feature 'Persisting browser locale after sign in', type: :feature do
 
     within('span#title_expand') { find('i.expand').click }
     within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
+    expect(find('a[href="/users/sign_in"]')).to have_content('Sign in')
     select 'Español', from: 'locale'
+    expect(find('a[href="/users/sign_in"]')).to have_content('Ingresar')
+
     login_as user
     visit moments_path
 
