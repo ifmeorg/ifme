@@ -660,6 +660,6 @@ nl:
     sign_in_google: 'Log in met Google'
     sign_up_google: 'Meld je aan met Google'
     confirmation: "Bevestiging instructies niet ontvangen?"
-    unlock: "Ontgrendeling instructies niet ontwangen?"
+    unlock: "Ontgrendeling instructies niet ontvangen?"
   unlock:
     resend: 'Ontgrendelings instructies opnieuw versturen'
