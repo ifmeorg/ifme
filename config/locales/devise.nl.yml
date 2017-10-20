@@ -28,15 +28,15 @@ nl:
         subject: "Wachtwoord veranderd"
     omniauth_callbacks:
       failure: "Kan je niet authenticeren via %{kind} omdat \"%{reason}\"."
-      success: "Successvol geauthenticeerd via %{kind} account."
+      success: "Succesvol geauthenticeerd via %{kind} account."
     passwords:
-      no_token: "Je kan niet op deze pagina komen zonder uit een wachtwoord reset e-mail te komen. Indien je wel uit zo'n e-mail komt, let er op dat je de volledige URL hebt overgenomen."
+      no_token: "Je kunt niet op deze pagina komen zonder uit een wachtwoord reset e-mail te komen. Als je wel uit zo'n e-mail komt, let er op dat je de volledige URL hebt overgenomen."
       send_instructions: "Binnen enkele minuten zul je een e-mail ontvangen met instructies over hoe je je wachtwoord kunt resetten."
-      send_paranoid_instructions: "Als je e-mailadres reeds in onze database staat, dan zul je instructies ontvangen om je wachtwoord te resetten."
+      send_paranoid_instructions: "Als je e-mailadres al in onze database staat, dan zul je instructies ontvangen om je wachtwoord te resetten."
       updated: "Je wachtwoord is ingesteld. Je bent nu ingelogd."
       updated_not_active: "Je wachtwoord is met succes aangepast."
     registrations:
-      destroyed: "Tot ziens! Je account is met succes verwijderd. We hopen je in de nabije toekomst weer te zien."
+      destroyed: "Tot ziens! Je account is met succes verwijderd. We hopen je binnenkort weer te zien."
       signed_up: "Welkom! Je hebt je met succes aangemeld."
       signed_up_but_inactive: "Je hebt je met succes aangemeld, maar we konden je niet inloggen omdat je account nog niet is geactiveerd."
       signed_up_but_locked: "Je hebt je met succes aangemeld, maar we konden je niet inloggen omdat je account is vergrendeld."
@@ -49,11 +49,11 @@ nl:
       already_signed_out: "Reeds uitgelogd."
     unlocks:
       send_instructions: "Je zult binnen enkele minuten een e-mail ontvangen met instructies om je account te ontgrendelen."
-      send_paranoid_instructions: "Indien je account bestaat zul je binnen enkele minuten een e-mail ontvangen met instructies om je account te ontgrendelen."
+      send_paranoid_instructions: "Als je account bestaat, zul je binnen enkele minuten een e-mail ontvangen met instructies om je account te ontgrendelen."
       unlocked: "Je account is met succes ontgrendeld. Log in om door te gaan."
   errors:
     messages:
-      already_confirmed: "was reeds bevestigd, probeer in te loggen"
+      already_confirmed: "was al bevestigd, probeer in te loggen"
       confirmation_period_expired: "moet bevestigd worden voor %{period}, plaats een nieuw verzoek"
       expired: "is verlopen, verzoek een nieuwe"
       not_found: "niet gevonden"
