@@ -72,7 +72,8 @@ class User < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
-  validates :locale, inclusion: { in: [nil, 'en', 'es', 'ptbr', 'sv', 'no'] }
+  validates :locale, inclusion: { in: [nil, 'en', 'es', 'ptbr', 'sv', 'nl', 'no] }
+
 
   def remove_leading_trailing_whitespace
     @email&.strip!

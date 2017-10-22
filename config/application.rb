@@ -42,7 +42,7 @@ module Ifme
     # export translations for use in javascript
     config.middleware.use I18n::JS::Middleware
 
-    config.i18n.available_locales = %i[en es ptbr sv no]
+    config.i18n.available_locales = %i[en es ptbr sv nl no]
     config.i18n.default_locale = :en
 
     config.secret_share_enabled = false
