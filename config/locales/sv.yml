@@ -15,6 +15,7 @@ sv:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Olika
@@ -495,6 +496,7 @@ sv:
       conference: konferens
       addiction: missbruk
       rehabilitation: rehabilitering
+      teachers: lärare
 
  profile:
   index:

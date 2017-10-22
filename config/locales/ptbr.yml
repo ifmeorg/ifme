@@ -15,6 +15,7 @@ ptbr:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Outros
@@ -496,6 +497,7 @@ ptbr:
         conference: conferência
         addiction: vício
         rehabilitation: reabilitação
+        teachers: professores
 
  profile:
   index:

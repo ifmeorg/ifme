@@ -15,6 +15,7 @@ en:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Various
@@ -495,6 +496,7 @@ en:
       conference: conference
       addiction: addiction
       rehabilitation: rehabilitation
+      teachers: teachers
 
  profile:
   index:
