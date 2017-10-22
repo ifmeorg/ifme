@@ -16,60 +16,38 @@ describe 'ToggleLanguage', js: true do
       before { visit(root_path) }
 
       it 'toggles locale dropdown on the same page' do
-        within '#page_title' do
-          expect(page).to have_content en_root_title
-        end
-
-        select 'Español', from: 'locale'
-
-        within '#page_title' do
-          expect(page).to have_content es_root_title
-        end
-
-        select 'English', from: 'locale'
-
-        within '#page_title' do
-          expect(page).to have_content en_root_title
-        end
+        expect(find('#page_title')).to have_content en_root_title
+        change_language('es')
+        expect(find('#page_title')).to have_content es_root_title
+        change_language('en')
+        expect(find('#page_title')).to have_content en_root_title
       end
 
       it 'persists locale selection on a different page' do
-        select 'Español', from: 'locale'
-
-        within '#page_title' do
-          expect(page).to have_content es_root_title
-        end
+        change_language('es')
+        expect(find('#page_title')).to have_content es_root_title
 
         within '#footer' do
           click_link('Acerca de')
         end
 
-        within '#page_title' do
-          expect(page).to have_content 'Acerca de'
-        end
-
-        select 'English', from: 'locale'
-
-        within '#page_title' do
-          expect(page).to have_content 'About'
-        end
+        expect(find('#page_title')).to have_content 'Acerca de'
+        change_language('en')
+        expect(find('#page_title')).to have_content 'About'
       end
     end
 
     context 'When signed out and then signed in' do
       before do
         visit(root_path)
-        select 'English', from: 'locale'
+        change_language('en')
       end
 
       it 'persists locale selection from signed out to signed in state' do
         expect(page).to have_content en_root_title
 
-        select 'Español', from: 'locale'
-
-        within '#page_title' do
-          expect(page).to have_content es_root_title
-        end
+        change_language('es')
+        expect(find('#page_title')).to have_content es_root_title
 
         within '#header_content' do
           click_link('Ingresar')
@@ -81,17 +59,13 @@ describe 'ToggleLanguage', js: true do
           click_button('Ingresar')
         end
 
-        within '#page_title' do
-          expect(page).to have_content es_signed_in_root_title
-        end
+        expect(find('#page_title')).to have_content es_signed_in_root_title
 
         within '.large-screen' do
           click_link('Momentos')
         end
 
-        within '#page_title' do
-          expect(page).to have_content 'Momentos'
-        end
+        expect(find('#page_title')).to have_content 'Momentos'
       end
     end
 
@@ -99,20 +73,14 @@ describe 'ToggleLanguage', js: true do
       before do
         login_as(user)
         visit(root_path)
-        select 'English', from: 'locale'
+        change_language('en')
       end
 
       it 'persists locale selection from signed in to signed out state' do
-        select 'Español', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content es_signed_in_root_title
-        end
-
+        change_language('es')
+        expect(find('#page_title')).to have_content es_signed_in_root_title
         logout(:user)
-
-        within '#page_title' do
-          expect(page).to have_content es_signed_in_root_title
-        end
+        expect(find('#page_title')).to have_content es_signed_in_root_title
       end
     end
 
@@ -120,42 +88,27 @@ describe 'ToggleLanguage', js: true do
       before do
         login_as(user)
         visit(root_path)
-        select 'English', from: 'locale'
+        change_language('en')
       end
 
       it 'toggles locale selection on the same page' do
-        within '#page_title' do
-          expect(page).to have_content en_signed_in_root_title
-        end
-
-        select 'Español', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content es_signed_in_root_title
-        end
-
-        select 'English', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content en_signed_in_root_title
-        end
+        expect(find('#page_title')).to have_content en_signed_in_root_title
+        change_language('es')
+        expect(find('#page_title')).to have_content es_signed_in_root_title
+        change_language('en')
+        expect(find('#page_title')).to have_content en_signed_in_root_title
       end
 
       it 'persists locale selection on a different page' do
-        within '#page_title' do
-          expect(page).to have_content en_signed_in_root_title
-        end
-
-        select 'Español', from: 'locale'
-        within '#page_title' do
-          expect(page).to have_content es_signed_in_root_title
-        end
+        expect(find('#page_title')).to have_content en_signed_in_root_title
+        change_language('es')
+        expect(find('#page_title')).to have_content es_signed_in_root_title
 
         within '.large-screen' do
           click_link('Estrategias')
         end
 
-        within '#page_title' do
-          expect(page).to have_content 'Estrategias'
-        end
+        expect(find('#page_title')).to have_content 'Estrategias'
       end
     end
   end
