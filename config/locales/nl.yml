@@ -1,0 +1,665 @@
+nl:
+ app_name: 'if me'
+ app_description: 'is een gemeenschap voor geestelijke gezondheidservaringen'
+ email: 'join.ifme@gmail.com'
+ ellipsis: " [...]"
+ created: '<strong>Aangemaakt op:</strong> %{created_at}'
+ edited: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt)</em>'
+ edited_updated_at: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt op %{updated_at})</em>'
+ salutation: "Hallo %{name},"
+ click_here: "klik hier"
+ less: " [Minder]"
+ language: 'Taal'
+ back_to_top: Terug naar boven
+
+ languages:
+   en: English
+   es: Español
+   nl: Nederlands
+   ptbr: Português
+   sv: Svenska
+   various: Verscheidende
+   vn: Tiếng Việt
+
+ navigation:
+   about: 'Over'
+   blog: 'Blog'
+   contribute: 'Draag bij'
+   partners: 'Partners'
+   privacy: 'Privacy Policy'
+   github: 'GitHub'
+   patreon: 'Patreon'
+   opencollective: 'Open Collective'
+   instagram: 'Instagram'
+   rss: 'RSS'
+   twitter: "Twitter"
+   facebook: "Facebook"
+   feedback: 'terugkoppeling'
+   give_feedback: 'Geef Terugkoppeling'
+   medium: 'Medium'
+   press: 'Press'
+   faq: 'FAQ'
+   resources: 'Bronnen'
+
+ common:
+   name: 'Naam'
+   you: 'Jij'
+   title: 'Titel'
+   date: 'Datum:'
+   daily_reminder: 'Dagelijkse herinnering e-mail'
+   actions:
+    submit: 'Versturen'
+    confirm: 'Weet je het zeker?'
+    delete: 'Verwijderen'
+    edit: 'Bewerken'
+    edit_instance: 'Bewerk %{instance}'
+    join: 'Toetreden'
+    leave: 'Verlaten'
+    add: 'Toevoegen'
+    add_all: 'Voeg alles toe'
+    select_all: 'Alles selecteren'
+    remove: 'Verwijderen'
+   form:
+     email: "E-mail"
+     location: "Locatie"
+     description: 'Omschrijving'
+     error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
+     press_enter: 'Druk op ENTER om toe te voegen'
+   time_ago: "%{date} geleden"
+   write_to_us: "schrijf ons"
+
+ comment:
+  singular: 'Commentaar'
+  plural: 'Commentaren'
+  posting: 'Plaatsen van commentaar...'
+  allow_comments: 'Commentaren toestaan?'
+  hint: 'Alleen jij en kijkers kunnen commentaar plaatsen'
+  control: 'Beheer wie kan bekijken en commentaar kan plaatsen'
+
+ account:
+  singular: 'Account'
+  sign_in: 'Inloggen'
+  sign_up: 'Inschrijven'
+  forgot_password: 'Wachtwoord vergeten?'
+
+ members:
+   one: '%{count} lid'
+   other: '%{count} leden'
+
+ allies:
+  add_ally: 'Toevoegen aan Bondgenoten'
+  cancel_ally_request: 'Verzoek annuleren'
+  accept: 'Accepteren'
+  reject: 'Afwijzen'
+  index:
+    title: 'Bondgenoten'
+    outgoing: 'Uitgaande Verzoeken'
+    incoming: 'Binnenkomende Verzoeken'
+    invite: 'Nodig je naasten uit!'
+    none: 'Je hebt op dit moment geen bondgenoten! Je kunt op zoek naar hun gaan of naasten uitnodigen om lid te worden!'
+    view_all_allies: 'Bekijk alle bondgenoten'
+    cancel: 'Annuleren'
+
+ categories:
+  plural: 'Categorieën'
+  edit_category: "Bewerk Categorie"
+  new: "Nieuwe Categorie"
+  form:
+   name_hint: 'Categoriseer personen, dingen, activiteiten en meer'
+  label:
+   one: 'Categorie:'
+   other: 'Categorieën:'
+  index:
+   subtitle: 'Het leven is een rommeltje, categoriseer mensen, plaatsen en dingen.'
+   premade1_name: 'Familie'
+   premade1_description: 'Familie gerelateerd'
+   premade2_name: 'Vrienden'
+   premade2_description: 'Vrienden gerelateerd'
+   premade3_name: 'Werk'
+   premade3_description: 'Werk gerelateerd'
+   premade4_name: 'Meditatie'
+   premade4_description: 'Meditatie, diep ademhalen en ontspannende activiteiten'
+   instructions: "Je hebt nog geen aangepaste categorieën gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kunt de volgende voorafgemaakte categorieën ook toevoegen en ze op elk later moment aanpassen."
+
+ errors:
+  home_page: 'Terug naar thuis'
+  internal_server_error:
+   header_message: 'Deze pagina kan niet worden weergegeven'
+  not_found:
+   header_message: 'Deze pagina bestaat niet'
+
+ groups:
+  singular: 'Groep'
+  plural: 'Groepen'
+  form:
+    leaders: 'Leiders'
+    only_leader: "Je bent de enkele leider, daarom kun je de groep niet verlaten."
+    cannot_delete: 'Merk op dat je groepen niet kunt verwijderen.'
+    error_save: "We kunnen deze groep niet opslaan omdat: "
+    error_edit_permission: 'Je moet een leider van de groep zijn om deze te kunnen bewerken'
+  index:
+   subtitle: 'Maak en wordt lid van groepen die ondersteuning, lidmaatschap en discussies bieden.'
+   available_groups: 'Beschikbare groepen'
+   joined_groups: 'Groepslidmaatschappen'
+   leader: '(Leider)'
+   instructions: "Je bent nog niet lid van een groep! Klik op %{icon} om er een te maken of wordt lid van een van de beschikbare groepen hier onder.<br><br>Ondersteuningsgroepen zijn goed voor het voeren van openbare discussies over geestelijke gezondheid! Je kunt groepen maken, leden uitnodigen en samenkomsten organiseren zowel online als offline. Je kunt ook lid worden van groepen die je bondgenoten hebben gemaakt."
+  join_success: 'Je bent lid geworden van deze groep.'
+  leave:
+    error: 'Je kunt de groep niet verlaten, je bent de enige leider van de groep.'
+    success: "Je hebt %{group} verlaten"
+    remove_member_success: "Je hebt %{user} uit %{group} gezet"
+  new: 'Nieuwe groep'
+  show:
+   led_by: 'Geleid door:'
+   delete: 'Verwijder group'
+
+ layouts:
+  application:
+   signin: 'Vertel je verhalen'
+   create_account: 'Wordt nu lid van de gemeenschap'
+   update_account: 'Pas je account aan'
+   if: 'if'
+   me: 'me'
+  mailer:
+   html:
+    app_description: "%{app_name} is een gemeenschap die mensen aanmoedigd om hun verhalen over geestelijke gezondheid te delen met hun naasten."
+    no_reply: "Je kunt niet antwoorden op deze e-mail. Als je vragen, opmerkingen of terugkoppeling hebt, kun je mailen met %{email}!"
+  title:
+   reset_password: Wachtwoord herstellen
+
+ medications:
+  singular: 'Medicatie'
+  edit_medication: 'Bewerk Medicatie'
+  refill_reminder: 'Bijvul herinnering e-mail'
+  dosage: 'Dagelijkse dosis:'
+  refill: 'Bijvullen:'
+  quantity: 'Totale Hoeveelheid:'
+  strength: 'Sterkte:'
+  form:
+   strength: 'Sterkte'
+   strength_placeholder: 'b.v. 100'
+   total_placeholder: 'b.v. 30'
+   dosage: 'dosis'
+   dosage_placeholder: 'b.v. 2'
+   refill: 'bijvullen'
+   comments_hint: 'Voeg hier additioneel commentaar toe, bijvoorbeeld je symptomen'
+   add_to_google_cal: 'Google Kalendar herinnering'
+   google_cal_hint: "We voegen een herinnering toe voor dit medicijn in je Google kalendar."
+   strength_hint: 'Medicatie sterkte, meestal gevonden naast de naam'
+   total_hint: 'Totale hoeveelheid pillen of hoeveelheid medicatie'
+   dosage_hint: 'Hoeveelheid pillen of dosis per dag'
+   refill_hint: 'Wanneer dit voorschrift bijgevuld moet worden'
+   refill_reminder_hint: "We e-mailen je een herinnering een week voordat je medicatie bijgevult moet worden."
+   daily_reminder_hint: "We mailen je dagelijks een herinnering om je medicatie in te nemen"
+  new: 'Nieuwe Medicatie'
+  units:
+   display: "%{count} %{unit}"
+   mg: 'mg'
+   ml: 'ml'
+   tablets:
+    one: 'tablet'
+    other: 'tabletten'
+  reminder_mailer:
+    subject: "Vergeet niet om %{name} in te nemen!"
+    body: "Hierbij een vriendelijke herinnering om %{name} in te nemen!"
+  refill_mailer:
+    subject: "Het in binnenkort weer tijd om %{name} bij te vullen!"
+    body: "Hierbij een vriendelijke herinnering om %{name} bij te vullen voor %{refill}!"
+  index:
+   title: 'Medicatie'
+   subtitle: 'Houd je medicatie bij, inclusief informatie over dosis en bijvuldata.'
+   total: 'Totaal:'
+   instructions: "Je hebt nog geen medicatie opgeslagen. Klik op %{icon} om toe te voegen!<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven."
+   example_name: 'Prozac'
+   example_strength: '10 mg'
+   example_total: '40 tabletten'
+   example_dosage: '2 tabletten'
+   example_refill: '05/31/2016'
+  show:
+   comments: 'Commentaar:'
+
+ meetings:
+  edit_meeting: 'Bewerk Samenkomst'
+  form:
+   location_placeholder: 'URL of straat'
+   maximum_members: 'Maximum Leden'
+   maximum_placeholder: '0 indien geen maximum'
+  join_success: 'Je bent lid geworden van deze samenkomst.'
+  info:
+   cancel_meeting: 'Samenkomst annuleren'
+   meeting_time: 'Tijd'
+   members_of_group_html:
+    one: '%{count} Lid <strong>van</strong> %{group}'
+    other: '%{count} Leden <strong>van</strong> %{group}'
+  reminder_mailer:
+    subject: "Je samenkomst \"%{meeting_name}\" is morgen om %{time}!"
+    body: "Hierbij een vriendelijke herinnering dat je samenkomst, \"%{meeting_name}\", morgen is om %{time} bij %{location}!"
+  leave:
+    error: 'Je kunt deze samenkomst niet verlaten, je bent de enige leider.'
+    success: 'Je hebt %{meeting} verlaten'
+  new: 'Nieuwe Samenkomst'
+
+ moments:
+  singular: 'Moment'
+  plural: 'Momenten'
+  quick_moment_disclaimer: 'Dit wordt gedeeld met alle bondgenoten met commentaar ingeschakeld. Je kunt dit altijd later aanpassen.'
+  categories_and_moods: 'Categorieën en Stemming'
+  edit_moment: 'Bewerk Moment'
+  tagged: 'Getagde Momenten'
+  new: 'Nieuw Moment'
+  secret_share:
+    singular: 'Geheim Delen'
+    expires_at: 'Verloopt op'
+    create: 'Aanmaken'
+    cancel: 'Annuleren'
+  form:
+   why: 'Wat is er gebeurd en hoe wat is je gevoel?'
+   fix: 'Welke gedachten zou je willen hebben?'
+   what_happened: 'Wat is er gebeurd?'
+   viewers_hint: 'Bondgenoten die je moment kunnen bekijken'
+
+  index:
+   subtitle: 'Duik diep in je momenten - gebeurtenissen en situaties die invloed hebben op je geestelijke gezondheid.'
+   instructions: "Je hebt nog niet geschreven over je momenten. Klik op %{icon} om wat toe te voegen!<br><br>Weet je niet waar je beginnen zult? Is er iets wat vandaag gebeurd is dat je zou willen delen en over wilt praten met een naaste? Het kan zowel positief als negatief zijn! Je hoeft het niet meteen te delen - deel het wanneer jij er klaar voor bent! Hier is een veerbeeld van een Moment."
+   example_name: 'In paniek voor het interview van morgen!'
+   example_category: 'Carrière'
+  show:
+   strategies: 'Welke strategiën zouden helpen?'
+
+ moods:
+  singular: 'Stemming'
+  plural: 'Stemmingen'
+  edit_mood: 'Bewerk Stemming'
+  new: 'Nieuwe Stemming'
+  example_moods: 'Nerveus, Angstig, Hoopvol'
+  label:
+   one: 'Stemming:'
+   other: 'Stemmingen:'
+  index:
+   subtitle: 'Maak tags aan die je gemoedstoestand, gevoelens en emoties omschrijven.'
+   premade1_name: 'Accepterend'
+   premade1_description: 'Accepteren en vrede hebben met verschillen en beperkingen'
+   premade2_name: 'Ambitieus'
+   premade2_description: 'Optimistisch voelen over het bereiken van doelen'
+   premade3_name: 'Nieuwsgierig'
+   premade3_description: 'Nieuwsgierig zijn naar het onbekende'
+   premade4_name: 'Wrokkig'
+   premade4_description: 'Feiten niet aannemend, boosheid, wraakvol en/of jaloezie'
+   premade5_name: 'Hopeloos'
+   premade5_description: 'Somberheid en hopeloosheid - onmogelijk om oplossingen te vinden'
+   instructions: "Je hebt nog geen aangepaste stemming gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kunt ook een van de volgende voorbeelden toevoegen en ze op elk later moment aanpassen."
+
+ notifications:
+  plural: 'Notificaties'
+  none: 'Er zijn er geen'
+  clear: 'Opruimen'
+  created_by_html: "<strong>Aangemaakt door</strong>: %{name}"
+  preview: 'Bekijk meer'
+  members:
+   title: 'Lijst van leden'
+  ally:
+   accepted: '%{name} heeft je bondgenoot verzoek geaccepteerd!'
+   sent_html: '%{link_to_user} heeft een bondgenoot verzoek gestuurd!'
+  comment:
+   full: '%{name} heeft het commentaar "%{comment}" geplaatst op %{typename}'
+   truncated: '%{name} heeft het commentaar "%{comment}" [...] geplaatst op %{typename}'
+  group:
+   new_group: '%{name} heeft de groep "%{group_name} " gemaakt'
+   new_group_member: '%{name} is bij de groep "%{group_name}" gekomen'
+   add_group_leader: '%{name} is een leider geworden in de groep "%{group_name}"'
+   remove_group_leader: '%{name} is niet langer een leider in de groep "%{group_name}"'
+  meeting:
+   new_meeting: '%{name} heeft een nieuwe samenkomst "%{meeting_name}" gemaakt voor de groep "%{group_name}"'
+   remove_meeting: '%{name} heeft de samenkomst "%{meeting_name}" geannuleerd voor de groep "%{group_name}"'
+   update_meeting: '%{name} heeft de samenkomst "%{meeting_name}" bijgewerkt voor de groep "%{group_name}"'
+   join_meeting: '%{name} heeft zich aangesloten bij de samenkomst "%{meeting_name}" voor de groep "%{group_name}"'
+  mailer:
+    comment_on_moment_subject: "if me | %{user} heeft commentaar geplaatst op je moment \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} heeft commentaar geplaatst op je strategie \"%{strategy}\""
+    comment_on_meeting_subject: "if me | %{user} heeft commentaar geplaatst op de samenkomst \"%{meeting}\" van de groep \"%{group}\""
+    comment_on_private_body: "<p>Je bondgenoot <strong>%{user}</strong> heeft privé commentaar geplaatst:</p>"
+    comment_on_body: "<p>Je bondgenoot <strong>%{user}</strong> heeft commentaar geplaatst:</p>"
+    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+    comment_text: "<p><i>%{comment}</i></p>"
+    comment_link: "<p>Om het te lezen, %{link}!</p>"
+    new_group_subject: "if me | %{user} heeft de groep \"%{group}\" gemaakt"
+    new_group_body: "<p>%{user} maakte de groep \"%{group}\":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p>"
+    new_group_member_subject: "if me | %{user} is lid geworden van je groep \"%{group}\""
+    add_group_leader_you_subject: "if me | Je bent een leider geworden in de groep \"%{group}\""
+    add_group_leader_subject: "if me | %{user} is een leider geworden van de groep \" %{group}\""
+    add_remove_group_leader_body: "<p>Om de groep \"%{group}\" te bekijken, %{link}!</p>"
+    remove_group_leader_you_subject: "if me | Je bent niet langer een leider in de groep \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} is niet langer een leider in de groep \"%{group}\""
+    update_meeting_subject: "if me | %{user} heeft de samenkomst \"%{meeting}\" bijgewerkt voor de groep \"%{group}\""
+    new_meeting_subject: "if me | %{user} heeft een nieuwe samenkomst \"%{meeting}\" gemaakt voor de groep \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Locatie:</strong> %{location}</p><p><strong>Datum:</strong> %{date}</p><p><strong>Tijd:</strong> %{time}</p>"
+    new_meeting_link: "<p>Om meer te weten te komen en ook te komen, %{link}!</p>"
+    update_meeting_link: "<p>Om meer te weten te komen, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} heeft de samenkomst \"%{meeting}\" geannuleerd voor de groep \"%{group}\""
+    join_meeting_subject: "if me | %{user} heeft zich aangesloten bij de samenkomst \"%{meeting}\" voor de groep \"%{group}\""
+    join_meeting_body: "<p>Om \"%{meeting}\" te bekijken, %{link}!</p>"
+
+ omniauth:
+  google: 'Google'
+  access_denied: 'Toegang geweigerd'
+
+ pages:
+  about:
+    send_us: 'ons'
+    email_us: 'Voel je vrij en stuur een e-mail naar %{email_link}!'
+    main_message_one: "%{app_name} is een gemeenschap voor geestelijke gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen te delen met hun vertrouwde bondgenoten."
+    message_text_one: "Vertrouwde bondgenoten zijn de mensen met wie we dagelijks contact mee hebben, zoals vrienden, familie leden, collega's leraren en GGZ-medewerkers."
+    main_message_two: "Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn."
+    message_text_two: "Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.<p><div class=\"subtitle block\">\"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>"
+    main_message_three: "Wil je ons financieel helpen?"
+    message_text_three: "Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van %{linebreak_link}. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>"
+    linebreak: 'Linebreak'
+    fund_club: 'Fund Club'
+  blog:
+    description: "Als je voor ons wilt schrijven, stuur ons een e-mail op %{email}! We staan open voor anonieme bijdragen."
+  contribute:
+    main_message_one: "if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achteggronden met verschillende vaardigheden."
+    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
+    more_contributors: 'Meer fantastische bijdragers!'
+    thanks: 'Enorme dank gaat naar'
+    slack: 'Slack'
+  faq:
+    title: 'Veel gestelde vragen'
+    data_access_question: 'Wie heeft er toegang tot mijn data?'
+    data_access_answer: 'Data wordt niet gegeven aan en wordt niet toegankelijk gemaakt aan derden.<br><br>Gebruikers data wordt geanalyseerd binnen de applicatie voor persoonlijke aanbevelingen.'
+    moment_question: 'Wat is een Moment?'
+    moment_answer: 'Een <strong>Moment</strong> is een gebeurtenis of situatie die je gesteldheid beïnvloed. Het kan zowel positief als negatief zijn. Beschouw het als een dagboek of een statusupdate.<br><br>Je kunt je herinneringen taggen met Strategieën, Categorieën en Stemmingen. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken.'
+    strategy_question: 'Wat is een Strategie?'
+    strategy_answer: 'Een <strong>Strategie</strong> is een activiteit, gedachtengang of vorm van self-care die je ergens mee helpt omgaan of om je focus mee te verleggen.<br><br>Je kunt ze taggen met Categorieën. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken. Gedeelde Strategieën zullen zichtbaar zijn voor alle opgegeven bondgenoten, wat betekend dat je jouw Momenten kan taggen met hun Strategieën!'
+    category_question: 'Wat is een Categorie?'
+    category_answer: 'Een <strong>Categorie</strong> is een tag welke personen, plaatsen en dingen omschrijft die belangrijk zijn voor jou.'
+    mood_question: 'Wat is een Stemming?'
+    mood_answer: 'Een <strong>Stemming</strong> is een tag die je gesteldheid, gevoelens en emoties omschrijft.'
+    group_question: 'Wat is een Groep?'
+    group_answer: 'Een <strong>Groep</strong> biedt ondersteuning, mentorschap en discussies over geestelijke gezondheid. Je kunt zelf Groepen aanmaken en je bondgenoten hebben dan de mogelijkheid daar bij aan te sluiten. Je kunt enkel lid worden van Groepen die zijn gemaakt door jouw bondgenoten.<br><br>Als een Groep Leider, kun je <strong>Samenkomsten</strong> organiseren. Samenkomsten hebben een locatie en een tijd. De locatie kan een fysieke plaats zijn of een Google Hangout URL. Bij Samenkomsten kun je commentaar plaatsen. Indien je een Groep Leider bent, dan kun je de Groep niet verlaten tenzij er een andere leider is. Groepen kunnen enkel worden verwijdert als je de enige deelnemer bent.'
+    medications_question: 'Hoe gebruik ik de Medicatie functie?'
+    medications_answer: 'De <strong>Medicatie</strong> functie stelt je in staat om een log bij te houden van de voorgeschreven medicatie die je gebruikt. Je kunt hier tevens je symptomen bij kwijt.'
+    invite_question: 'Hoe kan ik mijn naasten uitnodigen om de app te gebruiken?'
+    invite_answer: 'Ga naar de <strong>Bondgenoten</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per e-mail uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
+    email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
+    email_notifications_answer: "Ga naar de <strong>Account</strong> pagina door te drukken op %{desktop_icon} (desktop) of %{mobile_icon} (mobiel) in de navigatie balk. Je kunt je e-mail, wachtwoord, profiel foto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
+  home:
+    stories: 'Verhalen'
+    welcome: 'Welkom'
+    not_signed_in:
+      main_message_one: 'Betere communicatie met naasten leidt tot betere geestelijke gezondheid.'
+      message_text_one: "We hebben elkaars ondersteuning nodig om stigma's te doorbreken."
+      message_one: 'Deel jouw verhalen met naasten en ontvang de ondersteuning die je verdient'
+      message_two: 'Wees jezelf, zonder beperkingen, in veiligheid en met privacy'
+      message_three: 'Documenteer je stemmingen, medicatie en self-care'
+      main_message_two: "Verhalen vertellen is de sleutel tot educatie over geestelijke gezondheid."
+      message_text_two: "Leer van de <strong>gemeenschap</strong> op onze %{blog}."
+      main_message_three: 'We zijn open source omdat je over je geestelijke gezondheid ook open zou moeten kunnen zijn.'
+      message_text_three: "We zijn <strong>altijd</strong> op zoek naar je %{help} en %{feedback}!"
+      help: 'hulp'
+    signed_in_empty:
+      main_message_one: 'Hallo %{name}!'
+      message_text_one: "Zo kun je beginnen met het delen van je verhalen."
+      main_message_two: 'Vertel ons over jezelf.'
+      cell_one: 'Pas je %{profile} aan - voeg een bio en een profiel afbeelding toe<br>Voeg aangepaste %{moods} toe om je emoties als beste te omschrijven.<br>Voeg %{allies} - vrienden, familie en anderen met wie je wilt delen toe'
+      main_message_three: 'Schrijf je verhalen.'
+      cell_two: 'Maak aangepaste %{categories} om je momenten te organiseren<br>Schrijf over je %{moments} - de gebeurtenissen en situaties welke invloed op je hebben'
+      main_message_four: 'Zorg veer jezelf.'
+      cell_three: '%{strategize} je self-care plan!<br>Neem je op dit moment %{medications}? Hou ze bij en maak er herinneringen voor aan!<br>Heb je extra hulp nodig? Wordt lid van of maak een %{group} em er over te praten'
+      main_message_five: 'Heb je vragen of opmerkingen?'
+      message_text_three: 'Bekijk onze %{faq} pagina of %{email_link}!'
+      strategize: 'Strategiseer'
+  partners:
+    description: 'Dit zijn de geweldige organisaties die ons inspireren en waarmee wij de eer hebben gehad om mee samen te werken. We zouden het geweldig vinden om met jouw organisatie samen te werken, e-mail ons op %{email}.'
+  privacy:
+    summary: 'Samenvatting'
+    summary_description: '<p>Deze privacy policy is voor deze website, en bewaakt de privacy van haar gebruikers.</p><p>Gegeven de gevoelige aard van de inhoud van de website, is privacy van cruciaal belang voor ons. Het omschreven beleid beschrijft hoe gebruikersdata wordt verzameld, waar het voor wordt gebruikt en hoe het is beveiligd.</p>'
+    user_data: 'Gebruikersdata'
+    user_data_description: '<p>Van gebruikers wordt verwacht dat zij persoonlijke gebeurtenissen (in Momenten) en anekdotes over medicatie delen. Data van de Momenten functie wordt gedeeld met wie de gebruiker kiest om het mee te delen. Data van de Medicatie functie is enkel zichtbaar voor de gebruiker. Beide vormen van data worden niet gebruikt voor andere doelen en zullen niet worden over gedragen aan derde partijen.</p><p>De applicatie bevat tevens data met betrekking tot groepen en strategieën om geestelijke gezondheid aan te pakken. Deze data is enkel toegankelijk voor gebruikers die daar permissie voor hebben ontvangen. Data van beide functies kunnen publiek worden weergegeven aan huidige en toekomstige gebruikers. Echter bij weergave wordt je identiteit niet weer gegeven.</p>'
+    cookies: 'Gebruik van Cookues'
+    cookies_description: "<p>Deze website gebruikt cookies om de gebruikerservaring te verbeteren. Waar van toepassing gebruikt deze website een cookie control system om de gebruiker op zijn eerste bezoek te vrage om cookies toe te staan voor zijn/haar apparaat.</p><p>Cookies zijn kleine bestanden op de harde schijf van de gebruiker die je volgen, en informatie opslaan over de gebruiker zijn/haar interactie en het gebruik van de website. Dit staat de website toe, en de server, de gebruiker een ervaring op maat te geven.</p><p>Gebruikers wordt geadviseerd om, indien ze geen Cookies willen gebruiken voor deze website, de nodige stappen te ondernemen binnen de web browser haar beveiligings instellingen om alle Cookies te blokkeren van deze website en zijn externe partners.</p><p>Deze website gebruikt tracking software om beter te begrijpen hoe bezoekers haar gebruiken. Deze software wordt geleverd door Google Analytics welke Cookies gebruikt om gebruikers te volgen. De software zal een Cookie plaatsen op je computer om het gebruik van de website te monitoren, maar zal geen persoonlijke informatie opslaan of verzamelen. Je kunt Google's %{google_privacy_policy} voor meer informatie.</p>"
+    social_media: 'Social Media Platformen'
+    social_media_description: '<p>Communicatie, loyaliteit en acties vanuit externe social media platformen waar deze website in participeert zijn onderhevig aan de voorwaarden en privacy policies van deze respectievelijke platformen.</p><p>Gebruikers wordt geadviseerd om social media platformen wijs en spaarzaam op te communiceren met betrekking tot hun eigen privacy en persoonlijke details. Deze website zal nooit om persoonlijke of gevoelige informatie vragen via sociale media platformen en raad gebruikers aan om gevoelige details te delen door primaire middelen van communicatie zoals telefoon of e-mail.</p><p>Deze website kan gebruik maken van knoppen voor delen op social media om te helpen bij het delen van web content met anderen direct op de gebruikte sociale media. Gebruikers wordt geadviseerd alvorens het gebruik na te denken over het feit dat het platform de gegevens kan volgen en plaatsen door jouw account.</p>'
+    contact: 'Neem contact met ons op'
+    contact_description: "<p>Graag %{email_link} indien je vragen of opmerkingen hebt.</p><p class=\"no_margin_bottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
+  resources:
+    description: "Welkom op onze samengestelde lijst van bronnen georganiseerd op %{communities}, %{education}, %{hotlines}, en %{services}."
+    communities: Gemeenschappen
+    education: Educatie
+    hotlines: Meldpunten
+    services: Diensten
+    tags:
+      people_of_colour: mensen van kleur
+      women_of_colour: vrouwen van kleur
+      black_women: donkere vrouwen
+      domestic_violence: huiselijk geweld
+      dating_violence: dating geweld
+      cyberbullying: cyberbullying
+      therapy: therapie
+      counseling: begeleiding
+      youth: jeugd
+      lgbtqia: LGBTQIA
+      harassment: lastig vallen
+      self_care: self-care
+      women: vrouwen
+      chatbot: chatbot
+      anonymous: anoniem
+      free: gratis
+      paid: betaald
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: boeken
+      publication: publicaties
+      video_chat: beeld oproepen
+      texting: tekstberichten
+      open_source: open source
+      workplace: werk
+      social_justice: sociale gerechtigheid
+      tech_industry: tech industrie
+      meditation: meditatie
+      social_anxiety: sociale angst
+      trigger_warnings: trigger waarschuwingen
+      netflix: netflix
+      homeless: dakloos
+      talks: talks
+      voice_chat: spraak oproepen
+      training: training
+      directory: lijst
+      self_injury: zelf verminking
+      treatment: behandeling
+      care_planning: zorg planning
+      depression: depressie
+      ocd: OCD
+      advice: advies
+      forum: forum
+      learning: leren
+      crisis_prevention: crisis preventie
+      safety_planning: veiligheids planning
+      suicide_prevention: suicide preventie
+      android: android
+      ios: iOS
+      support_groups: ondersteuning groepen
+      mindfulness: mindfulness
+      journaling: dagboeken
+      mood_tracking: stemmings tracking
+      veterans: veteranen
+      music: muziek
+      integrative: integratief
+      ptsd: PTSD
+      tbi: TBI
+      news: nieuws
+      government: overheid
+      christian: christendom
+      humor: humor
+      conference: conferentie
+      addiction: verslaving
+      rehabilitation: rehabilitatie
+      teachers: leraren
+
+ profile:
+  index:
+   title: 'Profiel'
+   edit_user: 'Profiel aanpassen'
+
+ pusher:
+  not_authorized: 'Niet toegestaan'
+
+ search:
+  search: 'Zoeken'
+  search_by_name: 'Zoeken op naam'
+  form:
+   search_by_location: 'Zoeken op locatie'
+   search_by_email: 'Zoeken op e-mail'
+
+  index:
+   title: 'Zoeken op Bondgenoten'
+   user_not_found: 'Gebruiker %{email} niet gevonden'
+
+ shared:
+  footer:
+    licence_name: 'AGPL-3.0'
+    license: 'Wij &hearts; FOSS'
+    foss: 'Free and open source software'
+    license_subtitle: 'Gelicenseerd onder %{license}'
+    connect: 'verbinden'
+  comments:
+    share_everyone: 'Delen met iedereen'
+    share_with: 'Alleen delen met %{name}'
+    visible_only_between_you_and: 'Alleen zichtbaar tussen jou en %{name}'
+    not_allies: '(niet bondgenoten)'
+  header:
+   signout: 'Uitloggen'
+   home: 'Home'
+  viewers_indicator:
+   disabled_comments: 'Commentaren zijn uitgeschakeld.'
+   you_are_viewer_html:
+    one: 'Je bent de enige kijker.'
+    other: 'Je bent <strong>niet</strong> de enige kijker.'
+   viewers_html:
+     zero: 'Er zijn <strong>geen</strong> kijkers.'
+     one: '%{names} is een kijker.'
+     other: '%{names} zijn kijkers.'
+  stats:
+    you_are_focusing: 'Je focussed het meest op'
+    user_is_focusing: '%{name} is het meest gefocussed op'
+  viewers:
+    plural: 'Kijkers'
+    you: 'Alleen jij'
+    you_link: 'Zichtbaar alleen voor jou'
+    many: 'Zichtbaar voor %{viewers}'
+  character_count: 'Je hebt nog %{number} karakters over.'
+  meeting_info:
+    attending: 'Je neemt deel. Verander je van gedachte?'
+    not_attending: 'Je neemt niet deel. %{join}'
+    not_attending_one_spot_left: 'Je neemt niet deel. Er is nog één plek om te vullen! %{join}'
+    not_attending_spots_left: 'Je neemt niet deel. Er zijn nog %{number} plekken vrij! %{join}'
+    not_attending_no_spots_left: 'Je neemt niet deel. Er is geen plek meer vrij.'
+  quick_create:
+   new: 'Nieuwe %{name}'
+
+ strategies:
+  singular: 'Strategie'
+  plural: 'Strategieën'
+  edit_strategy: 'Bewerk Strategie'
+  tagged_strategies: 'Getagde Strategieën'
+  new: 'Nieuwe Strategie'
+  form:
+   describe: 'Omschrijf de Strategie.'
+   strategies_label: 'Welke Strategieën zouden helpen deze gedachten te vervullen?'
+   name_hint: 'Elke activiteit, gedachtestroom of vorm van self-care die je helpt'
+   viewers_hint: 'Bondgenoten die je strategie kunnen bekijken en hun eigen momenten mee kunnen taggen'
+   daily_reminder_hint: "We zullen je dagelijks e-mailen omdeze strategie uit te voeren"
+  label:
+   one: 'Strategie:'
+   other: 'Strategieën:'
+  index:
+   subtitle: 'Strategiseer self-care om gedachten en houdingen te behalen.'
+   premade1_name: 'Vijf Minuten Meditatie'
+   premade1_description: '1) <b>Zoek een relaxte, comfortabele houding.</b> Je kunt zitten in een stoel, op de vloer of op een kussen. Houdt je rug recht, maar niet te gespannen. Laat je handen rusten waar ze comfortabel zijn. Plaats je tong tegen je gehemelte of waar hij comfortabel is.<br><br>2) <b>Maak jezelf bewust van je lichaam</b> Wordt bewust van de vorm van je lichaam en het gewicht. Ontspan jezelf en ga op zoek naar je lichaam - de sensaties de je beleefd, zoals aanraking, de verbinding met de vloer of stoel. Ontspan gespannen delen van je lichaam. Haal adem.<br><br>3) <b>Maak je bewust van je ademhaling.</b> Voel de natuurlijke stroming van het in an uit ademen. Je hoeft je ademhaling niet aan te passen. Niet lang, niet kort, gewoon natuurlijk. Merk op waar je adem in je lichaam heen gaat. Het zou in je borstkas, keel of neusvleugels kunnen zitten. Kijk of je de sensatie van het ademhalen kunt vinden, adem voor adem. Als één ademhaling stop begint de volgende.<br><br>4) <b>Wees aardig voor je gedachten.</b> Nu je dit doet kun je opmerken dat je gedachten langzaam weggaan. Je kunt over andere dingen denken. Indien dit gebeurd, dat is niet erg, dat is natuurlijk. Merk gewoon op dat je gedachten afdwalen. Je kunt zachtjes met je binnenstem "denken" of "afdwalen" zeggen. Langzaamaan stuur je je gedachten weer naar het ademhalen.<br><br>5) <b>Wees op deze plaats voor vijf tot zeven minuten.</b> Merk je ademhaling op, in stilte. Van tijd tot tijd zul je verdwalen in je gedachten, en weer teruggaan naar je ademhaling.<br><br>6) <b>Check in voordat je uitcheckt.</b> Na enkele minuten, maak jezelf bewust van je lichaam, je hele lichaam, zittend. Laat jezelf even goed tot rust komen, en wees trots op het doen van deze dagelijkse oefening.<br><br><i>Gebaseerd op http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+   instructions: "Je hebt nog geen aangepaste Strategieën gemaakt. Klik op %{icon} om er een paar toe te voegen!<br>Je kunt ook de volgende voorgemaakte proberen en op elk later tijdstip aanpassen."
+  reminder_mailer:
+    subject: "Vergeet de uitvoering van %{name} niet!"
+    body: "Hier is een vriendelijke herinnering om %{name} uit te voeren!"
+
+ stats:
+  total_moments: 'Je hebt in <strong>totaal</strong> <strong>%{count}</strong> momenten geschreven.'
+  total_moment: 'Je hebt in <strong>totaal</strong> <strong>%{count}</strong> moment geschreven.'
+  monthly_moments: 'Deze <strong>maand</strong> heb je <strong>%{count}</strong> momenten geschreven.'
+  monthly_moment: 'Deze <strong>maand</strong> heb je <strong>%{count}</strong> moment geschreven.'
+
+ warnings:
+  no_description: "Je hebt geen omschrijving opgegeven!"
+  yes_description: "Een schrijven kan jou en anderen helpen het te begrijpen"
+
+ mailers:
+   accepted_ally_request:
+     subject: "if me | %{ally_name} heeft je bondgenoot verzoek geaccepteerd!"
+     message: "<p>Gefeliciteerd! Je kunt nu Momenten, Strategieën en meer delen met  %{ally_name}.</p>"
+   new_ally_request:
+     subject: "if me | %{ally_name} heeft je een bondgenoot verzoek gestuurd!"
+     message: "<p>Alsjeblieft <a href=\"%{allies_url}\">log in</a> om het verzoek te accepteren of te negeren!</p>"
+
+ devise:
+  password: "Wachtwoord"
+  new_password: "Nieuw wachtwoord"
+  current_password: "Huidig wachtwoord"
+  password_change: "Verander wachtwoord"
+  remember_me: "Onthoud mij"
+  confirmations:
+    resend_confirmation: "Verstuur bevestigings instructies opnieuw"
+  mailer:
+    confirmation:
+      link_instructions: "Je kunt je account e-mail bevestigen met onderstaande link"
+      link_text: "Bevestig mijn account"
+    reset_password:
+      link_instructions: "Iemand heeft ons verzocht je een link te sturen om je wachtwoord te wijzigen. Je kunt dit doen met onderstaande link."
+      ignore: "Als jij dit niet was, kun je deze e-mail negeren."
+      info: "Je wachtwoord zal niet veranderen totdat je de bovenstaande link volgt en een nieuwe opgeeft."
+    unlock:
+      info: "Je account is vergrendeld wegens een buitensporig aantal ongeldige inlogpogingen."
+      link_instructions: "Klik op onderstaande link om je account te ontgrendelen."
+      link_text: "Ontgrendel mijn account"
+  passwords:
+    edit:
+      confirmation: "Bevestig nieuw wachtwoord"
+    new:
+      send_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
+
+  registrations:
+    email_notifications: "E-mail Notificaties"
+    comment_notify_text: "Commentaren op momenten, strategieën en samenkomsten"
+    ally_notify_text: "Nieuwe en geaccepteerde bondgenoot verzoeken"
+    group_notify_text: "Groep updates"
+    meeting_notify_text: "Samenkomst updates"
+    google_auth1: "Als je niet langer via Google wilt authenticeren, geef dan een nieuw e-mail en wachtwoord op."
+    google_auth2: "Omdat je via Google authenticeert, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen geef dan een nieuw e-mail en wachtwoord op."
+    placeholders:
+      repeat_password: "Herhaal Wachtwoord"
+    edit:
+      labels:
+        profile_picture: "Profiel afbeelding"
+        remove_picture: "Verwijder afbeelding"
+        password_for: "Wachtwoord voor <strong>if me</strong> account"
+        update: "Updaten"
+      placeholders:
+        optional: "Optioneel"
+        about: "Introduceer jezelf! Waarom ben je hier en wat wil je bewerkstelligen? Let op, deze tekst zal worden getoond als gebruikers naar je zoeken."
+        required: "Verplicht"
+      delete:
+        text: "Is <strong>if me</strong> niet wat je zoekt?"
+        button: "Verwijder mijn account permanent"
+        confirm: "Weet je het zeker? Al je data zal gewist worden. Je kunt wel altijd weer lid worden!"
+    new:
+      subtitle: "Begin met het vertellen van je verhalen en met het onderhouden van je gezondheid in een veilige privé omgeving"
+      label: "Enkele details"
+  sessions:
+    subtitle: "Welkom terug, we kijken er naar uit om je te helpen met je dag"
+  shared:
+    sign_in_google: 'Log in met Google'
+    sign_up_google: 'Meld je aan met Google'
+    confirmation: "Bevestiging instructies niet ontvangen?"
+    unlock: "Ontgrendeling instructies niet ontvangen?"
+  unlock:
+    resend: 'Ontgrendelings instructies opnieuw versturen'

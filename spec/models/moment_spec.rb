@@ -1,6 +1,7 @@
 # == Schema Information
 #
 # Table name: moments
+#
 #  id                      :integer          not null, primary key
 #  category                :text
 #  name                    :string
@@ -18,7 +19,6 @@
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
 #
-
 describe Moment do
 
   describe '.find_secret_share!' do

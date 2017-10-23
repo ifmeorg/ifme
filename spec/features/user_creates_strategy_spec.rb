@@ -14,25 +14,17 @@ describe 'UserCreatesAStrategy', js: true do
       login_as user
       visit strategies_path
 
-      within '#page_title_content' do
-        expect(page).to have_content 'Strategies'
-      end
-
+      expect(find('#page_title_content')).to have_content 'Strategies'
       expect(page).to have_content(
         'Strategize self-care to achieve desired thoughts and attitudes ' \
-        'towards your moments.'
-      )
+        'towards your moments.')
       expect(page).to have_content(
-        "You haven't created any custom strategies yet."
-      )
+        "You haven't created any custom strategies yet.")
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
       page.find('a[title="New Strategy"]').click
-
-      within '#page_title_content' do
-        expect(page).to have_content 'New Strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'New Strategy'
 
       page.fill_in 'strategy[name]', with: 'My new strategy'
 
@@ -73,9 +65,7 @@ describe 'UserCreatesAStrategy', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'My new strategy'
       expect(page).to have_content 'Created:'
       expect(page).to have_content 'Categories: Another New Category, Some New Category'
       expect(page).to have_content 'my strategy description'
@@ -84,9 +74,7 @@ describe 'UserCreatesAStrategy', js: true do
 
       # EDITING
       page.find('a[title="Edit Strategy"]').click
-      within '#page_title_content' do
-        expect(page).to have_content 'Edit My new strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'Edit My new strategy'
 
       fill_in_ckeditor(
         'strategy_description', with: 'I am changing my strategy description'
@@ -95,9 +83,7 @@ describe 'UserCreatesAStrategy', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'My new strategy'
       expect(page).to have_content 'I am changing my strategy description'
     end
   end

@@ -21,10 +21,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       visit new_moment_path
 
       # CREATING
-      within '#page_title_content' do
-        expect(page).to have_content 'New Moment'
-      end
-
+      expect(find('#page_title_content')).to have_content 'New Moment'
       page.fill_in 'moment[name]', with: 'My new moment'
 
       # ONLY TESTING THE MODAL'S BEHAVIOUR
@@ -45,20 +42,14 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new moment'
-      end
-
+      expect(find('#page_title_content')).to have_content 'My new moment'
       expect(page).to have_content 'my moment why description'
       expect(page).to have_content 'my moment fix description'
 
 
       # EDITING
       page.find('a[title="Edit Moment"]').click
-
-      within '#page_title_content' do
-        expect(page).to have_content 'Edit My new moment'
-      end
+      expect(find('#page_title_content')).to have_content 'Edit My new moment'
 
       moment_why_text = 'I am changing my moment why description'
       moment_fix_text = 'I am changing my moment fix description'
@@ -77,9 +68,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new moment'
-      end
+      expect(find('#page_title_content')).to have_content 'My new moment'
 
       # RESTORE WINDOW SIZE
       window.resize_to(1280, 1024)
@@ -99,10 +88,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       visit new_strategy_path
 
       # CREATING
-      within '#page_title_content' do
-        expect(page).to have_content 'New Strategy'
-      end
-
+      expect(find('#page_title_content')).to have_content 'New Strategy'
       page.fill_in 'strategy[name]', with: 'My new strategy'
 
       # ONLY TESTING THE MODAL'S BEHAVIOUR
@@ -116,19 +102,12 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
-
+      expect(find('#page_title_content')).to have_content 'My new strategy'
       expect(page).to have_content 'my strategy description'
 
       # EDITING
       page.find('a[title="Edit Strategy"]').click
-
-      within '#page_title_content' do
-        expect(page).to have_content 'Edit My new strategy'
-      end
-
+      expect(find('#page_title_content')).to have_content 'Edit My new strategy'
       strategy_text = 'I am changing my strategy description'
 
       # ONLY TESTING THE MODAL'S BEHAVIOUR
@@ -143,10 +122,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       window.resize_to(1280, 1024)
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
-
+      expect(find('#page_title_content')).to have_content 'My new strategy'
       expect(page).to have_content strategy_text
     end
   end
