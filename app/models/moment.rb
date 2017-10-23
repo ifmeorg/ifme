@@ -42,6 +42,9 @@ class Moment < ApplicationRecord
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
 
+  scope :published, -> { where.not(published_at: nil) }
+  scope :recent, -> { order('created_at DESC') }
+
   def self.find_secret_share!(identifier)
     find_by!(
       'secret_share_expires_at > NOW()',

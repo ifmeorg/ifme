@@ -100,7 +100,7 @@ class StrategiesController < ApplicationController
     @category = Category.new
     respond_to do |format|
       if @strategy.save
-        @strategy.update(published_at: Time.zone.now) if publishing?
+        publish
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :created, location: @strategy }
       else
@@ -142,7 +142,7 @@ class StrategiesController < ApplicationController
     @strategy.published_at = nil if saving_as_draft?
     respond_to do |format|
       if @strategy.update(strategy_params)
-        @strategy.update(published_at: Time.zone.now) if publishing?
+        publish
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :ok, location: @strategy }
       else
@@ -187,6 +187,10 @@ class StrategiesController < ApplicationController
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
+  end
+
+  def publish
+    @strategy.update(published_at: Time.zone.now) if publishing?
   end
 
   def publishing?
