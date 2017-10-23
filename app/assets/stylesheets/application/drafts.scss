@@ -10,9 +10,13 @@
   padding: 8px;
 }
 
+.slider-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 .switch {
-  float: right;
   position: relative;
   display: inline-block;
   width: 150px;
