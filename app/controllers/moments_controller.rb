@@ -111,9 +111,9 @@ class MomentsController < ApplicationController
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
+    @moment.published_at = Time.zone.now if publishing?
     respond_to do |format|
       if @moment.save
-        publish
         format.html { redirect_to moment_path(@moment) }
         format.json { render :show, status: :created, location: @moment }
       else
@@ -130,10 +130,13 @@ class MomentsController < ApplicationController
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
-    @moment.published_at = nil if saving_as_draft?
+    if publishing? && !@moment.published?
+      @moment.published_at = Time.zone.now
+    elsif saving_as_draft?
+      @moment.published_at = nil
+    end
     respond_to do |format|
       if @moment.update(moment_params)
-        publish
         format.html { redirect_to moment_path(@moment) }
         format.json { render :show, status: :ok, location: @moment }
       else
@@ -202,10 +205,6 @@ class MomentsController < ApplicationController
     else
       end_date - 1.week
     end
-  end
-
-  def publish
-    @moment.update(published_at: Time.zone.now) if publishing?
   end
 
   def publishing?

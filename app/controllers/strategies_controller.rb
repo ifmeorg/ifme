@@ -98,9 +98,9 @@ class StrategiesController < ApplicationController
     @strategy = Strategy.new(strategy_params)
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
+    @strategy.published_at = Time.zone.now if publishing?
     respond_to do |format|
       if @strategy.save
-        publish
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :created, location: @strategy }
       else
@@ -139,10 +139,13 @@ class StrategiesController < ApplicationController
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
-    @strategy.published_at = nil if saving_as_draft?
+    if publishing? && !@strategy.published?
+      @strategy.published_at = Time.zone.now
+    elsif saving_as_draft?
+      @strategy.published_at = nil
+    end
     respond_to do |format|
       if @strategy.update(strategy_params)
-        publish
         format.html { redirect_to strategy_path(@strategy) }
         format.json { render :show, status: :ok, location: @strategy }
       else
@@ -187,10 +190,6 @@ class StrategiesController < ApplicationController
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
-  end
-
-  def publish
-    @strategy.update(published_at: Time.zone.now) if publishing?
   end
 
   def publishing?
