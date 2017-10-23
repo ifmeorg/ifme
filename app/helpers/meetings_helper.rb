@@ -1,6 +1,32 @@
 # frozen_string_literal: true
 
 module MeetingsHelper
+  include CalendarHelper
+
+  def calendar_uploader_params(meeting)
+    d = Date.strptime(meeting.date, '%m/%d/%Y')
+    t = Time.parse(meeting.time)
+    fd = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+    fulldate = fd.strftime('%Y/%m/%d %H:%M:%S')
+    { summary: meeting.name,
+      date: fulldate,
+      calendar_id: 'primary',
+      access_token: current_user.google_access_token,
+      email: current_user.email }
+  end
+
+  def empty_calendar_uploader_params(meeting)
+    google_event_id = meeting.meeting_members.where(
+      userid: current_user
+    ).first.google_event_id
+    { summary: nil,
+      date: nil,
+      calendar_id: 'primary',
+      access_token: current_user.google_access_token,
+      event_id: google_event_id,
+      email: current_user.email }
+  end
+
   private def not_attending(id)
     t('shared.meeting_info.not_attending',
       join:
@@ -64,6 +90,50 @@ module MeetingsHelper
       raw meeting_spots
     else
       t('shared.meeting_info.not_attending_no_spots_left')
+    end
+  end
+
+  private def gcal_event_exists?(meeting)
+    member = meeting.meeting_members.where(userid: current_user).first
+    return false unless member.google_event_id
+    event = CalendarUploader.new(
+      summary: '',
+      date: '',
+      email: '',
+      access_token: current_user.google_access_token,
+      calendar_id: 'primary',
+      event_id: member.google_event_id
+    ).get_event
+    true if event && !event.status.eql?('cancelled')
+  end
+
+  def add_event_to_gcal(meeting)
+    return false unless current_user.google_oauth2_enabled?
+    args = calendar_uploader_params(meeting)
+    res = CalendarUploader.new(args).upload_event
+    meeting_member = meeting.meeting_members.where(userid: current_user).first
+    meeting_member.google_event_id = res.id
+    meeting_member.save
+  end
+
+  def delete_event_from_gcal(meeting)
+    return false unless current_user.google_oauth2_enabled?
+    args = empty_calendar_uploader_params(meeting)
+    CalendarUploader.new(args).delete_event
+  end
+
+  def google_calendar(meeting)
+    if (meeting.members.include? current_user) &&
+       current_user.google_oauth2_enabled? && gcal_event_exists?(meeting)
+      link_to(
+        t('common.actions.google_cal_delete'),
+        delete_gcal_event_meetings_path(meetingid: meeting.id)
+      )
+    else
+      link_to(
+        t('common.actions.google_cal_add'),
+        add_gcal_event_meetings_path(meetingid: meeting.id)
+      )
     end
   end
 end

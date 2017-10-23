@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830075513) do
+ActiveRecord::Schema.define(version: 20171006043529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170830075513) do
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "google_event_id"
   end
 
   create_table "meetings", force: :cascade do |t|

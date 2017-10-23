@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MeetingsController < ApplicationController
+  include MeetingsHelper
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -294,6 +295,35 @@ class MeetingsController < ApplicationController
     @meeting.destroy
 
     redirect_to_path(group_path(groupid))
+  end
+
+  def return_to_sign_in
+    sign_out current_user
+    redirect_to_path(new_user_session_path)
+    false
+  end
+
+  def delete_gcal_event
+    meeting = Meeting.find(params[:meetingid])
+    groupid = meeting.groupid
+    if delete_event_from_gcal(meeting)
+      redirect_to(group_path(groupid),
+                  notice: t('meetings.form.del_gcalendar_success'))
+    else
+      redirect_to(group_path(groupid),
+                  alert: t('meetings.form.del_gcalendar_fail'))
+    end
+  end
+
+  def add_gcal_event
+    meeting = Meeting.find(params[:meetingid])
+    if add_event_to_gcal(meeting)
+      redirect_to(group_path(meeting.groupid),
+                  notice: t('meetings.form.add_gcalendar_success'))
+    else
+      redirect_to(group_path(meeting.groupid),
+                  alert: t('meetings.form.add_gcalendar_fail'))
+    end
   end
 
   private
