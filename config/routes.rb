@@ -113,11 +113,9 @@ Rails.application.routes.draw do
     }
   end
 
-  match 'en', to: locale_headers('en'), via: :get
-  match 'es', to: locale_headers('es'), via: :get
-  match 'nl', to: locale_headers('nl'), via: :get
-  match 'ptbr', to: locale_headers('ptbr'), via: :get
-  match 'sv', to: locale_headers('sv'), via: :get
+  %w(en es nl ptbr sv).each do |locale|
+    match locale, to: locale_headers(locale), via: :get
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
