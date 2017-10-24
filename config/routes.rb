@@ -99,6 +99,26 @@ Rails.application.routes.draw do
 
   post 'pusher/auth'
 
+  def locale_headers(locale)
+    proc {
+      [
+        302,
+        {
+          "Content-Type" => 'text/plain',
+          'Location' => '/',
+          'Set-Cookie' => "locale=#{locale}"
+        },
+        ['302 Found']
+      ]
+    }
+  end
+
+  match 'en', to: locale_headers('en'), via: :get
+  match 'es', to: locale_headers('es'), via: :get
+  match 'nl', to: locale_headers('nl'), via: :get
+  match 'ptbr', to: locale_headers('ptbr'), via: :get
+  match 'sv', to: locale_headers('sv'), via: :get
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
