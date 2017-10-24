@@ -4,6 +4,7 @@ nl:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Aangemaakt op:</strong> %{created_at}'
+ draft: "Concept"
  edited: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt)</em>'
  edited_updated_at: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt op %{updated_at})</em>'
  salutation: "Hallo %{name},"
@@ -49,6 +50,8 @@ nl:
    daily_reminder: 'Dagelijkse herinnering e-mail'
    actions:
     submit: 'Versturen'
+    submit_publish: 'Publiceren'
+    submit_draft: 'Concept'
     confirm: 'Weet je het zeker?'
     delete: 'Verwijderen'
     edit: 'Bewerken'
@@ -257,6 +260,7 @@ nl:
    fix: 'Welke gedachten zou je willen hebben?'
    what_happened: 'Wat is er gebeurd?'
    viewers_hint: 'Bondgenoten die je moment kunnen bekijken'
+   draft_question: 'Wil je je moment als concept opslaan?'
 
   index:
    subtitle: 'Duik diep in je momenten - gebeurtenissen en situaties die invloed hebben op je geestelijke gezondheid.'
@@ -571,6 +575,7 @@ nl:
    name_hint: 'Elke activiteit, gedachtestroom of vorm van self-care die je helpt'
    viewers_hint: 'Bondgenoten die je strategie kunnen bekijken en hun eigen momenten mee kunnen taggen'
    daily_reminder_hint: "We zullen je dagelijks e-mailen omdeze strategie uit te voeren"
+   draft_question: 'Wil je je strategie als concept opslaan?'
   label:
    one: 'Strategie:'
    other: 'Strategieën:'

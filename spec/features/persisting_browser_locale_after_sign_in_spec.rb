@@ -14,7 +14,7 @@ RSpec.feature 'Persisting browser locale after sign in', type: :feature do
     expect(find('a[href="/users/sign_in"]')).to have_content('Sign in')
 
     change_language('es')
-
+    
     login_as user
     visit moments_path
 

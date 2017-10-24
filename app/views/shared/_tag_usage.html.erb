@@ -15,7 +15,7 @@
       <div class="tag_usage">
         <% moments.each do |moment_id| %>
             <% moment = Moment.where(id: moment_id).first %>
-            <% if moment.userid == current_user.id || moment.viewers.include?(current_user.id) %>
+            <% if moment.userid == current_user.id || (moment.viewers.include?(current_user.id) && moment.published?) %>
             <%= render :partial => '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
             <% end %>
         <% end %>
@@ -30,7 +30,7 @@
       <div class="tag_usage">
         <% strategies.each do |strategy_id| %>
             <% strategy = Strategy.where(id: strategy_id).first %>
-            <% if strategy.userid == current_user.id || strategy.viewers.include?(current_user.id) %>
+            <% if strategy.userid == current_user.id || (strategy.viewers.include?(current_user.id) && strategy.published?) %>
             <%= render :partial => '/shared/moments_strategies', locals: { items: strategies, item: strategy, data_type: 'strategy_tag_usage' } %>
             <% end %>
         <% end %>
