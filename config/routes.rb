@@ -104,7 +104,7 @@ Rails.application.routes.draw do
       [
         302,
         {
-          "Content-Type" => 'text/plain',
+          'Content-Type' => 'text/plain',
           'Location' => '/',
           'Set-Cookie' => "locale=#{locale}"
         },
