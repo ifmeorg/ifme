@@ -10,24 +10,21 @@ module Users
 
 
     def create
+      successful_invites =[]
       invitees = params[:user][:email].split(/,\s*/)
       invitees.each do |invitee|
         resource = User.invite!({:email => invitee}, current_user)
         resource_invited = resource.errors.empty?
 
-        puts "WAZZZZUP #{invite_params}"
-        puts "#{resource_invited}"
-        # yield resource if block_given?
-
         if resource_invited
-          if is_flashing_format? && resource.invitation_sent_at
-            set_flash_message :notice, :send_instructions, email: resource.email
-          end
-          respond_with resource, location: new_user_invitation_path
-        else
-          respond_with_navigational(resource) { render :new }
+          successful_invites << invitee
         end
       end
+
+      if is_flashing_format? && !successful_invites.empty?
+        set_flash_message :notice, :send_instructions, email: successful_invites.join(', ')
+      end
+      redirect_to new_user_invitation_path
     end
   end
 end
