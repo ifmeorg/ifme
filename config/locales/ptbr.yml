@@ -1,6 +1,7 @@
 ptbr:
  app_name: 'if me'
  app_description: 'é uma comunidade para o compartilhamento de experiências sobre saúde mental'
+ draft: 'Rascunho'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Criada em:</strong> %{created_at}'
@@ -15,14 +16,16 @@ ptbr:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
-   various: Vários
+   various: Outros
+   vn: Tiếng Việt
 
  navigation:
    about: 'Sobre'
    blog: 'Blog'
-   contributors: 'Contribuintes'
+   contribute: 'Contribuintes'
    partners: 'Parceiros'
    privacy: 'Política de Privacidade'
    github: 'GitHub'
@@ -47,6 +50,8 @@ ptbr:
    daily_reminder: 'Email de lembrete diário'
    actions:
     submit: 'Enviar'
+    submit_publish: 'Publicar'
+    submit_draft: 'Rascunho'
     confirm: 'Você tem certeza?'
     delete: 'Apagar'
     edit: 'Editar'
@@ -245,11 +250,17 @@ ptbr:
   edit_moment: 'Editar Momento'
   tagged: 'Momentos com Tags'
   new: 'Novo Momento'
+  secret_share:
+    singular: 'Compartilhar Segredo'
+    expires_at: 'Expirar em'
+    create: 'Crio'
+    cancel: 'Cancelar'
   form:
    why: 'O que aconteceu e como você se sente ?'
    fix: 'Quais pensamentos você gostaria de ter ? '
    what_happened: 'O que aconteceu ?'
    viewers_hint: 'Aliados que podem ver esse momento seu:'
+   draft_question: 'Você quer salvar seu momento com um rascunho?'
 
   index:
    subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
@@ -316,7 +327,7 @@ ptbr:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Veja o comentário, %{link}!</p>"
     new_group_subject: "if me | %{user} criou um grupo chamado \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p>"
+    new_group_body: "<p>%{user} criou um grupo chamado \"%{group}\":</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p>"
     new_group_member_subject: "if me | %{user} se juntou ao seu grupo \"%{group}\""
     add_group_leader_you_subject: "if me | Você  se tornou lider do grupo  \"%{group}\""
     add_group_leader_subject: "if me | %{user} se tornou líder do grupo \" %{group}\""
@@ -343,14 +354,14 @@ ptbr:
     main_message_one: "%{app_name} é uma comunidade para experiências relacionadas a saúde mental que encoraja as pessoas a compartilharem suas histórias pessoais com aliados de confiança."
     message_text_one: "Aliados de confiança são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares , companheiros de trabalho, professores, e profissionais da área de saúde mental."
     main_message_two: "Lidar com a saúde mental é o que nos faz humanos. Mas, para muitos de nós ,é um problema lidar com saúde mental de uma forma aberta."
-    message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"Está em sua mente, mas também ao seu redor.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
+    message_text_two: "Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class=\"subtitle block\">\"As questões relacionadas a saúde mental não estão apenas na sua mente, mas ao seu redor. E juntos, nós podemos resolvê-las.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>"
     main_message_three: "Quer patrocinar o projeto?"
     message_text_three: " Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Em 2016, recebemos o apoio de %{linebreak_link}. Em 2017, recebemos financiamento de %{fund_club_link}.</p>Você pode nos dar suporte através do %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
     description: "Se você estiver interessado em escrever para nosso blog, envie um email para %{email}! Aceitaremos contribuições anônimas também."
-  contributors:
+  contribute:
     main_message_one: "if me é desenvolvido e mantido por voluntários com diferentes experiências e habilidades."
     message_text_one: "Estamos sempre procurando por novas idéias de diversas pessoas, incluindo <strong>defensores da saúde mental</strong>, <strong>profissionais da sáude</strong>, <strong>desenvolvedores de software</strong>, <strong>tradutores</strong>, e <strong>UX Designers</strong>!<p class=\"no_margin_bottom\">Envie um email para %{email_link} e entraremos em contato com você! Você será convidado para participar do nosso grupo no %{slack_link}, nossa principal ferramenta de comunicação.Faça o fork do nosso repositório hospedado no %{github_link}!</p>"
     more_contributors: 'Mais Contribuidores Fabulosos!'
@@ -487,6 +498,10 @@ ptbr:
         government: governo
         christian: cristão
         humor: humor
+        conference: conferência
+        addiction: vício
+        rehabilitation: reabilitação
+        teachers: professores
 
  profile:
   index:
@@ -561,6 +576,7 @@ ptbr:
    name_hint: 'Qualquer atividade, linha de pensamento, ou forma de cuidado próprio que ajude você'
    viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar seus próprios comentários em cada estratégia'
    daily_reminder_hint: "Iremos enviar para seu email um um lembrete diário para cumprir com sua estratégia."
+   draft_question: Você quer salvar sua estratégia com um rascunho?'
   label:
    one: 'Estratégia'
    other: 'Estratégias'

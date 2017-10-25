@@ -16,6 +16,10 @@ FactoryGirl.define do
         create :perform_strategy_reminder, strategy: strategy
       end
     end
+
+    trait :with_published_at do
+      published_at { Time.zone.now }
+    end
   end
 
   factory :perform_strategy_reminder do

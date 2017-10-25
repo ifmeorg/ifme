@@ -5,8 +5,8 @@
 /* Medications */
 
 .comments {
-	width: 100%;
-	height: 150px;
+  width: 100%;
+  height: 150px;
 }
 
 #medication_content {
@@ -14,46 +14,48 @@
 }
 
 .form_container {
-	display: flex;
-	justify-content: space-between;
-	padding: 20px 0;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  flex-wrap: wrap;
 }
 
 .refill_medication {
-	padding-right: 112px;
+  padding-right: 112px;
 }
 
 .medication_tooltip_padding {
-	padding-left: 9px;
+  padding-left: 9px;
 }
 
 @media screen and (max-width: $medium) {
-	#medication_strength,
-	#medication_total,
-	#medication_dosage{
-		width: 120px !important;
-	}
+  .form_container {
+    .field {
+      width: 100%;
+    }
 
-	#medication_strength_unit,
-	#medication_total_unit,
-	#medication_dosage_unit {
-		width: auto !important;
-	}
+    .inline-block {
+      display: flex;
 
-	#medication_content {
-	  padding: 50px 20px;
-	}
+      select {
+        margin-right: 0;
+      }
+    }
+  }
+
+  #medication_content {
+    padding: 50px 20px;
+  }
 }
 
 @media screen and (max-width: $small) {
-	#medication_content {
-		padding: 0;
-	}
+  #medication_content {
+    padding: 0;
+  }
 
-	label[for="refill_reminder"],
-	label[for="take_medication_reminder"],
-	label[for="medication_Google Calendar reminder"] {
-		font-size: 20px;
-	}
+  label[for="refill_reminder"],
+  label[for="take_medication_reminder"],
+  label[for="medication_Google Calendar reminder"] {
+    font-size: 20px;
+  }
 }

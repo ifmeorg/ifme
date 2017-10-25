@@ -1,8 +1,8 @@
 [
   {
-    "link_name":"Speaking Her Truth: Q& A with Julia Nguyen founder of if me",
-    "link":"http://www.huffingtonpost.com/entry/speaking-her-truth-q-a-with-julia-nguyen-founder_us_57d2bbd3e4b0f831f7071b1e",
-    "author":"By: Myisha T. Hill, Brown Sisters Speak"
+    "link_name": "Speaking Her Truth: Q& A with Julia Nguyen founder of if me",
+    "link": "http://www.huffingtonpost.com/entry/speaking-her-truth-q-a-with-julia-nguyen-founder_us_57d2bbd3e4b0f831f7071b1e",
+    "author": "By: Myisha T. Hill, Brown Sisters Speak"
   },
   {
     "link_name": "Exploring Mental Illness With Open Source",
@@ -10,14 +10,14 @@
     "author": "By: Julia Nguyen, keynote talk for Open Source Bridge 2016"
   },
   {
-    "link_name":"Open Sourcing Mental Health - Part I",
-    "link":"http://www.codenewbie.org/podcast/open-sourcing-mental-health-part-i",
-    "author":"By: CodeNewbie Podcast"
+    "link_name": "Open Sourcing Mental Health - Part I",
+    "link": "http://www.codenewbie.org/podcast/open-sourcing-mental-health-part-i",
+    "author": "By: CodeNewbie Podcast"
   },
   {
-    "link_name":"Open Sourcing Mental Health - Part II",
-    "link":"http://www.codenewbie.org/podcast/open-sourcing-mental-health-part-ii",
-    "author":"By: CodeNewbie Podcast"
+    "link_name": "Open Sourcing Mental Health - Part II",
+    "link": "http://www.codenewbie.org/podcast/open-sourcing-mental-health-part-ii",
+    "author": "By: CodeNewbie Podcast"
   },
   {
     "link_name": "i18n + if me",
@@ -28,5 +28,20 @@
     "link_name": "What it Means to Contribute to if me",
     "link": "https://youtu.be/XJdOVwX8Pxk",
     "author": "By: Julia Nguyen, talk for Code For Good Week 2017"
+  },
+  {
+    "link_name": "Making it through tough times together",
+    "link": "http://sunthisweek.com/2017/09/22/making-it-through-tough-times-together/",
+    "author": "By: Laura Adelmann, SunThisweek"
+  },
+  {
+    "link_name": "Introducing Team ifPairElseUnknown",
+    "link": "https://railsgirlssummerofcode.org/blog/2017-07-17-ifpairelseunknown",
+    "author": "By: Jenny Nam and Sophie McDonald, Rails Girls Summer of Code 2017"
+  },
+  {
+    "link_name": "Final Reflections from Team ifPairElseUnknown",
+    "link": "https://railsgirlssummerofcode.org/blog/2017-09-8-ifpairelseunknown-final-month",
+    "author": "By: Jenny Nam and Sophie McDonald, Rails Girls Summer of Code 2017"
   }
 ]

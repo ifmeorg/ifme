@@ -9,14 +9,6 @@
 	opacity: 0.5;
 }
 
-@media screen and (max-width: $medium) {
-	#search_email,
-	#search_name {
-		margin-right: 0;
-		margin-bottom: 10px;
-	}
-
-	.allies_nav_left {
-		margin-bottom: 10px;
-	}
+#allies_search {
+	text-align: center;
 }

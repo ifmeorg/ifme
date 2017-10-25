@@ -4,6 +4,7 @@ es:
  email: "join.ifme@gmail.com"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
+ draft: "Borrador"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
@@ -15,14 +16,16 @@ es:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Varios
+   vn: Tiếng Việt
 
  navigation:
    about: "Acerca de "
    blog: "Blog"
-   contributors: "Contribuidores"
+   contribute: "Contribuidores"
    partners: "Socios"
    privacy: "Política de Privacidad"
    github: "GitHub"
@@ -47,6 +50,8 @@ es:
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
     submit: "Enviar"
+    submit_publish: 'Publicar'
+    submit_draft: 'Borrador'
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -247,11 +252,17 @@ es:
   edit_moment: "Editar Momento"
   tagged: "Etiquetar Momento"
   new: "Nuevo Momento"
+  secret_share:
+    singular: 'Compartir en Secreto'
+    expires_at: 'Caducar en'
+    create: 'Crear'
+    cancel: 'Cancelar'
   form:
    why: "¿Qué ocurrió y cómo te sentiste"
    fix: "¿Qué pensamientos te gustaría tener?"
    what_happened: "¿Qué ocurrió?"
    viewers_hint: "Aliados que pueden ver tu momento:"
+   draft_question: "¿Quieres guardar tu momento como borrador?"
 
   index:
    subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
@@ -318,7 +329,7 @@ es:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Para leer, %{link}!</p>"
     new_group_subject: "if me | %{user} creó el grupo \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>Para continuar leyendo y unirte, %{link}!</p>"
+    new_group_body: "<p>%{user} creó el grupo \"%{group}\":</p><p><i>%{description}</i></p><p>Para continuar leyendo y unirte, %{link}!</p>"
     new_group_member_subject: "if me | %{user} se unió a tu grupo \"%{group}\""
     add_group_leader_you_subject: "if me | Te has convertido en líder de \"%{group}\""
     add_group_leader_subject: "if me | %{user} se ha convertido en líder de \" %{group}\""
@@ -345,14 +356,14 @@ es:
     main_message_one: "%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza."
     message_text_one: "Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental."
     main_message_two: "Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto."
-    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Está en tu mente, pero también a tu alrededor\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
+    message_text_two: "No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class=\"subtitle block\">\"Nada está sólo en tu mente, está todo alrededor de ti. Podemos sanar juntos.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>"
     main_message_three: "¿Quieres ayudar a financiarnos?"
     message_text_three: "Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>En 2016, recibimos una subvención comunitaria por parte de %{linebreak_link}. En 2017, recibimos fondos de %{fund_club_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>"
     linebreak: "Linebreak"
     fund_club: 'Fund Club'
   blog:
     description: "¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima."
-  contributors:
+  contribute:
     main_message_one: "if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades"
     message_text_one: "¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>,  <strong>translators</strong>, <strong>traductores</strong>, y <strong>diseñadores de experiencia del usuario</strong>!<p class=\"no_margin_bottom\">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>"
     more_contributors: "¡Más Fabulosos Colaboradores!"
@@ -488,6 +499,10 @@ es:
       government: gobierno
       christian: cristiano
       humor: humor
+      conference: conferencia
+      addiction: adicción
+      rehabilitation: rehabilitación
+      teachers: maestros
 
  profile:
   index:
@@ -562,6 +577,7 @@ es:
    name_hint: "Cualquier actividad, tren de pensamiento, o forma de auto cuidado que te ayude"
    viewers_hint: "Los aliados que pueden ver tu estrategia y etiquetar con ella sus propios momentos"
    daily_reminder_hint: "Diariamente te enviaremos un correo electrónico para llevar a cabo esta estrategia"
+   draft_question: '¿Quieres guardar tu estrategia como borradr?'
   label:
    one: "Estrategia:"
    other: "Estrategias:"

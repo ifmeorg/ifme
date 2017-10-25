@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @posts = set_posts
   end
 
-  def contributors
+  def contribute
     @blurbs = set_blurbs
     @contributors = set_contributors
   end

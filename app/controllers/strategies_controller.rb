@@ -55,7 +55,12 @@ class StrategiesController < ApplicationController
       viewers.push(item.id)
     end
 
-    strategy = Strategy.new(userid: current_user.id, name: params[:strategy][:name], description: params[:strategy][:description], category: params[:strategy][:category], comment: true, viewers: viewers)
+    strategy = Strategy.new(userid: current_user.id,
+                            name: params[:strategy][:name],
+                            description: params[:strategy][:description],
+                            category: params[:strategy][:category],
+                            published_at: Time.zone.now,
+                            comment: true, viewers: viewers)
 
     result = if strategy.save
                render_checkbox(strategy, 'strategy', 'moment')
@@ -93,6 +98,7 @@ class StrategiesController < ApplicationController
     @strategy = Strategy.new(strategy_params)
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
+    @strategy.published_at = Time.zone.now if publishing?
     respond_to do |format|
       if @strategy.save
         format.html { redirect_to strategy_path(@strategy) }
@@ -133,6 +139,11 @@ class StrategiesController < ApplicationController
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
+    if publishing? && !@strategy.published?
+      @strategy.published_at = Time.zone.now
+    elsif saving_as_draft?
+      @strategy.published_at = nil
+    end
     respond_to do |format|
       if @strategy.update(strategy_params)
         format.html { redirect_to strategy_path(@strategy) }
@@ -175,9 +186,17 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params.require(:strategy).permit(
-      :name, :description, :userid,
+      :name, :description, :userid, :published_at, :draft,
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
+  end
+
+  def publishing?
+    params[:publishing] == '1'
+  end
+
+  def saving_as_draft?
+    params[:publishing] != '1'
   end
 end

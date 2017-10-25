@@ -1,6 +1,7 @@
 sv:
  app_name: 'if me'
  app_description: 'är en gemenskap för mentala hälsoupplevelser'
+ draft: "Utkast"
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Skapad:</strong> %{created_at}'
@@ -15,14 +16,16 @@ sv:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Olika
+   vn: Tiếng Việt
 
  navigation:
    about: 'Om'
    blog: 'Blogg'
-   contributors: 'Medverkande'
+   contribute: 'Medverkande'
    partners: 'Delägare'
    privacy: 'Integritetspolicy'
    github: 'GitHub'
@@ -47,6 +50,8 @@ sv:
    daily_reminder: 'Daglig påminnelse via e-post'
    actions:
     submit: 'Skicka'
+    submit_publish: 'Publicera'
+    submit_draft: 'Utkast'
     confirm: 'Är du säker?'
     delete: 'Radera'
     edit: 'Redigera'
@@ -245,11 +250,17 @@ sv:
   edit_moment: 'Redigera Ögonblick'
   tagged: 'Taggade Ögonblick'
   new: 'Nya Ögonblick'
+  secret_share:
+    singular: 'Hemlig Andel'
+    expires_at: 'Förfaller vid'
+    create: 'Skapa'
+    cancel: 'Annullera'
   form:
    why: 'Vad hände och hur känner du dig?'
    fix: 'Vilka tankar skulle du vilja ha?'
    what_happened: 'Vad hände?'
    viewers_hint: 'Allierade som kan se ditt ögonblick'
+   draft_question: "Vill du spara ditt ögonblick som ett utkast?"
 
   index:
    subtitle: 'Fördjupa dig djupt i dina ögonblick - händelser och situationer som påverkar din mentala hälsa.'
@@ -316,7 +327,7 @@ sv:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>För att läsa den, %{link}!</p>"
     new_group_subject: "if me | %{user} skapade en grupp \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p>"
+    new_group_body: "<p>%{user} skapade en grupp \"%{group}\":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p>"
     new_group_member_subject: "if me | %{user} gick med i din grupp \"%{group}\""
     add_group_leader_you_subject: "if me | Du blev ledare för \"%{group}\""
     add_group_leader_subject: "if me | %{user} blev ledare för \" %{group}\""
@@ -343,14 +354,14 @@ sv:
     main_message_one: "%{app_name} är en gemenskap för mentala erfarenheter som uppmuntrar människor att dela sina personliga historier med betrodda allierade."
     message_text_one: "Tillförlitliga allierade är de människor vi samarbetar med dagligen, inklusive vänner, familjemedlemmar, medarbetare, lärare och psykiatriska arbetstagare."
     main_message_two: "Att hantera mental hälsa är det som gör oss mänskliga. Men för många av oss är det en kamp att vara öppen om det."
-    message_text_two: "Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class=\"subtitle block\">\"Det är i ditt huvud, men det är också runt omkring dig.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>"
+    message_text_two: "Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class=\"subtitle block\">\"Det är inte bara allt i ditt huvud, det är runt dig. Vi kan läka tillsammans.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>"
     main_message_three: "Vill du hjälpa till att finansiera oss?"
     message_text_three: "Vår app är ett <u>fullständigt</u> öppen källkods-projekt. Det är byggt och underhållet av volontärer med många olika bakgrunder och kunskaper.</p><p>År 2016 mottog vi ett stipendium från %{linebreak_link}. År 2017 mottog vi finansiering från %{fund_club_link}.</p>Du kan stödja oss genom att donera till vår %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
     description: "Om du är intresserad av att skriva för oss, pitcha oss på %{email}! Vi välkomnar anonyma inlägg också."
-  contributors:
+  contribute:
     main_message_one: "if me är byggs och underhålls av volontärer med många olika bakgrunder och kunskaper."
     message_text_one: "Vi letar alltid efter idéer från alla, inklusive <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>, <strong>mjukvaruutvecklare</strong>, <strong>översättare</strong>, och <strong>användarupplevelse-designers</strong>!<p class=\"no_margin_bottom\">Vänligen %{email_link} och vi kommer att kontakta dig! Du kommer bli inbjuden att delta i vår %{slack_link} sida, vårt primära kommunikationsverktyg. Forka vår kodbas som hostas på %{github_link}!</p>"
     more_contributors: 'Mer Fantastiska Bidragsgivare!'
@@ -485,7 +496,11 @@ sv:
       news: nyheter
       government: regering
       christian: kristen
-      humor: humor
+      humor: humör
+      conference: konferens
+      addiction: missbruk
+      rehabilitation: rehabilitering
+      teachers: lärare
 
  profile:
   index:
@@ -560,6 +575,7 @@ sv:
    name_hint: 'Eventuella aktiviteter, tankegång eller form eller självomsorg som hjälper dig'
    viewers_hint: 'Allierade som kan se din strategi och tagga egna ögonblicken med det'
    daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att utföra denna strategi"
+   draft_question: 'Vill du spara din strategi som utkast?'
   label:
    one: 'Strategi:'
    other: 'Strategier:'

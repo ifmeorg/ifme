@@ -31,45 +31,9 @@ class MeetingsController < ApplicationController
   end
 
   def comment
-    @comment = Comment.new(
-      commentable_type: params[:commentable_type],
-      commentable_id: params[:commentable_id],
-      comment_by: params[:comment_by],
-      comment: params[:comment],
-      visibility: 'all'
-    )
-    return respond_not_saved unless @comment.save
+    params[:visibility] = 'all'
 
-    # Notify MeetingMembers except for commenter that there is a new comment
-    MeetingMember.where(meetingid: @comment.commentable_id).all.each do |member|
-      next if member.userid == current_user.id
-
-      meeting_name = Meeting.where(id: @comment.commentable_id).first.name
-      cutoff = false
-      cutoff = true if @comment.comment.length > 80
-      uniqueid = 'comment_on_meeting' + '_' + @comment.id.to_s
-
-      data = JSON.generate(
-        user: current_user.name,
-        meetingid: @comment.commentable_id,
-        meeting: meeting_name,
-        commentid: @comment.id,
-        comment: @comment.comment[0..80],
-        cutoff: cutoff,
-        type: 'comment_on_meeting',
-        uniqueid: uniqueid
-      )
-
-      Notification.create(userid: member.userid, uniqueid: uniqueid, data: data)
-      notifications = Notification.where(userid: member.userid).order('created_at ASC').all
-      Pusher['private-' + member.userid.to_s].trigger('new_notification', notifications: notifications)
-
-      NotificationMailer.notification_email(member.userid, data).deliver_now
-    end
-
-    respond_with_json(
-      generate_comment(@comment, 'meeting')
-    )
+    comment_for('meeting')
   end
 
   def delete_comment
@@ -93,7 +57,7 @@ class MeetingsController < ApplicationController
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
 
-    render nothing: true
+    head :ok
   end
 
   # GET /meetings/new
@@ -134,9 +98,9 @@ class MeetingsController < ApplicationController
 
             data = JSON.generate(
               user: current_user.name,
-              meetingid: @meeting.id,
+              typeid: @meeting.id,
               group: group,
-              meeting: @meeting.name,
+              typename: @meeting.name,
               type: 'new_meeting',
               uniqueid: uniqueid
             )
@@ -187,9 +151,9 @@ class MeetingsController < ApplicationController
 
         data = JSON.generate(
           user: current_user.name,
-          meetingid: @meeting.id,
+          typeid: @meeting.id,
           group: group,
-          meeting: @meeting.name,
+          typename: @meeting.name,
           type: 'update_meeting',
           uniqueid: uniqueid
         )
@@ -239,9 +203,9 @@ class MeetingsController < ApplicationController
 
         data = JSON.generate(
           user: current_user.name,
-          meetingid: meetingid,
+          typeid: meetingid,
           group: group,
-          meeting: meeting,
+          typename: meeting,
           type: 'join_meeting',
           uniqueid: uniqueid
         )
@@ -309,7 +273,7 @@ class MeetingsController < ApplicationController
         user: current_user.name,
         groupid: @meeting.groupid,
         group: group,
-        meeting: @meeting.name,
+        typename: @meeting.name,
         type: 'remove_meeting',
         uniqueid: uniqueid
       )

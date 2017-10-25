@@ -113,8 +113,8 @@ describe "NotificationMailer" do
       let(:data) do
         JSON.generate({
           user: who_triggered_event.name,
-          momentid: 1,
-          moment: moment_desc,
+          typeid: 1,
+          typename: moment_desc,
           commentid: 2,
           comment: 'my_comment',
           cutoff: false,

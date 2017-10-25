@@ -32,15 +32,15 @@
   text-align: center;
 
   @media screen and (max-width: $medium) {
-      font-size: $font30;
-      line-height: 40px;
+      font-size: $font26;
+      line-height: 36px;
       margin-bottom: 20px;
       width: 100%;
   }
 
   @media screen and (max-width: $small) {
       font-size: $font26;
-      line-height: 36px;
+      line-height: 34px;
   }
 }
 

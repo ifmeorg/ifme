@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.3.4'
+ruby '~> 2.3.4'
 
 gem 'puma'
 gem 'rack-rewrite'
@@ -62,6 +62,7 @@ group :development, :test do
 
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'pry-rails'
 
   gem 'capybara', '~> 2.15.1'
@@ -69,6 +70,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
+  gem 'rspec-html-matchers', '~> 0.9.0'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'ruby-graphviz', '~> 1.2.3'
 

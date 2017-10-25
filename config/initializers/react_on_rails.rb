@@ -22,7 +22,7 @@ ReactOnRails.configure do |config|
 
   # This configures the script to run to build the production assets by webpack. Set this to nil
   # if you don't want react_on_rails building this file for you.
-  config.npm_build_production_command = "yarn run build:production"
+  config.npm_build_production_command = "yarn install; yarn run build:production"
 
   ################################################################################
   # CLIENT RENDERING OPTIONS

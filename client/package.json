@@ -47,6 +47,7 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-flow-react-proptypes": "^4.1.0",
     "babel-preset-flow": "^6.23.0",
+    "compression-webpack-plugin": "^1.0.0",
     "css-loader": "^0.28.7",
     "empty": "^0.10.1",
     "enzyme": "^2.9.1",

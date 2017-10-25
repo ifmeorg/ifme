@@ -4,6 +4,7 @@ en:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
+ draft: "Draft"
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
@@ -15,14 +16,16 @@ en:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Various
+   vn: Tiếng Việt
 
  navigation:
    about: 'About'
    blog: 'Blog'
-   contributors: 'Contributors'
+   contribute: 'Contribute'
    partners: 'Partners'
    privacy: 'Privacy Policy'
    github: 'GitHub'
@@ -47,6 +50,8 @@ en:
    daily_reminder: 'Daily reminder email'
    actions:
     submit: 'Submit'
+    submit_publish: 'Publish'
+    submit_draft: 'Draft'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
@@ -245,11 +250,17 @@ en:
   edit_moment: 'Edit Moment'
   tagged: 'Tagged Moments'
   new: 'New Moment'
+  secret_share:
+    singular: 'Secret Share'
+    expires_at: 'Expire at'
+    create: 'Create'
+    cancel: 'Cancel'
   form:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
+   draft_question: 'Do you want to save your moment as draft?'
 
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
@@ -294,8 +305,8 @@ en:
    accepted: '%{name} accepted your ally request!'
    sent_html: '%{link_to_user} sent an ally request!'
   comment:
-   full: '%{name} commented "%{comment}" on %{commentable_id}'
-   truncated: '%{name} commented "%{comment}" [...] on %{commentable_id}'
+   full: '%{name} commented "%{comment}" on %{typename}'
+   truncated: '%{name} commented "%{comment}" [...] on %{typename}'
   group:
    new_group: '%{name} created a group "%{group_name}"'
    new_group_member: '%{name} joined your group "%{group_name}"'
@@ -316,7 +327,7 @@ en:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>To read it, %{link}!</p>"
     new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{subject}:</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
+    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p>"
     new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
     add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
     add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
@@ -343,14 +354,14 @@ en:
     main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
     message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
     main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's in your head, but it's also all around you.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
+    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
     main_message_three: "Wanna help fund us?"
     message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
     description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
-  contributors:
+  contribute:
     main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
     message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
     more_contributors: 'More Fabulous Contributors!'
@@ -486,6 +497,10 @@ en:
       government: government
       christian: christian
       humor: humor
+      conference: conference
+      addiction: addiction
+      rehabilitation: rehabilitation
+      teachers: teachers
 
  profile:
   index:
@@ -560,6 +575,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
+   draft_question: 'Do you want to save your strategy as draft?'
   label:
    one: 'Strategy:'
    other: 'Strategies:'

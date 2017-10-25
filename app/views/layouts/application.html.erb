@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= csrf_meta_tags %>
+    <%= cl_client_hints_meta_tag %>
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
@@ -94,7 +95,7 @@
             <div class="align_left">
               <%= yield(:title) %>
             </div>
-            <div class="align_right">
+            <div class="align_right" id="page_author">
               <%= @page_author %>
             </div>
             <div class="clear"></div>

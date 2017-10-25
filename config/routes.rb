@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
-  get "/404" => "errors#not_found"
-  get "/500" => "errors#internal_server_error"
+  get '/404' => 'errors#not_found'
+  get '/500' => 'errors#internal_server_error'
 
   resources :allies, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
-      post "add"
-      post "remove"
+      post 'add'
+      post 'remove'
     end
   end
 
@@ -16,48 +16,50 @@ Rails.application.routes.draw do
 
   resources :moods do
     collection do
-      post "premade"
-      post "quick_create"
+      post 'premade'
+      post 'quick_create'
     end
   end
 
   resources :categories do
     collection do
-      post "premade"
-      post "quick_create"
+      post 'premade'
+      post 'quick_create'
     end
   end
 
   resources :moments do
     collection do
-      post "comment"
-      post "quick_moment"
-      get "delete_comment"
+      post 'comment'
+      post 'quick_moment'
+      get 'delete_comment'
     end
   end
 
+  resources :secret_shares, only: [:create, :show, :destroy]
+
   resources :strategies do
     collection do
-      post "comment"
-      post "premade"
-      post "quick_create"
-      get "delete_comment"
+      post 'comment'
+      post 'premade'
+      post 'quick_create'
+      get 'delete_comment'
     end
   end
 
   resources :groups do
     collection do
-      get "join"
-      get "leave"
+      get 'join'
+      get 'leave'
     end
   end
 
   resources :meetings do
     collection do
-      get "join"
-      get "leave"
-      post "comment"
-      get "delete_comment"
+      get 'join'
+      get 'leave'
+      post 'comment'
+      get 'delete_comment'
     end
   end
 
@@ -65,21 +67,21 @@ Rails.application.routes.draw do
 
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
-      get "posts"
+      get 'posts'
     end
   end
 
   resources :notifications, :except => [:show, :new, :create, :edit, :update] do
     collection do
       delete 'clear'
-      get "fetch_notifications"
-      get "signed_in"
+      get 'fetch_notifications'
+      get 'signed_in'
     end
   end
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
-  match 'contributors', to: 'pages#contributors', via: :get
+  match 'contribute', to: 'pages#contribute', via: :get
   match 'partners', to: 'pages#partners', via: :get
   match 'blog', to: 'pages#blog', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
@@ -88,9 +90,12 @@ Rails.application.routes.draw do
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
 
-  devise_for :users, :controllers => { :registrations => :registrations, :omniauth_callbacks => 'omniauth_callbacks', :invitations => 'users/invitations' }
+  devise_for :users, :controllers => { :registrations => :registrations,
+                                       :omniauth_callbacks => 'omniauth_callbacks',
+                                       :invitations => 'users/invitations',
+                                       :sessions => :sessions }
 
-  mount Ckeditor::Engine => "/ckeditor"
+  mount Ckeditor::Engine => '/ckeditor'
 
   post 'pusher/auth'
 
@@ -149,5 +154,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root "pages#home"
+  root 'pages#home'
 end
