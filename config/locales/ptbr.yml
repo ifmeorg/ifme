@@ -102,6 +102,8 @@ ptbr:
     none: 'No momento você não tem aliados! Você pode buscar por eles ou convidar as pessoas que você ama!'
     view_all_allies: 'Ver todos os aliados'
     cancel: 'Cancelar'
+  form:
+    placeholder: 'Digite um ou mais emails separados por ponto e vírgula (EX: teste@teste.com, teste2@teste.com)'
 
  categories:
   plural: 'Categorias'
