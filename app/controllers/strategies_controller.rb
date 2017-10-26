@@ -144,6 +144,9 @@ class StrategiesController < ApplicationController
     elsif saving_as_draft?
       @strategy.published_at = nil
     end
+
+    set_empty_array_for :viewers, :category
+
     respond_to do |format|
       if @strategy.update(strategy_params)
         format.html { redirect_to strategy_path(@strategy) }
@@ -198,5 +201,11 @@ class StrategiesController < ApplicationController
 
   def saving_as_draft?
     params[:publishing] != '1'
+  end
+
+  def set_empty_array_for(*symbols)
+    symbols.each do |symbol|
+      @strategy[symbol] = []  if strategy_params[symbol].nil?
+    end
   end
 end
