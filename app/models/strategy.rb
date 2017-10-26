@@ -12,6 +12,7 @@
 #  comment     :boolean
 #  created_at  :datetime
 #  updated_at  :datetime
+#  published_at :datetime
 #  name        :string
 #  slug        :string
 #
@@ -36,6 +37,9 @@ class Strategy < ApplicationRecord
   validates :userid, :name, :description, presence: true
   validates :description, length: { minimum: 1, maximum: 2000 }
 
+  scope :published, -> { where.not(published_at: nil) }
+  scope :recent, -> { order('created_at DESC') }
+
   def array_data_to_i!
     category.map!(&:to_i)
     viewers.map!(&:to_i)
@@ -51,5 +55,9 @@ class Strategy < ApplicationRecord
 
   def self.link
     '/strategies'
+  end
+
+  def published?
+    !published_at.nil?
   end
 end

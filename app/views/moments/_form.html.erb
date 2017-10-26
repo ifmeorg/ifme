@@ -1,11 +1,6 @@
 <%= render partial: 'shared/editor_modal' %>
 
 <%= form_for(@moment) do |f| %>
-<% if @moment.errors.any? %>
-  <div class="error_explanation">
-    <%= t('common.form.error_explanation') %>
-  </div>
-<% end %>
 
 <div class="table">
 
@@ -101,6 +96,12 @@
       <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
 
       <%= render :partial => '/shared/character_count', locals: { data: 'moment_fix' } %>
+    </div>
+    <div class="field slider-container">
+      <div class="label draft_label">
+        <%= f.label t('moments.form.draft_question') %>
+      </div>
+      <%= render :partial => '/shared/draft_slider', locals: {published: @moment.published? } %>
     </div>
   </div>
 

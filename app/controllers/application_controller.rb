@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
     @locales = [
       { name: t('languages.en'), locale: :en },
       { name: t('languages.es'), locale: :es },
+      { name: t('languages.nl'), locale: :nl },
       { name: t('languages.ptbr'), locale: :ptbr },
       { name: t('languages.sv'), locale: :sv }
     ].freeze
@@ -104,7 +105,12 @@ class ApplicationController < ActionController::Base
   def most_focus(data_type, profile_id)
     data = []
     userid = profile_id || current_user.id
-    moments = user_moments(userid)
+    moments =
+      if current_user.id == profile_id
+        user_moments(userid)
+      else
+        user_moments(userid).where.not(published_at: nil)
+      end
     if data_type == 'category'
       strategies = user_strategies(userid)
       [moments, strategies].each do |records|
@@ -186,43 +192,19 @@ class ApplicationController < ActionController::Base
 
   def get_stories(user, include_allies)
     if user.id == current_user.id
-      my_moments = Moment.where(userid: user.id).all.order('created_at DESC')
-      my_strategies = Strategy.where(userid: user.id).all.order('created_at DESC')
+      my_moments = Moment.where(userid: user.id).all.recent
+      my_strategies = Strategy.where(userid: user.id).all.recent
     end
 
     if include_allies && user.id == current_user.id
       allies = user.allies_by_status(:accepted)
-      ally_moments = []
-      ally_strategies = []
-
       allies.each do |ally|
-        Moment.where(userid: ally.id).all.order('created_at DESC').each do |moment|
-          ally_moments << moment if moment.viewers.include?(user.id)
-        end
-
-        Strategy.where(userid: ally.id).all.order('created_at DESC').each do |strategy|
-          ally_strategies << strategy if strategy.viewers.include?(user.id)
-        end
+        my_moments += user_stories(ally, 'moments')
+        my_strategies += user_stories(ally, 'strategies')
       end
-
-      my_moments += ally_moments
-      my_strategies += ally_strategies
     elsif !include_allies && user.id != current_user.id
-      ally_moments = []
-      ally_strategies = []
-
-      Moment.where(userid: user.id).all.order('created_at DESC').each do |moment|
-        ally_moments << moment if moment.viewers.include?(current_user.id)
-      end
-
-      Strategy.where(userid: user.id).all.order('created_at DESC').each do |strategy|
-        if strategy.viewers.include?(current_user.id)
-          ally_strategies << strategy
-        end
-      end
-
-      my_moments = ally_moments
-      my_strategies = ally_strategies
+      my_moments = user_stories(user, 'moments')
+      my_strategies = user_stories(user, 'strategies')
     end
 
     moments = Moment.where(id: my_moments.map(&:id)).order(created_at: :desc)
@@ -378,7 +360,9 @@ class ApplicationController < ActionController::Base
   end
 
   def hide_page?(subject)
-    !current_user.mutual_allies?(subject.user) && !subject.viewer?(current_user)
+    (!current_user.mutual_allies?(subject.user) \
+    && !subject.viewer?(current_user)) \
+    || !subject.published?
   end
 
   def user_strategies(userid)
@@ -387,5 +371,20 @@ class ApplicationController < ActionController::Base
 
   def user_moments(userid)
     Moment.where(userid: userid)
+  end
+
+  def user_stories(user, collection)
+    resources = []
+    case collection
+    when 'moments'
+      query = Moment.published
+    when 'strategies'
+      query = Strategy.published
+    end
+
+    query.where(userid: user.id).all.recent.each do |story|
+      resources << story if story.viewers.include?(current_user.id)
+    end
+    resources
   end
 end

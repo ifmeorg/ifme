@@ -4,6 +4,7 @@ es:
  email: "join.ifme@gmail.com"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
+ draft: "Borrador"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
@@ -15,6 +16,7 @@ es:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Varios
@@ -48,6 +50,8 @@ es:
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
     submit: "Enviar"
+    submit_publish: 'Publicar'
+    submit_draft: 'Borrador'
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -258,6 +262,7 @@ es:
    fix: "¿Qué pensamientos te gustaría tener?"
    what_happened: "¿Qué ocurrió?"
    viewers_hint: "Aliados que pueden ver tu momento:"
+   draft_question: "¿Quieres guardar tu momento como borrador?"
 
   index:
    subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
@@ -497,6 +502,7 @@ es:
       conference: conferencia
       addiction: adicción
       rehabilitation: rehabilitación
+      teachers: maestros
 
  profile:
   index:
@@ -571,6 +577,7 @@ es:
    name_hint: "Cualquier actividad, tren de pensamiento, o forma de auto cuidado que te ayude"
    viewers_hint: "Los aliados que pueden ver tu estrategia y etiquetar con ella sus propios momentos"
    daily_reminder_hint: "Diariamente te enviaremos un correo electrónico para llevar a cabo esta estrategia"
+   draft_question: '¿Quieres guardar tu estrategia como borradr?'
   label:
    one: "Estrategia:"
    other: "Estrategias:"

@@ -17,6 +17,10 @@ FactoryGirl.define do
       secret_share_expires_at 1.day.ago
     end
 
+    trait :with_published_at do
+      published_at { Time.zone.now }
+    end
+
     trait :with_user do
       user { create(:user1) }
     end
