@@ -4,6 +4,7 @@ es:
       invited: "Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta."
     invitations:
       send_instructions: "Una invitación de correo se ha enviado para %{email}."
+      failed_send: 'Ocurrió un error. No se ha podido invitar a %{email}.'
       invitation_token_invalid: "¡El token de invitación no es valido!"
       updated_not_active: "Tu contraseña se ha establecido exitosamente."
       updated: "Tu contraseña se ha capturado con éxito, ya te encuentras dentro del sistema."
