@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe LocalesController, type: :controller do
-  %w(en es nl ptbr sv gr).each do |locale|
+  %w(en es nl ptbr sv).each do |locale|
     describe "GET ##{locale}" do
       it "sets a locale cookie when prompted" do
         get :set_initial_locale, params: { locale: locale }
