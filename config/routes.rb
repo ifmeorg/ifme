@@ -99,22 +99,8 @@ Rails.application.routes.draw do
 
   post 'pusher/auth'
 
-  def locale_headers(locale)
-    proc {
-      [
-        302,
-        {
-          'Content-Type' => 'text/plain',
-          'Location' => '/',
-          'Set-Cookie' => "locale=#{locale}"
-        },
-        ['302 Found']
-      ]
-    }
-  end
-
-  %w(en es nl ptbr sv).each do |locale|
-    match locale, to: locale_headers(locale), via: :get
+  Rails.configuration.i18n.available_locales.each do |locale|
+    get locale.to_s => 'locales#set_initial_locale', defaults: { locale: locale.to_s }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
