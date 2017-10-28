@@ -145,7 +145,7 @@ class StrategiesController < ApplicationController
       @strategy.published_at = nil
     end
 
-    set_empty_array_for :viewers, :category
+    empty_array_for :viewers, :category
 
     respond_to do |format|
       if @strategy.update(strategy_params)
@@ -203,9 +203,9 @@ class StrategiesController < ApplicationController
     params[:publishing] != '1'
   end
 
-  def set_empty_array_for(*symbols)
+  def empty_array_for(*symbols)
     symbols.each do |symbol|
-      @strategy[symbol] = []  if strategy_params[symbol].nil?
+      @strategy[symbol] = [] if strategy_params[symbol].nil?
     end
   end
 end

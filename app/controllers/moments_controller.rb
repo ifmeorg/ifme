@@ -136,7 +136,7 @@ class MomentsController < ApplicationController
       @moment.published_at = nil
     end
 
-    set_empty_array_for :viewers, :mood, :strategy, :category
+    empty_array_for :viewers, :mood, :strategy, :category
 
     respond_to do |format|
       if @moment.update(moment_params)
@@ -218,9 +218,9 @@ class MomentsController < ApplicationController
     params[:publishing] != '1'
   end
 
-  def set_empty_array_for(*symbols)
+  def empty_array_for(*symbols)
     symbols.each do |symbol|
-      @moment[symbol] = []  if moment_params[symbol].nil?
+      @moment[symbol] = [] if moment_params[symbol].nil?
     end
   end
 end
