@@ -53,7 +53,7 @@ it:
     delete: 'Elimina'
     edit: 'Modifica'
     edit_instance: 'Modifica %{instance}'
-    join: 'Unisciti'
+    join: 'Registrati'
     leave: 'Abbandona'
     add: 'Aggiungi'
     add_all: 'Aggiungi tutti'
