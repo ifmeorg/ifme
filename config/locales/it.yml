@@ -158,8 +158,8 @@ it:
    signin: 'Racconta ora le tue storie'
    create_account: 'Unisciti ora alla community'
    update_account: 'Personalizza il tuo account'
-   if: 'se'
-   me: 'io'
+   if: 'if'
+   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} è una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari."
