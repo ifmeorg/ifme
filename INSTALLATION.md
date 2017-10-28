@@ -7,7 +7,7 @@ users please refer to this [guide](https://gist.github.com/KelseyDH/11198922)
 for tips on setup.
 
 Commons errors faced during installation are documented in this
-[guide](https://github.com/julianguyen/ifme/blob/master/documentation/COMMON_ERRORS.md).
+[guide](https://github.com/julianguyen/ifme/wiki/Common-Dev-Environment-Errors).
 
 <details>
   <summary>1) Install Postgres (click to expand)</summary>
