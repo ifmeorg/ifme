@@ -185,8 +185,8 @@ it:
    comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
    add_to_google_cal: 'Reminder Google Calendar'
    google_cal_hint: "Aggiungeremo un reminder per questa medicazione al tuo Google Calendar."
-   strength_hint: 'Potenza della medicazione, solitamente si trova accanto al nome'
-   total_hint: 'Numero totale di pillole o quantità di medicazione'
+   strength_hint: 'Quanto è potente questo medicinale? Solitamente si trova accanto al nome'
+   total_hint: 'Numero totale di pillole o quantità totale'
    dosage_hint: 'Numero di pillole o dose giornaliera'
    refill_hint: 'Quando riempire questa prescrizione'
    refill_reminder_hint: "Ti invieremo una mail la settimana prossima prima che la tua medicazione abbia bisogno di un refill."
@@ -393,7 +393,7 @@ it:
       message_two: 'Sii te stesso, libero ma con sicurezza e privacy'
       message_three: 'Documenta i tuoi stati d’animo e medicazioni'
       main_message_two: "Parlare del problema è la chiave per capirlo."
-      message_text_two: "Impara dalla <strong>comunità</strong> nel nostro %{blog}."
+      message_text_two: "Impara dalla <strong>community</strong> nel nostro %{blog}."
       main_message_three: 'Siamo open source perché la salute mentale dovrebbe essere aperta a tutti.'
       message_text_three: "Siamo <strong>sempre</strong> in cerca del tuo %{help} e %{feedback}!"
       help: 'aiuto'
@@ -424,7 +424,7 @@ it:
     contact_description: "<p>Per favore, inviaci una mail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
   resources:
     description: "Benvenuto sulla lista delle risorse sulla salute mentale curata da %{communities}, %{education}, %{hotlines}, e %{services}."
-    communities: Comunità
+    communities: Community
     education: Educazione
     hotlines: Numeri
     services: Servizi
@@ -433,7 +433,7 @@ it:
       women_of_colour: donne di colore
       black_women: donne di colore
       domestic_violence: violenza domestica
-      dating_violence: violenza negli appuntamenti
+      dating_violence: violenza nella coppia
       cyberbullying: cyber-bullismo
       therapy: terapia
       counseling: consulenza
@@ -471,7 +471,7 @@ it:
       treatment: trattamento
       care_planning: pianificazione delle cure
       depression: depressione
-      ocd: Manie Ossessivo-Compulsive
+      ocd: OCD
       advice: consigli
       forum: forum
       learning: imparare
@@ -491,7 +491,7 @@ it:
       tbi: TBI
       news: news
       government: governo
-      christian: cristiano
+      christian: cristianità
       humor: humour
       conference: conferenza
       addiction: dipendenza
@@ -523,7 +523,7 @@ it:
     license: 'We &hearts; FOSS'
     foss: 'Free and open source software'
     license_subtitle: 'Licenza: %{license}'
-    connect: 'connect'
+    connect: 'raggiungici'
   comments:
     share_everyone: 'Condividi con tutti'
     share_with: 'Condividi solo con %{name}'
