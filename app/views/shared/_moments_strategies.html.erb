@@ -22,6 +22,12 @@
         <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
       </h1>
+      <% if !local_assigns[:item].published? %>
+        <span class="draft-badge">
+          <i class="fa fa-tag" aria-hidden="true"></i>
+          <%= I18n.t 'draft' %>
+        </span>
+      <% end %>
       <%= ::TimeAgo.created_or_edited(local_assigns[:item]) %>
       <% if local_assigns[:item].category.count > 0 %>
         <br>

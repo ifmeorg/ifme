@@ -58,4 +58,18 @@ describe Strategy do
       end
     end
   end
+
+  describe "#published?" do
+    context 'when it has a publication date' do
+      let(:strategy) { build(:strategy, :with_published_at)}
+      let(:subject) { strategy.published? }
+
+      it { is_expected.to be true }
+    end
+    context 'when it does not have a publication date' do
+      let(:strategy) { create(:strategy) }
+      let(:subject) { strategy.published? }
+      it { is_expected.to be false }
+    end
+  end
 end

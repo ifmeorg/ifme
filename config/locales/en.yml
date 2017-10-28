@@ -4,6 +4,7 @@ en:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
+ draft: "Draft"
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
@@ -15,6 +16,7 @@ en:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Various
@@ -49,6 +51,8 @@ en:
    daily_reminder: 'Daily reminder email'
    actions:
     submit: 'Submit'
+    submit_publish: 'Publish'
+    submit_draft: 'Draft'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
@@ -257,6 +261,7 @@ en:
    fix: 'What thoughts would you like to have?'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
+   draft_question: 'Do you want to save your moment as draft?'
 
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
@@ -571,6 +576,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
+   draft_question: 'Do you want to save your strategy as draft?'
   label:
    one: 'Strategy:'
    other: 'Strategies:'

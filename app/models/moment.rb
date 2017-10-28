@@ -11,6 +11,7 @@
 #  fix                     :text
 #  created_at              :datetime
 #  updated_at              :datetime
+#  published_at            :datetime
 #  userid                  :integer
 #  viewers                 :text
 #  comment                 :boolean
@@ -19,7 +20,6 @@
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
 #
-
 class Moment < ApplicationRecord
   include Viewer
   extend FriendlyId
@@ -41,6 +41,9 @@ class Moment < ApplicationRecord
   validates :fix, length: { maximum: 2000 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
+
+  scope :published, -> { where.not(published_at: nil) }
+  scope :recent, -> { order('created_at DESC') }
 
   def self.find_secret_share!(identifier)
     find_by!(
@@ -75,5 +78,9 @@ class Moment < ApplicationRecord
   def shared?
     secret_share_identifier? &&
       Time.zone.now < secret_share_expires_at
+  end
+
+  def published?
+    !published_at.nil?
   end
 end
