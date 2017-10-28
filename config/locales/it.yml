@@ -170,13 +170,13 @@ it:
  medications:
   singular: 'Medicazione'
   edit_medication: 'Modifica Medicazione'
-  refill_reminder: 'Ricarica email di notifica'
+  refill_reminder: 'E-Mail di Notifica per la ricarica'
   dosage: 'Dosaggio giornaliero:'
   refill: 'Riempimento:'
   quantity: 'Quantità totale:'
-  strength: 'Potenza:'
+  strength: 'Peso:'
   form:
-   strength: 'potenza'
+   strength: 'peso'
    strength_placeholder: 'es. 100'
    total_placeholder: 'es. 30'
    dosage: 'dosaggio'
