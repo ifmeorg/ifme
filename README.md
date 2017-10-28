@@ -26,7 +26,7 @@ before joining our project.
 
 ## Installation
 
-Information about installing and configuring if me is located in [INSTALLATION.md](https://www.github.com/julianguyen/ifme/blob/master/documentation/INSTALLATION.md). Both local and production instances are covered.
+Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/julianguyen/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
 
 ## UI Development Environment and Design
 
