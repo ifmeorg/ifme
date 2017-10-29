@@ -187,7 +187,8 @@ class StrategiesController < ApplicationController
   def strategy_params
     params.require(:strategy).permit(
       :name, :description, :userid, :published_at, :draft, :comment,
-      category: [], viewers: [], perform_strategy_reminder_attributes: %i[active id]
+      category: [], viewers: [],
+      perform_strategy_reminder_attributes: %i[active id]
     ).tap do |p|
       %i[viewers category].each do |array_attribute|
         p[array_attribute] = p[array_attribute] || []
