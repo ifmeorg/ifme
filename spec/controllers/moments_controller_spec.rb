@@ -24,6 +24,19 @@ describe MomentsController do
       get :show, params: { id: moment.id }
       expect(response).to render_template(:show)
     end
+
+    describe 'PATCH update' do
+      let!(:moment) { create(:moment, user: user, category: [1, 2]) }
+
+      it 'updates array attribute with no value to []' do
+        expect(moment.category).to_not be_blank
+
+        patch :update,
+          params: { id: moment.id, moment: moment.attributes.except('category') }
+
+        expect(moment.reload.category).to be_blank
+      end
+    end
   end
 
   describe 'POST comment' do

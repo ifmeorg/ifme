@@ -165,7 +165,11 @@ class MomentsController < ApplicationController
     params.require(:moment).permit(
       :name, :why, :fix, :userid, :comment, :published_at, :draft,
       category: [], mood: [], viewers: [], strategy: []
-    )
+    ).tap do |p|
+      %i[category mood viewers strategy].each do |array_attribute|
+        p[array_attribute] = p[array_attribute] || []
+      end
+    end
   end
 
   def set_association_variables!
