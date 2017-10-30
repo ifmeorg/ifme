@@ -145,7 +145,7 @@ en:
    available_groups: 'Available Groups'
    joined_groups: 'Joined Groups'
    leader: '(Leader)'
-   instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
+   instructions: "You aren't a part of any groups yet, but you can click %{icon} to create one!<br><br><h1 class=\"faq_heading\"><%= t('pages.faq.group_question') %></h1>"
   join_success: 'You have joined this group.'
   leave:
     error: 'You cannot leave the group, you are the only leader.'

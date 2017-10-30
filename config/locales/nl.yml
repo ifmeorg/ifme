@@ -145,7 +145,7 @@ nl:
    available_groups: 'Beschikbare groepen'
    joined_groups: 'Groepslidmaatschappen'
    leader: '(Leider)'
-   instructions: "Je bent nog niet lid van een groep! Klik op %{icon} om er een te maken of wordt lid van een van de beschikbare groepen hier onder.<br><br>Ondersteuningsgroepen zijn goed voor het voeren van openbare discussies over geestelijke gezondheid! Je kunt groepen maken, leden uitnodigen en samenkomsten organiseren zowel online als offline. Je kunt ook lid worden van groepen die je bondgenoten hebben gemaakt."
+   instructions: "Je bent nog niet lid van een groep! Klik op %{icon} om er een te maken of wordt lid van een van de beschikbare groepen hier onder.<br><br><h1 class=\"faq_heading\"><%= t('pages.faq.group_question') %></h1>"
   join_success: 'Je bent lid geworden van deze groep.'
   leave:
     error: 'Je kunt de groep niet verlaten, je bent de enige leider van de groep.'
