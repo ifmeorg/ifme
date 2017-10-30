@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.0.0'
-gem 'uglifier', '~> 3.2.0'
+gem 'uglifier', '2.7.1'
 
 gem 'carrierwave', '~> 1.0.0'
 gem 'certified', '1.0.0'
@@ -52,7 +52,6 @@ gem 'react_on_rails', '8.0.6'
 gem 'webpacker_lite'
 
 group :development, :test do
-  gem 'bundler-audit'
   gem 'dotenv-rails', '~> 2.2.1'
 
   gem 'spring'
