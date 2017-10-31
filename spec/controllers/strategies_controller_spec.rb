@@ -318,6 +318,17 @@ describe StrategiesController do
           patch :update, params: { id: 1, strategy: valid_strategy_params }
           expect(response).to redirect_to(strategy_path(strategy))
         end
+
+        it 'updates array attribute with no value to []' do
+          patch :update,
+            params: { id: strategy.id, strategy: { category: [1, 2] } }
+
+          expect(strategy.reload.category).to_not be_blank
+
+          patch :update,
+            params: { id: strategy.id, strategy: valid_strategy_params }
+          expect(strategy.reload.category).to be_blank
+        end
       end
 
       context 'when the params are invalid' do
