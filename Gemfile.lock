@@ -554,7 +554,7 @@ DEPENDENCIES
   simplecov
   spring
   turbolinks (~> 5.0.0)
-  uglifier
+  uglifier (~> 3.2.0)
   underscore-rails (= 1.8.3)
   webpacker_lite
 
