@@ -4,7 +4,7 @@ nl:
       invited: "Je hebt een openstaande uitnodiging, accepteer deze om je account te voltooien."
     invitations:
       send_instructions: "Een uitnodiging via e-mail is verstuurd naar %{e-mail}."
-      failed_send: 'Er is een fout opgetreden. %{email} kon niet worden uitgenodigd.'
+      failed_send: "Er is een fout opgetreden. '%{email}' kon niet worden uitgenodigd."
       invitation_token_invalid: "De token in je uitnodiging is niet valide!"
       updated: "Je wachtwoord is succesvol ingesteld. Je bent nu ook ingelogd."
       updated_not_active: "Je wachtwoord is ingesteld."

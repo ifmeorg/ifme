@@ -4,7 +4,7 @@ sv:
       invited: "Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto."
     invitations:
       send_instructions: "Ett inbjudningsbrev har skickats till %{email}."
-      failed_send: 'Ett fel uppstod. %{email} kunde inte bjudas in.'
+      failed_send: "Ett fel uppstod. '%{email}' kunde inte bjudas in."
       invitation_token_invalid: "Nyckeln i inbjudan är inte giltig!"
       updated: "Ditt lösenord har upprättats. Du är nu inloggad."
       updated_not_active: "Ditt lösenord har skapats."
