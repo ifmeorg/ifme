@@ -29,6 +29,7 @@ test:
     - bundle exec rspec --format progress --format RspecJunitFormatter -o
       $CIRCLE_TEST_REPORTS/rspec.xml
     - RAILS_ENV=test bundle exec rake jasmine:ci
+    - bundle exec bundle-audit check --update
 
 deployment:
   staging:
