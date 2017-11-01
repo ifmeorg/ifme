@@ -21,12 +21,16 @@ module Users
 
     def invitation_flash_messages(invites, fails)
       return unless is_flashing_format?
-      unless invites.size.empty?
-        set_flash_message :notice, :send_instructions, email: invites.join(', ')
-      end
-      unless fails.size.empty?
-        set_flash_message :alert, :failed_send, email: fails.join(', ')
-      end
+      invites_flash(invites) unless invites.empty?
+      fails_flash(fails) unless fails.empty?
+    end
+
+    def invites_flash(invites)
+      set_flash_message :notice, :send_instructions, email: invites.join(', ')
+    end
+
+    def fails_flash(fails)
+      set_flash_message :alert, :failed_send, email: fails.join(', ')
     end
   end
 end
