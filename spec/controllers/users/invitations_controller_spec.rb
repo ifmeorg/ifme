@@ -3,8 +3,6 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
   let(:invitee1) { 'invitedfriend@gmail.com' }
   let(:invitee2) { 'otherfriend@gmail.com' }
   let(:invalid_email) { 'invalidemail.com' }
-  let(:notification) { double(:notification) }
-  let(:notification_type) { 'invitation'}
 
   describe '#create' do
     before(:each) { @request.env["devise.mapping"] = Devise.mappings[:user] }
@@ -21,7 +19,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
         let(:invite_one_friend) { post :create, params: { user: { email: "#{invitee1}" } } }
         after(:each) { Devise.mailer.deliveries.clear }
 
-        it 'creates a new user' do
+        it 'creates a new user if the user does not exist' do
           users_count = User.count
           invite_one_friend
           expect(User.count).to eq(users_count + 1)
