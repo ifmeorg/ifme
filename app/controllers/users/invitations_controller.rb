@@ -14,7 +14,7 @@ module Users
         (invited ? successful_invites : failed_invites) << invitee
       end
       invitation_flash_messages(successful_invites, failed_invites)
-      redirect_to new_user_invitation_path
+      redirect_to new_user_invitatigion_path
     end
 
     private
