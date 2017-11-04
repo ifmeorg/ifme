@@ -46,7 +46,7 @@ it:
    you: 'Tu'
    title: 'Titolo'
    date: 'Data:'
-   daily_reminder: 'E-Mail giornaliera'
+   daily_reminder: 'EMail giornaliera'
    actions:
     submit: 'Invia'
     confirm: 'Sei sicuro?'
@@ -163,14 +163,14 @@ it:
   mailer:
    html:
     app_description: "%{app_name} è una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari."
-    no_reply: "Non puoi rispondere a questa mail. Se hai domande, preoccupazioni o consigli contattaci su %{email}!"
+    no_reply: "Non puoi rispondere a questa Email. Se hai domande, preoccupazioni o consigli contattaci su %{email}!"
   title:
    reset_password: Resetta la tua password
 
  medications:
   singular: 'Medicazione'
   edit_medication: 'Modifica Medicazione'
-  refill_reminder: 'E-Mail di Notifica per la ricarica'
+  refill_reminder: 'EMail di Notifica per la ricarica'
   dosage: 'Dosaggio giornaliero:'
   refill: 'Riempimento:'
   quantity: 'Quantità totale:'
@@ -189,8 +189,8 @@ it:
    total_hint: 'Numero totale di pillole o quantità totale'
    dosage_hint: 'Numero di pillole o dose giornaliera'
    refill_hint: 'Quando riempire questa prescrizione'
-   refill_reminder_hint: "Ti invieremo una mail la settimana prossima prima che la tua medicazione abbia bisogno di un refill."
-   daily_reminder_hint: "Ti invieremo una mail giornaliera ricordandoti di prendere la medicazione"
+   refill_reminder_hint: "Ti invieremo una Email la settimana prossima prima che la tua medicazione abbia bisogno di un refill."
+   daily_reminder_hint: "Ti invieremo una Email giornaliera ricordandoti di prendere la medicazione"
   new: 'Nuova Medicazione'
   units:
    display: "%{count} %{unit}"
@@ -346,7 +346,7 @@ it:
  pages:
   about:
     send_us: 'noi'
-    email_us: 'Manda pure una mail a %{email_link}!'
+    email_us: 'Manda pure una Email a %{email_link}!'
     main_message_one: "%{app_name} è una community dedicata ad esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare."
     message_text_one: "Gli alleati sono le persone con cui interagiamo quotidianamente includendo amici, familiari, colleghi, professori ed esperti di salute mentale."
     main_message_two: "Avere a che fare con la salute mentale è ciò che ci rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto difficile."
@@ -380,9 +380,9 @@ it:
     medications_question: 'Come uso la funzionalità "Medicinali"?'
     medications_answer: 'La funzionalità <strong>Medicinali</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati ed i dosaggi.'
     invite_question: 'Come posso invitare i miei cari ad utilizzare l’app?'
-    invite_answer: 'Vai sulla pagina <strong>Alleati</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via mail. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
-    email_notifications_question: 'Come posso gestire le notifiche che ricevo via mail?'
-    email_notifications_answer: "Vai sulla pagina <strong>Account</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua mail, password, immagine del profilo ed introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
+    invite_answer: 'Vai sulla pagina <strong>Alleati</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via Email. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
+    email_notifications_question: 'Come posso gestire le notifiche che ricevo via Email?'
+    email_notifications_answer: "Vai sulla pagina <strong>Account</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua Email, password, immagine del profilo ed introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
   home:
     stories: 'Storie'
     welcome: 'Benvenuto'
@@ -405,12 +405,12 @@ it:
       main_message_three: 'Racconta i tuoi pensieri.'
       cell_two: 'Crea %{categories} personalizzate per organizzare al meglio i tuoi momenti<br>Parla dei %{moments} - gli eventi ed emozioni che influenzano il tuo stato d’animo'
       main_message_four: 'Prenditi cura di te stesso.'
-      cell_three: '%{strategize} il tuo piano per prenderti cura di te stesso!<br>Stai prendendo %{medications}? Tienine traccia e ricevi delle mail di notifica per non dimenticare nulla!<br>Hai bisogno di aiuto? Unisciti o crea un %{group} per aprirti'
+      cell_three: '%{strategize} il tuo piano per prenderti cura di te stesso!<br>Stai prendendo %{medications}? Tienine traccia e ricevi delle Email di notifica per non dimenticare nulla!<br>Hai bisogno di aiuto? Unisciti o crea un %{group} per aprirti'
       main_message_five: 'Hai dubbi o preoccupazioni?'
-      message_text_three: 'Dà un’occhiata alla nostra pagina %{faq} o raggiungici via mail su %{email_link}!'
+      message_text_three: 'Dà un’occhiata alla nostra pagina %{faq} o raggiungici via Email su %{email_link}!'
       strategize: 'Organizza una Strategia'
   partners:
-    description: 'Queste sono le incredibili organizzaioni che ci ispirano e con cui abbiamo avuto il privilegio di collaborare. Ci piacerebbe lavorare anche con la tua organizzazione, inviaci una mail su %{email}.'
+    description: 'Queste sono le incredibili organizzaioni che ci ispirano e con cui abbiamo avuto il privilegio di collaborare. Ci piacerebbe lavorare anche con la tua organizzazione, inviaci una Email su %{email}.'
   privacy:
     summary: 'Riassunto'
     summary_description: '<p>Questa informativa sulla privacy è valida su questo sito e determina la privacy degli utenti che decidono di utilizzarlo.</p><p>Dati i contenuti sensibili del sito, la privacy è un problema di vitale importanza per noi. L’informativa si pone l’obiettivo di delineare il modo in cui le informazioni vengono raccolte, per cosa sono utilizzate, e come vengono protette.</p>'
@@ -419,9 +419,9 @@ it:
     cookies: 'Utilizzo di Cookie'
     cookies_description: "<p>Questo sito utilizza cookie al fine di fornire l’esperienza migliore possibile ai propri utenti. Quando possibile il sito fornisce un sistema di controllo cookie permettendo all’utente di abilitare o disabilitare l’utiizzo dei cookie alla prima visita / visita da un nuovo dispositivo.</p><p>I cookie sono piccoli file salvati sul dispositivo dell’utente che raccolgono e salvano informazioni riguardanti le interazioni e l’utilizzo generale del sito da parte dell’utente. Ciò permette al sito di fornire un’esperienza personalizzata ad ogni utente in base alle sue preferenze.</p><p>&Egrave; necessario notare che nel caso in cui l’utente ritenga necessario negare la raccolta e salvataggio dei cookie da parte del sito sarebbe preferibile entrare nelle impostazioni del browser e bloccare direttamente i cookie per questo sito e gli affiliati.</p><p>Questo sito utilizza software di tracking per capire meglio l’utenza. Questo servizio è offerto da Google Analytics, che utilizza i cookie per distinguere gli utenti. Il software salverà un cookie sul tuo dispositivo per seguire e monitorare il tuo utilizzo del sito, ma non salverà alcun tipo di dato personale. Puoi leggere la %{google_privacy_policy} di Google per maggiori informazioni.</p>"
     social_media: 'Piattaforme di Social Media'
-    social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>&Egrave; importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati ad utilizzare le principali forme di comunicazione: Telefono ed E-Mail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. &Egrave; importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
+    social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>&Egrave; importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati ad utilizzare le principali forme di comunicazione: Telefono ed EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. &Egrave; importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
     contact: 'Contattaci'
-    contact_description: "<p>Per favore, inviaci una mail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Per favore, inviaci una Email su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
   resources:
     description: "Benvenuto sulla lista delle risorse sulla salute mentale curata da %{communities}, %{education}, %{hotlines}, e %{services}."
     communities: Community
@@ -511,7 +511,7 @@ it:
   search_by_name: 'Cerca in base al nome'
   form:
    search_by_location: 'Cerca in base al luogo'
-   search_by_email: 'Cerca in base all’email'
+   search_by_email: 'Cerca in base all’Email'
 
   index:
    title: 'Cerca compagni'
@@ -570,7 +570,7 @@ it:
    strategies_label: 'Quali strategie ti aiuterebbero a porti in questo modo?'
    name_hint: 'Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto'
    viewers_hint: 'Alleati che possono visualizzare la tua strategia e taggarci i propri momenti'
-   daily_reminder_hint: "Ti ricorderemo via mail ogni giorno di utilizzare questa strategia."
+   daily_reminder_hint: "Ti ricorderemo via Email ogni giorno di utilizzare questa strategia."
   label:
    one: 'Strategia:'
    other: 'Strategie:'
@@ -644,11 +644,11 @@ it:
     resend_confirmation: "Inviami di nuovo le istruzioni"
   mailer:
     confirmation:
-      link_instructions: "Puoi convalidare l’email associata al tuo account con il link sottostante"
+      link_instructions: "Puoi convalidare l’Email associata al tuo account con il link sottostante"
       link_text: "Conferma l’account"
     reset_password:
       link_instructions: "Qualcuno ha richiesto un link per resettare la tua password. Puoi farlo attraverso il link sottostante."
-      ignore: "Se non sei stato tu, ignora pure questa mail."
+      ignore: "Se non sei stato tu, ignora pure questa Email."
       info: "La tua password rimarrà invariata finché non aprirai il link e ne creerai una nuova."
     unlock:
       info: "Il tuo account è stato momentaneamente bloccato in seguito a svariati tentativi falliti di effettuare il login."
@@ -661,13 +661,13 @@ it:
       send_instructions: "Inviami le istruzioni per il reset della mia password"
 
   registrations:
-    email_notifications: "Notifiche via E-Mail"
+    email_notifications: "Notifiche via EMail"
     comment_notify_text: "Commenti su momenti, strategie e raduni"
     ally_notify_text: "Richieste di alleanza, nuove ed accettate"
     group_notify_text: "Aggiornamenti sui gruppi"
     meeting_notify_text: "Aggiornamenti sui raduni"
-    google_auth1: "Se non vuoi più effettuare l’autenticazione tramite Google, per favore inserisci una nuova email e password."
-    google_auth2: "Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova email e password."
+    google_auth1: "Se non vuoi più effettuare l’autenticazione tramite Google, per favore inserisci una nuova Email e password."
+    google_auth2: "Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova Email e password."
     placeholders:
       repeat_password: "Ripeti la password"
     edit:
@@ -692,7 +692,7 @@ it:
   shared:
     sign_in_google: 'Effettua il login con Google'
     sign_up_google: 'Registrati con Google'
-    confirmation: "Non hai ricevuto le istruzioni per confermare la tua mail?"
+    confirmation: "Non hai ricevuto le istruzioni per confermare la tua Email?"
     unlock: "Non hai ricevuto le istruzioni per sbloccare il tuo account?"
   unlock:
     resend: 'Reinvia istruzioni di sblocco'

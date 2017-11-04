@@ -3,7 +3,7 @@ it:
     failure:
       invited: "Hai un invito in sospeso, accettalo per completare la creazione del tuo account."
     invitations:
-      send_instructions: "Una mail con l’invito è stata inviata a %{email}."
+      send_instructions: "Una email con l’invito è stata inviata a %{email}."
       invitation_token_invalid: "Il token d’invito non è valido! Sei sicuro l’url sia giusto?"
       updated: "La tua password è stata salvata con successo. Sei ora loggato."
       updated_not_active: "La tua password è stata salvata con successo."
@@ -22,4 +22,4 @@ it:
         someone_invited_you: "%{name} ti ha invitato ad unirti http://www.if-me.org, una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari - permette inoltre di tenere traccia di stati d’animo, medicazioni, e cura di sé. Puoi accettare l’invito tramite il link sottostante."
         accept: "Accetta l’invito!"
         accept_until: "Questo invito scadrà il %{due_date}."
-        ignore: "Se non vuoi accettare l’invito, ignora questa mail.<br />\nIl tuo account non sarà creato finché non accederai al link sottostante e sceglierai una password."
+        ignore: "Se non vuoi accettare l’invito, ignora questa email.<br />\nIl tuo account non sarà creato finché non accederai al link sottostante e sceglierai una password."
