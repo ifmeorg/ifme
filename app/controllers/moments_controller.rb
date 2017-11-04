@@ -135,6 +135,9 @@ class MomentsController < ApplicationController
     elsif saving_as_draft?
       @moment.published_at = nil
     end
+
+    empty_array_for :viewers, :mood, :strategy, :category
+
     respond_to do |format|
       if @moment.update(moment_params)
         format.html { redirect_to moment_path(@moment) }
@@ -213,5 +216,11 @@ class MomentsController < ApplicationController
 
   def saving_as_draft?
     params[:publishing] != '1'
+  end
+
+  def empty_array_for(*symbols)
+    symbols.each do |symbol|
+      @moment[symbol] = [] if moment_params[symbol].nil?
+    end
   end
 end
