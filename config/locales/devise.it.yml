@@ -15,8 +15,8 @@ it:
       last_attempt: "Ti rimane solo un altro tentativo prima che il tuo account venga bloccato."
       not_found_in_database: "%{authentication_keys} o password invalidi."
       timeout: "La tua sessione è scaduta. Per favore, effettua nuovamente il login per continuare."
-      unauthenticated: "&Egrave; necessario effettuare l’accesso o la registrazione prima di continuare."
-      unconfirmed: "&Egrave; necessario confermare il tuo indirizzo EMail prima di continuare."
+      unauthenticated: "È necessario effettuare l’accesso o la registrazione prima di continuare."
+      unconfirmed: "È necessario confermare il tuo indirizzo EMail prima di continuare."
     mailer:
       confirmation_instructions:
         subject: "Istruzioni per la Conferma"
