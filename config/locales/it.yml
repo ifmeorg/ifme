@@ -118,8 +118,8 @@ it:
    premade3_name: 'Lavoro'
    premade3_description: 'Relativo al lavoro'
    premade4_name: 'Meditazione'
-   premade4_description: 'Meditazione, respirazione ed attività rilassanti'
-   instructions: "Non hai ancora creato nessuna categoria personalizzata. Clicca su %{icon} per aggiungere!<br>Puoi anche aggiungere le seguenti categorie già pronte e personalizzarle più avanti."
+   premade4_description: 'Meditazione, respirazione e attività rilassanti'
+   instructions: "Non hai ancora creato nessuna categoria personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche scegliere una delle seguenti categorie già pronte e personalizzarle più avanti."
 
  errors:
   home_page: 'Torna alla Home'
@@ -138,11 +138,11 @@ it:
     error_save: "Non possiamo salvare questo gruppo perché: "
     error_edit_permission: 'Devi essere il leader di un gruppo per modificarlo'
   index:
-   subtitle: 'Crea ed unisciti a gruppi che offrono supporto, insegnamento e discussione.'
+   subtitle: 'Crea e unisciti a gruppi che offrono supporto, insegnamento e discussione.'
    available_groups: 'Gruppi Disponibili'
    joined_groups: 'Gruppi a cui appartieni'
    leader: '(Leader)'
-   instructions: "Non fai ancora parte di nessun gruppo! Clicca su %{icon} per crearne uno o unisciti ad uno di quelli esistenti qui sotto.<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, ed organizzare incontri ed eventi online ed offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
+   instructions: "Non fai ancora parte di nessun gruppo! Clicca su %{icon} per crearne uno o unisciti a uno di quelli esistenti qui sotto.<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
   join_success: 'Ti sei unito a questo gruppo.'
   leave:
     error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
@@ -287,7 +287,7 @@ it:
    premade4_description: 'Non accettare alcuni fatti, sentirsi arrabbiati, vendicativi e/o gelosi'
    premade5_name: 'Senza Speranza'
    premade5_description: 'Sentirsi tristi e senza speranza - incapaci di trovare soluzioni'
-   instructions: "Non hai ancora creato nessuno stato d'animo personalizzato. Clicca su %{icon} per aggiungerne qualcuno!<br>Puoi anche aggiungere i seguenti stati d'animo già pronti e personalizzarli più avanti."
+   instructions: "Non hai ancora creato nessuno stato d'animo personalizzato. Clicca su %{icon} per aggiungerne uno!<br>Puoi anche scegliere uno dei seguenti stati d'animo già pronti e personalizzarli più avanti."
 
  notifications:
   plural: 'Notifiche'
@@ -347,18 +347,18 @@ it:
   about:
     send_us: 'noi'
     email_us: 'Manda pure una Email a %{email_link}!'
-    main_message_one: "%{app_name} è una community dedicata ad esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare."
+    main_message_one: "%{app_name} è una community dedicata a esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare."
     message_text_one: "Gli alleati sono le persone con cui interagiamo quotidianamente includendo amici, familiari, colleghi, professori ed esperti di salute mentale."
     main_message_two: "Avere a che fare con la salute mentale è ciò che ci rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto difficile."
     message_text_two: "Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.<p><div class=\"subtitle block\">\"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salute mentale è un'esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l'aiuto di tutti, motivo per cui il progetto è open source.</p>"
     main_message_three: "Vuoi finanziarci?"
-    message_text_three: "La nostra app è un progetto <u>completamente</u> open source. È costruito e mantenuto da volontari dalle differenti storie ed abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da %{linebreak_link}. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.</p>Puoi supportarci donando a %{patreon_link}.</p>"
+    message_text_three: "La nostra app è un progetto <u>completamente</u> open source. È costruito e mantenuto da volontari dalle differenti storie e abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da %{linebreak_link}. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.</p>Puoi supportarci donando a %{patreon_link}.</p>"
     linebreak: 'Linebreak'
     fund_club: 'Fund Club'
   blog:
     description: "Se vorresti scrivere per noi, contattaci su %{email}! Diamo il benvenuto anche a contribuzioni anonime."
   contribute:
-    main_message_one: "if me è costruito e mantenuto da volontari con differenti storie ed abilità."
+    main_message_one: "if me è costruito e mantenuto da volontari con differenti storie e abilità."
     message_text_one: "Siamo sempre in cerca di nuove idee da chiunque, includendo <strong>appassionati</strong>, <strong>professionisti</strong>, <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Raggiungici tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale slack %{slack_link}, la nostra principale forma di comunicazione. Non dimenticare di forkare la nostra repository github %{github_link}!</p>"
     more_contributors: 'Altri fantastici contributori!'
     thanks: 'Grazie mille a'
@@ -376,13 +376,13 @@ it:
     mood_question: 'Cos’è uno stato d’Animo?'
     mood_answer: 'Uno <strong>Stato d’Animo</strong> rappresenta la tua situazione psicologica, i tuoi sentimenti e le tue emozioni.'
     group_question: 'Cos’è un Gruppo?'
-    group_answer: 'Un <strong>Gruppo</strong> offre supporto, insegnamento, e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi organizzare <strong>Raduni</strong>. I Raduni hanno un luogo ed un orario. Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni permettono anche di commentare. Se sei il leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono solo essere eliminati quando hanno un unico membro.'
+    group_answer: 'Un <strong>Gruppo</strong> offre supporto, insegnamento, e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un orario. Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni permettono anche di commentare. Se sei il leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono solo essere eliminati quando hanno un unico membro.'
     medications_question: 'Come uso la funzionalità "Medicinali"?'
-    medications_answer: 'La funzionalità <strong>Medicinali</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati ed i dosaggi.'
-    invite_question: 'Come posso invitare i miei cari ad utilizzare l’app?'
+    medications_answer: 'La funzionalità <strong>Medicinali</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati e i dosaggi.'
+    invite_question: 'Come posso invitare i miei cari a utilizzare l’app?'
     invite_answer: 'Vai sulla pagina <strong>Alleati</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via Email. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
     email_notifications_question: 'Come posso gestire le notifiche che ricevo via Email?'
-    email_notifications_answer: "Vai sulla pagina <strong>Account</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua Email, password, immagine del profilo ed introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
+    email_notifications_answer: "Vai sulla pagina <strong>Account</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua Email, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
   home:
     stories: 'Storie'
     welcome: 'Benvenuto'
@@ -419,7 +419,7 @@ it:
     cookies: 'Utilizzo di Cookie'
     cookies_description: "<p>Questo sito utilizza cookie al fine di fornire l’esperienza migliore possibile ai propri utenti. Quando possibile il sito fornisce un sistema di controllo cookie permettendo all’utente di abilitare o disabilitare l’utiizzo dei cookie alla prima visita / visita da un nuovo dispositivo.</p><p>I cookie sono piccoli file salvati sul dispositivo dell’utente che raccolgono e salvano informazioni riguardanti le interazioni e l’utilizzo generale del sito da parte dell’utente. Ciò permette al sito di fornire un’esperienza personalizzata ad ogni utente in base alle sue preferenze.</p><p>È necessario notare che nel caso in cui l’utente ritenga necessario negare la raccolta e salvataggio dei cookie da parte del sito sarebbe preferibile entrare nelle impostazioni del browser e bloccare direttamente i cookie per questo sito e gli affiliati.</p><p>Questo sito utilizza software di tracking per capire meglio l’utenza. Questo servizio è offerto da Google Analytics, che utilizza i cookie per distinguere gli utenti. Il software salverà un cookie sul tuo dispositivo per seguire e monitorare il tuo utilizzo del sito, ma non salverà alcun tipo di dato personale. Puoi leggere la %{google_privacy_policy} di Google per maggiori informazioni.</p>"
     social_media: 'Piattaforme di Social Media'
-    social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>È importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati ad utilizzare le principali forme di comunicazione: Telefono ed EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. È importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
+    social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>È importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati a utilizzare le principali forme di comunicazione: Telefono ed EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. È importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
     contact: 'Contattaci'
     contact_description: "<p>Per favore, inviaci una Email su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
   resources:
@@ -589,7 +589,7 @@ it:
     rimanendo seduto - le sensazioni, il tocco, il contatto con la sedia o il pavimento. 
     Rilascia ogni tipo di tensione. Respira e basta.<br><br>3) <b>
     Da’ ritmo al tuo respiro.</b> 
-    Senti il flusso naturale di inspirazione ed espirazione. 
+    Senti il flusso naturale d’inspirazione ed espirazione. 
     Non devi fare nulla di particolare riguardo il tuo modo di respirare. 
     Né lungo, né corto. Naturale. 
     Fa’ caso a dove senti il respiro. 
@@ -611,7 +611,7 @@ it:
     Lasciati rilassare ancora un po’, e poi apprezzati per aver completato 
     questa pratica oggi.<br><br>
     <i>Preso da http://www.mindful.org/a-five-minute-breathing-meditation/</i>
-   instructions: "Non hai ancora creato nessuna strategia personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche aggiungere le seguenti strategie già pronte e personalizzare più avanti."
+   instructions: "Non hai ancora creato nessuna strategia personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche scegliere una delle seguenti strategie già pronte e personalizzare più avanti."
   reminder_mailer:
     subject: "Non dimenticare di fare %{name}!"
     body: "Hey, non dimenticare di fare %{name}!"

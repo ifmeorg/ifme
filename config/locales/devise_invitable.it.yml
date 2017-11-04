@@ -10,16 +10,16 @@ it:
       no_invitations_remaining: "Nessun invito rimanente"
       invitation_removed: "Il tuo invito è stato rimosso."
       new:
-        header: "Invia un invito ad un alleato"
+        header: "Invia un invito a un alleato"
         submit_button: "Invia un invito"
       edit:
         header: "Scegli la tua password"
         submit_button: "Salva la mia password"
     mailer:
       invitation_instructions:
-        subject: "%{name} ti ha invitato ad unirti a if me!"
+        subject: "%{name} ti ha invitato a unirti a if me!"
         hello: "Hey %{email}!"
-        someone_invited_you: "%{name} ti ha invitato ad unirti http://www.if-me.org, una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari - permette inoltre di tenere traccia di stati d’animo, medicazioni, e cura di sé. Puoi accettare l’invito tramite il link sottostante."
+        someone_invited_you: "%{name} ti ha invitato a unirti http://www.if-me.org, una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari - permette inoltre di tenere traccia di stati d’animo, medicazioni, e cura di sé. Puoi accettare l’invito tramite il link sottostante."
         accept: "Accetta l’invito!"
         accept_until: "Questo invito scadrà il %{due_date}."
         ignore: "Se non vuoi accettare l’invito, ignora questa email.<br />\nIl tuo account non sarà creato finché non accederai al link sottostante e sceglierai una password."
