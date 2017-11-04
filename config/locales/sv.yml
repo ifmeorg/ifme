@@ -145,7 +145,7 @@ sv:
    available_groups: 'Tillgängliga Grupper'
    joined_groups: 'Grupper du är medlem i'
    leader: '(Ledare)'
-   instructions: "Du är inte medlem i några grupper än! Klicka på %{icon} för att skapa en eller gå med i några tillgängliga grupper nedan. <br> <br> Supportgrupper är bra för att ha öppna diskussioner om mental hälsa! Du kan skapa grupper, bjuda in medlemmar och organisera möteshändelser online eller offline. Du kan också gå med i grupper som dina allierade har skapat."
+   instructions: "Du är inte medlem i några grupper än, men du kan klicka på %{icon} för att skapa en!"
   join_success: 'Du har gått med i den här gruppen.'
   leave:
     error: 'Du kan inte lämna gruppen, du är den enda ledaren.'
