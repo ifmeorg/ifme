@@ -14,29 +14,10 @@ if [ ! -d public ]; then
 }
 fi
 
-rm -rf public/webpack/development/* || true
-if [ $? != 0 ]]; then
-  exit $?
-fi
-
-cd client
-if [ $? != 0 ]; then
-  exit $?
-fi
-
-bundle exec rake react_on_rails:locale
-if [ $? != 0 ]; then
-  exit $?
-fi
-
-yarn install
-if [ $? != 0 ]; then
-  exit $?
-fi
-
-yarn run build:development
-if [ $? != 0 ]; then
-  exit $?
-fi
+rm -rf public/webpack/development/* || true && \
+cd client && \
+bundle exec rake react_on_rails:locale && \
+yarn install && \
+yarn run build:development && \
 
 exit 0;
