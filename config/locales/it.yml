@@ -4,6 +4,7 @@ it:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Creato:</strong> %{created_at}'
+ draft: "Bozza"
  edited: '<strong>Creato:</strong> %{created_at} <em>(modificato)</em>'
  edited_updated_at: '<strong>Creato:</strong> %{created_at} <em>(modificato %{updated_at})</em>'
  salutation: "Ciao %{name},"
@@ -15,6 +16,7 @@ it:
  languages:
    en: English
    es: Español
+   nl: Nederlands
    ptbr: Português
    sv: Svenska
    various: Vari
@@ -49,6 +51,8 @@ it:
    daily_reminder: 'EMail giornaliera'
    actions:
     submit: 'Invia'
+    submit_publish: 'Pubblica'
+    submit_draft: 'Bozza'
     confirm: 'Sei sicuro?'
     delete: 'Elimina'
     edit: 'Modifica'
@@ -257,6 +261,7 @@ it:
    fix: 'Che pensieri ti piacerebbe avere?'
    what_happened: 'Cos’è successo?'
    viewers_hint: 'Alleati che possono vedere il tuo momento'
+   draft_question: 'Vuoi salvare il tuo momento come una bozza?'
 
   index:
    subtitle: 'Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul tuo stato mentale.'
@@ -571,6 +576,7 @@ it:
    name_hint: 'Qualsiasi attività, modo di fare o cura di sé che ti è d’aiuto'
    viewers_hint: 'Alleati che possono visualizzare la tua strategia e taggarci i propri momenti'
    daily_reminder_hint: "Ti ricorderemo via EMail ogni giorno di utilizzare questa strategia."
+   draft_question: 'Vuoi salvare la tua strategia come bozza?'
   label:
    one: 'Strategia:'
    other: 'Strategie:'
