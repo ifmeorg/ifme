@@ -82,6 +82,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
         before(:each) do
           post :create, params: { user: { email: "#{invitee1}, #{invalid_email}" } }
         end
+        after(:each) { Devise.mailer.deliveries.clear }
 
         it 'only creates a new User for the valid email' do
           newest_users = User.order(invitation_sent_at: :desc).last(2)
