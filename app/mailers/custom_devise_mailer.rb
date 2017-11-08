@@ -9,9 +9,13 @@ class CustomDeviseMailer < Devise::Mailer
   def subject_for(key)
     return super unless key.to_s == 'invitation_instructions'
 
-    I18n.t(
-      'devise.mailer.invitation_instructions.subject',
-      name: inviter_name(@resource)
-    )
+    if inviter_name(@resource)
+      I18n.t(
+        'devise.mailer.invitation_instructions.subject',
+        name: inviter_name(@resource)
+      )
+    else
+      I18n.t('devise.mailer.invitation_instructions.subject_nameless')
+    end
   end
 end
