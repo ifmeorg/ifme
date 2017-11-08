@@ -146,7 +146,7 @@ ptbr:
    available_groups: 'Grupos Disponíveis.'
    joined_groups: 'Grupos que participo.'
    leader: '(Líder)'
-   instructions: "Você ainda não participa de grupo nenhum! Clique %{icon} para criar um novo grupo ou entre em qualquer grupo disponível abaixo.<br><br>Dar suporte aos grupos é uma excelente forma de ter discussões abertas sobre saúde mental! Você pode criar grupos, convidar menbros, e organizar reuniões online ou presenciais. Você pode se juntar a grupos que seus aliados criaram."
+   instructions: "Você ainda não faz parte de nenhum grupo. No entanto, você pode pode clicar no botão %{icon} para criar seu próprio grupo."
   join_success: 'Você entrou nesse grupo.'
   leave:
     error: 'Você não pode sair deste grupo, porque você é o único líder.'

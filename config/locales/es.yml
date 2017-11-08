@@ -147,7 +147,7 @@ es:
    available_groups: "Grupos disponibles"
    joined_groups: "Grupos a los que te has unido"
    leader: "(Líder)"
-   instructions: "Aún no eres parte de ningún grupo. Da click en %{icon} para crear uno o unirte a cualquiera de los grupos disponibles abajo. <br><br> ¡Los grupos de apoyo son excelentes para tener pláticas sobre salud mental! Puedes crear grupos, invitar miembros, y organizar reuniones en línea o en persona. También te puedes unir a los grupos que tus aliados hayan creado."
+   instructions: "Aún no eres miembro de ningún grupo, ¡pero puedes dar click en %{icon} para crear uno!"
   join_success: "Te has unido a este grupo"
   leave:
     error: "Eres el único líder, por lo tanto no puedes abandonar el Grupo."
