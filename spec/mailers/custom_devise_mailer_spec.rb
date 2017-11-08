@@ -8,7 +8,7 @@ describe CustomDeviseMailer do
 
   describe 'subject_for' do
     context 'if the inviting user has a name' do
-      it 'includes the inviter\s name in the subject' do
+      it 'includes the inviter\'s name in the subject' do
         User.invite!({email: recipient}, inviter)
         expect(email.subject).to eq("#{inviter.name} invited you to join if me!")
       end
