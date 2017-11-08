@@ -5,6 +5,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
   let(:invalid_email) { 'invalidemail.com' }
 
   describe '#create' do
+    before(:all) { Devise.mailer.deliveries.clear }
     before(:each) { @request.env["devise.mapping"] = Devise.mappings[:user] }
 
     context 'when a user is not signed in' do
