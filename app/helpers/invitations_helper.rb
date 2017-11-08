@@ -2,7 +2,6 @@
 
 module InvitationsHelper
   def inviter_name(resource)
-    User.where(id: resource.invited_by_id).first.try(:name) ||
-      'Someone'
+    User.where(id: resource.invited_by_id).first.try(:name)
   end
 end

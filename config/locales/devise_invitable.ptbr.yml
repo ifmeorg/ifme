@@ -19,6 +19,7 @@ ptbr:
     mailer:
       invitation_instructions:
         subject: "{%name} convidou você para participar do if me!"
+        subject_nameless: "Você acabou de ser convidado para participar do if me!"
         hello: "Olá %{email}!"
         someone_invited_you: "%{name} foi convidado para se juntar ao http://www.if-me.org, uma comunidade para compartilhar experiências sobre saúde mental com as pessoas amadas e manter o registro do seu humor, medicamentos, and cuidado pessoal. Você pode aceitar o convite através do link abaixo."
         accept: "Aceitar convite "
