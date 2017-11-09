@@ -19,6 +19,7 @@ sv:
     mailer:
       invitation_instructions:
         subject: "Du har blivit inbjuden att gå med i if me!"
+        subject_nameless: "Någon inbjudna dig att gå med if me!"
         hello: "Hej %{email}!"
         someone_invited_you: "%{name} har bjudit in dig att gå med i http://if-me.org, en gemenskap där du kan dela mentala förberedelser med dina nära och kära och hålla reda på ditt humör, dina mediciner och din egenvård. Du kan acceptera inbjudan via länken nedan."
         accept: "Acceptera inbjudan!"
