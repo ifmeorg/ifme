@@ -19,6 +19,7 @@ es:
     mailer:
       invitation_instructions:
         subject: "¡ %{name} te ha invitado a if me!"
+        subject_nameless: "¡Te han invitado a if me!"
         hello: "Hola %{email}!"
         someone_invited_you: "%{name} te ha invitado a unirte a http://www.if-me.org, una comunidad para compartir experiencias de salud mental con tus seres queridos y mantener un registro de tus emociones, medicamento, y auto-cuidado. Puedes aceptar la invitación a través del hipervínculo de abajo."
         accept: "¡Aceptar la invitación!"
