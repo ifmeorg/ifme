@@ -103,6 +103,8 @@ nl:
     none: 'Je hebt op dit moment geen bondgenoten! Je kunt op zoek naar hun gaan of naasten uitnodigen om lid te worden!'
     view_all_allies: 'Bekijk alle bondgenoten'
     cancel: 'Annuleren'
+  form:
+    placeholder: 'Geef één of meerdere met komma gescheiden e-mailadressen op.'
 
  categories:
   plural: 'Categorieën'

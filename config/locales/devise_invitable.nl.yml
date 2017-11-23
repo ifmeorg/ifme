@@ -4,6 +4,7 @@ nl:
       invited: "Je hebt een openstaande uitnodiging, accepteer deze om je account te voltooien."
     invitations:
       send_instructions: "Een uitnodiging via e-mail is verstuurd naar %{e-mail}."
+      failed_send: "Er is een fout opgetreden. '%{email}' kon niet worden uitgenodigd."
       invitation_token_invalid: "De token in je uitnodiging is niet valide!"
       updated: "Je wachtwoord is succesvol ingesteld. Je bent nu ook ingelogd."
       updated_not_active: "Je wachtwoord is ingesteld."
@@ -18,6 +19,7 @@ nl:
     mailer:
       invitation_instructions:
         subject: "%{name} heeft je uitgenodigd om lid te worden van if me!"
+        subject_nameless: "Iemand heeft je uitgenodigd om lid te worden van if me!"
         hello: "Hallo %{e-mail}!"
         someone_invited_you: "%{name} heeft je uitgenodigd om lid te worden van http://www.if-me.org, een gemeenschap om ervaringsverhalen te delen over je geestelijke gezondheid met je naasten en om je stemmingen, medicatie en self-care te volgen. Je kunt de uitnodiging accepteren via onderstaande link."
         accept: "Accepteer uitnodiging!"

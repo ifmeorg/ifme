@@ -103,6 +103,8 @@ en:
     none: 'You currently have no allies! You can search for them or invite loved ones to join!'
     view_all_allies: 'View all allies'
     cancel: 'Cancel'
+  form:
+    placeholder: 'Enter one or more comma-separated emails'
 
  categories:
   plural: 'Categories'

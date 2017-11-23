@@ -4,6 +4,7 @@ en:
       invited: "You have a pending invitation, accept it to finish creating your account."
     invitations:
       send_instructions: "An invitation email has been sent to %{email}."
+      failed_send: "An error occurred. '%{email}' could not be invited."
       invitation_token_invalid: "The invitation token provided is not valid!"
       updated: "Your password was set successfully. You are now signed in."
       updated_not_active: "Your password was set successfully."
@@ -18,6 +19,7 @@ en:
     mailer:
       invitation_instructions:
         subject: "%{name} invited you to join if me!"
+        subject_nameless: "Someone invited you to join if me!"
         hello: "Hey %{email}!"
         someone_invited_you: "%{name} has invited you to join http://www.if-me.org, a community to share mental health experiences with your loved ones and keep track of your moods, medications, and self-care. You can accept the invite through the link below."
         accept: "Accept invitation!"

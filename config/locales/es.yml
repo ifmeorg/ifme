@@ -103,6 +103,8 @@ es:
     none: "Por el momento no tienes ningún aliado. ¡Puedes buscarlos o invitar a tus seres queridos a unirse!"
     view_all_allies: "Ver a todos los aliados"
     cancel: "Cancelar"
+  form:
+    placeholder: 'Ingresa un correo electrónico, o más, separados por comas.'
 
  categories:
   singular: "Categoría"

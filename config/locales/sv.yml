@@ -103,6 +103,8 @@ sv:
     none: 'Du har för närvarande inga allierade! Du kan söka efter dem eller bjuda in dina nära och kära!'
     view_all_allies: 'Visa alla allierade'
     cancel: 'Avbryt'
+  form:
+    placeholder: 'Ange en eller flera kommaseparerade e-postmeddelanden'
 
  categories:
   plural: 'Kategorier'
