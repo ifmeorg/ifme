@@ -9,7 +9,7 @@ function scrollToLocaleToggle() {
 
 function translationsAnnouncement() {
   if ($("body").hasClass("pages home") && $("html").attr("lang") === "en") {
-    $("#announcement").html("More communities need mental health support. Our site is now available in <span id=\"translations_anchor\" class=\"anchor\">Español, Nederlands, Português and Svenska</span>!");
+    $("#announcement").html("More communities need mental health support. Our site is now available in <span id=\"translations_anchor\" class=\"anchor\">Español, Italiano, Nederlands, Português and Svenska</span>!");
     showAnnouncement();
   }
 }
