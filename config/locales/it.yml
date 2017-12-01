@@ -103,6 +103,8 @@ it:
     none: 'Non hai ancora nessun alleato! Puoi cercarli o invitare qualcuno!'
     view_all_allies: 'Lista completa alleati'
     cancel: 'Annulla'
+  form:
+    placeholder: 'Enter one or more comma-separated emails'
 
  categories:
   plural: 'Categorie'
@@ -584,37 +586,37 @@ it:
    subtitle: 'Organizza la strategia adatta a raggiungere il tuo stato d’animo desiderato.'
    premade1_name: 'Cinque minuti di meditazione'
    premade1_description: >
-    1) <b>Trova una posizione comoda e rilassata.</b> 
-    Potresti essere su una sedia o su un cuscino sul pavimento. 
-    Mantieni la schiena dritta, ma non troppo. 
-    Le braccia ovunque ti sia comodo. 
+    1) <b>Trova una posizione comoda e rilassata.</b>
+    Potresti essere su una sedia o su un cuscino sul pavimento.
+    Mantieni la schiena dritta, ma non troppo.
+    Le braccia ovunque ti sia comodo.
     La lingua sul tetto della bocca o ovunque sia più comodo.<br><br>
-    2) <b>Rilassa il corpo.</b> 
-    Prova ad acquistare consapevolezza della forma del tuo corpo, il suo peso. 
-    Rilassati e lascia che la curiosità sul tuo corpo venga a galla, 
-    rimanendo seduto - le sensazioni, il tocco, il contatto con la sedia o il pavimento. 
+    2) <b>Rilassa il corpo.</b>
+    Prova ad acquistare consapevolezza della forma del tuo corpo, il suo peso.
+    Rilassati e lascia che la curiosità sul tuo corpo venga a galla,
+    rimanendo seduto - le sensazioni, il tocco, il contatto con la sedia o il pavimento.
     Rilascia ogni tipo di tensione. Respira e basta.<br><br>3) <b>
-    Da’ ritmo al tuo respiro.</b> 
-    Senti il flusso naturale d’inspirazione ed espirazione. 
-    Non devi fare nulla di particolare riguardo il tuo modo di respirare. 
-    Né lungo, né corto. Naturale. 
-    Fa’ caso a dove senti il respiro. 
-    Potrebbe essere nel tuo ventre. Potrebbe essere nel tuo petto, 
-    nella gola o nelle narici. Cerca di sentire ogni sensazione del respiro, 
+    Da’ ritmo al tuo respiro.</b>
+    Senti il flusso naturale d’inspirazione ed espirazione.
+    Non devi fare nulla di particolare riguardo il tuo modo di respirare.
+    Né lungo, né corto. Naturale.
+    Fa’ caso a dove senti il respiro.
+    Potrebbe essere nel tuo ventre. Potrebbe essere nel tuo petto,
+    nella gola o nelle narici. Cerca di sentire ogni sensazione del respiro,
     un respiro alla volta. Alla fine di uno, comincia quello dopo.<br><br>
-    4) <b>Sii gentile alla tua mente vagante.</b> 
-    Facendo questo, potresti notare che la tua mente comincia a vagare. 
-    Potresti cominciare a pensare riguardo altre cose. 
-    Se succede, non è un problema. È naturale. 
-    Semplicemente, fa’ caso al fatto che la tua mente stia vagando liberamente. 
-    Puoi pronunciare le parole “pensando” o “vagando” a mente, dolcemente. 
+    4) <b>Sii gentile alla tua mente vagante.</b>
+    Facendo questo, potresti notare che la tua mente comincia a vagare.
+    Potresti cominciare a pensare riguardo altre cose.
+    Se succede, non è un problema. È naturale.
+    Semplicemente, fa’ caso al fatto che la tua mente stia vagando liberamente.
+    Puoi pronunciare le parole “pensando” o “vagando” a mente, dolcemente.
     Riporta poi gentilmente l’attenzione sul tuo respiro.<br><br>
-    5) <b>Rimani così per cinque minuti.</b> 
-    Ascolta il tuo respiro, in silenzio. Di tanto in tanto, 
+    5) <b>Rimani così per cinque minuti.</b>
+    Ascolta il tuo respiro, in silenzio. Di tanto in tanto,
     ti perderai nei tuoi pensieri, tornerai poi alla respirazione.<br><br>
     6) <b>È importante prenderti cura di te prima che sia troppo tardi.</b>
     Passati alcuni minuti, riacquista la consapevolezza del tuo intero corpo, seduto qui.
-    Lasciati rilassare ancora un po’, e poi apprezzati per aver completato 
+    Lasciati rilassare ancora un po’, e poi apprezzati per aver completato
     questa pratica oggi.<br><br>
     <i>Preso da http://www.mindful.org/a-five-minute-breathing-meditation/</i>
    instructions: "Non hai ancora creato nessuna strategia personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche scegliere una delle seguenti strategie già pronte e personalizzare più avanti."
