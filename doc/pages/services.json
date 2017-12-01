@@ -118,5 +118,17 @@
     "link": "https://insighttimer.com",
     "tags": ["free", "meditation", "teachers", "support_groups", "self_care", "android", "ios"],
     "languages": ["en"]
+  },
+  {
+    "name": "AddictionCenter (US)",
+    "link": "https://www.addictioncenter.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Addiction Helper (UK)",
+    "link": "https://www.addictionhelper.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "languages": ["en"]
   }
 ]
