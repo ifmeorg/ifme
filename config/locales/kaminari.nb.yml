@@ -1,7 +1,7 @@
 nb:
   views:
     pagination:
-      first: "&laquo; Forste"
+      first: "&laquo; Første"
       last: "Siste &raquo;"
       previous: "&lsaquo; Forrige"
       next: "Neste &rsaquo;"
