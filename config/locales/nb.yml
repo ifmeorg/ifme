@@ -4,6 +4,7 @@ nb:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Opprettet:</strong> %{created_at}'
+ draft: "Utkast"
  edited: '<strong>Opprettet:</strong> %{created_at} <em>(redigert)</em>'
  edited_updated_at: '<strong>Opprettet:</strong> %{created_at} <em>(redigert %{updated_at})</em>'
  salutation: "Hei %{name},"
@@ -51,6 +52,8 @@ nb:
    daily_reminder: 'Daglig påminnelses epost'
    actions:
     submit: 'Bekreft'
+    submit_publish: 'Publiser'
+    submit_draft: 'Utkast'
     confirm: 'Er du sikker?'
     delete: 'Slett'
     edit: 'Rediger'
@@ -101,6 +104,8 @@ nb:
     none: 'Du har for øyeblikket ingen allierte! Du kan søke etter dem eller invitere kjente til å bli med!'
     view_all_allies: 'Se alle allierte'
     cancel: 'Avbryt'
+  form:
+    placeholder: 'Skriv inn en eller flere kommaseparerte e-poster'
 
  categories:
   plural: 'Kategorier'
@@ -259,6 +264,7 @@ nb:
    fix: 'Hva slags tanker vil du ha?'
    what_happened: 'Hva skjedde?'
    viewers_hint: 'Allierte som kan se øyeblikket ditt'
+   draft_question: 'Vil du lagre øyeblikket ditt som ett utkast?'
 
   index:
    subtitle: 'Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker din mentale helse.'
@@ -573,6 +579,7 @@ nb:
    name_hint: 'Hvilken som helst aktivitet, tankerekke eller form for selvpleie som hjelper deg'
    viewers_hint: 'Allierte som kan se din strategi og tagge deres egne øyeblikk med det'
    daily_reminder_hint: "Vi sender deg en daglig påminnelse om å utføre denne strategien"
+   draft_question: "Vil du lagre din strategi som ett utkast?"
   label:
    one: 'Strategi:'
    other: 'Strategier:'
