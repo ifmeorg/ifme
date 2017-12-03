@@ -99,6 +99,10 @@ Rails.application.routes.draw do
 
   post 'pusher/auth'
 
+  Rails.configuration.i18n.available_locales.each do |locale|
+    get locale.to_s => 'locales#set_initial_locale', defaults: { locale: locale.to_s }
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

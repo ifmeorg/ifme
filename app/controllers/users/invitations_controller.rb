@@ -3,20 +3,34 @@
 module Users
   class InvitationsController < Devise::InvitationsController
     # POST /resource/invitation
+
     def create
-      self.resource = invite_resource
-      resource_invited = resource.errors.empty?
-
-      yield resource if block_given?
-
-      if resource_invited
-        if is_flashing_format? && resource.invitation_sent_at
-          set_flash_message :notice, :send_instructions, email: resource.email
-        end
-        respond_with resource, location: new_user_invitation_path
-      else
-        respond_with_navigational(resource) { render :new }
+      successful_invites = []
+      failed_invites = []
+      invitees = params[:user][:email].split(/,\s*/)
+      invitees.each do |invitee|
+        resource = User.invite!({ email: invitee }, current_user)
+        invited = resource.errors.empty?
+        (invited ? successful_invites : failed_invites) << invitee
       end
+      invitation_flash_messages(successful_invites, failed_invites)
+      redirect_to new_user_invitation_path
+    end
+
+    private
+
+    def invitation_flash_messages(invites, fails)
+      return unless is_flashing_format?
+      invites_flash(invites) unless invites.empty?
+      fails_flash(fails) unless fails.empty?
+    end
+
+    def invites_flash(invites)
+      set_flash_message :notice, :send_instructions, email: invites.join(', ')
+    end
+
+    def fails_flash(fails)
+      set_flash_message :alert, :failed_send, email: fails.join(', ')
     end
   end
 end

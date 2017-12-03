@@ -4,6 +4,7 @@ es:
  email: "join.ifme@gmail.com"
  ellipsis: " [...]"
  created: "<strong>Creado:</strong> %{created_at}"
+ draft: "Borrador"
  edited: "<strong>Creado:</strong> %{created_at} <em>(editado)</em>"
  edited_updated_at: "<strong>Creado:</strong> %{created_at} <em>(edited %{updated_at})</em>"
  salutation: "Hola %{name},"
@@ -20,12 +21,13 @@ es:
    sv: Svenska
    various: Varios
    vn: Tiếng Việt
+   it: Italiano
    nb: Norsk
 
  navigation:
    about: "Acerca de "
    blog: "Blog"
-   contribute: "Contribuidores"
+   contribute: "Colaboradores"
    partners: "Socios"
    privacy: "Política de Privacidad"
    github: "GitHub"
@@ -50,6 +52,8 @@ es:
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
     submit: "Enviar"
+    submit_publish: 'Publicar'
+    submit_draft: 'Borrador'
     confirm: "¿Estás segurx?"
     delete: "Borrar"
     edit: "Editar"
@@ -100,6 +104,8 @@ es:
     none: "Por el momento no tienes ningún aliado. ¡Puedes buscarlos o invitar a tus seres queridos a unirse!"
     view_all_allies: "Ver a todos los aliados"
     cancel: "Cancelar"
+  form:
+    placeholder: 'Ingresa un correo electrónico, o más, separados por comas.'
 
  categories:
   singular: "Categoría"
@@ -144,7 +150,7 @@ es:
    available_groups: "Grupos disponibles"
    joined_groups: "Grupos a los que te has unido"
    leader: "(Líder)"
-   instructions: "Aún no eres parte de ningún grupo. Da click en %{icon} para crear uno o unirte a cualquiera de los grupos disponibles abajo. <br><br> ¡Los grupos de apoyo son excelentes para tener pláticas sobre salud mental! Puedes crear grupos, invitar miembros, y organizar reuniones en línea o en persona. También te puedes unir a los grupos que tus aliados hayan creado."
+   instructions: "Aún no eres miembro de ningún grupo, ¡pero puedes dar click en %{icon} para crear uno!"
   join_success: "Te has unido a este grupo"
   leave:
     error: "Eres el único líder, por lo tanto no puedes abandonar el Grupo."
@@ -164,7 +170,7 @@ es:
    me: "me"
   mailer:
    html:
-    app_description: "%{app_name} es una comunidad que anuma a las personas a compartir sus experiencias de salud mental con sus seres queridos."
+    app_description: "%{app_name} es una comunidad que anima a las personas a compartir sus experiencias de salud mental con sus seres queridos."
     no_reply: "No puedes responder a este correo electrónico. Si tienes preguntas, dudas, o retroalimentación, por favor envía un mensaje a %{email}!"
   title:
    reset_password: "Reestablece tu contraseña"
@@ -173,7 +179,7 @@ es:
   singular: "Medicamento"
   edit_medication: "Editar medicamento"
   refill_reminder: "Recordatorio para resurtir medicinas via correo electrónico"
-  dosage: "Dósis diaria:"
+  dosage: "Dosis diaria:"
   refill: "Resurtir:"
   quantity: "Cantidad total:"
   strength: "Concentración:"
@@ -181,13 +187,13 @@ es:
    strength: "Concentración"
    strength_placeholder: "e.g. 100"
    total_placeholder: "e.g. 30"
-   dosage: "dósis"
+   dosage: "dosis"
    dosage_placeholder: "e.g. 2"
    refill: "resurtir"
    comments_hint: "Agrega más comentarios aquí, por ejemplo, tus síntomas."
    add_to_google_cal: "Recordatorio con Calendario de Google"
    google_cal_hint: "Agregaremos un recordatorio para este medicamento a tu calendario de Google."
-   strength_hint: "Concentración del medicamento, por lo general se encuentra junto al nombre."
+   strength_hint: "La concentración del medicamento, por lo general se encuentra junto al nombre."
    total_hint: "Número total de tabletas o cantidad de medicamento."
    dosage_hint: "Número de tabletas o dósis diaria."
    refill_hint: "Cuándo resurtir esta receta."
@@ -209,9 +215,9 @@ es:
     body: "¡Te recordamos amablemente que hay que rellenar tu medicamento %{name} en el %{refill}!"
   index:
    title: "Medicamento"
-   subtitle: "Mantén un seguimiento de tus medicamentos, incluyendo dósis e información para resurtir."
+   subtitle: "Mantén un seguimiento de tus medicamentos, incluyendo dosis e información para resurtir."
    total: "Total:"
-   instructions: "Aún no has guardado información de ningún medicamento. ¡Da click en %{icon} para agregar uno!<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
+   instructions: "Aún no has guardado información de ningún medicamento. ¡Haz click en %{icon} para agregar uno!<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
    example_name: "Prozac"
    example_strength: "10 mg"
    example_total: "40 tabletas"
@@ -252,7 +258,7 @@ es:
   new: "Nuevo Momento"
   secret_share:
     singular: 'Compartir en Secreto'
-    expires_at: 'Caducar en'
+    expires_at: 'Caduca en'
     create: 'Crear'
     cancel: 'Cancelar'
   form:
@@ -260,6 +266,7 @@ es:
    fix: "¿Qué pensamientos te gustaría tener?"
    what_happened: "¿Qué ocurrió?"
    viewers_hint: "Aliados que pueden ver tu momento:"
+   draft_question: "¿Quieres guardar tu momento como borrador?"
 
   index:
    subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
@@ -313,7 +320,7 @@ es:
    remove_group_leader: "%{name} ya no es líder de \"%{group_name}\""
   meeting:
    new_meeting: "%{name} ha creado la reunión \"%{meeting_name}\" para \"%{group_name}\""
-   remove_meeting: "%{name} ha canelado \"%{meeting_name}\" para \"%{group_name}\""
+   remove_meeting: "%{name} ha cancelado \"%{meeting_name}\" para \"%{group_name}\""
    update_meeting: "%{name} ha actualizado \"%{meeting_name}\" para \"%{group_name}\""
    join_meeting: "%{name} se ha unido a \"%{meeting_name}\" para \"%{group_name}\""
   mailer:
@@ -343,7 +350,7 @@ es:
     join_meeting_body: "<p>Para ver \"%{meeting}\", %{link}!</p>"
 
  omniauth:
-  google: "google"
+  google: "Google"
   access_denied: "Acceso Denegado"
 
  pages:
@@ -381,7 +388,7 @@ es:
     group_question: "¿Qué es un Grupo?"
     group_answer: "Un <strong>Grupo</strong> ofrece apoyo, guía, y pláticas sobre salud mental. Podemos crear grupos y nuestros aliados tienen la opción de unirse. Sólo podemos unirnos a grupos que son creados por nuestros aliados.<br><br>Como líder de tu Grupo, puedes crear <strong> Reuniones </strong>. Las Reuniones tienen una ubicación y fecha. La ubicación puede ser un lugar físico o un Google Hangout. En las Reuniones pueden también dejarse comentarios. Si eres líder de un Grupo, no puedes abandonar el grupo a menos que haya otro líder. Los Grupos sólo pueden eliminarse cuando uno mismo es el único miembro."
     medications_question: "¿Cómo utilizar la propiedad de Medicamentos?"
-    medications_answer: "La propiedad de Medicamentos permite registrar los fármacos recetados que estamos tomando. También nos permite registrar síntomas."
+    medications_answer: "La propiedad de Medicamentos permite registrar los fármacos recetados que estamos tomando. También te permite registrar síntomas."
     invite_question: "¿Cómo puedo invitar a mis seres queridos para que se unan a la página?"
     invite_answer: "Visita la sección de <strong>Aliados</strong> y haz click en “Invita a tus seres queridos”. Podrás invitarlos vía correo electrónico. Cuando uno de tus seres queridos acepte la invitación, serán agregados a tu lista de Aliados."
     email_notifications_question: "¿Cómo puedo modificar mis preferencias de notificaciones de correo electrónico?"
@@ -465,8 +472,8 @@ es:
       social_anxiety: ansiedad social
       trigger_warnings: advertencia
       netflix: netflix
-      homeless: situación de calle
-      talks: pláticas
+      homeless: sin hogar #It makes more sense to spanish speakers
+      talks: charlas #Charlas is more spanish neutral than 'pláticas'
       voice_chat: chat de voz
       training: entrenamiento
       directory: directorio
@@ -474,7 +481,7 @@ es:
       treatment: tratamiento
       care_planning: preparación de cuidado
       depression: depresión
-      ocd: OCD
+      ocd: OCD (TOC) #TOC is spanish for OCD
       advice: consejo
       forum: foro
       learning: aprender
@@ -524,7 +531,7 @@ es:
   footer:
     licence_name: "AGPL-3.0"
     license: "Nosotros &hearts; FOSS"
-    foss: "Free and open source software (Programa gratuito y de fuente abierta)"
+    foss: "Free and open source software (Programa gratuito y de código abierto)"
     license_subtitle: "Licencia bajo %{license}"
     connect: "Conectarse"
   comments:
@@ -574,13 +581,14 @@ es:
    name_hint: "Cualquier actividad, tren de pensamiento, o forma de auto cuidado que te ayude"
    viewers_hint: "Los aliados que pueden ver tu estrategia y etiquetar con ella sus propios momentos"
    daily_reminder_hint: "Diariamente te enviaremos un correo electrónico para llevar a cabo esta estrategia"
+   draft_question: '¿Quieres guardar tu estrategia como borrador?'
   label:
    one: "Estrategia:"
    other: "Estrategias:"
   index:
    subtitle: "Elabora estrategias de autocuidado para lograr pensamientos y actitudes deseados hacia tus momentos."
    premade1_name: "Cinco minutos de meditación"
-   premade1_description: "1) <b> Colócate en una posición relajada, cómoda.</b> Puedes sentarte en una silla o en el suelo o en un cojín. Mantén tu espalda recta, pero no muy tensa. Tus manos descanso donde sea más cómodo. Tu lengua hacia el paladar o donde sea más cómodo. <br><br>2) <b>Percibe y relaja tu cuerpo.</b> Intenta darte cuenta de la forma de tu cuerpo, su peso. Déjate relajar y déjate llevar por la curiosidad sobre tu cuerpo aquí sentado - las sensaciones que experimenta, lo que toca, la conección con el piso o la silla. Relaja cualquier área dónde haya rigidez o tensión. Sólo respira.<br><br>3) <b> Sintoniza tu respiración.</b> Siente el flujo natural de tu aliento -dentro, fuera. No necesitas hacerle nada a tu respiración. No es larga, no es corta, es natural. Fíjate cuando es que percibes tu respiración en tu cuerpo. Puede ser en tu abdomen. Puede ser en tu pecho, o en tu garganta, o en tus fosas nasales. Observa si puedes sentir las sensaciones del respirar, una respiración a la vez. Cuando un aliento termina, el siguiente incia. <br><br>4) <b> Sé considerado con tu mente dispersa. </b> Justo mientras haces esto, tu mente puede empezar a divagar. Puedes empezar a pensar en otras cosas. Si esto pasa, no hay problema. Es muy natural. Sólo date cuenta de que tu mente ha divagado. Puedes decir “pensando” o “divagando” suavemente en tu cabeza. Y gentilmente regresar a tu respiración.<br><br>5) <b> Quédate aquí por cinco o siete minutos. </b> Date cuenta de tu respiración, en silencio. De vez en cuando, te perderás en tus pensamientos, entonces regresa a tu respiración. <br><br>6) <b> Date cuenta de todo antes de que empieces a ignorarlo.</b> Después de algunos minutos, nuevamente, percibe tu cuerpo, todo tu cuerpo, sentado aquí. Déjate relajar aún más profundamente y agradécete por realizar esto en este día.<br><br><i>Tomado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'"
+   premade1_description: "1) <b> Colócate en una posición relajada, cómoda.</b> Puedes sentarte en una silla o en el suelo o en un cojín. Mantén tu espalda recta, pero no muy tensa. Tus manos descansando donde sea más cómodo. Tu lengua hacia el paladar o donde sea más cómodo. <br><br>2) <b>Percibe y relaja tu cuerpo.</b> Intenta darte cuenta de la forma de tu cuerpo, su peso. Déjate relajar y déjate llevar por la curiosidad sobre tu cuerpo aquí sentado - las sensaciones que experimenta, lo que toca, la conección con el piso o la silla. Relaja cualquier área dónde haya rigidez o tensión. Sólo respira.<br><br>3) <b> Sintoniza tu respiración.</b> Siente el flujo natural de tu aliento -dentro, fuera. No necesitas hacerle nada a tu respiración. No es larga, no es corta, es natural. Fíjate cuando es que percibes tu respiración en tu cuerpo. Puede ser en tu abdomen. Puede ser en tu pecho, o en tu garganta, o en tus fosas nasales. Observa si puedes sentir las sensaciones del respirar, una respiración a la vez. Cuando un aliento termina, el siguiente incia. <br><br>4) <b> Sé considerado con tu mente dispersa. </b> Justo mientras haces esto, tu mente puede empezar a divagar. Puedes empezar a pensar en otras cosas. Si esto pasa, no hay problema. Es muy natural. Sólo date cuenta de que tu mente ha divagado. Puedes decir “pensando” o “divagando” suavemente en tu cabeza. Y gentilmente regresar a tu respiración.<br><br>5) <b> Quédate aquí por cinco o siete minutos. </b> Date cuenta de tu respiración, en silencio. De vez en cuando, te perderás en tus pensamientos, entonces regresa a tu respiración. <br><br>6) <b> Date cuenta de todo antes de que empieces a ignorarlo.</b> Después de algunos minutos, nuevamente, percibe tu cuerpo, todo tu cuerpo, sentado aquí. Déjate relajar aún más profundamente y agradécete por realizar esto en este día.<br><br><i>Tomado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'"
    instructions: "Aún no has creado ninguna estrategia personalizada. ¡Da click en %{icon} para iniciar!<br>También puedes agregar la siguiente estretagia predeterminada y personalizarla en otra ocasión."
   reminder_mailer:
     subject: "¡No olvides llevar a cabo %{name}!"
@@ -617,12 +625,12 @@ es:
       link_instructions: "Puedes confirmar la dirección de correo electrónico asociada a tu cuenta a través del hipervínculo de abajo"
       link_text: "Confirmar cuenta"
     reset_password:
-      link_instructions: "Alguien ha solicitado un hipervínculo para cambiar tu contraseña. Puedes hacerlo utilizando el hipervínculo de abajo."
+      link_instructions: "Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes hacerlo utilizando el hipervínculo de abajo."
       ignore: "Si tú no solicitaste esto, por favor ignora este mensaje."
-      info: "Tu contraseña no cambiará hasta que accedas al hipervínculo de arriba y crees una nueva."
+      info: "Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva."
     unlock:
       info: "Tu cuenta ha sido bloqueada debido a un excesivo número de intentos de ingreso fallidos."
-      link_instructions: "Da click en el hipervínculo de abajo para desbloquear tu cuenta"
+      link_instructions: "Da click en el enlace de abajo para desbloquear tu cuenta"
       link_text: "Desbloquear mi cuenta"
   passwords:
     edit:
@@ -644,11 +652,11 @@ es:
       labels:
         profile_picture: "Imagen de perfil"
         remove_picture: "Remover imagen"
-        password_for: "Pasword para cuenta de <strong>if me</strong>"
+        password_for: "Contraseña para cuenta de <strong>if me</strong>"
         update: "Actualizar"
       placeholders:
         optional: "Opcional"
-        about: "¡Preséntate! ¿Por qué estas aquí y que esperas lograr? Por favor toma en cuenta que esto quedará a la vista cuando seas buscado por otros usuarios"
+        about: "¡Preséntate! ¿Por qué estas aquí y que esperas lograr? Por favor ten en cuenta que esto quedará a la vista cuando seas buscado por otros usuarios"
         required: "Requerido"
       delete:
         text: "¿No está <strong>if me</strong> funcionando para ti?"
@@ -660,7 +668,7 @@ es:
   sessions:
     subtitle: "Bienvenidx nuevamente, esperamos ayudarte a enfrentar el día"
   shared:
-    sign_in_google: "Darse de alta con Google"
+    sign_in_google: "Registrarse con Google"
     sign_up_google: "Ingresar con Google"
     confirmation: "¿No recibiste instrucciones de confirmación?"
     unlock: "¿No recibiste instrucciones para desbloquear?"

@@ -1,0 +1,7 @@
+<%= form_for(@strategy) do |f| %>
+  <% if @strategy.errors.any? %>
+    <div class="error_explanation">
+      <%= t('common.form.error_explanation') %>
+    </div>
+  <% end %>
+<% end %>

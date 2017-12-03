@@ -62,6 +62,9 @@ GEM
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
     builder (3.2.3)
+    bundler-audit (0.6.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     byebug (9.0.5)
     capybara (2.15.1)
       addressable
@@ -227,7 +230,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     mono_logger (1.1.0)
     multi_json (1.12.1)
@@ -236,8 +239,8 @@ GEM
     mustermann (1.0.0)
     netrc (0.11.0)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -460,9 +463,8 @@ GEM
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (2.7.1)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.2.0)
+      execjs (>= 0.3.0, < 3)
     underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
@@ -491,6 +493,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   better_errors (~> 2.1, >= 2.1.1)
   bootstrap-datepicker-rails (~> 1.6.4.1)
+  bundler-audit
   byebug
   capybara (~> 2.15.1)
   carrierwave (~> 1.0.0)
@@ -551,7 +554,7 @@ DEPENDENCIES
   simplecov
   spring
   turbolinks (~> 5.0.0)
-  uglifier (= 2.7.1)
+  uglifier (~> 3.2.0)
   underscore-rails (= 1.8.3)
   webpacker_lite
 

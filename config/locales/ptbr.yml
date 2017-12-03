@@ -1,6 +1,7 @@
 ptbr:
  app_name: 'if me'
  app_description: 'é uma comunidade para o compartilhamento de experiências sobre saúde mental'
+ draft: 'Rascunho'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Criada em:</strong> %{created_at}'
@@ -20,6 +21,7 @@ ptbr:
    sv: Svenska
    various: Outros
    vn: Tiếng Việt
+   it: Italiano
    nb: Norsk
 
  navigation:
@@ -50,6 +52,8 @@ ptbr:
    daily_reminder: 'Email de lembrete diário'
    actions:
     submit: 'Enviar'
+    submit_publish: 'Publicar'
+    submit_draft: 'Rascunho'
     confirm: 'Você tem certeza?'
     delete: 'Apagar'
     edit: 'Editar'
@@ -100,6 +104,8 @@ ptbr:
     none: 'No momento você não tem aliados! Você pode buscar por eles ou convidar as pessoas que você ama!'
     view_all_allies: 'Ver todos os aliados'
     cancel: 'Cancelar'
+  form:
+    placeholder: 'Digite um ou mais emails separados por ponto e vírgula (EX: teste@teste.com, teste2@teste.com)'
 
  categories:
   plural: 'Categorias'
@@ -143,7 +149,7 @@ ptbr:
    available_groups: 'Grupos Disponíveis.'
    joined_groups: 'Grupos que participo.'
    leader: '(Líder)'
-   instructions: "Você ainda não participa de grupo nenhum! Clique %{icon} para criar um novo grupo ou entre em qualquer grupo disponível abaixo.<br><br>Dar suporte aos grupos é uma excelente forma de ter discussões abertas sobre saúde mental! Você pode criar grupos, convidar menbros, e organizar reuniões online ou presenciais. Você pode se juntar a grupos que seus aliados criaram."
+   instructions: "Você ainda não faz parte de nenhum grupo. No entanto, você pode pode clicar no botão %{icon} para criar seu próprio grupo."
   join_success: 'Você entrou nesse grupo.'
   leave:
     error: 'Você não pode sair deste grupo, porque você é o único líder.'
@@ -258,6 +264,7 @@ ptbr:
    fix: 'Quais pensamentos você gostaria de ter ? '
    what_happened: 'O que aconteceu ?'
    viewers_hint: 'Aliados que podem ver esse momento seu:'
+   draft_question: 'Você quer salvar seu momento com um rascunho?'
 
   index:
    subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
@@ -573,6 +580,7 @@ ptbr:
    name_hint: 'Qualquer atividade, linha de pensamento, ou forma de cuidado próprio que ajude você'
    viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar seus próprios comentários em cada estratégia'
    daily_reminder_hint: "Iremos enviar para seu email um um lembrete diário para cumprir com sua estratégia."
+   draft_question: Você quer salvar sua estratégia com um rascunho?'
   label:
    one: 'Estratégia'
    other: 'Estratégias'

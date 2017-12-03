@@ -4,6 +4,7 @@ en:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Created:</strong> %{created_at}'
+ draft: "Draft"
  edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
  edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
  salutation: "Hi %{name},"
@@ -20,6 +21,7 @@ en:
    sv: Svenska
    various: Various
    vn: Tiếng Việt
+   it: Italiano
    nb: Norsk
 
  navigation:
@@ -50,6 +52,8 @@ en:
    daily_reminder: 'Daily reminder email'
    actions:
     submit: 'Submit'
+    submit_publish: 'Publish'
+    submit_draft: 'Draft'
     confirm: 'Are you sure?'
     delete: 'Delete'
     edit: 'Edit'
@@ -100,6 +104,8 @@ en:
     none: 'You currently have no allies! You can search for them or invite loved ones to join!'
     view_all_allies: 'View all allies'
     cancel: 'Cancel'
+  form:
+    placeholder: 'Enter one or more comma-separated emails'
 
  categories:
   plural: 'Categories'
@@ -143,7 +149,7 @@ en:
    available_groups: 'Available Groups'
    joined_groups: 'Joined Groups'
    leader: '(Leader)'
-   instructions: "You aren't a part of any groups yet! Click %{icon} to create one or join any available groups below.<br><br>Support groups are great for having open discussions about mental health! You can create groups, invite members, and organize meetup events online or offline. You can also join groups your allies have created."
+   instructions: "You aren't a part of any groups yet, but you can click %{icon} to create one!"
   join_success: 'You have joined this group.'
   leave:
     error: 'You cannot leave the group, you are the only leader.'
@@ -258,6 +264,7 @@ en:
    fix: 'What thoughts would you like to have?'
    what_happened: 'What happened?'
    viewers_hint: 'Allies who can view your moment'
+   draft_question: 'Do you want to save your moment as draft?'
 
   index:
    subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
@@ -572,6 +579,7 @@ en:
    name_hint: 'Any activity, train of thought, or form or self-care that helps you'
    viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
    daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
+   draft_question: 'Do you want to save your strategy as draft?'
   label:
    one: 'Strategy:'
    other: 'Strategies:'

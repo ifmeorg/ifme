@@ -77,6 +77,7 @@ class MomentsController < ApplicationController
       why: params[:moment][:why],
       comment: true,
       viewers: viewers,
+      published_at: Time.zone.now,
       category: params[:moment][:category],
       mood: params[:moment][:mood]
     )
@@ -110,6 +111,7 @@ class MomentsController < ApplicationController
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
+    @moment.published_at = Time.zone.now if publishing?
     respond_to do |format|
       if @moment.save
         format.html { redirect_to moment_path(@moment) }
@@ -128,6 +130,14 @@ class MomentsController < ApplicationController
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
+    if publishing? && !@moment.published?
+      @moment.published_at = Time.zone.now
+    elsif saving_as_draft?
+      @moment.published_at = nil
+    end
+
+    empty_array_for :viewers, :mood, :strategy, :category
+
     respond_to do |format|
       if @moment.update(moment_params)
         format.html { redirect_to moment_path(@moment) }
@@ -156,7 +166,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :userid, :comment,
+      :name, :why, :fix, :userid, :comment, :published_at, :draft,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
@@ -197,6 +207,20 @@ class MomentsController < ApplicationController
       end_date - 1.year
     else
       end_date - 1.week
+    end
+  end
+
+  def publishing?
+    params[:publishing] == '1'
+  end
+
+  def saving_as_draft?
+    params[:publishing] != '1'
+  end
+
+  def empty_array_for(*symbols)
+    symbols.each do |symbol|
+      @moment[symbol] = [] if moment_params[symbol].nil?
     end
   end
 end

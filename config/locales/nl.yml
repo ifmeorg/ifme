@@ -4,6 +4,7 @@ nl:
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Aangemaakt op:</strong> %{created_at}'
+ draft: "Concept"
  edited: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt)</em>'
  edited_updated_at: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt op %{updated_at})</em>'
  salutation: "Hallo %{name},"
@@ -20,6 +21,7 @@ nl:
    sv: Svenska
    various: Verscheidende
    vn: Tiếng Việt
+   it: Italiano
    nb: Norsk
 
  navigation:
@@ -50,6 +52,8 @@ nl:
    daily_reminder: 'Dagelijkse herinnering e-mail'
    actions:
     submit: 'Versturen'
+    submit_publish: 'Publiceren'
+    submit_draft: 'Concept'
     confirm: 'Weet je het zeker?'
     delete: 'Verwijderen'
     edit: 'Bewerken'
@@ -100,6 +104,8 @@ nl:
     none: 'Je hebt op dit moment geen bondgenoten! Je kunt op zoek naar hun gaan of naasten uitnodigen om lid te worden!'
     view_all_allies: 'Bekijk alle bondgenoten'
     cancel: 'Annuleren'
+  form:
+    placeholder: 'Geef één of meerdere met komma gescheiden e-mailadressen op.'
 
  categories:
   plural: 'Categorieën'
@@ -143,7 +149,7 @@ nl:
    available_groups: 'Beschikbare groepen'
    joined_groups: 'Groepslidmaatschappen'
    leader: '(Leider)'
-   instructions: "Je bent nog niet lid van een groep! Klik op %{icon} om er een te maken of wordt lid van een van de beschikbare groepen hier onder.<br><br>Ondersteuningsgroepen zijn goed voor het voeren van openbare discussies over geestelijke gezondheid! Je kunt groepen maken, leden uitnodigen en samenkomsten organiseren zowel online als offline. Je kunt ook lid worden van groepen die je bondgenoten hebben gemaakt."
+   instructions: "Je maakt nog geen onderdeel uit van een groep, maar je kan op %{icon} klikken om er één aan te maken!"
   join_success: 'Je bent lid geworden van deze groep.'
   leave:
     error: 'Je kunt de groep niet verlaten, je bent de enige leider van de groep.'
@@ -258,6 +264,7 @@ nl:
    fix: 'Welke gedachten zou je willen hebben?'
    what_happened: 'Wat is er gebeurd?'
    viewers_hint: 'Bondgenoten die je moment kunnen bekijken'
+   draft_question: 'Wil je je moment als concept opslaan?'
 
   index:
    subtitle: 'Duik diep in je momenten - gebeurtenissen en situaties die invloed hebben op je geestelijke gezondheid.'
@@ -572,6 +579,7 @@ nl:
    name_hint: 'Elke activiteit, gedachtestroom of vorm van self-care die je helpt'
    viewers_hint: 'Bondgenoten die je strategie kunnen bekijken en hun eigen momenten mee kunnen taggen'
    daily_reminder_hint: "We zullen je dagelijks e-mailen omdeze strategie uit te voeren"
+   draft_question: 'Wil je je strategie als concept opslaan?'
   label:
    one: 'Strategie:'
    other: 'Strategieën:'

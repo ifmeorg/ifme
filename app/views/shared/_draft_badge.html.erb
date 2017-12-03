@@ -1,0 +1,6 @@
+<% if !local_assigns[:published] %>
+  <span class="draft-badge">
+    <i class="fa fa-tag" aria-hidden="true"></i>
+    <%= I18n.t 'draft' %>
+  </span>
+<% end %>

@@ -202,5 +202,11 @@
     "link": "https://www.therecoveryvillage.com/teen-addiction/",
     "tags": ["youth", "addiction", "rehabilitation"],
     "languages": ["en"]
+  },
+  {
+    "name": "Mental Health Knowledge Base",
+    "link": "https://mhwkb.github.io/",
+    "tags": ["directory", "learning"],
+    "languages": ["en"]
   }
 ]
