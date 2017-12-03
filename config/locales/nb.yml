@@ -1,4 +1,4 @@
-no:
+nb:
  app_name: 'hvis meg'
  app_description: 'er et samfunn for mental helse opplevelser'
  email: 'join.ifme@gmail.com'
@@ -19,7 +19,7 @@ no:
    sv: Svenska
    various: Various
    vn: Tiếng Việt
-   no: Norsk
+   nb: Norsk
 
  navigation:
    about: 'Om'

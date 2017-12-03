@@ -1,4 +1,4 @@
-no:
+nb:
   devise:
     confirmations:
       confirmed: "Registreringen av din epost-adresse har vært velykket."
