@@ -55,12 +55,38 @@ class Comment < ApplicationRecord
 
   private
 
-  def user_to_notify(association)
-    association.userid == comment_by ? viewers.first : association.userid
-  end
-
   def associated_record
     commentable_type.classify.constantize.find(commentable_id)
+  end
+
+  # Notify MeetingMembers except for commenter that there is a new comment
+  def handle_meeting(association, creator)
+    MeetingMember.where(meetingid: commentable_id)
+                 .where.not(userid: creator.id)
+                 .find_each do |member|
+      data = notification_data(creator, association, type, unique_id(type))
+      send_notification(data, notifications!(data, member.userid),
+                        member.userid)
+    end
+  end
+
+  def notification_data(creator, association, type, unique_id)
+    JSON.generate(
+      user: creator.name,
+      commentid: id,
+      comment: comment[0..80],
+      cutoff: comment.length > 80,
+      type: type,
+      typeid: association.id,
+      uniqueid: unique_id,
+      typename: association.name
+    )
+  end
+
+  def notifications!(data, userid)
+    Notification.create!(userid: userid, uniqueid: unique_id(type), data: data)
+    model_data = Notification.where(userid: userid)
+    model_data.order('created_at')
   end
 
   def notify_of_creation?(association)
@@ -79,19 +105,6 @@ class Comment < ApplicationRecord
     send_notification(data, notifications!(data, user_id), user_id)
   end
 
-  def notification_data(creator, association, type, unique_id)
-    JSON.generate(
-      user: creator.name,
-      commentid: id,
-      comment: comment[0..80],
-      cutoff: comment.length > 80,
-      type: type,
-      typeid: association.id,
-      uniqueid: unique_id,
-      typename: association.name
-    )
-  end
-
   def type
     "comment_on_#{commentable_type}#{visibility == 'private' ? '_private' : ''}"
   end
@@ -100,20 +113,7 @@ class Comment < ApplicationRecord
     "#{type}_#{id}"
   end
 
-  def notifications!(data, userid)
-    Notification.create!(userid: userid, uniqueid: unique_id(type), data: data)
-    model_data = Notification.where(userid: userid)
-    model_data.order('created_at')
-  end
-
-  # Notify MeetingMembers except for commenter that there is a new comment
-  def handle_meeting(association, creator)
-    MeetingMember.where(meetingid: commentable_id)
-                 .where.not(userid: creator.id)
-                 .find_each do |member|
-      data = notification_data(creator, association, type, unique_id(type))
-      send_notification(data, notifications!(data, member.userid),
-                        member.userid)
-    end
+  def user_to_notify(association)
+    association.userid == comment_by ? viewers.first : association.userid
   end
 end

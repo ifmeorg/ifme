@@ -76,9 +76,16 @@ class User < ApplicationRecord
     in: [nil, 'en', 'es', 'ptbr', 'sv', 'nl', 'it']
   }
 
-  def remove_leading_trailing_whitespace
-    @email&.strip!
-    @name&.strip!
+  def ally?(user)
+    allies_by_status(:accepted).include?(user)
+  end
+
+  def allies_by_status(status)
+    allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
+  end
+
+  def available_groups(order)
+    ally_groups.order(order) - groups
   end
 
   # TODO: _signed_in_resource is unused and should be removed
@@ -107,6 +114,26 @@ class User < ApplicationRecord
     end
   end
 
+  def google_oauth2_enabled?
+    token.present?
+  end
+
+  def mutual_allies?(user)
+    ally?(user) && user.ally?(self)
+  end
+
+  def remove_leading_trailing_whitespace
+    @email&.strip!
+    @name&.strip!
+  end
+
+  def set_defaults
+    @comment_notify.nil? && @comment_notify = true
+    @ally_notify.nil? && @comment_notify = true
+    @group_notify.nil? && @comment_notify = true
+    @meeting_notify.nil? && @comment_notify = true
+  end
+
   def update_access_token
     url = URI('https://accounts.google.com/o/oauth2/token')
     refresh_token_params = { 'refresh_token' => refresh_token,
@@ -127,33 +154,6 @@ class User < ApplicationRecord
     )
 
     new_access_token
-  end
-
-  def ally?(user)
-    allies_by_status(:accepted).include?(user)
-  end
-
-  def mutual_allies?(user)
-    ally?(user) && user.ally?(self)
-  end
-
-  def allies_by_status(status)
-    allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
-  end
-
-  def set_defaults
-    @comment_notify.nil? && @comment_notify = true
-    @ally_notify.nil? && @comment_notify = true
-    @group_notify.nil? && @comment_notify = true
-    @meeting_notify.nil? && @comment_notify = true
-  end
-
-  def available_groups(order)
-    ally_groups.order(order) - groups
-  end
-
-  def google_oauth2_enabled?
-    token.present?
   end
 
   private

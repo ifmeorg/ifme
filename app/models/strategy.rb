@@ -40,24 +40,24 @@ class Strategy < ApplicationRecord
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
 
+  def active_reminders
+    [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
+  end
+
   def array_data_to_i!
     category.map!(&:to_i)
     viewers.map!(&:to_i)
-  end
-
-  def active_reminders
-    [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
   def category_name
     category.try(:name)
   end
 
-  def self.link
-    '/strategies'
-  end
-
   def published?
     !published_at.nil?
+  end
+
+  def self.link
+    '/strategies'
   end
 end
