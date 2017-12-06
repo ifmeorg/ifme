@@ -36,7 +36,7 @@ class MoodsController < ApplicationController
   # POST /moods
   # POST /moods.json
   def create
-    @mood = Mood.new(mood_params)
+    @mood = Mood.new(mood_params.merge(userid: current_user.id))
     respond_to do |format|
       if @mood.save
         format.html { redirect_to mood_path(@mood) }
@@ -112,6 +112,6 @@ class MoodsController < ApplicationController
   end
 
   def mood_params
-    params.require(:mood).permit(:name, :description, :userid)
+    params.require(:mood).permit(:name, :description)
   end
 end
