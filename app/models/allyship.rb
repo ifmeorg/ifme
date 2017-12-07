@@ -25,24 +25,26 @@ class Allyship < ApplicationRecord
   after_update :approve_inverse, if: :inverse_unapproved?
   after_destroy :destroy_inverses, if: :has_inverse?
 
-  def create_inverse
-    self.class.create(inverse_allyship_options.merge(status: User::ALLY_STATUS[:pending_from_user]))
-  end
-
   def approve_inverse
     inverses.update_all(status: User::ALLY_STATUS[:accepted])
+  end
+
+  def create_inverse
+    self.class.create(inverse_allyship_options.merge(status: User::ALLY_STATUS[:pending_from_user]))
   end
 
   def destroy_inverses
     inverses.destroy_all
   end
 
-  def has_inverse?
-    self.class.exists?(inverse_allyship_options)
+  def different_users
+    errors.add(:user_id, 'identical users') if user_id == ally_id
+    errors.add(:user_id, 'user_id is nil') if user_id.nil?
+    errors.add(:ally_id, 'ally_id is nil') if ally_id.nil?
   end
 
-  def inverse_unapproved?
-    !inverses.where.not(status: User::ALLY_STATUS[:accepted]).empty?
+  def has_inverse?
+    self.class.exists?(inverse_allyship_options)
   end
 
   def inverses
@@ -53,13 +55,16 @@ class Allyship < ApplicationRecord
     { ally_id: user_id, user_id: ally_id }
   end
 
-  def different_users
-    errors.add(:user_id, 'identical users') if user_id == ally_id
-    errors.add(:user_id, 'user_id is nil') if user_id.nil?
-    errors.add(:ally_id, 'ally_id is nil') if ally_id.nil?
+  def inverse_unapproved?
+    !inverses.where.not(status: User::ALLY_STATUS[:accepted]).empty?
   end
 
   private
+
+  def remove_activities_between_users
+    remove_ally_notifications
+    remove_ally_viewers
+  end
 
   def remove_ally_notifications
     user_id = self.user_id
@@ -76,10 +81,5 @@ class Allyship < ApplicationRecord
       viewed_class.destroy_viewer(user_id, ally_id)
       viewed_class.destroy_viewer(ally_id, user_id)
     end
-  end
-
-  def remove_activities_between_users
-    remove_ally_notifications
-    remove_ally_viewers
   end
 end
