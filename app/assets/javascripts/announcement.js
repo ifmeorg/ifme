@@ -4,12 +4,17 @@ function showAnnouncement() {
 }
 
 function scrollToLocaleToggle() {
-  $("html, body").animate({ scrollTop: $("#locale_toggle").offset().top }, 1000);
+  $("html, body").animate(
+    { scrollTop: $("#locale_toggle").offset().top },
+    1000
+  );
 }
 
 function translationsAnnouncement() {
   if ($("body").hasClass("pages home") && $("html").attr("lang") === "en") {
-    $("#announcement").html("More communities need mental health support. Our site is now available in <span id=\"translations_anchor\" class=\"anchor\">Español, Italiano, Nederlands, Português and Svenska</span>!");
+    $("#announcement").html(
+      'More communities need mental health support. Our site is now available in <span id="translations_anchor" class="anchor">Español, Italiano, Nederlands, Norsk, Português and Svenska</span>!'
+    );
     showAnnouncement();
   }
 }
