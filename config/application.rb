@@ -43,6 +43,7 @@ module Ifme
     config.middleware.use I18n::JS::Middleware
 
     config.i18n.available_locales = %i[en es ptbr sv nl it nb]
+
     config.i18n.default_locale = :en
 
     config.secret_share_enabled = false

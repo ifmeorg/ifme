@@ -67,12 +67,12 @@ class Moment < ApplicationRecord
     mood.try(:name)
   end
 
-  def strategy_name
-    strategy.try(:name)
-  end
-
   def owned_by?(user)
     user&.id == userid
+  end
+
+  def published?
+    !published_at.nil?
   end
 
   def shared?
@@ -80,7 +80,7 @@ class Moment < ApplicationRecord
       Time.zone.now < secret_share_expires_at
   end
 
-  def published?
-    !published_at.nil?
+  def strategy_name
+    strategy.try(:name)
   end
 end
