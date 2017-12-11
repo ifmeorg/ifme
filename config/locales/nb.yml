@@ -165,8 +165,8 @@ nb:
    signin: 'Del dine historier nå'
    create_account: 'Bli med i samfunnet nå'
    update_account: 'Tilpass kontoen din'
-   if: 'hvis'
-   me: 'meg'
+   if: 'if'
+   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} er et samfunn som oppfordrer folk til å dele sine mental helse historier med sine kjente."
