@@ -18,7 +18,7 @@ nb:
         submit_button: "Sett passordet mitt"
     mailer:
       invitation_instructions:
-        subject: "%{name} inviterte deg til å bli med i hvis meg!"
+        subject: "%{name} inviterte deg til å bli med i if me!"
         subject_nameless: "Noen inviterte deg til å bli med i if me!"
         hello: "Hei %{email}!"
         someone_invited_you: "%{name} har invitert deg til å bli med i http://www.if-me.org, et felleskap for å dele mental helse opplevelser med dine kjente og holde styr på humøret ditt, medisiner, og selvpleie. Du kan akseptere invitasjonen igjennom linken nedenfor."
