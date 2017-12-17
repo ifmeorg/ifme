@@ -1,87 +1,128 @@
-function hideSmallTopNav() {
-  $('#small_nav').removeClass('display_block');
-  $('#small_nav').addClass('display_none');
-  $('#expand_nav').css({"opacity": 1});
-}
+(function() {
+  var currentTab;
+  var animationTimespan = 300; // in ms; this must match header.scss 'transition: max-height' value
+  var smallNavSpacerHeight;
 
-function showSmallTopNav() {
-  $('#small_nav').removeClass('display_none');
-  $('#small_nav').addClass('display_block');
-  $('#expand_nav').css({"opacity": 0.8});
-}
-
-function hideExpandMe() {
-  $('#expand_me').removeClass('display_block');
-  $('#expand_me').addClass('display_none');
-  $('#me').css({"opacity": 1});
-  $('#title_expand').css({"opacity": 1});
-}
-
-function showExpandMoment() {
-  $('#expand_moment').removeClass('display_none');
-  $('#expand_moment').addClass('display_block');
-}
-
-function hideExpandMoment() {
-  $('#expand_moment').removeClass('display_block');
-  $('#expand_moment').addClass('display_none');
-  $('#moment').css({"opacity": 1});
-  $('#title_expand').css({"opacity": 1});
-}
-
-function setHeight() {
-  var the_height = $('#header').height();
-  $('#header_space').css({"height": the_height});
-}
-
-function expandButton() {
-  hideSmallTopNav();
-  $('#expand_me').toggleClass("display_none");
-  $('#me').toggleClass('dim');
-  $('#title_expand').toggleClass('dim');
-  $('#title_expand .expand').toggleClass("fa-sort-desc");
-  $('#title_expand .expand').toggleClass("fa-sort-asc");
-  setHeight();
-}
-
-function headerMouseLeave() {
-  if ($('#expand_moment').length && $('#expand_moment').hasClass('display_block')) {
-    hideExpandMoment();
-    setHeight();
+  function setHeight(override) {
+    $('#header_space').css({
+      height: _.isNumber(override) ? override : $('#header').height()
+    });
   }
-}
 
-function expandMomentMouseover() {
-  if ($('#expand_moment').hasClass('display_none')) {
-    showExpandMoment();
-
-    hideExpandMe();
-    setHeight();
+  function toggleArrow() {
+    $('.header-logo .expand').toggleClass('fa-sort-desc').toggleClass('fa-sort-asc');
   }
-}
 
-var onReadyHeader = function() {
-  setHeight();
+  function toggleVisibility($el) {
+    return $el.toggleClass('display_none').toggleClass('display_block');
+  }
 
-  $('.expand_button').click(expandButton);
+  function hide($el) {
+    return $el.addClass('display_none').removeClass('display_block');
+  }
 
-  //mobile menu toggling
-  $('#expand_nav').click(function() {
-    if ($('#small_nav').hasClass('display_none')) {
-      showSmallTopNav();
-    } else {
-      hideSmallTopNav();
+  function show($el) {
+    return $el.removeClass('display_none').addClass('display_block');
+  }
+
+  function getVisibleSecondaryNavs() {
+    return $('.secondary-nav > ul.display_block');
+  }
+
+  /**
+   * We add a delay so that the 'collapsed' CSS class can properly animate the transition
+   * before we display:none the content (which causes the container to collapse immediately).
+   */
+  function hideVisibleSecondaryNavsWithTransition() {
+    $('.secondary-nav')
+      .addClass('collapsed')
+      .delay(animationTimespan)
+      .promise()
+      .then(function () {
+        toggleVisibility(getVisibleSecondaryNavs());
+      });
+  }
+
+  function primaryNavMouseenterHandler(e) {
+    var previousTab = currentTab;
+    var newTab = e.currentTarget.dataset.navName;
+    var tabChanged = previousTab !== newTab;
+
+    if (tabChanged) {
+      currentTab = newTab;
+
+      if (newTab === 'me' || previousTab === 'me') {
+        toggleArrow();
+      }
+
+      var $visibleSecondaryNavs = getVisibleSecondaryNavs();
+      var $newSecondaryNav = $('ul[data-primary-parent=' + newTab + ']');
+      if ($visibleSecondaryNavs.length) {
+        if ($newSecondaryNav.length) {
+          // Transition between two secondary navs
+          toggleVisibility($newSecondaryNav);
+          toggleVisibility($visibleSecondaryNavs);
+        } else {
+          // Transition from visible to no secondary navs
+          hideVisibleSecondaryNavsWithTransition();
+        }
+      } else {
+        // Transition from no secondary navs to potentially visible
+        $('.secondary-nav').removeClass('collapsed');
+        toggleVisibility($newSecondaryNav);
+      }
     }
+  }
+
+  function primaryNavMouseleaveHandler() {
+    currentTab = null;
+    var $visibleSecondaryNavs = getVisibleSecondaryNavs();
+    if ($visibleSecondaryNavs.is('[data-primary-parent=me]')) {
+      toggleArrow();
+    }
+    hideVisibleSecondaryNavsWithTransition();
+  }
+
+  function resizeHandler() {
+    var $smallNav = $('#small_nav');
+    var smallNavIsVisible = $smallNav.is(':visible');
+    if (smallNavIsVisible) {
+      /*
+       * If we're resizing while the smallNav is open, we need to force the spacer to retain the height
+       * as though smallNav was closed. We'll cache the value in the smallNavSpacerHeight variable
+       * when available, or determine its value by way of a quick close/measure/open process.
+       */
+      if (!_.isNumber(smallNavSpacerHeight)) {
+        hide($smallNav);
+        smallNavSpacerHeight = $('.small-screen').height();
+        show($smallNav);
+      }
+      setHeight(smallNavSpacerHeight);
+
+    } else {
+      /*
+       * Just in case smallNav is open, and the user resizes the window and triggers the
+       * medium screen size breakpoint, we'll close the smallNav.
+       */
+      hide($smallNav);
+      setHeight();
+    }
+  }
+
+  loadPage(function() {
     setHeight();
+    $('#header')
+      .on('mouseenter', '.primary-nav a, [data-nav-name]', primaryNavMouseenterHandler)
+      .on('mouseleave', primaryNavMouseleaveHandler);
+    $(window).on('resize', _.debounce(resizeHandler, 100));
+
+    // Mobile menu toggling
+    $('#expand_nav').click(function() {
+      toggleVisibility($('#small_nav'));
+      if ($('#small_nav').is('.display_none')) {
+        setHeight();
+      }
+    });
   });
 
-  $('.expand_moment_button').mouseover(expandMomentMouseover);
-
-  $('#header').mouseleave(headerMouseLeave);
-
-  $(window).resize(function () {
-    setHeight();
-  });
-};
-
-loadPage(onReadyHeader);
+}());

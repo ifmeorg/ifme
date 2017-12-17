@@ -1,10 +1,8 @@
-<% if user_signed_in? %>
-<span id="title_expand" class="expand_button header-logo">
-  <span class="logo-text">If <span id="me" class="me">Me</span></span>
+<span data-nav-name="me" class="header-logo">
+  <% if user_signed_in? %>
+    If <span id="me" class="me">Me</span>
     <i class="expand fa fa-sort-desc"></i>
+  <% else %>
+    <a href=<%= root_path %>>If <span id="me" class="me">Me</span></a>
+  <% end %>
 </span>
-<% else %>
-<a id="title_expand" class="expand_button header-logo" href=<%= root_path %>>
-  <span class="logo-text">If <span id="me" class="me">Me</span></span>
-</a>
-<% end %>

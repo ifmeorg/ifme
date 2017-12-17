@@ -7,12 +7,52 @@
   z-index: 9000;
 }
 
-#header_content {
-  @include clearfix;
-  padding: 20px;
+// Main Navigation Links
+.top-nav {
+  margin: 0;
+  padding: 0;
+  font-size: $font16;
+  text-align: left;
 
-  @media screen and (min-width: $medium + 1) {
-    padding: 30px 60px;
+  @media screen and (min-width: $small + 1) {
+    font-size: $font18;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 24px;
+    vertical-align: middle;
+
+    @media screen and (max-width: $medium) {
+      margin-right: 16px;
+    }
+  }
+
+  .active a {
+    border-top: 2px solid $header-navigation-text-color-active;
+    border-bottom: 2px solid $header-navigation-text-color-active;
+    color: $header-navigation-text-color-active;
+  }
+
+  a {
+    border-bottom: 2px solid $container-color;
+    border-top: 2px solid $container-color;
+    color: $header-navigation-text-color;
+    display: block;
+    padding: 0;
+    text-decoration: none;
+
+    @media screen and (min-width: $small + 1) {
+      padding: 13px 0;
+    }
+
+    &:hover {
+      color: $header-navigation-text-color-focus;
+      border-bottom: 2px solid $header-navigation-text-color-focus;
+      border-top: 2px solid $header-navigation-text-color-focus;
+      opacity: 1;
+    }
   }
 
   .vertical_divider {
@@ -22,90 +62,69 @@
   }
 }
 
-// Main Navigation Links
-.top-nav {
-  margin: 0;
-  padding: 0;
-  font-size: $font16;
-  clear: left;
-  float: left;
-  width: auto;
-  text-align: left;
+.primary-nav {
+  margin: 20px 0 20px 20px;
+  white-space: nowrap;
 
-  @media screen and (min-width: $small + 1) {
-    margin: 0;
-    padding: 0;
-    font-size: $font18;
-    clear: left;
-    float: left;
-    width: auto;
-    text-align: left;
-  }
-
-  li {
-    list-style: none;
-    float: left;
-    margin-right: 24px;
-
-    @media screen and (max-width: $medium) {
-      margin-right: 20px;
-    }
-  }
-
-  .active a {
-    border-top: 2px solid $header-text-color;
-    border-bottom: 2px solid $header-text-color;
-    opacity: 0.5;
-  }
-
-  a {
-    border-bottom: 2px solid $container-color;
-    border-top: 2px solid $container-color;
-    color: $header-text-color;
-    display: block;
-    padding: 5px 0;
-    text-decoration: none;
-
-    @media screen and (min-width: $small + 1) {
-      padding: 13px 0;
-    }
-
-    &:hover {
-      border-bottom: 2px solid $header-text-color;
-      border-top: 2px solid $header-text-color;
-    }
+  @media screen and (min-width: $medium + 1) {
+    margin: 20px 0 20px 60px;
   }
 }
 
-#expand_moment, #expand_me {
+.secondary-nav {
   font-weight: 300;
-  margin-top: $font30;
+  margin: 0;
+  padding: 0 20px;
+  background-color: $header-secondary-navigation-background;
+  transition: max-height 300ms;
+  overflow: hidden;
+  max-height: 75px;
+  position: relative;
 
-  @media screen and (max-width: $medium) {
-    margin-top: 10px;
+  &.collapsed {
+    max-height: 0;
+  }
+
+  @media screen and (min-width: $medium + 1) {
+    padding: 0 60px;
+  }
+
+  .active a {
+    border: none;
   }
 
   a {
     border: none;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    color: $header-secondary-navigation-text;
+
+    &:hover {
+      border: none;
+    }
   }
+}
+
+#nav-me {
+  text-align: right;
 }
 
 .header-logo {
   border: none;
-  color: $header-text-color;
+  color: $if-on-dark;
   float: right;
   font-size: $font20;
   font-weight: 300;
-  margin: 0;
+  margin: 0 20px 0 0;
   padding: 0;
   outline: 0;
   text-align: right;
   text-transform: lowercase;
   vertical-align: middle;
+  cursor: pointer;
 
-  &:link, &:visited, &:hover {
-    color: $header-text-color;
-    border: none;
+  @media screen and (max-width: $small) {
+    margin: -4px 0 0;
   }
 
   @media screen and (min-width: $small + 1) {
@@ -113,8 +132,27 @@
     padding-top: 4px;
   }
 
-  &:hover {
+  @media screen and (min-width: $medium + 1) {
+    margin-right: 60px;
+  }
+
+  a:link, a:visited, a:hover {
+    color: $if-on-dark;
+    border: none;
     opacity: 1;
+  }
+
+  .me {
+    @include clearfix;
+    border-bottom: 2px solid $highlight-text-color;
+    border-top: 2px solid $highlight-text-color;
+    color: $me-on-dark;
+    margin: 0;
+    padding: 0px 0 6px;
+
+    @media screen and (max-width: $small) {
+      padding: 1px 0 6px;
+    }
   }
 
   .expand {
@@ -129,6 +167,10 @@
     }
   }
 
+  &:hover .fa {
+    color: $if-on-dark;
+  }
+
   .fa-sort-desc {
     padding-top: 8px;
   }
@@ -137,24 +179,6 @@
     padding-top: 17px;
   }
 }
-
-@media screen and (max-width: $small) {
-  #expand_nav {
-    color: $header-text-color;
-    cursor: pointer;
-  }
-}
-
-#expand_me {
-  clear: right;
-  float: right;
-  text-align: right;
-}
-
-#header_spacer {
-  width: 100%;
-}
-
 
 @media screen and (max-width: $small) {
   .large-screen {
@@ -168,46 +192,32 @@
   }
 }
 
-.ifme-logo {
-  @media screen and (max-width: $small) {
-    &.small-screen {
-      #small_nav {
-        text-align: left;
-        margin-bottom: 0;
-        list-style: none;
-        padding-left: 0;
+.small-screen {
+  padding: 16px;
 
-        li {
-          display: block;
-          margin-bottom: 10px;
-        }
+  .expand {
+    font-size: $font20;
+    color: $header-navigation-text-color;
+    cursor: pointer;
 
-        a {
-          border: none;
-          color: $header-text-color;
-        }
-      }
+    &:hover {
+      color: $header-navigation-text-color-focus;
     }
   }
 
-  #title_expand {
-    cursor: pointer;
+  #small_nav {
+    margin: 16px 0 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+
+    li {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    a {
+      border: none;
+    }
   }
-}
-
-.me {
-  @include clearfix;
-  border-bottom: 2px solid $highlight-text-color;
-  border-top: 2px solid $highlight-text-color;
-  color: $highlight-text-color;
-  margin: 0;
-  padding: 0px 0 6px;
-
-  @media screen and (max-width: $small) {
-    padding: 1px 0 4px;
-  }
-}
-
- .dim{
-  opacity: 0.8;
 }

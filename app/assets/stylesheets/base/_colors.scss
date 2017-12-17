@@ -1,10 +1,19 @@
 // This file contains the base colors for the application.
 
+// Logo
+$if-on-dark: #FFFFFF;
+$me-on-dark: #D0E799;
+
 // Text
 $primary-text-color: #000;
 $secondary-text-color: #6D0839;
 $highlight-text-color: #D0E799;
-$header-text-color: #fff;
+$header-navigation-text-color: #e8b6ce;
+$header-navigation-text-color-active: #FFFFFF;
+$header-navigation-text-color-focus: #D0E799;
+$header-secondary-navigation-text: #FFFFFF;
+$header-secondary-navigation-background: hsl(331, 87%, 28%);
+$header-text-color: #FFFFFF;
 $footer-text-color: #2c2c2c;
 $link-color: #02779E;
 $subtle-secondary-text-color: #b5839b;

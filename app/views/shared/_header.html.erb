@@ -1,13 +1,16 @@
-<div id="header">
+<header id="header">
   <div id="header_content">
-    <div class="ifme-logo small-screen">
-      <%= link_to root_path do %>
-        <span class="logo-text header-logo">If <span class="me">Me</span></span>
-      <% end %>
+
+    <nav class="small-screen">
+      <div class="header-logo">
+        <%= link_to root_path do %>
+          If <span class="me">Me</span>
+        <% end %>
+      </div>
 
       <i class="expand fa fa-bars" id="expand_nav"></i>
 
-      <ul id="small_nav" class="display_none">
+      <ul id="small_nav" class="top-nav display_none">
       <% if user_signed_in? %>
           <%= nav_link_to(t('moments.plural'), moments_path) %>
           <%= nav_link_to(t('categories.plural'), categories_path) %>
@@ -31,15 +34,15 @@
           <%= nav_link_to(t('navigation.resources'), resources_path) %>
         <% end %>
       </ul>
-    </div>
+    </nav>
 
-    <div class="ifme-logo large-screen">
+    <nav class="large-screen">
       <%= render "shared/menu_logo" %>
 
       <ul class="top-nav primary-nav">
         <% if user_signed_in? %>
           <%= nav_link_to(t('shared.header.home'), root_path)  %>
-          <%= nav_link_to(t('moments.plural'), moments_path, :class => "expand_moment_button") %>
+          <%= nav_link_to(t('moments.plural'), moments_path, :data => { 'nav-name': 'moments' }) %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
           <%= nav_link_to(t('groups.plural'), groups_path) %>
@@ -52,23 +55,24 @@
           <%= nav_link_to(t('navigation.blog'), blog_path) %>
           <%= nav_link_to(t('navigation.resources'), resources_path) %>
         <% end %>
-        <div class="clear"></div>
       </ul>
 
       <% if user_signed_in? %>
-        <ul id="expand_moment" class="top-nav display_none">
-          <%= nav_link_to(t('categories.plural'), categories_path) %>
-          <%= nav_link_to(t('moods.plural'), moods_path) %>
-        </ul>
+        <div class="secondary-nav collapsed">
+          <ul data-primary-parent="moments" class="top-nav display_none">
+            <%= nav_link_to(t('categories.plural'), categories_path) %>
+            <%= nav_link_to(t('moods.plural'), moods_path) %>
+          </ul>
 
-        <ul id="expand_me" class="top-nav large-screen display_none">
-          <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
-          <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
-          <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
-          <%= nav_link_to(t('navigation.resources'), resources_path) %>
-          <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
-        </ul>
+          <ul id="nav-me" data-primary-parent="me" class="top-nav display_none">
+            <%= nav_link_to(t('notifications.plural'), "", class: 'notifications_button') %>
+            <%= nav_link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
+            <%= nav_link_to(t('account.singular'), edit_user_registration_path) %>
+            <%= nav_link_to(t('navigation.resources'), resources_path) %>
+            <%= nav_link_to(t('shared.header.signout'), destroy_user_session_path, :method => :delete) %>
+          </ul>
+        </div>
       <% end %>
-    </div>
+    </nav>
   </div>
-</div>
+</header>

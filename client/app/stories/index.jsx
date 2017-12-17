@@ -6,6 +6,8 @@ import { storiesOf } from '@storybook/react';
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
+import Header from '../bundles/shared/components/Header';
+
 import Logo from '../bundles/shared/components/Logo';
 
 storiesOf('Logo', module)
@@ -44,4 +46,18 @@ storiesOf('Chart', module)
         },
       }}
     />
+  ));
+
+storiesOf('Header', module)
+  .add('Signed in', () => (
+    <Header userSignedIn={true}/>
+  ))
+  .add('Signed in (small)', () => (
+    <Header userSignedIn={true} size="small"/>
+  ))
+  .add('Signed out', () => (
+    <Header userSignedIn={false}/>
+  ))
+  .add('Signed out (small)', () => (
+    <Header userSignedIn={false} size="small"/>
   ));

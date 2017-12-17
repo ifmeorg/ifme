@@ -3,7 +3,7 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
-const { resolve } = require('path');
+const path = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -11,6 +11,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 // const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
+const { resolve } = path;
 const configPath = resolve('..', 'config');
 const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
