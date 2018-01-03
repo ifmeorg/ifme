@@ -106,7 +106,7 @@ class MomentsController < ApplicationController
   # POST /moments
   # POST /moments.json
   def create
-    @moment = Moment.new(moment_params)
+    @moment = Moment.new(moment_params.merge(userid: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
@@ -166,7 +166,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :userid, :comment, :published_at, :draft,
+      :name, :why, :fix, :comment, :published_at, :draft,
       category: [], mood: [], viewers: [], strategy: []
     )
   end

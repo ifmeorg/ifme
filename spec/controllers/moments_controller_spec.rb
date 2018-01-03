@@ -24,6 +24,65 @@ describe MomentsController do
       get :show, params: { id: moment.id }
       expect(response).to render_template(:show)
     end
+
+    describe 'POST create' do
+      let(:valid_moment_params) { attributes_for(:moment) }
+
+      def post_create(moment_params)
+        post :create, params: { moment: moment_params }
+      end
+
+      context 'when valid params are supplied' do
+        it 'creates a moment' do
+          expect { post_create valid_moment_params }
+            .to change(Moment, :count).by(1)
+        end
+
+        it 'has no validation errors' do
+          post_create valid_moment_params
+          expect(assigns(:moment).errors).to be_empty
+        end
+
+        it 'redirects to the moment page' do
+          post_create valid_moment_params
+          expect(response).to redirect_to moment_path(assigns(:moment))
+        end
+      end
+
+      context 'when invalid params are supplied' do
+        let(:invalid_moment_params) { valid_moment_params.merge(name: nil, why: nil) }
+
+        before { post_create invalid_moment_params }
+
+        it 're-renders the creation form' do
+          expect(response).to render_template(:new)
+        end
+
+        it 'adds errors to the moment ivar' do
+          expect(assigns(:moment).errors).not_to be_empty
+        end
+      end
+
+      context 'when the userid is hacked' do
+        let(:another_user) { create(:user2) }
+        let(:hacked_moment_params) { valid_moment_params.merge(userid: another_user.id) }
+
+        it 'creates a new moment' do
+          expect { post_create hacked_moment_params }
+            .to change(Moment, :count).by(1)
+        end
+
+        it 'has no validation errors' do
+          post_create valid_moment_params
+          expect(assigns(:moment).errors).to be_empty
+        end
+
+        it 'uses the logged-in userid, not the one in the params' do
+          post_create hacked_moment_params
+          expect(Moment.last.userid).to eq(user.id)
+        end
+      end
+    end
   end
 
   describe 'POST comment' do
