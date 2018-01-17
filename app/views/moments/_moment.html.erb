@@ -1,1 +1,14 @@
-<%= render partial: '/shared/moments_strategies', locals: { items: @moments, item: moment, data_type: 'moment' } %>
+<%= react_component(
+      "MomentCard",
+      props: {
+        items: @moments,
+        item: moment,
+        date: ::TimeAgo.created_or_edited(moment),
+        edit_path: edit_moment_path(moment),
+        delete_path: ''
+      },
+      html_options: {
+        class: 'moment'
+      }
+    )
+%>

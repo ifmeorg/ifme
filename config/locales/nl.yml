@@ -3,10 +3,10 @@ nl:
  app_description: 'is een gemeenschap voor geestelijke gezondheidservaringen'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
- created: '<strong>Aangemaakt op:</strong> %{created_at}'
+ created: 'Aangemaakt op %{created_at}'
  draft: "Concept"
- edited: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt)</em>'
- edited_updated_at: '<strong>Aangemaakt op:</strong> %{created_at} <em>(bewerkt op %{updated_at})</em>'
+ edited: 'Aangemaakt op %{created_at} (bewerkt)'
+ edited_updated_at: 'Aangemaakt op %{created_at} (bewerkt op %{updated_at})'
  salutation: "Hallo %{name},"
  click_here: "klik hier"
  less: " [Minder]"

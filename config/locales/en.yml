@@ -3,10 +3,10 @@ en:
  app_description: 'is a community for mental health experiences'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
- created: '<strong>Created:</strong> %{created_at}'
+ created: 'Created %{created_at}'
  draft: "Draft"
- edited: '<strong>Created:</strong> %{created_at} <em>(edited)</em>'
- edited_updated_at: '<strong>Created:</strong> %{created_at} <em>(edited %{updated_at})</em>'
+ edited: 'Created %{created_at} (edited)'
+ edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
  salutation: "Hi %{name},"
  click_here: "click here"
  less: " [Less]"
