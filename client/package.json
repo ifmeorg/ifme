@@ -42,6 +42,7 @@
     "webpack-manifest-plugin": "^1.1.0"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "@storybook/addon-actions": "^3.2.0",
     "@storybook/react": "^3.2.3",
     "babel-eslint": "^7.2.3",
