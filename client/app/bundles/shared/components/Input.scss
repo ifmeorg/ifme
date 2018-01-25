@@ -1,0 +1,54 @@
+@import "base.scss";
+
+.label {
+  font-family: $font-family;
+  letter-spacing: 0.0944444em;
+  text-indent: 4px;
+  text-transform: uppercase;
+  padding: 12px 0;
+  opacity: 0.5;
+}
+
+.labelLight {
+  composes: label;
+  font-size: $font18;
+  color: #ffffff;
+}
+
+.labelDark {
+  composes: label;
+  font-size: 14px;
+  color: $container-color;
+}
+
+.input {
+  font-family: $font-family;
+  font-weight: 300;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  text-indent: 24px;
+  width: 100%;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: $font-family;
+    font-weight: 300;
+  }
+}
+
+.inputLight {
+  composes: input;
+  height: 68px;
+  font-size: $font24;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.inputDark {
+  composes: input;
+  height: 49px;
+  background-color: $container-color;
+  font-size: $font18;
+  opacity: 0.7;
+}

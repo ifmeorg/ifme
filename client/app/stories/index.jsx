@@ -7,6 +7,7 @@ import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
+import Input from '../bundles/shared/components/Input';
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -15,6 +16,11 @@ storiesOf('Logo', module)
   .add('Medium', () => (
     <Logo />
   ))
+
+storiesOf('Input', module)
+.add('Input', () => (
+  <Input />
+))
 
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
