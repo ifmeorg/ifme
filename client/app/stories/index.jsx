@@ -8,6 +8,7 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
 
+
 storiesOf('Logo', module)
   .add('Small', () => (
     <Logo size="small" />
