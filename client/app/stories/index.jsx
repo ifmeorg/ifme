@@ -17,11 +17,6 @@ storiesOf('Logo', module)
     <Logo />
   ))
 
-storiesOf('Input', module)
-.add('Input', () => (
-  <Input />
-))
-
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
 storiesOf('Chart', module)
@@ -51,3 +46,11 @@ storiesOf('Chart', module)
       }}
     />
   ));
+
+storiesOf('Input', module)
+  .add('Input Light', () => (
+    <Input label="Hello" placeholder="Placeholder"/>
+  ))
+  .add('Input Dark', () => (
+    <Input dark label="Hello" placeholder="Placeholder" />
+  ))
