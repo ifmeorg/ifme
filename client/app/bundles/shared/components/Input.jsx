@@ -17,15 +17,19 @@ type Props = {
   maxLength?: number
 };
 
-export default class Input extends React.Component<Props, {}> {
-  constructor(props) {
+type State = {
+  value: string | number
+}
+
+export default class Input extends React.Component<Props, State> {
+  constructor(props : Props) {
     super(props);
     this.state = { value: this.props.value || "" };
   }
 
-  onChange = e => {
+  onChange = (e : SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
-    this.setState({ value: e.target.value });
+    this.setState({ value: e.currentTarget.value });
   };
 
   render() {
