@@ -130,5 +130,17 @@
     "link": "https://www.addictionhelper.com",
     "tags": ["addiction", "rehabilitation", "directory", "counseling"],
     "languages": ["en"]
+  },
+  {
+    "name": "Recovery.org (US)",
+    "link": "https://www.recovery.org",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "languages": ["en"]
+  },
+  {
+    "name": "ProjectKnow (US)",
+    "link": "https://www.projectknow.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "podcast"],
+    "languages": ["en"]
   }
 ]
