@@ -53,4 +53,4 @@ storiesOf('Input', module)
   ))
   .add('Input Dark', () => (
     <Input dark label="Hello" placeholder="Placeholder" />
-  ))
+  ));
