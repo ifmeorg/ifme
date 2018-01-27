@@ -1,5 +1,5 @@
 import React from 'react';
-
+import css from './button.scss';
 
 class ButtonGhostM extends React.Component {
    render() {
@@ -7,7 +7,7 @@ class ButtonGhostM extends React.Component {
       
       return (
           <div>
-         <button className = "buttonGhostM">
+         <button className = {css.buttonGhostM}>
             Join
          </button>
           </div>
