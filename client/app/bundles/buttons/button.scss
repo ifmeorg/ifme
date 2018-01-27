@@ -1,67 +1,67 @@
 @import "base.scss";
 
 .buttonFilledM{
-         fontSize: 18,
-         color: '#6D0839',
-         font-weight: "bold",
-         background-color: '#FFFFFF',
-         padding-top: 17,
-         padding-bottom: 16,
-         padding-left: 15,
-         padding-right: 15,
-         width: 203,
-         border-radius: 5,
-         border-color: '#FFFFFF'
+         fontSize: 18;
+         color: #6D0839;
+         font-weight: "bold";
+         background-color: '#FFFFFF';
+         padding-top: 17;
+         padding-bottom: 16;
+         padding-left: 15;
+         padding-right: 15;
+         width: 203;
+         border-radius: 5;
+         border-color: '#FFFFFF';
  }
 
-.buttonGhostM = {
-             font-size: 18,
-             color: '#FFFFFF',
+.buttonGhostM{
+             font-size: 18;
+             color: '#FFFFFF';
              
-             font-weight : "bold",
-             padding-top: 17,
-             padding-bottom: 16,
-             padding-left: 48,
-             padding-right: 47,
-             border-radius: 5,
-             opacity: 0.95,
+             font-weight : "bold";
+             padding-top: 17;
+             padding-bottom: 16;
+             padding-left: 48;
+             padding-right: 47;
+             border-radius: 5;
+             opacity: 0.95;
       }
 
-.buttonFilled = {
-         font-size: 24,
-         color: '#6D0839',
-         font-weight: "bold",
-         background-color: '#FFFFFF',
-         padding-top: 17,
-         padding-bottom: 22,
-         padding-left: 15,
-         padding-right: 15,
-         width: 203,
-         border-radius: 5,
+.buttonFilled{
+         font-size: 24;
+         color: '#6D0839';
+         font-weight: "bold";
+         background-color: '#FFFFFF';
+         padding-top: 17;
+         padding-bottom: 22;
+         padding-left: 15;
+         padding-right: 15;
+         width: 203;
+         border-radius: 5;
          border-color: '#FFFFFF'
       }
 
-.buttonGhost = {
-         font-size: 24,
-         color: "#FFFFFF",
-         font-weight: "bold",
-         padding-top: 17,
-         padding-bottom: 22,
-         padding-left: 48,
-         padding-right: 47,           
-         border-radius: 5,
-         opacity: 0.95,
+.buttonGhost{
+         font-size: 24;
+         color: "#FFFFFF";
+         font-weight: "bold";
+         padding-top: 17;
+         padding-bottom: 22;
+         padding-left: 48;
+         padding-right: 47;           
+         border-radius: 5;
+         opacity: 0.95;
       }
 
-.buttonGhostXS = {
-         font-size: 14,
-         color: '#FFFFFF',
-         font-weight: "bold",
-         padding-top: 17,
-         padding-bottom: 22,
-         padding-left: 48,
-         padding-right: 47,
-         width: 149,
-         border-radius: 5,
-         opacity: 0.95,
+.buttonGhostXS{
+         font-size: 14;
+         color: '#FFFFFF';
+         font-weight: "bold";
+         padding-top: 17;
+         padding-bottom: 22;
+         padding-left: 48;
+         padding-right: 47;
+         width: 149;
+         border-radius: 5;
+         opacity: 0.95;
       }
