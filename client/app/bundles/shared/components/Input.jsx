@@ -4,6 +4,7 @@ import css from "./Input.scss";
 
 type Props = {
   dark?: boolean,
+  id?: string,
   type?: string,
   name?: string,
   value?: string | number,
