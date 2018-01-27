@@ -27,7 +27,7 @@
   font-weight: 300;
   border: none;
   border-radius: 5px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 6px $field-color;
   width: 100%;
 
   &::placeholder {
