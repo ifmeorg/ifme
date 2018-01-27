@@ -8,6 +8,11 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
 
+import ButtonFilled from '../bundles/buttons/ButtonFilled';
+import ButtonFilledM from '../bundles/buttons/ButtonFilledM';
+import ButtonGhost from '../bundles/buttons/ButtonGhost';
+import ButtonGhostM from '../bundles/buttons/ButtonGhostM';
+import ButtonGhostXS from '../bundles/buttons/ButtonGhostXS';
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -16,6 +21,29 @@ storiesOf('Logo', module)
   .add('Medium', () => (
     <Logo />
   ))
+
+storiesOf('ButtonFilled', module)
+.add('View', () => (
+    <ButtonFilled></ButtonFilled>
+  ));
+storiesOf('ButtonFilledM', module)
+.add('View', () => (
+    <ButtonFilledM></ButtonFilledM>
+  ));
+storiesOf('ButtonGhost', module)
+.add('View', () => (
+    <ButtonGhost></ButtonGhost>
+  ));
+storiesOf('ButtonGhostM', module)
+.add('View', () => (
+    <ButtonGhostM></ButtonGhostM>
+  ));
+
+storiesOf('ButtonGhostXS', module)
+.add('View', () => (
+    <ButtonGhostXS></ButtonGhostXS>
+  ));
+
 
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
