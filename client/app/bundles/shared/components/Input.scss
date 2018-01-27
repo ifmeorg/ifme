@@ -3,7 +3,7 @@
 .label {
   font-family: $font-family;
   padding: 12px 0;
-  letter-spacing: 0.0944444em;
+  letter-spacing: 1px;
   text-indent: 4px;
   text-transform: uppercase;
   opacity: 0.5;
@@ -11,14 +11,14 @@
 
 .labelLight {
   composes: label;
-  color: #ffffff;
+  color: $background-color;
   font-size: $font18;
 }
 
 .labelDark {
   composes: label;
   color: $container-color;
-  font-size: 14px;
+  font-size: $small-font;
 }
 
 .input {
@@ -28,13 +28,13 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  text-indent: 24px;
   width: 100%;
 
   &::placeholder {
-    color: rgba(255, 255, 255, 0.75);
+    color: $background-color;
     font-family: $font-family;
     font-weight: 300;
+    opacity: 0.75;
   }
 }
 
@@ -42,7 +42,8 @@
   composes: input;
   height: 68px;
   font-size: $font24;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: $field-color;
+  text-indent: 24px;
 }
 
 .inputDark {
@@ -50,5 +51,6 @@
   height: 49px;
   font-size: $font18;
   background-color: $container-color;
+  text-indent: 15px;
   opacity: 0.7;
 }
