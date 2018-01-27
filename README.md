@@ -1,5 +1,5 @@
-[![CircleCI](https://circleci.com/gh/julianguyen/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/julianguyen/ifme/tree/master)
-[![Code Climate](https://codeclimate.com/github/julianguyen/ifme/badges/gpa.svg)](https://codeclimate.com/github/julianguyen/ifme)
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
@@ -21,28 +21,28 @@ The live site can be found at [if-me.org](https://www.if-me.org/).
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
-[read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md)
+[read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
 ## Installation
 
-Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/julianguyen/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
+Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/ifmeorg/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
 
 ## UI Development Environment and Design
 
-[UI development and design specs](https://github.com/julianguyen/ifme/wiki/Design)
+[UI development and design specs](https://github.com/ifmeorg/ifme/wiki/Design)
 
 ## Testing Guidelines
 
-[Testing guidelines](https://github.com/julianguyen/ifme/wiki/Code-Testing)
+[Testing guidelines](https://github.com/ifmeorg/ifme/wiki/Code-Testing)
 
 ## Translations
 
-[How to add translations for new languages](https://github.com/julianguyen/ifme/wiki/Translations)
+[How to add translations for new languages](https://github.com/ifmeorg/ifme/wiki/Translations)
 
 ## Tracking Issues and Committing Code
 
-[Workflows and contributions](https://github.com/julianguyen/ifme/wiki/Workflow)
+[Workflows and contributions](https://github.com/ifmeorg/ifme/wiki/Workflow)
 
 ## Contributor Blurb
 
@@ -102,4 +102,4 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
 
 The source code is licensed under GNU AGPLv3. For more information see
 http://www.gnu.org/licenses/agpl-3.0.txt or
-[LICENSE.txt](https://github.com/julianguyen/ifme/blob/master/LICENSE.txt).
+[LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).

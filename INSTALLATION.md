@@ -7,7 +7,7 @@ users please refer to this [guide](https://gist.github.com/KelseyDH/11198922)
 for tips on setup.
 
 Commons errors faced during installation are documented in this
-[guide](https://github.com/julianguyen/ifme/wiki/Common-Dev-Environment-Errors).
+[guide](https://github.com/ifmeorg/ifme/wiki/Common-Dev-Environment-Errors).
 
 <details>
   <summary>1) Install Postgres (click to expand)</summary>
@@ -15,7 +15,7 @@ Commons errors faced during installation are documented in this
 ## Postgres
 
 After installing Postgres, if you are asked to create a new user, please follow
-these [instructions](https://github.com/julianguyen/ifme/blob/master/documentation/COMMON_ERRORS.md#postgresql-bad-connection).
+these [instructions](https://github.com/ifmeorg/ifme/blob/master/documentation/COMMON_ERRORS.md#postgresql-bad-connection).
 
 ### A. macOS
 
@@ -201,7 +201,7 @@ the Calendar API for Calendars. Under the credentials tab, make sure to add the
 Authorized redirect URI as `http://localhost:3000/users/auth/google_oauth2/callback`.
 Note, you may have to hit the Save button twice for this to take effect.
 
-We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
+We have a [wiki](https://github.com/ifmeorg/ifme/wiki/Setup-Google-Auth-for-Testing)
 with step by step instructions if you get lost in the process.
 
 #### Google API
@@ -212,7 +212,7 @@ If you would like to use this feature in your local environment, please create]
 your own account, generate keys, and update `GOOGLE_API_KEY` in
 `config/env/test.env` and `config/env/development.env`.
 
-We have a [wiki](https://github.com/julianguyen/ifme/wiki/Setup-Google-Auth-for-Testing)
+We have a [wiki](https://github.com/ifmeorg/ifme/wiki/Setup-Google-Auth-for-Testing)
 with step by step instructions if you get lost in the process.
 
 #### Cloudinary
