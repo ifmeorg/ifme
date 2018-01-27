@@ -8,7 +8,7 @@ class ButtonFilledM extends React.Component {
        
       return (
           <div>
-         <button className = "buttonFilledM">
+         <button className = {css.buttonFilledM}>
             Join
          </button>
           </div>
