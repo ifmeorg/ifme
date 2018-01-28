@@ -1,5 +1,9 @@
 @import "base.scss";
 
+$focus-background-color-darken: rgba(0, 0, 0, 0.4);
+$focus-background-color-lighten: lighten($container-color, 15%);
+$light-font-weight: 300;
+
 .label {
   color: $field-color;
   font-family: $font-family;
@@ -16,7 +20,7 @@
   }
 
   &.active {
-    color: rgba(0, 0, 0, 0.4);
+    color: $focus-background-color-darken;
   }
 
   &.dark {
@@ -24,7 +28,7 @@
     opacity: 0.7;
 
     &.active {
-      color: lighten($container-color, 15%);
+      color: $focus-background-color-lighten;
     }
   }
 }
@@ -35,7 +39,7 @@
   font-family: $font-family;
   font-size: $font18;
   text-indent: 15px;
-  font-weight: 300;
+  font-weight: $light-font-weight;
   border: none;
   border-radius: 5px;
   box-shadow: 0px 2px 6px $field-color;
@@ -45,14 +49,14 @@
   transition-timing-function: linear;
 
   &:focus {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: $focus-background-color-darken;
     outline: none;
   }
 
   &::placeholder {
     color: $background-color;
     font-family: $font-family;
-    font-weight: 300;
+    font-weight: $light-font-weight;
   }
 
   &.large {
@@ -66,13 +70,13 @@
     opacity: 0.7;
 
     &:focus {
-      background-color: lighten($container-color, 15%);
+      background-color: $focus-background-color-lighten;
       color: $background-color;
       opacity: 0.75;
 
       &::placeholder {
         font-family: $font-family;
-        font-weight: 300;
+        font-weight: $light-font-weight;
       }
     }
   }
