@@ -4,6 +4,7 @@ import css from "./Input.scss";
 
 type Props = {
   dark?: boolean,
+  large?: boolean,
   id?: string,
   type?: string,
   name?: string,
@@ -19,13 +20,14 @@ type Props = {
 };
 
 type State = {
-  value: string | number
+  value: string | number,
+  active: boolean
 };
 
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: this.props.value || "" };
+    this.state = { value: this.props.value || "", active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -33,9 +35,18 @@ export default class Input extends React.Component<Props, State> {
     this.setState({ value: e.currentTarget.value });
   };
 
+  onFocus = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+    this.setState({ active: true });
+  };
+
+  onBlur = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+    this.setState({ active: false });
+  };
+
   render() {
     const {
       dark,
+      large,
       label,
       id,
       type,
@@ -48,11 +59,18 @@ export default class Input extends React.Component<Props, State> {
       minLength,
       maxLength
     } = this.props;
+
+    const labelClassNames = `${css.label} ${dark ? css.dark : ""} 
+      ${large ? css.large : ""} ${this.state.active ? css.active : ""}`;
+
+    const inputClassNames = `${css.input} ${dark ? css.dark : ""} 
+    ${large ? css.large : ""}`;
+
     return (
       <div>
-        <div className={dark ? css.labelDark : css.labelLight}>{label}</div>
+        <div className={labelClassNames}>{label}</div>
         <input
-          className={dark ? css.inputDark : css.inputLight}
+          className={inputClassNames}
           id={id}
           type={type}
           name={name}
@@ -64,6 +82,8 @@ export default class Input extends React.Component<Props, State> {
           minLength={minLength}
           maxLength={maxLength}
           onChange={this.onChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
         />
       </div>
     );
