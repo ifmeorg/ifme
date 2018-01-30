@@ -1,8 +1,11 @@
 @import "base.scss";
 
+button:hover{
+         cursor: pointer;
+}
 
 .buttonFilledM{
-         fontSize: 18px;
+         font-size: 18px;
          color: #6D0839;
          font-weight: bold;
          background-color: #FFFFFF;
@@ -13,6 +16,7 @@
          width: 203px;
          border-radius: 5px;
          border-color: #FFFFFF;
+         border-width: 0px;
  }
 
 .buttonGhostM{
@@ -25,6 +29,7 @@
              padding-right: 47px;
              border-radius: 5px;
              opacity: 0.95;
+             border-width: 0px;
       }
 
 .buttonFilled{
@@ -39,6 +44,7 @@
          width: 203px;
          border-radius: 5px;
          border-color: #FFFFFF;
+         border-width: 0px;
       }
 
 .buttonGhost{
@@ -51,6 +57,7 @@
          padding-right: 47px;           
          border-radius: 5px;
          opacity: 0.95;
+         border-width: 0px;
       }
 
 .buttonGhostXS{
@@ -64,6 +71,7 @@
          width: 149px;
          border-radius: 5px;
          opacity: 0.95;
+         border-width: 0px;
       }
 
 
