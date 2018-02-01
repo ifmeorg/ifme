@@ -2,12 +2,10 @@
 
 RSpec.describe MoodsController, type: :controller do
   let(:user) { create(:user1) }
-  let(:another_user) { create(:user2) }
   let(:user_mood) { create(:mood, userid: user.id) }
   let(:other_mood) { create(:mood, userid: user.id + 1) }
   let(:valid_mood_params) { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
-  let(:hacked_mood_params) { valid_mood_params.merge(userid: another_user.id) }
 
   describe 'GET #index' do
     context 'when the user is logged in' do
@@ -115,16 +113,14 @@ RSpec.describe MoodsController, type: :controller do
       end
 
       context 'when the userid is hacked' do
-        let(:mood_params) { { mood: hacked_mood_params } }
-
-        it 'creates a new mood' do
-          expect do
-            post :create, params: mood_params
-          end.to change(Mood, :count).by(1)
-        end
-
-        it 'uses the logged-in userid, not the one in the params' do
-          post :create, params: mood_params
+        it 'creates a new mood, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_mood_params =
+            valid_mood_params.merge(userid: another_user.id)
+          expect { post :create, params: { mood: hacked_mood_params } }
+            .to change(Mood, :count).by(1)
           expect(Mood.last.userid).to eq(user.id)
         end
       end

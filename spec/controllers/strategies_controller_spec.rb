@@ -244,10 +244,8 @@ describe StrategiesController do
 
   describe 'POST create' do
     let(:user) { create(:user, id: 1) }
-    let(:another_user) { create(:user, id: 2) }
     let(:valid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
     let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
-    let(:hacked_strategy_params) { valid_strategy_params.merge(userid: another_user.id) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -294,16 +292,14 @@ describe StrategiesController do
       end
 
       context 'when the userid is hacked' do
-        let(:strategy_params) { { strategy: hacked_strategy_params } }
-
-        it 'creates a new strategy' do
-          expect do
-            post :create, params: strategy_params
-          end.to change(Strategy, :count).by(1)
-        end
-
-        it 'uses the logged-in userid, not the one in the params' do
-          post :create, params: strategy_params
+        it 'creates a new strategy, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_strategy_params =
+            valid_strategy_params.merge(userid: another_user.id)
+          expect { post :create, params: { strategy: hacked_strategy_params } }
+            .to change(Strategy, :count).by(1)
           expect(Strategy.last.userid).to eq(user.id)
         end
       end

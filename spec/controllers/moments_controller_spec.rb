@@ -64,21 +64,14 @@ describe MomentsController do
       end
 
       context 'when the userid is hacked' do
-        let(:another_user) { create(:user2) }
-        let(:hacked_moment_params) { valid_moment_params.merge(userid: another_user.id) }
-
-        it 'creates a new moment' do
+        it 'creates a new moment, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_moment_params =
+            valid_moment_params.merge(userid: another_user.id)
           expect { post_create hacked_moment_params }
             .to change(Moment, :count).by(1)
-        end
-
-        it 'has no validation errors' do
-          post_create valid_moment_params
-          expect(assigns(:moment).errors).to be_empty
-        end
-
-        it 'uses the logged-in userid, not the one in the params' do
-          post_create hacked_moment_params
           expect(Moment.last.userid).to eq(user.id)
         end
       end

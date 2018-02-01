@@ -157,16 +157,14 @@ describe MedicationsController do
       end
 
       context 'when the userid is hacked' do
-        let(:another_user) { create(:user2) }
-        let(:hacked_medication_params) { valid_medication_params.merge(userid: another_user.id) }
-
-        it 'creates a new medication' do
+        it 'creates a new medication, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_medication_params =
+            valid_medication_params.merge(userid: another_user.id)
           expect { post_create hacked_medication_params }
             .to change(Medication, :count).by(1)
-        end
-
-        it 'uses the logged-in userid, not the one in the params' do
-          post_create hacked_medication_params
           expect(Medication.last.userid).to eq(user.id)
         end
       end
