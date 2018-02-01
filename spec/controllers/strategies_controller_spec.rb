@@ -253,7 +253,7 @@ describe StrategiesController do
       include_context :logged_in_user
 
       context 'when the params are valid' do
-        let(:strategy_params) { { :strategy => valid_strategy_params } }
+        let(:strategy_params) { { strategy: valid_strategy_params } }
 
         it 'creates a new strategy' do
           expect do
@@ -274,7 +274,7 @@ describe StrategiesController do
       end
 
       context 'when the params are invalid' do
-        let(:strategy_params) { { :strategy => invalid_strategy_params } }
+        let(:strategy_params) { { strategy: invalid_strategy_params } }
 
         it 'does not create a new strategy' do
           expect { post :create, params: strategy_params }.to_not(
@@ -294,7 +294,7 @@ describe StrategiesController do
       end
 
       context 'when the userid is hacked' do
-        let(:strategy_params) { { :strategy => hacked_strategy_params } }
+        let(:strategy_params) { { strategy: hacked_strategy_params } }
 
         it 'creates a new strategy' do
           expect do
