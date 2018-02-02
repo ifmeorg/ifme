@@ -1,11 +1,11 @@
 @import "base.scss";
 
 $focus-background-color-darken: rgba(0, 0, 0, 0.4);
-$focus-background-color-lighten: lighten($container-color, 15%);
+$focus-background-color-lighten: lighten($container-color, 3%);
 $light-font-weight: 300;
 
 .label {
-  color: $field-color;
+  color: $container-color;
   font-family: $font-family;
   font-size: $small-font;
   padding: 12px 0;
@@ -15,69 +15,40 @@ $light-font-weight: 300;
   transition: 0.25s;
   transition-timing-function: linear;
 
-  &.large {
-    font-size: $font18;
-  }
-
   &.active {
-    color: $focus-background-color-darken;
-  }
-
-  &.dark {
-    color: $container-color;
-    opacity: 0.7;
-
-    &.active {
-      color: $focus-background-color-lighten;
-    }
+    color: $focus-background-color-lighten;
   }
 }
 
-.input {
+.textarea {
   color: rgba(255, 255, 255, 0.8);
-  background-color: $field-color;
+  box-sizing: border-box;
+  background-color: $container-color;
   font-family: $font-family;
   font-size: $font18;
-  text-indent: 15px;
+  line-height: $font22;
+  text-indent: 8px;
   font-weight: $light-font-weight;
+  outline: none;
   border: none;
+  resize: none;
   border-radius: 5px;
   box-shadow: 0px 2px 6px $field-color;
-  height: 49px;
   width: 100%;
   transition: 0.25s;
   transition-timing-function: linear;
-
+  padding: 12px 6px;
+  
   &:focus {
-    background-color: $focus-background-color-darken;
-    outline: none;
+    background-color: $focus-background-color-lighten;
+    color: $background-color;
   }
 
   &::placeholder {
-    color: $background-color;
     font-family: $font-family;
     font-weight: $light-font-weight;
-  }
-
-  &.large {
-    font-size: $font24;
-    text-indent: 24px;
-    height: 68px;
-  }
-
-  &.dark {
-    background-color: $container-color;
-    opacity: 0.7;
-
-    &:focus {
-      background-color: $focus-background-color-lighten;
-      color: $background-color;
-      opacity: 0.75;
-
-      &::placeholder {
-        font-family: $font-family;
-        font-weight: $light-font-weight;
-      }
-    }
+    font-size: $font18;
+    color: $background-color;
+    opacity: .75;
   }
 }

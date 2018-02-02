@@ -6,10 +6,11 @@ type Props = {
   id?: string,
   name?: string,
   form?: string,
-  rows?: number,
+  rows?: string,
+  cols?: string,
   placeholder?: string,
   label?: string,
-  value?: string,
+  autofocus?: boolean,
   readonly?: boolean,
   disabled?: boolean,
   required?: boolean,
@@ -24,7 +25,7 @@ type State = {
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: this.props.value || "", active: false };
+    this.state = { value: "", active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -43,31 +44,32 @@ export default class Input extends React.Component<Props, State> {
   render() {
     const {
       id,
-      name,
       form,
+      name,
+      value,
       rows,
       cols,
       placeholder,
       label,
-      value,
+      autofocus,
       readonly,
       disabled,
       required,
       maxLength
     } = this.props;
 
-    const labelClassNames = `${css.label} ${dark ? css.dark : ""} 
-      ${large ? css.large : ""} ${this.state.active ? css.active : ""}`;
-
-    const inputClassNames = `${css.input} ${dark ? css.dark : ""} 
-    ${large ? css.large : ""}`;
+    const labelClassNames = `${css.label} ${
+      this.state.active ? css.active : ""
+    }`;
 
     return (
       <div>
         <div className={labelClassNames}>{label}</div>
         <textarea
+          className={css.textarea}
           id={id}
           name={name}
+          value={value}
           form={form}
           rows={rows}
           cols={cols}

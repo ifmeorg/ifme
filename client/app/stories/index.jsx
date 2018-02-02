@@ -64,5 +64,5 @@ storiesOf('Input', module)
 
 storiesOf('Textarea', module)
   .add('Textarea', () => (
-    <Textarea />
+    <Textarea rows={4} label="What happened and how do you feel?" placeholder="I felt..."/>
   ))
