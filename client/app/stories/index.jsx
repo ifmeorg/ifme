@@ -7,6 +7,7 @@ import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
+import Input from '../bundles/shared/components/Input';
 
 import ButtonFilled from '../bundles/buttons/ButtonFilled';
 import ButtonFilledM from '../bundles/buttons/ButtonFilledM';
@@ -73,4 +74,18 @@ storiesOf('Chart', module)
         },
       }}
     />
+  ));
+
+storiesOf('Input', module)
+  .add('Input Light', () => (
+    <Input label="Hello" placeholder="Placeholder"/>
+  ))
+  .add('Input Dark', () => (
+    <Input dark label="Hello" placeholder="Placeholder" />
+  ))
+  .add('Input Light (Large)', () => (
+    <Input large label="Hello" placeholder="Placeholder"/>
+  ))
+  .add('Input Dark (Large)', () => (
+    <Input dark large label="Hello" placeholder="Placeholder" />
   ));
