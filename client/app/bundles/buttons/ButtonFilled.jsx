@@ -6,11 +6,9 @@ class ButtonFilled extends React.Component {
        
        
       return (
-          <div>
          <button className = {css.buttonFilled}>
             Learn More
          </button>
-          </div>
       );
    }
 }
