@@ -7,11 +7,9 @@ class ButtonGhost extends React.Component {
        
        
       return (
-          <div>
          <button className = {css.buttonGhost}>
             Join
          </button>
-          </div>
       );
    }
 }
