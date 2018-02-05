@@ -7,7 +7,7 @@ class ButtonGhostM extends React.Component {
       
       return (
          <button className = {css.buttonGhostM}>
-            Join
+            {this.props.text}
          </button>
       );
    }
