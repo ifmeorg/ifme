@@ -23,27 +23,23 @@ storiesOf('Logo', module)
     <Logo />
   ))
 
-storiesOf('ButtonFilled', module)
-.add('View', () => (
-    <ButtonFilled></ButtonFilled>
-  ));
-storiesOf('ButtonFilledM', module)
-.add('View', () => (
-    <ButtonFilledM></ButtonFilledM>
-  ));
-storiesOf('ButtonGhost', module)
-.add('View', () => (
-    <ButtonGhost></ButtonGhost>
-  ));
-storiesOf('ButtonGhostM', module)
-.add('View', () => (
-    <ButtonGhostM></ButtonGhostM>
+storiesOf('Buttons', module)
+.add('ButtonFilled', () => (
+    <ButtonFilled text="Join"></ButtonFilled>
+  ))
+.add('ButtonFilledM', () => (
+    <ButtonFilledM text="Join"></ButtonFilledM>
+  ))
+.add('ButtonGhost', () => (
+    <ButtonGhost text="Join"></ButtonGhost>
+  ))
+.add('ButtonGhostM', () => (
+    <ButtonGhostM text="Join"></ButtonGhostM>
+  ))
+.add('ButtonGhostXS', () => (
+    <ButtonGhostXS text="Join"></ButtonGhostXS>
   ));
 
-storiesOf('ButtonGhostXS', module)
-.add('View', () => (
-    <ButtonGhostXS></ButtonGhostXS>
-  ));
 
 
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
