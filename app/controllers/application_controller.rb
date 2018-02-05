@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
       { name: t('languages.sv'), locale: :sv },
       { name: t('languages.it'), locale: :it },
       { name: t('languages.nb'), locale: :nb }
+      { name: t('languages.de'), locale: :de }
     ].freeze
     @locale = I18n.locale = locale
   end
