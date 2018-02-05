@@ -1,11 +1,11 @@
 @import "base.scss";
 
-button:hover{
-         cursor: pointer;
-}
 
+button:hover{
+         
+}
 .buttonFilledM{
-         font-size: 18px;
+         fontSize: 18px;
          color: #6D0839;
          font-weight: bold;
          background-color: #FFFFFF;
@@ -17,19 +17,20 @@ button:hover{
          border-radius: 5px;
          border-color: #FFFFFF;
          border-width: 0px;
+         cursor: pointer;
  }
 
 .buttonGhostM{
-             font-size: 18px;
-             color: #FFFFFF;
-             font-weight : bold;
-             padding-top: 17px;
-             padding-bottom: 16px;
-             padding-left: 48px;
-             padding-right: 47px;
-             border-radius: 5px;
-             opacity: 0.95;
-             border-width: 0px;
+         font-size: 18px;
+         color: #FFFFFF;
+         font-weight : bold;
+         padding-top: 17px;
+         padding-bottom: 16px;
+         width: 128px;
+         border-radius: 5px;
+         opacity: 0.95;
+         border-width: 0px;
+         cursor: pointer;
       }
 
 .buttonFilled{
@@ -45,6 +46,7 @@ button:hover{
          border-radius: 5px;
          border-color: #FFFFFF;
          border-width: 0px;
+         cursor: pointer;
       }
 
 .buttonGhost{
@@ -52,12 +54,12 @@ button:hover{
          color: #FFFFFF;
          font-weight: bold;
          padding-top: 17px;
-         padding-bottom: 22px;
-         padding-left: 48px;
-         padding-right: 47px;           
+         padding-bottom: 22px;         
          border-radius: 5px;
          opacity: 0.95;
          border-width: 0px;
+         width: 128px;
+         cursor: pointer;
       }
 
 .buttonGhostXS{
@@ -66,12 +68,12 @@ button:hover{
          font-weight: bold;
          padding-top: 17px;
          padding-bottom: 22px;
-         padding-left: 48px;
-         padding-right: 47px;
+         width: 128px;
          width: 149px;
          border-radius: 5px;
          opacity: 0.95;
          border-width: 0px;
+         cursor: pointer;
       }
 
 
