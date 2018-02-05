@@ -1,4 +1,4 @@
-@import 'base';
+@import '../base';
 
 .footer {
   width: 100%;
@@ -94,21 +94,30 @@
     margin-right: 90px;
     font-family: $font-family;
     font-size: 20px;
+    line-height: 0.5;
 
     @media screen and (max-width: $small) {
       font-size: 14px;
       text-align: center;
-      margin-left: 80px;
+      margin-left: 0;
+      margin-right: 0;
     }
 
-    @media screen and (max-width: $medium) {
+    @media (min-width: $small + 1) and (max-width: $medium) {
       font-size: 16px;
       margin-right: 70px;
     }
 
-    p {
-      margin-top: -15px;
+    a.license {
+      margin-top: -25px;
       font-size: 18px;
+      text-decoration: none;
+      color: $background-color;
+
+      &:hover {
+        color: $footer-text-color;
+        cursor: pointer;
+      }
 
       @media screen and (max-width: $small) {
         font-size: 12px;

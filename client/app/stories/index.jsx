@@ -11,7 +11,7 @@ import Input from '../bundles/shared/components/Input';
 import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
-import Footer from '../bundles/shared/components/Footer';
+import Footer from '../bundles/shared/components/Footer/Footer';
 
 storiesOf('Logo', module)
   .add('Small', () => (
