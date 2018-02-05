@@ -8,7 +8,7 @@ class ButtonFilledM extends React.Component {
        
       return (
          <button className = {css.buttonFilledM}>
-            Join
+            {this.props.text}
          </button>
       );
    }
