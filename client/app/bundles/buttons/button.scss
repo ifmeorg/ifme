@@ -5,15 +5,14 @@ button:hover{
          
 }
 .buttonFilledM{
-         fontSize: 18px;
+         font-size: 18px;
          color: #6D0839;
          font-weight: bold;
          background-color: #FFFFFF;
          padding-top: 17px;
          padding-bottom: 16px;
-         padding-left: 15px;
-         padding-right: 15px;
-         width: 203px;
+         padding-left: 85px;
+         padding-right: 85px;
          border-radius: 5px;
          border-color: #FFFFFF;
          border-width: 0px;
@@ -26,9 +25,10 @@ button:hover{
          font-weight : bold;
          padding-top: 17px;
          padding-bottom: 16px;
-         width: 128px;
+         padding-left: 48px;
+         padding-right: 47px;
          border-radius: 5px;
-         opacity: 0.95;
+         background-color: rgba(255,255,255,0.95);
          border-width: 0px;
          cursor: pointer;
       }
@@ -40,9 +40,8 @@ button:hover{
          background-color: #FFFFFF;
          padding-top: 17px;
          padding-bottom: 22px;
-         padding-left: 15px;
-         padding-right: 15px;
-         width: 203px;
+         padding-left: 85px;
+         padding-right: 85px;
          border-radius: 5px;
          border-color: #FFFFFF;
          border-width: 0px;
@@ -54,11 +53,12 @@ button:hover{
          color: #FFFFFF;
          font-weight: bold;
          padding-top: 17px;
-         padding-bottom: 22px;         
+         padding-bottom: 22px; 
+         padding-left: 48px;
+         padding-right: 47px;
          border-radius: 5px;
-         opacity: 0.95;
+         background-color: rgba(255,255,255,0.95);
          border-width: 0px;
-         width: 128px;
          cursor: pointer;
       }
 
@@ -71,9 +71,12 @@ button:hover{
          width: 128px;
          width: 149px;
          border-radius: 5px;
-         opacity: 0.95;
+         background-color: rgba(255,255,255,0.95);
          border-width: 0px;
          cursor: pointer;
       }
+
+
+
 
 
