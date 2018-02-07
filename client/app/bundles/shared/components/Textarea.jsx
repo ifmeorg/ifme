@@ -6,8 +6,8 @@ type Props = {
   id?: string,
   name?: string,
   form?: string,
-  rows?: string,
-  cols?: string,
+  rows?: string | number,
+  cols?: string | number,
   placeholder?: string,
   label?: string,
   autofocus?: boolean,
@@ -18,7 +18,7 @@ type Props = {
 };
 
 type State = {
-  value: string | number,
+  value: string,
   active: boolean
 };
 
