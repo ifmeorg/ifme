@@ -5,6 +5,7 @@ import css from "./Textarea.scss";
 type Props = {
   id?: string,
   name?: string,
+  value?: string,
   form?: string,
   rows?: string | number,
   cols?: string | number,
