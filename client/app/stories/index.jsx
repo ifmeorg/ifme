@@ -10,10 +10,10 @@ import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
 
 import { action } from '@storybook/addon-actions';
-import Button from '../bundles/shared/components/Button';
+import Button from '../bundles/shared/components/TagGhostXs';
 
-storiesOf('Button', module)
-  .add('View', () => (
+storiesOf('Tags', module)
+  .add('TagGhostXs', () => (
     <Button></Button>
  ));
 
