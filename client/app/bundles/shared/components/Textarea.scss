@@ -25,8 +25,7 @@ $light-font-weight: 300;
   background-color: $container-color;
   font-family: $font-family;
   font-size: $font18;
-  line-height: $font30;
-  text-indent: 12px;
+  line-height: $font26;
   font-weight: $light-font-weight;
   outline: none;
   border: none;
@@ -36,7 +35,7 @@ $light-font-weight: 300;
   width: 100%;
   transition: 0.25s;
   transition-timing-function: linear;
-  padding: 18px 10px;
+  padding: 18px 16px;
   
   &:focus {
     background-color: $focus-background-color-lighten;
