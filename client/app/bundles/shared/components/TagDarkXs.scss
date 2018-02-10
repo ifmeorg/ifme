@@ -1,21 +1,16 @@
+
 @import "base.scss";
-
-.button
-{
-
+.container{
   position: absolute;
   left: 0%;
   right: 0%;
   top: 0%;
   bottom: 0%;
 
-  border: 1px solid #6D0839;
-  box-sizing: border-box;
+  background: #6D0839;
   border-radius: 5px;
-}
-
-.text
-{
+  }
+.text{
   position: absolute;
   left: 0%;
   right: 0%;
@@ -31,6 +26,6 @@
   letter-spacing: 0.0944444em;
   text-transform: uppercase;
 
-  color: #6D0839;
+  color: #FFFFFF;
   mix-blend-mode: normal;
 }

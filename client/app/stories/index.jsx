@@ -9,12 +9,11 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
 
-import { action } from '@storybook/addon-actions';
-import Button from '../bundles/shared/components/TagGhostXs';
+import Tag from '../bundles/shared/components/Tag';
 
 storiesOf('Tags', module)
   .add('TagGhostXs', () => (
-    <Button></Button>
+    <Tag label = "Self-Injury"/>
  ));
 
 storiesOf('Logo', module)
