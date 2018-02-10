@@ -9,6 +9,14 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
 
+import { action } from '@storybook/addon-actions';
+import Button from '../bundles/shared/components/Button';
+
+storiesOf('Button', module)
+  .add('View', () => (
+    <Button></Button>
+ ));
+
 storiesOf('Logo', module)
   .add('Small', () => (
     <Logo size="small" />

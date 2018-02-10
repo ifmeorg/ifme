@@ -1,0 +1,36 @@
+@import "base.scss";
+
+.button
+{
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  border: 1px solid #6D0839;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.text
+{
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0.0944444em;
+  text-transform: uppercase;
+
+  color: #6D0839;
+  mix-blend-mode: normal;
+}
