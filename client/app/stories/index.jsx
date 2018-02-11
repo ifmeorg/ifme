@@ -14,7 +14,10 @@ import Tag from '../bundles/shared/components/Tag';
 storiesOf('Tags', module)
   .add('TagGhostXs', () => (
     <Tag label = "Self-Injury"/>
- ));
+ ))
+ .add('TagDarkXs', () => (
+   <Tag dark label = "Self-Injury"/>
+));
 
 storiesOf('Logo', module)
   .add('Small', () => (

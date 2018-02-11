@@ -1,19 +1,23 @@
 @import "base.scss";
 
-.container
+.tag
 {
   position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
+  left: 46%;
+  right: 46%;
+  top: 1%;
+  bottom: 96%;
 
-  border: 1px solid #6D0839;
   box-sizing: border-box;
   border-radius: 5px;
+  border: 1px solid #6D0839;
+
+  &.dark{
+    background: #6D0839;
+  }
 }
 
-.text
+.label
 {
   position: absolute;
   left: 0%;
@@ -30,6 +34,9 @@
   letter-spacing: 0.0944444em;
   text-transform: uppercase;
 
-  color: #6D0839;
   mix-blend-mode: normal;
+  color: #6D0839;
+  &.dark{
+    color: #FFFFFF ;
+  }
 }
