@@ -13,8 +13,15 @@
   border: 1px solid #6D0839;
 
   &.dark{
+    border: 5px;
     background: #6D0839;
   }
+
+  &.normal{
+    border: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    }
+
 }
 
 .label
@@ -36,7 +43,12 @@
 
   mix-blend-mode: normal;
   color: #6D0839;
+
   &.dark{
     color: #FFFFFF ;
   }
+
+  &.normal{
+    color: #FFFFFF;
+      }
 }
