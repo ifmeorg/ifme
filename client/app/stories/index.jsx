@@ -9,6 +9,19 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
 
+import Tag from '../bundles/shared/components/Tag';
+
+storiesOf('Tags', module)
+  .add('TagGhostXs', () => (
+    <Tag label = "Self-Injury"/>
+ ))
+  .add('TagDarkXs', () => (
+   <Tag dark label = "Self-Injury"/>
+))
+  .add('Tag', () => (
+  <Tag normal label = "Self-Injury"/>
+));
+
 storiesOf('Logo', module)
   .add('Small', () => (
     <Logo size="small" />
