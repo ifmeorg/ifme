@@ -108,7 +108,7 @@ ptbr:
     placeholder: 'Digite um ou mais emails separados por ponto e vírgula (EX: teste@teste.com, teste2@teste.com)'
 
  categories:
-  single: 'Categoria'
+  singular: 'Categoria'
   plural: 'Categorias'
   edit_category: "Editar Categoria"
   new: "Nova Categoria"
@@ -377,21 +377,21 @@ ptbr:
     data_access_question: 'Quem pode acessar meus dados ?'
     data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
     moment_question: 'O que é um Momento ?'
-    moment_answer: 'Um <strong>Momento</strong> é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira , pode tornar seus comentários visíveis apenas para você.'
+    moment_answer: 'Um <strong>%{moments}</strong> é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira , pode tornar seus comentários visíveis apenas para você.'
     strategy_question: 'O que é uma Estratégia ?'
-    strategy_answer: 'Uma <strong>Estratégia</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags(etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
+    strategy_answer: 'Uma <strong>%{strategies}</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags(etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
     category_question: 'O que é uma Categoria ? '
-    category_answer: 'Uma <strong>Categoria</strong> é uma tag(etiqueta) que pode representar as pessoas, lugares e coisas que são importantes para você.'
+    category_answer: 'Uma <strong>%{categories}</strong> é uma tag(etiqueta) que pode representar as pessoas, lugares e coisas que são importantes para você.'
     mood_question: 'O que é um Humor ?'
-    mood_answer: 'O <strong>Humor</strong> é uma tag(etiqueta) que descreve seu estado de espírito, sentimentos, e emoções.'
+    mood_answer: 'O <strong>%{moods}</strong> é uma tag(etiqueta) que descreve seu estado de espírito, sentimentos, e emoções.'
     group_question: 'O que é um Grupo ?'
-    group_answer: 'Um <strong>Grupo</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
+    group_answer: 'Um <strong>%{groups}</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
     medications_question: 'Como eu uso o recurso de Medicamentos?'
-    medications_answer: 'O recurso de <strong>Medicamentos</strong> permite que você tenha um controle da receita médica sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
+    medications_answer: 'O recurso de <strong>%{medications}</strong> permite que você tenha um controle da receita médica sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
     invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
-    invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
+    invite_answer: 'Visite a página de <strong>%{allies}</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
     email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
-    email_notifications_answer: "Vá para a página <strong>Conta</strong> ao clicar no ícone %{desktop_icon} (desktop) ou %{mobile_icon} (mobile) na barra de navegação. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
+    email_notifications_answer: "Vá para a página <strong>%{accounts}</strong> ao clicar no ícone %{desktop_icon} (desktop) ou %{mobile_icon} (mobile) na barra de navegação. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
   home:
     stories: 'Histórias'
     welcome: 'Bem Vindo'
