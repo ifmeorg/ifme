@@ -108,6 +108,7 @@ nl:
     placeholder: 'Geef één of meerdere met komma gescheiden e-mailadressen op.'
 
  categories:
+  single: 'Categorie'
   plural: 'Categorieën'
   edit_category: "Bewerk Categorie"
   new: "Nieuwe Categorie"

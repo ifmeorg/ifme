@@ -108,6 +108,7 @@ ptbr:
     placeholder: 'Digite um ou mais emails separados por ponto e vírgula (EX: teste@teste.com, teste2@teste.com)'
 
  categories:
+  single: 'Categoria'
   plural: 'Categorias'
   edit_category: "Editar Categoria"
   new: "Nova Categoria"

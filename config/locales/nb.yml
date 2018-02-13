@@ -108,6 +108,7 @@ nb:
     placeholder: 'Skriv inn en eller flere kommaseparerte e-poster'
 
  categories:
+  singular: 'Kategori'
   plural: 'Kategorier'
   edit_category: "Rediger kategori"
   new: "Ny kategori"
@@ -467,7 +468,7 @@ nb:
       social_justice: sosial rettferdighet
       tech_industry: IT-bransjen
       meditation: meditasjon
-      social_anxiety: sosial angst 
+      social_anxiety: sosial angst
       trigger_warnings: avtrekkelsesadvarsler
       netflix: netflix
       homeless: uteligger

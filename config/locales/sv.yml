@@ -108,6 +108,7 @@ sv:
     placeholder: 'Ange en eller flera kommaseparerade e-postmeddelanden'
 
  categories:
+  single: 'Kategori'
   plural: 'Kategorier'
   edit_category: "Redigera Kategori"
   new: "Ny Kategori"

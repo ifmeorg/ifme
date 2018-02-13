@@ -387,7 +387,7 @@ en:
     mood_question: 'What is a Mood?'
     mood_answer: 'A <strong>%{moods}</strong> is a tag describing your state of mind, feelings, and emotions.'
     group_question: 'What is a Group?'
-    group_answer: 'A <strong>%{groups}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>%{meetings}</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
+    group_answer: 'A <strong>%{groups}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
     medications_question: 'How do I use the Medications feature?'
     medications_answer: 'The <strong>%{medications}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
     invite_question: 'How can I invite my loved ones to join the app?'

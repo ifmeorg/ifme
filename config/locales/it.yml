@@ -108,6 +108,7 @@ it:
     placeholder: 'Enter one or more comma-separated emails'
 
  categories:
+  singular: 'Categoria'
   plural: 'Categorie'
   edit_category: "Modifica Categoria"
   new: "Nuova Categoria"
