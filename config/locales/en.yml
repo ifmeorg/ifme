@@ -227,6 +227,8 @@ en:
    comments: 'Comments:'
 
  meetings:
+  singular: 'Meeting'
+  plural: 'Meetings'
   edit_meeting: 'Edit Meeting'
   form:
    location_placeholder: 'URL or street address'
@@ -377,21 +379,21 @@ en:
     data_access_question: 'Who has access to my data?'
     data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
     moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>%{moments_link}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
+    moment_answer: 'A <strong>%{moments}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Memories with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Memories only visible to you.'
     strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>%{strategies_link}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Memories with Categories. You can also choose which allies can view and comment. You can also make Memories only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
+    strategy_answer: 'A <strong>%{strategies}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Memories with Categories. You can also choose which allies can view and comment. You can also make Memories only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
     category_question: 'What is a Category?'
-    category_answer: 'A <strong>%{categories_link}</strong> is a tag that can represent the people, places, and things that are important to you.'
+    category_answer: 'A <strong>%{categories}</strong> is a tag that can represent the people, places, and things that are important to you.'
     mood_question: 'What is a Mood?'
-    mood_answer: 'A <strong>%{moods_link}</strong> is a tag describing your state of mind, feelings, and emotions.'
+    mood_answer: 'A <strong>%{moods}</strong> is a tag describing your state of mind, feelings, and emotions.'
     group_question: 'What is a Group?'
-    group_answer: 'A <strong>%{groups_link}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
+    group_answer: 'A <strong>%{groups}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>%{meetings}</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
     medications_question: 'How do I use the Medications feature?'
-    medications_answer: 'The <strong>%{medications_link}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
+    medications_answer: 'The <strong>%{medications}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
     invite_question: 'How can I invite my loved ones to join the app?'
-    invite_answer: 'Go to the <strong>%{allies_link}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
+    invite_answer: 'Go to the <strong>%{allies}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
     email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>%{account_link}</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+    email_notifications_answer: "Go to the <strong>%{accounts}</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
   home:
     stories: 'Stories'
     welcome: 'Welcome'
