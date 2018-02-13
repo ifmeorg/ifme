@@ -53,7 +53,10 @@
     <%= t('pages.faq.group_question') %>
   </h1>
 
-  <%= raw t('pages.faq.group_answer') %>
+    <%= raw t('pages.faq.group_answer',{
+    			groups: link_to(t('groups.singular'), groups_path),
+    			meetings: link_to(t('meetings.plural'), meetings_path)
+    			}) %>
 <% end %>
 
 <% if @available_groups.any? %>
