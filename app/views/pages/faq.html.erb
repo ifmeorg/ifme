@@ -6,42 +6,43 @@
 
 <h1 class="faq_heading"><%= t('pages.faq.moment_question') %></h1>
 <p>
-	<%= raw t('pages.faq.moment_answer') %>
+	<%= raw t('pages.faq.moment_answer', moments_link: link_to(t('moments.singular'), moments_path) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.strategy_question') %></h1>
 <p>
-	<%= raw t('pages.faq.strategy_answer') %>
+	<%= raw t('pages.faq.strategy_answer', strategies_link: link_to(t('strategies.singular'), strategies_path) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.category_question') %></h1>
 <p>
-	<%= raw t('pages.faq.category_answer') %>
+	<%= raw t('pages.faq.category_answer', categories_link: link_to(t('categories.label.one'), categories_path) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.mood_question') %></h1>
 <p>
-	<%= raw t('pages.faq.mood_answer') %>
+	<%= raw t('pages.faq.mood_answer', moods_link: link_to(t('moods.singular'), moods_path) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.group_question') %></h1>
 <p>
-	<%= raw t('pages.faq.group_answer') %>
+	<%= raw t('pages.faq.group_answer', groups_link: link_to(t('groups.singular'), groups_path) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.medications_question') %></h1>
 <p>
-	<%= raw t('pages.faq.medications_answer') %>
+	<%= raw t('pages.faq.medications_answer', medications_link: link_to(t('medications.index.title'), medications_path ) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.invite_question') %></h1>
 <p>
-	<%= raw t('pages.faq.invite_answer') %>
+	<%= raw t('pages.faq.invite_answer', allies_link: link_to(t('allies.index.title'), allies_path ) ) %>
 </p>
 
 <h1 class="faq_heading"><%= t('pages.faq.email_notifications_question') %></h1>
 <p class="no_margin_bottom">
 	<%= raw t('pages.faq.email_notifications_answer', {
+			account_link: link_to(t('account.singular'), edit_user_registration_path ),
 			desktop_icon: '<i class="fa fa-sort-asc smaller_margin_left"></i>',
 			mobile_icon: '<i class="expand fa fa-bars smaller_margin_left"></i>'
 		}) %>
