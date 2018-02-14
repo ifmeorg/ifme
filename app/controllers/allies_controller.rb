@@ -80,7 +80,7 @@ class AlliesController < ApplicationController
     send_allyship_notifications(unique_id, data, pusher_type, ally_id)
   end
 
-  def send_allyship_notifications(unique_id, data, pusher_type, ally_id)
+  def send_allyship_notifications(unique_id, data, ally_id)
     Notification.create(
       userid: ally_id,
       uniqueid: unique_id,
@@ -89,7 +89,7 @@ class AlliesController < ApplicationController
     notifications = Notification.where(userid: ally_id).order(:created_at)
 
     Pusher["private-#{ally_id}"]
-        .trigger('new_notification', notifications: notifications)
+      .trigger('new_notification', notifications: notifications)
     NotificationMailer.notification_email(ally_id, data).deliver_now
   end
 end
