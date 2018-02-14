@@ -25,7 +25,7 @@ class AlliesController < ApplicationController
 
     remove_allyship_request(ally_id)
 
-    send_allyship_notifications(pusher_type, ally_id)
+    handle_allyship_notifications(pusher_type, ally_id)
 
     respond_to do |format|
       format.html { redirect_to :back }
@@ -67,27 +67,29 @@ class AlliesController < ApplicationController
     ).destroy_all
   end
 
-  def send_allyship_notifications(pusher_type, ally_id)
-    uniqueid = "#{pusher_type}_#{current_user.id}"
+  def handle_allyship_notifications(pusher_type, ally_id)
+    unique_id = "#{pusher_type}_#{current_user.id}"
     data = JSON.generate(
       user: current_user.name,
       userid: current_user.id,
       uid: current_user.uid,
       type: pusher_type,
-      uniqueid: uniqueid
+      uniqueid: unique_id
     )
 
+    send_allyship_notifications(unique_id, data, pusher_type, ally_id)
+  end
+
+  def send_allyship_notifications(unique_id, data, pusher_type, ally_id)
     Notification.create(
       userid: ally_id,
-      uniqueid: uniqueid,
+      uniqueid: unique_id,
       data: data
     )
-
     notifications = Notification.where(userid: ally_id).order(:created_at)
 
     Pusher["private-#{ally_id}"]
-      .trigger('new_notification', notifications: notifications)
-
+        .trigger('new_notification', notifications: notifications)
     NotificationMailer.notification_email(ally_id, data).deliver_now
   end
 end
