@@ -76,6 +76,15 @@ en:
      press_enter: 'Press ENTER to add'
    time_ago: "%{date} ago"
    write_to_us: "write to us"
+   date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
 
  comment:
   singular: 'Comment'
@@ -196,6 +205,7 @@ en:
    total_placeholder: 'e.g. 30'
    dosage: 'dosage'
    dosage_placeholder: 'e.g. 2'
+   weekly_dosage: 'weekly dosage'
    refill: 'refill'
    comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
    add_to_google_cal: 'Google Calendar reminder'
@@ -203,6 +213,7 @@ en:
    strength_hint: 'Medication strength, usually found beside the name'
    total_hint: 'Total number of pills or amount of medication'
    dosage_hint: 'Number of pills or servings daily'
+   weekly_dosage_hint: 'Which of the days in the week this medication is prescribed'
    refill_hint: 'When to refill this prescription'
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
    daily_reminder_hint: "We'll email you a daily reminder to take this medication"

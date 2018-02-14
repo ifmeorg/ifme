@@ -50,7 +50,7 @@ class MedicationsController < ApplicationController
 
   # PATCH/PUT /medications/1
   # PATCH/PUT /medications/1.json
-  def update
+  def update        
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.update(medication_params)
@@ -108,7 +108,8 @@ class MedicationsController < ApplicationController
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],
-      refill_reminder_attributes: %i[active id]
+      refill_reminder_attributes: %i[active id],
+      weekly_dosage: []
     )
   end
 end

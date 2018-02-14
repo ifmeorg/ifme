@@ -132,6 +132,69 @@ module MedicationsHelper
         ]
       },
       {
+        id: 'medication_weekly_dosage_0',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[0],
+        checked:  @medication.weekly_dosage.include?(0),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_1',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[1],
+        checked:  @medication.weekly_dosage.include?(1),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_2',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[2],
+        checked:  @medication.weekly_dosage.include?(2),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_3',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[3],
+        checked:  @medication.weekly_dosage.include?(3),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_4',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[4],
+        checked:  @medication.weekly_dosage.include?(4),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_5',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[5],
+        checked:  @medication.weekly_dosage.include?(5),
+        uncheckedValue: false,
+        value: true
+      },
+      {
+        id: 'medication_weekly_dosage_6',
+        type: 'checkbox',
+        name: 'medication[weekly_dosage]',
+        label: t('common.date.abbr_day_names')[6],
+        checked:  @medication.weekly_dosage.include?(6),
+        uncheckedValue: false,
+        value: true
+      },
+      {
         id: 'medication_refill',
         type: 'date',
         name: 'medication[refill]',
