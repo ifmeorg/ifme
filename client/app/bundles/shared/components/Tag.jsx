@@ -18,12 +18,12 @@ export default class Tag extends React.Component<Props> {
      const labelClassNames = `${css.label} ${dark ? css.dark : ""}${normal ? css.normal : ""}`;
      const tagClassNames = `${css.tag} ${dark ? css.dark : ""}${normal ? css.normal : ""}`;
           return (
-        <div>
+        <span>
           <tag
             className = {tagClassNames}
             id = {id}/>
             <p className = {labelClassNames}>{label}</p>
-        </div>
+        </span>
   );
 }
 }
