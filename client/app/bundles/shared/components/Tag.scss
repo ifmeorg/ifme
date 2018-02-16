@@ -1,36 +1,10 @@
 @import "base.scss";
 
-.tag
-{
-  position: absolute;
-  left: 46%;
-  right: 46%;
-  top: 1%;
-  bottom: 96%;
-
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: 1px solid #6D0839;
-
-  &.dark{
-    border: 5px;
-    background: #6D0839;
-  }
-
-  &.normal{
-    border: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    }
-
-}
-
 .label
 {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
+  padding: 5px 12px;
+  text-indent: 4px;
+  display: inline-block;
 
   font-family: Lato;
   font-style: normal;
@@ -41,14 +15,23 @@
   letter-spacing: 0.0944444em;
   text-transform: uppercase;
 
+  border-radius: 7px;
+  border: 1px solid #6D0839;
+
   mix-blend-mode: normal;
   color: #6D0839;
 
   &.dark{
     color: #FFFFFF ;
+    border: 1px;
+    background-color: #6D0839;
+
   }
 
   &.normal{
     color: #FFFFFF;
+    border: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+
       }
 }
