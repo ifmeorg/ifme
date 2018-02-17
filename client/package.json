@@ -28,6 +28,7 @@
     "chartkick": "^2.2.4",
     "es5-shim": "^4.5.9",
     "expose-loader": "^0.7.3",
+    "file-loader": "^1.1.6",
     "imports-loader": "^0.7.1",
     "js-yaml": "^3.8.2",
     "lodash": "^4.17.4",
@@ -37,9 +38,12 @@
     "react-dom": "^15.5.4",
     "react-on-rails": "8.0.6",
     "redux": "^3.7.2",
+    "shortid": "^2.2.8",
     "superagent": "^3.5.2",
+    "url-loader": "^0.6.2",
     "webpack": "^2.3.3",
-    "webpack-manifest-plugin": "^1.1.0"
+    "webpack-manifest-plugin": "^1.1.0",
+    "yml-loader": "^2.1.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.0",
