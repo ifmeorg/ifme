@@ -77,7 +77,7 @@ class AlliesController < ApplicationController
       uniqueid: unique_id
     )
 
-    send_allyship_notifications(unique_id, data, pusher_type, ally_id)
+    send_allyship_notifications(unique_id, data, ally_id)
   end
 
   def send_allyship_notifications(unique_id, data, ally_id)
