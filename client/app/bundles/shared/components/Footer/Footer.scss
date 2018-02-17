@@ -2,13 +2,8 @@
 
 .footer {
   width: 100%;
-  height: 450px;
   background: rgba(0, 0, 0, 0.5);
   font-family: $font-family;
-
-  @media screen and (max-width: $small) {
-    height: auto;
-  }
 
   .footer_content {
     position: relative;
@@ -16,17 +11,17 @@
 
   .row {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
     justify-content: space-between;
     margin-left: 5%;
     margin-right: 5%;
 
     @media screen and (max-width: $small) {
-      font-size: 14px;
-      flex-direction: column-reverse;
+      font-size: $small-font;
       justify-content: space-around;
-      margin-left: 20%;
     }
 
     .if_me {
@@ -43,11 +38,9 @@
     
     .resources {
       text-align: right;
-      margin-right: 30px;
 
       @media screen and (max-width: $small) {
         text-align: center;
-        // margin-bottom: 50px;
       }
     }
 
@@ -58,10 +51,14 @@
         width: 75%;
       }
 
-      
+      @media (min-width: $small + 1) and (max-width: $medium) {
+        width: 30%;
+      }
 
       ul {
         margin-top: 50px;
+        -webkit-padding-start: 0;
+        -moz-padding-start: 0;
 
         .footer_header {
           color: $header-text-color;
@@ -88,29 +85,37 @@
     }
   }
 
+  .dropdown {
+    margin-top: 30px;
+    padding-bottom: 40px;
+
+    @media screen and (max-width: $small) {
+      margin-top: 30px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+  }
+
   .love_foss {
     text-align: right;
     color: $background-color;
-    margin-right: 90px;
     font-family: $font-family;
-    font-size: 20px;
+    font-size: $font20;
     line-height: 0.5;
 
     @media screen and (max-width: $small) {
-      font-size: 14px;
+      font-size: $small-font;
       text-align: center;
-      margin-left: 0;
-      margin-right: 0;
+      padding-bottom: 35px;
     }
 
     @media (min-width: $small + 1) and (max-width: $medium) {
-      font-size: 16px;
-      margin-right: 70px;
+      font-size: $font18;
+      margin-top: 10px;
     }
 
     a.license {
-      margin-top: -25px;
-      font-size: 18px;
+      font-size: $font18;
       text-decoration: none;
       color: $background-color;
 
@@ -120,14 +125,12 @@
       }
 
       @media screen and (max-width: $small) {
-        font-size: 12px;
-        padding-bottom: 30px;
+        font-size: $font12;
       }
 
       @media screen and (max-width: $medium) {
-        font-size: 14px;
+        font-size: $small-font;
       }
     }
   }
-  
 }

@@ -5,12 +5,8 @@
 /* Footer */
 
 #footer {
-	background: $secondary-background-color;
+	background-color: $secondary-background-color;
 	padding: 40px 0px;
-	/* Gradient */
-	left: 0px;
-	top: 0px;
-
 
 	@media screen and (max-width: $medium) {
 		padding: 20px 0px;

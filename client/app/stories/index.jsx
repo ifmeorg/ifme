@@ -75,6 +75,7 @@ storiesOf('Dropdown', module)
   .add('DropdownFillSmall', () => (
     <DropdownFillSmall />
   ));
+
 storiesOf('Footer', module)
   .add('View', () => (
     <Footer />
