@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import css from './Footer.scss';
 
 const Connect = props => (

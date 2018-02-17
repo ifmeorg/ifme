@@ -529,8 +529,10 @@ nb:
   footer:
     licence_name: 'AGPL-3.0'
     license: 'Vi &hearts; FOSS'
+    license_we: 'Vi'
+    license_foss: 'FOSS'
     foss: 'Gratis programvare med åpen kildekode'
-    license_subtitle: 'Lisensiert under %{license}'
+    license_subtitle: 'Lisensiert under'
     connect: 'koble til'
   comments:
     share_everyone: 'Del med alle'
