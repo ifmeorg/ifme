@@ -1,0 +1,10 @@
+
+@mixin selectDropdown($padding, $font-size, $color: $background-color, $border-radius: 5px, $border: none, $appearance: none) {
+  padding: $padding;
+  font-size: $font-size;
+  color: $color;
+  border: $border;
+  -webkit-appearance: $appearance;
+  -moz-appearance: $appearance;
+  appearance: $appearance;
+}
