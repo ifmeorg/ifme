@@ -15,12 +15,16 @@
     <div class="label">
       <%= f.label t('common.form.email') %>
     </div>
-    <% if current_user.provider == 'google_oauth2' %>
+    <% if current_user.provider == "google_oauth2" %>
       <div class="small_font small_margin_bottom">
         <%= raw t('devise.registrations.google_auth1') %>
       </div>
     <% end %>
-
+    <% if current_user.provider == "facebook" %>
+      <div class="small_font small_margin_bottom">
+        <%= raw t('devise.registrations.facebook_auth1') %>
+      </div>
+    <% end %>
     <%= f.email_field :email %>
   </div>
 
@@ -61,11 +65,17 @@
       <label> <%= raw t('devise.registrations.edit.labels.password_for') %></label>
     </div>
 
-    <% if current_user.provider == 'google_oauth2' %>
-      <div class="small_font">
-        <%= raw t('devise.registrations.google_auth2') %>
-      </div>
-    <% end %>
+  <% if current_user.provider == "google_oauth2" %>
+    <div class="small_font">
+      <%= raw t('devise.registrations.google_auth2') %>
+    </div>
+  <% end %>
+
+  <% if current_user.provider == "facebook" %>
+    <div class="small_font">
+      <%= raw t('devise.registrations.facebook_auth2') %>
+    </div>
+  <% end %>
   </div>
 
   <div class="field">
@@ -74,7 +84,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('devise.registrations.placeholders.repeat_password') %>
   </div>
 
-	<% if current_user.provider != 'google_oauth2' %>
+  <% if current_user.provider != 'google_oauth2' %>
     <div class="field">
       <div class="label"><%= f.label t('devise.current_password') %></div>
       <%= f.password_field :current_password, autocomplete: "off", placeholder: t('devise.registrations.edit.placeholders.required') %>

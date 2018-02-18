@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, params)
-    if current_user.provider == 'google_oauth2'
+    if current_user.provider == 'google_oauth2' || current_user.provider == 'facebook'
       params.delete('current_password')
       resource.update_without_password(params)
     else

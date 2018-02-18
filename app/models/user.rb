@@ -53,8 +53,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -89,25 +89,19 @@ class User < ApplicationRecord
     ally_groups.order(order) - groups
   end
 
-  # TODO: _signed_in_resource is unused and should be removed
-  # rubocop:disable MethodLength
-  def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
-    data = access_token.info
-    user = find_or_initialize_by(email: data.email) do |u|
-      u.name = data.name
+  def self.from_omniauth(auth)
+    first_or_create(email: auth.info.email).tap do |u|
+      u.provider = auth.provider
+      u.name = auth.info.name
+      u.uid = auth.uid
       u.password = Devise.friendly_token[0, 20]
-    end
+      u.token = auth.credentials.token
+      u.refresh_token = auth.credentials.refresh_token
+      u.access_expires_at = Time.zone.at(auth.credentials.expires_at)
 
-    user.update!(
-      provider: access_token.provider,
-      token: access_token.credentials.token,
-      refresh_token: access_token.credentials.refresh_token,
-      uid: access_token.uid,
-      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
-    )
-    user
+      u.save!
+    end
   end
-  # rubocop:enable MethodLength
 
   def google_access_token
     if !access_expires_at || Time.zone.now > access_expires_at
@@ -118,7 +112,7 @@ class User < ApplicationRecord
   end
 
   def google_oauth2_enabled?
-    token.present?
+    token.present? && google_provider?
   end
 
   def mutual_allies?(user)
@@ -150,6 +144,10 @@ class User < ApplicationRecord
     new_access_token = decoded_response['access_token']
     update(token: new_access_token, access_expires_at: new_expiration_time)
     new_access_token
+  end
+
+  def google_provider?
+    provider == 'google_oauth2'
   end
 
   private
