@@ -19,7 +19,7 @@ export default class Tag extends React.Component<Props> {
 
           return (
         <span>
-          <p className = {labelClassNames}>{label}</p>
+          <div className = {labelClassNames}>{label}</div>
         </span>
   );
 }
