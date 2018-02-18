@@ -109,6 +109,19 @@ RSpec.describe CategoriesController, type: :controller do
           expect(assigns(:category).errors).not_to be_empty
         end
       end
+
+      context 'when the userid is hacked' do
+        it 'creates a new category, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_category_params =
+            valid_category_params.merge(userid: another_user.id)
+          expect { post :create, params: { category: hacked_category_params } }
+            .to change(Category, :count).by(1)
+          expect(Category.last.userid).to eq(user.id)
+        end
+      end
     end
     context 'when the user is not logged in' do
       before { post :create }

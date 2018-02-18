@@ -95,7 +95,7 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def create
-    @strategy = Strategy.new(strategy_params)
+    @strategy = Strategy.new(strategy_params.merge(userid: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
@@ -189,7 +189,7 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params.require(:strategy).permit(
-      :name, :description, :userid, :published_at, :draft,
+      :name, :description, :published_at, :draft,
       :comment, { category: [] }, { viewers: [] },
       perform_strategy_reminder_attributes: %i[active id]
     )
