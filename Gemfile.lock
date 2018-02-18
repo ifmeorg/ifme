@@ -250,6 +250,8 @@ GEM
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
+    omniauth-facebook (4.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (0.5.2)
       jwt (~> 1.5)
       multi_json (~> 1.3)
@@ -526,6 +528,7 @@ DEPENDENCIES
   kaminari (= 0.17.0)
   letter_opener
   omniauth (~> 1.6.1)
+  omniauth-facebook
   omniauth-google-oauth2 (~> 0.5.2)
   pg (= 0.18.4)
   pry-byebug
@@ -564,4 +567,4 @@ RUBY VERSION
    ruby 2.3.4p112
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.1

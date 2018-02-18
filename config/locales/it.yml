@@ -349,6 +349,7 @@ it:
 
  omniauth:
   google: 'Google'
+  facebook: 'Facebook'
   access_denied: 'Accesso Negato'
 
  pages:
@@ -676,7 +677,9 @@ it:
     group_notify_text: "Aggiornamenti sui gruppi"
     meeting_notify_text: "Aggiornamenti sui raduni"
     google_auth1: "Se non vuoi più effettuare l’autenticazione tramite Google, per favore inserisci una nuova EMail e password."
-    google_auth2: "Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova EMail e password."
+    google_auth2: "Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova Email e password."
+    facebook_auth1: "Se non vuoi più effettuare l’autenticazione tramite Facebook, per favore inserisci una nuova EMail e password."
+    facebook_auth2: "Avendo effettuato l’autenticazione tramite Facebook, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova Email e password."
     placeholders:
       repeat_password: "Ripeti la password"
     edit:
@@ -701,6 +704,8 @@ it:
   shared:
     sign_in_google: 'Effettua il login con Google'
     sign_up_google: 'Registrati con Google'
+    sign_in_facebook: 'Effettua il login con Facebook'
+    sign_up_facebook: 'Registrati con Facebook'
     confirmation: "Non hai ricevuto le istruzioni per confermare la tua EMail?"
     unlock: "Non hai ricevuto le istruzioni per sbloccare il tuo account?"
   unlock:

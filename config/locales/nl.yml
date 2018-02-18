@@ -349,6 +349,7 @@ nl:
 
  omniauth:
   google: 'Google'
+  facebook: 'Facebook'
   access_denied: 'Toegang geweigerd'
 
  pages:
@@ -644,6 +645,8 @@ nl:
     meeting_notify_text: "Samenkomst updates"
     google_auth1: "Als je niet langer via Google wilt authenticeren, geef dan een nieuw e-mail en wachtwoord op."
     google_auth2: "Omdat je via Google authenticeert, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen geef dan een nieuw e-mail en wachtwoord op."
+    facebook_auth1: "Als je niet langer via Facebook wilt authenticeren, geef dan een nieuw e-mail en wachtwoord op."
+    facebook_auth2: "Omdat je via Facebook authenticeert, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen geef dan een nieuw e-mail en wachtwoord op."
     placeholders:
       repeat_password: "Herhaal Wachtwoord"
     edit:
@@ -668,6 +671,8 @@ nl:
   shared:
     sign_in_google: 'Log in met Google'
     sign_up_google: 'Meld je aan met Google'
+    sign_in_facebook: 'Log in met Facebook'
+    sign_up_facebook: 'Meld je aan met Facebook'
     confirmation: "Bevestiging instructies niet ontvangen?"
     unlock: "Ontgrendeling instructies niet ontvangen?"
   unlock:

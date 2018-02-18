@@ -16,6 +16,11 @@
 				<%= raw t('devise.registrations.google_auth1') %>
 			</div>
 		<% end %>
+		<% if current_user.provider == "facebook" %>
+			<div class="small_font small_margin_bottom">
+				<%= raw t('devise.registrations.facebook_auth1') %>
+			</div>
+		<% end %>
 
 		<%= f.email_field :email %>
 	</div>
@@ -55,6 +60,12 @@
 		<% if current_user.provider == "google_oauth2" %>
 			<div class="small_font">
 				<%= raw t('devise.registrations.google_auth2') %>
+			</div>
+		<% end %>
+
+		<% if current_user.provider == "facebook" %>
+			<div class="small_font">
+				<%= raw t('devise.registrations.facebook_auth2') %>
 			</div>
 		<% end %>
 	</div>

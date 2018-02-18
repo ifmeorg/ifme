@@ -44,45 +44,60 @@
 describe User do
   let(:current_time) { Time.zone.now }
 
-  describe ".find_for_google_oauth2" do
-    let(:access_token) {
-      double({
-                info: double({ email: "some@user.com", name: "some name" }),
-                provider: "asdf",
-                credentials: double({ token: "some token",
-                                      expires_at: current_time.to_i,
-                                      refresh_token: "some refresh token"}),
-                uid: "some uid"
-      })
+  describe '#from_omniauth' do
+    OmniAuth.config.test_mode = true
+
+    let(:auth) {
+      OmniAuth.config.mock_auth[:provider] = OmniAuth::AuthHash.new({
+          provider: "provider",
+          uid: "12345678910",
+          info: ({
+            email: "janedoe@ifme.com",
+            name: "Jane Doe"
+          }),
+          credentials: ({
+            token: "abcde",
+            expires_at:  current_time.to_i,
+            refresh_token: "12345abcdefg",
+          }),
+        })
     }
 
-    context "an existing user" do
-      let!(:user) { User.create(name: "some name", email: "some@user.com", password: "asdfasdf") }
+    context 'when user already exists' do
+      let!(:user) {
+        User.create(
+          name: "Jane Doe",
+          email: "janedoe@ifme.com",
+          password: "asdfasdf")
+      }
 
-      it "updates token information" do
-        User.find_for_google_oauth2(access_token)
+      it 'updates user info from an oauth hash' do
+        User.from_omniauth(auth)
         user.reload
-        expect(user.provider).to eq("asdf")
-        expect(user.token).to eq("some token")
-        expect(user.refresh_token).to eq("some refresh token")
-        expect(user.uid).to eq("some uid")
+
+        expect(user.provider).to eq("provider")
+        expect(user.uid).to eq("12345678910")
+        expect(user.email).to eq("janedoe@ifme.com")
+        expect(user.name). to eq("Jane Doe")
+        expect(user.token).to eq("abcde")
+        expect(user.refresh_token).to eq("12345abcdefg")
         expect(user.access_expires_at).to eq(Time.at(current_time.to_i))
       end
 
-      it "returns a user" do
-        expect(User.find_for_google_oauth2(access_token)).to eq(user.reload)
+      it "returns user" do
+        expect(User.from_omniauth(auth)).to eq(user.reload)
       end
     end
 
-    context "a new user" do
+    context "when user creates a new account" do
       it "creates a new user" do
-        expect(User.where(email: "some@user.com").first).to be_nil
-        User.find_for_google_oauth2(access_token)
-        expect(User.where(email: "some@user.com").first).to be_a_kind_of(User)
+        expect(User.where(email: "janedoe@ifme.com").first).to be_nil
+        User.from_omniauth(auth)
+        expect(User.where(email: "janedoe@ifme.com").first).to be_a_kind_of(User)
       end
 
-      it "returns a user" do
-        expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
+      it "returns user" do
+        expect(User.from_omniauth(auth)).to be_a_kind_of(User)
       end
     end
   end
