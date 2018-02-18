@@ -16,13 +16,10 @@ export default class Tag extends React.Component<Props> {
    {
      const {dark,normal,label,id} = this.props;
      const labelClassNames = `${css.label} ${dark ? css.dark : ""}${normal ? css.normal : ""}`;
-     const tagClassNames = `${css.tag} ${dark ? css.dark : ""}${normal ? css.normal : ""}`;
+
           return (
         <span>
-          <tag
-            className = {tagClassNames}
-            id = {id}/>
-            <p className = {labelClassNames}>{label}</p>
+          <p className = {labelClassNames}>{label}</p>
         </span>
   );
 }
