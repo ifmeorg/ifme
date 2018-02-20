@@ -114,5 +114,65 @@ describe MedicationsController do
     end 
   end 
 
+  describe 'POST #create' do
+    let(:user) { create(:user1) }
+    let(:valid_medication_params) { attributes_for(:medication) }
 
+    def post_create(medication_params)
+      post :create, params: { medication: medication_params }
+    end
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      context 'when valid params are supplied' do
+        it 'creates a medication' do
+          expect { post_create valid_medication_params }
+            .to change(Medication, :count).by(1)
+        end
+
+        it 'has no validation errors' do
+          post_create valid_medication_params
+          expect(assigns(:medication).errors).to be_empty
+        end
+
+        it 'redirects to the medication page' do
+          post_create valid_medication_params
+          expect(response).to redirect_to medication_path(assigns(:medication))
+        end
+      end
+
+      context 'when invalid params are supplied' do
+        let(:invalid_medication_params) { valid_medication_params.merge(name: nil, dosage: nil) }
+
+        before { post_create invalid_medication_params }
+
+        it 're-renders the creation form' do
+          expect(response).to render_template(:new)
+        end
+
+        it 'adds errors to the medication ivar' do
+          expect(assigns(:medication).errors).not_to be_empty
+        end
+      end
+
+      context 'when the userid is hacked' do
+        it 'creates a new medication, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_medication_params =
+            valid_medication_params.merge(userid: another_user.id)
+          expect { post_create hacked_medication_params }
+            .to change(Medication, :count).by(1)
+          expect(Medication.last.userid).to eq(user.id)
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { post :create }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
