@@ -47,8 +47,4 @@ class NotificationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def notification_params
-    params.require(:notification).permit(:name, :description, :userid)
-  end
 end
