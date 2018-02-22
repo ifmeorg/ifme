@@ -7,31 +7,27 @@
   display: inline-block;
 
   font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
   font-size: 10px;
   text-align: center;
-  letter-spacing: 0.0944444em;
+  letter-spacing: 1.5111104px;
   text-transform: uppercase;
 
   border-radius: 7px;
-  border: 1px solid #6D0839;
+  border: 1px solid $container-color;
 
   mix-blend-mode: normal;
-  color: #6D0839;
+  color: $container-color;
 
   &.dark{
-    color: #FFFFFF ;
+    color: $background-color ;
     border: 1px;
-    background-color: #6D0839;
+    background-color: $container-color;
 
   }
 
   &.normal{
-    color: #FFFFFF;
+    color: $background-color;
     border: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
-
+    background-color: $transparent;
       }
 }
