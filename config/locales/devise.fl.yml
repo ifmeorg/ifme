@@ -1,7 +1,7 @@
 # if me: DO NOT modify this file. if you need to add translations, add them to en.yml
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-fil:
+fl:
   devise:
     confirmations:
       confirmed: "Ang iyong account ay matagumpay na nakomperma"
