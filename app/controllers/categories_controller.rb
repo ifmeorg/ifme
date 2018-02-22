@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_params.merge(userid: current_user.id))
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_path(@category) }
@@ -115,6 +115,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :description, :userid)
+    params.require(:category).permit(:name, :description)
   end
 end
