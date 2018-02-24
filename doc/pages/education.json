@@ -1,11 +1,5 @@
 [
   {
-    "name": "Project UROK",
-    "link": "https://projecturok.org",
-    "tags": ["youth", "videos", "blog"],
-    "languages": ["en"]
-  },
-  {
     "name": "Open Sourcing Mental Illness (OSMI)",
     "link": "https://osmihelp.org",
     "tags": ["open_source", "tech_industry", "workplace", "podcast", "books", "free"],
