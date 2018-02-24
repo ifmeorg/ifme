@@ -1,7 +1,7 @@
 # if me: DO NOT modify this file. if you need to add translations, add them to en.yml
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-en:
+fl:
   devise:
     confirmations:
       confirmed: "Ang iyong account ay matagumpay na nakomperma."
@@ -9,7 +9,7 @@ en:
       send_paranoid_instructions: "Kapag ang iyong email address ay umiiral sa aming database, ikaw ay makakatanggap ng email na may kasamang mga instruksiyon kung papaano i-komperma ang iyong account sa kakaunting minuto."
     failure:
       already_authenticated: "Ikaw ay ay naka-signed in na."
-      inactive: "Ang iyong account ay hindi pa aktibo."v
+      inactive: "Ang iyong account ay hindi pa aktibo."
       invalid: "Hindi tama ang email o password."
       locked: "Ang iyong account ay nai-locked."
       last_attempt: "Mayroon kapang isang subok bago ma-locked ang iyong account."
