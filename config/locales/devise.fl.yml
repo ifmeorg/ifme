@@ -1,15 +1,15 @@
 # if me: DO NOT modify this file. if you need to add translations, add them to en.yml
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-fl:
+en:
   devise:
     confirmations:
       confirmed: "Ang iyong account ay matagumpay na nakomperma."
       send_instructions: "Ikaw ay makakatanggap ng email na may kalakip na mga instruksiyon tungkol sa kung papaano i-komperma ang iyong account sa kakaunting minuto."
       send_paranoid_instructions: "Kapag ang iyong email address ay umiiral sa aming database, ikaw ay makakatanggap ng email na may kasamang mga instruksiyon kung papaano i-komperma ang iyong account sa kakaunting minuto."
     failure:
-      already_authenticated: "Ika ay ay naka-signed in na."
-      inactive: "Ang iyong account ay hindi pa aktibo."
+      already_authenticated: "Ikaw ay ay naka-signed in na."
+      inactive: "Ang iyong account ay hindi pa aktibo."v
       invalid: "Hindi tama ang email o password."
       locked: "Ang iyong account ay nai-locked."
       last_attempt: "Mayroon kapang isang subok bago ma-locked ang iyong account."
@@ -24,6 +24,8 @@ fl:
         subject: "I-reset ang mga instruksiyon para sa password"
       unlock_instructions:
         subject: "I-unlock ang mga Instruksiyon"
+      password_change:
+        subject: "Nabago ang Password"
     omniauth_callbacks:
       failure: "Hindi makapagpatotoo sa iyo mula sa %{kind} dahil sa \"%{reason}\"."
       success: "Matagumpay na napatotoo mula sa %{kind} account."
@@ -33,7 +35,7 @@ fl:
       send_paranoid_instructions: "Kapag ang iyung email ay nasa database na namin, ikaw ay makakatanggap ng recovery link sa iyong email address your email address sa iilang minuto."
       updated: "Ang password mo ay matagumpay na napalitan.Ikaw ngayon ay naka-signed in na."
       updated_not_active: "Ang iyong password ay matagumpay nang napalitan."
-    registration:
+    registrations:
       destroyed: "Paalam! Ang iyong account ay matagumpay na nakansela. Ninanais naming makita kayong muli."
       signed_up: "Maligayang pagdating! You have signed up successfully."
       signed_up_but_inactive: "Ikaw ay matagumpay na naka-signed up. Gayunpaman, hindi pa namin kayo mapasign in dahil ang iyong  account ay hindi pa aktibo."
@@ -44,6 +46,7 @@ fl:
     sessions:
       signed_in: "Matagumpay kang naka-signed in."
       signed_out: "Matagumpay kang naka-signed out."
+      already_signed_out: "Matagumpay kang naka-signed out."
     unlocks:
       send_instructions: "Ikaw ay makakatanggap ng email namay kalakip na mga instruksiyon tungkol sa kung papaano ma-unlock ang iyong account sa iilang minuto."
       send_paranoid_instructions: "Kapag ang iyong account ay umiiral, ikaw ay makakatanggap ng email namay kalakip na instruksiyon tungkol sa kung papaano ito ma-unlock sa iilang minuto."
@@ -52,7 +55,7 @@ fl:
     messages:
       already_confirmed: "tapos nang nakomperma, maaaring subukang magsign in"
       confirmation_period_expired: "kailangang ikomperma sa loob ng %{period}, maaaring magbigay ng bagong rekwest"
-      expired: "has expired, please request a new one"
+      expired: "na expire na, mangyaring mag-request ng bago"
       not_found: "hindi makita"
       not_locked: "hindi nakalocked"
       not_saved:
