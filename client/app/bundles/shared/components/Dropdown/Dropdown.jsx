@@ -1,24 +1,27 @@
 // @flow
 import React from 'react';
 import shortid from 'shortid';
-import { getMessages, safeGetLocale } from 'libs/i18n/I18nHelper';
+import { getAvailableLocales } from 'libs/i18n/I18nUtils';
 
 import css from './Dropdown.scss';
 
-const curLocale = safeGetLocale();
-const messages = getMessages(curLocale);
+const availableLocales = getAvailableLocales();
 
-const options = Object.keys(messages.languages).map(key =>
+const options = Object.keys(availableLocales).map(key =>
   (<option value={key} key={shortid.generate()} >
-    {messages.languages[key]}
+    {availableLocales[key]}
   </option>),
 );
 
-export default (variationClassName: string, onChange: (e: SyntheticEvent<HTMLInputElement>) => void,
-  locale: string = curLocale) => () => (
+type Props = {
+    onChange: (e: string) => void,
+    locale: string,
+};
+
+export default (variationClassName: string) => ({ onChange, locale }: Props) => (
   // eslint-disable-next-line react/jsx-indent
   <div className={`${css.select_dropdown} ${variationClassName}`}>
-    <select onChange={e => onChange(e.target.value)} value={locale}>
+    <select onChange={e => onChange(e.target.value)} value={locale || null}>
       {options}
     </select>
   </div>
