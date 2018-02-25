@@ -1,7 +1,12 @@
 import 'chartjs';
 import React from 'react';
+import _ from 'lodash';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
+// import { defaultMessages, defaultLocale } from 'libs/i18n/default';
+// import { getMessages, safeGetLocale } from 'libs/i18n/I18nHelper';
+// import { IntlProvider, injectIntl } from 'react-intl';
 
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
@@ -11,6 +16,11 @@ import Input from '../bundles/shared/components/Input';
 import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
+
+// const locale = safeGetLocale();
+// console.log(locale);
+// const messages = getMessages(locale);
+// console.log(messages);
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -74,3 +84,20 @@ storiesOf('Dropdown', module)
   .add('DropdownFillSmall', () => (
     <DropdownFillSmall />
   ));
+  // .add('ChangingLocales', () => {
+  //   const TitleComponent = injectIntl(({ intl }) => (
+  //     <div>
+  //       <p>{intl.formatMessage(defaultMessages.app_description)}</p>
+  //       <DropdownGhost
+  //         onChange={selectedLocale => this.setState({ locale: selectedLocale })}
+  //         locale={_.get(this.state, 'locale', defaultLocale)}
+  //       />
+  //     </div>
+  //   ));
+  //
+  //   return (
+  //     <IntlProvider locale={locale} key={locale} messages={messages}>
+  //       <TitleComponent />
+  //     </IntlProvider>
+  //   );
+  // });

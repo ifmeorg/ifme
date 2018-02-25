@@ -16,6 +16,8 @@ const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 
+const path = require('path');
+
 const config = {
 
   context: resolve(__dirname),
@@ -41,6 +43,10 @@ const config = {
 
   resolve: {
     extensions: ['.js', '.jsx'],
+    // Allow resolving modules from the libs with absolute path
+    alias: {
+      libs: path.join(process.cwd(), 'app', 'libs'),
+    },
   },
 
   plugins: [

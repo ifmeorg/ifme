@@ -17,5 +17,12 @@
         "render"
       ]
     }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./app"]
+      }
+    }
   }
 }

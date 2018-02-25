@@ -50,7 +50,7 @@ export default class ChartControl extends React.Component<chartControlProp, char
 
   onSelectType(value: string) {
     return () => {
-      this.setState({type: value});
+      this.setState({ type: value });
     };
   }
 
