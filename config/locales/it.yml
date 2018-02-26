@@ -532,7 +532,7 @@ it:
     license_we: 'We'
     license_foss: 'FOSS'
     foss: 'Free and open source software'
-    license_subtitle: 'Licenza:'
+    license_subtitle: 'Autorizzato sotto %{license}'
     connect: 'raggiungici'
   comments:
     share_everyone: 'Condividi con tutti'

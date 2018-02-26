@@ -532,7 +532,7 @@ nb:
     license_we: 'Vi'
     license_foss: 'FOSS'
     foss: 'Gratis programvare med åpen kildekode'
-    license_subtitle: 'Lisensiert under'
+    license_subtitle: 'Lisensiert under %{license}'
     connect: 'koble til'
   comments:
     share_everyone: 'Del med alle'

@@ -532,7 +532,7 @@ nl:
     license_we: 'Wij'
     license_foss: 'FOSS'
     foss: 'Free and open source software'
-    license_subtitle: 'Gelicenseerd onder'
+    license_subtitle: 'Gelicenseerd onder %{license}'
     connect: 'verbinden'
   comments:
     share_everyone: 'Delen met iedereen'

@@ -533,7 +533,7 @@ ptbr:
     license_we: 'Nós'
     license_foss: 'FOSS'
     foss: 'Software livre e de código aberto'
-    license_subtitle: 'Sob Licença'
+    license_subtitle: 'Licenciado sob %{license}'
     connect: 'conectar'
   comments:
     share_everyone: 'Compartilhe como todo mundo'
