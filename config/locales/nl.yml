@@ -76,6 +76,15 @@ nl:
      press_enter: 'Druk op ENTER om toe te voegen'
    time_ago: "%{date} geleden"
    write_to_us: "schrijf ons"
+   date:
+    abbr_day_names:
+    -
+    -
+    -
+    -
+    -
+    -
+    -
 
  comment:
   singular: 'Commentaar'
@@ -196,6 +205,7 @@ nl:
    total_placeholder: 'b.v. 30'
    dosage: 'dosis'
    dosage_placeholder: 'b.v. 2'
+   weekly_dosage:
    refill: 'bijvullen'
    comments_hint: 'Voeg hier additioneel commentaar toe, bijvoorbeeld je symptomen'
    add_to_google_cal: 'Google Kalendar herinnering'
@@ -203,6 +213,7 @@ nl:
    strength_hint: 'Medicatie sterkte, meestal gevonden naast de naam'
    total_hint: 'Totale hoeveelheid pillen of hoeveelheid medicatie'
    dosage_hint: 'Hoeveelheid pillen of dosis per dag'
+   weekly_dosage_hint:
    refill_hint: 'Wanneer dit voorschrift bijgevuld moet worden'
    refill_reminder_hint: "We e-mailen je een herinnering een week voordat je medicatie bijgevult moet worden."
    daily_reminder_hint: "We mailen je dagelijks een herinnering om je medicatie in te nemen"

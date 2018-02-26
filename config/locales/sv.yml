@@ -77,6 +77,15 @@ sv:
      press_enter: 'Tryck på ENTER för att lägga till'
    time_ago: "%{date} sedan"
    write_to_us: "skriv till oss"
+   date:
+    abbr_day_names:
+    -
+    -
+    -
+    -
+    -
+    -
+    -
 
  comment:
   singular: 'Kommentar'
@@ -197,6 +206,7 @@ sv:
    total_placeholder: 't.ex. 30'
    dosage: 'dosering'
    dosage_placeholder: 't.ex. 2'
+   weekly_dosage:
    refill: 'påfyllning'
    comments_hint: 'Lägg till några ytterligare kommentarer här, t.ex. loggar dina symptom'
    add_to_google_cal: 'Google Calendar-påminnelse'
@@ -204,6 +214,7 @@ sv:
    strength_hint: 'Läkemedelsstyrka, som vanligtvis finns bredvid namnet'
    total_hint: 'Totalt antal piller eller mängd medicinering'
    dosage_hint: 'Antal piller eller portioner dagligen'
+   weekly_dosage_hint:
    refill_hint: 'När ska du fylla på receptet'
    refill_reminder_hint: "Vi skickar e-post till dig med en påminnelse veckan innan läkemedlet behöver fyllas på igen."
    daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att ta detta läkemedel"
