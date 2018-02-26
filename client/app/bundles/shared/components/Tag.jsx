@@ -11,7 +11,7 @@ type Props = {
 
 export default class Tag extends React.Component<Props> {
   constructor(props: Props) {
-  super(props);
+    super(props);
 }
   render() {
      const {dark,normal,label,id} = this.props;
