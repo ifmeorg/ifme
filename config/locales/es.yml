@@ -534,7 +534,7 @@ es:
     license_we: "Nosotros"
     license_foss: 'FOSS'
     foss: "Free and open source software (Programa gratuito y de código abierto)"
-    license_subtitle: "Licencia bajo"
+    license_subtitle: "Licencia bajo %{license}"
     connect: "Conectarse"
   comments:
     share_everyone: "Compartir con todos"
