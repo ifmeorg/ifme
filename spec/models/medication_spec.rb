@@ -71,26 +71,5 @@ describe Medication do
                                medication.take_medication_reminder])
       end
     end
-
-    describe 'dosage scope' do
-      let(:daily_medication) do
-        FactoryGirl.create(:medication, userid: user.id)        
-      end
-      let(:weekly_medication) do
-        FactoryGirl.create(:medication, 
-                            weekly_dosage: [1,3,5],
-                            userid: user.id)          
-      end
-      describe 'daily_dosage' do
-        it 'returns only daily_dosage' do
-          expect(Medication.daily_dosage).to eq([daily_medication])
-        end
-      end
-      describe 'weekly_dosage' do
-        it 'returns only weekly_dosage' do
-          expect(Medication.weekly_dosage).to eq([weekly_medication])
-        end
-      end
-    end
   end
 end

@@ -38,9 +38,6 @@ class Medication < ApplicationRecord
   validates :dosage, numericality: { greater_than_or_equal_to: 0 }
   validates :total, numericality: { greater_than_or_equal_to: 0 }
   validates :strength, numericality: { greater_than_or_equal_to: 0 }
-  
-  scope :daily_dosage, -> { where("array_length(medications.weekly_dosage, 1) = 7") }
-  scope :weekly_dosage, -> { where("array_length(medications.weekly_dosage, 1) != 7") }
 
   def active_reminders
     return unless refill_reminder && take_medication_reminder
