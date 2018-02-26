@@ -31,11 +31,11 @@
         text-align: center;
       }
     }
-    
+
     .connect {
       text-align: center;
     }
-    
+
     .resources {
       text-align: right;
 
@@ -67,16 +67,16 @@
           opacity: 0.5;
         }
       }
-      
+
       ul > li {
         list-style: none;
         line-height: 24px
       }
-      
+
       ul li a {
         text-decoration: none;
         color: $background-color;
-      
+
         &:hover {
           color: $footer-text-color;
           cursor: pointer;
@@ -121,7 +121,6 @@
 
       &:hover {
         color: $footer-text-color;
-        cursor: pointer;
       }
 
       @media screen and (max-width: $small) {
