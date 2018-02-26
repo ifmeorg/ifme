@@ -9,7 +9,7 @@
   font-family: Lato;
   font-size: 10px;
   text-align: center;
-  letter-spacing: 1.5111104px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 
   border-radius: 7px;
@@ -18,16 +18,15 @@
   mix-blend-mode: normal;
   color: $container-color;
 
-  &.dark{
+  &.dark {
     color: $background-color ;
     border: 1px;
     background-color: $container-color;
-
   }
 
-  &.normal{
+  &.normal {
     color: $background-color;
     border: 1px;
     background-color: $transparent;
-      }
+  }
 }

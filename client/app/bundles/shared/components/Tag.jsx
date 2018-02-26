@@ -7,20 +7,21 @@ type Props = {
   normal?: boolean,
   label?: string,
   id?: string,
-  };
+};
 
 export default class Tag extends React.Component<Props> {
-  constructor(props: Props)
-  {super(props);}
-  render()
-   {
+  constructor(props: Props);
+  super(props);
+  }
+
+  render() {
      const {dark,normal,label,id} = this.props;
      const labelClassNames = `${css.label} ${dark ? css.dark : ""}${normal ? css.normal : ""}`;
 
-          return (
-        <span>
-          <div className = {labelClassNames}>{label}</div>
-        </span>
-  );
-}
+     return (
+       <span>
+         <div className = {labelClassNames}>{label}</div>
+       </span>
+     );
+  }
 }
