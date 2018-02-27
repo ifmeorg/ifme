@@ -529,6 +529,8 @@ en:
   footer:
     licence_name: 'AGPL-3.0'
     license: 'We &hearts; FOSS'
+    license_we: 'We'
+    license_foss: 'FOSS'
     foss: 'Free and open source software'
     license_subtitle: 'Licensed under %{license}'
     connect: 'connect'

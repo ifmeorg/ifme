@@ -42,7 +42,8 @@ class MedicationsController < ApplicationController
   # POST /medications
   # POST /medications.json
   def create
-    @medication = Medication.new(medication_params)
+    @medication =
+      Medication.new(medication_params.merge(userid: current_user.id))
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
@@ -105,7 +106,7 @@ class MedicationsController < ApplicationController
   def medication_params
     params.require(:medication).permit(
       :name, :dosage, :refill,
-      :userid, :total, :strength,
+      :total, :strength,
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],

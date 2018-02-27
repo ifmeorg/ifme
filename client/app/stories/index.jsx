@@ -16,6 +16,20 @@ import Input from '../bundles/shared/components/Input';
 import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
+import Footer from '../bundles/shared/components/Footer/Footer';
+
+import Tag from '../bundles/shared/components/Tag';
+
+storiesOf('Tags', module)
+  .add('TagGhostXs', () => (
+    <Tag label = "Self-Injury"/>
+ ))
+  .add('TagDarkXs', () => (
+   <Tag dark label = "Self-Injury"/>
+))
+  .add('Tag', () => (
+  <Tag normal label = "Self-Injury"/>
+));
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -128,3 +142,9 @@ storiesOf('Dropdown', module)
       <I18nWrapper/>
     );
   });
+
+storiesOf('Footer', module)
+  .add('View', () => (
+    <Footer />
+  ));
+
