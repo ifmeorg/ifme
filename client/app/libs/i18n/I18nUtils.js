@@ -10,4 +10,3 @@ export const safeGetLocale = () => Cookies.get('locale') || defaultLocale;
 export const getMessages = locale => translations[locale];
 
 export const getAvailableLocales = () => enYML.en.languages;
-
