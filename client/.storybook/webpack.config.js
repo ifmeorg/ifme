@@ -2,12 +2,9 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    modules: [
-      'node_modules',
-      path.resolve(path.join(process.cwd(), '..')),
-    ],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
+      config: path.resolve(path.join(process.cwd(), '..', 'config')),
     },
   },
 

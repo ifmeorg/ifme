@@ -44,12 +44,9 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     // Allow resolving modules from the libs with absolute path
-    module: [
-      'node_modules',
-      path.resolve(path.join(process.cwd(), '..')),
-    ],
     alias: {
       libs: path.join(process.cwd(), 'app', 'libs'),
+      config: path.resolve(path.join(process.cwd(), '..', 'config')),
     },
   },
 
