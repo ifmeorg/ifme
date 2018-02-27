@@ -4,8 +4,8 @@ import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
 import { defaultMessages, defaultLocale } from 'libs/i18n/default';
-import { getMessages, safeGetLocale } from 'libs/i18n/I18nUtils';
-import { loadLocales} from 'libs/i18n/I18nSetup';
+import { getMessages } from 'libs/i18n/I18nUtils';
+import { loadLocales } from 'libs/i18n/I18nSetup';
 import { IntlProvider, injectIntl } from 'react-intl';
 
 import Chart from '../bundles/momentDashboards/components/Chart';
@@ -20,16 +20,18 @@ import Footer from '../bundles/shared/components/Footer/Footer';
 
 import Tag from '../bundles/shared/components/Tag';
 
+loadLocales();
+
 storiesOf('Tags', module)
   .add('TagGhostXs', () => (
-    <Tag label = "Self-Injury"/>
- ))
+    <Tag label={'Self-Injury'} />
+  ))
   .add('TagDarkXs', () => (
-   <Tag dark label = "Self-Injury"/>
-))
+    <Tag dark label={'Self-Injury'} />
+  ))
   .add('Tag', () => (
-  <Tag normal label = "Self-Injury"/>
-));
+    <Tag normal label={'Self-Injury'} />
+  ));
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -117,18 +119,19 @@ class I18nWrapper extends React.Component {
   }
 }
 
-loadLocales();
 storiesOf('Dropdown', module)
   .add('DropdownGhost', () => (
     <DropdownGhost
       onChange={() => {}}
       locale={'en'}
+      localeList={{ en: 'English', fr: 'French' }}
     />
   ))
   .add('DropdownGhostSmall', () => (
     <DropdownGhostSmall
       onChange={() => {}}
       locale={'it'}
+      localeList={{ en: 'English', fr: 'French', it: 'Italian' }}
     />
   ))
   .add('DropdownFillSmall', () => (
@@ -137,11 +140,9 @@ storiesOf('Dropdown', module)
       locale={'ptbr'}
     />
   ))
-  .add('ChangingLocales', () => {
-    return (
-      <I18nWrapper/>
-    );
-  });
+  .add('ChangingLocales', () => (
+    <I18nWrapper />
+  ));
 
 storiesOf('Footer', module)
   .add('View', () => (
