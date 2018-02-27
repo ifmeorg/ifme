@@ -530,6 +530,8 @@ sv:
   footer:
     licence_name: 'AGPL-3.0'
     license: 'Vi &hearts; FOSS'
+    license_we: 'Vi'
+    license_foss: 'FOSS'
     foss: 'Fri programvara och programvara med öppen källkod'
     license_subtitle: 'Licensierad under %{license}'
     connect: 'ansluta'
