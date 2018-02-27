@@ -35,11 +35,11 @@ export default class Input extends React.Component<Props, State> {
     this.setState({ value: e.currentTarget.value });
   };
 
-  onFocus = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+  onFocus = () => {
     this.setState({ active: true });
   };
 
-  onBlur = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+  onBlur = () => {
     this.setState({ active: false });
   };
 
