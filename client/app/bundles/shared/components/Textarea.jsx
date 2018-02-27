@@ -1,33 +1,32 @@
 //@flow
 import React from "react";
-import css from "./Input.scss";
+import css from "./Textarea.scss";
 
 type Props = {
-  dark?: boolean,
-  large?: boolean,
   id?: string,
-  type?: string,
   name?: string,
-  value?: string | number,
+  value?: string,
+  form?: string,
+  rows?: string | number,
+  cols?: string | number,
   placeholder?: string,
   label?: string,
-  value?: string,
+  autofocus?: boolean,
   readonly?: boolean,
   disabled?: boolean,
   required?: boolean,
-  minLength?: number,
   maxLength?: number
 };
 
 type State = {
-  value: string | number,
+  value: string,
   active: boolean
 };
 
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: this.props.value || "", active: false };
+    this.state = { value: "", active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -45,41 +44,42 @@ export default class Input extends React.Component<Props, State> {
 
   render() {
     const {
-      dark,
-      large,
-      label,
       id,
-      type,
+      form,
       name,
       value,
+      rows,
+      cols,
       placeholder,
+      label,
+      autofocus,
       readonly,
       disabled,
       required,
-      minLength,
       maxLength
     } = this.props;
 
-    const labelClassNames = `${css.label} ${dark ? css.dark : ""}
-    ${large ? css.large : ""} ${this.state.active ? css.active : ""}`;
-
-    const inputClassNames = `${css.input} ${dark ? css.dark : ""}
-    ${large ? css.large : ""}`;
+    const labelClassNames = `${css.label} ${
+      this.state.active ? css.active : ""
+    }`;
 
     return (
       <div>
         <div className={labelClassNames}>{label}</div>
-        <input
-          className={inputClassNames}
+        <textarea
+          className={css.textarea}
           id={id}
-          type={type}
           name={name}
-          value={this.state.value}
+          value={value}
+          form={form}
+          rows={rows}
+          cols={cols}
           placeholder={placeholder}
+          label={label}
+          value={value}
           readonly={readonly}
           disabled={disabled}
           required={required}
-          minLength={minLength}
           maxLength={maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}
