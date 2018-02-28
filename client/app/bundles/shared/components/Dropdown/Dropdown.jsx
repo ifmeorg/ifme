@@ -26,8 +26,14 @@ export default (variationClassName: string) =>
 
     return (
       <div className={`${css.select_dropdown} ${variationClassName}`}>
-        <select onChange={e => onChange(e.target.value)} value={locale || null}>
-          {options}
-        </select>
+        {!isNil(locale) ? (
+          <select onChange={e => onChange(e.target.value)} value={locale || null}>
+            {options}
+          </select>
+        ) : (
+          <select onChange={e => onChange(e.target.value)}>
+            {options}
+          </select>
+        )}
       </div>);
   };
