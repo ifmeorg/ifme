@@ -1,6 +1,6 @@
-//@flow
-import React from "react";
-import css from "./Textarea.scss";
+// @flow
+import React from 'react';
+import css from './Textarea.scss';
 
 type Props = {
   id?: string,
@@ -11,7 +11,6 @@ type Props = {
   cols?: string | number,
   placeholder?: string,
   label?: string,
-  autofocus?: boolean,
   readonly?: boolean,
   disabled?: boolean,
   required?: boolean,
@@ -26,7 +25,7 @@ type State = {
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: "", active: false };
+    this.state = { value: '', active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -52,15 +51,14 @@ export default class Input extends React.Component<Props, State> {
       cols,
       placeholder,
       label,
-      autofocus,
       readonly,
       disabled,
       required,
-      maxLength
+      maxLength,
     } = this.props;
 
     const labelClassNames = `${css.label} ${
-      this.state.active ? css.active : ""
+      this.state.active ? css.active : ''
     }`;
 
     return (
@@ -76,8 +74,7 @@ export default class Input extends React.Component<Props, State> {
           cols={cols}
           placeholder={placeholder}
           label={label}
-          value={value}
-          readonly={readonly}
+          readOnly={readonly}
           disabled={disabled}
           required={required}
           maxLength={maxLength}

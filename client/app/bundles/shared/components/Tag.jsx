@@ -8,7 +8,6 @@ type Props = {
   label?: string,
 };
 
-// eslint-disable-next-line react/prefer-stateless-function
 export default class Tag extends React.Component<Props> {
   render() {
     const { dark, normal, label } = this.props;

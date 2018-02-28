@@ -16,7 +16,8 @@
         "/^render.+$/",
         "render"
       ]
-    }]
+    }],
+    "react/prefer-stateless-function": ["off"]
   },
   "settings": {
     "import/resolver": {
