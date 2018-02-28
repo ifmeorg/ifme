@@ -4,6 +4,7 @@ import { loadLocales } from 'libs/i18n/I18nSetup';
 
 import Logo from '../components/Logo';
 import Input from '../components/Input';
+import Textarea from "../components/Textarea";
 
 loadLocales();
 
@@ -11,4 +12,7 @@ loadLocales();
 ReactOnRails.register({
   Logo,
   Input,
+  Input,
+  Textarea,
 });
+

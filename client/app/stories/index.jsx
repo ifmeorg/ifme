@@ -13,6 +13,7 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
+import Textarea from "../bundles/shared/components/Textarea";
 import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
@@ -119,6 +120,11 @@ class I18nWrapper extends React.Component {
   }
 }
 
+storiesOf('Textarea', module)
+  .add('Textarea', () => (
+    <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..."/>
+  ))
+  
 storiesOf('Dropdown', module)
   .add('DropdownGhost', () => (
     <DropdownGhost
