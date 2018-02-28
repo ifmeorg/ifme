@@ -24,18 +24,20 @@ describe TakeMedicationReminder do
     end        
   end
   
-  describe 'for_day' do    
-    let!(:weekly_medication) { 
-      FactoryGirl.create(:medication, userid: user.id, weekly_dosage: [0,2,4,6]) 
+  describe 'scope for_day' do
+    let!(:weekly_medication) {
+      FactoryGirl.create(:medication, userid: user.id, weekly_dosage: [0,2,4,6])
     }
-    let!(:weekly_medication2) { 
-      FactoryGirl.create(:medication, userid: user.id, weekly_dosage: [1,2,4,6]) 
+    let!(:weekly_medication2) {
+      FactoryGirl.create(:medication, userid: user.id, weekly_dosage: [1,2,4,6])
     }
     
-    it 'returns only sundays reminder' do
-      expect(TakeMedicationReminder.for_day(0)).to eq(
-        [weekly_medication.take_medication_reminder]
-      )
+    context 'on passing 0 (Sunday) as arg' do
+      it "returns the medication's reminder which has dosage on Sunday (0)" do
+        expect(TakeMedicationReminder.for_day(0)).to eq(
+          [weekly_medication.take_medication_reminder]
+        )
+      end
     end
   end
 end
