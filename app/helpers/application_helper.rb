@@ -49,10 +49,22 @@ module ApplicationHelper
     false
   end
 
+  def get_icon_class(icon)
+    if %w[envelope gift rss].include?(icon)
+      "fas fa-#{icon}"
+    elsif icon == 'money-bill-alt'
+      'far fa-money-bill-alt'
+    elsif %w[facebook github instagram medium twitter].include?(icon)
+      "fab fa-#{icon}"
+    else
+      'fa fa-globe'
+    end
+  end
+
   def get_icon_text(icon, text)
     html = ''
     if icon && text
-      html += "<i class=\"#{icon} smaller_margin_right\"></i>"
+      html += "<i class=\"#{get_icon_class(icon)} smaller_margin_right\"></i>"
       html += text
     end
     html.html_safe

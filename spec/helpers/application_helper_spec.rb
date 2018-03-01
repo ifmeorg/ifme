@@ -124,6 +124,28 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#get_icon_class' do
+    context 'when icon is nil' do
+      it 'returns default globe icon' do
+        expect(get_icon_class(nil)).to eq('fa fa-globe')
+      end
+    end
+
+    context 'when icon exists' do
+      it 'returns correct icons' do
+        fas = %w[envelope gift rss]
+        far = %w[money-bill-alt]
+        fab = %w[facebook github instagram medium twitter]
+        icons = [{ fas: fas }, { far: far }, { fab: fab }]
+        for icon_set in icons
+          for icon in icon_set.values[0]
+            expect(get_icon_class(icon)).to eq("#{icon_set.keys[0].to_s} fa-#{icon}")
+          end
+        end
+      end
+    end
+  end
+
   describe '#get_icon_text' do
     context 'when icon and text are nil' do
       it 'returns empty string' do
@@ -133,7 +155,7 @@ describe ApplicationHelper do
 
     context 'when icon and text are string values' do
       it 'returns icon text' do
-        expect(get_icon_text('fab fa-facebook','Facebook')).to eq(
+        expect(get_icon_text('facebook','Facebook')).to eq(
           '<i class="fab fa-facebook smaller_margin_right"></i>Facebook'
         )
       end
