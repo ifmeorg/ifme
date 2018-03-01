@@ -39,8 +39,8 @@ function expandButton() {
   $('#expand_me').toggleClass("display_none");
   $('#me').toggleClass('dim');
   $('#title_expand').toggleClass('dim');
-  $('#title_expand .expand').toggleClass("fa-sort-desc");
-  $('#title_expand .expand').toggleClass("fa-sort-asc");
+  $('#title_expand .expand').toggleClass("fa-sort-down");
+  $('#title_expand .expand').toggleClass("fa-sort-up");
   setHeight();
 }
 

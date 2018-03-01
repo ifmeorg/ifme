@@ -9,7 +9,7 @@
   <%= print_reminders(medication) %>
 
 	<div class="small_margin_top">
-  	<i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), edit_medication_path(medication) %>
-  	<i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), medication, method: :delete, data: { confirm: t('common.actions.confirm') } %>
+  	<i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_medication_path(medication) %>
+  	<i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), medication, method: :delete, data: { confirm: t('common.actions.confirm') } %>
 	</div>
 </div>

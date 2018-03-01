@@ -133,8 +133,8 @@ describe ApplicationHelper do
 
     context 'when icon and text are string values' do
       it 'returns icon text' do
-        expect(get_icon_text('facebook','Facebook')).to eq(
-          '<i class="fa fa-facebook smaller_margin_right"></i>Facebook'
+        expect(get_icon_text('fab fa-facebook','Facebook')).to eq(
+          '<i class="fab fa-facebook smaller_margin_right"></i>Facebook'
         )
       end
     end

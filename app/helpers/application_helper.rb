@@ -52,7 +52,7 @@ module ApplicationHelper
   def get_icon_text(icon, text)
     html = ''
     if icon && text
-      html += "<i class=\"fa fa-#{icon} smaller_margin_right\"></i>"
+      html += "<i class=\"#{icon} smaller_margin_right\"></i>"
       html += text
     end
     html.html_safe
