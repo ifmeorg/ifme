@@ -1,8 +1,8 @@
 describe MeetingsHelper do
 
   describe "get_meeting_members" do
-    let(:meeting){FactoryGirl.create(:meeting, id:1)}
-    let(:current_user) { FactoryGirl.create(:meeting_member, meeting: meeting).user }
+    let(:meeting){FactoryBot.create(:meeting, id:1)}
+    let(:current_user) { FactoryBot.create(:meeting_member, meeting: meeting).user }
 
     it "displays not attending with a link to join" do
       meeting = create(:meeting,  members: [], maxmembers: 0, id: 2)

@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe "NotificationMailer" do
-  let(:recipient)  { FactoryGirl.create(:user1, email: "some@user.com") }
-  let(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: recipient.id) }
+  let(:recipient)  { FactoryBot.create(:user1, email: "some@user.com") }
+  let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, userid: recipient.id) }
   let(:medication_reminder)   { medication.take_medication_reminder }
-  let(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: recipient.id) }
+  let(:strategy) { FactoryBot.create(:strategy, :with_daily_reminder, userid: recipient.id) }
   let(:strategy_reminder)   { strategy.perform_strategy_reminder }
 
   describe "#take_medication" do
@@ -29,8 +29,8 @@ describe "NotificationMailer" do
   end
 
   describe '#meeting_reminder' do
-    let(:member) { FactoryGirl.create(:meeting_member, meeting: meeting).user }
-    let(:meeting) { FactoryGirl.create(:meeting) }
+    let(:member) { FactoryBot.create(:meeting_member, meeting: meeting).user }
+    let(:meeting) { FactoryBot.create(:meeting) }
 
     subject(:email) { NotificationMailer.meeting_reminder(meeting, member) }
 
@@ -74,7 +74,7 @@ describe "NotificationMailer" do
   end
 
   describe 'notification' do
-    let(:who_triggered_event) { FactoryGirl.create(:user2) }
+    let(:who_triggered_event) { FactoryBot.create(:user2) }
 
     let(:data) do
       JSON.generate(user: who_triggered_event.name,

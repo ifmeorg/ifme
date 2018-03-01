@@ -244,7 +244,7 @@ describe StrategiesController do
 
   describe 'POST create' do
     let(:user) { create(:user, id: 1) }
-    let(:valid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
+    let(:valid_strategy_params) { FactoryBot.attributes_for(:strategy) }
     let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
 
     context 'when the user is logged in' do
@@ -387,20 +387,20 @@ describe StrategiesController do
   end
 
   describe '#print_reminders' do
-    let(:user) { FactoryGirl.create(:user1) }
+    let(:user) { FactoryBot.create(:user1) }
     let(:strategy)     { create(:strategy, name: 'test', userid: user.id) }
 
     subject { controller.print_reminders(strategy) }
 
     describe 'when strategy has no reminders' do
-      let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
+      let(:strategy) { FactoryBot.create(:strategy, userid: user.id) }
 
       it { is_expected.to eq('') }
     end
 
     describe 'when strategy has daily reminder' do
       let(:strategy) do
-        FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id)
+        FactoryBot.create(:strategy, :with_daily_reminder, userid: user.id)
       end
 
       it 'prints the reminders' do

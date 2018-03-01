@@ -3,8 +3,8 @@
 describe CalendarHelper do
   include CalendarHelper
   describe 'new_cal_refill_reminder_needed?' do
-    let(:user) { FactoryGirl.create(:user1) }
-    let(:medication) { FactoryGirl.create(:medication, userid: user.id) }
+    let(:user) { FactoryBot.create(:user1) }
+    let(:medication) { FactoryBot.create(:medication, userid: user.id) }
 
     it 'when add_to_google_cal is true without a refill date' do
       medication.add_to_google_cal = true

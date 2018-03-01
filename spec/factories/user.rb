@@ -43,7 +43,7 @@
 #  refresh_token          :string
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user, class: 'User' do
     sequence(:email) { |n| "some-email#{n}@ifme.org" }
     sequence(:name) { |n| "Some Person#{n}" }
