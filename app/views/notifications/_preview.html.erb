@@ -23,7 +23,7 @@
 
 		<div class="small_margin_top">
 		<% if local_assigns[:data].userid == current_user.id %>
-        	<i class="fa fa-pencil action"></i><%= link_to t('common.actions.edit'), local_assigns[:edit], target: "blank" %>
+        	<i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), local_assigns[:edit], target: "blank" %>
         <% else %>
           <%= t('notifications.created_by_html',
                 name: link_to(User.where(id: local_assigns[:data].userid).first.name,
