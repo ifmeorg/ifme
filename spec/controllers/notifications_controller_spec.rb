@@ -1,10 +1,10 @@
 RSpec.describe NotificationsController, type: :controller do
   describe '#destroy' do
-    let(:user) { FactoryGirl.create(:user1) }
-    let(:other_user) { FactoryGirl.create(:user2) }
+    let(:user) { FactoryBot.create(:user1) }
+    let(:other_user) { FactoryBot.create(:user2) }
     let(:notification_owner) { user }
     let!(:notification) do
-      FactoryGirl.create(:notification, user: notification_owner)
+      FactoryBot.create(:notification, user: notification_owner)
     end
 
     context 'when the user is signed in' do
@@ -114,10 +114,10 @@ RSpec.describe NotificationsController, type: :controller do
   end
 
   describe '#clear' do
-    let(:user) { FactoryGirl.create(:user1) }
-    let(:other_user) { FactoryGirl.create(:user2) }
+    let(:user) { FactoryBot.create(:user1) }
+    let(:other_user) { FactoryBot.create(:user2) }
     let!(:other_user_notification) do
-      FactoryGirl.create(:notification, user: other_user)
+      FactoryBot.create(:notification, user: other_user)
     end
 
     context 'when the user is signed in' do
@@ -127,11 +127,11 @@ RSpec.describe NotificationsController, type: :controller do
 
       context 'when the user has notifications' do
         let!(:notification) do
-          FactoryGirl.create(:notification, user: user)
+          FactoryBot.create(:notification, user: user)
         end
 
         let!(:notification_two) do
-          FactoryGirl.create(:notification, user: user)
+          FactoryBot.create(:notification, user: user)
         end
 
         it 'deletes all notifications belonging to the current user' do
@@ -190,19 +190,19 @@ RSpec.describe NotificationsController, type: :controller do
   end
 
   describe '#fetch_notifications' do
-    let(:user) { FactoryGirl.create(:user1) }
-    let(:other_user) { FactoryGirl.create(:user2) }
+    let(:user) { FactoryBot.create(:user1) }
+    let(:other_user) { FactoryBot.create(:user2) }
     let!(:other_user_notification) do
-      FactoryGirl.create(:notification, user: other_user)
+      FactoryBot.create(:notification, user: other_user)
     end
 
     context 'when the user is signed in' do
       let!(:notification) do
-        FactoryGirl.create(:notification, user: user)
+        FactoryBot.create(:notification, user: user)
       end
 
       let!(:notification_two) do
-        FactoryGirl.create(:notification, user: user)
+        FactoryBot.create(:notification, user: user)
       end
 
       let(:expected_result) do
@@ -245,7 +245,7 @@ RSpec.describe NotificationsController, type: :controller do
   end
 
   describe 'signed_in' do
-    let(:user) { FactoryGirl.create(:user1) }
+    let(:user) { FactoryBot.create(:user1) }
 
     context 'when the user is signed in' do
       before do

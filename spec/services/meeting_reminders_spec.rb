@@ -5,10 +5,10 @@ describe MeetingReminders do
 
   describe '#send_meeting_reminder_emails' do
     let(:mail) { instance_double(ActionMailer::MessageDelivery) }
-    let!(:member_one) { FactoryGirl.create(:meeting_member, meeting: meeting) }
-    let!(:member_two) { FactoryGirl.create(:meeting_member, meeting: meeting) }
+    let!(:member_one) { FactoryBot.create(:meeting_member, meeting: meeting) }
+    let!(:member_two) { FactoryBot.create(:meeting_member, meeting: meeting) }
     let(:meeting) do
-      FactoryGirl.create(
+      FactoryBot.create(
         :meeting,
         maxmembers: 0,
         date: date

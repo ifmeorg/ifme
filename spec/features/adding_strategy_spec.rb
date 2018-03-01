@@ -1,5 +1,5 @@
 describe "user adds a new strategy" do
-  let!(:user) { FactoryGirl.create(:user_oauth) }
+  let!(:user) { FactoryBot.create(:user_oauth) }
   before do
     login_as user
     visit new_strategy_path
