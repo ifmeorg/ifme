@@ -1,0 +1,35 @@
+@import "base.scss";
+
+li{
+    list-style: none;
+}
+
+a{
+font-size: 3ex;
+text-decoration: none;
+font-family: 'Lato', sans-serif;
+}
+
+a:link, a:visited{
+    color: white;
+}
+
+.purple{
+    justify-content: center;
+    background-color: purple;
+    color: white;
+    border-left: 15px solid gray;
+    width: 20ex;
+    height: 20ex;
+    border-radius: 5px;
+}
+
+.silver{
+    justify-content: center;
+    background-color: gray;
+    color: black;
+    border-left: 15px solid purple;
+    width: 20ex;
+    height: 20ex;
+    border-radius: 5px;
+}

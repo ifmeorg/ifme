@@ -1,0 +1,25 @@
+@import "base.scss";
+
+.small{
+    width: 9ex;
+    height: 4ex;
+    border-radius: 1ex;
+}
+
+.large{
+    width: 13ex;
+    height: 6ex;
+    border-radius: 1ex;
+}
+
+.purple{
+    background-color: purple;
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.silver{
+    background-color: silver;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
