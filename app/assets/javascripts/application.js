@@ -31,44 +31,44 @@ function isAllAlliesInputBoxIsChecked(inputTag) {
 }
 
 function setViewersCheckBoxToNotBeSelected() {
-	$(":checkbox[id='viewers_all']").prop("checked", false);
+  $(":checkbox[id='viewers_all']").prop("checked", false);
 }
 
 function newOrEdit(forms) {
-	var result = false;
-	_.each(forms, function(form) {
-		if ($("body").hasClass(form + " new") || $("body").hasClass(form + " create") || $("body").hasClass(form + " edit") || $("body").hasClass(form + " update")) {
-			result = true;
-			return;
-		}
-	});
+  var result = false;
+  _.each(forms, function(form) {
+    if ($("body").hasClass(form + " new") || $("body").hasClass(form + " create") || $("body").hasClass(form + " edit") || $("body").hasClass(form + " update")) {
+      result = true;
+      return;
+    }
+  });
 
-	return result;
+  return result;
 }
 
 function isShow(forms) {
-	var result = false;
-	_.each(forms, function(form) {
-		if ($("body").hasClass(form + " show")) {
-			result = true;
-			return;
-		}
-	});
+  var result = false;
+  _.each(forms, function(form) {
+    if ($("body").hasClass(form + " show")) {
+      result = true;
+      return;
+    }
+  });
 
-	return result;
+  return result;
 }
 
 var onReadyApplication = function() {
-	$.ajaxSetup({
-		headers: {
-			"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
-		}
-	});
+  $.ajaxSetup({
+    headers: {
+      "X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
+    }
+  });
 
-	// Timezone detection
-	Cookies.set("timezone", jstz.determine().name());
+  // Timezone detection
+  Cookies.set("timezone", jstz.determine().name());
 
-	$(".yes_title").find(":not(.no_title)").tooltip();
+  $(".yes_title").find(":not(.no_title)").tooltip();
 };
 
 loadPage(onReadyApplication);
