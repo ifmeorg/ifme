@@ -9,6 +9,7 @@ module UserRelation
   OTHER = 4
 end
 
+# rubocop:disable ClassLength
 class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
@@ -16,7 +17,8 @@ class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :null_session, if: proc { |c| c.request.format == 'application/json' }
+  protect_from_forgery with: :null_session,
+                       if: proc { |c| c.request.format == 'application/json' }
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
 
@@ -77,7 +79,7 @@ class ApplicationController < ActionController::Base
                                                invitation_token]
   end
 
-  helper_method :avatar_url, :is_viewer,
+  helper_method :avatar_url, :viewer_of?,
                 :are_allies?, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
                 :generate_comment, :get_stories, :moments_stats
@@ -96,7 +98,7 @@ class ApplicationController < ActionController::Base
     users.first.mutual_allies?(users.last)
   end
 
-  def is_viewer(viewers)
+  def viewer_of?(viewers)
     viewers.include? current_user.id
   end
 
@@ -104,6 +106,7 @@ class ApplicationController < ActionController::Base
     User.find(userid).uid
   end
 
+  # rubocop:disable MethodLength
   def most_focus(data_type, profile_id)
     data = []
     userid = profile_id || current_user.id
@@ -135,7 +138,9 @@ class ApplicationController < ActionController::Base
 
     data.empty? ? {} : top_three_focus(data)
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def tag_usage(data_id, data_type, userid)
     result = []
     moments = user_moments(userid).order('created_at DESC')
@@ -155,7 +160,9 @@ class ApplicationController < ActionController::Base
     end
     result
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
     profile_picture = ProfilePicture.fetch(profile.avatar.url,
@@ -189,9 +196,19 @@ class ApplicationController < ActionController::Base
       delete_comment += '</div>'
     end
 
-    { commentid: data.id, profile_picture: profile_picture, comment_info: comment_info, comment_text: comment_text, visibility: visibility, delete_comment: delete_comment, no_save: false }
+    {
+      commentid: data.id,
+      profile_picture: profile_picture,
+      comment_info: comment_info,
+      comment_text: comment_text,
+      visibility: visibility,
+      delete_comment: delete_comment,
+      no_save: false
+    }
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def get_stories(user, include_allies)
     if user.id == current_user.id
       my_moments = user.moments.all.recent
@@ -222,11 +239,14 @@ class ApplicationController < ActionController::Base
 
     stories.sort_by(&:created_at).reverse!
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def moments_stats
     result = ''
     count = current_user.moments.all.count
 
+    # rubocop:disable BlockNesting
     if count > 1
       result += '<div class="center" id="stats">'
 
@@ -235,22 +255,28 @@ class ApplicationController < ActionController::Base
       else
         result += t('stats.total_moments', count: count.to_s)
 
-        monthly_count = current_user.moments.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
+        beginning_of_month = Time.current.beginning_of_month
+        end_of_month = Time.current.end_of_month
+        monthly_count = current_user.moments.where(
+          created_at: beginning_of_month..end_of_month
+        ).all.count
         if count != monthly_count
           result += ' '
-          if monthly_count == 1
-            result += t('stats.monthly_moment', count: monthly_count.to_s)
-          else
-            result += t('stats.monthly_moments', count: monthly_count.to_s)
-          end
+          result += if monthly_count == 1
+                      t('stats.monthly_moment', count: monthly_count.to_s)
+                    else
+                      t('stats.monthly_moments', count: monthly_count.to_s)
+                    end
         end
       end
 
       result += '</div>'
     end
+    # rubocop:enable BlockNesting
 
     result
   end
+  # rubocop:enable MethodLength
 
   private
 
@@ -259,6 +285,7 @@ class ApplicationController < ActionController::Base
     data_id.in?(data[data_type])
   end
 
+  # rubocop:disable MethodLength
   def top_three_focus(data)
     result, freq = {}
     3.times do
@@ -272,6 +299,7 @@ class ApplicationController < ActionController::Base
     end
     result
   end
+  # rubocop:enable MethodLength
 
   def profile_exists?(profile, data)
     profile.present? &&
@@ -279,6 +307,7 @@ class ApplicationController < ActionController::Base
        data.viewers.include?(current_user.id))
   end
 
+  # rubocop:disable MethodLength
   def user_created_data?(id, data_type)
     case data_type
     when 'moment'
@@ -292,6 +321,7 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+  # rubocop:enable MethodLength
 
   def comment_deletable?(data, data_type)
     data.comment_by == current_user.id ||
@@ -320,6 +350,7 @@ class ApplicationController < ActionController::Base
     set_show_with_comments_variables(subject, model_name)
   end
 
+  # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
     if current_user.id == subject.userid
       @page_edit = send("edit_#{model_name}_path", subject)
@@ -330,6 +361,7 @@ class ApplicationController < ActionController::Base
                              profile_index_path(uid: get_uid(ally.id)))
     end
     @no_hide_page = true
+    # rubocop:disable GuardClause
     if subject.comment
       @comment = Comment.new
       @comments = Comment.where(
@@ -337,7 +369,9 @@ class ApplicationController < ActionController::Base
         commentable_type: model_name
       ).order(created_at: :desc)
     end
+    # rubocop:enable GuardClause
   end
+  # rubocop:enable MethodLength
 
   def record_model_name(record)
     record.class.name.downcase
@@ -375,6 +409,7 @@ class ApplicationController < ActionController::Base
     Moment.where(userid: userid)
   end
 
+  # rubocop:disable MethodLength
   def user_stories(user, collection)
     resources = []
     case collection
@@ -389,4 +424,6 @@ class ApplicationController < ActionController::Base
     end
     resources
   end
+  # rubocop:enable MethodLength
 end
+# rubocop:enable ClassLength

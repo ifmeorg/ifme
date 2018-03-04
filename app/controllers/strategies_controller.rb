@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
@@ -23,13 +24,20 @@ class StrategiesController < ApplicationController
     comment_for('strategy')
   end
 
+  # rubocop:disable MethodLength
   def delete_comment
     comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+    is_my_comment = Comment.where(
+      id: params[:commentid],
+      comment_by: current_user.id
+    ).exists?
 
     if comment_exists
       strategyid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_strategy = Strategy.where(id: strategyid, userid: current_user.id).exists?
+      is_my_strategy = Strategy.where(
+        id: strategyid,
+        userid: current_user.id
+      ).exists?
     else
       is_my_strategy = false
     end
@@ -41,13 +49,16 @@ class StrategiesController < ApplicationController
       public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
       Notification.where(uniqueid: public_uniqueid).destroy_all
 
-      private_uniqueid = 'comment_on_strategy_private_' + params[:commentid].to_s
+      private_uniqueid = 'comment_on_strategy_private_' +
+                         params[:commentid].to_s
       Notification.where(uniqueid: private_uniqueid).destroy_all
     end
 
     head :ok
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def quick_create
     # Assumme all viewers and comments allowed
     viewers = []
@@ -70,12 +81,15 @@ class StrategiesController < ApplicationController
 
     respond_with_json(result)
   end
+  # rubocop:enable MethodLength
 
   # GET /strategies/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
+    @categories = Category.where(userid: current_user.id)
+                          .all
+                          .order('created_at DESC')
     @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
@@ -84,7 +98,9 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.userid == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(userid: current_user.id).all.order('created_at DESC')
+      @categories = Category.where(userid: current_user.id)
+                            .all
+                            .order('created_at DESC')
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
@@ -94,6 +110,7 @@ class StrategiesController < ApplicationController
 
   # POST /strategies
   # POST /strategies.json
+  # rubocop:disable MethodLength
   def create
     @strategy = Strategy.new(strategy_params.merge(userid: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
@@ -109,9 +126,11 @@ class StrategiesController < ApplicationController
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # POST /strategies
   # POST /strategies.json
+  # rubocop:disable MethodLength
   def premade
     category = Category.find_by(name: 'Meditation', user: current_user)
     strategy = Strategy.new(
@@ -133,9 +152,11 @@ class StrategiesController < ApplicationController
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
+  # rubocop:disable MethodLength
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
@@ -157,6 +178,7 @@ class StrategiesController < ApplicationController
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
@@ -181,11 +203,13 @@ class StrategiesController < ApplicationController
   end
 
   # Use callbacks to share common setup or constraints between actions.
+  # rubocop:disable RescueStandardError
   def set_strategy
     @strategy = Strategy.friendly.find(params[:id])
   rescue
     redirect_to_path(strategies_path)
   end
+  # rubocop:enable RescueStandardError
 
   def strategy_params
     params.require(:strategy).permit(
@@ -209,3 +233,4 @@ class StrategiesController < ApplicationController
     end
   end
 end
+# rubocop:enable ClassLength
