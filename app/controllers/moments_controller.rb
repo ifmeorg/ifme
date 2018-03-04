@@ -186,10 +186,10 @@ class MomentsController < ApplicationController
 
   def associated_strategies
     # current_user's strategies and all viewable strategies from allies
-    strategy_ids = Strategy.where(user: current_user).pluck(:id)
+    strategy_ids = current_user.strategies.pluck(:id)
 
     @viewers.each do |ally|
-      Strategy.where(userid: ally.id).each do |strategy|
+      ally.strategies.each do |strategy|
         strategy_ids << strategy.id if strategy.viewer?(current_user)
       end
     end
