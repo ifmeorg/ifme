@@ -18,12 +18,14 @@ class GroupMember < ApplicationRecord
   validates :groupid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
-  belongs_to :group, foreign_key: :groupid
-  belongs_to :user, foreign_key: :userid
+  belongs_to :group, foreign_key: :groupid, inverse_of: :group_member
+  belongs_to :user, foreign_key: :userid, inverse_of: :group_member
 
   has_many :meetings, through: :group
   has_many :meeting_memberships,
-           ->(group_member) { where(meeting_members: { userid: group_member.userid }) },
+           lambda(group_member) {
+             where(meeting_members: { userid: group_member.userid })
+           },
            through: :meetings, source: :meeting_members
 
   def destroy_meeting_memberships

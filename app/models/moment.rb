@@ -1,5 +1,7 @@
+# rubocop:disable EmptyLineAfterMagicComment
 # frozen_string_literal: true
 # == Schema Information
+# rubocop:enable EmptyLineAfterMagicComment
 #
 # Table name: moments
 #
@@ -30,10 +32,13 @@ class Moment < ApplicationRecord
   serialize :mood, Array
   serialize :strategy, Array
 
-  before_save :array_data
+  before_save :category_array_data
+  before_save :viewers_array_data
+  before_save :mood_array_data
+  before_save :strategy_array_data
 
-  belongs_to :user, foreign_key: :userid
-  has_many :comments, as: :commentable
+  belongs_to :user, foreign_key: :userid, inverse_of: :moment
+  has_many :comments, as: :commentable, inverse_of: :moment, dependent: :destroy
 
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :why, presence: true
@@ -52,10 +57,19 @@ class Moment < ApplicationRecord
     )
   end
 
-  def array_data
+  def category_array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)
+  end
+
+  def viewers_array_data
     self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
+  end
+
+  def mood_array_data
     self.mood = mood.collect(&:to_i) if mood.is_a?(Array)
+  end
+
+  def strategy_array_data
     self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
   end
 

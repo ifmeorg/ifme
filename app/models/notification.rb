@@ -14,7 +14,7 @@
 
 class Notification < ApplicationRecord
   validates :userid, :uniqueid, :data, presence: true
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user, foreign_key: :userid, inverse_of: :notification
 
   scope :for_ally, lambda { |user_id, ally_id|
     where(
