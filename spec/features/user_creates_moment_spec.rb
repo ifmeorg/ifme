@@ -124,7 +124,7 @@ describe 'UserCreatesAMoment', js: true do
       expect(page).to have_content 'Created:'
       expect(page).to have_content 'Categories: Another New Category, ' \
                                    'Some New Category'
-      expect(page).to have_content 'Moods: Another New Mood, Some New Mood'
+      expect(page).to have_content 'Moods: Another New Mood, Test Mood'
       expect(page).to have_content 'What happened and how do you feel?'
       expect(page).to have_content 'my moment why description'
       expect(page).to have_content 'What thoughts would you like to have?'
