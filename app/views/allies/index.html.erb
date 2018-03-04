@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<% if !@outgoing_ally_requests.empty? %>
+<% if @outgoing_ally_requests.any? %>
   <strong><%= t('allies.index.outgoing') %></strong>
   <br>
   <br>
@@ -22,8 +22,8 @@
   </div>
 <% end %>
 
-<% if !@incoming_ally_requests.empty? %>
-  <% if !@outgoing_ally_requests.empty? %>
+<% if @incoming_ally_requests.any? %>
+  <% if @outgoing_ally_requests.any? %>
     <div class="spacer"></div>
   <% end %>
   <strong><%= t('allies.index.incoming') %></strong>
