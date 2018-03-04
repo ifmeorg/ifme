@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-include CloudinaryHelper
-
 class ProfilePicture
+  include CloudinaryHelper
+
   DEFAULT_AVATAR = '/assets/default_ifme_avatar.png'
   # Future task: Optimize Cloudinary image size based on responsive layout
   DEFAULT_SIZE = 150
