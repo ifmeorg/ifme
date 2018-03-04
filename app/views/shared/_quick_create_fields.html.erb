@@ -6,7 +6,7 @@
 		<i class="fa fa-asterisk align_right"></i>
 		<div class="clear"></div>
 	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
+	<%= local_assigns[:f].text_field :name, class: "name_field" %>
 </div>
 
 <div class="field">
@@ -24,7 +24,7 @@
 		<i class="fa fa-asterisk align_right"></i>
 		<div class="clear"></div>
 	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
+	<%= local_assigns[:f].text_field :name, class: "name_field" %>
 </div>
 
 <div class="field">
@@ -42,7 +42,7 @@
 		<i class="fa fa-asterisk align_right"></i>
 		<div class="clear"></div>
 	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
+	<%= local_assigns[:f].text_field :name, class: "name_field" %>
 </div>
 
 <% categories = Category.where(userid: current_user.id).all %>
