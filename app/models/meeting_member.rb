@@ -16,7 +16,7 @@ class MeetingMember < ApplicationRecord
   validates :meetingid, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
-  belongs_to :meeting, foreign_key: :meetingid, inverse_of: :meeting_member
-  belongs_to :user, foreign_key: :userid, inverse_of: :meeting_member
-  belongs_to :group_member, foreign_key: :userid, inverse_of: :meeting_member
+  belongs_to :meeting, foreign_key: :meetingid
+  belongs_to :user, foreign_key: :userid
+  belongs_to :group_member, foreign_key: :userid
 end

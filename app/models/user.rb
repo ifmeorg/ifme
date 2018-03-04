@@ -42,7 +42,6 @@
 #  access_expires_at      :datetime
 #  refresh_token          :string
 #
-# rubocop:disable ClassLength
 
 class User < ApplicationRecord
   ALLY_STATUS = {
@@ -61,34 +60,16 @@ class User < ApplicationRecord
 
   before_save :remove_leading_trailing_whitespace
 
-  has_many :allyships, dependent: :destroy
+  has_many :allyships
   has_many :allies, through: :allyships
-  has_many :alerts, inverse_of: :user, dependent: :destroy
-  has_many :group_members,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
+  has_many :alerts
+  has_many :group_members, foreign_key: :userid
   has_many :groups, through: :group_members
-  has_many :meeting_members,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
-  has_many :medications,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
-  has_many :strategies,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
-  has_many :notifications,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
-  has_many :moments,
-           foreign_key: :userid,
-           inverse_of: :user,
-           dependent: :destroy
+  has_many :meeting_members, foreign_key: :userid
+  has_many :medications, foreign_key: :userid
+  has_many :strategies, foreign_key: :userid
+  has_many :notifications, foreign_key: :userid
+  has_many :moments, foreign_key: :userid
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
@@ -182,5 +163,3 @@ class User < ApplicationRecord
          .where(group_members: { userid: accepted_ally_ids })
   end
 end
-
-# rubocop:enable ClassLength

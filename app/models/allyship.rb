@@ -19,7 +19,7 @@ class Allyship < ApplicationRecord
   validate :different_users
 
   belongs_to :user
-  belongs_to :ally, class_name: 'User', inverse_of: :allyship
+  belongs_to :ally, class_name: 'User'
 
   after_create :create_inverse, unless: :inverse?
   after_update :approve_inverse, if: :inverse_unapproved?
