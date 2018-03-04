@@ -1,16 +1,16 @@
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :id => 'invitations', :method => :post } do |f| %>
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { id: 'invitations', method: :post } do |f| %>
   <%= devise_error_messages! %>
 
   <% resource.class.invite_key_fields.each do |field| -%>
     <div class="field">
-    <div class="label">
-      <% if field.to_s == 'email' %>
-        <%= f.label t('common.form.email') %>
-      <% else %>
-        <%= f.label field %>
-      <% end %>
-    </div>
-    <%= f.text_field field, :placeholder => t('allies.form.placeholder') %>
+      <div class="label">
+        <% if field.to_s == 'email' %>
+          <%= f.label t('common.form.email') %>
+        <% else %>
+          <%= f.label field %>
+        <% end %>
+      </div>
+      <%= f.text_field field, placeholder: t('allies.form.placeholder') %>
     </div>
   <% end -%>
 

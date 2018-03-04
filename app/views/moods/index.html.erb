@@ -7,9 +7,8 @@
 
 <div class="spacer"></div>
 
-<% if @moods.length > 0 %>
+<% if @moods.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
-
   <%= render partial: '/shared/stats', locals: { data_type: 'mood' } %>
 
   <div id="pages">
@@ -21,8 +20,8 @@
   <%= paginate @moods %>
 <% else %>
   <%= raw t('moods.index.instructions', {
-      icon: '<i class="fa fa-plus-circle"></i>'
-    }) %>
+    icon: '<i class="fa fa-plus-circle"></i>'
+  }) %>
 
   <div class="actions align_right">
     <%= button_to t('common.actions.add_all'), premade_moods_path %>

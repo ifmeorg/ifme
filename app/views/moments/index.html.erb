@@ -14,13 +14,13 @@
 
   <div class="hide_on_mobile">
     <%= react_component("ChartControl", props: {
-        types: [],
-        initialParams: {
-            type: 'Moments',
-            data: {
-                Moments: @react_moments,
-            }
+      types: [],
+      initialParams: {
+        type: 'Moments',
+        data: {
+          Moments: @react_moments,
         }
+      }
     })%>
 
     <div class="spacer"></div>
@@ -30,29 +30,29 @@
 
   <div id="pages">
     <div class="page">
-    <%= render @moments %>
+      <%= render @moments %>
     </div>
   </div>
 
   <%= paginate @moments %>
 <% else %>
-<%= raw t('moments.index.instructions', {
+  <%= raw t('moments.index.instructions', {
     icon: '<i class="fa fa-plus-circle"></i>'
   }) %>
 
-<div class="spacer"></div>
+  <div class="spacer"></div>
 
-<div id="pages">
-  <div class="page">
-    <div class="moment no_margin_bottom">
-    	<h1 class="moment_name">
-          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
-          <%= t('moments.index.example_name') %>
-      	</h1>
+  <div id="pages">
+    <div class="page">
+      <div class="moment no_margin_bottom">
+        <h1 class="moment_name">
+            <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
+            <%= t('moments.index.example_name') %>
+          </h1>
 
-        <strong><%= t('categories.label', count: 1) %></strong> <%= t('moments.index.example_category') %>
-        <br><strong><%= t('moods.label', count: 3) %></strong> <%= t('moods.example_moods') %>
+          <strong><%= t('categories.label', count: 1) %></strong> <%= t('moments.index.example_category') %>
+          <br><strong><%= t('moods.label', count: 3) %></strong> <%= t('moods.example_moods') %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
