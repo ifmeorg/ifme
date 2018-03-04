@@ -56,7 +56,7 @@ class Allyship < ApplicationRecord
   end
 
   def inverse_unapproved?
-    !inverses.where.not(status: User::ALLY_STATUS[:accepted]).empty?
+    inverses.where.not(status: User::ALLY_STATUS[:accepted]).any?
   end
 
   private
