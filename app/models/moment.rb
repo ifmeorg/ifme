@@ -35,8 +35,8 @@ class Moment < ApplicationRecord
   before_save :mood_array_data
   before_save :strategy_array_data
 
-  belongs_to :user, foreign_key: :userid, inverse_of: :moment
-  has_many :comments, as: :commentable, inverse_of: :moment, dependent: :destroy
+  belongs_to :user, foreign_key: :userid
+  has_many :comments, as: :commentable
 
   validates :comment, inclusion: [true, false]
   validates :userid, :name, :why, presence: true

@@ -26,6 +26,12 @@ Rails/OutputSafety:
 Rails/SkipsModelValidations:
   Enabled: false
 
+Rails/InverseOf:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
