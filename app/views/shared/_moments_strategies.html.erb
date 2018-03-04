@@ -1,11 +1,11 @@
 <% if local_assigns[:data_type] == 'moment' || local_assigns[:data_type] == 'moment_tag_usage' %>
     <div class="moment">
       <h1 class="moment_name">
-        <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
+        <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
       </h1>
 
-      <%= render :partial => '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
+      <%= render partial: '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
 
       <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
@@ -19,7 +19,7 @@
 <% elsif local_assigns[:data_type] == 'strategy' || local_assigns[:data_type] == 'strategy_tag_usage' %>
       <div class="strategy">
       <h1 class="strategy_name">
-        <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
+        <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
         <%= link_to local_assigns[:item].name, local_assigns[:item] %>
       </h1>
       <% if !local_assigns[:item].published? %>
@@ -38,7 +38,7 @@
           <% if Category.where(id: item, userid: current_user.id).exists? %>
           <span class="notification_wrapper">
             <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
-            <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
+            <%= render partial: '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
           </span>
           <% end %>
         <% end %>

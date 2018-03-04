@@ -1,6 +1,6 @@
 <div class="quick_create display_none" id=<%= "#{local_assigns[:data_type].to_s}_quick_create" %> >
 	<div class="quick_create_text">
-		<%= render :partial => '/shared/modal',
+		<%= render partial: '/shared/modal',
 			locals: {
 				modal_title: "#{t('shared.quick_create.new', name: local_assigns[:data_type].to_s.titleize)}",
 				modal_close_class: 'quick_create_close',
@@ -31,7 +31,7 @@
 			  	</div>
 			<% end %>
 
-			<%= render :partial => '/shared/quick_create_fields', locals: { data_type: local_assigns[:data_type], f: f } %>
+			<%= render partial: '/shared/quick_create_fields', locals: { data_type: local_assigns[:data_type], f: f } %>
 
 			<div class="clear"></div>
 

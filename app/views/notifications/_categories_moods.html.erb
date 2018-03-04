@@ -8,7 +8,7 @@
 			<% modal_title = t('moods.plural') %>
 		<% end %>
 
-		<%= render :partial => '/shared/modal',
+		<%= render partial: '/shared/modal',
 			locals: {
 				modal_title: modal_title,
 				modal_close_id: 'close_categories_moods'
@@ -27,7 +27,7 @@
 				    	<%= local_assigns[:f].check_box(:category, {:multiple => true}, item.id, nil) %>
 				      	<span class="notification_wrapper">
 				        	<span class="tip_notifications_button link_style"><%= item.name %></span>
-				        	<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
+				        	<%= render partial: '/notifications/preview', locals: { data: item, edit: edit_category_path(item) } %>
 				      	</span>
 				    </div>
 			    <% end %>
@@ -44,7 +44,7 @@
 						<%= local_assigns[:f].check_box(:mood, {:multiple => true}, item.id, nil) %>
 						<span class="notification_wrapper">
 							<span class="tip_notifications_button link_style"><%= item.name %></span>
-						<%= render :partial => '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
+						<%= render partial: '/notifications/preview', locals: { data: item, edit: edit_mood_path(item) } %>
 						</span>
 					</div>
 				<% end %>

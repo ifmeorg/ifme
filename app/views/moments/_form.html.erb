@@ -87,7 +87,7 @@
       </div>
       <%= f.cktext_area :why, class: 'no_title special_textarea ckeditor' %>
 
-      <%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
+      <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
     </div>
     <div class="field">
       <div class="label">
@@ -95,13 +95,13 @@
       </div>
       <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
 
-      <%= render :partial => '/shared/character_count', locals: { data: 'moment_fix' } %>
+      <%= render partial: '/shared/character_count', locals: { data: 'moment_fix' } %>
     </div>
     <div class="field slider-container">
       <div class="label draft_label">
         <%= f.label t('moments.form.draft_question') %>
       </div>
-      <%= render :partial => '/shared/draft_slider', locals: {published: @moment.published? } %>
+      <%= render partial: '/shared/draft_slider', locals: { published: @moment.published? } %>
     </div>
   </div>
 
@@ -117,8 +117,8 @@
 
 <% end %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'moment' } %>
+<%= render partial: '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'moment' } %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'mood', data: @mood , tag: 'moment' } %>
+<%= render partial: '/shared/quick_create', locals: { data_type: 'mood', data: @mood , tag: 'moment' } %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy, tag: 'moment' } %>
+<%= render partial: '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy, tag: 'moment' } %>

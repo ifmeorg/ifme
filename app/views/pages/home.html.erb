@@ -1,8 +1,8 @@
 <% title user_signed_in? && @stories.any? ? t('pages.home.stories') : t('pages.home.welcome') %>
 <% if !user_signed_in? %>
-	<%= render :partial => 'not_signed_in' %>
+	<%= render partial: 'not_signed_in' %>
 <% elsif @stories.count > 0 %>
-	<%= render :partial => '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
+	<%= render partial: '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
 
 	<div id="pages">
 		<div class="page">
@@ -11,7 +11,7 @@
 					<div class="story">
 		      	<div class="align_left">
 						  <h1 class="story_name">
-						    <%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+						    <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
 						    <%= link_to story.name, story %>
 						  </h1>
 						</div>
@@ -26,7 +26,7 @@
 		     		</div>
 		     		<div class="clear"></div>
 
-		     		<%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
+		     		<%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
 					</div>
 				<% end %>
 			<% end %>
@@ -35,5 +35,5 @@
 
 	<%= paginate @stories %>
 <% else %>
-	<%= render :partial => 'signed_in_empty' %>
+	<%= render partial: 'signed_in_empty' %>
 <% end %>

@@ -8,7 +8,7 @@
 <div class="spacer"></div>
 
 <% if @moments.length > 0 %>
-  <%= render :partial => '/search/posts', locals: { data_type: 'moment' } %>
+  <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
 
   <div class="stats_divider"></div>
 
@@ -26,7 +26,7 @@
     <div class="spacer"></div>
  </div>
 
-  <%= render :partial => '/shared/stats', locals: { data_type: 'moment' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'moment' } %>
 
   <div id="pages">
     <div class="page">
