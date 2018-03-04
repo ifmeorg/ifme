@@ -110,7 +110,6 @@ class User < ApplicationRecord
 
   # TODO: _signed_in_resource is unused and should be removed
   # rubocop:disable MethodLength
-  # rubocop:disable AbcSize
   def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
@@ -127,7 +126,6 @@ class User < ApplicationRecord
     )
     user
   end
-  # rubocop:enable AbcSize
   # rubocop:enable MethodLength
 
   def google_access_token
