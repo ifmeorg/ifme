@@ -32,6 +32,9 @@ Rails/InverseOf:
 Rails/HasManyOrHasOneDependent:
   Enabled: false
 
+Style/MixinUsage:
+  Enabled: false
+
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
