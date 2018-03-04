@@ -195,7 +195,7 @@ class ApplicationController < ActionController::Base
   def get_stories(user, include_allies)
     if user.id == current_user.id
       my_moments = user.moments.all.recent
-      my_strategies = Strategy.where(userid: user.id).all.recent
+      my_strategies = user.strategies.all.recent
     end
 
     if include_allies && user.id == current_user.id
