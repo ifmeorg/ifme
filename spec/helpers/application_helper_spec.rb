@@ -1,6 +1,6 @@
 describe ApplicationHelper do
   describe '#nav_link_to' do
-    let(:is_active) { true }
+    let(:active)    { true }
     let(:label)     { 'foo' }
     let(:path)      { 'bar' }
     let(:options)   { {} }
@@ -8,11 +8,11 @@ describe ApplicationHelper do
     subject { nav_link_to(label, path, options) }
 
     before(:each) do
-      allow(self).to receive('is_active?').and_return(is_active)
+      allow(self).to receive('active?').and_return(active)
     end
 
     context 'when active' do
-      let(:is_active) { true }
+      let(:active) { true }
 
       it { is_expected.to have_selector 'li a' }
       it { is_expected.to include label }
@@ -20,7 +20,7 @@ describe ApplicationHelper do
     end
 
     context 'when not active' do
-      let(:is_active) { false }
+      let(:active) { false }
 
       it { is_expected.to have_selector 'li a' }
       it { is_expected.to include label }
@@ -31,20 +31,20 @@ describe ApplicationHelper do
       let(:options) { { :method => :delete } }
 
       it 'passes method in environment' do
-        expect(self).to receive(:is_active?).with(path, options)
+        expect(self).to receive(:active?).with(path, options)
         nav_link_to(label, path, options)
       end
     end
   end
 
-  describe '#is_active?' do
+  describe '#active?' do
     let(:is_current_page)    { false }
     let(:current_controller) { '' }
     let(:action_name)        { '' }
     let(:path)               { root_path }
     let(:environment)        { {} }
 
-    subject { is_active?(path, environment) }
+    subject { active?(path, environment) }
 
     before(:each) do
       params[:controller] = current_controller
