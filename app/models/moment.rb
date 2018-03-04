@@ -1,7 +1,5 @@
-# rubocop:disable EmptyLineAfterMagicComment
 # frozen_string_literal: true
 # == Schema Information
-# rubocop:enable EmptyLineAfterMagicComment
 #
 # Table name: moments
 #
