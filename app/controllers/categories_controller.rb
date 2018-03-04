@@ -79,7 +79,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(userid: current_user.id).all
+    @moments = current_user.moments.all
 
     @moments.each do |item|
       item.category.delete(@category.id)

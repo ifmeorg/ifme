@@ -162,7 +162,7 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1.json
   def destroy
     # Remove strategies from existing moments
-    @moments = Moment.where(userid: current_user.id).all
+    @moments = current_user.moments.all
 
     @moments.each do |item|
       item.strategy.delete(@strategy.id)

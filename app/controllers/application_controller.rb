@@ -194,7 +194,7 @@ class ApplicationController < ActionController::Base
 
   def get_stories(user, include_allies)
     if user.id == current_user.id
-      my_moments = Moment.where(userid: user.id).all.recent
+      my_moments = user.moments.all.recent
       my_strategies = Strategy.where(userid: user.id).all.recent
     end
 
@@ -225,7 +225,7 @@ class ApplicationController < ActionController::Base
 
   def moments_stats
     result = ''
-    count = Moment.where(userid: current_user.id).all.count
+    count = current_user.moments.all.count
 
     if count > 1
       result += '<div class="center" id="stats">'
@@ -235,7 +235,7 @@ class ApplicationController < ActionController::Base
       else
         result += t('stats.total_moments', count: count.to_s)
 
-        monthly_count = Moment.where(userid: current_user.id, created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
+        monthly_count = current_user.moments.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).all.count
         if count != monthly_count
           result += ' '
           if monthly_count == 1
