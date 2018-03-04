@@ -23,7 +23,7 @@ class GroupMember < ApplicationRecord
 
   has_many :meetings, through: :group
   has_many :meeting_memberships,
-           lambda(group_member) {
+           lambda { |group_member|
              where(meeting_members: { userid: group_member.userid })
            },
            through: :meetings, source: :meeting_members
