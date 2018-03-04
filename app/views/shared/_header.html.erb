@@ -39,7 +39,7 @@
       <ul class="top-nav primary-nav">
         <% if user_signed_in? %>
           <%= nav_link_to(t('shared.header.home'), root_path)  %>
-          <%= nav_link_to(t('moments.plural'), moments_path, :class => "expand_moment_button") %>
+          <%= nav_link_to(t('moments.plural'), moments_path, class: "expand_moment_button") %>
           <%= nav_link_to(t('strategies.plural'), strategies_path) %>
           <%= nav_link_to(t('medications.index.title'), medications_path) %>
           <%= nav_link_to(t('groups.plural'), groups_path) %>
