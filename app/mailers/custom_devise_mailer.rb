@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-
-include InvitationsHelper
 # inviter_name method from InvitationsHelper
 
 class CustomDeviseMailer < Devise::Mailer
+  include InvitationsHelper
+
   protected
 
   def subject_for(key)
