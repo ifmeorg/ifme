@@ -85,13 +85,13 @@
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
 
-      <%= render :partial => '/shared/character_count', locals: { data: 'strategy_description' } %>
+      <%= render partial: '/shared/character_count', locals: { data: 'strategy_description' } %>
     </div>
     <div class="field slider-container">
       <div class="label draft_label">
         <%= f.label t('strategies.form.draft_question') %>
       </div>
-      <%= render :partial => '/shared/draft_slider', locals: {published: @strategy.published? } %>
+      <%= render partial: '/shared/draft_slider', locals: { published: @strategy.published? } %>
     </div>
   </div>
 </div>
@@ -106,4 +106,4 @@
 
 <% end %>
 
-<%= render :partial => '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'strategy' } %>
+<%= render partial: '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'strategy' } %>

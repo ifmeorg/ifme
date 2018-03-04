@@ -7,9 +7,9 @@
 <div class="spacer"></div>
 
 <% if @categories.length > 0 %>
-  <%= render :partial => '/search/posts', locals: { data_type: 'category' } %>
+  <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
 
-  <%= render :partial => '/shared/stats', locals: { data_type: 'category' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'category' } %>
 
   <div id="pages">
     <div class="page">

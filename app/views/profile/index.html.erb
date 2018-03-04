@@ -34,9 +34,9 @@
   <div class="horizonal_divider"></div>
 <% end %>
 
-<%= render :partial => '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
-<%= render :partial => '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
-<%= render :partial => '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
 
 <% if !@stories.nil? && !@stories.empty? %>
   <div class="main_message">
@@ -48,10 +48,10 @@
     <% @stories.each do |story| %>
       <div class="story">
         <h1 class="story_name">
-          <%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+          <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
           <%= link_to story.name, story %>
         </h1>
-        <%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
+        <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
       </div>
     <% end %>
     </div>
