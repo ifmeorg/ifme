@@ -434,12 +434,12 @@ class MeetingsController < ApplicationController
   end
 
   def hide_page(meeting)
-    _meeting = Meeting.where(id: meeting.id)
-    _meeting_member = MeetingMember.where(
+    meeting_obj = Meeting.where(id: meeting.id)
+    meeting_member = MeetingMember.where(
       meetingid: meeting.id,
       userid: current_user.id
     )
-    !(_meeting.exists? && _meeting_member.exists?)
+    !(meeting_obj.exists? && meeting_member.exists?)
   end
 end
 # rubocop:enable ClassLength
