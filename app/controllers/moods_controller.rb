@@ -78,7 +78,7 @@ class MoodsController < ApplicationController
   # DELETE /moods/1.json
   def destroy
     # Remove moods from existing moments
-    @moments = Moment.where(userid: current_user.id).all
+    @moments = current_user.moments.all
 
     @moments.each do |item|
       item.mood.delete(@mood.id)
