@@ -42,6 +42,7 @@
 #  access_expires_at      :datetime
 #  refresh_token          :string
 #
+# rubocop:disable ClassLength
 
 class User < ApplicationRecord
   ALLY_STATUS = {
@@ -53,22 +54,41 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+         omniauth_providers: [:google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
 
   before_save :remove_leading_trailing_whitespace
 
-  has_many :allyships
+  has_many :allyships, dependent: :destroy
   has_many :allies, through: :allyships
-  has_many :alerts, inverse_of: :user
-  has_many :group_members, foreign_key: :userid
+  has_many :alerts, inverse_of: :user, dependent: :destroy
+  has_many :group_members,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
   has_many :groups, through: :group_members
-  has_many :meeting_members, foreign_key: :userid
-  has_many :medications, foreign_key: :userid
-  has_many :strategies, foreign_key: :userid
-  has_many :notifications, foreign_key: :userid
-  has_many :moments, foreign_key: :userid
+  has_many :meeting_members,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
+  has_many :medications,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
+  has_many :strategies,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
+  has_many :notifications,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
+  has_many :moments,
+           foreign_key: :userid,
+           inverse_of: :user,
+           dependent: :destroy
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
@@ -89,6 +109,8 @@ class User < ApplicationRecord
   end
 
   # TODO: _signed_in_resource is unused and should be removed
+  # rubocop:disable MethodLength
+  # rubocop:disable AbcSize
   def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
@@ -105,6 +127,8 @@ class User < ApplicationRecord
     )
     user
   end
+  # rubocop:enable AbcSize
+  # rubocop:enable MethodLength
 
   def google_access_token
     if !access_expires_at || Time.zone.now > access_expires_at
@@ -134,25 +158,18 @@ class User < ApplicationRecord
     @meeting_notify.nil? && @comment_notify = true
   end
 
+  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
+
   def update_access_token
-    url = URI('https://accounts.google.com/o/oauth2/token')
     refresh_token_params = { 'refresh_token' => refresh_token,
                              'client_id'     => nil,
                              'client_secret' => nil,
                              'grant_type'    => 'refresh_token' }
-
-    time_of_request = Time.zone.now
-    response = Net::HTTP.post_form(url, refresh_token_params)
+    response = Net::HTTP.post_form(User::OAUTH_TOKEN_URL, refresh_token_params)
     decoded_response = JSON.parse(response.body)
-
-    new_expiration_time = time_of_request + decoded_response['expires_in']
+    new_expiration_time = Time.zone.now + decoded_response['expires_in']
     new_access_token = decoded_response['access_token']
-
-    update(
-      token: new_access_token,
-      access_expires_at: new_expiration_time
-    )
-
+    update(token: new_access_token, access_expires_at: new_expiration_time)
     new_access_token
   end
 
@@ -167,3 +184,5 @@ class User < ApplicationRecord
          .where(group_members: { userid: accepted_ally_ids })
   end
 end
+
+# rubocop:enable ClassLength

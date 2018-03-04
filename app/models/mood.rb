@@ -19,7 +19,7 @@ class Mood < ApplicationRecord
   validates :description, length: { maximum: 2000 }
   validates :userid, :name, presence: true
 
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user, foreign_key: :userid, inverse_of: :mood
 
   def self.link
     'moods'

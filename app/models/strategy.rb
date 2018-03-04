@@ -27,10 +27,13 @@ class Strategy < ApplicationRecord
 
   before_save :array_data_to_i!
 
-  belongs_to :user, foreign_key: :userid
-  has_many :comments, as: :commentable
+  belongs_to :user, foreign_key: :userid, inverse_of: :strategy
+  has_many :comments,
+           as: :commentable,
+           inverse_of: :strategy,
+           dependent: :destroy
 
-  has_one :perform_strategy_reminder
+  has_one :perform_strategy_reminder, dependent: :destroy
   accepts_nested_attributes_for :perform_strategy_reminder
 
   validates :comment, inclusion: [true, false]
