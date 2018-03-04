@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
 
@@ -7,6 +8,7 @@ class MomentsController < ApplicationController
 
   # GET /moments
   # GET /moments.json
+  # rubocop:disable MethodLength
   def index
     if current_user
       @user_logged_in = true
@@ -26,6 +28,7 @@ class MomentsController < ApplicationController
 
     page_collection('@moments', 'moment')
   end
+  # rubocop:enable MethodLength
 
   # GET /moments/1
   # GET /moments/1.json
@@ -37,14 +40,18 @@ class MomentsController < ApplicationController
     comment_for('moment')
   end
 
+  # rubocop:disable MethodLength
   def delete_comment
     comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(id: params[:commentid], comment_by: current_user.id).exists?
+    is_my_comment = Comment.where(
+      id: params[:commentid],
+      comment_by: current_user.id
+    ).exists?
 
     if comment_exists
       momentid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
-      is_a_viewer = is_viewer(Moment.where(id: momentid).first.viewers)
+      is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
     else
       is_my_moment = false
       is_a_viewer = false
@@ -63,7 +70,9 @@ class MomentsController < ApplicationController
 
     head :ok
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def quick_moment
     # Assumme all viewers and comments allowed
     viewers = []
@@ -87,6 +96,7 @@ class MomentsController < ApplicationController
       format.json { render root_path }
     end
   end
+  # rubocop:enable MethodLength
 
   # GET /moments/new
   def new
@@ -105,6 +115,7 @@ class MomentsController < ApplicationController
 
   # POST /moments
   # POST /moments.json
+  # rubocop:disable MethodLength
   def create
     @moment = Moment.new(moment_params.merge(userid: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
@@ -118,13 +129,17 @@ class MomentsController < ApplicationController
         format.json { render :show, status: :created, location: @moment }
       else
         format.html { render :new }
-        format.json { render json: @moment.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @moment.errors, status: :unprocessable_entity
+        end
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json
+  # rubocop:disable MethodLength
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
@@ -144,10 +159,13 @@ class MomentsController < ApplicationController
         format.json { render :show, status: :ok, location: @moment }
       else
         format.html { render :edit }
-        format.json { render json: @moment.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @moment.errors, status: :unprocessable_entity
+        end
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # DELETE /moments/1
   # DELETE /moments/1.json
@@ -158,11 +176,13 @@ class MomentsController < ApplicationController
 
   private
 
+  # rubocop:disable RescueStandardError
   def set_moment
     @moment = Moment.friendly.find(params[:id])
   rescue
     redirect_to_path(moments_path)
   end
+  # rubocop:enable RescueStandardError
 
   def moment_params
     params.require(:moment).permit(
@@ -224,3 +244,4 @@ class MomentsController < ApplicationController
     end
   end
 end
+# rubocop:enable ClassLength
