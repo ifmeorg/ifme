@@ -40,31 +40,31 @@
       } %>
 
     <% if !@viewers.nil? && @viewers.length > 0 %>
-    <div class="sidebar_field">
-      <div class="sidebar_label expand_toggle" data-toggle="#viewers">
-        <a href="#" class="toggle_button">
-          <i class="fa fa-caret-down"></i>
-        </a>
-        <%= f.label t('shared.viewers.plural') %>
-        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
+      <div class="sidebar_field">
+        <div class="sidebar_label expand_toggle" data-toggle="#viewers">
+          <a href="#" class="toggle_button">
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <%= f.label t('shared.viewers.plural') %>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
+        </div>
       </div>
-    </div>
 
-    <div id="viewers" class="display_none">
-      <div id="viewers_list">
-        <label>
-          <input type="checkbox" id="viewers_all" />
-          <span id="viewers_label"><%= t('common.actions.select_all') %></span>
-        </label>
-
-        <% @viewers.each do |item| %>
+      <div id="viewers" class="display_none">
+        <div id="viewers_list">
           <label>
-            <%= f.check_box(:viewers, {:multiple => true, :checked => @moment.viewers.include?(item.id)}, item.id, nil) %>
-            <%= User.where(id: item.id).first.name %>
+            <input type="checkbox" id="viewers_all" />
+            <span id="viewers_label"><%= t('common.actions.select_all') %></span>
           </label>
-        <% end %>
+
+          <% @viewers.each do |item| %>
+            <label>
+              <%= f.check_box(:viewers, { multiple: true, checked: @moment.viewers.include?(item.id)}, item.id, nil) %>
+              <%= User.where(id: item.id).first.name %>
+            </label>
+          <% end %>
+        </div>
       </div>
-    </div>
     <% end %>
 
      <div class="sidebar_field">

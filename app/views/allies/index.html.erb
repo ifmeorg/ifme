@@ -16,7 +16,7 @@
       <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
-      <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+      <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
     </div>
   <% end %>
   </div>
@@ -35,7 +35,7 @@
       <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
-      <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+      <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
     </div>
   <% end %>
   </div>
@@ -49,16 +49,16 @@
 <% end %>
 
 <% if @accepted_allies.present? %>
-<div class="allies_list">
-<% @accepted_allies.each do |ally| %>
-  <div class="ally center">
-    <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
-    <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
-    <div class="location"><%= ally.location %></div>
-    <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+  <div class="allies_list">
+    <% @accepted_allies.each do |ally| %>
+      <div class="ally center">
+        <%= ProfilePicture.fetch(ally.avatar.url, 'profile_picture') %>
+        <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+        <div class="location"><%= ally.location %></div>
+        <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 <% end %>
 
 <% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>

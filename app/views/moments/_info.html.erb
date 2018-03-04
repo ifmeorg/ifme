@@ -42,27 +42,27 @@
 <% if local_assigns[:home] %>
   <div class="spacer"></div>
   <% if local_assigns[:data].class.name == 'Moment' %>
-  <%= strip_tags(local_assigns[:data].why[0..200]) %>
-  <% if local_assigns[:data].why.length >= 200 %>
-    <%= t('ellipsis') %>
-  <% end %>
+    <%= strip_tags(local_assigns[:data].why[0..200]) %>
+    <% if local_assigns[:data].why.length >= 200 %>
+      <%= t('ellipsis') %>
+    <% end %>
   <% elsif local_assigns[:data].class.name == 'Strategy' %>
-  <%= strip_tags(local_assigns[:data].description[0..200]) %>
-  <% if local_assigns[:data].description.length >= 200 %>
-    <%= t('ellipsis') %>
-  <% end %>
+    <%= strip_tags(local_assigns[:data].description[0..200]) %>
+    <% if local_assigns[:data].description.length >= 200 %>
+      <%= t('ellipsis') %>
+    <% end %>
   <% end %>
 <% end %>
 
 <% if local_assigns[:class_name] %>
-<br>
-<div class="align_right subtle class_name">
-<% if local_assigns[:data].class.name == 'Moment' %>
-  <%= t('moments.singular') %>
-<% elsif local_assigns[:data].class.name == 'Strategy' %>
-  <%= t('strategies.singular') %>
-<% end %>
-</div>
+  <br>
+  <div class="align_right subtle class_name">
+    <% if local_assigns[:data].class.name == 'Moment' %>
+      <%= t('moments.singular') %>
+    <% elsif local_assigns[:data].class.name == 'Strategy' %>
+      <%= t('strategies.singular') %>
+    <% end %>
+  </div>
 <% end %>
 
 <div class="clear"></div>

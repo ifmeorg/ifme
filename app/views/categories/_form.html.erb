@@ -1,10 +1,10 @@
 <%= form_for(@category) do |f| %>
 
-<% if @category.errors.any? %>
-  <div class="error_explanation">
-    <%= t('common.form.error_explanation') %>
-  </div>
-<% end %>
+  <% if @category.errors.any? %>
+    <div class="error_explanation">
+      <%= t('common.form.error_explanation') %>
+    </div>
+  <% end %>
 
   <div class="field">
     <div class="label">
