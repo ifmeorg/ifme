@@ -2,9 +2,10 @@
 
 require 'action_view'
 require 'action_view/helpers'
-include ActionView::Helpers::DateHelper
 
 class TimeAgo
+  include ActionView::Helpers::DateHelper
+
   class << self
     def formatted_ago(time_with_zone)
       if time_with_zone < 1.week.ago
