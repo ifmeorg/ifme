@@ -1,16 +1,11 @@
-describe 'user adds a new strategy' do
+describe 'AddingStrategy' do
   let!(:user) { FactoryBot.create(:user_oauth) }
   before do
     login_as user
     visit new_strategy_path
   end
 
-  it 'does not create a new strategy' do
-    click_on 'Submit'
-    expect(page).to have_content('New Strategy')
-  end
-
-  it 'creates a new strategy' do
+  it 'creates a new Strategy' do
     fill_in 'Title', with: 'A strategy name'
     fill_in 'Describe the strategy', with: 'A description'
     click_on 'Submit'

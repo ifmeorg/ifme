@@ -11,7 +11,15 @@ describe 'UserCreatesADraftStrategy', js: true do
   end
 
   feature 'Creating, viewing, and editing a strategy' do
-    specify do
+    it 'is not successful' do
+      login_as user
+      visit new_strategy_path
+      click_on 'Submit'
+      expect(page).to have_content('New Strategy')
+      expect(page).to have_css('label.alert_text')
+    end
+
+    it 'is successful' do
       login_as user
       visit strategies_path
 

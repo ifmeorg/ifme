@@ -13,6 +13,14 @@ describe 'UserCreatesADraftMoment', js: true do
   end
 
   feature 'Creating, viewing, and editing a draft moment' do
+    it 'is not successful' do
+      login_as user
+      visit new_moment_path
+      click_on 'Submit'
+      expect(page).to have_content('New Moment')
+      expect(page).to have_css('label.alert_text')
+    end
+
     it 'is successful' do
       login_as user
       visit moments_path
