@@ -1,18 +1,18 @@
 function changeEditorCount(editorCount, remaining) {
   $(editorCount).html(remaining);
 
-    if (remaining <= 0) {
-      $(editorCount).css('color', '#990019');
+  if (remaining <= 0) {
+    $(editorCount).css('color', '#990019');
 
-      if (remaining === 0) {
-        $('input[type="submit"]').prop('disabled', false);
-      } else {
-        $('input[type="submit"]').prop('disabled', true);
-      }
-    } else {
-      $(editorCount).css('color', '#b5839b');
+    if (remaining === 0) {
       $('input[type="submit"]').prop('disabled', false);
+    } else {
+      $('input[type="submit"]').prop('disabled', true);
     }
+  } else {
+    $(editorCount).css('color', '#b5839b');
+    $('input[type="submit"]').prop('disabled', false);
+  }
 }
 
 function noCKEditor(editor) {
@@ -21,7 +21,7 @@ function noCKEditor(editor) {
   var editorCount = '#' + editorName + '_count';
   var remaining = 2000 - editorData.length;
 
-	 changeEditorCount(editorCount, remaining);
+  changeEditorCount(editorCount, remaining);
 }
 
 function yesCKEditor(editor) {

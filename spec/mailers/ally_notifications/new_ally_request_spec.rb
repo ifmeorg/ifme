@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe AllyNotifications::NewAllyRequest do
-  let(:recipient)  { FactoryGirl.create(:user1, email: "some@user.com") }
-  let(:ally)       { FactoryGirl.create(:user2) }
+  let(:recipient)  { FactoryBot.create(:user1, email: "some@user.com") }
+  let(:ally)       { FactoryBot.create(:user2) }
   let(:allies_url) { "http://localhost:3000/allies" }
 
   let(:data) do

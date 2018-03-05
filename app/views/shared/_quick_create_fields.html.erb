@@ -1,70 +1,70 @@
 <% if local_assigns[:data_type] == 'category' %>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('common.name') %>
-		<i class="fa fa-asterisk align_right"></i>
-		<div class="clear"></div>
-	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('common.name') %>
+      <i class="fa fa-asterisk align_right"></i>
+      <div class="clear"></div>
+    </div>
+    <%= local_assigns[:f].text_field :name, class: "name_field" %>
+  </div>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('common.form.description') %>
-	</div>
-	<%= local_assigns[:f].text_area :description, class: 'no_title' %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('common.form.description') %>
+    </div>
+    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+  </div>
 
-<% elsif local_assigns[:data_type] == 'mood' %>
+  <% elsif local_assigns[:data_type] == 'mood' %>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('common.name') %>
-		<i class="fa fa-asterisk align_right"></i>
-		<div class="clear"></div>
-	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('common.name') %>
+      <i class="fa fa-asterisk align_right"></i>
+      <div class="clear"></div>
+    </div>
+    <%= local_assigns[:f].text_field :name, class: "name_field" %>
+  </div>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('common.form.description') %>
-	</div>
-	<%= local_assigns[:f].text_area :description, class: 'no_title' %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('common.form.description') %>
+    </div>
+    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+  </div>
 
-<% elsif local_assigns[:data_type] == 'strategy' %>
+  <% elsif local_assigns[:data_type] == 'strategy' %>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('common.title') %>
-		<i class="fa fa-asterisk align_right"></i>
-		<div class="clear"></div>
-	</div>
-	<%= local_assigns[:f].text_field :name, :class => "name_field" %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('common.title') %>
+      <i class="fa fa-asterisk align_right"></i>
+      <div class="clear"></div>
+    </div>
+    <%= local_assigns[:f].text_field :name, class: "name_field" %>
+  </div>
 
-<% categories = Category.where(userid: current_user.id).all %>
-<% if !categories.nil? && categories.length > 0 %>
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('categories.plural') %>
-	</div>
-	<% categories.each do |item| %>
-		<%= local_assigns[:f].check_box(:category, {:multiple => true, :checked => @strategy.category.include?(item.id)}, item.id, nil) %><%= item.name %><br>
-	<% end %>
-</div>
-<% end %>
+  <% categories = Category.where(userid: current_user.id).all %>
+  <% if !categories.nil? && categories.length > 0 %>
+    <div class="field">
+      <div class="label">
+        <%= local_assigns[:f].label t('categories.plural') %>
+      </div>
+      <% categories.each do |item| %>
+        <%= local_assigns[:f].check_box(:category, { multiple: true, checked: @strategy.category.include?(item.id)}, item.id, nil) %><%= item.name %><br>
+      <% end %>
+    </div>
+  <% end %>
 
-<div class="field">
-	<div class="label">
-		<%= local_assigns[:f].label t('strategies.form.describe') %>
-		<i class="fa fa-asterisk align_right"></i>
-		<div class="clear"></div>
-	</div>
-	<%= local_assigns[:f].text_area :description, class: 'no_title' %>
-	<%= render :partial => '/shared/character_count', locals: { data: 'strategy_description' } %>
-</div>
+  <div class="field">
+    <div class="label">
+      <%= local_assigns[:f].label t('strategies.form.describe') %>
+      <i class="fa fa-asterisk align_right"></i>
+      <div class="clear"></div>
+    </div>
+    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+    <%= render partial: '/shared/character_count', locals: { data: 'strategy_description' } %>
+  </div>
 
 <% end %>

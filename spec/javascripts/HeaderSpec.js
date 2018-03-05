@@ -235,11 +235,11 @@ describe("Header", function() {
     });
 
     it("toggles sort icon in header logo", function() {
-      expect($("#title_expand .expand").hasClass("fa-sort-desc")).toBe(true);
+      expect($("#title_expand .expand").hasClass("fa-sort-down")).toBe(true);
       expandButton();
-      expect($("#title_expand .expand").hasClass("fa-sort-asc")).toBe(true);
+      expect($("#title_expand .expand").hasClass("fa-sort-up")).toBe(true);
       expandButton();
-      expect($("#title_expand .expand").hasClass("fa-sort-desc")).toBe(true);
+      expect($("#title_expand .expand").hasClass("fa-sort-down")).toBe(true);
     });
   });
 

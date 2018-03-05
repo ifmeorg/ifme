@@ -14,8 +14,8 @@ describe StrategyReminders do
     end
 
     context "reminders exist" do
-      let!(:user) { FactoryGirl.create(:user1) }
-      let!(:strategy) { FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id) }
+      let!(:user) { FactoryBot.create(:user1) }
+      let!(:strategy) { FactoryBot.create(:strategy, :with_daily_reminder, userid: user.id) }
       let!(:reminder) { strategy.perform_strategy_reminder }
 
       context "perform strategy reminder is active" do

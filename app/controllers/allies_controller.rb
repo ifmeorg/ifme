@@ -13,6 +13,7 @@ class AlliesController < ApplicationController
                                           .sort_by! { |n| n.name.downcase }
   end
 
+  # rubocop:disable MethodLength
   def add
     ally_id = params[:ally_id]
     allyship = Allyship.find_by(
@@ -20,11 +21,8 @@ class AlliesController < ApplicationController
     )
 
     pusher_type = allyship ? 'accepted_ally_request' : 'new_ally_request'
-
     setup_allyship(allyship, ally_id)
-
     remove_allyship_request(ally_id)
-
     handle_allyship_notifications(pusher_type, ally_id)
 
     respond_to do |format|
@@ -32,6 +30,7 @@ class AlliesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # rubocop:enable MethodLength
 
   def remove
     user_id = current_user.id

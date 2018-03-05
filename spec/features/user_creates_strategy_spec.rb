@@ -47,7 +47,7 @@ describe 'UserCreatesAStrategy', js: true do
         page.find('#new_category input[type="submit"]').click
       end
       within '#categories_list' do
-        page.all('input[name="strategy[category][]"]')[2].click
+        page.all('input[name="strategy[category][]"]').last.click
       end
       page.find('[data-toggle="#categories"]').click
 

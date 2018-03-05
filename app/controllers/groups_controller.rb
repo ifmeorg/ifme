@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: %i[show edit update destroy]
@@ -54,6 +55,7 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
+  # rubocop:disable MethodLength
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -63,10 +65,13 @@ class GroupsController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @group.errors, status: :unprocessable_entity
+        end
       end
     end
   end
+  # rubocop:enable MethodLength
 
   def join
     @group_member = GroupMember.create!(group_member_params)
@@ -78,9 +83,13 @@ class GroupsController < ApplicationController
     redirect_to_group
   end
 
+  # rubocop:disable MethodLength
   def leave
     member_id = params[:memberid] || current_user.id
-    group_member = GroupMember.find_by(userid: member_id, groupid: params[:groupid])
+    group_member = GroupMember.find_by(
+      userid: member_id,
+      groupid: params[:groupid]
+    )
     group = group_member.group
 
     # Cannot leave When you are the only leader
@@ -89,16 +98,19 @@ class GroupsController < ApplicationController
     else
       group_member.destroy
 
-      if member_id == current_user.id
-        flash[:notice] = t('groups.leave.success', group: group.name)
-      else
-        flash[:notice] = t('groups.leave.remove_member_success',
+      flash[:notice] = if member_id == current_user.id
+                         t('groups.leave.success', group: group.name)
+                       else
+                         t(
+                           'groups.leave.remove_member_success',
                            user: group_member.user.name,
-                           group: group.name)
-      end
+                           group: group.name
+                         )
+                       end
     end
     redirect_to_index
   end
+  # rubocop:enable MethodLength
 
   # DELETE /groups/1
   # DELETE /groups/1.json
@@ -160,3 +172,4 @@ class GroupsController < ApplicationController
     end
   end
 end
+# rubocop:enable ClassLength

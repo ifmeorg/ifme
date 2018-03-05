@@ -1,6 +1,6 @@
 <div class="tip_notifications display_none">
   <div class="tip_notifications_text">
-    <%= render :partial => '/shared/modal',
+    <%= render partial: '/shared/modal',
       locals: {
         modal_title: t('notifications.members.title'),
         modal_close_class: 'tip_close_notifications',
@@ -9,39 +9,39 @@
 
     <%# group can be an instance of either group or meeting %>
     <div class="modal_text">
-    <% group.members.each do |member| %>
-      <div class="table">
-        <div class="table_row">
+      <% group.members.each do |member| %>
+        <div class="table">
+          <div class="table_row">
 
-          <% if group.members.last == member %>
-            <div class="table_cell small_profile_picture_div padding_right">
-          <% else %>
-            <div class="table_cell small_profile_picture_div padding_right small_padding_bottom">
-          <% end %>
-
-            <%= ProfilePicture.fetch(member.avatar.url, 'mini_profile_picture') %>
-            <br>
-          </div>
-
-          <% if group.members.last == member %>
-            <div class="table_cell vertical_align_middle">
-          <% else %>
-            <div class="table_cell small_padding_bottom vertical_align_middle">
-          <% end %>
-          <%= link_to member.name, profile_index_path(uid: member.uid) %>
-
-          <% if member != current_user &&
-              group.instance_of?(Group) &&
-              group.leaders.include?(current_user) %>
-              <i class="fa fa-times action small_margin_left"></i>
-              <%= link_to t('common.actions.remove'),
-                          leave_groups_path(groupid: group.id,
-                          memberid: member.id), id: 'leave' %>
+            <% if group.members.last == member %>
+              <div class="table_cell small_profile_picture_div padding_right">
+            <% else %>
+              <div class="table_cell small_profile_picture_div padding_right small_padding_bottom">
             <% end %>
+
+              <%= ProfilePicture.fetch(member.avatar.url, 'mini_profile_picture') %>
+              <br>
+            </div>
+
+            <% if group.members.last == member %>
+              <div class="table_cell vertical_align_middle">
+            <% else %>
+              <div class="table_cell small_padding_bottom vertical_align_middle">
+            <% end %>
+            <%= link_to member.name, profile_index_path(uid: member.uid) %>
+
+            <% if member != current_user &&
+                group.instance_of?(Group) &&
+                group.leaders.include?(current_user) %>
+                <i class="fa fa-times action small_margin_left"></i>
+                <%= link_to t('common.actions.remove'),
+                            leave_groups_path(groupid: group.id,
+                            memberid: member.id), id: 'leave' %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>

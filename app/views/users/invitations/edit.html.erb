@@ -1,30 +1,28 @@
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
 
   <% if f.object.class.require_password_on_accepting %>
-
-  <div class="field">
-    <div class="label">
-      <%= f.label t('common.name') %>
+    <div class="field">
+      <div class="label">
+        <%= f.label t('common.name') %>
+      </div>
+      <%= f.text_field :name %>
     </div>
-    <%= f.text_field :name %>
-  </div>
 
-  <div class="field">
-    <div class="label">
-      <%= f.label t('devise.password') %>
+    <div class="field">
+      <div class="label">
+        <%= f.label t('devise.password') %>
+      </div>
+      <%= f.password_field :password %>
     </div>
-    <%= f.password_field :password %>
-  </div>
 
-  <div class="field">
-  	<div class="label">
-  		<%= f.label t('devise.registrations.placeholders.repeat_password') %>
-  	</div>
-  	<%= f.password_field :password_confirmation %>
-  </div>
-
+    <div class="field">
+      <div class="label">
+        <%= f.label t('devise.registrations.placeholders.repeat_password') %>
+      </div>
+      <%= f.password_field :password_confirmation %>
+    </div>
   <% end %>
 
   <div class="actions no_margin_bottom">
