@@ -10,7 +10,7 @@ describe("Strategies", function() {
     isAllAlliesInputBoxIsChecked = spyOn(window, 'isAllAlliesInputBoxIsChecked');
   });
 
-	it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
+  it("has selected all allies who can view the strategy when \"Select all\" is selected",  function() {
     expect($(":checkbox[name='strategy[viewers][]']").eq(0).prop("checked")).toBe(false);
     newOrEdit.and.returnValue(true);
     onReadyViewers();
@@ -31,8 +31,8 @@ describe("Strategies", function() {
     onReadyStrategies();
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
-  	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
-	});
+    expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
+  });
 
   it("test tagged moments shown on toggle", function() {
     isShow.and.returnValue(true);
@@ -41,7 +41,7 @@ describe("Strategies", function() {
     expect($('#moment_tag_usage').hasClass("display_block")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_none")).toBe(true);
     expect($('#hideTaggedMoments').hasClass("display_inline_block")).toBe(true);
-	});
+  });
 
   it("test tagged moments hidden on toggle", function() {
     isShow.and.returnValue(true);
@@ -50,6 +50,6 @@ describe("Strategies", function() {
     $('#hideTaggedMoments').click();
     expect($('#moment_tag_usage').hasClass("display_none")).toBe(true);
     expect($('#showTaggedMoments').hasClass("display_inline_block")).toBe(true);
-  	expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
-	});
+    expect($('#hideTaggedMoments').hasClass("display_none")).toBe(true);
+  });
 });
