@@ -1,4 +1,4 @@
-describe 'UserCreatesAMoment', js: true do
+describe 'UserCreatesAPublishedMoment', js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, userid: user.id }
   let!(:mood) { create :mood, userid: user.id }
@@ -12,6 +12,14 @@ describe 'UserCreatesAMoment', js: true do
   end
 
   feature 'Creating, viewing, and editing a moment' do
+    it 'is not successful' do
+      login_as user
+      visit new_moment_path
+      click_on 'Submit'
+      expect(page).to have_content('New Moment')
+      expect(page).to have_css('label.alert_text')
+    end
+
     it 'is successful' do
       login_as user
       visit moments_path
