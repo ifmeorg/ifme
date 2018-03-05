@@ -1,4 +1,4 @@
-describe 'UserCreatesAMoment', js: true do
+describe 'UserCreatesAPublishedMoment', js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, userid: user.id }
   let!(:mood) { create :mood, userid: user.id }

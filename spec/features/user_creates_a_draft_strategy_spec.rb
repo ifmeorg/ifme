@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-describe 'UserCreatesAStrategy', js: true do
+describe 'UserCreatesADraftStrategy', js: true do
   let(:user) { create :user2, :with_allies }
+  let(:ally) { user.allies.first }
   let!(:category) { create :category, userid: user.id }
 
   def hit_down_arrow
@@ -14,17 +15,25 @@ describe 'UserCreatesAStrategy', js: true do
       login_as user
       visit strategies_path
 
-      expect(find('#page_title_content')).to have_content 'Strategies'
+      within '#page_title_content' do
+        expect(page).to have_content 'Strategies'
+      end
+
       expect(page).to have_content(
         'Strategize self-care to achieve desired thoughts and attitudes ' \
-        'towards your moments.')
+        'towards your moments.'
+      )
       expect(page).to have_content(
-        "You haven't created any custom strategies yet.")
+        "You haven't created any custom strategies yet."
+      )
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
       page.find('a[title="New Strategy"]').click
-      expect(find('#page_title_content')).to have_content 'New Strategy'
+
+      within '#page_title_content' do
+        expect(page).to have_content 'New Strategy'
+      end
 
       page.fill_in 'strategy[name]', with: 'My new strategy'
 
@@ -47,7 +56,7 @@ describe 'UserCreatesAStrategy', js: true do
         page.find('#new_category input[type="submit"]').click
       end
       within '#categories_list' do
-        page.all('input[name="strategy[category][]"]').last.click
+        page.all('input[name="strategy[category][]"]')[2].click
       end
       page.find('[data-toggle="#categories"]').click
 
@@ -62,29 +71,53 @@ describe 'UserCreatesAStrategy', js: true do
 
       fill_in_ckeditor('strategy_description', with: 'my strategy description')
 
+      # SAVE AS DRAFT
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      expect(find('#page_title_content')).to have_content 'My new strategy'
-      expect(page).to have_content 'Created:'
-      expect(page).to have_content 'Categories: Another New Category, Some New Category'
-      expect(page).to have_content 'my strategy description'
-      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
-      expect(page).to have_css('#new_comment')
+      within '#page_title_content' do
+        expect(page).to have_content 'My new strategy'
+      end
+      expect(page).to have_selector 'span.draft-badge'
+      back = current_url
+
+      # TRYING TO VIEW AS ALLY
+      login_as ally
+      visit back
+      within '#page_title_content' do
+        expect(page).not_to have_content 'My new strategy'
+      end
+
+      login_as user
+      visit back
 
       # EDITING
       page.find('a[title="Edit Strategy"]').click
-      expect(find('#page_title_content')).to have_content 'Edit My new strategy'
+      within '#page_title_content' do
+        expect(page).to have_content 'Edit My new strategy'
+      end
 
       fill_in_ckeditor(
         'strategy_description', with: 'I am changing my strategy description'
       )
 
+      # PUBLISH
+      scroll_to_and_click('input#togBtn')
+
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      expect(find('#page_title_content')).to have_content 'My new strategy'
-      expect(page).to have_content 'I am changing my strategy description'
+      within '#page_title_content' do
+        expect(page).to have_content 'My new strategy'
+      end
+      expect(page).not_to have_selector 'span.draft-badge'
+
+      # TRYING TO VIEW AS ALLY
+      login_as ally
+      visit back
+      within '#page_title_content' do
+        expect(page).to have_content 'My new strategy'
+      end
     end
   end
 end

@@ -1,7 +1,16 @@
+function toggleErrorText(error, label) {
+  if (error) {
+    label.addClass("alert_text");
+  } else {
+    label.removeClass("alert_text");
+  }
+}
+
 function complexCheck(dataType, emptyWhy) {
   var name = dataType + '_name';
-  var nameColor = $('#' + name).val().length === 0 ? '#990019' : '#000';
-  $('label[for="' + name + '"]').css('color', nameColor);
+  var nameLabel = $('label[for="' + name + '"]');
+  var nameError = $('#' + name).val().length === 0;
+  toggleErrorText(nameError, nameLabel);
 
   var why;
   if (dataType === 'moment') {
@@ -9,8 +18,9 @@ function complexCheck(dataType, emptyWhy) {
   } else if (dataType === 'strategy' || dataType === 'group' || dataType === 'meeting') {
     why = dataType + '_description';
   }
-  var whyColor = emptyWhy ? '#990019' : '#000';
-  $('label[for="' + why + '"]').css('color', whyColor);
+
+  var whyLabel = $('label[for="' + why + '"]');
+  toggleErrorText(emptyWhy, whyLabel);
 
   if ($('#' + name).val().length === 0 || emptyWhy) {
     return false;
@@ -26,13 +36,11 @@ function handleEmptyWhy(editor) {
 function simpleCheck(labels) {
   var result = true;
 
-  _.each(labels, function(label) {
-    var labelColor = '#000';
-    if ($('#' + label).val().length === 0) {
-      labelColor = '#990019';
-      result = false;
-    }
-    $('label[for="' + label + '"]').css('color', labelColor);
+  _.each(labels, function(labelName) {
+    var error = $('#' + labelName).val().length === 0;
+    var label = $('label[for="' + labelName + '"]');
+    result = !error;
+    toggleErrorText(error, label);
   });
 
   return result;
@@ -42,13 +50,13 @@ var onReadyFormProcessing = function() {
   var emptyWhy;
 
   if (newOrEdit(['moods'])) {
-    $('#new_mood').submit(function() {
+    $("#new_mood input[type='submit']").click(function() {
       return simpleCheck(['mood_name']);
     });
   }
 
   if (newOrEdit(['categories'])) {
-    $('#new_category').submit(function() {
+    $("#new_category input[type='submit']").click(function() {
       return simpleCheck(['category_name']);
     });
   }
@@ -68,15 +76,17 @@ var onReadyFormProcessing = function() {
       });
     });
 
-    $('#new_moment').submit(function() {
+    $("#new_moment input[type='submit']").click(function(event) {
       return complexCheck('moment', emptyWhy);
     });
 
-    $('#new_strategy').submit(function() {
-      return complexCheck('strategy', emptyWhy);
+    $("#new_strategy input[type='submit']").click(function() {
+      if (newOrEdit(['strategies'])) {
+        return complexCheck('strategy', emptyWhy);
+      }
     });
 
-    $('#new_meeting').submit(function() {
+    $("#new_meeting input[type='submit']").click(function() {
       var simple = simpleCheck(['meeting_location', 'meeting_time', 'meeting_date', 'meeting_maxmembers']);
       var complex = complexCheck('meeting', emptyWhy);
 
@@ -85,7 +95,7 @@ var onReadyFormProcessing = function() {
   }
 
   if (newOrEdit(['medications'])) {
-    $('#new_medication').submit(function() {
+    $("#new_medication input[type='submit']").click(function() {
       return simpleCheck(['medication_name', 'medication_strength', 'medication_total', 'medication_dosage', 'medication_refill']);
     });
   }
