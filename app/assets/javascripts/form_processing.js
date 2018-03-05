@@ -1,11 +1,7 @@
 function complexCheck(dataType, emptyWhy) {
   var name = dataType + '_name';
-
-  if ($('#' + name).val().length === 0) {
-    $('label[for="' + name + '"]').css('color', '#990019');
-  } else {
-    $('label[for="' + name + '"]').css('color', '#000');
-  }
+  var nameColor = $('#' + name).val().length === 0 ? '#990019' : '#000';
+  $('label[for="' + name + '"]').css('color', nameColor);
 
   var why;
   if (dataType === 'moment') {
@@ -13,11 +9,8 @@ function complexCheck(dataType, emptyWhy) {
   } else if (dataType === 'strategy' || dataType === 'group' || dataType === 'meeting') {
     why = dataType + '_description';
   }
-  if (emptyWhy) {
-    $('label[for="' + why + '"]').css('color', '#990019');
-  } else {
-    $('label[for="' + why + '"]').css('color', '#000');
-  }
+  var whyColor = emptyWhy ? '#990019' : '#000';
+  $('label[for="' + why + '"]').css('color', whyColor);
 
   if ($('#' + name).val().length === 0 || emptyWhy) {
     return false;
@@ -27,23 +20,19 @@ function complexCheck(dataType, emptyWhy) {
 }
 
 function handleEmptyWhy(editor) {
-  if (editor.getData().length === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return editor.getData().length === 0;
 }
 
 function simpleCheck(labels) {
   var result = true;
 
   _.each(labels, function(label) {
+    var labelColor = '#000';
     if ($('#' + label).val().length === 0) {
-      $('label[for="' + label + '"]').css('color', '#990019');
+      labelColor = '#990019';
       result = false;
-    } else {
-      $('label[for="' + label + '"]').css('color', '#000');
     }
+    $('label[for="' + label + '"]').css('color', labelColor);
   });
 
   return result;
@@ -64,7 +53,10 @@ var onReadyFormProcessing = function() {
     });
   }
 
-  if (newOrEdit(['moments'])) {
+  if (newOrEdit(['moments']) ||
+      newOrEdit(['strategies']) ||
+      newOrEdit(['groups']) ||
+      newOrEdit(['meetings'])) {
     emptyWhy = false;
 
     CKEDITOR.on("instanceReady", function(event) {
@@ -79,54 +71,9 @@ var onReadyFormProcessing = function() {
     $('#new_moment').submit(function() {
       return complexCheck('moment', emptyWhy);
     });
-  }
-
-  if (newOrEdit(['strategies'])) {
-    emptyWhy = false;
-
-    CKEDITOR.on("instanceReady", function(event) {
-      var editor = event.editor;
-      emptyWhy = handleEmptyWhy(editor);
-
-      return editor.on('change', function() {
-        emptyWhy = handleEmptyWhy(editor);
-      });
-    });
 
     $('#new_strategy').submit(function() {
       return complexCheck('strategy', emptyWhy);
-    });
-  }
-
-  if (newOrEdit(['medications'])) {
-    $('#new_medication').submit(function() {
-      return simpleCheck(['medication_name', 'medication_strength', 'medication_total', 'medication_dosage', 'medication_refill']);
-    });
-  }
-
-  if (newOrEdit(['groups'])) {
-    emptyWhy = false;
-
-    CKEDITOR.on("instanceReady", function(event) {
-      var editor = event.editor;
-      emptyWhy = handleEmptyWhy(editor);
-
-      return editor.on('change', function() {
-        emptyWhy = handleEmptyWhy(editor);
-      });
-    });
-  }
-
-  if (newOrEdit(['meetings'])) {
-    emptyWhy = false;
-
-    CKEDITOR.on("instanceReady", function(event) {
-      var editor = event.editor;
-      emptyWhy = handleEmptyWhy(editor);
-
-      return editor.on('change', function() {
-        emptyWhy = handleEmptyWhy(editor);
-      });
     });
 
     $('#new_meeting').submit(function() {
@@ -134,6 +81,12 @@ var onReadyFormProcessing = function() {
       var complex = complexCheck('meeting', emptyWhy);
 
       return simple && complex;
+    });
+  }
+
+  if (newOrEdit(['medications'])) {
+    $('#new_medication').submit(function() {
+      return simpleCheck(['medication_name', 'medication_strength', 'medication_total', 'medication_dosage', 'medication_refill']);
     });
   }
 };
