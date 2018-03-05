@@ -1,32 +1,36 @@
+function toggleVisibility(id, show) {
+  var classToRemove = show ? 'display_none' : 'display_block';
+  var classToAdd = show ? 'display_block' : 'display_none';
+  $('#' + id).removeClass(classToRemove);
+  $('#' + id).addClass(classToAdd);
+}
+
 function hideSmallTopNav() {
-  $('#small_nav').removeClass('display_block');
-  $('#small_nav').addClass('display_none');
+  toggleVisibility('small_nav', false);
   $('#expand_nav').css({"opacity": 1});
 }
 
 function showSmallTopNav() {
-  $('#small_nav').removeClass('display_none');
-  $('#small_nav').addClass('display_block');
+  toggleVisibility('small_nav', true);
   $('#expand_nav').css({"opacity": 0.8});
 }
 
-function hideExpandMe() {
-  $('#expand_me').removeClass('display_block');
-  $('#expand_me').addClass('display_none');
-  $('#me').css({"opacity": 1});
+function hideExpand(name) {
+  toggleVisibility('expand_' + name, false);
+  $('#' + name).css({"opacity": 1});
   $('#title_expand').css({"opacity": 1});
 }
 
-function showExpandMoment() {
-  $('#expand_moment').removeClass('display_none');
-  $('#expand_moment').addClass('display_block');
+function hideExpandMe() {
+  hideExpand('me');
 }
 
 function hideExpandMoment() {
-  $('#expand_moment').removeClass('display_block');
-  $('#expand_moment').addClass('display_none');
-  $('#moment').css({"opacity": 1});
-  $('#title_expand').css({"opacity": 1});
+  hideExpand('moment');
+}
+
+function showExpandMoment() {
+  toggleVisibility('expand_moment', true);
 }
 
 function setHeight() {
@@ -54,7 +58,6 @@ function headerMouseLeave() {
 function expandMomentMouseover() {
   if ($('#expand_moment').hasClass('display_none')) {
     showExpandMoment();
-
     hideExpandMe();
     setHeight();
   }
@@ -62,9 +65,7 @@ function expandMomentMouseover() {
 
 var onReadyHeader = function() {
   setHeight();
-
   $('.expand_button').click(expandButton);
-
   //mobile menu toggling
   $('#expand_nav').click(function() {
     if ($('#small_nav').hasClass('display_none')) {
@@ -74,11 +75,8 @@ var onReadyHeader = function() {
     }
     setHeight();
   });
-
   $('.expand_moment_button').mouseover(expandMomentMouseover);
-
   $('#header').mouseleave(headerMouseLeave);
-
   $(window).resize(function () {
     setHeight();
   });
