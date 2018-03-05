@@ -1,35 +1,47 @@
 @import "base.scss";
+.container{
 
-li{
-    list-style: none;
+    ul{
+    width: 360px;
+    height: auto;
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+    line-height: normal;
+    }
+
+li a{
+    background-color: rgba(0, 0, 0, 0.5);
+    fill-opacity: 0.2;
+    display: block;
+    padding: 16px 16px 16px 30px;
+  text-decoration: none;
+  color: rgba(255, 255, 255,0.7);
 }
 
-a{
-font-size: 3ex;
-text-decoration: none;
-font-family: 'Lato', sans-serif;
+li a:hover{
+    background: rgba(255, 255, 255,0.7);
+color: rgba(109, 8, 57, 0.7);
+padding-left: 250px;
+
+}
 }
 
-a:link, a:visited{
-    color: white;
-}
-
-.purple{
-    justify-content: center;
-    background-color: purple;
-    color: white;
-    border-left: 15px solid gray;
-    width: 20ex;
-    height: 20ex;
-    border-radius: 5px;
-}
-
-.silver{
-    justify-content: center;
-    background-color: gray;
-    color: black;
-    border-left: 15px solid purple;
-    width: 20ex;
-    height: 20ex;
-    border-radius: 5px;
+.secondaryList{
+    li a{ 
+    padding-top: 9px;
+    padding-bottom: 9px;
+     text-indent: 15px;
+     font-weight: bold;
+     color: rgba(255, 255,255,0.7);
+     background: rgba(0,0,0,0.45);
+    }
+    
+    li a:hover{
+        background: rgba(0,0,0,0.2);
+        color: rgba(255, 255, 255,0.7);
+        padding-left: 25px;
+        }
 }

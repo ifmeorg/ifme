@@ -1,27 +1,38 @@
 import React from 'react';
 import css from './SideNav.scss';
 
-type Props = {
-    color?: string;
-}
 
 export default class SideNavBar extends React.Component{
+constructor(props){
+    super(props);
+    this.state = { showMenu: true};
+
+this.handleClick = this.handleClick.bind(this);
+}
+
+handleClick(){
+    this.setState(prevState =>({
+        showMenu: !prevState.showMenu
+    }));
+}
 
         render(){
-            const {color} = this.props;
-            const containerClass = `${css[color] || ''}`;
+            const containerClass = `${css.container}`;
+            const secondaryListClass = `${css.secondaryList}`;
             return(
                 <div className={containerClass}>
-                <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Moments</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li onClick={this.handleClick}><a href="#">Moments</a></li>
+                    <div className={secondaryListClass} style = {{display: this.state.showMenu ? 'none' : 'block'}}>
+                        <li><a href="#">Categories</a></li>
+                            <li><a href="#">Moods</a></li>
+                            </div>
                     <li><a href="#">Strategies</a></li>
                     <li><a href="#">Medications</a></li>
                     <li><a href="#">Groups</a></li>
                     <li><a href="#">Allies</a></li>
-                </ul>
-                </nav>
+                    </ul>
                 </div>
             );
         }
