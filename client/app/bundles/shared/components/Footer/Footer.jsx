@@ -19,34 +19,34 @@ type FooterProps = {
   onChange: (locale: string) => void,
 }
 
+const TableCell = (props: { children: any }) => (<div className={`${css.table_cell}`}>{props.children}</div>);
+
 const InjectedFooter = injectIntl(({ intl, onChange }: FooterProps) => {
   const { formatMessage } = intl;
   return (
     <div className={css.footer}>
-      <div id={css.footer_contest}>
-        <div className={css.table}>
-          <div className={css.row}>
-            <div className={`${css.table_cell} ${css.if_me}`}>
-              <Ifme />
-            </div>
-            <div className={`${css.table_cell} ${css.connect}`}>
-              <Connect />
-            </div>
-            <div className={`${css.table_cell} ${css.resources}`}>
-              <Resources />
-            </div>
-            <div className={`${css.table_cell} ${css.dropdown}`}>
-              <DropdownGhostSmall
-                onChange={onChange}
-                locale={intl.locale}
-              />
-            </div>
-            <div className={`${css.table_cell} ${css.love_foss}`}>
-              <h4>{formatMessage(we)} &hearts; {formatMessage(foss)}</h4>
-              <a className={css.license} href="https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt" target="blank" >
-                {formatMessage(licenseSubtitle, { license: formatMessage(licenseName) })}
-              </a>
-            </div>
+      <div className={css.table}>
+        <div className={css.row}>
+          <TableCell className={css.if_me}>
+            <Ifme />
+          </TableCell>
+          <TableCell className={css.connect}>
+            <Connect />
+          </TableCell>
+          <div className={`${css.table_cell} ${css.resources}`}>
+            <Resources />
+          </div>
+          <div className={`${css.table_cell} ${css.dropdown}`}>
+            <DropdownGhostSmall
+              onChange={onChange}
+              locale={intl.locale}
+            />
+          </div>
+          <div className={`${css.table_cell} ${css.love_foss}`}>
+            <h4>{formatMessage(we)} &hearts; {formatMessage(foss)}</h4>
+            <a className={css.license} href="https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt" target="blank" >
+              {formatMessage(licenseSubtitle, { license: formatMessage(licenseName) })}
+            </a>
           </div>
         </div>
       </div>

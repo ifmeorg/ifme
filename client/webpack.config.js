@@ -3,6 +3,7 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
+const baseConfig = require('./webpack.config.base');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -16,9 +17,7 @@ const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 
-const path = require('path');
-
-const config = {
+const config = Object.assign(baseConfig, {
 
   context: resolve(__dirname),
 
@@ -39,15 +38,6 @@ const config = {
     // Leading slash is necessary
     publicPath: `/${webpackPublicOutputDir}`,
     path: webpackOutputPath,
-  },
-
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    // Allow resolving modules from the libs with absolute path
-    alias: {
-      libs: path.join(process.cwd(), 'app', 'libs'),
-      config: path.resolve(path.join(process.cwd(), '..', 'config')),
-    },
   },
 
   plugins: [
@@ -119,7 +109,7 @@ const config = {
       },
     ],
   },
-};
+});
 
 module.exports = config;
 

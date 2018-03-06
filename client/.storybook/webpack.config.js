@@ -1,12 +1,6 @@
-const path = require('path');
+const baseConfig = require('../webpack.config.base');
 
-module.exports = {
-  resolve: {
-    alias: {
-      libs: path.join(process.cwd(), 'app', 'libs'),
-      config: path.resolve(path.join(process.cwd(), '..', 'config')),
-    },
-  },
+module.exports = Object.assign(baseConfig, {
 
   module: {
     rules: [
@@ -30,4 +24,4 @@ module.exports = {
       },
     ],
   },
-};
+});
