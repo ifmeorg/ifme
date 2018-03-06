@@ -4,6 +4,7 @@
 
 const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
+const glob = require('glob');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -26,9 +27,7 @@ const config = Object.assign(baseConfig, {
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-      './app/bundles/momentDashboards/startup/registration',
-      './app/bundles/shared/startup/registration',
-    ],
+    ].concat(glob.sync('./app/bundles/**/startup/*')),
   },
 
   output: {

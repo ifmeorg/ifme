@@ -4,7 +4,7 @@
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --no-single-run",
-    "build:test": "NODE_ENV=test webpack --config webpack.config.js",
+    "build:test": "NODE_ENV=test webpack --config webpack.config.js --display-error-details",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "NODE_ENV=development webpack -w --config webpack.config.js",
     "lint:setup": "flow-typed install",
@@ -33,6 +33,7 @@
     "es5-shim": "^4.5.9",
     "expose-loader": "^0.7.3",
     "file-loader": "^1.1.6",
+    "glob": "^7.1.2",
     "imports-loader": "^0.7.1",
     "intl": "^1.2.5",
     "js-cookie": "^2.2.0",
