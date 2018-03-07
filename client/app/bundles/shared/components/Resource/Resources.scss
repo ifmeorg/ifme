@@ -1,0 +1,33 @@
+@import '../base';
+
+.container {
+  width: 100%;
+  font-family: Lato;
+  padding: 25px 10px;
+
+  .dash {
+    width: 40px;
+    height: 3px;
+    background-color: $background-color;
+    margin-bottom: 12px;
+  }
+  
+  .link {
+    font-size: $font24;
+    color: $background-color;
+    padding-bottom: 10px;
+  }
+  
+  div > a {
+    text-decoration: none;
+    color: $header-text-color;
+  }
+
+  .author {
+    color: $author-text-color;
+    font-size: $font18;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}
+
