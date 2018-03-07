@@ -10,8 +10,9 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
+        ruby: {}
+        javascript:
+          mass_threshold: 65
     exclude_paths:
     - "client/**/__tests__/"
   eslint:

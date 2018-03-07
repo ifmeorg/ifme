@@ -68,7 +68,7 @@ export default class Input extends React.Component<Props, State> {
           className={css.textarea}
           id={id}
           name={name}
-          value={value}
+          value={this.state.value}
           form={form}
           rows={rows}
           cols={cols}
