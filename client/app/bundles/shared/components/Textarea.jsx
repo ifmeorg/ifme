@@ -25,7 +25,7 @@ type State = {
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: '', active: false };
+    this.state = { value: props.value ? props.value : '', active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -46,7 +46,6 @@ export default class Input extends React.Component<Props, State> {
       id,
       form,
       name,
-      value,
       rows,
       cols,
       placeholder,

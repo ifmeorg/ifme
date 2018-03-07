@@ -12,7 +12,7 @@ engines:
       languages:
         ruby: {}
         javascript:
-          mass_threshold: 65
+          mass_threshold: 80
     exclude_paths:
     - "client/**/__tests__/"
   eslint:
