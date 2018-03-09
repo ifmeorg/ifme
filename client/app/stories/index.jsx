@@ -8,24 +8,54 @@ import ChartControl from '../bundles/momentDashboards/components/ChartControl';
 
 import Logo from '../bundles/shared/components/Logo';
 import Input from '../bundles/shared/components/Input';
-import Textarea from "../bundles/shared/components/Textarea";
+import Textarea from '../bundles/shared/components/Textarea';
 import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
 import Footer from '../bundles/shared/components/Footer/Footer';
-
+import Resources from '../bundles/shared/components/Resource/Resources';
 import Tag from '../bundles/shared/components/Tag';
+
+const taggedResources = {
+  name: 'LifeSIGNS: Self Injury Guidance & Network Support (UK)',
+  link: 'http://www.lifesigns.org.uk/',
+  tags: ['open_source', 'tech_industry', 'free', 'workplace', 'podcast', 'books'],
+};
+
+const externalResources = {
+  name: 'Invisible Illnesses: depression is an ocean',
+  link: 'www.if-me.org',
+  author: 'Desi Rottman',
+};
+
+storiesOf('Resources', module)
+  .add('Tagged Resources', () => (
+    <div style={{ backgroundColor: '#000' }}>
+      <Resources
+        tagged
+        resourcesObj={taggedResources}
+      />
+    </div>
+  ))
+  .add('External Resources', () => (
+    <div style={{ backgroundColor: '#000' }}>
+      <Resources
+        resourcesObj={externalResources}
+      />
+    </div>
+  ));
 
 storiesOf('Tags', module)
   .add('TagGhostXs', () => (
-    <Tag label = "Self-Injury"/>
- ))
+    <Tag label={'Self-Injury'} />
+  ))
   .add('TagDarkXs', () => (
-   <Tag dark label = "Self-Injury"/>
-))
+    <Tag dark label={'Self-Injury'} />
+  ))
   .add('Tag', () => (
-  <Tag normal label = "Self-Injury"/>
-));
+    <Tag normal label={'Self-Injury'} />
+  ));
+
 
 storiesOf('Logo', module)
   .add('Small', () => (
@@ -81,9 +111,9 @@ storiesOf('Input', module)
 
 storiesOf('Textarea', module)
   .add('Textarea', () => (
-    <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..."/>
-  ))
-  
+    <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..." />
+  ));
+
 storiesOf('Dropdown', module)
   .add('DropdownGhost', () => (
     <DropdownGhost />
