@@ -26,34 +26,34 @@ loadLocales();
 
 storiesOf('Tags', module)
   .add('TagGhostXs', withInfo({})(() =>
-    <Tag label={'Self-Injury'} />
+    <Tag label={'Self-Injury'} />,
   ))
   .add('TagDarkXs', withInfo({})(() =>
-    <Tag dark label={'Self-Injury'} />
+    <Tag dark label={'Self-Injury'} />,
   ))
   .add('Tag', withInfo({})(() =>
-    <Tag normal label={'Self-Injury'} />
+    <Tag normal label={'Self-Injury'} />,
   ));
 
 storiesOf('Logo', module)
   .add('Small', withInfo({})(() =>
-    <Logo size="small" />
+    <Logo size="small" />,
   ))
   .add('Medium', withInfo({})(() =>
-    <Logo />
+    <Logo />,
   ));
 
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
 storiesOf('Chart', module)
   .add('Chart Display Area', withInfo({})(() =>
-    <Chart title="Sample" data={sampleChartData} chartType="Area" />
+    <Chart title="Sample" data={sampleChartData} chartType="Area" />,
   ))
   .add('Chart Display Line', withInfo({})(() =>
-    <Chart title="Sample" data={sampleChartData} chartType="Line" />
+    <Chart title="Sample" data={sampleChartData} chartType="Line" />,
   ))
   .add('Chart Control', withInfo({})(() =>
-    <ChartControl
+    (<ChartControl
       types={['Moments', 'Categories', 'Moods']}
       initialParams={{
         type: 'Categories',
@@ -70,21 +70,21 @@ storiesOf('Chart', module)
           Moments: { '2013-02-10': 10, '2013-02-11': 16, '2013-02-12': 2 },
         },
       }}
-    />
+    />),
   ));
 
 storiesOf('Input', module)
   .add('Input Light', withInfo({})(() =>
-    <Input label="Hello" placeholder="Placeholder" />
+    <Input label="Hello" placeholder="Placeholder" />,
   ))
   .add('Input Dark', withInfo({})(() =>
-    <Input dark label="Hello" placeholder="Placeholder" />
+    <Input dark label="Hello" placeholder="Placeholder" />,
   ))
   .add('Input Light (Large)', withInfo({})(() =>
-    <Input large label="Hello" placeholder="Placeholder" />
+    <Input large label="Hello" placeholder="Placeholder" />,
   ))
   .add('Input Dark (Large)', withInfo({})(() =>
-    <Input dark large label="Hello" placeholder="Placeholder" />
+    <Input dark large label="Hello" placeholder="Placeholder" />,
   ));
 
 class I18nWrapper extends React.Component {
@@ -122,35 +122,35 @@ class I18nWrapper extends React.Component {
 
 storiesOf('Textarea', module)
   .add('Textarea', withInfo({})(() =>
-    <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..." />
+    <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..." />,
   ));
 
 storiesOf('Dropdown', module)
   .add('DropdownGhost', withInfo({})(() =>
-    <DropdownGhost
+    (<DropdownGhost
       onChange={() => {}}
       locale={'en'}
       localeList={{ en: 'English', fr: 'French' }}
-    />
+    />),
   ))
   .add('DropdownGhostSmall', withInfo({})(() =>
-    <DropdownGhostSmall
+    (<DropdownGhostSmall
       onChange={() => {}}
       locale={'it'}
       localeList={{ en: 'English', fr: 'French', it: 'Italian' }}
-    />
+    />),
   ))
   .add('DropdownFillSmall', withInfo({})(() =>
-    <DropdownFillSmall
+    (<DropdownFillSmall
       onChange={() => {}}
       locale={'ptbr'}
-    />
+    />),
   ))
   .add('ChangingLocales', withInfo({})(() =>
-    <I18nWrapper />
+    <I18nWrapper />,
   ));
 
 storiesOf('Footer', module)
   .add('View', withInfo({})(() =>
-    <Footer />
+    <Footer />,
   ));
