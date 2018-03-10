@@ -21,8 +21,6 @@ engines:
     - public/javascripts/
     - vendor/assets/javascripts
     - client/karma.conf.js
-    - "client/**/__tests__/"
-    - "client/**/stories/"
   fixme:
     enabled: true
   rubocop:
