@@ -1,20 +1,34 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
+import { defaultMessages } from 'libs/i18n/default';
 import css from './Footer.scss';
 
-const Resources = props => (
-  <ul>
-    <h6 className={css.footer_header}>{props.navigation.resources}</h6>
-    <li><a href="/resources?resource=communities">{props.pages.communities}</a></li>
-    <li><a href="/resources?resource=education">{props.pages.education}</a></li>
-    <li><a href="/resources?resource=hotlines">{props.pages.hotlines}</a></li>
-    <li><a href="/resources?resource=services">{props.pages.services}</a></li>
-  </ul>
-);
-
-Resources.propTypes = {
-  pages: PropTypes.string.isRequired,
-  navigation: PropTypes.string.isRequired,
+type Prop = {
+  intl: Object
 };
+
+const Resources = injectIntl(({ intl }: Prop) => {
+  const { formatMessage } = intl;
+  return (
+    <ul>
+      <h6 className={css.footer_header}>
+        {formatMessage(defaultMessages.navigationResources)}
+      </h6>
+      <li><a href="/resources?resource=communities">
+        {formatMessage(defaultMessages.pagesResourcesCommunities)}
+      </a></li>
+      <li><a href="/resources?resource=education">
+        {formatMessage(defaultMessages.pagesResourcesEducation)}
+      </a></li>
+      <li><a href="/resources?resource=hotlines">
+        {formatMessage(defaultMessages.pagesResourcesHotlines)}
+      </a></li>
+      <li><a href="/resources?resource=services">
+        {formatMessage(defaultMessages.pagesResourcesServices)}
+      </a></li>
+    </ul>
+  );
+});
 
 export default Resources;
