@@ -1,5 +1,6 @@
 import 'chartjs';
 import React from 'react';
+import { withInfo } from '@storybook/addon-info';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react';
@@ -24,34 +25,34 @@ import Tag from '../bundles/shared/components/Tag';
 loadLocales();
 
 storiesOf('Tags', module)
-  .add('TagGhostXs', () => (
+  .add('TagGhostXs', withInfo({})(() =>
     <Tag label={'Self-Injury'} />
   ))
-  .add('TagDarkXs', () => (
+  .add('TagDarkXs', withInfo({})(() =>
     <Tag dark label={'Self-Injury'} />
   ))
-  .add('Tag', () => (
+  .add('Tag', withInfo({})(() =>
     <Tag normal label={'Self-Injury'} />
   ));
 
 storiesOf('Logo', module)
-  .add('Small', () => (
+  .add('Small', withInfo({})(() =>
     <Logo size="small" />
   ))
-  .add('Medium', () => (
+  .add('Medium', withInfo({})(() =>
     <Logo />
   ));
 
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
 storiesOf('Chart', module)
-  .add('Chart Display Area', () => (
+  .add('Chart Display Area', withInfo({})(() =>
     <Chart title="Sample" data={sampleChartData} chartType="Area" />
   ))
-  .add('Chart Display Line', () => (
+  .add('Chart Display Line', withInfo({})(() =>
     <Chart title="Sample" data={sampleChartData} chartType="Line" />
   ))
-  .add('Chart Control', () => (
+  .add('Chart Control', withInfo({})(() =>
     <ChartControl
       types={['Moments', 'Categories', 'Moods']}
       initialParams={{
@@ -73,16 +74,16 @@ storiesOf('Chart', module)
   ));
 
 storiesOf('Input', module)
-  .add('Input Light', () => (
+  .add('Input Light', withInfo({})(() =>
     <Input label="Hello" placeholder="Placeholder" />
   ))
-  .add('Input Dark', () => (
+  .add('Input Dark', withInfo({})(() =>
     <Input dark label="Hello" placeholder="Placeholder" />
   ))
-  .add('Input Light (Large)', () => (
+  .add('Input Light (Large)', withInfo({})(() =>
     <Input large label="Hello" placeholder="Placeholder" />
   ))
-  .add('Input Dark (Large)', () => (
+  .add('Input Dark (Large)', withInfo({})(() =>
     <Input dark large label="Hello" placeholder="Placeholder" />
   ));
 
@@ -120,37 +121,36 @@ class I18nWrapper extends React.Component {
 }
 
 storiesOf('Textarea', module)
-  .add('Textarea', () => (
+  .add('Textarea', withInfo({})(() =>
     <Textarea rows={6} label="What happened and how do you feel?" placeholder="I felt..." />
   ));
 
 storiesOf('Dropdown', module)
-  .add('DropdownGhost', () => (
+  .add('DropdownGhost', withInfo({})(() =>
     <DropdownGhost
       onChange={() => {}}
       locale={'en'}
       localeList={{ en: 'English', fr: 'French' }}
     />
   ))
-  .add('DropdownGhostSmall', () => (
+  .add('DropdownGhostSmall', withInfo({})(() =>
     <DropdownGhostSmall
       onChange={() => {}}
       locale={'it'}
       localeList={{ en: 'English', fr: 'French', it: 'Italian' }}
     />
   ))
-  .add('DropdownFillSmall', () => (
+  .add('DropdownFillSmall', withInfo({})(() =>
     <DropdownFillSmall
       onChange={() => {}}
       locale={'ptbr'}
     />
   ))
-  .add('ChangingLocales', () => (
+  .add('ChangingLocales', withInfo({})(() =>
     <I18nWrapper />
   ));
 
 storiesOf('Footer', module)
-  .add('View', () => (
+  .add('View', withInfo({})(() =>
     <Footer />
   ));
-

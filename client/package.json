@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.0",
+    "@storybook/addon-info": "^3.3.15",
     "@storybook/react": "^3.2.3",
     "babel-eslint": "^7.2.3",
     "babel-plugin-flow-react-proptypes": "^4.1.0",
