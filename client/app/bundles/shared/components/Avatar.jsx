@@ -3,9 +3,9 @@ import React from 'react';
 import css from './Avatar.scss';
 
 type Props = {
-  name?: string,
-  src?: string,
-  alt?: string
+  src: string,
+  alt: string,
+  name?: string
 };
 
 const Avatar = (props: Props) => {
@@ -19,7 +19,10 @@ const Avatar = (props: Props) => {
     	{nameTag}
     </div>
   );
+};
+
+Avatar.defaultProps = {
+  name: null
 }
 
-
-export default Avatar
+export default Avatar;
