@@ -15,14 +15,14 @@ const Avatar = (props: Props) => {
 
   return (
     <div className={avatarClassNames}>
-    	<img src={src} alt={alt} />
-    	{nameTag}
+      <img src={src} alt={alt} />
+      {nameTag}
     </div>
   );
 };
 
 Avatar.defaultProps = {
-  name: null
-}
+  name: null,
+};
 
 export default Avatar;
