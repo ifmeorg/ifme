@@ -71,23 +71,12 @@ export default class SideNavBar extends React.Component{
                     <li activeclassName="active" onClick={this.handleCloseClick}><NavLink activeStyle={{backgroundColor: 'white', color: '#6d0839b3'}} to="/medications">Medications</NavLink></li>
                     <li activeclassName="active" onClick={this.handleCloseClick}><NavLink activeStyle={{backgroundColor: 'white', color: '#6d0839b3'}} to="/groups">Groups</NavLink></li>
                     <li activeclassName="active" onClick={this.handleCloseClick}><NavLink activeStyle={{backgroundColor: 'white', color: '#6d0839b3'}} to="/allies">Allies</NavLink></li>
-
                     {routes.map((route, index) =>(
-                        <Route 
-                        key={index}
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.SideNavBar}
-                        />
-                    ))}
-                
-                    {routes.map((route, index) => (
-
                         <Route
                         key={index}
                         path={route.path}
                         exact={route.exact}
-                        component={route.main}
+                        component={route.SideNavBar}
                         />
                     ))}
                     </div>
