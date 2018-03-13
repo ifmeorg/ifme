@@ -1,7 +1,9 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "react-router": "^4.2.0"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "foreman start -f Procfile.dev"

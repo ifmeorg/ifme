@@ -43,6 +43,9 @@
     "react-intl": "^2.1.5",
     "react-lazyload": "^2.3.0",
     "react-on-rails": "9.0.3",
+    "react-on-rails": "8.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "shortid": "^2.2.8",
     "superagent": "^3.5.2"
