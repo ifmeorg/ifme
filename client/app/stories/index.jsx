@@ -20,8 +20,8 @@ import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGh
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
 import Footer from '../bundles/shared/components/Footer/Footer';
 import Avatar from '../bundles/shared/components/Avatar';
-
 import Tag from '../bundles/shared/components/Tag';
+import photo from 'app/assets/images/contributors/julia_nguyen.jpg';
 
 loadLocales();
 
@@ -159,14 +159,14 @@ storiesOf('Footer', module)
 storiesOf('Avatar', module)
   .add('With name', withInfo({})(() =>
     (<Avatar
-      src="https://s3-alpha.figma.com/img/6c65/47d3/875d99c169116da7bcaa7cefb0dc2ece?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJK6APQGEHTP6I3PA%2F20180311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20180311T163814Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=2d8b5f7f176727aad0651c75a645a515636c2a31803a0e74a52b3b1f8061fd71"
+      src={photo}
       alt="Julia Nguyen"
       name="Julia Nguyen"
     />),
   ))
   .add('Without name', withInfo({})(() =>
     (<Avatar
-      src="https://s3-alpha.figma.com/img/6c65/47d3/875d99c169116da7bcaa7cefb0dc2ece?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJK6APQGEHTP6I3PA%2F20180311%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20180311T163814Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=2d8b5f7f176727aad0651c75a645a515636c2a31803a0e74a52b3b1f8061fd71"
+      src={photo}
       alt="Julia Nguyen"
     />),
   ));

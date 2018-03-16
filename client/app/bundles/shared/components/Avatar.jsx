@@ -11,7 +11,7 @@ type Props = {
 const Avatar = (props: Props) => {
   const { name, src, alt } = props;
   const avatarClassNames = `${css.avatar} ${name ? css.white : ''}`;
-  const nameTag = name ? <p>{name}</p> : '';
+  const nameTag = name ? <div>{name}</div> : '';
 
   return (
     <div className={avatarClassNames}>
