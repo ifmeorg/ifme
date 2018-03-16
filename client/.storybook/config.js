@@ -10,8 +10,10 @@ setDefaults({
   propTables: false,
 });
 
+// automatically import all files ending in *.stories.(jsx|tsx)
+const req = require.context('../app/stories', true, /.stories.jsx$/);
 function loadStories() {
-  require('../app/stories/index');
+  req.keys().forEach((filename) => req(filename));
 }
 
 configure(loadStories, module);
