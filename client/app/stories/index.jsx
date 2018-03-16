@@ -8,6 +8,7 @@ import { defaultMessages, defaultLocale } from 'libs/i18n/default';
 import { getMessages } from 'libs/i18n/I18nUtils';
 import { loadLocales } from 'libs/i18n/I18nSetup';
 import { IntlProvider, injectIntl } from 'react-intl';
+import photo from 'app/assets/images/contributors/julia_nguyen.jpg';
 
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
@@ -21,7 +22,6 @@ import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFil
 import Footer from '../bundles/shared/components/Footer/Footer';
 import Avatar from '../bundles/shared/components/Avatar';
 import Tag from '../bundles/shared/components/Tag';
-import photo from 'app/assets/images/contributors/julia_nguyen.jpg';
 
 loadLocales();
 
