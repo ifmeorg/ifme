@@ -6,6 +6,7 @@ describe 'AddingStrategy' do
   end
 
   it 'creates a new Strategy' do
+    expect(find('[name="strategy[name]"]', wait: 5)).to be_present
     fill_in 'Title', with: 'A strategy name'
     fill_in 'Describe the strategy', with: 'A description'
     click_on 'Submit'
@@ -17,6 +18,7 @@ describe 'AddingStrategy' do
 
   context 'and turns on reminders' do
     it 'creates a new strategy with reminders' do
+      expect(find('[name="strategy[name]"]', wait: 5)).to be_present
       fill_in 'Title', with: 'A strategy name'
       fill_in 'Describe the strategy', with: 'A description'
       find(:css, '#perform_strategy_reminder').set(true)
