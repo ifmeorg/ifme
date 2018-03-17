@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import css from './SideNav.scss';
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
 
 const routes = [
     {
