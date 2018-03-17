@@ -21,7 +21,7 @@ import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGh
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
 import Footer from '../bundles/shared/components/Footer/Footer';
 import Avatar from '../bundles/shared/components/Avatar';
-import Resources from '../bundles/shared/components/Resource/Resources';
+import Resource from '../bundles/shared/components/Resource/Resource';
 import Tag from '../bundles/shared/components/Tag';
 
 import Heading from '../bundles/shared/components/Heading';
@@ -42,31 +42,31 @@ storiesOf('Headings', module)
     <Heading text label={'We need each others support to break down stigmas.'} />,
   ));
 
-const taggedResources = {
+const taggedResource = {
   name: 'LifeSIGNS: Self Injury Guidance & Network Support (UK)',
   link: 'http://www.lifesigns.org.uk/',
   tags: ['open_source', 'tech_industry', 'free', 'workplace', 'podcast', 'books'],
 };
 
-const externalResources = {
+const externalResource = {
   name: 'Invisible Illnesses: depression is an ocean',
   link: 'www.if-me.org',
   author: 'Desi Rottman',
 };
 
-storiesOf('Resources', module)
-  .add('Tagged Resources', () => (
+storiesOf('Resource', module)
+  .add('Tagged Resource', () => (
     <div style={{ backgroundColor: '#000' }}>
-      <Resources
+      <Resource
         tagged
-        resourcesObj={taggedResources}
+        resourceObj={taggedResource}
       />
     </div>
   ))
-  .add('External Resources', () => (
+  .add('External Resource', () => (
     <div style={{ backgroundColor: '#000' }}>
-      <Resources
-        resourcesObj={externalResources}
+      <Resource
+        resourceObj={externalResource}
       />
     </div>
   ));
