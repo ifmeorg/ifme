@@ -1,20 +1,21 @@
 // @flow
 import React from 'react';
+import css from './MomentCard.scss';
 
 type MomentCardDateState = {};
 
 type MomentCardDateProp = {
-  date: string;
+  date: string
 };
 
 export default class MomentCardDate
-  extends React.Component<MomentCardDateProp, MomentCardDateState> {
+  extends React.Component {
   props: MomentCardDateProp;
   state: MomentCardDateState;
 
   render() {
     return (
-      <div className="moment_date">
+      <div className={css.date}>
         {this.props.date}
       </div>
     );

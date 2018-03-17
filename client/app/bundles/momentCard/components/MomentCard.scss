@@ -1,0 +1,101 @@
+@import "../../shared/components/base.scss";
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.moment {
+  position: relative;
+  width: 370px;
+  height: 120px;
+
+  background: $background-color;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  .header {
+    position: absolute;
+    width: 333px;
+    height: 36px;
+    left: 19px;
+    top: 21px;
+    display: inline-block;
+
+    .draft {
+      display: inline-block;
+      margin-right: 10px;
+
+      div {                
+        border: 1px solid $container-color;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }      
+    }
+
+    .name {
+      display: inline-block;      
+      position: absolute;      
+      
+      font-family: Lato;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      font-size: 18px;
+
+      color: $secondary-text-color;
+    }
+    
+    .settings {
+      position: absolute;
+      width: 66px;
+      height: 18px;
+      left: 286px;      
+      top: 0px;
+      
+      .action {            
+        color: $date-text-color;
+        font-size: 20px;
+        width: 20px;
+        height: 20px;       
+        float: right;       
+      }                  
+    }
+  }
+
+  .date {
+    position: absolute;
+    width: 167px;
+    height: 12px;
+    left: 19px;
+    top: 45px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: $date-text-color;
+  }
+
+  .tags {
+    position: relative;     
+    left: 5.14%;
+    right: 12.16%;
+    top: 62.5%;
+    bottom: 19.17%;
+    
+    .category {            
+      div {
+        background: #B4A362;
+        border: 0;
+      }
+    }
+
+    div {            
+      color: $background-color;
+      border-radius: 5px;
+      margin: 1px;
+      display: inline-block;
+    }            
+  }  
+}

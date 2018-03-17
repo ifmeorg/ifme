@@ -3,17 +3,19 @@ import React from 'react';
 
 type MomentCardViewersState = {};
 
-type MomentCardViewersProp = {};
+type MomentCardViewersProp = {
+  viewersText?: string
+};
 
 export default class MomentCardViewers extends
-  React.Component<MomentCardViewersProp, MomentCardViewersState> {
+  React.Component {
   props: MomentCardViewersProp;
   state: MomentCardViewersState;
 
   render() {
     return (
       <div>
-        Viewers
+        {this.props.viewersText}
       </div>
     );
   }

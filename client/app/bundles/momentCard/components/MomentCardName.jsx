@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import css from './MomentCard.scss';
 
 type MomentCardNameState = {};
 
@@ -8,13 +9,13 @@ type MomentCardNameProp = {
 };
 
 export default class MomentCardName extends
-  React.Component<MomentCardNameProp, MomentCardNameState> {
+  React.Component {
   props: MomentCardNameProp;
   state: MomentCardNameState;
 
   render() {
     return (
-      <div className="moment_name">
+      <div className={css.name}>
         {this.props.name}
       </div>
     );
