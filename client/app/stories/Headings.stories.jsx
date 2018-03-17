@@ -4,8 +4,6 @@ import { storiesOf } from '@storybook/react';
 
 import Heading from 'bundles/shared/components/Heading';
 
-loadLocales();
-
 storiesOf('Headings', module)
   .add('Heading Large', withInfo({})(() =>
     <Heading large label={'Better Communication with loved ones leads to better mental health.'} />,
