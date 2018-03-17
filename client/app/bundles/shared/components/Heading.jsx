@@ -15,9 +15,7 @@ export default class Heading extends React.Component<Props> {
     const labelClassNames = `${css.label} ${large ? css.large : ''} ${small ? css.small : ''} ${text ? css.text : ''}`;
 
     return (
-      <span>
         <div className={labelClassNames}>{label}</div>
-      </span>
     );
   }
 }
