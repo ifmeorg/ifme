@@ -1,15 +1,19 @@
-@import '../base';
+@import './base';
 
 .container {
+  position: relative;
   width: 100%;
   font-family: Lato;
   padding: 25px 10px;
 
-  .dash {
-    width: 40px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    border: 1px solid #fff;
+    border-width: 0 40px 0 0;
     height: 3px;
-    background-color: $background-color;
-    margin-bottom: 12px;
   }
   
   .link {
