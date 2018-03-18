@@ -88,7 +88,7 @@ class GroupsController < ApplicationController
     member_id = params[:memberid] || current_user.id
     group_member = GroupMember.find_by(
       userid: member_id,
-      groupid: params[:groupid]
+      group_id: params[:group_id]
     )
     group = group_member.group
 
@@ -134,7 +134,7 @@ class GroupsController < ApplicationController
   end
 
   def group_member_params
-    params.permit(:groupid).merge(userid: current_user.id, leader: false)
+    params.permit(:group_id).merge(userid: current_user.id, leader: false)
   end
 
   def update_leaders
