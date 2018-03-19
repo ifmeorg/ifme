@@ -1,6 +1,6 @@
 #frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :moment do
     name  "Test Moment"
     why "Test Why"

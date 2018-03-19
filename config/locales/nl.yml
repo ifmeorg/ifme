@@ -530,6 +530,8 @@ nl:
   footer:
     licence_name: 'AGPL-3.0'
     license: 'Wij &hearts; FOSS'
+    license_we: 'Wij'
+    license_foss: 'FOSS'
     foss: 'Free and open source software'
     license_subtitle: 'Gelicenseerd onder %{license}'
     connect: 'verbinden'

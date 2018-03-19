@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-describe 'UserCreatesADraftStrategy', js: true do
+describe 'UserCreatesAPublishedStrategy', js: true do
   let(:user) { create :user2, :with_allies }
-  let(:ally) { user.allies.first }
   let!(:category) { create :category, userid: user.id }
 
   def hit_down_arrow
@@ -11,29 +10,29 @@ describe 'UserCreatesADraftStrategy', js: true do
   end
 
   feature 'Creating, viewing, and editing a strategy' do
-    specify do
+    it 'is not successful' do
+      login_as user
+      visit new_strategy_path
+      click_on 'Submit'
+      expect(page).to have_content('New Strategy')
+      expect(page).to have_css('label.alert_text')
+    end
+
+    it 'is successful' do
       login_as user
       visit strategies_path
 
-      within '#page_title_content' do
-        expect(page).to have_content 'Strategies'
-      end
-
+      expect(find('#page_title_content')).to have_content 'Strategies'
       expect(page).to have_content(
         'Strategize self-care to achieve desired thoughts and attitudes ' \
-        'towards your moments.'
-      )
+        'towards your moments.')
       expect(page).to have_content(
-        "You haven't created any custom strategies yet."
-      )
+        "You haven't created any custom strategies yet.")
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
       page.find('a[title="New Strategy"]').click
-
-      within '#page_title_content' do
-        expect(page).to have_content 'New Strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'New Strategy'
 
       page.fill_in 'strategy[name]', with: 'My new strategy'
 
@@ -56,7 +55,7 @@ describe 'UserCreatesADraftStrategy', js: true do
         page.find('#new_category input[type="submit"]').click
       end
       within '#categories_list' do
-        page.all('input[name="strategy[category][]"]')[2].click
+        page.all('input[name="strategy[category][]"]').last.click
       end
       page.find('[data-toggle="#categories"]').click
 
@@ -71,55 +70,29 @@ describe 'UserCreatesADraftStrategy', js: true do
 
       fill_in_ckeditor('strategy_description', with: 'my strategy description')
 
-      # SAVE AS DRAFT
-
-
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
-      expect(page).to have_selector 'span.draft-badge'
-      back = current_url
-
-      # TRYING TO VIEW AS ALLY
-      login_as ally
-      visit back
-      within '#page_title_content' do
-        expect(page).not_to have_content 'My new strategy'
-      end
-
-      login_as user
-      visit back
+      expect(find('#page_title_content')).to have_content 'My new strategy'
+      expect(page).to have_content 'Created:'
+      expect(page).to have_content 'Categories: Another New Category, Some New Category'
+      expect(page).to have_content 'my strategy description'
+      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
+      expect(page).to have_css('#new_comment')
 
       # EDITING
       page.find('a[title="Edit Strategy"]').click
-      within '#page_title_content' do
-        expect(page).to have_content 'Edit My new strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'Edit My new strategy'
 
       fill_in_ckeditor(
         'strategy_description', with: 'I am changing my strategy description'
       )
 
-      # PUBLISH
-      scroll_to_and_click('input#togBtn')
-
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
-      expect(page).not_to have_selector 'span.draft-badge'
-
-      # TRYING TO VIEW AS ALLY
-      login_as ally
-      visit back
-      within '#page_title_content' do
-        expect(page).to have_content 'My new strategy'
-      end
+      expect(find('#page_title_content')).to have_content 'My new strategy'
+      expect(page).to have_content 'I am changing my strategy description'
     end
   end
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class PusherController < ApplicationController
-  protect_from_forgery except: :auth # stop rails CSRF protection for this action
+  # stop rails CSRF protection for this action
+  protect_from_forgery except: :auth
 
   def auth
     if current_user

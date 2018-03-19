@@ -244,14 +244,14 @@ describe StrategiesController do
 
   describe 'POST create' do
     let(:user) { create(:user, id: 1) }
-    let(:valid_strategy_params) { FactoryGirl.attributes_for(:strategy) }
-    let(:invalid_strategy_params) { valid_strategy_params.merge(userid: nil) }
+    let(:valid_strategy_params) { FactoryBot.attributes_for(:strategy) }
+    let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the params are valid' do
-        let(:strategy_params) { { :strategy => valid_strategy_params } }
+        let(:strategy_params) { { strategy: valid_strategy_params } }
 
         it 'creates a new strategy' do
           expect do
@@ -272,7 +272,7 @@ describe StrategiesController do
       end
 
       context 'when the params are invalid' do
-        let(:strategy_params) { { :strategy => invalid_strategy_params } }
+        let(:strategy_params) { { strategy: invalid_strategy_params } }
 
         it 'does not create a new strategy' do
           expect { post :create, params: strategy_params }.to_not(
@@ -288,6 +288,19 @@ describe StrategiesController do
         it 'responds with a 422 status' do
           post(:create, format: 'json', params: strategy_params)
           expect(response.status).to eq(422)
+        end
+      end
+
+      context 'when the userid is hacked' do
+        it 'creates a new strategy, ignoring the userid parameter' do
+          # passing a userid isn't an error, but it shouldn't
+          # affect the owner of the created item
+          another_user = create(:user2)
+          hacked_strategy_params =
+            valid_strategy_params.merge(userid: another_user.id)
+          expect { post :create, params: { strategy: hacked_strategy_params } }
+            .to change(Strategy, :count).by(1)
+          expect(Strategy.last.userid).to eq(user.id)
         end
       end
     end
@@ -374,20 +387,20 @@ describe StrategiesController do
   end
 
   describe '#print_reminders' do
-    let(:user) { FactoryGirl.create(:user1) }
+    let(:user) { FactoryBot.create(:user1) }
     let(:strategy)     { create(:strategy, name: 'test', userid: user.id) }
 
     subject { controller.print_reminders(strategy) }
 
     describe 'when strategy has no reminders' do
-      let(:strategy) { FactoryGirl.create(:strategy, userid: user.id) }
+      let(:strategy) { FactoryBot.create(:strategy, userid: user.id) }
 
       it { is_expected.to eq('') }
     end
 
     describe 'when strategy has daily reminder' do
       let(:strategy) do
-        FactoryGirl.create(:strategy, :with_daily_reminder, userid: user.id)
+        FactoryBot.create(:strategy, :with_daily_reminder, userid: user.id)
       end
 
       it 'prints the reminders' do

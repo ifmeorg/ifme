@@ -3,10 +3,12 @@
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field"><%= f.label t('common.form.email') %><br>
-  <%= f.email_field :email %></div>
+  <div class="field">
+    <%= f.label t('common.form.email') %><br>
+    <%= f.email_field :email %>
+  </div>
 
   <div class="actions"><%= f.submit t('devise.unlock.resend') %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render 'devise/shared/links' %>

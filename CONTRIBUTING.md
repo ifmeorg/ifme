@@ -33,7 +33,7 @@ Check out our projects [page](https://github.com/ifmeorg/ifme/projects) to see w
 
 We've formalized processes for contributing as a designer, developer, writer, and user tester. We're an open and evolving project, so if you don't see your interested role, please let us know and we will work with you to create it!
 
-The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us about yourself and what you're interested in working on. We'll send you an invitation to join our [Slack](http://ifme.slack.com) team. This is our primary communication tool. [Julia Nguyen](https://twitter.com/fleurchild), our founder, will plan out with you what you'll be working on.
+The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us about yourself and what you're interested in working on. We'll send you an invitation to join our [Slack](http://ifme.slack.com) team. This is our primary communication tool. [Julia Nguyen](https://twitter.com/fleurchild), our founder, sync with you and connect you with the people and resources to help you get started!
 
 ### Designer
 

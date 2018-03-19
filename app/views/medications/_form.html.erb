@@ -11,7 +11,7 @@
           <i class="fa fa-asterisk align_right"></i>
           <div class="clear"></div>
         </div>
-        <%= f.text_field :name, :class => "name_field" %>
+        <%= f.text_field :name, class: "name_field" %>
       </div>
 
       <div class="form_container">
@@ -23,7 +23,7 @@
             <div class="clear"></div>
           </div>
           <div class="inline-block">
-            <%= f.number_field :strength, :placeholder => t('medications.form.strength_placeholder') %>
+            <%= f.number_field :strength, placeholder: t('medications.form.strength_placeholder') %>
             <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
           </div>
         </div>
@@ -36,7 +36,7 @@
             <div class="clear"></div>
           </div>
           <div class="inline-block">
-            <%= f.number_field :total, :placeholder => t('medications.form.total_placeholder') %>
+            <%= f.number_field :total, placeholder: t('medications.form.total_placeholder') %>
             <%= f.select(:total_unit, [
                   [t('medications.units.tablets.other'), 'tablets'],
                   [t('medications.units.mg'), 'mg'],
@@ -49,12 +49,12 @@
         <div class="field">
           <div class="label">
             <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.dosage_hint')) %>
-              <i class="fa fa-asterisk"></i>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.dosage_hint')) %>
+            <i class="fa fa-asterisk"></i>
             <div class="clear"></div>
           </div>
           <div class="inline-block">
-            <%= f.number_field :dosage, :placeholder => t('medications.form.dosage_placeholder') %>
+            <%= f.number_field :dosage, placeholder: t('medications.form.dosage_placeholder') %>
             <%= f.select(:dosage_unit, [
                   [t('medications.units.tablets.other'), 'tablets'],
                   [t('medications.units.mg'), 'mg'],
@@ -65,8 +65,8 @@
         <div class="field refill_medication">
           <div class="label">
             <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.refill_hint')) %>
-              <i class="fa fa-asterisk"></i>
+            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.refill_hint')) %>
+            <i class="fa fa-asterisk"></i>
             <div class="clear"></div>
           </div>
           <%= f.text_field :refill, { readonly: true } %>
@@ -81,7 +81,7 @@
           </div>
           <div class="clear"></div>
         </div>
-        <%= f.text_area :comments, :class => "comments" %>
+        <%= f.text_area :comments, class: "comments" %>
       </div>
 
       <div class="field">
@@ -132,7 +132,6 @@
   </div>
 
   <div>
-    <%= f.hidden_field :userid, :value => current_user.id %>
     <%= f.submit t('common.actions.submit') %>
   </div>
 

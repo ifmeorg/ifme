@@ -39,6 +39,7 @@ class NotificationsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  # rubocop:disable RescueStandardError
   def set_notification
     @notification = Notification.find(params[:id])
   rescue
@@ -47,8 +48,5 @@ class NotificationsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def notification_params
-    params.require(:notification).permit(:name, :description, :userid)
-  end
+  # rubocop:enable RescueStandardError
 end

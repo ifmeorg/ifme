@@ -53,15 +53,6 @@ createdb $(whoami)
 ### C. Windows
 
 Install via [graphical installer](http://www.postgresql.org/download/windows/)
-
-## Install Gems
-
-After cloning the app on your local machine, in your terminal run the following
-command in the `/ifme` directory
-
-```
-bundle install
-```
 </details>
 
 <details>
@@ -141,6 +132,15 @@ yarn install
 ```
 
 </details>
+
+## Install Gems
+
+After cloning the app on your local machine, in your terminal run the following
+command in the `/ifme` directory
+
+```
+bundle install
+```
 
 ## Configuration Files
 

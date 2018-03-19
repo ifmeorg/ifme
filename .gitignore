@@ -26,6 +26,7 @@
 # Ignore all IDE, TextEditor configuration files
 .idea/
 .tags
+*.swp
 
 # Ignore coverage results
 /coverage

@@ -69,7 +69,7 @@ group :development, :test do
 
   gem 'capybara', '~> 2.15.1'
   gem 'chromedriver-helper'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'

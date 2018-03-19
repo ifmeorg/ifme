@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 include CloudinaryHelper
 
 class ProfilePicture

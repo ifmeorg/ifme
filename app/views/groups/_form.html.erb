@@ -1,7 +1,6 @@
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div class="error_explanation">
-      <h2>t('groups.form.error_save')</h2>
       <ul>
         <% @group.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -10,80 +9,79 @@
     </div>
   <% end %>
 
-<% if action_name == "new" || action_name == "create" %>
-  <div class="field">
-    <div class="label">
-      <%= f.label t('common.name'), for: 'group_name' %>
-      <i class="fa fa-asterisk align_right"></i>
-      <div class="clear"></div>
-    </div>
-    <%= f.text_field :name, :class => "name_field" %>
-  </div>
-
-  <div class="field">
-    <div class="label">
-      <%= f.label t('common.form.description'), for: 'group_description' %>
-      <i class="fa fa-asterisk align_right"></i>
-      <div class="clear"></div>
-    </div>
-    <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
-  </div>
-
-<% elsif action_name == "edit" || action_name == "update" %>
-<div class="table">
-
-  <div class="table_cell vertical_align_top padding_right sidebar">
-    <div class="sidebar_field">
-      <div class="sidebar_label"><%= f.label t('common.name') %></div>
-      <%= f.text_field :name, :class => "name_field" %>
-    </div>
-
-      <div class="sidebar_field">
-
-      <% if @group.group_members.count > 1 %>
-        <div class="sidebar_label">
-          <%= f.label t('groups.form.leaders') %>
-        </div>
-
-        <% @group.group_members.each do |member| %>
-        <%= f.check_box(:leader, {:multiple => true, :checked => member.leader}, member.userid, nil) %>
-        <%= link_to User.where(id: member.userid).first.name, profile_index_path(uid: get_uid(member.userid)) %>
-        <br>
-        <% end %>
-      <% else %>
-        <div class="small_font subtle">
-          <%= t('groups.form.only_leader') %>
-        </div>
-      <% end %>
+  <% if action_name == "new" || action_name == "create" %>
+    <div class="field">
+      <div class="label">
+        <%= f.label t('common.name'), for: 'group_name' %>
+        <i class="fa fa-asterisk align_right"></i>
+        <div class="clear"></div>
       </div>
-  </div>
-
-  <div class="table_cell vertical_align_top">
+      <%= f.text_field :name, class: "name_field" %>
+    </div>
 
     <div class="field">
       <div class="label">
-        <%= f.label t('common.form.description') %>
+        <%= f.label t('common.form.description'), for: 'group_description' %>
+        <i class="fa fa-asterisk align_right"></i>
+        <div class="clear"></div>
       </div>
-
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
     </div>
 
-  </div>
+  <% elsif action_name == "edit" || action_name == "update" %>
+    <div class="table">
 
-</div>
-<% end %>
+      <div class="table_cell vertical_align_top padding_right sidebar">
+        <div class="sidebar_field">
+          <div class="sidebar_label"><%= f.label t('common.name') %></div>
+          <%= f.text_field :name, class: "name_field" %>
+        </div>
 
-<div class="clear"></div>
+        <div class="sidebar_field">
 
-<div class="actions align_right no_margin_bottom right">
-  <% if action_name == "new" || action_name == "create" %>
-    <div class="small_margin_bottom subtle small_font">
-      <%= t('groups.form.cannot_delete') %>
+          <% if @group.group_members.any? %>
+            <div class="sidebar_label">
+              <%= f.label t('groups.form.leaders') %>
+            </div>
+
+            <% @group.group_members.each do |member| %>
+              <%= f.check_box(:leader, { multiple: true, checked: member.leader }, member.userid, nil) %>
+              <%= link_to member.user.name, profile_index_path(uid: get_uid(member.userid)) %>
+              <br>
+            <% end %>
+          <% else %>
+            <div class="small_font subtle">
+              <%= t('groups.form.only_leader') %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="table_cell vertical_align_top">
+
+        <div class="field">
+          <div class="label">
+            <%= f.label t('common.form.description') %>
+          </div>
+
+          <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
+        </div>
+
+      </div>
+
     </div>
   <% end %>
-  <%= f.submit t('common.actions.submit') %>
-</div>
 
-<div class="clear"></div>
+  <div class="clear"></div>
 
+  <div class="actions align_right no_margin_bottom right">
+    <% if action_name == "new" || action_name == "create" %>
+      <div class="small_margin_bottom subtle small_font">
+        <%= t('groups.form.cannot_delete') %>
+      </div>
+    <% end %>
+    <%= f.submit t('common.actions.submit') %>
+  </div>
+
+  <div class="clear"></div>
 <% end %>

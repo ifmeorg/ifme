@@ -4,12 +4,12 @@
   </div>
   <div class="align_right">
     <% if local_assigns[:modal_clear] %>
-      <% if Notification.all.size > 0 %>
+      <% if Notification.all.any? %>
         <h1 id="clear_notifications" class="align_left small_margin_right"><%= local_assigns[:modal_clear] %></h1>
       <% else %>
       <% end %>
       <h1 id="close_notifications" class="align_right"><i class="fa fa-times"></i></h1>
-    <div class="clear"></div>
+      <div class="clear"></div>
     <% elsif local_assigns[:modal_close_class] %>
       <h1 class=<%= "#{local_assigns[:modal_close_class].to_s} align_right" %>><i class="fa fa-times"></i></h1>
     <% elsif local_assigns[:modal_close_id] %>

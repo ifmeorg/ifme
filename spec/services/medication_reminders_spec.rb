@@ -14,8 +14,8 @@ describe MedicationReminders do
     end
 
     context "reminders exist" do
-      let!(:user) { FactoryGirl.create(:user1) }
-      let!(:medication) { FactoryGirl.create(:medication, :with_daily_reminder, userid: user.id) }
+      let!(:user) { FactoryBot.create(:user1) }
+      let!(:medication) { FactoryBot.create(:medication, :with_daily_reminder, userid: user.id) }
       let!(:reminder) { medication.take_medication_reminder }
 
       context "take medication reminder is active" do
@@ -44,9 +44,9 @@ describe MedicationReminders do
     end
 
     context "reminders exist and it is one week before the refill" do
-      let!(:user) { FactoryGirl.create(:user1) }
+      let!(:user) { FactoryBot.create(:user1) }
       let(:refill_date) { '01/01/2010' }
-      let!(:medication) { FactoryGirl.create(:medication, :with_refill_reminder, userid: user.id, refill: refill_date) }
+      let!(:medication) { FactoryBot.create(:medication, :with_refill_reminder, userid: user.id, refill: refill_date) }
       let!(:reminder) { medication.refill_reminder }
 
       before "pretend its a week before the refill is happening" do

@@ -258,5 +258,15 @@
     "link_name": "vildevevatne",
     "link": "https://github.com/vildevev",
     "social": "github"
+  },
+  {
+    "name": "Seun Adekunle",
+    "image": "/assets/contributors/seun_adekunle.jpeg",
+    "profile":
+      "Changing the world is my watch word and I'm glad to be part of this community where I get to contribute to helping people around the world to be healthy and feel safer to share their feelings and experiences.",
+    "location": "Lagos, Nigeria",
+    "link_name": "seunadex",
+    "link": "https://github.com/seunadex",
+    "social": "github"
   }
 ]
