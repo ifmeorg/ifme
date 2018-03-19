@@ -4,14 +4,12 @@
   font-family: Hiragino Sans, Lato ;
   font-size: 36px;
   line-height: 14px;
-  font-style: italic, W3;
+  font-style: italic;
 
   border-radius: 4px;
   box-shadow: 1px 1px 2px #fff inset,
               -1px -1px 2px #fff inset;
   
   padding: 20px;
-  height: 186px;
-
   color: white;
 }
