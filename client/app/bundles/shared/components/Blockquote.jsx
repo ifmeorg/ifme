@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './blockquote.css';
+import './Blockquote.css';
 
 export default class Blockquote extends React.Component {
   render() {
