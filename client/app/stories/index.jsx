@@ -8,6 +8,7 @@ import { defaultMessages, defaultLocale } from 'libs/i18n/default';
 import { getMessages } from 'libs/i18n/I18nUtils';
 import { loadLocales } from 'libs/i18n/I18nSetup';
 import { IntlProvider, injectIntl } from 'react-intl';
+import photo from 'app/assets/images/contributors/julia_nguyen.jpg';
 
 import Chart from '../bundles/momentDashboards/components/Chart';
 import ChartControl from '../bundles/momentDashboards/components/ChartControl';
@@ -19,7 +20,7 @@ import DropdownGhost from '../bundles/shared/components/Dropdown/DropdownGhost';
 import DropdownGhostSmall from '../bundles/shared/components/Dropdown/DropdownGhostSmall';
 import DropdownFillSmall from '../bundles/shared/components/Dropdown/DropdownFillSmall';
 import Footer from '../bundles/shared/components/Footer/Footer';
-
+import Avatar from '../bundles/shared/components/Avatar';
 import Tag from '../bundles/shared/components/Tag';
 
 import Heading from '../bundles/shared/components/Heading';
@@ -169,4 +170,19 @@ storiesOf('Dropdown', module)
 storiesOf('Footer', module)
   .add('View', withInfo({})(() =>
     <Footer />,
+  ));
+
+storiesOf('Avatar', module)
+  .add('With name', withInfo({})(() =>
+    (<Avatar
+      src={photo}
+      alt="Julia Nguyen"
+      name="Julia Nguyen"
+    />),
+  ))
+  .add('Without name', withInfo({})(() =>
+    (<Avatar
+      src={photo}
+      alt="Julia Nguyen"
+    />),
   ));
