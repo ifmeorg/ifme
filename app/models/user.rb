@@ -53,13 +53,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
-<<<<<<< HEAD
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
-=======
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2]
->>>>>>> 928a6eda99651458e97daf215a9fff30b9f0aa1a
+         :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -95,12 +90,11 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    user = first_or_create(email: auth.info.email).tap do |u|
+    first_or_create(email: auth.info.email).tap do |u|
       u.provider = auth.provider
       u.name = auth.info.name
       u.uid = auth.uid
-      u.email = auth.info.email
-      u.password = Devise.friendly_token[0,20]
+      u.password = Devise.friendly_token[0, 20]
       u.token = auth.credentials.token
       u.refresh_token = auth.credentials.refresh_token
       u.access_expires_at = Time.zone.at(auth.credentials.expires_at)
@@ -153,7 +147,7 @@ class User < ApplicationRecord
   end
 
   def google_provider?
-    provider  == "google_oauth2"
+    provider == 'google_oauth2'
   end
 
   private

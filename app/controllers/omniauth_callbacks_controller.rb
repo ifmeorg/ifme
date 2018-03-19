@@ -18,7 +18,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def user
-    User.from_omniauth(request.env["omniauth.auth"])
+    User.from_omniauth(request.env['omniauth.auth'])
   end
 
   def authenticate_user(provider, user)

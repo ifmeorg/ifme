@@ -1,20 +1,21 @@
+
 <%- if devise_mapping.omniauthable? and request.base_url != 'http://0.0.0.0:3000' %>
-<<<<<<< HEAD
-<div class="small_margin_bottom">
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <% if (current_page?(new_user_session_path) || current_page?(new_user_password_path))%>
-       <% if provider.to_s == "google_oauth2" %>
-        <%= button_to t('devise.shared.sign_in_google'), user_google_oauth2_omniauth_authorize_path %>
-      <% elsif provider.to_s == "facebook"  %>
-        <%= button_to t('devise.shared.sign_in_facebook'), user_facebook_omniauth_authorize_path %>
+  <div class="small_margin_bottom">
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <% if (current_page?(new_user_session_path) || current_page?(new_user_password_path))%>
+         <% if provider.to_s == "google_oauth2" %>
+          <%= button_to t('devise.shared.sign_in_google'), user_google_oauth2_omniauth_authorize_path %>
+        <% elsif provider.to_s == "facebook"  %>
+          <%= button_to t('devise.shared.sign_in_facebook'), user_facebook_omniauth_authorize_path %>
+        <% end %>
+      <% elsif provider.to_s == "google_oauth2" %>
+          <%= button_to t('devise.shared.sign_up_google'), user_google_oauth2_omniauth_authorize_path %>
+      <% else provider.to_s == "facebook" %>
+          <%= button_to t('devise.shared.sign_up_facebook'), user_facebook_omniauth_authorize_path %>
       <% end %>
-    <% elsif provider.to_s == "google_oauth2" %>
-        <%= button_to t('devise.shared.sign_up_google'), user_google_oauth2_omniauth_authorize_path %>
-    <% else provider.to_s == "facebook" %>
-        <%= button_to t('devise.shared.sign_up_facebook'), user_facebook_omniauth_authorize_path %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to t('account.forgot_password'), new_password_path(resource_name) %><br>

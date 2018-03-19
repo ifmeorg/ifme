@@ -328,6 +328,6 @@ Devise.setup do |config|
          site: 'https://graph.facebook.com/v2.11',
          authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
       },
-      :strategy_class => OmniAuth::Strategies::Facebook
-     )
+      strategy_class: OmniAuth::Strategies::Facebook
+    )
 end
