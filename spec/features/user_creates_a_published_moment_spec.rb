@@ -129,7 +129,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       # VIEWING
       expect(find('#page_title_content')).to have_content 'My new moment'
 
-      expect(page).to have_content 'Created:'
+      expect(page).to have_content 'Created'
       expect(page).to have_content 'Categories: Another New Category, ' \
                                    'Some New Category'
       expect(page).to have_content 'Moods: Another New Mood, Test Mood'
