@@ -12,6 +12,9 @@
   resize: none;
   border-radius: 4px;
   box-shadow: darkgray;
+  
+  padding: 20px;
+  height: 186px;
 
   color: white;
 }
