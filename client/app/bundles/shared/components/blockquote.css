@@ -6,12 +6,9 @@
   line-height: 14px;
   font-style: italic, W3;
 
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  resize: none;
   border-radius: 4px;
-  box-shadow: darkgray;
+  box-shadow: 1px 1px 2px #fff inset,
+              -1px -1px 2px #fff inset;
   
   padding: 20px;
   height: 186px;
