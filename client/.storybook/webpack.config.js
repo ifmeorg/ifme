@@ -6,7 +6,9 @@ module.exports = Object.assign(baseConfig, {
 
   resolve: {
     alias: {
+      app: path.resolve(__dirname, '../../app/'),
       config: path.resolve(__dirname, '../../config/'),
+      libs: path.resolve(__dirname, '../../app/libs/'),
     },
     modules: [
       'client/app',
