@@ -2,7 +2,7 @@ describe 'AddingStrategy' do
   let!(:user) { FactoryBot.create(:user_oauth) }
   before do
     login_as user
-    visit new_strategy_path
+    change_page ->{ visit new_strategy_path }, '[name="strategy[name]"]'
   end
 
   it 'creates a new Strategy' do

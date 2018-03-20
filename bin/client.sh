@@ -14,6 +14,7 @@ if [ ! -d public ]; then
 }
 fi
 
+rails db:migrate RAILS_ENV=development
 rm -rf public/webpack/development/* || true && \
 cd client && \
 bundle exec rake react_on_rails:locale && \

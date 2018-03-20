@@ -30,7 +30,7 @@ describe('ChartControl', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find('div').length).toBe(1);
     // one button factoried for each element in types
-    expect(wrapper.find('button').length).toBe(1);
+    expect(wrapper.find('ChartControlButton').length).toBe(1);
     expect(wrapper.find('Chart').length).toBe(1);
   });
 });

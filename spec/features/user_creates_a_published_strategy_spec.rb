@@ -70,10 +70,12 @@ describe 'UserCreatesAPublishedStrategy', js: true do
 
       fill_in_ckeditor('strategy_description', with: 'my strategy description')
 
-      page.find('input[value="Submit"]').click
+      change_page(
+        ->{ page.find('input[value="Submit"]').click },
+        '#page_title_content', have_content('My new strategy')
+      )
 
       # VIEWING
-      expect(find('#page_title_content')).to have_content 'My new strategy'
       expect(page).to have_content 'Created:'
       expect(page).to have_content 'Categories: Another New Category, Some New Category'
       expect(page).to have_content 'my strategy description'
@@ -81,8 +83,10 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       expect(page).to have_css('#new_comment')
 
       # EDITING
-      page.find('a[title="Edit Strategy"]').click
-      expect(find('#page_title_content')).to have_content 'Edit My new strategy'
+      change_page(
+        ->{ page.find('a[title="Edit Strategy"]').click },
+        '#page_title_content', have_content('Edit My new strategy')
+      )
 
       fill_in_ckeditor(
         'strategy_description', with: 'I am changing my strategy description'

@@ -22,7 +22,7 @@ type State = {
   active: boolean
 };
 
-export default class Input extends React.Component<Props, State> {
+export default class Textarea extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { value: props.value ? props.value : '', active: false };

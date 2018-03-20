@@ -9,13 +9,13 @@ import css from './Dropdown.scss';
 const defaultLocales = getAvailableLocales();
 
 type Props = {
-    onChange: (e: string) => void,
     locale: string,
     localeList: { [key: string]: string },
+    onChange: (e: string) => void,
 };
 
-export default (variationClassName: string) =>
-  ({ onChange, locale, localeList }: Props) => {
+const Dropdown = (variationClassName: string) =>
+  ({ locale, localeList, onChange }: Props) => {
     const localeOptions = isNil(localeList) ? defaultLocales : localeList;
 
     const options = Object.keys(localeOptions).map(key =>
@@ -37,3 +37,9 @@ export default (variationClassName: string) =>
         )}
       </div>);
   };
+
+Dropdown.defaultProps = {
+  onChange: () => {},
+};
+
+export default Dropdown;
