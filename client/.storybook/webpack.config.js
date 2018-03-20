@@ -5,11 +5,8 @@ const baseConfig = require('../webpack.config.base');
 module.exports = Object.assign(baseConfig, {
 
   resolve: {
-    alias: {
-      app: path.resolve(__dirname, '../../app/'),
-      config: path.resolve(__dirname, '../../config/'),
-      libs: path.resolve(__dirname, '../../app/libs/'),
-    },
+    alias: baseConfig.resolve.alias,
+    extensions: baseConfig.resolve.extensions,
     modules: [
       'client/app',
       'node_modules',
