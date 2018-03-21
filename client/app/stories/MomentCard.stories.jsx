@@ -4,38 +4,41 @@ import { storiesOf } from '@storybook/react';
 
 import MomentCard from 'bundles/momentCard/components/MomentCard';
 
-storiesOf('MomentCards', module)  
+storiesOf('MomentCards', module)
   .add('MomentCard', withInfo({})(() =>
-    <MomentCard
+    (<MomentCard
       item={{
         name: 'Real Moment',
-        category: ['FRIENDS', 'FAMILY'], 
-        mood: ['ANXIOUS', 'HELPFUL']
-      }} 
-      date='Created 2 Days ago'
-      cardType='Normal' 
-      viewersText='Viewers' />,
-  ))  
-  .add('MomentCardExample', withInfo({})(() => 
-    <MomentCard
+        category: ['FRIENDS', 'FAMILY'],
+        mood: ['ANXIOUS', 'HELPFUL'],
+      }}
+      date="Created 2 Days ago"
+      cardType="Normal"
+      viewersText="Viewers"
+    />),
+  ))
+  .add('MomentCardExample', withInfo({})(() =>
+    (<MomentCard
       item={{
         name: 'Example Moment: Panicking over interview tomorrow!',
-        category: ['CAREER'], 
-        mood: ['NERVOUS', 'ANXIOUS', 'HELPFUL']
+        category: ['CAREER'],
+        mood: ['NERVOUS', 'ANXIOUS', 'HELPFUL'],
       }}
-      date=''  
-      cardType='Example'
-      viewersText='Viewers' />,
+      date=""
+      cardType="Example"
+      viewersText="Viewers"
+    />),
   ))
-  .add('MomentCardDraft', withInfo({})(() => 
-    <MomentCard
+  .add('MomentCardDraft', withInfo({})(() =>
+    (<MomentCard
       item={{
         name: 'Real Moment',
-        category: ['FRIENDS', 'FAMILY'], 
-        mood: ['ANXIOUS', 'HELPFUL']
+        category: ['FRIENDS', 'FAMILY'],
+        mood: ['ANXIOUS', 'HELPFUL'],
       }}
-      date=''
-      cardType='Draft'
-      draftText='DRAFT'
-      viewersText='Viewers'/>,
+      date=""
+      cardType="Draft"
+      draftText="DRAFT"
+      viewersText="Viewers"
+    />),
   ));

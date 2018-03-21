@@ -6,16 +6,13 @@ import MomentCardDraft from './MomentCardDraft';
 import MomentCardSettings from './MomentCardSettings';
 import MomentCardCategories from './MomentCardCategories';
 import MomentCardMoods from './MomentCardMoods';
-import Tag from '../../shared/components/Tag';
 import css from './MomentCard.scss';
-
-type MomentCardState = {};
 
 type MomentCardProp = {
   item: {
     name: string,
     category?: Array<string>,
-    mood?: Array<string>,    
+    mood?: Array<string>,
   },
   date: string,
   cardType: string,
@@ -23,20 +20,10 @@ type MomentCardProp = {
   viewersText?: string
 };
 
-export default class MomentCard extends React.Component {
-  props: MomentCardProp;
-  state: MomentCardState;
-
+export default class MomentCard extends React.Component <MomentCardProp> {
   render() {
-    const { cardType, date, item, draftText,viewersText } = this.props;
-    
-    const category = item.category ? 
-                      item.category.map((category, i) => <Tag key={i} label={category} />) 
-                      : ''                      
-    const mood = item.mood ? 
-                  item.mood.map((mood, i) => <Tag key={i} dark label={mood} />) 
-                  : ''    
-                      
+    const { cardType, date, item, draftText, viewersText } = this.props;
+
     return (
       <div className={css.moment}>
         <div className={css.header}>
@@ -45,10 +32,10 @@ export default class MomentCard extends React.Component {
           <MomentCardSettings cardType={cardType} viewersText={viewersText} />
         </div>
         <MomentCardDate date={date} />
-        <div className={css.tags}>          
-          <MomentCardCategories category={category} />                          
-          <MomentCardMoods mood={mood} />                  
-        </div>                
+        <div className={css.tags}>
+          <MomentCardCategories category={item.category} />
+          <MomentCardMoods mood={item.mood} />
+        </div>
       </div>
     );
   }

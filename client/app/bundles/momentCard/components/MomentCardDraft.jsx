@@ -3,21 +3,16 @@ import React from 'react';
 import Tag from '../../shared/components/Tag';
 import css from './MomentCard.scss';
 
-type MomentCardDraftState = {};
-
 type MomentCardDraftProp = {
-  draftText?: string  
+  draftText?: string
 };
 
 export default class MomentCardDraft
-  extends React.Component {
-  props: MomentCardDraftProp;
-  state: MomentCardDraftState;
-
+  extends React.Component <MomentCardDraftProp> {
   render() {
     return (
       <div className={css.draft}>
-        <Tag label={this.props.draftText} /> 
+        <Tag label={this.props.draftText} />
       </div>
     );
   }

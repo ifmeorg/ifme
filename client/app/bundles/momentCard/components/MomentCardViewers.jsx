@@ -1,17 +1,12 @@
 // @flow
 import React from 'react';
 
-type MomentCardViewersState = {};
-
 type MomentCardViewersProp = {
   viewersText?: string
 };
 
 export default class MomentCardViewers extends
-  React.Component {
-  props: MomentCardViewersProp;
-  state: MomentCardViewersState;
-
+  React.Component <MomentCardViewersProp> {
   render() {
     return (
       <div>

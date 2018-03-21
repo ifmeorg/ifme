@@ -2,17 +2,12 @@
 import React from 'react';
 import css from './MomentCard.scss';
 
-type MomentCardDateState = {};
-
 type MomentCardDateProp = {
   date: string
 };
 
 export default class MomentCardDate
-  extends React.Component {
-  props: MomentCardDateProp;
-  state: MomentCardDateState;
-
+  extends React.Component <MomentCardDateProp> {
   render() {
     return (
       <div className={css.date}>
