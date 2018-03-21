@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class MoodsController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
@@ -119,4 +118,3 @@ class MoodsController < ApplicationController
     params.require(:mood).permit(:name, :description)
   end
 end
-# rubocop:enable ClassLength
