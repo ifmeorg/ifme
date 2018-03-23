@@ -21,20 +21,19 @@ type MomentCardProp = {
   },
   date: string,
   cardType: string,
-  draftText?: string,
-  viewersText?: string
+  draftText?: string
 };
 
 export default class MomentCard extends React.Component <MomentCardProp> {
   render() {
-    const { action, cardType, date, item, draftText, viewersText } = this.props;
+    const { action, cardType, date, item, draftText } = this.props;
 
     return (
       <div className={css.moment}>
         <div className={css.header}>
           { cardType === 'Draft' && <MomentCardDraft draftText={draftText} /> }
           <MomentCardName name={item.name} />
-          <MomentCardSettings action={action} cardType={cardType} viewersText={viewersText} />
+          <MomentCardSettings action={action} cardType={cardType} />
         </div>
         <MomentCardDate date={date} />
         <div className={css.tags}>

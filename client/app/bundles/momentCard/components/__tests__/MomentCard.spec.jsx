@@ -8,6 +8,11 @@ describe('MomentCard', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(<MomentCard
+        action={{
+          edit: () => {},
+          delete: () => {},
+          viewer: () => {},
+        }}
         item={{
           name: 'Real Moment',
           category: ['FRIENDS', 'FAMILY'],
@@ -15,7 +20,6 @@ describe('MomentCard', () => {
         }}
         date="Created 2 Days ago"
         cardType="Normal"
-        viewersText="Viewers"
       />);
     }).not.toThrow();
 
@@ -26,6 +30,9 @@ describe('MomentCard', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(<MomentCard
+        action={{
+          viewer: () => {},
+        }}
         item={{
           name: 'Example Moment: Panicking over interview tomorrow!',
           category: ['CAREER'],
@@ -33,7 +40,6 @@ describe('MomentCard', () => {
         }}
         date=""
         cardType="Example"
-        viewersText="Viewers"
       />);
     }).not.toThrow();
 
@@ -44,6 +50,11 @@ describe('MomentCard', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(<MomentCard
+        action={{
+          edit: () => {},
+          delete: () => {},
+          viewer: () => {},
+        }}
         item={{
           name: 'Real Moment',
           category: ['FRIENDS', 'FAMILY'],
@@ -52,7 +63,6 @@ describe('MomentCard', () => {
         date=""
         cardType="Draft"
         draftText="DRAFT"
-        viewersText="Viewers"
       />);
     }).not.toThrow();
 

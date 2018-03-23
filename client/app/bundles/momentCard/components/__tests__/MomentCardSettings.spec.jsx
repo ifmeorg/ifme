@@ -8,8 +8,12 @@ describe('MomentCardSettings', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(<MomentCardSettings
+        action={{
+          edit: () => {},
+          delete: () => {},
+          viewer: () => {},
+        }}
         cardType="Normal"
-        viewersText="Viewers"
       />);
     }).not.toThrow();
 
