@@ -9,6 +9,11 @@ import MomentCardMoods from './MomentCardMoods';
 import css from './MomentCard.scss';
 
 type MomentCardProp = {
+  action: {
+    edit?: any,
+    delete?: any,
+    viewer?: any
+  },
   item: {
     name: string,
     category?: Array<string>,
@@ -22,14 +27,14 @@ type MomentCardProp = {
 
 export default class MomentCard extends React.Component <MomentCardProp> {
   render() {
-    const { cardType, date, item, draftText, viewersText } = this.props;
+    const { action, cardType, date, item, draftText, viewersText } = this.props;
 
     return (
       <div className={css.moment}>
         <div className={css.header}>
           { cardType === 'Draft' && <MomentCardDraft draftText={draftText} /> }
           <MomentCardName name={item.name} />
-          <MomentCardSettings cardType={cardType} viewersText={viewersText} />
+          <MomentCardSettings action={action} cardType={cardType} viewersText={viewersText} />
         </div>
         <MomentCardDate date={date} />
         <div className={css.tags}>

@@ -7,8 +7,13 @@ import MomentCard from 'bundles/momentCard/components/MomentCard';
 storiesOf('MomentCards', module)
   .add('MomentCard', withInfo({})(() =>
     (<MomentCard
+      action={{
+        edit: () => {} ,
+        delete: () => {},
+        viewer: () => {}
+      }}
       item={{
-        name: 'Real Moment',
+        name: 'Real Moment..Example Moment: Panicking over interview tomorrow sadsadsa ddasdsa jkjhkj',
         category: ['FRIENDS', 'FAMILY'],
         mood: ['ANXIOUS', 'HELPFUL'],
       }}
@@ -19,6 +24,9 @@ storiesOf('MomentCards', module)
   ))
   .add('MomentCardExample', withInfo({})(() =>
     (<MomentCard
+      action={{        
+        viewer: () => {}
+      }}      
       item={{
         name: 'Example Moment: Panicking over interview tomorrow!',
         category: ['CAREER'],
@@ -31,6 +39,11 @@ storiesOf('MomentCards', module)
   ))
   .add('MomentCardDraft', withInfo({})(() =>
     (<MomentCard
+      action={{        
+        edit: () => {} ,
+        delete: () => {},
+        viewer: () => {}
+      }}      
       item={{
         name: 'Real Moment',
         category: ['FRIENDS', 'FAMILY'],

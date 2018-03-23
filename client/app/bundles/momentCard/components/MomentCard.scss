@@ -2,26 +2,21 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .moment {
-  position: relative;
-  width: 370px;
-  height: 120px;
-
+  display: inline-block;
+  position: relative;      
   background: $background-color;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 
-  .header {
-    position: absolute;
-    width: 333px;
-    height: 36px;
-    left: 19px;
-    top: 21px;
-    display: inline-block;
+  .header {    
+    position: relative;            
+    padding: 20px 20px 5px 20px;
 
     .draft {
       display: inline-block;
-      margin-right: 10px;
-
+      padding-right: 10px;
+      vertical-align: top;
+      
       div {                
         border: 1px solid $container-color;
         box-sizing: border-box;
@@ -31,8 +26,9 @@
 
     .name {
       display: inline-block;      
-      position: absolute;      
-      
+      position: relative;
+      max-width: 400px;
+      word-wrap: break-word;
       font-family: Lato;
       font-style: normal;
       font-weight: normal;
@@ -42,16 +38,16 @@
       color: $secondary-text-color;
     }
     
-    .settings {
-      position: absolute;
-      width: 66px;
-      height: 18px;
-      left: 286px;      
-      top: 0px;
-      
+    .settings {            
+      position: relative;                
+      vertical-align: top;
+      float: right;      
+
       .action {            
         color: $date-text-color;
+        cursor: pointer;
         font-size: 20px;
+        padding: 0 2px;
         width: 20px;
         height: 20px;       
         float: right;       
@@ -60,12 +56,9 @@
   }
 
   .date {
-    position: absolute;
-    width: 167px;
-    height: 12px;
-    left: 19px;
-    top: 45px;
-
+    position: relative;
+    display: block;   
+    padding: 0 20px;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
@@ -79,10 +72,7 @@
 
   .tags {
     position: relative;     
-    left: 5.14%;
-    right: 12.16%;
-    top: 62.5%;
-    bottom: 19.17%;
+    padding: 20px 20px 10px;
     
     .category {            
       div {
