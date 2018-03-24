@@ -9,6 +9,11 @@ module PageTransitionSupport
       ).to be_present
     end
   end
+
+  def change_page(trigger, check_for_element, condition = be_present)
+    trigger.()
+    expect(find(check_for_element, wait: 5)).to condition
+  end
 end
 
 RSpec.configure do |config|

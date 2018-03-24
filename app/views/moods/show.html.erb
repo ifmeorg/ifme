@@ -1,13 +1,13 @@
 <% title @mood.name %>
-<% if !@mood.description.blank? && @mood.description.length > 0 %>
-<%= raw(@mood.description) %>
+<% if @mood.description.present? && @mood.description.length > 0 %>
+  <%= raw(@mood.description) %>
 <% else %>
-<div class="main_message">
-	<%= t('warnings.no_description') %>
-</div>
-<div class="message_text no_margin_bottom">
-	<%= t('warnings.yes_description') %>
-</div>
+  <div class="main_message">
+    <%= t('warnings.no_description') %>
+  </div>
+  <div class="message_text no_margin_bottom">
+    <%= t('warnings.yes_description') %>
+  </div>
 <% end %>
 
-<%= render :partial => '/shared/tag_usage', locals: { data: @mood.id, data_type: 'mood', userid: @mood.userid } %>
+<%= render partial: '/shared/tag_usage', locals: { data: @mood.id, data_type: 'mood', userid: @mood.userid } %>

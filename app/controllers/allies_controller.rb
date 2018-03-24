@@ -13,60 +13,24 @@ class AlliesController < ApplicationController
                                           .sort_by! { |n| n.name.downcase }
   end
 
+  # rubocop:disable MethodLength
   def add
     ally_id = params[:ally_id]
     allyship = Allyship.find_by(
       user_id: current_user.id, ally_id: ally_id
     )
 
-    if allyship
-      allyship.update(status: User::ALLY_STATUS[:accepted])
-
-      # Notify the user who made the request
-      pusher_type = 'accepted_ally_request'
-
-      # Get rid of original new_ally_request notification
-      Notification.where(
-        userid: current_user.id,
-        uniqueid: "new_ally_request_#{ally_id}"
-      ).destroy_all
-    else
-      Allyship.create(
-        user_id: current_user.id,
-        ally_id: ally_id,
-        status: User::ALLY_STATUS[:pending_from_ally]
-      )
-
-      # Notify the user the request has been made to
-      pusher_type = 'new_ally_request'
-    end
-
-    uniqueid = "#{pusher_type}_#{current_user.id}"
-    data = JSON.generate(
-      user: current_user.name,
-      userid: current_user.id,
-      uid: current_user.uid,
-      type: pusher_type,
-      uniqueid: uniqueid
-    )
-
-    Notification.create(
-      userid: ally_id,
-      uniqueid: uniqueid,
-      data: data
-    )
-
-    notifications = Notification.where(userid: ally_id).order(:created_at)
-    Pusher["private-#{ally_id}"]
-      .trigger('new_notification', notifications: notifications)
-
-    NotificationMailer.notification_email(ally_id, data).deliver_now
+    pusher_type = allyship ? 'accepted_ally_request' : 'new_ally_request'
+    setup_allyship(allyship, ally_id)
+    remove_allyship_request(ally_id)
+    handle_allyship_notifications(pusher_type, ally_id)
 
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
+  # rubocop:enable MethodLength
 
   def remove
     user_id = current_user.id
@@ -79,5 +43,52 @@ class AlliesController < ApplicationController
       format.html { redirect_to :back }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def setup_allyship(allyship, ally_id)
+    if allyship
+      allyship.update(status: User::ALLY_STATUS[:accepted])
+    else
+      Allyship.create(
+        user_id: current_user.id,
+        ally_id: ally_id,
+        status: User::ALLY_STATUS[:pending_from_ally]
+      )
+    end
+  end
+
+  def remove_allyship_request(ally_id)
+    Notification.where(
+      userid: current_user.id,
+      uniqueid: "new_ally_request_#{ally_id}"
+    ).destroy_all
+  end
+
+  def handle_allyship_notifications(pusher_type, ally_id)
+    unique_id = "#{pusher_type}_#{current_user.id}"
+    data = JSON.generate(
+      user: current_user.name,
+      userid: current_user.id,
+      uid: current_user.uid,
+      type: pusher_type,
+      uniqueid: unique_id
+    )
+
+    send_allyship_notifications(unique_id, data, ally_id)
+  end
+
+  def send_allyship_notifications(unique_id, data, ally_id)
+    Notification.create(
+      userid: ally_id,
+      uniqueid: unique_id,
+      data: data
+    )
+    notifications = Notification.where(userid: ally_id).order(:created_at)
+
+    Pusher["private-#{ally_id}"]
+      .trigger('new_notification', notifications: notifications)
+    NotificationMailer.notification_email(ally_id, data).deliver_now
   end
 end

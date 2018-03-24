@@ -3,6 +3,7 @@
 module MedicationRefillHelper
   include CalendarHelper
   # Save refill date to Google calendar
+  # rubocop:disable RescueStandardError
   def save_refill_to_google_calendar(medication)
     return true unless current_user.google_oauth2_enabled? &&
                        new_cal_refill_reminder_needed?(medication)
@@ -15,6 +16,7 @@ module MedicationRefillHelper
       true
     end
   end
+  # rubocop:enable RescueStandardError
 
   def calendar_uploader_params(medication)
     { summary: "Refill for #{medication.name}",

@@ -3,6 +3,8 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
+const baseConfig = require('./webpack.config.base');
+const glob = require('glob');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -16,7 +18,7 @@ const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 
-const config = {
+const config = Object.assign(baseConfig, {
 
   context: resolve(__dirname),
 
@@ -25,9 +27,7 @@ const config = {
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-      './app/bundles/momentDashboards/startup/registration',
-      './app/bundles/shared/startup/registration',
-    ],
+    ].concat(glob.sync('./app/bundles/**/startup/*')),
   },
 
   output: {
@@ -37,10 +37,6 @@ const config = {
     // Leading slash is necessary
     publicPath: `/${webpackPublicOutputDir}`,
     path: webpackOutputPath,
-  },
-
-  resolve: {
-    extensions: ['.js', '.jsx'],
   },
 
   plugins: [
@@ -112,7 +108,7 @@ const config = {
       },
     ],
   },
-};
+});
 
 module.exports = config;
 

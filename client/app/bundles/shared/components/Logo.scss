@@ -19,6 +19,7 @@
   text-align: center;
   outline: 0;
 
+  /* TODO: Need to switch to use container queries instead of media queries */
   @media screen and (max-width: $small) {
     font-size: $font20;
     line-height: $font20;

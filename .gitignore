@@ -12,7 +12,7 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+*.log
 /tmp
 
 *.DS_Store
@@ -26,6 +26,7 @@
 # Ignore all IDE, TextEditor configuration files
 .idea/
 .tags
+*.swp
 
 # Ignore coverage results
 /coverage

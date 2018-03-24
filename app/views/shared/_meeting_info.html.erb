@@ -45,6 +45,6 @@
 <% if meeting.leaders.include? current_user %>
   <br>
   <br>
-  <i class="fa fa-trash-o action"></i>
+  <i class="fa fa-trash-alt action"></i>
   <%= link_to t('meetings.info.cancel_meeting'), meeting, method: :delete, data: { confirm: t('common.actions.confirm') } %>
 <% end %>

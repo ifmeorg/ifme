@@ -337,10 +337,6 @@ ul.no_bullet_list li {
   width: auto;
 }
 
-.yes_title {
-  cursor: help;
-}
-
 /* Page Title */
 
 #page_title {
@@ -818,6 +814,10 @@ div.table div.table_cell {
   border: 1px solid $alert-color !important;
   box-shadow: 0 0 2px $alert-color inset !important;
   padding: 10px;
+}
+
+.alert_text {
+  color: $alert-color;
 }
 
 .viewers_indicator {

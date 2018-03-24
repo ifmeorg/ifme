@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class MoodsController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
@@ -36,7 +37,7 @@ class MoodsController < ApplicationController
   # POST /moods
   # POST /moods.json
   def create
-    @mood = Mood.new(mood_params)
+    @mood = Mood.new(mood_params.merge(userid: current_user.id))
     respond_to do |format|
       if @mood.save
         format.html { redirect_to mood_path(@mood) }
@@ -50,15 +51,37 @@ class MoodsController < ApplicationController
 
   # POST /moods
   # POST /moods.json
+  # rubocop:disable MethodLength
   def premade
-    Mood.create(userid: current_user.id, name: t('moods.index.premade1_name'), description: t('moods.index.premade1_description'))
-    Mood.create(userid: current_user.id, name: t('moods.index.premade2_name'), description: t('moods.index.premade2_description'))
-    Mood.create(userid: current_user.id, name: t('moods.index.premade3_name'), description: t('moods.index.premade3_description'))
-    Mood.create(userid: current_user.id, name: t('moods.index.premade4_name'), description: t('moods.index.premade4_description'))
-    Mood.create(userid: current_user.id, name: t('moods.index.premade5_name'), description: t('moods.index.premade5_description'))
+    Mood.create(
+      userid: current_user.id,
+      name: t('moods.index.premade1_name'),
+      description: t('moods.index.premade1_description')
+    )
+    Mood.create(
+      userid: current_user.id,
+      name: t('moods.index.premade2_name'),
+      description: t('moods.index.premade2_description')
+    )
+    Mood.create(
+      userid: current_user.id,
+      name: t('moods.index.premade3_name'),
+      description: t('moods.index.premade3_description')
+    )
+    Mood.create(
+      userid: current_user.id,
+      name: t('moods.index.premade4_name'),
+      description: t('moods.index.premade4_description')
+    )
+    Mood.create(
+      userid: current_user.id,
+      name: t('moods.index.premade5_name'),
+      description: t('moods.index.premade5_description')
+    )
 
     redirect_to_path(moods_path)
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
@@ -78,7 +101,7 @@ class MoodsController < ApplicationController
   # DELETE /moods/1.json
   def destroy
     # Remove moods from existing moments
-    @moments = Moment.where(userid: current_user.id).all
+    @moments = current_user.moments.all
 
     @moments.each do |item|
       item.mood.delete(@mood.id)
@@ -90,8 +113,13 @@ class MoodsController < ApplicationController
     redirect_to_path(moods_path)
   end
 
+  # rubocop:disable MethodLength
   def quick_create
-    mood = Mood.new(userid: current_user.id, name: params[:mood][:name], description: params[:mood][:description])
+    mood = Mood.new(
+      userid: current_user.id,
+      name: params[:mood][:name],
+      description: params[:mood][:description]
+    )
 
     result = if mood.save
                render_checkbox(mood, 'mood', 'moment')
@@ -101,17 +129,21 @@ class MoodsController < ApplicationController
 
     respond_with_json(result)
   end
+  # rubocop:enable MethodLength
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  # rubocop:disable RescueStandardError
   def set_mood
     @mood = Mood.friendly.find(params[:id])
   rescue
     redirect_to_path(moods_path)
   end
+  # rubocop:enable RescueStandardError
 
   def mood_params
-    params.require(:mood).permit(:name, :description, :userid)
+    params.require(:mood).permit(:name, :description)
   end
 end
+# rubocop:enable ClassLength

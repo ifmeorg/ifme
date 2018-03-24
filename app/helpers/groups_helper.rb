@@ -49,7 +49,7 @@ module GroupsHelper
   def edit_meeting_link(meeting, html_options = {})
     return unless user_is_leader_of? meeting
     link_to edit_meeting_path(meeting), html_options do
-      raw '<i class="fa fa-pencil"></i>'
+      raw '<i class="fa fa-pencil-alt"></i>'
     end
   end
 

@@ -5,165 +5,165 @@
 /* Footer */
 
 #footer {
-	background-color: $secondary-background-color;
-	padding: 40px 0px;
+  background-color: $secondary-background-color;
+  padding: 40px 0px;
 
-	@media screen and (max-width: $medium) {
-		padding: 20px 0px;
-	}
+  @media screen and (max-width: $medium) {
+    padding: 20px 0px;
+  }
 
-	.license {
-		text-align: right;
-		color: $secondary-text-color;
+  .license {
+    text-align: right;
+    color: $secondary-text-color;
 
-		@media screen and (max-width: $small) {
-			text-align: center;
-		}
-	}
+    @media screen and (max-width: $small) {
+      text-align: center;
+    }
+  }
 
-	.footer_subtitle {
-		font-size: $small-font;
+  .footer_subtitle {
+    font-size: $small-font;
 
-		@media screen and (max-width: $medium) {
-			font-size: $font12;
-		}
+    @media screen and (max-width: $medium) {
+      font-size: $font12;
+    }
 
-		a:link, a:visited, a:hover {
-			display: inline;
-			color: $secondary-text-color;
-		}
-	}
+    a:link, a:visited, a:hover {
+      display: inline;
+      color: $secondary-text-color;
+    }
+  }
 }
 
 #footer_content {
-	padding: 0px 60px;
-	color: $footer-text-color;
-	line-height: 30px;
+  padding: 0px 60px;
+  color: $footer-text-color;
+  line-height: 30px;
 
-	@media screen and (max-width: $medium) {
-		padding: 0px 20px;
-		line-height: 26px;
-	}
+  @media screen and (max-width: $medium) {
+    padding: 0px 20px;
+    line-height: 26px;
+  }
 
-	@media screen and (max-width: $small) {
-		text-align: center;
-	}
+  @media screen and (max-width: $small) {
+    text-align: center;
+  }
 }
 
 #footer a:link,
 #footer a:visited {
-	text-decoration: none;
-	color: $footer-text-color;
-	border: none;
-	display: block;
-	margin: 0;
+  text-decoration: none;
+  color: $footer-text-color;
+  border: none;
+  display: block;
+  margin: 0;
 
-	@media screen and (max-width: $small) {
-		text-align: center;
-	}
+  @media screen and (max-width: $small) {
+    text-align: center;
+  }
 }
 
 #footer a:hover {
-	text-decoration: none;
-	color: $footer-text-color;
-	border: none;
-	opacity: 0.5;
-	display: block;
-	margin: 0;
+  text-decoration: none;
+  color: $footer-text-color;
+  border: none;
+  opacity: 0.5;
+  display: block;
+  margin: 0;
 
-	@media screen and (max-width: $small) {
-		text-align: center;
-	}
+  @media screen and (max-width: $small) {
+    text-align: center;
+  }
 }
 
 #footer .padding_right {
-	padding-right: 40px !important;
+  padding-right: 40px !important;
 
-	@media screen and (max-width: $medium) {
-		padding-right: 20px !important;
-	}
+  @media screen and (max-width: $medium) {
+    padding-right: 20px !important;
+  }
 
-	@media screen and (max-width: $small) {
-		padding-right: 0 !important;
-	}
+  @media screen and (max-width: $small) {
+    padding-right: 0 !important;
+  }
 }
 
 @media screen and (min-width: $small + 1) {
-	#footer .align_left {
-		float: left;
-		display: inline-block;
-	}
+  #footer .align_left {
+    float: left;
+    display: inline-block;
+  }
 
-	#footer .align_right {
-		float: right;
-		display: inline-block;
-	}
+  #footer .align_right {
+    float: right;
+    display: inline-block;
+  }
 
-	#footer div.table div.table_row {
-		display: table-row;
-	}
+  #footer div.table div.table_row {
+    display: table-row;
+  }
 
-	#footer div.table div.table_cell {
-		display: table-cell;
-		word-break: break-word;
-	}
+  #footer div.table div.table_cell {
+    display: table-cell;
+    word-break: break-word;
+  }
 
-	.large_padding_right {
-		padding-right: 80px;
-	}
+  .large_padding_right {
+    padding-right: 80px;
+  }
 
-	@media screen and (max-width: $medium) {
-		.large_padding_right {
-			padding-right: 40px;
-		}
-	}
+  @media screen and (max-width: $medium) {
+    .large_padding_right {
+      padding-right: 40px;
+    }
+  }
 }
 
 @media screen and (max-width: $small) {
-	#footer .align_left {
-		display: block;
-		text-align: left;
-		text-align: center;
-	}
+  #footer .align_left {
+    display: block;
+    text-align: left;
+    text-align: center;
+  }
 
-	#footer .align_right {
-		display: block;
-		text-align: left;
-		text-align: center;
-	}
+  #footer .align_right {
+    display: block;
+    text-align: left;
+    text-align: center;
+  }
 
-	#feedback {
-		margin-bottom: 10px !important;
-	}
+  #feedback {
+    margin-bottom: 10px !important;
+  }
 
-	#if_me_links {
-		margin-top: 0 !important;
-	}
+  #if_me_links {
+    margin-top: 0 !important;
+  }
 }
 
 .footer_heading {
-	text-transform: lowercase;
-	font-weight: 300;
-	font-size: $font30;
-	padding: 0;
-	margin-top: 0;
-	margin-bottom: 20px;
-	display: block;
-	color: $footer-text-color;
+  text-transform: lowercase;
+  font-weight: 300;
+  font-size: $font30;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: block;
+  color: $footer-text-color;
 
-	@media screen and (max-width: $medium) {
-		font-size: $font26;
-		margin-top: 0;
-		margin-bottom: 10px;
-	}
+  @media screen and (max-width: $medium) {
+    font-size: $font26;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 
-	@media screen and (max-width: $small) {
-		text-align: center;
-		margin-top: 10px;
-	}
+  @media screen and (max-width: $small) {
+    text-align: center;
+    margin-top: 10px;
+  }
 }
 
 #connect_links ~ a .fa {
-	text-align: center;
-	width: 1em;
+  text-align: center;
+  width: 1em;
 }

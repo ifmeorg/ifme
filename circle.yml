@@ -24,7 +24,7 @@ test:
     - RAILS_ENV=test bundle exec rake db:create db:schema:load
     - cd client &&
       RAILS_ENV=test bundle exec rake react_on_rails:locale &&
-      yarn run build:test
+      yarn run lint:setup && yarn run lint && yarn run build:test
   override:
     - bundle exec rspec --format progress --format RspecJunitFormatter -o
       $CIRCLE_TEST_REPORTS/rspec.xml

@@ -23,7 +23,9 @@ class GroupMember < ApplicationRecord
 
   has_many :meetings, through: :group
   has_many :meeting_memberships,
-           ->(group_member) { where(meeting_members: { userid: group_member.userid }) },
+           lambda { |group_member|
+             where(meeting_members: { userid: group_member.userid })
+           },
            through: :meetings, source: :meeting_members
 
   def destroy_meeting_memberships

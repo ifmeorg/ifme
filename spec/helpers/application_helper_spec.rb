@@ -1,6 +1,6 @@
 describe ApplicationHelper do
   describe '#nav_link_to' do
-    let(:is_active) { true }
+    let(:active)    { true }
     let(:label)     { 'foo' }
     let(:path)      { 'bar' }
     let(:options)   { {} }
@@ -8,11 +8,11 @@ describe ApplicationHelper do
     subject { nav_link_to(label, path, options) }
 
     before(:each) do
-      allow(self).to receive('is_active?').and_return(is_active)
+      allow(self).to receive('active?').and_return(active)
     end
 
     context 'when active' do
-      let(:is_active) { true }
+      let(:active) { true }
 
       it { is_expected.to have_selector 'li a' }
       it { is_expected.to include label }
@@ -20,7 +20,7 @@ describe ApplicationHelper do
     end
 
     context 'when not active' do
-      let(:is_active) { false }
+      let(:active) { false }
 
       it { is_expected.to have_selector 'li a' }
       it { is_expected.to include label }
@@ -31,20 +31,20 @@ describe ApplicationHelper do
       let(:options) { { :method => :delete } }
 
       it 'passes method in environment' do
-        expect(self).to receive(:is_active?).with(path, options)
+        expect(self).to receive(:active?).with(path, options)
         nav_link_to(label, path, options)
       end
     end
   end
 
-  describe '#is_active?' do
+  describe '#active?' do
     let(:is_current_page)    { false }
     let(:current_controller) { '' }
     let(:action_name)        { '' }
     let(:path)               { root_path }
     let(:environment)        { {} }
 
-    subject { is_active?(path, environment) }
+    subject { active?(path, environment) }
 
     before(:each) do
       params[:controller] = current_controller
@@ -124,6 +124,28 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#get_icon_class' do
+    context 'when icon is nil' do
+      it 'returns default globe icon' do
+        expect(get_icon_class(nil)).to eq('fa fa-globe')
+      end
+    end
+
+    context 'when icon exists' do
+      it 'returns correct icons' do
+        fas = %w[envelope gift rss]
+        far = %w[money-bill-alt]
+        fab = %w[facebook github instagram medium twitter]
+        icons = [{ fas: fas }, { far: far }, { fab: fab }]
+        for icon_set in icons
+          for icon in icon_set.values[0]
+            expect(get_icon_class(icon)).to eq("#{icon_set.keys[0].to_s} fa-#{icon}")
+          end
+        end
+      end
+    end
+  end
+
   describe '#get_icon_text' do
     context 'when icon and text are nil' do
       it 'returns empty string' do
@@ -134,7 +156,7 @@ describe ApplicationHelper do
     context 'when icon and text are string values' do
       it 'returns icon text' do
         expect(get_icon_text('facebook','Facebook')).to eq(
-          '<i class="fa fa-facebook smaller_margin_right"></i>Facebook'
+          '<i class="fab fa-facebook smaller_margin_right"></i>Facebook'
         )
       end
     end

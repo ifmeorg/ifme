@@ -7,10 +7,10 @@
 
 <div class="spacer"></div>
 
-<% if @strategies.length > 0 %>
-  <%= render :partial => '/search/posts', locals: { data_type: 'strategy' } %>
+<% if @strategies.any? %>
+  <%= render partial: '/search/posts', locals: { data_type: 'strategy' } %>
 
-  <%= render :partial => '/shared/stats', locals: { data_type: 'strategy' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'strategy' } %>
 
   <div id="pages">
     <div class="page">

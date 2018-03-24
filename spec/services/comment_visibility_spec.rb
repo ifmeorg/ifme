@@ -1,11 +1,11 @@
 describe CommentVisibility do
   describe '#build' do
-    let(:owner) { FactoryGirl.create(:user2, :with_allies) }
+    let(:owner) { FactoryBot.create(:user2, :with_allies) }
     let(:ally) { owner.allies.first }
     let(:ally_commenter) { owner.allies.second }
 
-    let(:strategy) { FactoryGirl.create(:strategy, userid: owner.id) }
-    let(:moment) { FactoryGirl.create(:moment, userid: owner.id) }
+    let(:strategy) { FactoryBot.create(:strategy, userid: owner.id) }
+    let(:moment) { FactoryBot.create(:moment, userid: owner.id) }
 
     let(:commentable) {
       {

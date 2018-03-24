@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module NotificationMailerHelper
   def comment_on_moment_subject(data)
     I18n.t(
@@ -156,3 +157,4 @@ module NotificationMailerHelper
     I18n.t(val(key), user: data['user'].to_s, group: data['group'].to_s)
   end
 end
+# rubocop:enable ModuleLength

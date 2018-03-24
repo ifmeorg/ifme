@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class CategoriesController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
@@ -37,32 +38,55 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   # POST /categories.json
+  # rubocop:disable MethodLength
   def create
-    @category = Category.new(category_params)
+    @category = Category.new(category_params.merge(userid: current_user.id))
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_path(@category) }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @category.errors, status: :unprocessable_entity
+        end
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # POST /categories
   # POST /categories.json
+  # rubocop:disable MethodLength
   def premade
-    Category.create(userid: current_user.id, name: t('categories.index.premade1_name'), description: t('categories.index.premade1_description'))
-    Category.create(userid: current_user.id, name: t('categories.index.premade2_name'), description: t('categories.index.premade2_description'))
-    Category.create(userid: current_user.id, name: t('categories.index.premade3_name'), description: t('categories.index.premade3_description'))
-    Category.create(userid: current_user.id, name: t('categories.index.premade4_name'), description: t('categories.index.premade4_description'))
+    Category.create(
+      userid: current_user.id,
+      name: t('categories.index.premade1_name'),
+      description: t('categories.index.premade1_description')
+    )
+    Category.create(
+      userid: current_user.id,
+      name: t('categories.index.premade2_name'),
+      description: t('categories.index.premade2_description')
+    )
+    Category.create(
+      userid: current_user.id,
+      name: t('categories.index.premade3_name'),
+      description: t('categories.index.premade3_description')
+    )
+    Category.create(
+      userid: current_user.id,
+      name: t('categories.index.premade4_name'),
+      description: t('categories.index.premade4_description')
+    )
 
     redirect_to_path(categories_path)
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
+  # rubocop:disable MethodLength
   def update
     respond_to do |format|
       if @category.update(category_params)
@@ -70,16 +94,19 @@ class CategoriesController < ApplicationController
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @category.errors, status: :unprocessable_entity
+        end
       end
     end
   end
+  # rubocop:enable MethodLength
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
     # Remove categories from existing moments
-    @moments = Moment.where(userid: current_user.id).all
+    @moments = current_user.moments.all
 
     @moments.each do |item|
       item.category.delete(@category.id)
@@ -92,8 +119,13 @@ class CategoriesController < ApplicationController
     redirect_to_path(categories_path)
   end
 
+  # rubocop:disable MethodLength
   def quick_create
-    category = Category.new(userid: current_user.id, name: params[:category][:name], description: params[:category][:description])
+    category = Category.new(
+      userid: current_user.id,
+      name: params[:category][:name],
+      description: params[:category][:description]
+    )
 
     if category.save
       tag = params[:category][:tag].to_s
@@ -104,17 +136,21 @@ class CategoriesController < ApplicationController
 
     respond_with_json(result)
   end
+  # rubocop:enable MethodLength
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  # rubocop:disable RescueStandardError
   def set_category
     @category = Category.friendly.find(params[:id])
   rescue
     redirect_to_path(categories_path)
   end
+  # rubocop:enable RescueStandardError
 
   def category_params
-    params.require(:category).permit(:name, :description, :userid)
+    params.require(:category).permit(:name, :description)
   end
 end
+# rubocop:enable ClassLength

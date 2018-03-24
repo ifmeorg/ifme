@@ -4,12 +4,12 @@
   - <%= t('account.sign_in') %>
 <% elsif current_page?(new_user_registration_path) ||
   (params[:controller] == "devise/registrations" && action_name == "create") %>
-- <%= t('account.sign_up') %>
-    <% elsif current_page?(new_user_password_path) ||
-      (params[:controller] == "devise/passwords" && action_name == "new") %>
-    - <%= t('account.forgot_password') %>
-  <% elsif current_page?(edit_user_registration_path) ||
-    (params[:controller] == "registrations" && action_name == "update") %>
+  - <%= t('account.sign_up') %>
+<% elsif current_page?(new_user_password_path) ||
+  (params[:controller] == "devise/passwords" && action_name == "new") %>
+  - <%= t('account.forgot_password') %>
+<% elsif current_page?(edit_user_registration_path) ||
+  (params[:controller] == "registrations" && action_name == "update") %>
   - <%= t('account.singular') %>
 <% elsif current_page?(root_path) %>
   - <%= t('app_description') %>

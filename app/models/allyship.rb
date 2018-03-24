@@ -21,16 +21,20 @@ class Allyship < ApplicationRecord
   belongs_to :user
   belongs_to :ally, class_name: 'User'
 
-  after_create :create_inverse, unless: :has_inverse?
+  after_create :create_inverse, unless: :inverse?
   after_update :approve_inverse, if: :inverse_unapproved?
-  after_destroy :destroy_inverses, if: :has_inverse?
+  after_destroy :destroy_inverses, if: :inverse?
 
   def approve_inverse
     inverses.update_all(status: User::ALLY_STATUS[:accepted])
   end
 
   def create_inverse
-    self.class.create(inverse_allyship_options.merge(status: User::ALLY_STATUS[:pending_from_user]))
+    self.class.create(
+      inverse_allyship_options.merge(
+        status: User::ALLY_STATUS[:pending_from_user]
+      )
+    )
   end
 
   def destroy_inverses
@@ -43,7 +47,7 @@ class Allyship < ApplicationRecord
     errors.add(:ally_id, 'ally_id is nil') if ally_id.nil?
   end
 
-  def has_inverse?
+  def inverse?
     self.class.exists?(inverse_allyship_options)
   end
 
@@ -56,7 +60,7 @@ class Allyship < ApplicationRecord
   end
 
   def inverse_unapproved?
-    !inverses.where.not(status: User::ALLY_STATUS[:accepted]).empty?
+    inverses.where.not(status: User::ALLY_STATUS[:accepted]).any?
   end
 
   private

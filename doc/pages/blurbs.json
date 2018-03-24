@@ -258,5 +258,25 @@
     "link_name": "vildevevatne",
     "link": "https://github.com/vildevev",
     "social": "github"
+  },
+  {
+    "name": "Seun Adekunle",
+    "image": "/assets/contributors/seun_adekunle.jpeg",
+    "profile":
+      "Changing the world is my watch word and I'm glad to be part of this community where I get to contribute to helping people around the world to be healthy and feel safer to share their feelings and experiences.",
+    "location": "Lagos, Nigeria",
+    "link_name": "seunadex",
+    "link": "https://github.com/seunadex",
+    "social": "github"
+  },
+  {
+    "name": "George Karametas",
+    "image": "/assets/contributors/george_karametas.png",
+    "profile":
+      "I am Frontend Engineer from Athens, Greece and I love contributing to this project which helps people with mental health issues heal themselves by sharing their experiences with the community. For me, openness is critical to self improvement and healing. Moreover, this is an Open Source project as well, so with one stone, two birds!",
+    "location": "Treviso, Italy",
+    "link_name": "geodoo",
+    "link": "https://github.com/GeoDoo",
+    "social": "github"
   }
 ]

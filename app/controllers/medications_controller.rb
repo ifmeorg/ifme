@@ -42,7 +42,8 @@ class MedicationsController < ApplicationController
   # POST /medications
   # POST /medications.json
   def create
-    @medication = Medication.new(medication_params)
+    @medication =
+      Medication.new(medication_params.merge(userid: current_user.id))
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
@@ -96,16 +97,18 @@ class MedicationsController < ApplicationController
   end
 
   # Use callbacks to share common setup or constraints between actions.
+  # rubocop:disable RescueStandardError
   def set_medication
     @medication = Medication.friendly.find(params[:id])
   rescue
     redirect_to_path(medications_path)
   end
+  # rubocop:enable RescueStandardError
 
   def medication_params
     params.require(:medication).permit(
       :name, :dosage, :refill,
-      :userid, :total, :strength,
+      :total, :strength,
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],

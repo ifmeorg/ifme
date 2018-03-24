@@ -1,6 +1,6 @@
-//@flow
-import React from "react";
-import css from "./Input.scss";
+// @flow
+import React from 'react';
+import css from './Input.scss';
 
 type Props = {
   dark?: boolean,
@@ -11,7 +11,6 @@ type Props = {
   value?: string | number,
   placeholder?: string,
   label?: string,
-  value?: string,
   readonly?: boolean,
   disabled?: boolean,
   required?: boolean,
@@ -27,7 +26,7 @@ type State = {
 export default class Input extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: this.props.value || "", active: false };
+    this.state = { value: this.props.value || '', active: false };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -35,11 +34,11 @@ export default class Input extends React.Component<Props, State> {
     this.setState({ value: e.currentTarget.value });
   };
 
-  onFocus = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+  onFocus = () => {
     this.setState({ active: true });
   };
 
-  onBlur = (e: SyntheticMouseEvent<HTMLInputElement>) => {
+  onBlur = () => {
     this.setState({ active: false });
   };
 
@@ -51,20 +50,19 @@ export default class Input extends React.Component<Props, State> {
       id,
       type,
       name,
-      value,
       placeholder,
       readonly,
       disabled,
       required,
       minLength,
-      maxLength
+      maxLength,
     } = this.props;
 
-    const labelClassNames = `${css.label} ${dark ? css.dark : ""} 
-      ${large ? css.large : ""} ${this.state.active ? css.active : ""}`;
+    const labelClassNames = `${css.label} ${dark ? css.dark : ''} 
+      ${large ? css.large : ''} ${this.state.active ? css.active : ''}`;
 
-    const inputClassNames = `${css.input} ${dark ? css.dark : ""} 
-    ${large ? css.large : ""}`;
+    const inputClassNames = `${css.input} ${dark ? css.dark : ''} 
+    ${large ? css.large : ''}`;
 
     return (
       <div>
@@ -76,7 +74,7 @@ export default class Input extends React.Component<Props, State> {
           name={name}
           value={this.state.value}
           placeholder={placeholder}
-          readonly={readonly}
+          readOnly={readonly}
           disabled={disabled}
           required={required}
           minLength={minLength}
