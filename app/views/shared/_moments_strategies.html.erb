@@ -1,55 +1,55 @@
 <% if local_assigns[:data_type] == 'moment' || local_assigns[:data_type] == 'moment_tag_usage' %>
-    <div class="moment">
-      <h1 class="moment_name">
-        <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
-        <%= link_to local_assigns[:item].name, local_assigns[:item] %>
-      </h1>
+  <div class="moment">
+    <h1 class="moment_name">
+      <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
+      <%= link_to local_assigns[:item].name, local_assigns[:item] %>
+    </h1>
 
-      <%= render :partial => '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
+    <%= render partial: '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
 
-      <% if current_user.id == local_assigns[:item].userid %>
+    <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
         <i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_moment_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'moment' %>
-        <i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
+          <i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
         <% end %>
       </div>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 <% elsif local_assigns[:data_type] == 'strategy' || local_assigns[:data_type] == 'strategy_tag_usage' %>
-      <div class="strategy">
-      <h1 class="strategy_name">
-        <%= render :partial => '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
-        <%= link_to local_assigns[:item].name, local_assigns[:item] %>
-      </h1>
-      <% if !local_assigns[:item].published? %>
-        <span class="draft-badge">
-          <i class="fa fa-tag" aria-hidden="true"></i>
-          <%= I18n.t 'draft' %>
+  <div class="strategy">
+    <h1 class="strategy_name">
+      <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
+      <%= link_to local_assigns[:item].name, local_assigns[:item] %>
+    </h1>
+    <% if !local_assigns[:item].published? %>
+      <span class="draft-badge">
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        <%= I18n.t 'draft' %>
+      </span>
+    <% end %>
+    <%= ::TimeAgo.created_or_edited(local_assigns[:item]) %>
+    <% if local_assigns[:item].category.count > 0 %>
+      <br>
+      <strong>
+        <%= t('categories.label', count: local_assigns[:item].category.count) %>
+      </strong>
+      <% local_assigns[:item].category.each do |item| %>
+        <% if Category.where(id: item, userid: current_user.id).exists? %>
+        <span class="notification_wrapper">
+          <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
+          <%= render partial: '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
         </span>
-      <% end %>
-      <%= ::TimeAgo.created_or_edited(local_assigns[:item]) %>
-      <% if local_assigns[:item].category.count > 0 %>
-        <br>
-        <strong>
-          <%= t('categories.label', count: local_assigns[:item].category.count) %>
-        </strong>
-        <% local_assigns[:item].category.each do |item| %>
-          <% if Category.where(id: item, userid: current_user.id).exists? %>
-          <span class="notification_wrapper">
-            <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
-            <%= render :partial => '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
-          </span>
-          <% end %>
         <% end %>
       <% end %>
-      <% if current_user.id == local_assigns[:item].userid %>
+    <% end %>
+    <% if current_user.id == local_assigns[:item].userid %>
       <div class="small_margin_top">
         <i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_strategy_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'strategy' %>
-        <i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
+          <i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), local_assigns[:item], method: :delete, data: { confirm: t('common.actions.confirm') } %>
         <% end %>
       </div>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
 <% end %>

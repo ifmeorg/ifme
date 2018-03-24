@@ -1,9 +1,9 @@
-<%= form_for(:search, :url => search_index_path, :html => { :method => :get }) do |f| %>
-    <% if @email.nil? %>
- 		<%= f.text_field :email, :placeholder => t('search.form.search_by_email') %>
- 	<% else %>
- 		<%= f.text_field :email, :placeholder => t('search.form.search_by_email'), :value => @email %>
- 	<% end %>
+<%= form_for(:search, url: search_index_path, html: { method: :get }) do |f| %>
+  <% if @email.nil? %>
+    <%= f.text_field :email, placeholder: t('search.form.search_by_email') %>
+  <% else %>
+    <%= f.text_field :email, placeholder: t('search.form.search_by_email'), value: @email %>
+  <% end %>
 
-    <%= f.submit t('search.search'), class: 'no_margin_right' %>
+  <%= f.submit t('search.search'), class: 'no_margin_right' %>
 <% end %>

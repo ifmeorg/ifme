@@ -40,7 +40,7 @@ Information about installing and configuring if me is located in [INSTALLATION.m
 
 [How to add translations for new languages](https://github.com/ifmeorg/ifme/wiki/Translations)
 
-## Tracking Issues and Committing Code
+## Workflows and Conbtributions
 
 [Workflows and contributions](https://github.com/ifmeorg/ifme/wiki/Workflow)
 

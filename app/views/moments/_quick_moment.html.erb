@@ -8,17 +8,17 @@
   <div class="table" id="quick_moment">
     <div class="table_row">
       <div class="table_cell small_padding_right vertical_align_middle">
-        <%= f.text_field :name, placeholder: t('common.title'), :required => true %>
-        <%= f.text_area :why, placeholder: t('moments.form.what_happened'), :required => true %>
+        <%= f.text_field :name, placeholder: t('common.title'), required: true %>
+        <%= f.text_area :why, placeholder: t('moments.form.what_happened'), required: true %>
         <div class="quick_moment_disclaimer">
           <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
-          <%= render :partial => '/shared/character_count', locals: { data: 'moment_why' } %>
+          <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
         </div>
       </div>
 
       <div class="table_cell center vertical_align_middle">
 
-        <%= render :partial => '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
+        <%= render partial: '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
 
         <div class="clear"></div>
 

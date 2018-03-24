@@ -816,6 +816,10 @@ div.table div.table_cell {
   padding: 10px;
 }
 
+.alert_text {
+  color: $alert-color;
+}
+
 .viewers_indicator {
   color: $subtle-secondary-text-color;
   font-weight: bold;
