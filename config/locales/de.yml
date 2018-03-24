@@ -143,7 +143,7 @@ de:
     only_leader: "Du bist der einzige Administrator, daher kannst du dich nicht selber löschen."
     cannot_delete: 'Bitte beachte, dass du Gruppen nicht löschen kannst.'
     error_save: "Wir können diese Gruppe aus folgendem Grund nicht anlegen: "
-    error_edit_permission: 'Du musst Administrator einer Gruppe sein, um diese zu bearbeiten'.
+    error_edit_permission: 'Du musst Administrator einer Gruppe sein, um diese zu bearbeiten'
   index:
    subtitle: 'Erstelle und trete Gruppen bei, die Hilfestellung, Mentoring und Gespräche ermöglichen.'
    available_groups: 'Verfügbare Gruppen'
