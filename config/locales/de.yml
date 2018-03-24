@@ -23,6 +23,7 @@ de:
    vn: Tiếng Việt
    it: Italiano
    nb: Norsk
+   de: Deutsch
 
  navigation:
    about: 'Über uns'
@@ -357,7 +358,7 @@ de:
     email_us: 'Schicke uns gerne eine E-Mail %{email_link}!'
     main_message_one: "%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauten Personen zu teilen."
     message_text_one: "Vertrauenswürdige Helfer sind die Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit."
-    main_message_two: "Uns mit unserer Psyche auseinanderzusetzen ist Teil unserer Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen."
+    main_message_two: "Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen."
     message_text_two: "Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class=\"subtitle block\">\"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Psychische Gesundheit ist individuell und ist von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe von jedem einzelnen, was auch der Grund ist, warum dieses Projekt Open-Source ist.</p>"
     main_message_three: "Möchtest du uns finanziell unterstützen?"
     message_text_three: "Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Werdegängen und Kenntnissen.</p><p>Im Jahr 2016, haben wir einen Zuschuss für gemeinschaftliche Zwecke von %{linebreak_link} erhalten. Im Jahr 2017 haben wir finanzielle Unterstützung von %{fund_club_link} erhalten.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>"
