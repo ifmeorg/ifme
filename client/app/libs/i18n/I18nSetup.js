@@ -15,6 +15,7 @@ import nb from 'react-intl/locale-data/nb';
 import sv from 'react-intl/locale-data/sv';
 import nl from 'react-intl/locale-data/nl';
 import br from 'react-intl/locale-data/br';
+import de from 'react-intl/locale-data/de';
 
 const ptbr = first(br);
 ptbr.locale = 'ptbr';
@@ -22,5 +23,5 @@ ptbr.locale = 'ptbr';
 // Initizalize all locales for react-intl.
 // eslint-disable-next-line import/prefer-default-export
 export const loadLocales = () => {
-  addLocaleData([...en, ...es, ...it, ...nb, ...sv, ...nl, ptbr]);
+  addLocaleData([...en, ...es, ...it, ...nb, ...sv, ...nl, ptbr, ...de]);
 };
