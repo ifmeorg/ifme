@@ -36,7 +36,7 @@ module.exports = function (config) {
       'app/**/*.jsx': ['webpack', 'sourcemap'],
     },
     // todo output test debugger
-    reporters: ['dots'],
+    reporters: ['spec'],
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true,
