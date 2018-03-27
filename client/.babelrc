@@ -1,5 +1,10 @@
 {
-  "presets": ["flow", "env", "stage-2", "react"],
+  "presets": [
+    "env",
+    "flow",
+    "react",
+    "stage-2"
+  ],
   "env": {
     "test": {
       "plugins": [
