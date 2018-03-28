@@ -7,7 +7,7 @@
     "start": "foreman start -f Procfile.dev"
   },
   "engines": {
-    "node": "6.x"
+    "node": ">=6.x"
   },
   "cacheDirectories": [
     "node_modules",
