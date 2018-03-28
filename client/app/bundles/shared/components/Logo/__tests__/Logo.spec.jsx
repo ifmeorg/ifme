@@ -1,10 +1,10 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import Logo from '../Logo';
+import Logo, { LogoSmall } from '../index';
 
 describe('Logo', () => {
-  it('renders the Logo (medium)', () => {
+  it('renders the Logo', () => {
     let wrapper = null;
 
     expect(() => {
@@ -18,7 +18,7 @@ describe('Logo', () => {
     let wrapper = null;
 
     expect(() => {
-      wrapper = render(<Logo size="small" />);
+      wrapper = render(<LogoSmall />);
     }).not.toThrow();
 
     expect(wrapper).not.toBeNull();

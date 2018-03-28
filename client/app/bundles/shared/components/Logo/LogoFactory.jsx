@@ -1,15 +1,13 @@
 // @flow
-import React from 'react';
+import React, { type StatelessFunctionalComponent } from 'react';
 import css from './Logo.scss';
 
 type Props = {
-  onClick?: () => any;
-  size?: string; // Future Task: Use ScreenSize enum
-}
+  onClick?: (event: SyntheticEvent<>) => void;
+};
 
-export default class Logo extends React.Component<Props, {}> {
-  render() {
-    const { onClick, size = '' } = this.props;
+function LogoFactory(size: string = ''): StatelessFunctionalComponent<Props> {
+  const LogoComponent = ({ onClick }: Props) => {
     const linkClass = onClick ? 'link' : '';
     const containerClass = `${css.container} ${css[size] || ''} ${linkClass}`;
 
@@ -19,5 +17,13 @@ export default class Logo extends React.Component<Props, {}> {
         <span className={css.me}>me</span>
       </div>
     );
-  }
+  };
+
+  LogoComponent.defaultProps = {
+    onClick: undefined,
+  };
+
+  return LogoComponent;
 }
+
+export default LogoFactory;
