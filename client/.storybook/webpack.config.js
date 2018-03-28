@@ -60,7 +60,7 @@ module.exports = Object.assign(baseConfig, {
                 importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
-            }
+            },
           ],
         }),
       },
@@ -70,7 +70,7 @@ module.exports = Object.assign(baseConfig, {
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
-            cssLoader
+            cssLoader,
           ],
         }),
       },

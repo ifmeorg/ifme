@@ -120,7 +120,7 @@ const config = Object.assign(baseConfig, {
                 importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
-            }
+            },
           ],
         }),
       },
@@ -130,7 +130,7 @@ const config = Object.assign(baseConfig, {
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
-            cssLoader
+            cssLoader,
           ],
         }),
       },
