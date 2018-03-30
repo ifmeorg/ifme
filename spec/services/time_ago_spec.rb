@@ -57,7 +57,7 @@ describe TimeAgo do
 
     context 'updated_at does not exist' do
       it "returns created_at" do
-        expect(subject).to eq("<strong>Created:</strong> #{TimeAgo.formatted_ago(new_moment.created_at)}")
+        expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)}")
       end
     end
 
@@ -67,7 +67,7 @@ describe TimeAgo do
       end
 
       it "returns created_at with (edited)" do
-        expect(subject).to eq("<strong>Created:</strong> #{TimeAgo.formatted_ago(new_moment.created_at)} <em>(edited)</em>")
+        expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)} (edited)")
       end
     end
 
@@ -79,7 +79,7 @@ describe TimeAgo do
       end
 
       it "returns created_at with updated_at" do
-        expect(subject).to eq("<strong>Created:</strong> #{TimeAgo.formatted_ago(new_moment.created_at)} <em>(edited #{TimeAgo.formatted_ago(new_moment.updated_at)})</em>")
+        expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)} (edited #{TimeAgo.formatted_ago(new_moment.updated_at)})")
       end
     end
   end
