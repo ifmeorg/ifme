@@ -60,7 +60,8 @@ describe User do
             expires_at:  current_time.to_i,
             refresh_token: "12345abcdefg",
           }),
-        })
+        }
+      )
     }
 
     context 'when user already exists' do
@@ -68,7 +69,8 @@ describe User do
         User.create(
           name: "Jane Doe",
           email: "janedoe@ifme.com",
-          password: "asdfasdf")
+          password: "asdfasdf"
+        )
       }
 
       it 'updates user info from an oauth hash' do
