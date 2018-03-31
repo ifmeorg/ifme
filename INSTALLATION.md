@@ -189,6 +189,16 @@ use this feature in your local environment, please create your own account,
 generate keys, and update `PUSHER_APP_ID`, `PUSHER_KEY`, `PUSHER_SECRET` in
 `config/env/test.env` and `config/env/development.env`.
 
+#### Facebook OAuth IDs
+
+[Facebook Oauth IDs](https://developers.facebook.com) is used for
+OAuth (Sign in with Facebook).
+If you would like to use this feature in your local environment, please create
+your own account, generate keys, and update `FACEBOOK_APP_ID` and
+`FACEBOOK_APP_SECRET` in `config/env/test.env` and `config/env/development.env`.
+Under the Configurations for Facebook login, make sure to add the
+Authorized redirect URI as `http://localhost:3000/users/auth/facebook/callback`.
+
 #### Google OAuth 2.0 IDs
 
 [Google OAuth 2.0 IDs](https://console.developers.google.com) is used for

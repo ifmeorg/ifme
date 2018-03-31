@@ -11,7 +11,6 @@
     <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional') %>
   </div>
 
-<<<<<<< HEAD
 	<div class="field">
 		<div class="label">
 			<%= f.label t('common.form.email') %>
@@ -66,7 +65,6 @@
       <label> <%= raw t('devise.registrations.edit.labels.password_for') %></label>
     </div>
 
-<<<<<<< HEAD
 		<% if current_user.provider == "google_oauth2" %>
 			<div class="small_font">
 				<%= raw t('devise.registrations.google_auth2') %>
@@ -79,14 +77,6 @@
 			</div>
 		<% end %>
 	</div>
-=======
-    <% if current_user.provider == 'google_oauth2' %>
-      <div class="small_font">
-        <%= raw t('devise.registrations.google_auth2') %>
-      </div>
-    <% end %>
-  </div>
->>>>>>> 928a6eda99651458e97daf215a9fff30b9f0aa1a
 
   <div class="field">
     <div class="label"><%= f.label t('devise.new_password') %></div>
