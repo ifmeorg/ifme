@@ -22,7 +22,7 @@ engines:
     - vendor/assets/javascripts
     - client/karma.conf.js
   fixme:
-    enabled: true
+    enabled: false
   rubocop:
     enabled: true
     channel: rubocop-0-48

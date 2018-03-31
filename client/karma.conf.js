@@ -1,4 +1,5 @@
 // karma.conf.js
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 const webpack = require('webpack');
 
@@ -7,6 +8,7 @@ webpackConfig.plugins = [
     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
     DEBUG: true,
   }),
+  new ExtractTextPlugin(`[name]-[hash].css`),
 ];
 webpackConfig.devtool = 'eval-source-map';
 
@@ -34,7 +36,7 @@ module.exports = function (config) {
       'app/**/*.jsx': ['webpack', 'sourcemap'],
     },
     // todo output test debugger
-    reporters: ['dots'],
+    reporters: ['spec'],
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true,
