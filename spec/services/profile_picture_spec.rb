@@ -61,13 +61,13 @@ describe ProfilePicture do
     end
   end
 
-  describe '.is_cloudinary_src' do
+  describe '.cloudinary_src' do
     it 'returns true for Cloudinary URL' do
-      expect(subject.send(:is_cloudinary_src, CLOUDINARY_ASSET_URL)).to be
+      expect(subject.send(:cloudinary_src, CLOUDINARY_ASSET_URL)).to be
     end
 
     it 'returns false for non-Cloudinary URL' do
-      expect(subject.send(:is_cloudinary_src, LOCAL_ASSET)).not_to be
+      expect(subject.send(:cloudinary_src, LOCAL_ASSET)).not_to be
     end
   end
 
