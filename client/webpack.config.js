@@ -42,7 +42,7 @@ const config = Object.assign(baseConfig, {
   entry: {
     'moments-app_bundle': glob.sync('./app/bundles/momentsApp/startup/*'),
     // Shims should be singletons, and shared bundle is always loaded
-    'shared_bundle': [
+    shared_bundle: [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
@@ -158,7 +158,7 @@ const config = Object.assign(baseConfig, {
               limit: 8000,
               name: 'images/[hash]-[name].[ext]',
             },
-          }
+          },
         ],
       },
     ],

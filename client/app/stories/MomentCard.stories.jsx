@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
-import MomentCard from 'bundles/momentCard/components/MomentCard';
+import MomentCard from 'bundles/momentsApp/components/MomentCard';
 
 storiesOf('MomentCards', module)
   .add('MomentCard', withInfo({})(() =>
