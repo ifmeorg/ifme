@@ -1,3 +1,8 @@
+/**
+ * TODO: Split up development configuration from production configuration
+ * in order to support hot reloading.
+ */
+
 // For inspiration on your webpack configuration, see:
 // https://github.com/shakacode/react_on_rails/tree/master/spec/dummy/client
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
@@ -20,17 +25,28 @@ const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin(`${outputFilename}.css`);
+const cssLoaderWithModules = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    camelCase: true,
+    importLoaders: 1,
+    localIdentName: '[name]__[local]___[hash:base64:5]',
+  },
+};
 
 const config = Object.assign(baseConfig, {
 
   context: resolve(__dirname),
 
   entry: {
-    'webpack-bundle': [
+    'moments-app_bundle': glob.sync('./app/bundles/momentsApp/startup/*'),
+    // Shims should be singletons, and shared bundle is always loaded
+    'shared_bundle': [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-    ].concat(glob.sync('./app/bundles/**/startup/*')),
+    ].concat(glob.sync('./app/bundles/shared/startup/*')),
   },
 
   output: {
@@ -119,34 +135,14 @@ const config = Object.assign(baseConfig, {
         exclude: /node_modules/,
         loader: extractCSS.extract({
           fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                camelCase: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-            },
-          ],
+          use: [cssLoaderWithModules],
         }),
       },
       {
         test: /\.(sass|scss)$/,
         loader: extractCSS.extract({
           fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                camelCase: true,
-                importLoaders: 1,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-            },
-            'sass-loader',
-          ],
+          use: [cssLoaderWithModules, 'sass-loader'],
         }),
       },
       {
@@ -155,13 +151,15 @@ const config = Object.assign(baseConfig, {
       },
       {
         test: /\.(png|jp(e*)g|svg)$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 8000,
-            name: 'images/[hash]-[name].[ext]',
-          },
-        }],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+              name: 'images/[hash]-[name].[ext]',
+            },
+          }
+        ],
       },
     ],
   },

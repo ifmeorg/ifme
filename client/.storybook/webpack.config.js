@@ -7,6 +7,15 @@ const extractCSS = new ExtractTextPlugin({
   filename: '[name]-[hash].css',
   disable: true, // Set diable to true so that CSS works with hot reloading
 });
+const cssLoaderWithModules = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    camelCase: true,
+    importLoaders: 1, // Process @import inside CSS files
+    localIdentName: '[name]__[local]___[hash:base64:5]',
+  },
+};
 
 module.exports = Object.assign(baseConfig, {
 
@@ -44,12 +53,13 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         include: /node_modules\/antd/,
         loader: extractCSS.extract({
+          // Don't need singleton for hot reload, since we don't expect styles to change
           fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
               options: {
-                modules: false,
+                modules: false, // Prevent class renaming
                 camelCase: true,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
@@ -61,35 +71,23 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         exclude: /node_modules/,
         loader: extractCSS.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                camelCase: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-            },
-          ],
+          /**
+           * Use singleton to force reloading entire stylesheet whenever there is a
+           * change during hot reload.
+           */
+          fallback: 'style-loader?singleton',
+          use: [cssLoaderWithModules],
         }),
       },
       {
         test: /\.(sass|scss)$/,
         loader: extractCSS.extract({
+          /**
+           * Use singleton to force reloading entire stylesheet whenever there is a
+           * change during hot reload.
+           */
           fallback: 'style-loader?singleton',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                camelCase: true,
-                importLoaders: 1, // Parse @import inside SASS files
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
-            },
-            'sass-loader',
-          ],
+          use: [cssLoaderWithModules, 'sass-loader'],
         }),
       },
       {

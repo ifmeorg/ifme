@@ -9,9 +9,17 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
-    <!-- Webpack Assets -->
-    <%= javascript_pack_tag 'webpack-bundle' %>
-    <%= stylesheet_pack_tag 'webpack-bundle' %>
+    <!-- Webpack Assets START -->
+    <%= javascript_pack_tag 'shared_bundle' %>
+    <%= stylesheet_pack_tag 'shared_bundle' %>
+
+    <!-- TODO: Need a way to load this bundle only on Moments pages -->
+    <%= javascript_pack_tag 'moments-app_bundle' %>
+    <!--
+      NOTE: CSS for moments-app_bundle does not exist yet, but if you need a component
+      that will have its own CSS, then add it here.
+    -->
+    <!-- Webpack Assets END -->
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,6 +29,7 @@
       <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
+
     <!-- jQuery UI -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/flick/jquery-ui.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -33,12 +42,15 @@
       }
       .ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
     </style>
+
     <!-- Timepicker UI -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" type="text/javascript"></script>
     <link rel="alternate" type="application/rss+xml" title="if me blog" href="https://medium.com/feed/ifme" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
+
     <!-- Timezone Detection -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js" type="text/javascript"></script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete"
         async defer></script>
