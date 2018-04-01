@@ -30,7 +30,7 @@ class ProfilePicture
       end
     end
 
-    def cloudinary_src?(path)
+    def cloudinary_src(path)
       path&.include?('.cloudinary.com')
     end
 
