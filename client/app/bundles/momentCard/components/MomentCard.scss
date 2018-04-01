@@ -1,31 +1,32 @@
-@import "../../shared/components/base.scss";
+@import "../../shared/components/_legacy.scss";
+@import "../../shared/components/_base.scss";
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .moment {
   display: block;
-  position: relative;      
+  position: relative;
   background: $background-color;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 
-  .header {    
-    position: relative;            
+  .header {
+    position: relative;
     padding: 20px 20px 5px 20px;
 
     .draft {
       display: inline-block;
       padding-right: 10px;
       vertical-align: top;
-      
-      div {                
+
+      div {
         border: 1px solid $container-color;
         box-sizing: border-box;
         border-radius: 5px;
-      }      
+      }
     }
 
     .name {
-      display: inline-block;      
+      display: inline-block;
       position: relative;
       max-width: 400px;
       word-wrap: break-word;
@@ -37,27 +38,27 @@
 
       color: $secondary-text-color;
     }
-    
-    .settings {            
-      position: relative;                
-      vertical-align: top;
-      float: right;      
 
-      .action {            
+    .settings {
+      position: relative;
+      vertical-align: top;
+      float: right;
+
+      .action {
         color: $date-text-color;
         cursor: pointer;
         font-size: 20px;
         padding: 0 2px;
         width: 20px;
-        height: 20px;       
-        float: right;       
-      }                  
+        height: 20px;
+        float: right;
+      }
     }
   }
 
   .date {
     position: relative;
-    display: block;   
+    display: block;
     padding: 0 20px;
     font-family: Lato;
     font-style: normal;
@@ -71,21 +72,21 @@
   }
 
   .tags {
-    position: relative;     
+    position: relative;
     padding: 20px 20px 10px;
-    
-    .category {            
+
+    .category {
       div {
         background: #B4A362;
         border: 0;
       }
     }
 
-    div {            
+    div {
       color: $background-color;
       border-radius: 5px;
       margin: 1px;
       display: inline-block;
-    }            
-  }  
+    }
+  }
 }

@@ -13,5 +13,6 @@
 [lints]
 
 [options]
+module.name_mapper='.*\(.png\)' -> 'empty/object'
 module.name_mapper='.*\(.s?css\)' -> 'empty/object'
 module.name_mapper='^libs\(.*\)$' -> '<PROJECT_ROOT>/app/libs\1'

@@ -3,16 +3,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const baseConfig = require('../webpack.config.base');
 
-const extractCSS = new ExtractTextPlugin('[name]-[hash].css');
-const cssLoader = {
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    camelCase: true,
-    importLoaders: 1,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
-  },
-};
+const extractCSS = new ExtractTextPlugin({
+  filename: '[name]-[hash].css',
+  disable: true, // Set diable to true so that CSS works with hot reloading
+});
 
 module.exports = Object.assign(baseConfig, {
 
@@ -57,7 +51,6 @@ module.exports = Object.assign(baseConfig, {
               options: {
                 modules: false,
                 camelCase: true,
-                importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
             },
@@ -70,16 +63,31 @@ module.exports = Object.assign(baseConfig, {
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
-            cssLoader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                camelCase: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
           ],
         }),
       },
       {
         test: /\.(sass|scss)$/,
         loader: extractCSS.extract({
-          fallback: 'style-loader',
+          fallback: 'style-loader?singleton',
           use: [
-            cssLoader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                camelCase: true,
+                importLoaders: 1, // Parse @import inside SASS files
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
             'sass-loader',
           ],
         }),

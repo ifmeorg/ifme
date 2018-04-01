@@ -27,3 +27,13 @@ bin/start_app
 # stop the process via CTRL+C
 cd client && yarn && yarn storybook
 ```
+
+# Testing automation
+
+## Selected tests run
+
+Specify a comma-delimited list of spec files you wish to run like this:
+
+```
+env KARMA_SPECS="**/Avatar.spec.jsx,**/Logo.spec.jsx" yarn test
+```

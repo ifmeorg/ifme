@@ -1,6 +1,14 @@
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::TextHelper
 
+AVATAR_COMPONENT_NAME = 'Avatar';
+
+RSpec::Matchers.define :be_avatar_component do
+  match do
+    have_tag('script', with: { 'data-component-name': AVATAR_COMPONENT_NAME })
+  end
+end
+
 describe ApplicationController do
   describe "most_focus" do
     describe "categories" do
@@ -480,7 +488,6 @@ describe ApplicationController do
     let(:user1) { create(:user1) }
     let(:user2) { create(:user2) }
     let(:user3) { create(:user3) }
-    let(:default_profile_picture) { "<img src='' class='mini_profile_picture'\n        onerror=\"this.onerror=null;this.src='/assets/default_ifme_avatar.png'\" />" }
     let(:comment) { 'Hello from the outside'}
 
     def delete_comment(comment_id)
@@ -506,28 +513,28 @@ describe ApplicationController do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'moment')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'moment'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
-          expect(controller.generate_comment(new_comment, 'moment')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'moment'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: "Visible only between you and #{user2.name}",
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
 
@@ -538,28 +545,28 @@ describe ApplicationController do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'moment')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'moment'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
-          expect(controller.generate_comment(new_comment, 'moment')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'moment'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: "Visible only between you and #{user1.name}",
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
     end
@@ -574,28 +581,28 @@ describe ApplicationController do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'strategy')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'strategy'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
-          expect(controller.generate_comment(new_comment, 'strategy')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'strategy'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: "Visible only between you and #{user2.name}",
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
 
@@ -606,28 +613,28 @@ describe ApplicationController do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'strategy')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'strategy'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
-          expect(controller.generate_comment(new_comment, 'strategy')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'strategy'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: "Visible only between you and #{user1.name}",
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
     end
@@ -644,15 +651,15 @@ describe ApplicationController do
         it 'generates a valid comment object' do
           sign_in user1
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'meeting')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'meeting'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
 
@@ -660,15 +667,15 @@ describe ApplicationController do
         it 'generates a valid comment object' do
           sign_in user2
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'meeting')).to eq({
+          expect(OpenStruct.new(controller.generate_comment(new_comment, 'meeting'))).to have_attributes(
             commentid: new_comment.id,
-            profile_picture: default_profile_picture,
+            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,
             delete_comment: delete_comment(new_comment.id),
             no_save: false
-          })
+          )
         end
       end
     end

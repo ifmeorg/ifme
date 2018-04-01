@@ -20,15 +20,6 @@ const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin(`${outputFilename}.css`);
-const cssLoader = {
-  loader: 'css-loader',
-  options: {
-    modules: true,
-    camelCase: true,
-    importLoaders: 1,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
-  },
-};
 
 const config = Object.assign(baseConfig, {
 
@@ -117,7 +108,6 @@ const config = Object.assign(baseConfig, {
               options: {
                 modules: false,
                 camelCase: true,
-                importLoaders: 1,
                 localIdentName: '[name]__[local]___[hash:base64:5]',
               },
             },
@@ -130,7 +120,14 @@ const config = Object.assign(baseConfig, {
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
-            cssLoader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                camelCase: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
           ],
         }),
       },
@@ -139,7 +136,15 @@ const config = Object.assign(baseConfig, {
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
-            cssLoader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                camelCase: true,
+                importLoaders: 1,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
             'sass-loader',
           ],
         }),

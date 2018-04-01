@@ -27,11 +27,16 @@ describe 'ToggleLanguage', js: true do
         change_language('es')
         expect(find('#page_title')).to have_content es_root_title
 
-        within '#footer' do
-          click_link('Acerca de')
-        end
+        change_page(
+          ->{
+            within '#footer' do
+              click_link('Acerca de')
+            end
+          },
+          '#page_title',
+          have_content('Acerca de')
+        )
 
-        expect(find('#page_title')).to have_content 'Acerca de'
         change_language('en')
         expect(find('#page_title')).to have_content 'About'
       end
@@ -47,11 +52,17 @@ describe 'ToggleLanguage', js: true do
         expect(page).to have_content en_root_title
 
         change_language('es')
-        expect(find('#page_title')).to have_content es_root_title
+        expect(find('#page_title')).to have_content(es_root_title)
 
-        within '#header_content' do
-          click_link('Ingresar')
-        end
+        change_page(
+          ->{
+            within '#header_content' do
+              click_link('Ingresar')
+            end
+          },
+          '#page_title',
+          have_content('Comparte tus historias ahora')
+        )
 
         within '#new_user' do
           fill_in('user_email', with: user.email)
@@ -61,11 +72,15 @@ describe 'ToggleLanguage', js: true do
 
         expect(find('#page_title')).to have_content es_signed_in_root_title
 
-        within '.large-screen' do
-          click_link('Momentos')
-        end
-
-        expect(find('#page_title')).to have_content 'Momentos'
+        change_page(
+          ->{
+            within '.large-screen' do
+              click_link('Momentos')
+            end
+          },
+          '#page_title',
+          have_content('Momentos')
+        )
       end
     end
 
@@ -104,11 +119,15 @@ describe 'ToggleLanguage', js: true do
         change_language('es')
         expect(find('#page_title')).to have_content es_signed_in_root_title
 
-        within '.large-screen' do
-          click_link('Estrategias')
-        end
-
-        expect(find('#page_title')).to have_content 'Estrategias'
+        change_page(
+          ->{
+            within '.large-screen' do
+              click_link('Estrategias')
+            end
+          },
+          '#page_title',
+          have_content('Estrategias')
+        )
       end
     end
   end
