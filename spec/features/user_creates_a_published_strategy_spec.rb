@@ -76,7 +76,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       )
 
       # VIEWING
-      expect(page).to have_content 'Created:'
+      expect(page).to have_content 'Created'
       expect(page).to have_content 'Categories: Another New Category, Some New Category'
       expect(page).to have_content 'my strategy description'
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '

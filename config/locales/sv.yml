@@ -4,9 +4,9 @@ sv:
  draft: "Utkast"
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
- created: '<strong>Skapad:</strong> %{created_at}'
- edited: '<strong>Skapad:</strong> %{created_at} <em>(redigerad)</em>'
- edited_updated_at: '<strong>Skapad:</strong> %{created_at} <em>(redigerad %{updated_at})</em>'
+ created: 'Skapad %{created_at}'
+ edited: 'Skapad %{created_at} (redigerad)'
+ edited_updated_at: 'Skapad %{created_at} (redigerad %{updated_at})'
  salutation: "Hej %{name},"
  click_here: "Klicka här"
  less: " [Mindre]"
