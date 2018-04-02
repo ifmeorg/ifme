@@ -1,4 +1,4 @@
-@import "../base.scss";
+@import "../_base.scss";
 
 .container {
   display: inline-block;
@@ -8,7 +8,7 @@
 
   background-color: $theme-color-1;
 
-  font-family: 'Lato', sans-serif;
+  font-family: $font-family;
   font-size: $title-size;
   line-height: $title-size;
   font-weight: 300;
