@@ -38,22 +38,22 @@ de:
    rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
-   feedback: 'feedback'
+   feedback: 'Feedback'
    give_feedback: 'Feedback geben'
    medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
-   resources: 'Resources'
+   resources: 'Resourcen'
 
  common:
    name: 'Name'
    you: 'Du'
-   title: 'Anrede'
+   title: 'Titel'
    date: 'Datum:'
    daily_reminder: 'Tägliche Erinnerungsmail'
    actions:
     submit: 'Abschicken'
-    submit_publish: 'Veröffentlichen'
+    submit_publish: 'Öffentlich'
     submit_draft: 'Entwurf'
     confirm: 'Bist du sicher?'
     delete: 'Löschen'
@@ -72,7 +72,7 @@ de:
      error_explanation: 'Bitte fülle die markierten Felder aus!'
      press_enter: 'Drücke ENTER zum hinzufügen'
    time_ago: "Vor %{date}"
-   write_to_us: "Schreibe uns"
+   write_to_us: "schreibe uns"
 
  comment:
   singular: 'Kommentar'
@@ -118,7 +118,7 @@ de:
    one: 'Kategorie:'
    other: 'Kategorien:'
   index:
-   subtitle: 'Das Leben ist manchmal chaotisch, bring Ordnung in das Chaos aus Leuten, Orten und Dingen.'
+   subtitle: 'Das Leben ist manchmal chaotisch. Bring Ordnung in das Chaos aus Leuten, Orten und Dingen.'
    premade1_name: 'Familie'
    premade1_description: 'Über meine Familie'
    premade2_name: 'Freunde'
@@ -126,7 +126,7 @@ de:
    premade3_name: 'Arbeit'
    premade3_description: 'Über meine Arbeit'
    premade4_name: 'Meditation'
-   premade4_description: 'Meditation, Atemübungen, und Entspannungsübungen'
+   premade4_description: 'Meditation, Atemübungen und Entspannung'
    instructions: "Du hast noch keine eigenen Kategorieren erstellt. Klicke %{icon} um welche hinzuzufügen!<br>Du kannst auch die folgenden Vorschläge benutzen und diese mit der Zeit anpassen."
 
  errors:
@@ -256,7 +256,7 @@ de:
   tagged: 'Getaggte Momente'
   new: 'Neuer Moment'
   secret_share:
-    singular: 'Geheimes teilen'
+    singular: 'Geheimnis teilen'
     expires_at: 'Läuft ab am'
     create: 'Erstellen'
     cancel: 'Abbrechen'
@@ -269,7 +269,7 @@ de:
 
   index:
    subtitle: 'Setze dich intensiv mit Ereignissen auseinander, die deinen Geist und Seele betreffen.'
-   instructions: "Du hast noch über keine Ereignisse berichtet. Klicke %{icon} um welche hinzuzufügen!<br><br>Nicht sicher, wo du anfangen sollst? Berichte von etwas, dass heute passiert ist und du gerne mit jemand Vertrautes teilen würdest? Es kann positiv oder negativ sein! Du musst es auch nicht sofort teilen - erst, wenn du soweit bist! Hier ist ein Beispiel für einen solchen Moment."
+   instructions: "Du hast noch über keine Ereignisse berichtet. Klicke %{icon} um welche hinzuzufügen!<br><br>Nicht sicher, wo du anfangen sollst? Berichte von etwas, dass heute passiert ist und du gerne mit jemandem Vertrautes teilen würdest? Es kann positiv oder negativ sein! Du musst es auch nicht sofort teilen - sondern erst, wenn du soweit bist! Hier ist ein Beispiel für einen solchen Moment."
    example_name: 'Panik vor dem Bewerbungsgespräch morgen!'
    example_category: 'Karriere'
   show:
@@ -355,19 +355,19 @@ de:
  pages:
   about:
     send_us: 'uns'
-    email_us: 'Schicke uns gerne eine E-Mail %{email_link}!'
-    main_message_one: "%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauten Personen zu teilen."
-    message_text_one: "Vertrauenswürdige Helfer sind die Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit."
+    email_us: 'Schicke %{email_link} gerne eine E-Mail!'
+    main_message_one: "%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauenswürdigen Personen zu teilen."
+    message_text_one: "Vertrauenswürdige Helfer sind Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit."
     main_message_two: "Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen."
-    message_text_two: "Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class=\"subtitle block\">\"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Psychische Gesundheit ist individuell und ist von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe von jedem einzelnen, was auch der Grund ist, warum dieses Projekt Open-Source ist.</p>"
+    message_text_two: "Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class=\"subtitle block\">\"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund ist, warum dieses ein Open Source-Projekt  ist.</p>"
     main_message_three: "Möchtest du uns finanziell unterstützen?"
-    message_text_three: "Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Werdegängen und Kenntnissen.</p><p>Im Jahr 2016, haben wir einen Zuschuss für gemeinschaftliche Zwecke von %{linebreak_link} erhalten. Im Jahr 2017 haben wir finanzielle Unterstützung von %{fund_club_link} erhalten.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>"
+    message_text_three: "Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>"
     linebreak: 'Linebreak'
-    fund_club: 'Club finanzieren'
+    fund_club: 'Fund Club'
   blog:
     description: "Wenn du für uns schreiben möchtest, stelle dich gerne per E-Mail bei uns vor: %{email}! Auch anonyme Einsendungen werden berücksichtigt."
   contribute:
-    main_message_one: "if me wird von Freiwilligen mit unterschiedlichen Werdegängen und Kenntnissen entwickelt und gepflegt."
+    main_message_one: "if me wird von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen entwickelt und gepflegt."
     message_text_one: "Wir sind immer auf der Suche nach und offen für neuen Ideen, insbesondere von <strong>Experten im Bereich geistige Gesundheit</strong>, <strong>Gesundheitsexperten</strong>, <strong>Software-Entwickler</strong>, <strong>Übersetzer</strong> und <strong>UX Designer</strong>!<p class=\"no_margin_bottom\">Bitte %{email_link} und wir setzen uns mit dir in Verbindung! Wir laden dich in zu unserer %{slack_link} Seite, unserem wichtigsten Kommunikationstool, ein. Schau auch, ob du unser Repository auf %{github_link} forken kannst!</p>"
     more_contributors: 'Weitere außergewöhnliche Mitwirkende!'
     thanks: 'Ein großes Dankeschön an'
@@ -377,21 +377,21 @@ de:
     data_access_question: 'Wer hat Zugriff auf meine Daten?'
     data_access_answer: 'Daten werden nicht an Dritte weitergegeben. Wenn du dein Konto löscht, werden alle deine Daten entfernt.<br><br>Benutzerdaten werden in der App analysiert, um persönliche Empfehlungen zu erstellen.'
     moment_question: 'Was ist ein Moment?'
-    moment_answer: 'Ein <strong>Moment</strong> ist ein Ereignis oder Situation, die deine geistige Gesundheit betrifft. Es kann positiv oder negativ sein. Stelle es dir wie ein Tagebucheintrag oder Status-Update vor.<br><br>Du kannst Erinnerungen mit Strategien, Kategorien oder Stimmungen verknüpfen. Du kannst auch bestimmen, wecleh Helfer deine Einträge sehen und kommentieren können. Du kannst sie auch nur für dich selber sichtbar machen.'
+    moment_answer: 'Ein <strong>Moment</strong> ist ein Ereignis oder eine Situation, die deine geistige Gesundheit betrifft. Es kann positiv oder negativ sein. Stelle es dir wie einen Tagebucheintrag oder ein Status-Update vor.<br><br>Du kannst Erinnerungen mit Strategien, Kategorien oder Stimmungen verknüpfen. Du kannst auch bestimmen, welche Helfer deine Einträge sehen und kommentieren können. Du kannst sie auch nur für dich selber sichtbar machen.'
     strategy_question: 'Was ist eine Strategie?'
-    strategy_answer: 'Eine <strong>Strategie</strong> ist eine Aktivität, ein Gedankengang, oder jegliche Form der Selbstfürsorge, die dir dabei hilft, mit dem Problem umzugehen und eine Besserung zu erzielen.<br><br>Du kannst Erinnerungen mit Kategorien verknüpfen. Du kannst auch bestimmen, welche Helfer sie sehen und kommentieren können. Du kannst Erinnerungen auch nur für dich sichtbar machen. Geteile Strategien sind für alle ausgewählten Helfer sichtbar, heißt du kannst deine Momente mit ihren Strategien verknüpfen!'
+    strategy_answer: 'Eine <strong>Strategie</strong> ist eine Aktivität, ein Gedankengang, oder jegliche Form der Selbstfürsorge, die dir dabei hilft, ein Problem zu konfrontieren und eine Besserung zu erzielen.<br><br>Du kannst Erinnerungen mit Kategorien verknüpfen. Du kannst auch bestimmen, welche Helfer sie sehen und kommentieren können. Du kannst Erinnerungen auch nur für dich selber sichtbar machen. Geteile Strategien sind für alle ausgewählten Helfer sichtbar. Das bedeutet, du kannst deine Momente mit ihren Strategien verknüpfen!'
     category_question: 'Was ist eine Kategorie?'
-    category_answer: 'Eine <strong>Kategorie</strong> ist eine Verknüpfung wie die Leute, Orte oder Dinge, die dir wichtig sind.'
+    category_answer: 'Eine <strong>Kategorie</strong> ist eine Verknüpfung, wie die Leute, Orte oder Dinge, die dir wichtig sind.'
     mood_question: 'Was ist eine Stimmung?'
-    mood_answer: 'Eine <strong>Stimmung</strong> ist eine Verknüpfung die deinen Geisteszustand, deine Gefühle und deine Emotionen beschreibt.'
+    mood_answer: 'Eine <strong>Stimmung</strong> ist eine Verknüpfung, die deinen Geisteszustand, deine Gefühle und deine Emotionen beschreibt.'
     group_question: 'Was ist eine Gruppe?'
-    group_answer: 'Eine <strong>Gruppe</strong> bietet Unterstützung, Mentoring, und Diskussionen zum Thema geistige Gesundheit an. Du kannst Gruppen erstellen und deinen Helfern anbieten, beizutreten. Du kannst nur Gruppen beitreten, die von einem deiner Helfer erstellt wurden.<br><br>Als Gruppenadministrator kannst du <strong>Meetings</strong> erstellen. Meetings haben einen Ort und eine Zeit. Der Ort kann offline oder online sein, wie z.B. eine Google Hangout URL. Meetings können ebenfalls kommentiert werden. Wenn du ein Gruppenadministrator bist, kannst du eine Gruppe nicht verlassen, es sei denn es gibt noch andere Administratoren. Gruppen können nur gelöscht werden, wenn du das einzige Mitglied ist.'
+    group_answer: 'Eine <strong>Gruppe</strong> bietet Unterstützung, Mentoring, und Diskussionen zum Thema geistige Gesundheit an. Du kannst Gruppen erstellen und deinen Helfern anbieten, beizutreten. Du kannst nur Gruppen beitreten, die von einem deiner Helfer erstellt wurden.<br><br>Als Gruppenadministrator kannst du <strong>Meetings</strong> erstellen. Meetings haben einen Ort und eine Zeit. Der Ort kann offline oder online sein, wie z.B. eine Google Hangout URL. Meetings können ebenfalls kommentiert werden. Wenn du ein Gruppenadministrator bist, kannst du eine Gruppe nicht verlassen, es sei denn es gibt noch andere Administratoren. Gruppen können nur gelöscht werden, wenn du das einzige Mitglied bist.'
     medications_question: 'Wie benutze ich das Arzneimittel-Feature?'
     medications_answer: 'Das <strong>Arzneimittel</strong>-Feature erlaubt es dir, rezeptpflichtige Medikamente, die du einnimmst, zu protokollieren. Deine Symptome kannst du ebenfalls protokollieren.'
     invite_question: 'Wie kann ich Nahestehende einladen, diese App zu benutzen?'
     invite_answer: 'Gehe zur <strong>Helfer</strong>-Seite und klicke auf "Jemand Nahestendes einladen". Du wirst diese Person per E-Mail einladen können. Wenn die nahestende Person die Einladung akzeptiert, wird sie zu deiner Helferliste hinzugefügt.'
     email_notifications_question: 'Wie kann ich meine E-Mail Einstellungen ändern?'
-    email_notifications_answer: "Gehe zu deiner<strong>Konto</strong>-Seite, indem du auf %{desktop_icon} (desktop) oder %{mobile_icon} (mobile) im Menü klickst. Du kannst deine E-Mail, dein Passwort, Profilbild und Biografie ändern. Wenn du dein Konto löschst, gehe alle deine Daten verloren."
+    email_notifications_answer: "Gehe zu deiner <strong>Konto</strong>-Seite, indem du auf %{desktop_icon} (desktop) oder %{mobile_icon} (mobile) im Menü klickst. Du kannst deine E-Mail, dein Passwort, dein Profilbild und Beschreibung ändern. Wenn du dein Konto löschst, gehe alle deine Daten verloren."
   home:
     stories: 'Geschichten'
     welcome: 'Willkommen'
@@ -400,7 +400,7 @@ de:
       message_text_one: "Wir brauchen gegenseitige Unterstützung, um über unseren Schatten springen zu können."
       message_one: 'Teile deine Geschichten mit Nahestehenden und erhalte die Unterstützung, die dir zusteht.'
       message_two: 'Sei du selbst, ohne Vorurteile, mit Rücksicht auf deine Privatsphäre und einem Gefühl der Geborgenheit'
-      message_three: 'Dokumentiere deine Stimmungen, Arzneimittel, und Selbstfürsorge'
+      message_three: 'Dokumentiere deine Stimmungen, Arzneimittel und persönliche Selbstfürsorge'
       main_message_two: "Das Teilen von Erlebnissen ist der Schlüssel zur Entwicklung einer besseren geistigen Gesundheit."
       message_text_two: "Lerne von der <strong>Gemeinschaft</strong> in unserem %{blog}."
       main_message_three: 'Wir sind Open Source, weil mentale Gesundheit eine offene Angelegenheit sein sollte.'
@@ -408,13 +408,13 @@ de:
       help: 'Hilfe'
     signed_in_empty:
       main_message_one: 'Hallo %{name}!'
-      message_text_one: "So kannst du anfangen, deine Erlebnisse zu teilen."
-      main_message_two: 'Erzähl uns etwas über sich.'
-      cell_one: 'Passe dein %{profile} an - füge eine Biografie und ein Profilbild hinzu<br>Füge eigene %{moods} hinzu, um deine Gefühle zu beschreiben<br>Füge %{allies} hinzu - Freunde, Familie, und andere mit denen du Dinge teilen möchtest'
+      message_text_one: "Nun kannst du anfangen, deine Erlebnisse zu teilen."
+      main_message_two: 'Erzähle uns etwas über dich.'
+      cell_one: 'Passe dein %{profile} an - füge eine Beschreibung und ein Profilbild hinzu<br>Füge eigene %{moods} hinzu, um deine Gefühle zu beschreiben<br>Füge %{allies} hinzu - Freunde, Familie und andere, mit denen du Dinge teilen möchtest'
       main_message_three: 'Gib deine Erlebnisse wieder.'
-      cell_two: 'Erstelle eigene %{categories}, um deine Momente einzordnen<br>Schreibe über %{moments} - die Erlebnisse und Situationen, die deine geistige Gesundheit betreffen'
+      cell_two: 'Erstelle eigene %{categories}, um deine Momente einzordnen<br>Schreibe über %{moments} - Erlebnisse und Situationen, die deine geistige Gesundheit betreffen'
       main_message_four: 'Pass immer gut auf dich auf.'
-      cell_three: '%{strategize} deine Fürsorgeplan!<br>Nimmst du gerade %{medications} ein? Behalte den Überblick und erstelle Erinnerungen!<br>Brauchst du weitere Unterstützung? Trete einer Gruppe bei %{group} oder erstelle ein'
+      cell_three: '%{strategize} für deinen Fürsorgeplan!<br>Nimmst du gerade %{medications} ein? Behalte den Überblick und erstelle Erinnerungen!<br>Brauchst du weitere Unterstützung? Trete einer %{group} bei oder erstelle eine'
       main_message_five: 'Hast du irgendwelche Fragen oder Bedenken?'
       message_text_three: 'Schau dir unsere %{faq}-Seite an oder %{email_link}!'
       strategize: 'Entwirf eine Strategie'
@@ -434,9 +434,9 @@ de:
   resources:
     description: "Willkommem zu unserer gepflegten Sammlung zum Thema geistige Gesundheit, zusammengestellt durch %{communities}, %{education}, %{hotlines} und %{services}."
     communities: Communities
-    education: Bildungsträgern
+    education: Bildungsträger
     hotlines: Hotlines
-    services: Dienstleistern
+    services: Dienstleister
     tags:
       people_of_colour: farbige Menschen
       women_of_colour: farbige Frauen
@@ -532,7 +532,7 @@ de:
     license: 'Wir &hearts; FOSS'
     foss: 'Freie Open Source Software'
     license_subtitle: 'Lizensiert durch %{license}'
-    connect: 'Verbinde'
+    connect: 'Vernetzen'
   comments:
     share_everyone: 'Mit allen teilen'
     share_with: 'Nur mit %{name} teilen'
@@ -585,7 +585,7 @@ de:
    one: 'Strategie:'
    other: 'Strategien:'
   index:
-   subtitle: 'Entwirf einen Plan zur Selbsthilfe, um deine gewünschte Haltung und Gedanken für diese Moment anzunehmen.'
+   subtitle: 'Erstelle einen Plan zur Selbsthilfe, um eine neue Einstellung und Herangehensweise für diesen Moment zu erarbeiten.'
    premade1_name: 'Fünf Minuten meditieren'
    premade1_description: '1) <b>Finde eine entspannte und komfortable Position.</b> Du kannst auf einem Stuhl sitzen, oder mit einem Kissen auf dem Boden. Halte deinen Rücken gerade, aber nicht zu steif. Deine Hände kannst du ausruhen, wo es dir am bequemsten ist. Die Zunge liegt am Gaumen oder woimmer es am angenehmsten ist.<br><br>2) <b>Spüre und entspannte deinen Körper.</b> Versuche, dich auf die Form deines Körpers zu konzentieren, sowie sein Gewicht. Entspanne dich und folge neugierig deinem Körper in seiner Sitzhaltung—Die Empfindungen, die du wahrnimmst, der Kontakt, mit dem Boden oder dem Stuhl, auf dem du sitzt. Entspanne die Regionen des Körpers, die sich angespannt steif anfühlen. Atme durch.<br><br>3) <b>Konzentriere dich auf deinen Atem.</b> Spüre das natürliche Auf und Ab des Atems. Du musst nichts weiter tun, als dich auf deinen Atem zu konzentrieren. Nicht zu lang, nicht zu kurz, aber ganz mühelos. Spüre, wo du den Atem in deinem Körper wahrnimmst. Vielleicht im Bauchraum. Vielleicht im Brustbereich, im Hals oder in der Nase. Versuche, den Atem mit allen Sinnen wahrzunehmen, ein Atemzug nach dem anderen. Wenn ein Atemzug endet, so beginnt darauf der nächste.<br><br>4) <b>Sei nicht zu streng mit deinem regsamen Geist.</b> Jetzt wo du mittendrin bist, bemerkst du vielleicht, wie deine Gedanken zu wandern beginnen. Vielleicht lässt es sich von anderen Dingen ablenken. Wenn das passiert, ist das kein Problem. Das ist ganz normal. Nimm einfach zur Kenntnis, dass du abgelenkt wurdest. Du kannst in Gedanken die Worte “nachdenklich“ oder “abschweifend” wiederholen. Und dann kannst du deine Konzentration behutsam auf das Atmen zurücklenken.<br><br>5) <b>Verbleibe in diesem Zustand für fünf bis sieben Minuten.</b> Nimm in aller Ruhe deinen Atem war. Von Zeit zu Zeit wirst du gedanklich abgelenkt werden. Bring dann deine Konzentration einfach wieder auf den Atem zurück.<br><br>6) <b>Gehe tief in dich, bevor du zum Ende kommst.</b> Nach ein paar Minuten nimm noch einmal deinen ganzen Körper wahr, sitzend und ruhend. Entspanne dich ein letztes Mal so tief wie du kannst und dann klopf dir gerne auf die Schulter dafür, dass du diese Übung heute durchgeführt hast.<br><br><i>Auszug von http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
    instructions: "Du hast noch keine eigenen Strategien erstellt. Klicke %{icon}, um welche hinzuzufügen!<br>Du kannst ebenfalls die folgenden vorgefertigen Strategien verwenden und zu einem späteren Zeipunkt anpassen."
@@ -639,7 +639,7 @@ de:
 
   registrations:
     email_notifications: "Email-Benachrichtigungen"
-    comment_notify_text: "Kommetnare zu Momenten, Strategien und Meetings"
+    comment_notify_text: "Kommentare zu Momenten, Strategien und Meetings"
     ally_notify_text: "Neue and angenommene Helfer-Anfragen"
     group_notify_text: "Gruppen-Updates"
     meeting_notify_text: "Meeting-Updates"
@@ -652,7 +652,7 @@ de:
       labels:
         profile_picture: "Profilbild"
         remove_picture: "Bild entfernen"
-        password_for: "Passwort für dein<strong>if me</strong> Konto"
+        password_for: "Passwort für dein <strong>if me</strong> Konto"
         update: "Aktualisieren"
       placeholders:
         optional: "Optional"
@@ -666,7 +666,7 @@ de:
       subtitle: "Erzähle deine Geschichten und bewahre deine Gesundheit an einem sicheren, vertraulichen Ort auf"
       label: "Ein paar Details"
   sessions:
-    subtitle: "Willkommen zurück, wir freuen uns darauf, dir durch den Tag zu helfen"
+    subtitle: "Willkommen zurück! Wir freuen uns darauf, dir durch den Tag zu helfen"
   shared:
     sign_in_google: 'Mit Google einloggen'
     sign_up_google: 'Mit Google anmelden'
