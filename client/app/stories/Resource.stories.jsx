@@ -19,6 +19,7 @@ storiesOf('Resource', module)
   .add('External Resource', withInfo({})(() =>
     (<div style={{ backgroundColor: '#6D0839' }}>
       <Resource
+        external
         name={'Invisible Illnesses: depression is an ocean'}
         link={'www.if-me.org'}
         author={'Desi Rottman'}
