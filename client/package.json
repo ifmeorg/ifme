@@ -71,7 +71,7 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^1.1.6",
     "flow-bin": "^0.54.1",
-    "flow-typed": "^2.3.0",
+    "flow-typed": "^2.4.0",
     "glob": "^7.1.2",
     "imports-loader": "^0.7.1",
     "jasmine": "^2.7.0",
