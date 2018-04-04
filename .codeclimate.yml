@@ -21,6 +21,7 @@ engines:
     - public/javascripts/
     - vendor/assets/javascripts
     - client/karma.conf.js
+    - client/flow/
   fixme:
     enabled: false
   rubocop:
