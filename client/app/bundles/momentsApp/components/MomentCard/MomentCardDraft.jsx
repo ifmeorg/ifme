@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Tag from '../../shared/components/Tag';
+import Tag from '../../../shared/components/Tag';
 import css from './MomentCard.scss';
 
 type MomentCardDraftProp = {

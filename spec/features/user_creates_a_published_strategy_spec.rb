@@ -85,7 +85,8 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       # EDITING
       change_page(
         ->{ page.find('a[title="Edit Strategy"]').click },
-        '#page_title_content', have_content('Edit My new strategy')
+        '#page_title_content',
+        have_content('Edit My new strategy')
       )
 
       fill_in_ckeditor(

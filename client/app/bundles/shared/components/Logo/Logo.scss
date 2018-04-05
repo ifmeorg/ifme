@@ -1,4 +1,4 @@
-@import "../base.scss";
+@import "../_base.scss";
 
 .container {
   display: inline-block;
@@ -6,11 +6,11 @@
   height: 6ex;
   box-sizing: border-box;
 
-  background-color: $container-color;
+  background-color: $theme-color-1;
 
-  font-family: 'Lato', sans-serif;
-  font-size: $font30;
-  line-height: $font30;
+  font-family: $font-family;
+  font-size: $title-size;
+  line-height: $title-size;
   font-weight: 300;
   text-transform: lowercase;
 
@@ -20,19 +20,19 @@
   outline: 0;
 
   &.small {
-    font-size: $font20;
-    line-height: $font20;
+    font-size: $title-size-mobile;
+    line-height: $title-size-mobile;
   }
 
   .if {
-    color: $header-text-color;
+    color: $theme-color-2;
   }
 
   .me {
     display: inline-block;
-    border-bottom: 0.15ex solid $highlight-text-color;
-    border-top: 0.15ex solid $highlight-text-color;
-    color: $highlight-text-color;
+    border-bottom: 0.15ex solid $theme-color-2;
+    border-top: 0.15ex solid $theme-color-2;
+    color: $theme-color-2;
     margin: 0 0 0 0.5ex;
     padding: 0 0 0.55ex;
   }

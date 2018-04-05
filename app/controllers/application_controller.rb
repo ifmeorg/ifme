@@ -166,7 +166,7 @@ class ApplicationController < ActionController::Base
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
     profile_picture = ProfilePicture.fetch(profile.avatar.url,
-                                           'mini_profile_picture')
+                                           className: 'mini_profile_picture')
 
     comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
 
