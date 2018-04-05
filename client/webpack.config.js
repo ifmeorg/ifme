@@ -40,13 +40,12 @@ const config = Object.assign(baseConfig, {
   context: resolve(__dirname),
 
   entry: {
-    'moments-app_bundle': glob.sync('./app/bundles/momentsApp/startup/*'),
-    // Shims should be singletons, and shared bundle is always loaded
-    shared_bundle: [
+    // Shims should be singletons, and webpack bundle is always loaded
+    webpack_bundle: [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-    ].concat(glob.sync('./app/bundles/shared/startup/*')),
+    ].concat(glob.sync('./app/bundles/**/startup/*')),
   },
 
   output: {
