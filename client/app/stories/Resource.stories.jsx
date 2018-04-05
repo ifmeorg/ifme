@@ -25,4 +25,17 @@ storiesOf('Resource', module)
         author={'Desi Rottman'}
       />
     </div>),
+  ))
+
+  .add('Combination Resource', withInfo({})(() =>
+    (<div style={{ backgroundColor: '#6D0839' }}>
+      <Resource
+        external
+        tagged
+        tags={['open_source', 'tech_industry', 'podcast', 'books']}
+        name={'Invisible Illnesses: depression is an ocean'}
+        link={'www.if-me.org'}
+        author={'Desi Rottman'}
+      />
+    </div>),
   ));
