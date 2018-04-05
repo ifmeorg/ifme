@@ -10,7 +10,7 @@
         <% end %>
       <% elsif provider.to_s == "google_oauth2" %>
           <%= button_to t('devise.shared.sign_up_google'), user_google_oauth2_omniauth_authorize_path %>
-      <% else provider.to_s == "facebook" %>
+      <% elsif provider.to_s == "facebook" %>
           <%= button_to t('devise.shared.sign_up_facebook'), user_facebook_omniauth_authorize_path %>
       <% end %>
     <% end %>
