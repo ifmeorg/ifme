@@ -28,9 +28,10 @@ before joining our project.
 
 Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/ifmeorg/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
 
-## UI Development Environment and Design
+## UI Components and Design
 
-[UI development and design specs](https://github.com/ifmeorg/ifme/wiki/Design)
+* [UI components guidelines](https://github.com/ifmeorg/ifme/wiki/UI-Components)
+* [UI design guidelines](https://github.com/ifmeorg/ifme/wiki/UI-Design)
 
 ## Testing Guidelines
 
