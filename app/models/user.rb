@@ -67,7 +67,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_members
   has_many :meeting_members, foreign_key: :userid
   has_many :medications, foreign_key: :userid
-  has_many :strategies, foreign_key: :userid
+  has_many :strategies
   has_many :notifications, foreign_key: :userid
   has_many :moments, foreign_key: :userid
   has_many :moods, foreign_key: :userid

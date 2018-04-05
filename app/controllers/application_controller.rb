@@ -314,9 +314,9 @@ class ApplicationController < ActionController::Base
   def user_created_data?(id, data_type)
     case data_type
     when 'moment'
-      Moment.where(id: id, userid: current_user.id).exists?
+      Moment.where(id: id, user_id: current_user.id).exists?
     when 'strategy'
-      Strategy.where(id: id, userid: current_user.id).exists?
+      Strategy.where(id: id, user_id: current_user.id).exists?
     when 'meeting'
       MeetingMember.where(meetingid: id, leader: true,
                           userid: current_user.id).exists?
@@ -405,7 +405,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_strategies(userid)
-    Strategy.where(userid: userid)
+    Strategy.where(user_id: userid)
   end
 
   def user_moments(userid)
