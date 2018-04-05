@@ -10,15 +10,13 @@
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <!-- Webpack Assets START -->
-    <%= javascript_pack_tag 'shared_bundle' %>
-    <%= stylesheet_pack_tag 'shared_bundle' %>
-
-    <!-- TODO: Need a way to load this bundle only on Moments pages -->
-    <%= javascript_pack_tag 'moments-app_bundle' %>
     <!--
-      NOTE: CSS for moments-app_bundle does not exist yet, but if you need a component
-      that will have its own CSS, then add it here.
+      NOTE: Do not load multiple, separate webpack bundles, as it looks like
+      only the last one will load correctly in production, as though there is
+      a global registry and the last bundle overwrites the entire registry.
     -->
+    <%= javascript_pack_tag 'webpack_bundle' %>
+    <%= stylesheet_pack_tag 'webpack_bundle' %>
     <!-- Webpack Assets END -->
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
