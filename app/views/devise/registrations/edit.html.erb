@@ -11,7 +11,6 @@
     <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional') %>
   </div>
 
-<<<<<<< e61bcd9e0c00856b96fb3b02c550f707507d5d38
   <div class="field">
     <div class="label">
       <%= f.label t('common.form.email') %>
@@ -26,6 +25,8 @@
         <%= raw t('devise.registrations.facebook_auth1') %>
       </div>
     <% end %>
+    <%= f.email_field :email %>
+  </div>
 
   <div class="field">
     <div class="label"><label><%= t('devise.registrations.email_notifications') %></label></div>
@@ -64,18 +65,17 @@
       <label> <%= raw t('devise.registrations.edit.labels.password_for') %></label>
     </div>
 
-<<<<<<< e61bcd9e0c00856b96fb3b02c550f707507d5d38
-  <% if current_user.provider == "google_oauth2" %>
-    <div class="small_font">
-      <%= raw t('devise.registrations.google_auth2') %>
-    </div>
-  <% end %>
+    <% if current_user.provider == 'google_oauth2' %>
+      <div class="small_font">
+        <%= raw t('devise.registrations.google_auth2') %>
+      </div>
+    <% end %>
 
-  <% if current_user.provider == "facebook" %>
-    <div class="small_font">
-      <%= raw t('devise.registrations.facebook_auth2') %>
-    </div>
-  <% end %>
+    <% if current_user.provider == 'facebook' %>
+      <div class="small_font">
+        <%= raw t('devise.registrations.facebook_auth2') %>
+      </div>
+    <% end %>
   </div>
 
   <div class="field">
