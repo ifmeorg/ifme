@@ -8,7 +8,7 @@ type MomentCardMoodsProp = {
 };
 
 export default class MomentCardMoods
-  extends React.Component <MomentCardMoodsProp> {
+  extends React.Component<MomentCardMoodsProp> {
   render() {
     const { mood } = this.props;
 

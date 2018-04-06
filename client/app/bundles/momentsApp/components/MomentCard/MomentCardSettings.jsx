@@ -8,21 +8,23 @@ type MomentCardSettingsProp = {
     delete?: any,
     viewer?: any
   },
-  cardType: string
 };
 
-export default class MomentCardSettings extends
-  React.Component <MomentCardSettingsProp> {
+const classMap = {
+  edit: 'fa-pencil',
+  delete: 'fa-trash-o',
+  viewer: 'fa-lock',
+};
+
+export default class MomentCardSettings extends React.Component<MomentCardSettingsProp> {
   render() {
+    const { action } = this.props;
     return (
       <div className={css.settings}>
-        <i role="presentation" onClick={this.props.action.viewer} className={`fa fa-lock ${css.action}`} />
         {
-          this.props.cardType !== 'Example' &&
-          <span>
-            <i role="presentation" onClick={this.props.action.delete} className={`fa fa-trash-o ${css.action}`} />
-            <i role="presentation" onClick={this.props.action.edit} className={`fa fa-pencil ${css.action}`} />
-          </span>
+          ['edit', 'delete', 'viewer'].map(op => action[op] &&
+            <i role="presentation" onClick={action[op]} className={`fa ${classMap[op]} ${css.action}`} />,
+          )
         }
       </div>
     );

@@ -51,7 +51,7 @@ module.exports = Object.assign(baseConfig, {
       },
       {
         test: /\.css$/,
-        include: /node_modules\/antd/,
+        include: /node_modules/,
         loader: extractCSS.extract({
           // Don't need singleton for hot reload, since we don't expect styles to change
           fallback: 'style-loader',
@@ -81,6 +81,25 @@ module.exports = Object.assign(baseConfig, {
       },
       {
         test: /\.(sass|scss)$/,
+        include: /node_modules/,
+        loader: extractCSS.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                camelCase: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+            'sass-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.(sass|scss)$/,
+        exclude: /node_modules/,
         loader: extractCSS.extract({
           /**
            * Use singleton to force reloading entire stylesheet whenever there is a
@@ -103,6 +122,17 @@ module.exports = Object.assign(baseConfig, {
             name: 'images/[hash]-[name].[ext]',
           },
         }],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[hash]-[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
