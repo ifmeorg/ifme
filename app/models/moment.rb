@@ -35,11 +35,11 @@ class Moment < ApplicationRecord
   before_save :mood_array_data
   before_save :strategy_array_data
 
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user
   has_many :comments, as: :commentable
 
   validates :comment, inclusion: [true, false]
-  validates :userid, :name, :why, presence: true
+  validates :user_id, :name, :why, presence: true
   validates :why, length: { minimum: 1, maximum: 2000 }
   validates :fix, length: { maximum: 2000 }
   validates :secret_share_expires_at,
