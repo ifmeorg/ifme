@@ -8,14 +8,14 @@ import css from './Dropdown.scss';
 const defaultLocales = getAvailableLocales();
 
 type Props = {
-    locale: string,
-    localeList: { [key: string]: string },
+    locale?: string,
+    localeList?: { [key: string]: string },
     onChange: (e: string) => void,
 };
 
 const Dropdown = (variationClassName: string) =>
   ({ locale, localeList, onChange }: Props) => {
-    const localeOptions = isNil(localeList) ? defaultLocales : localeList;
+    const localeOptions = localeList ? localeList : defaultLocales;
 
     const options = Object.keys(localeOptions).map(key =>
       (<option value={key} key={shortid.generate()} >
