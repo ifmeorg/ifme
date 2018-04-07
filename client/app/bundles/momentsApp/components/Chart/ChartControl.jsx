@@ -59,9 +59,9 @@ export default class ChartControl extends React.Component<chartControlProp, char
     return (
       <div>
         {
-          types.map((value: string, index: number) => (
+          types.map((value: string) => (
             <ChartControlButton
-              key={index}
+              key={value}
               type={value}
               onClick={this.onSelectType(value)}
             />
