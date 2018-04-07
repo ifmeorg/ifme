@@ -2,69 +2,69 @@
 
     <div id="tag_usage" class="small_margin_top">
 
-    <% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:userid]) %>
+      <% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:userid]) %>
 
-    <% if local_assigns[:data_type] == 'category' %>
+      <% if local_assigns[:data_type] == 'category' %>
         <% moments = usage[0] %>
         <% strategies = usage[1] %>
 
         <% if moments.length > 0 %>
-        <h1 class="tag_type"><%= t('moments.tagged') %></h1>
+          <h1 class="tag_type"><%= t('moments.tagged') %></h1>
 
-        <div id="moment_tag_usage">
-      <div class="tag_usage">
-        <% moments.each do |moment_id| %>
-            <% moment = Moment.where(id: moment_id).first %>
-            <% if moment.userid == current_user.id || (moment.viewers.include?(current_user.id) && moment.published?) %>
-            <%= render :partial => '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
-            <% end %>
+          <div id="moment_tag_usage">
+            <div class="tag_usage">
+              <% moments.each do |moment_id| %>
+                <% moment = Moment.where(id: moment_id).first %>
+                <% if moment.userid == current_user.id || (moment.viewers.include?(current_user.id) && moment.published?) %>
+                  <%= render partial: '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
-        </div>
-    </div>
-    <% end %>
 
-    <% if strategies.length > 0 %>
-        <h1 class="tag_type margin_top"><%= t('strategies.plural') %></h1>
+        <% if strategies.any? %>
+          <h1 class="tag_type margin_top"><%= t('strategies.plural') %></h1>
 
-        <div id="strategy_tag_usage">
-      <div class="tag_usage">
-        <% strategies.each do |strategy_id| %>
-            <% strategy = Strategy.where(id: strategy_id).first %>
-            <% if strategy.userid == current_user.id || (strategy.viewers.include?(current_user.id) && strategy.published?) %>
-            <%= render :partial => '/shared/moments_strategies', locals: { items: strategies, item: strategy, data_type: 'strategy_tag_usage' } %>
-            <% end %>
+          <div id="strategy_tag_usage">
+            <div class="tag_usage">
+              <% strategies.each do |strategy_id| %>
+                <% strategy = Strategy.where(id: strategy_id).first %>
+                <% if strategy.userid == current_user.id || (strategy.viewers.include?(current_user.id) && strategy.published?) %>
+                  <%= render partial: '/shared/moments_strategies', locals: { items: strategies, item: strategy, data_type: 'strategy_tag_usage' } %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
-        </div>
-    </div>
-    <% end %>
-    <% else %>
+      <% else %>
         <% moments = usage %>
 
-        <% if moments.length > 0 %>
-            <% if local_assigns[:data_type] == 'strategy' %>
-                <h1 class="tag_type">
-                    <%= t('moments.tagged') %>
-                    <span id="showTaggedMoments" class="align_right display_inline_block"><i class="fa fa-caret-down"></i></span>
-                    <span id="hideTaggedMoments" class="align_right display_none"><i class="fa fa-caret-up"></i></span>
-                </h1>
+        <% if moments.any? %>
+          <% if local_assigns[:data_type] == 'strategy' %>
+            <h1 class="tag_type">
+              <%= t('moments.tagged') %>
+              <span id="showTaggedMoments" class="align_right display_inline_block"><i class="fa fa-caret-down"></i></span>
+              <span id="hideTaggedMoments" class="align_right display_none"><i class="fa fa-caret-up"></i></span>
+            </h1>
 
-                <div id="moment_tag_usage" class="display_none">
-        <div class="tag_usage">
-            <% else %>
-                <h1 class="tag_type"><%= t('moments.tagged') %></h1>
-                <div id="moment_tag_usage">
-        <div class="tag_usage">
-            <% end %>
+            <div id="moment_tag_usage" class="display_none">
+              <div class="tag_usage">
+          <% else %>
+            <h1 class="tag_type"><%= t('moments.tagged') %></h1>
+            <div id="moment_tag_usage">
+              <div class="tag_usage">
+          <% end %>
 
             <% moments.each do |moment_id| %>
-                <% moment = Moment.where(id: moment_id).first %>
-                <% if moment.userid == current_user.id || moment.viewers.include?(current_user.id) %>
-                <%= render :partial => '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
-                <% end %>
+            <% moment = Moment.where(id: moment_id).first %>
+            <% if moment.userid == current_user.id || moment.viewers.include?(current_user.id) %>
+              <%= render partial: '/shared/moments_strategies', locals: { items: moments, item: moment, data_type: 'moment_tag_usage' } %>
             <% end %>
-            </div>
+          <% end %>
+        </div>
       </div>
-        <% end %>
     <% end %>
+  <% end %>
 </div>
 <% end %>

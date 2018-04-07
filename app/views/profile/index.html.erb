@@ -1,7 +1,7 @@
 <% title @profile.name %>
 <div class="table" id="profile_info">
   <div class="table_cell profile_picture_div vertical_align_top padding_right">
-    <%= ProfilePicture.fetch(@profile.avatar.url, 'profile_picture') %>
+    <%= ProfilePicture.fetch(@profile.avatar.url, className: 'profile_picture') %>
   </div>
   <div class="table_cell vertical_align_middle">
     <% if @profile.about %>
@@ -12,33 +12,33 @@
       <%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
       <div class="spacer"></div>
     <% end %>
-    <% if !User.where(:id => @profile.id).first.location.blank? %>
-      <i class="fa fa-location-arrow fa-inline"></i><%= User.where(:id => @profile.id).first.location %>
+    <% if User.where(id: @profile.id).first.location.present? %>
+      <i class="fa fa-location-arrow fa-inline"></i><%= User.where(id: @profile.id).first.location %>
       <br>
     <% end %>
     <% if @profile.id != current_user.id %>
       <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-        <br><%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+        <br><%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
       <% elsif current_user.allies_by_status(:accepted).include? @profile %>
-        <br><%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+        <br><%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
       <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
-        <br><%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), :method => :post %> | <%= link_to t('allies.reject'), remove_allies_path(:ally_id => @profile.id), :method => :post, data: { confirm: t('common.actions.confirm') } %>
+        <br><%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
       <% else %>
-        <br><%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), :method => :post %>
+        <br><%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
       <% end %>
     <% end %>
   </div>
 </div>
 
-<% if !@stories.nil? && !@stories.empty? %>
+<% if !@stories.nil? && @stories.any? %>
   <div class="horizonal_divider"></div>
 <% end %>
 
-<%= render :partial => '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
-<%= render :partial => '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
-<%= render :partial => '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
+<%= render partial: '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
 
-<% if !@stories.nil? && !@stories.empty? %>
+<% if !@stories.nil? && @stories.any? %>
   <div class="main_message">
     Stories
   </div>
@@ -48,10 +48,10 @@
     <% @stories.each do |story| %>
       <div class="story">
         <h1 class="story_name">
-          <%= render :partial => '/shared/viewers_hover', locals: { data: story } %>
+          <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
           <%= link_to story.name, story %>
         </h1>
-        <%= render :partial => '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
+        <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
       </div>
     <% end %>
     </div>

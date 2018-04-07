@@ -19,6 +19,7 @@ class ApplicationMailer < ActionMailer::Base
     can_notify(recipient, 'comment_notify') && can_comment(data)
   end
 
+  # rubocop:disable MethodLength
   def comment_notify(data, recipient)
     @data = data
     @recipient = recipient
@@ -43,6 +44,7 @@ class ApplicationMailer < ActionMailer::Base
 
     mail(to: @recipient.email, subject: subject)
   end
+  # rubocop:enable MethodLength
 
   def can_ally_notify(data, recipient)
     can_notify(recipient, 'ally_notify') &&
@@ -62,6 +64,7 @@ class ApplicationMailer < ActionMailer::Base
       (can_notify(recipient, 'meeting_notify') && can_meeting(data))
   end
 
+  # rubocop:disable MethodLength
   def group_notify(data, recipient)
     @data = data
     @recipient = recipient
@@ -99,6 +102,7 @@ class ApplicationMailer < ActionMailer::Base
     end
     mail(to: @recipient.email, subject: subject)
   end
+  # rubocop:enable MethodLength
 
   private
 

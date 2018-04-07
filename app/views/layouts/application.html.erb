@@ -9,16 +9,25 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
+    <!-- Webpack Assets START -->
+    <!--
+      NOTE: Do not load multiple, separate webpack bundles, as it looks like
+      only the last one will load correctly in production, as though there is
+      a global registry and the last bundle overwrites the entire registry.
+    -->
+    <%= javascript_pack_tag 'webpack_bundle' %>
+    <%= stylesheet_pack_tag 'webpack_bundle' %>
+    <!-- Webpack Assets END -->
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- Webpack Assets -->
-    <%= javascript_pack_tag 'webpack-bundle' %>
-    <%= stylesheet_pack_tag 'webpack-bundle' %>
+
     <% if user_signed_in? %>
       <!-- Pusher -->
       <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
-      <%= tag :meta, :name => "pusher-key", :content => ENV['PUSHER_KEY'] %>
+      <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
+
     <!-- jQuery UI -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/flick/jquery-ui.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -31,12 +40,15 @@
       }
       .ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
     </style>
+
     <!-- Timepicker UI -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" type="text/javascript"></script>
     <link rel="alternate" type="application/rss+xml" title="if me blog" href="https://medium.com/feed/ifme" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" />
+
     <!-- Timezone Detection -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js" type="text/javascript"></script>
+
     <!-- Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete"
         async defer></script>
@@ -58,67 +70,61 @@
             <div id="page_title_content">
               <% if current_page?(new_user_session_path) ||
                   (params[:controller] == "devise/sessions" && action_name == "new") %>
-                <%= t('layouts.application.signin') %>
-
+                  <%= t('layouts.application.signin') %>
               <% elsif current_page?(new_user_registration_path) ||
                 (params[:controller] == "devise/registrations" && action_name == "create") %>
-              <%= t('layouts.application.create_account') %>
-
-            <% elsif current_page?(new_user_password_path) ||
-              (params[:controller] == "devise/passwords" && action_name == "new") %>
-            <%= t('account.forgot_password') %>
-
-          <% elsif current_page?(edit_user_registration_path) ||
-            (params[:controller] == "registrations" && action_name == "update") %>
-          <%= t('layouts.application.update_account') %>
-
-        <% elsif !@page_edit.blank? && @page_tooltip %>
-          <div class="align_left">
-            <%= yield(:title) %>
-          </div>
-          <div class="align_right">
-            <%= link_to(raw('<i class="fa fa-pencil"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
-          </div>
-          <div class="clear"></div>
-
-        <% elsif yield(:page_new).present? && @page_tooltip %>
-          <div class="align_left">
-            <%= yield(:title) %>
-          </div>
-          <div class="align_right">
-            <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
-          </div>
-          <div class="clear"></div>
-
-        <% elsif !@page_author.blank? %>
-          <div id="other_user">
-            <div class="align_left">
-              <%= yield(:title) %>
-            </div>
-            <div class="align_right" id="page_author">
-              <%= @page_author %>
-            </div>
-            <div class="clear"></div>
-          </div>
-        <% elsif current_page?(root_path) && !user_signed_in? %>
-          <div class="headline center">
-            <span class="branding_title">
-              <%= t('layouts.application.if') %> <span class="branding_subtitle"><%= t('layouts.application.me') %></span>
-            </span><%= t('app_description') %>
-        </div>
-      <% elsif current_page?(new_user_invitation_path) ||
-        (params[:controller] == "devise/invitations" && action_name == "new") ||
-        (params[:controller] == "users/invitations" && action_name == "create") %>
-      <%= t('devise.invitations.new.header') %>
-    <% elsif current_page?(accept_user_invitation_path) ||
-      (params[:controller] == "devise/invitations" && action_name == "accept") %>
-    <%= t('devise.invitations.edit.header') %>
-  <% elsif current_page?(edit_user_password_path) ||
-    (params[:controller] == "devise/passwords" && action_name == "edit") %>
-  <%= t('layouts.title.reset_password') %>
-<% else %>
-  <%= yield(:title) %>
-<% end %>
+                <%= t('layouts.application.create_account') %>
+              <% elsif current_page?(new_user_password_path) ||
+                (params[:controller] == "devise/passwords" && action_name == "new") %>
+                <%= t('account.forgot_password') %>
+              <% elsif current_page?(edit_user_registration_path) ||
+                (params[:controller] == "registrations" && action_name == "update") %>
+                <%= t('layouts.application.update_account') %>
+              <% elsif @page_edit.present? && @page_tooltip %>
+                <div class="align_left">
+                  <%= yield(:title) %>
+                </div>
+                <div class="align_right">
+                  <%= link_to(raw('<i class="fa fa-pencil-alt"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
+                </div>
+                <div class="clear"></div>
+              <% elsif yield(:page_new).present? && @page_tooltip %>
+                <div class="align_left">
+                  <%= yield(:title) %>
+                </div>
+                <div class="align_right">
+                  <%= link_to(raw('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
+                </div>
+                <div class="clear"></div>
+              <% elsif @page_author.present? %>
+                <div id="other_user">
+                  <div class="align_left">
+                    <%= yield(:title) %>
+                  </div>
+                  <div class="align_right" id="page_author">
+                    <%= @page_author %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              <% elsif current_page?(root_path) && !user_signed_in? %>
+                <div class="headline center">
+                  <span class="branding_title">
+                    <%= t('layouts.application.if') %> <span class="branding_subtitle"><%= t('layouts.application.me') %></span>
+                  </span><%= t('app_description') %>
+                </div>
+              <% elsif current_page?(new_user_invitation_path) ||
+                (params[:controller] == "devise/invitations" && action_name == "new") ||
+                (params[:controller] == "users/invitations" && action_name == "create") %>
+                <%= t('devise.invitations.new.header') %>
+              <% elsif current_page?(accept_user_invitation_path) ||
+                (params[:controller] == "devise/invitations" && action_name == "accept") %>
+                <%= t('devise.invitations.edit.header') %>
+              <% elsif current_page?(edit_user_password_path) ||
+                (params[:controller] == "devise/passwords" && action_name == "edit") %>
+                <%= t('layouts.title.reset_password') %>
+              <% else %>
+                <%= yield(:title) %>
+              <% end %>
             </div>
 
           </div>
@@ -127,7 +133,7 @@
         <div id="announcement" class="display_none"></div>
 
         <div id="content">
-          <% if !notice.blank? %>
+          <% if notice.present? %>
             <% if current_page?(root_path) %>
               <div class="notice display_none"><%= notice %></div>
             <% else %>
@@ -135,7 +141,7 @@
             <% end %>
           <% end %>
 
-          <% if !alert.blank? %>
+          <% if alert.present? %>
             <% if current_page?(root_path) %>
               <div class="alert display_none"><%= alert %></div>
             <% else %>

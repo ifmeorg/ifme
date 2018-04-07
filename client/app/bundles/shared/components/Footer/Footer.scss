@@ -1,13 +1,11 @@
-@import '../base';
+@import "../_legacy.scss";
+@import "../_base.scss";
 
 .footer {
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   font-family: $font-family;
-
-  .footer_content {
-    position: relative;
-  }
+  position: relative;
 
   .row {
     display: flex;

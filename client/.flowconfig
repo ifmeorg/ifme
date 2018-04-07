@@ -1,5 +1,6 @@
 [ignore]
 .*/__tests__/.*
+.*/node_modules/draft-js/.*
 .*/node_modules/enzyme-matchers/.*
 .*/node_modules/jasmine-enzyme/.*
 .*/node_modules/radium/.*
@@ -11,4 +12,8 @@
 [lints]
 
 [options]
-module.name_mapper='.*\(.s?css\)' -> 'empty/object'
+
+module.name_mapper='^libs\(.*\)$' -> '<PROJECT_ROOT>/app/libs\1'
+
+module.name_mapper='.*\.\(bmp\|gif\|jpg\|jpeg\|png\|psd\|svg\|webp\|m4v\|mov\|mp4\|mpeg\|mpg\|webm\|aac\|aiff\|caf\|m4a\|mp3\|wav\|html\|pdf\)' -> '<PROJECT_ROOT>/flow/media.js'
+module.name_mapper='.*\.\(css\|sass\|scss\)' -> '<PROJECT_ROOT>/flow/stylesheets.js'

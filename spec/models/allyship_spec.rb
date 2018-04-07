@@ -125,12 +125,12 @@ describe Allyship do
       it 'deletes viewer' do
         allyship_expected = Allyship.where(user_id: user.id,
                                            ally_id: ally.id)[0]
-        moment_expected = Moment.where(userid: user.id)[0]
-        strategy_expected = Strategy.where(userid: user.id)[0]
+        moment_expected = user.moments.first
+        strategy_expected = user.strategies.first
 
         expect { allyship_expected.destroy }
-          .to change { Moment.where(userid: user.id)[0].viewers.count }.from(1).to(0)
-          .and change { Strategy.where(userid: user.id)[0].viewers.count }.from(1).to(0)
+          .to change { user.moments.first.viewers.count }.from(1).to(0)
+          .and change { user.strategies.first.viewers.count }.from(1).to(0)
       end
     end
   end

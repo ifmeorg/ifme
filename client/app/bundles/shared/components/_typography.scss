@@ -1,0 +1,15 @@
+$font-family: 'Lato', sans-serif;
+
+/**
+ * Stick to a few font weights to keep network traffic performance optimal
+ */
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$title-size: 30px;
+$title-size-mobile: 20px;
+
+$text-size: 18px;
+
+$text-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.25);

@@ -29,7 +29,7 @@ RSpec.configure do |config|
   ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
   config.mock_with :rspec do |mock_config|

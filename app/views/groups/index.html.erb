@@ -29,7 +29,7 @@
 
       <div class="small_margin_top">
         <% if user_can_edit?(group) %>
-          <i class="fa fa-pencil action"></i>
+          <i class="fa fa-pencil-alt action"></i>
           <%= edit_group_link(group) %>
         <% end %>
         <% if user_can_leave?(group) %>
@@ -37,7 +37,7 @@
           <%= leave_group_link(group) %>
         <% end %>
         <% if user_can_delete?(group) %>
-          <i class="fa fa-trash-o action"></i>
+          <i class="fa fa-trash-alt action"></i>
           <%= delete_group_link(group) %>
         <% end %>
       </div>

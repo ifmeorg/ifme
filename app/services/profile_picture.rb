@@ -1,33 +1,36 @@
 # frozen_string_literal: true
-
 include CloudinaryHelper
+include ReactOnRailsHelper
 
 class ProfilePicture
-  DEFAULT_AVATAR = '/assets/default_ifme_avatar.png'
   # Future task: Optimize Cloudinary image size based on responsive layout
   DEFAULT_SIZE = 150
-  # JavaScript that allows image to fallback if main src URL cannot load
-  DEFAULT_AVATAR_JS = "this.onerror=null;this.src='#{DEFAULT_AVATAR}'"
 
   class << self
-    # If the image is from Cloudinary, use cl_image_tag
-    # Otherwise, in production, use Cloudinary remote fetching
-    # to grab the image from the if-me.org domain.
-    # In development environment, don't use Cloudinary remote fetching.
-    def fetch(path, class_name)
-      html = if cloudinary(path)
-               cl_img(get_cloudinary_image_id(path), true, class_name)
-             elsif path.present? && Rails.env.production?
-               cl_img(full_url(path), false, class_name)
-             else
-               html_img(path, class_name)
-             end
-      html.html_safe
+    def fetch(path, options = {})
+      react_component 'Avatar', props: {
+        className: options[:className],
+        name: options[:name],
+        src: normalize_url(path)
+      }
     end
 
     private
 
-    def cloudinary(path)
+    def normalize_url(path)
+      # prod, uploaded to cloudinary
+      if cloudinary_src path
+        get_cloudinary_url(path, 'upload')
+      # prod, remotely fetched by cloudinary
+      elsif path.present? && Rails.env.production?
+        get_cloudinary_url(path, 'fetch')
+      # dev environment
+      else
+        path
+      end
+    end
+
+    def cloudinary_src(path)
       path&.include?('.cloudinary.com')
     end
 
@@ -35,24 +38,28 @@ class ProfilePicture
       path.split('/').last.split('.').first
     end
 
-    def full_url(path)
-      "#{Rails.application.config.force_ssl ? 'https' : 'http'}://"\
-      "#{Rails.application.config.action_controller.asset_host}#{path}"
-    end
-
-    def cl_img(id_or_url, is_image_id, class_name)
-      cl_image_tag(
+    # rubocop:disable MethodLength
+    def get_cloudinary_url(path, type)
+      id_or_url = get_cloudinary_image_id(path)
+      type == 'fetch' && id_or_url = get_local_url(path)
+      cl_image_path(
         id_or_url,
-        type: is_image_id ? 'upload' : 'fetch', format: 'jpg',
-        quality: 'auto:good', width: DEFAULT_SIZE, height: DEFAULT_SIZE,
-        crop: 'fill', dpr: 'auto', client_hints: true, class: class_name,
-        onerror: DEFAULT_AVATAR_JS, sign_url: true
+        type: type,
+        format: 'jpg',
+        quality: 'auto:good',
+        width: DEFAULT_SIZE,
+        height: DEFAULT_SIZE,
+        crop: 'fill',
+        dpr: 'auto',
+        client_hints: true,
+        sign_url: true
       )
     end
+    # rubocop:enable MethodLength
 
-    def html_img(path, class_name)
-      "<img src='#{path}' class='#{class_name}'
-        onerror=\"#{DEFAULT_AVATAR_JS}\" />"
+    def get_local_url(path)
+      "#{Rails.application.config.force_ssl ? 'https' : 'http'}://"\
+      "#{Rails.application.config.action_controller.asset_host}#{path}"
     end
   end
 end

@@ -23,12 +23,12 @@
 
 describe Medication do
   describe '#active_reminders' do
-    let(:user) { FactoryGirl.create(:user1) }
+    let(:user) { FactoryBot.create(:user1) }
 
     subject { medication.active_reminders }
 
     describe 'when medication has no reminders' do
-      let(:medication) { FactoryGirl.create(:medication, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, userid: user.id) }
 
       it 'is an empty list' do
         expect(subject).to eq([])
@@ -37,7 +37,7 @@ describe Medication do
 
     describe 'when medication has refill reminder' do
       let(:medication) do
-        FactoryGirl.create(:medication,
+        FactoryBot.create(:medication,
                            :with_refill_reminder,
                            userid: user.id)
       end
@@ -49,7 +49,7 @@ describe Medication do
 
     describe 'when medication has daily reminder' do
       let(:medication) do
-        FactoryGirl.create(:medication,
+        FactoryBot.create(:medication,
                            :with_daily_reminder,
                            userid: user.id)
       end
@@ -61,7 +61,7 @@ describe Medication do
 
     describe 'when medication has both reminders' do
       let(:medication) do
-        FactoryGirl.create(:medication,
+        FactoryBot.create(:medication,
                            :with_both_reminders,
                            userid: user.id)
       end

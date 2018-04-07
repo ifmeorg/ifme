@@ -1,4 +1,5 @@
 // karma.conf.js
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 const webpack = require('webpack');
 
@@ -7,6 +8,7 @@ webpackConfig.plugins = [
     NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
     DEBUG: true,
   }),
+  new ExtractTextPlugin(`[name]-[hash].css`),
 ];
 webpackConfig.devtool = 'eval-source-map';
 
@@ -18,23 +20,30 @@ webpackConfig.externals = {
   'react-addons-test-utils': 'react-dom',
 };
 
+function getSpecs(specList) {
+  if (specList) {
+    return specList.split(',');
+  } else {
+    return [
+      { pattern: 'app/**/*.spec.js', watched: true },
+      { pattern: 'app/**/*.spec.jsx', watched: true },
+    ];
+  }
+}
+
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['jasmine'],
-    files: [
-      // collect all our test files
-      { pattern: 'app/**/*.spec.js', watched: true },
-      { pattern: 'app/**/*.spec.jsx', watched: true },
-    ],
+    files: getSpecs(process.env.KARMA_SPECS),
     preprocessors: {
       // make sure we run all the discovered files through webpack
       'app/**/*.js': ['webpack', 'sourcemap'],
       'app/**/*.jsx': ['webpack', 'sourcemap'],
     },
     // todo output test debugger
-    reporters: ['dots'],
+    reporters: ['spec'],
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true,

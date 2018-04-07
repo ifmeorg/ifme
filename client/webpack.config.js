@@ -1,8 +1,15 @@
+/**
+ * TODO: Split up development configuration from production configuration
+ * in order to support hot reloading.
+ */
+
 // For inspiration on your webpack configuration, see:
 // https://github.com/shakacode/react_on_rails/tree/master/spec/dummy/client
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
+const baseConfig = require('./webpack.config.base');
+const glob = require('glob');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -15,19 +22,30 @@ const configPath = resolve('..', 'config');
 const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
   webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-const config = {
+const extractCSS = new ExtractTextPlugin(`${outputFilename}.css`);
+const cssLoaderWithModules = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    camelCase: true,
+    importLoaders: 1,
+    localIdentName: '[name]__[local]___[hash:base64:5]',
+  },
+};
+
+const config = Object.assign(baseConfig, {
 
   context: resolve(__dirname),
 
   entry: {
-    'webpack-bundle': [
+    // Shims should be singletons, and webpack bundle is always loaded
+    webpack_bundle: [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-      './app/bundles/momentDashboards/startup/registration',
-      './app/bundles/shared/startup/registration',
-    ],
+    ].concat(glob.sync('./app/bundles/**/startup/*')),
   },
 
   output: {
@@ -39,25 +57,17 @@ const config = {
     path: webpackOutputPath,
   },
 
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: devBuild ? false : {
-        dead_code: true,
-        warnings: false,
-      },
-      mangle: !devBuild,
-    }),
     new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
-    new ExtractTextPlugin(`${outputFilename}.css`),
+    extractCSS,
   ].concat(devBuild ? [] : [
+    new UglifyJsPlugin({
+      sourceMap: false,
+    }),
     /**
      * OptimizeCssAssetsPlugin doesn't play nicely with CompressionPlugin; enabling
      * OptimizeCssAssetsPlugin prevents the CSS from being gzipped. Since we use
@@ -103,16 +113,56 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
+        test: /\.css$/,
+        include: /node_modules\/antd/,
+        loader: extractCSS.extract({
           fallback: 'style-loader',
-          use: 'css-loader?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                camelCase: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          ],
         }),
-        include: resolve(__dirname, './app/bundles'),
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: extractCSS.extract({
+          fallback: 'style-loader',
+          use: [cssLoaderWithModules],
+        }),
+      },
+      {
+        test: /\.(sass|scss)$/,
+        loader: extractCSS.extract({
+          fallback: 'style-loader',
+          use: [cssLoaderWithModules, 'sass-loader'],
+        }),
+      },
+      {
+        test: /\.ya?ml$/,
+        loader: 'yml-loader',
+      },
+      {
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
-};
+});
 
 module.exports = config;
 

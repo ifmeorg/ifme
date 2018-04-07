@@ -1,7 +1,7 @@
 <% title t('navigation.contribute') %>
 
 <div class="main_message">
-	<%= t('pages.contribute.main_message_one') %>
+  <%= t('pages.contribute.main_message_one') %>
 </div>
 
 <div class="message_text">
@@ -11,13 +11,13 @@
     github_link: link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', target: 'blank')
     })
   %>
-	<div class="spacer"></div>
+  <div class="spacer"></div>
 </div>
 
 <div class="contributors">
   <% @blurbs.each do |blurb| %>
     <div class="contributor center">
-      <%= ProfilePicture.fetch(blurb["image"], 'contributor_picture') %>
+      <%= ProfilePicture.fetch(blurb["image"], className: 'contributor_picture', name: blurb['name']) %>
       <h1 class="contributor_name center"><%= blurb["name"] %></h1>
       <div class="contributor_profile"><%= blurb["profile"] %></div>
       <div class="spacer"></div>
@@ -25,7 +25,7 @@
         <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
       </div>
       <div class="align_right">
-        <%= content_tag(:i, '', class: "fa fa-#{blurb["social"]} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
+        <%= content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
       </div>
       <div class="clear"></div>
     </div>

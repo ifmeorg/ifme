@@ -1,0 +1,39 @@
+@import "../_base.scss";
+
+.container {
+  display: inline-block;
+  width: 6ex;
+  height: 6ex;
+  box-sizing: border-box;
+
+  background-color: $theme-color-1;
+
+  font-family: $font-family;
+  font-size: $title-size;
+  line-height: $title-size;
+  font-weight: 300;
+  text-transform: lowercase;
+
+  margin: 0;
+  padding: 1.7ex 0 0;
+  text-align: center;
+  outline: 0;
+
+  &.small {
+    font-size: $title-size-mobile;
+    line-height: $title-size-mobile;
+  }
+
+  .if {
+    color: $theme-color-2;
+  }
+
+  .me {
+    display: inline-block;
+    border-bottom: 0.15ex solid $theme-color-2;
+    border-top: 0.15ex solid $theme-color-2;
+    color: $theme-color-2;
+    margin: 0 0 0 0.5ex;
+    padding: 0 0 0.55ex;
+  }
+}

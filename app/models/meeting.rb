@@ -20,7 +20,8 @@
 class Meeting < ApplicationRecord
   extend FriendlyId
   friendly_id :name
-  validates :name, :description, :location, :time, :groupid, :date, presence: true
+  validates :name, :description, :location, :time, :groupid, :date,
+            presence: true
   belongs_to :group, foreign_key: :groupid
   has_many :members, -> { order 'name' }, through: :meeting_members,
                                           source: :user
