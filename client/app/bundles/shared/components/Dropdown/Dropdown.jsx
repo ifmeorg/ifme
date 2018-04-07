@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import shortid from 'shortid';
-import isNil from 'lodash/isNil';
 import { getAvailableLocales } from 'libs/i18n/I18nUtils';
 
 import css from './Dropdown.scss';
@@ -26,7 +25,7 @@ const Dropdown = (variationClassName: string) =>
 
     return (
       <div className={`${css.select_dropdown} ${variationClassName}`}>
-        {!isNil(locale) ? (
+        {locale !== null && locale !== undefined ? (
           <select onChange={e => onChange(e.target.value)} value={locale || null}>
             {options}
           </select>

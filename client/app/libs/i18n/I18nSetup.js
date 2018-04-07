@@ -1,4 +1,3 @@
-import first from 'lodash/first';
 import { addLocaleData } from 'react-intl';
 // every locale is an array of various sub locales, that follow the type defined below
 // https://github.com/yahoo/react-intl/wiki/API#addlocaledata
@@ -16,7 +15,7 @@ import sv from 'react-intl/locale-data/sv';
 import nl from 'react-intl/locale-data/nl';
 import br from 'react-intl/locale-data/br';
 
-const ptbr = first(br);
+const ptbr = br[0];
 ptbr.locale = 'ptbr';
 
 // Initizalize all locales for react-intl.
