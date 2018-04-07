@@ -14,7 +14,7 @@ export default class Tag extends React.Component<Props> {
     const labelClassNames = `${css.label} ${dark ? css.dark : ''}${normal ? css.normal : ''}`;
 
     return (
-      <span>
+      <span className={css.tag_wrapper}>
         <div className={labelClassNames}>{label}</div>
       </span>
     );

@@ -1,32 +1,40 @@
 @import "_legacy.scss";
 @import "_base.scss";
 
-.label {
-  padding: 5px 12px;
-  text-indent: 4px;
-  display: inline-block;
-
-  font-family: Lato;
-  font-size: 10px;
-  text-align: center;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-
-  border-radius: 7px;
-  border: 1px solid $container-color;
-
-  mix-blend-mode: normal;
-  color: $container-color;
-
-  &.dark {
-    color: $background-color;
-    border: 1px;
-    background-color: $container-color;
+.tag_wrapper {
+  margin-right: 8px;
+  &:last-child{
+    margin-right: 0;
   }
 
-  &.normal {
-    color: $background-color;
-    border: 1px;
-    background-color: $transparent;
+  .label {
+    padding: 5px 12px;
+    text-indent: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+
+    font-family: Lato;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    border-radius: 5px;
+    border: 1px solid $container-color;
+
+    mix-blend-mode: normal;
+    color: $container-color;
+
+    &.dark {
+      color: $background-color;
+      border: 1px;
+      background-color: $container-color;
+    }
+
+    &.normal {
+      color: $background-color;
+      border: 1px;
+      background-color: $transparent;
+    }
   }
 }

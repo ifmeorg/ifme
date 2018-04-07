@@ -3,6 +3,8 @@ import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
+import 'bundles/shared/components/_globals.scss';
+
 import Logo, { LogoSmall } from 'bundles/shared/components/Logo';
 
 const withSource = el => withInfo()(() => el);
