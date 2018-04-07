@@ -5,27 +5,35 @@ import css from './Resource.scss';
 import Tag from './Tag';
 
 type Props = {
-  tags: [],
-  tagged?: boolean,
-  external?: boolean,
-  link?: string,
-  name?: string,
   author?: string,
+  external?: boolean,
+  link: string,
+  tags?: string[],
+  tagged?: boolean,
+  title: string,
 };
 
 export default class Resource extends React.Component<Props> {
   render() {
-    const { tags, link, name, author, tagged, external } = this.props;
-    const taggedResources = tagged ? tags.map(tag =>
-      <Tag normal label={tag} key={shortid.generate()} />,
-    ) : '';
-    const authorRes = external ? <div className={css.author}>{author}</div> : '';
+    const { author, external, link, tagged, tags = [], title } = this.props;
+    const taggedResources = tagged
+      ? (
+        <div className="tags">
+          {tags.map(tag => <Tag normal label={tag} key={shortid.generate()} />)}
+        </div>
+      )
+      : null;
+    const authorRes = external
+      ? <div className={`author ${css.author}`}>{author}</div>
+      : null;
 
     return (
-      <div className={css.container}>
-        <div className={css.link}><a href={link} target="blank">{name}</a></div>
-        { authorRes }
-        { taggedResources }
+      <div className={`resource ${css.resource}`}>
+        <a className={css.link} href={link} target="_blank">
+          {title}
+        </a>
+        {authorRes}
+        {taggedResources}
       </div>
     );
   }
