@@ -22,9 +22,14 @@ export default class MomentCardSettings extends React.Component<MomentCardSettin
     return (
       <div className={css.settings}>
         {
-          ['edit', 'delete', 'viewer'].map(op => action[op] &&
-            <i role="presentation" onClick={action[op]} className={`fa ${classMap[op]} ${css.action}`} />,
-          )
+          ['edit', 'delete', 'viewer'].map(op => action[op] && (
+            <i
+              key={op}
+              role="presentation"
+              onClick={action[op]}
+              className={`fa ${classMap[op]} ${css.action}`}
+            />
+          ))
         }
       </div>
     );
