@@ -1,8 +1,13 @@
+// @flow
 import { Col, Row } from 'antd';
-import React, { type StatelessFunctionalComponent } from 'react';
+import React, { type Node, type StatelessFunctionalComponent } from 'react';
 import { withInfo } from '@storybook/addon-info';
 
-const SingleColumnLayout = ({ children }): StatelessFunctionalComponent => (
+type Props = {
+  children: Node,
+};
+
+const SingleColumnLayout: StatelessFunctionalComponent<Props> = ({ children }: Props) => (
   <Row style={{ backgroundColor: '#666', padding: '24px' }}>
     <Col span={24}>
       {children}
@@ -10,12 +15,12 @@ const SingleColumnLayout = ({ children }): StatelessFunctionalComponent => (
   </Row>
 );
 
-export function withSource(el) {
+export function withSource(el: Node) {
   return withInfo()(() => el);
 }
 
 export {
   SingleColumnLayout,
-}
+};
 
 export default withSource;
