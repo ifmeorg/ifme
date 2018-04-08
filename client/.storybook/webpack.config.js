@@ -125,6 +125,7 @@ module.exports = Object.assign(baseConfig, {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
+        include: /node_modules/,
         use: [
           {
             loader: 'file-loader',

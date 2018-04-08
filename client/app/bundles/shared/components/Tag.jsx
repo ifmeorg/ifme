@@ -11,7 +11,7 @@ type Props = {
 export default class Tag extends React.Component<Props> {
   render() {
     const { dark, normal, label } = this.props;
-    const labelClassNames = `label ${css.label} ${dark ? css.dark : ''}${normal ? css.normal : ''}`;
+    const labelClassNames = `tag ${css.tag} ${dark ? css.dark : ''}${normal ? css.normal : ''}`;
     return (<span className={labelClassNames}>{label}</span>);
   }
 }

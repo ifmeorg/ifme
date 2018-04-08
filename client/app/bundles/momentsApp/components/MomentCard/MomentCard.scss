@@ -75,7 +75,7 @@
     position: relative;
     padding: 20px 20px 10px;
 
-    :global(.label) {
+    :global(.tag) {
       color: $background-color;
       border-width: 0;
       border-radius: 5px;
@@ -86,7 +86,7 @@
     .category {
       display: inline;
 
-      :global(.label) {
+      :global(.tag) {
         background-color: #B4A362;
       }
     }

@@ -1,13 +1,12 @@
 import 'font-awesome/scss/font-awesome.scss';
 import React from 'react';
 import { Row, Col } from 'antd';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
 import MomentCard from 'bundles/momentsApp/components/MomentCard';
+import { withSource } from './Stories.helper';
 
-const withSource = el => withInfo()(() => el);
-const fn = () => { };
+const fn = () => {};
 const tripleColumnize = (card) => {
   const cardAndCol = (
     <Col span={8}>
