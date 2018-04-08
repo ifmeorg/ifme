@@ -7,13 +7,13 @@ import css from './Dropdown.scss';
 const defaultLocales = getAvailableLocales();
 
 type Props = {
-  locale?: string,
-  localeList?: { [key: string]: string },
+  locale: ?string,
+  localeList: { [key: string]: string },
   onChange: (e: string) => void,
 };
 
 const Dropdown = (variationClassName: string) =>
-  ({ locale, localeList = defaultLocales, onChange }: Props) => {
+  ({ locale, localeList, onChange }: Props) => {
     const attr = locale !== null && locale !== undefined ? { value: locale } : {};
     return (
       <div className={`${css.select_dropdown} ${variationClassName}`}>
@@ -29,6 +29,7 @@ const Dropdown = (variationClassName: string) =>
   };
 
 Dropdown.defaultProps = {
+  localeList: defaultLocales,
   onChange: () => {},
 };
 
