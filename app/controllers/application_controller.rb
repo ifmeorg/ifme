@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
     @locales = [
       { name: t('languages.en'), locale: :en },
       { name: t('languages.es'), locale: :es },
+      { name: t('languages.fl'), locale: :fl },
       { name: t('languages.nl'), locale: :nl },
       { name: t('languages.ptbr'), locale: :ptbr },
       { name: t('languages.sv'), locale: :sv },
