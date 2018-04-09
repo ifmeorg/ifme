@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   # before_action
+  # rubocop:disable MethodLength
   def set_locale
     @locales = [
       { name: t('languages.en'), locale: :en },
@@ -47,6 +48,7 @@ class ApplicationController < ActionController::Base
     ].freeze
     @locale = I18n.locale = locale
   end
+  # rubocop:enable MethodLength
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
