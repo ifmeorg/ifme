@@ -48,8 +48,8 @@ gem 'font-awesome-sass'
 
 gem 'groupdate', '3.2'
 
-gem 'react_on_rails', '8.0.6'
-gem 'webpacker_lite'
+gem 'react_on_rails', '9.0.3'
+gem 'webpacker'
 
 group :development, :test do
   gem 'bundler-audit'
