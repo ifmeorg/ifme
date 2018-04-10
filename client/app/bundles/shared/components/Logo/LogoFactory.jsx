@@ -9,12 +9,16 @@ type Props = {
 function LogoFactory(size: string = ''): StatelessFunctionalComponent<Props> {
   const LogoComponent = ({ onClick }: Props) => {
     const linkClass = onClick ? 'link' : '';
-    const containerClass = `${css.container} ${css[size] || ''} ${linkClass}`;
+    const containerClass = `${css.logo} ${css[size] || ''} ${linkClass}`;
 
     return (
       <div role="presentation" className={containerClass} onClick={onClick}>
-        <span className={css.if}>if</span>
-        <span className={css.me}>me</span>
+        <div className={css.content}>
+          <div>
+            <span className={css.if}>if</span>
+            <span className={css.me}>me</span>
+          </div>
+        </div>
       </div>
     );
   };

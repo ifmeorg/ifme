@@ -114,7 +114,7 @@ const config = Object.assign(baseConfig, {
       },
       {
         test: /\.css$/,
-        include: /node_modules\/antd/,
+        include: /node_modules/,
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [
@@ -139,6 +139,25 @@ const config = Object.assign(baseConfig, {
       },
       {
         test: /\.(sass|scss)$/,
+        include: /node_modules/,
+        loader: extractCSS.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                camelCase: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+            'sass-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.(sass|scss)$/,
+        exclude: /node_modules/,
         loader: extractCSS.extract({
           fallback: 'style-loader',
           use: [cssLoaderWithModules, 'sass-loader'],
@@ -156,6 +175,18 @@ const config = Object.assign(baseConfig, {
             options: {
               limit: 8000,
               name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[hash]-[name].[ext]',
             },
           },
         ],

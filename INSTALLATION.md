@@ -1,6 +1,6 @@
 # Installation
 
-The app uses  **Ruby 2.3.4** and **Rails 5.0.5**. Please stick to these versions.
+The app uses  **Ruby 2.3.4** and **Rails 5.0.6**. Please stick to these versions.
 
 The steps below should be straightforward for Linux and macOS users. Windows
 users please refer to this [guide](https://gist.github.com/KelseyDH/11198922)
