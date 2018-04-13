@@ -1,6 +1,6 @@
 #frozen_string_literal: true
 
-RSpec.feature "UserAuthwithFacebook", type: :feature do
+RSpec.feature "UserAuthwithFacebook", js: true, type: :feature do
   OmniAuth.config.test_mode = true
 
   def mock_auth_hash
@@ -37,7 +37,8 @@ RSpec.feature "UserAuthwithFacebook", type: :feature do
     log_in
 
     expect(page).to have_content 'Hello Jane Doe!'
-    expect(page).to have_content 'Sign out'
+    within('span#title_expand') { find('i.expand').click }
+    within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
   end
 
   scenario 'user cannot sign in with invalid account' do
@@ -50,7 +51,8 @@ RSpec.feature "UserAuthwithFacebook", type: :feature do
   scenario 'user signs out successfully' do
     log_in
 
-    click_link('Sign out', match: :first)
-    expect(page).to have_content 'Signed out'
+     within('span#title_expand') { find('i.expand').click }
+    within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
+    expect(page).to have_content 'if me is a community for mental health experiences More communities need mental health support.'
   end
 end

@@ -325,9 +325,10 @@ Devise.setup do |config|
       scope: 'public_profile,email',
       info_fields: 'email,first_name,last_name',
       client_options: {
-         site: 'https://graph.facebook.com/v2.11',
-         authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+        site: 'https://graph.facebook.com/v2.11',
+        authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
       },
+      token_params: { parse: :json },
       strategy_class: OmniAuth::Strategies::Facebook
     )
 end
