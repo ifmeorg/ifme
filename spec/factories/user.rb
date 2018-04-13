@@ -88,7 +88,7 @@ FactoryBot.define do
     name "Orange Southland"
     email "orange.southland@example.com"
     password "password"
-    provider "facebook"
+    provider "google_oauth2"
     location "Toronto, ON, Canada"
     token "has_a_token"
     access_expires_at { Time.zone.now + 600 }

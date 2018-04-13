@@ -64,6 +64,10 @@ describe User do
       )
     }
 
+  after do
+    OmniAuth.config.test_mode = false
+  end
+
     context 'when user already exists' do
       let!(:user) {
         User.create(
