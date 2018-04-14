@@ -37,3 +37,13 @@ Specify a comma-delimited list of spec files you wish to run like this:
 ```
 env KARMA_SPECS="**/Avatar.spec.jsx,**/Logo.spec.jsx" yarn test
 ```
+
+## Dependencies and Version
+
+GEMs
+react_on_rails v9.0.3
+webpacker v3.4.3
+
+NPM
+@rails/webpacker@v3.4.3
+
