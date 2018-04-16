@@ -20,7 +20,7 @@ vi:
    ptbr: Português
    sv: Svenska
    various: Various
-   vn: Tiếng Việt
+   vi: Tiếng Việt
    it: Italiano
    nb: Norsk
 
@@ -533,7 +533,7 @@ vi:
     license_we: 'We'
     license_foss: 'FOSS'
     foss: 'Free and open source software'
-    license_subtitle: 'Được cấp phép theo'
+    license_subtitle: 'Được cấp phép theo %{license}'
     connect: 'kết nối'
   comments:
     share_everyone: 'Chia sẻ với mọi người'
