@@ -24,6 +24,7 @@ const SingleColumnLayout: StatelessFunctionalComponent<SingleColumnLayoutProps> 
     </Row>
   );
 
+# rubocop:disable MethodLength
 const setupStorybookDecorators = () => {
   loadLocales();
 
@@ -63,6 +64,7 @@ const setupStorybookDecorators = () => {
     { name: 'white', value: '#FFFFFF' },
   ]));
 };
+# rubocop:enable MethodLength
 
 export {
   SingleColumnLayout,
