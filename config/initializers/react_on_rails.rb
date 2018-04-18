@@ -7,7 +7,8 @@ ReactOnRails.configure do |config|
   config.generated_assets_dir = File.join(%w[public webpack], Rails.env)
 
   # Define the files we need to check for webpack compilation when running tests.
-  config.webpack_generated_files = %w( webpack-bundle.js )
+  # Removed https://github.com/shakacode/react_on_rails/issues/949
+  # config.webpack_generated_files = %w( webpack-bundle.js )
 
   # This is the file used for server rendering of React when using `(prerender: true)`
   # If you are never using server rendering, you may set this to "".
@@ -18,11 +19,16 @@ ReactOnRails.configure do |config|
   # If you are using the ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
   # with rspec then this controls what yarn command is run
   # to automatically refresh your webpack assets on every test run.
-  config.npm_build_test_command = "yarn run build:test"
+  config.build_test_command = "yarn run build:test"
 
   # This configures the script to run to build the production assets by webpack. Set this to nil
   # if you don't want react_on_rails building this file for you.
-  config.npm_build_production_command = "yarn install; yarn run build:production"
+  config.build_production_command = "yarn install; yarn run build:production"
+
+  # This configures the location of npm modules in this project
+  # From version 8 -> 9 this has moved to root of the rails project
+  # we modify this to place it at the original client/node_modules location.
+  config.node_modules_location = "client"
 
   ################################################################################
   # CLIENT RENDERING OPTIONS
