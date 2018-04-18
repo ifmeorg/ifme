@@ -46,9 +46,10 @@
     "superagent": "^3.5.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.2.0",
-    "@storybook/addon-info": "^3.3.15",
-    "@storybook/react": "^3.2.3",
+    "@storybook/addon-actions": "^3.4.2",
+    "@storybook/addon-backgrounds": "^3.4.2",
+    "@storybook/addon-info": "^3.4.2",
+    "@storybook/react": "^3.4.2",
     "antd": "^2.13.13",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -93,6 +94,7 @@
     "react-test-render": "^1.0.3",
     "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.6",
+    "storybook-addon-intl": "^2.3.0",
     "style-loader": "^0.18.2",
     "superagent-mock": "^3.5.0",
     "uglifyjs-webpack-plugin": "^1.2.4",

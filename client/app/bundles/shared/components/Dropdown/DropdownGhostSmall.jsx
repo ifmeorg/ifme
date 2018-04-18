@@ -1,6 +1,6 @@
-import Dropdown from './Dropdown';
+import DropdownFactory from './DropdownFactory';
 import css from './Dropdown.scss';
 
-const DropdownGhostSmall = Dropdown(css.ghost_small);
+const DropdownGhostSmall = DropdownFactory(css.ghost_small);
 DropdownGhostSmall.displayName = 'DropdownGhostSmall';
 export default DropdownGhostSmall;

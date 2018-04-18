@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import { IntlProvider, injectIntl } from 'react-intl';
-import { defaultMessages, defaultLocale } from 'libs/i18n/default';
-import { getMessages } from 'libs/i18n/I18nUtils';
+import { injectIntl } from 'react-intl';
+import { defaultMessages } from 'libs/i18n/default';
+import { availableLocalesAsSelectOptions } from 'libs/i18n/I18nUtils';
 import css from './Footer.scss';
 import Resources from './Resources';
 import Connect from './Connect';
@@ -21,7 +21,7 @@ type FooterProps = {
 
 const TableCell = (props: { children: any }) => (<div className={`${css.table_cell}`}>{props.children}</div>);
 
-const InjectedFooter = injectIntl(({ intl, onChange }: FooterProps) => {
+const Footer = injectIntl(({ intl, onChange }: FooterProps) => {
   const { formatMessage } = intl;
   return (
     <div className={css.footer}>
@@ -39,7 +39,8 @@ const InjectedFooter = injectIntl(({ intl, onChange }: FooterProps) => {
           <div className={`${css.table_cell} ${css.dropdown}`}>
             <DropdownGhostSmall
               onChange={onChange}
-              locale={intl.locale}
+              options={availableLocalesAsSelectOptions}
+              value={intl.locale}
             />
           </div>
           <div className={`${css.table_cell} ${css.love_foss}`}>
@@ -59,33 +60,6 @@ const InjectedFooter = injectIntl(({ intl, onChange }: FooterProps) => {
   );
 });
 
-type Props = {
-  locale: string
-};
+Footer.displayName = 'Footer';
 
-type State = {
-  locale: string
-}
-
-export default class Footer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      locale: props.locale || defaultLocale,
-    };
-  }
-
-  render() {
-    return (
-      <IntlProvider
-        locale={this.state.locale}
-        key={this.state.locale}
-        messages={getMessages(this.state.locale)}
-      >
-        <InjectedFooter
-          onChange={selected => this.setState({ locale: selected })}
-        />
-      </IntlProvider>
-    );
-  }
-}
+export default Footer;
