@@ -24,47 +24,37 @@ const SingleColumnLayout: StatelessFunctionalComponent<SingleColumnLayoutProps> 
     </Row>
   );
 
-// rubocop:disable MethodLength
-const setupStorybookDecorators = () => {
-  loadLocales();
-
-  const globalDecorator = (storyFn, context) => withInfo({
-    styles: {
-      infoBody: {
-        margin: '0',
-      },
-      infoPage: {
-        margin: '0',
-      },
-      infoStory: {
-        margin: '0',
-        padding: '100px 0',
-      },
-      source: {
-        h1: {
-          margin: '0',
-        },
-      },
-    },
-  })(() => storyFn())(context);
-  addDecorator(globalDecorator);
-
-  setIntlConfig({
-    locales: availableLocalesAsCodeArray,
-    defaultLocale,
-    getMessages,
-  });
-  addDecorator(withIntl);
-
-  addDecorator(backgrounds([
-    { name: 'mulberry-wood', value: '#6D0839' },
-    { name: 'dark-gray', value: '#3F3F3F' }, // 25% gray
-    { name: 'gray', value: '#7F7F7F' }, // 50% gray
-    { name: 'light-gray', value: '#BFBFBF', default: true }, // 75% gray
-    { name: 'white', value: '#FFFFFF' },
-  ]));
+const withInfoConfig = {
+  styles: {
+    infoBody: { margin: '0' },
+    infoPage: { margin: '0' },
+    infoStory: { margin: '0', padding: '100px 0' },
+    source: { h1: { margin: '0' } },
+  },
 };
-// rubocop:enable MethodLength
+
+const intlConfig = {
+  locales: availableLocalesAsCodeArray,
+  defaultLocale,
+  getMessages,
+};
+
+const backgroundConfig = [
+  { name: 'mulberry-wood', value: '#6D0839' },
+  { name: 'dark-gray', value: '#3F3F3F' }, // 25% gray
+  { name: 'gray', value: '#7F7F7F' }, // 50% gray
+  { name: 'light-gray', value: '#BFBFBF', default: true }, // 75% gray
+  { name: 'white', value: '#FFFFFF' },
+];
+
+const setupStorybookDecorators = () => {
+  const globalDecorator = (storyFn, context) => withInfo(withInfoConfig)(storyFn)(context);
+  addDecorator(globalDecorator);
+  loadLocales();
+  setIntlConfig(intlConfig);
+  addDecorator(withIntl);
+  addDecorator(backgrounds(backgroundConfig));
+};
 
 export {
   SingleColumnLayout,
