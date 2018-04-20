@@ -9,22 +9,20 @@ Rails.application.load_tasks
 require 'fileutils'
 require 'yaml'
 
-#desc 'Quick command to execute the dockerized terminal for running commands'
-#task :app_cli do
-  # Run the command ignoring the results
-#  sh('docker-compose', '-f', 'docker-compose.yml',
+# desc 'Quick command to execute the dockerized terminal for running commands'
+# task :app_cli do
+# Run the command ignoring the results
+# sh('docker-compose', '-f', 'docker-compose.yml',
 #     '-f', 'docker-compose.test.yml',
 #     'run', '--rm', 'app', 'bash') || true
-#end
+# end
 
-#desc 'Quick command to launch the compose stack'
-#task :app_run do
+# desc 'Quick command to launch the compose stack'
+# task :app_run do
 #  # Run the command ignoring the results
 #  sh('docker-compose', '-f', 'docker-compose.yml', 'up') || true
-#end
+# end
 #
-
-
 desc 'Automate the Config Setup for New Environments'
 task :setup_workspace do
   SECRETS = {
