@@ -1,8 +1,0 @@
----
-gem: backup-agoddard
-cve: 2014-4993
-osvdb: 108578
-url: http://osvdb.org/show/osvdb/108578
-title: backup-agoddard Gem for Ruby /lib/backup/cli/utility.rb Process Table Local Plaintext Password Disclosure
-date: 2014-06-30
-description: backup-agoddard Gem for Ruby contains a flaw in /lib/backup/cli/utility.rb that is due to the application exposing password information in plaintext in the process table. This may allow a local attacker to gain access to password information.

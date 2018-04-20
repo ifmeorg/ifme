@@ -1,8 +1,0 @@
---- 
-gem: flash_tool
-cve: 2013-2513
-osvdb: 90829
-url: http://osvdb.org/show/osvdb/90829
-title: flash_tool Gem for Ruby File Download Handling Arbitrary Command Execution
-date: 2013-03-04
-description: flash_tool Gem for Ruby contains a flaw that is triggered during the handling of downloaded files that contain shell characters. With a specially crafted file, a context-dependent attacker can execute arbitrary commands.

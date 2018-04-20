@@ -1,9 +1,0 @@
---- 
-gem: kelredd-pruview
-cve: 2013-1947
-osvdb: 92228
-url: http://osvdb.org/show/osvdb/92228
-title: kelredd-pruview Gem for Ruby /lib/pruview/document.rb File Name Shell Metacharacter Injection Arbitrary Command Execution
-date: 2013-04-04
-description: kelredd-pruview Gem for Ruby contains a flaw in /lib/pruview/document.rb. The issue is triggered during the handling of a specially crafted file name that contains injected shell metacharacters. This may allow a context-dependent attacker to potentially execute arbitrary commands.
-cvss_v2: 9.3

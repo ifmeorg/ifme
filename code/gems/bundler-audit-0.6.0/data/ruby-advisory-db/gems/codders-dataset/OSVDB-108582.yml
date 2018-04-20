@@ -1,8 +1,0 @@
----
-gem: codders-dataset
-cve: 2014-4991
-osvdb: 108582
-url: http://osvdb.org/show/osvdb/108582
-title: codders-dataset Gem for Ruby /lib/dataset/database/postgresql.rb Process Table Local Plaintext Credential Disclosure
-date: 2014-06-30
-description: codders-dataset Gem for Ruby contains a flaw in /lib/dataset/database/postgresql.rb that is due to the application exposing credential information in plaintext in the process table. This may allow a local attacker to gain access to credential information.

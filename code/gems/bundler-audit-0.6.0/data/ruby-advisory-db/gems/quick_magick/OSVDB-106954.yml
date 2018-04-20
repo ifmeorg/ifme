@@ -1,7 +1,0 @@
----
-gem: quick_magick
-osvdb: 106954
-url: http://osvdb.org/show/osvdb/106954
-title: quick_magick Gem for Ruby QuickMagick::Image.read Function Crafted String Handling Remote Command Injection 
-date: 2011-01-12
-description: quick_magick Gem for Ruby contains a flaw in the QuickMagick::Image.read function. The issue is triggered when handling a specially crafted string. This may allow a remote attacker to inject arbitrary commands.

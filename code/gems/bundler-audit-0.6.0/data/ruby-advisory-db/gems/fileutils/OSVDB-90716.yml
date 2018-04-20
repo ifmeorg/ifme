@@ -1,7 +1,0 @@
---- 
-gem: fileutils
-osvdb: 90716
-url: http://osvdb.org/show/osvdb/90716
-title: fileutils Gem for Ruby Temporary Directory Hijacking Weakness
-date: 2013-02-28
-description: fileutils Gem for Ruby contains a flaw that is due to the program not verifying the existence of a directory before attempting to create it. This may allow a local attacker to create the directory in advance, thus owning any files subsequently written to it.

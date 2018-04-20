@@ -1,5 +1,0 @@
-<%= wrap_in_modules <<-rb.strip_heredoc
-  module ApplicationHelper
-  end
-rb
-%>

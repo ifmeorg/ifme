@@ -1,8 +1,0 @@
----
-gem: show_in_browser
-cve: 2013-2105
-osvdb: 93490
-url: http://osvdb.org/show/osvdb/93490
-title: Show In Browser Gem for Ruby /tmp/browser.html Arbitrary Script Injection
-date: 2013-05-17
-description: Show In Browser Gem for Ruby contains a flaw that is triggered when the application does not validate input passed via the /tmp/browser.html file. This may allow a local attacker to create a specially crafted request that would execute arbitrary script code in a user's browser.

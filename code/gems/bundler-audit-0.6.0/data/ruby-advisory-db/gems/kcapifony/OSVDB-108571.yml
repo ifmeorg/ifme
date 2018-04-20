@@ -1,8 +1,0 @@
----
-gem: kcapifony
-cve: 2014-5001
-osvdb: 108571
-url: http://osvdb.org/show/osvdb/108571
-title: kcapifony Gem for Ruby /lib/ksymfony1.rb Process List Local Plaintext Password Disclosure
-date: 2014-06-30
-description: kcapifony Gem for Ruby contains a flaw in /lib/ksymfony1.rb that is triggered as the program displays password information in plaintext in the process list. This may allow a local attacker to gain access to password information.

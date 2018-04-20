@@ -1,9 +1,0 @@
---- 
-gem: ldoce
-cve: 2013-1911
-osvdb: 91870
-url: http://osvdb.org/show/osvdb/91870
-title: ldoce Gem for Ruby MP3 URL Shell Metacharacter Injection Arbitrary Command Execution
-date: 2013-04-01
-description: ldoce Gem for Ruby contains a flaw that is triggered during the handling of a specially crafted URL or filename for MP3 files that have shell metacharacters injected in to it. This may allow a context-dependent attacker to execute arbitrary commands.
-cvss_v2: 6.8

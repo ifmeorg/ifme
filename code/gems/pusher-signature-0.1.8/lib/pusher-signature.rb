@@ -1,1 +1,0 @@
-require 'pusher/signature'

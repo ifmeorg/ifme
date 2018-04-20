@@ -1,8 +1,0 @@
---- 
-gem: fileutils
-cve: 2013-2516
-osvdb: 90717
-url: http://osvdb.org/show/osvdb/90717
-title: fileutils Gem for Ruby file_utils.rb Crafted URL Handling Remote Command Execution
-date: 2013-02-28
-description: fileutils Gem for Ruby contains a flaw in file_utils.rb. The issue is triggered when handling a specially crafted URL containing a command after a delimiter (;). This may allow a remote attacker to potentially execute arbitrary commands.

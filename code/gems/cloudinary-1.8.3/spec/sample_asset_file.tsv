@@ -1,4 +1,0 @@
-public_path	public_id	upload_time.to_i	version	width	height
-stylesheets/foo.css	css-foo	123	1	100	100
-javascripts/bar.js	bar	123	1	100	100
-images/foo.jpg	images-foo	123	1	100	100

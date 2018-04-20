@@ -1,2 +1,0 @@
-class CloudinaryException < StandardError  
-end

@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require File.expand_path("../../command_interceptor", __FILE__)
-
-CommandInterceptor.intercept("heroku")

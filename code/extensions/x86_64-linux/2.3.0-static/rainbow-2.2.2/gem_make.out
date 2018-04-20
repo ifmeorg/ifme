@@ -1,5 +1,0 @@
-current directory: /vagrant_data/code/gems/rainbow-2.2.2/ext
-/usr/local/bin/ruby mkrf_conf.rb
-
-current directory: /vagrant_data/code/gems/rainbow-2.2.2/ext
-/usr/local/bin/ruby -rubygems /vagrant_data/code/gems/rake-12.3.1/exe/rake RUBYARCHDIR=/vagrant_data/code/extensions/x86_64-linux/2.3.0-static/rainbow-2.2.2 RUBYLIBDIR=/vagrant_data/code/extensions/x86_64-linux/2.3.0-static/rainbow-2.2.2

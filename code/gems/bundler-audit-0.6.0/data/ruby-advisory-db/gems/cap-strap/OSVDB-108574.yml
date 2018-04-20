@@ -1,8 +1,0 @@
----
-gem: cap-strap
-cve: 2014-4992
-osvdb: 108574
-url: http://osvdb.org/show/osvdb/108574
-title: cap-strap Gem for Ruby Process Table Local Plaintext Credential Disclosure
-date: 2014-06-30
-description: cap-strap Gem for Ruby contains a flaw that is due to the application exposing credential information in plaintext in the process table listing. This may allow a local attacker to gain access to credential information.

@@ -1,7 +1,0 @@
----
-gem: lynx
-osvdb: 108579
-url: http://osvdb.org/show/osvdb/108579
-title: lynx Gem for Ruby lib/lynx/pipe/run.rb Remote Command Execution
-date: 2014-06-30
-description: lynx Gem for Ruby contains a flaw in lib/lynx/pipe/run.rb that may allow a remote attacker to execute arbitrary commands.

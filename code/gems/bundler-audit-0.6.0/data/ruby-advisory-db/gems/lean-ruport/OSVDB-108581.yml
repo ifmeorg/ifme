@@ -1,8 +1,0 @@
----
-gem: lean-ruport
-cve: 2014-4998
-osvdb: 108581
-url: http://osvdb.org/show/osvdb/108581
-title: lean-ruport Gem for Ruby /test/tc_database.rb Process Table Local Plaintext MySQL Password Disclosure
-date: 2014-06-30
-description: lean-ruport Gem for Ruby contains a flaw in /test/tc_database.rb that is due to the application exposing MySQL password information in plaintext in the process table. This may allow a local attacker to gain access to MySQL password information.
