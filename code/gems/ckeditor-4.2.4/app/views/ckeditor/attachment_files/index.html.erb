@@ -1,0 +1,21 @@
+<div id="fileupload" class="gal-holder">
+  <div class="gal-item">
+    <div class="fileupload-button gal-upload-holder">
+      <%= link_to I18n.t(:upload, scope: [:ckeditor, :buttons]), 'javascript:void(0)', class: "add" %>
+    </div>
+  </div>
+
+  <div class="fileupload-list">
+    <%= render partial: 'ckeditor/shared/asset', collection: @attachments %>
+  </div>
+
+  <% unless @attachments.last_page? %>
+    <div class="pagination">
+      <%= link_to I18n.t("ckeditor.buttons.next"), ckeditor.attachment_files_path(page: @attachments.next_page), class: "next", rel: "next" %>
+    </div>
+  <% end -%>
+
+  <script type="text/javascript">
+    <%= Ckeditor::Utils.js_fileuploader('attachments') %>
+  </script>
+</div>

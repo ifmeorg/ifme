@@ -1,0 +1,18 @@
+---
+gem: spree
+osvdb: 125699
+url: https://spreecommerce.com/blog/security-updates-2015-7-28
+title: |
+  Spree RABL templates rendering allows Arbitrary Code Execution and File
+  Disclosure
+date: 2015-07-28
+description: |
+  Spree contains a flaw where the rendering of arbitrary RABL templates allows
+  for execution arbitrary files on the host system, as well as disclosing the
+  existence of files on the system. This is a different issue than
+  OSVDB-125701.
+patched_versions:
+  - ~> 2.2.13
+  - ~> 2.3.12
+  - ~> 2.4.9
+  - ">= 3.0.3"

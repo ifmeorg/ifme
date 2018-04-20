@@ -1,0 +1,12 @@
+---
+gem: web-console
+osvdb: 112346
+url: http://www.osvdb.org/show/osvdb/112346
+title: Web Console Gem for Ruby contains an unspecified flaw
+date: 2014-09-29
+description: The Web Console Gem for Ruby on Rails contains an unspecified flaw that
+  may allow an attacker to have an unspecified impact. No further details have been
+  provided by the vendor.
+cvss_v2:
+patched_versions:
+  - ">= 2.0.0.beta4"

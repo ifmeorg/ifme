@@ -1,0 +1,14 @@
+---
+gem: wicked
+cve: 2013-4413
+osvdb: 98270
+url: http://www.osvdb.org/show/osvdb/98270
+title: Wicked Gem for Ruby contains a flaw
+date: 2013-10-08
+description: Wicked Gem for Ruby contains a flaw that is due to the program
+  failing to properly sanitize input passed via the 'the_step' parameter
+  upon submission to the render_redirect.rb script.
+  This may allow a remote attacker to gain access to arbitrary files.
+cvss_v2: 5.0
+patched_versions:
+  - '>= 1.0.1'

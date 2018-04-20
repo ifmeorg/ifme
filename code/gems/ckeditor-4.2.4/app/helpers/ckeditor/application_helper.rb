@@ -1,0 +1,2 @@
+module Ckeditor::ApplicationHelper
+end

@@ -1,0 +1,12 @@
+---
+gem: jruby-sandbox
+platform: jruby
+osvdb: 106279
+url: http://www.phenoelit.org/stuff/jruby-sandbox.txt
+title: jruby-sandbox Java Class Importation Sandbox Bypass
+date: 2014-04-24
+description: |
+  jruby-sandbox contains a flaw that is triggered when importing Java Classes.
+  This may allow a remote attacker to bypass the sandbox for code execution.
+patched_versions:
+  - ">= 0.2.3"

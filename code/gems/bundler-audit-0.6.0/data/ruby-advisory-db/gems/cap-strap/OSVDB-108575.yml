@@ -1,0 +1,7 @@
+---
+gem: cap-strap
+osvdb: 108575
+url: http://osvdb.org/show/osvdb/108575
+title: cap-strap Gem for Ruby Hardcoded Password Crypt Hash Salt Weakness
+date: 2014-06-30
+description: cap-strap Gem for Ruby contains a flaw that is due to the application using a hardcoded default 'sa' salt for password encryption. This may allow a local attacker to more easily decrypt passwords.

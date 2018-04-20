@@ -1,0 +1,16 @@
+---
+gem: passenger
+cve: 2012-6135
+osvdb: 90738
+url: http://old.blog.phusion.nl/2013/03/05/phusion-passenger-4-0-beta-1-and-2-arbitrary-file-deletion-vulnerability/
+title: Phusion Passenger Gem for Ruby Arbitrary File Deletion
+date: 2012-02-01
+description: Phusion Passenger Gem for Ruby contains a flaw that is triggered
+  during application startup. This issue may allow a local attacker to delete
+  arbitrary files via an application process. If the program has completed the
+  start up process this vulnerability is no longer exploitable.
+cvss_v2: 2.1
+patched_versions:
+  - ">= 4.0.0"
+unaffected_versions:
+  - "< 4.0.0"

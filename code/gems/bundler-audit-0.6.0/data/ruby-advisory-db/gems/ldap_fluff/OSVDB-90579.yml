@@ -1,0 +1,15 @@
+---
+gem: ldap_fluff
+cve: 2012-5604
+osvdb: 90579
+url: http://osvdb.org/show/osvdb/90579
+title: Red Hat Subscription Asset Manager rubygem-ldap_fluff Active Directory Authentication Bypass
+date: 2012-12-04
+description: Red Hat Subscription Asset Manager contains a flaw in the
+  rubygem-ldap_fluff component. The issue is triggered when using Microsoft
+  Active Directory server as the authentication back-end. This may result in
+  authentication no longer being enforced, allowing a remote attacker to
+  trivially bypass it.
+cvss_v2: 5.0
+patched_versions:
+  - ">= 0.1.3"

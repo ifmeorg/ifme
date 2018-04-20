@@ -1,0 +1,144 @@
+= Changes
+
+== Version 1.1.1
+
+ - Merge in a Sinatra support.
+ - Merge in other pull requests.
+ - Switched from rspec to minitest specs.
+ - Removed jeweler dependency and updated to more recent bundler + gemspec format.
+
+== Version 1.0.2
+
+  - Merged in John Bintz's patch to properly strip leading "::" prefixes from class names.
+
+== Version 1.0.1
+  - Patch to fix bug for projects with spaces in the path. (Thanks, Tim Harvey!)
+
+== Version 1.0.0
+  - After months of community testing, we're finally at 1.0.0. Woohoo! This release is 100% compatible with the last pre-1.0.0 release.
+  - Patch for model classes not in the root module namespace.
+  - Documentation updates.
+
+== Version 0.11.3
+  - Merge in bug fix and test cases from Tim Harvey. (Thanks!)
+  - Documentation updates.
+
+== Version 0.11.2
+  - Bugfix for including gem version number in generated documents.
+  - Gem meta-data fixes.
+
+== Version 0.11.1
+  - Minor bug fixes.
+
+== Version 0.9.1
+  - Removal of deprecated API call.
+  - Documentation updates.
+
+== Version 0.9.0
+  - Forked from tobias-railroad on GitHub.
+  - Project rebranding to reflect Rails v3 support.
+  - Adding railtie support for Rails 3 plugins.
+  - Adding rake tasks that are automatically included by Rails 3 applications.
+
+== Version 0.8.0 (22 June 2010)
+  - add --specify to specify only a few model/controller files as the opposite of --exclude
+  - improve test coverage
+
+== Version 0.7.0
+	- get tests passing, make things generally more testable, start improving coverage
+	- add support for ignoring a glob pattern and multiple files, simplify options
+
+== Version 0.5.8 (May 16 2009)
+- Fixed an embarassing showstopper bug introduced in 0.5.6 where no
+  relationships would show
+
+== Version 0.5.7 (May 16 2009)
+- Load the version automatically from VERSION.yml
+
+== Version 0.5.1 to 0.5.6 (May 15 2009)
+- Make sure the proper version tag is set everywhere
+- Support showing belongs_to relationships when generating models
+- Transitioned to using Jeweler for gem management
+- Shuffled some file locations around
+- NOTE: there are NO tests passing yet, but this gem was developed without 'em
+- Fixed broken gemspec
+- Added ChangeLog entries
+- Added AUTHORS entry
+- Updated railroad version entry
+- Support rails v2.3
+- Support namespaced models/controllers
+
+== Version 0.5.0 (may 10 2008)
+- Changed model relationships representation (feature request #10898)
+- Added support for plugins models (-p) (feature request #12742 by 
+  Chris Richards). Thanks to Elliot Smith.
+- Added support for irregular inflexions (from patch #12384). Thanks 
+  to Juan Ignacio Pumarino.
+- Added hidding of magic fields (--hide-magic) (from patch #13351)
+  Thanks to Hajime Baba.
+- Added -r option to set the application root path (request #12801).
+- The -e flag now requires full path to excluded files.
+- Added support for state machine diagram ("acts as state machine" plugin).
+  Thanks to Ana Nelson (she did all the work!).
+
+== Version 0.4.1 (may 9 2008)
+- Fix bug #17852 (class name treated as String).
+
+== Version 0.4.0 (apr 25 2007)
+- Draw inheritance edges in reverse way
+  (from superclass to subclass, with an arrow in the tail)
+  This improves how 'dot' renders the graph
+- By default, don't draw transitive inherited associations
+- Added --transitive flag to draw transitive inherited associations
+- Added --exclude flag for ommiting classes (this may help to produce
+  diagrams for applications with broken classes)
+
+== Version 0.3.4 (apr 12 2007)
+- Add support for model abstract classes.
+  (don't try to get content columns, bug #10033)
+- Add verbose mode
+- More code cleanup.
+- Using an internal representation and then 
+  generating the DOT output. This will allow to
+  add more output formats in the future.
+
+== Version 0.3.3 (apr 10 2007)
+- Code cleanup 
+
+== Version 0.3.2 (apr 9 2007)
+- Disable STDOUT when loading applications classes, avoiding 
+  messing up the DOT output.
+  (Thanks to Sebastien Auvray, http://tnlessone.wordpress.com/)
+
+== Version 0.3.1 (apr 9 2007)
+- Release again for fix an error in .gem file
+
+== Version 0.3.0 (apr 9 2007)
+- Major code rewrite 
+  (More OO style)
+- Using Ruby's optparse to parse commandline options
+- Added flags for including (excluding) controllers methods
+  based on visibility
+- Added -o flag for file output.
+- Minor cosmetic changes.
+
+== Version 0.2.0 (apr 8 2007)
+- Differentiate classes from modules
+- Added "-m" flag for considering modules
+- Draw double-headed arrows for habtm and has_many, :through associations
+- Fix inheritance support for non ActiveRecord::Base classes on model 
+  diagrams
+
+== Version 0.1.2 (apr 7 2007)
+- Documentation moved from script header to README
+
+== Version 0.1.1 (apr 5 2007)
+- Changed default graph label fontsize to 14.
+- Better error handling.
+- Minor cosmetic changes.
+- New way to load classes, supporting subdirectories traversal.
+  (Inspired in RAV, http://rav.rubyforge.org/)
+- RailRoady version included in diagrams' label.
+
+== Version 0.1.0 (apr 2 2007)
+- Initial release.

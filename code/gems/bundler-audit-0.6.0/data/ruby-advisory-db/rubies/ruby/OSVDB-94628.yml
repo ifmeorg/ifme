@@ -1,0 +1,21 @@
+---
+engine: ruby
+cve: 2013-4073
+osvdb: 94628
+url: http://www.osvdb.org/show/osvdb/94628
+title: Ruby SSL Client OpenSSL::SSL.verify_certificate_identity X.509 Certificate
+  subjectAltName Field NULL Byte Handling MitM Spoofing Weakness
+date: 2013-06-27
+description: |
+  Ruby SSL Client contains a flaw related to certificate validation in
+  OpenSSL::SSL.verify_certificate_identity. The issue is due to the program not properly
+  handling the subjectAltName field of the X.509 certificate when it contains NULL
+  bytes. This may allow an attacker with access to network traffic (e.g. MiTM, DNS
+  cache poisoning) to spoof the SSL server via an arbitrary certificate that appears
+  valid. Such an attack would allow for the interception of sensitive traffic, and
+  potentially allow for the injection of content into the SSL stream.
+cvss_v2: 6.8
+patched_versions:
+  - ~> 1.8.7.373
+  - ~> 1.9.3.447
+  - ">= 2.0.0.246"

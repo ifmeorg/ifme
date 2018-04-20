@@ -1,0 +1,13 @@
+---
+gem: paratrooper-newrelic
+cve: 2014-1234
+osvdb: 101839
+url: http://www.osvdb.org/show/osvdb/101839
+title: Paratrooper-newrelic Gem for Ruby Process Listing API Key Local Disclosure
+date: 2014-01-08
+description: |
+  Paratrooper-newrelic Gem for Ruby contains a flaw in
+  /lib/paratrooper-newrelic.rb. The issue is triggered when the script exposes
+  the API key, allowing a local attacker to gain access to it by monitoring the
+  process tree.
+cvss_v2: 2.1

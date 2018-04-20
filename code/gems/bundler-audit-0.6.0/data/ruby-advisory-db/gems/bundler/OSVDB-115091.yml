@@ -1,0 +1,12 @@
+---
+gem: bundler
+osvdb: 115091
+url: http://www.osvdb.org/show/osvdb/115091
+title: Bundler Gem for Ruby Redirection Remote HTTP Basic Authentication Credential Disclosure
+date: 2013-02-12
+description: |
+   Bundler Gem for Ruby contains a flaw that is triggered during the
+   redirection to other hosts. This may allow a remote attacker to gain access
+   to HTTP basic authentication credential information.
+patched_versions:
+  - ">= 1.3.0.pre.8"

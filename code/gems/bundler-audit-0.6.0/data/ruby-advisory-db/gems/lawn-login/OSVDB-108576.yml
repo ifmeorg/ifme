@@ -1,0 +1,8 @@
+---
+gem: lawn-login
+cve: 2014-5000
+osvdb: 108576
+url: http://osvdb.org/show/osvdb/108576
+title: lawn-login Gem for Ruby /lib/lawn.rb Process Table Local Plaintext Password Disclosure
+date: 2014-06-30
+description: lawn-login Gem for Ruby contains a flaw in /lib/lawn.rb that is due to the application exposing password information in plaintext in the process table. This may allow a local attacker to gain access to password information.

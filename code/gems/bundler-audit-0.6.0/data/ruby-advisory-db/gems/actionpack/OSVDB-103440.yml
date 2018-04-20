@@ -1,0 +1,22 @@
+---
+gem: actionpack
+framework: rails
+cve: 2014-0082
+osvdb: 103440
+url: http://osvdb.org/show/osvdb/103440
+title: Denial of Service Vulnerability in Action View when using render :text
+date: 2014-02-18
+
+description: |
+  Ruby on Rails contains a flaw in actionpack/lib/action_view/template/text.rb
+  in the text rendering component of Action View that is triggered when
+  handling MIME types that are converted to symbols. This may allow a
+  remote attacker to cause a denial of service.
+
+cvss_v2: 5.0
+
+unaffected_versions:
+  - ~> 4.0.0
+
+patched_versions:
+  - ">= 3.2.17"

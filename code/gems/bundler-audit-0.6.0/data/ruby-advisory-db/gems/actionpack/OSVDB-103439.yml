@@ -1,0 +1,24 @@
+---
+gem: actionpack
+framework: rails
+cve: 2014-0081
+osvdb: 103439
+url: http://osvdb.org/show/osvdb/103439
+title: XSS Vulnerability in number_to_currency, number_to_percentage and number_to_human
+date: 2014-02-18
+
+description: |
+  Ruby on Rails contains a flaw that allows a cross-site scripting (XSS) attack.
+  This flaw exists because the actionpack/lib/action_view/helpers/number_helper.rb
+  script does not validate input to the 'number_to_currency', 'number_to_percentage',
+  and 'number_to_human' helpers before returning it to users. This may allow a
+  remote attacker to create a specially crafted request that would execute arbitrary
+  script code in a user's browser session within the trust relationship between
+  their browser and the server.
+
+cvss_v2: 4.3
+
+patched_versions:
+  - ~> 3.2.17
+  - ~> 4.0.3
+  - ">= 4.1.0.beta2"

@@ -1,0 +1,15 @@
+---
+gem: nokogiri
+cve: 2013-6461
+osvdb: 101458
+url: http://www.osvdb.org/show/osvdb/101458
+title: Nokogiri Gem for Ruby External Entity (XXE) Expansion Remote DoS 
+date: 2013-12-14
+description: Nokogiri gem for Ruby contains an flaw that is triggered during the parsing of XML data.
+  The issue is due to an incorrectly configured XML parser accepting XML external entities from
+  an untrusted source. By sending specially crafted XML data, a remote attacker can cause an infinite
+  loop and crash the program.
+cvss_v2:
+patched_versions: 
+  - ~> 1.5.11
+  - ">= 1.6.1"

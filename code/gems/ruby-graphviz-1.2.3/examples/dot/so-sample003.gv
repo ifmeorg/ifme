@@ -1,0 +1,45 @@
+
+//{:category1 => 
+// {:subcategory1 => 
+//  [ 
+//   {:article => "some article", :date => "2010-04-04"},
+//   ...
+//  ],
+//  :subc2 => [...] 
+// },
+// :category2 => {...},
+// ...
+//}
+
+graph G {
+  layout="fdp"
+
+  category1[label=":category1", shape="box"]
+  
+  subgraph cluster_category1 {
+    subcategory1[label=":subcategory1", shape="box"]
+    subc2[label=":subc2", shape="box"]
+  
+    subgraph cluster_subcategory1 {
+      subgraph cluster_subcategory1_Array0 {
+        article0[label=":article", shape="box"]
+        date0[label=":date", shape="box"]
+      
+        article0 -- "somme article"
+        date0 -- "2010-04-04"
+      }
+      subgraph cluster_subcategory1_Array1 {
+        article1[label=":article", shape="box"]
+        date1[label=":date", shape="box"]
+      
+        article1 -- "an other article"
+        date1 -- "2010-09-09"
+      }
+    }
+  
+    subcategory1 -- cluster_subcategory1
+    subc2 -- "..."
+  }
+  
+  category1 -- cluster_category1  
+}

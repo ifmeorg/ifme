@@ -1,0 +1,17 @@
+---
+engine: ruby
+cve: 2010-0541
+osvdb: 65556
+url: http://www.osvdb.org/show/osvdb/65556
+title: Apple Mac OS X Ruby WEBrick HTTP Server UTF-7 Error Page XSS
+date: 2010-06-15
+description: |
+  Cross-site scripting (XSS) vulnerability in the
+  WEBrick HTTP server in Ruby in Apple Mac OS X 10.5.8, and 10.6 before 10.6.4, allows
+  remote attackers to inject arbitrary web script or HTML via a crafted URI that triggers
+  a UTF-7 error page.
+cvss_v2: 4.3
+patched_versions:
+  - ~> 1.8.6.420
+  - ~> 1.8.7.302
+  - ">= 1.9.1.430"

@@ -1,0 +1,12 @@
+---
+gem: webbynode
+cve: 2013-7086
+osvdb: 100920
+url: http://osvdb.org/show/osvdb/100920
+title: Webbynode Gem for Ruby notify.rb growlnotify Message Handling Arbitrary Command Execution
+date: 2013-12-12
+description: |
+  Webbynode Gem for Ruby contains a flaw in notify.rb that is triggered
+  when handling a specially crafted growlnotify message. This may allow a
+  context-dependent attacker to execute arbitrary commands.
+cvss_v2: 7.5

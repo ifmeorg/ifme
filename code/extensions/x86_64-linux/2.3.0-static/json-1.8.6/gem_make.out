@@ -1,0 +1,13 @@
+current directory: /vagrant_data/code/gems/json-1.8.6/ext/json
+/usr/local/bin/ruby -r ./siteconf20180414-1555-z2h04l.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant_data/code/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /vagrant_data/code/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /vagrant_data/code/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

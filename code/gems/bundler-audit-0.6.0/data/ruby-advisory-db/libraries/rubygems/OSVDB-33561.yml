@@ -1,0 +1,17 @@
+---
+library: rubygems
+cve: 2007-0469
+osvdb: 33561
+url: http://www.osvdb.org/show/osvdb/33561
+title: |
+  RubyGems installer.rb extract_files Function Crafted GEM Package Arbitrary
+  File Overwrite
+date: 2007-01-22
+description: |
+  The extract_files function in installer.rb in RubyGems before 0.9.1 does not
+  check whether files exist before overwriting them, which allows user-assisted
+  remote attackers to overwrite arbitrary files, cause a denial of service, or
+  execute arbitrary code via crafted GEM packages.
+cvss_v2: 9.3
+patched_versions:
+  - ">= 0.9.1"

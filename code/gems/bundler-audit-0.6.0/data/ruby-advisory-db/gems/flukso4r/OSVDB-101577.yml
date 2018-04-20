@@ -1,0 +1,7 @@
+---
+gem: flukso4r
+osvdb: 101577
+url: http://osvdb.org/show/osvdb/101577
+title: flukso4r Gem for Ruby /lib/flukso/R.rb Arbitrary Command Execution
+date: 2013-12-31
+description: flukso4r Gem for Ruby contains a flaw in /lib/flukso/R.rb that is due to the application failing to properly validate user-supplied input. This may allow a context-dependent attacker to execute arbitrary commands.

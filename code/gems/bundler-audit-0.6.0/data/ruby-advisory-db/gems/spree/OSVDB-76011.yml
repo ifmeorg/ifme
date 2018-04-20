@@ -1,0 +1,15 @@
+---
+gem: spree
+osvdb: 76011
+url: https://spreecommerce.com/blog/remote-command-product-group
+title: |
+  Spree Search ProductScope Class search[send][] Parameter Arbitrary Command
+  Execution
+date: 2011-10-05
+description: |
+  The ProductScope class fails to properly sanitize user-supplied input via the
+  'search[send][]' parameter resulting in arbitrary command execution. With a
+  specially crafted request, a remote attacker can potentially cause arbitrary
+  command execution.
+patched_versions:
+  - ">= 0.60.2"

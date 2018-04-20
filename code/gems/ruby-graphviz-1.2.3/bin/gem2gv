@@ -1,0 +1,165 @@
+#!/usr/bin/env ruby
+# Copyright (C) 2010 Gregoire Lejeune <gregoire.lejeune@free.fr>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+
+require 'rubygems'
+require 'graphviz'
+require 'getoptlong'
+
+class Gem2Gv
+  def initialize( xGVPath, xUse )
+    @oGraph = GraphViz::new( :G, :path => xGVPath, :use => xUse )
+
+    @nodes = []
+    @name = 'gem2gv'
+  end
+
+  def out( xFormat = "dot", xFile = nil )
+    if xFile.nil?
+      @oGraph.output( xFormat => String )
+    else
+      @oGraph.output( xFormat => xFile )
+    end
+  end
+
+  def go( gemName, version = ">0" )
+    nodes = getDependency(gemName, version)
+
+    createEdges( gemName, version, nodes )
+
+    nodes.each do |node|
+      unless @nodes.include?(node)
+        @nodes << node
+        go( node[:name], node[:version] )
+      end
+    end
+  end
+
+  def getDependency( gemName, version = ">0" )
+    nodes = []
+
+    dependency = Gem::Dependency.new( gemName, version )
+    fetcher = Gem::SpecFetcher.fetcher
+
+    fetcher.find_matching(dependency).each do |spec_tuple, source_uri|
+      spec = fetcher.fetch_spec spec_tuple, URI.parse(source_uri)
+
+      spec.dependencies.each do |dep|
+        #nodes << { :name => dep.name, :version => dep.version_requirements.to_s} unless nodes.include?({ :name => dep.name, :version => dep.version_requirements.to_s})
+        nodes << { :name => dep.name, :version => ">0" } unless nodes.include?({ :name => dep.name, :version => ">0" })
+      end
+    end
+
+    return nodes
+  end
+
+  def getNode( name, version )
+    #nodeName = "#{name}#{version}"
+    #nodeLabel = "#{name}\n#{version}"
+    nodeName = "#{name}"
+    nodeLabel = "#{name}"
+    return @oGraph.get_node(nodeName) || @oGraph.add_nodes( nodeName, "label" => nodeLabel )
+  end
+
+  def createEdges( gemName, version, nodes )
+    nodeA = getNode( gemName, version )
+
+    nodes.each do |node|
+      nodeB = getNode( node[:name], node[:version] )
+      @oGraph.add_edges( nodeA, nodeB )
+    end
+  end
+end
+
+def usage
+  puts "usage: gem2gv [-Tformat] [-ofile] [-h] [-V] gemname"
+  puts "-T, --output-format format    Output format (default: PNG)"
+  puts "-o, --output-file file        Output file (default: STDOUT)"
+  puts "-p, --path                    Graphviz path"
+  puts "-u, --use PROGRAM             Program to use (default: dot)"
+  puts "-s, --stop LIB[,LIB, ...]     Stop on libs"
+  puts "-V, --version                 Show version"
+  puts "-h, --help                    Show this usage message"
+end
+
+def version
+  puts "Gem2GraphViz v#{GraphViz::Constants::RGV_VERSION}, (c)2010 Gregoire Lejeune <gregoire.lejeune@free.fr>"
+  puts ""
+  puts "This program is free software; you can redistribute it and/or modify"
+  puts "it under the terms of the GNU General Public License as published by"
+  puts "the Free Software Foundation; either version 2 of the License, or"
+  puts "(at your option) any later version."
+  puts ""
+  puts "This program is distributed in the hope that it will be useful,"
+  puts "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+  puts "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+  puts "GNU General Public License for more details."
+  puts ""
+  puts "You should have received a copy of the GNU General Public License"
+  puts "along with this program; if not, write to the Free Software"
+  puts "Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA"
+end
+
+xOutFormat = "png"
+xOutFile = nil
+xGVPath = ""
+xUse = "dot"
+
+oOpt = GetoptLong.new(
+  ['--output-format', '-T', GetoptLong::REQUIRED_ARGUMENT],
+  ['--output-file',   '-o', GetoptLong::REQUIRED_ARGUMENT],
+  ['--path',          '-p', GetoptLong::REQUIRED_ARGUMENT],
+  ['--use',           '-u', GetoptLong::REQUIRED_ARGUMENT],
+  ['--help',          '-h', GetoptLong::NO_ARGUMENT],
+  ['--version',       '-V', GetoptLong::NO_ARGUMENT]
+)
+
+begin
+  oOpt.each_option do |xOpt, xValue|
+    case xOpt
+      when '--output-format'
+        xOutFormat = xValue
+      when '--output-file'
+        xOutFile = xValue
+      when '--path'
+        xGVPath = xValue
+      when '--use'
+        xUse = xValue
+      when '--help'
+        usage( )
+        exit
+      when '--version'
+        version( )
+        exit
+    end
+  end
+rescue GetoptLong::InvalidOption
+  usage( )
+  exit
+end
+
+xGem = ARGV[0]
+
+if xGem.nil?
+  usage( )
+  exit
+end
+
+
+g = Gem2Gv.new( xGVPath, xUse )
+g.go( xGem )
+result = g.out( xOutFormat, xOutFile )
+puts result unless result.nil?

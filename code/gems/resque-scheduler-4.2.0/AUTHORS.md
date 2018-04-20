@@ -1,0 +1,81 @@
+Resque Scheduler authors
+========================
+
+- Aaron Suggs
+- Alexander Simonov
+- Andrea Campolonghi
+- Ben VandenBos
+- Bernerd Schaefer
+- Bogdan Gusiev
+- Brian Landau
+- Brian P O'Rourke
+- Carlos Antonio da Silva
+- Chris Kampmeier
+- DJ Hartman
+- Damon P. Cortesi
+- Dan Buch
+- Dave Grijalva
+- David Backeus
+- David Balatero
+- David Doan
+- David Yang
+- Denis Yagofarov
+- dtaniwaki
+- Evan Tahler
+- Eugene Batogov
+- Giovanni Cappellotto
+- Harry Lascelles
+- Henrik Nyh
+- Hormoz Kheradmand
+- James Le Cuirot
+- Jarkko Mönkkönen
+- John Crepezzi
+- John Griffin
+- Jon Larkowski and Les Hill
+- Jonathan Conley
+- Jonathan Hyman
+- Jonathan Owens
+- Joshua Szmajda
+- Justin Weiss
+- Les Hill
+- Luke Rodgers
+- Manuel Meurer
+- Matt Aimonetti
+- Matt Simpson
+- Matteo Centenaro
+- Michael Lovitt
+- Michael Nikitochkin
+- Michael Rykov
+- Nickolas Means
+- Olek Janiszewski
+- Olivier Brisse
+- Petteri Räty
+- Phil Cohen
+- Rob Olson
+- Russell Branca
+- Ryan Biesemeyer
+- Ryan Carver
+- Sameer Siruguri
+- Scott Francis
+- Sean Stephens
+- Sebastian Kippe
+- Spring MC
+- tbprojects
+- Tim Liner
+- Tony Lewis
+- Tom Crayford
+- Vincent Zhu
+- Vladislav Shub
+- V Sreekanth
+- Warren Sangster
+- Yuri Kasperovich
+- andreas
+- bbauer
+- camol
+- d4rk5eed
+- fallwith
+- gravis
+- hpoydar
+- malomalo
+- sawanoboly
+- serek

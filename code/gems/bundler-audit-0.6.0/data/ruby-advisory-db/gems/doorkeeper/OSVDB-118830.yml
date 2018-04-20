@@ -1,0 +1,17 @@
+---
+gem: doorkeeper
+osvdb: 118830
+url: http://www.osvdb.org/show/osvdb/118830
+title: |
+  Doorkeeper Gem for Ruby stores sensitive information
+  in production logs
+date: 2015-02-10
+description: |
+  Doorkeeper Gem for Ruby contains a flaw in lib/doorkeeper/engine.rb.
+  The issue is due to the program storing sensitive information in
+  production logs. This may allow a local attacker to gain access to
+  sensitive information.
+cvss_v2:
+patched_versions:
+  - "~> 1.4.2"
+  - ">= 2.1.2"

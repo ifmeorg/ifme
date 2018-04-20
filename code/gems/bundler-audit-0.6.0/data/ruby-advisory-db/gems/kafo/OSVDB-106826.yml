@@ -1,0 +1,15 @@
+---
+gem: kafo
+cve: 2014-0135
+osvdb: 106826
+url: http://osvdb.org/show/osvdb/106826
+title: Kafo default_values.yaml Insecure Permissions Local Information Disclosure
+date: 2014-03-13
+description: Kafo contains a flaw that is due to the program using insecure
+  world-readable permissions for the default_values.yaml file. This may allow a
+  local attacker to gain access to password and other unspecified sensitive
+  information located within the file.
+cvss_v2: 1.9
+patched_versions:
+  - "~> 0.3.17"
+  - ">= 0.5.2"

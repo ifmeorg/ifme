@@ -1,0 +1,33 @@
+
+//{:category1 => 
+// {:subcategory1 => 
+//  [ 
+//   {:article => "some article", :date => "2010-04-04"},
+//   ...
+//  ],
+//  :subc2 => [...] 
+// },
+// :category2 => {...},
+// ...
+//}
+
+graph G {
+  rankdir=LR
+  category1
+  
+  subgraph clusterC {
+    node[shape="box"]
+    subcategory1
+    subc2
+  
+    subgraph clusterS {
+      article -- "somme article"
+      date -- "2010-04-04"
+    }
+  
+    subcategory1 -- clusterS
+    subc2 -- "..."
+  }
+  
+  category1 -- clusterC
+}

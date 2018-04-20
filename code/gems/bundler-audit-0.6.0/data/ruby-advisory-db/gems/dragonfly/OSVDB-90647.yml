@@ -1,0 +1,16 @@
+---
+gem: dragonfly
+cve: 2013-1756
+osvdb: 90647
+url: http://www.osvdb.org/show/osvdb/90647
+title: Dragonfly Gem for Ruby Crafted Request Parsing Remote Code Execution
+date: 2013-02-19
+description: |
+  Dragonfly Gem for Ruby contains a flaw that is triggered during the parsing
+  of a specially crafted request. This may allow a remote attacker to execute
+  arbitrary code.
+cvss_v2: 7.5
+patched_versions:
+  - ">= 0.9.13"
+unaffected_versions:
+  - "< 0.7.0"

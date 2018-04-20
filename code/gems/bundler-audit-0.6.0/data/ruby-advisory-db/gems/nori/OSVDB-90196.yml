@@ -1,0 +1,19 @@
+---
+gem: nori
+cve: 2013-0285
+osvdb: 90196
+url: http://osvdb.org/show/osvdb/90196
+title: Ruby Gem nori Parameter Parsing Remote Code Execution
+date: 2013-01-10
+
+description: |
+  The Ruby Gem nori has a parameter parsing error that may allow an attacker
+  to execute arbitrary code. This vulnerability has to do with type casting
+  during parsing, and is related to CVE-2013-0156.
+
+cvss_v2: 7.5
+
+patched_versions:
+  - ~> 1.0.3
+  - ~> 1.1.4
+  - ">= 2.0.2"

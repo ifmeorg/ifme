@@ -1,0 +1,3 @@
+1. Add support for defining the number of arguments an option takes.
+2. Publish docs similar to how we used to pub to RubyForge
+3. Convert these to Github Issues

@@ -1,0 +1,39 @@
+xml2gv(1) - show your xml files graphically
+===========================================
+
+## SYNOPSIS
+
+`xml2gv` [`-T`<format>] [`-o`<file>] [`-h`] [`-V`] _script_
+
+## DESCRIPTION
+
+`xml2gv` is a tool that allows you to show a xml file as a graph.
+
+See </usr/share/doc/ruby-graphviz/> for more details.
+
+## OPTIONS
+
+ * `-T`, `--output-format` [<format>]:
+ 	 Output format (default: png)
+
+ * `-o`, `--output-file` [<file>]:
+ 	 Output file (default: STDOUT)
+
+ * `-p`, `--path`:
+ 	 Graphviz path
+
+ * `-u`, `--use` [<PROGRAM>]:
+ 	 Program to use (default: dot)
+
+ * `-V`, `--version`:
+ 	 Show version
+
+ * `-h`, `--help`:
+ 	 Show this usage message
+
+## AUTHOR
+
+Copyright 2004-2014 Gregoire Lejeune
+
+This manual page is written by Praveen Arimbrathodiyl <praveen@debian.org> for
+Debian GNU System (GNU/Linux, GNU/kFreeBSD, GNU/Hurd).

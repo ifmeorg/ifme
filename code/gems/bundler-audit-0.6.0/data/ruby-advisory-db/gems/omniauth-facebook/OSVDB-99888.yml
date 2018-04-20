@@ -1,0 +1,17 @@
+---
+gem: omniauth-facebook
+cve: 2013-4593
+osvdb: 99888
+url: http://www.osvdb.org/show/osvdb/99888
+title: omniauth-facebook Gem for Ruby Insecure Access Token Handling Authentication Bypass 
+date: 2013-11-14
+
+description: |
+  omniauth-facebook Gem for Ruby contains a flaw that is due to the application
+  supporting passing the access token via the URL. This may allow a remote
+  attacker to bypass authentication and authenticate as another user.
+
+cvss_v2: 6.8
+
+patched_versions:
+  - ">= 1.5.1"

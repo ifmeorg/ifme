@@ -1,0 +1,13 @@
+---
+gem: xaviershay-dm-rails
+cve: 2015-2179
+osvdb: 118579
+url: http://osvdb.org/show/osvdb/118579
+title: |
+  xaviershay-dm-rails Gem for Ruby exposes sensitive information via the process table
+date: 2015-02-17
+description: |
+  xaviershay-dm-rails Gem for Ruby contains a flaw in the execute() function
+  in /datamapper/dm-rails/blob/master/lib/dm-rails/storage.rb. The issue is
+  due to the function exposing sensitive information via the process table.
+  This may allow a local attack to gain access to MySQL credential information.

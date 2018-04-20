@@ -1,0 +1,14 @@
+---
+gem: net-ldap
+cve: 2014-0083
+osvdb: 106108
+url: http://osvdb.org/show/osvdb/106108
+title:  Net::LDAP for Ruby lib/net/ldap/password.rb SSHA Password Generation Weak Salt
+date: 2014-02-13
+description: Net::LDAP for Ruby contains a flaw in lib/net/ldap/password.rb. The
+  issue is due to the program generating SSHA passwords with a weak salt value
+  that is between 0 and 999. This may allow a local attacker to more easily gain
+  access to password information.
+cvss_v2: 1.9
+patched_versions:
+  - ">= 0.6.0"

@@ -1,0 +1,17 @@
+digraph G {
+  fontsize=12;
+  node [style=filled ,fontsize=10]; Hello;
+  edge[style=dotted];
+  graph    [    bgcolor = "#ABCDEF"];
+  
+  monde [color=blue, style= filled];
+  node[color=white  ] ;
+  Hello ->World [color=red, style = filled];
+  Bonjour-> monde -> Chose;
+  Coucou -> "Les Gens" [color=blue];
+  subgraph X {
+    bgcolor = white;
+    label="Sub Graph";
+    toto -> titi;
+  }
+}

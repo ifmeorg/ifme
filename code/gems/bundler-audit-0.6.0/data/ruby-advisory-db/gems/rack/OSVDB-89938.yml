@@ -1,0 +1,18 @@
+---
+gem: rack
+cve: 2013-0262
+osvdb: 89938
+url: http://osvdb.org/show/osvdb/89938
+title: |
+  Rack Rack::File Function Symlink Traversal Arbitrary File Disclosure
+date: 2013-02-07
+
+description: |
+  Rack contains a flaw as the Rack::File function creates temporary files
+  insecurely. It is possible for a local attacker to use a symlink attack to
+  traverse to an arbitrary file and disclose its contents
+
+cvss_v2: 4.3
+patched_versions:
+- "~> 1.4.5"
+- ">= 1.5.2"

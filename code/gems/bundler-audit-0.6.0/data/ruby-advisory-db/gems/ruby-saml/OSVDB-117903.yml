@@ -1,0 +1,13 @@
+---
+gem: ruby-saml
+osvdb: 117903
+url: http://www.osvdb.org/show/osvdb/117903
+title: Ruby-Saml Gem is vulnerable to arbitrary code execution
+date: 2015-02-03
+description: |
+  ruby-saml contains a flaw that is triggered as the URI value of a SAML response is
+  not properly sanitized through a prepared statement. This may allow a remote
+  attacker to execute arbitrary shell commands on the host machine.
+cvss_v2:
+patched_versions:
+  - ">= 0.8.2"

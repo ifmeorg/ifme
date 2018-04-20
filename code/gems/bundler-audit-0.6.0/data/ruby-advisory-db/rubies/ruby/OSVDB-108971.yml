@@ -1,0 +1,17 @@
+---
+engine: ruby
+cve: 2014-4975
+osvdb: 108971
+url: http://www.osvdb.org/show/osvdb/108971
+title: Ruby pack.c encodes() Function Remote Stack Buffer Overflow
+date: 2014-07-09
+description: |
+  Ruby contains an overflow condition in the encodes() function in pack.c. The
+  issue is triggered as user-supplied input is not properly validated when
+  allocating buffer lengths. This may allow a remote attacker to cause a
+  stack-based buffer overflow, resulting in a denial of service or potentially
+  allowing the execution of arbitrary code.
+cvss_v2: 5.0
+patched_versions:
+  - ~> 2.1.3
+  - ">= 2.2.0.preview.1"

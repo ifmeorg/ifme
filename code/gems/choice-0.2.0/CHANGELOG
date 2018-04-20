@@ -1,0 +1,37 @@
+0.2.0:
+  - Removed some version specific hacks. Including 1.8.6 support.
+0.1.7:
+  - Fix bug related to NilClass#to_h
+  - Simplified packaging process: Now possible to package with an up-to-date system.
+0.1.6:
+  - Use Array on a value that can be a string or an array.
+  - Wrap the banner/footer/header defining method with a method with a default param.
+  - Fixed expectation that Choice.parse returns an empty hash. It really returns a nil.
+
+0.1.4:
+  - Monkeypatch to Hash for #index deprecation. Only applied on RUBY_VERSION < "1.9"
+  - Fixed rake file for README filename change
+  - Fixed a broken test that's been broken since 2009.
+
+0.1.3:
+  - Added args_of method to retrieve the arguments of an option
+
+0.1.2:
+  - Made validate directive accept block and validate against its boolean value.
+  - Created shorthand format for defining options directly with a hash.
+
+0.1.1:
+  - Fixed test_option.rb to be self sufficient.
+  - Fix so that long argument with equals sign in it will parse correctly [Justin Bailey]
+  - Added 'defaultize' deprecation warning.  Too much magic can be harmful.
+  - Made Choice::Writer::puts, print, and printf public, can now possibly be used by other Choice classes.
+  - Changed UnknownArgument to UnknownOption (more descriptive)
+  - Added a 'valid' option as per bugtracker request for 'enum.' [Alexis Li]
+  - Change --long=[ARG] optional format to --long[=ARG] but keep around old format just in case.
+  - Added list format to options as per bug tracker suggestion in the format of --long=*LONG [Alexis Li]
+  - Added --long ARG format.  Works with --long [ARG] and --long *ARG and --long [*ARG]
+  - Added :required option which insists an option is present.
+  - Added gamble.rb card game example.
+
+0.1.0:
+  - First release

@@ -1,0 +1,443 @@
+{<img src="https://travis-ci.org/defunkt/choice.svg?branch=master" />}[https://travis-ci.org/defunkt/choice]
+
+= Welcome to Choice
+
+Choice is a small library for defining and parsing command line options.  It
+works awesomely with Highline[https://github.com/JEG2/highline] or other command
+line interface libraries.
+
+Choice was written by Chris Wanstrath as an exercise in test driving development
+of a DSL.  This project is still an infant: bugs are expected and tattling on them
+is appreciated.
+
+Installing is easy, with RubyGems.  Give it a shot:
+ $ gem install choice
+
+E-mail inquiries can be directed to mailto:chris[at]ozmm[dot]org.
+
+Of course, Choice is licensed under the MIT License, which you can find included
+in the LICENSE file or by surfing your World Wide Web browser of choice towards
+http://www.opensource.org/licenses/mit-license.php.
+
+== Using Choice
+
+An +examples+ directory is included with Choice, in which some contrived Ruby
+programs utilizing the library have been placed.  Here's a snippet:
+
+=== ftpd.rb
+
+  require 'choice'
+
+  PROGRAM_VERSION = 4
+
+  Choice.options do
+    header ''
+    header 'Specific options:'
+
+    option :host do
+      short '-h'
+      long '--host=HOST'
+      desc 'The hostname or ip of the host to bind to (default 127.0.0.1)'
+      default '127.0.0.1'
+    end
+
+    option :port do
+      short '-p'
+      long '--port=PORT'
+      desc 'The port to listen on (default 21)'
+      cast Integer
+      default 21
+    end
+
+    separator ''
+    separator 'Common options: '
+
+    option :help do
+      long '--help'
+      desc 'Show this message'
+    end
+
+    option :version do
+      short '-v'
+      long '--version'
+      desc 'Show version'
+      action do
+        puts "ftpd.rb FTP server v#{PROGRAM_VERSION}"
+        exit
+      end
+    end
+  end
+
+  puts 'port: ' + Choice[:port]
+
+Notice the last line.  For free, you will be given a <tt>Choice.choices</tt>
+hash which contain, at runtime, the options found and their values.
+
+<tt>Choice[:key]</tt> is a shortcut for <tt>Choice.choices[:key]</tt>.
+
+Because we gave option <tt>:port</tt> a default of 21,
+<tt>Choice[:port]</tt> should be 21 if we run ftpd.rb with no options.
+Let's see.
+
+ $ ruby ftpd.rb
+ port: 21
+
+Cool.  On our system, port 21 is reserved.  Let's use another port.
+
+ $ ruby ftpd.rb -p 2100
+ port: 2100
+
+Alright.  And, of course, there is the hard way of doing things.
+
+ $ ruby ftpd.rb --port=2100
+ port: 2100
+
+That <tt>:version</tt> option looks pretty interesting, huh?  I wonder what it
+does...
+
+  $ ruby ftpd.rb -v
+  ftpd.rb FTP server v4
+
+That's not all, though.  We also get a <tt>--help</tt> option for free.
+
+  $ ruby ftpd.rb --help
+  Usage: ftpd.rb [-hpv]
+
+  Specific options:
+      -h, --host=HOST                  The hostname or ip of the host to bind to (default 127.0.0.1)
+      -p, --port=PORT                  The port to listen on (default 21)
+
+  Common options:
+          --help                       Show this message
+      -v, --version                    Show version
+
+
+== The Choice.choices hash
+
+For better or worse, the <tt>Choice.choices</tt> hash is a bit lazy.  It does
+not care how you access it.  Using the above example, assume we have a
+<tt>:port</tt> option and we replace the last line of our program with the
+following three lines:
+
+  puts 'port: ' + Choice.choices[:port]
+  puts 'port: ' + Choice.choices['port']
+  puts 'port: ' + Choice.choices.port
+
+Now, run it.
+
+  $ ftpd.rb -p 2100
+  port: 2100
+  port: 2100
+  port: 2100
+
+Lazy, huh?
+
+Keep in mind that your option's key in the <tt>Choice.choices</tt> hash is
+defined by the first parameter passed to option statement.  This is perfectly
+legit, albeit somewhat confusing:
+
+  option :name do
+    short '-h'
+    long '--handle=NAME'
+    desc "Your handle."
+  end
+
+You can access this option by using <tt>Choice.choices[:name]</tt>, not
+<tt>:handle</tt>.
+
+== Option options
+
+Obviously, Choice revolves around the <tt>option</tt> statement, which receives
+a block.  Here are all the, er, options +option+ accepts.  None of them are
+required but +short+ or +long+ must be present for Choice to know what to do.
+
+Options must be defined in the context of a <tt>Choice.options</tt> block, as
+seen above.  This context is assumed for the following explanations.
+
+For the quick learners, here's the list:
+* short
+* long
+* default
+* desc
+* cast
+* valid (takes array)
+* validate (takes regex)
+* filter (takes a block)
+* action (ditto)
+
+You can define these within your option in any order which pleases you.
+
+=== short
+
+Defines the short switch for an option.  Expected to be a dash and a single
+character.
+
+  short '-s'
+
+=== long
+
+Defines the long switch for an option.  Expected to be a double dash followed by
+a string, an equal sign (or a space), and another string.
+
+There are two variants: longs where a parameter is required and longs where a
+parameter is optional, in which case the value will be +true+ if the option is
+present.
+
+*Optional*:
+  long '--debug=[LEVEL]'
+
+Assuming our program defines Choices and ends with this line:
+  puts 'debug: ' + Choice.choices[:debug]
+
+we can do this:
+
+  $ ruby ftpd.rb --debug
+  debug: true
+
+  $ ruby ftpd.rb --debug=1
+  debug: 1
+
+  $ ruby ftpd.rb --debug 1
+  debug: 1
+
+*Required*:
+  long '--debug=LEVEL'
+
+Assuming the same as above:
+
+  $ ruby ftpd.rb --debug 1
+  debug: 1
+
+  $ ruby ftpd.rb --debug
+  <help screen printed>
+
+=== long as array
+
+Often you may wish to allow users the ability to pass in multiple arguments and have
+them all combined into an array.  You can accomplish this by defining a +long+ and
+setting the caps-argument to *ARG.  Like this:
+
+  long '--suit *SUITS'
+
+<tt>Choice.choices.suits</tt> will now return an array.  Here's an example of usage:
+
+  $ ruby --suit hearts clubs
+  suit: ['hearts', 'clubs']
+
+Check out <tt>examples/gamble.rb</tt> for more information on this cool feature.
+
+=== default
+
+You can define a default value for your option, if you'd like.  If the option
+is not present in the argument list, the default will be returned when trying
+to access that element of the <tt>Choice.choices</tt> hash.
+
+As with the above, assume our program prints <tt>Choice.choices[:debug]</tt>:
+
+  default 'info'
+
+If we don't pass in <tt>--debug</tt>, the <tt>:debug</tt> element of our hash
+will be 'info.'
+
+  $ ftpd.rb
+  debug: info
+
+  $ ftpd.rb --debug warn
+  debug: warn
+
+=== desc
+
+The description of this option.  Fairly straightforward, with one little trick:
+multiple +desc+ statements in a single option will be considered new desc lines.
+The desc lines will be printed in the order they are defined.  Like this:
+
+  desc "Your hostname."
+  desc "(default 'localhost')"
+
+A snippet from your <tt>--help</tt> might then look like this:
+
+  -h, --host=HOST                  Your hostname.
+                                   (default 127.0.0.1)
+
+
+=== cast
+
+By default, all members of the <tt>Choice.choices</tt> hash are strings.  If
+you want something different, like an Integer for a port number, you can use
+the +cast+ statement.
+
+  cast Integer
+
+Currently support +cast+ options:
+
+* Integer
+* String
+* Float
+* Symbol
+
+We'll probably add Date, Time, and DateTime in the future, if people want them.
+
+=== valid
+
+Giving +valid+ an array creates a whitelist of acceptable arguments.
+
+  valid %w[clubs hearts spades diamonds]
+
+If our option is passed anything other than one of the four card suits, the help
+screen will be printed.  It might be a good idea to include acceptable arguments in
+your option's "desc" value.
+
+  $ ruby gamble.rb -s clubs
+  suit: clubs
+
+  $ ruby gamble.rb -s joker
+  <help screen printed>
+
+=== validate
+
+The +validate+ statement accepts a regular expression which it will test
+against the value passed.  If the test fails, the <tt>--help</tt> screen will
+be printed.  I love ports, so let's stick with that example:
+
+  validate /^\d+$/
+
+Of course, 2100 matches this:
+
+  $ ruby ftpd.rb -p 2100
+  port: 2100
+
+I like dogs.  I wish dogs could be ports.  Alas, Choice knows better (once
+I've told it so):
+
+  $ ruby ftpd.rb -p labradoodle
+  <help screen printed>
+
+=== filter
+
+The +filter+ statement lets you play with a value before it goes into the
+<tt>Choice.choices</tt> hash.  If you use +cast+, this will occur post-casting.
+
+In this program we're defining a :name option and saying we don't want any
+crazy characters in it, then printing that element of the
+<tt>Choice.choices</tt>+ hash:
+
+  filter do |value|
+    value = value.gsub(/[^\w]/, '')
+  end
+
+Now:
+
+  $ ruby ftpd.rb --name=c.hr.is
+  name: chris
+
+You can probably think of better uses.
+
+=== action
+
+A block passed to the +action+ statement will be run if that particular option
+is passed.  See the <tt>--version</tt> example earlier.
+
+=== required options
+
+You can specify an option as being required by passing :required => true to the
+option definition.  Choice will then print the help screen if this option is
+not present.  Please let your dear users know which options are required.
+
+For example:
+
+  option :card, :required => true do
+    short '-c'
+    long '--card CARD'
+    desc "The card you wish to gamble on.  Required.  Only one, please."
+  end
+
+Then:
+
+  $ ruby gamble.rb
+  <help screen, -c or --card wasn't passed>
+
+== Other options
+
+These statements are purely aesthetic, used to help make your <tt>--help</tt>
+screen a little more digestible.
+
+Passing an empty string to any of these options will print a newline.
+
+=== banner
+
+The banner is the first line printed when your program is called with
+<tt>--help</tt>.  By default, it will be something like this, based on the
+options defined:
+
+  Usage: ftpd.rb [-hpv]
+
+You can pass any string to the +banner+ statement to override what prints.  This
+might be useful if you're into ascii art.
+
+  banner "Usage: ftpd.rb"
+
+=== header
+
+The header is what shows up after the banner but before your option definitions
+are printed.  Each header call is a newline.  Check out the example above.
+
+  header "ftp is a harsh and unforgiving protocol."
+
+=== separator
+
+As in the example above, you can put separators between options to help display
+the logical groupings of your options.  Or whatever.
+
+  separator "----"
+
+To get a blank line, rock an empty string:
+
+  separator ''
+
+=== footer
+
+The footer is displayed after all your options are displayed.  Nothing new
+here, works like the other options above.
+
+  footer "That's all there is to it!"
+
+== Shorthand
+
+Now that you've gone through all the hard stuff, here's the easy stuff: Choice
+options can be defined with a simple hash if you'd like.  Here's an example,
+from the tests:
+
+   Choice.options do
+     header "Tell me about yourself?"
+     header ""
+     options :band => { :short => "-b", :long => "--band=BAND", :cast => String, :desc => "Your favorite band.",
+                       :validate => /\w+/ },
+             :animal => { :short => "-a", :long => "--animal=ANIMAL", :cast => String, :desc => "Your favorite animal." }
+
+     footer ""
+     footer "--help This message"
+   end
+
+How's that tickle you?  Real nice.
+
+== It looks like poetry
+
+That's it.  Not much, I know.  Maybe this will make handling your command
+line options a bit easier.  You can always use the option parser in the standard
+Ruby library, but DSLs are just so cool.  As one of my non-programmer friends
+said of a Ruby DSL: "It looks like poetry."
+
+== It's totally broken
+
+Okay, I knew this would happen.  Do me a favor, if you have time: run +rake+
+from the Choice directory and send me the output (mailto:chris[at]ozmm[dot]org).
+This'll run the unit tests.  Also, if you would, send me a bit of information
+on your platform.  Choice was tested on OS X and RHEL with a 2.4 kernel but who
+knows.  Thanks a lot.
+
+== Thanks to
+
+For bug reports, patches, and ideas I'd be honored to thank the following:
+
+- Justin Bailey
+- Alexis Li

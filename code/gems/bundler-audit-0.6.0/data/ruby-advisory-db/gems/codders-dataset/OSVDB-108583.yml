@@ -1,0 +1,8 @@
+---
+gem: codders-dataset
+cve: 2014-4991
+osvdb: 108583
+url: http://osvdb.org/show/osvdb/108583
+title: codders-dataset Gem for Ruby /lib/dataset/database/mysql.rb Process Table Local Plaintext Credential Disclosure
+date: 2014-06-30
+description: codders-dataset Gem for Ruby contains a flaw in /lib/dataset/database/mysql.rb that is due to the application exposing credential information in plaintext in the process table. This may allow a local attacker to gain access to credential information.

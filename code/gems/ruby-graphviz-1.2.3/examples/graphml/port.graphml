@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="directed">
+    <node id="n0">
+      <port name="North"/>
+      <port name="South"/>
+      <port name="East"/>
+      <port name="West"/>
+    </node>
+    <node id="n1">
+      <port name="North"/>
+      <port name="South"/>
+      <port name="East"/>
+      <port name="West"/>
+    </node>
+    <node id="n2">
+      <port name="NorthWest"/>
+      <port name="SouthEast"/>
+    </node>
+    <node id="n3">
+      <port name="NorthEast"/>
+      <port name="SouthWest"/>
+    </node>
+    <edge source="n0" target="n3" sourceport="North" targetport="NorthEast"/>
+    <hyperedge>
+       <endpoint node="n0" port="North"/>
+       <endpoint node="n1" port="East"/>
+       <endpoint node="n2" port="SouthEast"/>
+     </hyperedge>
+  </graph>
+</graphml>

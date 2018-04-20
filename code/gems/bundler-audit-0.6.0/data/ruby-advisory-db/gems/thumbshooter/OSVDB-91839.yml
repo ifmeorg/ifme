@@ -1,0 +1,9 @@
+--- 
+gem: thumbshooter
+cve: 2013-1898
+osvdb: 91839
+url: http://osvdb.org/show/osvdb/91839
+title: Thumbshooter Gem for Ruby thumbshooter.rb URL Shell Metacharacter Injection Arbitrary Command Execution
+date: 2013-03-26
+description: Thumbshooter Gem for Ruby contains a flaw that is due to the program failing to properly sanitize input passed to thumbshooter.rb. With a specially crafted URL that contains shell metacharacters, a context-dependent attacker can execute arbitrary commands.
+cvss_v2: 7.5

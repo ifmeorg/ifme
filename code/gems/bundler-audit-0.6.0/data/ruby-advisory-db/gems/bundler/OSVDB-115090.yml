@@ -1,0 +1,13 @@
+---
+gem: bundler
+osvdb: 115090
+url: http://www.osvdb.org/show/osvdb/115090
+title: Bundler Gem for Ruby Missing SSL Certificate Validation MitM Spoofing 
+date: 2013-02-12
+description: |
+  Bundler Gem for Ruby contains a flaw as SSL certificates are not properly
+  validated. By spoofing the SSL server via a certificate that appears valid,
+  an attacker with the ability to intercept network traffic (e.g. MiTM, DNS
+  cache poisoning) can disclose and optionally manipulate transmitted data. 
+patched_versions:
+  - ">= 1.3.0.pre.8"

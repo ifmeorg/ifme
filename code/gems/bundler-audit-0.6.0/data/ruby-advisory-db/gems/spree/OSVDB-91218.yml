@@ -1,0 +1,17 @@
+---
+gem: spree
+cve: 2013-1656
+osvdb: 91218
+url: https://spreecommerce.com/blog/multiple-security-vulnerabilities-fixed
+title: |
+  Spree promotions_controller.rb calculator_type Parameter Arbitrary Ruby
+  Object Instantiation Command Execution
+date: 2013-02-21
+description: |
+  Spree contains a flaw that is triggered when handling input passed via the
+  'calculator_type' parameter to promotions_controller.rb. This may allow a
+  remote authenticated attacker to instantiate arbitrary Ruby objects and
+  potentially execute arbitrary commands.
+cvss_v2: 4.3
+patched_versions:
+  - ">= 2.0.0"

@@ -1,0 +1,20 @@
+# Need sudo to install rubinius-3.69
+sudo: required
+
+# The binary for rubinius-3.69 is not available for
+# ubuntu/12.04 (Precise Pangolin) but is for ubuntu/14.04 (Trusty Tahr)
+#
+# See:
+#   - https://rubinius-binaries-rubinius-com.s3-us-west-2.amazonaws.com/
+#   - "Rubinius no longer supports Precise. Please use Trusty."
+#     https://docs.travis-ci.com/user/languages/ruby/#Supported-Ruby-Versions-and-RVM
+#
+# Note: travis-ci uses precise by default
+dist: trusty
+
+rvm:
+  - 2.0.0
+  - 2.1.2
+  - 2.4.0
+  - jruby
+  - rubinius-3.69

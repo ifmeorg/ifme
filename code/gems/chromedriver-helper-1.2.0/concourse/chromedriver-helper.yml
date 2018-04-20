@@ -1,0 +1,55 @@
+resources:
+  - name: ci
+    type: git
+    source:
+      uri: https://github.com/flavorjones/chromedriver-helper/
+      branch: master
+      disable_ci_skip: true # always get the latest pipeline configuration
+
+  - name: chromedriver-helper
+    type: git
+    source:
+      uri: https://github.com/flavorjones/chromedriver-helper/
+      branch: master
+      ignore_paths:
+        - concourse/**
+jobs:
+% RUBIES[:mri].last(2).each do |ruby_version|
+  - name: ruby-<%= ruby_version %>
+    public: true
+    plan:
+      - get: ci
+      - get: chromedriver-helper
+        trigger: true
+      - task: rake-test
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: ruby, tag: "<%= ruby_version %>"}
+          inputs:
+            - name: ci
+            - name: chromedriver-helper
+          run:
+            path: ci/concourse/tasks/rake-test/run.sh
+% end
+
+% RUBIES[:windows].last(2).each do |ruby_version|
+  - name: win-ruby-<%= ruby_version %>-devkit
+    public: true
+    plan:
+      - get: ci
+      - get: chromedriver-helper
+        trigger: true
+      - task: rake-test
+        config:
+          platform: windows
+          inputs:
+            - name: ci
+            - name: chromedriver-helper
+          params:
+            WIN_RUBY_VERSION: "<%= ruby_version %>"
+          run:
+            path: powershell
+            args: ["-File", "ci/concourse/tasks/rake-test/run.ps1"]
+% end

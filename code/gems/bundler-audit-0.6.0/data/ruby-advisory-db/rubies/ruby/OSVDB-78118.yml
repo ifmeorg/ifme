@@ -1,0 +1,14 @@
+---
+engine: ruby
+cve: 2011-4815
+osvdb: 78118
+url: http://www.osvdb.org/show/osvdb/78118
+title: Ruby Hash Collision Form Parameter Parsing Remote DoS
+date: 2011-12-28
+description: |
+  Ruby contains a flaw that may allow a remote denial of service. The issue
+  is triggered when an attacker sends multiple crafted parameters which trigger hash
+  collisions, and will result in loss of availability for the program via CPU consumption.
+cvss_v2: 7.8
+patched_versions:
+  - ">= 1.8.7.357"

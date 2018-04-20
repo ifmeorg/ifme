@@ -1,0 +1,287 @@
+= CHANGELOG
+
+== 1.1.0 :
+* Issue #61 : Combine graphviz instances
+* Issue #73 : Avoid constructing shell commands as strings
+* Bug correction with development dependencies on JRuby
+
+== 1.0.9 :
+* Add support for attributs 
+  * forcelabels
+  * gradientangle
+  * imagepath
+  * layerlistsep
+  * layerselect
+* Issue #52 : Extracted xDOTScript to DOTScript class (by markus1189)
+* Issue #54 : Fixes a couple of typos and spacing (by Mike Fiedler)
+* Issue #55 : Avoid autoload
+* Issue #57 : Add man pages for the commandline programs (by Praveen Arimbrathodiyil)
+* Issue #59 : Support label as Fixnum (by Gabe Kopley)
+* Issue #62 : Remove warnings (by Kenichi Kamiya)
+* Issue #63 : Fix typo (by Kenichi Kamiya)
+* Issue #65 : ruby-graphviz breaks autoloading of ActiveSupport::Concerns
+* Update graphviz attributs
+
+== 1.0.8 :
+* Cleanup format (by markus1189)
+* Issue #49 : (undefined local variable or method `file' ) (by markus1189)
+
+== 1.0.7 :
+* Issue #48 : add_graph fails when passed a GraphViz object
+* Issue #47 : Find executable (by markus1189)
+
+== 1.0.6 :
+* Issue #46 : Some tests fail because it cannot find 'dot'
+* Issue #45 : Fix for copy/paste error (by coding46)
+* Issue #44 : characters escaping (by Neven Has)
+* Issue #43 : Added lib/ruby-graphviz to match the gem name (by Postmodern)
+* Issue #42 : "escaped dot in label" aka "GVPR error in Dot2Ruby"
+* Issue #40 : GraphML importation doesn't work...
+* Bug correction (with Ruby 1.8)
+* Add (experimental) support of LibXML/LibXSLT 
+
+== 1.0.5 :
+* Change deprecated methods in gem2gv, git2gv and ruby2gv
+* Issue #38
+* Issue #39
+
+== 1.0.4 :
+* GraphViz::Edge#each_attribut is deprecated, please use GraphViz::Edge#each_attribute
+* GraphViz::GraphML#attributs is deprecated, please, use GraphViz::GraphML#attributes
+* GraphViz::Node#each_attribut is deprecated, please use GraphViz::Node#each_attribute
+* Major bug correction in GraphViz::Attrs and GraphViz::parse
+* An empty string means "false" for boolean attributes
+
+== 1.0.3 :
+* The GraphViz::Theory#moore_dijkstra return a path which contains GraphViz::Node instead of GraphViz::Node#id
+* Add Breadth First Search algorithm (GraphViz::Theory#bfs)
+* Add Depth First Search algorithm (GraphViz::Theory#dfs)
+* Add GraphViz#add_edges (GraphViz#add_edge is deprecated)
+* Add GraphViz#add_nodes (GraphViz#add_node is deprecated)
+* Add GraphViz::generate 
+* Remove definition of Array#all?
+
+== 1.0.2 :
+* Add PageRank algorithm
+* Major bug corrections
+* Fix utils/colors.rb's case syntax
+* Modify deprecated method: Hash#index to Hash#key
+
+== 1.0.1 : 
+* Add GraphViz::DSL
+* Change project to use Bundler gem tools
+* Fix a few typos in the README
+* Change Config to RbConfig
+* Add possibility to get the x,y coordinates of each of the nodes
+
+== 1.0.0 : 
+* \o/
+* GraphViz::Node#name has been removed - use GraphViz::Node#id
+* The html attribute has been removed - use a label attribut (<tt>:label => '<<html/>>'</tt>)
+* :output option has been removed - use :<format> => :<file>
+* :file option has been removed - use :<format> => :<file>
+* Add GraphViz#to_s
+* Add GraphViz#add (see sample59.rb)
+* GraphViz::XML.output is deprecated, use GraphViz::XML.graph.output
+* Issue #22 : Error when generating a graph with an ID containing a space.
+
+== 0.9.21 :
+* Add attributes "label_scheme" and "rotation"
+* Add missing options :
+  * <tt>:scale => v</tt> : Scale input by 'v' (=72)
+  * <tt>:inverty => [true|false]</tt> : Invert y coordinate in output
+  * <tt>:no_layout => v</tt> : No layout mode 'v' (=1) -- neato only
+  * <tt>:reduce => [true|false]</tt> : Reduce graph -- neato only
+  * <tt>:Lg => [true|false]</tt> : Don't use grid -- fdp only
+  * <tt>:LO => [true|false]</tt> : Use old attractive force -- fdp only
+  * <tt>:Ln => i</tt> : Set number of iterations to i -- fdp only
+  * <tt>:LU => i</tt> : Set unscaled factor to i -- fdp only
+  * <tt>:LC => v</tt> : Set overlap expansion factor to v -- fdp only
+  * <tt>:LT => [*]v</tt> : Set temperature (temperature factor) to v -- fdp only
+
+== 0.9.20 :
+* Add GraphViz#each_attribut, Node#each_attribut and Edge#each_attribut
+* Bugs corrections in tests (by oupo)
+* Major bug correction in GraphViz#output for subgraphs
+* Update GraphViz.escape
+
+== 0.9.19 :
+* Add strict digraph support (by Jonas Elfström) (see sample58.rb)
+    g = GraphViz.new(:G, :type => "strict digraph")
+    # or 
+    g = GraphViz.new(:G, :type => "digraph", :strict => true)
+    # or 
+    g = GraphViz.digraph(:G, :strict => true)
+    # or 
+    g = GraphViz.strict_digraph(:G)
+* Add GraphViz#root_graph, Node#root_graph, Edge#root_graph
+* The GraphML parser now accept a graphml file or string
+
+== 0.9.18 :
+* JRuby bug correction (by Nigel Thorne)
+* Fix autoload problem for Rubinius (by Rolf Timmermans)
+* Bugs corrections
+
+== 0.9.17 :
+* GraphViz::Edge#node_one and GraphViz::Edge#node_one now have un optional parameter to indicate if you want to (or not) get the port in the name (default: true)
+* GraphViz#each_node now returns the Hash of nodes if there is no block given.
+* GraphViz#each_edge now returns the list of edges if there is no block given.
+* GraphViz#each_graph now returns the Hash of graphs if there is no block given.
+* Add GraphViz::Node#index : return the node index
+* Add GraphViz::Edge#index : return the edge index
+* Add GraphViz#type : return the graph type (graph or digraph)
+* Add GraphViz#get_edge_at_index and GraphViz#get_node_at_index
+* Add GvDouble 
+* Add GraphViz::Theory (see examples/theory/tests.rb)
+* Add GraphML[http://graphml.graphdrawing.org/] support (see sample57.rb)
+* fixed "edge attribut 'to_ary' invalid" on mri 1.9.2 (by Stefan Huber)
+
+== 0.9.16 :
+* Add <tt>xml2gv</tt>
+* Rename <tt>GraphViz.parser2</tt> to <tt>GraphViz.parser</tt> 
+* Remove treetop dependency
+* Ruby 1.9 (and MacRuby) compatibility -- Issue #12: see sample38.rb
+* Add GraphViz::Attrs#each and GraphViz::Attrs#to_h
+* Add GraphViz::Edge#node_one and GraphViz::Edge#node_two
+
+== 0.9.15 :
+* Add <tt>GraphViz.parser2</tt>. <b>WARNING</b> this method will replace <tt>GraphViz.parser</tt>. So please don't use it, or only for testing.
+* Bug correction in <tt>dot2ruby</tt>
+* Add <tt>--output-format</tt> option to <tt>dot2ruby</tt>
+* Add <tt>git2gv</tt>
+* Issue #16 : escape graph ID
+
+== 0.9.14 :
+* Add dot2ruby script
+* Remove NULL character in the DOT script
+* <b>WARNING</b> : FamilyTree is (still) broken in this version !
+
+== 0.9.13 :
+* Add dot2ruby.g
+* Bug correction with HTML label
+* The html attribut is deprecated. You can use the label attribut, as dot do it : <tt>:label => '<<html/>>'</tt>
+* Issue #15 : Thin server
+* <b>WARNING</b> : FamilyTree is (still) broken in this version !
+
+== 0.9.12 :
+* GraphViz::Node#name is deprecated, you must use GraphViz::Node#id (issue #14)
+* Add :nothugly option to GraphViz#output (see sample41.rb and http://hokstad.com/making-graphviz-output-pretty-with-xsl)
+* Issue #13 : you must now specify a port in GraphViz::Edge.new with a syntax like this : 
+    GraphViz::Edge.new( {nodeOne => :port}, {nodeTwo => :other} )
+* Issue #12 : UTF8 support (see sample38.rb)
+* Move and rename examples + remove maketest.[sh|bat]
+* <b>WARNING</b> : FamilyTree is broken in this version !
+
+== 0.9.11 :
+* Issue #11 : Cygwin PATH
+* Major bugs correction in output
+* Bug correction in find_executable
+* Add tests (by Chip Malice : https://github.com/hipe)
+
+== 0.9.10 :
+* Move ChangeLog in README
+* Add GraphViz::FamilyTree (alpha). See examples/sample33.rb
+* Major bugs corrections in GraphViz::Parser
+* Issue #10 : Anonymous graph (see Subgraphs and Clusters at http://www.graphviz.org/doc/info/lang.html). See examples/sample34.rb
+* GraphViz#add_graph can now take a block parameter. See example/sample34.rb
+* Add GraphViz.digraph and GraphViz.graph (same as GraphViz.new( ..., :type => "digraph" ) and GraphViz.new( ..., :type => "graph" )). See examples/sample35.rb
+* Add GraphViz#subgraph. See examples/sample35.rb
+* GraphViz::Parser support anonymous graph
+* Add lage node example. See examples/sample36.rb
+
+== 0.9.9 :
+* Add graph as an accessor to allow you to set global graph attributs (like edge and node)
+* Add each_node, each_edge, each_graph (thanks to @metellius) and graph_count
+* Issue #9 (partial) - Solution : by default, a node will have his label set with the node ID)
+
+== 0.9.8 :
+* Update graph and node posibility to set properties (see sample28.rb)
+* Issue #7: Path option is never being used to find the executable
+* Adding classes to check if the attributes are in the correct type
+* Issue #8: dots in href are escaped with backslash, which corrupts the URL (see sample29.rb)
+* Add posibility to use external libraries (see sample30.rb)
+* Add options -u and -s to ruby2gv
+* Add gem2gv
+
+== 0.9.7 :
+* Issue #2: Small bug correction in escape_path_containing_blanks (by Andreas Ronge)
+* Issue #4: New find_executable (by reactive)
+* Issue #3: Tempfiles created in current working directory only in Windows
+* Issue #6: Respect "none" format in output options hash and respect String output-filename when the "none" format is selected. See examples/sample27.rb (by Dave Burt)
+
+== 0.9.6 :
+* jRuby support (by obruening)
+* Issue #1 : STDOUT in binmode
+
+== 0.9.5 :
+* Remove 'mkmf' dependency
+* GraphViz::Edge#[] modification
+* Small correction to escape the dot ('.') character (by Miguel Cabrera)
+
+== 0.9.4 :
+* Escape nodes and edges attributs
+* GraphViz::escape corrections (by Dave Burt)
+* Add :errors option to set level of message suppression (default : suppress warning messages)
+
+== 0.9.3 :
+* Minor bug correction for Windows
+* Use Open3.popen3 if installed, else use IO.popen (by Dave Burt)
+* Add '-', '>' and '>>' has aliases of '<<' to create an edge.
+
+== 0.9.2 :
+* Escape nodes (by Dave Burt)
+* Handle errors from graphviz command (by Dave Burt)
+* Output as string (if String class is passed as file i.e. output(:pdf => String)) (by Dave Burt)
+
+== 0.9.1 :
+* Bugs corrections
+* Add the ability to create edge like that : node1 << node2 << node3 ...
+* Complete README
+* Add a DOT parser. This parser has a lot of limitations. So don't use it in a production context !
+* :output and :file options are deprecated, please use :<format> => :<file>
+* You can now specify multiple outputs via :<format> => :<file> (see sample 22).
+
+== 0.9.0 :
+* Add fdp example (sample 15)
+* Add edge between cluster and node and cluster and cluster support
+* GraphViz.add_node now support array (sample 16)
+* Bug correction in GraphViz.output (sample 19)
+* Add GraphViz#default to set default options (:use, :path and :output)
+* Add possibility to set node or edge attribut via :
+    node.<attribut>=<value> or node.<attribut>( <value> )
+    edge.<attribut>=<value> or edge.<attribut>( <value> )
+* Add GraphViz::Edge.set and GraphViz::Node.set
+* Add sample 20
+* Add GraphViz.node_count and GraphViz.edge_count by Daniel Cadenas Nión
+
+== 0.8.2 : 
+* Update Node, Edge and Graph Attributes (see http://www.graphviz.org/doc/info/attrs.html)
+* Bugs corrections
+
+== 0.8.1 :
+* Documentation
+
+== 0.8.0 :
+* Add all the features of the current graphviz version
+
+== 0.7.0 :
+* Add option "path" to output
+
+== 0.6.0 :
+* Add undirected graph support
+
+== 0.5.0 :
+* Preserve the original order of creation of nodes and edges
+
+== 0.4.0 :
+* Add HTML-Labels
+
+== 0.3.0 :
+* Bugs corrections
+
+== 0.2.0 :
+* Pure ruby
+
+== 0.1.0 :
+* Initial version
+

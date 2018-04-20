@@ -1,0 +1,79 @@
+== 1.5.1 / 2014-12-31
+* Maintenance
+  * Fix content-length being set (#66)
+
+== 1.5.0 / 2014-01-09
+* API
+  * Add send_data (#51)
+
+== 1.4.1 / 2013-11-07
+* API
+  * Add support for external loaders (#50)
+
+=== 1.4.01 / 2013-09-13
+* API
+  * Add support for lambda matchers
+* Maintenance
+  * Update README for usage with Rails 4 and threading, :scheme option
+
+=== 1.2.1 / 2011-09-20
+* Maintenance
+  * Use Rack::Request to match the host
+
+=== 1.2.0 / 2011-09-20
+* API
+  * :headers option to send additional headers with the response
+
+=== 1.1.0 / 2011-08-15
+* API
+  * :host and :method option to match SERVER_NAME and REQUEST_METHOD env params.
+  * :not option to negative match against path.
+* Maintenance
+  * Refactored internals a bit.
+
+=== 1.0.2 / 2010-10-01
+* Maintenance
+  * :send_file rules return content in an Array for Ruby 1.9.2 compatibility
+
+=== 1.0.1 / 2010-09-17
+* Maintenance
+  * Set Content-Type based on file extension of file/location being redirected to.  Addresses GitHub Issue #8.
+
+=== 1.0.0 / 2010-05-13
+* API
+  * Fix rack 1.1.0 / rails3 compatibility by eliminating reliance on REQUEST_URI env param.  Paths are now constructed with PATH_INFO and QUERY_STRING
+  * Follow rack directory/require convention: require 'rack/rewrite' instead of 'rack-rewrite'
+  * Include an HTML anchor tag linked to where the URL being redirected to in the body of 301's and 302's
+
+=== 0.2.1 / 2010-01-06
+* API
+  * Implement $& substitution pattern (thanks to {Ben Brinckerhoff}[http://github.com/bhb])
+
+* Maintenance
+  * Ignore empty captures instead of failing during subsitution (thanks to {Ben Brinckerhoff}[http://github.com/bhb])
+  * Play nice with Rack::Test requests which only set PATH_INFO and not REQUEST_URI (thanks to {@docunext}[http://github.com/docunext])
+  * Use QUERY_STRING instead of QUERYSTRING as per Rack spec.  Closes Issue #1.
+
+=== 0.2.0 / 2009-11-14
+* API
+  * Allow Proc's to be be passed as the 'to' argument to rule declarations
+  * Introduce rule guard support using :if => Proc.new option.
+  * :send_file and :x_send_file rules
+  * proxy rack_env to rule guards for arbitrary rule writing
+
+* Documentation
+  * Add example of writing capistrano maintenance page rewrite rules
+  * Add examples of rule guards and arbitrary rewriting
+  * Add examples of :send_file and :x_send_file rules
+
+=== 0.1.3 / 2009-11-14
+* Maintenance
+  * Ensure Content-Type header is set for 301's and 302's (thanks to Sebastian Röbke)
+* Documentation
+  * Add HISTORY.rdoc
+
+=== 0.1.2 / 2009-10-13
+
+* Initial Feature Set
+  * :r301, :r302 and :redirect are supported in the rewrite DSL
+  * Regex matching/substitution patterns supported in rules

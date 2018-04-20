@@ -1,0 +1,96 @@
+#!/usr/bin/env ruby
+# Copyright (C) 2005 - 2012 Gregoire Lejeune <gregoire.lejeune@free.fr>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+
+require 'rubygems'
+require 'getoptlong'
+require 'graphviz/xml'
+
+def usage
+  puts "usage: xml2gv [-Tformat] [-ofile] [-h] [-V] script"
+  puts "-T, --output-format format    Output format (default: PNG)"
+  puts "-o, --output-file file        Output file (default: STDOUT)"
+  puts "-p, --path                    Graphviz path"
+  puts "-u, --use PROGRAM             Program to use (default: dot)"
+  puts "-V, --version                 Show version"
+  puts "-h, --help                    Show this usage message"
+end
+
+def version
+  puts "XML2GraphViz v#{GraphViz::Constants::RGV_VERSION}, (c)2010 Gregoire Lejeune <gregoire.lejeune@free.fr>"
+  puts ""
+  puts "This program is free software; you can redistribute it and/or modify"
+  puts "it under the terms of the GNU General Public License as published by"
+  puts "the Free Software Foundation; either version 2 of the License, or"
+  puts "(at your option) any later version."
+  puts ""
+  puts "This program is distributed in the hope that it will be useful,"
+  puts "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+  puts "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+  puts "GNU General Public License for more details."
+  puts ""
+  puts "You should have received a copy of the GNU General Public License"
+  puts "along with this program; if not, write to the Free Software"
+  puts "Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA"
+end
+
+xOutFormat = "png"
+xOutFile = nil
+xGVPath = ""
+xUse = "dot"
+
+oOpt = GetoptLong.new(
+  ['--output-format', '-T', GetoptLong::REQUIRED_ARGUMENT],
+  ['--output-file',   '-o', GetoptLong::REQUIRED_ARGUMENT],
+  ['--path',          '-p', GetoptLong::REQUIRED_ARGUMENT],
+  ['--use',           '-u', GetoptLong::REQUIRED_ARGUMENT],
+  ['--help',          '-h', GetoptLong::NO_ARGUMENT],
+  ['--version',       '-V', GetoptLong::NO_ARGUMENT]
+)
+
+begin
+  oOpt.each_option do |xOpt, xValue|
+    case xOpt
+      when '--output-format'
+        xOutFormat = xValue
+      when '--output-file'
+        xOutFile = xValue
+      when '--path'
+        xGVPath = xValue
+      when '--use'
+        xUse = xValue
+      when '--help'
+        usage( )
+        exit
+      when '--version'
+        version( )
+        exit
+    end
+  end
+rescue GetoptLong::InvalidOption
+  usage( )
+  exit
+end
+
+xFile = ARGV[0]
+
+if xFile.nil?
+  usage( )
+  exit
+end
+
+gvxml = GraphViz::XML::new( xFile, :text => true, :attrs => true )
+gvxml.graph.output( xOutFormat => xOutFile, :path => xGVPath )

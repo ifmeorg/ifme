@@ -1,0 +1,24 @@
+---
+gem: actionpack
+framework: rails
+cve: 2013-6417
+osvdb: 100527
+url: https://groups.google.com/forum/#!topic/ruby-security-ann/niK4drpSHT4
+title: Incomplete fix to CVE-2013-0155 (Unsafe Query Generation Risk)
+date: 2013-12-03
+
+description: |
+  The prior fix to CVE-2013-0155 was incomplete and the use of common
+  3rd party libraries can accidentally circumvent the protection. Due
+  to the way that Rack::Request and Rails::Request interact, it is
+  possible for a 3rd party or custom rack middleware to parse the
+  parameters insecurely and store them in the same key that Rails uses
+  for its own parameters.  In the event that happens the application
+  will receive unsafe parameters and could be vulnerable to the earlier
+  vulnerability.
+
+cvss_v2: 6.4
+
+patched_versions:
+  - ~> 3.2.16
+  - ">= 4.0.2"

@@ -1,0 +1,7 @@
+--- 
+gem: fileutils
+osvdb: 90715
+url: http://osvdb.org/show/osvdb/90715
+title: fileutils Gem for Ruby files_utils.rb /tmp File Symlink Arbitrary File Overwrite
+date: 2013-02-28
+description: fileutils Gem for Ruby contains a flaw as the program creates temporary files insecurely. It is possible for a local attacker to use a symlink attack against temporary files created by files_utils.rb to cause the program to unexpectedly overwrite an arbitrary file.

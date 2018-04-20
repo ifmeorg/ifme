@@ -1,0 +1,9 @@
+---
+gem: sidekiq
+osvdb: 125678
+url: https://github.com/mperham/sidekiq/pull/2309
+title: Sidekiq Gem for Ruby web/views/queue.erb msg.display_class Element XSS
+date: 2015-04-21
+description: XSS via job arguments display class in Sidekiq::Web
+patched_versions:
+  - ">= 3.4.0"

@@ -1,0 +1,12 @@
+language: ruby
+
+sudo: false
+
+cache: bundler
+
+notifications:
+  irc: chat.freenode.net#rubysec
+
+env:
+  global:
+  - secure: ZXwsZdbCej15IcIazEIjy12o5v5EI8/Hle/VP1EabfbHsA5Mw+lrliMAV80C8Iy+p4mI66WIO/3Ovm64L1nGDBGs3dKUjtDvNPCKHlK2xK7AhvkcJnzbjWTAzWZY17STJO45DUdr/vuVbvQZ8llLosSOBs+grGsszCSEIOibqjU=

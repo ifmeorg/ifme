@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)) + '/../lib')
+
+require 'jshint'
+require 'jshint/reporters'
+require 'jshint/cli'
+
+reporter_name = ARGV[0] || :Default
+result_file = ARGV[1]
+
+Jshint::Cli::run(reporter_name, result_file)

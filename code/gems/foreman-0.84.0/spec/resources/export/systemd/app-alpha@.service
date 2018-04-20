@@ -1,0 +1,15 @@
+[Unit]
+PartOf=app-alpha.target
+
+[Service]
+User=app
+WorkingDirectory=/tmp/app
+Environment=PORT=%i
+ExecStart=/bin/bash -lc 'exec ./alpha'
+Restart=always
+StandardInput=null
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
+KillMode=mixed
+TimeoutStopSec=5

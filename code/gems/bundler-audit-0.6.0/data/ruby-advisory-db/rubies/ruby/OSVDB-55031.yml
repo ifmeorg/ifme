@@ -1,0 +1,17 @@
+---
+engine: ruby
+cve: 2009-1904
+osvdb: 55031
+url: http://www.osvdb.org/show/osvdb/55031
+title: Ruby BigDecimal Library Float Data Type Conversion String Argument Handling
+  DoS
+date: 2009-06-10
+description: |
+  The BigDecimal library in Ruby 1.8.6 before p369
+  and 1.8.7 before p173 allows context-dependent attackers to cause a denial of service
+  (application crash) via a string argument that represents a large number, as demonstrated
+  by an attempted conversion to the Float data type.
+cvss_v2: 5.0
+patched_versions:
+  - ~> 1.8.6.369
+  - ">= 1.8.7.174"

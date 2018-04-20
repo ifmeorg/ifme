@@ -1,0 +1,20 @@
+---
+gem: spree
+cve: 2013-2506
+osvdb: 90865
+url: https://spreecommerce.com/blog/multiple-security-vulnerabilities-fixed
+title: |
+  Spree app/models/spree/user.rb Mass Role Assignment Remote Privilege
+  Escalation
+date: 2013-02-21
+description: |
+  Spree contains a flaw that leads to unauthorized privileges being gained. The
+  issue is triggered as certain input related to mass role assignment in
+  app/models/spree/user.rb is not properly verified before being used to update
+  a user. This may allow a remote attacker to assign arbitrary roles and gain
+  elevated administrative privileges.
+cvss_v2: 4.0
+patched_versions:
+  - ~> 1.1.6
+  - ~> 1.2.0
+  - ">= 1.3.0"

@@ -1,0 +1,9 @@
+gems:
+- name: shoulda
+  version: '= 2.10.3'
+- name: mocha
+  version: '= 0.9.8'
+- name: rack
+  version: '= 1.1.0'
+# - name: oniguruma
+#   version: '= 1.1.0'

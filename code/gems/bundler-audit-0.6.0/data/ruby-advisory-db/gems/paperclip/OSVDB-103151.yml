@@ -1,0 +1,13 @@
+---
+gem: paperclip
+osvdb: 103151
+url: http://osvdb.org/show/osvdb/103151
+title: Paperclip Gem for Ruby contains a flaw
+date: 2014-01-31
+description: Paperclip Gem for Ruby contains a flaw that is due to the application failing to properly
+  validate the file extension, instead only validating the Content-Type header during file uploads.
+  This may allow a remote attacker to bypass restrictions on file types for uploaded files by
+  spoofing the content-type.
+cvss_v2:
+patched_versions:
+  - ">= 4.0.0"

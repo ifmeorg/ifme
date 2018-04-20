@@ -1,0 +1,15 @@
+---
+engine: ruby
+cve: 2011-1005
+osvdb: 70957
+url: http://www.osvdb.org/show/osvdb/70957
+title: Ruby Exception#to_s Method Safe Level Security Bypass
+date: 2011-02-18
+description: |
+  Ruby contains a flaw related to the safe-level feature. The issue is
+  triggered when a context-dependent attacker exploits a flaw within the exception
+  '#to_s' handling. This may allow an attacker to bypass safe-level protection and
+  modify strings via the 'Exception#to_s' method.
+cvss_v2: 4.3
+patched_versions:
+  - ">= 1.8.7.334"

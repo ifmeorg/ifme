@@ -1,0 +1,20 @@
+---
+engine: ruby
+cve: 2014-2525
+osvdb: 105027
+url: http://www.osvdb.org/show/osvdb/105027
+title: |
+  LibYAML yaml_parser_scan_uri_escapes() Function Crafted Document Parsing Heap
+  Buffer Overflow
+date: 2014-03-26
+description: |
+  LibYAML contains an overflow condition in the yaml_parser_scan_uri_escapes()
+  function that is triggered as user-supplied input is not properly validated
+  when parsing a specially crafted YAML document. This may allow a
+  context-dependent attacker to cause a heap-based buffer overflow, resulting
+  in a denial of service or potentially allowing the execution of arbitrary
+  code in a program linked against the library.
+cvss_v2: 6.8
+patched_versions:
+  - ~> 2.0.0.481
+  - ">= 2.1.2"

@@ -1,0 +1,11 @@
+---
+gem: rack-ssl
+cve: 2014-2538
+osvdb: 104734
+url: http://osvdb.org/show/osvdb/104734
+title: rack-ssl Gem for Ruby Error Message Reflected XSS 
+date: 2013-07-09
+description: rack-ssl Gem for Ruby contains a flaw that allows a reflected cross-site scripting (XSS) attack. This flaw exists because the program does not validate input passed via error messages before returning it to users. This may allow a context-dependent attacker to create a specially crafted request that would execute arbitrary script code in a user's browser session within the trust relationship between their browser and the server.
+cvss_v2: 4.3
+patched_versions:
+  - ">= 1.3.4"

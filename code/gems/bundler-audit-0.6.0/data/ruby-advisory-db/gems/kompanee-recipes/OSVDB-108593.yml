@@ -1,0 +1,12 @@
+---
+gem: kompanee-recipes
+osvdb: 108593
+url: http://osvdb.org/show/osvdb/108593
+title: kompanee-recipes Gem for Ruby /lib/kompanee-recipes/heroku.rb Multiple Variable Handling Remote Command Execution Weakness
+date: 2014-06-30
+description: |
+  kompanee-recipes Gem for Ruby contains a flaw in
+  /lib/kompanee-recipes/heroku.rb that is triggered when handling shell
+  metacharacters passed via the 'password', 'user', 'deploy_name', and
+  'application' variables. This may allow a remote attacker to execute
+  arbitrary commands.

@@ -1,0 +1,15 @@
+---
+gem: nokogiri
+platform: jruby
+osvdb: 118481
+url: https://github.com/sparklemotion/nokogiri/pull/1087
+title: |
+  Nokogiri Gem for JRuby XML Document Root Element Handling Memory Consumption
+  Remote DoS
+date: 2014-04-30
+description: |
+  Nokogiri Gem for JRuby contains a flaw that is triggered when handling a root
+  element in an XML document. This may allow a remote attacker to cause a
+  consumption of memory resources.
+patched_versions:
+  - ">= 1.6.3"

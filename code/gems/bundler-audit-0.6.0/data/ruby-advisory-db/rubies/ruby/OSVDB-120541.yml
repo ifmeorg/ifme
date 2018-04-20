@@ -1,0 +1,22 @@
+---
+engine: ruby
+cve: 2015-1855
+osvdb: 120541
+url: http://www.osvdb.org/show/osvdb/120541
+title: |
+  Ruby lib/openssl/ssl.rb verify_certificate_identity() Function X.509
+  Certificate Improper Hostname Verification MitM Spoofing
+date: 2014-03-16
+description: |
+  Ruby contains a flaw related to certificate validation in
+  verify_certificate_identity() function in lib/openssl/ssl.rb. The issue is
+  due to the server hostname not being verified to match a domain name in the
+  Subject's Common Name (CN) or SubjectAltName field of the X.509 certificate.
+  By spoofing the TLS/SSL server via a certificate that appears valid, an
+  attacker with the ability to intercept network traffic (e.g. MiTM, DNS cache
+  poisoning) can disclose and optionally manipulate transmitted data.
+cvss_v2: 4.0
+patched_versions:
+  - ~> 2.0.0.645
+  - ~> 2.1.6
+  - ">= 2.2.2"

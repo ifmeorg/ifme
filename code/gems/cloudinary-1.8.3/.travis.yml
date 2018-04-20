@@ -1,0 +1,12 @@
+language: ruby
+
+before_install:
+  - gem install bundler
+
+rvm:
+- 1.9.3
+- 2.2.3
+env:
+  matrix:
+    secure: OTtg+CpNgfqJYqJk4rRZRvljss2p6nLTgBLrdUt/4hpSFLFueo0m7Jdu2zeEDPLEzMKo6zZlBp1/BPjCHtnjda7qpOQpMutEzD5EG60BG5LiMDsoAHL6apiL4zNUy8Sjcp/QslpKRozcYzogHjCnxM8RtSnW9wqiCehM5yivlj4JwU/e2x7XZGRbwW2jj4kr/BAdylYYftAaVOrl/3vqngE2tciq6YRL5GFR6o1L5ty435jsyDwEWAPs6vTLwJuEmPLJ4pEOVPOI08zOgVWKHyAWiCc7WYyBxKDmDUU9Xth922ko7nhptQUJeJuxh2dTvrPuTkibNzX1QLugX8RwzJ7pXG9iuhx14lmFbfZZtl+g2SEh5Hem5GFCVOlxpULuxZUKDcNwYURWwuoeBYpGOrOu7xn70o6cF3bNfenUJEl/ts1YgAZ/pcHmbeW95ovb+vTHj8uPk1J17FKOtXjbgblzYLwrl68ika1QfWJEYq1DcI7BT7AwsEeThPmvQ03y+lH8DrYQVprzTpjGICvMyMQSZdA8woXMeEFV0CzKew1+Q0JgjLpYDTQ6U51HEvzCZFTNoN2ZDdsdMRtkxmjBwgEQAY5+SA5icI6/uxAvloScl+7SnNiAhqyPaA2YlwZ/xhI8plvydkmK805Z1uZztGUNu0yn47FzGDC286RF/rI=
+script: bundle exec rspec

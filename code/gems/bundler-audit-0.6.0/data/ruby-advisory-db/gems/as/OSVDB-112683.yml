@@ -1,0 +1,10 @@
+---
+gem: as
+osvdb: 112683
+url: http://osvdb.org/show/osvdb/112683
+title: as Gem for Ruby Process List Local Plaintext Credentials Disclosure
+date: 2014-09-25
+description: |
+  as Gem for Ruby contains a flaw that is due to the program displaying
+  credential information in plaintext in the process list. This may
+  allow a local attacker to gain access to credential information.

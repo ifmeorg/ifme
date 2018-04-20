@@ -1,0 +1,28 @@
+language: ruby
+sudo: false
+rvm:
+  - 1.9
+  - 2.0
+  - 2.1
+  - 2.2.4
+  - 2.3.0
+  - ruby-head
+  - jruby-head
+gemfile:
+  - gemfiles/rails31.gemfile
+  - gemfiles/rails32.gemfile
+  - gemfiles/rails40.gemfile
+  - gemfiles/rails42.gemfile
+  - gemfiles/rails50.gemfile
+matrix:
+  fast_finish: true
+  exclude:
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 1.9
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 2.0
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 2.1
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head

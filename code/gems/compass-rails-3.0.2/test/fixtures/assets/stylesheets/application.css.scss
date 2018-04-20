@@ -1,0 +1,23 @@
+// Import Compass
+@import "compass";
+
+// Glob import SCSS partials
+@import "partials/*";
+
+// Import Sprites
+@import "letters/*.png";
+@include all-letters-sprites;
+
+// Inline Sprites
+$numbers-inline: true;
+@import "numbers/sprite-*.png";
+@include all-numbers-sprites;
+
+// Try out some compass stuff
+body{
+  @include background-image(linear-gradient(white, #aaaaaa));
+
+  container{
+    @include border-radius(4px, 4px);
+  }
+}

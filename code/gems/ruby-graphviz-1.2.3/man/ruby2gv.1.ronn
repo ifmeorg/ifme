@@ -1,0 +1,47 @@
+ruby2gv(1) - create a dependency graph from a ruby script 
+=========================================================
+
+## SYNOPSIS
+
+`ruby2gv` [`-T`<format>] [`-o`<file>] [`-h`] [`-V`] _script_
+
+## DESCRIPTION
+
+`ruby2gv` is a simple tool that allows you to create a dependency graph 
+from a ruby script.
+
+See </usr/share/doc/ruby-graphviz/> for more details.
+
+## OPTIONS
+
+ * `-T`, `--output-format` [<format>]:
+ 	 Output format (default: png)
+
+ * `-o`, `--output-file` [<file>]:
+ 	 Path to output image file (default: STDOUT)
+
+ * `-p`, `--path`:
+ 	 Graphviz path
+
+ * `-u`, `--use` [<PROGRAM>]:
+ 	 Program to use (default: dot)
+
+ * `-s`, `--stop` <LIB>[,<LIB>[, ...]]:
+ 	 Stop on libs
+
+ * `-V`, `--version`:
+ 	 Show version
+
+ * `-h`, `--help`:
+ 	 Show this usage message
+
+## EXAMPLE
+
+    ruby2gv -Tpng -oruby2gv.png /usr/bin/ruby2gv
+
+## AUTHOR
+
+Copyright 2004-2014 Gregoire Lejeune
+
+This manual page is written by Praveen Arimbrathodiyl <praveen@debian.org> for
+Debian GNU System (GNU/Linux, GNU/kFreeBSD, GNU/Hurd).

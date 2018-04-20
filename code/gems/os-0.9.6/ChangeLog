@@ -1,0 +1,3 @@
+0.9.6 add changelog, license
+
+0.9.5 don't count hyper thread by default windows [TODO check linux ]

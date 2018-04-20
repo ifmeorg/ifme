@@ -1,0 +1,9 @@
+--- 
+gem: karteek-docsplit
+cve: 2013-1933
+osvdb: 92117
+url: http://osvdb.org/show/osvdb/92117
+title: Karteek Docsplit Gem for Ruby text_extractor.rb File Name Shell Metacharacter Injection Arbitrary Command Execution
+date: 2013-04-08
+description: Karteek Docsplit Gem for Ruby contains a flaw that is due to the program failing to properly sanitize input passed to text_extractor.rb. With a specially crafted file name that contains shell metacharacters, a context-dependent attacker can execute arbitrary commands
+cvss_v2: 9.3

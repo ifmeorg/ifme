@@ -1,0 +1,17 @@
+---
+gem: handlebars-source
+osvdb: 131671
+url: https://blog.srcclr.com/handlebars_vulnerability_research_findings/
+title: handlebars.js - quoteless attributes in templates can lead to XSS
+date: 2015-08-24
+description: |
+  The upstream 'handlebars' node.js module was found to not properly escape
+  equals (=) signs, leading to possible content injection via attributes
+  in templates.
+
+  Example:
+  * Template: <a href={{foo}}/>
+  * Input: { 'foo' : 'test.com onload=alert(1)'}
+  * Rendered result: <a href=test.com onload=alert(1)/>
+patched_versions:
+  - ">= 4.0.0"

@@ -1,0 +1,14 @@
+---
+gem: spree
+cve: 2008-7310
+osvdb: 81505
+url: https://spreecommerce.com/blog/security-vulnerability-mass-assignment
+title: |
+  Spree Hash Restriction Weakness URL Parsing Order State Value Manipulation
+date: 2008-09-22
+description: |
+  Spree contains a hash restriction weakness that occurs when parsing a
+  modified URL. This may allow an attacker to manipulate order state values.
+cvss_v2: 5.0
+patched_versions:
+  - ">= 0.3.0"

@@ -1,0 +1,14 @@
+---
+library: rubygems
+cve: 2012-2126
+osvdb: 81444
+url: http://www.osvdb.org/show/osvdb/81444
+title: RubyGems SSL Certificate Validation MitM Spoofing Weakness
+date: 2012-04-20
+description: |
+  RubyGems contains a flaw related to the validation of SSL certificates when
+  accessing certain services and APIs. This may allow a man-in-the-middle
+  attacker to spoof a valid server.
+cvss_v2: 4.3
+patched_versions:
+  - ">= 1.8.23"

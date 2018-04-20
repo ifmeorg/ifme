@@ -1,0 +1,12 @@
+---
+gem: kajam
+cve: 2014-4999
+osvdb: 108529
+url: http://osvdb.org/show/osvdb/108529
+title: kajam Gem for Ruby /dataset/lib/dataset/database/postgresql.rb Process List Local Plaintext Password Disclosure
+date: 2014-06-30
+description: |
+  kajam Gem for Ruby contains a flaw in
+  /dataset/lib/dataset/database/postgresql.rb that is triggered as the program
+  exposes the MySQL or PostgreSQL password in the process list. This may allow
+  a local attacker to gain access to password information.

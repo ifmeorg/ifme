@@ -1,0 +1,18 @@
+---
+engine: ruby
+cve: 2012-5371
+osvdb: 87863
+url: http://www.osvdb.org/show/osvdb/87863
+title: Ruby MurmurHash2 Implementation Hash Collision Remote DoS
+date: 2012-11-23
+description: |
+  Ruby contains a flaw related to the MurmurHash2 implementation that may allow
+  a remote denial of service. The issue is triggered when hash values are
+  computed without having the ability to cause hash collisions restricted. When
+  sending specially crafted input to an application maintaining a hash table, a
+  context-dependent attacker can cause a consumption of CPU resources. This
+  will result in a loss of availability for the program.
+cvss_v2: 5.0
+patched_versions:
+  - ~> 1.9.3.327
+  - ">= 2.0.0"

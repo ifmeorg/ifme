@@ -1,0 +1,60 @@
+.\" generated with Ronn/v0.7.3
+.\" https://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "RUBY2GV" "1" "April 2013" "" ""
+.
+.SH "NAME"
+\fBruby2gv\fR \- create a dependency graph from a ruby script
+.
+.SH "SYNOPSIS"
+\fBruby2gv\fR [\fB\-T\fR\fIformat\fR] [\fB\-o\fR\fIfile\fR] [\fB\-h\fR] [\fB\-V\fR] \fIscript\fR
+.
+.SH "DESCRIPTION"
+\fBruby2gv\fR is a simple tool that allows you to create a dependency graph from a ruby script\.
+.
+.P
+See </usr/share/doc/ruby\-graphviz/> for more details\.
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-T\fR, \fB\-\-output\-format\fR [\fIformat\fR]
+Output format (default: png)
+.
+.TP
+\fB\-o\fR, \fB\-\-output\-file\fR [\fIfile\fR]
+Path to output image file (default: STDOUT)
+.
+.TP
+\fB\-p\fR, \fB\-\-path\fR
+Graphviz path
+.
+.TP
+\fB\-u\fR, \fB\-\-use\fR [\fIPROGRAM\fR]
+Program to use (default: dot)
+.
+.TP
+\fB\-s\fR, \fB\-\-stop\fR \fILIB\fR[,\fILIB\fR[, \.\.\.]]
+Stop on libs
+.
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Show version
+.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show this usage message
+.
+.SH "EXAMPLE"
+.
+.nf
+
+ruby2gv \-Tpng \-oruby2gv\.png /usr/bin/ruby2gv
+.
+.fi
+.
+.SH "AUTHOR"
+Copyright 2004\-2013 Gregoire Lejeune
+.
+.P
+This manual page is written by Praveen Arimbrathodiyl \fIpraveen@debian\.org\fR for Debian GNU System (GNU/Linux, GNU/kFreeBSD, GNU/Hurd)\.

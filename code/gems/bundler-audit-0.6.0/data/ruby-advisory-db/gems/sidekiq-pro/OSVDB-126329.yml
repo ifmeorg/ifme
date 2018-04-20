@@ -1,0 +1,12 @@
+---
+gem: sidekiq-pro
+osvdb: 126329
+url: https://github.com/mperham/sidekiq/commit/a695ff347ae50f641dfc35189131b232ea0aa1db
+title: |
+  Sidekiq Pro Gem for Ruby web/views/batch.erb Class and ErrorMessage Elements
+  Reflected XSS
+date: 2015-05-11
+description: |
+  XSS via batch failure error_class and error_message in Sidekiq::Web
+patched_versions:
+  - ">= 2.0.2"

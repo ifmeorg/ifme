@@ -1,0 +1,22 @@
+---
+engine: ruby
+cve: 2014-8090
+osvdb: 114641
+url: http://www.osvdb.org/show/osvdb/114641
+title: |
+  Ruby lib/rexml/entity.rb NULL String Handling Recursive XML External Entity
+  (XXE) Expansion Resource Consumption Remote DoS
+date: 2014-11-13
+description: |
+  Ruby contains an XXE (Xml eXternal Entity) injection flaw in the
+  lib/rexml/entity.rb that is triggered during the parsing of XML data when
+  handling recursive expansions in NULL strings. The issue is due to an
+  incorrectly configured XML parser accepting XML external entities from an
+  untrusted source. By sending specially crafted XML data, a remote attacker
+  can cause a consumption of system resources and a denial of service.
+cvss_v2: 5.0
+patched_versions:
+  - ~> 1.9.3.551
+  - ~> 2.0.0.598
+  - ">= 2.1.5"
+

@@ -1,0 +1,13 @@
+---
+gem: builder
+osvdb: 95668
+url: http://osvdb.org/show/osvdb/95668
+title: Builder Gem for Ruby Tag Name Handling Private Method Exposure
+date: 2007-06-15
+description: |
+  Builder Gem for Ruby contains a flaw in the handling of tag names. The issue
+  is triggered when the program reads tag names from XML data and then calls a
+  method with that name. With a specially crafted file, a context-dependent
+  attacker can call private methods and manipulate data.
+patched_versions:
+  - ">= 2.1.2"

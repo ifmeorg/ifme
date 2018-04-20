@@ -1,0 +1,19 @@
+---
+gem: rack
+cve: 2013-0183
+osvdb: 89320
+url: http://osvdb.org/show/osvdb/89320
+title: |
+  Rack Long String Parsing Memory Consumption Remote DoS
+date: 2013-01-07
+
+description: |
+  Rack contains a flaw that may allow a remote denial of service. The issue is
+  triggered when parsing an overly long string. With a specially crafted string,
+  a remote attacker can cause a consumption of memory. This will result in a
+  loss of availability for the webserver.
+
+cvss_v2: 5.0
+patched_versions:
+  - "~> 1.3.8"
+  - ">= 1.4.3"

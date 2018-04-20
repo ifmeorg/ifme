@@ -1,0 +1,36 @@
+graph G
+{
+  n1 [label="+"];
+  n2 [label="/"];
+  n1 -- n2;
+  n1b1 [label="", width=.1, style=invis]
+  n1 -- n1b1 [style=invis]  
+  n1b2 [label="", width=.1, style=invis]
+  n1 -- n1b2 [style=invis]  
+  n1b3 [label="", width=.1, style=invis]
+  n1 -- n1b3 [style=invis]  
+  n7 [label="**"];
+  n1 -- n7;
+  { rank=same n2 -- n1b1 -- n1b2 -- n1b3 -- n7 [style=invis] }
+
+  n3 [label="*"];
+  n2 -- n3;
+  n2b1 [label="", width=.1, style=invis]
+  n2 -- n2b1 [style=invis]
+  n6 [label="3"];
+  n2 -- n6;
+  { rank=same n3 -- n2b1 -- n6 [style=invis] }
+
+  n8 [label="4"];
+  n7 -- n8;
+  n7b1 [label="", width=.1, style=invis]
+  n7 -- n7b1 [style=invis]
+  n9 [label="5"];
+  n7 -- n9;
+  { rank=same n8 -- n7b1 -- n9 [style=invis] }
+  
+  n3 -- n4;
+  n4 [label="1"];
+  n3 -- n5;
+  n5 [label="2"];
+}

@@ -1,0 +1,21 @@
+
+= Project site
+http://railroady.prestonlee.com
+
+= Authors/Contributors (in order of appearance)
+* Javier Smaldone (javier |at| smaldone |dot| com |dot| ar)
+* Elliot Smith
+* Juan Ignacio Pumarino
+* Hajime Baba
+* Ana Nelson
+* Peter Hoeg
+* John McCaffrey
+* David Jones
+* Mike Dalessio
+* Preston Lee (http://prestonlee.com @prestonism)
+* Tim Harvey
+* Atli Christiansen
+* John Bintz (http://www.coswellproductions.com/)
+
+
+And of course, many thanks to the many patch submitters and testers that make this possible!

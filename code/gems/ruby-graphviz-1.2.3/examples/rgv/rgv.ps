@@ -1,0 +1,125 @@
+%! Greg shapes for GraphViz/DOT
+
+% input format :
+% [ 54 36 0 36 0 0 54 0 54 36 ]  4 false yourshape
+% or
+% [ 54 36 0 36 0 0 54 0 54 36 ]  4 true yourshape
+% [ 150 150 100 150 100 100 150 100 150 150 ]  4 true yourshape
+%
+% [upper right (y, x), lower right (y, x), lower left (y, x), upper left (y, x), upper right (y, x)]
+
+/xdef {exch def} bind def
+
+/rgv_box {
+	10 dict begin
+		/fflag xdef
+		/sides xdef
+		
+		4 sides ne { stop } if
+		
+		aload pop
+		
+		newpath
+		moveto
+		lineto
+		lineto
+		lineto
+		closepath
+		
+		pop pop
+		
+		fflag { fill } { stroke } ifelse
+	end
+} bind def
+
+/rgv_cloud {
+	10 dict begin
+		/fflag xdef
+		/sides xdef
+	
+		% Check if we have 4 sides. Else stop
+		4 sides ne { stop } if
+	
+		% (aload) takes an array as its argument and places the individual elements 
+		% of that array, and then the array itself, on the stack. Then (pop) remove
+		% the top element from the stack (the array)
+		aload pop
+
+		/ury xdef /urx xdef
+    /lry xdef /lrx xdef
+    /lly xdef /llx xdef
+    /uly xdef /ulx xdef
+		pop pop
+
+		/mx lrx llx neg add 2 div def
+		/my uly lly neg add 2 div def
+	
+		% empty the current path and declares we are starting a new path
+		newpath
+		
+		urx ury my neg add my 270 90 arc
+		ulx mx add uly mx 0 180 arc
+		llx lly my add my 90 270 arc
+		lrx lry lineto
+		
+		closepath
+		
+		% The stroke operator on line four causes the path we have constructed to be
+		% painted onto the current page.
+		% The fill operator fills the current path with ink.
+		fflag { fill } { stroke } ifelse
+	end
+} bind def
+
+/rgv_flower {
+	10 dict begin
+		/fflag xdef
+		/sides xdef
+	
+		% Check if we have 4 sides. Else stop
+		4 sides ne { stop } if
+	
+		% (aload) takes an array as its argument and places the individual elements 
+		% of that array, and then the array itself, on the stack. Then (pop) remove
+		% the top element from the stack (the array)
+		aload pop
+
+		/ury xdef /urx xdef
+    /lry xdef /lrx xdef
+    /lly xdef /llx xdef
+    /uly xdef /ulx xdef
+		pop pop
+
+		/mx lrx llx neg add 2 div def
+		/my uly lly neg add 2 div def
+	
+		% empty the current path and declares we are starting a new path
+		newpath
+		
+		% Arcs
+		urx ury my neg add my 270 90 arc
+		ulx mx add uly mx 0 180 arc
+		llx lly my add my 90 270 arc
+		lrx mx neg add lry mx 180 0 arc
+		
+		closepath
+		
+		% The stroke operator on line four causes the path we have constructed to be
+		% painted onto the current page.
+		% The fill operator fills the current path with ink.
+		fflag { fill } { stroke } ifelse
+	end
+} bind def
+
+%[ 150 150  50 150  50 100 150 100 150 150 ] 4 false rgv_box
+%[ 250 250 150 250 150 200 250 200 250 250 ] 4 false rgv_flower
+%[ 350 350 250 350 250 300 350 300 350 350 ] 4 false rgv_cloud
+%
+%.5 setgray
+%[ 150 450  50 450  50 400 150 400 150 450 ] 4 true rgv_box
+%.5 setgray
+%[ 250 550 150 550 150 500 250 500 250 550 ] 4 true rgv_flower
+%.5 setgray
+%[ 350 650 250 650 250 600 350 600 350 650 ] 4 true rgv_cloud
+%
+%showpage

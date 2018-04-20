@@ -1,0 +1,11 @@
+---
+gem: brbackup
+cve: 2014-5004
+osvdb: 108901
+url: http://osvdb.org/show/osvdb/108901
+title: brbackup Gem for Ruby Process List Local Plaintext Password Disclosure
+date: 2014-07-09
+description: |
+  brbackup Gem for Ruby contains a flaw that is due to the program exposing
+  password information in plaintext in the process list. This may allow a
+  local attacker to gain access to password information.

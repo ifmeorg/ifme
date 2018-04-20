@@ -1,0 +1,15 @@
+current directory: /vagrant_data/code/gems/websocket-driver-0.6.5/ext/websocket-driver
+/usr/local/bin/ruby -r ./siteconf20180414-1555-18k78xv.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant_data/code/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /vagrant_data/code/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /vagrant_data/code/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20180414-1555-1i802la

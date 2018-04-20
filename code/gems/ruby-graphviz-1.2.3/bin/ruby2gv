@@ -1,0 +1,234 @@
+#!/usr/bin/env ruby
+# Copyright (C) 2005 - 2012 Gregoire Lejeune <gregoire.lejeune@free.fr>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+
+require 'rubygems'
+require 'getoptlong'
+require 'graphviz'
+require 'graphviz/constants'
+require 'rbconfig'
+require 'mkmf'
+
+DEBUG = false
+
+class Rb2Gv
+  REQUIRE = /^\s*require\s*("|')([^\1\s]*)(\1)/
+
+  def initialize( xGVPath, xUse = "dot", xStops = [] )
+    @oGraph = GraphViz::new( "G", :path => xGVPath, :use => xUse )
+    # @oGraph['size'] = '10,10'
+    @hxNodes = Hash::new( )
+    @hxEdge = Array::new( )
+    @lxStops = xStops
+  end
+
+  public
+  def parse( xFile )
+    @hxNodes[xFile] = gv_newNode( xFile, "box", "forestgreen" )
+    puts "+ Node #{xFile}" if DEBUG
+
+    parseFile( xFile, nil, xFile )
+  end
+
+  def out( xFormat = "dot", xFile = nil )
+    if xFile.nil?
+      @oGraph.output( xFormat => String )
+    else
+      @oGraph.output( xFormat => xFile )
+    end
+  end
+
+  private
+  def gv_newNode( xNode, xShape = "box", xColor = nil )
+    xNodeName = xNode.gsub( /[^a-zA-Z0-9]/, "_" )
+    if xColor.nil?
+      @oGraph.add_nodes( xNodeName, "label" => xNode, "shape" => xShape )
+    else
+      @oGraph.add_nodes( xNodeName, "label" => xNode, "shape" => xShape, "style" => "filled", "color" => xColor )
+    end
+  end
+
+  def getLibraryPath( xLib, xExt = ["rb"] )
+
+    xPath = [ "libexecdir", "libdir", "sitedir", "rubylibdir", "sitelibdir", "archdir", "sitedir", "sitearchdir" ]
+    xRbLib = with_config( xLib+'lib', xLib)
+
+    if /\.(rb|so|bundle|dll)$/.match( xRbLib )
+      match = /^(.*)\.([^\.]*)$/.match(xRbLib)
+      xRbFile, xExt = match[1], [match[2]]
+    else
+      xRbFile = xRbLib
+    end
+
+    xExt.each do |e|
+      xRbFileWithExt = xRbFile + "." + e
+
+      # Search in "standard" paths
+      xPath.each do |xDir|
+        xCurrentPath = RbConfig::expand( RbConfig::CONFIG[xDir] )
+        xFileFound = File.join( xCurrentPath, xRbFileWithExt )
+        if File.exist?( xFileFound )
+          return xFileFound
+        end
+      end
+
+      # Search in "rubygems" :: This is not utile but...
+      Gem::Specification.find_all do |spec|
+        if spec == xLib
+          spec.require_paths.unshift spec.bindir if spec.bindir
+          xPath = spec.require_paths.map do |path|
+            File.join spec.full_gem_path, path
+          end
+          xPath.each do |xCurrentPath|
+            xFileFound = File.join( xCurrentPath, xRbFileWithExt )
+            if File.exist?( xFileFound )
+              return xFileFound
+            end
+          end
+        end
+      end
+    end
+
+    return nil
+  end
+
+  def parseFile( xFile, xFromFile = nil, xLib = nil )
+
+    if xFromFile
+      puts "Parse #{xFile} required in #{xFromFile} :" if DEBUG
+    else
+      puts "Parse #{xFile} :" if DEBUG
+    end
+
+    File.open(xFile, 'r').each_line do |xLine|
+      if lxLineMatch = REQUIRE.match( xLine )
+        xRequiredLib = lxLineMatch[2].gsub( /\.(rb|so)$/, "" )
+
+        if not @hxNodes.has_key?( xRequiredLib )
+          puts "  + Node #{xRequiredLib}" if DEBUG
+
+          xRequiredFile = getLibraryPath( xRequiredLib )
+          if xRequiredFile
+            unless @lxStops.include?(xRequiredLib)
+              @hxNodes[xRequiredLib] = gv_newNode( xRequiredLib )
+              parseFile( xRequiredFile, xFile, xRequiredLib )
+            else
+              @hxNodes[xRequiredLib] = gv_newNode( xRequiredLib, "invhouse", "deepskyblue" )
+            end
+          else
+            if getLibraryPath( xRequiredLib, ["so", "bundle", "dll"] ) == nil
+              @hxNodes[xRequiredLib] = gv_newNode( xRequiredLib, "box", "red" )
+            else
+              @hxNodes[xRequiredLib] = gv_newNode( xRequiredLib, "box", "grey" )
+            end
+          end
+
+        end
+
+        puts "  + Edge #{xLib} -> #{xRequiredLib}" if DEBUG
+        unless @hxEdge.include?( "#{@hxNodes[xLib].id}-#{@hxNodes[xRequiredLib].id}" )
+          @oGraph.add_edges( @hxNodes[xLib], @hxNodes[xRequiredLib] )
+          @hxEdge << "#{@hxNodes[xLib].id}-#{@hxNodes[xRequiredLib].id}"
+        end
+      end
+    end
+
+  end
+
+end
+
+def usage
+  puts "usage: ruby2gv [-Tformat] [-ofile] [-h] [-V] script"
+  puts "-T, --output-format format    Output format (default: PNG)"
+  puts "-o, --output-file file        Output file (default: STDOUT)"
+  puts "-p, --path                    Graphviz path"
+  puts "-u, --use PROGRAM             Program to use (default: dot)"
+  puts "-s, --stop LIB[,LIB, ...]     Stop on libs"
+  puts "-V, --version                 Show version"
+  puts "-h, --help                    Show this usage message"
+end
+
+def version
+  puts "Ruby2GraphViz v#{GraphViz::Constants::RGV_VERSION}, (c)2005, 2009, 2010 Gregoire Lejeune <gregoire.lejeune@free.fr>"
+  puts ""
+  puts "This program is free software; you can redistribute it and/or modify"
+  puts "it under the terms of the GNU General Public License as published by"
+  puts "the Free Software Foundation; either version 2 of the License, or"
+  puts "(at your option) any later version."
+  puts ""
+  puts "This program is distributed in the hope that it will be useful,"
+  puts "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+  puts "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+  puts "GNU General Public License for more details."
+  puts ""
+  puts "You should have received a copy of the GNU General Public License"
+  puts "along with this program; if not, write to the Free Software"
+  puts "Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA"
+end
+
+xOutFormat = "png"
+xOutFile = nil
+xGVPath = ""
+xUse = "dot"
+xStops = []
+
+oOpt = GetoptLong.new(
+  ['--output-format', '-T', GetoptLong::REQUIRED_ARGUMENT],
+  ['--output-file',   '-o', GetoptLong::REQUIRED_ARGUMENT],
+  ['--path',          '-p', GetoptLong::REQUIRED_ARGUMENT],
+  ['--use',           '-u', GetoptLong::REQUIRED_ARGUMENT],
+  ['--stop',          '-s', GetoptLong::REQUIRED_ARGUMENT],
+  ['--help',          '-h', GetoptLong::NO_ARGUMENT],
+  ['--version',       '-V', GetoptLong::NO_ARGUMENT]
+)
+
+begin
+  oOpt.each_option do |xOpt, xValue|
+    case xOpt
+      when '--output-format'
+        xOutFormat = xValue
+      when '--output-file'
+        xOutFile = xValue
+      when '--path'
+        xGVPath = xValue
+      when '--use'
+        xUse = xValue
+      when '--stop'
+        xStops = xValue.split( "," ).map{ |x| x.strip }
+      when '--help'
+        usage( )
+        exit
+      when '--version'
+        version( )
+        exit
+    end
+  end
+rescue GetoptLong::InvalidOption
+  usage( )
+  exit
+end
+
+xFile = ARGV[0]
+
+if xFile.nil?
+  usage( )
+  exit
+end
+
+o = Rb2Gv::new( xGVPath, xUse, xStops )
+o.parse( xFile )
+result = o.out( xOutFormat, xOutFile )
+puts result unless result.nil?

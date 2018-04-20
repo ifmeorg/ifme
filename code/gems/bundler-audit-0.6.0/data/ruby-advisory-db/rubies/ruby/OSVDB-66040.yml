@@ -1,0 +1,17 @@
+---
+engine: ruby
+cve: 2010-2489
+osvdb: 66040
+url: http://www.osvdb.org/show/osvdb/66040
+title: Ruby on Windows ARGF.inplace_mode Variable Local Overflow
+date: 2010-07-02
+description: |
+  Buffer overflow in Ruby 1.9.x before 1.9.1-p429
+  on Windows might allow local users to gain privileges via a crafted ARGF.inplace_mode
+  value that is not properly handled when constructing the filenames of the backup
+  files.
+cvss_v2: 7.2
+patched_versions:
+  - ~> 1.8.7
+  - ~> 1.9.1.429
+  - ">= 1.9.2"

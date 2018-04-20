@@ -1,0 +1,17 @@
+---
+gem: actionmailer
+cve: 2013-4389
+osvdb: 98629
+url: http://www.osvdb.org/show/osvdb/98629
+title: Action Mailer Gem for Ruby contains a possible DoS Vulnerability
+date: 2013-10-16
+description: Action Mailer Gem for Ruby contains a format string flaw in
+  the Log Subscriber component. The issue is triggered as format string
+  specifiers (e.g. %s and %x) are not properly sanitized in user-supplied
+  input when handling email addresses. This may allow a remote attacker
+  to cause a denial of service
+cvss_v2: 4.3
+unaffected_versions:
+  - ~> 2.3.2
+patched_versions: 
+  - '>= 3.2.15'

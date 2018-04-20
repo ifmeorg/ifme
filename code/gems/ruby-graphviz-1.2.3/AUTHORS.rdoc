@@ -1,0 +1,39 @@
+* Gregoire Lejeune <glejeune.lejeune@free.fr>
+* Brandon Coleman <metrix1978@gmail.com>
+* Dave Burt <https://github.com/dburt>
+* Miguel Cabrera <http://mfcabrera.com>
+* obruening <https://github.com/obruening>
+* reactive <https://github.com/reactive>
+* Hugh Sasse <hgs@dmu.ac.uk>
+* axgle <https://github.com/axgle>
+* hipe <https://github.com/hipe>
+* Stefan Huber <https://github.com/MSNexploder>
+* Nigel Thorne <https://github.com/NigelThorne>
+* Rolf Timmermans <https://github.com/rolftimmermans>
+* Jonas Elfström <https://github.com/jonelf>
+* oupo <https://github.com/oupo>
+* Daniel Zollinger <https://github.com/dznz>
+* Ronen Barzel <https://github.com/ronen>
+* Jamison Dance <https://github.com/jergason>
+* hirochachacha <https://github.com/hirochachacha>
+* coding64 <https://github.com/coding46>
+* Neven Has <https://github.com/nevenh>
+* Postmodern <https://github.com/postmodern>
+* Mike Fiedler <https://github.com/miketheman>
+* Kenichi Kamiya <https://github.com/kachick>
+* Gabe Kopley <https://github.com/gkop>
+* markus1189 <https://github.com/markus1189>
+* Praveen Arimbrathodiyil <https://github.com/pravi>
+* Andrew <https://github.com/AndrewKvalheim>
+* Joseph Anthony Pasquale Holsten <https://github.com/josephholsten>
+* Oleg Orlov <https://github.com/OrelSokolov>
+* Nathan Long <https://github.com/nathanl>
+* Khalil Fazal <https://github.com/khalilfazal>
+* Olle Jonsson <https://github.com/olleolleolle>
+* Guilherme Simoes <https://github.com/guilhermesimoes>
+
+Thanks to :
+
+* Jake Goulding <http://jakegoulding.com> - Spelling corrections
+* Desmond Dsouza - Windows tests and corrections
+* Vidar Hokstad and Ryan Shea - for nothugly.xsl

@@ -1,0 +1,13 @@
+---
+gem: paratrooper-pingdom
+cve: 2014-1233
+osvdb: 101847
+url: http://www.osvdb.org/show/osvdb/101847
+title: paratrooper-pingdom Gem for Ruby /lib/paratrooper-pingdom.rb API Login Credentials Local Disclosure
+date: 2013-12-26
+description: |
+  paratrooper-pingdom Gem for Ruby contains a flaw in
+  /lib/paratrooper-pingdom.rb. The issue is triggered when the script exposes
+  API login credentials, allowing a local attacker to gain access to the API
+  key, username, and password for the API login by monitoring the process tree.
+cvss_v2: 2.1

@@ -1,0 +1,8 @@
+---
+gem: bio-basespace-sdk
+cve: 2013-7111
+osvdb: 101031
+url: http://osvdb.org/show/osvdb/101031
+title: Bio Basespace SDK Gem for Ruby Command Line API Key Disclosure
+date: 2013-12-14
+description: Bio Basespace SDK Gem for Ruby contains a flaw that is due to the API client code passing the API_KEY to a curl command. This may allow a local attacker to gain access to API key information by monitoring the process table.

@@ -1,0 +1,11 @@
+.idea
+*.sw?
+.DS_Store
+coverage
+rdoc
+pkg
+*.gem
+nbproject
+/.gvimrc
+/.vim*
+.rvmrc

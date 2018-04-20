@@ -1,0 +1,9 @@
+--- 
+gem: command_wrap
+cve: 2013-1875
+osvdb: 91450
+url: http://osvdb.org/show/osvdb/91450
+title: command_wrap Gem for Ruby URI Handling Arbitrary Command Injection
+date: 2013-03-18
+description: command_wrap Gem for Ruby contains a flaw that is triggered during the handling of input passed via the URL that contains a semicolon character (;). This will allow a remote attacker to inject arbitrary commands and have them executed in the context of the user clicking it.
+cvss_v2: 7.5

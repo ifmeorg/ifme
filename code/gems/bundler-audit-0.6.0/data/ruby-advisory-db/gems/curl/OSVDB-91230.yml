@@ -1,0 +1,13 @@
+---
+gem: curl
+cve: 2013-2617
+osvdb: 91230
+url: http://osvdb.org/show/osvdb/91230
+title: Curl Gem for Ruby URI Handling Arbitrary Command Injection
+date: 2013-03-12
+description: Curl Gem for Ruby contains a flaw that is triggered during the
+  handling of specially crafted input passed via the URL.  This may allow
+  a context-dependent attacker to potentially execute arbitrary commands by
+  injecting them via a semi-colon (;).
+cvss_v2: 7.5
+patched_versions:

@@ -1,0 +1,18 @@
+---
+gem: actionpack
+framework: rails
+cve: 2011-3186
+osvdb: 74616
+url: https://groups.google.com/forum/#!topic/rubyonrails-security/b_yTveAph2g
+title: Response Splitting Vulnerability in Ruby on Rails
+date: 2011-08-16
+
+description: |
+  A response splitting flaw in Ruby on Rails 2.3.x was reported that could allow
+  a remote attacker to inject arbitrary HTTP headers into a response due to
+  insufficient sanitization of the values provided for response content types.
+
+cvss_v2: 4.3
+
+patched_versions:
+  - ">= 2.3.13"

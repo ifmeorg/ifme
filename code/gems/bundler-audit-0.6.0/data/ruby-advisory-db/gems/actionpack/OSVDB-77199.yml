@@ -1,0 +1,23 @@
+---
+gem: actionpack
+framework: rails
+cve: 2011-4319
+osvdb: 77199
+url: https://groups.google.com/forum/#!topic/rubyonrails-security/K2HXD7c8fMU
+title: XSS vulnerability in the translate helper method in Ruby on Rails
+date: 2011-11-17
+
+description: |
+  A cross-site scripting (XSS) flaw was found in the way the 'translate' helper
+  method of the Ruby on Rails performed HTML escaping of interpolated user
+  input, when interpolation in combination with HTML-safe translations were
+  used. A remote attacker could use this flaw to execute arbitrary HTML or web
+  script by providing a specially-crafted input to Ruby on Rails application,
+  using the ActionPack module and its 'translate' helper method without explicit
+  (application specific) sanitization of user provided input.
+
+cvss_v2: 4.3
+
+patched_versions:
+  - "~> 3.0.11"
+  - ">= 3.1.2"

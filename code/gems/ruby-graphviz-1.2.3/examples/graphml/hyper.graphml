@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="directed">
+    <node id="n0"/>
+    <node id="n1"/>
+    <node id="n2"/>
+    <node id="n3"/>
+    <node id="n4"/>
+    <node id="n5"/>
+    <node id="n6"/>
+    <hyperedge>
+       <endpoint node="n0"/>
+       <endpoint node="n1"/>
+       <endpoint node="n2"/>
+     </hyperedge>
+    <hyperedge>
+       <endpoint node="n3"/>
+       <endpoint node="n4"/>
+       <endpoint node="n5"/>
+       <endpoint node="n6"/>
+     </hyperedge>
+    <hyperedge>
+       <endpoint node="n1"/>
+       <endpoint node="n3"/>
+     </hyperedge>
+    <edge source="n0" target="n4"/>
+  </graph>
+</graphml>

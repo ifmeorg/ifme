@@ -1,0 +1,47 @@
+current directory: /vagrant_data/code/gems/therubyracer-0.12.3/ext/v8
+/usr/local/bin/ruby -r ./siteconf20180414-1555-11qagsl.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /vagrant_data/code/extensions/x86_64-linux/2.3.0-static/therubyracer-0.12.3/mkmf.log
+
+current directory: /vagrant_data/code/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" clean
+
+current directory: /vagrant_data/code/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR="
+compiling message.cc
+compiling string.cc
+compiling heap.cc
+compiling signature.cc
+compiling script.cc
+compiling external.cc
+compiling template.cc
+compiling backref.cc
+compiling handles.cc
+compiling gc.cc
+compiling v8.cc
+compiling accessor.cc
+compiling primitive.cc
+compiling object.cc
+compiling array.cc
+compiling init.cc
+compiling value.cc
+compiling date.cc
+compiling trycatch.cc
+compiling exception.cc
+compiling invocation.cc
+compiling stack.cc
+compiling constraints.cc
+compiling context.cc
+compiling function.cc
+compiling locker.cc
+compiling constants.cc
+compiling rr.cc
+linking shared-object v8/init.so
+
+current directory: /vagrant_data/code/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20180414-1555-1z0u8bj/v8

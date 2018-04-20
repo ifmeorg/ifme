@@ -1,0 +1,14 @@
+--- 
+gem: json
+osvdb: 101157
+url: http://osvdb.org/show/osvdb/101157
+title: json Gem for Ruby Data Handling Stack Buffer Overflow
+date: 2007-05-21
+description: |
+  json Gem for Ruby contains an overflow condition that is triggered as
+  user-supplied input is not properly validated when handling specially crafted
+  data. This may allow a remote attacker to cause a stack-based buffer
+  overflow, resulting in a denial of service or potentially allowing the
+  execution of arbitrary code.
+patched_versions: 
+  - ">= 1.1.0"

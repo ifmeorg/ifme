@@ -1,0 +1,15 @@
+---
+gem: nokogiri
+cve: 2012-6685
+osvdb: 90946
+url: http://www.osvdb.org/show/osvdb/90946
+title: Nokogiri Gem for Ruby External Entity (XXE) Expansion Internal Network Response Remote Disclosure
+date: 2012-06-08
+description: libxml2 contains a flaw that may lead to unauthorized disclosure of
+ potentially sensitive information. The issue is triggered when handling the
+ expansion of XML external entities (XXE), which can be used to trigger URL's
+ on an internal network and allow a remote attacker to gain access to their
+ responses.
+cvss_v2: 5.0
+patched_versions:
+  - ">= 1.5.4"

@@ -1,0 +1,8 @@
+---
+gem: ciborg
+cve: 2014-5003
+osvdb: 108586
+url: http://osvdb.org/show/osvdb/108586
+title: ciborg Gem for Ruby default.rb /tmp/perlbrew-installer Local Symlink File Overwrite
+date: 2014-06-30
+description: ciborg Gem for Ruby contains a flaw as default.rb creates temporary files insecurely. It is possible for a local attacker to use a symlink attack against the /tmp/perlbrew-installer file to cause the program to unexpectedly overwrite an arbitrary file.

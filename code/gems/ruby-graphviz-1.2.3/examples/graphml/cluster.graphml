@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was written by the JAVA GraphML Library.-->
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="color" for="all" attr.name="color" attr.type="string"/>
+  <key id="style" for="all" attr.name="style" attr.type="string"/>
+	<key id="label" for="all" attr.name="label" attr.type="string"/>
+	<key id="shape" for="node" attr.name="shape" attr.type="string"/>
+	<graph id="G" edgedefault="directed">
+		
+		<node id="cluster_0:">
+			<graph id="cluster_0">
+				<data key="color">lightgrey</data>
+				<data key="style">filled</data>
+				<data key="label">process #1</data>
+				<node id="a0">
+					<data key="style">filled</data>
+					<data key="color">white</data>
+				</node>
+				<node id="a1">
+					<data key="style">filled</data>
+					<data key="color">white</data>
+				</node>
+				<node id="a2">
+					<data key="style">filled</data>
+					<data key="color">white</data>
+				</node>
+				<node id="a3">
+					<data key="style">filled</data>
+					<data key="color">white</data>
+				</node>
+				<edge id="e0" source="a0" target="a1"/>
+				<edge id="e1" source="a1" target="a2"/>
+				<edge id="e2" source="a2" target="a3"/>
+			</graph>
+		</node>
+
+		<node id="cluster_1:">
+			<graph id="cluster_1">
+				<data key="color">blue</data>
+				<data key="label">process #2</data>
+				<node id="b0">
+					<data key="style">filled</data>
+				</node>
+				<node id="b1">
+					<data key="style">filled</data>
+				</node>
+				<node id="b2">
+					<data key="style">filled</data>
+				</node>
+				<node id="b3">
+					<data key="style">filled</data>
+				</node>
+				<edge id="e3" source="b0" target="b1"/>
+				<edge id="e4" source="b1" target="b2"/>
+				<edge id="e5" source="b2" target="b3"/>
+			</graph>
+		</node>
+		
+		<node id="start">
+			<data key="shape">Mdiamond</data>
+		</node>
+		<node id="end">
+			<data key="shape">Mdiamond</data>
+		</node>
+		
+		<edge id="e6" source="start" target="a0"/>
+		<edge id="e7" source="start" target="b0"/>
+		<edge id="e8" source="a1" target="b3"/>
+		<edge id="e9" source="b2" target="a3"/>
+		<edge id="eA" source="a3" target="a0"/>
+		<edge id="eB" source="a3" target="end"/>
+		<edge id="eC" source="b3" target="end"/>
+	</graph>
+</graphml>

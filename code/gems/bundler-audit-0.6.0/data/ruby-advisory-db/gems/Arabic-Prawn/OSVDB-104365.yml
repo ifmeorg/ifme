@@ -1,0 +1,12 @@
+---
+gem: Arabic-Prawn
+cve: 2014-2322
+osvdb: 104365
+url: http://osvdb.org/show/osvdb/104365
+title: Arabic Prawn Gem for Ruby lib/string_utf_support.rb User Input Handling Remote Command Injection
+date: 2014-03-10
+description: |
+  Arabic Prawn Gem for Ruby contains a flaw in the lib/string_utf_support.rb
+  file. The issue is due to the program failing to sanitize user input. This may
+  allow a remote attacker to inject arbitrary commands.
+cvss_v2: 7.5

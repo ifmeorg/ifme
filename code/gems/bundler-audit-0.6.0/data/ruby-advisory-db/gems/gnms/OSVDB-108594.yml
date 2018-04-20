@@ -1,0 +1,7 @@
+---
+gem: gnms
+osvdb: 108594
+url: http://osvdb.org/show/osvdb/108594
+title: gnms Gem for Ruby /lib/cmd_parse.rb ip Variable Shell Metacharacter Handling Remote Command Injection
+date: 2014-06-30
+description: gnms Gem for Ruby contains a flaw in /lib/cmd_parse.rb that is triggered when handling shell metacharacters passed via the 'ip' variable. This may allow a remote attacker to inject arbitrary commands.

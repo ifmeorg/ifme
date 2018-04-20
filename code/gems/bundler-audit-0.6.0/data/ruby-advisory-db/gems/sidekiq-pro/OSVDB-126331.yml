@@ -1,0 +1,14 @@
+---
+gem: sidekiq-pro
+osvdb: 126331
+url: https://github.com/mperham/sidekiq/commit/651400ed8f237118346895c99dc28ca94f3169d3
+title: Sidekiq Pro Gem for Ruby CSRF in Job Filtering
+date: 2015-07-17
+description: |
+  Sidekiq::Web job filtering lacks CSRF protection. This issue
+  is related to OSVDB-125675.
+patched_versions:
+  - ">= 2.0.6"
+related:
+  osvdb:
+    - 125675

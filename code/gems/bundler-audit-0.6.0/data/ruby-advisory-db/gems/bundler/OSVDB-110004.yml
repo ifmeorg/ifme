@@ -1,0 +1,15 @@
+---
+gem: bundler
+cve: 2013-0334
+osvdb: 110004
+url: http://www.osvdb.org/show/osvdb/110004
+title: Bundler Gem for Ruby Multiple Top-level Source Lines Gemfile Handling Gem Installation Spoofing
+date: 2014-08-13
+description: |
+  Bundler Gem for Ruby contains a flaw that is triggered when handling
+  a gemfile that contains multiple top-level source lines. This may allow a
+  context-dependent attacker to install specially crafted gems on a remote
+  system, leading to arbitrary code execution.
+cvss_v2: 5.0
+patched_versions:
+  - ">= 1.7.0"

@@ -1,0 +1,11 @@
+---
+gem: cremefraiche
+cve: 2013-2090
+osvdb: 93395
+url: http://osvdb.org/show/osvdb/93395
+title: Creme Fraiche Gem for Ruby File Name Shell Metacharacter Injection Arbitrary Command Execution
+date: 2013-05-14
+description: Creme Fraiche Gem for Ruby contains a flaw that is due to the program failing to properly sanitize input in file names. With a specially crafted file name that contains shell metacharacters, a context-dependent attacker can execute arbitrary commands
+cvss_v2: 9.3
+patched_versions:
+  - ">= 0.6.1"

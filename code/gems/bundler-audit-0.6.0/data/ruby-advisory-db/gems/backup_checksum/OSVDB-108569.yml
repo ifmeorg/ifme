@@ -1,0 +1,12 @@
+---
+gem: backup_checksum
+cve: 2014-4993
+osvdb: 108569
+url: http://osvdb.org/show/osvdb/108569
+title: backup_checksum Gem for Ruby /lib/backup/cli/utility.rb Process List Local Plaintext Password Disclosure
+date: 2014-06-30
+description: |
+  backup_checksum Gem for Ruby contains a flaw in /lib/backup/cli/utility.rb
+  that is triggered as the program displays password information in plaintext
+  in the process list. This may allow a local attacker to gain access to
+  password information.

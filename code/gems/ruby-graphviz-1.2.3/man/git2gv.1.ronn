@@ -1,0 +1,40 @@
+git2gv(1) - show your git commits graphically
+=============================================
+
+## SYNOPSIS
+
+`git2gv` [`-T`<format>] [`-o`<file>] [`-h`] [`-V`]
+
+## DESCRIPTION
+
+`git2gv` is a tool that allows you to show your git commits
+graphically.
+
+See </usr/share/doc/ruby-graphviz/> for more details.
+
+## OPTIONS
+
+ * `-T`, `--output-format` [<format>]:
+ 	 Output format (default: png)
+
+ * `--nothugly`:
+ 	 Use nothugly if SVG output
+
+ * `-o`, `--output-file` [<file>]:
+ 	 Path to output image file (default: STDOUT)
+
+ * `-p`, `--path`:
+ 	 Graphviz path
+
+ * `-V`, `--version`:
+ 	 Show version
+
+ * `-h`, `--help`:
+ 	 Show this usage message
+
+## AUTHOR
+
+Copyright 2004-2014 Gregoire Lejeune
+
+This manual page is written by Praveen Arimbrathodiyl <praveen@debian.org> for
+Debian GNU System (GNU/Linux, GNU/kFreeBSD, GNU/Hurd).
