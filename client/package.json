@@ -21,6 +21,7 @@
     "client/node_modules"
   ],
   "dependencies": {
+    "@rails/webpacker": "^3.4.3",
     "babel-polyfill": "^6.23.0",
     "babel-runtime": "^6.23.0",
     "chart.js": "^2.6.0",
@@ -39,7 +40,7 @@
     "react-dom": "^15.5.4",
     "react-intl": "^2.1.5",
     "react-lazyload": "^2.3.0",
-    "react-on-rails": "8.0.6",
+    "react-on-rails": "9.0.3",
     "redux": "^3.7.2",
     "shortid": "^2.2.8",
     "superagent": "^3.5.2"
@@ -97,6 +98,7 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^0.6.2",
     "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.11.1",
     "webpack-manifest-plugin": "^1.1.0",
     "yml-loader": "^2.1.0"
   }

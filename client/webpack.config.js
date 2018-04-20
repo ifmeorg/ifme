@@ -19,8 +19,8 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
 const configPath = resolve('..', 'config');
-const { devBuild, manifest, webpackOutputPath, webpackPublicOutputDir } =
-  webpackConfigLoader(configPath);
+const devBuild = process.env.NODE_ENV !== 'production';
+const { output } = webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -51,10 +51,11 @@ const config = Object.assign(baseConfig, {
   output: {
     // Name comes from the entry section.
     filename: `${outputFilename}.js`,
+    chunkFilename: `${outputFilename}.chunk.js`,
 
     // Leading slash is necessary
-    publicPath: `/${webpackPublicOutputDir}`,
-    path: webpackOutputPath,
+    publicPath: `/${output.publicPath}`,
+    path: output.path,
   },
 
   plugins: [
@@ -62,8 +63,8 @@ const config = Object.assign(baseConfig, {
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false,
     }),
-    new ManifestPlugin({ fileName: manifest, writeToFileEmit: true }),
     extractCSS,
+    new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
   ].concat(devBuild ? [] : [
     new UglifyJsPlugin({
       sourceMap: false,
