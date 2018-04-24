@@ -14,7 +14,8 @@
     "lint": "yarn lint:flow && yarn lint:eslint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "start": "yarn storybook"
+    "start": "yarn storybook",
+    "postinstall": "npm rebuild node-sass"
   },
   "cacheDirectories": [
     "node_modules",
