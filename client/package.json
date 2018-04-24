@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "start": "yarn storybook",
-    "postinstall": "npm rebuild node-sass"
+    "heroku-postbuild": "npm rebuild node-sass"
   },
   "cacheDirectories": [
     "node_modules",
