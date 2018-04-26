@@ -4,8 +4,8 @@ import React from 'react';
 import { AreaChart, LineChart } from 'react-chartkick';
 
 type chartShape = {
-  xtitle: string,
-  ytitle: string,
+  xtitle?: string,
+  ytitle?: string,
   data?: Object | any[],
   chartType: "Line" | "Area",
 };
