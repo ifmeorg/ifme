@@ -2,11 +2,12 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
 
+import { defaultMessages } from 'libs/i18n/default';
+import { availableLocalesAsSelectOptions } from 'libs/i18n/I18nUtils';
+
 import Connect from './Connect';
 import DropdownGhostSmall from '../Dropdown/DropdownGhostSmall';
 import Ifme from './Ifme';
-import { defaultMessages } from 'libs/i18n/default';
-import { availableLocalesAsSelectOptions } from 'libs/i18n/I18nUtils';
 import Resources from './Resources';
 
 import css from './Footer.scss';

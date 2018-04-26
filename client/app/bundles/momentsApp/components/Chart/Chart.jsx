@@ -27,8 +27,8 @@ const Chart = ({ chartType, ...props }: chartShape) => (
 );
 Chart.displayname = 'Chart';
 Chart.defaultProps = {
-  xTitle: '',
-  yTitle: '',
+  xtitle: '',
+  ytitle: '',
   data: {},
 };
 

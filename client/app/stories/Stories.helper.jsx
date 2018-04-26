@@ -15,6 +15,6 @@ const SingleColumnLayout: StatelessFunctionalComponent<SingleColumnLayoutProps> 
     </Row>
   );
 
-export {
+export default {
   SingleColumnLayout,
 };

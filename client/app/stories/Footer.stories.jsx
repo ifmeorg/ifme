@@ -6,5 +6,5 @@ import Footer from 'bundles/shared/components/Footer/Footer';
 
 storiesOf('Footer', module)
   .add('View', () => (
-    <Footer onChange={action('Footer.onChange')}  />
+    <Footer onChange={action('Footer.onChange')} />
   ));
