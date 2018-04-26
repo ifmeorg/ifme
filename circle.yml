@@ -2,7 +2,7 @@ machine:
   ruby:
     version: 2.3.4
   node:
-    version: 6
+    version: 8.11.1
 
 dependencies:
   cache_directories:
