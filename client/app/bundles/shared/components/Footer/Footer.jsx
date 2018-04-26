@@ -1,13 +1,15 @@
 // @flow
 import React from 'react';
 import { injectIntl } from 'react-intl';
+
+import Connect from './Connect';
+import DropdownGhostSmall from '../Dropdown/DropdownGhostSmall';
+import Ifme from './Ifme';
 import { defaultMessages } from 'libs/i18n/default';
 import { availableLocalesAsSelectOptions } from 'libs/i18n/I18nUtils';
-import css from './Footer.scss';
 import Resources from './Resources';
-import Connect from './Connect';
-import Ifme from './Ifme';
-import DropdownGhostSmall from '../Dropdown/DropdownGhostSmall';
+
+import css from './Footer.scss';
 
 const we = defaultMessages.sharedFooterLicenseWe;
 const foss = defaultMessages.sharedFooterLicenseFoss;
@@ -16,13 +18,18 @@ const licenseName = defaultMessages.sharedFooterLicenceName;
 
 type FooterProps = {
   intl: Object,
-  onChange: (locale: string) => void,
+  onChange?: (locale: string) => void,
 }
 
-const TableCell = (props: { children: any }) => (<div className={`${css.table_cell}`}>{props.children}</div>);
+const TableCell = ({ children, className }: any) => (
+  <div className={`${css.table_cell} ${className || ''}`}>
+    {children}
+  </div>
+);
 
-const Footer = injectIntl(({ intl, onChange }: FooterProps) => {
+const Footer = injectIntl(({ intl, onChange = () => {} }: FooterProps) => {
   const { formatMessage } = intl;
+  const changeHandler = ({ target }) => onChange(target.value);
   return (
     <div className={css.footer}>
       <div className={css.table}>
@@ -38,7 +45,7 @@ const Footer = injectIntl(({ intl, onChange }: FooterProps) => {
           </div>
           <div className={`${css.table_cell} ${css.dropdown}`}>
             <DropdownGhostSmall
-              onChange={onChange}
+              onChange={changeHandler}
               options={availableLocalesAsSelectOptions}
               value={intl.locale}
             />

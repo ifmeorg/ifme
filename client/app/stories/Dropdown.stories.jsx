@@ -1,4 +1,5 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
 import {
@@ -10,11 +11,11 @@ import { availableLocalesAsSelectOptions as localeOptions } from 'libs/i18n/I18n
 
 storiesOf('Dropdown', module)
   .add('DropdownGhost', () => (
-    <DropdownGhost options={localeOptions} />
+    <DropdownGhost options={localeOptions} onChange={action('DropdownGhost.onChange')} />
   ))
   .add('DropdownGhostSmall', () => (
-    <DropdownGhostSmall options={localeOptions} />
+    <DropdownGhostSmall options={localeOptions} onChange={action('DropdownGhostSmall.onChange')} />
   ))
   .add('DropdownFillSmall', () => (
-    <DropdownFillSmall options={localeOptions} />
+    <DropdownFillSmall options={localeOptions} onChange={action('DropdownFillSmall.onChange')} />
   ));

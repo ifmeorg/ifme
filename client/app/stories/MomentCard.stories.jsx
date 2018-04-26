@@ -1,11 +1,11 @@
 import 'font-awesome/scss/font-awesome.scss';
-import React from 'react';
 import { Row, Col } from 'antd';
+import React from 'react';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
 import MomentCard from 'bundles/momentsApp/components/MomentCard';
 
-const fn = () => {};
 const tripleColumnize = (card) => {
   const cardAndCol = key => (
     <Col key={key} span={8}>
@@ -20,13 +20,13 @@ const tripleColumnize = (card) => {
 };
 
 storiesOf('MomentCards', module)
-  .add('MomentCard', () => (
+  .add('MomentCardDated', () => (
     tripleColumnize(
       <MomentCard
         action={{
-          edit: fn,
-          delete: fn,
-          viewer: fn,
+          edit: action('MomentCardDated.edit.onClick'),
+          delete: action('MomentCardDated.delete.onClick'),
+          viewer: action('MomentCardDated.viewer.onClick'),
         }}
         item={{
           name: 'Real Moment',
@@ -37,11 +37,11 @@ storiesOf('MomentCards', module)
       />,
     )
   ))
-  .add('MomentCardExample', () => (
+  .add('MomentCardNoDate', () => (
     tripleColumnize(
       <MomentCard
         action={{
-          viewer: fn,
+          viewer: action('MomentCardNoDate.viewer.onClick'),
         }}
         item={{
           name: 'Example Moment: Panicking over interview tomorrow!',
@@ -56,9 +56,9 @@ storiesOf('MomentCards', module)
       <MomentCard
         cardType="Draft"
         action={{
-          edit: fn,
-          delete: fn,
-          viewer: fn,
+          edit: action('MomentCardDraft.edit.onClick'),
+          delete: action('MomentCardDraft.delete.onClick'),
+          viewer: action('MomentCardDraft.viewer.onClick'),
         }}
         item={{
           name: 'Real Moment',

@@ -2,8 +2,6 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import 'bundles/shared/components/_global.scss';
-
 import Logo, { LogoSmall } from 'bundles/shared/components/Logo';
 
 storiesOf('Logo', module)

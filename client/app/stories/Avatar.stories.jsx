@@ -6,10 +6,6 @@ import photoJulia from 'app/assets/images/contributors/julia_nguyen.jpg';
 import photoTara from 'app/assets/images/contributors/tara_swenson.jpg';
 import Avatar from 'bundles/shared/components/Avatar';
 
-import { setupStorybookDecorators } from './Stories.helper';
-
-setupStorybookDecorators();
-
 storiesOf('Avatar', module)
   .add('With name', () => (
     <Row>

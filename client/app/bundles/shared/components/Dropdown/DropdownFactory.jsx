@@ -1,5 +1,7 @@
 // @flow
 import React from 'react';
+import shortid from 'shortid';
+
 import css from './Dropdown.scss';
 
 type Option = {
@@ -16,19 +18,28 @@ type Props = {
 
 const DropdownFactory = (variationClassName: string) => {
   const DropdownComponent = ({ onChange, options, value: propValue }: Props) => (
-    <select className={`${css.dropdown} ${variationClassName}`} onChange={onChange} value={propValue}>
+    <select
+      className={`${css.dropdown} ${variationClassName}`}
+      onChange={onChange}
+      value={propValue}
+    >
       {options.map(({ key, label, value }: Option) => (
-        <option key={key || (value !== null && value !== undefined ? value : label)} value={value}>
+        <option
+          key={key || shortid.generate()}
+          value={value}
+        >
           {label}
         </option>
       ))}
     </select>
   );
+
   DropdownComponent.defaultProps = {
     onChange: () => {},
     options: [],
     value: undefined,
   };
+
   return DropdownComponent;
 };
 

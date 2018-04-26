@@ -12,6 +12,8 @@ storiesOf('I18N', module)
   .add('Message with variable', () => (
     <div>
       <TitleComponent count={15} />
-      <FormattedMessage id="pages.home.not_signed_in.main_message_one" />
+      <p>
+        <FormattedMessage id="pages.home.not_signed_in.main_message_one" />
+      </p>
     </div>
   ));
