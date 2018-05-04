@@ -70,7 +70,7 @@ de:
      location: "Ort"
      description: 'Beschreibung'
      error_explanation: 'Bitte fülle die markierten Felder aus!'
-     press_enter: 'Drücke ENTER zum hinzufügen'
+     press_enter: 'Drücke ENTER zum Hinzufügen'
    time_ago: "Vor %{date}"
    write_to_us: "schreibe uns"
 
@@ -80,7 +80,7 @@ de:
   posting: 'Kommentar wird veröffentlicht...'
   allow_comments: 'Kommentare erlauben?'
   hint: 'Nur du und Betrachter können kommentieren'
-  control: 'Kontrolliere wer dies sehen und kommentieren kann'
+  control: 'Kontrolliere, wer dies sehen und kommentieren kann'
 
  account:
   singular: 'Konto'
@@ -150,7 +150,7 @@ de:
    available_groups: 'Verfügbare Gruppen'
    joined_groups: 'Beigetretenen Gruppen'
    leader: '(Administrator)'
-   instructions: "Du bist noch keiner Gruppe beigetreten, aber du kannst hier klicken %{icon} um eine zu erstellen!"
+   instructions: "Du bist noch keiner Gruppe beigetreten, aber du kannst hier klicken %{icon}, um eine zu erstellen!"
   join_success: 'Du bist dieser Gruppe beigetreten.'
   leave:
     error: 'Du kannst diese Gruppe nicht verlassen, da du der einzige Administrator bist.'
@@ -171,7 +171,7 @@ de:
   mailer:
    html:
     app_description: "%{app_name} ist eine Community, die Leute ermutigt, ihre mentalen Erlebnisse mit Nahestehenden zu teilen."
-    no_reply: "Du kannst nicht auf diese E-Mail antworten.. Solltest du Fragen oder Anregungen haben, bitte sende eine E-Mail an %{email}!"
+    no_reply: "Du kannst nicht auf diese E-Mail antworten. Solltest du Fragen oder Anregungen haben, bitte sende eine E-Mail an %{email}!"
   title:
    reset_password: Das Passwort zurücksetzen
 
@@ -335,7 +335,7 @@ de:
     new_group_body: "<p>%{user} hat die Gruppe \"%{group}\" erstellt:</p><p><i>%{description}</i></p><p>Um mehr zu erfahren oder beizutreten, %{link}!</p>"
     new_group_member_subject: "if me | %{user} ist der Gruppe \"%{group}\" beigetreten"
     add_group_leader_you_subject: "if me | Du bist nun Administrator der Gruppe \"%{group}\""
-    add_group_leader_subject: "if me | %{user} ist nun Administrator der Gruppe \" %{group}\""
+    add_group_leader_subject: "if me | %{user} ist nun Administrator der Gruppe \"%{group}\""
     add_remove_group_leader_body: "<p>Um die Gruppe \"%{group}\" zu sehen, %{link}!</p>"
     remove_group_leader_you_subject: "if me | Du bist nicht mehr Administrator der Gruppe \"%{group}\""
     remove_group_leader_subject: "if me | %{user} ist nicht mehr Administrator der Gruppe \"%{group}\""
@@ -359,7 +359,7 @@ de:
     main_message_one: "%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauenswürdigen Personen zu teilen."
     message_text_one: "Vertrauenswürdige Helfer sind Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit."
     main_message_two: "Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen."
-    message_text_two: "Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class=\"subtitle block\">\"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund ist, warum dieses ein Open Source-Projekt  ist.</p>"
+    message_text_two: "Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class=\"subtitle block\">\"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund ist, warum dieses ein Open Source-Projekt ist.</p>"
     main_message_three: "Möchtest du uns finanziell unterstützen?"
     message_text_three: "Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>"
     linebreak: 'Linebreak'
@@ -426,11 +426,11 @@ de:
     user_data: 'Benutzerdaten'
     user_data_description: '<p>Benutzer werden ermutigt, einige ihrer persönlichen Lebenserfahrungen (mittels des "Momente"-Features) sowie Informationen bzgl. ihrer Arzneimitteleinnahme mit uns zu teilen. Daten dieses "Momente"-Features werden mit anderen vom Benutzer ausgewählten Personen geteilt. Daten des "Arzneimittel"-Features sind nur für den Benutzer sichtbar. Keiner der beiden Datensätze wird darüber hinaus für andere Zwecke verwendet und nicht an Dritte weitergegeben.</p><p>Die Anwendung beinhaltet ebenfalls Daten bzgl. Selbsthilfegruppen und Strategien, geistige Gesundheitsprobleme zu bewältigen. Diese Daten sind nur Benutzern zugänglich, denen die Erlaubnis zur Einsicht dieser Daten erteilt wurde. Daten beider Features können öffentlich gemacht werden, um sie aktuellen und zukünftigen Benutzer zu präsentieren. Benutzeridentitäten werden jedoch geheim gehalten.</p>'
     cookies: 'Verwendung von Cookies'
-    cookies_description: "<p>Diese Webseite benutzt Cookies, um die Benutzererfahrung auf dieser Webseite zu verbessern. Wo es angemessen ist, verwendet diese Webseite ein Cookie Kontrollsystem, das es Benutzern bei ihrem ersten Besuch ermöglicht, die Benutzung von Cookies auf diesem Computer/Gerät zuzulassen oder abzulehnen.</p><p>Cookies sind kleine Dateien, die auf der Festplatte des Benutzers gespeichert werden und beinhaltet Informationen zur Interaktion und Benutzung der Webseite. Dies ermöglicht der Webseite mithilfe des Servers dem Benutzer ein maßgeschneidertes Nutzungerlebnis anzubieten.</p><p>Benutzern wird empfohlen, dass wenn die Benutzung und das Speichern von Cookies dieser Webseite auf ihrer Festplatte nicht erwünscht ist, die notwendigen Schritte in den Sicherheitseinstellung ihres Web-Browsers vorzunehmen, um alle Cookies dieser Webseite und der dazugehörigen externen Servicedienstleister zu blockieren.</p><p>Diese Webseite verwendet Tracking-Software, um das Benutzerverhalten zu analysieren und besser zu verstehen, wie dieses verbessert werden kann. Diese Software wird von Google Analytics zur Verfügung gestellt, welche Cookies benutzt, um das Benutzerverhalten zu analysieren. Die Software speichert ein Cookie auf der Festplatte deines Computers, um dein Verhalten während der Benutzung dieser Webseite aufzuzeichnen und zu analyiseren, jedoch ohne dieses zu speichern oder persönliche Informationen zu sammeln. Für weitere Informationen kannst du dir %{google_privacy_policy} ansehen.</p>"
+    cookies_description: "<p>Diese Webseite benutzt Cookies, um die Benutzererfahrung auf dieser Webseite zu verbessern. Wo es angemessen ist, verwendet diese Webseite ein Cookie Kontrollsystem, das es Benutzern bei ihrem ersten Besuch ermöglicht, die Benutzung von Cookies auf diesem Computer/Gerät zuzulassen oder abzulehnen.</p><p>Cookies sind kleine Dateien, die auf der Festplatte des Benutzers gespeichert werden und beinhaltet Informationen zur Interaktion und Benutzung der Webseite. Dies ermöglicht der Webseite mithilfe des Servers dem Benutzer ein maßgeschneidertes Nutzungerlebnis anzubieten.</p><p>Benutzern wird empfohlen, dass wenn die Benutzung und das Speichern von Cookies dieser Webseite auf ihrer Festplatte nicht erwünscht ist, die notwendigen Schritte in den Sicherheitseinstellungen ihres Web-Browsers vorzunehmen, um alle Cookies dieser Webseite und der dazugehörigen externen Servicedienstleister zu blockieren.</p><p>Diese Webseite verwendet Tracking-Software, um das Benutzerverhalten zu analysieren und besser zu verstehen, wie dieses verbessert werden kann. Diese Software wird von Google Analytics zur Verfügung gestellt, welche Cookies benutzt, um das Benutzerverhalten zu analysieren. Die Software speichert ein Cookie auf der Festplatte deines Computers, um dein Verhalten während der Benutzung dieser Webseite aufzuzeichnen und zu analyiseren, jedoch ohne dieses zu speichern oder persönliche Informationen zu sammeln. Für weitere Informationen kannst du dir %{google_privacy_policy} ansehen.</p>"
     social_media: 'Social Media Plattformen'
     social_media_description: '<p>Jegliche Art von Kommunikation, Handlung oder Tätigkeit, die durch eine externe Social Media-Plattform durchgeführt wird, die von dieser Webseite ausgeht beruhen auf den allgemeinen Geschäftsbedingungen sowie der Datenschutzrichtlinien der jeweiligen Plattform.</p><p>Benutzern wird geraten, Social Media-Plattformen mit Vorsicht zu genießen und auf diesen mit der erforderlichen Sorgfalt bzgl. der entsprechenden Datenschutzrichtlinien und ihrer eigenen Privatsphäre zu handeln und agieren. Diese Webseite fragt niemald nach persönlichen oder sensiblen Informationen durch Social Media-Netzwerken oder fordert Benutzer dazu auf, sensible Daten preiszugeben oder die Kommunikation auf andere Kanäle wie Telefon oder E-Mail auszuweiten.</p><p>Diese Webseite setzt in einigen Fällen Social Media-Elemente ein, die Benutzer zum Teilen von Inhalten in den entsprechenen Netzwerken verwenden können. Benutzern wird geraten, beim Teilen von Inhalten in Social Media-Netzwerken Diskretion zu bewahren und Nutzer sollten sich bewusst sein, dass einige Social Media-Netzwerke deine Anfrage zum Teilen von Inhalten mittels deines Social Media-Kontos der entsprechenden Plattform weiterverfolgen und weitergeben können.</p>'
     contact: 'Kontaktiere uns'
-    contact_description: "<p>Bitte %{email_link} wenn du irgendwelche Fragen oder Anregungen hast.</p><p class=\"no_margin_bottom\"><em>Datenschutzrichtlinie angepasst von %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Bitte %{email_link}, wenn du irgendwelche Fragen oder Anregungen hast.</p><p class=\"no_margin_bottom\"><em>Datenschutzrichtlinie angepasst von %{jamie_king_media}.</em></p>"
   resources:
     description: "Willkommem zu unserer gepflegten Sammlung zum Thema geistige Gesundheit, zusammengestellt durch %{communities}, %{education}, %{hotlines} und %{services}."
     communities: Communities
@@ -587,7 +587,7 @@ de:
   index:
    subtitle: 'Erstelle einen Plan zur Selbsthilfe, um eine neue Einstellung und Herangehensweise für diesen Moment zu erarbeiten.'
    premade1_name: 'Fünf Minuten meditieren'
-   premade1_description: '1) <b>Finde eine entspannte und komfortable Position.</b> Du kannst auf einem Stuhl sitzen, oder mit einem Kissen auf dem Boden. Halte deinen Rücken gerade, aber nicht zu steif. Deine Hände kannst du ausruhen, wo es dir am bequemsten ist. Die Zunge liegt am Gaumen oder woimmer es am angenehmsten ist.<br><br>2) <b>Spüre und entspannte deinen Körper.</b> Versuche, dich auf die Form deines Körpers zu konzentieren, sowie sein Gewicht. Entspanne dich und folge neugierig deinem Körper in seiner Sitzhaltung—Die Empfindungen, die du wahrnimmst, der Kontakt, mit dem Boden oder dem Stuhl, auf dem du sitzt. Entspanne die Regionen des Körpers, die sich angespannt steif anfühlen. Atme durch.<br><br>3) <b>Konzentriere dich auf deinen Atem.</b> Spüre das natürliche Auf und Ab des Atems. Du musst nichts weiter tun, als dich auf deinen Atem zu konzentrieren. Nicht zu lang, nicht zu kurz, aber ganz mühelos. Spüre, wo du den Atem in deinem Körper wahrnimmst. Vielleicht im Bauchraum. Vielleicht im Brustbereich, im Hals oder in der Nase. Versuche, den Atem mit allen Sinnen wahrzunehmen, ein Atemzug nach dem anderen. Wenn ein Atemzug endet, so beginnt darauf der nächste.<br><br>4) <b>Sei nicht zu streng mit deinem regsamen Geist.</b> Jetzt wo du mittendrin bist, bemerkst du vielleicht, wie deine Gedanken zu wandern beginnen. Vielleicht lässt es sich von anderen Dingen ablenken. Wenn das passiert, ist das kein Problem. Das ist ganz normal. Nimm einfach zur Kenntnis, dass du abgelenkt wurdest. Du kannst in Gedanken die Worte “nachdenklich“ oder “abschweifend” wiederholen. Und dann kannst du deine Konzentration behutsam auf das Atmen zurücklenken.<br><br>5) <b>Verbleibe in diesem Zustand für fünf bis sieben Minuten.</b> Nimm in aller Ruhe deinen Atem war. Von Zeit zu Zeit wirst du gedanklich abgelenkt werden. Bring dann deine Konzentration einfach wieder auf den Atem zurück.<br><br>6) <b>Gehe tief in dich, bevor du zum Ende kommst.</b> Nach ein paar Minuten nimm noch einmal deinen ganzen Körper wahr, sitzend und ruhend. Entspanne dich ein letztes Mal so tief wie du kannst und dann klopf dir gerne auf die Schulter dafür, dass du diese Übung heute durchgeführt hast.<br><br><i>Auszug von http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+   premade1_description: '1) <b>Finde eine entspannte und komfortable Position.</b> Du kannst auf einem Stuhl sitzen oder mit einem Kissen auf dem Boden. Halte deinen Rücken gerade, aber nicht zu steif. Deine Hände kannst du ausruhen, wo es dir am bequemsten ist. Die Zunge liegt am Gaumen oder woimmer es am angenehmsten ist.<br><br>2) <b>Spüre und entspannte deinen Körper.</b> Versuche, dich auf die Form deines Körpers zu konzentieren, sowie sein Gewicht. Entspanne dich und folge neugierig deinem Körper in seiner Sitzhaltung—Die Empfindungen, die du wahrnimmst, der Kontakt, mit dem Boden oder dem Stuhl, auf dem du sitzt. Entspanne die Regionen des Körpers, die sich angespannt steif anfühlen. Atme durch.<br><br>3) <b>Konzentriere dich auf deinen Atem.</b> Spüre das natürliche Auf und Ab des Atems. Du musst nichts weiter tun, als dich auf deinen Atem zu konzentrieren. Nicht zu lang, nicht zu kurz, aber ganz mühelos. Spüre, wo du den Atem in deinem Körper wahrnimmst. Vielleicht im Bauchraum. Vielleicht im Brustbereich, im Hals oder in der Nase. Versuche, den Atem mit allen Sinnen wahrzunehmen, ein Atemzug nach dem anderen. Wenn ein Atemzug endet, so beginnt darauf der nächste.<br><br>4) <b>Sei nicht zu streng mit deinem regsamen Geist.</b> Jetzt wo du mittendrin bist, bemerkst du vielleicht, wie deine Gedanken zu wandern beginnen. Vielleicht lässt es sich von anderen Dingen ablenken. Wenn das passiert, ist das kein Problem. Das ist ganz normal. Nimm einfach zur Kenntnis, dass du abgelenkt wurdest. Du kannst in Gedanken die Worte “nachdenklich“ oder “abschweifend” wiederholen. Und dann kannst du deine Konzentration behutsam auf das Atmen zurücklenken.<br><br>5) <b>Verbleibe in diesem Zustand für fünf bis sieben Minuten.</b> Nimm in aller Ruhe deinen Atem war. Von Zeit zu Zeit wirst du gedanklich abgelenkt werden. Bring dann deine Konzentration einfach wieder auf den Atem zurück.<br><br>6) <b>Gehe tief in dich, bevor du zum Ende kommst.</b> Nach ein paar Minuten nimm noch einmal deinen ganzen Körper wahr, sitzend und ruhend. Entspanne dich ein letztes Mal so tief wie du kannst und dann klopf dir gerne auf die Schulter dafür, dass du diese Übung heute durchgeführt hast.<br><br><i>Auszug von http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
    instructions: "Du hast noch keine eigenen Strategien erstellt. Klicke %{icon}, um welche hinzuzufügen!<br>Du kannst ebenfalls die folgenden vorgefertigen Strategien verwenden und zu einem späteren Zeipunkt anpassen."
   reminder_mailer:
     subject: "Vergiss nicht, an %{name} zu denken!"
@@ -635,7 +635,7 @@ de:
     edit:
       confirmation: "Mein Passwort bestätigen"
     new:
-      send_instructions: "Sende mir Anweisungen, um meine Passwort zurückzusetzen"
+      send_instructions: "Sende mir Anweisungen, um mein Passwort zurückzusetzen"
 
   registrations:
     email_notifications: "Email-Benachrichtigungen"
@@ -656,7 +656,7 @@ de:
         update: "Aktualisieren"
       placeholders:
         optional: "Optional"
-        about: "Stelle dich vor! Warum bist du hier, und was möchtest du erreichen? Bitte beachte, dass andere Benutzer diese Information sehen können"
+        about: "Stelle dich vor! Warum bist du hier und was möchtest du erreichen? Bitte beachte, dass andere Benutzer diese Information sehen können"
         required: "Erforderlich"
       delete:
         text: "Ist <strong>if me</strong> nicht das richtige für dich?"
