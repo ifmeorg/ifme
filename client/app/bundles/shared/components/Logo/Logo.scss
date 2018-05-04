@@ -1,4 +1,4 @@
-@import "base.scss";
+@import "../base.scss";
 
 .container {
   display: inline-block;
@@ -19,12 +19,6 @@
   text-align: center;
   outline: 0;
 
-  /* TODO: Need to switch to use container queries instead of media queries */
-  @media screen and (max-width: $small) {
-    font-size: $font20;
-    line-height: $font20;
-  }
-
   &.small {
     font-size: $font20;
     line-height: $font20;
@@ -36,8 +30,8 @@
 
   .me {
     display: inline-block;
-    border-bottom: 0.11ex solid $highlight-text-color;
-    border-top: 0.11ex solid $highlight-text-color;
+    border-bottom: 0.15ex solid $highlight-text-color;
+    border-top: 0.15ex solid $highlight-text-color;
     color: $highlight-text-color;
     margin: 0 0 0 0.5ex;
     padding: 0 0 0.55ex;

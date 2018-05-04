@@ -1,6 +1,8 @@
 // @flow
 import ReactOnRails from 'react-on-rails';
 
+import 'app/assets/stylesheets/base/_font-face.scss';
+
 import Chart from '../components/Chart';
 import ChartControl from '../components/ChartControl';
 

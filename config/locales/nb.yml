@@ -3,10 +3,10 @@ nb:
  app_description: 'er et samfunn for mental helse opplevelser'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
- created: '<strong>Opprettet:</strong> %{created_at}'
+ created: 'Opprettet %{created_at}'
  draft: "Utkast"
- edited: '<strong>Opprettet:</strong> %{created_at} <em>(redigert)</em>'
- edited_updated_at: '<strong>Opprettet:</strong> %{created_at} <em>(redigert %{updated_at})</em>'
+ edited: 'Opprettet %{created_at} (redigert)'
+ edited_updated_at: 'Opprettet %{created_at} (redigert %{updated_at})'
  salutation: "Hei %{name},"
  click_here: "klikk her"
  less: " [Mindre]"
@@ -468,7 +468,7 @@ nb:
       social_justice: sosial rettferdighet
       tech_industry: IT-bransjen
       meditation: meditasjon
-      social_anxiety: sosial angst 
+      social_anxiety: sosial angst
       trigger_warnings: avtrekkelsesadvarsler
       netflix: netflix
       homeless: uteligger

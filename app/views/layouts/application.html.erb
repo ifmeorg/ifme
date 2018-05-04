@@ -9,11 +9,13 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Webpack Assets -->
     <%= javascript_pack_tag 'webpack-bundle' %>
     <%= stylesheet_pack_tag 'webpack-bundle' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <% if user_signed_in? %>
       <!-- Pusher -->
       <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
