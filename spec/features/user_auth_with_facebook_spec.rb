@@ -46,8 +46,7 @@ RSpec.feature "UserAuthWithFacebook", js: true, type: :feature do
   end
 
   scenario 'user signs out successfully' do
-    log_in
-
+    change_page ->{ log_in }, '#title_expand'
     within('span#title_expand') { find('i.expand').click }
     change_page(
       ->{ within('ul#expand_me') { find('a[href="/users/sign_out"]').click } },
