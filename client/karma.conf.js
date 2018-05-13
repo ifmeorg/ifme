@@ -20,16 +20,23 @@ webpackConfig.externals = {
   'react-addons-test-utils': 'react-dom',
 };
 
+function getSpecs(specList) {
+  if (specList) {
+    return specList.split(',');
+  } else {
+    return [
+      { pattern: 'app/**/*.spec.js', watched: true },
+      { pattern: 'app/**/*.spec.jsx', watched: true },
+    ];
+  }
+}
+
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
     singleRun: true,
     frameworks: ['jasmine'],
-    files: [
-      // collect all our test files
-      { pattern: 'app/**/*.spec.js', watched: true },
-      { pattern: 'app/**/*.spec.jsx', watched: true },
-    ],
+    files: getSpecs(process.env.KARMA_SPECS),
     preprocessors: {
       // make sure we run all the discovered files through webpack
       'app/**/*.js': ['webpack', 'sourcemap'],

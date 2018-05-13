@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   # before_action
+  # rubocop:disable MethodLength
   def set_locale
     @locales = [
       { name: t('languages.en'), locale: :en },
@@ -42,10 +43,12 @@ class ApplicationController < ActionController::Base
       { name: t('languages.ptbr'), locale: :ptbr },
       { name: t('languages.sv'), locale: :sv },
       { name: t('languages.it'), locale: :it },
-      { name: t('languages.nb'), locale: :nb }
+      { name: t('languages.nb'), locale: :nb },
+      { name: t('languages.vi'), locale: :vi }
     ].freeze
     @locale = I18n.locale = locale
   end
+  # rubocop:enable MethodLength
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
@@ -166,7 +169,7 @@ class ApplicationController < ActionController::Base
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
     profile_picture = ProfilePicture.fetch(profile.avatar.url,
-                                           'mini_profile_picture')
+                                           className: 'mini_profile_picture')
 
     comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
 

@@ -1,9 +1,10 @@
 // @flow
 import ReactOnRails from 'react-on-rails';
 
-import MomentCard from '../components/MomentCard';
+import Chart, { ChartControl } from '../components/Chart';
 
 // This is how react_on_rails can see the Components in the browser.
 ReactOnRails.register({
-  MomentCard,
+  Chart,
+  ChartControl,
 });

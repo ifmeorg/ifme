@@ -44,7 +44,7 @@
     <div class="label">
       <%= f.label t('devise.registrations.edit.labels.profile_picture') %>
     </div>
-    <%= ProfilePicture.fetch(resource.avatar.url, 'mini_profile_picture') %>
+    <%= ProfilePicture.fetch(resource.avatar.url, className: 'mini_profile_picture') %>
     <br>
     <%= f.file_field :avatar %>
     <% unless resource.avatar.blank? %>
@@ -65,13 +65,13 @@
       <label> <%= raw t('devise.registrations.edit.labels.password_for') %></label>
     </div>
 
-    <% if current_user.provider == "google_oauth2" %>
+    <% if current_user.provider == 'google_oauth2' %>
       <div class="small_font">
         <%= raw t('devise.registrations.google_auth2') %>
       </div>
     <% end %>
 
-    <% if current_user.provider == "facebook" %>
+    <% if current_user.provider == 'facebook' %>
       <div class="small_font">
         <%= raw t('devise.registrations.facebook_auth2') %>
       </div>

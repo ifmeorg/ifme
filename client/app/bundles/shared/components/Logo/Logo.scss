@@ -1,39 +1,70 @@
-@import "../base.scss";
+@import "../_base.scss";
 
-.container {
+.logo {
   display: inline-block;
   width: 6ex;
   height: 6ex;
   box-sizing: border-box;
 
-  background-color: $container-color;
-
-  font-family: 'Lato', sans-serif;
-  font-size: $font30;
-  line-height: $font30;
+  font-family: $font-family;
+  font-size: $title-size;
+  line-height: $title-size;
   font-weight: 300;
   text-transform: lowercase;
 
   margin: 0;
-  padding: 1.7ex 0 0;
+  padding: 0;
   text-align: center;
   outline: 0;
 
-  &.small {
-    font-size: $font20;
-    line-height: $font20;
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+  }
+
+  .if,
+  .me {
+    height: $title-size;
   }
 
   .if {
-    color: $header-text-color;
+    color: $logo-color-first;
   }
 
   .me {
     display: inline-block;
-    border-bottom: 0.15ex solid $highlight-text-color;
-    border-top: 0.15ex solid $highlight-text-color;
-    color: $highlight-text-color;
+    color: $logo-color-second;
     margin: 0 0 0 0.5ex;
-    padding: 0 0 0.55ex;
+    position: relative;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      height: 1.5 * $title-size;
+      width: 100%;
+      transform: translateY(-10%);
+      border-top: 0.15ex solid $logo-color-second;
+      border-bottom: 0.15ex solid $logo-color-second;
+    }
+  }
+
+  &.small {
+    font-size: $title-size-mobile;
+    line-height: $title-size-mobile;
+
+    .if,
+    .me {
+      height: $title-size-mobile;
+    }
+
+    .me {
+      &::before {
+        height: 1.5 * $title-size-mobile;
+      }
+    }
   }
 }

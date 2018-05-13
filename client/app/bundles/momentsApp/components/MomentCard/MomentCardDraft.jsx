@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Tag from '../../shared/components/Tag';
+import Tag from '../../../shared/components/Tag';
 import css from './MomentCard.scss';
 
 type MomentCardDraftProp = {
@@ -8,7 +8,7 @@ type MomentCardDraftProp = {
 };
 
 export default class MomentCardDraft
-  extends React.Component <MomentCardDraftProp> {
+  extends React.Component<MomentCardDraftProp> {
   render() {
     return (
       <div className={css.draft}>

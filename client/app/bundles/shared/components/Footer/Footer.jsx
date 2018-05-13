@@ -44,7 +44,12 @@ const InjectedFooter = injectIntl(({ intl, onChange }: FooterProps) => {
           </div>
           <div className={`${css.table_cell} ${css.love_foss}`}>
             <h4>{formatMessage(we)} &hearts; {formatMessage(foss)}</h4>
-            <a className={css.license} href="https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt" target="blank" >
+            <a
+              className={css.license}
+              rel="noopener noreferrer"
+              href="https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt"
+              target="_blank"
+            >
               {formatMessage(licenseSubtitle, { license: formatMessage(licenseName) })}
             </a>
           </div>

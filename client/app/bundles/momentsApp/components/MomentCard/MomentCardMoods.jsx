@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Tag from '../../shared/components/Tag';
+import Tag from '../../../shared/components/Tag';
 import css from './MomentCard.scss';
 
 type MomentCardMoodsProp = {
@@ -8,7 +8,7 @@ type MomentCardMoodsProp = {
 };
 
 export default class MomentCardMoods
-  extends React.Component <MomentCardMoodsProp> {
+  extends React.Component<MomentCardMoodsProp> {
   render() {
     const { mood } = this.props;
 

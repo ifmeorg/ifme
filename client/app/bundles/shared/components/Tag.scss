@@ -1,17 +1,24 @@
-@import "base.scss";
+@import "_legacy.scss";
+@import "_base.scss";
 
-.label {
+.tag {
+  &:last-child{
+    margin-right: 0;
+  }
+
   padding: 5px 12px;
   text-indent: 4px;
   display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
 
-  font-family: Lato;
+  font-family: $font-family;
   font-size: 10px;
   text-align: center;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 
-  border-radius: 7px;
+  border-radius: 5px;
   border: 1px solid $container-color;
 
   mix-blend-mode: normal;

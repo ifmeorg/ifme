@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import _ from 'lodash';
 import Chart from './Chart';
 
 type chartControlState = {
@@ -56,21 +55,22 @@ export default class ChartControl extends React.Component<chartControlProp, char
 
   render() {
     const { types } = this.props;
-    const buttons: any[] = [];
-    _.each(types, (value: string, index: number) => {
-      buttons.push(<ChartControlButton
-        key={index}
-        type={value}
-        onClick={this.onSelectType(value)}
-      />);
-    });
+    const { data, type } = this.state;
     return (
       <div>
-        {buttons}
+        {
+          types.map((value: string) => (
+            <ChartControlButton
+              key={value}
+              type={value}
+              onClick={this.onSelectType(value)}
+            />
+          ))
+        }
         <Chart
-          ytitle={`${this.state.type}`}
+          ytitle={`${type}`}
           xtitle="Date"
-          data={this.state.data[this.state.type]}
+          data={data[type]}
           chartType="Area"
         />
       </div>

@@ -544,16 +544,19 @@ a.highlight:hover {
 
 /* Images */
 
-img {
-  max-width: 100%;
+.avatar {
+  margin: 0;
+
+  .portrait {
+    border-color: $container-color;
+    border-width: 2px;
+    background-color: $background-color;
+  }
 }
 
-.mini_profile_picture {
+.mini_profile_picture .portrait {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  border: 2px solid $container-color;
-  object-fit: cover;
 
   @media screen and (max-width: $small) {
     width: 50px;
@@ -561,14 +564,10 @@ img {
   }
 }
 
-.contributor_picture,
-.profile_picture {
+.contributor_picture .portrait,
+.profile_picture .portrait {
   width: 55px;
   height: 55px;
-  border-radius: 50%;
-  border: 2px solid $container-color;
-  margin: 0 auto;
-  object-fit: cover;
 
   @media screen and (min-width: $small + 1) {
     width: 150px;
@@ -576,15 +575,9 @@ img {
   }
 }
 
-.home_picture {
+.home_picture .portrait {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  border: 2px solid $container-color;
-  margin: 0 auto;
-  display: block;
-  overflow: hidden;
-  object-fit: cover;
 
   @media screen and (min-width: $medium + 1) {
     width: 100px;
@@ -593,22 +586,30 @@ img {
 }
 
 .small_profile_picture_div {
-  width: 100px;
-  height: 100px;
+  width: 1px;
 
-  @media screen and (max-width: $small) {
-    width: 50px;
-    height: 50px;
+  .portrait {
+    width: 100px;
+    height: 100px;
+
+    @media screen and (max-width: $small) {
+      width: 50px;
+      height: 50px;
+    }
   }
 }
 
 .profile_picture_div {
-  width: 150px;
-  height: 150px;
+  width: 1px;
 
-  @media screen and (max-width: $small) {
-    width: 55px;
-    height: 55px;
+  .portrait {
+    width: 150px;
+    height: 150px;
+
+    @media screen and (max-width: $small) {
+      width: 55px;
+      height: 55px;
+    }
   }
 }
 
