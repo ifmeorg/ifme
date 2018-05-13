@@ -1,6 +1,6 @@
 #frozen_string_literal: true
 
-RSpec.feature "UserAuthwithFacebook", js: true, type: :feature do
+RSpec.feature "UserAuthWithFacebook", js: true, type: :feature do
   OmniAuth.config.test_mode = true
 
   def mock_auth_hash
@@ -34,25 +34,25 @@ RSpec.feature "UserAuthwithFacebook", js: true, type: :feature do
   end
 
   scenario 'successfully' do
-    log_in
-
-    expect(page).to have_content 'Hello Jane Doe!'
+    change_page ->{ log_in }, '#content', have_content('Hello Jane Doe!')
     within('span#title_expand') { find('i.expand').click }
     within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
   end
 
   scenario 'user cannot sign in with invalid account' do
     OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-    log_in
+    change_page ->{ log_in }, '.alert', have_content('Could not authenticate you from Facebook because "Invalid credentials"')
     expect(current_path).to eql(new_user_session_path)
-    expect(page).to have_content('Could not authenticate you from Facebook because "Invalid credentials"')
   end
 
   scenario 'user signs out successfully' do
     log_in
 
-     within('span#title_expand') { find('i.expand').click }
-    within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
-    expect(page).to have_content 'if me is a community for mental health experiences More communities need mental health support.'
+    within('span#title_expand') { find('i.expand').click }
+    change_page(
+      ->{ within('ul#expand_me') { find('a[href="/users/sign_out"]').click } },
+      '#page_title',
+      have_content('if me is a community for mental health experiences')
+    )
   end
 end

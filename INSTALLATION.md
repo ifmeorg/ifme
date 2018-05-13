@@ -292,10 +292,10 @@ Run `rake slugs:slugify` to update existing entries in the database with slugs
 
 Start the local server:
 ```
-bin/start_app
+yarn start
 ```
 
-To view the app, go to `http://localhost:3000`.
+To view the app, go to [`http://localhost:3000`](http://localhost:3000).
 
 To view the app on your mobile device, go to `http://[YOUR IP ADDRESS]:3000`.
 
