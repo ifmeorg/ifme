@@ -349,6 +349,7 @@ nb:
 
  omniauth:
   google: 'Google'
+  facebook: 'Facebook'
   access_denied: 'Adgang avvist'
 
  pages:
@@ -646,6 +647,8 @@ nb:
     meeting_notify_text: "Møteoppdateringer"
     google_auth1: "Hvis du ikke lenger ønsker å bli autorisert med Google, vennligst fyll inn en ny e-post og passord."
     google_auth2: "Siden du ikke er autorisert med Google trenger du ikke å taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn e-post og passord på nytt."
+    facebook_auth1: "Hvis du ikke lenger ønsker å bli autorisert med Facebook, vennligst fyll inn en ny e-post og passord."
+    facebook_auth2: "Siden du ikke er autorisert med Facebook trenger du ikke å taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn e-post og passord på nytt."
     placeholders:
       repeat_password: "Gjenta passord"
     edit:
@@ -670,6 +673,8 @@ nb:
   shared:
     sign_in_google: 'Logg inn med Google'
     sign_up_google: 'Registrer deg med Google'
+    sign_in_facebook: 'Logg inn med Facebook'
+    sign_up_facebook: 'Registrer deg med Facebook'
     confirmation: "Mottok ikke bekreftelsesinstruksjoner?"
     unlock: "Mottok ikke opplåsningsinstruksjoner?"
   unlock:
