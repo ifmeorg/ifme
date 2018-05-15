@@ -1,0 +1,26 @@
+@import "../_base.scss";
+
+.profileModal {
+  width: 910px;
+  
+  border: 1px solid black;
+
+  padding-left: 226px;
+  padding-top: 60px;
+  padding-bottom: 85px;
+
+  img {
+    float: left;
+  }
+
+  .name {
+    font-weight: $font-weight-normal;
+    font-size: 36px;
+
+    color: $mulberry-wood;
+  }
+
+  .bio {
+    width: 600px;
+  }
+}
