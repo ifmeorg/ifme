@@ -1,0 +1,17 @@
+@import "base.scss";
+.blockquote {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  font-family: Lato, sans-serif ;
+  font-size: 36px;
+  line-height: 14px;
+  font-style: italic;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px #fff inset,-1px -1px 2px #fff inset; 
+  padding: 20px;
+  color: white;
+  }
