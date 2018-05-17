@@ -7,6 +7,6 @@ import { SingleColumnLayout, withSource } from './Stories.helper';
 storiesOf('Blockquotes', module)
   .add('Blockquote', withSource(
     <SingleColumnLayout>
-      <Blockquote label={'It\'s not just all in your head, it\'s all around you. We can heal together.'} />
+      <Blockquote label={'\"It\'s not just all in your head, it\'s all around you. We can heal together.\"\u2764\uFE0F'} />
     </SingleColumnLayout>,
   ));
