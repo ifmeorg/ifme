@@ -349,7 +349,6 @@ en:
 
  omniauth:
   google: 'Google'
-  facebook: 'Facebook'
   access_denied: 'Access Denied'
 
  pages:
@@ -647,8 +646,6 @@ en:
     meeting_notify_text: "Meeting updates"
     google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
     google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
-    facebook_auth1: "If you no longer want to be authenticated with Facebook, please enter a new email and password."
-    facebook_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
     placeholders:
       repeat_password: "Repeat Password"
     edit:
@@ -673,8 +670,6 @@ en:
   shared:
     sign_in_google: 'Sign in with Google'
     sign_up_google: 'Sign up with Google'
-    sign_in_facebook: 'Sign in with Facebook'
-    sign_up_facebook: 'Sign up with Facebook'
     confirmation: "Didn't receive confirmation instructions?"
     unlock: "Didn't receive unlock instructions?"
   unlock:
