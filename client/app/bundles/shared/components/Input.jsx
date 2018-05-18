@@ -58,10 +58,10 @@ export default class Input extends React.Component<Props, State> {
       maxLength,
     } = this.props;
 
-    const labelClassNames = `${css.label} ${dark ? css.dark : ''} 
+    const labelClassNames = `${css.label} ${dark ? css.dark : ''}
       ${large ? css.large : ''} ${this.state.active ? css.active : ''}`;
 
-    const inputClassNames = `${css.input} ${dark ? css.dark : ''} 
+    const inputClassNames = `${css.input} ${dark ? css.dark : ''}
     ${large ? css.large : ''}`;
 
     return (
