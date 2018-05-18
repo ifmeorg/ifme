@@ -15,5 +15,5 @@ export default class Blockquote extends React.Component<Props> {
         {label}
       </div>
     );
-  }
+   }
 }
