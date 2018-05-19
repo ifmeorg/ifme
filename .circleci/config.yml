@@ -4,34 +4,36 @@ jobs:
     docker:
       - image: circleci/ruby:2.3.4
       - image: circleci/node:8.11.1
+    steps:
+      - checkout
+      - save_cache:
+          key: dependency-cache
+          paths:
+            - ~/.cache/yarn
+      - run: curl -L -o google-chrome.deb
+        https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - run: sudo dpkg -i google-chrome.deb
+      - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\"
+        --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+      - run: rm google-chrome.deb
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: yarn
 
-dependencies:
-  cache_directories:
-    - "~/.cache/yarn"
-  pre:
-    - curl -L -o google-chrome.deb
-      https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i google-chrome.deb
-    - sudo sed -i 's|HERE/chrome\"|HERE/chrome\"
-      --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - rm google-chrome.deb
-  override:
-    - gem install bundler
-    - bundle install --path=vendor/bundle --jobs=4 --retry=3
-    - yarn install
-
-test:
-  pre:
-    - RAILS_ENV=test bundle exec rake db:create db:schema:load
-    - cd client &&
-      RAILS_ENV=test bundle exec rake react_on_rails:locale &&
-      yarn lint:setup && yarn lint:build && yarn build:test
-  override:
-    - bundle exec rspec --format progress --format RspecJunitFormatter -o
-      $CIRCLE_TEST_REPORTS/rspec.xml
-    - RAILS_ENV=test bundle exec rake jasmine:ci
-    - bundle exec bundle-audit check --update
-    - cd client && yarn test
+  test:
+    docker:
+      - image: circleci/ruby:2.3.4
+      - image: circleci/node:8.11.1
+    steps:
+      - checkout
+      - run: bundle exec rspec --format progress --format RspecJunitFormatter -o
+          $CIRCLE_TEST_REPORTS/rspec.xml
+      - run: RAILS_ENV=test bundle exec rake jasmine:ci
+      - run: bundle exec bundle-audit check --update
+      - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - run: cd client &&
+        RAILS_ENV=test bundle exec rake react_on_rails:locale &&
+        yarn lint:setup && yarn lint && yarn build:test && yarn test
 
 deployment:
   staging:
