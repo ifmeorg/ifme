@@ -2,50 +2,90 @@ version: 2
 jobs:
   build:
     working_directory: ~/ifmeorg/ifme
+    parallelism: 1
+    shell: /bin/bash --login
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     docker:
-      - image: circleci/ruby:2.3.4
-      - image: circleci/node:8.11.1
+    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
+      command: /sbin/init
+    - image: circleci/ruby:2.3.4
+    - image: circleci/node:8.11.1
     steps:
-      - checkout
-      - save_cache:
-          key: dependency-cache
-          paths:
-            - ~/.cache/yarn
-      - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - run: sudo dpkg -i google-chrome.deb
-      - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\"
-        --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-      - run: rm google-chrome.deb
-      - run: gem install bundler
-      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: yarn
-
-  test:
-    docker:
-      - image: circleci/ruby:2.3.4
-      - image: circleci/node:8.11.1
-    steps:
-      - checkout
-      - run: bundle exec rspec --format progress --format RspecJunitFormatter -o
-          $CIRCLE_TEST_REPORTS/rspec.xml
-      - run: RAILS_ENV=test bundle exec rake jasmine:ci
-      - run: bundle exec bundle-audit check --update
-      - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cd client &&
-        RAILS_ENV=test bundle exec rake react_on_rails:locale &&
-        yarn lint:setup && yarn lint && yarn build:test && yarn test
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
-
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: ifme
+    # Machine Setup
+    - checkout
+    # Prepare for artifact and test results  collection equivalent to how it was done on 1.0.
+    # In many cases you can simplify this from what is generated here.
+    # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
+    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+    - run:
+        working_directory: ~/ifmeorg/ifme
+        command: rm -f ifmeorg/ifme/.rvmrc; echo 2.3.4 > ifmeorg/ifme/.ruby-version; rvm use 2.3.4 --default
+    - run:
+        working_directory: ~/ifmeorg/ifme
+        command: nvm install 8.11.1 && nvm alias default 8.11.1
+    # Dependencies
+    # Restore the dependency cache
+    - restore_cache:
+        keys:
+        # This branch if available
+        - v1-dep-{{ .Branch }}-
+        # Default branch if not
+        - v1-dep-master-
+        # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
+        - v1-dep-
+    - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - run: sudo dpkg -i google-chrome.deb
+    - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+    - run: rm google-chrome.deb
+    - run: gem install bundler
+    - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+    - run: rm -rf ~/.yarn
+    - run: npm i -g yarn
+    - run: yarn -v
+    - run: yarn install
+    - run: yarn
+    # Save dependency cache
+    - save_cache:
+        key: v1-dep-{{ .Branch }}-{{ epoch }}
+        paths:
+        - ~/.cache/yarn
+        - ./node_modules
+    - run: |-
+        mkdir -p config && echo 'test:
+          min_messages: error
+          database: circle_ruby_test
+          pool: 5
+          allow_concurrency: true
+          username: ubuntu
+          encoding: unicode
+          adapter: postgresql
+          host: localhost
+        ' > config/database.yml
+    - run:
+        command: bundle exec rake db:create db:schema:load --trace
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
+    # Test
+    #   This would typically be a build job when using workflows, possibly combined with build
+    - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
+    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn run lint:setup && yarn run lint && yarn run build:test
+    - run: bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
+    - run: RAILS_ENV=test bundle exec rake jasmine:ci
+    - run: bundle exec bundle-audit check --update
+    # Deployment
+    # Your existing circle.yml file contains deployment steps.
+    # The config translation tool does not support translating deployment steps
+    # since deployment in CircleCI 2.0 are better handled through workflows.
+    # See the documentation for more information https://circleci.com/docs/2.0/workflows/
+    # Teardown
+    # Save test results
+    - store_test_results:
+        path: /tmp/circleci-test-results
+    # Save artifacts
+    - store_artifacts:
+        path: /tmp/circleci-artifacts
+    - store_artifacts:
+        path: /tmp/circleci-test-results
