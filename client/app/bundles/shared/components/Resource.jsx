@@ -29,7 +29,7 @@ export default class Resource extends React.Component<Props> {
 
     return (
       <div className={`resource ${css.resource}`}>
-        <a className={css.link} href={link} target="_blank">
+        <a className={css.link} href={link} rel="noopener noreferrer" target="_blank">
           {title}
         </a>
         {authorRes}

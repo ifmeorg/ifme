@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+
 import MomentCardName from './MomentCardName';
 import MomentCardDate from './MomentCardDate';
 import MomentCardDraft from './MomentCardDraft';
@@ -20,20 +21,20 @@ type MomentCardProp = {
     mood?: Array<string>,
   },
   date: string,
-  cardType: string,
+  cardType?: string,
   draftText?: string
 };
 
 export default class MomentCard extends React.Component <MomentCardProp> {
   render() {
-    const { action, cardType, date, item, draftText } = this.props;
+    const { action, cardType = 'Normal', date, item, draftText } = this.props;
 
     return (
       <div className={css.moment}>
         <div className={css.header}>
-          { cardType === 'Draft' && <MomentCardDraft draftText={draftText} /> }
+          <MomentCardSettings action={action} />
+          {cardType === 'Draft' && <MomentCardDraft draftText={draftText} />}
           <MomentCardName name={item.name} />
-          <MomentCardSettings action={action} cardType={cardType} />
         </div>
         <MomentCardDate date={date} />
         <div className={css.tags}>

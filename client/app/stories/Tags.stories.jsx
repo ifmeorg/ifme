@@ -1,16 +1,18 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
 import Tag from 'bundles/shared/components/Tag';
+import { withSource } from './Stories.helper';
 
 storiesOf('Tags', module)
-  .add('TagGhostXs', withInfo({})(() =>
+  .add('TagGhostXs', withSource(
     <Tag label={'Self-Injury'} />,
   ))
-  .add('TagDarkXs', withInfo({})(() =>
+  .add('TagDarkXs', withSource(
     <Tag dark label={'Self-Injury'} />,
   ))
-  .add('Tag', withInfo({})(() =>
-    <Tag normal label={'Self-Injury'} />,
+  .add('Tag', withSource(
+    <div style={{ backgroundColor: '#666', padding: '24px' }}>
+      <Tag normal label={'Self-Injury'} />
+    </div>,
   ));

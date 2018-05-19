@@ -75,7 +75,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'ptbr', 'sv', 'nl', 'it', 'nb']
+    in: [nil, 'en', 'es', 'ptbr', 'sv', 'nl', 'it', 'nb', 'vi']
   }
 
   def ally?(user)

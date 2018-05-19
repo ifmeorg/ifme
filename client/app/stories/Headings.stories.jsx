@@ -1,19 +1,27 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
 import Heading from 'bundles/shared/components/Heading';
+import { SingleColumnLayout, withSource } from './Stories.helper';
 
 storiesOf('Headings', module)
-  .add('Heading Large', withInfo({})(() =>
-    <Heading large label={'Better Communication with loved ones leads to better mental health.'} />,
+  .add('Heading Large', withSource(
+    <SingleColumnLayout>
+      <Heading large label={'Better Communication with loved ones leads to better mental health.'} />
+    </SingleColumnLayout>,
   ))
-  .add('Heading Normal', withInfo({})(() =>
-    <Heading label={'A community for mental health experiences.'} />,
+  .add('Heading Normal', withSource(
+    <SingleColumnLayout>
+      <Heading label={'A community for mental health experiences.'} />
+    </SingleColumnLayout>,
   ))
-  .add('Heading Small', withInfo({})(() =>
-    <Heading small label={'A community for mental health experiences.'} />,
+  .add('Heading Small', withSource(
+    <SingleColumnLayout>
+      <Heading small label={'A community for mental health experiences.'} />
+    </SingleColumnLayout>,
   ))
-  .add('Text', withInfo({})(() =>
-    <Heading text label={'We need each others support to break down stigmas.'} />,
+  .add('Text', withSource(
+    <SingleColumnLayout>
+      <Heading text label={'We need each others support to break down stigmas.'} />
+    </SingleColumnLayout>,
   ));

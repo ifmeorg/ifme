@@ -8,7 +8,7 @@ type MomentCardDraftProp = {
 };
 
 export default class MomentCardDraft
-  extends React.Component <MomentCardDraftProp> {
+  extends React.Component<MomentCardDraftProp> {
   render() {
     return (
       <div className={css.draft}>

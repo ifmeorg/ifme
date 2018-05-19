@@ -278,5 +278,15 @@
     "link_name": "geodoo",
     "link": "https://github.com/GeoDoo",
     "social": "github"
+  },
+  {
+    "name": "Adan Amarillas",
+    "image": "/assets/contributors/adan_amarillas.jpg",
+    "profile":
+      "I am a software engineer that has witnessed the importance of mental health first hand. Mental health can unlock a person's potential. It's great to be a part of any project that empowers people.",
+    "location": "San Francisco, USA",
+    "link_name": "aamarill",
+    "link": "http://github.com/aamarill",
+    "social": "github"
   }
 ]

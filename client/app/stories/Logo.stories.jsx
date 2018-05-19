@@ -11,12 +11,16 @@ const withSource = el => withInfo()(() => el);
 
 storiesOf('Logo', module)
   .add('Regular and Small', withSource(
-    <Row>
+    <Row gutter={24} style={{ padding: '24px' }}>
       <Col span={12}>
-        <Logo />
+        <div style={{ backgroundColor: '#6d0839' }}>
+          <Logo />
+        </div>
       </Col>
       <Col span={12}>
-        <LogoSmall />
+        <div style={{ backgroundColor: '#6d0839' }}>
+          <LogoSmall />
+        </div>
       </Col>
     </Row>,
   ));
