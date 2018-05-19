@@ -1,8 +1,9 @@
-machine:
-  ruby:
-    version: 2.3.4
-  node:
-    version: 9.10.0
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.3.4
+      - image: circleci/node:8.11.1
 
 dependencies:
   cache_directories:
