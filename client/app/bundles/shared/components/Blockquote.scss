@@ -24,7 +24,7 @@
 
   color: white;
 
-  .text {
+  &.text {
     &::before {
       content: open-quote;
     }
