@@ -4,8 +4,7 @@
   "dependencies": {},
   "scripts": {
     "postinstall": "cd client && yarn install",
-    "start": "foreman start -f Procfile.dev",
-    "test": "cd client && yarn && cd .. && rspec"
+    "start": "foreman start -f Procfile.dev"
   },
   "engines": {
     "node": "8.11.1"

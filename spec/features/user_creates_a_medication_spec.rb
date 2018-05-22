@@ -1,6 +1,4 @@
 describe 'UserCreatesAMedication', js: true do
-  OmniAuth.config.test_mode = true
-
   let(:user) { create(:user_oauth) }
   let(:medication) { user.medications.last }
   let(:name) { 'A medication name' }

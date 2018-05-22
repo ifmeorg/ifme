@@ -349,7 +349,6 @@ sv:
 
  omniauth:
   google: 'Google'
-  facebook: 'Facebook'
   access_denied: 'Åtkomst nekad'
 
  pages:
@@ -647,8 +646,6 @@ sv:
     meeting_notify_text: "Mötesuppdateringar"
     google_auth1: "Om du inte längre vill verifieras med Google anger du ett nytt e-post och lösenord."
     google_auth2: "Eftersom du är autentiserad med Google behöver du inte ange ditt lösenord. <br> Om du vill ändra detta anger du en ny e-postadress och lösenord."
-    facebook_auth1: "Om du inte längre vill verifieras med Facebook anger du ett nytt e-post och lösenord."
-    facebook_auth2: "Eftersom du är autentiserad med Facebook behöver du inte ange ditt lösenord. <br> Om du vill ändra detta anger du en ny e-postadress och lösenord."
     placeholders:
       repeat_password: "Repetera lösenord"
     edit:
@@ -673,8 +670,6 @@ sv:
   shared:
     sign_in_google: 'Logga in med Google'
     sign_up_google: 'Registrera dig hos Google'
-    sign_in_facebook: 'Logga in med Facebook'
-    sign_up_facebook: 'Registrera dig hos Facebook'
     confirmation: "Fick du inte bekräftelsesinstruktioner?"
     unlock: "Fick du inte upplåsningsinstruktioner?"
   unlock:
