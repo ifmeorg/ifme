@@ -4,7 +4,8 @@ import css from './Blockquote.scss';
 
 type Props = {
   text?: string,
-  author?: string,};
+  author?: string,
+};
 
 export default class Blockquote extends React.Component<Props> {
   render() {
