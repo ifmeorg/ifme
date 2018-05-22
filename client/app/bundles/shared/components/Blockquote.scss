@@ -1,20 +1,34 @@
 @import "_legacy.scss";
 @import "_base.scss";
 
-.label {
+.author {
   display: inline-block;
   position: relative;
 
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   font-family: Lato, sans-serif;
   font-style: italic;
   font-size: 36px;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
   align-content: center;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
-
-  padding: 20px;
+  width: 100%;
+  @media screen and (min-width: 1000px) {
+    padding: 50px;
+  }
+  @media screen and (max-width: 1000px) {
+    padding: 20px;
+  }
   color: white;
+
+  .text {
+    &::before {
+      content: open-quote;
+    }
+    &::after {
+      content: close-quote;
+    }
+  }
 }

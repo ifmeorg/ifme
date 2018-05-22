@@ -3,18 +3,24 @@ import React from 'react';
 import css from './Blockquote.scss';
 
 type Props = {
-  label?: string,
-
+  text?: string,
+  author?: string,
 };
 
 export default class Blockquote extends React.Component<Props> {
   render() {
-    const { label} = this.props;
-    const labelClassNames = `${css.label}`;
+    const { text, author } = this.props;
+    const textClassNames = `${css.author} ${css.text}`;
+    const authorClassNames = `${css.author}`;
 
     return (
-      <div className={labelClassNames}>
-        {label}
+      <div>
+        <div className={textClassNames}>
+          {text}
+        </div>
+        <div className={authorClassNames}>
+          {author}
+        </div>
       </div>
     );
   }
