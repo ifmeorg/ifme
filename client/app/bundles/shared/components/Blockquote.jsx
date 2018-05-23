@@ -11,7 +11,7 @@ export default class Blockquote extends React.Component<Props> {
   render() {
     const { text, author } = this.props;
     const textClassNames = `${css.text}`;
-    const authorClassNames = `${css.author}`
+    const authorClassNames = `${css.author}`;
     return (
       <div className={textClassNames}>
         <p>
