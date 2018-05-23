@@ -10,14 +10,15 @@ type Props = {
 export default class Blockquote extends React.Component<Props> {
   render() {
     const { text, author } = this.props;
-    const textClassNames = `${css.author} ${css.text}`;
-    const authorClassNames = `${css.author}`;
+    const textClassNames = `${css.text}`;
     return (
-      <div>
-        <div className={textClassNames}>
-          {text}
-        </div>
-        <div className={authorClassNames}>
+      <div className={textClassNames}>
+        <p>
+          <q>
+            {text}
+          </q>
+        </p>
+        <div>
           {author}
         </div>
       </div>
