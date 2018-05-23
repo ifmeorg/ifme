@@ -18,7 +18,7 @@ export default class Blockquote extends React.Component<Props> {
             {text}
           </q>
         </p>
-        <div>
+        <div style = {{paddingTop:'10px',}}>
           {author}
         </div>
       </div>
