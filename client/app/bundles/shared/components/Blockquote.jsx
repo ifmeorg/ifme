@@ -11,6 +11,7 @@ export default class Blockquote extends React.Component<Props> {
   render() {
     const { text, author } = this.props;
     const textClassNames = `${css.text}`;
+    const authorClassNames = `${css.author}`
     return (
       <div className={textClassNames}>
         <p>
@@ -18,7 +19,7 @@ export default class Blockquote extends React.Component<Props> {
             {text}
           </q>
         </p>
-        <div style={{ paddingTop: '10px' }}>
+        <div className={authorClassNames}>
           {author}
         </div>
       </div>
