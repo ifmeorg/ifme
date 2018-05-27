@@ -16,7 +16,7 @@ advocates, health professionals, software developers, and user experience
 designers!
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
-our code of conduct. Please [read it](https://github.com/julianguyen/ifme/blob/master/code_of_conduct.md)
+our code of conduct. Please [read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
 ### Goals
@@ -27,7 +27,7 @@ before joining our project.
 * Keep track of medications and create alerts for them
 * Create support groups whether online or offline and keep track of sessions
 
-Check out our projects [page](https://github.com/julianguyen/ifme/projects) to see what we are currently working on. Check our [wiki](https://github.com/julianguyen/ifme/wiki) for a summary of existing features.
+Check out our projects [page](https://github.com/ifmeorg/ifme/projects) to see what we are currently working on. Check our [wiki](https://github.com/ifmeorg/ifme/wiki) for a summary of existing features.
 
 ## Contributor Roles
 
@@ -37,22 +37,22 @@ The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us ab
 
 ### Designer
 
-Please check out our [GitHub issues](https://github.com/julianguyen/ifme/issues) for tasks to work on! Stories labelled with `design` are relevant to designers. Any future issues should also use this label too!
+Please check out our [GitHub issues](https://github.com/ifmeorg/ifme/issues) for tasks to work on! Stories labelled with `design` are relevant to designers. Any future issues should also use this label too!
 
 Many of our developer tasks will require designer collaboration, please use Slack for communication. We also have a public `#design` channel.
 
 ### Developer
 
-Please check out our [README](https://github.com/julianguyen/ifme/blob/master/README.md) for step-by-step instructions on how to setup up our Ruby on Rails app locally.
+Please check out our [README](https://github.com/ifmeorg/ifme/blob/master/README.md) for step-by-step instructions on how to setup up our Ruby on Rails app locally.
 
 You **must** also read these sections in order to contribute:
-* [Testing Guidelines](https://github.com/julianguyen/ifme/blob/master/README.md#testing-guidelines)
-* [Committing Work](https://github.com/julianguyen/ifme/blob/master/README.md#committing-work)
-* [Tracking Issues](https://github.com/julianguyen/ifme/blob/master/README.md#tracking-issues)
+* [Testing Guidelines](https://github.com/ifmeorg/ifme/blob/master/README.md#testing-guidelines)
+* [Committing Work](https://github.com/ifmeorg/ifme/blob/master/README.md#committing-work)
+* [Tracking Issues](https://github.com/ifmeorg/ifme/blob/master/README.md#tracking-issues)
 
 ### User Tester
 
-Please sign up for a account on our official site, www.if-me.org. Use the app for a couple of days before raising issues or filing bugs. You can raise issues on our [GitHub issues](https://github.com/julianguyen/ifme/issues) page or through [Feedback Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfqT0qNylzJom87MBwZvUx9LayA_DpUeZa7xAhwMPkcbTldFQ/viewform?c=0&w=1) (the link can also be found on our site footer). Please raise any discussions on Slack!
+Please sign up for a account on our official site, www.if-me.org. Use the app for a couple of days before raising issues or filing bugs. You can raise issues on our [GitHub issues](https://github.com/ifmeorg/ifme/issues) page or through [Feedback Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfqT0qNylzJom87MBwZvUx9LayA_DpUeZa7xAhwMPkcbTldFQ/viewform?c=0&w=1) (the link can also be found on our site footer). Please raise any discussions on Slack!
 
 ### Writer
 
