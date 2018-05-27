@@ -3,9 +3,7 @@ import css from './button.scss';
 
 
 class ButtonFilledM extends React.Component {
-   render() {
-       
-       
+   render() {   
       return (
          <button className = {css.buttonFilledM}>
             {this.props.text}
