@@ -1,0 +1,83 @@
+@import "base.scss";
+
+.buttonFilledM{
+         font-size: 18px;
+         color: $secondary-text-color;
+         font-weight: bold;
+         background-color: $background-color;
+         padding-top: 17px;
+         padding-bottom: 16px;
+         padding-left: 24px;
+         padding-right: 24px;
+         min-width: 150px;
+         border-radius: 5px;
+         border-color: $background-color;
+         border-width: 0px;
+         cursor: pointer;
+      }
+
+.buttonGhostM{
+         font-size: 18px;
+         color: $background-color;
+         font-weight : bold;
+         padding-top: 17px;
+         padding-bottom: 16px;
+         padding-left: 24px;
+         padding-right: 24px;
+         min-width: 150px;
+         border-radius: 5px;
+         background-color: $button-ghost;
+         border-width: 0px;
+         cursor: pointer;
+      }
+
+.buttonFilled{
+         font-size: 24px;
+         color: $secondary-text-color;
+         font-weight: bold;
+         background-color: $background-color;
+         padding-top: 17px;
+         padding-bottom: 22px;
+         padding-left: 30px;
+         padding-right: 30px;
+         min-width: 175px;
+         border-radius: 5px;
+         border-color: $background-color;
+         border-width: 0px;
+         cursor: pointer;
+      }
+
+.buttonGhost{
+         font-size: 24px;
+         color: $background-color;
+         font-weight: bold;
+         padding-top: 17px;
+         padding-bottom: 22px; 
+         padding-left: 30px;
+         padding-right: 30px;
+         min-width: 175px;
+         border-radius: 5px;
+         background-color: $button-ghost;
+         border-width: 0px;
+         cursor: pointer;
+      }
+
+.buttonGhostXS{
+         font-size: 14px;
+         color: $background-color;
+         font-weight: bold;
+         padding-top: 17px;
+         padding-bottom: 22px;
+         padding-left: 20px;
+         padding-right: 20px;
+         min-width: 125px;
+         border-radius: 5px;
+         background-color: $button-ghost;
+         border-width: 0px;
+         cursor: pointer;
+      }
+
+
+
+
+
