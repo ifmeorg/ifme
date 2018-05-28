@@ -350,6 +350,7 @@ vi:
 
  omniauth:
   google: 'Google'
+  facebook: 'Facebook'
   access_denied: 'Truy nhập từ chối'
 
  pages:
@@ -647,6 +648,8 @@ vi:
     meeting_notify_text: "Cập nhật họp nhóm"
     google_auth1: "Nếu bạn không muốn xác minh tài khoản thông qua Google, xin vui lòng đăng nhập bằng một email và mật khẩu mới."
     google_auth2: "Bởi vì bạn xác minh tài khoản thông quan Google, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới."
+    facebook_auth1: "Nếu bạn không muốn xác minh tài khoản thông qua Facebook, xin vui lòng đăng nhập bằng một email và mật khẩu mới."
+    facebook_auth2: "Bởi vì bạn xác minh tài khoản thông quan Facebook, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới."
     placeholders:
       repeat_password: "Lập lại mật khẩu lần nữa"
     edit:
@@ -671,6 +674,8 @@ vi:
   shared:
     sign_in_google: 'Đăng nhập với Google'
     sign_up_google: 'Đăng ký với Google'
+    sign_in_facebook: 'Đăng nhập với Facebook'
+    sign_up_facebook: 'Đăng ký với Facebook'
     confirmation: "Không nhận được hướng dẫn xác nhận?"
     unlock: "Không nhận được hứng dẫn mở khóa?"
   unlock:
