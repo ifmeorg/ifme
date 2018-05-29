@@ -2,12 +2,21 @@
 
 .profileModal {
   width: 910px;
+  height: 440px;
   
   border: 1px solid black;
 
   padding-left: 226px;
   padding-top: 60px;
   padding-bottom: 85px;
+
+  position: relative;
+
+  .avatar {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+  }
 
   img {
     float: left;
@@ -20,7 +29,15 @@
     color: $mulberry-wood;
   }
 
+  .links {
+    font-size: 14px;
+    line-height: 17px;
+
+    text-transform: uppercase;
+  }
+
   .bio {
     width: 600px;
+    font-size: $text-size;
   }
 }
