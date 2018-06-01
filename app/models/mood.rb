@@ -24,4 +24,14 @@ class Mood < ApplicationRecord
   def self.link
     'moods'
   end
+
+  def self.add_premade(user_id)
+    (1..5).each do |num|
+      Mood.create(
+        userid: user_id,
+        name: I18n.t("moods.index.premade#{num}_name"),
+        description: I18n.t("moods.index.premade#{num}_description")
+      )
+    end
+  end
 end

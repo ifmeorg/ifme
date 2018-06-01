@@ -349,7 +349,6 @@ ptbr:
 
  omniauth:
   google: 'Google'
-  facebook: 'Facebook'
   access_denied: 'Accesso Negado'
 
  pages:
@@ -648,8 +647,6 @@ ptbr:
     meeting_notify_text: "Atualizações de reuniões"
     google_auth1: "Caso você não queira mais fazer login com sua conta Google, por favor digite um novo email e uma nova senha."
     google_auth2: "Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor cadastre-se com um novo email e uma nova senha."
-    facebook_auth1: "Caso você não queira mais fazer login com sua conta Facebook, por favor digite um novo email e uma nova senha."
-    facebook_auth2: "Com a sua conta Facebook, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor cadastre-se com um novo email e uma nova senha."
     placeholders:
       repeat_password: "Digite novamente sua senha"
     edit:
@@ -674,8 +671,6 @@ ptbr:
   shared:
     sign_in_google: 'Entrar com sua conta Google'
     sign_up_google: 'Cadastre-se com sua conta Google'
-    sign_in_facebook: 'Entrar com sua conta Facebook'
-    sign_up_facebook: 'Cadastre-se com sua conta Facebook'
     confirmation: "Não recebeu as instruções de confirmação?"
     unlock: "Não recebeu as instruções de desbloqueio ?"
   unlock:

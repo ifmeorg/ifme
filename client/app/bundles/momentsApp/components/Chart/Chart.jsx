@@ -1,7 +1,9 @@
 // @flow
-import 'chart.js';
+import ChartJS from 'chart.js';
 import React from 'react';
 import { AreaChart, LineChart } from 'react-chartkick';
+
+ChartJS.defaults.global.defaultFontFamily = 'Lato';
 
 type chartShape = {
   xtitle: string,
