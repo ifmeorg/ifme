@@ -63,16 +63,16 @@ describe MomentsController do
         end
       end
 
-      context 'when the userid is hacked' do
-        it 'creates a new moment, ignoring the userid parameter' do
-          # passing a userid isn't an error, but it shouldn't
+      context 'when the useri_d is hacked' do
+        it 'creates a new moment, ignoring the useri_d parameter' do
+          # passing a useri_d isn't an error, but it shouldn't
           # affect the owner of the created item
           another_user = create(:user2)
           hacked_moment_params =
-            valid_moment_params.merge(userid: another_user.id)
+            valid_moment_params.merge(user_id: another_user.id)
           expect { post_create hacked_moment_params }
             .to change(Moment, :count).by(1)
-          expect(Moment.last.userid).to eq(user.id)
+          expect(Moment.last.user_id).to eq(user.id)
         end
       end
     end
@@ -119,7 +119,7 @@ describe MomentsController do
       include_context :logged_in_user
 
       context 'when the comment exists and belongs to the current_user' do
-        let!(:new_moment) { create(:moment, id: 1, userid: 1) }
+        let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
         let!(:comment) do
           create(
             :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
@@ -145,7 +145,7 @@ describe MomentsController do
             :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
           )
         end
-        let!(:new_moment) { create(:moment, id: 1, userid: 1) }
+        let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
           expect { get :delete_comment, params: { commentid: 1 } }.to(
@@ -185,9 +185,9 @@ describe MomentsController do
       create_time = Date.current
       new_user = create(:user1)
       sign_in new_user
-      new_category = create(:category, userid: new_user.id)
-      new_mood = create(:mood, userid: new_user.id)
-      create(:moment, userid: new_user.id, category: Array.new(1, new_category.id),
+      new_category = create(:category, user_id: new_user.id)
+      new_mood = create(:mood, user_id: new_user.id)
+      create(:moment, user_id: new_user.id, category: Array.new(1, new_category.id),
              mood: Array.new(1, new_mood.id), created_at: create_time)
 
       get :index

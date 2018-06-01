@@ -69,8 +69,8 @@ class User < ApplicationRecord
   has_many :medications, foreign_key: :userid
   has_many :strategies
   has_many :notifications, foreign_key: :userid
-  has_many :moments, foreign_key: :userid
-  has_many :moods, foreign_key: :userid
+  has_many :moods
+  has_many :moments
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true

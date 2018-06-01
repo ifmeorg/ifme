@@ -50,7 +50,7 @@ class MomentsController < ApplicationController
 
     if comment_exists
       momentid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
+      is_my_moment = Moment.where(id: momentid, user_id: current_user.id).exists?
       is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
     else
       is_my_moment = false
@@ -106,7 +106,7 @@ class MomentsController < ApplicationController
 
   # GET /moments/1/edit
   def edit
-    unless @moment.userid == current_user.id
+    unless @moment.user_id == current_user.id
       redirect_to_path(moment_path(@moment))
     end
 
@@ -117,7 +117,7 @@ class MomentsController < ApplicationController
   # POST /moments.json
   # rubocop:disable MethodLength
   def create
-    @moment = Moment.new(moment_params.merge(userid: current_user.id))
+    @moment = Moment.new(moment_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new

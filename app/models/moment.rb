@@ -12,7 +12,7 @@
 #  created_at              :datetime
 #  updated_at              :datetime
 #  published_at            :datetime
-#  userid                  :integer
+#  user_id                  :integer
 #  viewers                 :text
 #  comment                 :boolean
 #  strategy                :text
@@ -80,7 +80,7 @@ class Moment < ApplicationRecord
   end
 
   def owned_by?(user)
-    user&.id == userid
+    user&.id == user_id
   end
 
   def published?

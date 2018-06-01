@@ -345,7 +345,7 @@ class ApplicationController < ActionController::Base
   def show_with_comments(subject)
     model_name = record_model_name(subject)
 
-    if current_user.id != subject.userid && hide_page?(subject)
+    if current_user.id != subject.user_id && hide_page?(subject)
       path = send("#{model_name.pluralize}_path")
       return redirect_to_path(path)
     end
@@ -355,7 +355,7 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
-    if current_user.id == subject.userid
+    if current_user.id == subject.user_id
       @page_edit = send("edit_#{model_name}_path", subject)
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else

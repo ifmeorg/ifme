@@ -36,7 +36,7 @@ class StrategiesController < ApplicationController
       strategyid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_strategy = Strategy.where(
         id: strategyid,
-        userid: current_user.id
+        user_id: current_user.id
       ).exists?
     else
       is_my_strategy = false
@@ -66,7 +66,7 @@ class StrategiesController < ApplicationController
       viewers.push(item.id)
     end
 
-    strategy = Strategy.new(userid: current_user.id,
+    strategy = Strategy.new(user_id: current_user.id,
                             name: params[:strategy][:name],
                             description: params[:strategy][:description],
                             category: params[:strategy][:category],
@@ -87,7 +87,7 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(userid: current_user.id)
+    @categories = Category.where(user_id: current_user.id)
                           .all
                           .order('created_at DESC')
     @category = Category.new
@@ -96,9 +96,9 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    if @strategy.userid == current_user.id
+    if @strategy.user_id == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(userid: current_user.id)
+      @categories = Category.where(user_id: current_user.id)
                             .all
                             .order('created_at DESC')
       @category = Category.new
@@ -112,7 +112,7 @@ class StrategiesController < ApplicationController
   # POST /strategies.json
   # rubocop:disable MethodLength
   def create
-    @strategy = Strategy.new(strategy_params.merge(userid: current_user.id))
+    @strategy = Strategy.new(strategy_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
