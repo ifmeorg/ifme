@@ -14,8 +14,10 @@ describe ApplicationController do
   let(:new_user2) { create(:user2) }
   describe "most_focus" do
     describe "categories" do
-      it "returns an empty hash because no categories exist" do
+      before(:example) do 
         sign_in new_user1
+      end 
+      it "returns an empty hash because no categories exist" do
         new_moment = create(:moment, userid: new_user1.id)
         new_strategy = create(:strategy, userid: new_user1.id)
         expect(controller.most_focus('category', nil).length).to eq(0)
@@ -23,7 +25,6 @@ describe ApplicationController do
 
       describe "returns a hash because categories exist" do
         it "returns a hash of size 1 when the same category is used twice" do
-          sign_in new_user1
           new_category = create(:category, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, category: Array.new(1, new_category.id))
           new_strategy = create(:strategy, userid: new_user1.id, category: Array.new(1, new_category.id))
@@ -33,7 +34,6 @@ describe ApplicationController do
         end
 
         it "returns a hash of size 2" do
-          sign_in new_user1
           new_category1 = create(:category, userid: new_user1.id)
           new_category2 = create(:category, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, category: Array.new(1, new_category1.id))
@@ -45,7 +45,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 3" do
-          sign_in new_user1
           new_category1 = create(:category, userid: new_user1.id)
           new_category2 = create(:category, userid: new_user1.id)
           new_category3 = create(:category, userid: new_user1.id)
@@ -61,7 +60,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 1 belonging to another user" do
-          sign_in new_user1
           new_category1 = create(:category, userid: new_user2.id)
           new_category2 = create(:category, userid: new_user2.id)
           new_category3 = create(:category, userid: new_user2.id)
@@ -77,7 +75,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 0 belonging to another user when his/her posts are drafts" do
-          sign_in new_user1
           new_category1 = create(:category, userid: new_user2.id)
           new_category2 = create(:category, userid: new_user2.id)
           new_category3 = create(:category, userid: new_user2.id)
@@ -95,15 +92,16 @@ describe ApplicationController do
     end
 
     describe "moods" do
-      it "returns an empty hash because no moods exist" do
+      before(:example) do 
         sign_in new_user1
+      end 
+      it "returns an empty hash because no moods exist" do
         new_moment = create(:moment, userid: new_user1.id)
         expect(controller.most_focus('mood', nil).length).to eq(0)
       end
 
       describe "returns a hash because moods exist" do
         it "returns a hash of size 1 when the same mood is used twice" do
-          sign_in new_user1
           new_mood = create(:mood, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, mood: Array.new(1, new_mood.id))
           result = controller.most_focus('mood', new_user1.id)
@@ -112,7 +110,6 @@ describe ApplicationController do
         end
 
         it "returns a hash of size 2" do
-          sign_in new_user1
           new_mood1 = create(:mood, userid: new_user1.id)
           new_mood2 = create(:mood, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, mood: [new_mood1.id, new_mood2.id])
@@ -123,7 +120,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 3" do
-          sign_in new_user1
           new_mood1 = create(:mood, userid: new_user1.id)
           new_mood2 = create(:mood, userid: new_user1.id)
           new_mood3 = create(:mood, userid: new_user1.id)
@@ -139,7 +135,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 1 belonging to another user" do
-          sign_in new_user1
           new_mood1 = create(:mood, userid: new_user2.id)
           new_mood2 = create(:mood, userid: new_user2.id)
           new_mood3 = create(:mood, userid: new_user2.id)
@@ -155,7 +150,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 0 belonging to another user when all his/her posts are drafts" do
-          sign_in new_user1
           new_mood1 = create(:mood, userid: new_user2.id)
           new_mood2 = create(:mood, userid: new_user2.id)
           new_mood3 = create(:mood, userid: new_user2.id)
@@ -173,15 +167,16 @@ describe ApplicationController do
     end
 
     describe "strategy" do
-      it "returns an empty hash because no strategies exist" do
+      before(:example) do 
         sign_in new_user1
+      end 
+      it "returns an empty hash because no strategies exist" do
         new_moment = create(:moment, userid: new_user1.id)
         expect(controller.most_focus('strategy', nil).length).to eq(0)
       end
 
       describe "returns a hash because strategies exist" do
         it "returns a hash of size 1 when the same strategy is used twice" do
-          sign_in new_user1
           new_strategy = create(:strategy, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, strategy: Array.new(1, new_strategy.id))
           result = controller.most_focus('strategy', new_user1.id)
@@ -190,7 +185,6 @@ describe ApplicationController do
         end
 
         it "returns a hash of size 2" do
-          sign_in new_user1
           new_strategy1 = create(:strategy, userid: new_user1.id)
           new_strategy2 = create(:strategy, userid: new_user1.id)
           new_moment = create(:moment, userid: new_user1.id, strategy: [new_strategy1.id, new_strategy2.id])
@@ -201,8 +195,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 3" do
-          
-          sign_in new_user1
           new_strategy1 = create(:strategy, userid: new_user1.id)
           new_strategy2 = create(:strategy, userid: new_user1.id)
           new_strategy3 = create(:strategy, userid: new_user1.id)
@@ -218,7 +210,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 1 belonging to another user" do
-          sign_in new_user1
           new_strategy1 = create(:strategy, userid: new_user2.id)
           new_strategy2 = create(:strategy, userid: new_user2.id)
           new_strategy3 = create(:strategy, userid: new_user2.id)
@@ -234,7 +225,6 @@ describe ApplicationController do
         end
 
         it "returns a correct hash of size 0 belonging to another user when all his/her posts are drafts" do
-          sign_in new_user1
           new_strategy1 = create(:strategy, userid: new_user2.id)
           new_strategy2 = create(:strategy, userid: new_user2.id)
           new_strategy3 = create(:strategy, userid: new_user2.id)
@@ -295,25 +285,24 @@ describe ApplicationController do
   end
 
   describe "get_stories" do
-    it "has no stories and does not include allies" do
+    before(:example) do 
       sign_in new_user1
+    end 
+    it "has no stories and does not include allies" do
         expect(controller.get_stories(new_user1, false).length).to eq(0)
     end
 
     it "has only moments and does not include allies" do
-      sign_in new_user1
       new_moment = create(:moment, userid: new_user1.id)
       expect(controller.get_stories(new_user1, false).length).to eq(1)
     end
 
     it "has only strategies and does not include allies" do 
-      sign_in new_user1
       new_strategy = create(:strategy, userid: new_user1.id)
       expect(controller.get_stories(new_user1, false).length).to eq(1)
     end
 
     it "has both moments and strategies, and does not include allies" do
-      sign_in new_user1
       new_moment = create(:moment, userid: new_user1.id)
       new_strategy = create(:strategy, userid: new_user1.id)
       expect(controller.get_stories(new_user1, false).length).to eq(2)
@@ -322,13 +311,11 @@ describe ApplicationController do
 
     it "has no stories and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
         expect(controller.get_stories(new_user1, true).length).to eq(0)
     end
 
     it "has only moments and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user1.id, published_at: Time.zone.now)
       new_moment2 = create(:moment, userid: new_user2.id, viewers: [new_user1.id], published_at: Time.zone.now)
       expect(controller.get_stories(new_user1, true).length).to eq(2)
@@ -336,14 +323,12 @@ describe ApplicationController do
 
     it "has only other users' draft moments and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment2 = create(:moment, userid: new_user2.id, viewers: [new_user1.id])
       expect(controller.get_stories(new_user1, true).length).to eq(0)
     end
 
     it "has only strategies and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_strategy1 = create(:strategy, userid: new_user1.id, published_at: Time.zone.now)
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id], published_at: Time.zone.now)
       expect(controller.get_stories(new_user1, true).length).to eq(2)
@@ -351,14 +336,12 @@ describe ApplicationController do
 
     it "has only other users' draft strategies and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
       expect(controller.get_stories(new_user1, true).length).to eq(0)
     end
 
     it "has both moments and strategies, and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user1.id, published_at: Time.zone.now)
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id], published_at: Time.zone.now)
       expect(controller.get_stories(new_user1, true).length).to eq(2)
@@ -366,7 +349,6 @@ describe ApplicationController do
 
     it "has only users' draft moments and strategies, and does include allies" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment2 = create(:moment, userid: new_user2.id)
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
       expect(controller.get_stories(new_user1, true).length).to eq(0)
@@ -374,7 +356,6 @@ describe ApplicationController do
 
     it "has no moments and strategies despite being allies with user" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment2 = create(:moment, userid: new_user2.id)
       new_strategy2 = create(:strategy, userid: new_user2.id)
       expect(controller.get_stories(new_user2, false).length).to eq(0)
@@ -382,7 +363,6 @@ describe ApplicationController do
 
     it "has both moments and strategies and is allies with user" do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user2.id, viewers: [new_user1.id], published_at: Time.zone.now)
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id], published_at: Time.zone.now)
       expect(controller.get_stories(new_user2, false).length).to eq(2)
@@ -390,7 +370,6 @@ describe ApplicationController do
 
     it "has both moments and strategies and is allies with user, but her/his posts are all drafts"  do
       new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user2.id, viewers: [new_user1.id])
       new_strategy2 = create(:strategy, userid: new_user2.id, viewers: [new_user1.id])
       expect(controller.get_stories(new_user2, false).length).to eq(0)
@@ -398,26 +377,25 @@ describe ApplicationController do
   end
 
   describe "moments_stats" do
-    it "has no moments" do
+    before(:example) do 
       sign_in new_user1
+    end 
+    it "has no moments" do
         expect(controller.moments_stats).to eq('')
     end
 
     it "has one moment" do
-      sign_in new_user1
       new_moment = create(:moment, userid: new_user1.id)
       expect(controller.moments_stats).to eq('')
     end
 
     it "has more than one moment created this month" do
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user1.id)
       new_moment2 = create(:moment, userid: new_user1.id)
       expect(controller.moments_stats).to eq('<div class="center" id="stats">You have written a <strong>total</strong> of <strong>2</strong> moments.</div>')
     end
 
     it "has more than one moment created on different months" do
-      sign_in new_user1
       new_moment1 = create(:moment, userid: new_user1.id, created_at: '2014-01-01 00:00:00')
       new_moment2 = create(:moment, userid: new_user1.id)
 
