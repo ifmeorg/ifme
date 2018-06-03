@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class MoodsController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
@@ -51,37 +50,10 @@ class MoodsController < ApplicationController
 
   # POST /moods
   # POST /moods.json
-  # rubocop:disable MethodLength
   def premade
-    Mood.create(
-      userid: current_user.id,
-      name: t('moods.index.premade1_name'),
-      description: t('moods.index.premade1_description')
-    )
-    Mood.create(
-      userid: current_user.id,
-      name: t('moods.index.premade2_name'),
-      description: t('moods.index.premade2_description')
-    )
-    Mood.create(
-      userid: current_user.id,
-      name: t('moods.index.premade3_name'),
-      description: t('moods.index.premade3_description')
-    )
-    Mood.create(
-      userid: current_user.id,
-      name: t('moods.index.premade4_name'),
-      description: t('moods.index.premade4_description')
-    )
-    Mood.create(
-      userid: current_user.id,
-      name: t('moods.index.premade5_name'),
-      description: t('moods.index.premade5_description')
-    )
-
+    Mood.add_premade(current_user.id)
     redirect_to_path(moods_path)
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
@@ -146,4 +118,3 @@ class MoodsController < ApplicationController
     params.require(:mood).permit(:name, :description)
   end
 end
-# rubocop:enable ClassLength
