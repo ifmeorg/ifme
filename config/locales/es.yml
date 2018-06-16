@@ -351,7 +351,6 @@ es:
 
  omniauth:
   google: "Google"
-  facebook: "Facebook"
   access_denied: "Acceso Denegado"
 
  pages:
@@ -649,8 +648,6 @@ es:
     meeting_notify_text: "Actualizaciones de reuniones"
     google_auth1: "Si ya no deseas verificar tu identidad a través de Google, por favor ingresa un nuevo correo electrónico y contraseña."
     google_auth2: "Debido a que tu identidad ha sido confirmada a través de Google, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña."
-    facebook_auth1: "Si ya no deseas verificar tu identidad a través de Facebook, por favor ingresa un nuevo correo electrónico y contraseña."
-    facebook_auth2: "Debido a que tu identidad ha sido confirmada a través de Facebook, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña."
     placeholders:
       repeat_password: "Repetir contraseña"
     edit:
@@ -675,8 +672,6 @@ es:
   shared:
     sign_in_google: "Registrarse con Google"
     sign_up_google: "Ingresar con Google"
-    sign_in_facebook: "Registrarse con Facebook"
-    sign_up_facebook: "Ingresar con Facebook"
     confirmation: "¿No recibiste instrucciones de confirmación?"
     unlock: "¿No recibiste instrucciones para desbloquear?"
   unlock:
