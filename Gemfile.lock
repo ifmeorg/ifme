@@ -283,8 +283,8 @@ GEM
       multi_json (~> 1.0)
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
-    rack (2.0.4)
-    rack-protection (2.0.1)
+    rack (2.0.5)
+    rack-protection (2.0.3)
       rack
     rack-proxy (0.6.4)
       rack
@@ -438,10 +438,10 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    sinatra (2.0.1)
+    sinatra (2.0.3)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.1)
+      rack-protection (= 2.0.3)
       tilt (~> 2.0)
     spring (2.0.2)
       activesupport (>= 4.2)
