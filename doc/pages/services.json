@@ -142,5 +142,11 @@
     "link": "https://www.projectknow.com",
     "tags": ["addiction", "rehabilitation", "directory", "counseling", "podcast"],
     "languages": ["en"]
+  },
+  {
+    "name": "Calm",
+    "link": "https://www.calm.com",
+    "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
   }
 ]
