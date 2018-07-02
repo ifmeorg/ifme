@@ -66,6 +66,11 @@ describe AlliesController do
             status: :pending_from_ally
           )
         end
+
+        let!(:notification) do
+          create(:notification, uniqueid: "new_ally_request_#{ally.id}", userid: user.id)
+        end
+
         let!(:notification_type) { 'accepted_ally_request' }
 
         it 'updates the allyship status to "accepted"' do
@@ -74,10 +79,7 @@ describe AlliesController do
         end
 
         it 'deletes the allyship request notification' do
-          allow(Notification).to receive(:where).and_return(notification)
-          allow(notification).to receive(:order).and_return(notification)
-          expect(notification).to receive(:destroy_all)
-          subject
+          expect { subject }.to change { user.notifications.count }.from(1).to(0)
         end
 
         it 'creates an accepted allyship request notification' do
@@ -108,9 +110,9 @@ describe AlliesController do
           expect(Allyship).to receive(:create).with({
             user_id: user.id,
             ally_id: ally.id.to_s,
-            status: 2
+            status: :pending_from_ally
           })
-        
+
           subject
         end
 
