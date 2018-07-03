@@ -7,7 +7,7 @@ type Props = {
 };
 
 type State = {
-  checked?: boolean
+  checked: boolean
 };
 
 export default class Switch extends React.Component<Props, State> {
