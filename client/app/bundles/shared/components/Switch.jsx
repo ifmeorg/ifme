@@ -7,19 +7,19 @@ type Props = {
 };
 
 type State = {
-  checked: boolean
+  checked?: boolean
 };
 
 export default class Switch extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = { checked: props.checked || false };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
+  handleChange = () => {
     this.setState({ checked: !this.state.checked })
-  }
+    console.log("Hello");
+  };
 
   render () {
     const switchClassNames = `${css.switch}`;
@@ -27,7 +27,7 @@ export default class Switch extends React.Component<Props, State> {
     return (
     <div>
       <label className = {switchClassNames}>
-        <input type="checkbox" value={this.state} onChange={this.handleChange}/>
+        <input type="checkbox" onChange={this.handleChange}/>
         <div className = {sliderClassNames}></div>
       </label>
     </div>
