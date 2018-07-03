@@ -13,7 +13,7 @@ type State = {
 export default class Switch extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { checked: props.checked || false };
+    this.state = { checked: this.props.checked || false };
   }
 
   handleChange = () => {
