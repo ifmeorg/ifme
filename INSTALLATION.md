@@ -15,7 +15,7 @@ Commons errors faced during installation are documented in this
 ## Postgres
 
 After installing Postgres, if you are asked to create a new user, please follow
-these [instructions](https://github.com/ifmeorg/ifme/blob/master/documentation/COMMON_ERRORS.md#postgresql-bad-connection).
+these [instructions](https://github.com/ifmeorg/ifme/wiki/Common-Dev-Environment-Errors#postgresql-bad-connection).
 
 ### A. macOS
 
