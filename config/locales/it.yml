@@ -108,6 +108,7 @@ it:
     placeholder: 'Enter one or more comma-separated emails'
 
  categories:
+  singular: 'Categoria'
   plural: 'Categorie'
   edit_category: "Modifica Categoria"
   new: "Nuova Categoria"
@@ -376,21 +377,21 @@ it:
     data_access_question: 'Chi ha accesso ai miei dati?'
     data_access_answer: 'I tuoi dati non sono dati o resi accessibili a terzi. Eliminare il tuo account li rimuoverà completamente.<br><br>I dati degli utenti sono analizzati internamente dall’app in modo da fornire esperienze personalizzate.'
     moment_question: 'Co’è un Momento?'
-    moment_answer: 'Un <strong>Momento</strong> è un evento o una situazione che ha influenzato il tuo stato mentale. Può essere positivo o negativo. Puoi considerarlo una voce nel tuo diario o uno stato.<br><br>Puoi taggare i tuoi Ricordi con Strategie, Categorie e Stati d’animo. Puoi anche specificare chi dei tuoi alleati può vedere e commentare i tuoi Momenti. O renderli visibili solo a te stesso.'
+    moment_answer: 'Un <strong>%{moments}</strong> è un evento o una situazione che ha influenzato il tuo stato mentale. Può essere positivo o negativo. Puoi considerarlo una voce nel tuo diario o uno stato.<br><br>Puoi taggare i tuoi Ricordi con Strategie, Categorie e Stati d’animo. Puoi anche specificare chi dei tuoi alleati può vedere e commentare i tuoi Momenti. O renderli visibili solo a te stesso.'
     strategy_question: 'Cos’è una Strategia?'
-    strategy_answer: 'Una <strong>Strategia</strong> è un’attività, modo di pensare o modo di agire che ti aiuta a sopportare o concentrarti a migliorare.<br><br>Puoi taggare i Ricordi con Categorie. Puoi decidere chi dei tuoi alleati può vederle e chi no. O renderle solo visibili a te stesso. Le strategie condivise saranno visibili a tutti gli alleati, il che significa che puoi collegare i tuoi Ricordi con le tue Strategie!'
+    strategy_answer: 'Una <strong>%{strategies}</strong> è un’attività, modo di pensare o modo di agire che ti aiuta a sopportare o concentrarti a migliorare.<br><br>Puoi taggare i Ricordi con Categorie. Puoi decidere chi dei tuoi alleati può vederle e chi no. O renderle solo visibili a te stesso. Le strategie condivise saranno visibili a tutti gli alleati, il che significa che puoi collegare i tuoi Ricordi con le tue Strategie!'
     category_question: 'Cos’è una Categoria?'
-    category_answer: 'Una <strong>Categoria</strong> è una tag che rappresenta le persone, luoghi e cose che sono importanti per te.'
+    category_answer: 'Una <strong>%{categories}</strong> è una tag che rappresenta le persone, luoghi e cose che sono importanti per te.'
     mood_question: 'Cos’è uno stato d’Animo?'
-    mood_answer: 'Uno <strong>Stato d’Animo</strong> rappresenta la tua situazione psicologica, i tuoi sentimenti e le tue emozioni.'
+    mood_answer: 'Uno <strong>%{moods}</strong> rappresenta la tua situazione psicologica, i tuoi sentimenti e le tue emozioni.'
     group_question: 'Cos’è un Gruppo?'
-    group_answer: 'Un <strong>Gruppo</strong> offre supporto, insegnamento, e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un orario. Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni permettono anche di commentare. Se sei il leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono solo essere eliminati quando hanno un unico membro.'
+    group_answer: 'Un <strong>%{groups}</strong> offre supporto, insegnamento, e discussioni riguardo la salute mentale. Puoi creare i gruppi a cui i tuoi alleati possono unirsi. Ricorda che puoi solo unirti a gruppi che sono stati creati dai tuoi alleati.<br><br>Come leader di un Gruppo, puoi organizzare <strong>Raduni</strong>. I Raduni hanno un luogo e un orario. Il luogo può essere un luogo fisico o un URL di Google Hangout. I raduni permettono anche di commentare. Se sei il leader di un gruppo, non puoi lasciarlo a meno che non rimanga almeno un altro leader. I Gruppi possono solo essere eliminati quando hanno un unico membro.'
     medications_question: 'Come uso la funzionalità "Medicinali"?'
-    medications_answer: 'La funzionalità <strong>Medicinali</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati e i dosaggi.'
+    medications_answer: 'La funzionalità <strong>%{medications}</strong> ti permette di salvare e catalogare i medicinali di cui hai bisogno, e tenere conto di cose come i sintomi collegati e i dosaggi.'
     invite_question: 'Come posso invitare i miei cari a utilizzare l’app?'
-    invite_answer: 'Vai sulla pagina <strong>Alleati</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via EMail. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
+    invite_answer: 'Vai sulla pagina <strong>%{allies}</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via EMail. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
     email_notifications_question: 'Come posso gestire le notifiche che ricevo via EMail?'
-    email_notifications_answer: "Vai sulla pagina <strong>Account</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
+    email_notifications_answer: "Vai sulla pagina <strong>%{accounts}</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
   home:
     stories: 'Storie'
     welcome: 'Benvenuto'
