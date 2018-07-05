@@ -4,7 +4,7 @@ import css from './Switch.scss';
 
 type Props = {
   id?: string
-};
+}
 
 type State = {
   checked: boolean
@@ -17,19 +17,17 @@ export default class Switch extends React.Component<Props, State> {
   }
 
   handleChange = () => {
-    this.setState({ checked: !this.state.checked })
+    this.setState({ checked: !this.state.checked });
   };
 
-  render () {
-    const switchClassNames = `${css.switch}`;
-    const sliderClassNames = `${css.slider}`;
+  render() {
     return (
-    <div>
-      <label className = {switchClassNames}>
-        <input type="checkbox" onChange={this.handleChange}/>
-        <div className = {sliderClassNames}></div>
-      </label>
-    </div>
+      <div>
+        <label className={`${css.switch}`}>
+          <input type="checkbox" onChange={this.handleChange} />
+          <div className={`${css.slider}`}>{}</div>
+        </label>
+      </div>
     );
   }
 }
