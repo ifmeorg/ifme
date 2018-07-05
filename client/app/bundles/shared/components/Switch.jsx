@@ -23,9 +23,9 @@ export default class Switch extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <label className={`${css.switch}`}>
-          <input type="checkbox" onChange={this.handleChange} />
-          <div className={`${css.slider}`}>{}</div>
+        <label className={css.switch}>
+          <input type="checkbox" onClick={this.handleChange} />
+          <div className={css.slider}>{}</div>
         </label>
       </div>
     );
