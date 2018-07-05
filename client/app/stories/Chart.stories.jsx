@@ -1,7 +1,6 @@
 import 'chartjs';
 
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 
 import Chart, { ChartControl } from 'bundles/momentsApp/components/Chart';
@@ -9,14 +8,14 @@ import Chart, { ChartControl } from 'bundles/momentsApp/components/Chart';
 const sampleChartData = { '2013-02-10 00:00:00 -0800': 11, '2013-02-11 00:00:00 -0800': 6 };
 
 storiesOf('Chart', module)
-  .add('Chart Display Area', withInfo({})(() =>
-    <Chart title="Sample" data={sampleChartData} chartType="Area" />,
+  .add('Chart Display Area', () => (
+    <Chart title="Sample" data={sampleChartData} chartType="Area" />
   ))
-  .add('Chart Display Line', withInfo({})(() =>
-    <Chart title="Sample" data={sampleChartData} chartType="Line" />,
+  .add('Chart Display Line', () => (
+    <Chart title="Sample" data={sampleChartData} chartType="Line" />
   ))
-  .add('Chart Control', withInfo({})(() =>
-    (<ChartControl
+  .add('Chart Control', () => (
+    <ChartControl
       types={['Moments', 'Categories', 'Moods']}
       initialParams={{
         type: 'Categories',
@@ -33,5 +32,5 @@ storiesOf('Chart', module)
           Moments: { '2013-02-10': 10, '2013-02-11': 16, '2013-02-12': 2 },
         },
       }}
-    />),
+    />
   ));

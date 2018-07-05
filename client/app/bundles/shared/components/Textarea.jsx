@@ -25,7 +25,10 @@ type State = {
 export default class Textarea extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { value: props.value ? props.value : '', active: false };
+    this.state = {
+      value: props.value || '',
+      active: false,
+    };
   }
 
   onChange = (e: SyntheticEvent<HTMLInputElement>) => {

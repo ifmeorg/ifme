@@ -3,9 +3,10 @@
 
 .footer {
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
   font-family: $font-family;
+  font-size: $font18;
   position: relative;
+  background-color: $footer-background-color;
 
   .row {
     display: flex;
@@ -98,8 +99,13 @@
     text-align: right;
     color: $background-color;
     font-family: $font-family;
-    font-size: $font20;
     line-height: 1;
+
+    h4 {
+      color: $background-color;
+      font-size: $text-size-large;
+      margin-bottom: 0.5em;
+    }
 
     @media screen and (max-width: $small) {
       font-size: $small-font;

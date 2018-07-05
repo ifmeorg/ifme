@@ -9,9 +9,9 @@ import css from './Avatar.scss';
 const DEFAULT_HEIGHT = 150;
 
 type Props = {
-  className: string,
-  displayname: boolean,
-  name: string,
+  className?: string,
+  displayname?: boolean,
+  name?: string,
   src: string,
 };
 
@@ -56,6 +56,12 @@ const Avatar = (props: Props) => {
       {nameTag}
     </div>
   );
+};
+
+Avatar.defaultProps = {
+  className: '',
+  displayname: false,
+  name: '',
 };
 
 export default Avatar;

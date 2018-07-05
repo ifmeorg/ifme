@@ -22,9 +22,7 @@ _if me_ application first (see the root [README.md](../README.md) for installati
 Then from the project root directory, execute the following:
 
 ```
-rake i18n:js:export
-bin/start_app
-# stop the process via CTRL+C
+rake react_on_rails:locale
 cd client && yarn && yarn storybook
 ```
 
