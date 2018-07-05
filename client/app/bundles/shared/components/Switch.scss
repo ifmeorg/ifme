@@ -10,8 +10,7 @@
 
 .switch input {
   position: absolute;
-  top: -99999px;
-  left: -99999px;
+  display: none;
 }
 
 .slider {
@@ -30,21 +29,20 @@
   background-color: $mulberry-wood;
   border: 0px solid rgba(255, 255, 255, 0.7);
   border-radius: 5px;
-  -webkit-transition: .2s;
   transition: .2s;
 }
 
 input:checked + .slider {
-  background-color: #BACF88;
+  background-color: $yellow-green;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #BACF88;
+  box-shadow: 0 0 1px $yellow-green;
 }
 
 .slider:after {
   position: absolute;
-  content: "OFF";
+  content: 'OFF';
   height: 43px;
   width: 71.4px;
   left: 2.3px;
@@ -52,7 +50,6 @@ input:focus + .slider {
   background-color: rgba(255, 255, 255, 0.7);
   border: 0px solid rgba(255, 255, 255, 0.7);
   border-radius: 5px;
-  -webkit-transition: .2s;
   transition: .2s;
 }
 
