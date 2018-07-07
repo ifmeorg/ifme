@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 162px;
+  height: 42px;
+
+  background: #AAAAAA;
+
+  .circle {
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  height: 42px;      
+  width: 42px;
+
+    .number {
+        pointer-events: none;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 24px;
+        text-align: right;
+    }
+  }
+}
+
