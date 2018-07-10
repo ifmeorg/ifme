@@ -47,12 +47,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups do
-    collection do
-      get 'join'
-      get 'leave'
-    end
+  namespace :groups do
+    resources :memberships, only: [:create, :destroy]
   end
+
+  resources :groups
 
   resources :meetings do
     collection do
