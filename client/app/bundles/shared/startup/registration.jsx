@@ -8,7 +8,7 @@
 import jstz from 'jstimezonedetect';
 import ReactOnRails from 'react-on-rails';
 import { loadLocales } from 'libs/i18n/I18nSetup';
-import '../components/_globals.scss';
+import '../components/_global.scss';
 import Avatar from '../components/Avatar';
 
 window.jstz = jstz;

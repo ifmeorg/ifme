@@ -1,52 +1,49 @@
-@import "../_legacy.scss";
 @import "../_base.scss";
 
-body {
-  font-family: $font-family;
+
+@mixin dropdown(
+  $padding: 14px 47px 14px 19px,
+  $font-size: $text-size,
+  $color: $input-ghost-text-color,
+  $border-radius: $rounded-corner,
+  $border: none,
+  $appearance: none
+) {
+  padding: $padding;
+  font-size: $font-size;
+  color: $color;
+  border: $border;
+  border-radius: $border-radius;
+  /** TODO: Use PostCSS to add vendor prefixes **/
+  -webkit-appearance: $appearance;
+  -moz-appearance: $appearance;
+  appearance: $appearance;
 }
 
-.fill select{
-  background:  #6D0839 url('./down.svg') no-repeat right;
 
-  @include selectDropdown(
-    $padding: 13px 32px,
-    $font-size: $font18
-  );
-  &:focus {
-    outline: none;
-  }
-}
-
-.ghost select{
-  background:  #9a9999 url('./down.svg') no-repeat right;
-
-  @include selectDropdown(
-    $padding: 16px 30px,
-    $font-size: $font22
-  );
-  &:focus {
-    outline: none;
-  }
-}
-
-.ghost_small select {
-  background:  #9a9999 url('./down.svg') no-repeat right;
-
-  @include selectDropdown(
-    $padding: 13px 32px,
-    $font-size: $font18
-  );
-  &:focus {
-    outline: none;
-  }
-}
-
-.select_dropdown select {
+.dropdown {
+  background: $input-ghost-background-color url('./down.svg') no-repeat right 7px center;
+  box-shadow: $input-ghost-drop-shadow;
   padding-left: 10px;
   cursor: pointer;
-}
 
-.select_dropdown {
-  display: inline-block;
-}
+  &:focus {
+    outline: none;
+  }
 
+  &.fill_small {
+    background-color: $input-filled-background-color;
+    @include dropdown();
+  }
+
+  &.ghost {
+    @include dropdown(
+      $padding: 19px 47px 19px 19px,
+      $font-size: $text-size-large
+    );
+  }
+
+  &.ghost_small {
+    @include dropdown();
+  }
+}
