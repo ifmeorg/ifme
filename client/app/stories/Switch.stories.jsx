@@ -6,5 +6,5 @@ import Switch from 'bundles/shared/components/Switch';
 
 storiesOf('Switch', module)
   .add('Switch ON/OFF', withInfo({})(() =>
-    <Switch />
+    <Switch />,
   ));
