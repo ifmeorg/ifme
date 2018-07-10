@@ -3,7 +3,8 @@ import React from 'react';
 import css from './Switch.scss';
 
 type Props = {
-  id?: string
+  id?: string,
+  checked?: boolean
 }
 
 type State = {
@@ -21,9 +22,10 @@ export default class Switch extends React.Component<Props, State> {
   };
 
   render() {
+    const { id } = this.props;
     return (
       <div>
-        <label className={css.switch}>
+        <label htmlFor={id} className={css.switch}>
           <input type="checkbox" onClick={this.handleChange} />
           <div className={css.slider}>{}</div>
         </label>

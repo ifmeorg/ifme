@@ -5,13 +5,13 @@ import Switch from '../Switch';
 
 describe('Switch', () => {
   it('always renders the switch', () => {
-    let wrapper = shallow(<Switch />);
+    const wrapper = shallow(<Switch />);
     expect(wrapper.find('input').exists()).toEqual(true);
   });
   it('checks if switch toggles on click', () => {
-    let wrapper = shallow(<Switch />);
-    expect(wrapper.find('input').exists()).toEqual(true);
+    const wrapper = shallow(<Switch />);
+    expect(wrapper.state('checked')).toEqual(false);
     wrapper.find('input').simulate('click');
-    expect(wrapper.find('input').exists()).toEqual(true);
+    expect(wrapper.state('checked')).toEqual(true);
   });
 });

@@ -1,7 +1,10 @@
 // @flow
 import React from 'react';
 import { injectIntl } from 'react-intl';
+import shortid from 'shortid';
+
 import { defaultMessages } from 'libs/i18n/default';
+
 import css from './Footer.scss';
 
 type Prop = {
@@ -29,7 +32,11 @@ const Connect = injectIntl(({ intl }: Prop) => {
       <h6 className={css.footer_header}>Connect</h6>
       {
         links.map(([label, url]) => (
-          <li><a href={url} target={NEW_WINDOW_NAME}>{formatMessage(label)}</a></li>
+          <li key={shortid.generate()}>
+            <a href={url} target={NEW_WINDOW_NAME}>
+              {formatMessage(label)}
+            </a>
+          </li>
         ))
       }
     </ul>

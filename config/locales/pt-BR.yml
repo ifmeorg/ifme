@@ -1,4 +1,4 @@
-ptbr:
+pt-BR:
  app_name: 'if me'
  app_description: 'é uma comunidade para o compartilhamento de experiências sobre saúde mental'
  draft: 'Rascunho'
@@ -17,7 +17,7 @@ ptbr:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Outros
    vi: Tiếng Việt
