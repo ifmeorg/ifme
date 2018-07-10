@@ -1,0 +1,61 @@
+@import "_legacy.scss";
+@import "_base.scss";
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 119px;
+  height: 49px;
+}
+
+.switch input {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  font-size: $small-font;
+  font-family: $font-family;
+  text-align: center;
+  vertical-align: middle;
+
+  line-height: 40px;
+  color: $mulberry-wood;
+  letter-spacing: 9.44%;
+
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: $mulberry-wood;
+  border: 0px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  transition: .2s;
+}
+
+input:checked + .slider {
+  background-color: $yellow-green;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $yellow-green;
+}
+
+.slider:after {
+  position: absolute;
+  content: 'OFF';
+  height: 43px;
+  width: 71.4px;
+  left: 2.3px;
+  top: 3.5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  transition: .2s;
+}
+
+input:checked + .slider:after {
+  content: 'ON';
+  -webkit-transform: translateX(43.5px);
+  -ms-transform: translateX(43.5px);
+  transform: translateX(43.5px);
+}
