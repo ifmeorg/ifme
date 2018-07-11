@@ -47,11 +47,11 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :groups do
-    resources :memberships, only: [:create, :destroy]
+  resources :groups do
+    scope module: :groups do
+      resources :memberships, only: [:create, :destroy]
+    end
   end
-
-  resources :groups
 
   resources :meetings do
     collection do
