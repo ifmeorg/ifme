@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id
+    if @category.user_id == current_user.id
       @page_edit = edit_category_path(@category)
       @page_tooltip = t('categories.edit_category')
     else
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    return if @category.userid == current_user.id
+    return if @category.user_id == current_user.id
 
     redirect_to_path(category_path(@category))
   end

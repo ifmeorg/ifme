@@ -90,7 +90,7 @@ class Comment < ApplicationRecord
   end
 
   def notify_of_creation?(association)
-    association.userid != comment_by && association.viewers.include?(comment_by)
+    association.user_id != comment_by && association.viewers.include?(comment_by)
   end
 
   def send_notification(data, notifications, user_id)

@@ -12,7 +12,7 @@ module ViewersHelper
   end
 
   private def get_viewers(data, data_type, obj)
-    objs = obj.where(userid: data.userid).all.order('created_at DESC')
+    objs = obj.where(user_id: data.user_id).all.order('created_at DESC')
     objs.each do |ob|
       item = ob.send(data_type)
       return ob.viewers if item.include?(data.id)

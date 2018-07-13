@@ -15,10 +15,10 @@
 class GroupMember < ApplicationRecord
   after_destroy :destroy_meeting_memberships
 
-  validates :groupid, :userid, presence: true
+  validates :group_id, :userid, presence: true
   validates :leader, inclusion: [true, false]
 
-  belongs_to :group, foreign_key: :groupid
+  belongs_to :group
   belongs_to :user, foreign_key: :userid
 
   has_many :meetings, through: :group

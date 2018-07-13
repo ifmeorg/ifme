@@ -314,9 +314,9 @@ class ApplicationController < ActionController::Base
   def user_created_data?(id, data_type)
     case data_type
     when 'moment'
-      Moment.where(id: id, userid: current_user.id).exists?
+      Moment.where(id: id, user_id: current_user.id).exists?
     when 'strategy'
-      Strategy.where(id: id, userid: current_user.id).exists?
+      Strategy.where(id: id, user_id: current_user.id).exists?
     when 'meeting'
       MeetingMember.where(meetingid: id, leader: true,
                           userid: current_user.id).exists?
@@ -345,7 +345,7 @@ class ApplicationController < ActionController::Base
   def show_with_comments(subject)
     model_name = record_model_name(subject)
 
-    if current_user.id != subject.userid && hide_page?(subject)
+    if current_user.id != subject.user_id && hide_page?(subject)
       path = send("#{model_name.pluralize}_path")
       return redirect_to_path(path)
     end
@@ -355,7 +355,7 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
-    if current_user.id == subject.userid
+    if current_user.id == subject.user_id
       @page_edit = send("edit_#{model_name}_path", subject)
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else
@@ -405,7 +405,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_strategies(userid)
-    Strategy.where(userid: userid)
+    Strategy.where(user_id: userid)
   end
 
   def user_moments(userid)

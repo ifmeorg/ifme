@@ -41,7 +41,7 @@ FactoryBot.define do
 
       after(:create) do |group, evaluator|
         create :group_member, userid: evaluator.userid,
-                              groupid: group.id,
+                              group_id: group.id,
                               leader: evaluator.leader
       end
     end

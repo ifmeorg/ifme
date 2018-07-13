@@ -4,7 +4,7 @@ RSpec.feature "UserLeavesGroups", type: :feature do
     login_as user
     group = create :group_with_member, userid: user.id
     other_group_member = create :user2
-    create :group_member, userid: other_group_member.id, groupid: group.id
+    create :group_member, userid: other_group_member.id, group_id: group.id
     visit groups_path
 
     click_link "Leave"
@@ -18,7 +18,7 @@ RSpec.feature "UserLeavesGroups", type: :feature do
     login_as leader
     group = create :group_with_member, userid: leader.id, leader: true
     other_member = create :user2
-    create :group_member, userid: other_member.id, groupid: group.id
+    create :group_member, userid: other_member.id, group_id: group.id
     visit groups_path
     find('.tip_notifications_button').click
 
