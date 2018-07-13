@@ -17,9 +17,9 @@ RSpec.describe PagesController, type: :controller do
       end
 
       it 'if have stories' do
-        create(:strategy, userid: user.id)
-        categories = create_list(:category, 2, userid: user.id)
-        moods = create_list(:mood, 2, userid: user.id)
+        create(:strategy, user_id: user.id)
+        categories = create_list(:category, 2, user_id: user.id)
+        moods = create_list(:mood, 2, user_id: user.id)
         get :home
         expect(assigns(:moment)).to be_a_new(Moment)
         expect(assigns(:categories)).to eq(categories.reverse)

@@ -37,7 +37,7 @@ module GroupsHelper
   end
 
   def leave_group_link(group, attrs = {})
-    link_to t('common.actions.leave'), leave_groups_path(groupid: group.id),
+    link_to t('common.actions.leave'), leave_groups_path(group_id: group.id),
             { id: 'leave' }.merge(attrs)
   end
 

@@ -14,7 +14,7 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.userid == current_user.id
+    if @mood.user_id == current_user.id
       @page_edit = edit_mood_path(@mood)
       @page_tooltip = t('moods.edit_mood')
     else
@@ -29,14 +29,14 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    return if @mood.userid == current_user.id
+    return if @mood.user_id == current_user.id
     redirect_to_path(mood_path(@mood))
   end
 
   # POST /moods
   # POST /moods.json
   def create
-    @mood = Mood.new(mood_params.merge(userid: current_user.id))
+    @mood = Mood.new(mood_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @mood.save
         format.html { redirect_to mood_path(@mood) }
@@ -88,7 +88,7 @@ class MoodsController < ApplicationController
   # rubocop:disable MethodLength
   def quick_create
     mood = Mood.new(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: params[:mood][:name],
       description: params[:mood][:description]
     )

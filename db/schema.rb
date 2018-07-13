@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010054721) do
+ActiveRecord::Schema.define(version: 20180406232114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "group_members", force: :cascade do |t|
-    t.integer  "groupid"
+    t.integer  "group_id"
     t.integer  "userid"
     t.boolean  "leader"
     t.datetime "created_at"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "fix"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.text     "viewers"
     t.boolean  "comment"
     t.text     "strategy"
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "slug"
     t.index ["slug"], name: "index_moods_on_slug", unique: true, using: :btree
   end
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "strategies", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.text     "category"
     t.text     "description"
     t.text     "viewers"

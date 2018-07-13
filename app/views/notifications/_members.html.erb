@@ -35,7 +35,7 @@
                 group.leaders.include?(current_user) %>
                 <i class="fa fa-times action small_margin_left"></i>
                 <%= link_to t('common.actions.remove'),
-                            leave_groups_path(groupid: group.id,
+                            leave_groups_path(group_id: group.id,
                             memberid: member.id), id: 'leave' %>
               <% end %>
             </div>
