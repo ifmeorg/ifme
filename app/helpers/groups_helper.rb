@@ -38,7 +38,7 @@ module GroupsHelper
 
   def leave_group_link(group, attrs = {})
     link_to t('common.actions.leave'),
-            groups_membership_path(groupid: group.id),
+            group_membership_path(group_id: group.id),
             {
               id: 'leave',
               method: :delete
@@ -47,7 +47,7 @@ module GroupsHelper
 
   def join_group_link(group, attrs = {})
     link_to t('common.actions.join'),
-            groups_memberships_path(groupid: group.id),
+            group_membership_path(group_id: group.id),
             {
               id: 'join',
               method: :post

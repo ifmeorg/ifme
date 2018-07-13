@@ -47,7 +47,6 @@ class GroupsController < ApplicationController
         return redirect_to_group
       end
     end
-
     errors = @group.errors || leader.errors
     render_new(errors)
   end

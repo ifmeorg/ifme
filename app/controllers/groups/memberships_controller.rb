@@ -2,7 +2,7 @@
 
 module Groups
   class MembershipsController < ApplicationController
-    # POST /groups/memberships
+    # POST /groups/:group_id/membership
     def create
       @group_member = GroupMember.create!(group_member_params)
       @group = @group_member.group
@@ -13,16 +13,15 @@ module Groups
       redirect_to_group
     end
 
-    # DELETE /groups/membership/1
+    # DELETE /groups/:group_id/membership/
     # rubocop:disable MethodLength
     def destroy
-      member_id = params[:memberid] || current_user.id
+      member_id = current_user.id
+      group = Group.find_by(id: params[:group_id])
       group_member = GroupMember.find_by(
         userid: member_id,
-        groupid: params[:groupid]
+        group: group
       )
-      group = group_member.group
-
       # Cannot leave When you are the only leader
       if group.leader_ids == [member_id]
         flash[:alert] = t('groups.leave.error')
@@ -45,7 +44,7 @@ module Groups
     private
 
     def group_member_params
-      params.permit(:groupid).merge(userid: current_user.id, leader: false)
+      params.permit(:group_id).merge(userid: current_user.id, leader: false)
     end
 
     def redirect_to_group

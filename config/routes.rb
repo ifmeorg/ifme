@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   resources :groups do
     scope module: :groups do
-      resources :memberships, only: [:create, :destroy]
+      resource :membership, only: [:create, :destroy]
     end
   end
 

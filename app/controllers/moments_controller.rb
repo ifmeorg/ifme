@@ -50,7 +50,10 @@ class MomentsController < ApplicationController
 
     if comment_exists
       momentid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_moment = Moment.where(id: momentid, user_id: current_user.id).exists?
+      is_my_moment = Moment.where(
+        id: momentid,
+        user_id: current_user.id
+      ).exists?
       is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
     else
       is_my_moment = false
