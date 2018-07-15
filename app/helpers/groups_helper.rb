@@ -36,6 +36,18 @@ module GroupsHelper
             }.merge(attrs)
   end
 
+  def kick_member_link(group, member, attrs = {})
+    link_to t('common.actions.remove'),
+            group_membership_path(
+              group_id: group.id,
+              memberid: member.id
+            ),
+            {
+              id: 'leave',
+              method: :delete
+            }.merge(attrs)
+  end
+
   def leave_group_link(group, attrs = {})
     link_to t('common.actions.leave'),
             group_membership_path(group_id: group.id),
