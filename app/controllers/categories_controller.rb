@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   # rubocop:disable MethodLength
   def create
-    @category = Category.new(category_params.merge(userid: current_user.id))
+    @category = Category.new(category_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_path(@category) }
@@ -60,22 +60,22 @@ class CategoriesController < ApplicationController
   # rubocop:disable MethodLength
   def premade
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade1_name'),
       description: t('categories.index.premade1_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade2_name'),
       description: t('categories.index.premade2_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade3_name'),
       description: t('categories.index.premade3_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade4_name'),
       description: t('categories.index.premade4_description')
     )
@@ -122,7 +122,7 @@ class CategoriesController < ApplicationController
   # rubocop:disable MethodLength
   def quick_create
     category = Category.new(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: params[:category][:name],
       description: params[:category][:description]
     )

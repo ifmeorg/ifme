@@ -105,24 +105,24 @@ class ApplicationController < ActionController::Base
     viewers.include? current_user.id
   end
 
-  def get_uid(userid)
-    User.find(userid).uid
+  def get_uid(user_id)
+    User.find(user_id).uid
   end
 
   # rubocop:disable MethodLength
   def most_focus(data_type, profile_id)
     data = []
-    userid = profile_id || current_user.id
+    user_id = profile_id || current_user.id
     moments =
       if current_user.id == profile_id
-        user_moments(userid)
+        user_moments(user_id)
       else
-        user_moments(userid).where.not(published_at: nil)
+        user_moments(user_id).where.not(published_at: nil)
       end
     if data_type == 'category'
-      strategies = user_strategies(userid)
+      strategies = user_strategies(user_id)
       [moments, strategies].each do |records|
-        records.where(userid: userid).find_each do |r|
+        records.where(user_id: user_id).find_each do |r|
           if r.category.any? && (profile_id.blank? ||
                                  profile_exists?(profile_id, r))
             data += r.category
@@ -144,11 +144,11 @@ class ApplicationController < ActionController::Base
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
-  def tag_usage(data_id, data_type, userid)
+  def tag_usage(data_id, data_type, user_id)
     result = []
-    moments = user_moments(userid).order('created_at DESC')
+    moments = user_moments(user_id).order('created_at DESC')
     if data_type == 'category'
-      strategies = user_strategies(userid).order('created_at DESC')
+      strategies = user_strategies(user_id).order('created_at DESC')
       [moments, strategies].each do |records|
         objs = []
         records.find_each do |r|
@@ -319,7 +319,7 @@ class ApplicationController < ActionController::Base
       Strategy.where(id: id, user_id: current_user.id).exists?
     when 'meeting'
       MeetingMember.where(meetingid: id, leader: true,
-                          userid: current_user.id).exists?
+                          user_id: current_user.id).exists?
     else
       false
     end
@@ -359,7 +359,7 @@ class ApplicationController < ActionController::Base
       @page_edit = send("edit_#{model_name}_path", subject)
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else
-      ally = User.find(subject.userid)
+      ally = User.find(subject.user_id)
       @page_author = link_to(ally.name,
                              profile_index_path(uid: get_uid(ally.id)))
     end
@@ -404,12 +404,12 @@ class ApplicationController < ActionController::Base
     || !subject.published?
   end
 
-  def user_strategies(userid)
-    Strategy.where(user_id: userid)
+  def user_strategies(user_id)
+    Strategy.where(user_id: user_id)
   end
 
-  def user_moments(userid)
-    Moment.where(userid: userid)
+  def user_moments(user_id)
+    Moment.where(user_id: user_id)
   end
 
   # rubocop:disable MethodLength
@@ -422,7 +422,7 @@ class ApplicationController < ActionController::Base
       query = Strategy.published
     end
 
-    query.where(userid: user.id).all.recent.each do |story|
+    query.where(user_id: user.id).all.recent.each do |story|
       resources << story if story.viewers.include?(current_user.id)
     end
     resources

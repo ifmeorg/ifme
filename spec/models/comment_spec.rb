@@ -22,7 +22,7 @@ describe Comment do
 
   it 'posts a valid comment' do
     expect(Comment.count).to eq(0)
-    new_moment = create(:moment, userid: user1.id)
+    new_moment = create(:moment, user_id: user1.id)
     new_comment = create(:comment, commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
     expect(new_comment.comment).to eq('Test Comment')
     expect(new_comment.commentable_type).to eq('moment')
@@ -34,7 +34,7 @@ describe Comment do
 
   it 'posts an invalid comment' do
     expect(Comment.count).to eq(0)
-    new_moment = create(:moment, userid: user1.id)
+    new_moment = create(:moment, user_id: user1.id)
     new_comment = build(:comment, commentable_id: new_moment.id, visibility: 'all')
     expect(new_comment).to have(1).error_on(:comment_by)
   end
@@ -43,14 +43,14 @@ describe Comment do
     context 'Moments' do
       it 'posts a comment by the same user who created the Moment' do
         expect(Comment.count).to eq(0)
-        new_moment = create(:moment, userid: user1.id)
+        new_moment = create(:moment, user_id: user1.id)
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
 
       it 'posts a comment by a viewer of the Moment' do
         expect(Comment.count).to eq(0)
-        new_moment = create(:moment, userid: user1.id, viewers: [user2.id])
+        new_moment = create(:moment, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
@@ -59,14 +59,14 @@ describe Comment do
     context 'Strategies' do
       it 'posts a comment by the same user who created the Strategy' do
         expect(Comment.count).to eq(0)
-        new_strategy = create(:strategy, userid: user1.id)
+        new_strategy = create(:strategy, user_id: user1.id)
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
 
       it 'posts a comment by a viewer of the Strategy' do
         expect(Comment.count).to eq(0)
-        new_strategy = create(:strategy, userid: user1.id, viewers: [user2.id])
+        new_strategy = create(:strategy, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
@@ -76,7 +76,7 @@ describe Comment do
       it 'posts a comment' do
         expect(Comment.count).to eq(0)
         new_meeting = create :meeting
-        create :meeting_member, userid: user1.id, leader: true, meetingid: new_meeting.id
+        create :meeting_member, user_id: user1.id, leader: true, meetingid: new_meeting.id
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
@@ -86,19 +86,19 @@ describe Comment do
   describe 'notify_of_creation!' do
     context 'Moments' do
       it 'does not send a notification when the user created both the Moment and comment' do
-        new_moment = create(:moment, userid: user1.id)
+        new_moment = create(:moment, user_id: user1.id)
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
         new_comment.notify_of_creation!(user1)
         expect(Notification.count).to eq(0)
       end
 
       it 'sends a notification when a viewer comments on a Moment and visibility is all' do
-        new_moment = create(:moment, userid: user1.id, viewers: [user2.id])
+        new_moment = create(:moment, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
         new_comment.notify_of_creation!(user2)
         uniqueid = "comment_on_moment_#{new_comment.id}"
         expect(Notification.count).to eq(1)
-        expect(Notification.last.userid).to eq(user1.id)
+        expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq({
           'user' => user2.name,
@@ -113,12 +113,12 @@ describe Comment do
       end
 
       it 'sends a notification when a viewer comments on a Moment and visibility is private' do
-        new_moment = create(:moment, userid: user1.id, viewers: [user2.id])
+        new_moment = create(:moment, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private')
         new_comment.notify_of_creation!(user2)
         uniqueid = "comment_on_moment_private_#{new_comment.id}"
         expect(Notification.count).to eq(1)
-        expect(Notification.last.userid).to eq(user1.id)
+        expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq({
           'user' => user2.name,
@@ -135,19 +135,19 @@ describe Comment do
 
     context 'Strategies' do
       it 'does not send a notification when the user created both the Strategy and comment' do
-        new_strategy = create(:strategy, userid: user1.id)
+        new_strategy = create(:strategy, user_id: user1.id)
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
         new_comment.notify_of_creation!(user1)
         expect(Notification.count).to eq(0)
       end
 
       it 'sends a notification when a viewer comments on a Strategy and visibility is all' do
-        new_strategy = create(:strategy, userid: user1.id, viewers: [user2.id])
+        new_strategy = create(:strategy, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
         new_comment.notify_of_creation!(user2)
         uniqueid = "comment_on_strategy_#{new_comment.id}"
         expect(Notification.count).to eq(1)
-        expect(Notification.last.userid).to eq(user1.id)
+        expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq({
           'user' => user2.name,
@@ -162,12 +162,12 @@ describe Comment do
       end
 
       it 'sends a notification when a viewer comments on a Strategy and visibility is private' do
-        new_strategy = create(:strategy, userid: user1.id, viewers: [user2.id])
+        new_strategy = create(:strategy, user_id: user1.id, viewers: [user2.id])
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private')
         new_comment.notify_of_creation!(user2)
         uniqueid = "comment_on_strategy_private_#{new_comment.id}"
         expect(Notification.count).to eq(1)
-        expect(Notification.last.userid).to eq(user1.id)
+        expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
         expect(JSON.parse(Notification.last.data)).to eq({
           'user' => user2.name,
@@ -185,10 +185,10 @@ describe Comment do
     context 'Meetings' do
       it 'sends notifications to all Meeting members excluding the commenter who is a member' do
         new_group = create :group
-        new_meeting = create :meeting, groupid: new_group.id
-        create :meeting_member, userid: user1.id, leader: true, meetingid: new_meeting.id
-        create :meeting_member, userid: user2.id, leader: false, meetingid: new_meeting.id
-        create :meeting_member, userid: user3.id, leader: false, meetingid: new_meeting.id
+        new_meeting = create :meeting, group_id: new_group.id
+        create :meeting_member, user_id: user1.id, leader: true, meetingid: new_meeting.id
+        create :meeting_member, user_id: user2.id, leader: false, meetingid: new_meeting.id
+        create :meeting_member, user_id: user3.id, leader: false, meetingid: new_meeting.id
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user3.id, visibility: 'all')
         new_comment.notify_of_creation!(user3)
 
@@ -205,10 +205,10 @@ describe Comment do
           'typename' => new_meeting.name
         }
 
-        expect(Notification.first.userid).to eq(user1.id)
+        expect(Notification.first.user_id).to eq(user1.id)
         expect(JSON.parse(Notification.first.data)).to eq(data)
 
-        expect(Notification.last.userid).to eq(user2.id)
+        expect(Notification.last.user_id).to eq(user2.id)
         expect(JSON.parse(Notification.last.data)).to eq(data)
       end
     end

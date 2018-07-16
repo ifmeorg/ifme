@@ -33,7 +33,7 @@ module Groups
     private
 
     def group_member_params
-      params.permit(:group_id).merge(userid: current_user.id, leader: false)
+      params.permit(:group_id).merge(user_id: current_user.id, leader: false)
     end
 
     def redirect_to_group
@@ -57,7 +57,7 @@ module Groups
 
     def find_group_member(member_id)
       GroupMember.find_by(
-        userid: member_id,
+        user_id: member_id,
         group: @group
       )
     end

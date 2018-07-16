@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406232114) do
+ActiveRecord::Schema.define(version: 20180716040119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
 
   create_table "group_members", force: :cascade do |t|
     t.integer  "group_id"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
     t.string   "refill"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.integer  "total"
     t.integer  "strength"
     t.string   "strength_unit"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
 
   create_table "meeting_members", force: :cascade do |t|
     t.integer  "meetingid"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
     t.text     "location"
     t.string   "time"
     t.integer  "maxmembers"
-    t.integer  "groupid"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "uniqueid"
     t.text     "data"
     t.datetime "created_at", null: false
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 20180406232114) do
   end
 
   create_table "supports", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "support_type"
     t.text     "support_ids"
     t.datetime "created_at"

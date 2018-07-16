@@ -1,20 +1,19 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: strategies
 #
-#  id          :integer          not null, primary key
-#  userid      :integer
-#  category    :text
-#  description :text
-#  viewers     :text
-#  comment     :boolean
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  category     :text
+#  description  :text
+#  viewers      :text
+#  comment      :boolean
+#  created_at   :datetime
+#  updated_at   :datetime
+#  name         :string
+#  slug         :string
 #  published_at :datetime
-#  name        :string
-#  slug        :string
 #
 
 class Strategy < ApplicationRecord

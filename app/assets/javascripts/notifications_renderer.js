@@ -67,7 +67,7 @@ function meetingNotificationLink(uniqueid, data) {
                      { name: data.user, group_name: data.group, meeting_name: data.typename });
 
   var link = data.type.includes('remove') ?
-             '/groups/' + data.groupid :
+             '/groups/' + data.group_id :
              '/meetings/' + data.typeid;
 
   return notificationLink(uniqueid, link, notification);
@@ -77,7 +77,7 @@ function groupNotificationLink(uniqueid, data) {
   var notification = I18n.t('notifications.group.' + data.type,
                         { name: data.user, group_name: data.group });
 
-  var link = '/groups/' + data.groupid;
+  var link = '/groups/' + data.group_id;
 
   return notificationLink(uniqueid, link, notification);
 }
@@ -96,7 +96,7 @@ function newAllyRequestNotificationLink(uniqueid, data) {
 
   return '<div id="' + uniqueid + '" class="small_margin_top">' +
             I18n.t('notifications.ally.sent_html', { link_to_user: linkHtml }) +
-            acceptRejectIcons(data.userid) +
+            acceptRejectIcons(data.user_id) +
           '</div>';
 }
 
@@ -106,9 +106,9 @@ function notificationLink(uniqueid, link, notification) {
          '</a>';
 }
 
-function acceptRejectIcons(userId) {
-  var add = '/allies/add?ally_id=' + userId + '&refresh=' + window.location.pathname;
-  var remove = '/allies/remove?ally_id=' + userId + '&refresh=' + window.location.pathname;
+function acceptRejectIcons(user_id) {
+  var add = '/allies/add?ally_id=' + user_id + '&refresh=' + window.location.pathname;
+  var remove = '/allies/remove?ally_id=' + user_id + '&refresh=' + window.location.pathname;
 
   var accept = '<a rel="nofollow" data-method="post" class="notification_link small_margin_left display_inline" href="' + add + '"><i class="fa fa-check"></i></a>';
   var reject = '<a data-confirm="' + I18n.t('common.actions.confirm') + '" rel="nofollow" data-method="post" class="notification_link small_margin_left display_inline" href="' + remove + '"><i class="fa fa-times"></i></a>';

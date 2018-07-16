@@ -25,7 +25,7 @@ module Allyships
     end
 
     def notifications
-      @notifications ||= Notification.where(userid: ally_id).order(:created_at)
+      @notifications ||= Notification.where(user_id: ally_id).order(:created_at)
     end
 
     def send_notification_mailer
@@ -41,7 +41,7 @@ module Allyships
 
     def create_notification
       Notification.create(
-        userid: ally_id,
+        user_id: ally_id,
         uniqueid: unique_id,
         data: notification_data
       )
@@ -61,7 +61,7 @@ module Allyships
     def user_data
       {
         user: current_user.name,
-        userid: current_user.id,
+        user_id: current_user.id,
         uid: current_user.uid
       }
     end

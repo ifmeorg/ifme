@@ -62,11 +62,11 @@ class Comment < ApplicationRecord
   # Notify MeetingMembers except for commenter that there is a new comment
   def handle_meeting(association, creator)
     MeetingMember.where(meetingid: commentable_id)
-                 .where.not(userid: creator.id)
+                 .where.not(user_id: creator.id)
                  .find_each do |member|
       data = notification_data(creator, association, type, unique_id(type))
-      send_notification(data, notifications!(data, member.userid),
-                        member.userid)
+      send_notification(data, notifications!(data, member.user_id),
+                        member.user_id)
     end
   end
 
@@ -83,9 +83,9 @@ class Comment < ApplicationRecord
     )
   end
 
-  def notifications!(data, userid)
-    Notification.create!(userid: userid, uniqueid: unique_id(type), data: data)
-    model_data = Notification.where(userid: userid)
+  def notifications!(data, user_id)
+    Notification.create!(user_id: user_id, uniqueid: unique_id(type), data: data)
+    model_data = Notification.where(user_id: user_id)
     model_data.order('created_at')
   end
 
@@ -114,6 +114,6 @@ class Comment < ApplicationRecord
   end
 
   def user_to_notify(association)
-    association.userid == comment_by ? viewers.first : association.userid
+    association.user_id == comment_by ? viewers.first : association.user_id
   end
 end

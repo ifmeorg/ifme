@@ -44,11 +44,11 @@ describe AlliesController do
 
       let(:notification_params) do
         {
-          userid: ally.id.to_s,
+          user_id: ally.id.to_s,
           uniqueid: "#{notification_type}_#{user.id}",
           data: {
             user: user.name,
-            userid: user.id,
+            user_id: user.id,
             uid: user.uid,
             type: notification_type,
             uniqueid: "#{notification_type}_#{user.id}"
@@ -68,7 +68,7 @@ describe AlliesController do
         end
 
         let!(:notification) do
-          create(:notification, uniqueid: "new_ally_request_#{ally.id}", userid: user.id)
+          create(:notification, uniqueid: "new_ally_request_#{ally.id}", user_id: user.id)
         end
 
         let!(:notification_type) { 'accepted_ally_request' }
@@ -90,7 +90,7 @@ describe AlliesController do
         it 'sends an email notification to the ally' do
           data = {  
               user: user.name,
-              userid: user.id,
+              user_id: user.id,
               uid: user.uid,
               type: "#{notification_type}",
               uniqueid: "#{notification_type}_#{user.id}"

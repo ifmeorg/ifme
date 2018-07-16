@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: medications
@@ -10,7 +9,7 @@
 #  refill            :string
 #  created_at        :datetime
 #  updated_at        :datetime
-#  userid            :integer
+#  user_id           :integer
 #  total             :integer
 #  strength          :integer
 #  strength_unit     :string
@@ -28,7 +27,7 @@ describe Medication do
     subject { medication.active_reminders }
 
     describe 'when medication has no reminders' do
-      let(:medication) { FactoryBot.create(:medication, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, user_id: user.id) }
 
       it 'is an empty list' do
         expect(subject).to eq([])
@@ -39,7 +38,7 @@ describe Medication do
       let(:medication) do
         FactoryBot.create(:medication,
                            :with_refill_reminder,
-                           userid: user.id)
+                           user_id: user.id)
       end
 
       it 'is a list containing the refill reminder' do
@@ -51,7 +50,7 @@ describe Medication do
       let(:medication) do
         FactoryBot.create(:medication,
                            :with_daily_reminder,
-                           userid: user.id)
+                           user_id: user.id)
       end
 
       it 'is a list containing the daily reminder' do
@@ -63,7 +62,7 @@ describe Medication do
       let(:medication) do
         FactoryBot.create(:medication,
                            :with_both_reminders,
-                           userid: user.id)
+                           user_id: user.id)
       end
 
       it 'is a list containing both reminders' do

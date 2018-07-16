@@ -2,9 +2,9 @@
 
 RSpec.describe CategoriesController, type: :controller do
   let(:user) { create(:user1) }
-  let(:category) { create(:category, userid: user.id) }
-  let(:other_category) { create(:category, userid: user.id + 1) }
-  let(:valid_category_params) { attributes_for(:category).merge(userid: user.id) }
+  let(:category) { create(:category, user_id: user.id) }
+  let(:other_category) { create(:category, user_id: user.id + 1) }
+  let(:valid_category_params) { attributes_for(:category).merge(user_id: user.id) }
   let(:invalid_category_params) { { name: nil, description: nil } }
 
   describe 'GET #index' do
@@ -110,16 +110,16 @@ RSpec.describe CategoriesController, type: :controller do
         end
       end
 
-      context 'when the userid is hacked' do
-        it 'creates a new category, ignoring the userid parameter' do
-          # passing a userid isn't an error, but it shouldn't
+      context 'when the user_id is hacked' do
+        it 'creates a new category, ignoring the user_id parameter' do
+          # passing a user_id isn't an error, but it shouldn't
           # affect the owner of the created item
           another_user = create(:user2)
           hacked_category_params =
-            valid_category_params.merge(userid: another_user.id)
+            valid_category_params.merge(user_id: another_user.id)
           expect { post :create, params: { category: hacked_category_params } }
             .to change(Category, :count).by(1)
-          expect(Category.last.userid).to eq(user.id)
+          expect(Category.last.user_id).to eq(user.id)
         end
       end
     end
@@ -178,7 +178,7 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let!(:moment) { create(:moment, userid: user.id, category: [category.id]) }
+    let!(:moment) { create(:moment, user_id: user.id, category: [category.id]) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user

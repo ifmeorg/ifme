@@ -4,9 +4,9 @@ RSpec.describe GroupsController, :type => :controller do
   describe "GET #index" do
     it "assigns groups to the groups that the user belongs to" do
       stub_current_user
-      group = create :group_with_member, userid: controller.current_user.id
+      group = create :group_with_member, user_id: controller.current_user.id
       other_user = build_stubbed(:user2)
-      create :group_with_member, userid: other_user.id
+      create :group_with_member, user_id: other_user.id
 
       get :index
 
@@ -37,8 +37,8 @@ RSpec.describe GroupsController, :type => :controller do
       context "when user is member of the group" do
         it "sets @meetings to the group's meetings" do
           create_current_user
-          group = create :group_with_member, userid: controller.current_user.id
-          meeting = create :meeting, groupid: group.id
+          group = create :group_with_member, user_id: controller.current_user.id
+          meeting = create :meeting, group_id: group.id
 
           get :show, params: { id: group.id }
 
@@ -79,10 +79,10 @@ RSpec.describe GroupsController, :type => :controller do
     context "when current_user is the only leader of the group" do
       it "redirects to groups_path with alert message" do
         create_current_user
-        group_member = create :group_member, userid: controller.current_user.id,
+        group_member = create :group_member, user_id: controller.current_user.id,
                                              leader: true
 
-        get :leave, params: { groupid: group_member.group.id }
+        get :leave, params: { group_id: group_member.group.id }
 
         expect(response).to redirect_to(groups_path)
         expect(flash[:alert]).to eq(
