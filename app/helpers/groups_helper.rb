@@ -40,10 +40,9 @@ module GroupsHelper
     link_to t('common.actions.remove'),
             group_membership_path(
               group_id: group.id,
-              memberid: member.id
+              member_id: member.id
             ),
             {
-              id: 'leave',
               method: :delete
             }.merge(attrs)
   end

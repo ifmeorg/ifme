@@ -2,6 +2,8 @@
 
 module Groups
   class MembershipsController < ApplicationController
+    before_action :authenticate_user!
+    
     # POST /groups/:group_id/membership
     def create
       @group_member = GroupMember.create!(group_member_params)
@@ -15,7 +17,7 @@ module Groups
 
     # DELETE /groups/:group_id/membership/
     def destroy
-      member_id = params[:memberid] || current_user.id
+      member_id = params[:member_id] || current_user.id
       @group = Group.find_by(id: params[:group_id])
       @group_member = find_group_member(member_id)
       # Cannot leave When you are the only leader
