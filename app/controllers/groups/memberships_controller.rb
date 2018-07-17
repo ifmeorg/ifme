@@ -3,7 +3,7 @@
 module Groups
   class MembershipsController < ApplicationController
     before_action :authenticate_user!
-    
+
     # POST /groups/:group_id/membership
     def create
       @group_member = GroupMember.create!(group_member_params)
@@ -17,15 +17,30 @@ module Groups
 
     # DELETE /groups/:group_id/membership/
     def destroy
-      member_id = params[:member_id] || current_user.id
+      my_id = current_user.id
       @group = Group.find_by(id: params[:group_id])
-      @group_member = find_group_member(member_id)
+      @group_member = find_group_member(my_id)
       # Cannot leave When you are the only leader
-      if @group.leader_ids == [member_id]
+      if @group.leader_ids == [my_id]
         flash[:alert] = t('groups.leave.error')
       else
         @group_member.destroy
+        flash[:notice] = notice_destroy(my_id)
+      end
+      redirect_to groups_path
+    end
+
+    # DELETE /groups/:group_id/membership/:member_id
+    def kick
+      member_id = params[:member_id]
+      @group = Group.find_by(id: params[:group_id])
+      @group_member = find_group_member(member_id)
+      # Cannot kick if you are not a leader (hacker prevention)
+      if @group.leader_ids.include?(current_user.id)
+        @group_member.destroy
         flash[:notice] = notice_destroy(member_id)
+      else
+        flash[:alert] = t('groups.leave.remove_member_error')
       end
       redirect_to groups_path
     end
@@ -43,8 +58,8 @@ module Groups
       end
     end
 
-    def notice_destroy(member_id)
-      if member_id == current_user.id
+    def notice_destroy(id)
+      if id == current_user.id
         t('groups.leave.success', group: @group.name)
       else
         t(
@@ -55,9 +70,9 @@ module Groups
       end
     end
 
-    def find_group_member(member_id)
+    def find_group_member(id)
       GroupMember.find_by(
-        user_id: member_id,
+        user_id: id,
         group: @group
       )
     end
