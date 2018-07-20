@@ -36,17 +36,16 @@ module GroupsHelper
             }.merge(attrs)
   end
 
-  def kick_member_link(group, member)
-    form_for(
-      :anything,
-      url: kick_group_membership_path(
-        group_id: group.id,
-        member_id: member.id
-      ),
-      method: :delete
-    ) do |form|
-      form.submit t('common.actions.remove')
-    end
+  def kick_member_link(group, member, attrs = {})
+    link_to t('common.actions.remove'),
+            kick_group_membership_path(
+              group_id: group.id,
+              member_id: member.id
+              ),
+            {
+              class: 'kick',
+              method: :delete
+            }.merge(attrs)
   end
 
   def leave_group_link(group, attrs = {})

@@ -33,6 +33,7 @@
             <% if member != current_user &&
                 group.instance_of?(Group) &&
                 group.leaders.include?(current_user) %>
+                <i class="fa fa-times action small_margin_left"></i>
                 <%= kick_member_link(group, member) %>
               <% end %>
             </div>
