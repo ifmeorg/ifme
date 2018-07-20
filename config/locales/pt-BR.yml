@@ -155,6 +155,7 @@ pt-BR:
     error: 'Você não pode sair deste grupo, porque você é o único líder.'
     success: "Você saiu do grupo %{group}"
     remove_member_success: "Você excluiu o usuário %{user} do grupo %{group}"
+    remove_member_error: "Você não pode chutar um membro do grupo porque você não é um líder."
   new: 'Novo Grupo'
   show:
    led_by: 'Liderado por:'

@@ -155,7 +155,7 @@ en:
     error: 'You cannot leave the group, you are the only leader.'
     success: "You have left %{group}"
     remove_member_success: "You have removed %{user} from %{group}"
-    remove_member_error: "You cannot kick because you are not an admin."
+    remove_member_error: "You cannot kick a group member because you are not a leader."
   new: 'New Group'
   show:
    led_by: 'Led by:'

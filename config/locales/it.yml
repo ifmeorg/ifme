@@ -155,6 +155,7 @@ it:
     error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
     success: "Hai lasciato %{group}"
     remove_member_success: "Hai rimosso %{user} da %{group}"
+    remove_member_error: "Non puoi calciare un membro del gruppo perché non sei un leader."
   new: 'Nuovo Gruppo'
   show:
    led_by: 'Gestito da:'

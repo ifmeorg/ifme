@@ -41,7 +41,7 @@ module GroupsHelper
             kick_group_membership_path(
               group_id: group.id,
               member_id: member.id
-              ),
+            ),
             {
               class: 'kick',
               method: :delete

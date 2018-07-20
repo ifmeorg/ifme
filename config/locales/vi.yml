@@ -155,6 +155,7 @@ vi:
     error: 'Bạn không thể rời nhóm, bạn là nhóm trưởng.'
     success: "Bạn đã ra khỏi nhóm %{group}"
     remove_member_success: "Bạn đã gở bỏ %{user} ra khỏi nhóm %{group}"
+    remove_member_error: "Bạn không thể đá một thành viên nhóm vì bạn không phải là một nhà lãnh đạo."
   new: 'Nhóm mới'
   show:
    led_by: 'Điểu khiển bởi:'

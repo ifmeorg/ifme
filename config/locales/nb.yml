@@ -155,6 +155,7 @@ nb:
     error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
     success: "Du har forlatt %{group}"
     remove_member_success: "Du har fjernet %{user} fra %{group}"
+    remove_member_error: "Du kan ikke sparke et gruppemedlem fordi du ikke er leder."
   new: 'Ny gruppe'
   show:
    led_by: 'Ledet av:'

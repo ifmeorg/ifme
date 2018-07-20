@@ -155,6 +155,7 @@ nl:
     error: 'Je kunt de groep niet verlaten, je bent de enige leider van de groep.'
     success: "Je hebt %{group} verlaten"
     remove_member_success: "Je hebt %{user} uit %{group} gezet"
+    remove_member_error: "Je kunt een groepslid niet schoppen omdat je geen leider bent."
   new: 'Nieuwe groep'
   show:
    led_by: 'Geleid door:'

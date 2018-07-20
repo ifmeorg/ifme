@@ -156,6 +156,7 @@ es:
     error: "Eres el único líder, por lo tanto no puedes abandonar el Grupo."
     success: "Has abandonado el %{group}"
     remove_member_success: "Has removido a %{user} del %{group}"
+    remove_member_error: "No puedes patear a un miembro del grupo porque no eres un líder."
   new: "Nuevo grupo"
   show:
    led_by: "Lidereado por:"
