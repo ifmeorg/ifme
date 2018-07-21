@@ -45,7 +45,7 @@ const config = Object.assign(baseConfig, {
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
       'babel-polyfill',
-    ].concat(glob.sync('./app/bundles/**/startup/*')),
+    ].concat(glob.sync('./app/startup/*')),
   },
 
   output: {

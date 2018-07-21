@@ -1,0 +1,42 @@
+@import '../../styles/_legacy.scss';
+@import '../../styles/_base.scss';
+
+.resource {
+  position: relative;
+  width: 100%;
+  font-family: $font-family;
+  padding: 25px 10px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    border: 1px solid #fff;
+    border-width: 0 40px 0 0;
+    height: 3px;
+  }
+
+  .link {
+    display: block;
+    font-size: $font24;
+    color: $background-color;
+    padding-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  div > a {
+    text-decoration: none;
+    color: $header-text-color;
+  }
+
+  .author {
+    color: $author-text-color;
+    font-size: $font18;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+}
+

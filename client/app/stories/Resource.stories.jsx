@@ -1,10 +1,16 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { Resource } from '../components/Resource';
 
-import Resource from '../bundles/shared/components/Resource';
-
-const tags = ['open_source', 'tech_industry', 'free', 'workplace', 'podcast', 'books'];
+const tags = [
+  'open_source',
+  'tech_industry',
+  'free',
+  'workplace',
+  'podcast',
+  'books',
+];
 
 storiesOf('Resource', module)
   .add('Tagged Resource', () => (
@@ -56,9 +62,13 @@ storiesOf('Resource', module)
       <Col span={8}>
         <Resource
           external
-          title={'A very long title for a resource that should wrap to two lines and then some or not'}
+          title={
+            'A very long title for a resource that should wrap to two lines and then some or not'
+          }
           link={'www.if-me.org'}
-          author={'Author with a very very long name that is usually an edge case'}
+          author={
+            'Author with a very very long name that is usually an edge case'
+          }
         />
       </Col>
     </Row>
@@ -91,7 +101,9 @@ storiesOf('Resource', module)
           tagged
           external
           tags={tags.concat(tags)}
-          title={'Invisible Illnesses: depression is an ocean, and another measure to consider'}
+          title={
+            'Invisible Illnesses: depression is an ocean, and another measure to consider'
+          }
           link={'www.if-me.org'}
           author={'Desi Rottman'}
         />

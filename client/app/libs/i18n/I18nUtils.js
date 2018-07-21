@@ -13,19 +13,16 @@ export const availableLocalesAsMap = enYML.en.languages;
 
 const filterNonLanguage = ([value]) => !['various'].includes(value);
 
-export const availableLocalesAsCodeArray = Object
-  .entries(availableLocalesAsMap)
+export const availableLocalesAsCodeArray = Object.entries(availableLocalesAsMap)
   .filter(filterNonLanguage) // Exclude non-language text
   .map(([value]) => value)
   .sort((a, b) => a.localeCompare(b));
 
-export const availableLocalesAsSelectOptions = Object
-  .entries(availableLocalesAsMap)
+export const availableLocalesAsSelectOptions = Object.entries(
+  availableLocalesAsMap,
+)
   .filter(filterNonLanguage) // Exclude non-language text
   .map(([value, label]) => ({ label, value }))
   .sort((a, b) => a.label.localeCompare(b.label));
 
-export {
-  defaultLocale,
-  translations,
-};
+export { defaultLocale, translations };

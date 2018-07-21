@@ -3,24 +3,19 @@ import { Row, Col } from 'antd';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import { MomentCard } from '../components/MomentCard';
 
-import MomentCard from 'bundles/momentsApp/components/MomentCard';
-
-const tripleColumnize = (card) => {
+const tripleColumnize = card => {
   const cardAndCol = key => (
     <Col key={key} span={8}>
       {card}
     </Col>
   );
-  return (
-    <Row gutter={24}>
-      {[cardAndCol(1), cardAndCol(2), cardAndCol(3)]}
-    </Row>
-  );
+  return <Row gutter={24}>{[cardAndCol(1), cardAndCol(2), cardAndCol(3)]}</Row>;
 };
 
 storiesOf('MomentCards', module)
-  .add('MomentCardDated', () => (
+  .add('MomentCardDated', () =>
     tripleColumnize(
       <MomentCard
         action={{
@@ -35,9 +30,9 @@ storiesOf('MomentCards', module)
         }}
         date="Created 2 Days ago"
       />,
-    )
-  ))
-  .add('MomentCardNoDate', () => (
+    ),
+  )
+  .add('MomentCardNoDate', () =>
     tripleColumnize(
       <MomentCard
         action={{
@@ -49,9 +44,9 @@ storiesOf('MomentCards', module)
           mood: ['NERVOUS', 'ANXIOUS', 'HELPFUL'],
         }}
       />,
-    )
-  ))
-  .add('MomentCardDraft', () => (
+    ),
+  )
+  .add('MomentCardDraft', () =>
     tripleColumnize(
       <MomentCard
         cardType="Draft"
@@ -67,5 +62,5 @@ storiesOf('MomentCards', module)
         }}
         draftText="DRAFT"
       />,
-    )
-  ));
+    ),
+  );

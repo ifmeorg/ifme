@@ -1,0 +1,38 @@
+@import "../../styles/_legacy.scss";
+@import "../../styles/_base.scss";
+
+.tag {
+  &:last-child{
+    margin-right: 0;
+  }
+
+  padding: 5px 12px;
+  text-indent: 4px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+
+  font-family: $font-family;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  border-radius: 5px;
+  border: 1px solid $container-color;
+
+  mix-blend-mode: normal;
+  color: $container-color;
+
+  &.dark {
+    color: $background-color;
+    border: 1px;
+    background-color: $container-color;
+  }
+
+  &.normal {
+    color: $background-color;
+    border: 1px;
+    background-color: $transparent;
+  }
+}

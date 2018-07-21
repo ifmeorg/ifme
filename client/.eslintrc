@@ -8,6 +8,7 @@
   },
   "root": true,
   "rules": {
+    "import/prefer-default-export": ["off"],
     "react/sort-comp": [2, {
       "order": [
         "type-annotations",
@@ -24,9 +25,7 @@
     "import/resolver": {
       "node": {
         "paths": [
-          // allow absolute import from "app/libs/.." as "libs/.."
           "./app",
-          // allow absolute import from "../configs/locales.." as "configs/locales.."
           ".."
         ]
       }
