@@ -2,7 +2,7 @@
   Thank you for contributing to our project, it means a lot!
   Please use this pull request (PR) template and remove sections that don't apply to your submission
 
-  If you haven't already, create another PR add yourself to our contributors page
+  If you haven't already, create another PR to add yourself to our contributors page
   More info here: https://github.com/ifmeorg/ifme#contributor-blurb
 
   If you need any help, please message our #dev channel on Slack
@@ -24,7 +24,10 @@
 
 # Screenshots
 
-<!--[Screenshots (required for user interface changes), remove this title/section if not applicable]-->
+<!--[
+  Screenshots (required for user interface changes), remove this title/section if not applicable
+  GIF creation tools like Licecap (https://www.cockos.com/licecap) are great for capturing interaction changes
+]-->
 
 # Test Coverage
 
