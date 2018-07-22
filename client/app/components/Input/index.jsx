@@ -42,10 +42,20 @@ export class Input extends React.Component<Props, State> {
     this.setState({ active: false });
   };
 
+  labelClassNames = () => {
+    const { dark, large } = this.props;
+    return `${css.label} ${dark ? css.dark : ''} ${large ? css.large : ''} ${
+      this.state.active ? css.active : ''
+    }`;
+  };
+
+  inputClassNames = () => {
+    const { dark, large } = this.props;
+    return `${css.input} ${dark ? css.dark : ''} ${large ? css.large : ''}`;
+  };
+
   render() {
     const {
-      dark,
-      large,
       label,
       id,
       type,
@@ -58,17 +68,11 @@ export class Input extends React.Component<Props, State> {
       maxLength,
     } = this.props;
 
-    const labelClassNames = `${css.label} ${dark ? css.dark : ''}
-      ${large ? css.large : ''} ${this.state.active ? css.active : ''}`;
-
-    const inputClassNames = `${css.input} ${dark ? css.dark : ''}
-    ${large ? css.large : ''}`;
-
     return (
       <div>
-        <div className={labelClassNames}>{label}</div>
+        <div className={this.labelClassNames()}>{label}</div>
         <input
-          className={inputClassNames}
+          className={this.inputClassNames()}
           id={id}
           type={type}
           name={name}

@@ -44,6 +44,8 @@ export class Textarea extends React.Component<Props, State> {
     this.setState({ active: false });
   };
 
+  labelClassNames = () => `${css.label} ${this.state.active ? css.active : ''}`;
+
   render() {
     const {
       id,
@@ -59,13 +61,9 @@ export class Textarea extends React.Component<Props, State> {
       maxLength,
     } = this.props;
 
-    const labelClassNames = `${css.label} ${
-      this.state.active ? css.active : ''
-    }`;
-
     return (
       <div>
-        <div className={labelClassNames}>{label}</div>
+        <div className={this.labelClassNames()}>{label}</div>
         <textarea
           className={css.textarea}
           id={id}

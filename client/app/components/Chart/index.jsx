@@ -12,22 +12,17 @@ type chartShape = {
   chartType: 'Line' | 'Area',
 };
 
-// ifme themed chart colors
+// if me themed chart colors
 const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
 
-/**
- * Renders a Chart Kick element.
- *
- * We wrap the element here in case we want to replace ChartKick with another library.
- *
- * @param props - Comes from your rails view.
- */
-export const Chart = ({ chartType, ...props }: chartShape) =>
-  chartType === 'Line' ? (
+export function Chart({ chartType, ...props }: chartShape) {
+  return chartType === 'Line' ? (
     <LineChart {...props} colors={colorSchemes} />
   ) : (
     <AreaChart {...props} colors={colorSchemes} />
   );
+}
+
 Chart.displayname = 'Chart';
 Chart.defaultProps = {
   xtitle: '',
