@@ -1,4 +1,4 @@
-# Contributing to if me
+# Contributing
 
 [if me](http://www.if-me.org) is a community for mental health experiences that
 encourages people to share their personal stories with trusted allies. Trusted
@@ -19,13 +19,7 @@ We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please [read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
-### [Wiki](https://github.com/ifmeorg/ifme/wiki)
-
-### [Goals](https://github.com/ifmeorg/ifme/wiki/Goals)
-
-### [Projects](https://github.com/ifmeorg/ifme/projects)
-
-### [Donate](https://github.com/ifmeorg/ifme#donate)
+Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
 
 ## Contributor Roles
 
@@ -42,3 +36,4 @@ The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us ab
 ### [Translations](https://github.com/ifmeorg/ifme/wiki/Translations)
 
 ### [Writer](https://github.com/ifmeorg/ifme/wiki/Writers)
+

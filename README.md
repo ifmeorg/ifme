@@ -24,13 +24,11 @@ our code of conduct. Please
 [read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
+Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
+
 ## Installation
 
-Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/ifmeorg/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
-
-## Documentation
-
-Futher documentation can be found in our [wiki](https://github.com/ifmeorg/ifme/wiki). This includes information on UI components, design, testing guidelines, translations, and workflows.
+Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
 
 ## Contributor Blurb
 
