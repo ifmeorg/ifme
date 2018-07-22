@@ -31,4 +31,8 @@
 
 # Test Coverage
 
-<!--[YES or NO or N/A - must be YES, if not explain why]-->
+- [ ] Yes
+- [ ] No
+- [ ] N/A
+
+<!--[Must be Yes, if not explain why here]-->
