@@ -47,37 +47,23 @@ export class Textarea extends React.Component<Props, State> {
   labelClassNames = () => `${css.label} ${this.state.active ? css.active : ''}`;
 
   render() {
-    const {
-      id,
-      form,
-      name,
-      rows,
-      cols,
-      placeholder,
-      label,
-      readonly,
-      disabled,
-      required,
-      maxLength,
-    } = this.props;
-
     return (
       <div>
-        <div className={this.labelClassNames()}>{label}</div>
+        <div className={this.labelClassNames()}>{this.props.label}</div>
         <textarea
           className={css.textarea}
-          id={id}
-          name={name}
+          id={this.props.id}
+          name={this.props.name}
           value={this.state.value}
-          form={form}
-          rows={rows}
-          cols={cols}
-          placeholder={placeholder}
-          label={label}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          maxLength={maxLength}
+          form={this.props.form}
+          rows={this.props.rows}
+          cols={this.props.cols}
+          placeholder={this.props.placeholder}
+          label={this.props.label}
+          readOnly={this.props.readonly}
+          disabled={this.props.disabled}
+          required={this.props.required}
+          maxLength={this.props.maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}
           onBlur={this.onBlur}

@@ -55,34 +55,21 @@ export class Input extends React.Component<Props, State> {
   };
 
   render() {
-    const {
-      label,
-      id,
-      type,
-      name,
-      placeholder,
-      readonly,
-      disabled,
-      required,
-      minLength,
-      maxLength,
-    } = this.props;
-
     return (
       <div>
-        <div className={this.labelClassNames()}>{label}</div>
+        <div className={this.labelClassNames()}>{this.props.label}</div>
         <input
           className={this.inputClassNames()}
-          id={id}
-          type={type}
-          name={name}
+          id={this.props.id}
+          type={this.props.type}
+          name={this.props.name}
           value={this.state.value}
-          placeholder={placeholder}
-          readOnly={readonly}
-          disabled={disabled}
-          required={required}
-          minLength={minLength}
-          maxLength={maxLength}
+          placeholder={this.props.placeholder}
+          readOnly={this.props.readonly}
+          disabled={this.props.disabled}
+          required={this.props.required}
+          minLength={this.props.minLength}
+          maxLength={this.props.maxLength}
           onChange={this.onChange}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
