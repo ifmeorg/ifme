@@ -12,7 +12,6 @@ type chartShape = {
   chartType: 'Line' | 'Area',
 };
 
-// if me themed chart colors
 const colorSchemes = ['#6D0839', '#66118', '#7F503F', '#775577', '#CCAADD'];
 
 export function Chart({ chartType, ...props }: chartShape) {

@@ -1,7 +1,6 @@
 // @flow
 import LazyLoad from 'react-lazyload';
 import React from 'react';
-
 import defaultAvatar from 'app/assets/images/default_ifme_avatar.png';
 import css from './Avatar.scss';
 
@@ -23,7 +22,7 @@ function onErrorHandler(e: Event) {
   (e.target: window.HTMLImgElement).src = defaultAvatar;
 }
 
-const Avatar = (props: Props) => {
+export const Avatar = (props: Props) => {
   const { className = '', displayname = false, name = '', src } = props;
 
   /*
@@ -60,5 +59,3 @@ Avatar.defaultProps = {
   displayname: false,
   name: '',
 };
-
-export default Avatar;

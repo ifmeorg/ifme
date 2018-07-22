@@ -1,7 +1,8 @@
 import 'chartjs';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Chart, ChartControl } from '../components/Chart';
+import { Chart } from '../components/Chart';
+import { ChartControl } from '../components/Chart/ChartControl';
 
 const sampleChartData = {
   '2013-02-10 00:00:00 -0800': 11,
