@@ -32,9 +32,11 @@ Information about installing and configuring if me is located in [INSTALLATION.m
 
 Futher documentation can be found in our [wiki](https://github.com/ifmeorg/ifme/wiki). This includes information on UI components, design, testing guidelines, translations, and workflows.
 
-## [Contributor Blurb](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb)
+## Contributor Blurb
 
-## Donate
+Everyone who is a part of our project is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contributor page.
+
+### Donate
 
 We also welcome financial contributions in full transparency on our
 [Open Collective](https://opencollective.com/ifme).
@@ -45,7 +47,7 @@ core contributors and the person who filed the expense will be reimbursed.
 We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
 monthly donations.
 
-# Backers
+### Backers
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
