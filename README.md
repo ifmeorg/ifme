@@ -58,7 +58,7 @@ Thank you to all our Open Collective backers!
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
-# Sponsors
+### Sponsors
 
 Thank you to all our sponsors! (please ask your company to also support this
 open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
