@@ -17,7 +17,7 @@ them involved in mental health treatment is the key to recovery.
 
 The live site can be found at [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](CONTRIBUTING.md).**
+**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
@@ -28,22 +28,9 @@ before joining our project.
 
 Information about installing and configuring if me is located in [INSTALLATION.md](https://github.com/ifmeorg/ifme/blob/master/INSTALLATION.md). Both local and production instances are covered.
 
-## UI Components and Design
+## Documentation
 
-* [UI components guidelines](https://github.com/ifmeorg/ifme/wiki/UI-Components)
-* [UI design guidelines](https://github.com/ifmeorg/ifme/wiki/UI-Design)
-
-## Testing Guidelines
-
-[Testing guidelines](https://github.com/ifmeorg/ifme/wiki/Code-Testing)
-
-## Translations
-
-[How to add translations for new languages](https://github.com/ifmeorg/ifme/wiki/Translations)
-
-## Workflows and Contributions
-
-[Workflows and contributions](https://github.com/ifmeorg/ifme/wiki/Workflow)
+Futher documentation can be found in our [wiki](https://github.com/ifmeorg/ifme/wiki). This includes information on UI components, design, testing guidelines, translations, and workflows.
 
 ## Contributor Blurb
 
