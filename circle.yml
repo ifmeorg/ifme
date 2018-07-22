@@ -30,6 +30,7 @@ test:
       $CIRCLE_TEST_REPORTS/rspec.xml
     - RAILS_ENV=test bundle exec rake jasmine:ci
     - bundle exec bundle-audit check --update
+    - cd client && yarn test
 
 deployment:
   staging:
