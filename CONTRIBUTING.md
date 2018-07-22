@@ -39,4 +39,6 @@ The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us ab
 
 ### [Tester](https://github.com/ifmeorg/ifme/wiki/Testers)
 
+### [Translations](https://github.com/ifmeorg/ifme/wiki/Translations)
+
 ### [Writer](https://github.com/ifmeorg/ifme/wiki/Writers)
