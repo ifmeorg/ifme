@@ -24,7 +24,7 @@ describe('Chart', () => {
   });
 
   it('renders a LineChart', () => {
-    const wrapper = getComponent({ chartType: 'Line'});
+    const wrapper = getComponent({ chartType: 'Line' });
     expect(wrapper.length).toEqual(1);
   });
 });

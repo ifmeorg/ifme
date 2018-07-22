@@ -23,8 +23,3 @@ export function Chart({ chartType, ...props }: chartShape) {
 }
 
 Chart.displayname = 'Chart';
-Chart.defaultProps = {
-  xtitle: '',
-  ytitle: '',
-  data: {},
-};

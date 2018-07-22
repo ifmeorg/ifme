@@ -53,9 +53,3 @@ export const Avatar = (props: Props) => {
     </div>
   );
 };
-
-Avatar.defaultProps = {
-  className: '',
-  displayname: false,
-  name: '',
-};

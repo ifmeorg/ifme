@@ -34,12 +34,5 @@ export const DropdownFactory = (variationClassName: string) => {
       ))}
     </select>
   );
-
-  DropdownComponent.defaultProps = {
-    onChange: () => {},
-    options: [],
-    value: undefined,
-  };
-
   return DropdownComponent;
 };

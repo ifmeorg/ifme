@@ -24,10 +24,5 @@ export function LogoFactory(
       </div>
     );
   };
-
-  LogoComponent.defaultProps = {
-    onClick: undefined,
-  };
-
   return LogoComponent;
 }
