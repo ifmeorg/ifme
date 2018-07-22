@@ -32,21 +32,7 @@ Information about installing and configuring if me is located in [INSTALLATION.m
 
 Futher documentation can be found in our [wiki](https://github.com/ifmeorg/ifme/wiki). This includes information on UI components, design, testing guidelines, translations, and workflows.
 
-## Contributor Blurb
-
-In the spirit of open communication and community, we highly recommend that new
-contributors write a blurb on themselves, what mental health means to them, and
-why they are part of the project.
-
-This also helps people to familiarize themselves with the code base! The live
-contributors page can be found [here](https://www.if-me.org/contribute).
-Contributor images must be at least 800x800 px and be in .jpg or .png format.
-Please save the image as
-`app/assets/images/contributors/firstname_lastname.png`! Add your blurb to
-`doc/pages/blurbs.json`.
-
-If you've contributed to the project but do not want to write a blurb, please
-add your name and desired social media link to `doc/pages/contributors.json`.
+## [Contributor Blurb](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb)
 
 ## Donate
 
@@ -59,7 +45,7 @@ core contributors and the person who filed the expense will be reimbursed.
 We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
 monthly donations.
 
-### Backers
+# Backers
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
@@ -70,7 +56,7 @@ Thank you to all our Open Collective backers!
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
-### Sponsors
+# Sponsors
 
 Thank you to all our sponsors! (please ask your company to also support this
 open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
