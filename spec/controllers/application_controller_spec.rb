@@ -12,81 +12,95 @@ end
 describe ApplicationController do
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
-  describe "most_focus" do
+
+  describe "#most_focus" do
+    let(:user_id) { user1.id }
+    let(:categories_length) { 2 }
+    let(:category) { create(:category, userid: user_id) }
+    let(:categories) { create_list(:category, categories_length, userid: user_id) }
+    let(:category_ids) { categories.map(&:id) }
+
     describe "categories" do
       before(:example) do
         sign_in user1
       end
-      it "returns an empty hash because no categories exist" do
-        new_moment = create(:moment, user_id: user1.id)
-        new_strategy = create(:strategy, user_id: user1.id)
-        expect(controller.most_focus('category', nil).length).to eq(0)
+
+      context 'when no categories exist' do
+        it 'returns an empty hash' do
+          expect(controller.most_focus('category', nil)).to be_empty
+        end
       end
 
-      describe "returns a hash because categories exist" do
-        it "returns a hash of size 1 when the same category is used twice" do
-          new_category = create(:category, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, category: Array.new(1, new_category.id))
-          new_strategy = create(:strategy, user_id: user1.id, category: Array.new(1, new_category.id))
-          result = controller.most_focus('category', user1.id)
-          expect(result.length).to eq(1)
-          expect(result[new_category.id]).to eq(2)
+      context 'when categories exist' do
+        subject { controller.most_focus('category', user_id) }
+
+        context 'when the same category is used twice' do
+          before do
+            create(:moment, category: [category.id], userid: user_id)
+            create(:strategy, category: [category.id], userid: user_id)
+          end
+
+          it 'includes duplicate categories once' do
+            expect(subject.length).to eq(Category.count)
+            expect(subject[category.id]).to eq(2)
+          end
         end
 
-        it "returns a hash of size 2" do
-          new_category1 = create(:category, user_id: user1.id)
-          new_category2 = create(:category, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, category: Array.new(1, new_category1.id))
-          new_strategy = create(:strategy, user_id: user1.id, category: Array.new(1, new_category2.id))
-          result = controller.most_focus('category', user1.id)
-          expect(result.length).to eq(2)
-          expect(result[new_category1.id]).to eq(1)
-          expect(result[new_category2.id]).to eq(1)
-        end
+        context 'when there are multiple categories' do
+          let(:categories_length) { 4 }
 
-        it "returns a correct hash of size 3" do
-          new_category1 = create(:category, user_id: user1.id)
-          new_category2 = create(:category, user_id: user1.id)
-          new_category3 = create(:category, user_id: user1.id)
-          new_category4 = create(:category, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, category: Array.new(1, new_category2.id))
-          new_strategy = create(:strategy, user_id: user1.id, category: [new_category1.id, new_category2.id, new_category3.id, new_category4.id])
-          result = controller.most_focus('category', user1.id)
-          expect(result.length).to eq(3)
-          expect(result[new_category1.id]).to eq(1)
-          expect(result[new_category2.id]).to eq(2)
-          expect(result[new_category3.id]).to eq(1)
-          expect(result[new_category4.id]).to eq(nil)
-        end
+          context 'when viewing your own profile' do
+            before do
+              create(:moment, category: [category.id], userid: user_id)
+              create(:strategy, category: category_ids + [category.id], userid: user_id)
+            end
 
-        it "returns a correct hash of size 1 belonging to another user" do
-          new_category1 = create(:category, user_id: user2.id)
-          new_category2 = create(:category, user_id: user2.id)
-          new_category3 = create(:category, user_id: user2.id)
-          new_category4 = create(:category, user_id: user2.id)
-          new_moment = create(:moment, user_id: user2.id, category: Array.new(1, new_category2.id), viewers: Array.new(1, user1.id), published_at: Time.zone.now)
-          new_strategy = create(:strategy, user_id: user2.id, category: [new_category1.id, new_category2.id, new_category3.id, new_category4.id], published_at: Time.zone.now)
-          result = controller.most_focus('category', user2.id)
-          expect(result.length).to eq(1)
-          expect(result[new_category1.id]).to eq(nil)
-          expect(result[new_category2.id]).to eq(1)
-          expect(result[new_category3.id]).to eq(nil)
-          expect(result[new_category4.id]).to eq(nil)
-        end
+            it 'returns a hash containing the top three unique categories' do
+              expect(subject.length).to eq(3)
+              expect(subject[category.id]).to eq(2)
+            end
+          end
 
-        it "returns a correct hash of size 0 belonging to another user when his/her posts are drafts" do
-          new_category1 = create(:category, user_id: user2.id)
-          new_category2 = create(:category, user_id: user2.id)
-          new_category3 = create(:category, user_id: user2.id)
-          new_category4 = create(:category, user_id: user2.id)
-          new_moment = create(:moment, user_id: user2.id, category: Array.new(1, new_category2.id), viewers: Array.new(1, user1.id))
-          new_strategy = create(:strategy, user_id: user2.id, category: [new_category1.id, new_category2.id, new_category3.id, new_category4.id])
-          result = controller.most_focus('category', user2.id)
-          expect(result.length).to eq(0)
-          expect(result[new_category1.id]).to eq(nil)
-          expect(result[new_category2.id]).to eq(nil)
-          expect(result[new_category3.id]).to eq(nil)
-          expect(result[new_category4.id]).to eq(nil)
+          context "when viewing another user's profile" do
+            let(:user_id) { user2.id }
+            let(:publication) { Time.now }
+            before do
+              create(
+                :moment,
+                userid: user_id,
+                category: [category.id],
+                viewers: [user1.id],
+                published_at: publication
+              )
+              create(
+                :strategy,
+                userid: user_id,
+                category: category_ids,
+                published_at: publication
+              )
+            end
+
+            context 'when published' do
+              it 'shows only the categories for which you have viewing permission' do
+                expect(subject.length).to eq(1)
+                expect(subject[category.id]).to eq(1)
+
+                category_ids.each do |id|
+                  expect(subject[id]).to be_nil
+                end
+              end
+            end
+
+            context 'when not published' do
+              let(:publication) { nil }
+
+              it 'it returns an empty hash' do
+                expect(Moment.count).to eq(1)
+                expect(Strategy.count).to eq(1)
+                expect(subject).to be_empty
+              end
+            end
+          end
         end
       end
     end
