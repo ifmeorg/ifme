@@ -38,11 +38,12 @@ module GroupsHelper
 
   def kick_member_link(group, member, attrs = {})
     link_to t('common.actions.remove'),
-            group_membership_path(
+            kick_group_membership_path(
               group_id: group.id,
               member_id: member.id
             ),
             {
+              class: 'kick',
               method: :delete
             }.merge(attrs)
   end

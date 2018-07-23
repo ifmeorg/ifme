@@ -350,8 +350,13 @@ class MeetingsController < ApplicationController
 
       respond_to do |format|
         format.html do
-          redirect_to(group_path(group_id), notice: t('meetings.leave.success',
-                                                     meeting: meeting_name))
+          redirect_to(
+            group_path(group_id),
+            notice: t(
+              'meetings.leave.success',
+              meeting: meeting_name
+            )
+          )
         end
         format.json { head :no_content }
       end
@@ -382,7 +387,11 @@ class MeetingsController < ApplicationController
         uniqueid: uniqueid
       )
 
-      Notification.create(user_id: member.user_id, uniqueid: uniqueid, data: data)
+      Notification.create(
+        user_id: member.user_id,
+        uniqueid: uniqueid,
+        data: data
+      )
       notifications = Notification.where(user_id: member.user_id)
                                   .order('created_at ASC').all
       Pusher['private-' + member.user_id.to_s].trigger(

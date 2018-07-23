@@ -49,8 +49,8 @@ Rails.application.routes.draw do
 
   resources :groups do
     scope module: :groups do
-      resource :membership, only: [:create] do
-        delete '(/:member_id)', to: 'memberships#destroy', as: ''
+      resource :membership, only: [:create, :destroy] do
+        delete ':member_id', to: 'memberships#kick', as: 'kick'
       end
     end
   end

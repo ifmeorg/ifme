@@ -84,13 +84,19 @@ class Comment < ApplicationRecord
   end
 
   def notifications!(data, user_id)
-    Notification.create!(user_id: user_id, uniqueid: unique_id(type), data: data)
+    Notification.create!(
+      user_id: user_id,
+      uniqueid: unique_id(type),
+      data: data
+    )
     model_data = Notification.where(user_id: user_id)
     model_data.order('created_at')
   end
 
   def notify_of_creation?(association)
-    association.user_id != comment_by && association.viewers.include?(comment_by)
+    association.user_id != comment_by && association.viewers.include?(
+      comment_by
+    )
   end
 
   def send_notification(data, notifications, user_id)
