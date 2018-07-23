@@ -151,11 +151,14 @@ es:
    joined_groups: "Grupos a los que te has unido"
    leader: "(Líder)"
    instructions: "Aún no eres miembro de ningún grupo, ¡pero puedes dar click en %{icon} para crear uno!"
-  join_success: "Te has unido a este grupo"
+  join:
+    success: "Te has unido a este grupo"
+    group_not_exists: "No puedes unirte a un grupo que no existe."
   leave:
     error: "Eres el único líder, por lo tanto no puedes abandonar el Grupo."
     success: "Has abandonado el %{group}"
     remove_member_success: "Has removido a %{user} del %{group}"
+    remove_member_error: "No puedes patear a un miembro del grupo porque no eres un líder."
   new: "Nuevo grupo"
   show:
    led_by: "Lidereado por:"

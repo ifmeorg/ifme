@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: medications
@@ -10,7 +9,7 @@
 #  refill            :string
 #  created_at        :datetime
 #  updated_at        :datetime
-#  userid            :integer
+#  user_id           :integer
 #  total             :integer
 #  strength          :integer
 #  strength_unit     :string
@@ -28,12 +27,12 @@ class Medication < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user, foreign_key: :user_id
   has_one :take_medication_reminder
   has_one :refill_reminder
   accepts_nested_attributes_for :take_medication_reminder
   accepts_nested_attributes_for :refill_reminder
-  validates :name, :dosage, :refill, :userid, :total, :strength, :dosage_unit,
+  validates :name, :dosage, :refill, :user_id, :total, :strength, :dosage_unit,
             :total_unit, :strength_unit, presence: true
   validates :dosage, numericality: { greater_than_or_equal_to: 0 }
   validates :total, numericality: { greater_than_or_equal_to: 0 }

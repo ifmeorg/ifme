@@ -66,7 +66,7 @@ describe ApplicationHelper do
 
     context 'current controller and profile' do
       let(:current_controller) { 'profile' }
-      let(:path)               { 'profile?userid=2' }
+      let(:path)               { 'profile?user_id=2' }
 
       it { is_expected.to be false }
     end

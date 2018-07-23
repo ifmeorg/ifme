@@ -150,11 +150,14 @@ pt-BR:
    joined_groups: 'Grupos que participo.'
    leader: '(Líder)'
    instructions: "Você ainda não faz parte de nenhum grupo. No entanto, você pode pode clicar no botão %{icon} para criar seu próprio grupo."
-  join_success: 'Você entrou nesse grupo.'
+  join:
+    success: 'Você entrou nesse grupo.'
+    group_not_exists: "Você não pode participar de um grupo que não existe."
   leave:
     error: 'Você não pode sair deste grupo, porque você é o único líder.'
     success: "Você saiu do grupo %{group}"
     remove_member_success: "Você excluiu o usuário %{user} do grupo %{group}"
+    remove_member_error: "Você não pode chutar um membro do grupo porque você não é um líder."
   new: 'Novo Grupo'
   show:
    led_by: 'Liderado por:'

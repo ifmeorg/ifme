@@ -25,7 +25,7 @@ describe Group do
     context "when user is not a leader of the group" do
       it "returns false" do
         user = create :user1
-        group = create :group_with_member, userid: user.id, leader: false
+        group = create :group_with_member, user_id: user.id, leader: false
 
         result = group.led_by?(user)
 
@@ -36,7 +36,7 @@ describe Group do
     context "when user is a leader of the group" do
       it "returns true" do
         user = create :user1
-        group = create :group_with_member, userid: user.id, leader: true
+        group = create :group_with_member, user_id: user.id, leader: true
 
         result = group.led_by?(user)
 
@@ -50,8 +50,8 @@ describe Group do
       it "returns the leaders" do
         leader = create :user1
         non_leader = create :user2
-        group = create :group_with_member, userid: leader.id, leader: true
-        create :group_member, userid: non_leader.id, groupid: group.id,
+        group = create :group_with_member, user_id: leader.id, leader: true
+        create :group_member, user_id: non_leader.id, group_id: group.id,
                               leader: false
 
         result = group.leaders
@@ -63,7 +63,7 @@ describe Group do
     context "when group has no leaders" do
       it "returns an empty array" do
         non_leader = create :user1
-        group = create :group_with_member, userid: non_leader.id, leader: false
+        group = create :group_with_member, user_id: non_leader.id, leader: false
 
         result = group.leaders
 
@@ -78,7 +78,7 @@ describe Group do
       names = ['bryan', 'charlie', 'alex']
       names.each do |name|
         user = create :user1, name: name
-        create :group_member, userid: user.id, groupid: group.id
+        create :group_member, user_id: user.id, group_id: group.id
       end
 
       result = group.members
@@ -90,7 +90,7 @@ describe Group do
   describe '#destroy' do
     before(:each) do
       @group = create :group
-      @meeting = create :meeting, groupid: @group.id
+      @meeting = create :meeting, group_id: @group.id
     end
 
     it 'destroys associated meetings' do
@@ -123,7 +123,7 @@ describe Group do
   end
 
   def create_notification_for(group)
-    data = { groupid: group.id }.to_json
+    data = { group_id: group.id }.to_json
     create :notification, uniqueid: 'new_group_1', data: data
   end
 end

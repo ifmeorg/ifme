@@ -4,8 +4,8 @@ describe CommentVisibility do
     let(:ally) { owner.allies.first }
     let(:ally_commenter) { owner.allies.second }
 
-    let(:strategy) { FactoryBot.create(:strategy, userid: owner.id) }
-    let(:moment) { FactoryBot.create(:moment, userid: owner.id) }
+    let(:strategy) { FactoryBot.create(:strategy, user_id: owner.id) }
+    let(:moment) { FactoryBot.create(:moment, user_id: owner.id) }
 
     let(:commentable) {
       {

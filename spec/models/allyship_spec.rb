@@ -18,17 +18,17 @@ describe Allyship do
 	  expect(Allyship.count).to eq(2)
 	end
 
-	it "creates a valid ally relationship with pending_from_userid1 status" do
+	it "creates a valid ally relationship with pending_from_user_id1 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
-	  new_allies = create(:allyships_pending_from_userid1, user_id: new_user1.id, ally_id: new_user2.id)
+	  new_allies = create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
 	  expect(Allyship.count).to eq(2)
 	end
 
-	it "creates a valid ally relationship with pending_from_userid2 status" do
+	it "creates a valid ally relationship with pending_from_user_id2 status" do
 	  new_user1 = create(:user1)
 	  new_user2 = create(:user2)
-	  new_allies = create(:allyships_pending_from_userid2, user_id: new_user1.id, ally_id: new_user2.id)
+	  new_allies = create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
 	  expect(Allyship.count).to eq(2)
 	end
 
@@ -93,7 +93,7 @@ describe Allyship do
                       "my classmates and I am worried I"+
                       " will make a fool out of myself",
                       comment: true,
-                      userid: user.id,
+                      user_id: user.id,
                       viewers: [ally.id])
 
         Moment.create(category: [1],
@@ -103,21 +103,21 @@ describe Allyship do
                       "my classmates and I am worried I"+
                       " will make a fool out of myself",
                       comment: true,
-                      userid: ally.id,
+                      user_id: ally.id,
                       viewers: [user.id])
 
         Strategy.create(category: [1],
                         name: "I am a name!",
                         description: "I am a description!",
                         comment: true,
-                        userid: user.id,
+                        user_id: user.id,
                         viewers: [ally.id])
 
         Strategy.create(category: [1],
                         name: "I am a name!",
                         description: "I am a description!",
                         comment: true,
-                        userid: ally.id,
+                        user_id: ally.id,
                         viewers: [user.id])
 
       end

@@ -8,7 +8,7 @@
 #  location    :text
 #  time        :string
 #  maxmembers  :integer
-#  groupid     :integer
+#  group_id    :integer
 #  created_at  :datetime
 #  updated_at  :datetime
 #  date        :string
@@ -23,8 +23,8 @@ describe Meeting do
   end
   context "when meeting does not have a group id" do
     it "is not valid" do
-      new_meeting = build(:meeting, groupid: nil)
-      expect(new_meeting).to have(1).error_on(:groupid)
+      new_meeting = build(:meeting, group_id: nil)
+      expect(new_meeting).to have(1).error_on(:group_id)
     end
   end
 
@@ -34,9 +34,9 @@ describe Meeting do
         leader = create :user1
         non_leader = create :user2
         meeting = create :meeting
-        create :meeting_member, userid: leader.id, leader: true,
+        create :meeting_member, user_id: leader.id, leader: true,
                                 meetingid: meeting.id
-        create :meeting_member, userid: non_leader.id, leader: false,
+        create :meeting_member, user_id: non_leader.id, leader: false,
                                 meetingid: meeting.id
 
         result = meeting.leaders
@@ -49,7 +49,7 @@ describe Meeting do
       it "returns an empty array" do
         non_leader = create :user1
         meeting = create :meeting
-        create :meeting_member, userid: non_leader.id, leader: false,
+        create :meeting_member, user_id: non_leader.id, leader: false,
                                 meetingid: meeting.id
 
         result = meeting.leaders

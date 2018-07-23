@@ -15,7 +15,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    if @medication.userid == current_user.id
+    if @medication.user_id == current_user.id
       @page_edit = edit_medication_path(@medication)
       @page_tooltip = t('medications.edit_medication')
     else
@@ -34,7 +34,7 @@ class MedicationsController < ApplicationController
   def edit
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
-    return if @medication.userid == current_user.id
+    return if @medication.user_id == current_user.id
 
     redirect_to_path(medication_path(@medication))
   end
@@ -43,7 +43,7 @@ class MedicationsController < ApplicationController
   # POST /medications.json
   def create
     @medication =
-      Medication.new(medication_params.merge(userid: current_user.id))
+      Medication.new(medication_params.merge(user_id: current_user.id))
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save

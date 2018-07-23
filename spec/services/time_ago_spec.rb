@@ -50,8 +50,8 @@ describe TimeAgo do
 
   describe "#created_or_edited" do
     let(:new_user1) { create(:user1) }
-    let(:new_moment) { create(:moment, userid: new_user1.id) }
-    let(:new_category) { create(:category, userid: new_user1.id) }
+    let(:new_moment) { create(:moment, user_id: new_user1.id) }
+    let(:new_category) { create(:category, user_id: new_user1.id) }
 
     subject { TimeAgo.created_or_edited(new_moment) }
 
@@ -72,7 +72,7 @@ describe TimeAgo do
     end
 
     context "editing happened on a different day than it was created" do
-      let(:new_moment) { create(:moment, userid: new_user1.id, created_at: '2014-01-01 00:00:00') }
+      let(:new_moment) { create(:moment, user_id: new_user1.id, created_at: '2014-01-01 00:00:00') }
 
       before do
         new_moment.update(category: Array.new(1, new_category.id))

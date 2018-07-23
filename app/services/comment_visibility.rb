@@ -9,7 +9,7 @@ class CommentVisibility
 
   def initialize(comment, commentable_id, current_user)
     @comment = comment
-    @owner = User.find(commentable_id.userid)
+    @owner = User.find(commentable_id.user_id)
     @current_user = current_user
   end
 

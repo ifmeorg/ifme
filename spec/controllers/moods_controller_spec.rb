@@ -2,8 +2,8 @@
 
 RSpec.describe MoodsController, type: :controller do
   let(:user) { create(:user1) }
-  let(:user_mood) { create(:mood, userid: user.id) }
-  let(:other_mood) { create(:mood, userid: user.id + 1) }
+  let(:user_mood) { create(:mood, user_id: user.id) }
+  let(:other_mood) { create(:mood, user_id: user.id + 1) }
   let(:valid_mood_params) { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
 
@@ -112,16 +112,16 @@ RSpec.describe MoodsController, type: :controller do
         end
       end
 
-      context 'when the userid is hacked' do
-        it 'creates a new mood, ignoring the userid parameter' do
-          # passing a userid isn't an error, but it shouldn't
+      context 'when the user_id is hacked' do
+        it 'creates a new mood, ignoring the user_id parameter' do
+          # passing a user_id isn't an error, but it shouldn't
           # affect the owner of the created item
           another_user = create(:user2)
           hacked_mood_params =
-            valid_mood_params.merge(userid: another_user.id)
+            valid_mood_params.merge(user_id: another_user.id)
           expect { post :create, params: { mood: hacked_mood_params } }
             .to change(Mood, :count).by(1)
-          expect(Mood.last.userid).to eq(user.id)
+          expect(Mood.last.user_id).to eq(user.id)
         end
       end
     end
@@ -181,7 +181,7 @@ RSpec.describe MoodsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let!(:moment) { create(:moment, userid: user.id, mood: [user_mood.id]) }
+    let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user

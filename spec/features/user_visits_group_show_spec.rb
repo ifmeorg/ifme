@@ -4,10 +4,10 @@ RSpec.feature "UserVisitsGroupsPages", type: :feature do
       user = create :user1
       leader = create :user2
       login_as user
-      group = create :group_with_member, userid: user.id
-      meeting = create :meeting, groupid: group.id
-      create :meeting_member, userid: user.id, meetingid: meeting.id
-      create :group_leader, userid: leader.id, groupid: group.id
+      group = create :group_with_member, user_id: user.id
+      meeting = create :meeting, group_id: group.id
+      create :meeting_member, user_id: user.id, meetingid: meeting.id
+      create :group_leader, user_id: leader.id, group_id: group.id
 
       visit group_path(group)
 

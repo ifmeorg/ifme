@@ -16,11 +16,11 @@ describe GroupNotifier, '#send_notifications_to' do
     notifier.send_notifications_to(recipients)
   end
 
-  it 'creates a notification with the correct userid, uniqueid and data' do
+  it 'creates a notification with the correct user_id, uniqueid and data' do
     stub_notification_mailer
 
     expect(Notification).to receive(:create).with(
-      userid: single_recipient.id,
+      user_id: single_recipient.id,
       uniqueid: "notification_type_#{user.id}",
       data: expected_data
     )
@@ -33,7 +33,7 @@ describe GroupNotifier, '#send_notifications_to' do
 
     notifications = double('notifications')
     expect(Notification).to receive(:where)
-      .with(userid: single_recipient.id) { notifications }
+      .with(user_id: single_recipient.id) { notifications }
     allow(notifications).to receive(:order) { notifications }
     pusher = double('pusher')
     expect(Pusher).to receive(:[])
@@ -62,7 +62,7 @@ describe GroupNotifier, '#send_notifications_to' do
   def expected_data
     JSON.generate(
       user: user.name,
-      groupid: group.id,
+      group_id: group.id,
       group: group.name,
       type: type,
       uniqueid: "#{type}_#{user.id}"
