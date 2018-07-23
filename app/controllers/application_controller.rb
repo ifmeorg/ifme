@@ -110,6 +110,7 @@ class ApplicationController < ActionController::Base
   end
 
   # rubocop:disable MethodLength
+  # TODO: move this method out of the controller + refactor
   def most_focus(data_type, profile_id)
     data = []
     user_id = profile_id || current_user.id
@@ -288,21 +289,18 @@ class ApplicationController < ActionController::Base
     data_id.in?(data[data_type])
   end
 
-  # rubocop:disable MethodLength
+  # TODO: refactor calling method to pass a hash to start with
   def top_three_focus(data)
-    result, freq = {}
-    3.times do
-      freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
-      break if freq.empty?
-      max = data.max_by { |v| freq[v] }
-      break if freq[max].zero?
-      result[max] = freq[max]
-      freq.delete(max)
-      data.delete(max)
+    # Turn data array into hash of value => freq_of_value
+    freq = data.each_with_object(Hash.new(0)) do |value, hash|
+      hash[value] += 1
     end
-    result
+
+    # Sort hash and take highest 3 values
+    freq.sort_by do |occurances, _value|
+      occurances
+    end[0..2].to_h
   end
-  # rubocop:enable MethodLength
 
   def profile_exists?(profile, data)
     profile.present? &&
@@ -412,9 +410,7 @@ class ApplicationController < ActionController::Base
     Moment.where(user_id: user_id)
   end
 
-  # rubocop:disable MethodLength
   def user_stories(user, collection)
-    resources = []
     case collection
     when 'moments'
       query = Moment.published
@@ -422,11 +418,9 @@ class ApplicationController < ActionController::Base
       query = Strategy.published
     end
 
-    query.where(user_id: user.id).all.recent.each do |story|
-      resources << story if story.viewers.include?(current_user.id)
-    end
-    resources
+    query.where(userid: user.id).all.recent.map do |story|
+      story if story.viewers.include?(current_user.id)
+    end.compact
   end
-  # rubocop:enable MethodLength
 end
 # rubocop:enable ClassLength
