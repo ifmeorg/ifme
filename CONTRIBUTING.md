@@ -25,7 +25,7 @@ Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full docum
 
 We've formalized processes for contributing as a designer, developer, writer, and user tester. We're an open and evolving project, so if you don't see your interested role, please let us know and we will work with you to create it!
 
-The first task to do is to [email us](mailto:join.ifme@gmail.com) and tell us about yourself and what you're interested in working on. We'll send you an invitation to join our [Slack](http://ifme.slack.com) team. This is our primary communication tool. [Julia Nguyen](https://twitter.com/fleurchild), our founder, sync with you and connect you with the people and resources to help you get started!
+You must [join our Slack workspace](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack) first before contributing.
 
 ### [Designer](https://github.com/ifmeorg/ifme/wiki/Designers)
 

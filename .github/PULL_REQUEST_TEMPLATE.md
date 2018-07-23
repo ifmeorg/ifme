@@ -2,11 +2,11 @@
   Thank you for contributing to our project, it means a lot!
   Please use this pull request (PR) template and remove sections that don't apply to your submission
 
-  If you haven't already, create another PR to add yourself to our contributors page
-  More info here: https://github.com/ifmeorg/ifme#contributor-blurb
+  If you haven't already, create another PR to add yourself to our Contribute page
+  See: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
 
   If you need any help, please message our #dev channel on Slack
-  To join our contributor community, email us at join.ifme@gmail.com
+  To join our Slack workspace, see: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
 
   If this PR is not ready to be review, please tag is as "wip"
 ]-->

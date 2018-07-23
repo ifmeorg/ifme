@@ -141,7 +141,7 @@ var onReadyNotifications = function() {
   });
 
   $('.tip_notifications_text').click(function(event) {
-    if(! $(event.target).hasClass("kick")){
+    if(!$(event.target).hasClass("kick")){
       event.stopPropagation();
     }
   });
