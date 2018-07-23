@@ -6,18 +6,16 @@ module Groups
 
     # POST /groups/:group_id/membership
     def create
-      begin
-        @group_member = GroupMember.create!(group_member_params)
-        @group = @group_member.group
-        GroupNotifier.new(@group, 'new_group_member', current_user)
-                     .send_notifications_to(@group.leaders)
+      @group_member = GroupMember.create!(group_member_params)
+      @group = @group_member.group
+      GroupNotifier.new(@group, 'new_group_member', current_user)
+                   .send_notifications_to(@group.leaders)
 
-        flash[:notice] = t('groups.join_success')
-        redirect_to_group
-      rescue
-        flash[:alert] = "You cannot join a group that doesn't exist" # TODO: put in i18n
-        redirect_to groups_path
-      end
+      flash[:notice] = t('groups.join.success')
+      redirect_to_group
+    rescue NoMethodError
+      flash[:alert] = t('groups.join.group_not_exists')
+      redirect_to groups_path
     end
 
     # DELETE /groups/:group_id/membership/

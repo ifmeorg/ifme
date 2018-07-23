@@ -150,7 +150,9 @@ it:
    joined_groups: 'Gruppi a cui appartieni'
    leader: '(Leader)'
    instructions: "Non fai ancora parte di nessun gruppo! Clicca su %{icon} per crearne uno o unisciti a uno di quelli esistenti qui sotto.<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
-  join_success: 'Ti sei unito a questo gruppo.'
+  join:
+    success: 'Ti sei unito a questo gruppo.'
+    group_not_exists: "Non puoi unirti a un gruppo che non esiste."
   leave:
     error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
     success: "Hai lasciato %{group}"

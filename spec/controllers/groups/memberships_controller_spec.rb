@@ -29,7 +29,7 @@ RSpec.describe Groups::MembershipsController, type: :controller do
         }
         expect(response).to redirect_to(groups_path)
         expect(flash[:alert]).to eq(
-          "You cannot join a group that doesn't exist"
+          "You cannot join a group that doesn't exist."
         )
       end
     end
