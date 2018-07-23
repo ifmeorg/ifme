@@ -24,15 +24,17 @@ our code of conduct. Please
 [read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 before joining our project.
 
+## Documentation
+
 Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
 
-## Installation
+### Installation
 
 Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
 
-## Contributor Blurb
+### Contributor Blurb
 
-Everyone who is a part of our project is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contributor page.
+Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to Contribute page.
 
 ## Donate
 
