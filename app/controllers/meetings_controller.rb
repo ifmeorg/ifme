@@ -10,12 +10,12 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = MeetingMember.where(
-      meetingid: @meeting.id,
+      meeting_id: @meeting.id,
       user_id: current_user.id
     ).exists?
 
     @is_leader = MeetingMember.where(
-      meetingid: @meeting.id,
+      meeting_id: @meeting.id,
       user_id: current_user.id,
       leader: true
     ).exists?
@@ -55,14 +55,14 @@ class MeetingsController < ApplicationController
     ).exists?
 
     if comment_exists
-      meetingid = Comment.where(id: params[:commentid]).first.commentable_id
+      meeting_id = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_meeting = MeetingMember.where(
-        meetingid: meetingid,
+        meeting_id: meeting_id,
         user_id: current_user.id,
         leader: true
       ).exists?
       is_member = MeetingMember.where(
-        meetingid: meetingid,
+        meeting_id: meeting_id,
         user_id: current_user.id
       ).exists?
     else
@@ -95,7 +95,7 @@ class MeetingsController < ApplicationController
     @group_id = @meeting.group_id
     not_a_leader(@group_id)
 
-    @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
   end
 
   # POST /meetings
@@ -109,7 +109,7 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(
-          meetingid: @meeting.id,
+          meeting_id: @meeting.id,
           user_id: current_user.id,
           leader: true
         )
@@ -169,10 +169,10 @@ class MeetingsController < ApplicationController
   def update
     if @meeting.update(meeting_params)
       error = false
-      meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+      meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
       meeting_members.each do |member|
         meeting_member_id = MeetingMember.where(
-          meetingid: @meeting.id,
+          meeting_id: @meeting.id,
           user_id: member.user_id
         ).first.id
         if params[:meeting][:leader].nil?
@@ -182,14 +182,14 @@ class MeetingsController < ApplicationController
         elsif params[:meeting][:leader].include? member.user_id.to_s
           MeetingMember.update(
             meeting_member_id,
-            meetingid: @meeting.id,
+            meeting_id: @meeting.id,
             user_id: member.user_id,
             leader: true
           )
         else
           MeetingMember.update(
             meeting_member_id,
-            meetingid: @meeting.id,
+            meeting_id: @meeting.id,
             user_id: member.user_id,
             leader: false
           )
@@ -228,7 +228,7 @@ class MeetingsController < ApplicationController
         NotificationMailer.notification_email(member.user_id, data).deliver_now
       end
 
-      @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+      @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
 
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.id) }
@@ -249,9 +249,9 @@ class MeetingsController < ApplicationController
 
   # rubocop:disable MethodLength
   def join
-    group_id = Meeting.where(id: params[:meetingid]).first.group_id
+    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
     meeting_member = MeetingMember.where(
-      meetingid: params[:meetingid],
+      meeting_id: params[:meeting_id],
       user_id: current_user.id
     )
 
@@ -262,19 +262,19 @@ class MeetingsController < ApplicationController
       end
     else
       @meeting_member = MeetingMember.create!(
-        meetingid: params[:meetingid],
+        meeting_id: params[:meeting_id],
         user_id: current_user.id,
         leader: false
       )
 
       # Notify meeting leaders
       meeting_leaders = MeetingMember.where(
-        meetingid: params[:meetingid],
+        meeting_id: params[:meeting_id],
         leader: true
       ).all
-      meetingid = Meeting.where(id: params[:meetingid]).first.id
+      meeting_id = Meeting.where(id: params[:meeting_id]).first.id
       group = Group.where(id: group_id).first.name
-      meeting = Meeting.where(id: params[:meetingid]).first.name
+      meeting = Meeting.where(id: params[:meeting_id]).first.name
 
       uniqueid = 'join_meeting_' + current_user.id.to_s
 
@@ -283,7 +283,7 @@ class MeetingsController < ApplicationController
 
         data = JSON.generate(
           user: current_user.name,
-          typeid: meetingid,
+          typeid: meeting_id,
           group: group,
           typename: meeting,
           type: 'join_meeting',
@@ -307,7 +307,7 @@ class MeetingsController < ApplicationController
 
       respond_to do |format|
         format.html do
-          redirect_to(meeting_path(meetingid),
+          redirect_to(meeting_path(meeting_id),
                       notice: t('meetings.join_success'))
         end
         format.json do
@@ -320,17 +320,17 @@ class MeetingsController < ApplicationController
 
   # rubocop:disable MethodLength
   def leave
-    meeting_name = Meeting.where(id: params[:meetingid]).first.name
-    group_id = Meeting.where(id: params[:meetingid]).first.group_id
+    meeting_name = Meeting.where(id: params[:meeting_id]).first.name
+    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
 
     # Cannot leave When you are the only leader
     is_leader = MeetingMember.where(
       user_id: current_user.id,
-      meetingid: params[:meetingid],
+      meeting_id: params[:meeting_id],
       leader: true
     ).count
     are_leaders = MeetingMember.where(
-      meetingid: params[:meetingid],
+      meeting_id: params[:meeting_id],
       leader: true
     ).count
     if is_leader == 1 && are_leaders == is_leader
@@ -344,7 +344,7 @@ class MeetingsController < ApplicationController
       # Remove user from meeting
       meeting_member = MeetingMember.find_by(
         user_id: current_user.id,
-        meetingid: params[:meetingid]
+        meeting_id: params[:meeting_id]
       )
       meeting_member.destroy
 
@@ -403,7 +403,7 @@ class MeetingsController < ApplicationController
     end
 
     # Remove corresponding meeting members
-    @meeting_members = MeetingMember.where(meetingid: @meeting.id).all
+    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
 
     @meeting_members.each(&:destroy)
 
@@ -445,7 +445,7 @@ class MeetingsController < ApplicationController
   def hide_page(meeting)
     meeting_obj = Meeting.where(id: meeting.id)
     meeting_member = MeetingMember.where(
-      meetingid: meeting.id,
+      meeting_id: meeting.id,
       user_id: current_user.id
     )
     !(meeting_obj.exists? && meeting_member.exists?)

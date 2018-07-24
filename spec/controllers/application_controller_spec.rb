@@ -14,9 +14,9 @@ describe ApplicationController do
   let(:user2) { create(:user2) }
   describe "most_focus" do
     describe "categories" do
-      before(:example) do 
+      before(:example) do
         sign_in user1
-      end 
+      end
       it "returns an empty hash because no categories exist" do
         new_moment = create(:moment, user_id: user1.id)
         new_strategy = create(:strategy, user_id: user1.id)
@@ -92,9 +92,9 @@ describe ApplicationController do
     end
 
     describe "moods" do
-      before(:example) do 
+      before(:example) do
         sign_in user1
-      end 
+      end
       it "returns an empty hash because no moods exist" do
         new_moment = create(:moment, user_id: user1.id)
         expect(controller.most_focus('mood', nil).length).to eq(0)
@@ -167,9 +167,9 @@ describe ApplicationController do
     end
 
     describe "strategy" do
-      before(:example) do 
+      before(:example) do
         sign_in user1
-      end 
+      end
       it "returns an empty hash because no strategies exist" do
         new_moment = create(:moment, user_id: user1.id)
         expect(controller.most_focus('strategy', nil).length).to eq(0)
@@ -285,9 +285,9 @@ describe ApplicationController do
   end
 
   describe "get_stories" do
-    before(:example) do 
+    before(:example) do
       sign_in user1
-    end 
+    end
     it "has no stories and does not include allies" do
         expect(controller.get_stories(user1, false).length).to eq(0)
     end
@@ -297,7 +297,7 @@ describe ApplicationController do
       expect(controller.get_stories(user1, false).length).to eq(1)
     end
 
-    it "has only strategies and does not include allies" do 
+    it "has only strategies and does not include allies" do
       new_strategy = create(:strategy, user_id: user1.id)
       expect(controller.get_stories(user1, false).length).to eq(1)
     end
@@ -377,9 +377,9 @@ describe ApplicationController do
   end
 
   describe "moments_stats" do
-    before(:example) do 
+    before(:example) do
       sign_in user1
-    end 
+    end
     it "has no moments" do
         expect(controller.moments_stats).to eq('')
     end
@@ -564,8 +564,8 @@ describe ApplicationController do
       let(:new_meeting) { create :meeting }
 
       before do
-        create :meeting_member, user_id: user1.id, leader: true, meetingid: new_meeting.id
-        create :meeting_member, user_id: user2.id, leader: false, meetingid: new_meeting.id
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: new_meeting.id
+        create :meeting_member, user_id: user2.id, leader: false, meeting_id: new_meeting.id
       end
 
       context 'Comment posted by Meeting creator who is logged in' do

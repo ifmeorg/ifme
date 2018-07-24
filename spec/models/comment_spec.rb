@@ -76,7 +76,7 @@ describe Comment do
       it 'posts a comment' do
         expect(Comment.count).to eq(0)
         new_meeting = create :meeting
-        create :meeting_member, user_id: user1.id, leader: true, meetingid: new_meeting.id
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: new_meeting.id
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
@@ -186,9 +186,9 @@ describe Comment do
       it 'sends notifications to all Meeting members excluding the commenter who is a member' do
         new_group = create :group
         new_meeting = create :meeting, group_id: new_group.id
-        create :meeting_member, user_id: user1.id, leader: true, meetingid: new_meeting.id
-        create :meeting_member, user_id: user2.id, leader: false, meetingid: new_meeting.id
-        create :meeting_member, user_id: user3.id, leader: false, meetingid: new_meeting.id
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: new_meeting.id
+        create :meeting_member, user_id: user2.id, leader: false, meeting_id: new_meeting.id
+        create :meeting_member, user_id: user3.id, leader: false, meeting_id: new_meeting.id
         new_comment = Comment.create_from!(comment: long_comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user3.id, visibility: 'all')
         new_comment.notify_of_creation!(user3)
 
