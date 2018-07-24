@@ -92,7 +92,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.32",
     "karma-webpack": "^2.0.4",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "prettier-eslint": "^8.8.2",
     "react-addons-test-utils": "^15.6.0",
