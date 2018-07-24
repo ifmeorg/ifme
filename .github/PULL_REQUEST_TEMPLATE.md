@@ -1,14 +1,11 @@
 <!--[
-  Thank you for contributing to our project, it means a lot!
-  Please use this pull request (PR) template and remove sections that don't apply to your submission
+  Thank you for contributing! Please use this pull request (PR) template.
 
-  If you haven't already, create another PR to add yourself to our Contribute page
-  See: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
+  Contributor Blurb: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
+  Join Our Slack: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
 
-  If you need any help, please message our #dev channel on Slack
-  To join our Slack workspace, see: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
-
-  If this PR is not ready to be review, please tag is as "wip"
+  Need help? Post in the #dev channel on Slack
+  Use the "wip" label if this PR is not ready for review
 ]-->
 # Description 
 
@@ -16,23 +13,22 @@
 
 ## More Details
 
-<!--[More details on your changes, remove this title/section if not applicable]-->
+<!--[More details on your changes, remove if not applicable]-->
 
 ## Corresponding Issue
 
-<!--[Link to GitHub issue related to this PR here, remove this title/section if not applicable]-->
+<!--[Link to GitHub issue related to this PR here, remove if not applicable]-->
 
 # Screenshots
 
 <!--[
-  Screenshots (required for user interface changes), remove this title/section if not applicable
-  GIF creation tools like Licecap (https://www.cockos.com/licecap) are great for capturing interaction changes
+  Screenshots (required for user interface work), remove if not applicable
+  Create a GIF: https://www.cockos.com/licecap
 ]-->
 
 # Test Coverage
 
-- [ ] Yes
-- [ ] No
-- [ ] N/A
+✅ <!--[YES, remove this line if not applicable]>
+🚫 <!--[NO, remove this line if not applicable]>
 
-<!--[Must be Yes, if not explain why here]-->
+<!--[Must be YES, if NO explain why]-->
