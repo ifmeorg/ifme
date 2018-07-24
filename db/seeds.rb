@@ -27,9 +27,9 @@ user1_moment1_comment = Comment.create(commentable_type: 'moment', commentable_i
 user1_group1 = Group.create(name: 'Students with Anxiety', description: 'A support group for students to discuss anxiety weekly')
 user1_group1_member1 = GroupMember.create(group_id: user1_group1.id, user_id: user1.id, leader: true)
 user1_meeting1 = Meeting.create(name: 'Meeting #1: Self-care', description: 'This week we will be talking about what we can do to adequately self-care during exams', location: 'http://SomeGoogleHangoutURL', time: '6:00 pm EST', maxmembers: 5, group_id: user1_group1.id)
-user1_meeting1_member1 = MeetingMember.create(meetingid: user1_meeting1.id, user_id: user1.id, leader: true)
+user1_meeting1_member1 = MeetingMember.create(meeting_id: user1_meeting1.id, user_id: user1.id, leader: true)
 user1_meeting2 = Meeting.create(name: 'Meeting #2: Exposure', description: 'This week we will be talking about how to expose ourselves to stressors', location: '1 Yonge St, Toronto, Canada', time: '6:00 pm EST', maxmembers: 0, group_id: user1_group1.id)
-user1_meeting2_member1 = MeetingMember.create(meetingid: user1_meeting2.id, user_id: user1.id, leader: true)
+user1_meeting2_member1 = MeetingMember.create(meeting_id: user1_meeting2.id, user_id: user1.id, leader: true)
 user1_group2 = Group.create(name: 'Depression Discussion Group', description: 'A support group for people with depression')
 user1_group2_member1 = GroupMember.create(group_id: user1_group2.id, user_id: user1.id, leader: true)
 

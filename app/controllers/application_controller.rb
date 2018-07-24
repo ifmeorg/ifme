@@ -318,7 +318,7 @@ class ApplicationController < ActionController::Base
     when 'strategy'
       Strategy.where(id: id, user_id: current_user.id).exists?
     when 'meeting'
-      MeetingMember.where(meetingid: id, leader: true,
+      MeetingMember.where(meeting_id: id, leader: true,
                           user_id: current_user.id).exists?
     else
       false

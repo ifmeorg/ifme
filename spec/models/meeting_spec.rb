@@ -35,9 +35,9 @@ describe Meeting do
         non_leader = create :user2
         meeting = create :meeting
         create :meeting_member, user_id: leader.id, leader: true,
-                                meetingid: meeting.id
+                                meeting_id: meeting.id
         create :meeting_member, user_id: non_leader.id, leader: false,
-                                meetingid: meeting.id
+                                meeting_id: meeting.id
 
         result = meeting.leaders
 
@@ -50,7 +50,7 @@ describe Meeting do
         non_leader = create :user1
         meeting = create :meeting
         create :meeting_member, user_id: non_leader.id, leader: false,
-                                meetingid: meeting.id
+                                meeting_id: meeting.id
 
         result = meeting.leaders
 

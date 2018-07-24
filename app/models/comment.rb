@@ -61,7 +61,7 @@ class Comment < ApplicationRecord
 
   # Notify MeetingMembers except for commenter that there is a new comment
   def handle_meeting(association, creator)
-    MeetingMember.where(meetingid: commentable_id)
+    MeetingMember.where(meeting_id: commentable_id)
                  .where.not(user_id: creator.id)
                  .find_each do |member|
       data = notification_data(creator, association, type, unique_id(type))

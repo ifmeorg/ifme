@@ -27,7 +27,7 @@ describe GroupMember do
       it "returns the meeting_memberships" do
         group_member = create :group_member
         meeting = create :meeting, group_id: group_member.group_id
-        meeting_member = create :meeting_member, meetingid: meeting.id,
+        meeting_member = create :meeting_member, meeting_id: meeting.id,
           user_id: group_member.user_id
 
         expect(group_member.meeting_memberships).to eq [meeting_member]
@@ -40,7 +40,7 @@ describe GroupMember do
       it "destroys the meeting_memberships" do
         group_member = create :group_member
         meeting = create :meeting, group_id: group_member.group_id
-        meeting_member = create :meeting_member, meetingid: meeting.id,
+        meeting_member = create :meeting_member, meeting_id: meeting.id,
           user_id: group_member.user_id
 
         expect { group_member.destroy }.to change(MeetingMember, :count).by(-1)
