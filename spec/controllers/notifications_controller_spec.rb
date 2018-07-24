@@ -135,24 +135,24 @@ RSpec.describe NotificationsController, type: :controller do
         end
 
         it 'deletes all notifications belonging to the current user' do
-          expect(Notification.where(userid: user.id).count).to eq(2)
+          expect(Notification.where(user_id: user.id).count).to eq(2)
 
           delete :clear
-          expect(Notification.where(userid: user.id).count).to eq(0)
+          expect(Notification.where(user_id: user.id).count).to eq(0)
         end
 
         it 'does not delete notifications belonging to other users' do
-          expect(Notification.where(userid: other_user.id).count).to eq(1)
+          expect(Notification.where(user_id: other_user.id).count).to eq(1)
 
           delete :clear
-          expect(Notification.where(userid: other_user.id).count).to eq(1)
+          expect(Notification.where(user_id: other_user.id).count).to eq(1)
         end
       end
 
       context 'when the user does not have notifications' do
         it 'does does not delete any notifications' do
           delete :clear
-          expect(Notification.where(userid: user.id)).to be_empty
+          expect(Notification.where(user_id: user.id)).to be_empty
         end
       end
 

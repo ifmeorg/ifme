@@ -36,14 +36,34 @@ module GroupsHelper
             }.merge(attrs)
   end
 
+  def kick_member_link(group, member, attrs = {})
+    link_to t('common.actions.remove'),
+            kick_group_membership_path(
+              group_id: group.id,
+              member_id: member.id
+            ),
+            {
+              class: 'kick',
+              method: :delete
+            }.merge(attrs)
+  end
+
   def leave_group_link(group, attrs = {})
-    link_to t('common.actions.leave'), leave_groups_path(group_id: group.id),
-            { id: 'leave' }.merge(attrs)
+    link_to t('common.actions.leave'),
+            group_membership_path(group_id: group.id),
+            {
+              id: 'leave',
+              method: :delete
+            }.merge(attrs)
   end
 
   def join_group_link(group, attrs = {})
-    link_to t('common.actions.join'), join_groups_path(groupid: group.id),
-            { id: 'join' }.merge(attrs)
+    link_to t('common.actions.join'),
+            group_membership_path(group_id: group.id),
+            {
+              id: 'join',
+              method: :post
+            }.merge(attrs)
   end
 
   def edit_meeting_link(meeting, html_options = {})

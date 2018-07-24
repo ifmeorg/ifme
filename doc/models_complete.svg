@@ -23,7 +23,7 @@
 <text text-anchor="middle" x="66.5054" y="-260.3" font-family="Times,serif" font-size="14.00">Alert</text>
 <polyline fill="none" stroke="black" points="0,-253.5 133.011,-253.5 "/>
 <text text-anchor="start" x="8" y="-238.3" font-family="Times,serif" font-size="14.00">id :integer</text>
-<text text-anchor="start" x="8" y="-224.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="8" y="-224.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 <text text-anchor="start" x="8" y="-210.3" font-family="Times,serif" font-size="14.00">moment :integer</text>
 <text text-anchor="start" x="8" y="-196.3" font-family="Times,serif" font-size="14.00">medication :integer</text>
 <text text-anchor="start" x="8" y="-182.3" font-family="Times,serif" font-size="14.00">message :string</text>
@@ -42,10 +42,10 @@
 <text text-anchor="middle" x="217.505" y="-211.3" font-family="Times,serif" font-size="14.00">Ally</text>
 <polyline fill="none" stroke="black" points="151,-204.5 284.011,-204.5 "/>
 <text text-anchor="start" x="159" y="-189.3" font-family="Times,serif" font-size="14.00">id :integer</text>
-<text text-anchor="start" x="159" y="-175.3" font-family="Times,serif" font-size="14.00">userid1 :integer</text>
+<text text-anchor="start" x="159" y="-175.3" font-family="Times,serif" font-size="14.00">user_id1 :integer</text>
 <text text-anchor="start" x="159" y="-161.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="159" y="-147.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
-<text text-anchor="start" x="159" y="-133.3" font-family="Times,serif" font-size="14.00">userid2 :integer</text>
+<text text-anchor="start" x="159" y="-133.3" font-family="Times,serif" font-size="14.00">user_id2 :integer</text>
 <text text-anchor="start" x="159" y="-119.3" font-family="Times,serif" font-size="14.00">status :integer</text>
 </g>
 <!-- Category -->
@@ -58,7 +58,7 @@
 <text text-anchor="start" x="310" y="-161.3" font-family="Times,serif" font-size="14.00">description :text</text>
 <text text-anchor="start" x="310" y="-147.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="310" y="-133.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
-<text text-anchor="start" x="310" y="-119.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="310" y="-119.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 </g>
 <!-- Comment -->
 <g id="node5" class="node"><title>Comment</title>
@@ -85,7 +85,7 @@
 <text text-anchor="start" x="628" y="-189.3" font-family="Times,serif" font-size="14.00">refill :string</text>
 <text text-anchor="start" x="628" y="-175.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="628" y="-161.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
-<text text-anchor="start" x="628" y="-147.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="628" y="-147.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 <text text-anchor="start" x="628" y="-133.3" font-family="Times,serif" font-size="14.00">total :integer</text>
 <text text-anchor="start" x="628" y="-119.3" font-family="Times,serif" font-size="14.00">strength :integer</text>
 <text text-anchor="start" x="628" y="-105.3" font-family="Times,serif" font-size="14.00">strength_unit :string</text>
@@ -102,7 +102,7 @@
 <text text-anchor="start" x="779" y="-161.3" font-family="Times,serif" font-size="14.00">description :text</text>
 <text text-anchor="start" x="779" y="-147.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="779" y="-133.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
-<text text-anchor="start" x="779" y="-119.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="779" y="-119.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 </g>
 <!-- Strategy -->
 <g id="node8" class="node"><title>Strategy</title>
@@ -110,7 +110,7 @@
 <text text-anchor="middle" x="988.505" y="-232.3" font-family="Times,serif" font-size="14.00">Strategy</text>
 <polyline fill="none" stroke="black" points="922,-225.5 1055.01,-225.5 "/>
 <text text-anchor="start" x="930" y="-210.3" font-family="Times,serif" font-size="14.00">id :integer</text>
-<text text-anchor="start" x="930" y="-196.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="930" y="-196.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 <text text-anchor="start" x="930" y="-182.3" font-family="Times,serif" font-size="14.00">category :text</text>
 <text text-anchor="start" x="930" y="-168.3" font-family="Times,serif" font-size="14.00">description :text</text>
 <text text-anchor="start" x="930" y="-154.3" font-family="Times,serif" font-size="14.00">viewers :text</text>
@@ -125,7 +125,7 @@
 <text text-anchor="middle" x="1139.51" y="-211.3" font-family="Times,serif" font-size="14.00">Support</text>
 <polyline fill="none" stroke="black" points="1073,-204.5 1206.01,-204.5 "/>
 <text text-anchor="start" x="1081" y="-189.3" font-family="Times,serif" font-size="14.00">id :integer</text>
-<text text-anchor="start" x="1081" y="-175.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="1081" y="-175.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 <text text-anchor="start" x="1081" y="-161.3" font-family="Times,serif" font-size="14.00">support_type :string</text>
 <text text-anchor="start" x="1081" y="-147.3" font-family="Times,serif" font-size="14.00">support_ids :text</text>
 <text text-anchor="start" x="1081" y="-133.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
@@ -144,7 +144,7 @@
 <text text-anchor="start" x="1232" y="-161.3" font-family="Times,serif" font-size="14.00">fix :text</text>
 <text text-anchor="start" x="1232" y="-147.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="1232" y="-133.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>
-<text text-anchor="start" x="1232" y="-119.3" font-family="Times,serif" font-size="14.00">userid :integer</text>
+<text text-anchor="start" x="1232" y="-119.3" font-family="Times,serif" font-size="14.00">user_id :integer</text>
 <text text-anchor="start" x="1232" y="-105.3" font-family="Times,serif" font-size="14.00">viewers :text</text>
 <text text-anchor="start" x="1232" y="-91.3" font-family="Times,serif" font-size="14.00">comment :boolean</text>
 <text text-anchor="start" x="1232" y="-77.3" font-family="Times,serif" font-size="14.00">strategies :text</text>

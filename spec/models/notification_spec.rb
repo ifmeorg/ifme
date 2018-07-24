@@ -3,7 +3,7 @@
 # Table name: notifications
 #
 #  id         :integer          not null, primary key
-#  userid     :integer
+#  user_id    :integer
 #  uniqueid   :string
 #  data       :text
 #  created_at :datetime         not null
@@ -18,7 +18,7 @@ describe Notification do
   end
 
   it 'is invalid without a user_id' do
-    notification = build(:notification, userid: nil)
+    notification = build(:notification, user_id: nil)
 
     expect(notification).to_not be_valid
   end

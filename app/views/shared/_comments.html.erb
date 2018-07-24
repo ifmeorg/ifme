@@ -6,7 +6,7 @@
     ) &&
     local_assigns[:data].comment &&
     (
-      current_user.id == local_assigns[:data].userid ||
+      current_user.id == local_assigns[:data].user_id ||
       local_assigns[:no_hide_page]
     )
   ) ||
@@ -41,10 +41,10 @@
         <%= f.hidden_field :comment_by, value: current_user.id %>
         <%= f.hidden_field :commentable_id, value: local_assigns[:data].id %>
 
-        <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].userid != current_user.id %>
+        <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].user_id != current_user.id %>
           <%= f.select :visibility, [
             [t('shared.comments.share_everyone'), 'all'],
-            [t('shared.comments.share_with', name: User.where(id: local_assigns[:data].userid).first.name), 'private']
+            [t('shared.comments.share_with', name: User.where(id: local_assigns[:data].user_id).first.name), 'private']
           ] %>
         <% else %>
           <%= f.hidden_field :visibility, value: 'all' %>
@@ -70,7 +70,7 @@
             (
               comment.comment_by == current_user.id ||
               local_assigns[:is_member] ||
-              current_user.id == local_assigns[:data].userid ||
+              current_user.id == local_assigns[:data].user_id ||
               (
                 !comment.viewers.blank? &&
                 comment.viewers.include?(current_user.id)

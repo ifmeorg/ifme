@@ -17,7 +17,6 @@ import sv from 'react-intl/locale-data/sv';
 import vi from 'react-intl/locale-data/vi';
 
 // Initizalize all locales for react-intl.
-// eslint-disable-next-line import/prefer-default-export
 export const loadLocales = () => {
   addLocaleData([].concat(en, es, it, nb, nl, pt, sv, vi));
 };

@@ -1,8 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import Input from 'bundles/shared/components/Input';
+import { Input } from '../components/Input';
 
 /**
  * I added onChange handler, but the Input component needs to be fixed to invoke it.

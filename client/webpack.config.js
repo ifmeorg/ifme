@@ -44,8 +44,7 @@ const config = Object.assign(baseConfig, {
     webpack_bundle: [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
-      'babel-polyfill',
-    ].concat(glob.sync('./app/bundles/**/startup/*')),
+    ].concat(glob.sync('./app/startup/*')),
   },
 
   output: {

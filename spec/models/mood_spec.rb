@@ -2,13 +2,13 @@
 #
 # Table name: moods
 #
-#  id             :integer          not null, primary key
-#  name           :string
-#  description    :text
-#  created_at     :datetime
-#  updated_at     :datetime
-#  userid         :integer
-#  slug           :string
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  user_id     :integer
+#  slug        :string
 #
 
 describe Mood do

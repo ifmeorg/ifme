@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  meetingid  :integer
-#  userid     :integer
+#  user_id    :integer
 #  leader     :boolean
 #  created_at :datetime
 #  updated_at :datetime

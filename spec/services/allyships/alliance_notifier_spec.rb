@@ -31,7 +31,7 @@ describe Allyships::AllianceNotifier do
     end
     let(:notifications) do
       {
-        notifications: Notification.where(userid: ally.id).order(:created_at)
+        notifications: Notification.where(user_id: ally.id).order(:created_at)
       }
     end
 

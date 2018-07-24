@@ -150,11 +150,14 @@ en:
    joined_groups: 'Joined Groups'
    leader: '(Leader)'
    instructions: "You aren't a part of any groups yet, but you can click %{icon} to create one!"
-  join_success: 'You have joined this group.'
+  join:
+    success: 'You have joined this group.'
+    group_not_exists: "You cannot join a group that doesn't exist."
   leave:
     error: 'You cannot leave the group, you are the only leader.'
     success: "You have left %{group}"
     remove_member_success: "You have removed %{user} from %{group}"
+    remove_member_error: "You cannot kick a group member because you are not a leader."
   new: 'New Group'
   show:
    led_by: 'Led by:'

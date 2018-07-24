@@ -10,15 +10,16 @@
 #  fix                     :text
 #  created_at              :datetime
 #  updated_at              :datetime
-#  published_at            :datetime
-#  userid                  :integer
+#  user_id                 :integer
 #  viewers                 :text
 #  comment                 :boolean
 #  strategy                :text
 #  slug                    :string
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
+#  published_at            :datetime
 #
+
 describe Moment do
 
   describe '.find_secret_share!' do

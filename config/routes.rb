@@ -48,9 +48,10 @@ Rails.application.routes.draw do
   end
 
   resources :groups do
-    collection do
-      get 'join'
-      get 'leave'
+    scope module: :groups do
+      resource :membership, only: [:create, :destroy] do
+        delete ':member_id', to: 'memberships#kick', as: 'kick'
+      end
     end
   end
 

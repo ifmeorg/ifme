@@ -136,7 +136,7 @@ describe('NotificationRenderer', function() {
       beforeEach(function() {
         testNotification({
           uid: 3,
-          userid: 7,
+          user_id: 7,
           type: 'new_ally_request'
         });
       });
@@ -150,7 +150,7 @@ describe('NotificationRenderer', function() {
   describe('groups', function() {
     var groupData = {
       group: 'test group',
-      groupid: 7
+      group_id: 7
     };
 
     describe('new group', function() {
@@ -205,7 +205,7 @@ describe('NotificationRenderer', function() {
   describe('meetings', function() {
     var meetingData = {
       group: 'test group',
-      groupid: 7,
+      group_id: 7,
       typename: 'test meeting',
       typeid: 13
     };
