@@ -15,7 +15,7 @@
 
 # Reproduction Steps
 
-<!--[Steps to reproduce bugs (provide as many details as possible including browser and operating system), remove this if not applicable]-->
+<!--[Steps to reproduce bugs (provide as many details as possible including browser and operating system), remove if not applicable]-->
 
 # Screenshots
 
@@ -26,8 +26,8 @@
 
 # Do you want to be the assignee to work on this?
 
-✅ <!--[YES, remove this line if not applicable]>
-🚫 <!--[NO, remove this line if not applicable]>
+✅ <!--[YES, remove line if not applicable]-->
+🚫 <!--[NO, remove line if not applicable]-->
 
 <!--[
   You don't have to work on the issue to file an issue!

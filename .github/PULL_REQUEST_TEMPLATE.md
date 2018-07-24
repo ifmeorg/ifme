@@ -28,7 +28,7 @@
 
 # Test Coverage
 
-✅ <!--[YES, remove this line if not applicable]>
-🚫 <!--[NO, remove this line if not applicable]>
+✅ <!--[YES, remove line if not applicable]-->
+🚫 <!--[NO, remove line if not applicable]-->
 
 <!--[Must be YES, if NO explain why]-->
