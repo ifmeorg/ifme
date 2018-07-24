@@ -34,7 +34,7 @@ Information about installing and configuring the app [here](https://github.com/i
 
 ### Contributor Blurb
 
-Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to Contribute page.
+Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contribute page.
 
 ## Donate
 
