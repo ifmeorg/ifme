@@ -297,8 +297,8 @@ class ApplicationController < ActionController::Base
     end
 
     # Sort hash and take highest 3 values
-    freq.sort_by do |occurances, _value|
-      occurances
+    freq.sort_by do |occurrences, _value|
+      occurrences
     end[0..2].to_h
   end
 

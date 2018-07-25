@@ -41,7 +41,7 @@ describe ApplicationController do
           end
 
           it 'includes duplicate categories once' do
-            expect(subject.length).to eq(Category.count)
+            expect(subject.length).to eq(1)
             expect(subject[category.id]).to eq(2)
           end
         end
@@ -94,7 +94,7 @@ describe ApplicationController do
             context 'when not published' do
               let(:publication) { nil }
 
-              it 'it returns an empty hash' do
+              it 'returns an empty hash' do
                 expect(Moment.count).to eq(1)
                 expect(Strategy.count).to eq(1)
                 expect(subject).to be_empty
