@@ -180,6 +180,14 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.datetime "updated_at"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string   "reporter_id"
+    t.string   "reportee_id"
+    t.text     "comments"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "strategies", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "category"
