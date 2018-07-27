@@ -418,7 +418,7 @@ class ApplicationController < ActionController::Base
       query = Strategy.published
     end
 
-    query.where(userid: user.id).all.recent.map do |story|
+    query.where(user_id: user.id).all.recent.map do |story|
       story if story.viewers.include?(current_user.id)
     end.compact
   end

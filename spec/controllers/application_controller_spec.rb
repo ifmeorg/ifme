@@ -16,8 +16,8 @@ describe ApplicationController do
   describe "#most_focus" do
     let(:user_id) { user1.id }
     let(:categories_length) { 2 }
-    let(:category) { create(:category, userid: user_id) }
-    let(:categories) { create_list(:category, categories_length, userid: user_id) }
+    let(:category) { create(:category, user_id: user_id) }
+    let(:categories) { create_list(:category, categories_length, user_id: user_id) }
     let(:category_ids) { categories.map(&:id) }
 
     describe "categories" do
@@ -36,8 +36,8 @@ describe ApplicationController do
 
         context 'when the same category is used twice' do
           before do
-            create(:moment, category: [category.id], userid: user_id)
-            create(:strategy, category: [category.id], userid: user_id)
+            create(:moment, category: [category.id], user_id: user_id)
+            create(:strategy, category: [category.id], user_id: user_id)
           end
 
           it 'includes duplicate categories once' do
@@ -51,8 +51,8 @@ describe ApplicationController do
 
           context 'when viewing your own profile' do
             before do
-              create(:moment, category: [category.id], userid: user_id)
-              create(:strategy, category: category_ids + [category.id], userid: user_id)
+              create(:moment, category: [category.id], user_id: user_id)
+              create(:strategy, category: category_ids + [category.id], user_id: user_id)
             end
 
             it 'returns a hash containing the top three unique categories' do
@@ -67,14 +67,14 @@ describe ApplicationController do
             before do
               create(
                 :moment,
-                userid: user_id,
+                user_id: user_id,
                 category: [category.id],
                 viewers: [user1.id],
                 published_at: publication
               )
               create(
                 :strategy,
-                userid: user_id,
+                user_id: user_id,
                 category: category_ids,
                 published_at: publication
               )
