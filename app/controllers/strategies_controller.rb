@@ -6,7 +6,6 @@ class StrategiesController < ApplicationController
   include ReminderHelper
   include QuickCreate
   include Shared
-  include Notifications
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
@@ -45,7 +44,7 @@ class StrategiesController < ApplicationController
     end
 
     if comment_exists && (is_my_comment || is_my_strategy)
-      delete_comment_and_notifications(params[:commentid], 'strategy')
+      CommentNotifications.remove(comment_id: params[:commentid], model_name: 'strategy')
     end
 
     head :ok
