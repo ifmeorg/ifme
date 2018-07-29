@@ -144,20 +144,8 @@ class MomentsController < ApplicationController
     elsif saving_as_draft?
       @moment.published_at = nil
     end
-
     empty_array_for :viewers, :mood, :strategy, :category
-
-    respond_to do |format|
-      if @moment.update(moment_params)
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :ok, location: @moment }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_update(@moment, 'moment', moment_params)
   end
   # rubocop:enable MethodLength
 

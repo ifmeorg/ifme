@@ -77,21 +77,9 @@ class CategoriesController < ApplicationController
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
-  # rubocop:disable MethodLength
   def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to category_path(@category) }
-        format.json { render :show, status: :ok, location: @category }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @category.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_update(@category, 'category', category_params)
   end
-  # rubocop:enable MethodLength
 
   # DELETE /categories/1
   # DELETE /categories/1.json

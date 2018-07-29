@@ -4,7 +4,7 @@ module Shared
   extend ActiveSupport::Concern
 
   included do
-    helper_method :shared_create
+    helper_method :shared_create, :shared_update
   end
 
   def shared_create(model_object, model_name)
@@ -20,6 +20,22 @@ module Shared
       end
     end
   end
+
+  def shared_update(model_object, model_name, model_params)
+    respond_to do |format|
+      if model_object.update(model_params)
+        format.html { redirect_to redirect_path(model_object, model_name) }
+        format.json { render :show, status: :ok, location: model_object }
+      else
+        format.html { render :edit }
+        format.json do
+          render json: model_object.errors, status: :unprocessable_entity
+        end
+      end
+    end
+  end
+
+  private
 
   def redirect_path(model_object, model_name)
     if model_name == 'mood'

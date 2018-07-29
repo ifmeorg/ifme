@@ -158,18 +158,8 @@ class StrategiesController < ApplicationController
     elsif saving_as_draft?
       @strategy.published_at = nil
     end
-
     empty_array_for :viewers, :category
-
-    respond_to do |format|
-      if @strategy.update(strategy_params)
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :ok, location: @strategy }
-      else
-        format.html { render :edit }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_update(@strategy, 'strategy', strategy_params)
   end
   # rubocop:enable MethodLength
 
