@@ -63,4 +63,4 @@ class MeetingNotifications
     )
   end
   # rubocop:enable MethodLength
-  end
+end

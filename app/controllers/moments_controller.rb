@@ -62,7 +62,8 @@ class MomentsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      CommentNotifications.remove(comment_id: params[:commentid], model_name: 'moment')
+      CommentNotifications.remove(comment_id: params[:commentid],
+                                  model_name: 'moment')
     end
 
     head :ok

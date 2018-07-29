@@ -70,7 +70,8 @@ class MeetingsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
-      CommentNotifications.remove(comment_id: params[:commentid], model_name: 'meeting')
+      CommentNotifications.remove(comment_id: params[:commentid],
+                                  model_name: 'meeting')
     end
 
     head :ok
@@ -113,8 +114,9 @@ class MeetingsController < ApplicationController
           # Notify group members that you created a new meeting
           group_members = GroupMember.where(group_id: @meeting.group_id).all
           MeetingNotifications.handle_members(current_user: current_user,
-                                               meeting: @meeting, type: 'new_meeting',
-                                               members: group_members)
+                                              meeting: @meeting,
+                                              type: 'new_meeting',
+                                              members: group_members)
           format.html { redirect_to group_path(group_id) }
           format.json { render :show, status: :created, location: group_id }
         end
@@ -164,8 +166,9 @@ class MeetingsController < ApplicationController
 
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
       MeetingNotifications.handle_members(current_user: current_user,
-                                           meeting: @meeting, type: 'update_meeting',
-                                           members: @meeting_members)
+                                          meeting: @meeting,
+                                          type: 'update_meeting',
+                                          members: @meeting_members)
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.id) }
         format.json do
@@ -209,12 +212,12 @@ class MeetingsController < ApplicationController
         leader: true
       ).all
       meeting_id = Meeting.where(id: params[:meeting_id]).first.id
-      group = Group.where(id: group_id).first.name
       meeting = Meeting.where(id: params[:meeting_id]).first.name
 
       MeetingNotifications.handle_members(current_user: current_user,
-                                   meeting: meeting, type: 'join_meeting',
-                                   members: meeting_leaders)
+                                          meeting: meeting,
+                                          type: 'join_meeting',
+                                          members: meeting_leaders)
 
       respond_to do |format|
         format.html do
