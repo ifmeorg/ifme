@@ -63,95 +63,78 @@ describe ApplicationController do
     end
   end
 
-  describe "get_stories" do
-    before(:example) do
-      sign_in user1
-    end
-    it "has no stories and does not include allies" do
-        expect(controller.get_stories(user1, false).length).to eq(0)
-    end
+  describe '#get_stories' do
+    let(:user_id) { user1.id }
+    let(:moment) { create(:moment, user_id: user_id) }
+    let(:strategy) { create(:strategy, user_id: user_id) }
 
-    it "has only moments and does not include allies" do
-      new_moment = create(:moment, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(1)
-    end
+    before { sign_in user1 }
 
-    it "has only strategies and does not include allies" do
-      new_strategy = create(:strategy, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(1)
-    end
+    context 'when not including allies' do
+      subject { controller.get_stories(user1, false) }
 
-    it "has both moments and strategies, and does not include allies" do
-      new_moment = create(:moment, user_id: user1.id)
-      new_strategy = create(:strategy, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(2)
+      context 'when there are no stories' do
+        it { is_expected.to be_empty }
+      end
 
-    end
+      context 'when there is a moment' do
+        before { moment }
+        it { is_expected.to eq([moment]) }
+      end
 
-    it "has no stories and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-        expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+      context 'when there is a strategy' do
+        before { strategy }
+        it { is_expected.to eq([strategy]) }
+      end
 
-    it "has only moments and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user1.id, published_at: Time.zone.now)
-      new_moment2 = create(:moment, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
+      context 'when there are moments and strategies' do
+        before { moment; strategy }
+        it { is_expected.to include(moment, strategy) }
+      end
     end
 
-    it "has only other users' draft moments and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+    context 'when including allies' do
+      let(:ally_id) { user2.id }
+      let!(:allyship) { create(:allyships_accepted, user_id: user_id, ally_id: ally_id) }
+      let(:viewers) { [user_id] }
+      let(:timestamp) { Time.now }
+      let(:ally_moment) do
+        create(:moment, user_id: ally_id, viewers: viewers, published_at: timestamp)
+      end
+      let(:ally_strategy) do
+        create(:strategy, user_id: ally_id, viewers: viewers, published_at: timestamp)
+      end
 
-    it "has only strategies and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_strategy1 = create(:strategy, user_id: user1.id, published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
-    end
+      subject { controller.get_stories(user1, true) }
 
-    it "has only other users' draft strategies and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+      context 'when there are no stories' do
+        it { is_expected.to be_empty }
+      end
 
-    it "has both moments and strategies, and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user1.id, published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
-    end
+      context 'when there are stories' do
+        before do
+            moment
+            strategy
+            ally_moment
+            ally_strategy
+          end
 
-    it "has only users' draft moments and strategies, and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+        context 'when ally stories are published' do
+          it { is_expected.to include(moment, strategy, ally_moment, ally_strategy) }
+        end
 
-    it "has no moments and strategies despite being allies with user" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id)
-      expect(controller.get_stories(user2, false).length).to eq(0)
-    end
+        context 'when ally stories are drafts' do
+          let(:timestamp) { nil }
+          it { is_expected.to include(moment, strategy) }
+          it { is_expected.not_to include(ally_moment, ally_strategy) }
+        end
 
-    it "has both moments and strategies and is allies with user" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user2, false).length).to eq(2)
-    end
-
-    it "has both moments and strategies and is allies with user, but her/his posts are all drafts"  do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user2.id, viewers: [user1.id])
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user2, false).length).to eq(0)
+        context 'when ally stories do not include user in viewers' do
+          let(:viewers) { nil }
+          it { is_expected.to include(moment, strategy) }
+          it { is_expected.not_to include(ally_moment, ally_strategy) }
+        end
+      end
     end
   end
 
