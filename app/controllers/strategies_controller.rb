@@ -159,17 +159,7 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
-    # Remove strategies from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.strategy.delete(@strategy.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(strategy: item.strategy)
-    end
-
-    @strategy.destroy
-    redirect_to_path(strategies_path)
+    shared_destroy(@strategy, 'strategy')
   end
 
   private
