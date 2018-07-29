@@ -42,11 +42,12 @@ module Shared
   private
 
   def redirect_path(model_object, model_name)
-    if model_name == 'mood'
+    case model_name
+    when 'mood'
       mood_path(model_object)
-    elsif model_name == 'category'
+    when 'category'
       category_path(model_object)
-    elsif model_name == 'moment'
+    when 'moment'
       moment_path(model_object)
     else
       strategy_path(model_object)

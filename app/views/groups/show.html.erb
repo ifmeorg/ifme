@@ -38,8 +38,7 @@
     <div class="meeting <%= 'no_margin_bottom' if meeting == @meetings.last %>">
       <h1 class="meeting_name">
         <%= link_to meeting.name, meeting_path(meeting) %>
-        <%= edit_meeting_link(meeting,
-                                  class: 'align_right display_inline_block') %>
+        <%= edit_meeting_link(meeting, class: 'align_right display_inline_block') %>
       </h1>
       <%= render_meeting_partial(meeting) %>
     </div>
