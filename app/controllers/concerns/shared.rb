@@ -10,13 +10,11 @@ module Shared
   def shared_create(model_object, model_name)
     respond_to do |format|
       if model_object.save
-        format.html { redirect_to redirect_path(model_object, model_name) }
+        format_html_success(format, model_object, model_name)
         format.json { render :show, status: :created, location: model_object }
       else
         format.html { render :new }
-        format.json do
-          render json: model_object.errors, status: :unprocessable_entity
-        end
+        format_json_failure(format, model_object)
       end
     end
   end
@@ -24,22 +22,20 @@ module Shared
   def shared_update(model_object, model_name, model_params)
     respond_to do |format|
       if model_object.update(model_params)
-        format.html { redirect_to redirect_path(model_object, model_name) }
+        format_html_success(format, model_object, model_name)
         format.json { render :show, status: :ok, location: model_object }
       else
         format.html { render :edit }
-        format.json do
-          render json: model_object.errors, status: :unprocessable_entity
-        end
+        format_json_failure(format, model_object)
       end
     end
   end
 
   def delete_notifications(commentid, model_name)
     Comment.find(commentid).destroy
-    public_uniqueid = "comment_on_#{model_name}_#{commentid.to_s}"
+    public_uniqueid = "comment_on_#{model_name}_#{commentid}"
     Notification.where(uniqueid: public_uniqueid).destroy_all
-    private_uniqueid = "comment_on_#{model_name}_private_#{commentid.to_s}"
+    private_uniqueid = "comment_on_#{model_name}_private_#{commentid}"
     Notification.where(uniqueid: private_uniqueid).destroy_all
   end
 
@@ -54,6 +50,16 @@ module Shared
       moment_path(model_object)
     else
       strategy_path(model_object)
+    end
+  end
+
+  def format_html_success(format, model_object, model_name)
+    format.html { redirect_to redirect_path(model_object, model_name) }
+  end
+
+  def format_json_failure(format, model_object)
+    format.json do
+      render json: model_object.errors, status: :unprocessable_entity
     end
   end
 end

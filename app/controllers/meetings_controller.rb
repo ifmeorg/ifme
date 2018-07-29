@@ -169,11 +169,8 @@ class MeetingsController < ApplicationController
 
       # Notify group members that the meeting has been updated
       group = Group.where(id: @meeting.group_id).first.name
-
       uniqueid = 'update_meeting_' + current_user.id.to_s
-
       notifications_for_members(meeting_members, 'update_meeting')
-
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
 
       respond_to do |format|
@@ -317,17 +314,13 @@ class MeetingsController < ApplicationController
     not_a_leader(@meeting.group_id)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id).all
-
     notifications_for_members(group_members, 'remove_meeting')
 
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-
     @meeting_members.each(&:destroy)
-
     group_id = @meeting.group_id
     @meeting.destroy
-
     redirect_to_path(group_path(group_id))
   end
   # rubocop:enable MethodLength
@@ -370,31 +363,9 @@ class MeetingsController < ApplicationController
   end
 
   def notifications_for_members(members, type)
-    uniqueid = "#{type}_#{current_user.id.to_s}"
-    group = Group.where(id: @meeting.group_id).first.name
     members.each do |member|
       next if member.user_id == current_user.id
-
-      if type == 'remove_meeting'
-        data = JSON.generate(
-          user: current_user.name,
-          group_id: @meeting.group_id,
-          group: group,
-          typename: @meeting.name,
-          type: type,
-          uniqueid: uniqueid
-        )
-      else 
-        data = JSON.generate(
-          user: current_user.name,
-          typeid: @meeting.id,
-          group: group,
-          typename: @meeting.name,
-          type: type,
-          uniqueid: uniqueid
-        )
-      end
-
+      data = notification_data(type)
       Notification.create(
         user_id: member.user_id,
         uniqueid: uniqueid,
@@ -406,9 +377,31 @@ class MeetingsController < ApplicationController
         'new_notification',
         notifications: notifications
       )
-
       NotificationMailer.notification_email(member.user_id, data).deliver_now
     end
+  end
+
+  def notification_data(type)
+    uniqueid = "#{type}_#{current_user.id.to_s}"
+    group = Group.where(id: @meeting.group_id).first.name
+    if type == 'remove_meeting'
+      return JSON.generate(
+        user: current_user.name,
+        group_id: @meeting.group_id,
+        group: group,
+        typename: @meeting.name,
+        type: type,
+        uniqueid: uniqueid
+      )
+    end
+    return JSON.generate(
+      user: current_user.name,
+      typeid: @meeting.id,
+      group: group,
+      typename: @meeting.name,
+      type: type,
+      uniqueid: uniqueid
+    )
   end
 end
 # rubocop:enable ClassLength
