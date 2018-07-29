@@ -4,7 +4,7 @@ module Shared
   extend ActiveSupport::Concern
 
   included do
-    helper_method :shared_create, :shared_update
+    helper_method :shared_create, :shared_update, :delete_notifications
   end
 
   def shared_create(model_object, model_name)
@@ -33,6 +33,14 @@ module Shared
         end
       end
     end
+  end
+
+  def delete_notifications(commentid, model_name)
+    Comment.find(commentid).destroy
+    public_uniqueid = "comment_on_#{model_name}_#{commentid.to_s}"
+    Notification.where(uniqueid: public_uniqueid).destroy_all
+    private_uniqueid = "comment_on_#{model_name}_private_#{commentid.to_s}"
+    Notification.where(uniqueid: private_uniqueid).destroy_all
   end
 
   private
