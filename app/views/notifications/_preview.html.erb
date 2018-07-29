@@ -9,7 +9,7 @@
 
     <div class="modal_text">
       <% if local_assigns[:data].description.present? && local_assigns[:data].description.length > 0 %>
-        <%= raw(local_assigns[:data].description) %>
+        <%= sanitize(local_assigns[:data].description) %>
       <% elsif current_user.id == local_assigns[:data].user_id %>
         <strong><%= t('warnings.no_description') %></strong>
         <br><%= t('warnings.yes_description') %>

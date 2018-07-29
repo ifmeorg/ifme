@@ -24,14 +24,14 @@
 <% if @moment.why.present? %>
   <p>
     <div class="label"><%= label_tag t('moments.form.why') %></div>
-    <%= raw(@moment.why) %>
+    <%= sanitize(@moment.why) %>
   </p>
 <% end %>
 
 <% if @moment.fix.present? %>
   <p>
     <div class="label"><%= label_tag t('moments.form.fix') %></div>
-    <%= raw(@moment.fix) %>
+    <%= sanitize(@moment.fix) %>
   </p>
 <% end %>
 

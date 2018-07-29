@@ -179,7 +179,7 @@ class ApplicationController < ActionController::Base
     end
 
     comment_info += " - #{TimeAgo.formatted_ago(data.created_at)}"
-    comment_text = raw(data.comment)
+    comment_text = sanitize(data.comment)
 
     if data_type == 'moment'
       visibility = CommentVisibility.build(data,
@@ -193,7 +193,7 @@ class ApplicationController < ActionController::Base
 
     if comment_deletable?(data, data_type)
       delete_comment = '<div class="table_cell delete_comment">'
-      delete_comment += link_to raw('<i class="fa fa-times"></i>'),
+      delete_comment += link_to sanitize('<i class="fa fa-times"></i>'),
                                 '',
                                 id: "delete_comment_#{data.id}",
                                 class: 'delete_comment_button'

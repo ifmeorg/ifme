@@ -74,7 +74,7 @@ class MeetingsController < ApplicationController
       Comment.find(params[:commentid]).destroy
 
       # Delete corresponding notifications
-      public_uniqueid = 'comment_on_meeting_' + params[:commentid].to_s
+      public_uniqueid = "comment_on_meeting_#{params[:commentid]}"
       Notification.where(uniqueid: public_uniqueid).destroy_all
     end
 
@@ -168,8 +168,6 @@ class MeetingsController < ApplicationController
       end
 
       # Notify group members that the meeting has been updated
-      group = Group.where(id: @meeting.group_id).first.name
-      uniqueid = 'update_meeting_' + current_user.id.to_s
       notifications_for_members(meeting_members, 'update_meeting')
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
 
@@ -219,7 +217,7 @@ class MeetingsController < ApplicationController
       group = Group.where(id: group_id).first.name
       meeting = Meeting.where(id: params[:meeting_id]).first.name
 
-      uniqueid = 'join_meeting_' + current_user.id.to_s
+      uniqueid = "join_meeting_#{current_user.id}"
 
       meeting_leaders.each do |leader|
         next if leader.user_id == current_user.id
@@ -240,7 +238,7 @@ class MeetingsController < ApplicationController
         )
         notifications = Notification.where(user_id: leader.user_id)
                                     .order('created_at ASC').all
-        Pusher['private-' + leader.user_id.to_s].trigger(
+        Pusher["private-#{leader.user_id}"].trigger(
           'new_notification',
           notifications: notifications
         )
@@ -362,6 +360,7 @@ class MeetingsController < ApplicationController
     !(meeting_obj.exists? && meeting_member.exists?)
   end
 
+  # rubocop:disable MethodLength
   def notifications_for_members(members, type)
     members.each do |member|
       next if member.user_id == current_user.id
@@ -373,7 +372,7 @@ class MeetingsController < ApplicationController
       )
       notifications = Notification.where(user_id: member.user_id)
                                   .order('created_at ASC').all
-      Pusher['private-' + member.user_id.to_s].trigger(
+      Pusher["private-#{member.user_id}"].trigger(
         'new_notification',
         notifications: notifications
       )
@@ -382,7 +381,7 @@ class MeetingsController < ApplicationController
   end
 
   def notification_data(type)
-    uniqueid = "#{type}_#{current_user.id.to_s}"
+    uniqueid = "#{type}_#{current_user.id}"
     group = Group.where(id: @meeting.group_id).first.name
     if type == 'remove_meeting'
       return JSON.generate(
@@ -394,7 +393,7 @@ class MeetingsController < ApplicationController
         uniqueid: uniqueid
       )
     end
-    return JSON.generate(
+    JSON.generate(
       user: current_user.name,
       typeid: @meeting.id,
       group: group,
@@ -403,5 +402,6 @@ class MeetingsController < ApplicationController
       uniqueid: uniqueid
     )
   end
+  # rubocop:enable MethodLength
 end
 # rubocop:enable ClassLength
