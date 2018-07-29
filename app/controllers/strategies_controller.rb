@@ -5,6 +5,7 @@ class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   include QuickCreate
+  include Shared
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
@@ -116,15 +117,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @strategy.save
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :created, location: @strategy }
-      else
-        format.html { render :new }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_create(@strategy, 'strategy')
   end
   # rubocop:enable MethodLength
 

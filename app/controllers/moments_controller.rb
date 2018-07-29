@@ -3,6 +3,7 @@
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
+  include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
 
@@ -126,17 +127,7 @@ class MomentsController < ApplicationController
     @mood = Mood.new
     @strategy = Strategy.new
     @moment.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @moment.save
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :created, location: @moment }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_create(@moment, 'moment')
   end
   # rubocop:enable MethodLength
 

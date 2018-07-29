@@ -4,6 +4,7 @@
 class CategoriesController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
+  include Shared
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
@@ -41,17 +42,7 @@ class CategoriesController < ApplicationController
   # rubocop:disable MethodLength
   def create
     @category = Category.new(category_params.merge(user_id: current_user.id))
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to category_path(@category) }
-        format.json { render :show, status: :created, location: @category }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @category.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_create(@category, 'category')
   end
   # rubocop:enable MethodLength
 
