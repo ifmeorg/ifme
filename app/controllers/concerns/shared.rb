@@ -4,7 +4,7 @@ module Shared
   extend ActiveSupport::Concern
 
   included do
-    helper_method :shared_create, :shared_update, :delete_notifications
+    helper_method :shared_create, :shared_update
   end
 
   def shared_create(model_object, model_name)
@@ -29,14 +29,6 @@ module Shared
         format_json_failure(format, model_object)
       end
     end
-  end
-
-  def delete_notifications(commentid, model_name)
-    Comment.find(commentid).destroy
-    public_uniqueid = "comment_on_#{model_name}_#{commentid}"
-    Notification.where(uniqueid: public_uniqueid).destroy_all
-    private_uniqueid = "comment_on_#{model_name}_private_#{commentid}"
-    Notification.where(uniqueid: private_uniqueid).destroy_all
   end
 
   private

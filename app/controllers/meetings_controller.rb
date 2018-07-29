@@ -119,7 +119,8 @@ class MeetingsController < ApplicationController
           # Notify group members that you created a new meeting
           group_members = GroupMember.where(group_id: @meeting.group_id).all
 
-          notifications_for_members(group_members, 'new_meeting')
+          notifications_for_meeting_members(@meeting, group_members,
+                                            'new_meeting')
 
           format.html { redirect_to group_path(group_id) }
           format.json { render :show, status: :created, location: group_id }
@@ -169,7 +170,8 @@ class MeetingsController < ApplicationController
       end
 
       # Notify group members that the meeting has been updated
-      notifications_for_members(meeting_members, 'update_meeting')
+      notifications_for_meeting_members(@meeting, meeting_members,
+                                        'update_meeting')
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
 
       respond_to do |format|
@@ -313,7 +315,7 @@ class MeetingsController < ApplicationController
     not_a_leader(@meeting.group_id)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id).all
-    notifications_for_members(group_members, 'remove_meeting')
+    notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
 
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
