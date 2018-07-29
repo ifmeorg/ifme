@@ -3,7 +3,7 @@
 
 <div class="group_info">
   <div class="small_margin_bottom">
-    <%= raw(@group.description) %>
+    <%= sanitize(@group.description) %>
   </div>
 
   <div class="notification_wrapper">
@@ -34,14 +34,17 @@
 
 <% if @meetings.present? %>
   <div class="spacer"></div>
-  <% @meetings.each do |meeting| %>
-    <div class="meeting <%= 'no_margin_bottom' if meeting == @meetings.last %>">
-      <h1 class="meeting_name">
-        <%= link_to meeting.name, meeting_path(meeting) %>
-        <%= edit_meeting_link(meeting,
-                                  class: 'align_right display_inline_block') %>
-      </h1>
-      <%= render_meeting_partial(meeting) %>
+  <div id="pages">
+    <div class="page">
+    <% @meetings.each do |meeting| %>
+      <div class="meeting">
+        <h1 class="meeting_name">
+          <%= link_to meeting.name, meeting_path(meeting) %>
+          <%= edit_meeting_link(meeting, class: 'align_right display_inline_block') %>
+        </h1>
+        <%= render_meeting_partial(meeting) %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
+  </div>
 <% end %>

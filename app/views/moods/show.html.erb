@@ -1,6 +1,6 @@
 <% title @mood.name %>
 <% if @mood.description.present? && @mood.description.length > 0 %>
-  <%= raw(@mood.description) %>
+  <%= sanitize(@mood.description) %>
 <% else %>
   <div class="main_message">
     <%= t('warnings.no_description') %>

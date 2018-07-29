@@ -42,7 +42,7 @@
       <%= link_to(t('navigation.give_feedback').titleize, "http://goo.gl/forms/8EqoJDDiXY", class: "highlight", target: "blank", id: "feedback") %>
     </div>
     <div class="align_right license">
-      <%= content_tag(:span, raw(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>
+      <%= content_tag(:span, sanitize(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>
       <div class="footer_subtitle">
         <%= raw t('shared.footer.license_subtitle',
           license: link_to(t('shared.footer.licence_name'), "https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt", target: "blank"))

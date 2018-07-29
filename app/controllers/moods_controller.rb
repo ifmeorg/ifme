@@ -3,6 +3,7 @@
 class MoodsController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
+  include Shared
   before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
@@ -37,15 +38,7 @@ class MoodsController < ApplicationController
   # POST /moods.json
   def create
     @mood = Mood.new(mood_params.merge(user_id: current_user.id))
-    respond_to do |format|
-      if @mood.save
-        format.html { redirect_to mood_path(@mood) }
-        format.json { render :show, status: :created, location: @mood }
-      else
-        format.html { render :new }
-        format.json { render json: @mood.errors, status: :unprocessable_entity }
-      end
-    end
+    shared_create(@mood, 'mood')
   end
 
   # POST /moods
@@ -58,15 +51,7 @@ class MoodsController < ApplicationController
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    respond_to do |format|
-      if @mood.update(mood_params)
-        format.html { redirect_to mood_path(@mood) }
-        format.json { render :show, status: :ok, location: @mood }
-      else
-        format.html { render :edit }
-        format.json { render json: @mood.errors, status: :unprocessable_entity }
-      end
-    end
+    shared_update(@mood, 'mood', mood_params)
   end
 
   # DELETE /moods/1
