@@ -6,7 +6,7 @@ module Notifications
   included do
     helper_method :notifications_for_members
   end
-  
+
   # rubocop:disable MethodLength
   def notifications_for_members(members, type)
     uniqueid = "#{type}_#{current_user.id}"
@@ -53,4 +53,3 @@ module Notifications
   end
   # rubocop:enable MethodLength
 end
-  
