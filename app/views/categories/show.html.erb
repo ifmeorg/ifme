@@ -1,7 +1,7 @@
 <% title @category.name %>
 
 <% if !@category.description.blank? && @category.description.length > 0 %>
-  <%= raw(@category.description) %>
+  <%= sanitize(@category.description) %>
 <% else %>
   <div class="main_message">
     <%= t('warnings.no_description') %>

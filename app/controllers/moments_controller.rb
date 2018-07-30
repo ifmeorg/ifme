@@ -3,6 +3,8 @@
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
+  include Shared
+  include Notifications
 
   before_action :set_moment, only: %i[show edit update destroy]
 
@@ -61,14 +63,7 @@ class MomentsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifications
-      public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-
-      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s
-      Notification.where(uniqueid: private_uniqueid).destroy_all
+      delete_comment_and_notifications(params[:commentid], 'moment')
     end
 
     head :ok
@@ -126,17 +121,7 @@ class MomentsController < ApplicationController
     @mood = Mood.new
     @strategy = Strategy.new
     @moment.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @moment.save
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :created, location: @moment }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_create(@moment, 'moment')
   end
   # rubocop:enable MethodLength
 
@@ -153,20 +138,8 @@ class MomentsController < ApplicationController
     elsif saving_as_draft?
       @moment.published_at = nil
     end
-
     empty_array_for :viewers, :mood, :strategy, :category
-
-    respond_to do |format|
-      if @moment.update(moment_params)
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :ok, location: @moment }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_update(@moment, 'moment', moment_params)
   end
   # rubocop:enable MethodLength
 

@@ -5,6 +5,8 @@ class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   include QuickCreate
+  include Shared
+  include Notifications
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
@@ -43,15 +45,7 @@ class StrategiesController < ApplicationController
     end
 
     if comment_exists && (is_my_comment || is_my_strategy)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifications
-      public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-
-      private_uniqueid = 'comment_on_strategy_private_' +
-                         params[:commentid].to_s
-      Notification.where(uniqueid: private_uniqueid).destroy_all
+      delete_comment_and_notifications(params[:commentid], 'strategy')
     end
 
     head :ok
@@ -116,15 +110,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @strategy.save
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :created, location: @strategy }
-      else
-        format.html { render :new }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_create(@strategy, 'strategy')
   end
   # rubocop:enable MethodLength
 
@@ -165,18 +151,8 @@ class StrategiesController < ApplicationController
     elsif saving_as_draft?
       @strategy.published_at = nil
     end
-
     empty_array_for :viewers, :category
-
-    respond_to do |format|
-      if @strategy.update(strategy_params)
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :ok, location: @strategy }
-      else
-        format.html { render :edit }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_update(@strategy, 'strategy', strategy_params)
   end
   # rubocop:enable MethodLength
 

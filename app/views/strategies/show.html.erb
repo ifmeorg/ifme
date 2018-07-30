@@ -16,7 +16,7 @@
 
 <% if @strategy.description.present? %>
   <p>
-    <%= raw(@strategy.description) %>
+    <%= sanitize(@strategy.description) %>
     <%= print_reminders(@strategy) %>
   </p>
 <% end %>
