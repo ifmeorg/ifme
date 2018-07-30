@@ -250,7 +250,7 @@ class ApplicationController < ActionController::Base
   def moments_stats
     total_count = current_user.moments.all.count
     monthly_count = current_user.moments.where(
-      created_at: Time.current.beginning_of_month..Time.now
+      created_at: Time.current.beginning_of_month..Time.current
     ).count
 
     return '' if total_count <= 1
@@ -271,7 +271,7 @@ class ApplicationController < ActionController::Base
                 end
     end
 
-    result += '</div>'
+    result + '</div>'
   end
   # rubocop:enable MethodLength
 
