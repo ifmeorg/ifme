@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 ruby '~> 2.3.4'
 
+gem 'rails_admin'
 gem 'puma'
 gem 'rack-rewrite'
 gem 'rails', '~> 5.0.5'
