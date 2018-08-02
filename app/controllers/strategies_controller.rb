@@ -44,8 +44,8 @@ class StrategiesController < ApplicationController
     end
 
     if comment_exists && (is_my_comment || is_my_strategy)
-      CommentNotifications.remove(comment_id: params[:commentid],
-                                  model_name: 'strategy')
+      CommentNotificationsService.remove(comment_id: params[:commentid],
+                                         model_name: 'strategy')
     end
 
     head :ok

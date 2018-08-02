@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class CommentNotifications
+class CommentNotificationsService
   attr_reader :comment_id, :model_name
 
-  def initialize(args)
-    @comment_id = args[:comment_id]
-    @model_name = args[:model_name]
+  def initialize(comment_id:, model_name:)
+    @comment_id = comment_id
+    @model_name = model_name
   end
 
   def self.remove(args = {})

@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-class MeetingNotifications
+class MeetingNotificationsService
   attr_reader :current_user
   attr_reader :meeting
   attr_reader :type
   attr_reader :members
   attr_reader :uniqueid
 
-  def initialize(args)
-    @current_user = args[:current_user]
-    @meeting = args[:meeting]
-    @type = args[:type]
-    @members = args[:members]
-    @uniqueid = "#{@type}_#{@current_user.id}"
+  def initialize(current_user:, meeting:, type:, members:)
+    @current_user = current_user
+    @meeting = meeting
+    @type = type
+    @members = members
+    @uniqueid = "#{type}_#{current_user.id}"
   end
 
   def self.handle_members(args = {})

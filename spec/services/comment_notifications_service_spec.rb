@@ -1,4 +1,4 @@
-describe CommentNotifications do
+describe CommentNotificationsService do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
 
@@ -19,7 +19,7 @@ describe CommentNotifications do
       context 'when comment visibility is all' do
         let!(:visibility) { 'all' }
 
-        it 'works correctly' do
+        it 'remove comments and notifications related to that moment' do
           comment.notify_of_creation!(ally)
           expect(Comment.count).to eq(1)
           expect(Notification.count).to eq(1)
@@ -32,7 +32,7 @@ describe CommentNotifications do
       context 'when comment visibility is private' do
         let!(:visibility) { 'private' }
 
-        it 'works correctly' do
+        it 'remove comments and notifications related to that moment' do
           comment.notify_of_creation!(ally)
           expect(Comment.count).to eq(1)
           expect(Notification.count).to eq(1)
@@ -51,7 +51,7 @@ describe CommentNotifications do
       context 'when comment visibility is all' do
         let!(:visibility) { 'all' }
 
-        it 'works correctly' do
+        it 'remove comments and notifications related to that strategy' do
           comment.notify_of_creation!(ally)
           expect(Comment.count).to eq(1)
           expect(Notification.count).to eq(1)
@@ -64,7 +64,7 @@ describe CommentNotifications do
       context 'when comment visibility is private' do
         let!(:visibility) { 'private' }
 
-        it 'works correctly' do
+        it 'remove comments and notifications related to that strategy' do
           comment.notify_of_creation!(ally)
           expect(Comment.count).to eq(1)
           expect(Notification.count).to eq(1)
@@ -83,7 +83,7 @@ describe CommentNotifications do
       let!(:member2) { create :meeting_member, user_id: ally.id, leader: false, meeting_id: meeting.id }
       let!(:comment) { Comment.create_from!(comment: 'Hello', commentable_type: model_name, commentable_id: meeting.id, comment_by: ally.id, visibility: 'all') }
 
-      it 'works correctly' do
+      it 'remove comments and notifications related to that meeting' do
         comment.notify_of_creation!(ally)
         expect(Comment.count).to eq(1)
         expect(Notification.count).to eq(1)

@@ -1,4 +1,4 @@
-describe MeetingNotifications do
+describe MeetingNotificationsService do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
 
@@ -22,7 +22,7 @@ describe MeetingNotifications do
     context 'when type is remove_meeting' do
       let!(:type) { 'remove_meeting' }
 
-      it 'works correctly' do
+      it 'create the correct notification' do
         expect(Notification.count).to eq(0)
         subject
         expect(Notification.count).to eq(1)
@@ -42,7 +42,7 @@ describe MeetingNotifications do
     context 'when type is new_meeting' do
       let!(:type) { 'new_meeting' }
 
-      it 'works correctly' do
+      it 'create the correct notification' do
         type = 'new_meeting'
         expect(Notification.count).to eq(0)
         subject
@@ -63,7 +63,7 @@ describe MeetingNotifications do
     context 'when type is update_meeting' do
       let!(:type) { 'update_meeting' }
 
-      it 'works correctly' do
+      it 'create the correct notification' do
         expect(Notification.count).to eq(0)
         subject
         expect(Notification.count).to eq(1)
