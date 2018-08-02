@@ -1,7 +1,6 @@
 <h4>You are reporting this user !</h4>
-<%= form_for(:search, :url => {:action => "create"}, :method => "post") do |f| %>
+<%= form_for(:search, :url => {:action => "create", :ally_id => params[:ally_id]}, :method => "post") do |f| %>
    Why do you want to report this user ?
     <%= text_field(:report, :comments) %>
-
      <%= f.submit 'Report', class: 'no_margin_right' %>
 <% end %>
