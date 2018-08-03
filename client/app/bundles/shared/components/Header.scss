@@ -1,0 +1,46 @@
+@import "base.scss";
+
+.header  {
+width: 100%;
+font-family: $font-family;
+
+  nav {
+    width: 100%;
+    font-family: $font-family;
+    background: $mockup-background-color;
+
+    ul {
+      list-style-type: none;
+      float: right;
+      margin: 0;
+      padding: 0;
+
+      li {
+          display: inline-flex;
+          padding: 10px 5px 10px 20px;
+
+          a {
+            text-decoration: none;
+            color: $header-text-color;
+            font-weight: $lg;
+            line-height: 17px;
+            font-size: $font14;
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+
+    .dashboard {
+      color: $dashboard-link-color;
+    }
+
+    .logo {
+      vertical-align: middle;
+      font-size: $font30;
+      line-height: 36px;
+      color: $header-text-color;
+      font-weight: $xl;
+      padding-left: 5px;
+    }
+  }
