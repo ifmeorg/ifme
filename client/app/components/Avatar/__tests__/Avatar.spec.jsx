@@ -32,7 +32,7 @@ describe('Avatar', () => {
   });
 
   it('renders with name prop and displays it', () => {
-    const component = <Avatar src={FILENAME} name={NAME} displayname />;
+    const component = <Avatar src={FILENAME} name={NAME} displayName />;
     let wrapper = null;
 
     expect(() => {
