@@ -57,17 +57,7 @@ class MoodsController < ApplicationController
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
-    # Remove moods from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.mood.delete(@mood.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(mood: item.mood)
-    end
-
-    @mood.destroy
-    redirect_to_path(moods_path)
+    shared_destroy(@mood, 'mood')
   end
 
   # rubocop:disable MethodLength

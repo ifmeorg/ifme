@@ -84,18 +84,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    # Remove categories from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.category.delete(@category.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(category: item.category)
-    end
-
-    @category.destroy
-
-    redirect_to_path(categories_path)
+    shared_destroy(@category, 'category')
   end
 
   # rubocop:disable MethodLength
