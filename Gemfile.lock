@@ -554,7 +554,6 @@ DEPENDENCIES
   rspec-rails (~> 3.6.0)
   rspec_junit_formatter
   rubocop (>= 0.49.0)
-  ruby-graphviz (~> 1.2.3)
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 0.4.1)
   selenium-webdriver (~> 3.4.4)
@@ -569,4 +568,4 @@ RUBY VERSION
    ruby 2.3.4p112
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
