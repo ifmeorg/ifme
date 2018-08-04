@@ -37,6 +37,7 @@
 /* Text */
 
 body, html {
+  background: $secondary-background-color;
   margin: 0 auto;
   font: $body-font-size $font-family;
   font-weight: $xl;
@@ -68,7 +69,7 @@ p {
   word-wrap: break-word;
 }
 
-a:link, a:visited, .link_style {
+a, .link_style {
   text-decoration: none;
   color: $link-color;
   border-bottom: 1px dotted $link-color;
@@ -76,9 +77,6 @@ a:link, a:visited, .link_style {
 }
 
 a:hover, .link_style:hover {
-  text-decoration: none;
-  color: $link-color;
-  border-bottom: 1px dotted $link-color;
   opacity: 0.5;
 }
 
@@ -314,7 +312,22 @@ ul.no_bullet_list li {
 #container {
   margin: 0 auto;
   padding: 0;
-  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  > div:first-of-type {
+    margin-bottom: auto;
+    width: 100vw;
+  }
+
+  > div:last-of-type {
+    margin-top: auto;
+    width: 100vw;
+  }
 }
 
 .display_none {
