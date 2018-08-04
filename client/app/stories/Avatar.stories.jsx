@@ -1,28 +1,24 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import photoJulia from 'app/assets/images/contributors/julia_nguyen.jpg';
-import photoTara from 'app/assets/images/contributors/tara_swenson.jpg';
+import photoJulia from '../../../app/assets/images/contributors/julia_nguyen.jpg';
+import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 import { Avatar } from '../components/Avatar';
 
 storiesOf('Avatar', module)
   .add('With name', () => (
     <Row>
       <Col span={8}>
-        <Avatar
-          src={photoJulia}
-          name="Julia &ldquo;Fleurchild&rdquo; Nguyen"
-          displayname
-        />
+        <Avatar src={photoJulia} name="Julia Nguyen" displayName />
       </Col>
       <Col span={8}>
-        <Avatar src={photoTara} name="Tara Swenson" displayname />
+        <Avatar src={photoTara} name="Tara Swenson" displayName />
       </Col>
       <Col span={8}>
         <Avatar
           src="NonExistentFile.jpg"
           name="Default On Loading Error"
-          displayname
+          displayName
         />
       </Col>
     </Row>
@@ -30,7 +26,7 @@ storiesOf('Avatar', module)
   .add('Without name', () => (
     <Row>
       <Col span={8}>
-        <Avatar src={photoJulia} name="Julia &ldquo;Fleurchild&rdquo; Nguyen" />
+        <Avatar src={photoJulia} name="Julia Nguyen" />
       </Col>
       <Col span={8}>
         <Avatar src={photoTara} name="Tara Swenson" />
