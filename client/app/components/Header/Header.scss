@@ -1,0 +1,101 @@
+@import "../../styles/_legacy.scss";
+@import "../../styles/_base.scss";
+
+// TODO: Get rid of !important, it's here for now cause Rails styles override React styles
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    font-family: $font-family !important;
+    color: $header-text-color;
+    text-decoration: none !important;
+    border: none !important;
+  }
+
+  a:hover {
+    opacity: 0.5 !important;
+    color: $header-text-color !important;
+  }
+
+  &ActiveLink {
+    color: $highlight-text-color !important;
+  }
+
+  &MobileNav {
+    background: transparent;
+    position: static;
+    &Links {
+      display: none;
+    }
+    @media screen and (max-width: $small) {
+      background: $notification-backdrop;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      &Links {
+        margin-bottom: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: $font30;
+      }
+    }
+  }
+
+  &Desktop {
+    width: 100%;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+    &Home {
+      padding: 25px 34px;
+      font-size: $font30;
+      @media screen and (max-width: $small) {
+        padding: 15px 10px;
+      }
+    }
+  
+    &Nav {
+      padding: 25px 34px;
+      @media screen and (max-width: $small) {
+        padding: 15px 10px;
+      }
+      &Hamburger {
+        display: none;
+        font-size: $font30;
+        color: $header-text-color;
+        @media screen and (max-width: $small) {
+          display: block;
+        }
+      }
+      &Links {
+        display: flex;
+        flex-direction: row;
+        font-size: $font16;
+        letter-spacing: 0.0571429em;
+        text-transform: uppercase;
+        font-weight: $lg;
+        > div {
+          margin-right: 25px;
+        }
+        > div:last-of-type {
+          margin-right: 0px;
+        }
+        @media screen and (max-width: $small) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+  

@@ -23,6 +23,9 @@
     "client/node_modules"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "@rails/webpacker": "^3.4.3",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.23.0",

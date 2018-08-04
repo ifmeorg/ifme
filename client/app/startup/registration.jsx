@@ -11,6 +11,7 @@ import '../styles/_global.scss';
 import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
+import { Header } from '../components/Header';
 
 window.jstz = jstz;
 loadLocales();
@@ -20,4 +21,5 @@ ReactOnRails.register({
   Avatar,
   Chart,
   ChartControl,
+  Header,
 });
