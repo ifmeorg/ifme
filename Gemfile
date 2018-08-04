@@ -73,7 +73,6 @@ group :development, :test do
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
   gem 'rspec-rails', '~> 3.6.0'
-  gem 'ruby-graphviz', '~> 1.2.3'
 
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
