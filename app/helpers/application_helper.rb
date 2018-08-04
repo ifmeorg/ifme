@@ -3,16 +3,105 @@
 module ApplicationHelper
   include ViewersHelper
 
-  def nav_link_to(body, url, html_options = {})
-    environment = html_options[:method] ? { method: html_options[:method] } : {}
-    active_class = active?(url, environment) ? 'active' : nil
-
-    content_tag :li, class: active_class do
-      link_to body, url, html_options
+  # rubocop:disable MethodLength
+  def header_props
+    if user_signed_in? 
+      links = [
+        {
+          name: t('moments.plural'),
+          url: moments_path,
+          active: active?(moments_path)
+        },
+        {
+          name: t('categories.plural'),
+          url: categories_path,
+          active: active?(categories_path)
+        },
+        {
+          name: t('moods.plural'),
+          url: moods_path,
+          active: active?(moods_path)
+        },
+        {
+          name: t('strategies.plural'),
+          url: strategies_path,
+          active: active?(strategies_path)
+        },
+        {
+          name: t('medications.index.title'),
+          url: medications_path,
+          active: active?(medications_path)
+        },
+        {
+          name: t('groups.plural'),
+          url: groups_path,
+          active: active?(groups_path)
+        },
+        {
+          name: t('allies.index.title'),
+          url: allies_path,
+          active: active?(allies_path)
+        },
+        {
+          name: t('notifications.plural'),
+          url: 'notifications_button'
+        },
+        {
+          name: t('profile.index.title'),
+          url: profile_index_path(uid: current_user.uid),
+          active: active?(profile_index_path(uid: current_user.uid))
+        },
+        {
+          name: t('account.singular'),
+          url: edit_user_registration_path,
+          active: active?(edit_user_registration_path)
+        },
+        {
+          name: t('navigation.resources'),
+          url: resources_path,
+          active: active?(resources_path)
+        },
+        {
+          name: t('shared.header.signout'),
+          url: destroy_user_session_path,
+          dataMethod: 'delete'
+        }
+      ]
+    else
+      links = [
+        {
+          name: t('navigation.about'),
+          url: about_path,
+          active: active?(about_path)
+        },
+        {
+          name: t('navigation.blog'),
+          url: blog_path,
+          active: active?(blog_path)
+        },
+        {
+          name: t('navigation.resources'),
+          url: resources_path,
+          active: active?(resources_path)
+        },
+        {
+          name: t('common.actions.join'),
+          url: new_user_registration_path,
+          active: active?(new_user_registration_path)
+        },
+        {
+          name: t('account.sign_in'),
+          url: new_user_session_path,
+          active: active?(new_user_session_path)
+        }
+      ]
     end
+    {
+      home: { name: t('app_name'), url: root_path },
+      links: links
+    }
   end
 
-  # rubocop:disable MethodLength
   def active?(link_path, environment = {})
     current_controller = params[:controller]
     link_controller = Rails.application.routes

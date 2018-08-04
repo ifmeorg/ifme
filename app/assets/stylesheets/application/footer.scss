@@ -5,165 +5,23 @@
 /* Footer */
 
 #footer {
-  background-color: $secondary-background-color;
-  padding: 40px 0px;
+  background: $notification-backdrop;
 
-  @media screen and (max-width: $medium) {
-    padding: 20px 0px;
-  }
-
-  .license {
-    text-align: right;
-    color: $secondary-text-color;
-
-    @media screen and (max-width: $small) {
-      text-align: center;
+  &Links {
+    padding: 66px 114px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &Title {
+      font-size: $font14;
+      letter-spacing: 0.05em;
     }
   }
 
-  .footer_subtitle {
-    font-size: $small-font;
-
-    @media screen and (max-width: $medium) {
-      font-size: $font12;
-    }
-
-    a:link, a:visited, a:hover {
-      display: inline;
-      color: $secondary-text-color;
-    }
+  &Extras {
+    padding: 0px 114px 66px 114px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
-}
-
-#footer_content {
-  padding: 0px 60px;
-  color: $footer-text-color;
-  line-height: 30px;
-
-  @media screen and (max-width: $medium) {
-    padding: 0px 20px;
-    line-height: 26px;
-  }
-
-  @media screen and (max-width: $small) {
-    text-align: center;
-  }
-}
-
-#footer a:link,
-#footer a:visited {
-  text-decoration: none;
-  color: $footer-text-color;
-  border: none;
-  display: block;
-  margin: 0;
-
-  @media screen and (max-width: $small) {
-    text-align: center;
-  }
-}
-
-#footer a:hover {
-  text-decoration: none;
-  color: $footer-text-color;
-  border: none;
-  opacity: 0.5;
-  display: block;
-  margin: 0;
-
-  @media screen and (max-width: $small) {
-    text-align: center;
-  }
-}
-
-#footer .padding_right {
-  padding-right: 40px !important;
-
-  @media screen and (max-width: $medium) {
-    padding-right: 20px !important;
-  }
-
-  @media screen and (max-width: $small) {
-    padding-right: 0 !important;
-  }
-}
-
-@media screen and (min-width: $small + 1) {
-  #footer .align_left {
-    float: left;
-    display: inline-block;
-  }
-
-  #footer .align_right {
-    float: right;
-    display: inline-block;
-  }
-
-  #footer div.table div.table_row {
-    display: table-row;
-  }
-
-  #footer div.table div.table_cell {
-    display: table-cell;
-    word-break: break-word;
-  }
-
-  .large_padding_right {
-    padding-right: 80px;
-  }
-
-  @media screen and (max-width: $medium) {
-    .large_padding_right {
-      padding-right: 40px;
-    }
-  }
-}
-
-@media screen and (max-width: $small) {
-  #footer .align_left {
-    display: block;
-    text-align: left;
-    text-align: center;
-  }
-
-  #footer .align_right {
-    display: block;
-    text-align: left;
-    text-align: center;
-  }
-
-  #feedback {
-    margin-bottom: 10px !important;
-  }
-
-  #if_me_links {
-    margin-top: 0 !important;
-  }
-}
-
-.footer_heading {
-  text-transform: lowercase;
-  font-weight: 300;
-  font-size: $font30;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 20px;
-  display: block;
-  color: $footer-text-color;
-
-  @media screen and (max-width: $medium) {
-    font-size: $font26;
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-
-  @media screen and (max-width: $small) {
-    text-align: center;
-    margin-top: 10px;
-  }
-}
-
-#connect_links ~ a .fa {
-  text-align: center;
-  width: 1em;
 }
