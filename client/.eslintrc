@@ -10,6 +10,7 @@
   "rules": {
     "import/prefer-default-export": ["off"],
     "react/require-default-props": ["off"],
+    "no-alert": ["off"],
     "react/sort-comp": [2, {
       "order": [
         "type-annotations",
