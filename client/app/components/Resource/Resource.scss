@@ -1,19 +1,18 @@
 @import '../../styles/_legacy.scss';
-@import '../../styles/_base.scss';
 
 .resource {
   position: relative;
   width: 100%;
   font-family: $font-family;
-  padding: 25px 10px;
+  padding: 25px $size-10;
 
   &:before {
     content: '';
     position: absolute;
-    left: 10px;
+    left: $size-10;
     top: 9px;
-    border: 1px solid #fff;
-    border-width: 0 40px 0 0;
+    border: $size-1 solid #fff;
+    border-width: 0 $size-40 0 0;
     height: 3px;
   }
 
@@ -21,7 +20,7 @@
     display: block;
     font-size: $size-24;
     color: $white;
-    padding-bottom: 10px;
+    padding-bottom: $size-10;
     line-height: 1.1;
   }
 
@@ -31,12 +30,12 @@
   }
 
   .author {
-    color: $author-text-color;
+    color: $white-50;
     font-size: $size-18;
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
   }
 }
 

@@ -16,7 +16,7 @@
 .form_container {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: $size-20 0;
   flex-wrap: wrap;
 }
 
@@ -44,11 +44,11 @@
   }
 
   #medication_content {
-    padding: 50px 20px;
+    padding: 50px $size-20;
   }
 }
 
-@media screen and (max-width: $font-weight-100all) {
+@media screen and (max-width: $small) {
   #medication_content {
     padding: 0;
   }
@@ -56,6 +56,6 @@
   label[for="refill_reminder"],
   label[for="take_medication_reminder"],
   label[for="medication_Google Calendar reminder"] {
-    font-size: 20px;
+    font-size: $size-20;
   }
 }

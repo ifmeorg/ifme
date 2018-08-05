@@ -1,38 +1,37 @@
 @import "../../styles/_legacy.scss";
-@import "../../styles/_base.scss";
 
 .tag {
   &:last-child{
     margin-right: 0;
   }
 
-  padding: 5px 12px;
+  padding: $size-5 $size-12;
   text-indent: 4px;
   display: inline-block;
   margin-right: 8px;
   margin-bottom: 8px;
 
   font-family: $font-family;
-  font-size: 10px;
+  font-size: $size-10;
   text-align: center;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.$size-5;
   text-transform: uppercase;
 
-  border-radius: 5px;
-  border: 1px solid $mulberry;
+  border-radius: $size-5;
+  border: $size-1 solid $mulberry;
 
   mix-blend-mode: normal;
   color: $mulberry;
 
   &.dark {
     color: $white;
-    border: 1px;
+    border: $size-1;
     background-color: $mulberry;
   }
 
   &.normal {
     color: $white;
-    border: 1px;
+    border: $size-1;
     background-color: $white-10;
   }
 }

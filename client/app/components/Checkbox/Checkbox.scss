@@ -1,10 +1,9 @@
 @import "../../styles/_legacy.scss";
-@import "../../styles/_base.scss";
 
 .checkboxWrapper {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: $size-10;
   align-items: center;
 }
 
@@ -13,13 +12,13 @@
   opacity: 50%;
   font-family: $font-family;
   font-size: $size-18;
-  margin-left: 10px;
+  margin-left: $size-10;
 }
 
 .checkbox {
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
+  border-radius: $size-5;
+  width: $size-30;
+  height: $size-30;
   border: 4px solid $grey;
 }
 

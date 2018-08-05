@@ -1,27 +1,24 @@
-@import "../../styles/_base.scss";
+@import "../../styles/_legacy.scss";
 
 $avatar-size: 120px;
 
 .avatar {
-
-  margin: 20px;
-
+  margin: $size-20;
   font-family: $font-family;
-  font-weight: $size--weight-normal;
-  font-size: $text-size;
+  font-weight: $font-weight-400;
+  font-size: $size-18;
   line-height: 1.2;
   text-align: center;
-  text-shadow: $text-shadow;
-  color: $text-color-reverse;
+  text-shadow: 0 0.2em 0.4em $black-30;
+  color: $white;
 
   .portrait {
     border-radius: 50%;
-    /* Border color follows text color */
-    border: 3px solid $text-color-reverse;
+    border: 3px solid $white;
     margin: 0 auto;
     overflow: hidden;
     object-fit: cover;
-    background-color: $avatar-default-background-color;
+    background-color: $grey;
 
     height: $avatar-size;
     width: $avatar-size;

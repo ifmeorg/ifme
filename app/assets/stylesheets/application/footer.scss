@@ -28,15 +28,15 @@
     justify-content: space-between;
     a {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: $size-10;
     }
     a:last-of-type {
-      margin-bottom: 0px;
+      margin-bottom: $size-0;
     }
     &Title {
       color: $white;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: $size-10;
       opacity: 0.5;
       font-size: $size-14;
       letter-spacing: 0.05em;
@@ -56,23 +56,23 @@
       }
       > div:nth-of-type(2n), > div:nth-of-type(3n) {
         text-align: center;
-        margin-top: 20px;
+        margin-top: $size-20;
       }
     }
   }
 
   &Extras {
-    padding: 0px 114px 66px 114px;
+    padding: $size-0 114px 66px 114px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     @media screen and (max-width: $medium) {
-      padding: 0px 57px 33px 57px;
+      padding: $size-0 57px 33px 57px;
       flex-direction: column;
       justify-content: flex-start;
       > div:last-of-type {
-        margin-top: 20px;
+        margin-top: $size-20;
       }
     }
   }
