@@ -3,14 +3,14 @@
 
 @mixin dropdown(
   $padding: 14px 47px 14px 19px,
-  $font-size: $text-size,
+  $size--size: $text-size,
   $color: $input-ghost-text-color,
   $border-radius: $rounded-corner,
   $border: none,
   $appearance: none
 ) {
   padding: $padding;
-  font-size: $font-size;
+  font-size: $size--size;
   color: $color;
   border: $border;
   border-radius: $border-radius;
@@ -39,7 +39,7 @@
   &.ghost {
     @include dropdown(
       $padding: 19px 47px 19px 19px,
-      $font-size: $text-size-large
+      $size--size: $text-size-large
     );
   }
 
