@@ -1,5 +1,5 @@
-<div id="footer">
-  <div id="footerLinks">
+<div class="footer">
+  <div class="footerLinks">
     <div>
       <div class="footerLinksTitle"><%= t('app_name') %></div>
       <%= link_to(t('navigation.about'), about_path) %>
@@ -13,38 +13,38 @@
     </div>
     <div>
       <div class="footerLinksTitle"><%= t('shared.footer.connect') %></div>
-      <%= link_to(get_icon_text('envelope', t('common.form.email')), 'mailto:join.ifme@gmail.com') %>
-      <%= link_to(get_icon_text('facebook', t('navigation.facebook')), "http://facebook.com/ifmeorg", target: "blank") %>
-      <%= link_to(get_icon_text('github', t('navigation.github')), "https://github.com/ifmeorg/ifme", target: "blank") %>
-      <%= link_to(get_icon_text('instagram', t('navigation.instagram')), 'https://www.instagram.com/ifmeorg', target: "blank") %>
-      <%= link_to(get_icon_text('medium', t('navigation.medium')), 'https://medium.com/ifme', target: "blank") %>
-      <%= link_to(get_icon_text('gift', t('navigation.opencollective')), 'https://opencollective.com/ifme', target: "blank") %>
-      <%= link_to(get_icon_text('money-bill-alt', t('navigation.patreon')), 'http://patreon.com/ifme', target: "blank") %>
-      <%= link_to(get_icon_text('rss', t('navigation.rss')), "https://medium.com/feed/ifme", target: "blank") %>
-      <%= link_to(get_icon_text('twitter', t('navigation.twitter')), "http://twitter.com/ifmeorg", target: "blank") %>
+      <%= link_to(t('common.form.email'), 'mailto:join.ifme@gmail.com') %>
+      <%= link_to(t('navigation.facebook'), 'http://facebook.com/ifmeorg', target: 'blank') %>
+      <%= link_to(t('navigation.github'), 'https://github.com/ifmeorg/ifme', target: 'blank') %>
+      <%= link_to(t('navigation.instagram'), 'https://www.instagram.com/ifmeorg', target: 'blank') %>
+      <%= link_to(t('navigation.medium'), 'https://medium.com/ifme', target: 'blank') %>
+      <%= link_to(t('navigation.opencollective'), 'https://opencollective.com/ifme', target: 'blank') %>
+      <%= link_to(t('navigation.patreon'), 'http://patreon.com/ifme', target: 'blank') %>
+      <%= link_to(t('navigation.rss'), 'https://medium.com/feed/ifme', target: 'blank') %>
+      <%= link_to(t('navigation.twitter'), 'http://twitter.com/ifmeorg', target: 'blank') %>
     </div>
     <div>
       <div class="footerLinksTitle"><%= t('navigation.resources') %></div>
-      <%= link_to(t('pages.resources.communities'), resources_path(resource: "communities")) %>
-      <%= link_to(t('pages.resources.education'), resources_path(resource: "education")) %>
-      <%= link_to(t('pages.resources.hotlines'), resources_path(resource: "hotlines")) %>
-      <%= link_to(t('pages.resources.services'), resources_path(resource: "services")) %>
+      <%= link_to(t('pages.resources.communities'), resources_path(resource: 'communities')) %>
+      <%= link_to(t('pages.resources.education'), resources_path(resource: 'education')) %>
+      <%= link_to(t('pages.resources.hotlines'), resources_path(resource: 'hotlines')) %>
+      <%= link_to(t('pages.resources.services'), resources_path(resource: 'services')) %>
     </div>
   </div>
 
-  <div id="footerExtras">
-    <div id="footerExtrasLanguage">
-      <span class="footer_heading" id="language_links"><%= t('language') %></span>
-      <%= render partial: "shared/locale" %>
+  <div class="footerExtras">
+    <div>
+      <%= react_component('DropdownGhostSmall', props: {
+        id: 'locale',
+        options: @locales
+        # TODO: use onChange and deprecate toggle_locale.js
+      }) %>
     </div>
 
-    <div id="footerExtrasCopyright">
-      <%= content_tag(:span, sanitize(t('shared.footer.license')), class: 'yes_title', title: t('shared.footer.foss')) %>
-      <div class="footer_subtitle">
-        <%= raw t('shared.footer.license_subtitle',
-          license: link_to(t('shared.footer.licence_name'), "https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt", target: "blank"))
-        %>
-      </div>
+    <div>
+      <%= sanitize t('shared.footer.licence_subtitle',
+        licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt', target: 'blank'))
+      %>
     </div>
   </div>
 </div>

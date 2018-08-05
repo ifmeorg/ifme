@@ -36,17 +36,17 @@ class ApplicationController < ActionController::Base
   # before_action
   # rubocop:disable MethodLength
   def set_locale
-    @locales = [
-      { name: t('languages.en'), locale: :en },
-      { name: t('languages.es'), locale: :es },
-      { name: t('languages.nl'), locale: :nl },
-      { name: t('languages.pt-BR'), locale: :'pt-BR' },
-      { name: t('languages.sv'), locale: :sv },
-      { name: t('languages.it'), locale: :it },
-      { name: t('languages.nb'), locale: :nb },
-      { name: t('languages.vi'), locale: :vi }
-    ].freeze
     @locale = I18n.locale = locale
+    @locales = [
+      { label: t('languages.en'), value: 'en', selected: @locale == 'en' },
+      { label: t('languages.es'), value: 'es', selected: @locale == 'es' },
+      { label: t('languages.nl'), value: 'nl', selected: @locale == 'nl' },
+      { label: t('languages.pt-BR'), value: 'pt-BR', selected: @locale == 'pt-BR' },
+      { label: t('languages.sv'), value: 'sv', selected: @locale == 'sv' },
+      { label: t('languages.it'), value: 'it', selected: @locale == 'it' },
+      { label: t('languages.nb'), value: 'nb', selected: @locale == 'nb' },
+      { label: t('languages.vi'), value: 'vi', selected: @locale == 'vi' }
+    ].freeze
   end
   # rubocop:enable MethodLength
 

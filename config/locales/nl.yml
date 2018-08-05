@@ -531,12 +531,8 @@ nl:
 
  shared:
   footer:
-    licence_name: 'AGPL-3.0'
-    license: 'Wij &hearts; FOSS'
-    license_we: 'Wij'
-    license_foss: 'FOSS'
-    foss: 'Free and open source software'
-    license_subtitle: 'Gelicenseerd onder %{license}'
+    licence: 'AGPL-3.0'
+    licence_subtitle: 'Gelicenseerd onder %{licence}'
     connect: 'verbinden'
   comments:
     share_everyone: 'Delen met iedereen'

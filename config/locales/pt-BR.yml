@@ -532,12 +532,8 @@ pt-BR:
 
  shared:
   footer:
-    licence_name: 'AGPL-3.0'
-    license: 'Nós &hearts; FOSS'
-    license_we: 'Nós'
-    license_foss: 'FOSS'
-    foss: 'Software livre e de código aberto'
-    license_subtitle: 'Licenciado sob %{license}'
+    licence: 'AGPL-3.0'
+    licence_subtitle: 'Licenciado sob %{licence}'
     connect: 'conectar'
   comments:
     share_everyone: 'Compartilhe como todo mundo'

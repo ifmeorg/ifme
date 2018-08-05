@@ -12,6 +12,7 @@ import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import { Header } from '../components/Header';
+import { DropdownGhostSmall } from '../components/Dropdown/DropdownGhostSmall';
 
 window.jstz = jstz;
 loadLocales();
@@ -22,4 +23,5 @@ ReactOnRails.register({
   Chart,
   ChartControl,
   Header,
+  DropdownGhostSmall,
 });
