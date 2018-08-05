@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def static_page?
-    active?(about_path) || active?(blog_path) || active?(resources_path) || active?(new_user_registration_path) || active?(new_user_session_path)
+    active?(about_path) || active?(blog_path) || active?(resources_path) || active?(new_user_registration_path) || active?(new_user_session_path) || active?(edit_user_password_path) || (params[:controller]  == 'devise/invitations' && action_name == 'accept')
   end
 
   # rubocop:disable MethodLength
