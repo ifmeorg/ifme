@@ -54,9 +54,11 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render partial: 'notifications/list' %>
 
-    <div class="container">
+    <div class="mainWrapper">
       <%= react_component('Header', props: header_props) %>
-      <div class="contentContainer">
+      <div class="main">
+
+      <!-- TODO: Deprecate page_title when new designs fully transitioned -->
         <div id="page_title">
           <div class="overlay">
             <div id="page_title_content">
@@ -121,7 +123,7 @@
           </div>
         </div>
 
-        <div class="content">
+        <div class="<%= static_page? ? 'oldContentWrapper' : 'contentWrapper' %>">
           <% if notice.present? %>
             <% if current_page?(root_path) %>
               <div class="notice display_none"><%= notice %></div>
@@ -138,7 +140,16 @@
             <% end %>
           <% end %>
 
+        <% if static_page? %>
           <%= yield %>
+        <% else %>
+          <div class="contentNav">
+            <%= render partial: "shared/content_nav" %>
+          </div>
+          <div class="content">
+            <%= yield %>
+          </div>
+        <% end %>
         </div>
       <%= render partial: "shared/footer" %>
     </div>

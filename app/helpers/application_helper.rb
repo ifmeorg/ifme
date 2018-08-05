@@ -3,98 +3,50 @@
 module ApplicationHelper
   include ViewersHelper
 
+  def active_class(path)
+    active?(path) ? 'contentNavLinksActive' : ''
+  end
+
+  def static_page?
+    active?(about_path) || active?(blog_path) || active?(resources_path) || active?(new_user_registration_path) || active?(new_user_session_path)
+  end
+
   # rubocop:disable MethodLength
   def header_props
+    links = [
+      {
+        name: t('navigation.about'),
+        url: about_path,
+        active: active?(about_path)
+      },
+      {
+        name: t('navigation.blog'),
+        url: blog_path,
+        active: active?(blog_path)
+      },
+      {
+        name: t('navigation.resources'),
+        url: resources_path,
+        active: active?(resources_path)
+      }
+    ]
     if user_signed_in? 
-      links = [
-        {
-          name: t('moments.plural'),
-          url: moments_path,
-          active: active?(moments_path)
-        },
-        {
-          name: t('categories.plural'),
-          url: categories_path,
-          active: active?(categories_path)
-        },
-        {
-          name: t('moods.plural'),
-          url: moods_path,
-          active: active?(moods_path)
-        },
-        {
-          name: t('strategies.plural'),
-          url: strategies_path,
-          active: active?(strategies_path)
-        },
-        {
-          name: t('medications.index.title'),
-          url: medications_path,
-          active: active?(medications_path)
-        },
-        {
-          name: t('groups.plural'),
-          url: groups_path,
-          active: active?(groups_path)
-        },
-        {
-          name: t('allies.index.title'),
-          url: allies_path,
-          active: active?(allies_path)
-        },
-        {
-          name: t('notifications.plural'),
-          url: 'notifications_button'
-        },
-        {
-          name: t('profile.index.title'),
-          url: profile_index_path(uid: current_user.uid),
-          active: active?(profile_index_path(uid: current_user.uid))
-        },
-        {
-          name: t('account.singular'),
-          url: edit_user_registration_path,
-          active: active?(edit_user_registration_path)
-        },
-        {
-          name: t('navigation.resources'),
-          url: resources_path,
-          active: active?(resources_path)
-        },
-        {
-          name: t('shared.header.signout'),
-          url: destroy_user_session_path,
-          dataMethod: 'delete'
-        }
-      ]
+      links.push({
+        name: t('shared.header.signout'),
+        url: destroy_user_session_path,
+        dataMethod: 'delete'
+      })
     else
-      links = [
-        {
-          name: t('navigation.about'),
-          url: about_path,
-          active: active?(about_path)
-        },
-        {
-          name: t('navigation.blog'),
-          url: blog_path,
-          active: active?(blog_path)
-        },
-        {
-          name: t('navigation.resources'),
-          url: resources_path,
-          active: active?(resources_path)
-        },
-        {
-          name: t('common.actions.join'),
-          url: new_user_registration_path,
-          active: active?(new_user_registration_path)
-        },
-        {
-          name: t('account.sign_in'),
-          url: new_user_session_path,
-          active: active?(new_user_session_path)
-        }
-      ]
+      links.push({
+        name: t('common.actions.join'),
+        url: new_user_registration_path,
+        active: active?(new_user_registration_path)
+      })
+      links.push({
+        name: t('account.sign_in'),
+        url: new_user_session_path,
+        active: active?(new_user_session_path)
+      })
     end
     {
       home: { name: t('app_name'), url: root_path },
@@ -106,11 +58,6 @@ module ApplicationHelper
     current_controller = params[:controller]
     link_controller = Rails.application.routes
                            .recognize_path(link_path, environment)[:controller]
-
-    nested_controllers = {
-      'moments' => %w[categories moods]
-    }
-
     # Current page.
     current_page?(link_path) ||
       # Current controller.
@@ -119,8 +66,6 @@ module ApplicationHelper
         current_controller != 'pages' &&
         current_controller == link_controller
       ) ||
-      # Parent of the active controller.
-      (nested_controllers[link_controller]&.include?(current_controller)) ||
       # New user session with devise.
       (link_path == new_user_session_path &&
        current_controller == 'devise/sessions' && action_name == 'new') ||
