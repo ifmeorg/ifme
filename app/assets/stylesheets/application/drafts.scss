@@ -4,8 +4,8 @@
 
 
 .draft-badge {
-  background: $secondary-text-color;
-  color: $background-color;
+  background: $mulberry;
+  color: $white;
   margin-right: 10px;
   padding: 8px;
 }
@@ -35,7 +35,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $highlight-text-color;
+  background-color: $key-lime;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -47,17 +47,17 @@
   width: 32px;
   left: 4px;
   bottom: 4px;
-  background-color: $background-color;
+  background-color: $white;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: $secondary-text-color;
+  background-color: $mulberry;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $slider-focus-color;
+  box-shadow: 0 0 1px $mulberry;
 }
 
 input:checked + .slider:before {
@@ -84,7 +84,7 @@ input:checked + .slider:before {
 }
 
 .off {
-  color: $secondary-text-color;
+  color: $mulberry;
 }
 
 input:checked+ .slider .on {

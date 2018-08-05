@@ -11,18 +11,18 @@
 
   a {
     font-family: $font-family !important;
-    color: $header-text-color;
+    color: $white;
     text-decoration: none !important;
     border: none !important;
   }
 
   a:hover {
     opacity: 0.5 !important;
-    color: $header-text-color !important;
+    color: $white !important;
   }
 
   &ActiveLink {
-    color: $highlight-text-color !important;
+    color: $key-lime !important;
   }
 
   &MobileNav {
@@ -32,7 +32,7 @@
       display: none;
     }
     @media screen and (max-width: $small) {
-      background: $notification-backdrop;
+      background: $black-70;
       position: fixed;
       left: 0;
       right: 0;
@@ -73,7 +73,7 @@
       &Hamburger {
         display: none;
         font-size: $font30;
-        color: $header-text-color;
+        color: $white;
         @media screen and (max-width: $small) {
           display: block;
         }

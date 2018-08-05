@@ -7,8 +7,8 @@
 .comment {
   margin-top: 40px;
   padding: 20px;
-  background-color: $background-color;
-  border: 2px solid $secondary-text-color;
+  background-color: $white;
+  border: 2px solid $mulberry;
 
   div.table {
     display: table;
@@ -70,11 +70,11 @@
 }
 
 .comment_info {
-  color: $secondary-text-color;
+  color: $mulberry;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 1px solid $subtle-secondary-text-color;
+  border-bottom: 1px solid $dusty-rose;
 
   @media screen and (max-width: $small) {
     font-size: $font16;
@@ -84,14 +84,14 @@
 .comment a:link,
 .comment a:visited,
 .comment a:hover {
-  color: $secondary-text-color;
-  border-color: $secondary-text-color;
+  color: $mulberry;
+  border-color: $mulberry;
 }
 
 .delete_comment a:link,
 .delete_comment a:visited,
 .delete_comment a:hover {
-  color: $secondary-text-color;
+  color: $mulberry;
   border: none;
 }
 

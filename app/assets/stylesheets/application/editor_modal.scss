@@ -5,7 +5,7 @@
   top: 0;
   z-index: 9001;
   left: 0;
-  background: $notification-backdrop;
+  background: $black-70;
 }
 
 #editor_text {
@@ -14,9 +14,9 @@
   max-height: 500px;
   overflow-x: hidden;
   overflow-y: auto;
-  border: 1px solid $container-color;
-  box-shadow: 0 0 10px $container-color;
-  background-color: $background-color;
+  border: 1px solid $mulberry;
+  box-shadow: 0 0 10px $mulberry;
+  background-color: $white;
 
   @media screen and (max-width: $medium) {
     width: 80%;
@@ -53,7 +53,7 @@ h1#close_editor {
   font-size: $font26;
   padding: 0;
   margin: 0px;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $font22;

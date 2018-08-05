@@ -7,7 +7,7 @@
   font-weight: 300;
   font-size: $font26;
   margin-bottom: 40px;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
       font-size: $font24;
@@ -27,7 +27,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-  color: $secondary-text-color;
+  color: $mulberry;
   width: 60%;
   text-align: center;
 
@@ -153,7 +153,7 @@
 .icon_border {
   margin: 40px auto 40px auto;
   height: 1px;
-  background-color: $primary-text-color;
+  background-color: $black;
   width: 80px;
 
   @media screen and (max-width: $medium) {
@@ -210,15 +210,15 @@
 .blog_post,
 .resource {
   padding: 20px;
-  border: 1px solid $container-color;
-  box-shadow: 0 0 2px $container-color inset;
+  border: 1px solid $mulberry;
+  box-shadow: 0 0 2px $mulberry inset;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
     padding: 0px 0px 20px 0px;
     border: none;
     box-shadow: none;
-    border-bottom: 1px solid $container-color;
+    border-bottom: 1px solid $mulberry;
     margin-bottom: 20px;
   }
 }
@@ -238,7 +238,7 @@ h1.faq_heading {
   font-size: $font26;
   padding: 0;
   margin: 0;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $font22;
@@ -371,7 +371,7 @@ h1.resources {
   font-size: $font30;
   padding: 0;
   margin: 0px 0px 20px 0px;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $font26;
@@ -435,8 +435,8 @@ h1.resources {
 
 .resource_tag,
 .resource_language {
-  background-color: $tag-color;
-  color: $header-text-color;
+  background-color: $mulberry-80;
+  color: $white;
   padding: 10px;
   margin-right: 10px;
 
@@ -446,8 +446,8 @@ h1.resources {
 }
 
 .resource_language {
-  background-color: $highlight-text-color;
-  color: $tag-text-color;
+  background-color: $key-lime;
+  color: $black;
   margin-left: 10px;
   margin-right: 0px;
 

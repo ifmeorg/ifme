@@ -8,11 +8,11 @@
   top: 0;
   z-index: 9001;
   left: 0;
-  background: $notification-backdrop;
+  background: $black-70;
 }
 
 .titlebar {
-  background: linear-gradient(90deg, $background-color 97%, $transparent 3%);
+  background: linear-gradient(90deg, $white 97%, $white-10 3%);
   width: 50%;
   position: fixed;
   z-index: 20;
@@ -77,9 +77,9 @@
   max-height: 500px;
   overflow-x: hidden;
   overflow-y: auto;
-  border: 1px solid $container-color;
-  box-shadow: 0 0 10px $container-color;
-  background-color: $background-color;
+  border: 1px solid $mulberry;
+  box-shadow: 0 0 10px $mulberry;
+  background-color: $white;
 
   @media screen and (max-width: $medium) {
     width: 80%;
@@ -96,7 +96,7 @@
 }
 
 .titlebar.scrolling {
-  box-shadow: 0 0 10px $secondary-text-color;
+  box-shadow: 0 0 10px $mulberry;
 }
 
 a.notification_link:link,
@@ -108,7 +108,7 @@ a.quick_create_link:visited {
   margin-top: 20px;
   display: block;
   text-decoration: none;
-  color: $link-color;
+  color: $steel-blue;
   border-bottom: none;
 
   @media screen and (max-width: $small) {
@@ -122,7 +122,7 @@ a.quick_create_link:hover {
   margin-top: 20px;
   display: block;
   text-decoration: none;
-  color: $link-color;
+  color: $steel-blue;
   border-bottom: none;
   opacity: 0.5;
 
@@ -160,7 +160,7 @@ h1#close_categories_moods, {
   font-size: $font26;
   padding: 0;
   margin: 0px;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $font22;

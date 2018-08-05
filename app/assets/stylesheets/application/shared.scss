@@ -1,8 +1,8 @@
 .ally,
 .group {
-  border: 1px solid $container-color;
+  border: 1px solid $mulberry;
   padding: 20px;
-  box-shadow: 0 0 2px $container-color inset;
+  box-shadow: 0 0 2px $mulberry inset;
   margin-bottom: 20px;
 
   @media screen and (max-width: $medium) {
@@ -25,7 +25,7 @@
   padding: 20px;
   margin-bottom: 20px;
 
-  background: $background-color;
+  background: $white;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 
@@ -62,7 +62,7 @@
   font-size: $font18;
   padding: 0;
   margin: 0px 0px 20px 0px;
-  color: $secondary-text-color;
+  color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $font16;
@@ -92,7 +92,7 @@
 .profile_name a:visited,
 .strategy_name a:link,
 .strategy_name a:visited {
-  color: $secondary-text-color;
+  color: $mulberry;
   text-decoration: none;
   border: none;
 }
@@ -101,7 +101,7 @@
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: $date-text-color;
+  color: $mulberry-50;
 }
 
 .moment_settings {
@@ -182,7 +182,7 @@
       font-size: $font20;
       margin: 0px 0px 5px 0px;
       padding-bottom: 5px;
-      border-bottom: 1px solid $subtle-secondary-text-color;
+      border-bottom: 1px solid $dusty-rose;
     }
 
     .ally_name {
@@ -252,8 +252,8 @@
   .some_focus {
     flex: 1;
     text-align: center;
-    color: $highlight-text-color;
-    background-color: $secondary-text-color;
+    color: $key-lime;
+    background-color: $mulberry;
     font-size: $font-zero;
 
     // The first .some_focus child of #most_focus
@@ -279,13 +279,13 @@
 
     a:link, a:visited, .link_style {
       text-decoration: none;
-      color: $highlight-text-color;
+      color: $key-lime;
       border-bottom: none;
     }
 
     a:hover, .link_style:hover {
       text-decoration: none;
-      color: $highlight-text-color;
+      color: $key-lime;
       border-bottom: none;
       opacity: 0.5;
     }
@@ -311,8 +311,8 @@
     .some_focus {
       display: block;
       text-align: center;
-      color: $highlight-text-color;
-      background-color: $secondary-text-color;
+      color: $key-lime;
+      background-color: $mulberry;
       font-size: $font-zero;
       width: 100% !important;
     }
@@ -363,7 +363,7 @@
 }
 
 .pagination {
-  color: $subtle-secondary-text-color;
+  color: $dusty-rose;
   margin-top: 40px;
   text-align: center;
 
@@ -379,13 +379,13 @@
 
   a:link, a:visited {
     text-decoration: none;
-    color: $secondary-text-color;
+    color: $mulberry;
     border: none;
   }
 
   a:hover {
     text-decoration: none;
-    color: $secondary-text-color;
+    color: $mulberry;
     border-bottom: none;
     opacity: 0.5;
   }
