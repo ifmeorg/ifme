@@ -882,21 +882,25 @@ div.table div.table_cell {
 }
 
 .notice {
-  color: $notice-color;
-  font-weight: bold;
-  margin-bottom: 40px;
-  border: 1px solid $notice-color !important;
-  box-shadow: 0 0 2px $notice-color inset !important;
+  background: $notice-color;
+  color: $header-text-color;
+  margin-bottom: 25px;
   padding: 10px;
+  text-align: center;
+  @media screen and (max-width: $medium) {
+    margin-bottom: 10px;
+  }
 }
 
 .alert {
-  color: $alert-color;
-  font-weight: bold;
-  margin-bottom: 40px;
-  border: 1px solid $alert-color !important;
-  box-shadow: 0 0 2px $alert-color inset !important;
+  background: $alert-color;
+  color: $header-text-color;
+  margin-bottom: 25px;
   padding: 10px;
+  text-align: center;
+  @media screen and (max-width: $medium) {
+    margin-bottom: 10px;
+  }
 }
 
 .alert_text {
