@@ -1,0 +1,59 @@
+<div class="page_title">
+<% if current_page?(new_user_session_path) ||
+  (params[:controller] == "devise/sessions" && action_name == "new") %>
+  <%= t('layouts.application.signin') %>
+<% elsif current_page?(new_user_registration_path) ||
+  (params[:controller] == "devise/registrations" && action_name == "create") %>
+  <%= t('layouts.application.create_account') %>
+<% elsif current_page?(new_user_password_path) ||
+  (params[:controller] == "devise/passwords" && action_name == "new") %>
+  <%= t('account.forgot_password') %>
+<% elsif current_page?(edit_user_registration_path) ||
+  (params[:controller] == "registrations" && action_name == "update") %>
+  <%= t('layouts.application.update_account') %>
+<% elsif current_page?(root_path) && !user_signed_in? %>
+  <div class="headline center">
+    <span class="branding_title">
+      <%= t('layouts.application.if') %> <span class="branding_subtitle"><%= t('layouts.application.me') %></span>
+    </span><%= t('app_description') %>
+  </div>
+<% elsif current_page?(new_user_invitation_path) ||
+  (params[:controller] == "devise/invitations" && action_name == "new") ||
+  (params[:controller] == "users/invitations" && action_name == "create") %>
+  <%= t('devise.invitations.new.header') %>
+<% elsif current_page?(accept_user_invitation_path) ||
+  (params[:controller] == "devise/invitations" && action_name == "accept") %>
+  <%= t('devise.invitations.edit.header') %>
+<% elsif current_page?(edit_user_password_path) ||
+  (params[:controller] == "devise/passwords" && action_name == "edit") %>
+  <%= t('layouts.title.reset_password') %>
+<% elsif @page_edit.present? && @page_tooltip %>
+  <div>
+    <%= yield(:title) %>
+  </div>
+  <div>
+    <%= link_to(sanitize('<i class="fa fa-pencil-alt"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
+  </div>
+  <div class="clear"></div>
+<% elsif yield(:page_new).present? && @page_tooltip %>
+  <div>
+    <%= yield(:title) %>
+  </div>
+  <div>
+    <%= link_to(sanitize('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
+  </div>
+  <div class="clear"></div>
+<% elsif @page_author.present? %>
+  <div id="other_user">
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div id="page_author">
+      <%= @page_author %>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% else %>
+  <%= yield(:title) %>
+<% end %>
+</div>
