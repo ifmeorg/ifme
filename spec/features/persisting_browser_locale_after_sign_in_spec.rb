@@ -9,9 +9,8 @@ RSpec.feature 'Persisting browser locale after sign in', type: :feature do
       'Delve deep into your moments - events and situations that affect ' \
       'your mental health.')
 
-    within('span#title_expand') { find('i.expand').click }
-    within('ul#expand_me') { find('a[href="/users/sign_out"]').click }
-    expect(find('a[href="/users/sign_in"]')).to have_content('Sign in')
+    within('#header') { find('a[href="/users/sign_out"]').click }
+    expect(find('#header')).to have_content('Sign in')
 
     change_language('es')
     
