@@ -1,4 +1,4 @@
-@import "../../styles/_base.scss";
+@import "../../styles/_legacy.scss";
 
 .logo {
   display: inline-block;
@@ -7,8 +7,8 @@
   box-sizing: border-box;
 
   font-family: $font-family;
-  font-size: $title-size;
-  line-height: $title-size;
+  font-size: $size-30;
+  line-height: $size-30;
   font-weight: 300;
   text-transform: lowercase;
 
@@ -28,42 +28,42 @@
 
   .if,
   .me {
-    height: $title-size;
+    height: $size-30;
   }
 
   .if {
-    color: $logo-color-first;
+    color: $white;
   }
 
   .me {
     display: inline-block;
-    color: $logo-color-second;
+    color: $hampton;
     margin: 0 0 0 0.5ex;
     position: relative;
 
     &::before {
       content: ' ';
       position: absolute;
-      height: 1.5 * $title-size;
+      height: 1.5 * $size-30;
       width: 100%;
       transform: translateY(-10%);
-      border-top: 0.15ex solid $logo-color-second;
-      border-bottom: 0.15ex solid $logo-color-second;
+      border-top: 0.15ex solid $hampton;
+      border-bottom: 0.15ex solid $hampton;
     }
   }
 
   &.small {
-    font-size: $title-size-mobile;
-    line-height: $title-size-mobile;
+    font-size: $size-30;
+    line-height: $size-30;
 
     .if,
     .me {
-      height: $title-size-mobile;
+      height: $size-30;
     }
 
     .me {
       &::before {
-        height: 1.5 * $title-size-mobile;
+        height: 1.5 * $size-30;
       }
     }
   }

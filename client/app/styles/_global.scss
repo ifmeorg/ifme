@@ -1,7 +1,7 @@
-@import "./_typography.scss";
+@import "./_legacy.scss";
 @import "./_global_font.scss";
 
 body {
   font-family: $font-family;
-  font-size: $text-size;
+  font-size: $size-18;
 }

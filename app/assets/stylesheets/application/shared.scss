@@ -1,13 +1,13 @@
 .ally,
 .group {
-  border: 1px solid $mulberry;
-  padding: 20px;
-  box-shadow: 0 0 2px $mulberry inset;
-  margin-bottom: 20px;
+  border: $size-1 solid $mulberry;
+  padding: $size-20;
+  box-shadow: 0 0 $size-2 $mulberry inset;
+  margin-bottom: $size-20;
 
   @media screen and (max-width: $medium) {
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: $size-10;
+    margin-bottom: $size-20;
   }
 }
 
@@ -22,17 +22,17 @@
 .ally {
   @include box-sizing(border-box);
   width: calc(50% - 10px);
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: $size-20;
+  margin-bottom: $size-20;
 
   background: $white;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  box-shadow: $size-0 $size-2 $size-10 $black-10;
+  border-radius: $size-5;
 
   @media screen and (max-width: $medium) {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: $size-10;
+    margin-bottom: $size-20;
   }
 }
 
@@ -42,8 +42,8 @@
 
   .class_name {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: $size-20;
+    bottom: $size-20;
   }
 }
 
@@ -61,12 +61,12 @@
   font-weight: 400;
   font-size: $size-18;
   padding: 0;
-  margin: 0px 0px 20px 0px;
+  margin: $size-0 $size-0 $size-20 $size-0;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $size-16;
-    margin: 0px 0px 10px 0px;
+    margin: $size-0 $size-0 $size-10 $size-0;
   }
 }
 
@@ -98,7 +98,7 @@
 }
 
 .moment_date {
-  font-size: 10px;
+  font-size: $size-10;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $mulberry-50;
@@ -130,7 +130,7 @@
     float: left;
     display: inline-block;
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
         width: 80%;
     }
   }
@@ -160,7 +160,7 @@
     float: left;
     display: inline-block;
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       width: 100%;
       float: none;
       display: block;
@@ -171,23 +171,23 @@
     float: right;
     display: inline-block;
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       float: none;
       display: block;
     }
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     .story_name {
       font-size: $size-20;
-      margin: 0px 0px 5px 0px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid $dusty-rose;
+      margin: $size-0 $size-0 $size-5 $size-0;
+      padding-bottom: $size-5;
+      border-bottom: $size-1 solid $dusty-rose;
     }
 
     .ally_name {
       font-size: $size-18;
-      margin: 0px 0px 10px 0px;
+      margin: $size-0 $size-0 $size-10 $size-0;
     }
   }
 }
@@ -207,12 +207,12 @@
   float: left;
   display: inline-block;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     width: 60%;
   }
 }
 
-@media screen and (min-width: $font-weight-100all + 1) {
+@media screen and (min-width: $small + 1) {
   .ally .align_left {
     float: left;
     display: inline-block;
@@ -233,7 +233,7 @@
 #stats {
   font: $size-22 $font-family;
   font-weight: 300;
-  margin-bottom: 40px;
+  margin-bottom: $size-40;
 
   #most_focus {
     width: 100%;
@@ -271,7 +271,7 @@
   }
 
   .some_focus_text {
-    padding: 20px;
+    padding: $size-20;
     font: $size-22 $font-family;
     font-weight: 300;
     overflow: hidden;
@@ -294,19 +294,19 @@
   @media screen and (max-width: $medium) {
     font: $size-20 $font-family;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: $size-20;
 
     .some_focus_text {
-      padding: 20px;
+      padding: $size-20;
       font: $size-20 $font-family;
       font-weight: 300;
     }
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font: $size-18 $font-family;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: $size-20;
 
     .some_focus {
       display: block;
@@ -318,7 +318,7 @@
     }
 
     .some_focus_text {
-      padding: 10px;
+      padding: $size-10;
       font: $size-18 $font-family;
       font-weight: 300;
     }
@@ -326,20 +326,20 @@
 }
 
 #tag_usage.margin_bottom {
-  margin-bottom: 20px !important;
+  margin-bottom: $size-20 !important;
 }
 
 .tag_type.margin_top {
-  margin-top: 20px !important;
+  margin-top: $size-20 !important;
 }
 
-@media screen and (max-width: $font-weight-100all) {
+@media screen and (max-width: $small) {
   #tag_usage.margin_bottom {
-    margin-bottom: 10px !important;
+    margin-bottom: $size-10 !important;
   }
 
   .tag_type.margin_top {
-    margin-top: 10px !important;
+    margin-top: $size-10 !important;
   }
 }
 
@@ -348,11 +348,11 @@
   font-weight: $font-weight-200;
   font-size: $size-30;
   padding: 0;
-  margin: 0px 0px 20px 0px;
+  margin: $size-0 $size-0 $size-20 $size-0;
 
   @media screen and (max-width: $medium) {
     font-size: $size-26;
-    margin: 0px 0px 10px 0px;
+    margin: $size-0 $size-0 $size-10 $size-0;
   }
 }
 
@@ -364,17 +364,17 @@
 
 .pagination {
   color: $dusty-rose;
-  margin-top: 40px;
+  margin-top: $size-40;
   text-align: center;
 
   span.prev,
   span.first {
-    margin-right: 10px;
+    margin-right: $size-10;
   }
 
   span.next,
   span.last {
-    margin-left: 10px;
+    margin-left: $size-10;
   }
 
   a:link, a:visited {
@@ -391,11 +391,11 @@
   }
 
   @media screen and (max-width: $medium) {
-    margin-top: 20px;
+    margin-top: $size-20;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
-    margin-top: 10px;
+  @media screen and (max-width: $small) {
+    margin-top: $size-10;
   }
 }
 
@@ -427,6 +427,6 @@
   @media screen and (max-width: $medium) {
     width: 100%;
     margin-right: 0;
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
   }
 }
