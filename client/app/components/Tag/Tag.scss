@@ -19,20 +19,20 @@
   text-transform: uppercase;
 
   border-radius: 5px;
-  border: 1px solid $container-color;
+  border: 1px solid $mulberry;
 
   mix-blend-mode: normal;
-  color: $container-color;
+  color: $mulberry;
 
   &.dark {
-    color: $background-color;
+    color: $white;
     border: 1px;
-    background-color: $container-color;
+    background-color: $mulberry;
   }
 
   &.normal {
-    color: $background-color;
+    color: $white;
     border: 1px;
-    background-color: $transparent;
+    background-color: $white-10;
   }
 }

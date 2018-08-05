@@ -2,11 +2,11 @@
 @import "../../styles/_base.scss";
 
 $focus-background-color-darken: rgba(0, 0, 0, 0.4);
-$focus-background-color-lighten: lighten($container-color, 3%);
+$focus-background-color-lighten: lighten($mulberry, 3%);
 $light-font-weight: 300;
 
 .label {
-  color: $container-color;
+  color: $mulberry;
   font-family: $font-family;
   font-size: $small-font;
   padding: 12px 4px;
@@ -23,7 +23,7 @@ $light-font-weight: 300;
 .textarea {
   color: rgba(255, 255, 255, 0.8);
   box-sizing: border-box;
-  background-color: $container-color;
+  background-color: $mulberry;
   font-family: $font-family;
   font-size: $font18;
   line-height: $font26;
@@ -32,7 +32,7 @@ $light-font-weight: 300;
   border: none;
   resize: none;
   border-radius: 5px;
-  box-shadow: 0px 2px 6px $field-color;
+  box-shadow: 0px 2px 6px $black-20;
   width: 100%;
   transition: 0.25s;
   transition-timing-function: linear;
@@ -40,14 +40,14 @@ $light-font-weight: 300;
 
   &:focus {
     background-color: $focus-background-color-lighten;
-    color: $background-color;
+    color: $white;
   }
 
   &::placeholder {
     font-family: $font-family;
     font-weight: $light-font-weight;
     font-size: $font18;
-    color: $background-color;
+    color: $white;
     opacity: .75;
   }
 }

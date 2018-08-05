@@ -5,20 +5,20 @@
 /* Footer */
 
 .footer {
-  background: $black-opacity-50-background;
+  background: $black-50;
   font-size: $font18;
-  color: $header-text-color;
+  color: $white;
 
   a {
     font-family: $font-family;
-    color: $header-text-color;
+    color: $white;
     text-decoration: none;
     border: none;
   }
 
   a:hover {
     opacity: 0.5;
-    color: $header-text-color;
+    color: $white;
   }
 
   &Links {
@@ -34,7 +34,7 @@
       margin-bottom: 0px;
     }
     &Title {
-      color: $header-text-color;
+      color: $white;
       text-transform: uppercase;
       margin-bottom: 10px;
       opacity: 0.5;

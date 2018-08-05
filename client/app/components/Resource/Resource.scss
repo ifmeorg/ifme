@@ -20,14 +20,14 @@
   .link {
     display: block;
     font-size: $font24;
-    color: $background-color;
+    color: $white;
     padding-bottom: 10px;
     line-height: 1.1;
   }
 
   div > a {
     text-decoration: none;
-    color: $header-text-color;
+    color: $white;
   }
 
   .author {

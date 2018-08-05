@@ -1,37 +1,36 @@
 // This file contains the base colors for the application.
 
-// Text
-$primary-text-color: #000;
-$secondary-text-color: #6D0839;
-$highlight-text-color: #D0E799;
-$header-text-color: #FFFFFF;
-$footer-text-color: #2c2c2c;
-$link-color: #02779E;
-$subtle-secondary-text-color: #b5839b;
-$overlay-color: rgba(109, 8, 57, 0.1);
-$field-color: rgba(0, 0, 0, 0.2);
-$purple-yay: #A157E8;
-$tag-text-color: rgba(0, 0, 0, 0.6);
-$date-text-color: rgba(109, 8, 57, 0.5);
+// Black
+$black: #000000;
+$black-70: rgba(0, 0, 0, 0.7);
+$black-50: rgba(0, 0, 0, 0.5);
+$black-30: rgba(0, 0, 0, 0.3);
+$black-20: rgba(0, 0, 0, 0.3);
+$black-20: rgba(0, 0, 0, 0.2);
 
-// Notices & Alerts
-$notice-color: #289900;
-$alert-color: #990019;
-
-// General page elements
-$container-color: #6D0839;  // Color for header, tables, boxes, etc.
-$background-color: #FFFFFF;
-$secondary-background-color: linear-gradient(104.26deg, #700F3C 0%, #D0E799 175.81%);;
-$transparent: rgba(255, 255, 255, 0.1);
-$notification-backdrop: rgba(0, 0, 0, 0.7);
-$black-opacity-50-background: rgba(0, 0, 0, 0.5);
-$black-opacity-20-background: rgba(0, 0, 0, 0.3);
-$black-opacity-30-background: rgba(0, 0, 0, 0.3);
-$white-opacity-80-background: rgba(255, 255, 255, 0.8);
-$white-opacity-70-background: rgba(255, 255, 255, 0.7);
-$white-opacity-70-background: rgba(255, 255, 255, 0.7);
-$maroon-opacity-70-background: rgba(109, 8, 57, 0.7);
-$tag-color: rgba(109, 8, 57, 0.8);
-$slider-focus-color: #54042a;
-$grey: grey;
+// Grey
+$grey: #808080;
 $light-grey:#D3D3D3;
+
+// White
+$white: #FFFFFF;
+$white-80: rgba(255, 255, 255, 0.8);
+$white-70: rgba(255, 255, 255, 0.7);
+$white-10: rgba(255, 255, 255, 0.1);
+
+// Mulberry
+$mulberry: #6d0839;
+$mulberry-80: rgba(109, 8, 57, 0.8);
+$mulberry-70: rgba(109, 8, 57, 0.7);
+$mulberry-50: rgba(109, 8, 57, 0.5);
+
+// Key Lime
+$key-lime: #D0E799;
+
+// Miscellaneous
+$dusty-rose: #b5839b;
+$limeade: #289900;
+$carmine: #990019;
+$mulberry-key-lime: linear-gradient(104.26deg, $mulberry 0%, $key-lime 175.81%);
+$purple-yay: #A157E8;
+$steel-blue: #02779E;
