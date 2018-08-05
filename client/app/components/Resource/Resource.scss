@@ -19,7 +19,7 @@
 
   .link {
     display: block;
-    font-size: $font24;
+    font-size: $size-24;
     color: $white;
     padding-bottom: 10px;
     line-height: 1.1;
@@ -32,7 +32,7 @@
 
   .author {
     color: $author-text-color;
-    font-size: $font18;
+    font-size: $size-18;
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 0.08em;

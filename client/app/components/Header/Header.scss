@@ -31,7 +31,7 @@
     &Links {
       display: none;
     }
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       background: $black-70;
       position: fixed;
       left: 0;
@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        font-size: $font30;
+        font-size: $size-30;
       }
     }
   }
@@ -59,39 +59,39 @@
   
     &Home {
       padding: 25px 34px;
-      font-size: $font30;
-      @media screen and (max-width: $small) {
+      font-size: $size-30;
+      @media screen and (max-width: $font-weight-100all) {
         padding: 15px 10px;
       }
     }
   
     &Nav {
       padding: 25px 34px;
-      @media screen and (max-width: $small) {
+      @media screen and (max-width: $font-weight-100all) {
         padding: 15px 10px;
       }
       &Hamburger {
         display: none;
-        font-size: $font30;
+        font-size: $size-30;
         color: $white;
-        @media screen and (max-width: $small) {
+        @media screen and (max-width: $font-weight-100all) {
           display: block;
         }
       }
       &Links {
         display: flex;
         flex-direction: row;
-        font-size: $font16;
+        font-size: $size-16;
         letter-spacing: 0.0571429em;
         text-transform: uppercase;
-        font-weight: $lg;
+        font-weight: $font-weight-300;
         > div {
           margin-right: 25px;
         }
         > div:last-of-type {
           margin-right: 0px;
         }
-        @media screen and (max-width: $small) {
+        @media screen and (max-width: $font-weight-100all) {
           display: none;
         }
       }

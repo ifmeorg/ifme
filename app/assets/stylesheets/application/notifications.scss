@@ -21,7 +21,7 @@
     width: 80%;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 100%;
   }
 
@@ -31,7 +31,7 @@
     width: auto !important;
     padding: 40px 0px 20px 40px;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       padding: 20px 0px 20px 20px;
     }
   }
@@ -42,7 +42,7 @@
     width: auto !important;
     padding: 40px 40px 20px 0px;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       padding: 20px 20px 20px 0px;
     }
   }
@@ -52,7 +52,7 @@
   margin-top: 100px;
   padding: 0px 40px 40px 40px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin-top: 80px;
     padding: 0px 20px 20px 20px;
   }
@@ -85,7 +85,7 @@
     width: 80%;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin: 0 auto;
     width: 100%;
     max-height: 100%;
@@ -111,7 +111,7 @@ a.quick_create_link:visited {
   color: $steel-blue;
   border-bottom: none;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin-top: 10px;
   }
 }
@@ -126,7 +126,7 @@ a.quick_create_link:hover {
   border-bottom: none;
   opacity: 0.5;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin-top: 10px;
   }
 }
@@ -134,7 +134,7 @@ a.quick_create_link:hover {
 #notifications_none {
   margin-top: 20px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin-top: 10px;
   }
 }
@@ -157,17 +157,17 @@ h1#clear_notifications,
 h1#close_notifications,
 h1#close_categories_moods, {
   font-weight: 300;
-  font-size: $font26;
+  font-size: $size-26;
   padding: 0;
   margin: 0px;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
-    font-size: $font22;
+    font-size: $size-22;
   }
 
-  @media screen and (max-width: $small) {
-    font-size: $font20;
+  @media screen and (max-width: $font-weight-100all) {
+    font-size: $size-20;
   }
 }
 
@@ -205,22 +205,22 @@ h1#clear_notifications {
   }
 
   label {
-    font-size: $font26;
+    font-size: $size-26;
     font-weight: 300;
 
     @media screen and (max-width: $medium) {
-      font-size: $font24;
+      font-size: $size-24;
     }
   }
 
   .label {
     width: auto;
     display: inherit;
-    font-size: $font26;
+    font-size: $size-26;
     margin-bottom: 10px;
 
     @media screen and (max-width: $medium) {
-      font-size: $font24;
+      font-size: $size-24;
       margin-bottom: 5px;
     }
   }

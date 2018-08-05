@@ -8,7 +8,7 @@ $light-font-weight: 300;
 .label {
   color: $black-20;
   font-family: $font-family;
-  font-size: $small-font;
+  font-size: $size-14;
   padding: 12px 0;
   letter-spacing: 0.095em;
   text-indent: 4px;
@@ -17,7 +17,7 @@ $light-font-weight: 300;
   transition-timing-function: linear;
 
   &.large {
-    font-size: $font18;
+    font-size: $size-18;
   }
 
   &.active {
@@ -38,7 +38,7 @@ $light-font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
   background-color: $black-20;
   font-family: $font-family;
-  font-size: $font18;
+  font-size: $size-18;
   text-indent: 15px;
   font-weight: $light-font-weight;
   border: none;
@@ -61,7 +61,7 @@ $light-font-weight: 300;
   }
 
   &.large {
-    font-size: $font24;
+    font-size: $size-24;
     text-indent: 24px;
     height: 68px;
   }

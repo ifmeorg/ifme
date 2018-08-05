@@ -3,9 +3,9 @@ $font-family: 'Lato', sans-serif;
 /**
  * Stick to a few font weights to keep network traffic performance optimal
  */
-$font-weight-light: 200;
-$font-weight-normal: 400;
-$font-weight-bold: 700;
+$size--weight-light: 200;
+$size--weight-normal: 400;
+$size--weight-bold: 700;
 
 $title-size: 30px;
 $title-size-mobile: 20px;

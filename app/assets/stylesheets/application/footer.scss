@@ -6,7 +6,7 @@
 
 .footer {
   background: $black-50;
-  font-size: $font18;
+  font-size: $size-18;
   color: $white;
 
   a {
@@ -38,7 +38,7 @@
       text-transform: uppercase;
       margin-bottom: 10px;
       opacity: 0.5;
-      font-size: $font14;
+      font-size: $size-14;
       letter-spacing: 0.05em;
     }
     > div:nth-of-type(2n) {

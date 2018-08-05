@@ -5,12 +5,12 @@
 #version {
   text-align: center;
   font-weight: 300;
-  font-size: $font26;
+  font-size: $size-26;
   margin-bottom: 40px;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
-      font-size: $font24;
+      font-size: $size-24;
       margin-bottom: 20px;
   }
 }
@@ -21,7 +21,7 @@
 
 .main_message {
   font-weight: 300;
-  font-size: $page-title;
+  font-size: $size-40;
   line-height: 50px;
   margin-top: auto;
   margin-left: auto;
@@ -32,14 +32,14 @@
   text-align: center;
 
   @media screen and (max-width: $medium) {
-      font-size: $font26;
+      font-size: $size-26;
       line-height: 36px;
       margin-bottom: 20px;
       width: 100%;
   }
 
-  @media screen and (max-width: $small) {
-      font-size: $font26;
+  @media screen and (max-width: $font-weight-100all) {
+      font-size: $size-26;
       line-height: 34px;
   }
 }
@@ -63,15 +63,15 @@
   text-align: center;
   font-weight: 300;
   line-height: 40px;
-  font-size: $font26;
+  font-size: $size-26;
 
   @media screen and (max-width: $medium) {
-      font-size: $font20;
+      font-size: $size-20;
       line-height: 26px;
   }
 
-  @media screen and (max-width: $small) {
-      font-size: $font18;
+  @media screen and (max-width: $font-weight-100all) {
+      font-size: $size-18;
       line-height: 24px;
   }
 }
@@ -111,7 +111,7 @@
   background-position: center;
   margin: 0 auto;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 80px;
     height: 60px;
     background-size: 80px 60px;
@@ -127,7 +127,7 @@
   background-position: center;
   margin: 0 auto;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 60px;
     height: 60px;
     background-size: 60px 60px;
@@ -143,7 +143,7 @@
   background-position: center;
   margin: 0 auto;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 149px;
     height: 60px;
     background-size: 149px 60px;
@@ -164,11 +164,11 @@
 #medium_posts {
   width: 90%;
   margin: 0 auto;
-  font-size: $font24;
+  font-size: $size-24;
 
   .post_author {
     margin-top: 10px;
-    font-size: $font22;
+    font-size: $size-22;
   }
 
   .message_cell {
@@ -176,11 +176,11 @@
   }
 
   @media screen and (max-width: $medium) {
-    font-size: $font22;
+    font-size: $size-22;
 
     .post_author {
       margin-top: 5px;
-      font-size: $font20;
+      font-size: $size-20;
     }
   }
 }
@@ -235,13 +235,13 @@ h1.blog_name,
 h1.privacy_heading,
 h1.faq_heading {
   font-weight: 300;
-  font-size: $font26;
+  font-size: $size-26;
   padding: 0;
   margin: 0;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
-    font-size: $font22;
+    font-size: $size-22;
   }
 }
 
@@ -269,13 +269,13 @@ h1.faq_heading {
   }
 
   label {
-      font-size: $font20;
+      font-size: $size-20;
       font-weight: 300;
       display: block;
       margin-bottom: 5px;
 
       @media screen and (max-width: $medium) {
-          font-size: $font16;
+          font-size: $size-16;
       }
   }
 
@@ -306,12 +306,12 @@ h1.faq_heading {
 
     .character_count {
       text-align: center;
-      font: $small-font $font-family;
+      font: $size-14 $font-family;
       font-weight: 400;
       margin-bottom: 10px;
 
-      @media screen and (max-width: $small) {
-        font: $font12 $font-family;
+      @media screen and (max-width: $font-weight-100all) {
+        font: $size-12 $font-family;
         font-weight: 400;
       }
     }
@@ -345,7 +345,7 @@ h1.faq_heading {
   color: $purple-yay;
   text-align: center;
   text-shadow: 0px 0px 5px $purple-yay;
-  font-size: $font30;
+  font-size: $size-30;
 }
 
 .partner {
@@ -368,34 +368,34 @@ h1.faq_heading {
 
 h1.resources {
   font-weight: 300;
-  font-size: $font30;
+  font-size: $size-30;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
     margin: 0px 0px 10px 0px;
   }
 
-  @media screen and (max-width: $small) {
-    font-size: $font24;
+  @media screen and (max-width: $font-weight-100all) {
+    font-size: $size-24;
   }
 }
 
 .resource_list,
 .resource_list a {
   line-height: 56px;
-  font-size: $font24;
+  font-size: $size-24;
 
   @media screen and (max-width: $medium) {
     line-height: normal;
-    font-size: $font20;
+    font-size: $size-20;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     line-height: normal;
-    font-size: $font16;
+    font-size: $size-16;
   }
 }
 
@@ -406,10 +406,10 @@ h1.resources {
     float: none;
     margin: 20px 0px 20px 0px;
     line-height: 36px;
-    font-size: $font16;
+    font-size: $size-16;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     line-height: 26px;
     white-space: nowrap;
     overflow-x: auto;
@@ -423,10 +423,10 @@ h1.resources {
   @media screen and (max-width: $medium) {
     margin-top: 0px;
     line-height: 36px;
-    font-size: $font16;
+    font-size: $size-16;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     line-height: 26px;
     white-space: nowrap;
     overflow-x: auto;
@@ -440,7 +440,7 @@ h1.resources {
   padding: 10px;
   margin-right: 10px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     padding: 5px;
   }
 }
