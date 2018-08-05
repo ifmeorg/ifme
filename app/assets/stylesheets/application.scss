@@ -352,30 +352,14 @@ ul.no_bullet_list li {
 
 /* Page Title */
 
-#page_title {
-  width: 100%;
-  background-image: image-url('/assets/welcome.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
+.page_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
-.overlay {
-  background: $overlay-color;
-}
-
-#page_title_content {
-  padding: 40px 60px;
-  font-size: $page-title;
-  font-weight: $lg;
-  line-height: $page-title;
-  color: $header-text-color;
-
-  @media screen and (max-width: $medium) {
-      padding: 20px;
-      font-size: $font30;
-      font-weight: $lg;
-      line-height: $font30;
+  > div:last-of-type {
+    text-align: right;
   }
 }
 
@@ -445,7 +429,7 @@ a.page_search:hover {
 }
 
 .contentWrapper {
-  padding: 50px 25px;
+  padding: 0px 25px 50px 25px;
   display: flex;
   flex-direction: row;
   @media screen and (max-width: $medium) {
@@ -455,19 +439,26 @@ a.page_search:hover {
 }
 
 .contentNav {
-  flex-basis: 20%;
+  flex-basis: 20vw;
   background: $black-opacity-30-background;
   border-radius: 15px 0px 0px 15px;
   @media screen and (max-width: $medium) {
     border-radius: 0px;
   }
   @media screen and (max-width: $large) {
-    flex-basis: 40%;
+    flex-basis: 30vw;
   }
   &Profile {
     padding: 22px 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     @media screen and (max-width: $medium) {
       padding: 12px;
+    }
+    &Picture {
+      padding-right: 10px;
     }
   }
   &Links {
@@ -493,13 +484,16 @@ a.page_search:hover {
 }
 
 .content {
-  flex-grow: 1;
+  flex-basis: 80vw;
   background: $white-opacity-80-background;
   border-radius: 0px 15px 15px 0px;
   padding: 62px 70px;
   @media screen and (max-width: $medium) {
     border-radius: 0px;
     padding: 31px;
+  }
+  @media screen and (max-width: $large) {
+    flex-basis: 70vw;
   }
 }
 
@@ -627,6 +621,16 @@ a.highlight:hover {
     border-color: $container-color;
     border-width: 2px;
     background-color: $background-color;
+  }
+}
+
+.content_nav_profile_picture .portrait {
+  width: 45px;
+  height: 45px;
+
+  @media screen and (max-width: $small) {
+    width: 35px;
+    height: 35px;
   }
 }
 
