@@ -1,31 +1,23 @@
 <div class="page_title">
-<% if current_page?(new_user_session_path) ||
-  (params[:controller] == "devise/sessions" && action_name == "new") %>
+<% if sign_in_path? %>
   <%= t('layouts.application.signin') %>
-<% elsif current_page?(new_user_registration_path) ||
-  (params[:controller] == "devise/registrations" && action_name == "create") %>
+<% elsif join_path? %>
   <%= t('layouts.application.create_account') %>
-<% elsif current_page?(new_user_password_path) ||
-  (params[:controller] == "devise/passwords" && action_name == "new") %>
+<% elsif forgot_password_path? %>
   <%= t('account.forgot_password') %>
-<% elsif current_page?(edit_user_registration_path) ||
-  (params[:controller] == "registrations" && action_name == "update") %>
+<% elsif update_account_path? %>
   <%= t('layouts.application.update_account') %>
-<% elsif current_page?(root_path) && !user_signed_in? %>
+<% elsif not_signed_in_root_path? %>
   <div class="headline center">
     <span class="branding_title">
       <%= t('layouts.application.if') %> <span class="branding_subtitle"><%= t('layouts.application.me') %></span>
     </span><%= t('app_description') %>
   </div>
-<% elsif current_page?(new_user_invitation_path) ||
-  (params[:controller] == "devise/invitations" && action_name == "new") ||
-  (params[:controller] == "users/invitations" && action_name == "create") %>
+<% elsif send_ally_invitation_path? %>
   <%= t('devise.invitations.new.header') %>
-<% elsif current_page?(accept_user_invitation_path) ||
-  (params[:controller] == "devise/invitations" && action_name == "accept") %>
+<% elsif ally_accept_invitation_path? %>
   <%= t('devise.invitations.edit.header') %>
-<% elsif current_page?(edit_user_password_path) ||
-  (params[:controller] == "devise/passwords" && action_name == "edit") %>
+<% elsif reset_password_path? %>
   <%= t('layouts.title.reset_password') %>
 <% elsif @page_edit.present? && @page_tooltip %>
   <div>
