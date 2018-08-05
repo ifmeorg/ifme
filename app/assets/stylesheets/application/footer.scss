@@ -44,6 +44,18 @@
     > div:nth-of-type(3n) {
       text-align: right;
     }
+    @media screen and (max-width: $medium) {
+      padding: 33px 57px;
+      flex-direction: column;
+      justify-content: flex-start;
+      > div {
+        text-align: center;
+      }
+      > div:nth-of-type(2n), > div:nth-of-type(3n) {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
   }
 
   &Extras {
@@ -52,5 +64,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: $medium) {
+      padding: 0px 57px 33px 57px;
+      flex-direction: column;
+      justify-content: flex-start;
+      > div:last-of-type {
+        margin-top: 20px;
+      }
+    }
   }
 }

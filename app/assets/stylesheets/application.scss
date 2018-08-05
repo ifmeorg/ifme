@@ -309,7 +309,7 @@ ul.no_bullet_list li {
   clear: both;
 }
 
-#container {
+.container {
   margin: 0 auto;
   padding: 0;
   display: flex;
@@ -431,14 +431,19 @@ a.page_search:hover {
 
 /* Content */
 
-#content {
+.content {
   padding: 40px 60px;
   line-height: 150%;
-
+  background: $background-color;
   @media screen and (max-width: $medium) {
     padding: 20px;
   }
 }
+
+.contentContainer {
+  width: 100%;
+}
+
 
 .headline {
   color: $header-text-color;
