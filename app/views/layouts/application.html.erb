@@ -56,21 +56,8 @@
     <div class="mainWrapper">
       <%= react_component('Header', props: header_props) %>
       <div class="main">
+        <%= render partial: "shared/notices_and_alerts" %>
         <div class="<%= static_page? ? 'oldContentWrapper' : 'contentWrapper' %>">
-          <% if notice.present? %>
-            <% if current_page?(root_path) %>
-              <div class="notice display_none"><%= notice %></div>
-            <% else %>
-              <div class="notice"><%= notice %></div>
-            <% end %>
-          <% end %>
-          <% if alert.present? %>
-            <% if current_page?(root_path) %>
-              <div class="alert display_none"><%= alert %></div>
-            <% else %>
-              <div class="alert"><%= alert %></div>
-            <% end %>
-          <% end %>
         <% if static_page? %>
           <%= render partial: "shared/page_title" %>
           <%= yield %>
