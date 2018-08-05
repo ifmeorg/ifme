@@ -4,17 +4,45 @@
 
 /* Footer */
 
-#footer {
-  background: $notification-backdrop;
+.footer {
+  background: $black-opacity-50-background;
+  font-size: $font18;
+  color: $header-text-color;
+
+  a {
+    font-family: $font-family;
+    color: $header-text-color;
+    text-decoration: none;
+    border: none;
+  }
+
+  a:hover {
+    opacity: 0.5;
+    color: $header-text-color;
+  }
 
   &Links {
     padding: 66px 114px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    a {
+      display: block;
+      margin-bottom: 10px;
+    }
     &Title {
+      color: $header-text-color;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.5;
       font-size: $font14;
       letter-spacing: 0.05em;
+    }
+    > div:nth-of-type(2n) {
+      text-align: center;
+    }
+    > div:nth-of-type(3n) {
+      text-align: right;
     }
   }
 
@@ -23,5 +51,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }
