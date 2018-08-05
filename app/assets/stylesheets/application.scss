@@ -37,7 +37,7 @@
 /* Text */
 
 body, html {
-  background: $secondary-background-color;
+  background: $mulberry-key-lime;
   margin: 0 auto;
   font: $body-font-size $font-family;
   font-weight: $xl;
@@ -71,8 +71,8 @@ p {
 
 a, .link_style {
   text-decoration: none;
-  color: $link-color;
-  border-bottom: 1px dotted $link-color;
+  color: $steel-blue;
+  border-bottom: 1px dotted $steel-blue;
   cursor: pointer;
 }
 
@@ -81,7 +81,7 @@ a:hover, .link_style:hover {
 }
 
 .anchor {
-  border-bottom: 1px dotted $primary-text-color;
+  border-bottom: 1px dotted $black;
   cursor: pointer;
 }
 
@@ -92,7 +92,7 @@ table {
 }
 
 strong, b {
-  color: $secondary-text-color;
+  color: $mulberry;
 }
 
 ul:not(.ui-autocomplete, .no_bullet_list),
@@ -254,7 +254,7 @@ ul.no_bullet_list li {
 .horizonal_divider {
   width: 100%;
   height: 1px;
-  background-color: $subtle-secondary-text-color;
+  background-color: $dusty-rose;
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -266,7 +266,7 @@ ul.no_bullet_list li {
 
 .vertical_divider {
   width: 1px;
-  background-color: $subtle-secondary-text-color;
+  background-color: $dusty-rose;
   height: 100%;
   margin-left: 10px;
   margin-right: 10px;
@@ -280,7 +280,7 @@ ul.no_bullet_list li {
 .stats_divider {
   width: 100%;
   height: 1px;
-  background-color: $subtle-secondary-text-color;
+  background-color: $dusty-rose;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
@@ -367,13 +367,13 @@ ul.no_bullet_list li {
 #page_title_content a:visited {
   text-decoration: none;
   border: none;
-  color: $header-text-color;
+  color: $white;
 }
 
 #page_title_content a:hover {
   text-decoration: none;
   border: none;
-  color: $header-text-color;
+  color: $white;
   opacity: 0.5;
 }
 
@@ -387,7 +387,7 @@ a.page_search:link,
 a.page_search:visited {
   text-decoration: none;
   border: none;
-  color: $header-text-color;
+  color: $white;
 }
 
 a.page_edit:hover,
@@ -395,7 +395,7 @@ a.page_new:hover,
 a.page_search:hover {
   text-decoration: none;
   border: none;
-  color: $header-text-color;
+  color: $white;
   opacity: 0.5;
 }
 
@@ -403,7 +403,7 @@ a.page_search:hover {
 
 #announcement {
   text-align: center;
-  background-color: $highlight-text-color;
+  background-color: $key-lime;
   padding: 20px 60px;
   line-height: 30px;
 
@@ -422,7 +422,7 @@ a.page_search:hover {
 .oldContentWrapper {
   padding: 40px 60px;
   line-height: 150%;
-  background: $background-color;
+  background: $white;
   @media screen and (max-width: $medium) {
     padding: 20px;
   }
@@ -440,7 +440,7 @@ a.page_search:hover {
 
 .contentNav {
   flex-basis: 20vw;
-  background: $black-opacity-30-background;
+  background: $black-30;
   border-radius: 15px 0px 0px 15px;
   @media screen and (max-width: $medium) {
     border-radius: 0px;
@@ -467,12 +467,12 @@ a.page_search:hover {
       padding: 17px 25px;
       text-decoration: none;
       border: 0;
-      color: $header-text-color;
-      background: $black-opacity-20-background;
+      color: $white;
+      background: $black-20;
     }
     &Active {
-      background: $white-opacity-70-background !important;
-      color: $maroon-opacity-70-background !important;
+      background: $white-70 !important;
+      color: $mulberry-70 !important;
     }
   }
   &Actions {
@@ -485,7 +485,7 @@ a.page_search:hover {
 
 .content {
   flex-basis: 80vw;
-  background: $white-opacity-80-background;
+  background: $white-80;
   border-radius: 0px 15px 15px 0px;
   padding: 62px 70px;
   @media screen and (max-width: $medium) {
@@ -498,7 +498,7 @@ a.page_search:hover {
 }
 
 .headline {
-  color: $header-text-color;
+  color: $white;
   font-size: $page-title;
 
   @media screen and (max-width: $medium) {
@@ -516,13 +516,13 @@ a.page_search:hover {
   font-family: $font-family;
   font-weight: $lg;
   text-transform: lowercase;
-  color: $header-text-color;
+  color: $white;
 }
 
 .branding_subtitle {
   padding: 6px 0px 12px 0px;
-  border-top: 2px solid $header-text-color;
-  border-bottom: 2px solid $header-text-color;
+  border-top: 2px solid $white;
+  border-bottom: 2px solid $white;
 
   @media screen and (max-width: $medium) {
     padding: 0px 0px 4px 0px;
@@ -530,7 +530,7 @@ a.page_search:hover {
 }
 
 .subtle {
-  color: $subtle-secondary-text-color;
+  color: $dusty-rose;
 }
 
 .text_align_left {
@@ -589,8 +589,8 @@ a.gravatar:hover {
 a.highlight:link,
 a.highlight:visited {
   text-decoration: none;
-  background-color: $secondary-text-color;
-  color: $header-text-color !important;
+  background-color: $mulberry;
+  color: $white !important;
   border-bottom: none !important;
   padding: 10px;
 
@@ -601,8 +601,8 @@ a.highlight:visited {
 
 a.highlight:hover {
   text-decoration: none;
-  background-color: $secondary-text-color;
-  color: $header-text-color !important;
+  background-color: $mulberry;
+  color: $white !important;
   border-bottom: none !important;
   opacity: 0.5;
   padding: 10px;
@@ -618,9 +618,9 @@ a.highlight:hover {
   margin: 0;
 
   .portrait {
-    border-color: $container-color;
+    border-color: $mulberry;
     border-width: 2px;
-    background-color: $background-color;
+    background-color: $white;
   }
 }
 
@@ -731,10 +731,10 @@ input,
 textarea,
 select,
 fieldset {
-  border: 1px solid $field-color;
+  border: 1px solid $black-20;
   padding: 10px;
-  box-shadow: 0 0 2px $field-color inset;
-  background-color: $background-color;
+  box-shadow: 0 0 2px $black-20 inset;
+  background-color: $white;
   font: $font20 $font-family;
   margin-right: 10px;
   box-sizing: border-box;
@@ -760,18 +760,18 @@ input[type="radio"] {
 
 
 input[type="submit"] {
-  border: 1px solid $container-color;
-  box-shadow: 0 0 2px $container-color inset;
-  color: $container-color;
-  background: $background-color;
+  border: 1px solid $mulberry;
+  box-shadow: 0 0 2px $mulberry inset;
+  color: $mulberry;
+  background: $white;
   font: $font20 $font-family;
 }
 
 input[type="submit"]:hover {
-  border: 1px solid $container-color;
-  box-shadow: 0 0 2px $container-color inset;
-  color: $container-color;
-  background: $background-color;
+  border: 1px solid $mulberry;
+  box-shadow: 0 0 2px $mulberry inset;
+  color: $mulberry;
+  background: $white;
   opacity: 0.5;
 }
 
@@ -791,7 +791,7 @@ input[type="submit"]:hover {
 
 .toggle_button:link, .toggle_button:visited {
   font-size: $font27;
-  color: $primary-text-color;
+  color: $black;
   float: right;
   border: none;
 }
@@ -830,7 +830,7 @@ input[type="submit"]:hover {
 /* Tables */
 
 .action {
-  color: $link-color;
+  color: $steel-blue;
   margin-right: 10px;
 }
 
@@ -877,13 +877,13 @@ div.table div.table_cell {
 .field_with_errors {
   width: auto;
   display: inherit;
-  color: $alert-color;
+  color: $carmine;
   font-weight: bold;
 }
 
 .notice {
-  background: $notice-color;
-  color: $header-text-color;
+  background: $limeade;
+  color: $white;
   margin-bottom: 25px;
   padding: 10px;
   text-align: center;
@@ -893,8 +893,8 @@ div.table div.table_cell {
 }
 
 .alert {
-  background: $alert-color;
-  color: $header-text-color;
+  background: $carmine;
+  color: $white;
   margin-bottom: 25px;
   padding: 10px;
   text-align: center;
@@ -904,20 +904,20 @@ div.table div.table_cell {
 }
 
 .alert_text {
-  color: $alert-color;
+  color: $carmine;
 }
 
 .viewers_indicator {
-  color: $subtle-secondary-text-color;
+  color: $dusty-rose;
   font-weight: bold;
-  border: 1px solid $subtle-secondary-text-color !important;
-  box-shadow: 0 0 2px $subtle-secondary-text-color inset !important;
+  border: 1px solid $dusty-rose !important;
+  box-shadow: 0 0 2px $dusty-rose inset !important;
   padding: 10px;
 }
 
 #error_explanation,
 .error_explanation {
-  color: $alert-color;
+  color: $carmine;
   font-size: $font30;
   font-weight: $lg;
   margin-bottom: 40px;
@@ -931,7 +931,7 @@ div.table div.table_cell {
     font-size: $font30;
     padding: 0;
     margin: 0px 0px 20px 0px;
-    color: $secondary-text-color;
+    color: $mulberry;
 
     @media screen and (max-width: $medium) {
       font-size: $font26;
@@ -979,14 +979,14 @@ div.table div.table_cell {
 /* Focused input fields */
 
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-  border-color: $field-color;
-  box-shadow: 0px 0px 2px $field-color;
+  border-color: $black-20;
+  box-shadow: 0px 0px 2px $black-20;
 }
 
 /* Date Picker */
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  color: $secondary-text-color !important;
+  color: $mulberry !important;
 }
 
 #ui-datepicker-div {
