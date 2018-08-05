@@ -5,10 +5,10 @@
 /* Comments */
 
 .comment {
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: $size-40;
+  padding: $size-20;
   background-color: $white;
-  border: 2px solid $mulberry;
+  border: $size-2 solid $mulberry;
 
   div.table {
     display: table;
@@ -18,11 +18,11 @@
 
     @media screen and (max-width: $medium) {
       .padding_right {
-        padding-right: 10px !important;
+        padding-right: $size-10 !important;
       }
     }
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       .vertical_align_middle {
         vertical-align: top !important;
       }
@@ -49,34 +49,34 @@
   }
 
   .delete_comment {
-    padding-left: 20px;
+    padding-left: $size-20;
     text-align: right;
   }
 
   @media screen and (max-width: $medium) {
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: $size-20;
+    padding: $size-10;
 
     .delete_comment {
-      padding-left: 10px;
+      padding-left: $size-10;
     }
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     .delete_comment {
-      padding-left: 5px;
+      padding-left: $size-5;
     }
   }
 }
 
 .comment_info {
   color: $mulberry;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-bottom: 1px solid $dusty-rose;
+  padding-bottom: $size-10;
+  padding-left: $size-10;
+  padding-right: $size-10;
+  border-bottom: $size-1 solid $dusty-rose;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font-size: $size-16;
   }
 }
@@ -97,17 +97,17 @@
 
 .comment_text {
   word-wrap: break-word;
-  padding: 10px;
+  padding: $size-10;
   font-weight: 300;
 }
 
 .comment_textarea {
   width: 100%;
-  margin: 0px !important;
+  margin: $size-0 !important;
 }
 
 @media screen and (max-width: $medium) {
   #comment_visibility {
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
   }
 }

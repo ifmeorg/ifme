@@ -21,7 +21,7 @@
     width: 80%;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     width: 100%;
   }
 
@@ -29,10 +29,10 @@
     float: left !important;
     display: inline-block;
     width: auto !important;
-    padding: 40px 0px 20px 40px;
+    padding: $size-40 $size-0 $size-20 $size-40;
 
-    @media screen and (max-width: $font-weight-100all) {
-      padding: 20px 0px 20px 20px;
+    @media screen and (max-width: $small) {
+      padding: $size-20 $size-0 $size-20 $size-20;
     }
   }
 
@@ -40,21 +40,21 @@
     float: right !important;
     display: inline-block !important;
     width: auto !important;
-    padding: 40px 40px 20px 0px;
+    padding: $size-40 $size-40 $size-20 $size-0;
 
-    @media screen and (max-width: $font-weight-100all) {
-      padding: 20px 20px 20px 0px;
+    @media screen and (max-width: $small) {
+      padding: $size-20 $size-20 $size-20 $size-0;
     }
   }
 }
 
 .modal_text {
   margin-top: 100px;
-  padding: 0px 40px 40px 40px;
+  padding: $size-0 $size-40 $size-40 $size-40;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     margin-top: 80px;
-    padding: 0px 20px 20px 20px;
+    padding: $size-0 $size-20 $size-20 $size-20;
   }
 }
 
@@ -63,7 +63,7 @@
   .quick_notifications,
   #categories_moods {
     .padding_right {
-      padding-right: 20px !important;
+      padding-right: $size-20 !important;
     }
   }
 }
@@ -77,15 +77,15 @@
   max-height: 500px;
   overflow-x: hidden;
   overflow-y: auto;
-  border: 1px solid $mulberry;
-  box-shadow: 0 0 10px $mulberry;
+  border: $size-1 solid $mulberry;
+  box-shadow: 0 0 $size-10 $mulberry;
   background-color: $white;
 
   @media screen and (max-width: $medium) {
     width: 80%;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     margin: 0 auto;
     width: 100%;
     max-height: 100%;
@@ -96,7 +96,7 @@
 }
 
 .titlebar.scrolling {
-  box-shadow: 0 0 10px $mulberry;
+  box-shadow: 0 0 $size-10 $mulberry;
 }
 
 a.notification_link:link,
@@ -105,37 +105,37 @@ a.tip_notification_link:link,
 a.tip_notification_link:visited,
 a.quick_create_link:link,
 a.quick_create_link:visited {
-  margin-top: 20px;
+  margin-top: $size-20;
   display: block;
   text-decoration: none;
   color: $steel-blue;
   border-bottom: none;
 
-  @media screen and (max-width: $font-weight-100all) {
-    margin-top: 10px;
+  @media screen and (max-width: $small) {
+    margin-top: $size-10;
   }
 }
 
 a.notification_link:hover,
 a.tip_notification_link:hover,
 a.quick_create_link:hover {
-  margin-top: 20px;
+  margin-top: $size-20;
   display: block;
   text-decoration: none;
   color: $steel-blue;
   border-bottom: none;
   opacity: 0.5;
 
-  @media screen and (max-width: $font-weight-100all) {
-    margin-top: 10px;
+  @media screen and (max-width: $small) {
+    margin-top: $size-10;
   }
 }
 
 #notifications_none {
-  margin-top: 20px;
+  margin-top: $size-20;
 
-  @media screen and (max-width: $font-weight-100all) {
-    margin-top: 10px;
+  @media screen and (max-width: $small) {
+    margin-top: $size-10;
   }
 }
 
@@ -159,14 +159,14 @@ h1#close_categories_moods, {
   font-weight: 300;
   font-size: $size-26;
   padding: 0;
-  margin: 0px;
+  margin: $size-0;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
     font-size: $size-22;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font-size: $size-20;
   }
 }
@@ -217,11 +217,11 @@ h1#clear_notifications {
     width: auto;
     display: inherit;
     font-size: $size-26;
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
 
     @media screen and (max-width: $medium) {
       font-size: $size-24;
-      margin-bottom: 5px;
+      margin-bottom: $size-5;
     }
   }
 }

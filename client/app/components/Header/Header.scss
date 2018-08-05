@@ -1,5 +1,4 @@
 @import "../../styles/_legacy.scss";
-@import "../../styles/_base.scss";
 
 // TODO: Get rid of !important, it's here for now cause Rails styles override React styles
 
@@ -31,7 +30,7 @@
     &Links {
       display: none;
     }
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       background: $black-70;
       position: fixed;
       left: 0;
@@ -58,23 +57,23 @@
     align-items: center;
   
     &Home {
-      padding: 25px 34px;
+      padding: 25px $size-34;
       font-size: $size-30;
-      @media screen and (max-width: $font-weight-100all) {
-        padding: 15px 10px;
+      @media screen and (max-width: $small) {
+        padding: 15px $size-10;
       }
     }
   
     &Nav {
-      padding: 25px 34px;
-      @media screen and (max-width: $font-weight-100all) {
-        padding: 15px 10px;
+      padding: 25px $size-34;
+      @media screen and (max-width: $small) {
+        padding: 15px $size-10;
       }
       &Hamburger {
         display: none;
         font-size: $size-30;
         color: $white;
-        @media screen and (max-width: $font-weight-100all) {
+        @media screen and (max-width: $small) {
           display: block;
         }
       }
@@ -89,9 +88,9 @@
           margin-right: 25px;
         }
         > div:last-of-type {
-          margin-right: 0px;
+          margin-right: $size-0;
         }
-        @media screen and (max-width: $font-weight-100all) {
+        @media screen and (max-width: $small) {
           display: none;
         }
       }

@@ -48,7 +48,7 @@ body, html {
     font-weight: $font-weight-400;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     margin: 0 auto;
     font: $size-16 $font-family;
     font-weight: $font-weight-400;
@@ -59,7 +59,7 @@ body, html {
   font: $size-14 $font-family;
   font-weight: $font-weight-400;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font: $size-12 $font-family;
     font-weight: $font-weight-400;
   }
@@ -72,7 +72,7 @@ p {
 a, .link_style {
   text-decoration: none;
   color: $steel-blue;
-  border-bottom: 1px dotted $steel-blue;
+  border-bottom: $size-1 dotted $steel-blue;
   cursor: pointer;
 }
 
@@ -81,7 +81,7 @@ a:hover, .link_style:hover {
 }
 
 .anchor {
-  border-bottom: 1px dotted $black;
+  border-bottom: $size-1 dotted $black;
   cursor: pointer;
 }
 
@@ -123,7 +123,7 @@ ul.no_bullet_list li {
 /* Padding */
 
 .padding_right {
-  padding-right: 40px !important;
+  padding-right: $size-40 !important;
 
   @media screen and (max-width: $medium) {
     padding-right: 0 !important;
@@ -131,97 +131,97 @@ ul.no_bullet_list li {
 }
 
 .padding_left {
-  padding-left: 40px !important;
+  padding-left: $size-40 !important;
 }
 
 .padding_top {
-  padding-top: 40px !important;
+  padding-top: $size-40 !important;
 }
 
 .padding_bottom {
-  padding-bottom: 40px !important;
+  padding-bottom: $size-40 !important;
 }
 
 .small_padding_right {
-  padding-right: 20px !important;
+  padding-right: $size-20 !important;
 }
 
 .small_padding_left {
-  padding-left: 20px !important;
+  padding-left: $size-20 !important;
 }
 
 .small_padding_top {
-  padding-top: 20px !important;
+  padding-top: $size-20 !important;
 }
 
 .small_padding_bottom {
-  padding-bottom: 20px !important;
+  padding-bottom: $size-20 !important;
 }
 
 /* Margin */
 
 .margin_right {
-  margin-right: 40px !important;
+  margin-right: $size-40 !important;
 }
 
 .small_margin_right {
-  margin-right: 20px !important;
+  margin-right: $size-20 !important;
 }
 
 .smaller_margin_right {
-  margin-right: 10px !important;
+  margin-right: $size-10 !important;
 }
 
 .margin_left {
-  margin-left: 40px !important;
+  margin-left: $size-40 !important;
 }
 
 .small_margin_left {
-  margin-left: 20px !important;
+  margin-left: $size-20 !important;
 }
 
 .smaller_margin_left {
-  margin-left: 10px !important;
+  margin-left: $size-10 !important;
 }
 
 .margin_top {
-  margin-top: 40px !important;
+  margin-top: $size-40 !important;
 }
 
 .small_margin_top {
-  margin-top: 20px !important;
+  margin-top: $size-20 !important;
 }
 
 .smaller_margin_top {
-  margin-top: 10px !important;
+  margin-top: $size-10 !important;
 }
 
 .margin_bottom {
-  margin-bottom: 40px !important;
+  margin-bottom: $size-40 !important;
 }
 
 .small_margin_bottom {
-  margin-bottom: 20px !important;
+  margin-bottom: $size-20 !important;
 }
 
 .smaller_margin_bottom {
-  margin-bottom: 10px !important;
+  margin-bottom: $size-10 !important;
 }
 
 .no_margin_top{
-  margin-top: 0px !important;
+  margin-top: $size-0 !important;
 }
 
 .no_margin_bottom {
-  margin-bottom: 0px !important;
+  margin-bottom: $size-0 !important;
 }
 
 .no_margin_left {
-  margin-left: 0px !important;
+  margin-left: $size-0 !important;
 }
 
 .no_margin_right {
-  margin-right: 0px !important;
+  margin-right: $size-0 !important;
 }
 
 /* Divs */
@@ -244,47 +244,47 @@ ul.no_bullet_list li {
 
 .spacer {
   width: 100%;
-  height: 40px;
+  height: $size-40;
 
   @media screen and (max-width: $medium) {
-    height: 20px;
+    height: $size-20;
   }
 }
 
 .horizonal_divider {
   width: 100%;
-  height: 1px;
+  height: $size-1;
   background-color: $dusty-rose;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: $size-40;
+  margin-bottom: $size-40;
 
   @media screen and (max-width: $medium) {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: $size-20;
+    margin-bottom: $size-20;
   }
 }
 
 .vertical_divider {
-  width: 1px;
+  width: $size-1;
   background-color: $dusty-rose;
   height: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: $size-10;
+  margin-right: $size-10;
 
   @media screen and (max-width: $medium) {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: $size-20;
+    margin-right: $size-20;
   }
 }
 
 .stats_divider {
   width: 100%;
-  height: 1px;
+  height: $size-1;
   background-color: $dusty-rose;
-  margin-bottom: 40px;
+  margin-bottom: $size-40;
 
   @media screen and (max-width: $medium) {
-    margin-bottom: 20px;
+    margin-bottom: $size-20;
   }
 }
 
@@ -404,12 +404,12 @@ a.page_search:hover {
 #announcement {
   text-align: center;
   background-color: $key-lime;
-  padding: 20px 60px;
-  line-height: 30px;
+  padding: $size-20 60px;
+  line-height: $size-30;
 
   @media screen and (max-width: $medium) {
-    padding: 20px;
-    line-height: 26px;
+    padding: $size-20;
+    line-height: $size-26;
   }
 }
 
@@ -420,16 +420,16 @@ a.page_search:hover {
 }
 
 .oldContentWrapper {
-  padding: 40px 60px;
+  padding: $size-40 60px;
   line-height: 150%;
   background: $white;
   @media screen and (max-width: $medium) {
-    padding: 20px;
+    padding: $size-20;
   }
 }
 
 .contentWrapper {
-  padding: 0px 25px 50px 25px;
+  padding: $size-0 25px 50px 25px;
   display: flex;
   flex-direction: row;
   @media screen and (max-width: $medium) {
@@ -441,24 +441,24 @@ a.page_search:hover {
 .contentNav {
   flex-basis: 20vw;
   background: $black-30;
-  border-radius: 15px 0px 0px 15px;
+  border-radius: 15px $size-0 $size-0 15px;
   @media screen and (max-width: $medium) {
-    border-radius: 0px;
+    border-radius: $size-0;
   }
   @media screen and (max-width: $large) {
     flex-basis: 30vw;
   }
   &Profile {
-    padding: 22px 25px;
+    padding: $size-22 25px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     @media screen and (max-width: $medium) {
-      padding: 12px;
+      padding: $size-12;
     }
     &Picture {
-      padding-right: 10px;
+      padding-right: $size-10;
     }
   }
   &Links {
@@ -476,9 +476,9 @@ a.page_search:hover {
     }
   }
   &Actions {
-    padding: 22px 25px;
+    padding: $size-22 25px;
     @media screen and (max-width: $medium) {
-      padding: 12px;
+      padding: $size-12;
     }
   }
 }
@@ -486,10 +486,10 @@ a.page_search:hover {
 .content {
   flex-basis: 80vw;
   background: $white-80;
-  border-radius: 0px 15px 15px 0px;
+  border-radius: $size-0 15px 15px $size-0;
   padding: 62px 70px;
   @media screen and (max-width: $medium) {
-    border-radius: 0px;
+    border-radius: $size-0;
     padding: 31px;
   }
   @media screen and (max-width: $large) {
@@ -503,10 +503,10 @@ a.page_search:hover {
 
   @media screen and (max-width: $medium) {
     font-size: $size-26;
-    line-height: 40px;
+    line-height: $size-40;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font-size: $size-22;
     line-height: 36px;
   }
@@ -520,12 +520,12 @@ a.page_search:hover {
 }
 
 .branding_subtitle {
-  padding: 6px 0px 12px 0px;
-  border-top: 2px solid $white;
-  border-bottom: 2px solid $white;
+  padding: $size-6 $size-0 $size-12 $size-0;
+  border-top: $size-2 solid $white;
+  border-bottom: $size-2 solid $white;
 
   @media screen and (max-width: $medium) {
-    padding: 0px 0px 4px 0px;
+    padding: $size-0 $size-0 4px $size-0;
   }
 }
 
@@ -564,11 +564,11 @@ a.page_search:hover {
 }
 
 .spacing {
-  margin-right: 10px !important;
+  margin-right: $size-10 !important;
 
   @media screen and (max-width: $medium) {
     margin-right: 0 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: $size-10 !important;
   }
 }
 
@@ -592,10 +592,10 @@ a.highlight:visited {
   background-color: $mulberry;
   color: $white !important;
   border-bottom: none !important;
-  padding: 10px;
+  padding: $size-10;
 
-  @media screen and (max-width: $font-weight-100all) {
-    padding: 5px;
+  @media screen and (max-width: $small) {
+    padding: $size-5;
   }
 }
 
@@ -605,10 +605,10 @@ a.highlight:hover {
   color: $white !important;
   border-bottom: none !important;
   opacity: 0.5;
-  padding: 10px;
+  padding: $size-10;
 
-  @media screen and (max-width: $font-weight-100all) {
-    padding: 5px;
+  @media screen and (max-width: $small) {
+    padding: $size-5;
   }
 }
 
@@ -619,7 +619,7 @@ a.highlight:hover {
 
   .portrait {
     border-color: $mulberry;
-    border-width: 2px;
+    border-width: $size-2;
     background-color: $white;
   }
 }
@@ -628,7 +628,7 @@ a.highlight:hover {
   width: 45px;
   height: 45px;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     width: 35px;
     height: 35px;
   }
@@ -638,7 +638,7 @@ a.highlight:hover {
   width: 100px;
   height: 100px;
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     width: 50px;
     height: 50px;
   }
@@ -649,7 +649,7 @@ a.highlight:hover {
   width: 55px;
   height: 55px;
 
-  @media screen and (min-width: $font-weight-100all + 1) {
+  @media screen and (min-width: $small + 1) {
     width: 150px;
     height: 150px;
   }
@@ -670,13 +670,13 @@ a.highlight:hover {
     width: 100px;
     height: 100px;
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       width: 50px;
       height: 50px;
     }
   }
   @media screen and (min-width: $medium) {
-    width: 1px;
+    width: $size-1;
   }
 }
 
@@ -685,13 +685,13 @@ a.highlight:hover {
     width: 150px;
     height: 150px;
 
-    @media screen and (max-width: $font-weight-100all) {
+    @media screen and (max-width: $small) {
       width: 55px;
       height: 55px;
     }
   }
   @media screen and (min-width: $medium) {
-    width: 1px;
+    width: $size-1;
   }
 }
 
@@ -710,11 +710,11 @@ label {
   width: auto;
   display: inherit;
   font-size: $size-30;
-  margin-bottom: 20px;
+  margin-bottom: $size-20;
 
   @media screen and (max-width: $medium) {
     font-size: $size-26;
-    margin-bottom: 20px;
+    margin-bottom: $size-20;
   }
 }
 
@@ -731,12 +731,12 @@ input,
 textarea,
 select,
 fieldset {
-  border: 1px solid $black-20;
-  padding: 10px;
-  box-shadow: 0 0 2px $black-20 inset;
+  border: $size-1 solid $black-20;
+  padding: $size-10;
+  box-shadow: 0 0 $size-2 $black-20 inset;
   background-color: $white;
   font: $size-20 $font-family;
-  margin-right: 10px;
+  margin-right: $size-10;
   box-sizing: border-box;
 
   @media screen and (max-width: $medium) {
@@ -746,7 +746,7 @@ fieldset {
 
 input[type="checkbox"],
 input[type="radio"] {
-  margin: 0 10px 0 5px;
+  margin: 0 $size-10 0 $size-5;
   width: auto;
   height: auto;
   box-shadow: none;
@@ -755,21 +755,21 @@ input[type="radio"] {
 .field input[type="text"],
 .field input[type="passsword"],
 .field input[type="email"] {
-  margin-right: 0px;
+  margin-right: $size-0;
 }
 
 
 input[type="submit"] {
-  border: 1px solid $mulberry;
-  box-shadow: 0 0 2px $mulberry inset;
+  border: $size-1 solid $mulberry;
+  box-shadow: 0 0 $size-2 $mulberry inset;
   color: $mulberry;
   background: $white;
   font: $size-20 $font-family;
 }
 
 input[type="submit"]:hover {
-  border: 1px solid $mulberry;
-  box-shadow: 0 0 2px $mulberry inset;
+  border: $size-1 solid $mulberry;
+  box-shadow: 0 0 $size-2 $mulberry inset;
   color: $mulberry;
   background: $white;
   opacity: 0.5;
@@ -777,10 +777,10 @@ input[type="submit"]:hover {
 
 .field,
 .actions {
-  margin-bottom: 40px;
+  margin-bottom: $size-40;
 
   @media screen and (max-width: $medium) {
-    margin-bottom: 20px;
+    margin-bottom: $size-20;
   }
 }
 
@@ -790,7 +790,7 @@ input[type="submit"]:hover {
 }
 
 .toggle_button:link, .toggle_button:visited {
-  font-size: $size-27;
+  font-size: $size-26;
   color: $black;
   float: right;
   border: none;
@@ -803,10 +803,10 @@ input[type="submit"]:hover {
 }
 
 .sidebar_field {
-  padding: 15px 15px 15px 0px;
+  padding: 15px 15px 15px $size-0;
 
   @media screen and (max-width: $medium) {
-    padding: 10px 10px 10px 0px;
+    padding: $size-10 $size-10 $size-10 $size-0;
     width: 100%;
   }
 }
@@ -831,7 +831,7 @@ input[type="submit"]:hover {
 
 .action {
   color: $steel-blue;
-  margin-right: 10px;
+  margin-right: $size-10;
 }
 
 .vertical_align_top {
@@ -885,10 +885,10 @@ div.table div.table_cell {
   background: $limeade;
   color: $white;
   margin-bottom: 25px;
-  padding: 10px;
+  padding: $size-10;
   text-align: center;
   @media screen and (max-width: $medium) {
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
   }
 }
 
@@ -896,10 +896,10 @@ div.table div.table_cell {
   background: $carmine;
   color: $white;
   margin-bottom: 25px;
-  padding: 10px;
+  padding: $size-10;
   text-align: center;
   @media screen and (max-width: $medium) {
-    margin-bottom: 10px;
+    margin-bottom: $size-10;
   }
 }
 
@@ -910,9 +910,9 @@ div.table div.table_cell {
 .viewers_indicator {
   color: $dusty-rose;
   font-weight: bold;
-  border: 1px solid $dusty-rose !important;
-  box-shadow: 0 0 2px $dusty-rose inset !important;
-  padding: 10px;
+  border: $size-1 solid $dusty-rose !important;
+  box-shadow: 0 0 $size-2 $dusty-rose inset !important;
+  padding: $size-10;
 }
 
 #error_explanation,
@@ -920,7 +920,7 @@ div.table div.table_cell {
   color: $carmine;
   font-size: $size-30;
   font-weight: $font-weight-300;
-  margin-bottom: 40px;
+  margin-bottom: $size-40;
 
   @media screen and (max-width: $medium) {
     font-size: $size-26;
@@ -930,33 +930,33 @@ div.table div.table_cell {
     font-weight: $font-weight-300;
     font-size: $size-30;
     padding: 0;
-    margin: 0px 0px 20px 0px;
+    margin: $size-0 $size-0 $size-20 $size-0;
     color: $mulberry;
 
     @media screen and (max-width: $medium) {
       font-size: $size-26;
-      margin: 0px 0px 10px 0px;
+      margin: $size-0 $size-0 $size-10 $size-0;
     }
   }
 
   ul {
     padding-left: 0;
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: $size-40;
     list-style-position: inside;
 
     @media screen and (max-width: $medium) {
-      margin-bottom: 20px;
+      margin-bottom: $size-20;
     }
 
-    @media screen and (max-width: $font-weight-100all) {
-      margin-bottom: 10px;
+    @media screen and (max-width: $small) {
+      margin-bottom: $size-10;
     }
   }
 }
 
 .hide_on_mobile {
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     display: none;
   }
 }
@@ -964,11 +964,11 @@ div.table div.table_cell {
 /* Font Awesome */
 
 .fa-inline {
-  margin-right: 10px;
+  margin-right: $size-10;
 }
 
 .fa-left {
-  margin-left: 20px;
+  margin-left: $size-20;
 }
 
 /* close icon */
@@ -980,7 +980,7 @@ div.table div.table_cell {
 
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
   border-color: $black-20;
-  box-shadow: 0px 0px 2px $black-20;
+  box-shadow: $size-0 $size-0 $size-2 $black-20;
 }
 
 /* Date Picker */
@@ -998,7 +998,7 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
     font-weight: $font-weight-400 !important;
   }
 
-  @media screen and (max-width: $font-weight-100all) {
+  @media screen and (max-width: $small) {
     font: $size-16 $font-family !important;
     font-weight: $font-weight-400 !important;
   }

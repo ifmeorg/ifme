@@ -1,27 +1,26 @@
 @import "../../styles/_legacy.scss";
-@import "../../styles/_base.scss";
 
 .moment {
   display: block;
   position: relative;
   background: $white;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  box-shadow: $size-0 $size-2 $size-10 $black-10;
+  border-radius: $size-5;
   line-height: 1;
 
   .header {
     position: relative;
-    padding: 20px 20px 5px 20px;
+    padding: $size-20 $size-20 $size-5 $size-20;
 
     .draft {
       display: inline-block;
-      padding-right: 10px;
+      padding-right: $size-10;
       vertical-align: top;
 
       div {
-        border: 1px solid $mulberry;
+        border: $size-1 solid $mulberry;
         box-sizing: border-box;
-        border-radius: 5px;
+        border-radius: $size-5;
       }
     }
 
@@ -34,7 +33,7 @@
       font-style: normal;
       font-weight: normal;
       line-height: normal;
-      font-size: $module-title-size;
+      font-size: $size-18;
 
       color: $mulberry;
     }
@@ -48,10 +47,10 @@
       .action {
         color: $mulberry-50;
         cursor: pointer;
-        font-size: 20px;
-        padding: 0 2px;
-        width: 20px;
-        height: 20px;
+        font-size: $size-20;
+        padding: 0 $size-2;
+        width: $size-20;
+        height: $size-20;
         text-align: center;
       }
     }
@@ -60,12 +59,12 @@
   .date {
     position: relative;
     display: block;
-    padding: 0 20px;
+    padding: 0 $size-20;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 10px;
+    font-size: $size-10;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 
@@ -74,13 +73,13 @@
 
   .tags {
     position: relative;
-    padding: 20px 20px 10px;
+    padding: $size-20 $size-20 $size-10;
 
     :global(.tag) {
       color: $white;
       border-width: 0;
-      border-radius: 5px;
-      margin: 1px;
+      border-radius: $size-5;
+      margin: $size-1;
       display: inline-block;
     }
 

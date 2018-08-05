@@ -8,8 +8,8 @@
   @media screen and (max-width: $medium) {
     line-height: 25px;
   }
-  @media screen and (max-width: $font-weight-100all) {
-    line-height: 18px;
+  @media screen and (max-width: $small) {
+    line-height: $size-18;
   }
 }
 
@@ -18,27 +18,27 @@ input.secret-share-button {
   color: white;
   background-color: $mulberry;
   float: right;
-  margin-right: 1px;
+  margin-right: $size-1;
 }
 
 #secret-share-area {
-  border: 1px solid $mulberry;
-  padding: 10px;
+  border: $size-1 solid $mulberry;
+  padding: $size-10;
   width: 600px;
   float: right;
   background-color: white;
   clear: right;
-  margin-top: 6px;
+  margin-top: $size-6;
   input[type=text]{
     width: 400px;
-    font-size: 10px;
+    font-size: $size-10;
   }
 }
 
 .secret-share-expire {
-  font-size: 18px;
-  margin-top: 6px;
+  font-size: $size-18;
+  margin-top: $size-6;
   input[type=date] {
-    font-size: 12px;
+    font-size: $size-12;
   }
 }

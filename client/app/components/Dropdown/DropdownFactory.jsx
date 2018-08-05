@@ -32,7 +32,11 @@ export const DropdownFactory = (variationClassName: string) => {
       value={propValue}
     >
       {options.map(({ key, label, value, selected }: Option) => (
-        <option key={key || shortid.generate()} value={value} selected={!!selected}>
+        <option
+          key={key || shortid.generate()}
+          value={value}
+          selected={!!selected}
+        >
           {label}
         </option>
       ))}

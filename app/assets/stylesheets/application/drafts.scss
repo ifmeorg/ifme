@@ -6,7 +6,7 @@
 .draft-badge {
   background: $mulberry;
   color: $white;
-  margin-right: 10px;
+  margin-right: $size-10;
   padding: 8px;
 }
 
@@ -20,8 +20,8 @@
   position: relative;
   display: inline-block;
   width: 150px;
-  height: 40px;
-  margin-bottom: 20px;
+  height: $size-40;
+  margin-bottom: $size-20;
 }
 
 .switch input {
@@ -57,7 +57,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $mulberry;
+  box-shadow: 0 0 $size-1 $mulberry;
 }
 
 input:checked + .slider:before {
@@ -74,13 +74,13 @@ input:checked + .slider:before {
 .on, .off
 {
   color: white;
-  font-size: 16px !important;
+  font-size: $size-16 !important;
   font-weight: bold;
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
-  font-size: 10px;
+  font-size: $size-10;
 }
 
 .off {
