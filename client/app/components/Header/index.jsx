@@ -56,32 +56,36 @@ export class Header extends React.Component<Props, State> {
     ));
   };
 
-  render() {
+  displayDesktop = () => {
     const { home } = this.props;
+    return (
+      <div className={css.headerDesktop}>
+        <div className={css.headerDesktopHome}>
+          <a href={home.url}>{home.name}</a>
+        </div>
+        <div className={css.headerDesktopNav}>
+          <div
+            className={css.headerDesktopNavHamburger}
+            onClick={() => this.toggle()}
+            role="button"
+            tabIndex="0"
+          >
+            {this.displayToggle()}
+          </div>
+          <div className={css.headerDesktopNavLinks}>{this.displayLinks()}</div>
+        </div>
+      </div>
+    );
+  };
+
+  render() {
     const { mobileNavOpen } = this.state;
     return (
       <div
         id="header"
         className={`${css.header} ${mobileNavOpen ? css.headerMobileNav : ''}`}
       >
-        <div className={css.headerDesktop}>
-          <div className={css.headerDesktopHome}>
-            <a href={home.url}>{home.name}</a>
-          </div>
-          <div className={css.headerDesktopNav}>
-            <div
-              className={css.headerDesktopNavHamburger}
-              onClick={() => this.toggle()}
-              role="button"
-              tabIndex="0"
-            >
-              {this.displayToggle()}
-            </div>
-            <div className={css.headerDesktopNavLinks}>
-              {this.displayLinks()}
-            </div>
-          </div>
-        </div>
+        {this.displayDesktop()}
         {mobileNavOpen ? (
           <div className={css.headerMobileNavLinks}>{this.displayLinks()}</div>
         ) : null}

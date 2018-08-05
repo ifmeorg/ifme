@@ -11,6 +11,7 @@ module ApplicationHelper
   end
   # rubocop:enable RescueStandardError
 
+  # rubocop:disable MethodLength
   def active?(link_path, environment = {})
     current_controller = params[:controller]
     link_controller = Rails.application.routes
@@ -33,23 +34,23 @@ module ApplicationHelper
   # rubocop:enable MethodLength
 
   def sign_in_path?
-    current_page?(new_user_session_path) ||
-      (params[:controller] == 'devise/sessions' && action_name == 'new')
+    correct_devise_page?(new_user_session_path,
+                         'devise/sessions', 'new')
   end
 
   def join_path?
-    current_page?(new_user_registration_path) ||
-      (params[:controller] == 'devise/registrations' && action_name == 'create')
+    correct_devise_page?(new_user_registration_path,
+                         'devise/registrations', 'create')
   end
 
   def forgot_password_path?
-    current_page?(new_user_password_path) ||
-      (params[:controller] == 'devise/passwords' && action_name == 'new')
+    correct_devise_page?(new_user_password_path,
+                         'devise/passwords', 'new')
   end
 
   def update_account_path?
-    current_page?(edit_user_registration_path) ||
-      (params[:controller] == 'registrations' && action_name == 'update')
+    correct_devise_page?(edit_user_registration_path,
+                         'registrations', 'update')
   end
 
   def not_signed_in_root_path?
@@ -57,19 +58,20 @@ module ApplicationHelper
   end
 
   def send_ally_invitation_path?
-    current_page?(new_user_invitation_path) ||
-      (params[:controller] == 'devise/invitations' && action_name == 'new') ||
-      (params[:controller] == 'users/invitations' && action_name == 'create')
+    correct_devise_page?(new_user_invitation_path,
+                         'devise/invitations', 'new') ||
+      correct_devise_page?(new_user_invitation_path,
+                           'users/invitations', 'create')
   end
 
   def ally_accept_invitation_path?
-    current_page?(accept_user_invitation_path) ||
-      (params[:controller] == 'devise/invitations' && action_name == 'accept')
+    correct_devise_page?(accept_user_invitation_path,
+                         'devise/invitations', 'accept')
   end
 
   def reset_password_path?
-    current_page?(edit_user_password_path) ||
-      (params[:controller] == 'devise/passwords' && action_name == 'edit')
+    correct_devise_page?(edit_user_password_path,
+                         'devise/passwords', 'edit')
   end
 
   def static_page?
@@ -87,49 +89,6 @@ module ApplicationHelper
     active_class = active?(url, environment) ? 'contentNavLinksActive' : ''
     html_options[:class] = active_class
     link_to(label, url, html_options)
-  end
-
-  # rubocop:disable MethodLength
-  def header_props
-    links = [
-      {
-        name: t('navigation.about'),
-        url: about_path,
-        active: active?(about_path)
-      },
-      {
-        name: t('navigation.blog'),
-        url: blog_path,
-        active: active?(blog_path)
-      },
-      {
-        name: t('navigation.resources'),
-        url: resources_path,
-        active: active?(resources_path)
-      }
-    ]
-    if user_signed_in? 
-      links.push({
-        name: t('shared.header.signout'),
-        url: destroy_user_session_path,
-        dataMethod: 'delete'
-      })
-    else
-      links.push({
-        name: t('common.actions.join'),
-        url: new_user_registration_path,
-        active: active?(new_user_registration_path)
-      })
-      links.push({
-        name: t('account.sign_in'),
-        url: new_user_session_path,
-        active: active?(new_user_session_path)
-      })
-    end
-    {
-      home: { name: t('app_name'), url: root_path },
-      links: links
-    }
   end
 
   def title(page_title)
@@ -159,5 +118,13 @@ module ApplicationHelper
       html += text
     end
     html.html_safe
+  end
+
+  private
+
+  def correct_devise_page?(path, current_controller, current_action)
+    current_page?(path) ||
+      (params[:controller] == current_controller &&
+        action_name == current_action)
   end
 end

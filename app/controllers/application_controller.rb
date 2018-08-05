@@ -41,7 +41,11 @@ class ApplicationController < ActionController::Base
       { label: t('languages.en'), value: 'en', selected: @locale == 'en' },
       { label: t('languages.es'), value: 'es', selected: @locale == 'es' },
       { label: t('languages.nl'), value: 'nl', selected: @locale == 'nl' },
-      { label: t('languages.pt-BR'), value: 'pt-BR', selected: @locale == 'pt-BR' },
+      {
+        label: t('languages.pt-BR'),
+        value: 'pt-BR',
+        selected: @locale == 'pt-BR'
+      },
       { label: t('languages.sv'), value: 'sv', selected: @locale == 'sv' },
       { label: t('languages.it'), value: 'it', selected: @locale == 'it' },
       { label: t('languages.nb'), value: 'nb', selected: @locale == 'nb' },
