@@ -22,7 +22,7 @@
       }
     }
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       .vertical_align_middle {
         vertical-align: top !important;
       }
@@ -62,7 +62,7 @@
     }
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     .delete_comment {
       padding-left: 5px;
     }
@@ -76,8 +76,8 @@
   padding-right: 10px;
   border-bottom: 1px solid $dusty-rose;
 
-  @media screen and (max-width: $small) {
-    font-size: $font16;
+  @media screen and (max-width: $font-weight-100all) {
+    font-size: $size-16;
   }
 }
 

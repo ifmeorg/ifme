@@ -8,7 +8,7 @@ $light-font-weight: 300;
 .label {
   color: $mulberry;
   font-family: $font-family;
-  font-size: $small-font;
+  font-size: $size-14;
   padding: 12px 4px;
   letter-spacing: 0.095em;
   text-transform: uppercase;
@@ -25,8 +25,8 @@ $light-font-weight: 300;
   box-sizing: border-box;
   background-color: $mulberry;
   font-family: $font-family;
-  font-size: $font18;
-  line-height: $font26;
+  font-size: $size-18;
+  line-height: $size-26;
   font-weight: $light-font-weight;
   outline: none;
   border: none;
@@ -46,7 +46,7 @@ $light-font-weight: 300;
   &::placeholder {
     font-family: $font-family;
     font-weight: $light-font-weight;
-    font-size: $font18;
+    font-size: $size-18;
     color: $white;
     opacity: .75;
   }

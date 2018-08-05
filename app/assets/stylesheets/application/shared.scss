@@ -59,13 +59,13 @@
 .strategy_name,
 .contributor_name {
   font-weight: 400;
-  font-size: $font18;
+  font-size: $size-18;
   padding: 0;
   margin: 0px 0px 20px 0px;
   color: $mulberry;
 
   @media screen and (max-width: $medium) {
-    font-size: $font16;
+    font-size: $size-16;
     margin: 0px 0px 10px 0px;
   }
 }
@@ -130,7 +130,7 @@
     float: left;
     display: inline-block;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
         width: 80%;
     }
   }
@@ -160,7 +160,7 @@
     float: left;
     display: inline-block;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       width: 100%;
       float: none;
       display: block;
@@ -171,33 +171,33 @@
     float: right;
     display: inline-block;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       float: none;
       display: block;
     }
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     .story_name {
-      font-size: $font20;
+      font-size: $size-20;
       margin: 0px 0px 5px 0px;
       padding-bottom: 5px;
       border-bottom: 1px solid $dusty-rose;
     }
 
     .ally_name {
-      font-size: $font18;
+      font-size: $size-18;
       margin: 0px 0px 10px 0px;
     }
   }
 }
 
 #page_author {
-  font-size: $font24;
+  font-size: $size-24;
   vertical-align: middle;
 
   @media screen and (max-width: $medium) {
-    font-size: $font20;
+    font-size: $size-20;
   }
 }
 
@@ -207,12 +207,12 @@
   float: left;
   display: inline-block;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 60%;
   }
 }
 
-@media screen and (min-width: $small + 1) {
+@media screen and (min-width: $font-weight-100all + 1) {
   .ally .align_left {
     float: left;
     display: inline-block;
@@ -231,13 +231,13 @@
 }
 
 #stats {
-  font: $font22 $font-family;
+  font: $size-22 $font-family;
   font-weight: 300;
   margin-bottom: 40px;
 
   #most_focus {
     width: 100%;
-    font-size: $font-zero;
+    font-size: $size-0;
   }
 
   // Align .small_focus children linearly only
@@ -254,7 +254,7 @@
     text-align: center;
     color: $key-lime;
     background-color: $mulberry;
-    font-size: $font-zero;
+    font-size: $size-0;
 
     // The first .some_focus child of #most_focus
     // has opacity 1, 2nd has 0.8 and 3rd has 0.6
@@ -272,7 +272,7 @@
 
   .some_focus_text {
     padding: 20px;
-    font: $font22 $font-family;
+    font: $size-22 $font-family;
     font-weight: 300;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -292,19 +292,19 @@
   }
 
   @media screen and (max-width: $medium) {
-    font: $font20 $font-family;
+    font: $size-20 $font-family;
     font-weight: 300;
     margin-bottom: 20px;
 
     .some_focus_text {
       padding: 20px;
-      font: $font20 $font-family;
+      font: $size-20 $font-family;
       font-weight: 300;
     }
   }
 
-  @media screen and (max-width: $small) {
-    font: $font18 $font-family;
+  @media screen and (max-width: $font-weight-100all) {
+    font: $size-18 $font-family;
     font-weight: 300;
     margin-bottom: 20px;
 
@@ -313,13 +313,13 @@
       text-align: center;
       color: $key-lime;
       background-color: $mulberry;
-      font-size: $font-zero;
+      font-size: $size-0;
       width: 100% !important;
     }
 
     .some_focus_text {
       padding: 10px;
-      font: $font18 $font-family;
+      font: $size-18 $font-family;
       font-weight: 300;
     }
   }
@@ -333,7 +333,7 @@
   margin-top: 20px !important;
 }
 
-@media screen and (max-width: $small) {
+@media screen and (max-width: $font-weight-100all) {
   #tag_usage.margin_bottom {
     margin-bottom: 10px !important;
   }
@@ -345,13 +345,13 @@
 
 .group_type,
 .tag_type {
-  font-weight: $md;
-  font-size: $font30;
+  font-weight: $font-weight-200;
+  font-size: $size-30;
   padding: 0;
   margin: 0px 0px 20px 0px;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
     margin: 0px 0px 10px 0px;
   }
 }
@@ -394,7 +394,7 @@
     margin-top: 20px;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin-top: 10px;
   }
 }

@@ -39,29 +39,29 @@
 body, html {
   background: $mulberry-key-lime;
   margin: 0 auto;
-  font: $body-font-size $font-family;
-  font-weight: $xl;
+  font: $size-20 $font-family;
+  font-weight: $font-weight-400;
 
   @media screen and (max-width: $medium) {
     margin: 0 auto;
-    font: $font18 $font-family;
-    font-weight: $xl;
+    font: $size-18 $font-family;
+    font-weight: $font-weight-400;
   }
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     margin: 0 auto;
-    font: $font16 $font-family;
-    font-weight: $xl;
+    font: $size-16 $font-family;
+    font-weight: $font-weight-400;
   }
 }
 
 .small_font {
-  font: $small-font $font-family;
-  font-weight: $xl;
+  font: $size-14 $font-family;
+  font-weight: $font-weight-400;
 
-  @media screen and (max-width: $small) {
-    font: $font12 $font-family;
-    font-weight: $xl;
+  @media screen and (max-width: $font-weight-100all) {
+    font: $size-12 $font-family;
+    font-weight: $font-weight-400;
   }
 }
 
@@ -499,22 +499,22 @@ a.page_search:hover {
 
 .headline {
   color: $white;
-  font-size: $page-title;
+  font-size: $size-40;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
     line-height: 40px;
   }
 
-  @media screen and (max-width: $small) {
-    font-size: $font22;
+  @media screen and (max-width: $font-weight-100all) {
+    font-size: $size-22;
     line-height: 36px;
   }
 }
 
 .branding_title {
   font-family: $font-family;
-  font-weight: $lg;
+  font-weight: $font-weight-300;
   text-transform: lowercase;
   color: $white;
 }
@@ -542,13 +542,13 @@ a.page_search:hover {
 }
 
 .subtitle {
-  font: $font34 $font-family;
-  font-weight: $md;
+  font: $size-34 $font-family;
+  font-weight: $font-weight-200;
   text-align: center;
 
   @media screen and (max-width: $medium) {
-    font: $font30 $font-family;
-    font-weight: $md;
+    font: $size-30 $font-family;
+    font-weight: $font-weight-200;
     text-align: center;
   }
 }
@@ -594,7 +594,7 @@ a.highlight:visited {
   border-bottom: none !important;
   padding: 10px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     padding: 5px;
   }
 }
@@ -607,7 +607,7 @@ a.highlight:hover {
   opacity: 0.5;
   padding: 10px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     padding: 5px;
   }
 }
@@ -628,7 +628,7 @@ a.highlight:hover {
   width: 45px;
   height: 45px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 35px;
     height: 35px;
   }
@@ -638,7 +638,7 @@ a.highlight:hover {
   width: 100px;
   height: 100px;
 
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     width: 50px;
     height: 50px;
   }
@@ -649,7 +649,7 @@ a.highlight:hover {
   width: 55px;
   height: 55px;
 
-  @media screen and (min-width: $small + 1) {
+  @media screen and (min-width: $font-weight-100all + 1) {
     width: 150px;
     height: 150px;
   }
@@ -670,7 +670,7 @@ a.highlight:hover {
     width: 100px;
     height: 100px;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       width: 50px;
       height: 50px;
     }
@@ -685,7 +685,7 @@ a.highlight:hover {
     width: 150px;
     height: 150px;
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       width: 55px;
       height: 55px;
     }
@@ -698,22 +698,22 @@ a.highlight:hover {
 /* Form Elements and Input fields */
 
 label {
-  font-size: $font30;
-  font-weight: $lg;
+  font-size: $size-30;
+  font-weight: $font-weight-300;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
   }
 }
 
 .label {
   width: auto;
   display: inherit;
-  font-size: $font30;
+  font-size: $size-30;
   margin-bottom: 20px;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
     margin-bottom: 20px;
   }
 }
@@ -735,7 +735,7 @@ fieldset {
   padding: 10px;
   box-shadow: 0 0 2px $black-20 inset;
   background-color: $white;
-  font: $font20 $font-family;
+  font: $size-20 $font-family;
   margin-right: 10px;
   box-sizing: border-box;
 
@@ -764,7 +764,7 @@ input[type="submit"] {
   box-shadow: 0 0 2px $mulberry inset;
   color: $mulberry;
   background: $white;
-  font: $font20 $font-family;
+  font: $size-20 $font-family;
 }
 
 input[type="submit"]:hover {
@@ -790,7 +790,7 @@ input[type="submit"]:hover {
 }
 
 .toggle_button:link, .toggle_button:visited {
-  font-size: $font27;
+  font-size: $size-27;
   color: $black;
   float: right;
   border: none;
@@ -812,7 +812,7 @@ input[type="submit"]:hover {
 }
 
 .sidebar_label label, .sidebar_label {
-  font-size: $font24;
+  font-size: $size-24;
 }
 
 .sidebar_label.expand_toggle label {
@@ -918,23 +918,23 @@ div.table div.table_cell {
 #error_explanation,
 .error_explanation {
   color: $carmine;
-  font-size: $font30;
-  font-weight: $lg;
+  font-size: $size-30;
+  font-weight: $font-weight-300;
   margin-bottom: 40px;
 
   @media screen and (max-width: $medium) {
-    font-size: $font26;
+    font-size: $size-26;
   }
 
   h2 {
-    font-weight: $lg;
-    font-size: $font30;
+    font-weight: $font-weight-300;
+    font-size: $size-30;
     padding: 0;
     margin: 0px 0px 20px 0px;
     color: $mulberry;
 
     @media screen and (max-width: $medium) {
-      font-size: $font26;
+      font-size: $size-26;
       margin: 0px 0px 10px 0px;
     }
   }
@@ -949,14 +949,14 @@ div.table div.table_cell {
       margin-bottom: 20px;
     }
 
-    @media screen and (max-width: $small) {
+    @media screen and (max-width: $font-weight-100all) {
       margin-bottom: 10px;
     }
   }
 }
 
 .hide_on_mobile {
-  @media screen and (max-width: $small) {
+  @media screen and (max-width: $font-weight-100all) {
     display: none;
   }
 }
@@ -990,17 +990,17 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
 }
 
 #ui-datepicker-div {
-  font: $font20 $font-family !important;
-  font-weight: $xl !important;
+  font: $size-20 $font-family !important;
+  font-weight: $font-weight-400 !important;
 
   @media screen and (max-width: $medium) {
-    font: $font18 $font-family !important;
-    font-weight: $xl !important;
+    font: $size-18 $font-family !important;
+    font-weight: $font-weight-400 !important;
   }
 
-  @media screen and (max-width: $small) {
-    font: $font16 $font-family !important;
-    font-weight: $xl !important;
+  @media screen and (max-width: $font-weight-100all) {
+    font: $size-16 $font-family !important;
+    font-weight: $font-weight-400 !important;
   }
 }
 
