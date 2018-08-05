@@ -30,6 +30,9 @@
       display: block;
       margin-bottom: 10px;
     }
+    a:last-of-type {
+      margin-bottom: 0px;
+    }
     &Title {
       color: $header-text-color;
       text-transform: uppercase;

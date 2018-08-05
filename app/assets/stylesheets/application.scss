@@ -309,7 +309,7 @@ ul.no_bullet_list li {
   clear: both;
 }
 
-.container {
+.mainWrapper {
   margin: 0 auto;
   padding: 0;
   display: flex;
@@ -431,7 +431,11 @@ a.page_search:hover {
 
 /* Content */
 
-.content {
+.main {
+  width: 100%;
+}
+
+.oldContentWrapper {
   padding: 40px 60px;
   line-height: 150%;
   background: $background-color;
@@ -440,10 +444,64 @@ a.page_search:hover {
   }
 }
 
-.contentContainer {
-  width: 100%;
+.contentWrapper {
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: $medium) {
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
+.contentNav {
+  flex-basis: 20%;
+  background: $black-opacity-30-background;
+  border-radius: 15px 0px 0px 15px;
+  @media screen and (max-width: $medium) {
+    border-radius: 0px;
+  }
+  @media screen and (max-width: $large) {
+    flex-basis: 40%;
+  }
+  &Profile {
+    padding: 22px 25px;
+    @media screen and (max-width: $medium) {
+      padding: 12px;
+    }
+  }
+  &Links {
+    a {
+      display: block;
+      padding: 17px 25px;
+      text-decoration: none;
+      border: 0;
+      color: $header-text-color;
+      background: $black-opacity-20-background;
+    }
+    &Active {
+      background: $white-opacity-70-background !important;
+      color: $maroon-opacity-70-background !important;
+    }
+  }
+  &Actions {
+    padding: 22px 25px;
+    @media screen and (max-width: $medium) {
+      padding: 12px;
+    }
+  }
+}
+
+.content {
+  flex-grow: 1;
+  background: $white-opacity-80-background;
+  border-radius: 0px 15px 15px 0px;
+  padding: 62px 70px;
+  @media screen and (max-width: $medium) {
+    border-radius: 0px;
+    padding: 31px;
+  }
+}
 
 .headline {
   color: $header-text-color;

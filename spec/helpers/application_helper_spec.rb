@@ -12,7 +12,7 @@ describe ApplicationHelper do
     context 'when user is signed in' do
       let(:current_user) { create :user2 }
       let(:user_signed_in) { true }
-      let(:active_path) { moods_path }
+      let(:active_path) { resources_path }
 
       context 'has no active link' do
         let(:active) { false }
@@ -35,7 +35,7 @@ describe ApplicationHelper do
     context 'when user is not signed in' do
       let(:current_user) { nil }
       let(:user_signed_in) { false }
-      let(:active_path) { about_path }
+      let(:active_path) { new_user_session_path }
 
       context 'has no active link' do
         let(:active) { false }
@@ -95,13 +95,6 @@ describe ApplicationHelper do
       let(:path)               { 'about' }
 
       it { is_expected.to be false }
-    end
-
-    context 'parent of active controller' do
-      let(:current_controller) { 'categories' }
-      let(:path)               { moments_path }
-
-      it { is_expected.to be true }
     end
 
     context 'new user session with devise' do
