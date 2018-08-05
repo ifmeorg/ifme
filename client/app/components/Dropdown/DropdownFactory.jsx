@@ -4,31 +4,35 @@ import shortid from 'shortid';
 
 import css from './Dropdown.scss';
 
-type Option = {
-  key?: string,
-  label: string,
-  value: any,
-};
+export interface Option {
+  key?: string;
+  label: string;
+  value: any;
+  selected?: boolean;
+}
 
-type Props = {
-  onChange?: (event: Event) => any,
-  options: Option[],
-  value?: any,
-};
+export interface Props {
+  onChange?: (event: Event) => any;
+  options: Option[];
+  value?: any;
+  id: string;
+}
 
 export const DropdownFactory = (variationClassName: string) => {
   const DropdownComponent = ({
     onChange,
     options,
     value: propValue,
+    id,
   }: Props) => (
     <select
+      id={id}
       className={`${css.dropdown} ${variationClassName}`}
       onChange={onChange}
       value={propValue}
     >
-      {options.map(({ key, label, value }: Option) => (
-        <option key={key || shortid.generate()} value={value}>
+      {options.map(({ key, label, value, selected }: Option) => (
+        <option key={key || shortid.generate()} value={value} selected={!!selected}>
           {label}
         </option>
       ))}

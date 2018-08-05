@@ -9,18 +9,21 @@ import { DropdownGhostSmall } from '../components/Dropdown/DropdownGhostSmall';
 storiesOf('Dropdown', module)
   .add('DropdownGhost', () => (
     <DropdownGhost
+      id="dropdownGhost"
       options={localeOptions}
       onChange={action('DropdownGhost.onChange')}
     />
   ))
   .add('DropdownGhostSmall', () => (
     <DropdownGhostSmall
+      id="dropdownGhostSmall"
       options={localeOptions}
       onChange={action('DropdownGhostSmall.onChange')}
     />
   ))
   .add('DropdownFillSmall', () => (
     <DropdownFillSmall
+      id="dropdownFillSmall"
       options={localeOptions}
       onChange={action('DropdownFillSmall.onChange')}
     />
