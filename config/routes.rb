@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-
-  devise_for :users, :controllers => { :registrations => :registrations,
-                                       :omniauth_callbacks => 'omniauth_callbacks',
-                                       :invitations => 'users/invitations',
-                                       :sessions => :sessions }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # get '/dashboard' => "dashboard#index", :as => :dashboard
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -20,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :medications
-  resources :reports
+
   resources :moods do
     collection do
       post 'premade'
@@ -42,6 +36,8 @@ Rails.application.routes.draw do
       get 'delete_comment'
     end
   end
+
+  resources :reports
 
   resources :secret_shares, only: [:create, :show, :destroy]
 
@@ -98,7 +94,10 @@ Rails.application.routes.draw do
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
 
-
+  devise_for :users, :controllers => { :registrations => :registrations,
+                                       :omniauth_callbacks => 'omniauth_callbacks',
+                                       :invitations => 'users/invitations',
+                                       :sessions => :sessions }
 
   mount Ckeditor::Engine => '/ckeditor'
 

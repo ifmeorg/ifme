@@ -44,9 +44,6 @@
         <%= nav_link_to(t('medications.index.title'), medications_path) %>
         <%= nav_link_to(t('groups.plural'), groups_path) %>
         <%= nav_link_to(t('allies.index.title'), allies_path) %>
-       <%  if current_user.admin? %>
-          <%= nav_link_to('AdminDashboard', rails_admin) %>
-        <% end %>
       <% else %>
         <%= nav_link_to(t('account.sign_in'), new_user_session_path) %>
         <%= nav_link_to(t('common.actions.join'), new_user_registration_path) %>
@@ -54,6 +51,15 @@
         <%= nav_link_to(t('navigation.about'), about_path) %>
         <%= nav_link_to(t('navigation.blog'), blog_path) %>
         <%= nav_link_to(t('navigation.resources'), resources_path) %>
+      <% end %>
+      <div class="clear"></div>
+    </ul>
+
+    <ul class="top-nav primary-nav">
+      <% if user_signed_in? %>
+      <%  if current_user.admin? %>
+        <%= link_to('AdminDashboard', rails_admin.dashboard_path) %>
+      <% end %>
       <% end %>
       <div class="clear"></div>
     </ul>
