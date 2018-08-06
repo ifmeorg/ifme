@@ -7,7 +7,11 @@
     <div class="contentNavProfileInfoLinks">
       <%= link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid)) %>
       <%= link_to(t('account.singular'), edit_user_registration_path) %>
-      <%= link_to(t('notifications.plural'), '', class: 'notifications_button') %>
+      <%=
+        link_to '', { class: 'notifications_button', alt: t('notifications.plural') } do
+          content_tag :i, '', class: 'fas fa-bell'
+        end
+      %>
     </div>
   </div>
 </div>

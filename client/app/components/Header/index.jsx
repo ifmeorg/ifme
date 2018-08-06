@@ -2,6 +2,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import ReactHtmlParser from 'react-html-parser';
+
 import css from './Header.scss';
 
 export interface Link {
@@ -9,11 +11,13 @@ export interface Link {
   url: string;
   active?: boolean;
   dataMethod?: string;
+  hideInMobile?: boolean;
 }
 
 export interface Props {
   home: Link;
   links: Link[];
+  mobileOnly?: any;
 }
 
 export interface State {
@@ -43,10 +47,12 @@ export class Header extends React.Component<Props, State> {
   displayLinks = () => {
     const { links } = this.props;
     return links.map((link: Link) => (
-      <div>
+      <div className={css.headerLink}>
         <a
           href={link.url}
-          className={`${link.active ? css.headerActiveLink : ''}`}
+          className={`${link.active ? css.headerActiveLink : ''} ${
+            link.hideInMobile ? css.headerHideInMobile : ''
+          }`}
           data-method={`${link.dataMethod || ''}`}
           rel={`${link.dataMethod ? 'nofollow' : ''}`}
         >
@@ -65,7 +71,8 @@ export class Header extends React.Component<Props, State> {
         </div>
         <div className={css.headerDesktopNav}>
           <div
-            className={css.headerDesktopNavHamburger}
+            id="headerHamburger"
+            className={css.headerHamburger}
             onClick={() => this.toggle()}
             role="button"
             tabIndex="0"
@@ -78,17 +85,29 @@ export class Header extends React.Component<Props, State> {
     );
   };
 
+  displayMobile = () => {
+    const { mobileOnly } = this.props;
+    return (
+      <div id="headerMobile" className={css.headerMobileNav}>
+        <div>
+          {mobileOnly ? ReactHtmlParser(mobileOnly) : null}
+          {this.displayLinks()}
+        </div>
+      </div>
+    );
+  };
+
   render() {
     const { mobileNavOpen } = this.state;
     return (
       <div
         id="header"
-        className={`${css.header} ${mobileNavOpen ? css.headerMobileNav : ''}`}
+        className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
       >
-        {this.displayDesktop()}
-        {mobileNavOpen ? (
-          <div className={css.headerMobileNavLinks}>{this.displayLinks()}</div>
-        ) : null}
+        <div className={`${mobileNavOpen ? css.headerMobileBg : ''}`}>
+          {this.displayDesktop()}
+          {mobileNavOpen ? this.displayMobile() : null}
+        </div>
       </div>
     );
   }

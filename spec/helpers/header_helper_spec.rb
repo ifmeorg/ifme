@@ -1,8 +1,10 @@
 describe HeaderHelper do
   describe '#header_props' do
+    let(:mobile_only) { 'mobile_only_stub' }
     subject { header_props }
 
     before(:each) do
+      allow(self).to receive('mobile_only').and_return(mobile_only)
       allow(self).to receive('active?').and_return(false)
       allow(self).to receive('active?').with(active_path).and_return(active)
       allow(self).to receive('user_signed_in?').and_return(user_signed_in)
@@ -16,18 +18,33 @@ describe HeaderHelper do
 
       context 'has no active link' do
         let(:active) { false }
-        it 'returns props with no active link ' do
-          active_links = subject[:links].select { |link| link[:active] }
-          expect(active_links.count).to eq(0)
+        it 'returns correct props' do
+          expect(subject).to eq({
+            home: { name: 'if me', url: '/' },
+            links: [
+              { name: 'About', url: '/about', active: false },
+              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Resources', url: '/resources', active: false },
+              { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
+            ],
+            mobileOnly: mobile_only
+          })
         end
       end
 
       context 'has an active link' do
         let(:active) { true }
-        it 'returns props with an active link ' do
-          active_links = subject[:links].select { |link| link[:active] }
-          expect(active_links.count).to eq(1)
-          expect(active_links.first[:url]).to eq(active_path)
+        it 'returns correct props' do
+          expect(subject).to eq({
+            home: { name: 'if me', url: '/' },
+            links: [
+              { name: 'About', url: '/about', active: false },
+              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Resources', url: '/resources', active: true },
+              { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
+            ],
+            mobileOnly: mobile_only
+          })
         end
       end
     end
@@ -39,18 +56,35 @@ describe HeaderHelper do
 
       context 'has no active link' do
         let(:active) { false }
-        it 'returns props with no active link ' do
-          active_links = subject[:links].select { |link| link[:active] }
-          expect(active_links.count).to eq(0)
+        it 'returns correct props' do
+          expect(subject).to eq({
+            home: { name: 'if me', url: '/' },
+            links: [
+              { name: 'About', url: '/about', active: false },
+              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Resources', url: '/resources', active: false },
+              { name: 'Join', url: '/users/sign_up', active: false },
+              { name: 'Sign in', url: '/users/sign_in', active: false }
+            ],
+            mobileOnly: nil
+          })
         end
       end
 
       context 'has an active link' do
         let(:active) { true }
-        it 'returns props with an active link ' do
-          active_links = subject[:links].select { |link| link[:active] }
-          expect(active_links.count).to eq(1)
-          expect(active_links.first[:url]).to eq(active_path)
+        it 'returns correct props' do
+          expect(subject).to eq({
+            home: { name: 'if me', url: '/' },
+            links: [
+              { name: 'About', url: '/about', active: false },
+              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Resources', url: '/resources', active: false },
+              { name: 'Join', url: '/users/sign_up', active: false },
+              { name: 'Sign in', url: '/users/sign_in', active: true }
+            ],
+            mobileOnly: nil
+          })
         end
       end
     end

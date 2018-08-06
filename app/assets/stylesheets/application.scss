@@ -85,8 +85,6 @@ a:hover, .link_style:hover {
   cursor: pointer;
 }
 
-// TODO(juliepagano): This is probably not what we want long-term. Come back
-// and clean up table css.
 table {
   border-collapse: separate;
 }
@@ -350,137 +348,8 @@ ul.no_bullet_list li {
   width: auto;
 }
 
-/* Page Title */
-
-.pageTitle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  > div:last-of-type {
-    text-align: right;
-  }
-}
-
-/* Page Edit and New */
-
-a.page_edit:link,
-a.page_edit:visited,
-a.page_new:link,
-a.page_new:visited,
-a.page_search:link,
-a.page_search:visited {
-  text-decoration: none;
-  border: none;
-  color: $white;
-}
-
-a.page_edit:hover,
-a.page_new:hover,
-a.page_search:hover {
-  text-decoration: none;
-  border: none;
-  color: $white;
-  opacity: 0.5;
-}
-
-/* Announcement */
-
-#announcement {
-  text-align: center;
-  background-color: $key-lime;
-  padding: $size-20 60px;
-  line-height: $size-30;
-
-  @media screen and (max-width: $medium) {
-    padding: $size-20;
-    line-height: $size-26;
-  }
-}
-
-/* Content */
-
 .main {
   width: 100%;
-}
-
-.oldContentWrapper {
-  padding: $size-40 60px;
-  line-height: 150%;
-  background: $white;
-  @media screen and (max-width: $medium) {
-    padding: $size-20;
-  }
-}
-
-.contentWrapper {
-  padding: $size-0 25px 50px 25px;
-  display: flex;
-  flex-direction: row;
-  @media screen and (max-width: $medium) {
-    flex-direction: column;
-    padding: 0;
-  }
-}
-
-.contentNav {
-  flex-basis: 20vw;
-  background: $black-30;
-  border-radius: 15px $size-0 $size-0 15px;
-  @media screen and (max-width: $medium) {
-    border-radius: $size-0;
-  }
-  @media screen and (max-width: $large) {
-    flex-basis: 30vw;
-  }
-  &Profile {
-    padding: $size-22 25px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    @media screen and (max-width: $medium) {
-      padding: $size-12;
-    }
-    &Picture {
-      padding-right: $size-10;
-    }
-  }
-  &Links {
-    a {
-      display: block;
-      padding: 17px 25px;
-      text-decoration: none;
-      border: 0;
-      color: $white;
-      background: $black-20;
-    }
-    &Active {
-      background: $white-70 !important;
-      color: $mulberry-70 !important;
-    }
-  }
-  &Actions {
-    padding: $size-22 25px;
-    @media screen and (max-width: $medium) {
-      padding: $size-12;
-    }
-  }
-}
-
-.content {
-  flex-basis: 80vw;
-  background: $white-80;
-  border-radius: $size-0 15px 15px $size-0;
-  padding: 62px 70px;
-  @media screen and (max-width: $medium) {
-    border-radius: $size-0;
-    padding: 31px;
-  }
-  @media screen and (max-width: $large) {
-    flex-basis: 70vw;
-  }
 }
 
 .headline {

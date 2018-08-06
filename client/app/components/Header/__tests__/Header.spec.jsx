@@ -15,9 +15,15 @@ const component = (
 
 const wrapper = shallow(component);
 
-// TODO: Figure how to resize window for Jasmine + React tests, might have to switch to Jest
 describe('Header', () => {
   it('renders correctly', () => {
     expect(wrapper.length).toEqual(1);
+  });
+
+  it('toggles hamburger correctly', () => {
+    wrapper.find('#headerHamburger').simulate('click');
+    expect(wrapper.find('#headerMobile').length).toEqual(1);
+    wrapper.find('#headerHamburger').simulate('click');
+    expect(wrapper.find('#headerMobile').length).toEqual(0);
   });
 });
