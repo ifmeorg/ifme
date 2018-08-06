@@ -23,7 +23,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       login_as user
       visit strategies_path
 
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'Strategies'
       end
 
@@ -39,7 +39,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       # CREATING
       page.find('a[title="New Strategy"]').click
 
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'New Strategy'
       end
 
@@ -83,7 +83,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new strategy'
       end
       expect(page).to have_selector 'span.draft-badge'
@@ -92,7 +92,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).not_to have_content 'My new strategy'
       end
 
@@ -101,7 +101,7 @@ describe 'UserCreatesADraftStrategy', js: true do
 
       # EDITING
       page.find('a[title="Edit Strategy"]').click
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'Edit My new strategy'
       end
 
@@ -115,7 +115,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new strategy'
       end
       expect(page).not_to have_selector 'span.draft-badge'
@@ -123,7 +123,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new strategy'
       end
     end

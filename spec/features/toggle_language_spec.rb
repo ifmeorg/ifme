@@ -16,29 +16,29 @@ describe 'ToggleLanguage', js: true do
       before { visit(root_path) }
 
       it 'toggles locale dropdown on the same page' do
-        expect(find('#page_title')).to have_content en_root_title
+        expect(find('.pageTitle')).to have_content en_root_title
         change_language('es')
-        expect(find('#page_title')).to have_content es_root_title
+        expect(find('.pageTitle')).to have_content es_root_title
         change_language('en')
-        expect(find('#page_title')).to have_content en_root_title
+        expect(find('.pageTitle')).to have_content en_root_title
       end
 
       it 'persists locale selection on a different page' do
         change_language('es')
-        expect(find('#page_title')).to have_content es_root_title
+        expect(find('.pageTitle')).to have_content es_root_title
 
         change_page(
           ->{
-            within '#footer' do
+            within '.footer' do
               click_link('Acerca de')
             end
           },
-          '#page_title',
+          '.pageTitle',
           have_content('Acerca de')
         )
 
         change_language('en')
-        expect(find('#page_title')).to have_content 'About'
+        expect(find('.pageTitle')).to have_content 'About'
       end
     end
 
@@ -52,15 +52,15 @@ describe 'ToggleLanguage', js: true do
         expect(page).to have_content en_root_title
 
         change_language('es')
-        expect(find('#page_title')).to have_content(es_root_title)
+        expect(find('.pageTitle')).to have_content(es_root_title)
 
         change_page(
           ->{
-            within '#header_content' do
+            within '#header' do
               click_link('Ingresar')
             end
           },
-          '#page_title',
+          '.pageTitle',
           have_content('Comparte tus historias ahora')
         )
 
@@ -70,15 +70,15 @@ describe 'ToggleLanguage', js: true do
           click_button('Ingresar')
         end
 
-        expect(find('#page_title')).to have_content es_signed_in_root_title
+        expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
         change_page(
           ->{
-            within '.large-screen' do
+            within '.contentNav' do
               click_link('Momentos')
             end
           },
-          '#page_title',
+          '.pageTitle',
           have_content('Momentos')
         )
       end
@@ -93,9 +93,9 @@ describe 'ToggleLanguage', js: true do
 
       it 'persists locale selection from signed in to signed out state' do
         change_language('es')
-        expect(find('#page_title')).to have_content es_signed_in_root_title
+        expect(find('.pageTitle')).to have_content es_signed_in_root_title
         logout(:user)
-        expect(find('#page_title')).to have_content es_signed_in_root_title
+        expect(find('.pageTitle')).to have_content es_signed_in_root_title
       end
     end
 
@@ -107,25 +107,25 @@ describe 'ToggleLanguage', js: true do
       end
 
       it 'toggles locale selection on the same page' do
-        expect(find('#page_title')).to have_content en_signed_in_root_title
+        expect(find('.pageTitle')).to have_content en_signed_in_root_title
         change_language('es')
-        expect(find('#page_title')).to have_content es_signed_in_root_title
+        expect(find('.pageTitle')).to have_content es_signed_in_root_title
         change_language('en')
-        expect(find('#page_title')).to have_content en_signed_in_root_title
+        expect(find('.pageTitle')).to have_content en_signed_in_root_title
       end
 
       it 'persists locale selection on a different page' do
-        expect(find('#page_title')).to have_content en_signed_in_root_title
+        expect(find('.pageTitle')).to have_content en_signed_in_root_title
         change_language('es')
-        expect(find('#page_title')).to have_content es_signed_in_root_title
+        expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
         change_page(
           ->{
-            within '.large-screen' do
+            within '.contentNav' do
               click_link('Estrategias')
             end
           },
-          '#page_title',
+          '.pageTitle',
           have_content('Estrategias')
         )
       end

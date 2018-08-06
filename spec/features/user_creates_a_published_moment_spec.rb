@@ -24,7 +24,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       login_as user
       visit moments_path
 
-      expect(find('#page_title_content')).to have_content 'Moments'
+      expect(find('.pageTitle')).to have_content 'Moments'
       expect(page).to have_content 'Delve deep into your moments - events ' \
                                    'and situations that affect your mental ' \
                                    'health.'
@@ -33,7 +33,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
 
       # CREATING
       page.find('a[title="New Moment"]').click
-      expect(find('#page_title_content')).to have_content 'New Moment'
+      expect(find('.pageTitle')).to have_content 'New Moment'
       page.fill_in 'moment[name]', with: 'My new moment'
 
       page.find('[data-toggle="#categories"]').click
@@ -127,7 +127,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING
-      expect(find('#page_title_content')).to have_content 'My new moment'
+      expect(find('.pageTitle')).to have_content 'My new moment'
 
       expect(page).to have_content 'Created'
       expect(page).to have_content 'Categories: Another New Category, ' \
@@ -144,7 +144,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
 
       # EDITING
       page.find('a[title="Edit Moment"]').click
-      expect(find('#page_title_content')).to have_content 'Edit My new moment'
+      expect(find('.pageTitle')).to have_content 'Edit My new moment'
 
       moment_why_text = 'I am changing my moment why description'
       fill_in_ckeditor('moment_why', with: moment_why_text)
@@ -152,7 +152,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      expect(find('#page_title_content')).to have_content 'My new moment'
+      expect(find('.pageTitle')).to have_content 'My new moment'
       expect(page).to have_content moment_why_text
     end
   end

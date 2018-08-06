@@ -34,11 +34,8 @@
 
   <div class="footerExtras">
     <div>
-      <%= react_component('DropdownGhostSmall', props: {
-        id: 'locale',
-        options: @locales
-        # TODO: use onChange and deprecate toggle_locale.js
-      }) %>
+      <!-- TODO: Use DropdownGhostSmall after React version update, issues with selected not appearing -->
+      <%= select_tag 'locale', options_for_select(@locales.collect{ |l| [l[:name], l[:locale]] }, @locale) %>
     </div>
 
     <div>

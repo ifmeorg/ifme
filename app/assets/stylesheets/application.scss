@@ -352,7 +352,7 @@ ul.no_bullet_list li {
 
 /* Page Title */
 
-.page_title {
+.pageTitle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -361,20 +361,6 @@ ul.no_bullet_list li {
   > div:last-of-type {
     text-align: right;
   }
-}
-
-#page_title_content a:link,
-#page_title_content a:visited {
-  text-decoration: none;
-  border: none;
-  color: $white;
-}
-
-#page_title_content a:hover {
-  text-decoration: none;
-  border: none;
-  color: $white;
-  opacity: 0.5;
 }
 
 /* Page Edit and New */

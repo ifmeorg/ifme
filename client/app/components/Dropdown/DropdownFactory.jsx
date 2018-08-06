@@ -16,31 +16,31 @@ export interface Props {
   options: Option[];
   value?: any;
   id: string;
+  name: string;
 }
 
 export const DropdownFactory = (variationClassName: string) => {
-  const DropdownComponent = ({
-    onChange,
-    options,
-    value: propValue,
-    id,
-  }: Props) => (
-    <select
-      id={id}
-      className={`${css.dropdown} ${variationClassName}`}
-      onChange={onChange}
-      value={propValue}
-    >
-      {options.map(({ key, label, value, selected }: Option) => (
-        <option
-          key={key || shortid.generate()}
-          value={value}
-          selected={!!selected}
-        >
-          {label}
-        </option>
-      ))}
-    </select>
-  );
+  const DropdownComponent = (props: Props) => {
+    const { onChange, options, value: propValue, id, name } = props;
+    return (
+      <select
+        id={id}
+        name={name}
+        className={`${css.dropdown} ${variationClassName}`}
+        onChange={onChange}
+        value={propValue}
+      >
+        {options.map(({ key, label, value, selected }: Option) => (
+          <option
+            key={key || shortid.generate()}
+            value={value}
+            selected={!!selected}
+          >
+            {label}
+          </option>
+        ))}
+      </select>
+    );
+  };
   return DropdownComponent;
 };

@@ -32,7 +32,7 @@ describe 'UserCreatesAMedication', js: true do
 
       click_on('Submit')
 
-      within '#page_title' do
+      within '.pageTitle' do
         expect(page).to have_content(name)
       end
       expect(medication.name).to eq(name)
@@ -48,7 +48,7 @@ describe 'UserCreatesAMedication', js: true do
         expect(CalendarUploader).to_not receive(:new)
 
         click_on('Submit')
-        expect(find('#page_title')).to have_content(name)
+        expect(find('.pageTitle')).to have_content(name)
 
         expect(medication.take_medication_reminder.active?).to be true
         expect(medication.refill_reminder.active?).to be true
@@ -64,7 +64,7 @@ describe 'UserCreatesAMedication', js: true do
         expect(CalendarUploader).to receive_message_chain(:new, :upload_event)
 
         click_on('Submit')
-        expect(find('#page_title')).to have_content(name)
+        expect(find('.pageTitle')).to have_content(name)
 
         expect(medication.take_medication_reminder.active?).to be true
         expect(medication.refill_reminder.active?).to be true
