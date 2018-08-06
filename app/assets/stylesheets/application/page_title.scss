@@ -1,0 +1,30 @@
+.pageTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  > div:last-of-type {
+    text-align: right;
+  }
+}
+
+a.page_edit:link,
+a.page_edit:visited,
+a.page_new:link,
+a.page_new:visited,
+a.page_search:link,
+a.page_search:visited {
+  text-decoration: none;
+  border: none;
+  color: $white;
+}
+
+a.page_edit:hover,
+a.page_new:hover,
+a.page_search:hover {
+  text-decoration: none;
+  border: none;
+  color: $white;
+  opacity: 0.5;
+}

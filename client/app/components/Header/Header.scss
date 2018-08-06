@@ -2,12 +2,7 @@
 
 // TODO: Get rid of !important, it's here for now cause Rails styles override React styles
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+@mixin linkStyle() {
   a {
     font-family: $font-family !important;
     color: $white;
@@ -19,64 +14,96 @@
     opacity: 0.5 !important;
     color: $white !important;
   }
+}
+
+.header {
+  z-index: $z-index-front;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &Link {
+    @include linkStyle();
+    @media screen and (max-width: $medium) {
+      font-size: $size-18;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
 
   &ActiveLink {
     color: $key-lime !important;
   }
 
-  &MobileNav {
-    background: transparent;
-    position: static;
-    &Links {
+  &HideInMobile {
+    @media screen and (max-width: $medium) {
       display: none;
     }
-    @media screen and (max-width: $small) {
-      background: $black-70;
+  }
+
+  &Hamburger {
+    display: none;
+    font-size: $size-30;
+    color: $white;
+    @media screen and (max-width: $medium) {
+      display: block;
+    }
+  }
+
+  &Mobile {
+    background: transparent;
+    position: static;
+    &Nav {
+      display: none;
+    }
+    @media screen and (max-width: $medium) {
+      background: $mulberry-key-lime;
       position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
       top: 0;
-      &Links {
+      &Nav {
         margin-bottom: auto;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        font-size: $size-30;
+        width: 100%;
+        > div {
+          overflow: auto;
+          width: 100%;
+        }
+      }
+      &Bg {
+        background: $black-70;
+        height: 100%;
+        width: 100%;
       }
     }
   }
 
   &Desktop {
     width: 100%;
+    padding: 25px $size-34;
+    box-sizing: border-box;
     margin-bottom: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  
-    &Home {
-      padding: 25px $size-34;
-      font-size: $size-30;
-      @media screen and (max-width: $small) {
-        padding: 15px $size-10;
-      }
+    @media screen and (max-width: $medium) {
+      padding: 15px $size-10;
     }
-  
+    &Home {
+      @include linkStyle();
+      font-size: $size-30;
+    }
     &Nav {
-      padding: 25px $size-34;
-      @media screen and (max-width: $small) {
-        padding: 15px $size-10;
-      }
-      &Hamburger {
-        display: none;
-        font-size: $size-30;
-        color: $white;
-        @media screen and (max-width: $small) {
-          display: block;
-        }
-      }
       &Links {
         display: flex;
         flex-direction: row;
@@ -90,11 +117,10 @@
         > div:last-of-type {
           margin-right: $size-0;
         }
-        @media screen and (max-width: $small) {
+        @media screen and (max-width: $medium) {
           display: none;
         }
       }
     }
   }
 }
-  

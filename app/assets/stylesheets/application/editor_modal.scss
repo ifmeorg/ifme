@@ -3,7 +3,7 @@
   height: 100%;
   position: fixed;
   top: 0;
-  z-index: 9001;
+  z-index: $z-index-front;
   left: 0;
   background: $black-70;
 }

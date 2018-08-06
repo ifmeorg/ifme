@@ -356,42 +356,6 @@ describe ApplicationHelper do
     end
   end
 
-  describe '#content_nav_link_to' do
-    let(:active)    { true }
-    let(:label)     { 'foo' }
-    let(:path)      { 'bar' }
-    let(:options)   { {} }
-
-    subject { content_nav_link_to(label, path, options) }
-
-    before(:each) do
-      allow(self).to receive('active?').and_return(active)
-    end
-
-    context 'when active' do
-      let(:active) { true }
-      it { is_expected.to have_selector 'a' }
-      it { is_expected.to include label }
-      it { is_expected.to have_selector 'a.contentNavLinksActive' }
-    end
-
-    context 'when not active' do
-      let(:active) { false }
-      it { is_expected.to have_selector 'a' }
-      it { is_expected.to include label }
-      it { is_expected.not_to have_selector 'a.contentNavLinksActive' }
-    end
-
-    context 'when options include method' do
-      let(:options) { { :method => :delete } }
-
-      it 'passes method in environment' do
-        expect(self).to receive(:active?).with(path, options)
-        content_nav_link_to(label, path, options)
-      end
-    end
-  end
-
   describe '#get_icon_class' do
     context 'when icon is nil' do
       it 'returns default globe icon' do
@@ -427,6 +391,28 @@ describe ApplicationHelper do
           '<i class="fab fa-facebook smaller_margin_right"></i>Facebook'
         )
       end
+    end
+  end
+
+  describe '#image_link_to' do
+    let(:image_path) { '/some-image-path' }
+    let(:url) { '/some-path' }
+    let(:image_tag_options) { {} }
+    let(:link_to_options) { {} }
+    subject { image_link_to(image_path, url, image_tag_options, link_to_options) }
+
+    context 'with no options' do
+      it { is_expected.to eq('<a href="/some-path"><img src="/some-image-path" alt="Some image path" /></a>') }
+    end
+
+    context 'with image_tag_options' do
+      let(:image_tag_options) { { alt: 'Specific alt tag' } }
+      it { is_expected.to eq('<a href="/some-path"><img alt="Specific alt tag" src="/some-image-path" /></a>') }
+    end
+
+    context 'with link_to_options' do
+      let(:link_to_options) { { class: 'someClass' } }
+      it { is_expected.to eq('<a class="someClass" href="/some-path"><img src="/some-image-path" alt="Some image path" /></a>') }
     end
   end
 end
