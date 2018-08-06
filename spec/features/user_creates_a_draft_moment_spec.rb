@@ -25,7 +25,7 @@ describe 'UserCreatesADraftMoment', js: true do
       login_as user
       visit moments_path
 
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'Moments'
       end
 
@@ -38,7 +38,7 @@ describe 'UserCreatesADraftMoment', js: true do
       # CREATING
       page.find('a[title="New Moment"]').click
 
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'New Moment'
       end
 
@@ -138,7 +138,7 @@ describe 'UserCreatesADraftMoment', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AS OWNER
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new moment'
       end
       expect(page).to have_selector 'span.draft-badge'
@@ -147,7 +147,7 @@ describe 'UserCreatesADraftMoment', js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).not_to have_content 'My new moment'
       end
 
@@ -157,7 +157,7 @@ describe 'UserCreatesADraftMoment', js: true do
       # EDITING
       page.find('a[title="Edit Moment"]').click
 
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'Edit My new moment'
       end
 
@@ -170,7 +170,7 @@ describe 'UserCreatesADraftMoment', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new moment'
       end
       expect(page).not_to have_selector 'span.draft-badge'
@@ -178,7 +178,7 @@ describe 'UserCreatesADraftMoment', js: true do
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
+      within '.pageTitle' do
         expect(page).to have_content 'My new moment'
       end
     end

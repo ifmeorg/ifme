@@ -6,24 +6,47 @@ import { DropdownFillSmall } from '../components/Dropdown/DropdownFillSmall';
 import { DropdownGhost } from '../components/Dropdown/DropdownGhost';
 import { DropdownGhostSmall } from '../components/Dropdown/DropdownGhostSmall';
 
+const optionsWithSelected = [
+  {
+    label: 'Option 1',
+    value: 1,
+  },
+  {
+    label: 'Option 2',
+    value: 2,
+    selected: true,
+  },
+];
+
 storiesOf('Dropdown', module)
-  .add('DropdownGhost', () => (
+  .add('DropdownGhost with no selected value', () => (
     <DropdownGhost
       id="dropdownGhost"
+      name="dropdownGhost"
       options={localeOptions}
       onChange={action('DropdownGhost.onChange')}
     />
   ))
-  .add('DropdownGhostSmall', () => (
+  .add('DropdownGhost with a selected value', () => (
+    <DropdownGhost
+      id="dropdownGhost"
+      name="dropdownGhost"
+      options={optionsWithSelected}
+      onChange={action('DropdownGhost.onChange')}
+    />
+  ))
+  .add('DropdownGhostSmall with no selected value', () => (
     <DropdownGhostSmall
       id="dropdownGhostSmall"
+      name="dropdownGhostSmall"
       options={localeOptions}
       onChange={action('DropdownGhostSmall.onChange')}
     />
   ))
-  .add('DropdownFillSmall', () => (
+  .add('DropdownFillSmall with no selected value', () => (
     <DropdownFillSmall
       id="dropdownFillSmall"
+      name="dropdownFillSmall"
       options={localeOptions}
       onChange={action('DropdownFillSmall.onChange')}
     />
