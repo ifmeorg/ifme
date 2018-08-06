@@ -6,17 +6,23 @@ module HeaderHelper
     links += user_signed_in? ? add_signed_in_links : add_not_signed_in_links
     {
       home: { name: t('app_name'), url: root_path },
-      links: links
+      links: links,
+      mobileOnly: user_signed_in? ? mobile_only : nil
     }
   end
 
   private
 
+  def mobile_only
+    render partial: 'shared/content_nav'
+  end
+
   def add_signed_in_links
     signout = {
       name: t('shared.header.signout'),
       url: destroy_user_session_path,
-      dataMethod: 'delete'
+      dataMethod: 'delete',
+      hideInMobile: true
     }
     [signout]
   end

@@ -84,13 +84,6 @@ module ApplicationHelper
     devise || non_devise_paths.count == 1
   end
 
-  def content_nav_link_to(label, url, html_options = {})
-    environment = html_options[:method] ? { method: html_options[:method] } : {}
-    active_class = active?(url, environment) ? 'contentNavLinksActive' : ''
-    html_options[:class] = active_class
-    link_to(label, url, html_options)
-  end
-
   def title(page_title)
     content_for(:title) { page_title }
   end
@@ -118,6 +111,13 @@ module ApplicationHelper
       html += text
     end
     html.html_safe
+  end
+
+  def image_link_to(image_path, url, image_tag_options = {},
+                    link_to_options = {})
+    link_to url, link_to_options do
+      image_tag image_path, image_tag_options
+    end
   end
 
   private
