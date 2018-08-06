@@ -57,20 +57,22 @@
       <%= react_component('Header', props: header_props) %>
       <div class="main">
         <%= render partial: "shared/notices_and_alerts" %>
-        <div class="<%= static_page? ? 'oldContentWrapper' : 'contentWrapper' %>">
-        <% if static_page? %>
-          <%= render partial: "shared/page_title" %>
-          <%= yield %>
-        <% else %>
-          <div class="contentNav">
-            <%= render partial: "shared/content_nav" %>
+        <% if user_signed_in? && !static_page? %>
+          <div class="contentWrapper">
+            <div class="contentNav">
+              <%= render partial: "shared/content_nav" %>
+            </div>
+            <div class="content">
+              <%= render partial: "shared/page_title" %>
+              <%= yield %>
+            </div>
           </div>
-          <div class="content">
+        <% else %>
+          <div class="oldContentWrapper">
             <%= render partial: "shared/page_title" %>
             <%= yield %>
           </div>
         <% end %>
-        </div>
       <%= render partial: "shared/footer" %>
     </div>
   </body>

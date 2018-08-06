@@ -22,7 +22,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       login_as user
       visit strategies_path
 
-      expect(find('#page_title_content')).to have_content 'Strategies'
+      expect(find('.pageTitle')).to have_content 'Strategies'
       expect(page).to have_content(
         'Strategize self-care to achieve desired thoughts and attitudes ' \
         'towards your moments.')
@@ -32,7 +32,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
 
       # CREATING
       page.find('a[title="New Strategy"]').click
-      expect(find('#page_title_content')).to have_content 'New Strategy'
+      expect(find('.pageTitle')).to have_content 'New Strategy'
 
       page.fill_in 'strategy[name]', with: 'My new strategy'
 
@@ -72,7 +72,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
 
       change_page(
         ->{ page.find('input[value="Submit"]').click },
-        '#page_title_content', have_content('My new strategy')
+        '.pageTitle', have_content('My new strategy')
       )
 
       # VIEWING
@@ -85,7 +85,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       # EDITING
       change_page(
         ->{ page.find('a[title="Edit Strategy"]').click },
-        '#page_title_content',
+        '.pageTitle',
         have_content('Edit My new strategy')
       )
 
@@ -96,7 +96,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       page.find('input[value="Submit"]').click
 
       # VIEWING AFTER EDITING
-      expect(find('#page_title_content')).to have_content 'My new strategy'
+      expect(find('.pageTitle')).to have_content 'My new strategy'
       expect(page).to have_content 'I am changing my strategy description'
     end
   end
