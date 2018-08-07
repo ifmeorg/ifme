@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   get 'errors/not_found'
   get 'errors/internal_server_error'
 

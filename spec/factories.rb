@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :admin do
+    
+  end
   factory :report do
     reporter_id "MyString"
     reportee_id "MyString"
