@@ -74,7 +74,7 @@ describe 'ToggleLanguage', js: true do
 
         change_page(
           ->{
-            within '.contentNav' do
+            within '.dashboardNav' do
               click_link('Momentos')
             end
           },
@@ -121,7 +121,7 @@ describe 'ToggleLanguage', js: true do
 
         change_page(
           ->{
-            within '.contentNav' do
+            within '.dashboardNav' do
               click_link('Estrategias')
             end
           },

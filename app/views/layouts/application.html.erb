@@ -53,26 +53,25 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render partial: 'notifications/list' %>
-    <div class="mainWrapper">
+    <div class="content <%= user_signed_in? && !static_page? ? 'dashboard' : 'static' %>">
       <%= react_component('Header', props: header_props) %>
-      <div class="main">
-        <%= render partial: "shared/notices_and_alerts" %>
-        <% if user_signed_in? && !static_page? %>
-          <div class="contentWrapper">
-            <div class="contentNav">
-              <%= render partial: "shared/content_nav" %>
-            </div>
-            <div class="content">
-              <%= render partial: "shared/page_title" %>
-              <%= yield %>
-            </div>
+      <%= render partial: 'shared/alerts' %>
+      <% if user_signed_in? && !static_page? %>
+        <div class="dashboardContent">
+          <div class="dashboardNav">
+            <%= render partial: "shared/dashboard_nav" %>
           </div>
-        <% else %>
-          <div class="oldContentWrapper">
+          <div class="dashboardSection">
             <%= render partial: "shared/page_title" %>
             <%= yield %>
           </div>
-        <% end %>
+        </div>
+      <% else %>
+        <div class="staticContent">
+          <%= render partial: "shared/page_title" %>
+          <%= yield %>
+        </div>
+      <% end %>
       <%= render partial: "shared/footer" %>
     </div>
   </body>

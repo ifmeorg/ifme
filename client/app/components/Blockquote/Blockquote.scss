@@ -17,7 +17,7 @@
   padding: $size-20;
   @media screen and (min-width: 960px) {
     padding: 50px;
-    font-size: 36px;
+    font-size: $size-36;
   }
 
   color: white;

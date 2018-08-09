@@ -1,0 +1,53 @@
+a, .link_style {
+  text-decoration: none;
+  color: $steel-blue;
+  border-bottom: $size-1 dotted $steel-blue;
+  cursor: pointer;
+}
+
+a:hover, .link_style:hover {
+  opacity: 0.5;
+}
+
+.anchor {
+  border-bottom: $size-1 dotted $black;
+  cursor: pointer;
+}
+
+a.gravatar:link,
+a.gravatar:visited {
+  text-decoration: none;
+  border: none;
+}
+
+a.gravatar:hover {
+  text-decoration: none;
+  border: none;
+  opacity: 0.5;
+}
+
+a.highlight:link,
+a.highlight:visited {
+  text-decoration: none;
+  background-color: $mulberry;
+  color: $white !important;
+  border-bottom: none !important;
+  padding: $size-10;
+
+  @media screen and (max-width: $small) {
+    padding: $size-4;
+  }
+}
+
+a.highlight:hover {
+  text-decoration: none;
+  background-color: $mulberry;
+  color: $white !important;
+  border-bottom: none !important;
+  opacity: 0.5;
+  padding: $size-10;
+
+  @media screen and (max-width: $small) {
+    padding: $size-4;
+  }
+}

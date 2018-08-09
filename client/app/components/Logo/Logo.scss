@@ -1,70 +1,73 @@
 @import "../../styles/_legacy.scss";
 
-.logo {
-  display: inline-block;
-  width: 6ex;
-  height: 6ex;
-  box-sizing: border-box;
-
-  font-family: $font-family;
-  font-size: $size-30;
-  line-height: $size-30;
-  font-weight: 300;
-  text-transform: lowercase;
-
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  outline: 0;
-
-  .content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 5%;
-  }
-
-  .if,
-  .me {
-    height: $size-30;
-  }
-
+@mixin setColor($if-color, $me-color) {
   .if {
-    color: $white;
+    color: $if-color;
   }
 
   .me {
-    display: inline-block;
-    color: $hampton;
+    color: $me-color;
+    &::before {
+      border-top: 0.15ex solid $me-color;
+      border-bottom: 0.15ex solid $me-color;
+    }
+  }
+}
+
+@mixin setSize($font-size) {
+  font-size: $font-size;
+  line-height: $font-size;
+  height: 1.5 * $font-size;
+
+  .if, .me {
+    height: $font-size;
+  }
+
+  .me {
     margin: 0 0 0 0.5ex;
     position: relative;
-
     &::before {
       content: ' ';
       position: absolute;
-      height: 1.5 * $size-30;
+      height: 1.5 * $font-size;
       width: 100%;
-      transform: translateY(-10%);
-      border-top: 0.15ex solid $hampton;
-      border-bottom: 0.15ex solid $hampton;
+      transform: translateY(-13%);
     }
   }
+}
 
-  &.small {
-    font-size: $size-30;
-    line-height: $size-30;
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $font-family;
+  font-weight: $font-weight-300;
+  text-transform: lowercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  @include setSize($size-30);
+  @include setColor($white, $key-lime);
 
-    .if,
-    .me {
-      height: $size-30;
-    }
+  &:link, &:visited, &:hover, &:active {
+    text-decoration: none;
+    border: none;
+  }
 
-    .me {
-      &::before {
-        height: 1.5 * $size-30;
-      }
-    }
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.solid {
+    @include setSize($size-30);
+    @include setColor($black, $black);
+  }
+
+  &.sm {
+    @include setSize($size-24);
+  }
+
+  &.lg {
+    @include setSize($size-40);
   }
 }

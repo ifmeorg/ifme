@@ -26,7 +26,6 @@
   <div>
     <%= link_to(sanitize('<i class="fa fa-pencil-alt"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
   </div>
-  <div class="clear"></div>
 <% elsif yield(:page_new).present? && @page_tooltip %>
   <div>
     <%= yield(:title) %>
@@ -34,16 +33,12 @@
   <div>
     <%= link_to(sanitize('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
   </div>
-  <div class="clear"></div>
 <% elsif @page_author.present? %>
-  <div id="other_user">
-    <div>
-      <%= yield(:title) %>
-    </div>
-    <div id="page_author">
-      <%= @page_author %>
-    </div>
-    <div class="clear"></div>
+  <div>
+    <%= yield(:title) %>
+  </div>
+  <div id="page_author">
+    <%= @page_author %>
   </div>
 <% else %>
   <%= yield(:title) %>

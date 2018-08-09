@@ -1,0 +1,35 @@
+.padding_right {
+  padding-right: $size-40 !important;
+
+  @media screen and (max-width: $medium) {
+    padding-right: 0 !important;
+  }
+}
+
+.padding_left {
+  padding-left: $size-40 !important;
+}
+
+.padding_top {
+  padding-top: $size-40 !important;
+}
+
+.padding_bottom {
+  padding-bottom: $size-40 !important;
+}
+
+.small_padding_right {
+  padding-right: $size-20 !important;
+}
+
+.small_padding_left {
+  padding-left: $size-20 !important;
+}
+
+.small_padding_top {
+  padding-top: $size-20 !important;
+}
+
+.small_padding_bottom {
+  padding-bottom: $size-20 !important;
+}
