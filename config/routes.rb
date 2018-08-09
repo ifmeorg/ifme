@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       post 'comment'
       post 'quick_moment'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
       post 'premade'
       post 'quick_create'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
@@ -62,6 +64,7 @@ Rails.application.routes.draw do
       get 'leave'
       post 'comment'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
