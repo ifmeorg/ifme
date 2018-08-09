@@ -9,40 +9,44 @@
 
 <% if @groups.any? %>
   <h1 class="group_type"><%= t('groups.index.joined_groups') %></h1>
-  <% @groups.each do |group| %>
-    <div class="group <%= 'no_margin_bottom' if group == @groups.last %>">
-      <h1 class="group_name">
-        <%= link_to group.name, group %>
-        <%= t('groups.index.leader') if user_is_leader_of? group %>
-      </h1>
+  <div id="pages">
+    <div class="page">
+    <% @groups.each do |group| %>
+      <div class="group">
+        <h1 class="group_name">
+          <%= link_to group.name, group %>
+          <%= t('groups.index.leader') if user_is_leader_of? group %>
+        </h1>
 
-      <div class="notification_wrapper small_margin_bottom">
-        <strong class="tip_notifications_button">
-          <i class="fa fa-list small_margin_right"></i>
-          <%= t('members', count: group.group_members.count) %>
-        </strong>
-        <%= render_group_member_partial(group) %>
+        <div class="notification_wrapper small_margin_bottom">
+          <strong class="tip_notifications_button">
+            <i class="fa fa-list small_margin_right"></i>
+            <%= t('members', count: group.group_members.count) %>
+          </strong>
+          <%= render_group_member_partial(group) %>
+        </div>
+
+        <%= strip_tags(group.description[0..80]) %>
+        <%= t('ellipsis') if group.description.length >= 80 %>
+
+        <div class="small_margin_top">
+          <% if user_can_edit?(group) %>
+            <i class="fa fa-pencil-alt action"></i>
+            <%= edit_group_link(group) %>
+          <% end %>
+          <% if user_can_leave?(group) %>
+            <i class="fa fa-times action"></i>
+            <%= leave_group_link(group) %>
+          <% end %>
+          <% if user_can_delete?(group) %>
+            <i class="fa fa-trash-alt action"></i>
+            <%= delete_group_link(group) %>
+          <% end %>
+        </div>
       </div>
-
-      <%= strip_tags(group.description[0..80]) %>
-      <%= t('ellipsis') if group.description.length >= 80 %>
-
-      <div class="small_margin_top">
-        <% if user_can_edit?(group) %>
-          <i class="fa fa-pencil-alt action"></i>
-          <%= edit_group_link(group) %>
-        <% end %>
-        <% if user_can_leave?(group) %>
-          <i class="fa fa-times action"></i>
-          <%= leave_group_link(group) %>
-        <% end %>
-        <% if user_can_delete?(group) %>
-          <i class="fa fa-trash-alt action"></i>
-          <%= delete_group_link(group) %>
-        <% end %>
-      </div>
+    <% end %>
     </div>
-  <% end %>
+  </div>
 <% else %>
   <%= raw t('groups.index.instructions', {
       icon: '<i class="fa fa-plus-circle"></i>'
@@ -61,26 +65,30 @@
 
   <h1 class="group_type"><%= t('groups.index.available_groups') %></h1>
 
-  <% @available_groups.each do |group| %>
-    <div class="group <%= 'no_margin_bottom' if group == @available_groups.last %>">
-      <h1 class="group_name">
-        <%= link_to group.name, group %>
-      </h1>
+  <div id="pages">
+    <div class="page">
+    <% @available_groups.each do |group| %>
+      <div class="group">
+        <h1 class="group_name">
+          <%= link_to group.name, group %>
+        </h1>
 
-      <div class="notification_wrapper small_margin_bottom">
-        <strong class="tip_notifications_button">
-          <i class="fa fa-list small_margin_right"></i>
-          <%= t('members', count: group.group_members.count) %>
-        </strong>
-        <%= render_group_member_partial(group) %>
+        <div class="notification_wrapper small_margin_bottom">
+          <strong class="tip_notifications_button">
+            <i class="fa fa-list small_margin_right"></i>
+            <%= t('members', count: group.group_members.count) %>
+          </strong>
+          <%= render_group_member_partial(group) %>
+        </div>
+
+        <%= strip_tags(group.description[0..80]) %>
+        <%= t('ellipsis') if group.description.length >= 80 %>
+
+        <div class="small_margin_top">
+          <%= join_group_link(group) %>
+        </div>
       </div>
-
-      <%= strip_tags(group.description[0..80]) %>
-      <%= t('ellipsis') if group.description.length >= 80 %>
-
-      <div class="small_margin_top">
-        <%= join_group_link(group) %>
-      </div>
+    <% end %>
     </div>
-  <% end %>
+  </div>
 <% end %>

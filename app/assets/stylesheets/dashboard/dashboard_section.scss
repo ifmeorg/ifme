@@ -1,0 +1,14 @@
+.dashboardSection {
+  flex-basis: 80vw;
+  background: $white-80;
+  border-radius: $size-0 15px 15px $size-0;
+  padding: 62px 70px;
+  @media screen and (max-width: $medium) {
+    border-radius: 0;
+    padding: 15px 10px;
+    flex-basis: auto;
+  }
+  @media screen and (max-width: $large) {
+    flex-basis: 70vw;
+  }
+}

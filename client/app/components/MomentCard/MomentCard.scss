@@ -5,12 +5,12 @@
   position: relative;
   background: $white;
   box-shadow: $size-0 $size-2 $size-10 $black-10;
-  border-radius: $size-5;
+  border-radius: $size-4;
   line-height: 1;
 
   .header {
     position: relative;
-    padding: $size-20 $size-20 $size-5 $size-20;
+    padding: $size-20 $size-20 $size-4 $size-20;
 
     .draft {
       display: inline-block;
@@ -20,7 +20,7 @@
       div {
         border: $size-1 solid $mulberry;
         box-sizing: border-box;
-        border-radius: $size-5;
+        border-radius: $size-4;
       }
     }
 
@@ -78,7 +78,7 @@
     :global(.tag) {
       color: $white;
       border-width: 0;
-      border-radius: $size-5;
+      border-radius: $size-4;
       margin: $size-1;
       display: inline-block;
     }

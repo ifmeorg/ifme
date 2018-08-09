@@ -3,9 +3,19 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+  font-weight: $font-weight-300;
+  font-size: $size-34;
+  margin-bottom: $size-20;
   > div:last-of-type {
-    text-align: right;
+    margin-left: auto;
+  }
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    > div:last-of-type {
+      margin: $size-0;
+    }
   }
 }
 
@@ -17,7 +27,7 @@ a.page_search:link,
 a.page_search:visited {
   text-decoration: none;
   border: none;
-  color: $white;
+  color: $black;
 }
 
 a.page_edit:hover,
@@ -25,6 +35,6 @@ a.page_new:hover,
 a.page_search:hover {
   text-decoration: none;
   border: none;
-  color: $white;
+  color: $black;
   opacity: 0.5;
 }

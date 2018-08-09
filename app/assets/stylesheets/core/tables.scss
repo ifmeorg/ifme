@@ -1,0 +1,48 @@
+table {
+  border-collapse: separate;
+}
+
+/* Tables */
+
+.action {
+  color: $steel-blue;
+  margin-right: $size-10;
+}
+
+.vertical_align_top {
+  vertical-align: top;
+}
+
+.vertical_align_middle {
+  vertical-align: middle;
+}
+
+.vertical_align_bottom {
+  vertical-align: bottom;
+}
+
+/* Table */
+
+div.table {
+  display: table;
+  table-layout: auto;
+  width: 100%;
+  border-collapse: separate;
+}
+
+div.table div.table_row {
+  display: table-row;
+
+  @media screen and (max-width: $medium) {
+    display: block;
+  }
+}
+
+div.table div.table_cell {
+  display: table-cell;
+  word-break: break-word;
+
+  @media screen and (max-width: $medium) {
+    display: block;
+  }
+}

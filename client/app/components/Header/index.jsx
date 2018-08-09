@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
+import { Logo } from '../Logo';
 
 import css from './Header.scss';
 
@@ -67,7 +68,7 @@ export class Header extends React.Component<Props, State> {
     return (
       <div className={css.headerDesktop}>
         <div className={css.headerDesktopHome}>
-          <a href={home.url}>{home.name}</a>
+          <Logo sm link={home.url} />
         </div>
         <div className={css.headerDesktopNav}>
           <div

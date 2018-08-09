@@ -1,0 +1,74 @@
+@mixin button() {
+  background: $white;
+  color: $mulberry;
+  border-radius: $size-4;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+@mixin buttonHover() {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin buttonS() {
+  font-size: $size-14;
+  padding: $size-10 $size-20;
+}
+
+@mixin buttonM() {
+  font-size: $size-18;
+  padding: $size-16 $size-32;
+}
+
+@mixin buttonL() {
+  font-size: $size-24;
+  padding: $size-22 $size-44;
+  font-weight: bold;
+}
+
+@mixin buttonGhost() {
+  background: $white-10;
+  color: $white;
+}
+
+.buttonGhost {
+  &S {
+    @include button();
+    @include buttonGhost();
+    @include buttonS();
+    @include buttonHover();
+  }
+  &M {
+    @include button();
+    @include buttonGhost();
+    @include buttonM();
+    @include buttonHover();
+  }
+  &L {
+    @include button();
+    @include buttonGhost();
+    @include buttonL();
+    @include buttonHover();
+  }
+}
+
+.button {
+  &S {
+    @include button();
+    @include buttonS();
+    @include buttonHover();
+  }
+  &M {
+    @include button();
+    @include buttonM();
+    @include buttonHover();
+  }
+  &L {
+    @include button();
+    @include buttonL();
+    @include buttonHover();
+  }
+}

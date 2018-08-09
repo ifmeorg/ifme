@@ -1,0 +1,69 @@
+.dashboardNav {
+  flex-basis: 20vw;
+  background: $black-30;
+  border-radius: $size-16 $size-0 $size-0 $size-16;
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+  @media screen and (max-width: $large) {
+    flex-basis: 30vw;
+  }
+  &Profile {
+    padding: $size-22 $size-26;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &Picture {
+      padding-right: $size-10;
+    }
+    &Info {
+      color: $white;
+      font-size: $size-18;
+      &Links {
+        font-size: $size-0;
+        margin-top: $size-14;
+        line-height: $size-40;
+        > a {
+          margin-right: $size-8;
+        }
+        > a:last-of-type {
+          margin-right: $size-0;
+        }
+      }
+    }
+    @media screen and (max-width: $medium) {
+      text-align: center;
+      justify-content: center;
+      &Picture {
+        display: none;
+        padding: $size-0;
+      }
+    }
+  }
+  &Links {
+    a {
+      display: block;
+      padding: $size-18 $size-26;
+      text-decoration: none;
+      border: none;
+      color: $white;
+      background: $black-20;
+    }
+    &Active {
+      background: $white-70 !important;
+      color: $mulberry-70 !important;
+    }
+    @media screen and (max-width: $medium) {
+      text-align: center;
+      font-size: $size-18;
+    }
+  }
+  &Actions {
+    padding: $size-22 $size-26;
+    > a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
