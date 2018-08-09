@@ -40,3 +40,6 @@ user2_mood2 = Mood.create(user_id: user2.id, name: 'Exhausted', description: 'No
 user2_moment1 = Moment.create(user_id: user2.id, category: Array.new(1, user2_category1.id), mood: Array.new(1, user2_mood1.id), name: 'Thanksgiving Dinner', why: 'He kept asserting to everyone that I was immature and he always did everything for me.', viewers: Array.new(1, user1.id), comment: false)
 user2_moment1_comment = Comment.create(commentable_type: 'moment', commentable_id: user2_moment1.id, comment_by: user1.id, comment: "You should talk to him one-on-one and tell him how you feel!", visibility: 'all')
 user1_group1_member2 = GroupMember.create(group_id: user1_group1.id, user_id: user2.id, leader: true)
+
+#Admin 1
+Admin.create!(email: 'foo@bar.com', password: 'password')

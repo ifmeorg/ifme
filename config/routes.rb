@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
+  devise_for :admins, skip: :registrations
+
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -13,8 +16,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :medications
+  namespace :admin do
+    resources :reports
+  end
+  
+  get 'admin' => 'admin/reports#index'
 
+  resources :medications
+  resources :reports
   resources :moods do
     collection do
       post 'premade'
