@@ -1,0 +1,18 @@
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  color: $mulberry !important;
+}
+
+#ui-datepicker-div {
+  font: $size-20 $font-family !important;
+  font-weight: $font-weight-400 !important;
+
+  @media screen and (max-width: $medium) {
+    font: $size-18 $font-family !important;
+    font-weight: $font-weight-400 !important;
+  }
+
+  @media screen and (max-width: $small) {
+    font: $size-16 $font-family !important;
+    font-weight: $font-weight-400 !important;
+  }
+}

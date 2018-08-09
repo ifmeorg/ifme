@@ -1,0 +1,41 @@
+small_font {
+  font: $size-14 $font-family;
+  font-weight: $font-weight-400;
+
+  @media screen and (max-width: $small) {
+    font: $size-12 $font-family;
+    font-weight: $font-weight-400;
+  }
+}
+
+p {
+  word-wrap: break-word;
+}
+
+strong, b {
+  color: $mulberry;
+}
+
+ul:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list)  {
+  padding-left: 0;
+}
+
+ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list),
+ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
+  list-style-position:inside;
+}
+
+li:not(.ui-autocomplete, .no_bullet_list) {
+  list-style-type: circle;
+}
+
+ul.no_bullet_list {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+ul.no_bullet_list li {
+  list-style-type: none;
+}

@@ -1,0 +1,6 @@
+.static {
+  background-image: image-url('/assets/static_page_top_bg.svg'), image-url('/assets/static_page_bottom_bg.svg'), $mulberry-key-lime;
+  background-size: 100% auto;
+  background-position: center top, center bottom;
+  background-repeat: no-repeat, no-repeat;
+}

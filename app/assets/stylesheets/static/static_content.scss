@@ -1,0 +1,9 @@
+.staticContent {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $size-40 60px;
+  line-height: 150%;
+  @media screen and (max-width: $medium) {
+    padding: $size-20;
+  }
+}

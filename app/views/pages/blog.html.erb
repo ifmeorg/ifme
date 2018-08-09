@@ -5,13 +5,13 @@
 <div class="spacer"></div>
 
 
-<% @posts.each_with_index do |p, index| %>
-  <% if index + 1 == @posts.length %>
-    <div class="blog_post no_margin_bottom">
-  <% else %>
+<div id="pages">
+  <div class="page">
+  <% @posts.each_with_index do |p, index| %>
     <div class="blog_post">
+      <h1 class="blog_name"><%= link_to p["link_name"], p["link"], target: 'blank' %></h1>
+      <%= p["author"] %>
+    </div>
   <% end %>
-  <h1 class="blog_name"><%= link_to p["link_name"], p["link"], target: 'blank' %></h1>
-    <%= p["author"] %>
   </div>
-<% end %>
+</div>

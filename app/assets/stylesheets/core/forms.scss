@@ -1,0 +1,134 @@
+label {
+  font-size: $size-30;
+  font-weight: $font-weight-300;
+
+  @media screen and (max-width: $medium) {
+    font-size: $size-26;
+  }
+}
+
+.label {
+  width: auto;
+  display: inherit;
+  font-size: $size-30;
+  margin-bottom: $size-20;
+
+  @media screen and (max-width: $medium) {
+    font-size: $size-26;
+    margin-bottom: $size-20;
+  }
+}
+
+.label i, .sidebar_label i {
+  opacity: 0.5;
+}
+
+textarea {
+  width: 50%;
+  height: 100px;
+}
+
+input,
+textarea,
+select,
+fieldset {
+  border: $size-1 solid $black-20;
+  padding: $size-10;
+  box-shadow: 0 0 $size-2 $black-20 inset;
+  background-color: $white;
+  font: $size-20 $font-family;
+  margin-right: $size-10;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $medium) {
+    width: 100%;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 0 $size-10 0 $size-4;
+  width: auto;
+  height: auto;
+  box-shadow: none;
+}
+
+.field input[type="text"],
+.field input[type="passsword"],
+.field input[type="email"] {
+  margin-right: $size-0;
+}
+
+
+input[type="submit"] {
+  border: $size-1 solid $mulberry;
+  box-shadow: 0 0 $size-2 $mulberry inset;
+  color: $mulberry;
+  background: $white;
+  font: $size-20 $font-family;
+}
+
+input[type="submit"]:hover {
+  border: $size-1 solid $mulberry;
+  box-shadow: 0 0 $size-2 $mulberry inset;
+  color: $mulberry;
+  background: $white;
+  opacity: 0.5;
+}
+
+.field,
+.actions {
+  margin-bottom: $size-40;
+
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-20;
+  }
+}
+
+.full_field,
+.name_field {
+  width: 100%;
+}
+
+.toggle_button:link, .toggle_button:visited {
+  font-size: $size-26;
+  color: $black;
+  float: right;
+  border: none;
+}
+
+.sidebar {
+  @media screen and (min-width: $medium) {
+    width: 30%;
+  }
+}
+
+.sidebar_field {
+  padding: 15px 15px 15px $size-0;
+
+  @media screen and (max-width: $medium) {
+    padding: $size-10 $size-10 $size-10 $size-0;
+    width: 100%;
+  }
+}
+
+.sidebar_label label, .sidebar_label {
+  font-size: $size-24;
+}
+
+.sidebar_label.expand_toggle label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.special_textarea {
+  height: 200px;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
+  border-color: $black-20;
+  box-shadow: $size-0 $size-0 $size-2 $black-20;
+}

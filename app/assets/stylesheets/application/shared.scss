@@ -1,16 +1,7 @@
 .ally,
-.group {
-  border: $size-1 solid $mulberry;
-  padding: $size-20;
-  box-shadow: 0 0 $size-2 $mulberry inset;
-  margin-bottom: $size-20;
-
-  @media screen and (max-width: $medium) {
-    padding: $size-10;
-    margin-bottom: $size-20;
-  }
-}
-
+.blog_post,
+.resource,
+.group,
 .category,
 .medication,
 .meeting,
@@ -18,8 +9,7 @@
 .mood,
 .story,
 .strategy,
-.contributor,
-.ally {
+.contributor {
   @include box-sizing(border-box);
   width: calc(50% - 10px);
   padding: $size-20;
@@ -27,7 +17,7 @@
 
   background: $white;
   box-shadow: $size-0 $size-2 $size-10 $black-10;
-  border-radius: $size-5;
+  border-radius: $size-4;
 
   @media screen and (max-width: $medium) {
     width: 100%;
@@ -152,8 +142,6 @@
   }
 }
 
-
-#other_user,
 .story {
   .align_left {
     float: left;
@@ -179,8 +167,8 @@
   @media screen and (max-width: $small) {
     .story_name {
       font-size: $size-20;
-      margin: $size-0 $size-0 $size-5 $size-0;
-      padding-bottom: $size-5;
+      margin: $size-0 $size-0 $size-4 $size-0;
+      padding-bottom: $size-4;
       border-bottom: $size-1 solid $dusty-rose;
     }
 
@@ -411,6 +399,7 @@
 }
 
 #pages .page,
+.resource_list,
 .tag_usage,
 .contributors,
 .allies_list {

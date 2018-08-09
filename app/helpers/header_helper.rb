@@ -14,7 +14,7 @@ module HeaderHelper
   private
 
   def mobile_only
-    render partial: 'shared/content_nav'
+    render partial: 'shared/dashboard_nav'
   end
 
   def add_signed_in_links
