@@ -56,12 +56,10 @@
     </ul>
 
     <ul class="top-nav primary-nav">
-      <% if user_signed_in? %>
-      <%  if current_user.admin? %>
-        <%= link_to('AdminDashboard') %>
-      <% end %>
-      <% end %>
-      <div class="clear"></div>
+    <% if user_signed_in? %>    
+        <%= link_to('AdminDashboard', admin_path) %>
+        <div class="clear"></div>
+    <% end %>
     </ul>
 
     <% if user_signed_in? %>

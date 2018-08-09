@@ -1,0 +1,22 @@
+<h1>Reports</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ReporterId</th>
+      <th>ReportedId</th>
+      <th>Comments</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_reports.each do |report| %>
+      <tr>
+      <td><%= report.reporter_id %></td>
+      <td><%= report.reportee_id %></td>
+      <td><%= report.comments %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
