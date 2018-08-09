@@ -55,6 +55,13 @@
       <div class="clear"></div>
     </ul>
 
+    <ul class="top-nav primary-nav">
+    <% if user_signed_in? %>    
+        <%= link_to('AdminDashboard', admin_path) %>
+        <div class="clear"></div>
+    <% end %>
+    </ul>
+
     <% if user_signed_in? %>
       <ul id="expand_moment" class="top-nav display_none">
         <%= nav_link_to(t('categories.plural'), categories_path) %>
