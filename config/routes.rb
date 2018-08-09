@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, skip: :registrations
+
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -43,6 +45,8 @@ Rails.application.routes.draw do
       get 'delete_comment'
     end
   end
+
+  resources :reports
 
   resources :secret_shares, only: [:create, :show, :destroy]
 

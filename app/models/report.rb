@@ -1,3 +1,4 @@
 class Report < ApplicationRecord
-    belongs_to :ally
+  belongs_to :user
 end
+
