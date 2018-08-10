@@ -6,7 +6,7 @@ describe AllyNotifications::AcceptedAllyRequest do
   let(:data) do
     HashWithIndifferentAccess.new({
       'user' =>  ally.name,
-      'userid' =>  ally.id,
+      'user_id' =>  ally.id,
       'uid'  => ally.uid,
       'type' => 'accepted_ally_request',
       'uniqueid' => 'some_unique_id'

@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
       { name: t('languages.en'), locale: :en },
       { name: t('languages.es'), locale: :es },
       { name: t('languages.nl'), locale: :nl },
-      { name: t('languages.ptbr'), locale: :ptbr },
+      { name: t('languages.pt-BR'), locale: :'pt-BR' },
       { name: t('languages.sv'), locale: :sv },
       { name: t('languages.it'), locale: :it },
       { name: t('languages.nb'), locale: :nb },
@@ -105,24 +105,25 @@ class ApplicationController < ActionController::Base
     viewers.include? current_user.id
   end
 
-  def get_uid(userid)
-    User.find(userid).uid
+  def get_uid(user_id)
+    User.find(user_id).uid
   end
 
   # rubocop:disable MethodLength
+  # TODO: move this method out of the controller + refactor
   def most_focus(data_type, profile_id)
     data = []
-    userid = profile_id || current_user.id
+    user_id = profile_id || current_user.id
     moments =
       if current_user.id == profile_id
-        user_moments(userid)
+        user_moments(user_id)
       else
-        user_moments(userid).where.not(published_at: nil)
+        user_moments(user_id).where.not(published_at: nil)
       end
     if data_type == 'category'
-      strategies = user_strategies(userid)
+      strategies = user_strategies(user_id)
       [moments, strategies].each do |records|
-        records.where(userid: userid).find_each do |r|
+        records.where(user_id: user_id).find_each do |r|
           if r.category.any? && (profile_id.blank? ||
                                  profile_exists?(profile_id, r))
             data += r.category
@@ -144,11 +145,11 @@ class ApplicationController < ActionController::Base
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
-  def tag_usage(data_id, data_type, userid)
+  def tag_usage(data_id, data_type, user_id)
     result = []
-    moments = user_moments(userid).order('created_at DESC')
+    moments = user_moments(user_id).order('created_at DESC')
     if data_type == 'category'
-      strategies = user_strategies(userid).order('created_at DESC')
+      strategies = user_strategies(user_id).order('created_at DESC')
       [moments, strategies].each do |records|
         objs = []
         records.find_each do |r|
@@ -178,7 +179,7 @@ class ApplicationController < ActionController::Base
     end
 
     comment_info += " - #{TimeAgo.formatted_ago(data.created_at)}"
-    comment_text = raw(data.comment)
+    comment_text = sanitize(data.comment)
 
     if data_type == 'moment'
       visibility = CommentVisibility.build(data,
@@ -192,7 +193,7 @@ class ApplicationController < ActionController::Base
 
     if comment_deletable?(data, data_type)
       delete_comment = '<div class="table_cell delete_comment">'
-      delete_comment += link_to raw('<i class="fa fa-times"></i>'),
+      delete_comment += link_to sanitize('<i class="fa fa-times"></i>'),
                                 '',
                                 id: "delete_comment_#{data.id}",
                                 class: 'delete_comment_button'
@@ -245,39 +246,32 @@ class ApplicationController < ActionController::Base
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
+  # TODO: move this logic out of the controller and into a helper method
   def moments_stats
-    result = ''
-    count = current_user.moments.all.count
+    total_count = current_user.moments.all.count
+    monthly_count = current_user.moments.where(
+      created_at: Time.current.beginning_of_month..Time.current
+    ).count
 
-    # rubocop:disable BlockNesting
-    if count > 1
-      result += '<div class="center" id="stats">'
+    return '' if total_count <= 1
 
-      if count == 1
-        result += t('stats.total_moment', count: count.to_s)
-      else
-        result += t('stats.total_moments', count: count.to_s)
+    result = '<div class="center" id="stats">'
+    result += if total_count == 1
+                t('stats.total_moment', count: total_count.to_s)
+              else
+                t('stats.total_moments', count: total_count.to_s)
+              end
 
-        beginning_of_month = Time.current.beginning_of_month
-        end_of_month = Time.current.end_of_month
-        monthly_count = current_user.moments.where(
-          created_at: beginning_of_month..end_of_month
-        ).all.count
-        if count != monthly_count
-          result += ' '
-          result += if monthly_count == 1
-                      t('stats.monthly_moment', count: monthly_count.to_s)
-                    else
-                      t('stats.monthly_moments', count: monthly_count.to_s)
-                    end
-        end
-      end
-
-      result += '</div>'
+    if total_count != monthly_count
+      result += ' '
+      result += if monthly_count == 1
+                  t('stats.monthly_moment', count: monthly_count.to_s)
+                else
+                  t('stats.monthly_moments', count: monthly_count.to_s)
+                end
     end
-    # rubocop:enable BlockNesting
 
-    result
+    result + '</div>'
   end
   # rubocop:enable MethodLength
 
@@ -288,21 +282,18 @@ class ApplicationController < ActionController::Base
     data_id.in?(data[data_type])
   end
 
-  # rubocop:disable MethodLength
+  # TODO: refactor calling method to pass a hash to start with
   def top_three_focus(data)
-    result, freq = {}
-    3.times do
-      freq = data.each_with_object(Hash.new(0)) { |v, h| h[v] += 1 }
-      break if freq.empty?
-      max = data.max_by { |v| freq[v] }
-      break if freq[max].zero?
-      result[max] = freq[max]
-      freq.delete(max)
-      data.delete(max)
+    # Turn data array into hash of value => freq_of_value
+    freq = data.each_with_object(Hash.new(0)) do |value, hash|
+      hash[value] += 1
     end
-    result
+
+    # Sort hash and take highest 3 values
+    freq.sort_by do |occurrences, _value|
+      occurrences
+    end[0..2].to_h
   end
-  # rubocop:enable MethodLength
 
   def profile_exists?(profile, data)
     profile.present? &&
@@ -314,12 +305,12 @@ class ApplicationController < ActionController::Base
   def user_created_data?(id, data_type)
     case data_type
     when 'moment'
-      Moment.where(id: id, userid: current_user.id).exists?
+      Moment.where(id: id, user_id: current_user.id).exists?
     when 'strategy'
-      Strategy.where(id: id, userid: current_user.id).exists?
+      Strategy.where(id: id, user_id: current_user.id).exists?
     when 'meeting'
-      MeetingMember.where(meetingid: id, leader: true,
-                          userid: current_user.id).exists?
+      MeetingMember.where(meeting_id: id, leader: true,
+                          user_id: current_user.id).exists?
     else
       false
     end
@@ -345,7 +336,7 @@ class ApplicationController < ActionController::Base
   def show_with_comments(subject)
     model_name = record_model_name(subject)
 
-    if current_user.id != subject.userid && hide_page?(subject)
+    if current_user.id != subject.user_id && hide_page?(subject)
       path = send("#{model_name.pluralize}_path")
       return redirect_to_path(path)
     end
@@ -355,11 +346,11 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
-    if current_user.id == subject.userid
+    if current_user.id == subject.user_id
       @page_edit = send("edit_#{model_name}_path", subject)
       @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
     else
-      ally = User.find(subject.userid)
+      ally = User.find(subject.user_id)
       @page_author = link_to(ally.name,
                              profile_index_path(uid: get_uid(ally.id)))
     end
@@ -404,17 +395,15 @@ class ApplicationController < ActionController::Base
     || !subject.published?
   end
 
-  def user_strategies(userid)
-    Strategy.where(userid: userid)
+  def user_strategies(user_id)
+    Strategy.where(user_id: user_id)
   end
 
-  def user_moments(userid)
-    Moment.where(userid: userid)
+  def user_moments(user_id)
+    Moment.where(user_id: user_id)
   end
 
-  # rubocop:disable MethodLength
   def user_stories(user, collection)
-    resources = []
     case collection
     when 'moments'
       query = Moment.published
@@ -422,11 +411,9 @@ class ApplicationController < ActionController::Base
       query = Strategy.published
     end
 
-    query.where(userid: user.id).all.recent.each do |story|
-      resources << story if story.viewers.include?(current_user.id)
-    end
-    resources
+    query.where(user_id: user.id).all.recent.map do |story|
+      story if story.viewers.include?(current_user.id)
+    end.compact
   end
-  # rubocop:enable MethodLength
 end
 # rubocop:enable ClassLength

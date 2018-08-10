@@ -5,6 +5,7 @@ class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   include QuickCreate
+  include Shared
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
@@ -36,22 +37,15 @@ class StrategiesController < ApplicationController
       strategyid = Comment.where(id: params[:commentid]).first.commentable_id
       is_my_strategy = Strategy.where(
         id: strategyid,
-        userid: current_user.id
+        user_id: current_user.id
       ).exists?
     else
       is_my_strategy = false
     end
 
     if comment_exists && (is_my_comment || is_my_strategy)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifications
-      public_uniqueid = 'comment_on_strategy_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-
-      private_uniqueid = 'comment_on_strategy_private_' +
-                         params[:commentid].to_s
-      Notification.where(uniqueid: private_uniqueid).destroy_all
+      CommentNotificationsService.remove(comment_id: params[:commentid],
+                                         model_name: 'strategy')
     end
 
     head :ok
@@ -66,7 +60,7 @@ class StrategiesController < ApplicationController
       viewers.push(item.id)
     end
 
-    strategy = Strategy.new(userid: current_user.id,
+    strategy = Strategy.new(user_id: current_user.id,
                             name: params[:strategy][:name],
                             description: params[:strategy][:description],
                             category: params[:strategy][:category],
@@ -87,7 +81,7 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(userid: current_user.id)
+    @categories = Category.where(user_id: current_user.id)
                           .all
                           .order('created_at DESC')
     @category = Category.new
@@ -96,9 +90,9 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    if @strategy.userid == current_user.id
+    if @strategy.user_id == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(userid: current_user.id)
+      @categories = Category.where(user_id: current_user.id)
                             .all
                             .order('created_at DESC')
       @category = Category.new
@@ -112,19 +106,11 @@ class StrategiesController < ApplicationController
   # POST /strategies.json
   # rubocop:disable MethodLength
   def create
-    @strategy = Strategy.new(strategy_params.merge(userid: current_user.id))
+    @strategy = Strategy.new(strategy_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @strategy.save
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :created, location: @strategy }
-      else
-        format.html { render :new }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_create(@strategy, 'strategy')
   end
   # rubocop:enable MethodLength
 
@@ -165,35 +151,15 @@ class StrategiesController < ApplicationController
     elsif saving_as_draft?
       @strategy.published_at = nil
     end
-
     empty_array_for :viewers, :category
-
-    respond_to do |format|
-      if @strategy.update(strategy_params)
-        format.html { redirect_to strategy_path(@strategy) }
-        format.json { render :show, status: :ok, location: @strategy }
-      else
-        format.html { render :edit }
-        format.json { render_errors(@strategy) }
-      end
-    end
+    shared_update(@strategy, 'strategy', strategy_params)
   end
   # rubocop:enable MethodLength
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
-    # Remove strategies from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.strategy.delete(@strategy.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(strategy: item.strategy)
-    end
-
-    @strategy.destroy
-    redirect_to_path(strategies_path)
+    shared_destroy(@strategy, 'strategy')
   end
 
   private

@@ -1,20 +1,19 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: strategies
 #
-#  id          :integer          not null, primary key
-#  userid      :integer
-#  category    :text
-#  description :text
-#  viewers     :text
-#  comment     :boolean
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  category     :text
+#  description  :text
+#  viewers      :text
+#  comment      :boolean
+#  created_at   :datetime
+#  updated_at   :datetime
+#  name         :string
+#  slug         :string
 #  published_at :datetime
-#  name        :string
-#  slug        :string
 #
 
 class Strategy < ApplicationRecord
@@ -27,14 +26,14 @@ class Strategy < ApplicationRecord
 
   before_save :array_data_to_i!
 
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user
   has_many :comments, as: :commentable
 
   has_one :perform_strategy_reminder
   accepts_nested_attributes_for :perform_strategy_reminder
 
   validates :comment, inclusion: [true, false]
-  validates :userid, :name, :description, presence: true
+  validates :user_id, :name, :description, presence: true
   validates :description, length: { minimum: 1, maximum: 2000 }
 
   scope :published, -> { where.not(published_at: nil) }

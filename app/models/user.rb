@@ -63,19 +63,19 @@ class User < ApplicationRecord
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts
-  has_many :group_members, foreign_key: :userid
+  has_many :group_members, foreign_key: :user_id
   has_many :groups, through: :group_members
-  has_many :meeting_members, foreign_key: :userid
-  has_many :medications, foreign_key: :userid
-  has_many :strategies, foreign_key: :userid
-  has_many :notifications, foreign_key: :userid
-  has_many :moments, foreign_key: :userid
-  has_many :moods, foreign_key: :userid
+  has_many :meeting_members, foreign_key: :user_id
+  has_many :medications, foreign_key: :user_id
+  has_many :strategies
+  has_many :notifications, foreign_key: :user_id
+  has_many :moods
+  has_many :moments
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'ptbr', 'sv', 'nl', 'it', 'nb', 'vi']
+    in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
   }
 
   def ally?(user)
@@ -161,6 +161,6 @@ class User < ApplicationRecord
 
   def ally_groups
     Group.includes(:group_members)
-         .where(group_members: { userid: accepted_ally_ids })
+         .where(group_members: { user_id: accepted_ally_ids })
   end
 end

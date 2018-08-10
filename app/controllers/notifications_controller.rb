@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
   def destroy
     notification = Notification.find_by(
       id: params[:id],
-      userid: current_user.id
+      user_id: current_user.id
     )
 
     notification.destroy if notification.present?
@@ -20,13 +20,13 @@ class NotificationsController < ApplicationController
   end
 
   def clear
-    Notification.where(userid: current_user.id).destroy_all
+    Notification.where(user_id: current_user.id).destroy_all
     head :ok
   end
 
   def fetch_notifications
     result = {
-      fetch_notifications: Notification.where(userid: current_user.id)
+      fetch_notifications: Notification.where(user_id: current_user.id)
                                        .order(:created_at)
     }
     respond_with_json(result)

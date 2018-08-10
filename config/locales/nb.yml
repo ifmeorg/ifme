@@ -17,7 +17,7 @@ nb:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Various
    vi: Tiếng Việt
@@ -150,11 +150,14 @@ nb:
    joined_groups: 'Grupper du deltar i'
    leader: '(Leder)'
    instructions: "Du er ikke en del av noen grupper enda! Klikk %{icon} for å opprette en eller bli med i en av de tilgjengelige gruppene nedenfor.<br><br>Støttegrupper er bra for å ha åpne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere møter online eller offline. Du kan også bli med i grupper som dine allierte har opprettet."
-  join_success: 'Du har blitt med i denne gruppen.'
+  join:
+    success: 'Du har blitt med i denne gruppen.'
+    group_not_exists: "Du kan ikke bli med i en gruppe som ikke eksisterer."
   leave:
     error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
     success: "Du har forlatt %{group}"
     remove_member_success: "Du har fjernet %{user} fra %{group}"
+    remove_member_error: "Du kan ikke sparke et gruppemedlem fordi du ikke er leder."
   new: 'Ny gruppe'
   show:
    led_by: 'Ledet av:'

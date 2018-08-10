@@ -11,11 +11,11 @@ module CollectionPageSetup
     name = params[:search]
     model = Object.const_get(model_name.capitalize)
     search = model.where(
-      'name ilike ? AND userid = ?',
+      'name ilike ? AND user_id = ?',
       "%#{name}%",
       current_user.id
     ).all
-    user = model.where(userid: current_user.id)
+    user = model.where(user_id: current_user.id)
     setup_collection(collection, user, search, name)
     @page_tooltip = t("#{model_name.pluralize}.new")
   end

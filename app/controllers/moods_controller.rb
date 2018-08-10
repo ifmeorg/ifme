@@ -3,6 +3,7 @@
 class MoodsController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
+  include Shared
   before_action :set_mood, only: %i[show edit update destroy]
 
   # GET /moods
@@ -14,7 +15,7 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.userid == current_user.id
+    if @mood.user_id == current_user.id
       @page_edit = edit_mood_path(@mood)
       @page_tooltip = t('moods.edit_mood')
     else
@@ -29,23 +30,15 @@ class MoodsController < ApplicationController
 
   # GET /moods/1/edit
   def edit
-    return if @mood.userid == current_user.id
+    return if @mood.user_id == current_user.id
     redirect_to_path(mood_path(@mood))
   end
 
   # POST /moods
   # POST /moods.json
   def create
-    @mood = Mood.new(mood_params.merge(userid: current_user.id))
-    respond_to do |format|
-      if @mood.save
-        format.html { redirect_to mood_path(@mood) }
-        format.json { render :show, status: :created, location: @mood }
-      else
-        format.html { render :new }
-        format.json { render json: @mood.errors, status: :unprocessable_entity }
-      end
-    end
+    @mood = Mood.new(mood_params.merge(user_id: current_user.id))
+    shared_create(@mood, 'mood')
   end
 
   # POST /moods
@@ -58,37 +51,19 @@ class MoodsController < ApplicationController
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    respond_to do |format|
-      if @mood.update(mood_params)
-        format.html { redirect_to mood_path(@mood) }
-        format.json { render :show, status: :ok, location: @mood }
-      else
-        format.html { render :edit }
-        format.json { render json: @mood.errors, status: :unprocessable_entity }
-      end
-    end
+    shared_update(@mood, 'mood', mood_params)
   end
 
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
-    # Remove moods from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.mood.delete(@mood.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(mood: item.mood)
-    end
-
-    @mood.destroy
-    redirect_to_path(moods_path)
+    shared_destroy(@mood, 'mood')
   end
 
   # rubocop:disable MethodLength
   def quick_create
     mood = Mood.new(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: params[:mood][:name],
       description: params[:mood][:description]
     )

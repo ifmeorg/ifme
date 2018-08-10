@@ -1,0 +1,49 @@
+@import "../../styles/_base.scss";
+
+
+@mixin dropdown(
+  $padding: 14px 47px 14px 19px,
+  $font-size: $text-size,
+  $color: $input-ghost-text-color,
+  $border-radius: $rounded-corner,
+  $border: none,
+  $appearance: none
+) {
+  padding: $padding;
+  font-size: $font-size;
+  color: $color;
+  border: $border;
+  border-radius: $border-radius;
+  /** TODO: Use PostCSS to add vendor prefixes **/
+  -webkit-appearance: $appearance;
+  -moz-appearance: $appearance;
+  appearance: $appearance;
+}
+
+
+.dropdown {
+  background: $input-ghost-background-color url('./down.svg') no-repeat right 7px center;
+  box-shadow: $input-ghost-drop-shadow;
+  padding-left: 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.fill_small {
+    background-color: $input-filled-background-color;
+    @include dropdown();
+  }
+
+  &.ghost {
+    @include dropdown(
+      $padding: 19px 47px 19px 19px,
+      $font-size: $text-size-large
+    );
+  }
+
+  &.ghost_small {
+    @include dropdown();
+  }
+}

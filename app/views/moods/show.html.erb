@@ -1,6 +1,6 @@
 <% title @mood.name %>
 <% if @mood.description.present? && @mood.description.length > 0 %>
-  <%= raw(@mood.description) %>
+  <%= sanitize(@mood.description) %>
 <% else %>
   <div class="main_message">
     <%= t('warnings.no_description') %>
@@ -10,4 +10,4 @@
   </div>
 <% end %>
 
-<%= render partial: '/shared/tag_usage', locals: { data: @mood.id, data_type: 'mood', userid: @mood.userid } %>
+<%= render partial: '/shared/tag_usage', locals: { data: @mood.id, data_type: 'mood', user_id: @mood.user_id } %>

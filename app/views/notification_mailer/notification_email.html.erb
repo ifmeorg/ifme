@@ -2,4 +2,4 @@
   <%= t('salutation', name: @recipient.name) %>
 </p>
 
-<%= raw(@message) %>
+<%= sanitize(@message) %>

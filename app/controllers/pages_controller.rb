@@ -66,7 +66,7 @@ class PagesController < ApplicationController
   end
 
   def load_dashboard_data
-    params = { userid: current_user.id }
+    params = { user_id: current_user.id }
 
     @moment = Moment.new
     @categories = Category.where(params).order(created_at: :desc)

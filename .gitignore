@@ -24,6 +24,7 @@
 /config/env/development.env
 
 # Ignore all IDE, TextEditor configuration files
+.vs/
 .idea/
 .tags
 *.swp

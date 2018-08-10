@@ -1,25 +1,27 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+import { availableLocalesAsSelectOptions as localeOptions } from 'libs/i18n/I18nUtils';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import {
-  DropdownFillSmall,
-  DropdownGhost,
-  DropdownGhostSmall,
-} from 'bundles/shared/components/Dropdown';
-import I18nWrapper from './I18nWrapper';
+import { DropdownFillSmall } from '../components/Dropdown/DropdownFillSmall';
+import { DropdownGhost } from '../components/Dropdown/DropdownGhost';
+import { DropdownGhostSmall } from '../components/Dropdown/DropdownGhostSmall';
 
 storiesOf('Dropdown', module)
-  .add('DropdownGhost', withInfo()(() => (
-    <DropdownGhost locale={'en'} localeList={{ en: 'English', fr: 'French' }} />
-  )))
-  .add('DropdownGhostSmall', withInfo()(() => (
-    <DropdownGhostSmall locale={'it'} localeList={{ en: 'English', fr: 'French', it: 'Italian' }} />
-  )))
-  .add('DropdownFillSmall', withInfo()(() => (
-    <DropdownFillSmall locale={'ptbr'} />
-  )))
-  // TODO: Need to "unwrap" the component so that Story Source doesn't just display <I18nWrapper />
-  .add('ChangingLocales', withInfo()(() =>
-    <I18nWrapper />,
+  .add('DropdownGhost', () => (
+    <DropdownGhost
+      options={localeOptions}
+      onChange={action('DropdownGhost.onChange')}
+    />
+  ))
+  .add('DropdownGhostSmall', () => (
+    <DropdownGhostSmall
+      options={localeOptions}
+      onChange={action('DropdownGhostSmall.onChange')}
+    />
+  ))
+  .add('DropdownFillSmall', () => (
+    <DropdownFillSmall
+      options={localeOptions}
+      onChange={action('DropdownFillSmall.onChange')}
+    />
   ));

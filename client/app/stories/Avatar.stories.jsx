@@ -1,32 +1,32 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
-
-import Avatar from 'bundles/shared/components/Avatar';
-import photoJulia from 'app/assets/images/contributors/julia_nguyen.jpg';
-import photoTara from 'app/assets/images/contributors/tara_swenson.jpg';
-
-const withSource = el => withInfo()(() => el);
+import photoJulia from '../../../app/assets/images/contributors/julia_nguyen.jpg';
+import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
+import { Avatar } from '../components/Avatar';
 
 storiesOf('Avatar', module)
-  .add('With name', withSource(
-    <Row style={{ backgroundColor: '#aaa' }}>
+  .add('With name', () => (
+    <Row>
       <Col span={8}>
-        <Avatar src={photoJulia} name="Julia &ldquo;Fleurchild&rdquo; Nguyen" displayname />
+        <Avatar src={photoJulia} name="Julia Nguyen" displayName />
       </Col>
       <Col span={8}>
-        <Avatar src={photoTara} name="Tara Swenson" displayname />
+        <Avatar src={photoTara} name="Tara Swenson" displayName />
       </Col>
       <Col span={8}>
-        <Avatar src="NonExistentFile.jpg" name="Default On Loading Error" displayname />
+        <Avatar
+          src="NonExistentFile.jpg"
+          name="Default On Loading Error"
+          displayName
+        />
       </Col>
-    </Row>,
+    </Row>
   ))
-  .add('Without name', withSource(
-    <Row style={{ backgroundColor: '#aaa' }}>
+  .add('Without name', () => (
+    <Row>
       <Col span={8}>
-        <Avatar src={photoJulia} name="Julia &ldquo;Fleurchild&rdquo; Nguyen" />
+        <Avatar src={photoJulia} name="Julia Nguyen" />
       </Col>
       <Col span={8}>
         <Avatar src={photoTara} name="Tara Swenson" />
@@ -34,5 +34,5 @@ storiesOf('Avatar', module)
       <Col span={8}>
         <Avatar src="NonExistentFile.jpg" name="Default On Loading Error" />
       </Col>
-    </Row>,
+    </Row>
   ));

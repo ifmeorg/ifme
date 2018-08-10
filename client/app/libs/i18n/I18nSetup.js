@@ -3,24 +3,20 @@ import { addLocaleData } from 'react-intl';
 // https://github.com/yahoo/react-intl/wiki/API#addlocaledata
 /*
   type LocaleData = {
-      locale: string,
-      [key: string]: any,
+    locale: string,
+    [key: string]: any,
   }
  */
 import en from 'react-intl/locale-data/en';
 import es from 'react-intl/locale-data/es';
 import it from 'react-intl/locale-data/it';
 import nb from 'react-intl/locale-data/nb';
-import sv from 'react-intl/locale-data/sv';
 import nl from 'react-intl/locale-data/nl';
+import pt from 'react-intl/locale-data/pt';
+import sv from 'react-intl/locale-data/sv';
 import vi from 'react-intl/locale-data/vi';
-import br from 'react-intl/locale-data/br';
-
-const ptbr = br[0];
-ptbr.locale = 'ptbr';
 
 // Initizalize all locales for react-intl.
-// eslint-disable-next-line import/prefer-default-export
 export const loadLocales = () => {
-  addLocaleData([...en, ...es, ...it, ...nb, ...sv, ...nl, ...vi, ptbr]);
+  addLocaleData([].concat(en, es, it, nb, nl, pt, sv, vi));
 };

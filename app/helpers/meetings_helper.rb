@@ -6,7 +6,7 @@ module MeetingsHelper
       join:
         link_to(
           t('common.actions.join'),
-          join_meetings_path(meetingid: id)
+          join_meetings_path(meeting_id: id)
         ))
   end
 
@@ -15,7 +15,7 @@ module MeetingsHelper
     ' ' +
     link_to(
       t('common.actions.leave'),
-      leave_meetings_path(meetingid: id)
+      leave_meetings_path(meeting_id: id)
     )
   end
 
@@ -24,7 +24,7 @@ module MeetingsHelper
       join:
         link_to(
           t('common.actions.join'),
-          join_meetings_path(meetingid: id)
+          join_meetings_path(meeting_id: id)
         ))
   end
 
@@ -34,7 +34,7 @@ module MeetingsHelper
       join:
         link_to(
           t('common.actions.join'),
-          join_meetings_path(meetingid: id)
+          join_meetings_path(meeting_id: id)
         ))
   end
 

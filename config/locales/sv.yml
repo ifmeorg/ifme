@@ -17,7 +17,7 @@ sv:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Olika
    vi: Tiếng Việt
@@ -150,11 +150,14 @@ sv:
    joined_groups: 'Grupper du är medlem i'
    leader: '(Ledare)'
    instructions: "Du är inte medlem i några grupper än, men du kan klicka på %{icon} för att skapa en!"
-  join_success: 'Du har gått med i den här gruppen.'
+  join:
+    success: 'Du har gått med i den här gruppen.'
+    group_not_exists: "Du kan inte gå med i en grupp som inte existerar."
   leave:
     error: 'Du kan inte lämna gruppen, du är den enda ledaren.'
     success: "Du har lämnat %{group}"
     remove_member_success: "Du har tagit bort %{user} från %{group}"
+    remove_member_error: "Du kan inte sparka en gruppmedlem eftersom du inte är ledare."
   new: 'Ny Grupp'
   show:
    led_by: 'Leds av:'

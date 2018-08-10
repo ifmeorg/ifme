@@ -17,7 +17,7 @@ nl:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Verscheidende
    vi: Tiếng Việt
@@ -150,11 +150,14 @@ nl:
    joined_groups: 'Groepslidmaatschappen'
    leader: '(Leider)'
    instructions: "Je maakt nog geen onderdeel uit van een groep, maar je kan op %{icon} klikken om er één aan te maken!"
-  join_success: 'Je bent lid geworden van deze groep.'
+  join:
+    success: 'Je bent lid geworden van deze groep.'
+    group_not_exists: "Je kunt niet lid worden van een groep die niet bestaat."
   leave:
     error: 'Je kunt de groep niet verlaten, je bent de enige leider van de groep.'
     success: "Je hebt %{group} verlaten"
     remove_member_success: "Je hebt %{user} uit %{group} gezet"
+    remove_member_error: "Je kunt een groepslid niet schoppen omdat je geen leider bent."
   new: 'Nieuwe groep'
   show:
    led_by: 'Geleid door:'

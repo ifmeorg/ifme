@@ -1,0 +1,70 @@
+@import "../../styles/_base.scss";
+
+.logo {
+  display: inline-block;
+  width: 6ex;
+  height: 6ex;
+  box-sizing: border-box;
+
+  font-family: $font-family;
+  font-size: $title-size;
+  line-height: $title-size;
+  font-weight: 300;
+  text-transform: lowercase;
+
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  outline: 0;
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+  }
+
+  .if,
+  .me {
+    height: $title-size;
+  }
+
+  .if {
+    color: $logo-color-first;
+  }
+
+  .me {
+    display: inline-block;
+    color: $logo-color-second;
+    margin: 0 0 0 0.5ex;
+    position: relative;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      height: 1.5 * $title-size;
+      width: 100%;
+      transform: translateY(-10%);
+      border-top: 0.15ex solid $logo-color-second;
+      border-bottom: 0.15ex solid $logo-color-second;
+    }
+  }
+
+  &.small {
+    font-size: $title-size-mobile;
+    line-height: $title-size-mobile;
+
+    .if,
+    .me {
+      height: $title-size-mobile;
+    }
+
+    .me {
+      &::before {
+        height: 1.5 * $title-size-mobile;
+      }
+    }
+  }
+}

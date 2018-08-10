@@ -7,7 +7,7 @@
 
     <%= render partial: '/moments/info', locals: { data: local_assigns[:item], show_strategies: true } %>
 
-    <% if current_user.id == local_assigns[:item].userid %>
+    <% if current_user.id == local_assigns[:item].user_id %>
       <div class="small_margin_top">
         <i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_moment_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'moment' %>
@@ -35,7 +35,7 @@
         <%= t('categories.label', count: local_assigns[:item].category.count) %>
       </strong>
       <% local_assigns[:item].category.each do |item| %>
-        <% if Category.where(id: item, userid: current_user.id).exists? %>
+        <% if Category.where(id: item, user_id: current_user.id).exists? %>
         <span class="notification_wrapper">
           <span class="tip_notifications_button link_style"><%= Category.where(id: item).first.name %></span><% if local_assigns[:item].category.last != item %><%= ', ' %><% end %>
           <%= render partial: '/notifications/preview', locals: { data: Category.where(id: item).first, edit: edit_category_path(item) } %>
@@ -43,7 +43,7 @@
         <% end %>
       <% end %>
     <% end %>
-    <% if current_user.id == local_assigns[:item].userid %>
+    <% if current_user.id == local_assigns[:item].user_id %>
       <div class="small_margin_top">
         <i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_strategy_path(local_assigns[:item]) %>
         <% if local_assigns[:data_type] == 'strategy' %>

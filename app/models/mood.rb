@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: moods
@@ -9,7 +8,7 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
-#  userid      :integer
+#  user_id     :integer
 #  slug        :string
 #
 
@@ -17,9 +16,9 @@ class Mood < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :description, length: { maximum: 2000 }
-  validates :userid, :name, presence: true
+  validates :user_id, :name, presence: true
 
-  belongs_to :user, foreign_key: :userid
+  belongs_to :user
 
   def self.link
     'moods'
@@ -28,7 +27,7 @@ class Mood < ApplicationRecord
   def self.add_premade(user_id)
     (1..5).each do |num|
       Mood.create(
-        userid: user_id,
+        user_id: user_id,
         name: I18n.t("moods.index.premade#{num}_name"),
         description: I18n.t("moods.index.premade#{num}_description")
       )

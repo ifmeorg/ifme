@@ -17,7 +17,7 @@ it:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Vari
    vi: Tiếng Việt
@@ -150,11 +150,14 @@ it:
    joined_groups: 'Gruppi a cui appartieni'
    leader: '(Leader)'
    instructions: "Non fai ancora parte di nessun gruppo! Clicca su %{icon} per crearne uno o unisciti a uno di quelli esistenti qui sotto.<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
-  join_success: 'Ti sei unito a questo gruppo.'
+  join:
+    success: 'Ti sei unito a questo gruppo.'
+    group_not_exists: "Non puoi unirti a un gruppo che non esiste."
   leave:
     error: 'Non puoi lasciare il gruppo, sei l’unico leader.'
     success: "Hai lasciato %{group}"
     remove_member_success: "Hai rimosso %{user} da %{group}"
+    remove_member_error: "Non puoi calciare un membro del gruppo perché non sei un leader."
   new: 'Nuovo Gruppo'
   show:
    led_by: 'Gestito da:'
