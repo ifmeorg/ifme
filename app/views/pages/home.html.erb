@@ -7,7 +7,7 @@
   <div id="pages">
     <div class="page">
       <% @stories.each do |story| %>
-        <% if current_user.id == story.userid || (is_viewer(story.viewers) && are_allies?(current_user.id, story.userid)) %>
+        <% if current_user.id == story.user_id || (viewer_of?(story.viewers) && are_allies?(current_user.id, story.user_id)) %>
           <div class="story">
             <div class="align_left">
               <h1 class="story_name">
@@ -17,10 +17,10 @@
             </div>
             <div class="align_right">
               <h1 class="ally_name">
-                <% if current_user.id == story.userid %>
+                <% if current_user.id == story.user_id %>
                   <%= link_to t('common.you'), profile_index_path(uid: current_user.uid) %>
                 <% else %>
-                  <%= link_to User.where(id: story.userid).first.name, profile_index_path(uid: get_uid(story.userid)) %>
+                  <%= link_to User.where(id: story.user_id).first.name, profile_index_path(uid: get_uid(story.user_id)) %>
                 <% end %>
               </h1>
             </div>

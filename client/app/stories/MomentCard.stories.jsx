@@ -1,33 +1,27 @@
 import 'font-awesome/scss/font-awesome.scss';
-import React from 'react';
 import { Row, Col } from 'antd';
+import React from 'react';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import { MomentCard } from '../components/MomentCard';
 
-import MomentCard from 'bundles/momentsApp/components/MomentCard';
-import { withSource } from './Stories.helper';
-
-const fn = () => {};
-const tripleColumnize = (card) => {
-  const cardAndCol = (
-    <Col span={8}>
+function tripleColumnize(card) {
+  const cardAndCol = key => (
+    <Col key={key} span={8}>
       {card}
     </Col>
   );
-  return (
-    <Row gutter={24} style={{ padding: '24px' }}>
-      {[cardAndCol, cardAndCol, cardAndCol]}
-    </Row>
-  );
-};
+  return <Row gutter={24}>{[cardAndCol(1), cardAndCol(2), cardAndCol(3)]}</Row>;
+}
 
 storiesOf('MomentCards', module)
-  .add('MomentCard', withSource(
+  .add('MomentCardDated', () =>
     tripleColumnize(
       <MomentCard
         action={{
-          edit: fn,
-          delete: fn,
-          viewer: fn,
+          edit: action('MomentCardDated.edit.onClick'),
+          delete: action('MomentCardDated.delete.onClick'),
+          viewer: action('MomentCardDated.viewer.onClick'),
         }}
         item={{
           name: 'Real Moment',
@@ -37,12 +31,12 @@ storiesOf('MomentCards', module)
         date="Created 2 Days ago"
       />,
     ),
-  ))
-  .add('MomentCardExample', withSource(
+  )
+  .add('MomentCardNoDate', () =>
     tripleColumnize(
       <MomentCard
         action={{
-          viewer: fn,
+          viewer: action('MomentCardNoDate.viewer.onClick'),
         }}
         item={{
           name: 'Example Moment: Panicking over interview tomorrow!',
@@ -51,15 +45,15 @@ storiesOf('MomentCards', module)
         }}
       />,
     ),
-  ))
-  .add('MomentCardDraft', withSource(
+  )
+  .add('MomentCardDraft', () =>
     tripleColumnize(
       <MomentCard
         cardType="Draft"
         action={{
-          edit: fn,
-          delete: fn,
-          viewer: fn,
+          edit: action('MomentCardDraft.edit.onClick'),
+          delete: action('MomentCardDraft.delete.onClick'),
+          viewer: action('MomentCardDraft.viewer.onClick'),
         }}
         item={{
           name: 'Real Moment',
@@ -69,4 +63,4 @@ storiesOf('MomentCards', module)
         draftText="DRAFT"
       />,
     ),
-  ));
+  );

@@ -1,9 +1,9 @@
 describe 'UserCreatesADraftMoment', js: true do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
-  let!(:category) { create :category, userid: user.id }
-  let!(:mood) { create :mood, userid: user.id }
-  let!(:strategy) { create :strategy, userid: user.id }
+  let!(:category) { create :category, user_id: user.id }
+  let!(:mood) { create :mood, user_id: user.id }
+  let!(:strategy) { create :strategy, user_id: user.id }
 
   def hit_down_arrow
     page.driver.execute_script(<<~JS)

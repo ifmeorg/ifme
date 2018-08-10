@@ -586,8 +586,6 @@ a.highlight:hover {
 }
 
 .small_profile_picture_div {
-  width: 1px;
-
   .portrait {
     width: 100px;
     height: 100px;
@@ -597,11 +595,12 @@ a.highlight:hover {
       height: 50px;
     }
   }
+  @media screen and (min-width: $medium) {
+    width: 1px;
+  }
 }
 
 .profile_picture_div {
-  width: 1px;
-
   .portrait {
     width: 150px;
     height: 150px;
@@ -610,6 +609,9 @@ a.highlight:hover {
       width: 55px;
       height: 55px;
     }
+  }
+  @media screen and (min-width: $medium) {
+    width: 1px;
   }
 }
 

@@ -1,16 +1,20 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
+import { Resource } from '../components/Resource';
 
-import Resource from '../bundles/shared/components/Resource';
-
-const withSource = el => withInfo()(() => el);
-const tags = ['open_source', 'tech_industry', 'free', 'workplace', 'podcast', 'books'];
+const tags = [
+  'open_source',
+  'tech_industry',
+  'free',
+  'workplace',
+  'podcast',
+  'books',
+];
 
 storiesOf('Resource', module)
-  .add('Tagged Resource', withSource(
-    <Row gutter={24} style={{ backgroundColor: '#6D0839', padding: '24px' }}>
+  .add('Tagged Resource', () => (
+    <Row gutter={24}>
       <Col span={8}>
         <Resource
           tagged
@@ -35,11 +39,11 @@ storiesOf('Resource', module)
           link={'http://www.lifesigns.org.uk/'}
         />
       </Col>
-    </Row>,
+    </Row>
   ))
 
-  .add('External Resource', withSource(
-    <Row gutter={24} style={{ backgroundColor: '#6D0839', padding: '24px' }}>
+  .add('External Resource', () => (
+    <Row gutter={24}>
       <Col span={8}>
         <Resource
           external
@@ -58,16 +62,20 @@ storiesOf('Resource', module)
       <Col span={8}>
         <Resource
           external
-          title={'A very long title for a resource that should wrap to two lines and then some or not'}
+          title={
+            'A very long title for a resource that should wrap to two lines and then some or not'
+          }
           link={'www.if-me.org'}
-          author={'Author with a very very long name that is usually an edge case'}
+          author={
+            'Author with a very very long name that is usually an edge case'
+          }
         />
       </Col>
-    </Row>,
+    </Row>
   ))
 
-  .add('Combination Resource', withSource(
-    <Row gutter={24} style={{ backgroundColor: '#6D0839', padding: '24px' }}>
+  .add('Combination Resource', () => (
+    <Row gutter={24}>
       <Col span={8}>
         <Resource
           tagged
@@ -93,10 +101,12 @@ storiesOf('Resource', module)
           tagged
           external
           tags={tags.concat(tags)}
-          title={'Invisible Illnesses: depression is an ocean, and another measure to consider'}
+          title={
+            'Invisible Illnesses: depression is an ocean, and another measure to consider'
+          }
           link={'www.if-me.org'}
           author={'Desi Rottman'}
         />
       </Col>
-    </Row>,
+    </Row>
   ));

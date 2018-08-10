@@ -1,0 +1,7 @@
+@import "./_typography.scss";
+@import "./_global_font.scss";
+
+body {
+  font-family: $font-family;
+  font-size: $text-size;
+}

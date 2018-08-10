@@ -141,8 +141,11 @@ var onReadyNotifications = function() {
   });
 
   $('.tip_notifications_text').click(function(event) {
-    event.stopPropagation();
+    if(!$(event.target).hasClass("kick")){
+      event.stopPropagation();
+    }
   });
+
 
   /* Handle Esc Key */
   $(document).keyup(function(event) {

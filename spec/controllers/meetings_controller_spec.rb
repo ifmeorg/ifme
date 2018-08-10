@@ -51,7 +51,7 @@ RSpec.describe MeetingsController, :type => :controller do
           end
 
           it { expect(response).to have_http_status(:redirect) }
-          it { expect(response).to redirect_to(group_path(meeting.groupid)) }
+          it { expect(response).to redirect_to(group_path(meeting.group_id)) }
         end
 
         context 'inexistent meeting id' do
@@ -145,7 +145,7 @@ RSpec.describe MeetingsController, :type => :controller do
           )
         end
 
-        let!(:new_moment) { create(:moment, id: 1, userid: 1) }
+        let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
           expect { get :delete_comment, params: { commentid: 1 } }.to(
@@ -181,12 +181,12 @@ RSpec.describe MeetingsController, :type => :controller do
   describe 'GET #new' do
     let!(:user) { create(:user) }
     let!(:group_member) do
-      create(:group_member, groupid: 1, id: 1, user: user, leader: true)
+      create(:group_member, group_id: 1, id: 1, user: user, leader: true)
     end
 
     context 'when the user is not logged in' do
       before do
-        get :new, params: { groupid: group_member.id }
+        get :new, params: { group_id: group_member.id }
       end
 
       it { expect(response).to redirect_to new_user_session_path }
@@ -197,7 +197,7 @@ RSpec.describe MeetingsController, :type => :controller do
 
       context 'user is the group leader' do
         before do
-          get :new, params: { groupid: group_member.id }
+          get :new, params: { group_id: group_member.id }
         end
 
         it { expect(response).to have_http_status(:ok) }
@@ -206,7 +206,7 @@ RSpec.describe MeetingsController, :type => :controller do
       context 'user is not the leader' do
         before do
           group_member.update!(leader: false)
-          get :new, params: { groupid: group_member.id }
+          get :new, params: { group_id: group_member.id }
         end
 
         it { expect(response).to redirect_to group_path(group_member.id) }
@@ -216,8 +216,8 @@ RSpec.describe MeetingsController, :type => :controller do
 
   describe 'GET #edit' do
     let!(:user) { create(:user, id: 1) }
-    let(:meeting) { create(:meeting, groupid: 1, id: 1) }
-    let!(:group_member) { create(:group_member, groupid: 1, id: 1, user: user, leader: true) }
+    let(:meeting) { create(:meeting, group_id: 1, id: 1) }
+    let!(:group_member) { create(:group_member, group_id: 1, id: 1, user: user, leader: true) }
     let(:meeting_member) { create(:meeting_member, user: user, meeting: meeting) }
 
     context 'when the user is not logged in' do

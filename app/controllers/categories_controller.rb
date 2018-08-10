@@ -4,6 +4,7 @@
 class CategoriesController < ApplicationController
   include CollectionPageSetup
   include QuickCreate
+  include Shared
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
@@ -16,7 +17,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.userid == current_user.id
+    if @category.user_id == current_user.id
       @page_edit = edit_category_path(@category)
       @page_tooltip = t('categories.edit_category')
     else
@@ -31,7 +32,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    return if @category.userid == current_user.id
+    return if @category.user_id == current_user.id
 
     redirect_to_path(category_path(@category))
   end
@@ -40,18 +41,8 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   # rubocop:disable MethodLength
   def create
-    @category = Category.new(category_params.merge(userid: current_user.id))
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to category_path(@category) }
-        format.json { render :show, status: :created, location: @category }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @category.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    @category = Category.new(category_params.merge(user_id: current_user.id))
+    shared_create(@category, 'category')
   end
   # rubocop:enable MethodLength
 
@@ -60,22 +51,22 @@ class CategoriesController < ApplicationController
   # rubocop:disable MethodLength
   def premade
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade1_name'),
       description: t('categories.index.premade1_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade2_name'),
       description: t('categories.index.premade2_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade3_name'),
       description: t('categories.index.premade3_description')
     )
     Category.create(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: t('categories.index.premade4_name'),
       description: t('categories.index.premade4_description')
     )
@@ -86,43 +77,20 @@ class CategoriesController < ApplicationController
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
-  # rubocop:disable MethodLength
   def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to category_path(@category) }
-        format.json { render :show, status: :ok, location: @category }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @category.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_update(@category, 'category', category_params)
   end
-  # rubocop:enable MethodLength
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    # Remove categories from existing moments
-    @moments = current_user.moments.all
-
-    @moments.each do |item|
-      item.category.delete(@category.id)
-      the_moment = Moment.find_by(id: item.id)
-      the_moment.update(category: item.category)
-    end
-
-    @category.destroy
-
-    redirect_to_path(categories_path)
+    shared_destroy(@category, 'category')
   end
 
   # rubocop:disable MethodLength
   def quick_create
     category = Category.new(
-      userid: current_user.id,
+      user_id: current_user.id,
       name: params[:category][:name],
       description: params[:category][:description]
     )

@@ -1,2 +1,2 @@
 <%= t('salutation', name: @recipient.name) %>
-<%= raw(@message) %>
+<%= sanitize(@message) %>

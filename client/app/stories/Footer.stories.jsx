@@ -1,10 +1,8 @@
 import React from 'react';
-import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import { Footer } from '../components/Footer/Footer';
 
-import Footer from 'bundles/shared/components/Footer/Footer';
-
-storiesOf('Footer', module)
-  .add('View', withInfo({})(() =>
-    <Footer />,
-  ));
+storiesOf('Footer', module).add('View', () => (
+  <Footer onChange={action('Footer.onChange')} />
+));

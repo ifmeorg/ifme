@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010054721) do
+ActiveRecord::Schema.define(version: 20180724031319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "group_members", force: :cascade do |t|
-    t.integer  "groupid"
-    t.integer  "userid"
+    t.integer  "group_id"
+    t.integer  "user_id"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.string   "refill"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.integer  "total"
     t.integer  "strength"
     t.string   "strength_unit"
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "meeting_members", force: :cascade do |t|
-    t.integer  "meetingid"
-    t.integer  "userid"
+    t.integer  "meeting_id"
+    t.integer  "user_id"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "location"
     t.string   "time"
     t.integer  "maxmembers"
-    t.integer  "groupid"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "date"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "fix"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.text     "viewers"
     t.boolean  "comment"
     t.text     "strategy"
@@ -153,13 +153,13 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "slug"
     t.index ["slug"], name: "index_moods_on_slug", unique: true, using: :btree
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "uniqueid"
     t.text     "data"
     t.datetime "created_at", null: false
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "strategies", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.text     "category"
     t.text     "description"
     t.text     "viewers"
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 20171010054721) do
   end
 
   create_table "supports", force: :cascade do |t|
-    t.integer  "userid"
+    t.integer  "user_id"
     t.string   "support_type"
     t.text     "support_ids"
     t.datetime "created_at"
@@ -236,8 +236,8 @@ ActiveRecord::Schema.define(version: 20171010054721) do
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
     t.boolean  "comment_notify"
     t.boolean  "ally_notify"

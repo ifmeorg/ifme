@@ -1,0 +1,33 @@
+@import "../../styles/_base.scss";
+
+$avatar-size: 120px;
+
+.avatar {
+
+  margin: 20px;
+
+  font-family: $font-family;
+  font-weight: $font-weight-normal;
+  font-size: $text-size;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: $text-shadow;
+  color: $text-color-reverse;
+
+  .portrait {
+    border-radius: 50%;
+    /* Border color follows text color */
+    border: 3px solid $text-color-reverse;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+    background-color: $avatar-default-background-color;
+
+    height: $avatar-size;
+    width: $avatar-size;
+  }
+
+  .name {
+    margin-top: 0.5em;
+  }
+}

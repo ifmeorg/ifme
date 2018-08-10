@@ -1,0 +1,99 @@
+@import "../../styles/_legacy.scss";
+@import "../../styles/_base.scss";
+
+.moment {
+  display: block;
+  position: relative;
+  background: $background-color;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  line-height: 1;
+
+  .header {
+    position: relative;
+    padding: 20px 20px 5px 20px;
+
+    .draft {
+      display: inline-block;
+      padding-right: 10px;
+      vertical-align: top;
+
+      div {
+        border: 1px solid $container-color;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+    }
+
+    .name {
+      display: inline;
+      position: relative;
+      max-width: 400px;
+      word-wrap: break-word;
+      font-family: $font-family;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      font-size: $module-title-size;
+
+      color: $secondary-text-color;
+    }
+
+    .settings {
+      display: flex;
+      position: relative;
+      vertical-align: top;
+      float: right;
+
+      .action {
+        color: $date-text-color;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 0 2px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  .date {
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: $date-text-color;
+  }
+
+  .tags {
+    position: relative;
+    padding: 20px 20px 10px;
+
+    :global(.tag) {
+      color: $background-color;
+      border-width: 0;
+      border-radius: 5px;
+      margin: 1px;
+      display: inline-block;
+    }
+
+    .category {
+      display: inline;
+
+      :global(.tag) {
+        background-color: #B4A362;
+      }
+    }
+
+    .mood {
+      display: inline;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 describe 'UserCreatesADraftStrategy', js: true do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
-  let!(:category) { create :category, userid: user.id }
+  let!(:category) { create :category, user_id: user.id }
 
   def hit_down_arrow
     keypress = 'var e = $.Event("keydown", { keyCode: 40 }); $("body").trigger(e);'

@@ -5,7 +5,7 @@ describe MedicationsController do
     subject { controller.print_reminders(medication) }
 
     describe 'when medication has no reminders' do
-      let(:medication) { FactoryBot.create(:medication, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, user_id: user.id) }
 
       it 'is empty' do
         expect(subject).to eq('')
@@ -13,7 +13,7 @@ describe MedicationsController do
     end
 
     describe 'when medication has refill reminder' do
-      let(:medication) { FactoryBot.create(:medication, :with_refill_reminder, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, :with_refill_reminder, user_id: user.id) }
 
       it 'prints the reminder' do
         expect(subject).to eq('<div class="small_margin_top"><i class="fa fa-bell small_margin_right"></i>Refill reminder email</div>')
@@ -21,7 +21,7 @@ describe MedicationsController do
     end
 
     describe 'when medication has daily reminder' do
-      let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id) }
 
       it 'prints the reminders' do
         expect(subject).to eq('<div class="small_margin_top"><i class="fa fa-bell small_margin_right"></i>Daily reminder email</div>')
@@ -29,7 +29,7 @@ describe MedicationsController do
     end
 
     describe 'when medication has both reminders' do
-      let(:medication) { FactoryBot.create(:medication, :with_both_reminders, userid: user.id) }
+      let(:medication) { FactoryBot.create(:medication, :with_both_reminders, user_id: user.id) }
 
       it 'prints the reminders' do
         expect(subject).to eq('<div class="small_margin_top"><i class="fa fa-bell small_margin_right"></i>Refill reminder email, Daily reminder email</div>')
@@ -156,16 +156,16 @@ describe MedicationsController do
         end
       end
 
-      context 'when the userid is hacked' do
-        it 'creates a new medication, ignoring the userid parameter' do
-          # passing a userid isn't an error, but it shouldn't
+      context 'when the user_id is hacked' do
+        it 'creates a new medication, ignoring the user_id parameter' do
+          # passing a user_id isn't an error, but it shouldn't
           # affect the owner of the created item
           another_user = create(:user2)
           hacked_medication_params =
-            valid_medication_params.merge(userid: another_user.id)
+            valid_medication_params.merge(user_id: another_user.id)
           expect { post_create hacked_medication_params }
             .to change(Medication, :count).by(1)
-          expect(Medication.last.userid).to eq(user.id)
+          expect(Medication.last.user_id).to eq(user.id)
         end
       end
     end

@@ -1,0 +1,27 @@
+@import "../../styles/_legacy.scss";
+@import "../../styles/_base.scss";
+
+.label {
+  display: inline-block;
+  position: relative;
+
+  font-family: $font-family;
+  font-size: 36px;
+  line-height: 1;
+  color: $header-text-color;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  &.large {
+    font-size: 48px;
+  }
+
+  &.small {
+    font-size: 30px;
+  }
+
+  &.text {
+    font-size: 24px;
+    text-shadow: none;
+  }
+}

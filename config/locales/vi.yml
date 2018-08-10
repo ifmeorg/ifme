@@ -17,7 +17,7 @@ vi:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
    various: Various
    vi: Tiếng Việt
@@ -150,11 +150,14 @@ vi:
    joined_groups: 'Tham gia nhóm'
    leader: '(Nhóm trưởng)'
    instructions: "Bạn chưa là thành viên của nhóm nào cả, nhưng bạn có thể nhấp vào %{icon} để tạo ra một!"
-  join_success: 'Bạn đã tham gia nhóm.'
+  join:
+    success: 'Bạn đã tham gia nhóm.'
+    group_not_exists: "Bạn không thể tham gia một nhóm không tồn tại."
   leave:
     error: 'Bạn không thể rời nhóm, bạn là nhóm trưởng.'
     success: "Bạn đã ra khỏi nhóm %{group}"
     remove_member_success: "Bạn đã gở bỏ %{user} ra khỏi nhóm %{group}"
+    remove_member_error: "Bạn không thể đá một thành viên nhóm vì bạn không phải là một nhà lãnh đạo."
   new: 'Nhóm mới'
   show:
    led_by: 'Điểu khiển bởi:'

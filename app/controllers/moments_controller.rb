@@ -3,6 +3,7 @@
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
+  include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
 
@@ -50,7 +51,10 @@ class MomentsController < ApplicationController
 
     if comment_exists
       momentid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_moment = Moment.where(id: momentid, userid: current_user.id).exists?
+      is_my_moment = Moment.where(
+        id: momentid,
+        user_id: current_user.id
+      ).exists?
       is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
     else
       is_my_moment = false
@@ -58,14 +62,8 @@ class MomentsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifications
-      public_uniqueid = 'comment_on_moment_' + params[:commentid].to_s
-      Notification.where(uniqueid: public_uniqueid).destroy_all
-
-      private_uniqueid = 'comment_on_moment_private_' + params[:commentid].to_s
-      Notification.where(uniqueid: private_uniqueid).destroy_all
+      CommentNotificationsService.remove(comment_id: params[:commentid],
+                                         model_name: 'moment')
     end
 
     head :ok
@@ -106,7 +104,7 @@ class MomentsController < ApplicationController
 
   # GET /moments/1/edit
   def edit
-    unless @moment.userid == current_user.id
+    unless @moment.user_id == current_user.id
       redirect_to_path(moment_path(@moment))
     end
 
@@ -117,23 +115,13 @@ class MomentsController < ApplicationController
   # POST /moments.json
   # rubocop:disable MethodLength
   def create
-    @moment = Moment.new(moment_params.merge(userid: current_user.id))
+    @moment = Moment.new(moment_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @mood = Mood.new
     @strategy = Strategy.new
     @moment.published_at = Time.zone.now if publishing?
-    respond_to do |format|
-      if @moment.save
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :created, location: @moment }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_create(@moment, 'moment')
   end
   # rubocop:enable MethodLength
 
@@ -150,20 +138,8 @@ class MomentsController < ApplicationController
     elsif saving_as_draft?
       @moment.published_at = nil
     end
-
     empty_array_for :viewers, :mood, :strategy, :category
-
-    respond_to do |format|
-      if @moment.update(moment_params)
-        format.html { redirect_to moment_path(@moment) }
-        format.json { render :show, status: :ok, location: @moment }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @moment.errors, status: :unprocessable_entity
-        end
-      end
-    end
+    shared_update(@moment, 'moment', moment_params)
   end
   # rubocop:enable MethodLength
 

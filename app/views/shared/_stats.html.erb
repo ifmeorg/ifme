@@ -48,5 +48,5 @@
     </div>
 	<% end %>
 <% elsif local_assigns[:data_type] == 'moment' %>
-	<%= raw(moments_stats) %>
+	<%= sanitize(moments_stats) %>
 <% end %>
