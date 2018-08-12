@@ -6,6 +6,8 @@
       <th>ReporterId</th>
       <th>ReportedId</th>
       <th>Comments</th>
+      <th>ReportType</th>
+      <th>CommentID</th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +18,8 @@
       <td><%= report.reporter_id %></td>
       <td><%= report.reportee_id %></td>
       <td><%= report.comments %></td>
+      <td><%= report.commentable_type %></td>
+      <td><%= report.id %></td>
       </tr>
     <% end %>
   </tbody>

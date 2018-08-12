@@ -202,7 +202,7 @@ class ApplicationController < ActionController::Base
 
     if comment_reportable?(data, data_type)
       report_comment = '<div class="table_cell report_comment">'
-      report_comment += link_to t('common.actions.report'), new_report_path(ally_id: data.comment_by), method: :get
+      report_comment += link_to t('common.actions.report'), new_report_path(ally_id: data.comment_by, comment_id: data.id, commentable_type: data.commentable_type), method: :get
       report_comment += '</div>'
     end
 
