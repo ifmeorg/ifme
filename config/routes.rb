@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+
+  devise_for :admins, skip: :registrations
+
   get 'errors/not_found'
   get 'errors/internal_server_error'
 
@@ -13,8 +16,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :medications
+  namespace :admin do
+    resources :reports
+  end
+  
+  get 'admin' => 'admin/reports#index'
 
+  resources :medications
+  resources :reports
   resources :moods do
     collection do
       post 'premade'
@@ -34,6 +43,7 @@ Rails.application.routes.draw do
       post 'comment'
       post 'quick_moment'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
@@ -47,6 +57,7 @@ Rails.application.routes.draw do
       post 'premade'
       post 'quick_create'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
@@ -64,6 +75,7 @@ Rails.application.routes.draw do
       get 'leave'
       post 'comment'
       get 'delete_comment'
+      get 'report_comment'
     end
   end
 
