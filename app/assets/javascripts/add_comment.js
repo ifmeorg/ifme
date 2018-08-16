@@ -90,6 +90,8 @@ var onReadyAddComment = function() {
 
                 $('#comments').prepend(newComment);
 
+                $('.flash_success').toggle();
+
                 if ($('.comment').length > 0) {
                   $('.actions').removeClass('no_margin_bottom');
                 }
@@ -99,7 +101,9 @@ var onReadyAddComment = function() {
           error: function() {
             $('#add_comment_button').prop('disabled', false);
             $('#comment_comment').prop('disabled', false);
-          $('#add_comment_button').val(I18n.t('comment.singular'));
+            $('#add_comment_button').val(I18n.t('comment.singular'));
+
+            $('.flash_error').toggle();
           }
         });
       }

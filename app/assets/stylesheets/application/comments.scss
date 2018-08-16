@@ -111,3 +111,52 @@
     margin-bottom: 10px;
   }
 }
+
+// Styles for the Comment Confirmation
+.comment_flash {
+  position: absolute;
+  top: 60%;
+  left: 4%;
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px;
+  margin-bottom: 20px !important;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  animation: fade 5s 1 linear forwards;
+  display: none;
+
+  p {
+    text-align: center;
+  }
+  
+}
+
+.flash_success {
+  @extend .comment_flash;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.flash_error {
+  @extend .comment_flash;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  
+  80% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

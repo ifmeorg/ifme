@@ -26,6 +26,18 @@
         </div>
       <% end %>
 
+      <div class="flash_success">
+        <p>
+          <%= 'Your Comment Was Successfully Created' %>
+        </p>
+      </div>
+
+      <div class="flash_error">
+        <p>
+          <%= 'Something Went Wrong, Please Try Again' %>
+        </p>
+      </div>
+
       <div class="field no_margin_bottom">
         <%= f.text_area :comment, class: 'comment_textarea' %>
         <%= render partial: '/shared/character_count', locals: { data: 'comment_comment' } %>
