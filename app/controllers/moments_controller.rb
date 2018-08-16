@@ -4,7 +4,6 @@
 class MomentsController < ApplicationController
   include CollectionPageSetup
   include Shared
-  include Notifications
 
   before_action :set_moment, only: %i[show edit update destroy]
 
@@ -63,7 +62,8 @@ class MomentsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      delete_comment_and_notifications(params[:commentid], 'moment')
+      CommentNotificationsService.remove(comment_id: params[:commentid],
+                                         model_name: 'moment')
     end
 
     head :ok

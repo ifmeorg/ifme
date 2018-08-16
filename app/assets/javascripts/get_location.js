@@ -4,7 +4,8 @@ function getLocation() {
 }
 
 var initAutocomplete = function() {
-  if (typeof google !== 'undefined' && $('#user_location').length > 0) {
+  var googleMapsExists = typeof google !== 'undefined' && typeof google.maps !== 'undefined';
+  if (googleMapsExists && $('#user_location').length > 0) {
     getLocation();
   }
 }

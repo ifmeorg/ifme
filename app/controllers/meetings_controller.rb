@@ -2,7 +2,6 @@
 
 # rubocop:disable ClassLength
 class MeetingsController < ApplicationController
-  include Notifications
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -43,7 +42,6 @@ class MeetingsController < ApplicationController
 
   def comment
     params[:visibility] = 'all'
-
     comment_for('meeting')
   end
 
@@ -72,11 +70,8 @@ class MeetingsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
-      Comment.find(params[:commentid]).destroy
-
-      # Delete corresponding notifications
-      public_uniqueid = "comment_on_meeting_#{params[:commentid]}"
-      Notification.where(uniqueid: public_uniqueid).destroy_all
+      CommentNotificationsService.remove(comment_id: params[:commentid],
+                                         model_name: 'meeting')
     end
 
     head :ok
@@ -118,10 +113,10 @@ class MeetingsController < ApplicationController
         if meeting_member.save
           # Notify group members that you created a new meeting
           group_members = GroupMember.where(group_id: @meeting.group_id).all
-
-          notifications_for_meeting_members(@meeting, group_members,
-                                            'new_meeting')
-
+          MeetingNotificationsService.handle_members(current_user: current_user,
+                                                     meeting: @meeting,
+                                                     type: 'new_meeting',
+                                                     members: group_members)
           format.html { redirect_to group_path(group_id) }
           format.json { render :show, status: :created, location: group_id }
         end
@@ -169,11 +164,11 @@ class MeetingsController < ApplicationController
         end
       end
 
-      # Notify group members that the meeting has been updated
-      notifications_for_meeting_members(@meeting, meeting_members,
-                                        'update_meeting')
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-
+      MeetingNotificationsService.handle_members(current_user: current_user,
+                                                 meeting: @meeting,
+                                                 type: 'update_meeting',
+                                                 members: @meeting_members)
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.id) }
         format.json do
@@ -217,37 +212,12 @@ class MeetingsController < ApplicationController
         leader: true
       ).all
       meeting_id = Meeting.where(id: params[:meeting_id]).first.id
-      group = Group.where(id: group_id).first.name
       meeting = Meeting.where(id: params[:meeting_id]).first.name
 
-      uniqueid = "join_meeting_#{current_user.id}"
-
-      meeting_leaders.each do |leader|
-        next if leader.user_id == current_user.id
-
-        data = JSON.generate(
-          user: current_user.name,
-          typeid: meeting_id,
-          group: group,
-          typename: meeting,
-          type: 'join_meeting',
-          uniqueid: uniqueid
-        )
-
-        Notification.create(
-          user_id: leader.user_id,
-          uniqueid: uniqueid,
-          data: data
-        )
-        notifications = Notification.where(user_id: leader.user_id)
-                                    .order('created_at ASC').all
-        Pusher["private-#{leader.user_id}"].trigger(
-          'new_notification',
-          notifications: notifications
-        )
-
-        NotificationMailer.notification_email(leader.user_id, data).deliver_now
-      end
+      MeetingNotificationsService.handle_members(current_user: current_user,
+                                                 meeting: meeting,
+                                                 type: 'join_meeting',
+                                                 members: meeting_leaders)
 
       respond_to do |format|
         format.html do

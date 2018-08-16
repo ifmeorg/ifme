@@ -246,39 +246,32 @@ class ApplicationController < ActionController::Base
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
+  # TODO: move this logic out of the controller and into a helper method
   def moments_stats
-    result = ''
-    count = current_user.moments.all.count
+    total_count = current_user.moments.all.count
+    monthly_count = current_user.moments.where(
+      created_at: Time.current.beginning_of_month..Time.current
+    ).count
 
-    # rubocop:disable BlockNesting
-    if count > 1
-      result += '<div class="center" id="stats">'
+    return '' if total_count <= 1
 
-      if count == 1
-        result += t('stats.total_moment', count: count.to_s)
-      else
-        result += t('stats.total_moments', count: count.to_s)
+    result = '<div class="center" id="stats">'
+    result += if total_count == 1
+                t('stats.total_moment', count: total_count.to_s)
+              else
+                t('stats.total_moments', count: total_count.to_s)
+              end
 
-        beginning_of_month = Time.current.beginning_of_month
-        end_of_month = Time.current.end_of_month
-        monthly_count = current_user.moments.where(
-          created_at: beginning_of_month..end_of_month
-        ).all.count
-        if count != monthly_count
-          result += ' '
-          result += if monthly_count == 1
-                      t('stats.monthly_moment', count: monthly_count.to_s)
-                    else
-                      t('stats.monthly_moments', count: monthly_count.to_s)
-                    end
-        end
-      end
-
-      result += '</div>'
+    if total_count != monthly_count
+      result += ' '
+      result += if monthly_count == 1
+                  t('stats.monthly_moment', count: monthly_count.to_s)
+                else
+                  t('stats.monthly_moments', count: monthly_count.to_s)
+                end
     end
-    # rubocop:enable BlockNesting
 
-    result
+    result + '</div>'
   end
   # rubocop:enable MethodLength
 

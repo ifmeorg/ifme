@@ -1,3 +1,5 @@
+require_relative './shared_examples'
+
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::TextHelper
 
@@ -14,246 +16,9 @@ describe ApplicationController do
   let(:user2) { create(:user2) }
 
   describe "#most_focus" do
-    let(:user_id) { user1.id }
-    let(:categories_length) { 2 }
-    let(:category) { create(:category, user_id: user_id) }
-    let(:categories) { create_list(:category, categories_length, user_id: user_id) }
-    let(:category_ids) { categories.map(&:id) }
-
-    describe "categories" do
-      before(:example) do
-        sign_in user1
-      end
-
-      context 'when no categories exist' do
-        it 'returns an empty hash' do
-          expect(controller.most_focus('category', nil)).to be_empty
-        end
-      end
-
-      context 'when categories exist' do
-        subject { controller.most_focus('category', user_id) }
-
-        context 'when the same category is used twice' do
-          before do
-            create(:moment, category: [category.id], user_id: user_id)
-            create(:strategy, category: [category.id], user_id: user_id)
-          end
-
-          it 'includes duplicate categories once' do
-            expect(subject.length).to eq(1)
-            expect(subject[category.id]).to eq(2)
-          end
-        end
-
-        context 'when there are multiple categories' do
-          let(:categories_length) { 4 }
-
-          context 'when viewing your own profile' do
-            before do
-              create(:moment, category: [category.id], user_id: user_id)
-              create(:strategy, category: category_ids + [category.id], user_id: user_id)
-            end
-
-            it 'returns a hash containing the top three unique categories' do
-              expect(subject.length).to eq(3)
-              expect(subject[category.id]).to eq(2)
-            end
-          end
-
-          context "when viewing another user's profile" do
-            let(:user_id) { user2.id }
-            let(:publication) { Time.now }
-            before do
-              create(
-                :moment,
-                user_id: user_id,
-                category: [category.id],
-                viewers: [user1.id],
-                published_at: publication
-              )
-              create(
-                :strategy,
-                user_id: user_id,
-                category: category_ids,
-                published_at: publication
-              )
-            end
-
-            context 'when published' do
-              it 'shows only the categories for which you have viewing permission' do
-                expect(subject.length).to eq(1)
-                expect(subject[category.id]).to eq(1)
-
-                category_ids.each do |id|
-                  expect(subject[id]).to be_nil
-                end
-              end
-            end
-
-            context 'when not published' do
-              let(:publication) { nil }
-
-              it 'returns an empty hash' do
-                expect(Moment.count).to eq(1)
-                expect(Strategy.count).to eq(1)
-                expect(subject).to be_empty
-              end
-            end
-          end
-        end
-      end
-    end
-
-    describe "moods" do
-      before(:example) do
-        sign_in user1
-      end
-      it "returns an empty hash because no moods exist" do
-        new_moment = create(:moment, user_id: user1.id)
-        expect(controller.most_focus('mood', nil).length).to eq(0)
-      end
-
-      describe "returns a hash because moods exist" do
-        it "returns a hash of size 1 when the same mood is used twice" do
-          new_mood = create(:mood, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, mood: Array.new(1, new_mood.id))
-          result = controller.most_focus('mood', user1.id)
-          expect(result.length).to eq(1)
-          expect(result[new_mood.id]).to eq(1)
-        end
-
-        it "returns a hash of size 2" do
-          new_mood1 = create(:mood, user_id: user1.id)
-          new_mood2 = create(:mood, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, mood: [new_mood1.id, new_mood2.id])
-          result = controller.most_focus('mood', user1.id)
-          expect(result.length).to eq(2)
-          expect(result[new_mood1.id]).to eq(1)
-          expect(result[new_mood2.id]).to eq(1)
-        end
-
-        it "returns a correct hash of size 3" do
-          new_mood1 = create(:mood, user_id: user1.id)
-          new_mood2 = create(:mood, user_id: user1.id)
-          new_mood3 = create(:mood, user_id: user1.id)
-          new_mood4 = create(:mood, user_id: user1.id)
-          new_moment1 = create(:moment, user_id: user1.id, mood: Array.new(1, new_mood2.id))
-          new_moment2 = create(:moment, user_id: user1.id, mood: [new_mood1.id, new_mood2.id, new_mood3.id, new_mood4.id])
-          result = controller.most_focus('mood', user1.id)
-          expect(result.length).to eq(3)
-          expect(result[new_mood1.id]).to eq(1)
-          expect(result[new_mood2.id]).to eq(2)
-          expect(result[new_mood3.id]).to eq(1)
-          expect(result[new_mood4.id]).to eq(nil)
-        end
-
-        it "returns a correct hash of size 1 belonging to another user" do
-          new_mood1 = create(:mood, user_id: user2.id)
-          new_mood2 = create(:mood, user_id: user2.id)
-          new_mood3 = create(:mood, user_id: user2.id)
-          new_mood4 = create(:mood, user_id: user2.id)
-          new_moment1 = create(:moment, user_id: user2.id, mood: Array.new(1, new_mood2.id), viewers: Array.new(1, user1.id), published_at: Time.zone.now)
-          new_moment2 = create(:moment, user_id: user2.id, mood: [new_mood1.id, new_mood2.id, new_mood3.id, new_mood4.id], published_at: Time.zone.now)
-          result = controller.most_focus('mood', user2.id)
-          expect(result.length).to eq(1)
-          expect(result[new_mood1.id]).to eq(nil)
-          expect(result[new_mood2.id]).to eq(1)
-          expect(result[new_mood3.id]).to eq(nil)
-          expect(result[new_mood4.id]).to eq(nil)
-        end
-
-        it "returns a correct hash of size 0 belonging to another user when all his/her posts are drafts" do
-          new_mood1 = create(:mood, user_id: user2.id)
-          new_mood2 = create(:mood, user_id: user2.id)
-          new_mood3 = create(:mood, user_id: user2.id)
-          new_mood4 = create(:mood, user_id: user2.id)
-          new_moment1 = create(:moment, user_id: user2.id, mood: Array.new(1, new_mood2.id), viewers: Array.new(1, user1.id))
-          new_moment2 = create(:moment, user_id: user2.id, mood: [new_mood1.id, new_mood2.id, new_mood3.id, new_mood4.id])
-          result = controller.most_focus('mood', user2.id)
-          expect(result.length).to eq(0)
-          expect(result[new_mood1.id]).to eq(nil)
-          expect(result[new_mood2.id]).to eq(nil)
-          expect(result[new_mood3.id]).to eq(nil)
-          expect(result[new_mood4.id]).to eq(nil)
-        end
-      end
-    end
-
-    describe "strategy" do
-      before(:example) do
-        sign_in user1
-      end
-      it "returns an empty hash because no strategies exist" do
-        new_moment = create(:moment, user_id: user1.id)
-        expect(controller.most_focus('strategy', nil).length).to eq(0)
-      end
-
-      describe "returns a hash because strategies exist" do
-        it "returns a hash of size 1 when the same strategy is used twice" do
-          new_strategy = create(:strategy, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, strategy: Array.new(1, new_strategy.id))
-          result = controller.most_focus('strategy', user1.id)
-          expect(result.length).to eq(1)
-          expect(result[new_strategy.id]).to eq(1)
-        end
-
-        it "returns a hash of size 2" do
-          new_strategy1 = create(:strategy, user_id: user1.id)
-          new_strategy2 = create(:strategy, user_id: user1.id)
-          new_moment = create(:moment, user_id: user1.id, strategy: [new_strategy1.id, new_strategy2.id])
-          result = controller.most_focus('strategy', user1.id)
-          expect(result.length).to eq(2)
-          expect(result[new_strategy1.id]).to eq(1)
-          expect(result[new_strategy2.id]).to eq(1)
-        end
-
-        it "returns a correct hash of size 3" do
-          new_strategy1 = create(:strategy, user_id: user1.id)
-          new_strategy2 = create(:strategy, user_id: user1.id)
-          new_strategy3 = create(:strategy, user_id: user1.id)
-          new_strategy4 = create(:strategy, user_id: user1.id)
-          new_moment1 = create(:moment, user_id: user1.id, strategy: Array.new(1, new_strategy2.id))
-          new_moment2 = create(:moment, user_id: user1.id, strategy: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
-          result = controller.most_focus('strategy', user1.id)
-          expect(result.length).to eq(3)
-          expect(result[new_strategy1.id]).to eq(1)
-          expect(result[new_strategy2.id]).to eq(2)
-          expect(result[new_strategy3.id]).to eq(1)
-          expect(result[new_strategy4.id]).to eq(nil)
-        end
-
-        it "returns a correct hash of size 1 belonging to another user" do
-          new_strategy1 = create(:strategy, user_id: user2.id)
-          new_strategy2 = create(:strategy, user_id: user2.id)
-          new_strategy3 = create(:strategy, user_id: user2.id)
-          new_strategy4 = create(:strategy, user_id: user2.id)
-          new_moment1 = create(:moment, user_id: user2.id, strategy: Array.new(1, new_strategy2.id), viewers: Array.new(1, user1.id), published_at: Time.zone.now)
-          new_moment2 = create(:moment, user_id: user2.id, strategy: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id], published_at: Time.zone.now)
-          result = controller.most_focus('strategy', user2.id)
-          expect(result.length).to eq(1)
-          expect(result[new_strategy1.id]).to eq(nil)
-          expect(result[new_strategy2.id]).to eq(1)
-          expect(result[new_strategy3.id]).to eq(nil)
-          expect(result[new_strategy4.id]).to eq(nil)
-        end
-
-        it "returns a correct hash of size 0 belonging to another user when all his/her posts are drafts" do
-          new_strategy1 = create(:strategy, user_id: user2.id)
-          new_strategy2 = create(:strategy, user_id: user2.id)
-          new_strategy3 = create(:strategy, user_id: user2.id)
-          new_strategy4 = create(:strategy, user_id: user2.id)
-          new_moment1 = create(:moment, user_id: user2.id, strategy: Array.new(1, new_strategy2.id), viewers: Array.new(1, user1.id))
-          new_moment2 = create(:moment, user_id: user2.id, strategy: [new_strategy1.id, new_strategy2.id, new_strategy3.id, new_strategy4.id])
-          result = controller.most_focus('strategy', user2.id)
-          expect(result.length).to eq(0)
-          expect(result[new_strategy1.id]).to eq(nil)
-          expect(result[new_strategy2.id]).to eq(nil)
-          expect(result[new_strategy3.id]).to eq(nil)
-          expect(result[new_strategy4.id]).to eq(nil)
-        end
-      end
-    end
+    it_behaves_like :most_focus, :category
+    it_behaves_like :most_focus, :mood
+    it_behaves_like :most_focus, :strategy
   end
 
   describe "tag_usage" do
@@ -298,95 +63,78 @@ describe ApplicationController do
     end
   end
 
-  describe "get_stories" do
-    before(:example) do
-      sign_in user1
-    end
-    it "has no stories and does not include allies" do
-        expect(controller.get_stories(user1, false).length).to eq(0)
-    end
+  describe '#get_stories' do
+    let(:user_id) { user1.id }
+    let(:moment) { create(:moment, user_id: user_id) }
+    let(:strategy) { create(:strategy, user_id: user_id) }
 
-    it "has only moments and does not include allies" do
-      new_moment = create(:moment, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(1)
-    end
+    before { sign_in user1 }
 
-    it "has only strategies and does not include allies" do
-      new_strategy = create(:strategy, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(1)
-    end
+    context 'when not including allies' do
+      subject { controller.get_stories(user1, false) }
 
-    it "has both moments and strategies, and does not include allies" do
-      new_moment = create(:moment, user_id: user1.id)
-      new_strategy = create(:strategy, user_id: user1.id)
-      expect(controller.get_stories(user1, false).length).to eq(2)
+      context 'when there are no stories' do
+        it { is_expected.to be_empty }
+      end
 
-    end
+      context 'when there is a moment' do
+        before { moment }
+        it { is_expected.to eq([moment]) }
+      end
 
-    it "has no stories and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-        expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+      context 'when there is a strategy' do
+        before { strategy }
+        it { is_expected.to eq([strategy]) }
+      end
 
-    it "has only moments and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user1.id, published_at: Time.zone.now)
-      new_moment2 = create(:moment, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
+      context 'when there are moments and strategies' do
+        before { moment; strategy }
+        it { is_expected.to include(moment, strategy) }
+      end
     end
 
-    it "has only other users' draft moments and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+    context 'when including allies' do
+      let(:ally_id) { user2.id }
+      let!(:allyship) { create(:allyships_accepted, user_id: user_id, ally_id: ally_id) }
+      let(:viewers) { [user_id] }
+      let(:timestamp) { Time.now }
+      let(:ally_moment) do
+        create(:moment, user_id: ally_id, viewers: viewers, published_at: timestamp)
+      end
+      let(:ally_strategy) do
+        create(:strategy, user_id: ally_id, viewers: viewers, published_at: timestamp)
+      end
 
-    it "has only strategies and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_strategy1 = create(:strategy, user_id: user1.id, published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
-    end
+      subject { controller.get_stories(user1, true) }
 
-    it "has only other users' draft strategies and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+      context 'when there are no stories' do
+        it { is_expected.to be_empty }
+      end
 
-    it "has both moments and strategies, and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user1.id, published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user1, true).length).to eq(2)
-    end
+      context 'when there are stories' do
+        before do
+            moment
+            strategy
+            ally_moment
+            ally_strategy
+          end
 
-    it "has only users' draft moments and strategies, and does include allies" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user1, true).length).to eq(0)
-    end
+        context 'when ally stories are published' do
+          it { is_expected.to include(moment, strategy, ally_moment, ally_strategy) }
+        end
 
-    it "has no moments and strategies despite being allies with user" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment2 = create(:moment, user_id: user2.id)
-      new_strategy2 = create(:strategy, user_id: user2.id)
-      expect(controller.get_stories(user2, false).length).to eq(0)
-    end
+        context 'when ally stories are drafts' do
+          let(:timestamp) { nil }
+          it { is_expected.to include(moment, strategy) }
+          it { is_expected.not_to include(ally_moment, ally_strategy) }
+        end
 
-    it "has both moments and strategies and is allies with user" do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id], published_at: Time.zone.now)
-      expect(controller.get_stories(user2, false).length).to eq(2)
-    end
-
-    it "has both moments and strategies and is allies with user, but her/his posts are all drafts"  do
-      new_allies = create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
-      new_moment1 = create(:moment, user_id: user2.id, viewers: [user1.id])
-      new_strategy2 = create(:strategy, user_id: user2.id, viewers: [user1.id])
-      expect(controller.get_stories(user2, false).length).to eq(0)
+        context 'when ally stories do not include user in viewers' do
+          let(:viewers) { nil }
+          it { is_expected.to include(moment, strategy) }
+          it { is_expected.not_to include(ally_moment, ally_strategy) }
+        end
+      end
     end
   end
 
