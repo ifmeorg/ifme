@@ -4,7 +4,7 @@ describe AllyNotifications::AcceptedAllyRequest do
   let(:recipient) { FactoryBot.create(:user1, email: "some@user.com") }
   let(:ally)      { FactoryBot.create(:user2) }
   let(:data) do
-    HashWithIndifferentAccess.new({
+    ActiveSupport::HashWithIndifferentAccess.new({
       'user' =>  ally.name,
       'user_id' =>  ally.id,
       'uid'  => ally.uid,
