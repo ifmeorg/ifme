@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>ReportID</th>
       <th>ReporterId</th>
       <th>ReportedId</th>
       <th>Comments</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @admin_reports.each do |report| %>
       <tr>
+      <td><%= report.id%></td>
       <td><%= report.reporter_id %></td>
       <td><%= report.reportee_id %></td>
       <td><%= report.comments %></td>

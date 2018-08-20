@@ -11,8 +11,13 @@ class ReportsController < ApplicationController
       comment_id = -1
     end
     if commentable_type == nil
-      commentable_type = "user"
+      commentable_type = "User"
     end
-    @report = Report.create(reporter_id: user_id, reportee_id: ally_id, comments: params[:report][:comments], commentable_id: comment_id, commentable_type: commentable_type )
-  end
+    @report = Report.create(
+      reporter_id: user_id,
+      reportee_id: ally_id, 
+      comments: params[:report][:comments], 
+      commentable_id: comment_id, 
+      commentable_type: commentable_type )
+  end  
 end

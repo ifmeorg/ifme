@@ -46,9 +46,7 @@ Rails.application.routes.draw do
       get 'report_comment'
     end
   end
-
-  resources :reports
-
+  
   resources :secret_shares, only: [:create, :show, :destroy]
 
   resources :strategies do
