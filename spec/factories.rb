@@ -1,4 +1,14 @@
 FactoryBot.define do
+
+  factory :admin do
+    
+  end
+
+  factory :report do
+    reporter_id "MyString"
+    reportee_id "MyString"
+    comments "MyText"
+  end
   factory :group_member do
     association :user, factory: :user1
     group

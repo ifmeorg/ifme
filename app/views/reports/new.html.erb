@@ -1,0 +1,17 @@
+
+
+<% title "#{'New Report'}" %>
+<%= form_for(:search, :url => {:action => "create", :ally_id => params[:ally_id], :comment_id => params[:comment_id], :commentable_type => params[:commentable_type]}, :method => "post") do |f| %>   
+    <div class="table">
+     <div class="field">
+     <div class="label">
+       <%= f.label 'Why are you reporting this user ?' %>
+       <div class="align_right">
+       </div>
+       <div class="clear"></div>
+       <%= text_area(:report, :comments) %>
+   </div>
+   <div>
+    <%= f.submit 'Submit' %>
+  </div>
+<% end %>

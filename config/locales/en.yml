@@ -64,6 +64,7 @@ en:
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'
+    report: 'Report'
    form:
      email: "Email"
      location: "Location"
@@ -91,6 +92,9 @@ en:
    one: '%{count} member'
    other: '%{count} members'
 
+ admin:
+  dashboard: 'Admin Dashboard'
+  
  allies:
   add_ally: 'Add to Allies'
   cancel_ally_request: 'Cancel Request'
