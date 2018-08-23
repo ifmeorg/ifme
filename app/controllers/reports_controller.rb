@@ -1,7 +1,4 @@
-class ReportsController < ApplicationController
-
-  before_action :authenticate_user!
-
+class ReportsController < Admin::AdminController
   def new
   end
 
