@@ -1,4 +1,7 @@
 class ReportsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def new
   end
 
@@ -6,6 +9,7 @@ class ReportsController < ApplicationController
     user_id = current_user.id
     ally_id = params[:ally_id].to_i
     user_mail = current_user.email
+    comments = params[:report][:comments]
     comment_id = params[:comment_id]
     commentable_type = params[:commentable_type]
     if comment_id.nil?
