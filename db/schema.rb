@@ -198,11 +198,9 @@ ActiveRecord::Schema.define(version: 20180811055552) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.string  "reporter_id"
-    t.string  "reportee_id"
-    t.text    "comments"
-    t.string  "commentable_type"
-    t.integer "commentable_id"
+    t.string "reporter_id"
+    t.string "reportee_id"
+    t.text   "reasons"
   end
 
   create_table "strategies", force: :cascade do |t|
