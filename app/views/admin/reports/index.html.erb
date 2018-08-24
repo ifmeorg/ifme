@@ -22,6 +22,7 @@
       <td><%= report.reasons %></td>
       <td><%= report.commentable_type %></td>
       <td><%= report.commentable_id %></td>
+      <td><%= link_to 'DELETE', {action: :show, controller: "admin/reports", id: report.id}, data: { confirm: t('common.actions.confirm') } %></td>
       </tr>
     <% end %>
   </tbody>

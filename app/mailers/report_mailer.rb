@@ -4,4 +4,5 @@ class ReportMailer < ApplicationMailer
   def report_email(recipient,email_id)
     mail(to: email_id, subject: 'You have reported a user!')
   end
+  
 end
