@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
     @report = Report.create(
       reporter_id: user_id,
       reportee_id: ally_id, 
-      comments: params[:report][:comments], 
+      reasons: params[:report][:reasons], 
       commentable_id: comment_id, 
       commentable_type: commentable_type )
     ReportMailer.report_email(user_id,user_mail).deliver_now

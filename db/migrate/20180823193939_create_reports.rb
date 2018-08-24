@@ -3,7 +3,7 @@ class CreateReports < ActiveRecord::Migration[5.0]
     create_table :reports do |t|
       t.string :reporter_id
       t.string :reportee_id
-      t.text :comments
+      t.text :reasons
     end
   end
 end
