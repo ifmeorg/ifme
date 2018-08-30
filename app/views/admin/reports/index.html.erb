@@ -22,7 +22,7 @@
       <td><%= report.reasons %></td>
       <td><%= report.commentable_type %></td>
       <td><%= report.commentable_id %></td>
-      <td><%= link_to 'DELETE', {action: :show, controller: "admin/reports", id: report.id}, data: { confirm: t('common.actions.confirm') } %></td>
+      <td><%= button_to 'Delete',  admin_report_path(report.id), method: :delete, :onclick => "return confirm('Are you sure you want to delete this post?')" %></td>
       </tr>
     <% end %>
   </tbody>
