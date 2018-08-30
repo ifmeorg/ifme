@@ -4,7 +4,7 @@ class Admin::ReportsController < Admin::AdminController
      @admin_reports = Report.all
   end
   
-  def show
+  def destroy
     @admin_report = Report.find(params[:id])
     @admin_report.destroy
     redirect_to :back
