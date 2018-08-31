@@ -63,7 +63,13 @@ Rails.application.routes.draw do
 
   resources :profile, only: :index
 
+<<<<<<< HEAD
   resources :search, only: :index do
+=======
+  resources :reports
+
+  resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
+>>>>>>> 9d9b4bff... Report Button added in Allies
     collection do
       get 'posts'
     end
