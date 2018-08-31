@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
 
+  resources :reports
+
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'posts'
