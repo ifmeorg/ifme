@@ -64,6 +64,7 @@ en:
     add_all: 'Add all'
     select_all: 'Select all'
     remove: 'Remove'
+    report: 'Report'
    form:
      email: "Email"
      location: "Location"

@@ -53,6 +53,7 @@
         <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
         <div class="location"><%= ally.location %></div>
         <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        <%= link_to t('common.actions.report'), new_report_path(ally_id: ally.id), method: :get, data: { confirm: t('common.actions.confirm') }%>
       </div>
     <% end %>
   </div>
