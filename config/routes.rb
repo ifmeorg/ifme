@@ -64,10 +64,19 @@ Rails.application.routes.draw do
   resources :profile, only: :index
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :search, only: :index do
 =======
   resources :reports
 
+=======
+  resources :reports do 
+    collection do
+      get 'admin_dashboard'
+    end
+  end
+  
+>>>>>>> e2ce9622... Report Feature added for Profile and Comments, Admin dashboard implemented
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
 >>>>>>> 9d9b4bff... Report Button added in Allies
     collection do
