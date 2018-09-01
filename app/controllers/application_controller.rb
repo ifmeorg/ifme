@@ -200,6 +200,12 @@ class ApplicationController < ActionController::Base
       delete_comment += '</div>'
     end
 
+    if comment_reportable?(data, data_type)
+      report_comment = '<div class="table_cell report_comment">'
+      report_comment += link_to t('common.actions.report'), new_report_path(ally_id: data.comment_by, comment_id: data.id), method: :get
+      report_comment += '</div>'
+    end
+    
     {
       commentid: data.id,
       profile_picture: profile_picture,
@@ -207,6 +213,7 @@ class ApplicationController < ActionController::Base
       comment_text: comment_text,
       visibility: visibility,
       delete_comment: delete_comment,
+      report_comment: report_comment,
       no_save: false
     }
   end
@@ -331,6 +338,10 @@ class ApplicationController < ActionController::Base
     )
   rescue ActiveRecord::RecordInvalid
     respond_not_saved
+  end
+
+  def comment_reportable?(data, data_type)
+    data.comment_by != current_user.id
   end
 
   def show_with_comments(subject)

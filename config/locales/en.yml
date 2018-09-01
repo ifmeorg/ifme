@@ -92,6 +92,9 @@ en:
    one: '%{count} member'
    other: '%{count} members'
 
+ admin:
+  dashboard: 'Admin Dashboard'
+  
  allies:
   add_ally: 'Add to Allies'
   cancel_ally_request: 'Cancel Request'

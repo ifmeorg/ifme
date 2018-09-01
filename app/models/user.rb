@@ -71,6 +71,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :user_id
   has_many :moods
   has_many :moments
+  has_many :reports
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
