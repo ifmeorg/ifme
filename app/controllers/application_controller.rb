@@ -273,6 +273,57 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
+  def comment_deletable?(data, data_type)
+    data.comment_by == current_user.id ||
+      user_created_data?(data.commentable_id, data_type)
+  end
+
+  def comment_for(model_name)
+    @comment = Comment.create_from!(params)
+    @comment.notify_of_creation!(current_user)
+
+    respond_with_json(
+      generate_comment(@comment, model_name)
+    )
+  rescue ActiveRecord::RecordInvalid
+    respond_not_saved
+  end
+
+  def comment_reportable?(data)
+    data.comment_by != current_user.id
+  end
+
+  def show_with_comments(subject)
+    model_name = record_model_name(subject)
+
+    if current_user.id != subject.user_id && hide_page?(subject)
+      path = send("#{model_name.pluralize}_path")
+      return redirect_to_path(path)
+    end
+
+    set_show_with_comments_variables(subject, model_name)
+  end
+
+  # rubocop:disable MethodLength
+  def set_show_with_comments_variables(subject, model_name)
+    @page_author = if current_user.id != subject.user_id
+                     User.find(subject.user_id)
+                   else
+                     User.find(current_user.id)
+                   end
+    @no_hide_page = true
+    # rubocop:disable GuardClause
+    if subject.comment
+      @comment = Comment.new
+      @comments = Comment.where(
+        commentable_id: subject.id,
+        commentable_type: model_name
+      ).order(created_at: :desc)
+    end
+    # rubocop:enable GuardClause
+  end
+  # rubocop:enable MethodLength
+
   def record_model_name(record)
     record.class.name.downcase
   end

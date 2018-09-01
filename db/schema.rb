@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180724031319) do
-=======
-<<<<<<< d7b3cd1b43e3928b08ff3e2324c90671e2707d8c
-ActiveRecord::Schema.define(version: 20180905051356) do
-=======
-ActiveRecord::Schema.define(version: 20180831162612) do
->>>>>>> Report Button added in Allies
->>>>>>> bbe1eae... Report Button added in Allies
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -210,7 +202,11 @@ ActiveRecord::Schema.define(version: 20180831162612) do
     t.text     "reasons"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+<<<<<<< 05c34b12fd1a1d0cdf450bd5bed7ac0556dbc354
 >>>>>>> Report Button added in Allies
+=======
+    t.integer  "comment_id"
+>>>>>>> Report Feature added for Profile and Comments, Admin dashboard implemented
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -279,6 +275,7 @@ ActiveRecord::Schema.define(version: 20180831162612) do
     t.boolean "meeting_notify"
     t.string "locale"
     t.datetime "access_expires_at"
+<<<<<<< HEAD
     t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
@@ -286,6 +283,20 @@ ActiveRecord::Schema.define(version: 20180831162612) do
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
+=======
+    t.string   "refresh_token"
+<<<<<<< 05c34b12fd1a1d0cdf450bd5bed7ac0556dbc354
+    t.boolean  "admin",                  default: false
+=======
+    t.boolean  "admin"
+>>>>>>> Report Feature added for Profile and Comments, Admin dashboard implemented
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+    t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid"], name: "index_users_on_uid", unique: true, using: :btree
+>>>>>>> a5adef7... Report Feature added for Profile and Comments, Admin dashboard implemented
   end
 
 end
