@@ -302,11 +302,15 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
 =======
     t.string   "refresh_token"
+<<<<<<< 742756be5a7bea6733cd405465f3935acb089ec7
 <<<<<<< 05c34b12fd1a1d0cdf450bd5bed7ac0556dbc354
     t.boolean  "admin",                  default: false
 =======
     t.boolean  "admin"
 >>>>>>> Report Feature added for Profile and Comments, Admin dashboard implemented
+=======
+    t.boolean  "admin",                  default: false
+>>>>>>> Report Mailer Added
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
