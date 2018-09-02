@@ -8,6 +8,8 @@
       <th>Comments</th>
       <th>ReportType</th>
       <th>CommentID</th>
+      <th>Reporter's email</th>
+      <th>Reported User's email</th>
       <th></th>
     </tr>
   </thead>
@@ -18,12 +20,16 @@
       <td><%= report.reporter_id %></td>
       <td><%= report.reportee_id %></td>
       <td><%= report.reasons %></td>
+
       <% if report.comment_id == -1 %>
         <td>user</td>
       <% else %>
         <td><%= Comment.where(id: report.comment_id).pluck(:commentable_type)[0] %></td>
       <% end %>
+
       <td><%= report.comment_id %></td>
+      <td><%= User.where(id: report.reporter_id).pluck(:email)[0] %></td>
+      <td><%= User.where(id: report.reportee_id).pluck(:email)[0] %></td>
       <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, :onclick => "return confirm('Are you sure you want to delete this post?')" %></td> 
       </tr>
     <% end %>
