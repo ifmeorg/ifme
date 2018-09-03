@@ -202,10 +202,13 @@ class ApplicationController < ActionController::Base
 
     if comment_reportable?(data, data_type)
       report_comment = '<div class="table_cell report_comment">'
-      report_comment += link_to t('common.actions.report'), new_report_path(ally_id: data.comment_by, comment_id: data.id), method: :get
+      report_comment += link_to t('common.actions.report'),
+                                new_report_path(ally_id: data.comment_by,
+                                comment_id: data.id),
+                                method: :get
       report_comment += '</div>'
     end
-    
+
     {
       commentid: data.id,
       profile_picture: profile_picture,
@@ -340,7 +343,7 @@ class ApplicationController < ActionController::Base
     respond_not_saved
   end
 
-  def comment_reportable?(data, data_type)
+  def comment_reportable?(data, _data_type)
     data.comment_by != current_user.id
   end
 
