@@ -204,7 +204,7 @@ class ApplicationController < ActionController::Base
       report_comment = '<div class="table_cell report_comment">'
       report_comment += link_to t('common.actions.report'),
                                 new_report_path(ally_id: data.comment_by,
-                                comment_id: data.id),
+                                                comment_id: data.id),
                                 method: :get
       report_comment += '</div>'
     end

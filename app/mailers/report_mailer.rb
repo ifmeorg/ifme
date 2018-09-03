@@ -2,7 +2,7 @@
 
 class ReportMailer < ApplicationMailer
   default from: ENV['SMTP_ADDRESS']
-    
+  
   def reported_email(recipient, reportee, email_id)
     @recipient = User.find_by(id: recipient)
     @reportee = User.find_by(id: reportee)
