@@ -3,8 +3,8 @@
 #
 # Table name: notifications
 #
-#  reporter_id         :string
-#  reportee_id         :string
+#  reporter_id         :integer
+#  reportee_id         :integer
 #  reasons             :text
 #  comment_id          :integer
 #  created_at          :datetime         not null
@@ -12,6 +12,8 @@
 
 class Report < ApplicationRecord
   belongs_to :user
+  belongs_to :reporter, class_name: 'User'
+  belongs_to :reportee, class_name: 'User'
   has_one :comment
   validates :reportee_id, presence: true
   validates :reporter_id, presence: true
