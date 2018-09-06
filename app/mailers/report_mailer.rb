@@ -8,6 +8,7 @@ class ReportMailer < ApplicationMailer
     @email_id = email_id
     mail(to: email_id, subject: 'You have reported a user!')
   end
+  
   def reportee_email(recipient, reporter, email_id)
     @recipient = User.find_by(id: recipient)
     @reporter = User.find_by(id: reporter)
