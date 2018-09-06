@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :report do
+    association :user, factory: :user1
     reporter_id "MyString"
     reportee_id "MyString"
     reasons "MyText"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # == Schema Information
 #
-# Table name: notifications
+# Table name: reports
 #
 #  reporter_id         :integer
 #  reportee_id         :integer
