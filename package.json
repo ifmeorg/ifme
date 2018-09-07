@@ -1,10 +1,18 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "yarn": "^1.6.0"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
-    "start": "foreman start -f Procfile.dev"
+    "start": "foreman start -f Procfile.dev",
+    "mandatory": "npm run bundle && npm run setwp && npm run migrate && npm rum slugify",
+    "bundle":"time bundle install -j 4",
+    "setwp": "sudo bundle exec rake setup_workspace",
+    "slugify": "sudo bundle exec rake slugs:slugify",
+    "migrate": "sudo bundle exec rake db:setup db:test:prepare",
+    "destroy": "bundle exec rake db:drop"
   },
   "engines": {
     "node": "9.10.0"
