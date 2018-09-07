@@ -15,9 +15,6 @@ jobs:
     steps:
     # Machine Setup
     - checkout
-    # Prepare for artifact and test results  collection equivalent to how it was done on 1.0.
-    # In many cases you can simplify this from what is generated here.
-    # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
     - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
     - run:
         working_directory: ~/ifmeorg/ifme
@@ -43,9 +40,7 @@ jobs:
     - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
     - run: rm -rf ~/.yarn
     - run: npm i -g yarn
-    - run: yarn -v
     - run: yarn install
-    - run: yarn
     # Save dependency cache
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
@@ -69,9 +64,8 @@ jobs:
           RAILS_ENV: test
           RACK_ENV: test
     # Test
-    #   This would typically be a build job when using workflows, possibly combined with build
     - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn run lint:setup && yarn run lint && yarn run build:test
+    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint && yarn build:test && yarn test
     - run: bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
     - run: RAILS_ENV=test bundle exec rake jasmine:ci
     - run: bundle exec bundle-audit check --update
