@@ -26,11 +26,8 @@ jobs:
     # Restore the dependency cache
     - restore_cache:
         keys:
-        # This branch if available
         - v1-dep-{{ .Branch }}-
-        # Default branch if not
         - v1-dep-master-
-        # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
         - v1-dep-
     - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     - run: sudo dpkg -i google-chrome.deb
@@ -65,16 +62,10 @@ jobs:
           RACK_ENV: test
     # Test
     - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint && yarn build:test && yarn test
+    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint:build && yarn build:test && yarn test
     - run: bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
     - run: RAILS_ENV=test bundle exec rake jasmine:ci
     - run: bundle exec bundle-audit check --update
-    # Deployment
-    # Your existing circle.yml file contains deployment steps.
-    # The config translation tool does not support translating deployment steps
-    # since deployment in CircleCI 2.0 are better handled through workflows.
-    # See the documentation for more information https://circleci.com/docs/2.0/workflows/
-    # Teardown
     # Save test results
     - store_test_results:
         path: /tmp/circleci-test-results
@@ -83,3 +74,24 @@ jobs:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
