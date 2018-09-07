@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20180724031319) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -180,33 +179,14 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-  create_table "strategies", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.text "category"
-    t.text "description"
-    t.text "viewers"
-    t.boolean "comment"
-=======
   create_table "reports", force: :cascade do |t|
-<<<<<<< d7b3cd1b43e3928b08ff3e2324c90671e2707d8c
     t.integer  "reporter_id"
     t.integer  "reportee_id"
     t.text     "reasons"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "comment_id"
-=======
-    t.string   "reporter_id"
-    t.string   "reportee_id"
-    t.text     "reasons"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-<<<<<<< 05c34b12fd1a1d0cdf450bd5bed7ac0556dbc354
->>>>>>> Report Button added in Allies
-=======
-    t.integer  "comment_id"
->>>>>>> Report Feature added for Profile and Comments, Admin dashboard implemented
+    t.integer  "user_id"
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -215,7 +195,6 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.text     "description"
     t.text     "viewers"
     t.boolean  "comment"
->>>>>>> bbe1eae... Report Button added in Allies
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "name"
