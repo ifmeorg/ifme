@@ -32,6 +32,7 @@ user1_meeting2 = Meeting.create(name: 'Meeting #2: Exposure', description: 'This
 user1_meeting2_member1 = MeetingMember.create(meeting_id: user1_meeting2.id, user_id: user1.id, leader: true)
 user1_group2 = Group.create(name: 'Depression Discussion Group', description: 'A support group for people with depression')
 user1_group2_member1 = GroupMember.create(group_id: user1_group2.id, user_id: user1.id, leader: true)
+user1_report = Report.create(reporter_id: user1.id, reportee_id: user2.id, reasons: 'You were reported.')
 
 # User 2
 user2_category1 = Category.create(user_id: user2.id, name: 'Brother', description: 'We have a strained relationship')
@@ -40,3 +41,4 @@ user2_mood2 = Mood.create(user_id: user2.id, name: 'Exhausted', description: 'No
 user2_moment1 = Moment.create(user_id: user2.id, category: Array.new(1, user2_category1.id), mood: Array.new(1, user2_mood1.id), name: 'Thanksgiving Dinner', why: 'He kept asserting to everyone that I was immature and he always did everything for me.', viewers: Array.new(1, user1.id), comment: false)
 user2_moment1_comment = Comment.create(commentable_type: 'moment', commentable_id: user2_moment1.id, comment_by: user1.id, comment: "You should talk to him one-on-one and tell him how you feel!", visibility: 'all')
 user1_group1_member2 = GroupMember.create(group_id: user1_group1.id, user_id: user2.id, leader: true)
+user2_report = Report.create(reporter_id: user2.id, reportee_id: user3.id, reasons: 'You were reported.')

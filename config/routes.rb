@@ -66,6 +66,12 @@ Rails.application.routes.draw do
 
   resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
 
+  resources :reports do 
+    collection do
+      get 'admin_dashboard'
+    end
+  end
+  
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'posts'
