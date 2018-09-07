@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
+  before_action :authenticate_user!
   def create
     user_id = current_user.id
     ally_id = params[:ally_id].to_i
