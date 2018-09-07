@@ -58,13 +58,13 @@ RSpec.describe Report, type: :model do
       end
     end
   
-    # describe "#send email after report creation" do
-    #   subject { create :report }
-  
-    #   it 'sends an email' do
-    #     expect { subject.send_mail_reports }
-    #       .to change { ActionMailer::Base.deliveries.count }.by(2)
-    #   end
-    # end
+    describe "#send email after report creation" do
+      subject { create :report }
+
+      it 'sends an email' do
+        expect { subject.send_mail_reports }
+          .to change { ActionMailer::Base.deliveries.count }.by(4)
+      end
+    end
   end
   
