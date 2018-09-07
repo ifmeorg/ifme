@@ -6,7 +6,7 @@ describe AllyNotifications::NewAllyRequest do
   let(:allies_url) { "http://localhost:3000/allies" }
 
   let(:data) do
-    HashWithIndifferentAccess.new({
+    ActiveSupport::HashWithIndifferentAccess.new({
       'user' =>  ally.name,
       'user_id' =>  ally.id,
       'uid'  => ally.uid,

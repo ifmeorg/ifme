@@ -5,7 +5,7 @@ ruby '~> 2.3.4'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 5.0.5'
+gem 'rails', '~> 5.1.6'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.11'
@@ -26,7 +26,7 @@ gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.0.0'
 gem 'uglifier', '~> 3.2.0'
 
-gem 'carrierwave', '~> 1.0.0'
+gem 'carrierwave', '~> 1.2.3'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'ckeditor', '~> 4.2.4'
