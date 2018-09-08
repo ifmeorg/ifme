@@ -98,7 +98,7 @@
   {
     "name": "Department of Veteran's Affairs | Mental Health (US)",
     "link": "https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags": ["free", "suicide prevention", "homeless", "directory", "veterans", "government"],
+    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government"],
     "languages": ["en"]
   },
   {

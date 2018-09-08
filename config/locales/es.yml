@@ -11,7 +11,6 @@ es:
  click_here: "da click aquí"
  less: " [Menos]"
  language: 'Idioma'
- back_to_top: Regresar al Inicio
 
  languages:
    en: English
@@ -437,7 +436,6 @@ es:
     contact: "Contacto"
     contact_description: "<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class=\"no_margin_bottom\"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>"
   resources:
-    description: Te damos la bienvenida a nuestra lista de recursos para la salud mental organizados por %{communities}, %{education}, %{hotlines}, y %{services}.
     communities: Comunidades
     education: Educación
     hotlines: Líneas de Ayuda

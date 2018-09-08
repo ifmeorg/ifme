@@ -41,10 +41,7 @@
       font-size: $size-14;
       letter-spacing: 0.05em;
     }
-    > div:nth-of-type(2n) {
-      text-align: center;
-    }
-    > div:nth-of-type(3n) {
+    > div:last-of-type {
       text-align: right;
     }
     @media screen and (max-width: $medium) {

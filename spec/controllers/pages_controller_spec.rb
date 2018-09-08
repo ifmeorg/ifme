@@ -137,22 +137,5 @@ RSpec.describe PagesController, type: :controller do
       get :resources
       expect(response).to be_success
     end
-
-    it 'read external JSON file' do
-      data = []
-      communities_file = File.read('doc/pages/communities.json')
-      education_file = File.read('doc/pages/education.json')
-      hotlines_file = File.read('doc/pages/hotlines.json')
-      services_file = File.read('doc/pages/services.json')
-      expect(JSON).to receive(:parse).with(communities_file).and_return(data)
-      expect(data).to receive(:sort_by!)
-      expect(JSON).to receive(:parse).with(education_file).and_return(data)
-      expect(data).to receive(:sort_by!)
-      expect(JSON).to receive(:parse).with(hotlines_file).and_return(data)
-      expect(data).to receive(:sort_by!)
-      expect(JSON).to receive(:parse).with(services_file).and_return(data)
-      expect(data).to receive(:sort_by!)
-      get :resources
-    end
   end
 end

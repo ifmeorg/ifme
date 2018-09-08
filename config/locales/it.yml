@@ -11,7 +11,6 @@ it:
  click_here: "clicca qui"
  less: " [Di meno]"
  language: 'Lingua'
- back_to_top: Torna su
 
  languages:
    en: English
@@ -435,7 +434,6 @@ it:
     contact: 'Contattaci'
     contact_description: "<p>Per favore, inviaci una EMail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
   resources:
-    description: "Benvenuto sulla lista delle risorse sulla salute mentale curata da %{communities}, %{education}, %{hotlines}, e %{services}."
     communities: Community
     education: Educazione
     hotlines: Numeri

@@ -24,9 +24,10 @@
     line-height: 1.1;
   }
 
-  div > a {
+  a {
     text-decoration: none;
     color: $white;
+    border: none !important;
   }
 
   .author {

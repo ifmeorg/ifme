@@ -11,7 +11,6 @@ en:
  click_here: "click here"
  less: " [Less]"
  language: 'Language'
- back_to_top: Back to Top
 
  languages:
    en: English
@@ -435,7 +434,6 @@ en:
     contact: 'Contact Us'
     contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"no_margin_bottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
   resources:
-    description: "Welcome to our curated mental health resources organized by %{communities}, %{education}, %{hotlines}, and %{services}."
     communities: Communities
     education: Education
     hotlines: Hotlines
