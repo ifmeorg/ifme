@@ -11,7 +11,6 @@ vi:
  click_here: "nhấn vào đây"
  less: " [Ít hơn]"
  language: 'Ngôn ngữ'
- back_to_top: Về ại đầu trang
 
  languages:
    en: English
@@ -436,7 +435,6 @@ vi:
     contact: 'Liên hệ với chúng tôi'
     contact_description: "<p>Vui lòng %{email_link} nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào.</p><p class=\"no_margin_bottom\"><em>Chính sách Bảo mật được điều chỉnh từ% {jamie_king_media}.</em></p>"
   resources:
-    description: "Chào mừng bạn đến với tài nguyên sức khỏe tâm thần được tổ chức bởi %{community}, %{education}, %{hotlines} và %{services}."
     communities: Cộng đồng
     education: Giáo dục
     hotlines: Khẩn cấp

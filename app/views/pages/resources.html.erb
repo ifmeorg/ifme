@@ -1,20 +1,3 @@
 <% title t('navigation.resources') %>
-<%= raw t('pages.resources.description', {
-  communities: link_to(t('pages.resources.communities'), resources_path(resource: "communities")),
-  education: link_to(t('pages.resources.education'), resources_path(resource: "education")),
-  hotlines: link_to(t('pages.resources.hotlines'), resources_path(resource: "hotlines")),
-  services: link_to(t('pages.resources.services'), resources_path(resource: "services"))
-}) %>
-<div class="spacer"></div>
-<%= print_resources("communities", @communities) %>
-<%= render partial: "shared/back_to_top" %>
-<div class="spacer"></div>
-<%= print_resources("education", @education) %>
-<%= render partial: "shared/back_to_top" %>
-<div class="spacer"></div>
-<%= print_resources("hotlines", @hotlines) %>
-<%= render partial: "shared/back_to_top" %>
-<div class="spacer"></div>
-<%= print_resources("services", @services) %>
-<%= render partial: "shared/back_to_top" %>
-<div class="clear"></div>
+
+<%= react_component('Resources', props: { resources: @resources }) %>

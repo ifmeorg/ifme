@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie';
-
-import enYML from 'config/locales/en.yml';
+import enYML from '../../../../config/locales/en.yml';
 
 import { defaultLocale } from './default';
 import { translations } from './translations';

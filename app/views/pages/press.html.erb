@@ -1,12 +1,14 @@
 <% title t('navigation.press') %>
 
+<div class="gridThree">
 <% @press.each_with_index do |p, index| %>
-  <% if index + 1 == @press.length %>
-    <div class="blog_post no_margin_bottom">
-  <% else %>
-    <div class="blog_post">
-  <% end %>
-    <h1 class="blog_name"><%= link_to p["link_name"], p["link"], target: 'blank' %></h1>
-    <%= p["author"] %>
+  <div class="gridThreeItem">
+  <%= react_component('Resource', props: {
+    external: true,
+    title: p['link_name'],
+    link: p['link'],
+    author: p['author']
+  }) %>
   </div>
 <% end %>
+</div>

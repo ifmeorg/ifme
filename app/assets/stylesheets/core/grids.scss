@@ -1,0 +1,35 @@
+@mixin grid() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid {
+  &Two {
+    @include grid();
+    &Item {
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+      margin-bottom: $size-20;
+      @media screen and (max-width: $medium) {
+        width: 100%;
+        padding: $size-10;
+        margin-bottom: $size-20;
+      }
+    }
+  }
+
+  &Three {
+    @include grid();
+    &Item {
+      box-sizing: border-box;
+      width: calc(33% - 20px);
+      margin-bottom: $size-20;
+      @media screen and (max-width: $medium) {
+        width: 100%;
+        padding: $size-10;
+        margin-bottom: $size-20;
+      }
+    }
+  }
+}

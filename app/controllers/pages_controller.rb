@@ -39,10 +39,7 @@ class PagesController < ApplicationController
   end
 
   def resources
-    @communities = fetch_resources_for('communities')
-    @education = fetch_resources_for('education')
-    @hotlines = fetch_resources_for('hotlines')
-    @services = fetch_resources_for('services')
+    @resources = fetch_resources
   end
 
   def about; end
@@ -114,7 +111,26 @@ class PagesController < ApplicationController
   end
 
   def fetch_resources_for(resource_type)
-    resources = JSON.parse(File.read("doc/pages/#{resource_type}.json"))
+    JSON.parse(File.read("doc/pages/#{resource_type}.json"))
+  end
+
+  def modify_resources
+    new_resources = []
+    resource_types = %w(communities education hotlines services)
+    resource_types.each do |resource_type|
+      resources = fetch_resources_for(resource_type)
+      resources.each do |item|
+        item['type'] = t("pages.resources.#{resource_type}")
+        item['tags'].map! { |tag| t("pages.resources.tags.#{tag}") }
+        item['languages'].map! { |language| t("languages.#{language}") }
+      end
+      new_resources += resources
+    end
+    new_resources
+  end
+
+  def fetch_resources
+    resources = modify_resources
     resources.sort_by! { |r| r['name'].downcase }
   end
 end

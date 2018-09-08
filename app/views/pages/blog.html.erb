@@ -4,14 +4,15 @@
 }) %>
 <div class="spacer"></div>
 
-
-<div id="pages">
-  <div class="page">
+<div class="gridThree">
   <% @posts.each_with_index do |p, index| %>
-    <div class="blog_post">
-      <h1 class="blog_name"><%= link_to p["link_name"], p["link"], target: 'blank' %></h1>
-      <%= p["author"] %>
+    <div class="gridThreeItem">
+    <%= react_component('Resource', props: {
+      external: true,
+      title: p['link_name'],
+      link: p['link'],
+      author: p['author']
+    }) %>
     </div>
   <% end %>
-  </div>
 </div>

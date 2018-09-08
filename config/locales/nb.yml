@@ -11,7 +11,6 @@ nb:
  click_here: "klikk her"
  less: " [Mindre]"
  language: 'Språk'
- back_to_top: Tilbake til toppen
 
  languages:
    en: English
@@ -435,7 +434,6 @@ nb:
     contact: 'Kontakt oss'
     contact_description: "<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class=\"no_margin_bottom\"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>"
   resources:
-    description: "Velkommen til vår kuraterte mental helse ressurser organisert av  %{communities}, %{education}, %{hotlines}, og %{services}."
     communities: Samfunn
     education: Utdanning
     hotlines: Hjelpelinjer
