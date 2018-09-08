@@ -3,7 +3,9 @@
     <%= ProfilePicture.fetch(current_user.avatar.url, className: 'dashboard_nav_profile_picture') %>
   </div>
   <div class="dashboardNavProfileInfo">
-    <%= current_user.name %>
+    <div>
+      <%= current_user.name %>
+    </div>
     <div class="dashboardNavProfileInfoLinks">
       <%= link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid), class: 'buttonGhostS') %>
       <%= link_to(t('account.singular'), edit_user_registration_path, class: 'buttonGhostS') %>

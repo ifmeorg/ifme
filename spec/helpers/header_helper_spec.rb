@@ -23,7 +23,7 @@ describe HeaderHelper do
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
-              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Blog', url: 'https://medium.com/ifme' },
               { name: 'Resources', url: '/resources', active: false },
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
@@ -39,7 +39,7 @@ describe HeaderHelper do
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
-              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Blog', url: 'https://medium.com/ifme' },
               { name: 'Resources', url: '/resources', active: true },
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
@@ -61,7 +61,7 @@ describe HeaderHelper do
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
-              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Blog', url: 'https://medium.com/ifme' },
               { name: 'Resources', url: '/resources', active: false },
               { name: 'Join', url: '/users/sign_up', active: false },
               { name: 'Sign in', url: '/users/sign_in', active: false }
@@ -78,7 +78,7 @@ describe HeaderHelper do
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
-              { name: 'Blog', url: '/blog', active: false },
+              { name: 'Blog', url: 'https://medium.com/ifme' },
               { name: 'Resources', url: '/resources', active: false },
               { name: 'Join', url: '/users/sign_up', active: false },
               { name: 'Sign in', url: '/users/sign_in', active: true }

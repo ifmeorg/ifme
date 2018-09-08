@@ -22,11 +22,9 @@
       </div>
     <% end -%>
 
-    <div class="actions"><%= f.submit t('account.sign_in') %></div>
+    <div class="actions"><%= f.submit t('account.sign_in'), class: 'buttonM' %></div>
   </div>
 <% end %>
-
-<div class="horizonal_divider"></div>
 
 <div class="center">
   <%= render 'devise/shared/links' %>

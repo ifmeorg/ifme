@@ -1,10 +1,10 @@
 @mixin button() {
   background: $white;
-  color: $mulberry;
   border-radius: $size-4;
   border: none;
   text-decoration: none;
   box-sizing: border-box;
+  color: $mulberry !important;
 }
 
 @mixin buttonHover() {
@@ -15,23 +15,23 @@
 
 @mixin buttonS() {
   font-size: $size-14;
-  padding: $size-10 $size-20;
+  padding: $size-10;
 }
 
 @mixin buttonM() {
   font-size: $size-18;
-  padding: $size-16 $size-32;
+  padding: $size-16;
 }
 
 @mixin buttonL() {
   font-size: $size-24;
-  padding: $size-22 $size-44;
+  padding: $size-22;
   font-weight: bold;
 }
 
 @mixin buttonGhost() {
   background: $white-10;
-  color: $white;
+  color: $white !important;
 }
 
 .buttonGhost {

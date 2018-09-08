@@ -11,13 +11,8 @@
 }
 
 .dashboard_nav_profile_picture .portrait {
-  width: 45px;
-  height: 45px;
-
-  @media screen and (max-width: $small) {
-    width: 35px;
-    height: 35px;
-  }
+  width: 100%;
+  height: auto;
 }
 
 .mini_profile_picture .portrait {

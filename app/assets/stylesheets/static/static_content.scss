@@ -1,9 +1,38 @@
 .staticContent {
+  color: $white;
   width: 100%;
   box-sizing: border-box;
   padding: $size-40 60px;
   line-height: 150%;
   @media screen and (max-width: $medium) {
     padding: $size-20;
+  }
+
+  a {
+    text-decoration: none;
+    color: $cornflower;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .pageTitle {
+    text-align: center;
+    font-weight: $font-weight-300;
+    font-size: $size-36;
+    margin-bottom: $size-50;
+    @media screen and (max-width: $small) {
+
+    }
+  }
+
+  h1 {
+    font-weight: 300;
+    font-size: $size-26;
+    padding: 0;
+    margin: 0;
+    @media screen and (max-width: $medium) {
+      font-size: $size-22;
+    }
   }
 }

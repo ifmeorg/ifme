@@ -2,9 +2,9 @@
   <div class="small_margin_bottom">
     <%- resource_class.omniauth_providers.each do |provider| %>
       <% if provider.to_s == "google_oauth2" && (current_page?(new_user_session_path) || current_page?(new_user_password_path)) %>
-        <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name, provider) %>
+        <%= button_to t('devise.shared.sign_in_google'), omniauth_authorize_path(resource_name, provider), class: 'buttonM' %>
       <% elsif provider.to_s == "google_oauth2" %>
-        <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name, provider) %>
+        <%= button_to t('devise.shared.sign_up_google'), omniauth_authorize_path(resource_name, provider), class: 'buttonM' %>
       <% end -%>
     <% end -%>
   </div>

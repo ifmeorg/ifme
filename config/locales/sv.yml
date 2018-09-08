@@ -38,7 +38,6 @@ sv:
    facebook: "Facebook"
    feedback: 'återkoppling'
    give_feedback: 'Ge Återkoppling'
-   medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
    resources: 'Resurser'
@@ -394,7 +393,7 @@ sv:
     invite_question: 'Hur kan jag bjuda in mina älskade att ansluta till appen?'
     invite_answer: 'Gå till sidan <strong>Allierade</strong> och klicka på länken "Bjud in dina älskade". Du kommer att kunna bjuda in dem via e-post. När din älskade accepterar inbjudan kommer de att läggas till din allierade lista.'
     email_notifications_question: 'Hur kan jag ändra e-postmeddelanden?'
-    email_notifications_answer: "Gå till <strong>Konto</strong> sidan genom att slå %{desktop_icon} (skrivbordet) eller %{mobile_icon} (mobil) i navigeringsfältet. Du kan ändra din e-postadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
+    email_notifications_answer: "Gå till <strong>Konto</strong>. Du kan ändra din e-postadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
   home:
     stories: 'Berättelser'
     welcome: 'Välkommen'
