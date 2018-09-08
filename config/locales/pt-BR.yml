@@ -38,7 +38,6 @@ pt-BR:
    facebook: "Facebook"
    feedback: 'feedback'
    give_feedback: "Feedback"
-   medium: 'Medium'
    press: 'Contato'
    faq: 'FAQ'
    resources: 'Recursos'
@@ -393,7 +392,7 @@ pt-BR:
     invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
     invite_answer: 'Visite a página de <strong>Aliados</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
     email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
-    email_notifications_answer: "Vá para a página <strong>Conta</strong> ao clicar no ícone %{desktop_icon} (desktop) ou %{mobile_icon} (mobile) na barra de navegação. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
+    email_notifications_answer: "Vá para a página <strong>Conta</strong>. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
   home:
     stories: 'Histórias'
     welcome: 'Bem Vindo'

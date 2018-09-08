@@ -205,22 +205,6 @@
   }
 }
 
-/* Blog */
-
-h1.blog_name,
-h1.privacy_heading,
-h1.faq_heading {
-  font-weight: 300;
-  font-size: $size-26;
-  padding: 0;
-  margin: 0;
-  color: $mulberry;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-22;
-  }
-}
-
 /* Quick Moment */
 
 #quick_moment {

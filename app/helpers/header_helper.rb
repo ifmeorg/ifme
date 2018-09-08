@@ -38,8 +38,7 @@ module HeaderHelper
   def basic_links
     about = { name: t('navigation.about'), url: about_path }
     about[:active] = active?(about[:url])
-    blog = { name: t('navigation.blog'), url: blog_path }
-    blog[:active] = active?(blog[:url])
+    blog = { name: t('navigation.blog'), url: 'https://medium.com/ifme' }
     resources = { name: t('navigation.resources'), url: resources_path }
     resources[:active] = active?(resources[:url])
     [about, blog, resources]

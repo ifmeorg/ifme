@@ -76,7 +76,7 @@ module ApplicationHelper
 
   def static_page?
     non_devise_paths = [
-      about_path, blog_path, resources_path, faq_path,
+      about_path, resources_path, faq_path,
       contribute_path, partners_path, press_path, privacy_path
     ]
     non_devise_paths = non_devise_paths.select { |path| active?(path) }

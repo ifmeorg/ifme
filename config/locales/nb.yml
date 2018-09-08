@@ -38,7 +38,6 @@ nb:
    facebook: "Facebook"
    feedback: 'tilbakemelding'
    give_feedback: 'Gi tilbakemelding'
-   medium: 'Medium'
    press: 'Presse'
    faq: 'Ofte stilte spørsmål'
    resources: 'Ressurser'
@@ -393,7 +392,7 @@ nb:
     invite_question: 'Hvordan kan jeg invitere kjente til å bli med i applikasjonen?'
     invite_answer: 'Gå til <strong>allierte</strong> siden og klikk på "Inviter dine kjente" linken. Du kan da invitere dem via e-post. Når dine kjente aksepterer invitasjonen, blir de lagt til din liste over allierte.'
     email_notifications_question: 'Hvordan kan jeg forandre e-post påminnelser?'
-    email_notifications_answer: "Gå til <strong>konto</strong> siden ved å trykke på %{desktop_icon} (desktop) eller %{mobile_icon} (mobil) i navigasjonsbaren. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din."
+    email_notifications_answer: "Gå til <strong>konto</strong>. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din."
   home:
     stories: 'Historier'
     welcome: 'Velkommen'
