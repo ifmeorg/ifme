@@ -11,7 +11,6 @@ nl:
  click_here: "klik hier"
  less: " [Minder]"
  language: 'Taal'
- back_to_top: Terug naar boven
 
  languages:
    en: English
@@ -435,7 +434,6 @@ nl:
     contact: 'Neem contact met ons op'
     contact_description: "<p>Graag %{email_link} indien je vragen of opmerkingen hebt.</p><p class=\"no_margin_bottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
   resources:
-    description: "Welkom op onze samengestelde lijst van bronnen georganiseerd op %{communities}, %{education}, %{hotlines}, en %{services}."
     communities: Gemeenschappen
     education: Educatie
     hotlines: Meldpunten

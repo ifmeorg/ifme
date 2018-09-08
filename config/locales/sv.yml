@@ -11,7 +11,6 @@ sv:
  click_here: "Klicka här"
  less: " [Mindre]"
  language: 'Språk'
- back_to_top: Tillbaka till toppen
 
  languages:
    en: English
@@ -436,7 +435,6 @@ sv:
     contact: 'Kontakta Oss'
     contact_description: "<p>Vänligen %{email_link} om du har några frågor eller problem.</p><p class=\"no_margin_bottom\"><em>Sekretesspolicy anpassad från %{jamie_king_media}.</em></p>"
   resources:
-    description: "Välkommen till våra kurerade psykiska resurser som organiseras enligt %{communities}, %{education}, %{hotlines}, och %{services}."
     communities: Gemenskaperna
     education: Utbildning
     hotlines: Direktlinje
