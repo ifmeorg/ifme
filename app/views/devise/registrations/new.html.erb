@@ -1,12 +1,6 @@
 <div class="subtitle"><%= t('devise.registrations.new.subtitle') %></div>
 <div class="spacer"></div>
 
-<div class="center">
-  <%= render 'devise/shared/links' %>
-</div>
-
-<div class="horizonal_divider"></div>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="center">
@@ -28,7 +22,11 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t('account.sign_up') %>
+      <%= f.submit t('account.sign_up'), class: 'buttonM' %>
     </div>
   </div>
 <% end %>
+
+<div class="center">
+  <%= render 'devise/shared/links' %>
+</div>

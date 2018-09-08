@@ -1,19 +1,19 @@
 <% title t('navigation.privacy') %>
-<h1 class="privacy_heading"><%= t('pages.privacy.summary') %></h1>
+<h1><%= t('pages.privacy.summary') %></h1>
 <%= raw t('pages.privacy.summary_description') %>
 
-<h1 class="privacy_heading"><%= t('pages.privacy.user_data') %></h1>
+<h1><%= t('pages.privacy.user_data') %></h1>
 <%= raw t('pages.privacy.user_data_description') %>
 
-<h1 class="privacy_heading"><%= t('pages.privacy.cookies') %></h1>
+<h1><%= t('pages.privacy.cookies') %></h1>
 <%= raw t('pages.privacy.cookies_description', {
   google_privacy_policy: link_to(t('navigation.privacy').downcase, 'http://www.google.com/privacy.html', target: 'blank')
 }) %>
 
-<h1 class="privacy_heading"><%= t('pages.privacy.social_media') %></h1>
+<h1><%= t('pages.privacy.social_media') %></h1>
 <%= raw t('pages.privacy.social_media_description') %>
 
-<h1 class="privacy_heading"><%= t('pages.privacy.contact') %></h1>
+<h1><%= t('pages.privacy.contact') %></h1>
 <%= raw t('pages.privacy.contact_description', {
   email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}"),
   jamie_king_media: link_to('Jamie King Media', 'http://jamieking.co.uk/resources/download-free-sample-privacy-policy.html', target: 'blank')

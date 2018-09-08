@@ -38,7 +38,6 @@ vi:
    facebook: "Facebook"
    feedback: 'Phản hồi'
    give_feedback: 'Đưa phản hồi'
-   medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
    resources: 'Nguồn'
@@ -394,7 +393,7 @@ vi:
     invite_question: 'Làm thế nào để mời những người bạn yêu thích tham gia vào ứng dụng?'
     invite_answer: 'Chuyển <strong>đến trang đồng minh</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
     email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
-    email_notifications_answer: "Truy cập trang <strong>Tài khoản</strong> bằng cách nhấn %{desktop_icon} (máy tính để bàn) hoặc %{mobile_icon} (di động) trong thanh điều hướng. Bạn có thể sửa đổi email, mật khẩu, hình ảnh tiểu sử và tiểu sử ở đây. Bạn cũng có thể xóa tài khoản của bạn. Khi bạn xóa tài khoản của mình, tất cả dữ liệu của bạn sẽ bị xóa."
+    email_notifications_answer: "Truy cập trang <strong>Tài khoản</strong>. Bạn có thể sửa đổi email, mật khẩu, hình ảnh tiểu sử và tiểu sử ở đây. Bạn cũng có thể xóa tài khoản của bạn. Khi bạn xóa tài khoản của mình, tất cả dữ liệu của bạn sẽ bị xóa."
   home:
     stories: 'Câu chuyện'
     welcome: 'Chào mừng'

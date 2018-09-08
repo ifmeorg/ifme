@@ -38,7 +38,6 @@ nl:
    facebook: "Facebook"
    feedback: 'terugkoppeling'
    give_feedback: 'Geef Terugkoppeling'
-   medium: 'Medium'
    press: 'Press'
    faq: 'FAQ'
    resources: 'Bronnen'
@@ -393,7 +392,7 @@ nl:
     invite_question: 'Hoe kan ik mijn naasten uitnodigen om de app te gebruiken?'
     invite_answer: 'Ga naar de <strong>Bondgenoten</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per e-mail uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
     email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
-    email_notifications_answer: "Ga naar de <strong>Account</strong> pagina door te drukken op %{desktop_icon} (desktop) of %{mobile_icon} (mobiel) in de navigatie balk. Je kunt je e-mail, wachtwoord, profiel foto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
+    email_notifications_answer: "Ga naar de <strong>Account</strong> pagina. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
   home:
     stories: 'Verhalen'
     welcome: 'Welkom'

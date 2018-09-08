@@ -15,10 +15,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def blog
-    @posts = set_posts
-  end
-
   def contribute
     @blurbs = set_blurbs
     @contributors = set_contributors
@@ -110,27 +106,22 @@ class PagesController < ApplicationController
     JSON.parse(File.read('doc/pages/press.json')).reverse
   end
 
-  def fetch_resources_for(resource_type)
-    JSON.parse(File.read("doc/pages/#{resource_type}.json"))
-  end
-
-  def modify_resources
-    new_resources = []
-    resource_types = %w(communities education hotlines services)
-    resource_types.each do |resource_type|
-      resources = fetch_resources_for(resource_type)
-      resources.each do |item|
-        item['type'] = t("pages.resources.#{resource_type}")
-        item['tags'].map! { |tag| t("pages.resources.tags.#{tag}") }
-        item['languages'].map! { |language| t("languages.#{language}") }
-      end
-      new_resources += resources
+  def modify_resources(resource_type)
+    resources = JSON.parse(File.read("doc/pages/#{resource_type}.json"))
+    resources.each do |item|
+      item['type'] = t("pages.resources.#{resource_type}")
+      item['tags'].map! { |tag| t("pages.resources.tags.#{tag}") }
+      item['languages'].map! { |language| t("languages.#{language}") }
     end
-    new_resources
+    resources
   end
 
   def fetch_resources
-    resources = modify_resources
-    resources.sort_by! { |r| r['name'].downcase }
+    new_resources = []
+    resource_types = %w[communities education hotlines services]
+    resource_types.each do |resource_type|
+      new_resources += modify_resources(resource_type)
+    end
+    new_resources.sort_by! { |r| r['name'].downcase }
   end
 end

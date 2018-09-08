@@ -39,20 +39,6 @@ RSpec.describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #blog' do
-    it 'respond to request' do
-      get :blog
-      expect(response).to be_success
-    end
-
-    it 'has posts' do
-      get :blog
-      expect(assigns(:posts)[0].keys).to(
-        contain_exactly('link', 'link_name', 'author')
-      )
-    end
-  end
-
   describe 'GET #contribute' do
     it 'respond to request' do
       get :contribute

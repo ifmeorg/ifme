@@ -12,10 +12,6 @@ p {
   word-wrap: break-word;
 }
 
-strong, b {
-  color: $mulberry;
-}
-
 ul:not(.ui-autocomplete, .no_bullet_list),
 ol:not(.ui-autocomplete, .no_bullet_list)  {
   padding-left: 0;
