@@ -20,8 +20,6 @@
 
         <%= render partial: '/notifications/categories_moods', locals: { categories: local_assigns[:categories], moods: local_assigns[:moods], f: f } %>
 
-        <div class="clear"></div>
-
         <% if (!local_assigns[:categories].nil? && local_assigns[:categories].length > 0) || (local_assigns[:moods].nil? && local_assigns[:moods].length > 0) %>
           <div id="toggle_categories_moods">
             <span class="link_style">

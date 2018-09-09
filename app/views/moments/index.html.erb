@@ -7,9 +7,7 @@
 
 <% if @moments.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
-
-  <div class="stats_divider"></div>
-
+  <div class="spacer"></div>
   <div class="hideOnMobile">
     <%= react_component("ChartControl", props: {
       types: [],

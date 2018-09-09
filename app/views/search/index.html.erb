@@ -1,11 +1,6 @@
 <% title t('search.index.title') %>
-<div class="align_left allies_nav_left">
-  <%= link_to t('allies.index.view_all_allies'), allies_path %>
-</div>
-<div class="align_right">
-  <%= render 'form' %>
-</div>
-<div class="clear"></div>
+<%= render 'form' %>
+<%= link_to t('allies.index.view_all_allies'), allies_path %>
 
 <div class="spacer"></div>
 

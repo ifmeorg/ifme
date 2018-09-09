@@ -8,11 +8,8 @@
     <div class="sidebar_field">
       <div class="sidebar_label">
         <%= f.label t('common.title'), for: 'strategy_name' %>
-        <div class="align_right">
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('strategies.form.name_hint')) %>
         <i class="fa fa-asterisk"></i>
-      </div>
-      <div class="clear"></div>
       </div>
       <%= f.text_field :name, class: 'name_field' %>
     </div>
@@ -57,9 +54,7 @@
       <div class="sidebar_label">
         <%= f.label t('comment.allow_comments') %>
         <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('comment.hint')) %>
-        <div class="align_right">
-          <%= f.check_box :comment, class: 'no_margin_right' %>
-        </div>
+        <%= f.check_box :comment, class: 'no_margin_right' %>
       </div>
     </div>
 
@@ -68,9 +63,7 @@
         <div class="sidebar_label">
           <%= reminder.label t('common.daily_reminder'), for: 'perform_strategy_reminder' %>
           <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('strategies.form.daily_reminder_hint')) %>
-          <div class="align_right">
-            <%= reminder.check_box(:active, { id: 'perform_strategy_reminder', class: 'no_margin_right' }, 'true', 'false') %>
-          </div>
+          <%= reminder.check_box(:active, { id: 'perform_strategy_reminder', class: 'no_margin_right' }, 'true', 'false') %>
         </div>
       <% end %>
     </div>
@@ -80,8 +73,7 @@
     <div class="field">
       <div class="label">
         <%= f.label t('strategies.form.describe'), for: 'strategy_description' %>
-        <i class="fa fa-asterisk align_right"></i>
-        <div class="clear"></div>
+        <i class="fa fa-asterisk"></i>
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
 
@@ -96,13 +88,9 @@
   </div>
 </div>
 
-<div class="clear"></div>
-
-<div class="actions align_right no_margin_bottom">
+<div class="actions no_margin_bottom">
   <%= f.submit t('common.actions.submit') %>
 </div>
-
-<div class="clear"></div>
 
 <% end %>
 

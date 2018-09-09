@@ -26,62 +26,7 @@
   justify-content: space-between;
 }
 
-.sidebar_label,
-.label,
-.tip_notifications_text,
-#notifications_text,
-.quick_create_text,
-#categories_moods_text,
-.meeting,
-.group_info,
-.moment,
 .story {
-  .align_left {
-    float: left;
-    display: inline-block;
-    @media screen and (max-width: $small) {
-      width: 80%;
-    }
-  }
-
-  .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-.contributor {
-  .align_left {
-    float: left;
-    display: inline-block;
-  }
-
-  .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-.story {
-  .align_left {
-    float: left;
-    display: inline-block;
-    @media screen and (max-width: $small) {
-      width: 100%;
-      float: none;
-      display: block;
-    }
-  }
-
-  .align_right:not(.table_cell) {
-    float: right;
-    display: inline-block;
-    @media screen and (max-width: $small) {
-      float: none;
-      display: block;
-    }
-  }
-
   @media screen and (max-width: $small) {
     .story_name {
       font-size: $size-20;
@@ -99,33 +44,6 @@
 #page_author {
   @include setFontSize($size-24);
   vertical-align: middle;
-}
-
-
-#leave.align_left,
-#join.align_left {
-  float: left;
-  display: inline-block;
-  @media screen and (max-width: $small) {
-    width: 60%;
-  }
-}
-
-@media screen and (min-width: $small + 1) {
-  .ally .align_left {
-    float: left;
-    display: inline-block;
-  }
-  .ally .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-#leave.align_right,
-#join.align_right {
-  float: right;
-  display: inline-block;
 }
 
 #stats {
@@ -191,12 +109,6 @@
   @include setMargin($size-0, $size-0, $size-20, $size-0);
   font-weight: $font-weight-200;
   padding: 0;
-}
-
-.class_name,
-#showTaggedMoments.align_right,
-#hideTaggedMoments.align_right  {
-  float: right !important;
 }
 
 .pagination {

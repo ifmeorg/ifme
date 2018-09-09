@@ -11,6 +11,7 @@ class ProfilePicture
       react_component 'Avatar', props: {
         className: options[:className],
         name: options[:name],
+        displayName: options[:name] ? true : false,
         src: normalize_url(path)
       }
     end

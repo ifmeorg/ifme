@@ -15,21 +15,22 @@
   </div>
 
   <strong>
-    <i class="fa fa-key small_margin_right"></i>
+    <i class="fa fa-key"></i>
     <%= t('groups.show.led_by') %>
   </strong>
 
   <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
 
   <% if user_can_delete? @group %>
-    <%= delete_group_link(@group, class: 'align_right') %>
+    <div class="spacer"></div>
+    <%= delete_group_link(@group, class: 'buttonM') %>
   <% elsif @group.members.include? current_user %>
-    <%= leave_group_link(@group, class: 'align_right') %>
+    <div class="spacer"></div>
+    <%= leave_group_link(@group, class: 'buttonM') %>
   <% else %>
-    <%= join_group_link(@group, class: 'align_right') %>
+    <div class="spacer"></div>
+    <%= join_group_link(@group, class: 'buttonM') %>
   <% end %>
-
-  <div class="clear"></div>
 </div>
 
 <% if @meetings.present? %>
@@ -39,7 +40,7 @@
       <div class="gridTwoItemBoxLight">
         <h1 class="meeting_name">
           <%= link_to meeting.name, meeting_path(meeting) %>
-          <%= edit_meeting_link(meeting, class: 'align_right display_inline_block') %>
+          <%= edit_meeting_link(meeting, class: 'display_inline_block') %>
         </h1>
         <%= render_meeting_partial(meeting) %>
       </div>

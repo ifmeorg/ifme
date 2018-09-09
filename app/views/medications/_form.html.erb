@@ -6,21 +6,19 @@
     <div class="table_cell padding_right vertical_align_top">
 
       <div class="field">
-        <div class="label">
+        <div class="label gridSpaceBetween">
           <%= f.label t('common.name'), for: 'medication_name' %>
-          <i class="fa fa-asterisk align_right"></i>
-          <div class="clear"></div>
+          <i class="fa fa-asterisk"></i>
         </div>
         <%= f.text_field :name, class: "name_field" %>
       </div>
 
       <div class="form_container">
         <div class="field">
-          <div class="label">
+          <div class="label gridSpaceBetween">
             <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.strength_hint')) %>
               <i class="fa fa-asterisk"></i>
-            <div class="clear"></div>
           </div>
           <div class="inline-block">
             <%= f.number_field :strength, placeholder: t('medications.form.strength_placeholder') %>
@@ -29,11 +27,10 @@
         </div>
 
         <div class="field">
-          <div class="label">
+          <div class="label gridSpaceBetween">
             <%= f.label :total, for: 'medication_total' %>
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.total_hint')) %>
               <i class="fa fa-asterisk"></i>
-            <div class="clear"></div>
           </div>
           <div class="inline-block">
             <%= f.number_field :total, placeholder: t('medications.form.total_placeholder') %>
@@ -47,11 +44,10 @@
 
       <div class="form_container">
         <div class="field">
-          <div class="label">
+          <div class="label gridSpaceBetween">
             <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.dosage_hint')) %>
             <i class="fa fa-asterisk"></i>
-            <div class="clear"></div>
           </div>
           <div class="inline-block">
             <%= f.number_field :dosage, placeholder: t('medications.form.dosage_placeholder') %>
@@ -63,23 +59,19 @@
         </div>
 
         <div class="field refill_medication">
-          <div class="label">
+          <div class="label gridSpaceBetween">
             <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
             <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.refill_hint')) %>
             <i class="fa fa-asterisk"></i>
-            <div class="clear"></div>
           </div>
           <%= f.text_field :refill, { readonly: true } %>
         </div>
       </div>
 
       <div class="field">
-        <div class="label">
+        <div class="label gridSpaceBetween">
           <%= f.label t('comment.plural') %>
-          <div class="align_right">
-            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
-          </div>
-          <div class="clear"></div>
+          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
         </div>
         <%= f.text_area :comments, class: "comments" %>
       </div>
@@ -95,7 +87,6 @@
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
             </span>
           </div>
-          <div class="clear"></div>
         <% end %>
       </div>
 
@@ -109,7 +100,6 @@
             <span class="medication_tooltip_padding">
               <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
             </span>
-            <div class="clear"></div>
           </div>
         <% end %>
       </div>
@@ -124,18 +114,11 @@
                  <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.google_cal_hint')) %>
               </span>
             </div>
-            <div class="clear"></div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-
-  <div>
-    <%= f.submit t('common.actions.submit') %>
-  </div>
-
-  <div class="clear"></div>
-
+  <%= f.submit t('common.actions.submit') %>
   <% end %>
 </div>

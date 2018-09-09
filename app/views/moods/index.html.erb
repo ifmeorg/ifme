@@ -16,12 +16,9 @@
   <%= paginate @moods %>
 <% else %>
   <%= raw t('moods.index.instructions') %>
+  <%= button_to t('common.actions.add_all'), premade_moods_path %>
 
-  <div class="actions align_right">
-    <%= button_to t('common.actions.add_all'), premade_moods_path %>
-  </div>
-
-  <div class="clear"></div>
+  <div class="spacer"></div>
 
   <div class="gridTwo">
     <div class="gridTwoItemBoxLight">

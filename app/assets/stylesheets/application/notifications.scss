@@ -23,27 +23,6 @@
   @media screen and (max-width: $small) {
     width: 100%;
   }
-
-  .align_left {
-    float: left !important;
-    display: inline-block;
-    width: auto !important;
-    padding: $size-40 $size-0 $size-20 $size-40;
-
-    @media screen and (max-width: $small) {
-      padding: $size-20 $size-0 $size-20 $size-20;
-    }
-  }
-
-  .align_right {
-    float: right !important;
-    display: inline-block !important;
-    width: auto !important;
-    padding: $size-40 $size-40 $size-20 $size-0;
-    @media screen and (max-width: $small) {
-      padding: $size-20 $size-20 $size-20 $size-0;
-    }
-  }
 }
 
 .modal_text {
@@ -152,15 +131,6 @@ h1#clear_notifications {
 #categories_moods_text div.table div.table_cell {
   display: table-cell;
   word-break: break-word;
-}
-
-#notifications .align_left,
-#notifications .align_right,
-#categories_moods .align_left,
-#categories_moods .align_right {
-  @media screen and (max-width: $medium) {
-    width: auto !important;
-  }
 }
 
 .quick_create {

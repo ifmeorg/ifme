@@ -9,6 +9,10 @@ label {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
   width: auto;
   display: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .label i, .sidebar_label i {
