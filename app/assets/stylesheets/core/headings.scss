@@ -33,15 +33,3 @@
 .subtle {
   color: $dusty-rose;
 }
-
-.subtitle {
-  font: $size-34 $font-family;
-  font-weight: $font-weight-200;
-  text-align: center;
-
-  @media screen and (max-width: $medium) {
-    font: $size-30 $font-family;
-    font-weight: $font-weight-200;
-    text-align: center;
-  }
-}

@@ -26,6 +26,12 @@
     }
   }
 
+  .subtitle {
+    font-size: $size-24;
+    line-height: $size-32;
+    text-align: center;
+  }
+
   h1 {
     font-weight: 300;
     font-size: $size-26;
