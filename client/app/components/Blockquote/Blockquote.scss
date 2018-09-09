@@ -1,28 +1,21 @@
 @import "../../styles/_legacy.scss";
 
 .text {
+  @include setFontSize($size-24);
   display: inline-block;
   position: relative;
-
   background-color: rgba(255, 255, 255, 0.1);
-  font-family: Lato, sans-serif;
   font-style: italic;
-  font-size: $size-24;
-  line-height: 1.2;
   text-align: center;
   align-content: center;
   text-shadow: $size-0 $size-2 4px rgba(0, 0, 0, 0.25);
-
   width: 100%;
-  padding: $size-20;
-  @media screen and (min-width: 960px) {
-    padding: 50px;
-    font-size: $size-36;
+  padding: $size-50;
+  color: $white;
+  @media screen and (max-width: $medium) {
+    padding: $size-20;
   }
-
-  color: white;
-
   .author {
-    margin-top: $size-10;
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
   }
 }

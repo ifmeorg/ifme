@@ -1,7 +1,6 @@
 .story {
   position: relative;
   padding-bottom: 50px;
-
   .class_name {
     position: absolute;
     right: $size-20;
@@ -10,7 +9,7 @@
 }
 
 .moment_date {
-  font-size: $size-10;
+  @include setFontSize($size-14);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $mulberry-50;
@@ -40,9 +39,8 @@
   .align_left {
     float: left;
     display: inline-block;
-
     @media screen and (max-width: $small) {
-        width: 80%;
+      width: 80%;
     }
   }
 
@@ -68,7 +66,6 @@
   .align_left {
     float: left;
     display: inline-block;
-
     @media screen and (max-width: $small) {
       width: 100%;
       float: none;
@@ -79,7 +76,6 @@
   .align_right:not(.table_cell) {
     float: right;
     display: inline-block;
-
     @media screen and (max-width: $small) {
       float: none;
       display: block;
@@ -93,7 +89,6 @@
       padding-bottom: $size-4;
       border-bottom: $size-1 solid $dusty-rose;
     }
-
     .ally_name {
       font-size: $size-18;
       margin: $size-0 $size-0 $size-10 $size-0;
@@ -102,12 +97,8 @@
 }
 
 #page_author {
-  font-size: $size-24;
+  @include setFontSize($size-24);
   vertical-align: middle;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-20;
-  }
 }
 
 
@@ -115,7 +106,6 @@
 #join.align_left {
   float: left;
   display: inline-block;
-
   @media screen and (max-width: $small) {
     width: 60%;
   }
@@ -126,7 +116,6 @@
     float: left;
     display: inline-block;
   }
-
   .ally .align_right {
     float: right;
     display: inline-block;
@@ -140,34 +129,28 @@
 }
 
 #stats {
-  font: $size-22 $font-family;
+  @include setFontSize($size-22);
+  @include setMargin($size-0, $size-0, $size-40, $size-0);
   font-weight: $font-weight-300;
-  margin-bottom: $size-40;
-
   #most_focus {
     width: 100%;
     font-size: $size-0;
   }
-
   // Align .small_focus children linearly only
   // when min-width is at least 1025px i.e. $medium
-
   @media screen and (min-width: $medium + 1) {
     #most_focus {
       display: flex;
     }
   }
-
   .some_focus {
     flex: 1;
     text-align: center;
     color: $key-lime;
     background-color: $mulberry;
     font-size: $size-0;
-
     // The first .some_focus child of #most_focus
     // has opacity 1, 2nd has 0.8 and 3rd has 0.6
-
     &:nth-child(1) {
       opacity: 1;
     }
@@ -178,91 +161,36 @@
       opacity: 0.6;
     }
   }
-
   .some_focus_text {
+    @include setFontSize($size-22);
     padding: $size-20;
-    font: $size-22 $font-family;
     font-weight: $font-weight-300;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    a:link, a:visited, .link_style {
+    a, .link_style {
       text-decoration: none;
       color: $key-lime;
-      border-bottom: none;
-    }
-
-    a:hover, .link_style:hover {
-      text-decoration: none;
-      color: $key-lime;
-      border-bottom: none;
-      opacity: 0.5;
-    }
-  }
-
-  @media screen and (max-width: $medium) {
-    font: $size-20 $font-family;
-    font-weight: $font-weight-300;
-    margin-bottom: $size-20;
-
-    .some_focus_text {
-      padding: $size-20;
-      font: $size-20 $font-family;
-      font-weight: $font-weight-300;
-    }
-  }
-
-  @media screen and (max-width: $small) {
-    font: $size-18 $font-family;
-    font-weight: $font-weight-300;
-    margin-bottom: $size-20;
-
-    .some_focus {
-      display: block;
-      text-align: center;
-      color: $key-lime;
-      background-color: $mulberry;
-      font-size: $size-0;
-      width: 100% !important;
-    }
-
-    .some_focus_text {
-      padding: $size-10;
-      font: $size-18 $font-family;
-      font-weight: $font-weight-300;
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 }
 
 #tag_usage.margin_bottom {
-  margin-bottom: $size-20 !important;
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
 }
 
 .tag_type.margin_top {
-  margin-top: $size-20 !important;
-}
-
-@media screen and (max-width: $small) {
-  #tag_usage.margin_bottom {
-    margin-bottom: $size-10 !important;
-  }
-
-  .tag_type.margin_top {
-    margin-top: $size-10 !important;
-  }
+  @include setMargin($size-20, $size-0, $size-0, $size-0);
 }
 
 .group_type,
 .tag_type {
+  @include setFontSize($size-30);
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
   font-weight: $font-weight-200;
-  font-size: $size-30;
   padding: 0;
-  margin: $size-0 $size-0 $size-20 $size-0;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-26;
-    margin: $size-0 $size-0 $size-10 $size-0;
-  }
 }
 
 .class_name,
@@ -272,39 +200,23 @@
 }
 
 .pagination {
+  @include setMargin($size-40, $size-0, $size-0, $size-0);
   color: $dusty-rose;
-  margin-top: $size-40;
   text-align: center;
-
   span.prev,
   span.first {
-    margin-right: $size-10;
+    @include setMargin($size-0, $size-10, $size-0, $size-0);
   }
-
   span.next,
   span.last {
-    margin-left: $size-10;
+    @include setMargin($size-0, $size-0, $size-0, $size-10);
   }
-
   a:link, a:visited {
     text-decoration: none;
     color: $mulberry;
-    border: none;
-  }
-
-  a:hover {
-    text-decoration: none;
-    color: $mulberry;
-    border-bottom: none;
-    opacity: 0.5;
-  }
-
-  @media screen and (max-width: $medium) {
-    margin-top: $size-20;
-  }
-
-  @media screen and (max-width: $small) {
-    margin-top: $size-10;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
 
@@ -313,7 +225,6 @@
 #strategies_list,
 #viewers_list {
   width: 100%;
-
   label {
     display: block;
     font: inherit;
@@ -323,7 +234,6 @@
 #search_email,
 #search_name {
   width: 600px;
-
   @media screen and (max-width: $medium) {
     width: 100%;
     margin-right: 0;

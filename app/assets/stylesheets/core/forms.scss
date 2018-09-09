@@ -1,17 +1,14 @@
 label {
-  font-size: $size-14;
+  @include setFontSize($size-14);
   padding: $size-12 0;
   letter-spacing: 0.095em;
   text-transform: uppercase;
 }
 
 .label {
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
   width: auto;
   display: inherit;
-  margin-bottom: $size-20;
-  @media screen and (max-width: $medium) {
-    margin-bottom: $size-20;
-  }
 }
 
 .label i, .sidebar_label i {
@@ -27,12 +24,12 @@ input,
 textarea,
 select,
 fieldset {
+  @include setFontSize($size-20);
+  @include setMargin($size-0, $size-10, $size-0, $size-0);
   border-radius: $size-4;
   border: none;
   padding: $size-10;
   background-color: $white;
-  font: $size-20 $font-family;
-  margin-right: $size-10;
   box-sizing: border-box;
   @media screen and (max-width: $medium) {
     width: 100%;
@@ -41,7 +38,7 @@ fieldset {
 
 input[type="checkbox"],
 input[type="radio"] {
-  margin: 0 $size-10 0 $size-4;
+  @include setMargin($size-0, $size-10, $size-0, $size-4);
   width: auto;
   height: auto;
   box-shadow: none;
@@ -50,16 +47,12 @@ input[type="radio"] {
 .field input[type="text"],
 .field input[type="passsword"],
 .field input[type="email"] {
-  margin-right: $size-0;
+  @include setMargin(auto, $size-0, auto, auto);
 }
 
 .field,
 .actions {
-  margin-bottom: $size-40;
-
-  @media screen and (max-width: $medium) {
-    margin-bottom: $size-20;
-  }
+  @include setMargin($size-0, $size-0, $size-40, $size-0);
 }
 
 .full_field,
@@ -68,10 +61,9 @@ input[type="radio"] {
 }
 
 .toggle_button:link, .toggle_button:visited {
-  font-size: $size-26;
+  @include setFontSize($size-26);
   color: $black;
   float: right;
-  border: none;
 }
 
 .sidebar {
@@ -82,7 +74,6 @@ input[type="radio"] {
 
 .sidebar_field {
   padding: 15px 15px 15px $size-0;
-
   @media screen and (max-width: $medium) {
     padding: $size-10 $size-10 $size-10 $size-0;
     width: 100%;

@@ -9,8 +9,8 @@ describe 'ToggleLanguage', js: true do
       'Una comunidad para compartir experiencias de salud mental.'
     end
 
-    let(:en_signed_in_root_title) { 'Welcome' }
-    let(:es_signed_in_root_title) { '¡Adelante!' }
+    let(:en_signed_in_root_title) { "Hello #{user.name}!" }
+    let(:es_signed_in_root_title) { "¡Hola #{user.name}!" }
 
     context 'When on pages that do not require sign in' do
       before { visit(root_path) }

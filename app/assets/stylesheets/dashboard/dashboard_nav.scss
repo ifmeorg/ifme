@@ -20,17 +20,17 @@
       box-sizing: border-box;
     }
     &Info {
+      @include setFontSize($size-18);
       color: $white;
-      font-size: $size-18;
       &Links {
-        font-size: $size-0;
-        margin-top: $size-14;
+        @include setFontSize($size-0);
+        @include setMargin($size-14, $size-0, $size-0, $size-0);
         line-height: $size-40;
         > a {
-          margin-right: $size-8;
+          @include setMargin($size-0, $size-8, $size-0, $size-0);
         }
         > a:last-of-type {
-          margin-right: $size-0;
+          @include setMargin($size-0, $size-0, $size-0, $size-0);
         }
       }
     }
@@ -52,6 +52,7 @@
   }
 
   &Links {
+    @include setFontSize($size-20);
     a {
       display: block;
       padding: $size-18 $size-26;
@@ -66,7 +67,6 @@
     }
     @media screen and (max-width: $medium) {
       text-align: center;
-      font-size: $size-18;
     }
   }
 

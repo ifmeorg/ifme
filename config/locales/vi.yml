@@ -125,7 +125,7 @@ vi:
    premade3_description: 'Công việc liên quan'
    premade4_name: 'Thiền định'
    premade4_description: 'Thiền định, thở sâu, và các hoạt động thư giản'
-   instructions: "Bạn chưa tạo danh sách nào cả. Nhấn %{icon} để cộng thêm!<br>Bạn có thể dùng những danh sách đã được tạo sẵn và tùy chỉnh chúng vào một thời điểm khác."
+   instructions: "Bạn chưa tạo danh sách nào cả.<br>Bạn có thể dùng những danh sách đã được tạo sẵn và tùy chỉnh chúng vào một thời điểm khác."
 
  errors:
   home_page: 'Quay lại trang chính'
@@ -148,7 +148,7 @@ vi:
    available_groups: 'Nhóm hiện hữu'
    joined_groups: 'Tham gia nhóm'
    leader: '(Nhóm trưởng)'
-   instructions: "Bạn chưa là thành viên của nhóm nào cả, nhưng bạn có thể nhấp vào %{icon} để tạo ra một!"
+   instructions: "Bạn chưa là thành viên của nhóm nào cả."
   join:
     success: 'Bạn đã tham gia nhóm.'
     group_not_exists: "Bạn không thể tham gia một nhóm không tồn tại."
@@ -218,7 +218,7 @@ vi:
    title: 'Thuốc'
    subtitle: 'Theo dõi việc sử dụng thuốc, bao gồm liều lượng và thông tin bổ sung thuốc mới.'
    total: 'Tổng cộng:'
-   instructions: "Bạn chưa lưu lại thông tin thuốc nào cả. Hãy nhấn %{icon} để thêm vào!<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn."
+   instructions: "Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '40 viên'
@@ -270,7 +270,7 @@ vi:
 
   index:
    subtitle: 'Đào sâu vào khoản khắc của bạn – sự kiện tình huống đã ảnh hưởng đến sức khỏe tinh thần của bạn.'
-   instructions: "Bạn chưa viết về bất kỳ khoảnh khắc nào được nêu ra. Nhấp% {icon} để thêm một số!<br><br>Không biết bắt đầu từ đâu? Có chuyện gì xảy ra hôm nay mà bạn muốn chia sẻ và thảo luận với người thân yêu? Nó có thể là tích cực hoặc tiêu cực! Bạn có thể không phải chia sẻ ngay - chỉ khi bạn đã sẵn sàng! Dưới đây là ví dụ về Một phút giây.
+   instructions: "Bạn chưa viết về bất kỳ khoảnh khắc nào được nêu ra.<br><br>Không biết bắt đầu từ đâu? Có chuyện gì xảy ra hôm nay mà bạn muốn chia sẻ và thảo luận với người thân yêu? Nó có thể là tích cực hoặc tiêu cực! Bạn có thể không phải chia sẻ ngay - chỉ khi bạn đã sẵn sàng! Dưới đây là ví dụ về Một phút giây.
 "
    example_name: 'hoảng sợ vì buổi phỏng vấn vào ngày mai!'
    example_category: 'Nghề nghiệp'
@@ -298,7 +298,7 @@ vi:
    premade4_description: 'Cảm giác không chấp nhận một sự thật nào đó, cảm giác tức giận, muốn bào thù, và hoặc ganh tỵ'
    premade5_name: 'Thất vọng'
    premade5_description: 'Cảm giác buồn và vô vọng – không tìm thấy giải pháp'
-   instructions: "Bạn chưa tạo bất kỳ tâm trạng tùy chỉnh nào được nêu ra. Nhấp vào% {icon} để thêm một số!<br>Bạn cũng có thể thêm các giai điệu trước và tùy chỉnh thời gian khác."
+   instructions: "Bạn chưa tạo bất kỳ tâm trạng tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm các giai điệu trước và tùy chỉnh thời gian khác."
 
  notifications:
   plural: 'Thông báo'
@@ -396,7 +396,6 @@ vi:
     email_notifications_answer: "Truy cập trang <strong>Tài khoản</strong>. Bạn có thể sửa đổi email, mật khẩu, hình ảnh tiểu sử và tiểu sử ở đây. Bạn cũng có thể xóa tài khoản của bạn. Khi bạn xóa tài khoản của mình, tất cả dữ liệu của bạn sẽ bị xóa."
   home:
     stories: 'Câu chuyện'
-    welcome: 'Chào mừng'
     not_signed_in:
       main_message_one: 'Một cuộc trao đổi tích cực với những người bạn yêu mến sẽ giúp cho bạn có một sức khỏe tâm thần tốt hơn.'
       message_text_one: "Chúng ta cần nhau có nhau để phá bỏ đi những triệu chứng hay mầm bệnh này."
@@ -585,7 +584,7 @@ vi:
    subtitle: 'Chiến lược chăm sóc bản thân giúp bạn đạt được những mong muốn và thái độ cần thiết cho khoản khắc của bạn.'
    premade1_name: 'Năm phút thiền định'
    premade1_description: '1) <b>Tìm một vị trí thật thoải mái, bạn có thể ngồi trên ghế hoặc đệm.</b> Giữ lưng thẳng đứng nhưng không cần quá cứng ngắt. Để tay ở chổ nào bạn thấy thoải mái nhất, thả lỏng miệng.<br><br>2) <b>Nhận biết cơ thề và thả lỏng nó.</b> Cố gắng nhận biết cơ thể mình, trọng lượng. hãy để cho cơ thể được thư giản và để tâm đến vị trí ngồi của mình. Cảm giác, sự đụng chạm, liên kết giữa ghế và sàn. Thả lỏng những vùng bị chặt. Chỉ thở, theo dõi hơi thở, thở ra thở vào.<br><br>3) <b>Bạn không cần làm gì với hơi thở của mình, không dài không ngắn chỉ thở cách bình thường.</b> Nhận biết hơi thở của mình trong người trong vùng bụng, có thể trong lồng ngực, cuốn họng hoặc khoan mũi. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Nhẹ nhàn cùng dòng suy nghĩ của bạn.</b> Khi bạn thực hiện điều này, có lúc bạn sẽ biết suy nghĩ của bạn bắt đầu lang thang. Bạn bắt đầu nghĩ về những điều khác, nếu điểu đó xảy ra, không vấn đề gì cả, điều đó bình thường.Chỉ nhận biết tâm trí bạn đang rong chơi, bạn có thể nói:  suy nghĩ của mình đang rong chơi – thì thầm - nho nhỏ. Và từ từ điều khiển suy nghĩ của mình quay về việc thở.<br><br>5) <b>Cứ như vậy, như vậy trong vòng năm đến bảy phút.</b> Nhận biết hơn thở trong thinh lặng. Từ từ bạn sẽ quay về được với việc thở.<br><br>6) <b>Thở ra thở vào.</b> Sau vài phút, một khi bạn nhận biết cơ thể, toàn cơ thể, vị trí ngồi. cho phép người bạn thả lỏng sâu hơn và tự thưởng cho mình vì đã làm được điều này trong ngày hôm nay.<br><br><i>Trích từ: http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Bạn chưa tạo bất kỳ chiến lược tùy chỉnh nào được nêu ra. Nhấp %{icon} để thêm một số!<br>Bạn cũng có thể thêm chiến lược làm sẵn sau và tùy chỉnh nó một lần nữa."
+   instructions: "Bạn chưa tạo bất kỳ chiến lược tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm chiến lược làm sẵn sau và tùy chỉnh nó một lần nữa."
   reminder_mailer:
     subject: "Đừng quên thể hiện %{name}!"
     body: "Đậy là nhắc nhở để thể hiện %{name}!"

@@ -1,11 +1,35 @@
 /* Images */
 
+.signedInEmptyIcon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: $mulberry;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $size-20;
+  svg {
+    width: auto;
+    height: 100px;
+  }
+  @media screen and (max-width: $medium) {
+    width: 130px;
+    height: 130px;
+    svg {
+      width: auto;
+      height: 80px;
+    }
+  }
+  @media screen and (max-width: $small) {
+    margin-right: $size-0;
+    margin-bottom: $size-20;
+  }
+}
+
 .avatar {
   margin: 0;
-
   .portrait {
-    border-color: $mulberry;
-    border-width: $size-2;
     background-color: $white;
   }
 }
@@ -18,7 +42,6 @@
 .mini_profile_picture .portrait {
   width: 100px;
   height: 100px;
-
   @media screen and (max-width: $small) {
     width: 50px;
     height: 50px;
@@ -29,7 +52,6 @@
 .profile_picture .portrait {
   width: 55px;
   height: 55px;
-
   @media screen and (min-width: $small + 1) {
     width: 150px;
     height: 150px;
@@ -39,7 +61,6 @@
 .home_picture .portrait {
   width: 50px;
   height: 50px;
-
   @media screen and (min-width: $medium + 1) {
     width: 100px;
     height: 100px;
@@ -50,7 +71,6 @@
   .portrait {
     width: 100px;
     height: 100px;
-
     @media screen and (max-width: $small) {
       width: 50px;
       height: 50px;
@@ -65,7 +85,6 @@
   .portrait {
     width: 150px;
     height: 150px;
-
     @media screen and (max-width: $small) {
       width: 55px;
       height: 55px;

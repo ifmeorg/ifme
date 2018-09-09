@@ -36,7 +36,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
       # CREATING
-      page.find('a[title="New Moment"]').click
+      click_link('New Moment')
 
       within '.pageTitle' do
         expect(page).to have_content 'New Moment'
@@ -155,7 +155,7 @@ describe 'UserCreatesADraftMoment', js: true do
       visit back
 
       # EDITING
-      page.find('a[title="Edit Moment"]').click
+      click_link('Edit Moment')
 
       within '.pageTitle' do
         expect(page).to have_content 'Edit My new moment'

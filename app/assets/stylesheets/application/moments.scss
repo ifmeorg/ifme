@@ -2,17 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.story strong {
-  line-height: 35px;
-
-  @media screen and (max-width: $medium) {
-    line-height: 25px;
-  }
-  @media screen and (max-width: $small) {
-    line-height: $size-18;
-  }
-}
-
 .secret-share-button,
 input.secret-share-button {
   color: white;
@@ -29,9 +18,9 @@ input.secret-share-button {
   background-color: white;
   clear: right;
   margin-top: $size-6;
-  input[type=text]{
+  input[type=text] {
+    @include setFontSize($size-14);
     width: 400px;
-    font-size: $size-10;
   }
 }
 
@@ -39,6 +28,6 @@ input.secret-share-button {
   font-size: $size-18;
   margin-top: $size-6;
   input[type=date] {
-    font-size: $size-12;
+    @include setFontSize($size-14);
   }
 }

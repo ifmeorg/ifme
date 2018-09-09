@@ -9,15 +9,15 @@
 }
 
 .switch {
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
   position: relative;
   display: inline-block;
   width: 150px;
   height: $size-40;
-  margin-bottom: $size-20;
 }
 
 .switch input {
-  display:none;
+  display: none;
 }
 
 .slider {
@@ -65,14 +65,13 @@ input:checked + .slider:before {
 
 .on, .off
 {
+  @include setFontSize($size-16);
   color: white;
-  font-size: $size-16 !important;
   font-weight: bold;
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;
   left: 50%;
-  font-size: $size-10;
 }
 
 .off {

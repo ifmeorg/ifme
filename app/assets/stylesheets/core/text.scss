@@ -1,15 +1,13 @@
-small_font {
-  font: $size-14 $font-family;
-  font-weight: $font-weight-400;
-
-  @media screen and (max-width: $small) {
-    font: $size-12 $font-family;
-    font-weight: $font-weight-400;
-  }
+.small_font {
+  @include setFontSize($size-14);
 }
 
 .subtle {
   color: $dusty-rose;
+}
+
+.moment p {
+  margin : 0;
 }
 
 p {

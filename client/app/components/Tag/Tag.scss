@@ -1,27 +1,22 @@
 @import "../../styles/_legacy.scss";
 
 .tag {
-  &:last-child{
-    margin-right: 0;
-  }
-
+  @include setFontSize($size-10);
+  @include setMargin($size-0, $size-8, $size-8, $size-0);
   padding: $size-4 $size-12;
   text-indent: 4px;
   display: inline-block;
-  margin-right: 8px;
-  margin-bottom: 8px;
-
-  font-family: $font-family;
-  font-size: $size-10;
   text-align: center;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-
   border-radius: $size-4;
   border: $size-1 solid $mulberry;
-
   mix-blend-mode: normal;
   color: $mulberry;
+
+  &:last-child{
+    @include setMargin($size-0, $size-0, $size-0, $size-0);
+  }
 
   &.dark {
     color: $white;

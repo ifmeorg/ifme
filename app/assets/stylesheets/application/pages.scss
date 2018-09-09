@@ -2,102 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.moment p {
-    margin : 0;
-}
-
 /* Quick Moment */
 
 #quick_moment {
   input[type="text"], textarea {
-      width: 100%;
+    width: 100%;
   }
 
   input[type="text"] {
-      margin-bottom: $size-20;
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
   }
 
   .character_count {
-      display: inline;
+    @include setFontSize($size-14);
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
+    display: inline;
   }
 
   .actions {
-      margin-top: $size-20;
+    @include setMargin($size-20, $size-0, $size-10, $size-0);;
   }
 
   .quick_moment_disclaimer {
-      text-align: left;
+    text-align: left;
   }
 
   label {
-      font-size: $size-20;
-      font-weight: $font-weight-300;
-      display: block;
-      margin-bottom: $size-4;
-
-      @media screen and (max-width: $medium) {
-          font-size: $size-16;
-      }
+    @include setFontSize($size-20);
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
+    font-weight: $font-weight-300;
+    display: block;
   }
 
   .checkbox {
-      display: block;
+    display: block;
   }
 
   @media screen and (max-width: $medium) {
     .quick_moment_disclaimer {
       text-align: center;
     }
-
     .small_padding_right, .small_padding_bottom {
       padding: 0 !important;
     }
-
-    input[type="text"] {
-      margin-bottom: 10px;
-    }
-
-    .actions {
-      margin-top: 10px;
-    }
-
     textarea {
       margin-bottom: 10px;
-    }
-
-    .character_count {
-      text-align: center;
-      font: $size-14 $font-family;
-      font-weight: 400;
-      margin-bottom: 10px;
-
-      @media screen and (max-width: $small) {
-        font: $size-12 $font-family;
-        font-weight: 400;
-      }
-    }
-  }
-}
-
-.onboarding {
-  @media screen and (max-width: $medium) {
-    .message_cell {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-
-    .onboarding_message {
-      text-align: center;
-    }
-
-    .padding_bottom {
-      padding-bottom: $size-20 !important;
-    }
-  }
-
-  @media screen and (min-width: $medium + 1) {
-    .padding_bottom {
-      padding-bottom: 0 !important;
     }
   }
 }

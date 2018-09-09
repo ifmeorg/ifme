@@ -40,7 +40,6 @@
     display: inline-block !important;
     width: auto !important;
     padding: $size-40 $size-40 $size-20 $size-0;
-
     @media screen and (max-width: $small) {
       padding: $size-20 $size-20 $size-20 $size-0;
     }
@@ -50,7 +49,6 @@
 .modal_text {
   margin-top: 100px;
   padding: $size-0 $size-40 $size-40 $size-40;
-
   @media screen and (max-width: $small) {
     margin-top: 80px;
     padding: $size-0 $size-20 $size-20 $size-20;
@@ -79,7 +77,6 @@
   border: $size-1 solid $mulberry;
   box-shadow: 0 0 $size-10 $mulberry;
   background-color: $white;
-
   @media screen and (max-width: $medium) {
     width: 80%;
   }
@@ -98,44 +95,21 @@
   box-shadow: 0 0 $size-10 $mulberry;
 }
 
-a.notification_link:link,
-a.notification_link:visited,
-a.tip_notification_link:link,
-a.tip_notification_link:visited,
-a.quick_create_link:link,
-a.quick_create_link:visited {
-  margin-top: $size-20;
+a.notification_link,
+a.tip_notification_link,
+a.quick_create_link {
+  @include setMargin($size-20, $size-0, $size-0, $size-0);
   display: block;
   text-decoration: none;
   color: $steel-blue;
   border-bottom: none;
-
-  @media screen and (max-width: $small) {
-    margin-top: $size-10;
-  }
-}
-
-a.notification_link:hover,
-a.tip_notification_link:hover,
-a.quick_create_link:hover {
-  margin-top: $size-20;
-  display: block;
-  text-decoration: none;
-  color: $steel-blue;
-  border-bottom: none;
-  opacity: 0.5;
-
-  @media screen and (max-width: $small) {
-    margin-top: $size-10;
+  &:hover {
+    opacity: 0.5;
   }
 }
 
 #notifications_none {
-  margin-top: $size-20;
-
-  @media screen and (max-width: $small) {
-    margin-top: $size-10;
-  }
+  @include setMargin($size-20, $size-0, $size-0, $size-0);
 }
 
 .tip_notifications_button {
@@ -155,19 +129,10 @@ h1.quick_create_close,
 h1#clear_notifications,
 h1#close_notifications,
 h1#close_categories_moods, {
+  @include setFontSize($size-26);
+  @include setMargin($size-0, $size-0, $size-0, $size-0);
   font-weight: $font-weight-300;
-  font-size: $size-26;
-  padding: 0;
-  margin: $size-0;
   color: $mulberry;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-22;
-  }
-
-  @media screen and (max-width: $small) {
-    font-size: $size-20;
-  }
 }
 
 h1#clear_notifications {
@@ -204,24 +169,15 @@ h1#clear_notifications {
   }
 
   label {
-    font-size: $size-26;
+    @include setFontSize($size-26);
     font-weight: $font-weight-300;
-
-    @media screen and (max-width: $medium) {
-      font-size: $size-24;
-    }
   }
 
   .label {
+    @include setFontSize($size-26);
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
     width: auto;
     display: inherit;
-    font-size: $size-26;
-    margin-bottom: $size-10;
-
-    @media screen and (max-width: $medium) {
-      font-size: $size-24;
-      margin-bottom: $size-4;
-    }
   }
 }
 

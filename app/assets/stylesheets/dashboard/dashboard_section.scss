@@ -16,13 +16,13 @@
   @include dashboardSectionLink();
 
   .pageTitle {
+    @include setFontSize($size-36);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-weight: $font-weight-300;
-    font-size: $size-34;
-    margin-bottom: $size-20;
+    font-weight: bold;
     color: $mulberry;
     > div:last-of-type {
       margin-left: auto;
@@ -35,17 +35,19 @@
         margin: $size-0;
       }
     }
-  }
-
-  a.page_edit,
-  a.page_new,
-  a.page_search {
-    color: $mulberry;
+    a {
+      color: $mulberry;
+    }
   }
 
   .subtitle {
-    font-size: $size-30;
-    line-height: $size-36;
+    @include setFontSize($size-30);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
     color: $mulberry-70;
+  }
+
+  .title {
+    @include setFontSize($size-30);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
   }
 }

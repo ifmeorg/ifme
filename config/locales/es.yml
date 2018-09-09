@@ -126,7 +126,7 @@ es:
    premade3_description: "Sobre mi trabajo"
    premade4_name: "Meditación"
    premade4_description: "Meditación, respiración profunda, y actividades relajantes"
-   instructions: "Aun no has creado categorías personalizadas. ¡Da click en %{icon} para agregarlas! <br>También puedes agregar las siguientes categorías predeterminadas y personalizarlas luego."
+   instructions: "Aun no has creado categorías personalizadas.<br>También puedes agregar las siguientes categorías predeterminadas y personalizarlas luego."
 
  errors:
   home_page: "Regresar a la página de inicio"
@@ -149,7 +149,7 @@ es:
    available_groups: "Grupos disponibles"
    joined_groups: "Grupos a los que te has unido"
    leader: "(Líder)"
-   instructions: "Aún no eres miembro de ningún grupo, ¡pero puedes dar click en %{icon} para crear uno!"
+   instructions: "Aún no eres miembro de ningún grupo."
   join:
     success: "Te has unido a este grupo"
     group_not_exists: "No puedes unirte a un grupo que no existe."
@@ -219,7 +219,7 @@ es:
    title: "Medicamento"
    subtitle: "Mantén un seguimiento de tus medicamentos, incluyendo dosis e información para resurtir."
    total: "Total:"
-   instructions: "Aún no has guardado información de ningún medicamento. ¡Haz click en %{icon} para agregar uno!<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
+   instructions: "Aún no has guardado información de ningún medicamento.<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
    example_name: "Prozac"
    example_strength: "10 mg"
    example_total: "40 tabletas"
@@ -272,7 +272,7 @@ es:
 
   index:
    subtitle: "Profundiza en tus Momentos - eventos y situaciones que afectan tu salud mental"
-   instructions: "Aún no has escrito sobre tus momentos. ¡Da click en %{icon} para inciar! <br><br>¿No sabes por díbde empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir y discutir con tus seres queridos. ¡Puede ser positivo o negativo! No tienes que compartirlo ahora mismo - ¡Hazlo hasta que te sientas listo! Aquí hay un Momento de ejemplo."
+   instructions: "Aún no has escrito sobre tus momentos.<br><br>¿No sabes por díbde empezar? Escribe algo que haya ocurrido hoy y que te gustaría compartir y discutir con tus seres queridos. ¡Puede ser positivo o negativo! No tienes que compartirlo ahora mismo - ¡Hazlo hasta que te sientas listo! Aquí hay un Momento de ejemplo."
    example_name: "¡Preocupación por una entrevsita de mañana!"
    example_category: "Carrera"
   show:
@@ -299,7 +299,7 @@ es:
    premade4_description: "Incapaz de aceptar ciertos hechos, sentir enojo, deseos de venganza, celos"
    premade5_name: "Desesperanza"
    premade5_description: "Sentirse triste y sin esperanza - incapaz de encontrar alguna posible solución"
-   instructions: "Aún no has creado estados de ánimo personalizados. ¡Da click en %{icon} para iniciar! <br>También puedes agregar alguno de los estados de ánimo preestablecidos y personalizarnos en otra ocasión."
+   instructions: "Aún no has creado estados de ánimo personalizados.<br>También puedes agregar alguno de los estados de ánimo preestablecidos y personalizarnos en otra ocasión."
 
  notifications:
   plural: "Notificaciones"
@@ -397,7 +397,6 @@ es:
     email_notifications_answer: "Ve a la página de <strong>Mi Cuenta</strong>. Aquí puedes modificar tu correo electrónico, contraseña, foto de perfil, y biografía. También puedes eliminar tu cuenta."
   home:
     stories: "Historias"
-    welcome: "¡Adelante!" #Reads more like Come In instead of Welcome, Welcome would need to be gendered
     not_signed_in:
       main_message_one: "Mejor comunicación con nuestros seres queridos conlleva a mejor salud mental."
       message_text_one: "Necesitamos apoyarnos mutuamente para terminar con el estigma."
@@ -586,7 +585,7 @@ es:
    subtitle: "Elabora estrategias de autocuidado para lograr pensamientos y actitudes deseados hacia tus momentos."
    premade1_name: "Cinco minutos de meditación"
    premade1_description: "1) <b> Colócate en una posición relajada, cómoda.</b> Puedes sentarte en una silla o en el suelo o en un cojín. Mantén tu espalda recta, pero no muy tensa. Tus manos descansando donde sea más cómodo. Tu lengua hacia el paladar o donde sea más cómodo. <br><br>2) <b>Percibe y relaja tu cuerpo.</b> Intenta darte cuenta de la forma de tu cuerpo, su peso. Déjate relajar y déjate llevar por la curiosidad sobre tu cuerpo aquí sentado - las sensaciones que experimenta, lo que toca, la conección con el piso o la silla. Relaja cualquier área dónde haya rigidez o tensión. Sólo respira.<br><br>3) <b> Sintoniza tu respiración.</b> Siente el flujo natural de tu aliento -dentro, fuera. No necesitas hacerle nada a tu respiración. No es larga, no es corta, es natural. Fíjate cuando es que percibes tu respiración en tu cuerpo. Puede ser en tu abdomen. Puede ser en tu pecho, o en tu garganta, o en tus fosas nasales. Observa si puedes sentir las sensaciones del respirar, una respiración a la vez. Cuando un aliento termina, el siguiente incia. <br><br>4) <b> Sé considerado con tu mente dispersa. </b> Justo mientras haces esto, tu mente puede empezar a divagar. Puedes empezar a pensar en otras cosas. Si esto pasa, no hay problema. Es muy natural. Sólo date cuenta de que tu mente ha divagado. Puedes decir “pensando” o “divagando” suavemente en tu cabeza. Y gentilmente regresar a tu respiración.<br><br>5) <b> Quédate aquí por cinco o siete minutos. </b> Date cuenta de tu respiración, en silencio. De vez en cuando, te perderás en tus pensamientos, entonces regresa a tu respiración. <br><br>6) <b> Date cuenta de todo antes de que empieces a ignorarlo.</b> Después de algunos minutos, nuevamente, percibe tu cuerpo, todo tu cuerpo, sentado aquí. Déjate relajar aún más profundamente y agradécete por realizar esto en este día.<br><br><i>Tomado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'"
-   instructions: "Aún no has creado ninguna estrategia personalizada. ¡Da click en %{icon} para iniciar!<br>También puedes agregar la siguiente estretagia predeterminada y personalizarla en otra ocasión."
+   instructions: "Aún no has creado ninguna estrategia personalizada.<br>También puedes agregar la siguiente estretagia predeterminada y personalizarla en otra ocasión."
   reminder_mailer:
     subject: "¡No olvides llevar a cabo %{name}!"
     body: "¡Recibe un amable recordatorio para llevar a cabo %{name}!"

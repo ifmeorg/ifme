@@ -13,3 +13,9 @@
 .display_inline_block {
   display: inline-block !important;
 }
+
+.hideOnMobile {
+  @media screen and (max-width: $small) {
+    display: none;
+  }
+}
