@@ -133,11 +133,11 @@ describe 'UserCreatesAPublishedMoment', js: true do
       expect(page).to have_content 'Categories: Another New Category, ' \
                                    'Some New Category'
       expect(page).to have_content 'Moods: Another New Mood, Test Mood'
-      expect(page).to have_content 'What happened and how do you feel?'
+      expect(page).to have_content 'What happened and how do you feel?'.upcase
       expect(page).to have_content 'my moment why description'
-      expect(page).to have_content 'What thoughts would you like to have?'
+      expect(page).to have_content 'What thoughts would you like to have?'.upcase
       expect(page).to have_content 'my moment fix description'
-      expect(page).to have_content 'What strategies would help?'
+      expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Some New Strategy, Test Strategy'
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
       expect(page).to have_css('#new_comment')
