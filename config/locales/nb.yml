@@ -1,6 +1,6 @@
 nb:
  app_name: 'if me'
- app_description: 'er et samfunn for mental helse opplevelser'
+ app_description: 'Et samfunn for mental helse opplevelser.'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Opprettet %{created_at}'
@@ -402,10 +402,8 @@ nb:
       message_one: 'Del dine historier med kjente og få støtten du fortjener'
       message_two: 'Vær deg selv, ingen forpliktelser og med sikkerhet og personvern'
       message_three: 'Dokumenter ditt humør, medisiner, og selvpleie'
-      main_message_two: "Historiefortelling er nøkkelen til mental helse opplæring."
-      message_text_two: "Lær fra <strong>samfunnet</strong> i vår %{blog}."
-      main_message_three: 'Vi har åpen kildekode fordi mental helse burde være åpent.'
-      message_text_three: "Vi er <strong>alltid</strong> på utkikk etter din %{help} og %{feedback}!"
+      main_message_two: 'Vi har åpen kildekode fordi mental helse burde være åpent.'
+      message_text_two: "Vi er <strong>alltid</strong> på utkikk etter din %{help} og %{feedback}!"
       help: 'hjelp'
     signed_in_empty:
       main_message_one: 'Hallo %{name}!'

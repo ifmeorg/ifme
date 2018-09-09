@@ -1,6 +1,6 @@
 sv:
  app_name: 'if me'
- app_description: 'är en gemenskap för mentala hälsoupplevelser'
+ app_description: 'En gemenskap för mentala hälsoupplevelser.'
  draft: "Utkast"
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
@@ -403,10 +403,8 @@ sv:
       message_one: 'Dela dina historier med dina nära och få det stöd du förtjänar'
       message_two: 'Var dig själv, utan krav men med säkerhet och integritet'
       message_three: 'Dokumentera dina humör, mediciner och egenvård'
-      main_message_two: "Storytelling är nyckeln till psykisk hälsoutbildning."
-      message_text_two: "Lär dig från <strong>communityt</strong> i vår %{blog}."
-      main_message_three: 'Vi använder öppen källkod eftersom mental hälsa borde vara öppen.'
-      message_text_three: "Vi letar <strong>alltid</strong> efter din %{help} och %{feedback}!"
+      main_message_two: 'Vi använder öppen källkod eftersom mental hälsa borde vara öppen.'
+      message_text_two: "Vi letar <strong>alltid</strong> efter din %{help} och %{feedback}!"
       help: 'hjälp'
     signed_in_empty:
       main_message_one: 'Hej %{name}!'

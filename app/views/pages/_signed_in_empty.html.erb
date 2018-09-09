@@ -1,20 +1,20 @@
-<div class="main_message">
+<div class="messageMain">
   <%= t('pages.home.signed_in_empty.main_message_one', {
     name: current_user.name
   }) %>
 </div>
-<div class="message_text">
+<div class="messageBody">
   <%= t('pages.home.signed_in_empty.message_text_one') %>
 </div>
 
 <div class="horizonal_divider"></div>
 
-<div class="main_message">
+<div class="messageMain">
   <%= t('pages.home.signed_in_empty.main_message_two') %>
 </div>
 <div class="table onboarding">
   <div class="table_row">
-    <div class="table_cell message_cell center_div vertical_align_middle padding_bottom">
+    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
       <div id="you"></div>
     </div>
 
@@ -28,13 +28,13 @@
   </div>
 </div>
 
-<div class="main_message">
+<div class="messageMain">
   <div class="spacer"></div>
   <%= t('pages.home.signed_in_empty.main_message_three') %>
 </div>
 <div class="table onboarding">
   <div class="table_row">
-    <div class="table_cell message_cell center_div vertical_align_middle padding_bottom">
+    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
       <div id="book"></div>
     </div>
 
@@ -47,13 +47,13 @@
   </div>
 </div>
 
-<div class="main_message">
+<div class="messageMain">
   <div class="spacer"></div>
   <%= t('pages.home.signed_in_empty.main_message_four') %>
 </div>
 <div class="table onboarding">
   <div class="table_row">
-    <div class="table_cell message_cell center_div vertical_align_middle padding_bottom">
+    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
       <div id="time"></div>
     </div>
 
@@ -69,10 +69,10 @@
 
 <div class="horizonal_divider"></div>
 
-<div class="main_message">
+<div class="messageMain">
   <%= t('pages.home.signed_in_empty.main_message_five') %>
 </div>
-<div class="message_text">
+<div class="messageBody">
   <%= raw t('pages.home.signed_in_empty.message_text_three', {
     faq: link_to(t('navigation.faq'), faq_path),
     email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")

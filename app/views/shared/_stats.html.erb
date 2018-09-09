@@ -8,7 +8,7 @@
 
     <div class="center" id="stats">
       <% if local_assigns[:profile] %>
-        <div class="main_message no_margin_top">
+        <div class="messageMain no_margin_top">
           <%= local_assigns[:data_type].pluralize.titleize %>
         </div>
       <% end %>
@@ -22,9 +22,9 @@
 
       <div id="most_focus">
         <% most_focus.each do |key, value| %>
-          
+
           <div class="some_focus">
-          
+
             <div class="some_focus_text">
               <% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
                 <%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>

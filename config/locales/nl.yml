@@ -1,6 +1,6 @@
 nl:
  app_name: 'if me'
- app_description: 'is een gemeenschap voor geestelijke gezondheidservaringen'
+ app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen.'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Aangemaakt op %{created_at}'
@@ -402,10 +402,8 @@ nl:
       message_one: 'Deel jouw verhalen met naasten en ontvang de ondersteuning die je verdient'
       message_two: 'Wees jezelf, zonder beperkingen, in veiligheid en met privacy'
       message_three: 'Documenteer je stemmingen, medicatie en self-care'
-      main_message_two: "Verhalen vertellen is de sleutel tot educatie over geestelijke gezondheid."
-      message_text_two: "Leer van de <strong>gemeenschap</strong> op onze %{blog}."
-      main_message_three: 'We zijn open source omdat je over je geestelijke gezondheid ook open zou moeten kunnen zijn.'
-      message_text_three: "We zijn <strong>altijd</strong> op zoek naar je %{help} en %{feedback}!"
+      main_message_two: 'We zijn open source omdat je over je geestelijke gezondheid ook open zou moeten kunnen zijn.'
+      message_text_two: "We zijn <strong>altijd</strong> op zoek naar je %{help} en %{feedback}!"
       help: 'hulp'
     signed_in_empty:
       main_message_one: 'Hallo %{name}!'

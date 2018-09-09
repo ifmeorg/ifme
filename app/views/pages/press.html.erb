@@ -1,7 +1,7 @@
 <% title t('navigation.press') %>
 
 <div class="gridThree">
-<% @press.each_with_index do |p, index| %>
+<% @press.each do |p| %>
   <div class="gridThreeItem">
   <%= react_component('Resource', props: {
     external: true,

@@ -1,6 +1,6 @@
 pt-BR:
  app_name: 'if me'
- app_description: 'é uma comunidade para o compartilhamento de experiências sobre saúde mental'
+ app_description: 'Uma comunidade para o compartilhamento de experiências sobre saúde mental.'
  draft: 'Rascunho'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
@@ -402,10 +402,8 @@ pt-BR:
       message_one: 'Compartilhe suas histórias com pessoas amadas e receba o suporte que precisar.'
       message_two: 'Seja você, sem máscaras, e com segurança e privacidade'
       message_three: 'Registre suas alterações de humor, medicamentos e cuidado-próprio'
-      main_message_two: "Storytelling é a chave para educação de saúde mental."
-      message_text_two: "Aprenda mais com a  <strong>comunidade</strong> no nosso %{blog}."
-      main_message_three: 'Somos Open Source porque a saúde mental deve ser aberta.'
-      message_text_three: "Estamos <strong>sempre</strong> buscando por sua %{help} e seu %{feedback}!"
+      main_message_two: 'Somos Open Source porque a saúde mental deve ser aberta.'
+      message_text_two: "Estamos <strong>sempre</strong> buscando por sua %{help} e seu %{feedback}!"
       help: 'ajuda'
     signed_in_empty:
       main_message_one: 'Olá %{name}!'

@@ -1,6 +1,6 @@
 vi:
  app_name: 'if me'
- app_description: 'cộng đồng sức khỏe tâm thần'
+ app_description: 'Đồng sức khỏe tâm thần.'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Tạo:</strong> %{created_at}'
@@ -403,10 +403,8 @@ vi:
       message_one: 'Chia sẻ câu chuyện của bạn với những người yêu mến và nhận những hỗ trợ ma bạn xứng đáng được nhận'
       message_two: 'Cùng với việc hệ thống và chính sách bảo mật thông tin cá nhân, hãy là chính mình, không có ràng buộc nào cả'
       message_three: 'Ghi chép lại tâm trạng, thuốc, và tự chăm sóc bản thân của bạn'
-      main_message_two: "Thuật lại chuyện sẽ là chìa khóa cho việc giáo dục sức khỏe tâm thần."
-      message_text_two: "Học hỏi từ <strong>cộng đồng</strong> trong %{blog} của chúng tôi."
-      main_message_three: 'Chúng tôi là một mã nguồn mở bởi vì sức khỏe tâm thần cần được chia sẻ rộng rãi.'
-      message_text_three: "Chúng tôi <strong>luôn</strong> tìm kiếm %{help} và %{feedback}!"
+      main_message_two: 'Chúng tôi là một mã nguồn mở bởi vì sức khỏe tâm thần cần được chia sẻ rộng rãi.'
+      message_text_two: "Chúng tôi <strong>luôn</strong> tìm kiếm %{help} và %{feedback}!"
       help: 'cứu giúp'
     signed_in_empty:
       main_message_one: 'Xin chào %{name}!'

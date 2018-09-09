@@ -1,68 +1,69 @@
-<div class="main_message">
-  <%= t('pages.home.not_signed_in.main_message_one') %>
-</div>
-<div class="message_text">
-  <%= t('pages.home.not_signed_in.message_text_one') %>
-  <div class="spacer"></div>
-</div>
-<div class="center">
-  <div class="message">
-    <div class="message_row">
-      <div class="message_cell">
-        <div id="book"></div>
-        <div class="icon_border"></div>
-        <%= t('pages.home.not_signed_in.message_one') %>
-      </div>
-      <div class="message_cell">
-        <div id="you"></div>
-        <div class="icon_border"></div>
-        <%= t('pages.home.not_signed_in.message_two') %>
-      </div>
-      <div class="message_cell no_margin_bottom">
-        <div id="time"></div>
-        <div class="icon_border"></div>
-        <%= t('pages.home.not_signed_in.message_three') %>
-      </div>
+<div class="messageHero">
+  <div class="messageMain">
+    <div class="messageMainLogo">
+      <%= react_component('Logo', props: { lg: true }) %>
+    </div>
+    <%= t('app_description') %>
+  </div>
+  <div class="messageBody">
+    <div class="messageBodyLinks">
+      <%= link_to t('navigation.about'), about_path, class: 'buttonL' %>
+      <%= link_to t('common.actions.join'), new_user_registration_path, class: 'buttonGhostL' %>
     </div>
   </div>
 </div>
-<div class="spacer"></div>
-<div class="horizonal_divider"></div>
-<div class="main_message">
-  <div class="spacer"></div>
-  <%= t('pages.home.not_signed_in.main_message_two') %>
-</div>
-<div class="message_text">
-  <%= raw t('pages.home.not_signed_in.message_text_two', {
-    blog: link_to(t('navigation.blog').downcase, 'https://medium.com/ifme')
-  }) %>
-  <div class="spacer"></div>
-</div>
-<div class="message" id="medium_posts">
-  <div class="message_row">
-    <% @posts.first(3).each do |post, index| %>
-      <div class="message_cell">
-        <%= link_to "#{post['link_name']}", post['link'], target: true %>
-        <div class="post_author"><%= post['author'] %></div>
-      </div>
-    <% end %>
+
+<div class="messageHero">
+  <div class="gridThree">
+  <% @posts.first(3).each do |p| %>
+    <div class="gridThreeItem">
+    <%= react_component('Resource', props: {
+      external: true,
+      title: p['link_name'],
+      link: p['link'],
+      author: p['author']
+    }) %>
+    </div>
+  <% end %>
   </div>
 </div>
-<div class="spacer"></div>
-<div class="horizonal_divider"></div>
-<div class="main_message">
-  <div class="spacer"></div>
-  <%= t('pages.home.not_signed_in.main_message_three') %>
+
+<div class="messageHero">
+  <div class="messageMain">
+    <%= t('pages.home.not_signed_in.main_message_one') %>
+  </div>
+  <div class="messageBody">
+    <%= t('pages.home.not_signed_in.message_text_one') %>
+    <div class="spacer"></div>
+  </div>
+  <div class="gridThree center">
+    <div class="gridThreeItem">
+      <div id="phone"></div>
+      <%= t('pages.home.not_signed_in.message_one') %>
+    </div>
+    <div class="gridThreeItem">
+      <div id="lotus"></div>
+      <%= t('pages.home.not_signed_in.message_two') %>
+    </div>
+    <div class="gridThreeItem">
+      <div id="documents"></div>
+      <%= t('pages.home.not_signed_in.message_three') %>
+    </div>
+  </div>
 </div>
-<div class="message_text">
-  <%= raw t('pages.home.not_signed_in.message_text_three', {
+
+<div class="messageMain">
+  <%= t('pages.home.not_signed_in.main_message_two') %>
+</div>
+<div class="messageBody">
+  <%= raw t('pages.home.not_signed_in.message_text_two', {
     help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
     feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
   }) %>
   <div class="spacer"></div>
-  <div class="contributors_grid">
+  <div class="gridMany">
     <% @blurbs.each do |blurb| %>
-      <div class="contributors_grid_child">
+      <div class="gridManyItem">
         <%= ProfilePicture.fetch(blurb['image'], className: 'home_picture', name: blurb['name']) %>
       </div>
     <% end %>

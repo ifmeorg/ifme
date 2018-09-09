@@ -13,8 +13,9 @@ import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import { Header } from '../components/Header';
 import { Resource } from '../components/Resource';
-import { Resources } from '../widgets/Resources';
 import { Tag } from '../components/Tag';
+import { Logo } from '../components/Logo';
+import { Resources } from '../widgets/Resources';
 
 window.jstz = jstz;
 loadLocales();
@@ -25,6 +26,7 @@ ReactOnRails.register({
   Chart,
   ChartControl,
   Header,
+  Logo,
   Resource,
   Resources,
   Tag,
