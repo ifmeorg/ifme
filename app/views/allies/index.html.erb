@@ -9,9 +9,9 @@
 <% if @outgoing_ally_requests.any? %>
   <strong><%= t('allies.index.outgoing') %></strong>
   <div class="spacer"></div>
-  <div class="allies_list">
+  <div class="gridThree">
   <% @outgoing_ally_requests.each do |ally| %>
-    <div class="ally center">
+    <div class="gridThreeItemBoxLight center">
       <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
@@ -27,9 +27,9 @@
   <% end %>
   <strong><%= t('allies.index.incoming') %></strong>
   <div class="spacer"></div>
-  <div class="allies_list">
+  <div class="gridThree">
   <% @incoming_ally_requests.each do |ally| %>
-    <div class="ally center">
+    <div class="gridThreeItemBoxLight center">
       <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="location"><%= ally.location %></div>
@@ -46,9 +46,9 @@
 <% end %>
 
 <% if @accepted_allies.present? %>
-  <div class="allies_list">
+  <div class="gridThree">
     <% @accepted_allies.each do |ally| %>
-      <div class="ally center">
+      <div class="gridThreeItemBoxLight center">
         <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
         <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
         <div class="location"><%= ally.location %></div>

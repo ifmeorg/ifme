@@ -10,10 +10,8 @@
 <% if @medications.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'medication' } %>
 
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <%= render @medications %>
-    </div>
   </div>
 
   <%= paginate @medications %>
@@ -24,16 +22,14 @@
 
   <div class="spacer"></div>
 
-  <div id="pages">
-    <div class="page">
-      <div class="medication no_margin_bottom">
-        <h1 class="medication_name"><%= t('medications.index.example_name') %></h1>
+  <div class="gridTwo">
+    <div class="gridTwoItemBoxLight no_margin_bottom">
+      <h1 class="medication_name"><%= t('medications.index.example_name') %></h1>
 
-        <strong><%= t('medications.strength') %></strong> <%= t('medications.index.example_strength') %>
-        <br><strong><%= t('medications.index.total') %></strong> <%= t('medications.index.example_total') %>
-        <br><strong><%= t('medications.dosage') %></strong> <%= t('medications.index.example_dosage') %>
-        <br><strong><%= t('medications.refill') %></strong> <%= t('medications.index.example_refill') %>
-      </div>
+      <strong><%= t('medications.strength') %></strong> <%= t('medications.index.example_strength') %>
+      <br><strong><%= t('medications.index.total') %></strong> <%= t('medications.index.example_total') %>
+      <br><strong><%= t('medications.dosage') %></strong> <%= t('medications.index.example_dosage') %>
+      <br><strong><%= t('medications.refill') %></strong> <%= t('medications.index.example_refill') %>
     </div>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 <%= form_for(@category) do |f| %>
 
   <% if @category.errors.any? %>
-    <div class="error_explanation">
+    <div class="errorText">
       <%= t('common.form.error_explanation') %>
     </div>
   <% end %>

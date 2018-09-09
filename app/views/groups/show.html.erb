@@ -34,10 +34,9 @@
 
 <% if @meetings.present? %>
   <div class="spacer"></div>
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <% @meetings.each do |meeting| %>
-      <div class="meeting">
+      <div class="gridTwoItemBoxLight">
         <h1 class="meeting_name">
           <%= link_to meeting.name, meeting_path(meeting) %>
           <%= edit_meeting_link(meeting, class: 'align_right display_inline_block') %>
@@ -45,6 +44,5 @@
         <%= render_meeting_partial(meeting) %>
       </div>
     <% end %>
-    </div>
   </div>
 <% end %>

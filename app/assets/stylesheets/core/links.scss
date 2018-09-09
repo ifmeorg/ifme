@@ -1,3 +1,31 @@
+@mixin staticContentFakeLink() {
+  text-decoration: none;
+  color: $cornflower;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin staticContentLink() {
+  a {
+    @include staticContentFakeLink();
+  }
+}
+
+@mixin dashboardSectionFakeLink() {
+  text-decoration: none;
+  color: $steel-blue;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin dashboardSectionLink() {
+  a {
+    @include dashboardSectionFakeLink();
+  }
+}
+
 .anchor {
   border-bottom: $size-1 dotted $black;
   cursor: pointer;

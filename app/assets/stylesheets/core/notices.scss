@@ -1,13 +1,10 @@
-.alert {
-  background: $carmine;
+.notice {
+  background: $limeade;
   color: $white;
   margin-bottom: 25px;
   padding: $size-10;
   text-align: center;
   @media screen and (max-width: $medium) {
     margin-bottom: $size-10;
-  }
-  &Text {
-    color: $carmine;
   }
 }

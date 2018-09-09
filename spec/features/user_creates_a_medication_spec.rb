@@ -3,7 +3,7 @@ describe 'UserCreatesAMedication', js: true do
   let(:medication) { user.medications.last }
   let(:name) { 'A medication name' }
 
-  before do 
+  before do
     login_as user
     visit new_medication_path
   end
@@ -12,7 +12,7 @@ describe 'UserCreatesAMedication', js: true do
     it 'does not create a new Medication' do
       click_on 'Submit'
       expect(page).to have_content('New Medication')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('label.alertText')
     end
   end
 

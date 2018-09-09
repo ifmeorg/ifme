@@ -17,7 +17,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       visit new_moment_path
       click_on 'Submit'
       expect(page).to have_content('New Moment')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('label.alertText')
     end
 
     it 'is successful' do

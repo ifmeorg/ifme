@@ -98,7 +98,7 @@
 .comment_text {
   word-wrap: break-word;
   padding: $size-10;
-  font-weight: 300;
+  font-weight: $font-weight-300;
 }
 
 .comment_textarea {

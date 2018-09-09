@@ -1,30 +1,3 @@
-.ally,
-.blog_post,
-.group,
-.category,
-.medication,
-.meeting,
-.moment,
-.mood,
-.story,
-.strategy,
-.contributor {
-  @include box-sizing(border-box);
-  width: calc(50% - 10px);
-  padding: $size-20;
-  margin-bottom: $size-20;
-
-  background: $white;
-  box-shadow: $size-0 $size-2 $size-10 $black-10;
-  border-radius: $size-4;
-
-  @media screen and (max-width: $medium) {
-    width: 100%;
-    padding: $size-10;
-    margin-bottom: $size-20;
-  }
-}
-
 .story {
   position: relative;
   padding-bottom: 50px;
@@ -34,56 +7,6 @@
     right: $size-20;
     bottom: $size-20;
   }
-}
-
-.ally_name,
-.category_name,
-.group_name,
-.meeting_name,
-.medication_name,
-.moment_name,
-.story_name,
-.mood_name,
-.profile_name,
-.strategy_name,
-.contributor_name {
-  font-weight: 400;
-  font-size: $size-18;
-  padding: 0;
-  margin: $size-0 $size-0 $size-20 $size-0;
-  color: $mulberry;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-16;
-    margin: $size-0 $size-0 $size-10 $size-0;
-  }
-}
-
-.ally_name a:link,
-.ally_name a:visited,
-.category_name a:link,
-.category_name a:visited,
-.group_name a:link,
-.group_name a:visited,
-.meeting_name a:link,
-.meeting_name a:visited,
-.medication_name a:link,
-.medication_name a:visited,
-.moment_name a:link,
-.moment_name a:visited,
-.story_name a:link,
-.story_name a:visited,
-.mood_name a:link,
-.mood_name a:visited,
-.blog_name a:link,
-.blog_name a:visited,
-.profile_name a:link,
-.profile_name a:visited,
-.strategy_name a:link,
-.strategy_name a:visited {
-  color: $mulberry;
-  text-decoration: none;
-  border: none;
 }
 
 .moment_date {
@@ -218,7 +141,7 @@
 
 #stats {
   font: $size-22 $font-family;
-  font-weight: 300;
+  font-weight: $font-weight-300;
   margin-bottom: $size-40;
 
   #most_focus {
@@ -259,7 +182,7 @@
   .some_focus_text {
     padding: $size-20;
     font: $size-22 $font-family;
-    font-weight: 300;
+    font-weight: $font-weight-300;
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -279,19 +202,19 @@
 
   @media screen and (max-width: $medium) {
     font: $size-20 $font-family;
-    font-weight: 300;
+    font-weight: $font-weight-300;
     margin-bottom: $size-20;
 
     .some_focus_text {
       padding: $size-20;
       font: $size-20 $font-family;
-      font-weight: 300;
+      font-weight: $font-weight-300;
     }
   }
 
   @media screen and (max-width: $small) {
     font: $size-18 $font-family;
-    font-weight: 300;
+    font-weight: $font-weight-300;
     margin-bottom: $size-20;
 
     .some_focus {
@@ -306,7 +229,7 @@
     .some_focus_text {
       padding: $size-10;
       font: $size-18 $font-family;
-      font-weight: 300;
+      font-weight: $font-weight-300;
     }
   }
 }
@@ -395,16 +318,6 @@
     display: block;
     font: inherit;
   }
-}
-
-#pages .page,
-.resource_list,
-.tag_usage,
-.contributors,
-.allies_list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 #search_email,

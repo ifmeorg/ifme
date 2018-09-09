@@ -2,78 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#version {
-  text-align: center;
-  font-weight: 300;
-  font-size: $size-26;
-  margin-bottom: $size-40;
-  color: $mulberry;
-
-  @media screen and (max-width: $medium) {
-      font-size: $size-24;
-      margin-bottom: $size-20;
-  }
-}
-
 .moment p {
     margin : 0;
-}
-
-.main_message {
-  font-weight: 300;
-  font-size: $size-40;
-  line-height: 50px;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $size-40;
-  color: $mulberry;
-  width: 60%;
-  text-align: center;
-
-  @media screen and (max-width: $medium) {
-      font-size: $size-26;
-      line-height: $size-36;
-      margin-bottom: $size-20;
-      width: 100%;
-  }
-
-  @media screen and (max-width: $small) {
-      font-size: $size-26;
-      line-height: $size-34;
-  }
-}
-
-.message_text {
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $size-40;
-  width: 60%;
-  text-align: center;
-
-  @media screen and (max-width: $medium) {
-      margin-bottom: $size-20;
-      width: 100%;
-  }
-}
-
-.message_text,
-.message {
-  text-align: center;
-  font-weight: 300;
-  line-height: $size-40;
-  font-size: $size-26;
-
-  @media screen and (max-width: $medium) {
-      font-size: $size-20;
-      line-height: $size-26;
-  }
-
-  @media screen and (max-width: $small) {
-      font-size: $size-18;
-      line-height: $size-24;
-  }
 }
 
 .message {
@@ -230,7 +160,7 @@
 
   label {
       font-size: $size-20;
-      font-weight: 300;
+      font-weight: $font-weight-300;
       display: block;
       margin-bottom: $size-4;
 
@@ -321,99 +251,5 @@
     text-decoration: none;
     border: none;
     opacity: 0.5;
-  }
-}
-
-/* Resources */
-
-h1.resources {
-  font-weight: 300;
-  font-size: $size-30;
-  padding: 0;
-  margin: $size-0 $size-0 $size-20 $size-0;
-  color: $mulberry;
-
-  @media screen and (max-width: $medium) {
-    font-size: $size-26;
-    margin: $size-0 $size-0 10px $size-0;
-  }
-
-  @media screen and (max-width: $small) {
-    font-size: $size-24;
-  }
-}
-
-.resource_list,
-.resource_list a {
-  line-height: 56px;
-  font-size: $size-24;
-
-  @media screen and (max-width: $medium) {
-    line-height: normal;
-    font-size: $size-20;
-  }
-
-  @media screen and (max-width: $small) {
-    line-height: normal;
-    font-size: $size-16;
-  }
-}
-
-.resource_languages {
-  float: right;
-
-  @media screen and (max-width: $medium) {
-    float: none;
-    margin: $size-20 $size-0 $size-20 $size-0;
-    line-height: $size-36;
-    font-size: $size-16;
-  }
-
-  @media screen and (max-width: $small) {
-    line-height: $size-26;
-    white-space: nowrap;
-    overflow-x: auto;
-  }
-}
-
-
-.resource_tags {
-  word-break: break-all;
-  margin-top: $size-20;
-
-  @media screen and (max-width: $medium) {
-    margin-top: $size-0;
-    line-height: $size-36;
-    font-size: $size-16;
-  }
-
-  @media screen and (max-width: $small) {
-    line-height: $size-26;
-    white-space: nowrap;
-    overflow-x: auto;
-  }
-}
-
-.resource_tag,
-.resource_language {
-  background-color: $mulberry-80;
-  color: $white;
-  padding: 10px;
-  margin-right: 10px;
-
-  @media screen and (max-width: $small) {
-    padding: $size-4;
-  }
-}
-
-.resource_language {
-  background-color: $key-lime;
-  color: $black;
-  margin-left: 10px;
-  margin-right: $size-0;
-
-  @media screen and (max-width: $medium) {
-    margin-left: $size-0;
-    margin-right: 10px;
   }
 }

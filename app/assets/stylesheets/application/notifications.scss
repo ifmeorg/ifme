@@ -155,7 +155,7 @@ h1.quick_create_close,
 h1#clear_notifications,
 h1#close_notifications,
 h1#close_categories_moods, {
-  font-weight: 300;
+  font-weight: $font-weight-300;
   font-size: $size-26;
   padding: 0;
   margin: $size-0;
@@ -205,7 +205,7 @@ h1#clear_notifications {
 
   label {
     font-size: $size-26;
-    font-weight: 300;
+    font-weight: $font-weight-300;
 
     @media screen and (max-width: $medium) {
       font-size: $size-24;

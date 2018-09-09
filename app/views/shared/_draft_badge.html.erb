@@ -1,6 +1,5 @@
 <% if !local_assigns[:published] %>
-  <span class="draft-badge">
-    <i class="fa fa-tag" aria-hidden="true"></i>
-    <%= I18n.t 'draft' %>
+  <span class="draftBadge">
+    <%= react_component('Tag', props: { label: t('draft') }) %>
   </span>
 <% end %>
