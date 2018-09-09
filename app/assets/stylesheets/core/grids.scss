@@ -4,6 +4,12 @@
   justify-content: space-between;
 }
 
+@mixin gridRow() {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @mixin gridH1() {
   @include setFontSize($size-20);
   @include setMargin($size-0, $size-0, $size-20, $size-0);
@@ -101,12 +107,14 @@
   }
 
   &Row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include gridRow();
     @media screen and (max-width: $small) {
       flex-direction: column;
       text-align: center;
+    }
+    &SpaceBetween {
+      @include gridRow();
+      justify-content: space-between;
     }
   }
 }

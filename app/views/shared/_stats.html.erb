@@ -3,7 +3,7 @@
 	<% if most_focus.length > 0 %>
 
     <% if !local_assigns[:profile] %>
-      <div class="stats_divider"></div>
+      <div class="spacer"></div>
     <% end %>
 
     <div class="center" id="stats">
@@ -43,8 +43,6 @@
           </div>
         <% end %>
       </div>
-
-      <div class="clear"></div>
     </div>
 	<% end %>
 <% elsif local_assigns[:data_type] == 'moment' %>

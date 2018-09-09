@@ -41,13 +41,6 @@
   word-break: break-word;
 }
 
-#editor_modal .align_left,
-#editor_modal .align_right {
-  @media screen and (max-width: $medium) {
-    width: auto !important;
-  }
-}
-
 h1#close_editor {
   font-weight: $font-weight-300;
   font-size: $size-26;

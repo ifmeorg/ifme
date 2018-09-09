@@ -38,16 +38,6 @@
     word-break: break-word;
   }
 
-  .align_left {
-    float: left;
-    display: inline-block;
-  }
-
-  .align_right {
-    float: right;
-    display: inline-block;
-  }
-
   .delete_comment {
     padding-left: $size-20;
     text-align: right;

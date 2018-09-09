@@ -16,12 +16,11 @@
   <%= paginate @categories %>
 <% else %>
   <%= raw t('categories.index.instructions') %>
-
-  <div class="actions align_right">
+  <div class="actions">
     <%= button_to t('common.actions.add_all'), premade_categories_path %>
   </div>
 
-  <div class="clear"></div>
+  <div class="spacer"></div>
 
   <div class="gridTwo">
     <div class="gridTwoItemBoxLight">

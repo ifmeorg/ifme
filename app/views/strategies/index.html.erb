@@ -17,12 +17,11 @@
   <%= paginate @strategies %>
 <% else %>
   <%= raw t('strategies.index.instructions') %>
-
-  <div class="actions align_right">
+  <div class="actions">
     <%= button_to t('common.actions.add'), premade_strategies_path %>
   </div>
 
-  <div class="clear"></div>
+  <div class="spacer"></div>
 
   <div class="gridTwo">
     <div class="gridTwoItemBoxLight no_margin_bottom">

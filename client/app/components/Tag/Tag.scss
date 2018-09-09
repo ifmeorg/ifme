@@ -1,7 +1,7 @@
 @import "../../styles/_legacy.scss";
 
 .tag {
-  @include setFontSize($size-10);
+  @include setFontSize($size-16);
   @include setMargin($size-0, $size-8, $size-8, $size-0);
   padding: $size-4 $size-12;
   text-indent: 4px;

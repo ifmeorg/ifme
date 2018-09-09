@@ -15,9 +15,6 @@
     local_assigns[:is_member]
   )
 ) %>
-
-  <div class="horizonal_divider"></div>
-
   <div class="small_margin_top">
     <%= form_for local_assigns[:comment], url: { action: "comment" }, html: { method: "post" } do |f| %>
       <% if local_assigns[:comment].errors.any? %>
@@ -32,9 +29,9 @@
       </div>
 
       <% if local_assigns[:comments].length == 0 %>
-        <div class="actions align_right no_margin_bottom">
+        <div class="actions no_margin_bottom">
       <% else %>
-        <div class="actions align_right">
+        <div class="actions">
       <% end %>
 
         <%= f.hidden_field :commentable_type, value: local_assigns[:commentable_type] %>
@@ -57,8 +54,6 @@
 
         <%= f.submit t('comment.singular'), class: 'no_margin_right small_margin_top', id: 'add_comment_button' %>
       </div>
-
-      <div class="clear"></div>
     <% end %>
 
     <div id="comments">
