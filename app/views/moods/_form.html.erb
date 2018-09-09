@@ -8,8 +8,7 @@
   <div class="field">
     <div class="label">
       <%= f.label t('common.name'), for: 'mood_name' %>
-      <i class="fa fa-asterisk align_right"></i>
-      <div class="clear"></div>
+      <i class="fa fa-asterisk"></i>
     </div>
     <%= f.text_field :name, class: "name_field" %>
   </div>
@@ -21,10 +20,7 @@
     <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
   </div>
 
-  <div class="actions align_right no_margin_bottom">
+  <div class="actions no_margin_bottom">
     <%= f.submit t('common.actions.submit') %>
   </div>
-
-  <div class="clear"></div>
-
 <% end %>

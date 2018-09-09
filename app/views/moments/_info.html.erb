@@ -56,7 +56,7 @@
 
 <% if local_assigns[:class_name] %>
   <br>
-  <div class="align_right subtle class_name">
+  <div class="subtle class_name">
     <% if local_assigns[:data].class.name == 'Moment' %>
       <%= t('moments.singular') %>
     <% elsif local_assigns[:data].class.name == 'Strategy' %>
@@ -64,5 +64,3 @@
     <% end %>
   </div>
 <% end %>
-
-<div class="clear"></div>

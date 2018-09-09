@@ -42,10 +42,10 @@
 
         <% if moments.any? %>
           <% if local_assigns[:data_type] == 'strategy' %>
-            <h1 class="tag_type">
+            <h1 class="tag_type gridRowSpaceBetween">
               <%= t('moments.tagged') %>
-              <span id="showTaggedMoments" class="align_right display_inline_block"><i class="fa fa-caret-down"></i></span>
-              <span id="hideTaggedMoments" class="align_right display_none"><i class="fa fa-caret-up"></i></span>
+              <span id="showTaggedMoments" class="display_inline_block"><i class="fa fa-caret-down"></i></span>
+              <span id="hideTaggedMoments" class="display_none"><i class="fa fa-caret-up"></i></span>
             </h1>
 
             <div id="moment_tag_usage" class="display_none">

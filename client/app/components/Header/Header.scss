@@ -23,7 +23,7 @@
 
   &Link {
     @include linkStyle();
-    @include setFontSize($size-16);
+    @include setFontSize($size-18);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
     @media screen and (max-width: $medium) {
       text-align: center;
@@ -100,7 +100,7 @@
     }
     &Nav {
       &Links {
-        @include setFontSize($size-16);
+        @include setFontSize($size-18);
         display: flex;
         flex-direction: row;
         letter-spacing: 0.0571429em;

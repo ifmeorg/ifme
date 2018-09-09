@@ -31,7 +31,7 @@
 </div>
 
 <% if !@stories.nil? && @stories.any? %>
-  <div class="horizonal_divider"></div>
+  <div class="spacer"></div>
 <% end %>
 
 <%= render partial: '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>

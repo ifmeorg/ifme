@@ -33,8 +33,6 @@
 
         <%= render partial: '/shared/quick_create_fields', locals: { data_type: local_assigns[:data_type], f: f } %>
 
-        <div class="clear"></div>
-
         <div class="actions no_margin_bottom">
           <%= f.hidden_field :tag, value: local_assigns[:tag] %>
           <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>

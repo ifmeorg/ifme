@@ -13,8 +13,7 @@
     <div class="field">
       <div class="label">
         <%= f.label t('common.name'), for: 'group_name' %>
-        <i class="fa fa-asterisk align_right"></i>
-        <div class="clear"></div>
+        <i class="fa fa-asterisk"></i>
       </div>
       <%= f.text_field :name, class: "name_field" %>
     </div>
@@ -22,8 +21,7 @@
     <div class="field">
       <div class="label">
         <%= f.label t('common.form.description'), for: 'group_description' %>
-        <i class="fa fa-asterisk align_right"></i>
-        <div class="clear"></div>
+        <i class="fa fa-asterisk"></i>
       </div>
       <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
     </div>
@@ -72,9 +70,7 @@
     </div>
   <% end %>
 
-  <div class="clear"></div>
-
-  <div class="actions align_right no_margin_bottom right">
+  <div class="actions no_margin_bottom">
     <% if action_name == "new" || action_name == "create" %>
       <div class="small_margin_bottom subtle small_font">
         <%= t('groups.form.cannot_delete') %>
@@ -82,6 +78,4 @@
     <% end %>
     <%= f.submit t('common.actions.submit') %>
   </div>
-
-  <div class="clear"></div>
 <% end %>
