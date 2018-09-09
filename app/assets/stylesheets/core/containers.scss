@@ -4,20 +4,18 @@
 
 .center {
   text-align: center;
+  &Margin {
+    margin: 0 auto;
+  }
 }
 
 .no_center {
   text-align: left !important;
 }
 
-.center_div {
-  margin: 0 auto;
-}
-
 .spacer {
   width: 100%;
   height: $size-40;
-
   @media screen and (max-width: $medium) {
     height: $size-20;
   }
@@ -29,23 +27,9 @@
   background-color: $dusty-rose;
   margin-top: $size-40;
   margin-bottom: $size-40;
-
   @media screen and (max-width: $medium) {
     margin-top: $size-20;
     margin-bottom: $size-20;
-  }
-}
-
-.vertical_divider {
-  width: $size-1;
-  background-color: $dusty-rose;
-  height: 100%;
-  margin-left: $size-10;
-  margin-right: $size-10;
-
-  @media screen and (max-width: $medium) {
-    margin-left: $size-20;
-    margin-right: $size-20;
   }
 }
 
@@ -54,7 +38,6 @@
   height: $size-1;
   background-color: $dusty-rose;
   margin-bottom: $size-40;
-
   @media screen and (max-width: $medium) {
     margin-bottom: $size-20;
   }
@@ -105,7 +88,6 @@
 
 .spacing {
   margin-right: $size-10 !important;
-
   @media screen and (max-width: $medium) {
     margin-right: 0 !important;
     margin-bottom: $size-10 !important;

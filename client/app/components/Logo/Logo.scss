@@ -46,6 +46,9 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
+  width: min-content;
+  display: -ms-grid;
+  -ms-grid-columns: min-content;
   @include setSize($size-30);
   @include setColor($white, $key-lime);
 

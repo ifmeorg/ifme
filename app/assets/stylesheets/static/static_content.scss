@@ -1,3 +1,13 @@
+@mixin homeImages($url) {
+  background: url($url);
+  height: 180px;
+  width: auto;
+  background-size: auto 180px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: $size-40;
+}
+
 .staticContent {
   color: $white;
   width: 100%;
@@ -7,7 +17,6 @@
   @media screen and (max-width: $medium) {
     padding: $size-20;
   }
-
   @include staticContentLink();
 
   .pageTitle {
@@ -36,49 +45,74 @@
     }
   }
 
-  .main_message {
-    font-weight: $font-weight-300;
-    font-size: $size-32;
-    line-height: $size-44;
-    margin: auto auto $size-40 auto;
-    width: 60%;
-    text-align: center;
-    @media screen and (max-width: $medium) {
-      font-size: $size-26;
-      line-height: $size-36;
-      margin-bottom: $size-20;
-      width: 100%;
-    }
-    @media screen and (max-width: $small) {
-      font-size: $size-26;
-      line-height: $size-34;
-    }
-  }
-
-  .message_text {
-    margin: auto auto $size-40 auto;
-    width: 60%;
-    text-align: center;
-    @media screen and (max-width: $medium) {
-      margin-bottom: $size-20;
-      width: 100%;
-    }
-  }
-
-  .message_text,
   .message {
+    &Hero {
+      margin-bottom: $size-50 * 2;
+      @media screen and (max-width: $medium) {
+        margin-bottom: $size-50;
+      }
+    }
+    &Main {
+      font-weight: $font-weight-300;
+      font-size: $size-32;
+      line-height: $size-44;
+      margin: auto auto $size-40 auto;
+      width: 70%;
+      text-align: center;
+      @media screen and (max-width: $medium) {
+        font-size: $size-26;
+        line-height: $size-36;
+        margin-bottom: $size-20;
+        width: 100%;
+      }
+      @media screen and (max-width: $small) {
+        font-size: $size-26;
+        line-height: $size-34;
+      }
+      &:last-of-type {
+        margin-bottom: $size-0;
+      }
+      &Logo > div > div {
+        margin: 0 auto $size-30 auto;
+      }
+    }
+    &Body {
+      margin: auto auto $size-40 auto;
+      width: 70%;
+      text-align: center;
+      @media screen and (max-width: $medium) {
+        margin-bottom: $size-20;
+        width: 100%;
+      }
+      &:last-of-type {
+        margin-bottom: $size-0;
+      }
+      &Links {
+        font-size: $size-0;
+        line-height: ($size-22 * 2) + $size-24 + $size-6;
+        > a:first-of-type {
+          margin-right: $size-28;
+        }
+      }
+    }
+  }
+
+  .purple_yay {
+    color: $purple-yay;
     text-align: center;
-    line-height: $size-32;
-    font-size: $size-24;
+    text-shadow: $size-0 $size-0 $size-4 $purple-yay;
+    font-size: $size-30;
+  }
 
-    @media screen and (max-width: $medium) {
-        font-size: $size-20;
-        line-height: $size-26;
-    }
+  #phone {
+    @include homeImages('/assets/phone.svg');
+  }
 
-    @media screen and (max-width: $small) {
-        font-size: $size-18;
-        line-height: $size-24;
-    }
+  #lotus {
+    @include homeImages('/assets/lotus.svg');
+  }
+
+  #documents {
+    @include homeImages('/assets/documents.svg');
   }
 }

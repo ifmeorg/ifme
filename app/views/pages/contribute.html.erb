@@ -1,10 +1,10 @@
 <% title t('navigation.contribute') %>
 
-<div class="main_message">
+<div class="messageMain">
   <%= t('pages.contribute.main_message_one') %>
 </div>
 
-<div class="message_text">
+<div class="messageBody">
   <%= raw t('pages.contribute.message_text_one', {
     email_link: link_to(t('common.write_to_us'), "https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack"),
     slack_link: link_to(t('pages.contribute.slack'), 'https://ifme.slack.com', target: 'blank'),
@@ -34,10 +34,10 @@
 
 <div class="spacer"></div>
 
-<div class="main_message">
+<div class="messageMain">
   <%= t('pages.contribute.more_contributors') %>
 </div>
 
-<div class="message_text">
+<div class="messageBody">
   <%= t('pages.contribute.thanks') %> <%= print_contributors(@contributors) %>
 </div>

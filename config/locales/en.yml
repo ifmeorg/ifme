@@ -1,6 +1,6 @@
 en:
  app_name: 'if me'
- app_description: 'is a community for mental health experiences'
+ app_description: 'A community for mental health experiences.'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Created %{created_at}'
@@ -402,10 +402,8 @@ en:
       message_one: 'Share your stories with loved ones and get the support you deserve'
       message_two: 'Be you, no strings attached and with security and privacy'
       message_three: 'Document your moods, medications, and self-care'
-      main_message_two: "Storytelling is the key to mental health education."
-      message_text_two: "Learn from the <strong>community</strong> in our %{blog}."
-      main_message_three: 'We are open source because mental health should be open.'
-      message_text_three: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      main_message_two: 'We are open source because mental health should be open.'
+      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
       help: 'help'
     signed_in_empty:
       main_message_one: 'Hello %{name}!'

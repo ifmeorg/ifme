@@ -1,46 +1,42 @@
-<div class="pageTitle">
-<% if sign_in_path? %>
-  <%= t('layouts.application.signin') %>
-<% elsif join_path? %>
-  <%= t('layouts.application.create_account') %>
-<% elsif forgot_password_path? %>
-  <%= t('account.forgot_password') %>
-<% elsif update_account_path? %>
-  <%= t('layouts.application.update_account') %>
-<% elsif not_signed_in_root_path? %>
-  <div class="headline center">
-    <span class="branding_title">
-      <%= t('layouts.application.if') %> <span class="branding_subtitle"><%= t('layouts.application.me') %></span>
-    </span><%= t('app_description') %>
-  </div>
-<% elsif send_ally_invitation_path? %>
-  <%= t('devise.invitations.new.header') %>
-<% elsif ally_accept_invitation_path? %>
-  <%= t('devise.invitations.edit.header') %>
-<% elsif reset_password_path? %>
-  <%= t('layouts.title.reset_password') %>
-<% elsif @page_edit.present? && @page_tooltip %>
-  <div>
+<% if !not_signed_in_root_path? %>
+  <div class="pageTitle">
+  <% if sign_in_path? %>
+    <%= t('layouts.application.signin') %>
+  <% elsif join_path? %>
+    <%= t('layouts.application.create_account') %>
+  <% elsif forgot_password_path? %>
+    <%= t('account.forgot_password') %>
+  <% elsif update_account_path? %>
+    <%= t('layouts.application.update_account') %>
+  <% elsif send_ally_invitation_path? %>
+    <%= t('devise.invitations.new.header') %>
+  <% elsif ally_accept_invitation_path? %>
+    <%= t('devise.invitations.edit.header') %>
+  <% elsif reset_password_path? %>
+    <%= t('layouts.title.reset_password') %>
+  <% elsif @page_edit.present? && @page_tooltip %>
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div>
+      <%= link_to(sanitize('<i class="fa fa-pencil-alt"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
+    </div>
+  <% elsif yield(:page_new).present? && @page_tooltip %>
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div>
+      <%= link_to(sanitize('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
+    </div>
+  <% elsif @page_author.present? %>
+    <div>
+      <%= yield(:title) %>
+    </div>
+    <div id="page_author">
+      <%= @page_author %>
+    </div>
+  <% else %>
     <%= yield(:title) %>
+  <% end %>
   </div>
-  <div>
-    <%= link_to(sanitize('<i class="fa fa-pencil-alt"></i>'), @page_edit, class: 'page_edit yes_title', title: @page_tooltip) %>
-  </div>
-<% elsif yield(:page_new).present? && @page_tooltip %>
-  <div>
-    <%= yield(:title) %>
-  </div>
-  <div>
-    <%= link_to(sanitize('<i class="fa fa-plus-circle"></i>'), yield(:page_new), class: 'page_new yes_title', title: @page_tooltip) %>
-  </div>
-<% elsif @page_author.present? %>
-  <div>
-    <%= yield(:title) %>
-  </div>
-  <div id="page_author">
-    <%= @page_author %>
-  </div>
-<% else %>
-  <%= yield(:title) %>
 <% end %>
-</div>

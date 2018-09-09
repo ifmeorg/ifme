@@ -2,10 +2,10 @@
 <% if @mood.description.present? && @mood.description.length > 0 %>
   <%= sanitize(@mood.description) %>
 <% else %>
-  <div class="main_message">
+  <div class="messageMain">
     <%= t('warnings.no_description') %>
   </div>
-  <div class="message_text no_margin_bottom">
+  <div class="messageBody no_margin_bottom">
     <%= t('warnings.yes_description') %>
   </div>
 <% end %>
