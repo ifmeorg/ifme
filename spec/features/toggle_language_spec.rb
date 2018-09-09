@@ -3,10 +3,10 @@ describe 'ToggleLanguage', js: true do
 
   feature 'Toggling the locale dropdown to change the language' do
     let(:en_root_title) do
-      'if me is a community for mental health experiences'
+      'A community for mental health experiences.'
     end
     let(:es_root_title) do
-      'if me es una comunidad para compartir experiencias de salud mental'
+      'Una comunidad para compartir experiencias de salud mental.'
     end
 
     let(:en_signed_in_root_title) { 'Welcome' }
@@ -16,16 +16,16 @@ describe 'ToggleLanguage', js: true do
       before { visit(root_path) }
 
       it 'toggles locale dropdown on the same page' do
-        expect(find('.pageTitle')).to have_content en_root_title
+        expect(page).to have_content en_root_title
         change_language('es')
-        expect(find('.pageTitle')).to have_content es_root_title
+        expect(page).to have_content es_root_title
         change_language('en')
-        expect(find('.pageTitle')).to have_content en_root_title
+        expect(page).to have_content en_root_title
       end
 
       it 'persists locale selection on a different page' do
         change_language('es')
-        expect(find('.pageTitle')).to have_content es_root_title
+        expect(page).to have_content es_root_title
 
         change_page(
           ->{
@@ -52,7 +52,7 @@ describe 'ToggleLanguage', js: true do
         expect(page).to have_content en_root_title
 
         change_language('es')
-        expect(find('.pageTitle')).to have_content(es_root_title)
+        expect(page).to have_content(es_root_title)
 
         change_page(
           ->{

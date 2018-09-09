@@ -96,4 +96,16 @@
       }
     }
   }
+
+  &Many {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    &Item {
+      margin: $size-10;
+      @media screen and (max-width: $medium) {
+        margin: $size-4;
+      }
+    }
+  }
 }
