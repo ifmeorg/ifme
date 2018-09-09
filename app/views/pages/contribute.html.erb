@@ -14,9 +14,9 @@
   <div class="spacer"></div>
 </div>
 
-<div class="contributors">
+<div class="gridThree">
   <% @blurbs.each do |blurb| %>
-    <div class="contributor center">
+    <div class="gridThreeItemBoxDark center">
       <%= ProfilePicture.fetch(blurb["image"], className: 'contributor_picture', name: blurb['name']) %>
       <h1 class="contributor_name center"><%= blurb["name"] %></h1>
       <div class="contributor_profile"><%= blurb["profile"] %></div>

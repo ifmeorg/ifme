@@ -1,6 +1,6 @@
 <%= form_for(local_assigns[:moment], url: quick_moment_moments_path) do |f| %>
   <% if local_assigns[:moment].errors.any? %>
-    <div class="error_explanation">
+    <div class="errorText">
       <%= t('common.form.error_explanation') %>
     </div>
   <% end %>

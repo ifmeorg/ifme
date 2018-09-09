@@ -8,13 +8,7 @@
     padding: $size-20;
   }
 
-  a {
-    text-decoration: none;
-    color: $cornflower;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
+  @include staticContentLink();
 
   .pageTitle {
     text-align: center;
@@ -33,12 +27,58 @@
   }
 
   h1 {
-    font-weight: 300;
+    font-weight: $font-weight-300;
     font-size: $size-26;
     padding: 0;
     margin: 0;
     @media screen and (max-width: $medium) {
       font-size: $size-22;
+    }
+  }
+
+  .main_message {
+    font-weight: $font-weight-300;
+    font-size: $size-32;
+    line-height: $size-44;
+    margin: auto auto $size-40 auto;
+    width: 60%;
+    text-align: center;
+    @media screen and (max-width: $medium) {
+      font-size: $size-26;
+      line-height: $size-36;
+      margin-bottom: $size-20;
+      width: 100%;
+    }
+    @media screen and (max-width: $small) {
+      font-size: $size-26;
+      line-height: $size-34;
+    }
+  }
+
+  .message_text {
+    margin: auto auto $size-40 auto;
+    width: 60%;
+    text-align: center;
+    @media screen and (max-width: $medium) {
+      margin-bottom: $size-20;
+      width: 100%;
+    }
+  }
+
+  .message_text,
+  .message {
+    text-align: center;
+    line-height: $size-32;
+    font-size: $size-24;
+
+    @media screen and (max-width: $medium) {
+        font-size: $size-20;
+        line-height: $size-26;
+    }
+
+    @media screen and (max-width: $small) {
+        font-size: $size-18;
+        line-height: $size-24;
     }
   }
 }

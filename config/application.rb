@@ -31,7 +31,7 @@ module Ifme
 
     config.action_view.field_error_proc = proc { |html_tag|
       if html_tag.to_s.include?('label')
-        %(<div class="field_with_errors">#{html_tag}</div>).html_safe
+        %(<div class="errorField">#{html_tag}</div>).html_safe
       else
         html_tag.to_s.html_safe
       end

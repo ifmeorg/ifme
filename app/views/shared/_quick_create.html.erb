@@ -20,7 +20,7 @@
 
       <%= form_for(local_assigns[:data], url: url) do |f| %>
         <% if local_assigns[:data].errors.any? %>
-          <div class="error_explanation">
+          <div class="errorText">
             <% if local_assigns[:data_type] == 'category' %>
               <%= t('common.form.error_explanation') %>
             <% elsif local_assigns[:data_type] == 'mood' %>

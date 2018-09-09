@@ -1,8 +1,8 @@
 function toggleErrorText(error, label) {
   if (error) {
-    label.addClass("alert_text");
+    label.addClass("alertText");
   } else {
-    label.removeClass("alert_text");
+    label.removeClass("alertText");
   }
 }
 
