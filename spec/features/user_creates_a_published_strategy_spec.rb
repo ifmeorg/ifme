@@ -31,7 +31,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
-      page.find('a[title="New Strategy"]').click
+      click_link('New Strategy')
       expect(find('.pageTitle')).to have_content 'New Strategy'
 
       page.fill_in 'strategy[name]', with: 'My new strategy'
@@ -84,7 +84,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
 
       # EDITING
       change_page(
-        ->{ page.find('a[title="Edit Strategy"]').click },
+        ->{ click_link('Edit Strategy') },
         '.pageTitle',
         have_content('Edit My new strategy')
       )

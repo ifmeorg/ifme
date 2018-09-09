@@ -1,12 +1,9 @@
 .alert {
+  @include setMargin($size-0, $size-0, $size-26, $size-0);
   background: $carmine;
   color: $white;
-  margin-bottom: 25px;
   padding: $size-10;
   text-align: center;
-  @media screen and (max-width: $medium) {
-    margin-bottom: $size-10;
-  }
   &Text {
     color: $carmine;
   }

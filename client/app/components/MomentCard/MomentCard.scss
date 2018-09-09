@@ -11,12 +11,10 @@
   .header {
     position: relative;
     padding: $size-20 $size-20 $size-4 $size-20;
-
     .draft {
       display: inline-block;
       padding-right: $size-10;
       vertical-align: top;
-
       div {
         border: $size-1 solid $mulberry;
         box-sizing: border-box;
@@ -25,16 +23,11 @@
     }
 
     .name {
+      @include setFontSize($size-18);
       display: inline;
       position: relative;
       max-width: 400px;
       word-wrap: break-word;
-      font-family: $font-family;
-      font-style: normal;
-      font-weight: normal;
-      line-height: normal;
-      font-size: $size-18;
-
       color: $mulberry;
     }
 
@@ -43,11 +36,10 @@
       position: relative;
       vertical-align: top;
       float: right;
-
       .action {
+        @include setFontSize($size-20);
         color: $mulberry-50;
         cursor: pointer;
-        font-size: $size-20;
         padding: 0 $size-2;
         width: $size-20;
         height: $size-20;
@@ -57,24 +49,18 @@
   }
 
   .date {
+    @include setFontSize($size-10);
     position: relative;
     display: block;
     padding: 0 $size-20;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: $size-10;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-
     color: $mulberry-50;
   }
 
   .tags {
     position: relative;
     padding: $size-20 $size-20 $size-10;
-
     :global(.tag) {
       color: $white;
       border-width: 0;
@@ -82,15 +68,12 @@
       margin: $size-1;
       display: inline-block;
     }
-
     .category {
       display: inline;
-
       :global(.tag) {
-        background-color: #B4A362;
+        background-color: $teak;
       }
     }
-
     .mood {
       display: inline;
     }

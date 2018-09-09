@@ -29,43 +29,19 @@
  *= require_self
  */
 
-@import "compass/utilities";
 @import "base/*";
+@import "compass/utilities";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 /* Text */
 
 body, html {
+  @include setFontSize($size-20);
   margin: 0 auto;
-  font: $size-20 $font-family;
+  font-family: $font-family;
   font-weight: $font-weight-400;
-
-  @media screen and (max-width: $medium) {
-    margin: 0 auto;
-    font: $size-18 $font-family;
-    font-weight: $font-weight-400;
-  }
-
-  @media screen and (max-width: $small) {
-    margin: 0 auto;
-    font: $size-16 $font-family;
-    font-weight: $font-weight-400;
-  }
-}
-
-.viewers_indicator {
-  color: $dusty-rose;
-  font-weight: bold;
-  border: $size-1 solid $dusty-rose !important;
-  box-shadow: 0 0 $size-2 $dusty-rose inset !important;
-  padding: $size-10;
-}
-
-.hide_on_mobile {
-  @media screen and (max-width: $small) {
-    display: none;
-  }
+  line-height: 1.4;
 }
 
 .content {

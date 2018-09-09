@@ -1,4 +1,8 @@
-<% title user_signed_in? && @stories.any? ? t('pages.home.stories') : t('pages.home.welcome') %>
+<% if user_signed_in? && @stories.any? %>
+<% title t('pages.home.stories') %>
+<% elsif user_signed_in? %>
+<% title t('pages.home.signed_in_empty.main_message_one', { name: current_user.name }) %>
+<% end %>
 <% if !user_signed_in? %>
   <%= render partial: 'not_signed_in' %>
 <% elsif @stories.any? %>

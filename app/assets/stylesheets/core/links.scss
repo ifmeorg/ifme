@@ -48,9 +48,7 @@ a.highlight:visited {
   text-decoration: none;
   background-color: $mulberry;
   color: $white !important;
-  border-bottom: none !important;
   padding: $size-10;
-
   @media screen and (max-width: $small) {
     padding: $size-4;
   }
@@ -60,10 +58,8 @@ a.highlight:hover {
   text-decoration: none;
   background-color: $mulberry;
   color: $white !important;
-  border-bottom: none !important;
   opacity: 0.5;
   padding: $size-10;
-
   @media screen and (max-width: $small) {
     padding: $size-4;
   }

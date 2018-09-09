@@ -1,18 +1,13 @@
 @import "../../styles/_legacy.scss";
 
-// TODO: Get rid of !important, it's here for now cause Rails styles override React styles
-
 @mixin linkStyle() {
   a {
-    font-family: $font-family !important;
     color: $white;
-    text-decoration: none !important;
-    border: none !important;
-  }
-
-  a:hover {
-    opacity: 0.5 !important;
-    color: $white !important;
+    text-decoration: none;
+    &:hover {
+      color: $white;
+      opacity: 0.5;
+    }
   }
 }
 
@@ -28,15 +23,15 @@
 
   &Link {
     @include linkStyle();
+    @include setFontSize($size-16);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
     @media screen and (max-width: $medium) {
-      font-size: $size-18;
       text-align: center;
-      margin-bottom: 20px;
     }
   }
 
   &ActiveLink {
-    color: $key-lime !important;
+    color: $key-lime;
   }
 
   &HideInMobile {
@@ -46,8 +41,8 @@
   }
 
   &Hamburger {
+    @include setFontSize($size-30);
     display: none;
-    font-size: $size-30;
     color: $white;
     @media screen and (max-width: $medium) {
       display: block;
@@ -105,17 +100,17 @@
     }
     &Nav {
       &Links {
+        @include setFontSize($size-16);
         display: flex;
         flex-direction: row;
-        font-size: $size-16;
         letter-spacing: 0.0571429em;
         text-transform: uppercase;
         font-weight: $font-weight-300;
         > div {
-          margin-right: 25px;
+          @include setMargin($size-0, $size-26, $size-0, $size-0);
         }
         > div:last-of-type {
-          margin-right: $size-0;
+          @include setMargin($size-0, $size-0, $size-0, $size-0);
         }
         @media screen and (max-width: $medium) {
           display: none;

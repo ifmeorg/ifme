@@ -126,7 +126,7 @@ sv:
    premade3_description: 'Arbetsrelaterat'
    premade4_name: 'Meditation'
    premade4_description: 'Meditation, djup andning och avslappnande aktiviteter'
-   instructions: "Du har inte skapat några anpassade kategorier än. Klicka på %{icon} för att lägga till några! <br> Du kan också lägga till följande fördefinierade kategorier och anpassa dem en annan gång."
+   instructions: "Du har inte skapat några anpassade kategorier än.<br>Du kan också lägga till följande fördefinierade kategorier och anpassa dem en annan gång."
 
  errors:
   home_page: 'Återvända hem'
@@ -149,7 +149,7 @@ sv:
    available_groups: 'Tillgängliga Grupper'
    joined_groups: 'Grupper du är medlem i'
    leader: '(Ledare)'
-   instructions: "Du är inte medlem i några grupper än, men du kan klicka på %{icon} för att skapa en!"
+   instructions: "Du är inte medlem i några grupper än."
   join:
     success: 'Du har gått med i den här gruppen.'
     group_not_exists: "Du kan inte gå med i en grupp som inte existerar."
@@ -219,7 +219,7 @@ sv:
    title: 'Mediciner'
    subtitle: 'Håll koll på dina mediciner, inklusive dosering och påfyllningsinformation.'
    total: 'Total:'
-   instructions: "Du har inte sparat några mediciner än. Klicka på %{icon} för att lägga till några! <br> <br> Här är ett exempel på en sparad medicinering! Du kan också skriva om din upplevelse."
+   instructions: "Du har inte sparat några mediciner än.<br><br>Här är ett exempel på en sparad medicinering! Du kan också skriva om din upplevelse."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '40 tabletter'
@@ -271,7 +271,7 @@ sv:
 
   index:
    subtitle: 'Fördjupa dig djupt i dina ögonblick - händelser och situationer som påverkar din mentala hälsa.'
-   instructions: "Du har inte skrivit några ögonblick än. Klicka %{icon} för att lägga till några!<br><br>Vet inte vart du ska börja? Vad har hänt i dag som du vill dela och diskutera med en älskad? Det kan vara positivt eller negativt! Du behöver inte dela det direkt - bara när du är redo att! Här är ett exempel på ett ögonblick."
+   instructions: "Du har inte skrivit några ögonblick än.<br><br>Vet inte vart du ska börja? Vad har hänt i dag som du vill dela och diskutera med en älskad? Det kan vara positivt eller negativt! Du behöver inte dela det direkt - bara när du är redo att! Här är ett exempel på ett ögonblick."
    example_name: 'Panik över en intervju imorgon!'
    example_category: 'Karriär'
   show:
@@ -298,7 +298,7 @@ sv:
    premade4_description: 'Inte acceptera vissa fakta, känner sig arg, hämndlysten och/eller avundsjuk'
    premade5_name: 'Hopplös'
    premade5_description: 'Känner sig ledsen och hopplös - kan inte hitta några möjliga lösningar'
-   instructions: "Du har inte skapat några anpassade humör än. Klicka på %{icon} för att lägga till några!<br>Du kan också lägga till tidigare humör och anpassa dem till en annan gång."
+   instructions: "Du har inte skapat några anpassade humör än.<br>Du kan också lägga till tidigare humör och anpassa dem till en annan gång."
 
  notifications:
   plural: 'Notis'
@@ -396,7 +396,6 @@ sv:
     email_notifications_answer: "Gå till <strong>Konto</strong>. Du kan ändra din e-postadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data."
   home:
     stories: 'Berättelser'
-    welcome: 'Välkommen'
     not_signed_in:
       main_message_one: 'Bättre kommunikation med nära och kära leder till bättre mental hälsa.'
       message_text_one: "Vi behöver varandras stöd för att bryta ner stigman."
@@ -585,7 +584,7 @@ sv:
    subtitle: 'Gör upp strategier för självomsorg för att uppnå önskade tankar och attityder mot dina ögonblick.'
    premade1_name: 'Fem minuters meditation'
    premade1_description: '1) <b>Hitta en avslappnad och bekväm plats.</b> Du kan sitta på en stol eller på golvet på en kudde. Håll ryggen upprätt, men inte för tight. Händer vilar där de är bekväma. Tungan på munnen av taket eller vart det är bekvämt.<br><br>2) <b>Lägg märke till och slappna av din kropp.</b> Försök att märka kroppens form, dess vikt. Låt dig koppla av och bli nyfiken på din kropp som sitter här — de känslor det upplever, beröringen, anslutningen med golvet eller stolen. Koppla av alla områden med knutenhet eller anspänning. Andas bara.<br><br>3) <b>Stäm in i andan.</b> Känn det naturliga flödet av andan in, ut. Du behöver inte göra något för din andedräkt. Inte lång, inte kort, bara naturlig. Lägg märke till var du känner andan i din kropp. Det kan vara i magen. Det kan vara i bröstet eller i halsen eller i näsborrarna.Se om du kan känna andningssvårigheter, en andning i taget. När ett andetag slutar, börjar nästa andetag.<br><br>4) <b>Var snäll mot ditt vandrande sinne.</b> Nu som du gör det kanske du märker att ditt sinne kan börja vandra. Du kan börja tänka på andra saker. Om det händer är det inte ett problem. Det är väldigt naturligt. Tänk bara på att ditt sinne har vandrat. Du kan säga "tänk" eller "vandra" i ditt huvud mjukt. Och sedan omdirigera din uppmärksamhet strax tillbaka till andningen.<br><br>5) <b>Håll dig här i fem till sju minuter.</b> Lägg märke till ditt andetag, i tystnad. Från tid till annan kommer du att gå vilse i tanken och sedan återvända till andan.<br><br>6) <b>Incheckning innan du checkar ut.</b> Efter några minuter märker du igen din kropp, hela din kropp, sittande här. Låt dig slappna av ännu djupare och ge dig själv en uppskattning för att göra denna övning idag.<br><br><i>Tagen från http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Du har inte skapat några anpassade strategier än. Klicka på %{icon} för att lägga till några! <br> Du kan också lägga till följande fördefinierade strategi och anpassa den någon annan gång."
+   instructions: "Du har inte skapat några anpassade strategier än.<br>Du kan också lägga till följande fördefinierade strategi och anpassa den någon annan gång."
   reminder_mailer:
     subject: "Glöm inte att utföra %{name}!"
     body: "Här är en vänlig påminnelse att utföra %{name}!"

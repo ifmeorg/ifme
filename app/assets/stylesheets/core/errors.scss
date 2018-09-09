@@ -7,41 +7,23 @@
   }
 
   &Text {
+    @include setFontSize($size-30);
+    @include setMargin($size-0, $size-0, $size-40, $size-0);
     color: $carmine;
-    font-size: $size-30;
     font-weight: $font-weight-300;
-    margin-bottom: $size-40;
-
-    @media screen and (max-width: $medium) {
-      font-size: $size-26;
-    }
 
     h2 {
+      @include setFontSize($size-30);
+      @include setMargin($size-0, $size-0, $size-20, $size-0);
       font-weight: $font-weight-300;
-      font-size: $size-30;
       padding: 0;
-      margin: $size-0 $size-0 $size-20 $size-0;
       color: $mulberry;
-
-      @media screen and (max-width: $medium) {
-        font-size: $size-26;
-        margin: $size-0 $size-0 $size-10 $size-0;
-      }
     }
 
     ul {
+      @include setMargin($size-0, $size-0, $size-40, $size-0);
       padding-left: 0;
-      margin-top: 0;
-      margin-bottom: $size-40;
       list-style-position: inside;
-
-      @media screen and (max-width: $medium) {
-        margin-bottom: $size-20;
-      }
-
-      @media screen and (max-width: $small) {
-        margin-bottom: $size-10;
-      }
     }
   }
 

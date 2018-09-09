@@ -3,7 +3,6 @@
 .resource {
   position: relative;
   width: 100%;
-  font-family: $font-family;
   padding: 25px $size-10;
 
   &:before {
@@ -17,26 +16,27 @@
   }
 
   .link {
+    @include setFontSize($size-24);
     display: block;
-    font-size: $size-24;
     color: $white;
     padding-bottom: $size-10;
-    line-height: 1.5;
   }
 
   a {
     text-decoration: none;
     color: $white;
-    border: none !important;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   .author {
+    @include setFontSize($size-18);
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
     color: $white-50;
-    font-size: $size-18;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: $size-10;
   }
 }
 

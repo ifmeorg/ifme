@@ -125,7 +125,7 @@ nb:
    premade3_description: 'Jobbrelatert'
    premade4_name: 'Meditasjon'
    premade4_description: 'Meditasjon, dyp pusting, og avslappende aktiviteter'
-   instructions: "Du har ikke opprettet noen tilpassede kategorier enda. Klikk %{icon} for å legge til noen!<br>Du kan også legge til de følgende ferdiglagde kategoriene og tilpasse de senere."
+   instructions: "Du har ikke opprettet noen tilpassede kategorier enda.<br>Du kan også legge til de følgende ferdiglagde kategoriene og tilpasse de senere."
 
  errors:
   home_page: 'Tilbake hjem'
@@ -148,7 +148,7 @@ nb:
    available_groups: 'Tilgjengelige grupper'
    joined_groups: 'Grupper du deltar i'
    leader: '(Leder)'
-   instructions: "Du er ikke en del av noen grupper enda! Klikk %{icon} for å opprette en eller bli med i en av de tilgjengelige gruppene nedenfor.<br><br>Støttegrupper er bra for å ha åpne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere møter online eller offline. Du kan også bli med i grupper som dine allierte har opprettet."
+   instructions: "Du er ikke en del av noen grupper enda!<br><br>Støttegrupper er bra for å ha åpne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere møter online eller offline. Du kan også bli med i grupper som dine allierte har opprettet."
   join:
     success: 'Du har blitt med i denne gruppen.'
     group_not_exists: "Du kan ikke bli med i en gruppe som ikke eksisterer."
@@ -218,7 +218,7 @@ nb:
    title: 'Medisiner'
    subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
    total: 'Totalt:'
-   instructions: "Du har ikke lagret noen medisiner enda. Klikk %{icon} for å legge til noen!<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse."
+   instructions: "Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '40 tabletter'
@@ -270,7 +270,7 @@ nb:
 
   index:
    subtitle: 'Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker din mentale helse.'
-   instructions: "Du har ikke skrevet om noen øyeblikk enda. Klikk %{icon} for å legge til noen!<br><br>Vet ikke hvor du skal begynne? Er det noe som har skjedd i dag som du har lyst til å dele og diskutere med kjente? Det kan være positivt eller negativt! Du må ikke dele det med en gang - bare når du er klar! Her er ett eksempel på ett øyeblikk."
+   instructions: "Du har ikke skrevet om noen øyeblikk enda.<br><br>Vet ikke hvor du skal begynne? Er det noe som har skjedd i dag som du har lyst til å dele og diskutere med kjente? Det kan være positivt eller negativt! Du må ikke dele det med en gang - bare når du er klar! Her er ett eksempel på ett øyeblikk."
    example_name: 'Har panikk over intervju i morgen!'
    example_category: 'Karriere'
   show:
@@ -297,7 +297,7 @@ nb:
    premade4_description: 'Aksepterer ikke enkelte fakta, følelser av sinne, hevngjerrighet, og/eller sjalusi'
    premade5_name: 'Hjelpesløs'
    premade5_description: 'Føle seg lei og hjelpesløs - ute av stand til å finne noen mulige løsninger'
-   instructions: "Du har ikke laget noen tilpassede humør enda. Klikk %{icon} for å legge til noen!<br>Du kan også legge til de følgende forhåndslagde humørene og tilpasse de senere."
+   instructions: "Du har ikke laget noen tilpassede humør enda.<br>Du kan også legge til de følgende forhåndslagde humørene og tilpasse de senere."
 
  notifications:
   plural: 'Notifikasjoner'
@@ -395,7 +395,6 @@ nb:
     email_notifications_answer: "Gå til <strong>konto</strong>. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din."
   home:
     stories: 'Historier'
-    welcome: 'Velkommen'
     not_signed_in:
       main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'
       message_text_one: "Vi trenger hverandres støtte for å bryte ned stigmaer."
@@ -584,7 +583,7 @@ nb:
    subtitle: 'Planlegg selvpleie for å oppnå ønskede tanker og innstillinger for øyeblikkene dine.'
    premade1_name: 'Fem minutters meditasjon'
    premade1_description: '1) <b>Finn en rolig og behagelig stilling.</b> Du kan sitte på en stol eller på gulvet på en pute. Hold ryggen din rett, men ikke for stramt. Hendene hviler hvor de er komfortable. Tungen i taket av munnen eller hvor det er komfortabelt.<br><br>2) <b>Legg merke til og slapp av i kroppen din.</b> Prøv å legge merke til formen til kroppen, vekten dens. La deg selv slappe av bli nyskjerrig på kroppen din sittende her-sensasjonene den opplever, berøringen, tilknytningen med gulvet eller stolen. Avslapp områder med tranghet eller spenning. Bare pust.<br><br>3) <b>Bli en med pusten din.</b> Føl den naturlige strømningen av innpust og utpust. Du trenger ikke å gjøre noe med pusten din. Ikke for lang, ikke for kort, kun naturlig. Legg merke til hvor du føler pusten din i kroppen. Det er kanskje i magen. Det kan være i brystet, halsen eller i neseborene dine. Se om du kan føle sensasjonen av pusten, ett pust av gangen. Når ett pust ender, begynner det neste.<br><br>4) <b>Vær snill med ditt vandrende sinn.</b> Nå som du gjør dette, legger du kanskje merke til at tankene dine begynner å vandre. Du begynner kanskje å tenke på andre ting. Hvis dette skjer, så er ikke det et problem. Det er veldig naturlig. Legg bare merke til at tankene dine har vandret. Du kan si "tenkende" eller "vandrende" i hodet ditt rolig. Og deretter vennlig omdiriger oppmerksomheten din tilbake til pusten din.<br><br>5) <b>Bli her i fem til syv minutter.</b> Legg merke til pusten din, i stillhet. Fra tid til annen, blir du tapt i en tanke, returner til pusten din.<br><br>6) <b>Sjekk inn for du sjekker ut.</b> Etter ett par minutter, legg merke til kroppen din igjen, hele kroppen din, sittende her. La deg selv slappe av enda dypere og deretter tilby deg selv verdsettelse for at du gjorde denne øvelsen i dag.<br><br><i>Tatt fra http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Du har ikke laget noen tilpassede strategier enda. Klikk på %{icon} for å legge til noen!<br>Du kan også legge til de følgende forhåndslagde strategien og tilpasse den fra tid til annen."
+   instructions: "Du har ikke laget noen tilpassede strategier enda.<br>Du kan også legge til de følgende forhåndslagde strategien og tilpasse den fra tid til annen."
   reminder_mailer:
     subject: "Ikke glem å utføre %{name}!"
     body: "Her en en vennlig påminnelse om å utføre %{name}!"

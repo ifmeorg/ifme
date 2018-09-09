@@ -45,6 +45,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'sdoc', '0.4.1', group: :doc
 
 gem 'font-awesome-sass'
+gem 'inline_svg'
 
 gem 'groupdate', '3.2'
 

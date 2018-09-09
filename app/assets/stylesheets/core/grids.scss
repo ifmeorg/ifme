@@ -5,40 +5,34 @@
 }
 
 @mixin gridH1() {
-  font-size: $size-20;
-  line-height: $size-24;
-  margin: $size-0 $size-0 $size-20 $size-0;
-  @media screen and (max-width: $medium) {
-    margin: $size-0 $size-0 $size-10 $size-0;
-  }
+  @include setFontSize($size-20);
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
 }
 
 @mixin gridTwoItem() {
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
   box-sizing: border-box;
   width: calc(50% - 20px);
-  margin-bottom: $size-20;
   @media screen and (max-width: $medium) {
     width: 100%;
     padding: $size-10;
-    margin-bottom: $size-20;
   }
 }
 
 @mixin gridThreeItem() {
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
   box-sizing: border-box;
   width: calc(33% - 20px);
-  margin-bottom: $size-20;
   @media screen and (max-width: $medium) {
     width: 100%;
     padding: $size-10;
-    margin-bottom: $size-20;
   }
 }
 
 @mixin gridItemBox() {
+  @include setMargin($size-0, $size-0, $size-40, $size-0);
   box-sizing: border-box;
   padding: $size-20;
-  margin-bottom: $size-20 * 2;
   box-shadow: $size-0 $size-2 $size-10 $black-10;
   border-radius: $size-4;
   @media screen and (max-width: $medium) {
@@ -102,10 +96,17 @@
     display: flex;
     flex-wrap: wrap;
     &Item {
-      margin: $size-10;
-      @media screen and (max-width: $medium) {
-        margin: $size-4;
-      }
+      @include setMargin($size-10, $size-10, $size-10, $size-10);
+    }
+  }
+
+  &Row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @media screen and (max-width: $small) {
+      flex-direction: column;
+      text-align: center;
     }
   }
 }

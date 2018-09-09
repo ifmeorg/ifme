@@ -1,18 +1,17 @@
 @import "../../styles/_legacy.scss";
 
 .checkboxWrapper {
+  @include setMargin($size-0, $size-0, $size-10, $size-0);
   display: flex;
   flex-direction: row;
-  margin-bottom: $size-10;
   align-items: center;
 }
 
 .checkboxLabel {
+  @include setFontSize($size-10);
+  @include setMargin($size-0, $size-0, $size-0, $size-10);
   color: grey;
-  opacity: 50%;
-  font-family: $font-family;
-  font-size: $size-18;
-  margin-left: $size-10;
+  opacity: 0.5;
 }
 
 .checkbox {

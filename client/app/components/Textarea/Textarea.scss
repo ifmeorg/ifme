@@ -1,32 +1,24 @@
 @import "../../styles/_legacy.scss";
 
-$focus-background-color-darken: rgba(0, 0, 0, 0.4);
-$focus-background-color-lighten: lighten($mulberry, 3%);
-$light-font-weight: 300;
-
 .label {
+  @include setFontSize($size-14);
   color: $mulberry;
-  font-family: $font-family;
-  font-size: $size-14;
   padding: $size-12 4px;
   letter-spacing: 0.095em;
   text-transform: uppercase;
   transition: 0.25s;
   transition-timing-function: linear;
-
   &.active {
-    color: $focus-background-color-lighten;
+    color: $mulberry-70;
   }
 }
 
 .textarea {
+  @include setFontSize($size-18);
   color: rgba(255, 255, 255, 0.8);
   box-sizing: border-box;
   background-color: $mulberry;
-  font-family: $font-family;
-  font-size: $size-18;
-  line-height: $size-26;
-  font-weight: $light-font-weight;
+  font-weight: $font-weight-300;
   outline: none;
   border: none;
   resize: none;
@@ -36,17 +28,14 @@ $light-font-weight: 300;
   transition: 0.25s;
   transition-timing-function: linear;
   padding: $size-18 $size-16;
-
   &:focus {
-    background-color: $focus-background-color-lighten;
+    background-color: $mulberry-70;
     color: $white;
   }
-
   &::placeholder {
-    font-family: $font-family;
-    font-weight: $light-font-weight;
-    font-size: $size-18;
+    @include setFontSize($size-18);
+    font-weight: $font-weight-300;
     color: $white;
-    opacity: .75;
+    opacity: 0.75;
   }
 }

@@ -125,7 +125,7 @@ pt-BR:
    premade3_description: 'Relacionado ao trabalho'
    premade4_name: 'Meditação'
    premade4_description: 'Meditação, respiração profunda, e atividades relaxantes'
-   instructions: "Você ainda não criout nenhuma categoria personalizada. Clique %{icon} para adcionar uma nova categoria!<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser."
+   instructions: "Você ainda não criout nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser."
 
  errors:
   home_page: 'Voltar a página principal'
@@ -148,7 +148,7 @@ pt-BR:
    available_groups: 'Grupos Disponíveis.'
    joined_groups: 'Grupos que participo.'
    leader: '(Líder)'
-   instructions: "Você ainda não faz parte de nenhum grupo. No entanto, você pode pode clicar no botão %{icon} para criar seu próprio grupo."
+   instructions: "Você ainda não faz parte de nenhum grupo."
   join:
     success: 'Você entrou nesse grupo.'
     group_not_exists: "Você não pode participar de um grupo que não existe."
@@ -218,7 +218,7 @@ pt-BR:
    title: 'Medicamentos'
    subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
    total: 'Total:'
-   instructions: "Você ainda não tem nenhum medicamento salvo. Clique %{icon} para adcionar um novo medicamento!<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a)."
+   instructions: "Você ainda não tem nenhum medicamento salvo.<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a)."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '2 tablets'
@@ -270,7 +270,7 @@ pt-BR:
 
   index:
    subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
-   instructions: "Você ainda não escreveu sobre seus momentos. Clique aqui %{icon} para criar um novo momento!<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ! O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:"
+   instructions: "Você ainda não escreveu sobre seus momentos.<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ! O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:"
    example_name: 'Nervosismo por causa da entrevista de trabalho de amanhã.'
    example_category: 'Carreira'
   show:
@@ -297,7 +297,7 @@ pt-BR:
    premade4_description: 'Não aceitar certos fatos, sentir raiva, sentimento de vingança, e/ou ciúmes.'
    premade5_name: 'Desanimado'
    premade5_description: 'Sentir-se triste e desanimado - incapaz de encontrar qualquer solução possível.'
-   instructions: "Você ainda não personalizou nenhum tipo de humor. Clique aqui %{icon} para adcionar algum tipo de humor!<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los."
+   instructions: "Você ainda não personalizou nenhum tipo de humor.<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los."
 
  notifications:
   plural: 'Notificações'
@@ -395,7 +395,6 @@ pt-BR:
     email_notifications_answer: "Vá para a página <strong>Conta</strong>. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira."
   home:
     stories: 'Histórias'
-    welcome: 'Bem Vindo'
     not_signed_in:
       main_message_one: 'Comunicação otimizada com as pessoas amadas leva a melhora da saúde mental.'
       message_text_one: "Precisamos dar suporte uns aos outros para acabarmos com estigmas de problemas mentais."
@@ -585,7 +584,7 @@ pt-BR:
    subtitle: 'Crie uma Estratégia para cuidado-próprio para alcançar metas desejadadas e atitudes em direção aos seus momentos.'
    premade1_name: 'Meditação em Cinco Minutos:'
    premade1_description: '1) <b>Encontre uma posição confortável e relaxante.</b> Você pode se sentar em uma cadeira ou em uma almofada no chão. Mantenha suas costas retas, mas não force muito. As mãos deve estar confortáveis. A língua deve estar no céu da boca ou de uma forma que esteja confortável para você.<br><br>2) <b> Perceba e relaxe cada parte do seu corpo.</b> Tente percener o formato do seu corpo, seu peso, temperatura. Permita-se relaxar e tornar-se curioso sobre seu corpo nesta posição, as sensações, as experiências, o toque , a conexão com o chão, ou com a cadeira. Relaxe qualquer área que esteja tensionada ou rígida. Apenas respire.<br><br>3) <b>Entre em sintonia com sua respiração.</b> Sinta o fluxo natural do ar entrando, e do ar saindo. Você não precisa fazer nada com a respiração. Não respire muito rápido e nem muito devagar,apenas aja naturalmente. Perceba o fluxo do ar no seu corpo. Pode ser no seu abdomen. Pode ser no seu peito ou na sua garganta ou até mesmo nas suas narinas. Veja se você pode sentir as sensações da respiração, uma respiração de cada vez. Quando um ciclo terminar, o pŕoximo deve começar<br><br>4) <b>Seja gentil com sua mente distraída.</b> E enquanto você faz isso, você pode perceber que começa a ficar distraído. Você pode começar a pensar em qualquer outra coisa. Caso isso aconteça,não há problema algum. É algo muito natural. Caso perceba que sua mente começou a se distrair, você pode dizer mentalmente “pensando” ou “vagando” de forma bem calma. E aos poucos, redirecionar seu foco de volta a sua respiração.<br><br>5) <b>Fique nessa posição por 5 ou 7 minutos.</b> Perceba sua respiração, em silêncio. De tempos em tempos, você pode ficar perder a linha de pensamento, então foque na sua respiração.<br><br>6) <b>Verique sua respiração sempre que isso acontecer.</b> Depois de alguns minutos, novamente,começe a prestar atenção no seu corpo, em todo seu corpo, enquanto sentado. Permita-se relaxar mais profundamente e então permita-se sentir gratidão por ter realizado essa prática no dia de hoje.<br><br><i>Adaptado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Você ainda não criou nenhuma estratégia personalizada. Clique aqui %{icon} para criar uma nova!<br> Você também pode adcionar as seguintes estratégias pré-definindas e customizá-las depois."
+   instructions: "Você ainda não criou nenhuma estratégia personalizada.<br>Você também pode adcionar as seguintes estratégias pré-definindas e customizá-las depois."
   reminder_mailer:
     subject: "Não se esqueça de realizar %{name}!"
     body: "Aqui está um lembrete amigo para realizar %{name}!"

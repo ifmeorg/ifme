@@ -37,7 +37,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
-      page.find('a[title="New Strategy"]').click
+      click_link('New Strategy')
 
       within '.pageTitle' do
         expect(page).to have_content 'New Strategy'
@@ -100,7 +100,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       visit back
 
       # EDITING
-      page.find('a[title="Edit Strategy"]').click
+      click_link('Edit Strategy')
       within '.pageTitle' do
         expect(page).to have_content 'Edit My new strategy'
       end

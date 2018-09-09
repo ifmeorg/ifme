@@ -1,73 +1,44 @@
-@mixin homeImages($url) {
-  background: url($url);
-  height: 180px;
-  width: auto;
-  background-size: auto 180px;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: $size-40;
-}
-
 .staticContent {
   color: $white;
   width: 100%;
   box-sizing: border-box;
   padding: $size-40 60px;
-  line-height: 150%;
   @media screen and (max-width: $medium) {
     padding: $size-20;
   }
   @include staticContentLink();
 
   .pageTitle {
+    @include setFontSize($size-36);
+    @include setMargin($size-0, $size-0, $size-50, $size-0);
     text-align: center;
     font-weight: $font-weight-300;
-    font-size: $size-36;
-    margin-bottom: $size-50;
-    @media screen and (max-width: $small) {
-
-    }
   }
 
   .subtitle {
-    font-size: $size-24;
-    line-height: $size-32;
+    @include setFontSize($size-24);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
     text-align: center;
   }
 
   h1 {
+    @include setFontSize($size-26);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
     font-weight: $font-weight-300;
-    font-size: $size-26;
-    padding: 0;
-    margin: 0;
-    @media screen and (max-width: $medium) {
-      font-size: $size-22;
-    }
   }
 
   .message {
     &Hero {
-      margin-bottom: $size-50 * 2;
-      @media screen and (max-width: $medium) {
-        margin-bottom: $size-50;
-      }
+      @include setMargin($size-0, $size-0, $size-50 * 2, $size-0);
     }
     &Main {
+      @include setFontSize($size-32);
+      @include setMargin(auto, auto, $size-40, auto);
       font-weight: $font-weight-300;
-      font-size: $size-32;
-      line-height: $size-44;
-      margin: auto auto $size-40 auto;
       width: 70%;
       text-align: center;
       @media screen and (max-width: $medium) {
-        font-size: $size-26;
-        line-height: $size-36;
-        margin-bottom: $size-20;
         width: 100%;
-      }
-      @media screen and (max-width: $small) {
-        font-size: $size-26;
-        line-height: $size-34;
       }
       &:last-of-type {
         margin-bottom: $size-0;
@@ -77,11 +48,10 @@
       }
     }
     &Body {
-      margin: auto auto $size-40 auto;
+      @include setMargin(auto, auto, $size-40, auto);
       width: 70%;
       text-align: center;
       @media screen and (max-width: $medium) {
-        margin-bottom: $size-20;
         width: 100%;
       }
       &:last-of-type {
@@ -98,21 +68,13 @@
   }
 
   .purple_yay {
+    @include setFontSize($size-30);
     color: $purple-yay;
     text-align: center;
     text-shadow: $size-0 $size-0 $size-4 $purple-yay;
-    font-size: $size-30;
   }
 
-  #phone {
-    @include homeImages('/assets/phone.svg');
-  }
-
-  #lotus {
-    @include homeImages('/assets/lotus.svg');
-  }
-
-  #documents {
-    @include homeImages('/assets/documents.svg');
+  form {
+    text-align: center;
   }
 }

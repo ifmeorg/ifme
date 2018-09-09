@@ -15,7 +15,7 @@
         <div class="gridThreeItemBoxLight center">
           <%= ProfilePicture.fetch(user.avatar.url, className: 'profile_picture') %>
           <h1 class="ally_name"><%= link_to user.name, profile_index_path(uid: get_uid(user.id)) %></h1>
-          <div class="location"><%= user.location %></div>
+          <div class="subtle"><%= user.location %></div>
 
           <% if current_user.allies_by_status(:pending_from_ally).include?(user) %>
             <%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: user.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
