@@ -125,7 +125,7 @@ it:
    premade3_description: 'Relativo al lavoro'
    premade4_name: 'Meditazione'
    premade4_description: 'Meditazione, respirazione e attività rilassanti'
-   instructions: "Non hai ancora creato nessuna categoria personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche scegliere una delle seguenti categorie già pronte e personalizzarle più avanti."
+   instructions: "Non hai ancora creato nessuna categoria personalizzata.<br>Puoi anche scegliere una delle seguenti categorie già pronte e personalizzarle più avanti."
 
  errors:
   home_page: 'Torna alla Home'
@@ -148,7 +148,7 @@ it:
    available_groups: 'Gruppi Disponibili'
    joined_groups: 'Gruppi a cui appartieni'
    leader: '(Leader)'
-   instructions: "Non fai ancora parte di nessun gruppo! Clicca su %{icon} per crearne uno o unisciti a uno di quelli esistenti qui sotto.<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
+   instructions: "Non fai ancora parte di nessun gruppo!<br><br>I gruppi di supporto sono ottimi per avere discussioni aperte sulla salute mentale! Puoi creare gruppi, invitare membri, e organizzare incontri ed eventi online e offline. Puoi anche unirti a gruppi che i tuoi alleati hanno creato."
   join:
     success: 'Ti sei unito a questo gruppo.'
     group_not_exists: "Non puoi unirti a un gruppo che non esiste."
@@ -218,7 +218,7 @@ it:
    title: 'Medicazioni'
    subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e refill.'
    total: 'Totale:'
-   instructions: "Non hai ancora salvato nessuna medicazione. Clicca su %{icon} per aggiungere!<br><br>Eccoti un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze."
+   instructions: "Non hai ancora salvato nessuna medicazione.<br><br>Eccoti un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '40 pastiglie'
@@ -270,7 +270,7 @@ it:
 
   index:
    subtitle: 'Immergiti nei tuoi momenti - eventi e situazioni che hanno effetto sul tuo stato mentale.'
-   instructions: "Non hai ancora aggiunto nessun momento. Clicca su %{icon} per aggiungerne uno!<br><br>Non sai dove cominciare? Non c’è qualcosa che ti è successo oggi di cui ti piacerebbe parlare con qualcuno? Può essere positivo o negativo! Non devi necessariamente parlarne ora - solo quando ti senti pronto! Nel frattempo, eccoti un esempio di momento."
+   instructions: "Non hai ancora aggiunto nessun momento.<br><br>Non sai dove cominciare? Non c’è qualcosa che ti è successo oggi di cui ti piacerebbe parlare con qualcuno? Può essere positivo o negativo! Non devi necessariamente parlarne ora - solo quando ti senti pronto! Nel frattempo, eccoti un esempio di momento."
    example_name: 'In ansia per il colloquio di domani!'
    example_category: 'Carriera'
   show:
@@ -297,7 +297,7 @@ it:
    premade4_description: 'Non accettare alcuni fatti, sentirsi arrabbiati, vendicativi e/o gelosi'
    premade5_name: 'Senza Speranza'
    premade5_description: 'Sentirsi tristi e senza speranza - incapaci di trovare soluzioni'
-   instructions: "Non hai ancora creato nessuno stato d'animo personalizzato. Clicca su %{icon} per aggiungerne uno!<br>Puoi anche scegliere uno dei seguenti stati d'animo già pronti e personalizzarli più avanti."
+   instructions: "Non hai ancora creato nessuno stato d'animo personalizzato.<br>Puoi anche scegliere uno dei seguenti stati d'animo già pronti e personalizzarli più avanti."
 
  notifications:
   plural: 'Notifiche'
@@ -395,7 +395,6 @@ it:
     email_notifications_answer: "Vai sulla pagina <strong>Account</strong>. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
   home:
     stories: 'Storie'
-    welcome: 'Benvenuto'
     not_signed_in:
       main_message_one: 'Una migliore comunicazioni con i propri cari porta ad un migliore stato mentale.'
       message_text_one: "Abbiamo bisogno l’uno del supporto dell'altro per liberarci dei taboo sociali."
@@ -617,7 +616,7 @@ it:
     Lasciati rilassare ancora un po’, e poi apprezzati per aver completato
     questa pratica oggi.<br><br>
     <i>Preso da http://www.mindful.org/a-five-minute-breathing-meditation/</i>
-   instructions: "Non hai ancora creato nessuna strategia personalizzata. Clicca su %{icon} per aggiungerne una!<br>Puoi anche scegliere una delle seguenti strategie già pronte e personalizzare più avanti."
+   instructions: "Non hai ancora creato nessuna strategia personalizzata.<br>Puoi anche scegliere una delle seguenti strategie già pronte e personalizzare più avanti."
   reminder_mailer:
     subject: "Non dimenticare di fare %{name}!"
     body: "Hey, non dimenticare di fare %{name}!"

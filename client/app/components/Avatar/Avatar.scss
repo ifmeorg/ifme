@@ -3,27 +3,20 @@
 $avatar-size: 120px;
 
 .avatar {
-  margin: $size-20;
-  font-family: $font-family;
-  font-weight: $font-weight-400;
-  font-size: $size-18;
-  line-height: 1.2;
+  @include setMargin($size-20, $size-20, $size-20, $size-20);
+  @include setFontSize($size-18);
   text-align: center;
   text-shadow: 0 0.2em 0.4em $black-30;
   color: $white;
-
   .portrait {
     border-radius: 50%;
-    border: 3px solid $white;
     margin: 0 auto;
     overflow: hidden;
     object-fit: cover;
-    background-color: $grey;
-
+    background-color: $white;
     height: $avatar-size;
     width: $avatar-size;
   }
-
   .name {
     margin-top: 0.5em;
   }

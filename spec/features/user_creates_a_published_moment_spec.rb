@@ -32,7 +32,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
       # CREATING
-      page.find('a[title="New Moment"]').click
+      click_link('New Moment')
       expect(find('.pageTitle')).to have_content 'New Moment'
       page.fill_in 'moment[name]', with: 'My new moment'
 
@@ -143,7 +143,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
       expect(page).to have_css('#new_comment')
 
       # EDITING
-      page.find('a[title="Edit Moment"]').click
+      click_link('Edit Moment')
       expect(find('.pageTitle')).to have_content 'Edit My new moment'
 
       moment_why_text = 'I am changing my moment why description'

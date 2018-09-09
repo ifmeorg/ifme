@@ -93,3 +93,11 @@
     margin-bottom: $size-10 !important;
   }
 }
+
+.viewersIndicator {
+  color: $dusty-rose;
+  font-weight: bold;
+  border: $size-1 solid $dusty-rose !important;
+  box-shadow: 0 0 $size-2 $dusty-rose inset !important;
+  padding: $size-10;
+}

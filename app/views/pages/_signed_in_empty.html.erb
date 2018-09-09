@@ -1,80 +1,65 @@
-<div class="messageMain">
-  <%= t('pages.home.signed_in_empty.main_message_one', {
-    name: current_user.name
-  }) %>
-</div>
-<div class="messageBody">
+<div class="subtitle">
   <%= t('pages.home.signed_in_empty.message_text_one') %>
 </div>
 
-<div class="horizonal_divider"></div>
+<div class="spacer"></div>
 
-<div class="messageMain">
-  <%= t('pages.home.signed_in_empty.main_message_two') %>
-</div>
-<div class="table onboarding">
-  <div class="table_row">
-    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
-      <div id="you"></div>
+<div class="gridRow">
+  <div>
+    <div class="signedInEmptyIcon">
+      <%= inline_svg('phone.svg', { aria_hidden: true }) %>
     </div>
-
-    <div class="table_cell vertical_align_middle onboarding_message">
-      <%= raw t('pages.home.signed_in_empty.cell_one', {
-        profile: link_to(t('profile.index.title'), edit_user_registration_path),
-        moods: link_to(t('moods.plural'), moods_path),
-        allies: link_to(t('allies.index.title'), allies_path)
-      }) %>
-    </div>
+  </div>
+  <div>
+    <div class="title"><%= t('pages.home.signed_in_empty.main_message_two') %></div>
+    <%= raw t('pages.home.signed_in_empty.cell_one', {
+      profile: link_to(t('profile.index.title'), edit_user_registration_path),
+      moods: link_to(t('moods.plural'), moods_path),
+      allies: link_to(t('allies.index.title'), allies_path)
+    }) %>
   </div>
 </div>
 
-<div class="messageMain">
-  <div class="spacer"></div>
-  <%= t('pages.home.signed_in_empty.main_message_three') %>
-</div>
-<div class="table onboarding">
-  <div class="table_row">
-    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
-      <div id="book"></div>
-    </div>
+<div class="spacer"></div>
 
-    <div class="table_cell vertical_align_middle onboarding_message">
-      <%= raw t('pages.home.signed_in_empty.cell_two', {
-        categories: link_to(t('categories.plural'), categories_path),
-        moments: link_to(t('moments.plural'), moments_path)
-      }) %>
+<div class="gridRow">
+  <div>
+    <div class="signedInEmptyIcon">
+      <%= inline_svg('lotus.svg', { aria_hidden: true }) %>
     </div>
+  </div>
+  <div>
+    <div class="title"><%= t('pages.home.signed_in_empty.main_message_three') %></div>
+    <%= raw t('pages.home.signed_in_empty.cell_two', {
+      categories: link_to(t('categories.plural'), categories_path),
+      moments: link_to(t('moments.plural'), moments_path)
+    }) %>
   </div>
 </div>
 
-<div class="messageMain">
-  <div class="spacer"></div>
-  <%= t('pages.home.signed_in_empty.main_message_four') %>
-</div>
-<div class="table onboarding">
-  <div class="table_row">
-    <div class="table_cell message_cell centerMargin vertical_align_middle padding_bottom">
-      <div id="time"></div>
-    </div>
+<div class="spacer"></div>
 
-    <div class="table_cell vertical_align_middle onboarding_message">
-      <%= raw t('pages.home.signed_in_empty.cell_three', {
-        strategize: link_to(t('pages.home.signed_in_empty.strategize'), strategies_path),
-        medications: link_to(t('medications.index.title'), medications_path),
-        group: link_to(t('groups.singular'), groups_path)
-      }) %>
+<div class="gridRow">
+  <div>
+    <div class="signedInEmptyIcon">
+      <%= inline_svg('documents.svg', { aria_hidden: true }) %>
     </div>
+  </div>
+  <div>
+    <div class="title"><%= t('pages.home.signed_in_empty.main_message_four') %></div>
+    <%= raw t('pages.home.signed_in_empty.cell_three', {
+      strategize: link_to(t('pages.home.signed_in_empty.strategize'), strategies_path),
+      medications: link_to(t('medications.index.title'), medications_path),
+      group: link_to(t('groups.singular'), groups_path)
+    }) %>
   </div>
 </div>
 
-<div class="horizonal_divider"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
 
-<div class="messageMain">
-  <%= t('pages.home.signed_in_empty.main_message_five') %>
-</div>
-<div class="messageBody">
-  <%= raw t('pages.home.signed_in_empty.message_text_three', {
-    faq: link_to(t('navigation.faq'), faq_path),
-    email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
-  }) %>
-</div>
+<div class="title"><%= t('pages.home.signed_in_empty.main_message_five') %></div>
+<%= raw t('pages.home.signed_in_empty.message_text_three', {
+  faq: link_to(t('navigation.faq'), faq_path),
+  email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
+}) %>

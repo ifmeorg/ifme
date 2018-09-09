@@ -125,7 +125,7 @@ nl:
    premade3_description: 'Werk gerelateerd'
    premade4_name: 'Meditatie'
    premade4_description: 'Meditatie, diep ademhalen en ontspannende activiteiten'
-   instructions: "Je hebt nog geen aangepaste categorieën gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kunt de volgende voorafgemaakte categorieën ook toevoegen en ze op elk later moment aanpassen."
+   instructions: "Je hebt nog geen aangepaste categorieën gemaakt.<br>Je kunt de volgende voorafgemaakte categorieën ook toevoegen en ze op elk later moment aanpassen."
 
  errors:
   home_page: 'Terug naar thuis'
@@ -148,7 +148,7 @@ nl:
    available_groups: 'Beschikbare groepen'
    joined_groups: 'Groepslidmaatschappen'
    leader: '(Leider)'
-   instructions: "Je maakt nog geen onderdeel uit van een groep, maar je kan op %{icon} klikken om er één aan te maken!"
+   instructions: "Je maakt nog geen onderdeel uit van een groep."
   join:
     success: 'Je bent lid geworden van deze groep.'
     group_not_exists: "Je kunt niet lid worden van een groep die niet bestaat."
@@ -218,7 +218,7 @@ nl:
    title: 'Medicatie'
    subtitle: 'Houd je medicatie bij, inclusief informatie over dosis en bijvuldata.'
    total: 'Totaal:'
-   instructions: "Je hebt nog geen medicatie opgeslagen. Klik op %{icon} om toe te voegen!<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven."
+   instructions: "Je hebt nog geen medicatie opgeslagen.<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven."
    example_name: 'Prozac'
    example_strength: '10 mg'
    example_total: '40 tabletten'
@@ -270,7 +270,7 @@ nl:
 
   index:
    subtitle: 'Duik diep in je momenten - gebeurtenissen en situaties die invloed hebben op je geestelijke gezondheid.'
-   instructions: "Je hebt nog niet geschreven over je momenten. Klik op %{icon} om wat toe te voegen!<br><br>Weet je niet waar je beginnen zult? Is er iets wat vandaag gebeurd is dat je zou willen delen en over wilt praten met een naaste? Het kan zowel positief als negatief zijn! Je hoeft het niet meteen te delen - deel het wanneer jij er klaar voor bent! Hier is een veerbeeld van een Moment."
+   instructions: "Je hebt nog niet geschreven over je momenten.<br><br>Weet je niet waar je beginnen zult? Is er iets wat vandaag gebeurd is dat je zou willen delen en over wilt praten met een naaste? Het kan zowel positief als negatief zijn! Je hoeft het niet meteen te delen - deel het wanneer jij er klaar voor bent! Hier is een veerbeeld van een Moment."
    example_name: 'In paniek voor het interview van morgen!'
    example_category: 'Carrière'
   show:
@@ -297,7 +297,7 @@ nl:
    premade4_description: 'Feiten niet aannemend, boosheid, wraakvol en/of jaloezie'
    premade5_name: 'Hopeloos'
    premade5_description: 'Somberheid en hopeloosheid - onmogelijk om oplossingen te vinden'
-   instructions: "Je hebt nog geen aangepaste stemming gemaakt. Klik op %{icon} om ze toe te voegen!<br>Je kunt ook een van de volgende voorbeelden toevoegen en ze op elk later moment aanpassen."
+   instructions: "Je hebt nog geen aangepaste stemming gemaakt.<br>Je kunt ook een van de volgende voorbeelden toevoegen en ze op elk later moment aanpassen."
 
  notifications:
   plural: 'Notificaties'
@@ -395,7 +395,6 @@ nl:
     email_notifications_answer: "Ga naar de <strong>Account</strong> pagina. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
   home:
     stories: 'Verhalen'
-    welcome: 'Welkom'
     not_signed_in:
       main_message_one: 'Betere communicatie met naasten leidt tot betere geestelijke gezondheid.'
       message_text_one: "We hebben elkaars ondersteuning nodig om stigma's te doorbreken."
@@ -584,7 +583,7 @@ nl:
    subtitle: 'Strategiseer self-care om gedachten en houdingen te behalen.'
    premade1_name: 'Vijf Minuten Meditatie'
    premade1_description: '1) <b>Zoek een relaxte, comfortabele houding.</b> Je kunt zitten in een stoel, op de vloer of op een kussen. Houdt je rug recht, maar niet te gespannen. Laat je handen rusten waar ze comfortabel zijn. Plaats je tong tegen je gehemelte of waar hij comfortabel is.<br><br>2) <b>Maak jezelf bewust van je lichaam</b> Wordt bewust van de vorm van je lichaam en het gewicht. Ontspan jezelf en ga op zoek naar je lichaam - de sensaties de je beleefd, zoals aanraking, de verbinding met de vloer of stoel. Ontspan gespannen delen van je lichaam. Haal adem.<br><br>3) <b>Maak je bewust van je ademhaling.</b> Voel de natuurlijke stroming van het in an uit ademen. Je hoeft je ademhaling niet aan te passen. Niet lang, niet kort, gewoon natuurlijk. Merk op waar je adem in je lichaam heen gaat. Het zou in je borstkas, keel of neusvleugels kunnen zitten. Kijk of je de sensatie van het ademhalen kunt vinden, adem voor adem. Als één ademhaling stop begint de volgende.<br><br>4) <b>Wees aardig voor je gedachten.</b> Nu je dit doet kun je opmerken dat je gedachten langzaam weggaan. Je kunt over andere dingen denken. Indien dit gebeurd, dat is niet erg, dat is natuurlijk. Merk gewoon op dat je gedachten afdwalen. Je kunt zachtjes met je binnenstem "denken" of "afdwalen" zeggen. Langzaamaan stuur je je gedachten weer naar het ademhalen.<br><br>5) <b>Wees op deze plaats voor vijf tot zeven minuten.</b> Merk je ademhaling op, in stilte. Van tijd tot tijd zul je verdwalen in je gedachten, en weer teruggaan naar je ademhaling.<br><br>6) <b>Check in voordat je uitcheckt.</b> Na enkele minuten, maak jezelf bewust van je lichaam, je hele lichaam, zittend. Laat jezelf even goed tot rust komen, en wees trots op het doen van deze dagelijkse oefening.<br><br><i>Gebaseerd op http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Je hebt nog geen aangepaste Strategieën gemaakt. Klik op %{icon} om er een paar toe te voegen!<br>Je kunt ook de volgende voorgemaakte proberen en op elk later tijdstip aanpassen."
+   instructions: "Je hebt nog geen aangepaste Strategieën gemaakt.<br>Je kunt ook de volgende voorgemaakte proberen en op elk later tijdstip aanpassen."
   reminder_mailer:
     subject: "Vergeet de uitvoering van %{name} niet!"
     body: "Hier is een vriendelijke herinnering om %{name} uit te voeren!"

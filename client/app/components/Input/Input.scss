@@ -1,45 +1,35 @@
 @import "../../styles/_legacy.scss";
 
-$focus-background-color-darken: rgba(0, 0, 0, 0.4);
-$focus-background-color-lighten: lighten($mulberry, 15%);
-$light-font-weight: $font-weight-300;
-
 .label {
+  @include setFontSize($size-14);
   color: $black-20;
-  font-family: $font-family;
-  font-size: $size-14;
   padding: $size-12 0;
   letter-spacing: 0.095em;
   text-indent: 4px;
   text-transform: uppercase;
   transition: 0.25s;
   transition-timing-function: linear;
-
   &.large {
-    font-size: $size-18;
+    @include setFontSize($size-18);
   }
-
   &.active {
-    color: $focus-background-color-darken;
+    color: $black-50;
   }
-
   &.dark {
     color: $mulberry;
     opacity: 0.7;
-
     &.active {
-      color: $focus-background-color-lighten;
+      color: $mulberry-50;
     }
   }
 }
 
 .input {
+  @include setFontSize($size-18);
   color: rgba(255, 255, 255, 0.8);
   background-color: $black-20;
-  font-family: $font-family;
-  font-size: $size-18;
   text-indent: 15px;
-  font-weight: $light-font-weight;
+  font-weight: $font-weight-300;
   border: none;
   border-radius: $size-4;
   box-shadow: $size-0 $size-2 $size-6 $black-20;
@@ -47,20 +37,16 @@ $light-font-weight: $font-weight-300;
   width: 100%;
   transition: 0.25s;
   transition-timing-function: linear;
-
   &:focus {
-    background-color: $focus-background-color-darken;
+    background-color: $black-50;
     outline: none;
   }
-
   &::placeholder {
     color: $white;
-    font-family: $font-family;
-    font-weight: $light-font-weight;
+    font-weight: $font-weight-300;
   }
-
   &.large {
-    font-size: $size-24;
+    @include setFontSize($size-24);
     text-indent: $size-24;
     height: 68px;
   }
@@ -68,15 +54,12 @@ $light-font-weight: $font-weight-300;
   &.dark {
     background-color: $mulberry;
     opacity: 0.7;
-
     &:focus {
-      background-color: $focus-background-color-lighten;
+      background-color: $mulberry-50;
       color: $white;
       opacity: 0.75;
-
       &::placeholder {
-        font-family: $font-family;
-        font-weight: $light-font-weight;
+        font-weight: $font-weight-300;
       }
     }
   }

@@ -1,3 +1,13 @@
+@mixin setFontSize($font-size) {
+  font-size: $font-size;
+  @media screen and (max-width: $medium) {
+    font-size: $font-size - $size-2;
+  }
+  @media screen and (max-width: $small) {
+    font-size: $font-size - $size-4;
+  }
+}
+
 $font-family: 'Lato', sans-serif;
 
 $font-weight-100: 100;

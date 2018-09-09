@@ -5,8 +5,6 @@
   <%= t('groups.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @groups.any? %>
   <h1 class="group_type"><%= t('groups.index.joined_groups') %></h1>
   <div class="gridTwo">
@@ -46,14 +44,12 @@
     <% end %>
   </div>
 <% else %>
-  <%= raw t('groups.index.instructions', {
-      icon: '<i class="fa fa-plus-circle"></i>'
-    }) %>
+  <%= raw t('groups.index.instructions') %>
   <div class="spacer"></div>
 
-  <h1 class="faq_heading">
+  <div class="title">
     <%= t('pages.faq.group_question') %>
-  </h1>
+  </div>
 
   <%= raw t('pages.faq.group_answer') %>
 <% end %>

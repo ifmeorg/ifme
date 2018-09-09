@@ -48,7 +48,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
 
 
       # EDITING
-      page.find('a[title="Edit Moment"]').click
+      click_link('Edit Moment')
       expect(find('.pageTitle')).to have_content 'Edit My new moment'
 
       moment_why_text = 'I am changing my moment why description'
@@ -106,7 +106,7 @@ RSpec.feature 'ModalEditor', type: :feature, js: true do
       expect(page).to have_content 'my strategy description'
 
       # EDITING
-      page.find('a[title="Edit Strategy"]').click
+      click_link('Edit Strategy')
       expect(find('.pageTitle')).to have_content 'Edit My new strategy'
       strategy_text = 'I am changing my strategy description'
 

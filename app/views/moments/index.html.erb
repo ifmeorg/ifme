@@ -5,14 +5,12 @@
   <%= t('moments.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @moments.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
 
   <div class="stats_divider"></div>
 
-  <div class="hide_on_mobile">
+  <div class="hideOnMobile">
     <%= react_component("ChartControl", props: {
       types: [],
       initialParams: {
@@ -34,9 +32,7 @@
 
   <%= paginate @moments %>
 <% else %>
-  <%= raw t('moments.index.instructions', {
-    icon: '<i class="fa fa-plus-circle"></i>'
-  }) %>
+  <%= raw t('moments.index.instructions') %>
 
   <div class="spacer"></div>
 

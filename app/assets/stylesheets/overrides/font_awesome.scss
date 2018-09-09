@@ -1,9 +1,9 @@
 .fa-inline {
-  margin-right: $size-10;
+  @include setMargin($size-0, $size-10, $size-0, $size-0);
 }
 
 .fa-left {
-  margin-left: $size-20;
+  @include setMargin($size-0, $size-0, $size-0, $size-20);
 }
 
 /* close icon */

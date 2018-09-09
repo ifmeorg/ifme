@@ -5,20 +5,16 @@
 /* Footer */
 
 .footer {
+  @include setFontSize($size-18);
   background: $black-50;
-  font-size: $size-18;
   color: $white;
 
   a {
-    font-family: $font-family;
     color: $white;
     text-decoration: none;
-    border: none;
-  }
-
-  a:hover {
-    opacity: 0.5;
-    color: $white;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   &Links {
@@ -27,18 +23,18 @@
     flex-direction: row;
     justify-content: space-between;
     a {
+      @include setMargin($size-0, $size-0, $size-10, $size-0);
       display: block;
-      margin-bottom: $size-10;
     }
     a:last-of-type {
       margin-bottom: $size-0;
     }
     &Title {
+      @include setFontSize($size-14);
+      @include setMargin($size-0, $size-0, $size-10, $size-0);
       color: $white;
       text-transform: uppercase;
-      margin-bottom: $size-10;
       opacity: 0.5;
-      font-size: $size-14;
       letter-spacing: 0.05em;
     }
     > div:last-of-type {
@@ -52,8 +48,8 @@
         text-align: center;
       }
       > div:nth-of-type(2n), > div:nth-of-type(3n) {
+        @include setMargin($size-20, $size-0, $size-0, $size-0);
         text-align: center;
-        margin-top: $size-20;
       }
     }
   }
@@ -69,7 +65,7 @@
       flex-direction: column;
       justify-content: flex-start;
       > div:last-of-type {
-        margin-top: $size-20;
+        @include setMargin($size-20, $size-0, $size-0, $size-0);
       }
     }
   }

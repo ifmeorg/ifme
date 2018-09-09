@@ -5,8 +5,6 @@
   <%= t('medications.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @medications.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'medication' } %>
 
@@ -16,9 +14,7 @@
 
   <%= paginate @medications %>
 <% else %>
-  <%= raw t('medications.index.instructions', {
-    icon: '<i class="fa fa-plus-circle"></i>'
-  }) %>
+  <%= raw t('medications.index.instructions') %>
 
   <div class="spacer"></div>
 

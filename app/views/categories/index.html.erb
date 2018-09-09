@@ -4,8 +4,6 @@
   <%= t('categories.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @categories.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
 
@@ -17,9 +15,7 @@
 
   <%= paginate @categories %>
 <% else %>
-  <%= raw t('categories.index.instructions', {
-      icon: '<i class="fa fa-plus-circle"></i>'
-    }) %>
+  <%= raw t('categories.index.instructions') %>
 
   <div class="actions align_right">
     <%= button_to t('common.actions.add_all'), premade_categories_path %>
