@@ -1,6 +1,6 @@
 <%= form_for(@meeting) do |f| %>
   <% if @meeting.errors.any? %>
-    <div class="error_explanation">
+    <div class="errorText">
       <%= t('common.form.error_explanation') %>
     </div>
   <% end %>

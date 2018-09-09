@@ -43,10 +43,9 @@
     Stories
   </div>
 
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <% @stories.each do |story| %>
-      <div class="story">
+      <div class="gridTwoItemBoxLight">
         <h1 class="story_name">
           <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
           <%= link_to story.name, story %>
@@ -54,7 +53,6 @@
         <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
       </div>
     <% end %>
-    </div>
   </div>
 
   <%= paginate @stories %>

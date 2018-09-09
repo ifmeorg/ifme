@@ -12,10 +12,8 @@
 
   <%= render partial: '/shared/stats', locals: { data_type: 'strategy' } %>
 
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <%= render @strategies %>
-    </div>
   </div>
 
   <%= paginate @strategies %>
@@ -30,19 +28,17 @@
 
   <div class="clear"></div>
 
-  <div id="pages">
-    <div class="page">
-      <div class="strategy no_margin_bottom">
-        <h1 class="strategy_name">
-          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
-          <%= t('strategies.index.premade1_name') %>
-        </h1>
+  <div class="gridTwo">
+    <div class="gridTwoItemBoxLight no_margin_bottom">
+      <h1 class="strategy_name">
+        <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
+        <%= t('strategies.index.premade1_name') %>
+      </h1>
 
-        <%= strip_tags(t('strategies.index.premade1_description')[0..80]) %>
-        <% if t('strategies.index.premade1_description').length >= 80 %>
-          <%= t('ellipsis') %>
-        <% end %>
-      </div>
+      <%= strip_tags(t('strategies.index.premade1_description')[0..80]) %>
+      <% if t('strategies.index.premade1_description').length >= 80 %>
+        <%= t('ellipsis') %>
+      <% end %>
     </div>
   </div>
 <% end %>

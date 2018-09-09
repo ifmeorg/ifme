@@ -16,7 +16,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       visit new_strategy_path
       click_on 'Submit'
       expect(page).to have_content('New Strategy')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('label.alertText')
     end
 
     it 'is successful' do
@@ -86,7 +86,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       within '.pageTitle' do
         expect(page).to have_content 'My new strategy'
       end
-      expect(page).to have_selector 'span.draft-badge'
+      expect(page).to have_selector 'span.draftBadge'
       back = current_url
 
       # TRYING TO VIEW AS ALLY
@@ -118,7 +118,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       within '.pageTitle' do
         expect(page).to have_content 'My new strategy'
       end
-      expect(page).not_to have_selector 'span.draft-badge'
+      expect(page).not_to have_selector 'span.draftBadge'
 
       # TRYING TO VIEW AS ALLY
       login_as ally

@@ -2,7 +2,7 @@
 
 $focus-background-color-darken: rgba(0, 0, 0, 0.4);
 $focus-background-color-lighten: lighten($mulberry, 15%);
-$light-font-weight: 300;
+$light-font-weight: $font-weight-300;
 
 .label {
   color: $black-20;

@@ -1,5 +1,5 @@
 <% if local_assigns[:data_type] == 'moment' || local_assigns[:data_type] == 'moment_tag_usage' %>
-  <div class="moment">
+  <div class="gridTwoItemBoxLight">
     <h1 class="moment_name">
       <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
       <%= link_to local_assigns[:item].name, local_assigns[:item] %>
@@ -17,17 +17,12 @@
     <% end %>
   </div>
 <% elsif local_assigns[:data_type] == 'strategy' || local_assigns[:data_type] == 'strategy_tag_usage' %>
-  <div class="strategy">
+  <div class="gridTwoItemBoxLight">
     <h1 class="strategy_name">
       <%= render partial: '/shared/viewers_hover', locals: { data: local_assigns[:item] } %>
       <%= link_to local_assigns[:item].name, local_assigns[:item] %>
     </h1>
-    <% if !local_assigns[:item].published? %>
-      <span class="draft-badge">
-        <i class="fa fa-tag" aria-hidden="true"></i>
-        <%= I18n.t 'draft' %>
-      </span>
-    <% end %>
+    <%= render partial: 'shared/draft_badge', locals: { published: local_assigns[:item].published? } %>
     <%= ::TimeAgo.created_or_edited(local_assigns[:item]) %>
     <% if local_assigns[:item].category.count > 0 %>
       <br>

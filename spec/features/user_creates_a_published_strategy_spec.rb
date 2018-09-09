@@ -15,7 +15,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       visit new_strategy_path
       click_on 'Submit'
       expect(page).to have_content('New Strategy')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('label.alertText')
     end
 
     it 'is successful' do

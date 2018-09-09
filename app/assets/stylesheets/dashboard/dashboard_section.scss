@@ -13,13 +13,7 @@
     color: $mulberry;
   }
 
-  a {
-    text-decoration: none;
-    color: $steel-blue;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
+  @include dashboardSectionLink();
 
   .pageTitle {
     display: flex;

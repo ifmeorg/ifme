@@ -21,7 +21,7 @@
   <div class="small_margin_top">
     <%= form_for local_assigns[:comment], url: { action: "comment" }, html: { method: "post" } do |f| %>
       <% if local_assigns[:comment].errors.any? %>
-        <div class="error_explanation">
+        <div class="errorText">
           <%= t('common.form.error_explanation') %>
         </div>
       <% end %>

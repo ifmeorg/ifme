@@ -1,6 +1,6 @@
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
-    <div class="error_explanation">
+    <div class="errorText">
       <ul>
         <% @group.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

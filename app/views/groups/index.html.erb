@@ -9,10 +9,9 @@
 
 <% if @groups.any? %>
   <h1 class="group_type"><%= t('groups.index.joined_groups') %></h1>
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <% @groups.each do |group| %>
-      <div class="group">
+      <div class="gridTwoItemBoxLight">
         <h1 class="group_name">
           <%= link_to group.name, group %>
           <%= t('groups.index.leader') if user_is_leader_of? group %>
@@ -45,7 +44,6 @@
         </div>
       </div>
     <% end %>
-    </div>
   </div>
 <% else %>
   <%= raw t('groups.index.instructions', {
@@ -65,10 +63,9 @@
 
   <h1 class="group_type"><%= t('groups.index.available_groups') %></h1>
 
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo">
     <% @available_groups.each do |group| %>
-      <div class="group">
+      <div class="gridTwoItemBoxLight">
         <h1 class="group_name">
           <%= link_to group.name, group %>
         </h1>
@@ -89,6 +86,5 @@
         </div>
       </div>
     <% end %>
-    </div>
   </div>
 <% end %>

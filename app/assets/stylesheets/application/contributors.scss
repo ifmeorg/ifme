@@ -4,11 +4,6 @@
 
 .read_more_show,
 .read_less_show {
-  color: $steel-blue;
+  @include staticContentFakeLink();
   cursor: pointer;
-}
-
-.read_more_show:hover {
-  color: $steel-blue;
-  opacity: 0.5;
 }
