@@ -47,5 +47,29 @@
     </tbody>
   </table> 
 </div>
+
+<div class="container">
+  <h1>List of Banned Users </h1>
+  <table class="table table-hover" border=1px >
+    <thead>
+      <tr>
+        <th>Banned User Name</th>
+        <th>Banned User ID</th>
+        <th>Remove Ban for the User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% User.where(banned: true).each do |user| %>
+        <tr>
+        <td><%= user.name%></td>
+        <td><%= user.id %></td>
+        <td><%= link_to "Remove Ban", remove_ban_profile_index_path(ban_user_id: user.id), method: :post %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+</div>
+
 </body>
 </html>
