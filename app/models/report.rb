@@ -19,6 +19,10 @@ class Report < ApplicationRecord
   validates :reporter_id, presence: true
   validates :reasons, presence: true
   after_create :send_mail_reports
+<<<<<<< 8784fb0de7f65dd536e41b275e4934c7197905b7
+=======
+  
+>>>>>>> Ban User feature added and I18n keys
   #make sure reporter_id and reportee_id are different
 
   def send_mail_reports

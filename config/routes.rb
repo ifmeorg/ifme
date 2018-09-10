@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
+<<<<<<< HEAD
   resources :profile, only: :index
 
 <<<<<<< HEAD
@@ -68,6 +69,14 @@ Rails.application.routes.draw do
   resources :search, only: :index do
 =======
   resources :reports
+=======
+  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post 'ban_user'
+      post 'remove_ban'
+    end
+  end
+>>>>>>> bcf98fd0... Ban User feature added and I18n keys
 
 =======
   resources :reports do 
