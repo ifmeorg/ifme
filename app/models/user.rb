@@ -87,6 +87,10 @@ class User < ApplicationRecord
   }
   validate :password_complexity
 
+  def active_for_authentication?
+    super && !self.banned
+  end
+
   def ally?(user)
     allies_by_status(:accepted).include?(user)
   end

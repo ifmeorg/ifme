@@ -75,6 +75,7 @@ en:
     write_to_us: 'write to us'
     days: Days
   comment:
+<<<<<<< HEAD
     singular: Comment
     plural: Comments
     posting: 'Posting comment...'
@@ -575,6 +576,247 @@ en:
     reminder_mailer:
       subject: 'Don''t forget to perform %{name}!'
       body: 'Here''s a friendly reminder to perform %{name}!'
+=======
+   full: '%{name} commented "%{comment}" on %{typename}'
+   truncated: '%{name} commented "%{comment}" [...] on %{typename}'
+  group:
+   new_group: '%{name} created a group "%{group_name}"'
+   new_group_member: '%{name} joined your group "%{group_name}"'
+   add_group_leader: '%{name} became a leader of "%{group_name}"'
+   remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+  meeting:
+   new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
+   remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
+   update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
+   join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
+  mailer:
+    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
+    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
+    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
+    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
+    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
+    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
+    comment_text: "<p><i>%{comment}</i></p>"
+    comment_link: "<p>To read it, %{link}!</p>"
+    new_group_subject: "if me | %{user} created a group \"%{group}\""
+    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>"
+    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
+    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
+    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
+    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
+    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
+    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
+    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
+    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
+    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
+    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
+    update_meeting_link: "<p>To learn more, %{link}!</p>"
+    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
+    reported_user_subject: "You have reported a user!"
+    reported_user_body: "You have reported %{reported_name}"
+    reportee_user_subject: "You have been reported!"
+    reportee_user_body: "You were reported by %{reportee_name}"
+    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
+    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
+  report:
+    report_message: "You have Reported ! Reach out to us for help."
+ omniauth:
+  google: 'Google'
+  access_denied: 'Access Denied'
+
+ pages:
+  about:
+    send_us: 'us'
+    email_us: 'Feel free to email %{email_link}!'
+    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
+    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
+    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
+    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
+    main_message_three: "Wanna help fund us?"
+    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
+    linebreak: 'Linebreak'
+    fund_club: 'Fund Club'
+  blog:
+    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+  contribute:
+    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
+    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"noMarginBottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
+    more_contributors: 'More Fabulous Contributors!'
+    thanks: 'A huge thanks to'
+    slack: 'Slack'
+  faq:
+    title: 'Frequently Asked Questions'
+    data_access_question: 'Who has access to my data?'
+    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
+    moment_question: 'What is a Moment?'
+    moment_answer: 'A <strong>%{moment}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Moments with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Moments only visible to you.'
+    strategy_question: 'What is a Strategy?'
+    strategy_answer: 'A <strong>%{strategy}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Strategies with Categories. You can also choose which allies can view and comment. You can also make Strategies only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
+    category_question: 'What is a Category?'
+    category_answer: 'A <strong>%{category}</strong> is a tag that can represent the people, places, and things that are important to you.'
+    mood_question: 'What is a Mood?'
+    mood_answer: 'A <strong>%{mood}</strong> is a tag describing your state of mind, feelings, and emotions.'
+    group_question: 'What is a Group?'
+    group_answer: 'A <strong>%{group}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
+    medications_question: 'How do I use the Medications feature?'
+    medications_answer: 'The <strong>%{medications}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
+    invite_question: 'How can I invite my loved ones to join the app?'
+    invite_answer: 'Go to the <strong>%{allies}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
+    email_notifications_question: 'How can I modify email notifications?'
+    email_notifications_answer: "Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+  home:
+    stories: 'Stories'
+    not_signed_in:
+      main_message_one: 'Better communication with loved ones leads to better mental health.'
+      message_text_one: "We need each other's support to break down stigmas."
+      message_one: 'Share your stories with loved ones and get the support you deserve'
+      message_two: 'Be you, no strings attached and with security and privacy'
+      message_three: 'Document your moods, medications, and self-care'
+      main_message_two: 'We are open source because mental health should be open.'
+      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
+      help: 'help'
+    signed_in_empty:
+      main_message_one: 'Hello %{name}!'
+      message_text_one: "Here's how you can start sharing your stories."
+      main_message_two: 'Tell us about yourself.'
+      cell_one: 'Customize your %{profile} - add a bio and profile picture<br>Add custom %{moods} to best describe your emotions<br>Add %{allies} - friends, family, and others who you want to share with'
+      main_message_three: 'Write your stories.'
+      cell_two: 'Create custom %{categories} to help organize your moments<br>Write about the %{moments} - the events and situations that affect your mental health'
+      main_message_four: 'Take care of yourself.'
+      cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
+      main_message_five: 'Have any questions or concerns?'
+      message_text_three: 'Check out our %{faq} page or %{email_link}!'
+      strategize: 'Strategize'
+  partners:
+    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
+  privacy:
+    summary: 'Summary'
+    summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
+    user_data: 'User Data'
+    user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
+    cookies: 'Use of Cookies'
+    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
+    social_media: 'Social Media Platforms'
+    social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
+    contact: 'Contact Us'
+    contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"noMarginBottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+  resources:
+    communities: Communities
+    education: Education
+    hotlines: Hotlines
+    services: Services
+    tags:
+      people_of_colour: people of colour
+      women_of_colour: women of colour
+      black_women: black women
+      domestic_violence: domestic violence
+      dating_violence: dating violence
+      cyberbullying: cyberbullying
+      therapy: therapy
+      counseling: counseling
+      youth: youth
+      lgbtqia: LGBTQIA
+      harassment: harassment
+      self_care: self-care
+      women: women
+      chatbot: chatbot
+      anonymous: anonymous
+      free: free
+      paid: paid
+      twenty_four_seven: 24/7
+      videos: videos
+      blog: blog
+      podcast: podcast
+      books: books
+      publication: publication
+      video_chat: video chat
+      texting: texting
+      open_source: open source
+      workplace: workplace
+      social_justice: social justice
+      tech_industry: tech industry
+      meditation: meditation
+      social_anxiety: social anxiety
+      trigger_warnings: trigger warnings
+      netflix: netflix
+      homeless: homeless
+      talks: talks
+      voice_chat: voice chat
+      training: training
+      directory: directory
+      self_injury: self-injury
+      treatment: treatment
+      care_planning: care planning
+      depression: depression
+      ocd: OCD
+      advice: advice
+      forum: forum
+      learning: learning
+      crisis_prevention: crisis prevention
+      safety_planning: safety planning
+      suicide_prevention: suicide prevention
+      android: android
+      ios: iOS
+      support_groups: support groups
+      mindfulness: mindfulness
+      journaling: journaling
+      mood_tracking: mood tracking
+      veterans: veterans
+      music: music
+      integrative: integrative
+      ptsd: PTSD
+      tbi: TBI
+      news: news
+      government: government
+      christian: christian
+      humor: humor
+      conference: conference
+      addiction: addiction
+      rehabilitation: rehabilitation
+      teachers: teachers
+
+ profile:
+  index:
+   title: 'Profile'
+   edit_user: 'Customize profile'
+
+ pusher:
+  not_authorized: 'Not Authorized'
+
+ search:
+  search: 'Search'
+  search_by_name: 'Search by name'
+  form:
+   search_by_location: 'Search by location'
+   search_by_email: 'Search by email'
+
+  index:
+   title: 'Search for Allies'
+   user_not_found: 'User %{email} not found'
+
+ shared:
+  footer:
+    licence: 'AGPL-3.0'
+    licence_subtitle: 'Licenced under %{licence}'
+    connect: 'connect'
+  comments:
+    share_everyone: 'Share with everyone'
+    share_with: 'Share with %{name} only'
+    visible_only_between_you_and: 'Visible only between you and %{name}'
+    not_allies: '(not allies)'
+  header:
+   signout: 'Sign out'
+   home: 'Home'
+  viewers_indicator:
+   disabled_comments: 'Comments have been disabled.'
+   you_are_viewer_html:
+    one: 'You are the only viewer.'
+    other: 'You are <strong>not</strong> the only viewer.'
+   viewers_html:
+     zero: 'There are <strong>no</strong> viewers.'
+     one: '%{names} is a viewer.'
+     other: '%{names} are viewers.'
+>>>>>>> bcf98fd0... Ban User feature added and I18n keys
   stats:
     total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'
     total_moment: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moment.'
