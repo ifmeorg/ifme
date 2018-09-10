@@ -38,13 +38,17 @@ const getHref = (props: Props, item: string) => {
 
 const displayTooltip = (props: Props, item: string) => {
   const { actions } = props;
-  return <Tooltip element={classMap[item]} text={actions[item]} right />;
+  return (
+    <div key={item}>
+      <Tooltip element={classMap[item]} text={actions[item]} right />
+    </div>
+  );
 };
 
 const displayLink = (props: Props, item: string) => {
   const { actions } = props;
   return (
-    <div>
+    <div key={item}>
       <a
         href={getHref(props, item)}
         data-method={item === DELETE ? DELETE : null}

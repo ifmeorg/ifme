@@ -48,7 +48,6 @@
     "react-lazyload": "^2.3.0",
     "react-on-rails": "9.0.3",
     "react-render-html": "^0.6.0",
-    "redux": "^3.7.2",
     "shortid": "^2.2.8",
     "superagent": "^3.5.2"
   },
