@@ -58,7 +58,6 @@
     "@storybook/addon-info": "^3.4.2",
     "@storybook/addons": "^3.4.2",
     "@storybook/react": "^3.4.2",
-    "antd": "^2.13.13",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.6",
