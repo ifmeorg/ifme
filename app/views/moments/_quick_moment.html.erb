@@ -10,9 +10,14 @@
       <div class="table_cell small_padding_right vertical_align_middle">
         <%= f.text_field :name, placeholder: t('common.title'), required: true %>
         <%= f.text_area :why, placeholder: t('moments.form.what_happened'), required: true %>
-        <div class="quick_moment_disclaimer">
-          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title subtle smaller_margin_right', title: t('moments.quick_moment_disclaimer')) %>
-          <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
+        <div class="quick_moment_disclaimer gridRow">
+          <%= react_component('Tooltip', props: {
+            element: '<i class="fa fa-lock subtle"></i>',
+            text: t('moments.quick_moment_disclaimer')
+          }) %>
+          <div class="smaller_margin_left">
+            <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
+          </div>
         </div>
       </div>
 

@@ -27,9 +27,7 @@ storiesOf('Resource', module)
         'A very long title for a resource that should wrap to two lines and then some or not'
       }
       link={'www.if-me.org'}
-      author={
-        'Author with a very very long name that is usually an edge case'
-      }
+      author={'Author with a very very long name that is usually an edge case'}
     />
   ))
   .add('With all options', () => (

@@ -68,25 +68,24 @@ describe ViewersHelper do
   end
 
   describe "viewers_hover" do
-    it "displays only you when there are no viewers without link" do
-      result = viewers_hover(nil, nil)
-      expect(result).to eq('<span class="yes_title small_margin_right" title="Only you"><i class="fa fa-lock"></i></span>')
+    let(:element) { '<a href="/categories/test-category">Test Category</a>' }
+    before(:each) do
+      allow(self).to receive(:react_component).and_return(nil)
     end
 
     it "displays only you when there are no viewers with link" do
       new_user1 = create(:user1)
       new_category = create(:category, user_id: new_user1.id)
       new_moment = create(:moment, user_id: new_user1.id, category: Array.new(1, new_category.id))
-      result = viewers_hover(nil, new_category)
-      expect(result).to eq('<span class="yes_title" title="Visible to only you"><a href="/categories/test-category">Test Category</a></span>')
-    end
-
-    it "displays list of viewers without link" do
-      new_user1 = create(:user1)
-      new_user2 = create(:user2)
-      new_user3 = create(:user3)
-      result = viewers_hover([new_user1.id, new_user2.id, new_user3.id], nil)
-      expect(result).to eq('<span class="yes_title small_margin_right" title="Oprah Chang, Plum Blossom, and Gentle Breezy"><i class="fa fa-lock"></i></span>')
+      expect(self).to receive(:react_component).with(
+        'Tooltip',
+        props: {
+          element: element,
+          text: 'Visible to only you',
+          center: true
+        }
+      )
+      viewers_hover(nil, new_category)
     end
 
     it "displays list of viewers with link" do
@@ -96,8 +95,15 @@ describe ViewersHelper do
       viewers = [new_user1.id, new_user2.id, new_user3.id]
       new_category = create(:category, user_id: new_user1.id)
       new_moment = create(:moment, user_id: new_user1.id, category: Array.new(1, new_category.id), viewers: viewers)
-      result = viewers_hover(viewers, new_category)
-      expect(result).to eq('<span class="yes_title" title="Visible to Oprah Chang, Plum Blossom, and Gentle Breezy"><a href="/categories/test-category">Test Category</a></span>')
+      expect(self).to receive(:react_component).with(
+        'Tooltip',
+        props: {
+          element: element,
+          text: 'Visible to Oprah Chang, Plum Blossom, and Gentle Breezy',
+          center: true
+        }
+      )
+      viewers_hover(viewers, new_category)
     end
   end
 

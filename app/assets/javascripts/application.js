@@ -67,8 +67,6 @@ var onReadyApplication = function() {
 
   // Timezone detection
   Cookies.set("timezone", jstz.determine().name());
-
-  $(".yes_title").find(":not(.no_title)").tooltip();
 };
 
 loadPage(onReadyApplication);
