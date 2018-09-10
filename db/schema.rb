@@ -10,35 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724031319) do
+
+ActiveRecord::Schema.define(version: 20180908064825) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "allyships", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
+  create_table "allyships", id: :bigserial, force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "ally_id"
     t.integer "status"
   end
 
-  create_table "bootsy_image_galleries", id: :serial, force: :cascade do |t|
-    t.integer "bootsy_resource_id"
-    t.string "bootsy_resource_type"
+  create_table "bootsy_image_galleries", id: :bigserial, force: :cascade do |t|
+    t.integer  "bootsy_resource_id"
+    t.string   "bootsy_resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bootsy_images", id: :serial, force: :cascade do |t|
-    t.string "image_file"
-    t.integer "image_gallery_id"
+  create_table "bootsy_images", id: :bigserial, force: :cascade do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+  create_table "categories", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
@@ -46,11 +48,11 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
-  create_table "comments", id: :serial, force: :cascade do |t|
-    t.string "commentable_type"
-    t.integer "commentable_id"
-    t.integer "comment_by"
-    t.text "comment"
+  create_table "comments", id: :bigserial, force: :cascade do |t|
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.integer  "comment_by"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "visibility"
@@ -58,11 +60,11 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
-    t.string "slug", null: false
-    t.integer "sluggable_id", null: false
-    t.string "sluggable_type", limit: 50
-    t.string "scope"
+  create_table "friendly_id_slugs", id: :bigserial, force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
     t.datetime "created_at"
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
@@ -70,16 +72,16 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "group_members", id: :serial, force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-    t.boolean "leader"
+  create_table "group_members", id: :bigserial, force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "groups", id: :serial, force: :cascade do |t|
-    t.string "name"
+  create_table "groups", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "description"
@@ -87,10 +89,10 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_groups_on_slug", unique: true
   end
 
-  create_table "medications", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.integer "dosage"
-    t.string "refill"
+  create_table "medications", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.integer  "dosage"
+    t.string   "refill"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
@@ -105,21 +107,21 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_medications_on_slug", unique: true
   end
 
-  create_table "meeting_members", id: :serial, force: :cascade do |t|
-    t.integer "meeting_id"
-    t.integer "user_id"
-    t.boolean "leader"
+  create_table "meeting_members", id: :bigserial, force: :cascade do |t|
+    t.integer  "meeting_id"
+    t.integer  "user_id"
+    t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "meetings", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.text "location"
-    t.string "time"
-    t.integer "maxmembers"
-    t.integer "group_id"
+  create_table "meetings", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "location"
+    t.string   "time"
+    t.integer  "maxmembers"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "date"
@@ -127,12 +129,12 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_meetings_on_slug", unique: true
   end
 
-  create_table "moments", id: :serial, force: :cascade do |t|
-    t.text "category"
-    t.string "name"
-    t.text "mood"
-    t.text "why"
-    t.text "fix"
+  create_table "moments", id: :bigserial, force: :cascade do |t|
+    t.text     "category"
+    t.string   "name"
+    t.text     "mood"
+    t.text     "why"
+    t.text     "fix"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
@@ -147,9 +149,9 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_moments_on_slug", unique: true
   end
 
-  create_table "moods", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+  create_table "moods", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
@@ -157,24 +159,24 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_moods_on_slug", unique: true
   end
 
-  create_table "notifications", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.string "uniqueid"
-    t.text "data"
+  create_table "notifications", id: :bigserial, force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "uniqueid"
+    t.text     "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "perform_strategy_reminders", id: :serial, force: :cascade do |t|
-    t.integer "strategy_id", null: false
-    t.boolean "active", null: false
+  create_table "perform_strategy_reminders", id: :bigserial, force: :cascade do |t|
+    t.integer  "strategy_id", null: false
+    t.boolean  "active",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "refill_reminders", id: :serial, force: :cascade do |t|
-    t.integer "medication_id", null: false
-    t.boolean "active", null: false
+  create_table "refill_reminders", id: :bigserial, force: :cascade do |t|
+    t.integer  "medication_id", null: false
+    t.boolean  "active",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -189,7 +191,7 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.integer  "user_id"
   end
 
-  create_table "strategies", force: :cascade do |t|
+  create_table "strategies", id: :bigserial, force: :cascade do |t|
     t.integer  "user_id"
     t.text     "category"
     t.text     "description"
@@ -203,25 +205,25 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.index ["slug"], name: "index_strategies_on_slug", unique: true
   end
 
-  create_table "supports", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.string "support_type"
-    t.text "support_ids"
+  create_table "supports", id: :bigserial, force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "support_type"
+    t.text     "support_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "take_medication_reminders", id: :serial, force: :cascade do |t|
-    t.integer "medication_id", null: false
-    t.boolean "active", null: false
+  create_table "take_medication_reminders", id: :bigserial, force: :cascade do |t|
+    t.integer  "medication_id", null: false
+    t.boolean  "active",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+  create_table "users", id: :bigserial, force: :cascade do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
@@ -254,32 +256,15 @@ ActiveRecord::Schema.define(version: 20180724031319) do
     t.boolean "meeting_notify"
     t.string "locale"
     t.datetime "access_expires_at"
-<<<<<<< HEAD
-    t.string "refresh_token"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-    t.index ["invitations_count"], name: "index_users_on_invitations_count"
-    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["uid"], name: "index_users_on_uid", unique: true
-=======
     t.string   "refresh_token"
-<<<<<<< 742756be5a7bea6733cd405465f3935acb089ec7
-<<<<<<< 05c34b12fd1a1d0cdf450bd5bed7ac0556dbc354
     t.boolean  "admin",                  default: false
-=======
-    t.boolean  "admin"
->>>>>>> Report Feature added for Profile and Comments, Admin dashboard implemented
-=======
-    t.boolean  "admin",                  default: false
->>>>>>> Report Mailer Added
+    t.boolean  "banned",                 default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["uid"], name: "index_users_on_uid", unique: true, using: :btree
->>>>>>> a5adef7... Report Feature added for Profile and Comments, Admin dashboard implemented
   end
 
 end

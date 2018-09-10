@@ -63,7 +63,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy]
+  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      post 'ban_user'
+      post 'remove_ban'
+    end
+  end
 
   resources :reports do 
     collection do

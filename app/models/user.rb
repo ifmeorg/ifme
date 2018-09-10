@@ -78,6 +78,10 @@ class User < ApplicationRecord
     in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
   }
 
+  def active_for_authentication?
+    super && !self.banned
+  end
+
   def ally?(user)
     allies_by_status(:accepted).include?(user)
   end

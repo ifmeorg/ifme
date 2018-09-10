@@ -346,9 +346,14 @@ en:
     new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
     update_meeting_link: "<p>To learn more, %{link}!</p>"
     remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
+    reported_user_subject: "You have reported a user!"
+    reported_user_body: "You have reported %{reported_name}"
+    reportee_user_subject: "You have been reported!"
+    reportee_user_body: "You were reported by %{reportee_name}"
     join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
     join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
-
+  report:
+    report_message: "You have Reported ! Reach out to us for help."
  omniauth:
   google: 'Google'
   access_denied: 'Access Denied'
