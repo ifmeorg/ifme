@@ -27,6 +27,17 @@
   }
 }
 
+.notSignedInIcon {
+  height: 180px;
+  width: auto;
+  @media screen and (max-width: $medium) {
+    height: 160px;
+  }
+  @media screen and (max-width: $small) {
+    height: 130px;
+  }
+}
+
 .avatar {
   margin: 0;
   .portrait {

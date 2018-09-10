@@ -9,7 +9,7 @@
         <% strategies = usage[1] %>
 
         <% if moments.length > 0 %>
-          <h1 class="tag_type"><%= t('moments.tagged') %></h1>
+          <div class="title"><%= t('moments.tagged') %></div>
 
           <div id="moment_tag_usage">
             <div class="tag_usage">
@@ -24,7 +24,7 @@
         <% end %>
 
         <% if strategies.any? %>
-          <h1 class="tag_type margin_top"><%= t('strategies.plural') %></h1>
+          <div class="title"><%= t('strategies.plural') %></div>
 
           <div id="strategy_tag_usage">
             <div class="tag_usage">

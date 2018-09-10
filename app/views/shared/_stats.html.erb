@@ -1,18 +1,13 @@
 <% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
 	<% most_focus = most_focus(local_assigns[:data_type], local_assigns[:profile]) %>
 	<% if most_focus.length > 0 %>
-
-    <% if !local_assigns[:profile] %>
-      <div class="spacer"></div>
-    <% end %>
-
-    <div class="center" id="stats">
+    <div id="stats">
       <% if local_assigns[:profile] %>
-        <div class="messageMain no_margin_top">
+        <div class="title">
           <%= local_assigns[:data_type].pluralize.titleize %>
         </div>
       <% end %>
-      <div class="small_margin_bottom">
+      <div class="subtitle">
         <% if !local_assigns[:profile] || local_assigns[:profile] == current_user.id %>
           <%= t('shared.stats.you_are_focusing') %>
         <% elsif local_assigns[:profile] %>
@@ -22,9 +17,7 @@
 
       <div id="most_focus">
         <% most_focus.each do |key, value| %>
-
           <div class="some_focus">
-
             <div class="some_focus_text">
               <% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
                 <%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>

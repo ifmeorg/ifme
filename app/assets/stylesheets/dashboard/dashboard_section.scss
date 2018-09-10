@@ -8,6 +8,9 @@
     padding: 15px 10px;
     flex-basis: auto;
   }
+  @media screen and (max-width: $small) {
+    @include buttonFull();
+  }
 
   b, strong {
     color: $mulberry;
@@ -32,7 +35,8 @@
       align-items: flex-start;
       justify-content: flex-start;
       > div:last-of-type {
-        margin: $size-0;
+        margin: $size-10 $size-0 $size-0 $size-0;
+        width: 100%;
       }
     }
     a {
@@ -44,10 +48,19 @@
     @include setFontSize($size-30);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
     color: $mulberry-70;
+    font-weight: $font-weight-400;
   }
 
   .title {
     @include setFontSize($size-30);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
+    font-weight: $font-weight-400;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

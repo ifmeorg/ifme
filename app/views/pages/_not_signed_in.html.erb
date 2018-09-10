@@ -38,17 +38,17 @@
   </div>
   <div class="gridThree center">
     <div class="gridThreeItem">
-      <%= inline_svg('phone.svg', { height: '180px', width: 'auto', aria_hidden: true }) %>
+      <%= inline_svg('phone.svg', aria_hidden: true, class: 'notSignedInIcon') %>
       <div class="spacer"></div>
       <%= t('pages.home.not_signed_in.message_one') %>
     </div>
     <div class="gridThreeItem">
-      <%= inline_svg('lotus.svg', { height: '180px', width: 'auto', aria_hidden: true }) %>
+      <%= inline_svg('lotus.svg', aria_hidden: true, class: 'notSignedInIcon') %>
       <div class="spacer"></div>
       <%= t('pages.home.not_signed_in.message_two') %>
     </div>
     <div class="gridThreeItem">
-      <%= inline_svg('documents.svg', { height: '180px', width: 'auto', aria_hidden: true }) %>
+      <%= inline_svg('documents.svg', aria_hidden: true , class: 'notSignedInIcon') %>
       <div class="spacer"></div>
       <%= t('pages.home.not_signed_in.message_three') %>
     </div>
@@ -67,7 +67,7 @@
   <div class="gridMany">
     <% @blurbs.each do |blurb| %>
       <div class="gridManyItem">
-        <%= ProfilePicture.fetch(blurb['image'], className: 'home_picture', name: blurb['name']) %>
+        <%= ProfilePicture.fetch(blurb['image'], className: 'home_picture') %>
       </div>
     <% end %>
   </div>

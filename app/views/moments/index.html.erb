@@ -24,6 +24,10 @@
 
   <%= render partial: '/shared/stats', locals: { data_type: 'moment' } %>
 
+  <% if @moments.count > 0 %>
+    <div class="spacer"></div>
+  <% end %>
+
   <div class="gridTwo">
     <%= render @moments %>
   </div>
@@ -32,17 +36,17 @@
 <% else %>
   <%= raw t('moments.index.instructions') %>
 
-  <div class="spacer"></div>
-
   <div class="gridTwo">
     <div class="gridTwoItemBoxLight">
-      <h1 class="moment_name">
-          <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
-          <%= t('moments.index.example_name') %>
-        </h1>
-
-        <strong><%= t('categories.label', count: 1) %></strong> <%= t('moments.index.example_category') %>
-        <br><strong><%= t('moods.label', count: 3) %></strong> <%= t('moods.example_moods') %>
+      <%= react_component('Story', props: {
+        name: t('moments.index.example_name'),
+        link: moments_path,
+        actions: {
+          viewers: t('comment.control')
+        },
+        categories: [t('moments.index.example_category')],
+        moods: t('moods.example_moods').split(',')
+      }) %>
     </div>
   </div>
 <% end %>

@@ -1,13 +1,10 @@
 <div class="gridTwoItemBoxLight">
-  <h1 class="mood_name"><%= link_to mood.name, mood %></h1>
-
-  <%= strip_tags(mood.description[0..80]) %>
-  <% if mood.description.length >= 80 %>
-    <%= t('ellipsis') %>
-  <% end %>
-
-  <div class="small_margin_top">
-    <i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_mood_path(mood) %>
-    <i class="fa fa-trash-o action small_margin_left"></i><%= link_to t('common.actions.delete'), mood, method: :delete, data: { confirm: t('common.actions.confirm') } %>
-  </div>
+  <%= react_component('Story', props: {
+    name: mood.name,
+    link: url_for(mood),
+    actions: {
+			edit: edit_mood_path(mood),
+			delete: t('common.actions.confirm')
+		}
+  }) %>
 </div>

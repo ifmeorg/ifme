@@ -1,0 +1,83 @@
+@import "../../styles/_legacy.scss";
+
+.story {
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &Title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      > div:first-of-type {
+        @include setMargin($size-0, $size-10, $size-0, $size-0);
+      }
+    }
+  }
+
+  .draft {
+    > div {
+      border: $size-1 solid $mulberry;
+      box-sizing: border-box;
+      border-radius: $size-4;
+    }
+  }
+  .name {
+    @include setFontSize($size-20);
+    word-wrap: break-word;
+    color: $mulberry;
+  }
+
+  .actions {
+    .action {
+      @include setFontSize($size-20);
+      color: $mulberry-80;
+      cursor: pointer;
+    }
+    > a {
+      @include setMargin($size-0, $size-10, $size-0, $size-0);
+      &:last-of-type {
+        @include setMargin($size-0, $size-0, $size-0, $size-0);
+      }
+    }
+  }
+
+  .date {
+    @include setFontSize($size-14);
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $mulberry-80;
+  }
+
+  .tags {
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
+    :global(.tag) {
+      color: $white;
+      border-width: 0;
+      border-radius: $size-4;
+      margin: $size-1;
+    }
+    .category {
+      :global(.tag) {
+        background-color: $teak;
+      }
+    }
+  }
+
+  &Type,
+  &By {
+    @include setFontSize($size-16);
+    @include setMargin($size-10, $size-0, $size-0, $size-0);
+    color: $mulberry-80;
+    a {
+      color: $mulberry-80 !important;
+    }
+  }
+
+  &Type {
+    margin-left: auto;
+  }
+}

@@ -158,7 +158,7 @@ describe 'UserCreatesADraftMoment', js: true do
       click_link('Edit Moment')
 
       within '.pageTitle' do
-        expect(page).to have_content 'Edit My new moment'
+        expect(page).to have_content 'My new moment Edit Moment'
       end
 
       moment_why_text = 'I am changing my moment why description'
