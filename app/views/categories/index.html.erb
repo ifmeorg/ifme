@@ -23,40 +23,13 @@
   <div class="spacer"></div>
 
   <div class="gridTwo">
-    <div class="gridTwoItemBoxLight">
-      <h1 class="category_name"><%= t('categories.index.premade1_name') %></h1>
-
-      <%= strip_tags(t('categories.index.premade1_description')[0..80]) %>
-      <% if t('categories.index.premade1_description').length >= 80 %>
-        <%= t('ellipsis') %>
-      <% end %>
-    </div>
-
-    <div class="gridTwoItemBoxLight">
-      <h1 class="category_name"><%= t('categories.index.premade2_name') %></h1>
-
-      <%= strip_tags(t('categories.index.premade2_description')[0..80]) %>
-      <% if t('categories.index.premade2_description').length >= 80 %>
-        <%= t('ellipsis') %>
-      <% end %>
-    </div>
-
-    <div class="gridTwoItemBoxLight">
-      <h1 class="category_name"><%= t('categories.index.premade3_name') %></h1>
-
-      <%= strip_tags(t('categories.index.premade3_description')[0..80]) %>
-      <% if t('categories.index.premade3_description').length >= 80 %>
-        <%= t('ellipsis') %>
-      <% end %>
-    </div>
-
-    <div class="gridTwoItemBoxLight">
-      <h1 class="category_name"><%= t('categories.index.premade4_name') %></h1>
-
-      <%= strip_tags(t('categories.index.premade4_description')[0..80]) %>
-      <% if t('categories.index.premade4_description').length >= 80 %>
-        <%= t('ellipsis') %>
-      <% end %>
-    </div>
+    <% (1..4).each do |n| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', props: {
+          name: t("categories.index.premade#{n}_name"),
+          link: categories_path
+        }) %>
+      </div>
+    <% end %>
   </div>
 <% end %>

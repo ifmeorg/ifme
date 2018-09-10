@@ -19,18 +19,13 @@
   @media screen and (max-width: $medium) {
     height: $size-20;
   }
+  @media screen and (max-width: $medium) {
+    height: $size-10;
+  }
 }
 
 .no_title, .yes_title {
   width: auto;
-}
-
-.text_align_left {
-  text-align: left !important;
-}
-
-.text_align_right {
-  text-align: right !important;
 }
 
 .block {

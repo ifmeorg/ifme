@@ -7,25 +7,43 @@
   color: $mulberry !important;
 }
 
+@mixin buttonFull() {
+  .buttonS,
+  .buttonM,
+  .buttonL,
+  .buttonGhostS,
+  .buttonGhostM,
+  .buttonGhostL {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 @mixin buttonHover() {
   &:hover {
     opacity: 0.5;
   }
 }
 
-@mixin buttonS() {
+@mixin buttonXS() {
   font-size: $size-14;
-  padding: $size-10;
+  padding: $size-12;
+}
+
+@mixin buttonS() {
+  @include setFontSize($size-18);
+  @include setPadding($size-16, $size-16, $size-16, $size-16);
 }
 
 @mixin buttonM() {
-  font-size: $size-18;
-  padding: $size-16;
+  @include setFontSize($size-20);
+  @include setPadding($size-18, $size-18, $size-18, $size-18);
 }
 
 @mixin buttonL() {
-  font-size: $size-24;
-  padding: $size-22;
+  @include setFontSize($size-22);
+  @include setPadding($size-20, $size-20, $size-20, $size-20);
   font-weight: bold;
 }
 
@@ -35,6 +53,12 @@
 }
 
 .buttonGhost {
+  &XS {
+    @include button();
+    @include buttonGhost();
+    @include buttonXS();
+    @include buttonHover();
+  }
   &S {
     @include button();
     @include buttonGhost();
@@ -56,6 +80,11 @@
 }
 
 .button {
+  &XS {
+    @include button();
+    @include buttonXS();
+    @include buttonHover();
+  }
   &S {
     @include button();
     @include buttonS();

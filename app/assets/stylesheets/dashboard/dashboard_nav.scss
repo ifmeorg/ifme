@@ -25,7 +25,7 @@
       &Links {
         @include setFontSize($size-0);
         @include setMargin($size-14, $size-0, $size-0, $size-0);
-        line-height: $size-40;
+        line-height: 3.5;
         > a {
           @include setMargin($size-0, $size-8, $size-0, $size-0);
         }

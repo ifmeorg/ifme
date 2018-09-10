@@ -1,6 +1,6 @@
 label {
   @include setFontSize($size-14);
-  padding: $size-12 0;
+  @include setPadding($size-12, $size-0, $size-12, $size-0);
   letter-spacing: 0.095em;
   text-transform: uppercase;
 }
@@ -9,10 +9,6 @@ label {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
   width: auto;
   display: inherit;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .label i, .sidebar_label i {
@@ -77,9 +73,8 @@ input[type="radio"] {
 }
 
 .sidebar_field {
-  padding: 15px 15px 15px $size-0;
+  @include setPadding($size-16, $size-16, $size-16, $size-0);
   @media screen and (max-width: $medium) {
-    padding: $size-10 $size-10 $size-10 $size-0;
     width: 100%;
   }
 }

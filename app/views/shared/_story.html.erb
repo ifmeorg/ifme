@@ -1,0 +1,21 @@
+<div class="gridTwoItemBoxLight">
+  <% isStrategy = local_assigns[:story].class.name == 'Strategy' %>
+  <% isMoment = local_assigns[:story].class.name == 'Moment' %>
+  <% isCurrentUser = local_assigns[:story].user_id == current_user.id %>
+  <% storyBy = isCurrentUser ? link_to(t('common.you'), profile_index_path(uid: current_user.uid)) : link_to(User.where(id: local_assigns[:story].user_id).first.name, profile_index_path(uid: get_uid(local_assigns[:story].user_id))) %>
+  <%= react_component('Story', props: {
+    name: local_assigns[:story].name,
+    link: url_for(local_assigns[:story]),
+    date: ::TimeAgo.created_or_edited(local_assigns[:story]),
+    storyType: isMoment ? t('moments.singular') : t('strategies.singular'),
+    storyBy: local_assigns[:storyBy] ? storyBy : nil,
+    actions: {
+      edit: isCurrentUser ? (isMoment ? edit_moment_path(local_assigns[:story]) : edit_strategy_path(local_assigns[:story])) : nil,
+      viewers: isCurrentUser ? get_viewer_list(local_assigns[:story].viewers, nil) : nil,
+      delete: isCurrentUser ? t('common.actions.confirm') : nil
+    },
+    draft: !local_assigns[:story].published? ?  t('draft') : nil,
+    categories: local_assigns[:story].category.map{ |item| Category.find(item).name },
+    moods: isMoment ? local_assigns[:story].mood.map{ |item| Mood.find(item).name } : nil
+  }) %>
+</div>

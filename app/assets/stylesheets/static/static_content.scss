@@ -6,6 +6,9 @@
   @media screen and (max-width: $medium) {
     padding: $size-20;
   }
+  @media screen and (max-width: $small) {
+    @include buttonFull();
+  }
   @include staticContentLink();
 
   .pageTitle {
@@ -59,9 +62,15 @@
       }
       &Links {
         font-size: $size-0;
-        line-height: ($size-22 * 2) + $size-24 + $size-6;
+        line-height: 3;
+        @media screen and (max-width: $small) {
+          line-height: normal;
+        }
         > a:first-of-type {
           margin-right: $size-28;
+          @media screen and (max-width: $small) {
+            margin: $size-0 $size-0 $size-10 $size-0;
+          }
         }
       }
     }

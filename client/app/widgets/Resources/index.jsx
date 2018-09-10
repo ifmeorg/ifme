@@ -9,9 +9,7 @@ export interface Props {
   resources: any;
 }
 
-export interface State {
-
-}
+export interface State {}
 
 export class Resources extends React.Component<Props, State> {
   // constructor(props: Props) {
@@ -22,18 +20,16 @@ export class Resources extends React.Component<Props, State> {
     const { resources } = this.props;
     return (
       <div className={css.gridTwo}>
-        {
-          resources.map(resource => (
-            <div className={css.gridTwoItem}>
-              <Resource
-                tagged
-                tags={resource.languages.concat(resource.tags)}
-                title={resource.name}
-                link={resource.link}
-              />
-            </div>
-          ))
-        }
+        {resources.map(resource => (
+          <div className={css.gridTwoItem}>
+            <Resource
+              tagged
+              tags={resource.languages.concat(resource.tags)}
+              title={resource.name}
+              link={resource.link}
+            />
+          </div>
+        ))}
       </div>
     );
   }
