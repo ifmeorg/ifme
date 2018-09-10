@@ -1,4 +1,4 @@
-@import "../../styles/_legacy.scss";
+@import "../../styles/_global.scss";
 
 .story {
   .header {
@@ -31,12 +31,14 @@
   }
 
   .actions {
+    display: flex;
+    flex-direction: row;
     .action {
       @include setFontSize($size-20);
       color: $mulberry-80;
       cursor: pointer;
     }
-    > a {
+    > div {
       @include setMargin($size-0, $size-10, $size-0, $size-0);
       &:last-of-type {
         @include setMargin($size-0, $size-0, $size-0, $size-0);

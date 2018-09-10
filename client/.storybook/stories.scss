@@ -1,3 +1,5 @@
+@import "../app/styles/global.scss";
+
 /* This file is to override Storybook default styles */
 
 body {
@@ -7,11 +9,4 @@ body {
 
   /* Add padding to story page to give it some space against the edges */
   padding: 20px !important;
-
-  /*
-   * _global.scss contains the font-size, but Ant Design overrides its value in Storybook.
-   * We override it again here, but I need to figure out how to override Ant Design
-   * base font size.
-   */
-  font-size: 18px !important;
 }

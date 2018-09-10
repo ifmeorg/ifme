@@ -9,7 +9,7 @@ describe('StoryActions', () => {
     expect(() => {
       wrapper = render(
         <StoryActions
-          action={{
+          actions={{
             edit: 'some-url',
             delete: 'bluh',
             viewers: 'blah',

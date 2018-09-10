@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { Logo, LogoSolid } from '../components/Logo';
 
 const link = 'http://if-me.org';
