@@ -1,0 +1,61 @@
+@import "../../styles/_global.scss";
+
+.modal {
+  &Element {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &Backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $black-70;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &Box {
+    @include setFontSize($size-20);
+    padding: $size-20;
+    font-weight: $font-weight-400;
+    color: $black;
+    box-sizing: border-box;
+    box-shadow: $size-0 $size-2 $size-10 $black-10;
+    border-radius: $size-4;
+    background: $white;
+    width: 50vw;
+    height: 60vh;
+    @media screen and (max-width: $small) {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+    }
+    &Header {
+      @include setMargin($size-0, $size-0, $size-20, $size-0);
+      height: $size-20;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &Title {
+        font-weight: $font-weight-300;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      &Close {
+        cursor: pointer;
+        margin-left: $size-20;
+      }
+    }
+    &Body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: calc(100% - 40px);
+    }
+  }
+}

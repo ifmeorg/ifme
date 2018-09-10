@@ -1,4 +1,4 @@
-<div class="center margin_bottom">
+<div class="margin_bottom">
   <%= form_for(:search, url: posts_search_index_path, html: { method: :get }) do |f| %>
     <%= f.text_field :name, placeholder: t('search.search_by_name') %>
     <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
