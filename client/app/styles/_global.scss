@@ -8,3 +8,10 @@ body, html {
   font-weight: $font-weight-400;
   line-height: 1.4;
 }
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
+}

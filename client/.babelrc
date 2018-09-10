@@ -16,13 +16,5 @@
         "flow-react-proptypes"
       ]
     }
-  },
-  "plugins": [
-    [
-      "import",
-      {
-        "style": "css"
-      }
-    ]
-  ]
+  }
 }

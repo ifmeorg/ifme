@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import css from '../styles/_legacy.scss';
+import css from '../styles/_global.scss';
 
-storiesOf('Buttons', module)
+storiesOf('Button', module)
   .add('Solid', () => (
     <div>
       <button className={`${css.buttonXS} buttonXS`}>Extra Small Button</button>
