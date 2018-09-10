@@ -14,6 +14,8 @@
   > div:last-of-type {
     @include setFontSize($size-18);
     @include setPadding($size-10, $size-10, $size-10, $size-10);
+    font-weight: $font-weight-400;
+    color: $black;
     box-sizing: border-box;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border-radius: $size-4;
@@ -28,5 +30,9 @@
 
   &Right {
     right: 0;
+  }
+
+  &Center {
+    left: calc(50% - 100px);
   }
 }

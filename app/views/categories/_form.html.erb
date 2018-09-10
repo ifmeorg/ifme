@@ -9,7 +9,11 @@
   <div class="field">
     <div class="label">
       <%= f.label t('common.name'), for: 'category_name' %>
-      <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('categories.form.name_hint')) %>
+      <%= react_component('Tooltip', props: {
+        element: '<i class="fa fa-question-circle"></i>',
+        text: t('categories.form.name_hint'),
+        right: true
+      }) %>
     </div>
     <%= f.text_field :name, class: "name_field" %>
   </div>
@@ -18,7 +22,7 @@
     <div class="label">
       <%= f.label t('common.form.description'), for: 'category_description' %>
     </div>
-    <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
+    <%= f.cktext_area :description, class: 'special_textarea ckeditor' %>
   </div>
 
   <div class="actions no_margin_bottom">

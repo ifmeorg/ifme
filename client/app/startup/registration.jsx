@@ -16,6 +16,7 @@ import { Resource } from '../components/Resource';
 import { Tag } from '../components/Tag';
 import { Logo } from '../components/Logo';
 import { Story } from '../components/Story';
+import { Tooltip } from '../components/Tooltip';
 import { Resources } from '../widgets/Resources';
 
 window.jstz = jstz;
@@ -32,4 +33,5 @@ ReactOnRails.register({
   Resources,
   Story,
   Tag,
+  Tooltip,
 });
