@@ -1,124 +1,151 @@
 <div id="medication_content">
   <%= form_for(@medication) do |f| %>
+    <div class="field">
+      <div class="label gridRowSpaceBetween">
+        <%= f.label t('common.name'), for: 'medication_name' %>
+        <i class="fa fa-asterisk"></i>
+      </div>
+      <%= f.text_field :name, class: "name_field" %>
+    </div>
 
-  <div class="table">
-
-    <div class="table_cell padding_right vertical_align_top">
-
+    <div class="form_container">
       <div class="field">
-        <div class="label gridSpaceBetween">
-          <%= f.label t('common.name'), for: 'medication_name' %>
-          <i class="fa fa-asterisk"></i>
-        </div>
-        <%= f.text_field :name, class: "name_field" %>
-      </div>
-
-      <div class="form_container">
-        <div class="field">
-          <div class="label gridSpaceBetween">
-            <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.strength_hint')) %>
-              <i class="fa fa-asterisk"></i>
-          </div>
-          <div class="inline-block">
-            <%= f.number_field :strength, placeholder: t('medications.form.strength_placeholder') %>
-            <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
+        <div class="label gridRowSpaceBetween">
+          <%= f.label t('medications.form.strength'), for: 'medication_strength' %>
+          <div class="gridRow">
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('medications.form.strength_hint'),
+              right: true
+            }) %>
+            <i class="fa fa-asterisk smaller_margin_left"></i>
           </div>
         </div>
-
-        <div class="field">
-          <div class="label gridSpaceBetween">
-            <%= f.label :total, for: 'medication_total' %>
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.total_hint')) %>
-              <i class="fa fa-asterisk"></i>
-          </div>
-          <div class="inline-block">
-            <%= f.number_field :total, placeholder: t('medications.form.total_placeholder') %>
-            <%= f.select(:total_unit, [
-                  [t('medications.units.tablets.other'), 'tablets'],
-                  [t('medications.units.mg'), 'mg'],
-                  [t('medications.units.ml'), 'ml']]) %>
-          </div>
-        </div>
-      </div>
-
-      <div class="form_container">
-        <div class="field">
-          <div class="label gridSpaceBetween">
-            <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
-            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.dosage_hint')) %>
-            <i class="fa fa-asterisk"></i>
-          </div>
-          <div class="inline-block">
-            <%= f.number_field :dosage, placeholder: t('medications.form.dosage_placeholder') %>
-            <%= f.select(:dosage_unit, [
-                  [t('medications.units.tablets.other'), 'tablets'],
-                  [t('medications.units.mg'), 'mg'],
-                  [t('medications.units.ml'), 'ml']]) %>
-          </div>
-        </div>
-
-        <div class="field refill_medication">
-          <div class="label gridSpaceBetween">
-            <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
-            <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title medication_tooltip_padding', title: t('medications.form.refill_hint')) %>
-            <i class="fa fa-asterisk"></i>
-          </div>
-          <%= f.text_field :refill, { readonly: true } %>
+        <div class="inline-block">
+          <%= f.number_field :strength, placeholder: t('medications.form.strength_placeholder') %>
+          <%= f.select(:strength_unit, [[t('medications.units.mg'), 'mg'], [t('medications.units.ml'), 'ml']]) %>
         </div>
       </div>
 
       <div class="field">
-        <div class="label gridSpaceBetween">
-          <%= f.label t('comment.plural') %>
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.comments_hint')) %>
+        <div class="label gridRowSpaceBetween">
+          <%= f.label :total, for: 'medication_total' %>
+          <div class="gridRow">
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('medications.form.total_hint'),
+              right: true
+            }) %>
+            <i class="fa fa-asterisk smaller_margin_left"></i>
+          </div>
         </div>
-        <%= f.text_area :comments, class: "comments" %>
+        <div class="inline-block">
+          <%= f.number_field :total, placeholder: t('medications.form.total_placeholder') %>
+          <%= f.select(:total_unit, [
+                [t('medications.units.tablets.other'), 'tablets'],
+                [t('medications.units.mg'), 'mg'],
+                [t('medications.units.ml'), 'ml']]) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form_container">
+      <div class="field">
+        <div class="label gridRowSpaceBetween">
+          <%= f.label t('medications.form.dosage'), for: 'medication_dosage' %>
+          <div class="gridRow">
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('medications.form.dosage_hint'),
+              right: true
+            }) %>
+            <i class="fa fa-asterisk smaller_margin_left"></i>
+          </div>
+        </div>
+        <div class="inline-block">
+          <%= f.number_field :dosage, placeholder: t('medications.form.dosage_placeholder') %>
+          <%= f.select(:dosage_unit, [
+                [t('medications.units.tablets.other'), 'tablets'],
+                [t('medications.units.mg'), 'mg'],
+                [t('medications.units.ml'), 'ml']]) %>
+        </div>
       </div>
 
       <div class="field">
-        <%= f.fields_for :refill_reminder do |reminder| %>
-          <div class="label no_margin_bottom">
-            <div class="inline-block">
-              <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-              <%= reminder.label t('medications.refill_reminder'), for: 'refill_reminder' %>
-            </div>
-            <span class="medication_tooltip_padding">
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.refill_reminder_hint')) %>
-            </span>
+        <div class="label gridRowSpaceBetween">
+          <%= f.label t('medications.form.refill'), for: 'medication_refill' %>
+          <div class="gridRow">
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('medications.form.refill_hint'),
+              right: true
+            }) %>
+            <i class="fa fa-asterisk smaller_margin_left"></i>
           </div>
-        <% end %>
+        </div>
+        <%= f.text_field :refill, { readonly: true } %>
       </div>
+    </div>
 
-      <div class="field">
-        <%= f.fields_for :take_medication_reminder do |reminder| %>
-          <div class="label no_margin_bottom">
-            <div class="inline-block">
-              <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
-              <%= reminder.label t('common.daily_reminder'), for: 'take_medication_reminder' %>
-            </div>
-            <span class="medication_tooltip_padding">
-              <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.daily_reminder_hint')) %>
-            </span>
-          </div>
-        <% end %>
+    <div class="field">
+      <div class="label gridRowSpaceBetween">
+        <%= f.label t('comment.plural') %>
+        <%= react_component('Tooltip', props: {
+          element: '<i class="fa fa-question-circle"></i>',
+          text: t('medications.form.comments_hint'),
+          right: true
+        }) %>
       </div>
+      <%= f.text_area :comments, class: "comments" %>
+    </div>
 
-      <% if current_user.google_oauth2_enabled? %>
-        <div class="field">
+    <div class="field">
+      <%= f.fields_for :refill_reminder do |reminder| %>
+        <div class="label no_margin_bottom">
           <div class="inline-block">
-            <%= f.check_box :add_to_google_cal, class: 'no_margin_left' %>
-            <div class="label">
-              <%= f.label t('.add_to_google_cal') %>
-              <span class="medication_tooltip_padding">
-                 <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title', title: t('medications.form.google_cal_hint')) %>
-              </span>
-            </div>
+            <%= reminder.check_box(:active, { id: 'refill_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+            <%= reminder.label t('medications.refill_reminder'), for: 'refill_reminder' %>
           </div>
+          <%= react_component('Tooltip', props: {
+            element: '<i class="fa fa-question-circle"></i>',
+            text: t('medications.form.refill_reminder_hint'),
+            right: true
+          }) %>
         </div>
       <% end %>
     </div>
-  </div>
+
+    <div class="field">
+      <%= f.fields_for :take_medication_reminder do |reminder| %>
+        <div class="label no_margin_bottom">
+          <div class="inline-block">
+            <%= reminder.check_box(:active, { id: 'take_medication_reminder', class: 'no_margin_left' }, 'true', 'false') %>
+            <%= reminder.label t('common.daily_reminder'), for: 'take_medication_reminder' %>
+          </div>
+          <%= react_component('Tooltip', props: {
+            element: '<i class="fa fa-question-circle"></i>',
+            text: t('medications.form.daily_reminder_hint'),
+            right: true
+          }) %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if current_user.google_oauth2_enabled? %>
+      <div class="field">
+        <div class="inline-block">
+          <%= f.check_box :add_to_google_cal, class: 'no_margin_left' %>
+          <div class="label">
+            <%= f.label t('.add_to_google_cal') %>
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('medications.form.google_cal_hint'),
+              right: true
+            }) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <%= f.submit t('common.actions.submit') %>
   <% end %>
 </div>

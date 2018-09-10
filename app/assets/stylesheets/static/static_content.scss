@@ -86,4 +86,16 @@
   form {
     text-align: center;
   }
+
+  .partner {
+    text-align: center;
+    img {
+      border-radius: $size-4;
+      width: 500px;
+      height: auto;
+      @media screen and (max-width: $small) {
+        width: 100%;
+      }
+    }
+  }
 }

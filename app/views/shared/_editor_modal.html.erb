@@ -4,7 +4,7 @@
       <h1 id="close_editor"><i class="fa fa-times"></i></h1>
     </div>
     <div class="modal_text" id="modal_text">
-      <%= cktext_area :modal, :editor, ckeditor: { display:'none', height:'70vh' }, class: 'no_title special_textarea ckeditor' %>
+      <%= cktext_area :modal, :editor, ckeditor: { display:'none', height:'70vh' }, class: 'special_textarea ckeditor' %>
       <%= render partial: '/shared/character_count', locals: { data: 'modal_editor' } %>
     </div>
   </div>

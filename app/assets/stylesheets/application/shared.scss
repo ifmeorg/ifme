@@ -63,6 +63,7 @@
   }
   .some_focus {
     flex: 1;
+    min-width: 0;
     text-align: center;
     color: $key-lime;
     background-color: $mulberry;
@@ -83,13 +84,20 @@
     @include setFontSize($size-22);
     padding: $size-20;
     font-weight: $font-weight-300;
-    overflow: hidden;
-    text-overflow: ellipsis;
     a, .link_style {
       text-decoration: none;
       color: $key-lime;
       &:hover {
         opacity: 0.5;
+      }
+    }
+    .tooltip {
+      width: 100%;
+      &Element {
+        width: inherit;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }

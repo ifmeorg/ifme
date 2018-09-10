@@ -23,7 +23,7 @@
         <%= f.label t('common.form.description'), for: 'group_description' %>
         <i class="fa fa-asterisk"></i>
       </div>
-      <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
+      <%= f.cktext_area :description, class: 'special_textarea ckeditor' %>
     </div>
 
   <% elsif action_name == "edit" || action_name == "update" %>
@@ -62,7 +62,7 @@
             <%= f.label t('common.form.description') %>
           </div>
 
-          <%= f.cktext_area :description, class: 'no_title special_textarea ckeditor' %>
+          <%= f.cktext_area :description, class: 'special_textarea ckeditor' %>
         </div>
 
       </div>

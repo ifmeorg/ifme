@@ -12,7 +12,7 @@
     <div class="label">
       <%= local_assigns[:f].label t('common.form.description') %>
     </div>
-    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+    <%= local_assigns[:f].text_area :description %>
   </div>
 
   <% elsif local_assigns[:data_type] == 'mood' %>
@@ -29,7 +29,7 @@
     <div class="label">
       <%= local_assigns[:f].label t('common.form.description') %>
     </div>
-    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+    <%= local_assigns[:f].text_area :description %>
   </div>
 
   <% elsif local_assigns[:data_type] == 'strategy' %>
@@ -59,7 +59,7 @@
       <%= local_assigns[:f].label t('strategies.form.describe') %>
       <i class="fa fa-asterisk"></i>
     </div>
-    <%= local_assigns[:f].text_area :description, class: 'no_title' %>
+    <%= local_assigns[:f].text_area :description %>
     <%= render partial: '/shared/character_count', locals: { data: 'strategy_description' } %>
   </div>
 

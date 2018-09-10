@@ -7,7 +7,7 @@
   <div class="table_cell padding_right vertical_align_top sidebar">
 
     <div class="sidebar_field" >
-      <div class="sidebar_label">
+      <div class="sidebar_label gridRowSpaceBetween">
         <%= f.label t('common.title'), for: 'moment_name' %>
         <i class="fa fa-asterisk"></i>
       </div>
@@ -44,8 +44,14 @@
           <a href="#" class="toggle_button">
             <i class="fa fa-caret-down"></i>
           </a>
-          <%= f.label t('shared.viewers.plural') %>
-          <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('moments.form.viewers_hint')) %>
+          <div class="gridRow">
+            <%= f.label t('shared.viewers.plural'), class: 'smaller_margin_right' %>
+            <%= react_component('Tooltip', props: {
+              element: '<i class="fa fa-question-circle"></i>',
+              text: t('moments.form.viewers_hint'),
+              right: true
+            }) %>
+          </div>
         </div>
       </div>
 
@@ -67,9 +73,15 @@
     <% end %>
 
      <div class="sidebar_field">
-      <div class="sidebar_label">
-        <%= f.label t('comment.allow_comments') %>
-        <%= content_tag(:span, '<i class="fa fa-question-circle"></i>'.html_safe, class: 'yes_title smaller_margin_left', title: t('comment.hint')) %>
+      <div class="sidebar_label gridRowSpaceBetween">
+        <div class="gridRow">
+          <%= f.label t('comment.allow_comments'), class: 'smaller_margin_right' %>
+          <%= react_component('Tooltip', props: {
+            element: '<i class="fa fa-question-circle"></i>',
+            text: t('comment.hint'),
+            right: true
+          }) %>
+        </div>
         <%= f.check_box :comment, class: 'no_margin_right' %>
       </div>
     </div>
@@ -81,7 +93,7 @@
         <%= f.label t('moments.form.why'), for: 'moment_why' %>
         <i class="fa fa-asterisk"></i>
       </div>
-      <%= f.cktext_area :why, class: 'no_title special_textarea ckeditor' %>
+      <%= f.cktext_area :why, class: 'special_textarea ckeditor' %>
 
       <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
     </div>
@@ -89,7 +101,7 @@
       <div class="label">
         <%= f.label t('moments.form.fix') %>
       </div>
-      <%= f.cktext_area :fix, class: 'no_title special_textarea ckeditor' %>
+      <%= f.cktext_area :fix, class: 'special_textarea ckeditor' %>
 
       <%= render partial: '/shared/character_count', locals: { data: 'moment_fix' } %>
     </div>

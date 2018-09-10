@@ -38,9 +38,7 @@ const getHref = (props: Props, item: string) => {
 
 const displayTooltip = (props: Props, item: string) => {
   const { actions } = props;
-  return (
-    <Tooltip element={classMap[item]} text={actions[item]} right />
-  );
+  return <Tooltip element={classMap[item]} text={actions[item]} right />;
 };
 
 const displayLink = (props: Props, item: string) => {
@@ -69,9 +67,9 @@ export const StoryActions = (props: Props) => {
   const { actions } = props;
   return (
     <div className={css.actions}>
-      {[EDIT, DELETE, VIEWERS].map((item: string) => (
-        actions[item] ? displayItem(props, item) : null
-      ))}
+      {[EDIT, DELETE, VIEWERS].map(
+        (item: string) => (actions[item] ? displayItem(props, item) : null),
+      )}
     </div>
   );
 };
