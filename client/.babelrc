@@ -21,7 +21,6 @@
     [
       "import",
       {
-        "libraryName": "antd",
         "style": "css"
       }
     ]
