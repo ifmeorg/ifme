@@ -7,10 +7,10 @@
       <%= current_user.name %>
     </div>
     <div class="dashboardNavProfileInfoLinks">
-      <%= link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid), class: 'buttonGhostS') %>
-      <%= link_to(t('account.singular'), edit_user_registration_path, class: 'buttonGhostS') %>
+      <%= link_to(t('profile.index.title'), profile_index_path(uid: current_user.uid), class: 'buttonGhostXS') %>
+      <%= link_to(t('account.singular'), edit_user_registration_path, class: 'buttonGhostXS') %>
       <%=
-        link_to '', { class: 'notifications_button buttonGhostS', alt: t('notifications.plural') } do
+        link_to '', { class: 'notifications_button buttonGhostXS', alt: t('notifications.plural') } do
           content_tag :i, '', class: 'fas fa-bell'
         end
       %>

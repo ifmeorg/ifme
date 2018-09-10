@@ -23,10 +23,11 @@
 
   &Link {
     @include linkStyle();
-    @include setFontSize($size-18);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
+    font-size: $size-16;
     @media screen and (max-width: $medium) {
       text-align: center;
+      font-size: $size-18;
     }
   }
 

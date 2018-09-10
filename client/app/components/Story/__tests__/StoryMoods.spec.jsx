@@ -1,17 +1,16 @@
 // @flow
 import { render } from 'enzyme';
 import React from 'react';
-import { MomentCardMoods } from '../MomentCardMoods';
+import { StoryMoods } from '../StoryMoods';
 
-describe('MomentCardMoods', () => {
-  it('renders MomentCard moods', () => {
+describe('StoryMoods', () => {
+  it('renders correctly', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(
-        <MomentCardMoods mood={['NERVOUS', 'ANXIOUS', 'HELPFUL']} />,
+        <StoryMoods moods={['NERVOUS', 'ANXIOUS', 'HELPFUL']} />,
       );
     }).not.toThrow();
-
     expect(wrapper).not.toBeNull();
   });
 });

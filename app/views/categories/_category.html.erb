@@ -1,12 +1,10 @@
-<div class="gridTwoItemBoxLight post">
-	<h1 class="category_name"><%= link_to category.name, category %></h1>
-  	<%= strip_tags(category.description[0..80]) %>
-  	<% if category.description.length >= 80 %>
-    	<%= t('ellipsis') %>
-  	<% end %>
-
-  	<div class="small_margin_top">
-    	<i class="fa fa-pencil-alt action"></i><%= link_to t('common.actions.edit'), edit_category_path(category) %>
-    	<i class="fa fa-trash-alt action small_margin_left"></i><%= link_to t('common.actions.delete'), category, method: :delete, data: { confirm: t('common.actions.confirm') } %>
-  	</div>
+<div class="gridTwoItemBoxLight">
+	<%= react_component('Story', props: {
+		name: category.name,
+		link: url_for(category),
+		actions: {
+			edit: edit_category_path(category),
+			delete: t('common.actions.confirm')
+		}
+	}) %>
 </div>

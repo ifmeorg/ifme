@@ -11,24 +11,7 @@
   <div class="gridTwo">
     <% @stories.each do |story| %>
       <% if current_user.id == story.user_id || (viewer_of?(story.viewers) && are_allies?(current_user.id, story.user_id)) %>
-        <div class="gridTwoItemBoxLight">
-          <div>
-            <h1 class="story_name">
-              <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
-              <%= link_to story.name, story %>
-            </h1>
-          </div>
-          <div>
-            <h1 class="ally_name">
-              <% if current_user.id == story.user_id %>
-                <%= link_to t('common.you'), profile_index_path(uid: current_user.uid) %>
-              <% else %>
-                <%= link_to User.where(id: story.user_id).first.name, profile_index_path(uid: get_uid(story.user_id)) %>
-              <% end %>
-            </h1>
-          </div>
-          <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
-        </div>
+        <%= render partial: '/shared/story', locals: { story: story, storyBy: true } %>
       <% end %>
     <% end %>
   </div>

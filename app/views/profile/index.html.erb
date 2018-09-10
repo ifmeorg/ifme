@@ -39,19 +39,13 @@
 <%= render partial: '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
 
 <% if !@stories.nil? && @stories.any? %>
-  <div class="messageMain">
-    Stories
+  <div class="title">
+    <%= t('pages.home.stories') %>
   </div>
 
   <div class="gridTwo">
     <% @stories.each do |story| %>
-      <div class="gridTwoItemBoxLight">
-        <h1 class="story_name">
-          <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
-          <%= link_to story.name, story %>
-        </h1>
-        <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
-      </div>
+      <%= render partial: '/shared/story', locals: { story: story } %>
     <% end %>
   </div>
 
