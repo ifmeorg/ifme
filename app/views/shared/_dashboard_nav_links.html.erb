@@ -6,4 +6,7 @@
   <%= dashboard_nav_link_to(t('medications.index.title'), medications_path) %>
   <%= dashboard_nav_link_to(t('groups.plural'), groups_path) %>
   <%= dashboard_nav_link_to(t('allies.index.title'), allies_path) %>
+  <% if current_user.admin? %>
+    <%= dashboard_nav_link_to(t('admin.dashboard'), admin_dashboard_path) %>
+  <% end %>
 </div>
