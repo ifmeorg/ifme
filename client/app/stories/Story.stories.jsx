@@ -2,7 +2,7 @@ import 'font-awesome/scss/font-awesome.scss';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Story } from '../components/Story';
-import css from '../styles/_legacy.scss';
+import css from '../styles/_global.scss';
 
 storiesOf('Story', module)
   .add('no options', () => (

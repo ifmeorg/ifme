@@ -1,7 +1,7 @@
 import React from 'react';
-import { availableLocalesAsSelectOptions as localeOptions } from 'libs/i18n/I18nUtils';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import { availableLocalesAsSelectOptions as localeOptions } from '../libs/i18n/I18nUtils';
 import { DropdownFillSmall } from '../components/Dropdown/DropdownFillSmall';
 import { DropdownGhost } from '../components/Dropdown/DropdownGhost';
 import { DropdownGhostSmall } from '../components/Dropdown/DropdownGhostSmall';

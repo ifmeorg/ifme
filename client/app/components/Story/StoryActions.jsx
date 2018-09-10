@@ -7,6 +7,7 @@ import {
   faLock,
 } from '@fortawesome/free-solid-svg-icons';
 import css from './Story.scss';
+import { Tooltip } from '../Tooltip';
 
 export interface Props {
   link: string;
@@ -17,6 +18,10 @@ export interface Props {
   };
 }
 
+const EDIT = 'edit';
+const DELETE = 'delete';
+const VIEWERS = 'viewers';
+
 const classMap = {
   edit: <FontAwesomeIcon icon={faPencilAlt} className={css.action} />,
   delete: <FontAwesomeIcon icon={faTrash} className={css.action} />,
@@ -25,32 +30,48 @@ const classMap = {
 
 const getHref = (props: Props, item: string) => {
   const { actions, link } = props;
-  if (item === 'edit') {
+  if (item === EDIT) {
     return actions[item];
-  } else if (item === 'delete') {
-    return link;
   }
-  return null;
+  return link;
+};
+
+const displayTooltip = (props: Props, item: string) => {
+  const { actions } = props;
+  return (
+    <Tooltip element={classMap[item]} text={actions[item]} right />
+  );
+};
+
+const displayLink = (props: Props, item: string) => {
+  const { actions } = props;
+  return (
+    <div>
+      <a
+        href={getHref(props, item)}
+        data-method={item === DELETE ? DELETE : null}
+        data-confirm={item === DELETE ? actions[item] : null}
+      >
+        {classMap[item]}
+      </a>
+    </div>
+  );
+};
+
+const displayItem = (props: Props, item: string) => {
+  if (item === EDIT || item === DELETE) {
+    return displayLink(props, item);
+  }
+  return displayTooltip(props, item);
 };
 
 export const StoryActions = (props: Props) => {
   const { actions } = props;
   return (
     <div className={css.actions}>
-      {['edit', 'delete', 'viewers'].map((item: string) => {
-        if (actions && actions[item]) {
-          return (
-            <a
-              href={getHref(props, item)}
-              data-method={item === 'delete' ? 'delete' : ''}
-              data-confirm={item === 'delete' ? actions[item] : null}
-            >
-              {classMap[item]}
-            </a>
-          );
-        }
-        return null;
-      })}
+      {[EDIT, DELETE, VIEWERS].map((item: string) => (
+        actions[item] ? displayItem(props, item) : null
+      ))}
     </div>
   );
 };
