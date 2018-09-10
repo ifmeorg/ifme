@@ -9,50 +9,50 @@ const shortText = 'Heya this is a tooltip.';
 
 storiesOf('Tooltip', module)
   .add('Element is text', () => (
-    <div>
+    <center>
       <Tooltip element="Hello" text={longText} />
       <br />
       <br />
       <Tooltip element="Hello another thing" text={shortText} />
-    </div>
+    </center>
   ))
   .add('Element is HTML', () => (
-    <div>
+    <center>
       <Tooltip element={<Logo lg />} text={longText} />
       <br />
       <br />
       <Tooltip element={<Logo lg />} text={shortText} />
-    </div>
+    </center>
   ))
   .add('Element is text and tooltip is positioned right', () => (
-    <div>
+    <center>
       <Tooltip element="Hello" text={longText} right />
       <br />
       <br />
       <Tooltip element="Hello another thing" text={shortText} right />
-    </div>
+    </center>
   ))
   .add('Element is HTML and tooltip is positioned right', () => (
-    <div>
+    <center>
       <Tooltip element={<Logo lg />} text={longText} right />
       <br />
       <br />
       <Tooltip element={<Logo lg />} text={shortText} right />
-    </div>
+    </center>
   ))
   .add('Element is text and tooltip is positioned center', () => (
-    <div>
+    <center>
       <Tooltip element="Hello" text={longText} center />
       <br />
       <br />
       <Tooltip element="Hello another thing" text={shortText} center />
-    </div>
+    </center>
   ))
   .add('Element is HTML and tooltip is positioned center', () => (
-    <div>
+    <center>
       <Tooltip element={<Logo lg />} text={longText} center />
       <br />
       <br />
       <Tooltip element={<Logo lg />} text={shortText} center />
-    </div>
+    </center>
   ));
