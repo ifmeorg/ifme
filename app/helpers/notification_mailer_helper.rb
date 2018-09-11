@@ -52,7 +52,9 @@ module NotificationMailerHelper
       user: data['user'].to_s,
       group: data['group'].to_s,
       description: Group.where(id: data['group_id']).first.description,
-      link: link_to(link_name, group_url(data['group_id']))
+      link: link_to(link_name, group_url(data['group_id'])),
+      link_to_code_of_conduct: link_to(link_name,
+                                       'https://www.contributor-covenant.org/')
     )
   end
 

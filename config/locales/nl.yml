@@ -43,6 +43,7 @@ nl:
    press: 'Press'
    faq: 'FAQ'
    resources: 'Bronnen'
+   code_of_conduct: 'Gedragscode'
 
  common:
    name: 'Naam'
@@ -334,7 +335,7 @@ nl:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Om het te lezen, %{link}!</p>"
     new_group_subject: "if me | %{user} heeft de groep \"%{group}\" gemaakt"
-    new_group_body: "<p>%{user} maakte de groep \"%{group}\":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p>"
+    new_group_body: "<p>%{user} maakte de groep \"%{group}\":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p><p>Om onze gedragscode te bekijken %{link_to_code_of_conduct}!</p>"
     new_group_member_subject: "if me | %{user} is lid geworden van je groep \"%{group}\""
     add_group_leader_you_subject: "if me | Je bent een leider geworden in de groep \"%{group}\""
     add_group_leader_subject: "if me | %{user} is een leider geworden van de groep \" %{group}\""

@@ -43,6 +43,7 @@ es:
    press: 'Prensa'
    faq: 'Preguntas Frecuentes'
    resources: "Recursos"
+   code_of_conduct: 'Código de Conducta'
 
  common:
    name: "Nombre"
@@ -336,7 +337,7 @@ es:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Para leer, %{link}!</p>"
     new_group_subject: "if me | %{user} creó el grupo \"%{group}\""
-    new_group_body: "<p>%{user} creó el grupo \"%{group}\":</p><p><i>%{description}</i></p><p>Para continuar leyendo y unirte, %{link}!</p>"
+    new_group_body: "<p>%{user} creó el grupo \"%{group}\":</p><p><i>%{description}</i></p><p>Para continuar leyendo y unirte, %{link}!</p><p>Para ver nuestro código de conducta %{link_to_code_of_conduct}!</p>"
     new_group_member_subject: "if me | %{user} se unió a tu grupo \"%{group}\""
     add_group_leader_you_subject: "if me | Te has convertido en líder de \"%{group}\""
     add_group_leader_subject: "if me | %{user} se ha convertido en líder de \" %{group}\""
