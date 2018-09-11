@@ -1,0 +1,10 @@
+<% group.members.each do |member| %>
+  <div class="gridRowSpaceBetween">
+    <%= link_to member.name, profile_index_path(uid: member.uid) %>
+    <% if member != current_user &&
+      group.instance_of?(Group) &&
+      group.leaders.include?(current_user) %>
+      <%= kick_member_link(group, member) %>
+    <% end %>
+  </div>
+<% end %>

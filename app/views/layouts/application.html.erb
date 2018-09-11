@@ -52,7 +52,6 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <%= render partial: 'notifications/list' %>
     <div class="content <%= user_signed_in? && !static_page? ? 'dashboard' : 'static' %>">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>

@@ -6,8 +6,6 @@
 <% if !user_signed_in? %>
   <%= render partial: 'not_signed_in' %>
 <% elsif @stories.any? %>
-  <%= render partial: '/moments/quick_moment', locals: { moment: @moment, categories: @categories, moods: @moods } %>
-
   <div class="gridTwo">
     <% @stories.each do |story| %>
       <% if current_user.id == story.user_id || (viewer_of?(story.viewers) && are_allies?(current_user.id, story.user_id)) %>

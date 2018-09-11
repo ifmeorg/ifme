@@ -251,8 +251,6 @@ pt-BR:
  moments:
   singular: 'Momento'
   plural: 'Momentos'
-  quick_moment_disclaimer: 'Esse momento será compartilhado com todos os aliados que comentarem nesse momento. Você pode editar esse momento depois.'
-  categories_and_moods: 'Humor e categorias'
   edit_moment: 'Editar Momento'
   tagged: 'Momentos com Tags'
   new: 'Novo Momento'

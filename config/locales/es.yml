@@ -253,8 +253,6 @@ es:
  moments:
   singular: "Momento"
   plural: "Momentos"
-  quick_moment_disclaimer: "Esto será compartido con todos los aliados que tienen permitido comentar. Puedes editar esto más adelante."
-  categories_and_moods: "Categorías y Estados de Ánimo"
   edit_moment: "Editar Momento"
   tagged: "Etiquetar Momento"
   new: "Nuevo Momento"

@@ -251,8 +251,6 @@ vi:
  moments:
   singular: 'Khoản khắc'
   plural: 'Khoản khắc'
-  quick_moment_disclaimer: 'Đây là thông tin sẽ được chia sẻ với tất cả đồng minh của bạn cùng với những góp ý của họ. Lúc nào bạn cũng có thể quay lại để chỉnh sửa.'
-  categories_and_moods: 'Danh mục và trạng thái'
   edit_moment: 'Hiệu chỉnh khoản khắc'
   tagged: 'Những khoản khắc đã được ghi'
   new: 'Khoản khắc mới'

@@ -251,8 +251,6 @@ en:
  moments:
   singular: 'Moment'
   plural: 'Moments'
-  quick_moment_disclaimer: 'This will be shared with all allies with comments on. You can always edit this later.'
-  categories_and_moods: 'Categories and Moods'
   edit_moment: 'Edit Moment'
   tagged: 'Tagged Moments'
   new: 'New Moment'
