@@ -6,51 +6,6 @@
     display: none;
   }
 
-  &Profile {
-    width: 100%;
-    box-sizing: border-box;
-    padding: $size-22 $size-26;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    &Picture {
-      padding-right: $size-20;
-      width: 40%;
-      box-sizing: border-box;
-    }
-    &Info {
-      @include setFontSize($size-18);
-      color: $white;
-      &Links {
-        @include setFontSize($size-0);
-        @include setMargin($size-14, $size-0, $size-0, $size-0);
-        line-height: 3.5;
-        > a {
-          @include setMargin($size-0, $size-8, $size-0, $size-0);
-        }
-        > a:last-of-type {
-          @include setMargin($size-0, $size-0, $size-0, $size-0);
-        }
-      }
-    }
-    @media screen and (max-width: $medium) {
-      text-align: center;
-      justify-content: center;
-      &Picture {
-        display: none;
-      }
-    }
-    @media screen and (max-width: $large) {
-      flex-direction: column;
-      text-align: center;
-      &Picture {
-        padding: $size-0;
-        width: 30%;
-      }
-    }
-  }
-
   &Links {
     @include setFontSize($size-20);
     a {

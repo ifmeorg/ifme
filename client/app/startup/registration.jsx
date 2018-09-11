@@ -12,6 +12,7 @@ import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import { Header } from '../components/Header';
+import { HeaderProfile } from '../components/Header/HeaderProfile';
 import { Resource } from '../components/Resource';
 import { Tag } from '../components/Tag';
 import { Logo } from '../components/Logo';
@@ -19,6 +20,7 @@ import { Story } from '../components/Story';
 import { Tooltip } from '../components/Tooltip';
 import { Modal } from '../components/Modal';
 import { Resources } from '../widgets/Resources';
+import { Notifications } from '../widgets/Notifications';
 
 window.jstz = jstz;
 loadLocales();
@@ -29,8 +31,10 @@ ReactOnRails.register({
   Chart,
   ChartControl,
   Header,
+  HeaderProfile,
   Logo,
   Modal,
+  Notifications,
   Resource,
   Resources,
   Story,

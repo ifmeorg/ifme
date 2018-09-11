@@ -1,6 +1,25 @@
 describe HeaderHelper do
   describe '#header_props' do
     let(:mobile_only) { 'mobile_only_stub' }
+    let(:profile) {
+      {
+        avatar: nil,
+        name: current_user.name,
+        profile: {
+          name: 'Profile',
+          url: "/profile?uid=#{current_user.uid}"
+        },
+        account: {
+          name: 'Account',
+          url: '/users/edit'
+        },
+        notifications: {
+          plural: 'Notifications',
+          none: 'There are none',
+          clear: 'Clear'
+        }
+      }
+    }
     subject { header_props }
 
     before(:each) do
@@ -27,7 +46,8 @@ describe HeaderHelper do
               { name: 'Resources', url: '/resources', active: false },
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
-            mobileOnly: mobile_only
+            mobileOnly: mobile_only,
+            profile: profile
           })
         end
       end
@@ -43,7 +63,8 @@ describe HeaderHelper do
               { name: 'Resources', url: '/resources', active: true },
               { name: 'Sign out', url: '/users/sign_out', dataMethod: 'delete', hideInMobile: true }
             ],
-            mobileOnly: mobile_only
+            mobileOnly: mobile_only,
+            profile: profile
           })
         end
       end
@@ -66,7 +87,8 @@ describe HeaderHelper do
               { name: 'Join', url: '/users/sign_up', active: false },
               { name: 'Sign in', url: '/users/sign_in', active: false }
             ],
-            mobileOnly: nil
+            mobileOnly: nil,
+            profile: nil
           })
         end
       end
@@ -83,7 +105,8 @@ describe HeaderHelper do
               { name: 'Join', url: '/users/sign_up', active: false },
               { name: 'Sign in', url: '/users/sign_in', active: true }
             ],
-            mobileOnly: nil
+            mobileOnly: nil,
+            profile: nil
           })
         end
       end

@@ -7,8 +7,10 @@ import css from './Modal.scss';
 
 export interface Props {
   element: any;
+  elementId?: string;
   body: any;
   title?: string;
+  openListener?: Function;
 }
 
 export interface State {
@@ -42,6 +44,7 @@ export class Modal extends React.Component<Props, State> {
           </div>
         ) : null}
         <div
+          id="modalClose"
           className={css.modalBoxHeaderClose}
           onClick={() => this.toggleOpen()}
           role="button"
@@ -80,15 +83,20 @@ export class Modal extends React.Component<Props, State> {
 
   toggleOpen = () => {
     const { open } = this.state;
+    const { openListener } = this.props;
+    if (!open && openListener) {
+      openListener();
+    }
     this.setState({ open: !open });
   };
 
   render() {
-    const { element } = this.props;
+    const { element, elementId } = this.props;
     const { open } = this.state;
     return (
       <div className={css.modal}>
         <div
+          id={elementId || null}
           className={`modalElement ${css.modalElement}`}
           onClick={() => this.toggleOpen()}
           role="button"
