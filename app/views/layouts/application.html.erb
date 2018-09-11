@@ -58,7 +58,9 @@
       <% if user_signed_in? && !static_page? %>
         <div class="dashboardContent">
           <div class="dashboardNav">
-            <%= render partial: "shared/dashboard_nav" %>
+            <%= react_component('HeaderProfile', props: { profile: header_props[:profile] }) %>
+            <%= render partial: "shared/dashboard_nav_links" %>
+            <%= render partial: "shared/dashboard_nav_actions" %>
           </div>
           <div class="dashboardSection">
             <%= render partial: "shared/page_title" %>

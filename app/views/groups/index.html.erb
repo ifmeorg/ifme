@@ -17,7 +17,7 @@
 
         <div class="small_margin_bottom">
           <%= react_component('Modal', props: {
-            element: "<button class=\"buttonS\">#{t('members', count: group.group_members.count)}</button>",
+            element: "<button class=\"buttonDarkS groupMembersButton\">#{t('members', count: group.group_members.count)}</button>",
             title: t('notifications.members.title'),
             body: render_group_member_partial(group)
           }) %>
@@ -68,7 +68,7 @@
 
         <div class="small_margin_bottom">
           <%= react_component('Modal', props: {
-            element: "<button class=\"buttonS\">#{t('members', count: group.group_members.count)}</button>",
+            element: "<button class=\"buttonDarkS groupMembersButton\">#{t('members', count: group.group_members.count)}</button>",
             title: t('notifications.members.title'),
             body: render_group_member_partial(group)
           }) %>
