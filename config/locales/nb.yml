@@ -251,8 +251,6 @@ nb:
  moments:
   singular: 'Øyeblikk'
   plural: 'Øyeblikk'
-  quick_moment_disclaimer: 'Dette vil bli delt med alle allierte med kommentarer inkludert. Du kan alltids redigere dette senere.'
-  categories_and_moods: 'Kategorier og humor'
   edit_moment: 'Rediger øyeblikk'
   tagged: 'tag øyeblikk'
   new: 'Nytt øyeblikk'

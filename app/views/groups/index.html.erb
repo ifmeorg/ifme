@@ -15,12 +15,12 @@
           <%= t('groups.index.leader') if user_is_leader_of? group %>
         </h1>
 
-        <div class="notification_wrapper small_margin_bottom">
-          <strong class="tip_notifications_button">
-            <i class="fa fa-list small_margin_right"></i>
-            <%= t('members', count: group.group_members.count) %>
-          </strong>
-          <%= render_group_member_partial(group) %>
+        <div class="small_margin_bottom">
+          <%= react_component('Modal', props: {
+            element: "<button class=\"buttonS\">#{t('members', count: group.group_members.count)}</button>",
+            title: t('notifications.members.title'),
+            body: render_group_member_partial(group)
+          }) %>
         </div>
 
         <%= strip_tags(group.description[0..80]) %>
@@ -66,12 +66,12 @@
           <%= link_to group.name, group %>
         </h1>
 
-        <div class="notification_wrapper small_margin_bottom">
-          <strong class="tip_notifications_button">
-            <i class="fa fa-list small_margin_right"></i>
-            <%= t('members', count: group.group_members.count) %>
-          </strong>
-          <%= render_group_member_partial(group) %>
+        <div class="small_margin_bottom">
+          <%= react_component('Modal', props: {
+            element: "<button class=\"buttonS\">#{t('members', count: group.group_members.count)}</button>",
+            title: t('notifications.members.title'),
+            body: render_group_member_partial(group)
+          }) %>
         </div>
 
         <%= strip_tags(group.description[0..80]) %>

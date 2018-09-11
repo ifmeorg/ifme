@@ -70,32 +70,6 @@ class MomentsController < ApplicationController
   end
   # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
-  def quick_moment
-    # Assumme all viewers and comments allowed
-    viewers = []
-    current_user.allies_by_status(:accepted).each do |item|
-      viewers.push(item.id)
-    end
-
-    Moment.create!(
-      user: current_user,
-      name: params[:moment][:name],
-      why: params[:moment][:why],
-      comment: true,
-      viewers: viewers,
-      published_at: Time.zone.now,
-      category: params[:moment][:category],
-      mood: params[:moment][:mood]
-    )
-
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { render root_path }
-    end
-  end
-  # rubocop:enable MethodLength
-
   # GET /moments/new
   def new
     @moment = Moment.new
