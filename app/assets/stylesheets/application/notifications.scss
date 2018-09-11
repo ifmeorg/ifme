@@ -106,8 +106,7 @@ h1.notification_name,
 h1.tip_close_notifications,
 h1.quick_create_close,
 h1#clear_notifications,
-h1#close_notifications,
-h1#close_categories_moods, {
+h1#close_notifications {
   @include setFontSize($size-26);
   @include setMargin($size-0, $size-0, $size-0, $size-0);
   font-weight: $font-weight-300;

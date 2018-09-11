@@ -24,18 +24,20 @@
 <%= meeting.time %>
 
 <div class="notification_wrapper">
-  <strong class="tip_notifications_button">
-    <i class="fa fa-list small_margin_right"></i>
-    <% if local_assigns[:show_group] %>
-      <%= t('meetings.info.members_of_group_html',
-            count: meeting.members.count,
-            group: link_to(meeting.group.name, meeting.group)) %>
-    <% else %>
-      <%= t('members', count: meeting.members.count) %>
-    <% end %>
-  </strong>
-
-  <%= render partial: '/notifications/members', locals: { group: meeting } %>
+  <%
+    if local_assigns[:show_group]
+      elementText = t('meetings.info.members_of_group_html',
+        count: meeting.members.count,
+        group: link_to(meeting.group.name, meeting.group))
+    else
+      elementText = t('members', count: meeting.members.count)
+    end
+  %>
+  <%= react_component('Modal', props: {
+    element: "<button class=\"buttonS\">#{elementText}</button>",
+    title: t('notifications.members.title'),
+    body: render_group_member_partial(meeting)
+  }) %>
 </div>
 
 <strong>

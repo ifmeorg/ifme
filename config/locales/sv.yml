@@ -252,8 +252,6 @@ sv:
  moments:
   singular: 'Ögonblick'
   plural: 'Ögonblicken'
-  quick_moment_disclaimer: 'Detta kommer att delas med alla allierade med kommentarer på. Du kan alltid redigera det senare.'
-  categories_and_moods: 'Kategorier och Humör'
   edit_moment: 'Redigera Ögonblick'
   tagged: 'Taggade Ögonblick'
   new: 'Nya Ögonblick'

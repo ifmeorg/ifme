@@ -251,8 +251,6 @@ nl:
  moments:
   singular: 'Moment'
   plural: 'Momenten'
-  quick_moment_disclaimer: 'Dit wordt gedeeld met alle bondgenoten met commentaar ingeschakeld. Je kunt dit altijd later aanpassen.'
-  categories_and_moods: 'Categorieën en Stemming'
   edit_moment: 'Bewerk Moment'
   tagged: 'Getagde Momenten'
   new: 'Nieuw Moment'

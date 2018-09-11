@@ -11,8 +11,6 @@
       <h1 id="close_notifications"><i class="fa fa-times"></i></h1>
     <% elsif local_assigns[:modal_close_class] %>
       <h1 class=<%= "#{local_assigns[:modal_close_class].to_s}" %>><i class="fa fa-times"></i></h1>
-    <% elsif local_assigns[:modal_close_id] %>
-      <h1 id=<%= local_assigns[:modal_close_id].to_s %>><i class="fa fa-times"></i></h1>
     <% end %>
   </div>
 </div>

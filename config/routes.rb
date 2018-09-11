@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   resources :moments do
     collection do
       post 'comment'
-      post 'quick_moment'
       get 'delete_comment'
     end
   end

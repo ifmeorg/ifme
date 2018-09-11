@@ -74,7 +74,7 @@ module GroupsHelper
   end
 
   def render_group_member_partial(group)
-    render partial: '/notifications/members', locals: { group: group }
+    render partial: '/shared/members', locals: { group: group }
   end
 
   def render_meeting_partial(meeting)

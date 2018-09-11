@@ -251,8 +251,6 @@ it:
  moments:
   singular: 'Momento'
   plural: 'Momenti'
-  quick_moment_disclaimer: 'Quest’azione sarà condivisa con tutti gli alleati con i commenti abilitati. Puoi cambiare questa cosa in qualsiasi momento.'
-  categories_and_moods: 'Categorie e Stati d’animo'
   edit_moment: 'Modifica Momento'
   tagged: 'Momenti taggati'
   new: 'Nuovo Momento'

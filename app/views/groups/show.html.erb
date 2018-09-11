@@ -6,12 +6,12 @@
     <%= sanitize(@group.description) %>
   </div>
 
-  <div class="notification_wrapper">
-    <strong class="tip_notifications_button">
-      <i class="fa fa-list small_margin_right"></i>
-      <%= t('members', count: @group.group_members.count) %>
-    </strong>
-    <%= render_group_member_partial(@group) %>
+  <div class="small_margin_bottom">
+    <%= react_component('Modal', props: {
+      element: "<button class=\"buttonS\">#{t('members', count: @group.group_members.count)}</button>",
+      title: t('notifications.members.title'),
+      body: render_group_member_partial(@group)
+    }) %>
   </div>
 
   <strong>

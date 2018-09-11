@@ -1,6 +1,6 @@
 // @flow
 /**
- * Add components only if needed in current _if me_ application, because
+ * Add components only if needed in current application, because
  * this bundle will be loaded in production.
  */
 
@@ -17,6 +17,7 @@ import { Tag } from '../components/Tag';
 import { Logo } from '../components/Logo';
 import { Story } from '../components/Story';
 import { Tooltip } from '../components/Tooltip';
+import { Modal } from '../components/Modal';
 import { Resources } from '../widgets/Resources';
 
 window.jstz = jstz;
@@ -29,6 +30,7 @@ ReactOnRails.register({
   ChartControl,
   Header,
   Logo,
+  Modal,
   Resource,
   Resources,
   Story,
