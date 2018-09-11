@@ -13,7 +13,10 @@
   .buttonL,
   .buttonGhostS,
   .buttonGhostM,
-  .buttonGhostL {
+  .buttonGhostL,
+  .buttonDarkS,
+  .buttonDarkM,
+  .buttonDarkL {
     display: block;
     text-align: center;
     width: 100%;
@@ -49,6 +52,11 @@
 
 @mixin buttonGhost() {
   background: $white-10;
+  color: $white !important;
+}
+
+@mixin buttonDark() {
+  background: $mulberry;
   color: $white !important;
 }
 
@@ -97,6 +105,33 @@
   }
   &L {
     @include button();
+    @include buttonL();
+    @include buttonHover();
+  }
+}
+
+.buttonDark {
+  &XS {
+    @include button();
+    @include buttonDark();
+    @include buttonXS();
+    @include buttonHover();
+  }
+  &S {
+    @include button();
+    @include buttonDark();
+    @include buttonS();
+    @include buttonHover();
+  }
+  &M {
+    @include button();
+    @include buttonDark();
+    @include buttonM();
+    @include buttonHover();
+  }
+  &L {
+    @include button();
+    @include buttonDark();
     @include buttonL();
     @include buttonHover();
   }

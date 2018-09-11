@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import css from '../styles/_global.scss';
 
 storiesOf('Button', module)
-  .add('Solid', () => (
+  .add('Default', () => (
     <div>
       <button className={`${css.buttonXS} buttonXS`}>Extra Small Button</button>
       <br />
@@ -37,5 +37,23 @@ storiesOf('Button', module)
       <button className={`${css.buttonGhostL} buttonGhostL`}>
         Large Button
       </button>
+    </div>
+  ))
+  .add('Dark', () => (
+    <div>
+      <button className={`${css.buttonDarkXS} buttonDarkXS`}>
+        Extra Small Button
+      </button>
+      <br />
+      <br />
+      <button className={`${css.buttonDarkS} buttonDarkS`}>Small Button</button>
+      <br />
+      <br />
+      <button className={`${css.buttonDarkM} buttonDarkM`}>
+        Medium Button
+      </button>
+      <br />
+      <br />
+      <button className={`${css.buttonDarkL} buttonDarkL`}>Large Button</button>
     </div>
   ));

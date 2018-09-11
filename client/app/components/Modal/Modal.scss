@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: $z-index-front;
   }
 
   &Box {
@@ -29,6 +30,13 @@
     background: $white;
     width: 50vw;
     height: 60vh;
+    z-index: $z-index-front;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
     @media screen and (max-width: $small) {
       width: 100vw;
       height: 100vh;
@@ -53,9 +61,22 @@
       }
     }
     &Body {
+      @include dashboardSectionLink();
       overflow-x: hidden;
       overflow-y: auto;
       height: calc(100% - 40px);
+      text-align: left;
+      line-height: 1.4 !important;
     }
   }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { Logo } from '../Logo';
-
+import { HeaderProfile } from './HeaderProfile';
 import css from './Header.scss';
 
 export interface Link {
@@ -15,10 +15,23 @@ export interface Link {
   hideInMobile?: boolean;
 }
 
+export interface Profile {
+  avatar: string;
+  name: string;
+  profile: Link;
+  account: Link;
+  notifications: {
+    plural: string,
+    none: string,
+    clear: string,
+  };
+}
+
 export interface Props {
   home: Link;
   links: Link[];
   mobileOnly?: any;
+  profile?: Profile;
 }
 
 export interface State {
@@ -87,10 +100,11 @@ export class Header extends React.Component<Props, State> {
   };
 
   displayMobile = () => {
-    const { mobileOnly } = this.props;
+    const { mobileOnly, profile } = this.props;
     return (
       <div id="headerMobile" className={css.headerMobileNav}>
         <div>
+          {profile ? <HeaderProfile profile={profile} /> : null}
           {mobileOnly ? ReactHtmlParser(mobileOnly) : null}
           {this.displayLinks()}
         </div>

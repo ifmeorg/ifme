@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class NotificationsController < ApplicationController
+  include NotificationsHelper
   before_action :set_notification, only: [:destroy]
 
   # DELETE /notifications/1
@@ -25,11 +26,10 @@ class NotificationsController < ApplicationController
   end
 
   def fetch_notifications
-    result = {
-      fetch_notifications: Notification.where(user_id: current_user.id)
-                                       .order(:created_at)
-    }
-    respond_with_json(result)
+    result = Notification.where(user_id: current_user.id)
+                         .order(:created_at)
+    fetch_notifications = result.map { |item| render_notification(item) }
+    respond_with_json(fetch_notifications: fetch_notifications)
   end
 
   def signed_in
@@ -37,6 +37,34 @@ class NotificationsController < ApplicationController
   end
 
   private
+
+  def convert_to_hash(string_obj)
+    new_string_obj = string_obj.tr(':', '"')
+    json_obj = JSON.parse(new_string_obj.tr('=>', '":'))
+    hash = {}
+    json_obj.each do |item|
+      hash[item.first.to_sym] = item.second
+    end
+    hash
+  end
+
+  # rubocop:disable MethodLength
+  def render_notification(notification)
+    uniqueid = notification[:uniqueid]
+    data = convert_to_hash(notification[:data])
+    if data[:type].include? 'comment'
+      comment_link(uniqueid, data)
+    elsif data[:type].include? 'accepted_ally_request'
+      accepted_ally_link(uniqueid, data)
+    elsif data[:type].include? 'new_ally_request'
+      new_ally_request_link(uniqueid, data)
+    elsif data[:type].include? 'group'
+      group_link(uniqueid, data)
+    elsif data[:type].include? 'meeting'
+      meeting_link(uniqueid, data)
+    end
+  end
+  # rubocop:enable MethodLength
 
   # Use callbacks to share common setup or constraints between actions.
   # rubocop:disable RescueStandardError

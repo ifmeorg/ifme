@@ -205,8 +205,9 @@ RSpec.describe NotificationsController, type: :controller do
         FactoryBot.create(:notification, user: user)
       end
 
+      let (:notification_link) { '<a id="MyString" href="/moments/1">Julia Nguyen commented "Hello" on typename</a>' }
       let(:expected_result) do
-        { fetch_notifications: [notification, notification_two] }.to_json
+        { fetch_notifications: [notification_link, notification_link] }.to_json
       end
 
       before do
@@ -244,7 +245,7 @@ RSpec.describe NotificationsController, type: :controller do
     end
   end
 
-  describe 'signed_in' do
+  describe '#signed_in' do
     let(:user) { FactoryBot.create(:user1) }
 
     context 'when the user is signed in' do
