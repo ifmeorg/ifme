@@ -2,10 +2,10 @@
 import React from 'react';
 import css from './Blockquote.scss';
 
-export interface Props {
-  text?: string;
-  author?: string;
-}
+export type Props = {
+  text?: string,
+  author?: string,
+};
 
 export const Blockquote = (props: Props) => {
   const { text, author } = props;

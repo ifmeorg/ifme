@@ -1,5 +1,5 @@
 <%= render partial: 'shared/draft_badge', locals: { published: local_assigns[:data].published? } %>
-<%= ::TimeAgo.created_or_edited(local_assigns[:data]) %>
+<%= TimeAgo.created_or_edited(local_assigns[:data]) %>
 <% if local_assigns[:data].category.count > 0 %>
   <br>
   <strong>

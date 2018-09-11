@@ -239,8 +239,8 @@ sv:
    cancel_meeting: 'Avbryt möte'
    meeting_time: 'Tid'
    members_of_group_html:
-    one: '%{count} Medlem <strong>i</strong> %{group}'
-    other: '%{count} Medlemmar <strong>i</strong> %{group}'
+    one: '%{count} Medlem i %{group}'
+    other: '%{count} Medlemmar i %{group}'
   reminder_mailer:
     subject: "Ditt möte \"%{meeting_name}\" imorgon kl %{time}!"
     body: "Här är en vänlig påminnelse om att ditt möte imorgon, \"%{meeting_name}\", kommer att äga rum %{time} i %{location}!"

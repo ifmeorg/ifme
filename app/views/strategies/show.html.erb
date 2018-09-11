@@ -1,6 +1,6 @@
 <% title @strategy.name %>
 <%= render partial: 'shared/draft_badge', locals: { published: @strategy.published? } %>
-<%= ::TimeAgo.created_or_edited(@strategy) %>
+<%= TimeAgo.created_or_edited(@strategy) %>
 <% if @strategy.present? %>
   <br>
     <strong>

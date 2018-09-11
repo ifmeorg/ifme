@@ -238,8 +238,8 @@ nl:
    cancel_meeting: 'Samenkomst annuleren'
    meeting_time: 'Tijd'
    members_of_group_html:
-    one: '%{count} Lid <strong>van</strong> %{group}'
-    other: '%{count} Leden <strong>van</strong> %{group}'
+    one: '%{count} Lid van %{group}'
+    other: '%{count} Leden van %{group}'
   reminder_mailer:
     subject: "Je samenkomst \"%{meeting_name}\" is morgen om %{time}!"
     body: "Hierbij een vriendelijke herinnering dat je samenkomst, \"%{meeting_name}\", morgen is om %{time} bij %{location}!"

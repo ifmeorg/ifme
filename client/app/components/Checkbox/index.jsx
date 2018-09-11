@@ -2,30 +2,31 @@
 import React from 'react';
 import css from './Checkbox.scss';
 
-export interface Props {
-  id: string;
-  label: string;
-  checked?: boolean;
-  updateAllChecked?: (id: string, checked: boolean) => void;
-}
+export type Props = {
+  id: string,
+  label: string,
+  checked?: boolean,
+  updateAllChecked?: (id: string, checked: boolean) => void,
+};
 
-export interface State {
-  checked: boolean;
-}
+export type State = {
+  checked: boolean,
+};
 
 export class Checkbox extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { checked: this.props.checked || false };
+    this.state = { checked: props.checked || false };
   }
 
   toggle = () => {
-    const { updateAllChecked } = this.props;
-    const checked = !this.state.checked;
-    this.setState({ checked });
-    if (updateAllChecked) {
-      updateAllChecked(this.props.id, checked);
-    }
+    const { updateAllChecked, id } = this.props;
+    this.setState((prevState: State) => {
+      if (updateAllChecked) {
+        updateAllChecked(id, !prevState.checked);
+      }
+      return { checked: !prevState.checked };
+    });
   };
 
   render() {
@@ -40,7 +41,8 @@ export class Checkbox extends React.Component<Props, State> {
         <div
           role="presentation"
           className={checkboxClassNames}
-          onClick={() => this.toggle()}
+          onClick={this.toggle}
+          onKeyDown={this.toggle}
         />
         <label htmlFor={id} className={labelClassNames}>
           {label}

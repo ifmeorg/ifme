@@ -87,7 +87,7 @@ module NotificationMailerHelper
   end
 
   def remove_group_leader_subject(data)
-    group(data, 'add_group_leader_subject')
+    user_group(data, 'remove_group_leader_subject')
   end
 
   def update_meeting_subject(data)

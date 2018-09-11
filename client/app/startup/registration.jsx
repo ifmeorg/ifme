@@ -19,6 +19,7 @@ import { Logo } from '../components/Logo';
 import { Story } from '../components/Story';
 import { Tooltip } from '../components/Tooltip';
 import { Modal } from '../components/Modal';
+import { Form } from '../components/Form';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
 
@@ -30,6 +31,7 @@ ReactOnRails.register({
   Avatar,
   Chart,
   ChartControl,
+  Form,
   Header,
   HeaderProfile,
   Logo,

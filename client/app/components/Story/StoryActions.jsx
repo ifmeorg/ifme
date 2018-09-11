@@ -9,14 +9,16 @@ import {
 import css from './Story.scss';
 import { Tooltip } from '../Tooltip';
 
-export interface Props {
-  link: string;
-  actions: {
-    edit?: string,
-    delete?: string,
-    viewers?: string,
-  };
-}
+export type Actions = {
+  edit?: string,
+  delete?: string,
+  viewers?: string,
+};
+
+export type Props = {
+  link: string,
+  actions: Actions,
+};
 
 const EDIT = 'edit';
 const DELETE = 'delete';
@@ -28,51 +30,44 @@ const classMap = {
   viewers: <FontAwesomeIcon icon={faLock} className={css.action} />,
 };
 
-const getHref = (props: Props, item: string) => {
-  const { actions, link } = props;
+const getHref = (actions: Actions, link: string, item: string) => {
   if (item === EDIT) {
     return actions[item];
   }
   return link;
 };
 
-const displayTooltip = (props: Props, item: string) => {
-  const { actions } = props;
-  return (
-    <div key={item}>
-      <Tooltip element={classMap[item]} text={actions[item]} right />
-    </div>
-  );
-};
+const displayTooltip = (actions: Actions, item: string) => (
+  <div key={item}>
+    <Tooltip element={classMap[item]} text={actions[item]} right />
+  </div>
+);
 
-const displayLink = (props: Props, item: string) => {
-  const { actions } = props;
-  return (
-    <div key={item}>
-      <a
-        href={getHref(props, item)}
-        data-method={item === DELETE ? DELETE : null}
-        data-confirm={item === DELETE ? actions[item] : null}
-      >
-        {classMap[item]}
-      </a>
-    </div>
-  );
-};
+const displayLink = (actions: Actions, link: string, item: string) => (
+  <div key={item}>
+    <a
+      href={getHref(actions, link, item)}
+      data-method={item === DELETE ? DELETE : null}
+      data-confirm={item === DELETE ? actions[item] : null}
+    >
+      {classMap[item]}
+    </a>
+  </div>
+);
 
-const displayItem = (props: Props, item: string) => {
+const displayItem = (actions: Actions, link: string, item: string) => {
   if (item === EDIT || item === DELETE) {
-    return displayLink(props, item);
+    return displayLink(actions, link, item);
   }
-  return displayTooltip(props, item);
+  return displayTooltip(actions, item);
 };
 
 export const StoryActions = (props: Props) => {
-  const { actions } = props;
+  const { actions, link } = props;
   return (
     <div className={css.actions}>
       {[EDIT, DELETE, VIEWERS].map(
-        (item: string) => (actions[item] ? displayItem(props, item) : null),
+        (item: string) => (actions[item] ? displayItem(actions, link, item) : null),
       )}
     </div>
   );

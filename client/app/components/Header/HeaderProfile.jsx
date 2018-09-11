@@ -2,17 +2,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
-import { Profile } from './index';
+import type { Profile } from './index';
 import { Notifications } from '../../widgets/Notifications';
 import css from './Header.scss';
 import globalCSS from '../../styles/_global.scss';
 
-export interface Props {
-  profile: Profile;
-}
+export type Props = {
+  profile: Profile,
+};
 
 const notificationsElement = notifications => (
-  <button className="buttonGhostXS" aria-label={notifications}>
+  <button type="button" className="buttonGhostXS" aria-label={notifications}>
     <FontAwesomeIcon icon={faBell} />
   </button>
 );

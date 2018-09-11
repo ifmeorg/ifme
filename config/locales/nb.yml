@@ -238,8 +238,8 @@ nb:
    cancel_meeting: 'Avlys møte'
    meeting_time: 'Tid'
    members_of_group_html:
-    one: '%{count} Medlem <strong>av</strong> %{group}'
-    other: '%{count} Medlemmer <strong>av</strong> %{group}'
+    one: '%{count} Medlem av %{group}'
+    other: '%{count} Medlemmer av %{group}'
   reminder_mailer:
     subject: "Ditt møte \"%{meeting_name}\" er i morgen kl %{time}!"
     body: "Her er en vennlig påminnelse om at møtet ditt i morgen, \"%{meeting_name}\", vil finne sted kl %{time} på %{location}!"

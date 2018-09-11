@@ -1,0 +1,35 @@
+@import "../../styles/_global.scss";
+
+.toolbar {
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > div {
+    @include setMargin($size-0, $size-20, $size-0, $size-0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    :last-of-type {
+      @include setMargin($size-0, $size-0, $size-0, $size-0);
+    }
+    > div {
+      @include setMargin($size-0, $size-10, $size-0, $size-0);
+      :last-of-type {
+        @include setMargin($size-0, $size-0, $size-0, $size-0);
+      }
+    }
+  }
+
+  &Icons {
+    filter: invert(100%);
+    :hover {
+      opacity: 0.5;
+    }
+    img {
+      width: 18px;
+      height: auto;
+    }
+  }
+}

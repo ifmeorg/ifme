@@ -94,8 +94,6 @@ Rails.application.routes.draw do
                                        :invitations => 'users/invitations',
                                        :sessions => :sessions }
 
-  mount Ckeditor::Engine => '/ckeditor'
-
   post 'pusher/auth'
 
   Rails.configuration.i18n.available_locales.each do |locale|

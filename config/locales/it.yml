@@ -238,8 +238,8 @@ it:
    cancel_meeting: 'Annulla raduno'
    meeting_time: 'Ora'
    members_of_group_html:
-    one: '%{count} Membro <strong>di</strong> %{group}'
-    other: '%{count} Membri <strong>di</strong> %{group}'
+    one: '%{count} Membro di %{group}'
+    other: '%{count} Membri di %{group}'
   reminder_mailer:
     subject: "Il tuo raduno \"%{meeting_name}\" è domani all’ora %{time}!"
     body: "Hey, il tuo raduno \"%{meeting_name}\", si terrà domani all’ora %{time} presso %{location}!"

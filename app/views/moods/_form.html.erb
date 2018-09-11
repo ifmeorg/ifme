@@ -1,26 +1,29 @@
 <%= form_for(@mood) do |f| %>
-  <% if @mood.errors.any? %>
-    <div class="errorText">
-      <%= t('common.form.error_explanation') %>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <div class="label">
-      <%= f.label t('common.name'), for: 'mood_name' %>
-      <i class="fa fa-asterisk"></i>
-    </div>
-    <%= f.text_field :name, class: "name_field" %>
-  </div>
-
-  <div class="field">
-    <div class="label">
-      <%= f.label t('common.form.description'), for: 'mood_description' %>
-    </div>
-    <%= f.cktext_area :description, class: 'special_textarea ckeditor' %>
-  </div>
-
-  <div class="actions no_margin_bottom">
-    <%= f.submit t('common.actions.submit') %>
-  </div>
+  <%= react_component('Form', props: {
+    inputs: [
+      {
+        id: 'mood_name',
+        type: 'text',
+        name: 'mood[name]',
+        label: t('common.name'),
+        value: @mood.name || nil,
+        required: true,
+        dark: true
+      },
+      {
+        id: 'mood_description',
+        type: 'textarea',
+        name: 'mood[description]',
+        label: t('common.form.description'),
+        value: @mood.description || nil,
+        dark: true,
+      },
+      {
+        id: 'submit',
+        type: 'submit',
+        value: t('common.actions.submit'),
+        dark: true
+      }
+    ]
+  }) %>
 <% end %>

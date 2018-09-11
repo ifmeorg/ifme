@@ -2,13 +2,16 @@
 import React from 'react';
 import css from './Story.scss';
 
-export interface Props {
-  name: string;
-  link: string;
-}
+export type Props = {
+  name: string,
+  link: string,
+};
 
-export const StoryName = (props: Props) => (
-  <a className={css.name} href={props.link}>
-    {props.name}
-  </a>
-);
+export const StoryName = (props: Props) => {
+  const { link, name } = props;
+  return (
+    <a className={css.name} href={link}>
+      {name}
+    </a>
+  );
+};

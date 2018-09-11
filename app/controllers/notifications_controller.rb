@@ -28,8 +28,9 @@ class NotificationsController < ApplicationController
   def fetch_notifications
     result = Notification.where(user_id: current_user.id)
                          .order(:created_at)
-    fetch_notifications = result.map { |item| render_notification(item) }
-    respond_with_json(fetch_notifications: fetch_notifications)
+    respond_with_json(
+      fetch_notifications: result.map { |item| render_notification(item) }
+    )
   end
 
   def signed_in
@@ -39,10 +40,8 @@ class NotificationsController < ApplicationController
   private
 
   def convert_to_hash(string_obj)
-    new_string_obj = string_obj.tr(':', '"')
-    json_obj = JSON.parse(new_string_obj.tr('=>', '":'))
-    hash = {}
-    json_obj.each do |item|
+    hash = Hash.new
+    JSON.parse(string_obj).each do |item|
       hash[item.first.to_sym] = item.second
     end
     hash

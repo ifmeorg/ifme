@@ -2,11 +2,11 @@
 import React, { type StatelessFunctionalComponent } from 'react';
 import css from './Logo.scss';
 
-export interface Props {
-  link?: string;
-  sm?: boolean;
-  lg?: boolean;
-}
+export type Props = {
+  link?: string,
+  sm?: boolean,
+  lg?: boolean,
+};
 
 const ifDisplay = <div className={css.if}>if</div>;
 const meDisplay = <div className={css.me}>me</div>;

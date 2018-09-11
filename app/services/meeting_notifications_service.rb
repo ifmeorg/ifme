@@ -44,23 +44,23 @@ class MeetingNotificationsService
   def notification_data
     group = Group.where(id: meeting.group_id).first.name
     if type == 'remove_meeting'
-      return JSON.generate(
+      return {
         user: current_user.name,
         group_id: meeting.group_id,
         group: group,
         typename: meeting.name,
         type: type,
         uniqueid: uniqueid
-      )
+      }.to_json
     end
-    JSON.generate(
+    {
       user: current_user.name,
       typeid: meeting.id,
       group: group,
       typename: meeting.name,
       type: type,
       uniqueid: uniqueid
-    )
+    }.to_json
   end
   # rubocop:enable MethodLength
 end
