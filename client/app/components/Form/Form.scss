@@ -1,0 +1,11 @@
+@import "../../styles/_global.scss";
+
+.form {
+  > * {
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+  }
+
+  :last-child {
+    @include setMargin($size-0, $size-0, $size-0, $size-0);
+  }
+}

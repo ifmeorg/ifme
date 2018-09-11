@@ -1,0 +1,14 @@
+@import "../../styles/_global.scss";
+
+.chartControl {
+  > div:first-of-type {
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    line-height: 2.5;
+  }
+  button {
+    @include setMargin($size-0, $size-8, $size-0, $size-0);
+    &:last-of-type {
+      @include setMargin($size-0, $size-0, $size-0, $size-0);
+    }
+  }
+}

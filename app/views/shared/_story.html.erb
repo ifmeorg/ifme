@@ -6,7 +6,7 @@
   <%= react_component('Story', props: {
     name: local_assigns[:story].name,
     link: url_for(local_assigns[:story]),
-    date: ::TimeAgo.created_or_edited(local_assigns[:story]),
+    date: TimeAgo.created_or_edited(local_assigns[:story]),
     storyType: isMoment ? t('moments.singular') : t('strategies.singular'),
     storyBy: local_assigns[:storyBy] ? storyBy : nil,
     actions: {

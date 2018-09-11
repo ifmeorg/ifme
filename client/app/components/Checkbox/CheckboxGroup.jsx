@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
 
-export interface Props {
-  children: any;
-  action: Function;
-}
+export type Props = {
+  children: any,
+  action: Function,
+};
 
-export interface State {
-  allChecked: string[];
-}
+export type State = {
+  allChecked: string[],
+};
 
 export class CheckboxGroup extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -30,6 +30,7 @@ export class CheckboxGroup extends React.Component<Props, State> {
   }
 
   updateAllChecked = (id: string, checked: boolean) => {
+    const { action } = this.props;
     const { allChecked } = this.state;
     const index = allChecked.indexOf(id);
     if (index > -1) {
@@ -39,19 +40,17 @@ export class CheckboxGroup extends React.Component<Props, State> {
       allChecked.push(id);
     }
     this.setState({ allChecked });
-    this.props.action(allChecked);
+    action(allChecked);
   };
 
   childrenWithUpdateAllChecked = () => {
     const { children } = this.props;
     let newChildren;
     if (Array.isArray(children)) {
-      newChildren = children.map((child: any) =>
-        React.cloneElement(child, {
-          updateAllChecked: this.updateAllChecked,
-          key: child.props.id,
-        }),
-      );
+      newChildren = children.map((child: any) => React.cloneElement(child, {
+        updateAllChecked: this.updateAllChecked,
+        key: child.props.id,
+      }));
     } else {
       newChildren = React.cloneElement((children: any), {
         updateAllChecked: this.updateAllChecked,

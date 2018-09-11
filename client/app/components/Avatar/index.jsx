@@ -7,23 +7,25 @@ import css from './Avatar.scss';
 // TODO: Pass in desired height in props and remove height from CSS
 const DEFAULT_HEIGHT = 150;
 
-export interface Props {
-  className?: string;
-  displayName?: boolean;
-  name?: string;
-  src: string;
-}
+export type Props = {
+  className?: string,
+  displayName?: boolean,
+  name?: string,
+  src: string,
+};
 
-export interface ImgOptionalAttributes {
-  title?: string;
-}
+export type ImgOptionalAttributes = {
+  title?: string,
+};
 
 const onErrorHandler = (e: Event) => {
   (e.target: window.HTMLImgElement).src = defaultAvatar;
 };
 
 export const Avatar = (props: Props) => {
-  const { className = '', displayName = false, name = '', src } = props;
+  const {
+    className = '', displayName = false, name = '', src,
+  } = props;
   const imgAttributes: ImgOptionalAttributes = {};
   if (!displayName) {
     imgAttributes.title = name;

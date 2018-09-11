@@ -1,41 +1,288 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { Input } from '../components/Input';
 
-/**
- * I added onChange handler, but the Input component needs to be fixed to invoke it.
- */
+const someEvent = () => {
+  window.alert('Event triggered!');
+};
+
+const checkboxes = [
+  {
+    id: 'some-id',
+    name: 'some-name',
+    label: 'Some checkbox',
+    value: 1,
+    checked: true,
+    uncheckedValue: 0,
+  },
+  {
+    id: 'some-other-id',
+    name: 'some-other-name',
+    label: 'Some other checkbox',
+    value: 2,
+    checked: true,
+    uncheckedValue: 3,
+  },
+];
+
 storiesOf('Input', module)
-  .add('Input Light', () => (
-    <Input
-      label="Hello"
-      placeholder="Placeholder"
-      onChange={action('Input.onChange')}
-    />
+  .add('Text', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="text"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+      />
+      <Input
+        id="some-id"
+        type="text"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        large
+      />
+      <Input
+        id="some-id"
+        type="text"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        dark
+      />
+      <Input
+        id="some-id"
+        type="text"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        dark
+        large
+      />
+    </div>
   ))
-  .add('Input Dark', () => (
-    <Input
-      dark
-      label="Hello"
-      placeholder="Placeholder"
-      onChange={action('Input[dark].onChange')}
-    />
+  .add('Textarea', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="textarea"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+      />
+      <Input
+        id="some-id"
+        type="textarea"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        large
+      />
+      <Input
+        id="some-id"
+        type="textarea"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        dark
+      />
+      <Input
+        id="some-id"
+        type="textarea"
+        name="some-name"
+        label="Hello"
+        placeholder="Placeholder"
+        required
+        info="Some info here"
+        dark
+        large
+      />
+    </div>
   ))
-  .add('Input Light (Large)', () => (
-    <Input
-      large
-      label="Hello"
-      placeholder="Placeholder"
-      onChange={action('Input[large].onChange')}
-    />
+  .add('Submit', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="submit"
+        name="some-name"
+        label="Hello"
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="submit"
+        name="some-name"
+        label="Hello"
+        large
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="submit"
+        name="some-name"
+        label="Hello"
+        dark
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="submit"
+        name="some-name"
+        label="Hello"
+        large
+        dark
+        onClick={someEvent}
+      />
+    </div>
   ))
-  .add('Input Dark (Large)', () => (
-    <Input
-      dark
-      large
-      label="Hello"
-      placeholder="Placeholder"
-      onChange={action('Input[dark][large].onChange')}
-    />
+  .add('Checkbox', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="checkbox"
+        name="some-name"
+        label="Some checkbox"
+        value={1}
+        checked
+        uncheckedValue={0}
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="checkbox"
+        name="some-name"
+        label="Some checkbox"
+        value={1}
+        checked
+        uncheckedValue={0}
+        large
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="checkbox"
+        name="some-name"
+        label="Some checkbox"
+        value={1}
+        checked
+        uncheckedValue={0}
+        dark
+        onClick={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="checkbox"
+        name="some-name"
+        label="Some checkbox"
+        value={1}
+        checked
+        uncheckedValue={0}
+        dark
+        large
+        onClick={someEvent}
+      />
+    </div>
+  ))
+  .add('CheckboxGroup', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="checkboxGroup"
+        name="some-name"
+        label="Some cool select label"
+        info="Some info here"
+        required
+        checkboxes={checkboxes}
+      />
+      <Input
+        id="some-id"
+        type="checkboxGroup"
+        name="some-name"
+        label="Some cool select label"
+        info="Some info here"
+        required
+        checkboxes={checkboxes}
+        large
+      />
+      <Input
+        id="some-id"
+        type="checkboxGroup"
+        name="some-name"
+        label="Some cool select label"
+        info="Some info here"
+        required
+        checkboxes={checkboxes}
+        dark
+      />
+      <Input
+        id="some-id"
+        type="checkboxGroup"
+        name="some-name"
+        label="Some cool select label"
+        info="Some info here"
+        required
+        checkboxes={checkboxes}
+        dark
+        large
+      />
+    </div>
+  ))
+  .add('Select', () => (
+    <div>
+      <Input
+        id="some-id"
+        type="select"
+        name="some-name"
+        label="Some cool select label"
+        value={2}
+        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        onChange={someEvent}
+      />
+      <Input
+        id="some-id"
+        type="select"
+        name="some-name"
+        label="Some cool select label"
+        value={2}
+        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        onChange={someEvent}
+        large
+      />
+      <Input
+        id="some-id"
+        type="select"
+        name="some-name"
+        label="Some cool select label"
+        value={2}
+        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        onChange={someEvent}
+        dark
+      />
+      <Input
+        id="some-id"
+        type="select"
+        name="some-name"
+        label="Some cool select label"
+        value={2}
+        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        onChange={someEvent}
+        dark
+        large
+      />
+    </div>
   ));

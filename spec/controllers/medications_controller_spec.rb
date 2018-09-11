@@ -60,59 +60,59 @@ describe MedicationsController do
     end
   end
 
-  describe 'GET #index' do 
+  describe 'GET #index' do
     let(:user) { create(:user) }
     let!(:medication) { create(:medication, user: user) }
 
-    context 'when signed in' do 
+    context 'when signed in' do
       before { sign_in user }
-      it 'renders index page' do 
-        get :index 
-        expect(response).to render_template(:index)  
-      end 
-    end 
-    context 'when not signed in' do 
+      it 'renders index page' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+    end
+    context 'when not signed in' do
       before { get :index }
       it_behaves_like :with_no_logged_in_user
-    end 
-  end 
+    end
+  end
 
-  describe 'GET #new' do 
+  describe 'GET #new' do
     let(:user) { create(:user) }
     let(:medication) { create(:medication, user: user) }
 
-    context 'when signed in' do 
+    context 'when signed in' do
       before { sign_in user }
-      it 'renders the new page' do 
+      it 'renders the new page' do
         get :new
         expect(response).to render_template(:new)
-      end 
-    end 
+      end
+    end
 
-    context 'when not signed in' do 
+    context 'when not signed in' do
       before { get :new }
       it_behaves_like :with_no_logged_in_user
-    end 
-  end 
+    end
+  end
 
-  describe 'GET #show' do 
+  describe 'GET #show' do
     let(:user) { create(:user) }
     let(:medication) { create(:medication, user: user) }
 
-    context 'when signed in' do 
+    context 'when signed in' do
       before { sign_in user }
       it 'render the show page' do
-        medication.save! 
+        medication.save!
         get :show, params: { id: medication.id }
         expect(response).to render_template(:show)
-      end 
-    end 
+      end
+    end
 
-    context 'when not signed in' do 
+    context 'when not signed in' do
       before { get :show, params: { id: medication.id } }
       it_behaves_like :with_no_logged_in_user
-    end 
-  end 
+    end
+  end
 
   describe 'POST #create' do
     let(:user) { create(:user1) }

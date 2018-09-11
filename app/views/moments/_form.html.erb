@@ -1,18 +1,64 @@
-<%= render partial: 'shared/editor_modal' %>
-
 <%= form_for(@moment) do |f| %>
+  <%= react_component('Form', props: {
+    inputs: [
+      {
+        id: 'moment_name',
+        type: 'text',
+        name: 'moment[name]',
+        label: t('common.name'),
+        value: @moment.name || nil,
+        required: true,
+        dark: true
+      },
+      {
+        id: 'moment_why',
+        type: 'textarea',
+        name: 'moment[why]',
+        label: t('moments.form.why'),
+        value: @moment.why || nil,
+        required: true,
+        dark: true,
+      },
+      {
+        id: 'moment_fix',
+        type: 'textarea',
+        name: 'moment[fix]',
+        label: t('moments.form.fix'),
+        value: @moment.fix || nil,
+        dark: true,
+      },
+      {
+        id: 'moment_comment',
+        type: 'checkbox',
+        name: 'moment[comment]',
+        label: t('comment.allow_comments'),
+        value: @moment.comment,
+        checked: @moment.comment,
+        info: t('comment.hint'),
+        dark: true,
+      },
+      {
+        id: 'moment_publishing',
+        type: 'checkbox',
+        label: t('moments.form.draft_question'),
+        dark: true,
+        name: 'publishing',
+        value: true,
+        uncheckedValue: false,
+        checked: @moment.published?
+      },
+      {
+        id: 'submit',
+        type: 'submit',
+        value: t('common.actions.submit'),
+        dark: true
+      }
+    ]
+  }) %>
 
 <div class="table">
 
   <div class="table_cell padding_right vertical_align_top sidebar">
-
-    <div class="sidebar_field" >
-      <div class="sidebar_label gridRowSpaceBetween">
-        <%= f.label t('common.title'), for: 'moment_name' %>
-        <i class="fa fa-asterisk"></i>
-      </div>
-      <%= f.text_field :name, class: "name_field" %>
-    </div>
 
     <%= render partial: '/shared/autocomplete_checkboxes', locals: {
         f: f,
@@ -71,58 +117,6 @@
         </div>
       </div>
     <% end %>
-
-     <div class="sidebar_field">
-      <div class="sidebar_label gridRowSpaceBetween">
-        <div class="gridRow">
-          <%= f.label t('comment.allow_comments'), class: 'smaller_margin_right' %>
-          <%= react_component('Tooltip', props: {
-            element: '<i class="fa fa-question-circle"></i>',
-            text: t('comment.hint'),
-            right: true
-          }) %>
-        </div>
-        <%= f.check_box :comment, class: 'no_margin_right' %>
-      </div>
-    </div>
   </div>
-
-  <div class="table_cell vertical_align_top">
-    <div class="field">
-      <div class="label">
-        <%= f.label t('moments.form.why'), for: 'moment_why' %>
-        <i class="fa fa-asterisk"></i>
-      </div>
-      <%= f.cktext_area :why, class: 'special_textarea ckeditor' %>
-
-      <%= render partial: '/shared/character_count', locals: { data: 'moment_why' } %>
-    </div>
-    <div class="field">
-      <div class="label">
-        <%= f.label t('moments.form.fix') %>
-      </div>
-      <%= f.cktext_area :fix, class: 'special_textarea ckeditor' %>
-
-      <%= render partial: '/shared/character_count', locals: { data: 'moment_fix' } %>
-    </div>
-    <div class="field slider-container">
-      <div class="label draft_label">
-        <%= f.label t('moments.form.draft_question') %>
-      </div>
-      <%= render partial: '/shared/draft_slider', locals: { published: @moment.published? } %>
-    </div>
-  </div>
-
 </div>
-
-<div class="actions no_margin_bottom">
-  <%= f.submit t('common.actions.submit') %>
-</div>
-
 <% end %>
-
-<%= render partial: '/shared/quick_create', locals: { data_type: 'category', data: @category, tag: 'moment' } %>
-
-<%= render partial: '/shared/quick_create', locals: { data_type: 'mood', data: @mood , tag: 'moment' } %>
-
-<%= render partial: '/shared/quick_create', locals: { data_type: 'strategy', data: @strategy, tag: 'moment' } %>

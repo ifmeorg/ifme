@@ -16,12 +16,13 @@
 <strong>
   <%= t('common.date') %>
 </strong>
-<%= meeting.date %>
+<%= format_date(meeting.date) %>
 <br>
 <strong>
   <%= t('meetings.info.meeting_time') %>:
 </strong>
-<%= meeting.time %>
+
+<%= format_time(meeting.time) %>
 
 <div class="notification_wrapper">
   <%

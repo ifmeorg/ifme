@@ -71,7 +71,7 @@ class Comment < ApplicationRecord
   end
 
   def notification_data(creator, association, type, unique_id)
-    JSON.generate(
+    {
       user: creator.name,
       commentid: id,
       comment: comment[0..80],
@@ -80,7 +80,7 @@ class Comment < ApplicationRecord
       typeid: association.id,
       uniqueid: unique_id,
       typename: association.name
-    )
+    }.to_json
   end
 
   def notifications!(data, user_id)

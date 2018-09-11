@@ -3,7 +3,7 @@
     <%= react_component('Story', props: {
       name: local_assigns[:item].name,
       link: url_for(local_assigns[:item]),
-      date: ::TimeAgo.created_or_edited(local_assigns[:item]),
+      date: TimeAgo.created_or_edited(local_assigns[:item]),
       actions: {
         edit: local_assigns[:item].user_id == current_user.id ? edit_moment_path(local_assigns[:item]) : nil,
         viewers: local_assigns[:item].user_id == current_user.id ? get_viewer_list(local_assigns[:item].viewers, nil) : nil,
@@ -19,7 +19,7 @@
     <%= react_component('Story', props: {
       name: local_assigns[:item].name,
       link: url_for(local_assigns[:item]),
-      date: ::TimeAgo.created_or_edited(local_assigns[:item]),
+      date: TimeAgo.created_or_edited(local_assigns[:item]),
       actions: {
         edit: local_assigns[:item].user_id == current_user.id ? edit_strategy_path(local_assigns[:item]) : nil,
         viewers: local_assigns[:item].user_id == current_user.id ? get_viewer_list(local_assigns[:item].viewers, nil) : nil,

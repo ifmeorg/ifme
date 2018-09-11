@@ -15,7 +15,7 @@
 <br>
 
 <strong><%= t('medications.refill') %></strong>
-<%= @medication.refill %>
+<%= format_date(@medication.refill) %>
 
 <% if @medication.comments.present? %>
   <div class="spacer"></div>

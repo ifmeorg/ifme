@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import css from './Modal.scss';
 
-export interface Props {
-  element: any;
-  elementId?: string;
-  body: any;
-  title?: string;
-  openListener?: Function;
-}
+export type Props = {
+  element: any,
+  elementId?: string,
+  body: any,
+  title?: string,
+  openListener?: Function,
+};
 
-export interface State {
-  open: boolean;
-}
+export type State = {
+  open: boolean,
+};
 
 export class Modal extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -46,7 +46,8 @@ export class Modal extends React.Component<Props, State> {
         <div
           id="modalClose"
           className={css.modalBoxHeaderClose}
-          onClick={() => this.toggleOpen()}
+          onClick={this.toggleOpen}
+          onKeyDown={this.toggleOpen}
           role="button"
           tabIndex={0}
           aria-label="Close" // TODO: intl in React not working in Rails
@@ -98,7 +99,8 @@ export class Modal extends React.Component<Props, State> {
         <div
           id={elementId || null}
           className={`modalElement ${css.modalElement}`}
-          onClick={() => this.toggleOpen()}
+          onClick={this.toggleOpen}
+          onKeyDown={this.toggleOpen}
           role="button"
           tabIndex={0}
         >

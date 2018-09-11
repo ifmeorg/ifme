@@ -12,7 +12,6 @@
 //
 //= require load_page.js
 //= require js.cookie.js
-//= require ckeditor/init
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks

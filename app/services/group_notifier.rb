@@ -37,13 +37,13 @@ class GroupNotifier
   end
 
   def data
-    JSON.generate(
+    {
       user: @current_user.name,
       group_id: @group.id,
       group: @group.name,
       type: @type,
       uniqueid: uniqueid
-    )
+    }.to_json
   end
 
   def uniqueid

@@ -77,11 +77,13 @@ describe "NotificationMailer" do
     let(:who_triggered_event) { FactoryBot.create(:user2) }
 
     let(:data) do
-      JSON.generate(user: who_triggered_event.name,
-                    user_id: who_triggered_event.id,
-                    uid: who_triggered_event.uid,
-                    type: type,
-                    uniqueid: 'some_unique_id')
+      {
+        user: who_triggered_event.name,
+        user_id: who_triggered_event.id,
+        uid: who_triggered_event.uid,
+        type: type,
+        uniqueid: 'some_unique_id'
+      }.to_json
     end
 
     context 'when type is accepted_ally_request' do
@@ -111,7 +113,7 @@ describe "NotificationMailer" do
       end
 
       let(:data) do
-        JSON.generate({
+        {
           user: who_triggered_event.name,
           typeid: 1,
           typename: moment_desc,
@@ -120,7 +122,7 @@ describe "NotificationMailer" do
           cutoff: false,
           type: 'comment_on_moment',
           uniqueid: 'some_unique_id'
-        })
+        }.to_json
       end
 
       subject(:email) { NotificationMailer.notification_email(recipient, data) }

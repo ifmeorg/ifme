@@ -238,8 +238,8 @@ pt-BR:
    cancel_meeting: 'Cancelar reunião'
    meeting_time: 'Horário'
    members_of_group_html:
-    one: '%{count} Membro <strong>do</strong> %{group}'
-    other: '%{count} Membros <strong>of</strong> %{group}'
+    one: '%{count} Membro do %{group}'
+    other: '%{count} Membros do %{group}'
   reminder_mailer:
     subject: "A reunião \"%{meeting_name}\" é amanhã as: %{time}!"
     body: "Aqui um lembrete amigo sobre sua reunião, que acontecerá amanhã: \"%{meeting_name}\"e irá começar ás %{time} no endereço %{location}!"

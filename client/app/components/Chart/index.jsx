@@ -21,5 +21,3 @@ export function Chart({ chartType, ...props }: chartShape) {
     <AreaChart {...props} colors={colorSchemes} />
   );
 }
-
-Chart.displayname = 'Chart';
