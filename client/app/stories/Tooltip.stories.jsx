@@ -3,8 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Tooltip } from '../components/Tooltip';
 import { Logo } from '../components/Logo';
 
-const longText =
-  'Heya this is a tooltip with a lot of fun text. Blah blah blah. Hover boards!';
+const longText = 'Heya this is a tooltip with a lot of fun text. Blah blah blah. Hover boards!';
 const shortText = 'Heya this is a tooltip.';
 
 storiesOf('Tooltip', module)

@@ -35,7 +35,6 @@ class MedicationsController < ApplicationController
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     return if @medication.user_id == current_user.id
-
     redirect_to_path(medication_path(@medication))
   end
 

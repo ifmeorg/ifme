@@ -13,31 +13,40 @@ type Props = {
   title: string,
 };
 
-export class Resource extends React.Component<Props> {
-  render() {
-    const { author, external, link, tagged, tags = [], title } = this.props;
-    const taggedResources = tagged ? (
-      <div className="tags">
-        {tags.map(tag => <Tag normal label={tag} key={shortid.generate()} />)}
-      </div>
-    ) : null;
-    const authorRes = external ? (
-      <div className={`author ${css.author}`}>{author}</div>
-    ) : null;
-
+const taggedResources = (tagged: ?boolean, tags: ?(string[])) => {
+  if (tagged && tags) {
     return (
-      <div className={`resource ${css.resource}`}>
-        <a
-          className={css.link}
-          href={link}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          {title}
-        </a>
-        {authorRes}
-        {taggedResources}
+      <div className="tags">
+        {tags.map(tag => (
+          <Tag normal label={tag} key={shortid.generate()} />
+        ))}
       </div>
     );
   }
-}
+  return null;
+};
+
+const authorRes = (external: ?boolean, author: ?string) => {
+  if (!external) return null;
+  return <div className={`author ${css.author}`}>{author}</div>;
+};
+
+export const Resource = (props: Props) => {
+  const {
+    author, external, link, tagged, tags = [], title,
+  } = props;
+  return (
+    <div className={`resource ${css.resource}`}>
+      <a
+        className={css.link}
+        href={link}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {title}
+      </a>
+      {authorRes(external, author)}
+      {taggedResources(tagged, tags)}
+    </div>
+  );
+};

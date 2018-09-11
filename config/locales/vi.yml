@@ -238,8 +238,8 @@ vi:
    cancel_meeting: 'Xóa bỏ họp nhóm'
    meeting_time: 'Thời gian'
    members_of_group_html:
-    one: '%{count} Thành viên <strong>của</strong> nhóm %{group}'
-    other: '%{count} Thành viên <strong>của</strong> nhóm %{group}'
+    one: '%{count} Thành viên của nhóm %{group}'
+    other: '%{count} Thành viên của nhóm %{group}'
   reminder_mailer:
     subject: "Cuộc họp nhóm được gọi là \"%{meeting_name}\" sẽ diễn ra vào ngày mai tại %{time}!"
     body: "Đây là lời nhắc thân thiện rằng cuộc họp của bạn vào ngày mai được gọi là \"%{meeting_name}\" sẽ diễn ra vào lúc %{time} tại %{location}!"

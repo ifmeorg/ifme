@@ -3,15 +3,14 @@ import React from 'react';
 import renderHTML from 'react-render-html';
 import css from './Tooltip.scss';
 
-export interface Props {
-  element: any;
-  text: string;
-  right?: boolean;
-  center?: boolean;
-}
+export type Props = {
+  element: any,
+  text: string,
+  right?: boolean,
+  center?: boolean,
+};
 
-const getPosition = (props: Props) => {
-  const { right, center } = props;
+const getPosition = (right: ?boolean, center: ?boolean) => {
   if (right) {
     return css.tooltipRight;
   }
@@ -19,13 +18,19 @@ const getPosition = (props: Props) => {
 };
 
 export const Tooltip = (props: Props) => {
-  const { element, text } = props;
+  const {
+    element, text, right, center,
+  } = props;
   return (
     <div className={`tooltip ${css.tooltip}`}>
       <div className="tooltipElement" aria-labelledby="tooltip">
         {typeof element === 'string' ? renderHTML(element) : element}
       </div>
-      <div id="tooltip" className={`${getPosition(props)}`} role="tooltip">
+      <div
+        id="tooltip"
+        className={`${getPosition(right, center)}`}
+        role="tooltip"
+      >
         {text}
       </div>
     </div>

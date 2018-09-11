@@ -8,7 +8,7 @@
 }
 
 .checkboxLabel {
-  @include setFontSize($size-10);
+  @include setFontSize($size-20);
   @include setMargin($size-0, $size-0, $size-0, $size-10);
   color: grey;
   opacity: 0.5;

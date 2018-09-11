@@ -4,7 +4,7 @@
   <strong><%= t('medications.strength') %></strong> <%= t('medications.units.display', count: medication.strength, unit: t("medications.units.#{medication.strength_unit}", count: medication.strength)) %>
   <br><strong><%= t('medications.index.total') %></strong> <%= t('medications.units.display', count: medication.total, unit: t("medications.units.#{medication.total_unit}", count: medication.total)) %>
   <br><strong><%= t('medications.dosage') %></strong> <%= t('medications.units.display', count: medication.dosage, unit: t("medications.units.#{medication.dosage_unit}", count: medication.dosage)) %>
-  <br><strong><%= t('medications.refill') %></strong> <%= medication.refill %>
+  <br><strong><%= t('medications.refill') %></strong> <%= format_date(medication.refill) %>
 
   <%= print_reminders(medication) %>
 

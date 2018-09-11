@@ -7,37 +7,37 @@ import { Logo } from '../Logo';
 import { HeaderProfile } from './HeaderProfile';
 import css from './Header.scss';
 
-export interface Link {
-  name: string;
-  url: string;
-  active?: boolean;
-  dataMethod?: string;
-  hideInMobile?: boolean;
-}
+export type Link = {
+  name: string,
+  url: string,
+  active?: boolean,
+  dataMethod?: string,
+  hideInMobile?: boolean,
+};
 
-export interface Profile {
-  avatar: string;
-  name: string;
-  profile: Link;
-  account: Link;
+export type Profile = {
+  avatar: string,
+  name: string,
+  profile: Link,
+  account: Link,
   notifications: {
     plural: string,
     none: string,
     clear: string,
-  };
-}
+  },
+};
 
-export interface Props {
-  home: Link;
-  links: Link[];
-  mobileOnly?: any;
-  profile?: Profile;
-}
+export type Props = {
+  home: Link,
+  links: Link[],
+  mobileOnly?: any,
+  profile?: Profile,
+};
 
-export interface State {
-  mobileNavOpen: boolean;
-  toggled: boolean;
-}
+export type State = {
+  mobileNavOpen: boolean,
+  toggled: boolean,
+};
 
 export class Header extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -61,7 +61,7 @@ export class Header extends React.Component<Props, State> {
   displayLinks = () => {
     const { links } = this.props;
     return links.map((link: Link) => (
-      <div className={css.headerLink}>
+      <div className={css.headerLink} key={link.name}>
         <a
           href={link.url}
           className={`${link.active ? css.headerActiveLink : ''} ${
@@ -87,7 +87,8 @@ export class Header extends React.Component<Props, State> {
           <div
             id="headerHamburger"
             className={css.headerHamburger}
-            onClick={() => this.toggle()}
+            onClick={this.toggle}
+            onKeyDown={this.toggle}
             role="button"
             tabIndex="0"
           >

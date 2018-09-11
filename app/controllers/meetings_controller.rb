@@ -90,7 +90,6 @@ class MeetingsController < ApplicationController
   def edit
     @group_id = @meeting.group_id
     not_a_leader(@group_id)
-
     @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
   end
 
@@ -136,41 +135,20 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
-      error = false
       meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
       meeting_members.each do |member|
         meeting_member_id = MeetingMember.where(
           meeting_id: @meeting.id,
           user_id: member.user_id
         ).first.id
-        if params[:meeting][:leader].nil?
-          error = true
-          format.html { redirect_to group_path(@meeting.group_id) }
-          format.json { render :show, status: :ok, location: @meeting }
-        elsif params[:meeting][:leader].include? member.user_id.to_s
-          MeetingMember.update(
-            meeting_member_id,
-            meeting_id: @meeting.id,
-            user_id: member.user_id,
-            leader: true
-          )
-        else
-          MeetingMember.update(
-            meeting_member_id,
-            meeting_id: @meeting.id,
-            user_id: member.user_id,
-            leader: false
-          )
-        end
       end
-
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
       MeetingNotificationsService.handle_members(current_user: current_user,
                                                  meeting: @meeting,
                                                  type: 'update_meeting',
                                                  members: @meeting_members)
       respond_to do |format|
-        format.html { redirect_to meeting_path(@meeting.id) }
+        format.html { redirect_to meeting_path(@meeting.slug) }
         format.json do
           render json: @meeting.errors, status: :unprocessable_entity
         end
@@ -315,7 +293,6 @@ class MeetingsController < ApplicationController
       leader: true
     )
     return if group_member.exists?
-
     redirect_to_path(group_path(group_id))
   end
 

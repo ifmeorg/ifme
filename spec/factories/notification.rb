@@ -13,7 +13,7 @@ data = {
 FactoryBot.define do
   factory :notification do
     uniqueid 'MyString'
-    data data.to_s
+    data data.to_json
     user_id 1
 
     trait :with_user do

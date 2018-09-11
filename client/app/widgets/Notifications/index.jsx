@@ -4,17 +4,17 @@ import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { Modal } from '../../components/Modal';
 
-export interface Props {
-  element: any;
-  plural: string;
-  none: string;
-  clear: string;
-}
+export type Props = {
+  element: any,
+  plural: string,
+  none: string,
+  clear: string,
+};
 
-export interface State {
-  notifications: string;
-  alreadyMounted: boolean;
-}
+export type State = {
+  notifications: string,
+  alreadyMounted: boolean,
+};
 
 export class Notifications extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -27,7 +27,7 @@ export class Notifications extends React.Component<Props, State> {
   }
 
   changeTitle = (count: number) => {
-    let title = window.document.title;
+    let { title } = window.document;
     const eliminate = `${title.substr(0, title.indexOf(') '))})`;
     title = title.replace(eliminate, '');
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
@@ -95,8 +95,9 @@ export class Notifications extends React.Component<Props, State> {
       <div>
         {renderHTML(notifications)}
         <button
+          type="button"
           className="buttonDarkS small_margin_top"
-          onClick={() => this.clearNotifications()}
+          onClick={this.clearNotifications}
         >
           {clear}
         </button>
@@ -113,7 +114,7 @@ export class Notifications extends React.Component<Props, State> {
         elementId="notificationsElement"
         title={plural}
         body={notifications.length ? this.displayNotifications() : none}
-        openListener={() => this.fetchNotifications()}
+        openListener={this.fetchNotifications}
       />
     );
   }

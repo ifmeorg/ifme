@@ -1,5 +1,3 @@
-<%= render partial: 'shared/editor_modal' %>
-
 <%= form_for(@strategy) do |f| %>
 
 <div class="table">
@@ -95,7 +93,7 @@
         <%= f.label t('strategies.form.describe'), for: 'strategy_description' %>
         <i class="fa fa-asterisk"></i>
       </div>
-      <%= f.cktext_area :description, class: 'special_textarea ckeditor' %>
+      <%= f.text_field :description, class: 'special_textarea ckeditor' %>
 
       <%= render partial: '/shared/character_count', locals: { data: 'strategy_description' } %>
     </div>
