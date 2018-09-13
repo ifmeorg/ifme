@@ -58,7 +58,7 @@ export class InputCheckbox extends React.Component<Props, State> {
             name={name}
             type="checkbox"
             value={value}
-            checked={checked}
+            defaultChecked={checked}
             onClick={this.toggleChecked}
           />
           <div className={css.checkboxLabel}>{renderHTML(label)}</div>

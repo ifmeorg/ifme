@@ -2,6 +2,8 @@
 import React from 'react';
 import css from './Input.scss';
 
+export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date'];
+
 export type Props = {
   id: string,
   type: string,
@@ -60,6 +62,7 @@ export class InputDefault extends React.Component<Props, State> {
       max,
     } = this.props;
     const { value } = this.state;
+    if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
       <input
         className={css.default}
