@@ -5,23 +5,30 @@ import { Input } from '../components/Input';
 const someEvent = () => {
   window.alert('Event triggered!');
 };
-
+const options = [{ value: 1, label: 'First' }, { value: 2, label: 'Second' }];
+const id = 'some-id';
+const name = 'some-name';
+const label = 'Some Label';
+const value = 'Some Value';
+const placeholder = 'Some Placeholder';
+const info = 'Some Info';
+const idTwo = 'some-other-id';
+const nameTwo = 'some-other-name';
+const labelTwo = 'Some Other Label';
 const checkboxes = [
   {
-    id: 'some-id',
-    name: 'some-name',
-    label: 'Some checkbox',
+    id,
+    name,
+    label,
     value: 1,
     checked: true,
     uncheckedValue: 0,
   },
   {
-    id: 'some-other-id',
-    name: 'some-other-name',
-    label: 'Some other checkbox',
+    id: idTwo,
+    name: nameTwo,
+    label: labelTwo,
     value: 2,
-    checked: true,
-    uncheckedValue: 3,
   },
 ];
 
@@ -29,42 +36,42 @@ storiesOf('Input', module)
   .add('Text', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="text"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
       />
       <Input
-        id="some-id"
+        id={id}
         type="text"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         large
       />
       <Input
-        id="some-id"
+        id={id}
         type="text"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         dark
       />
       <Input
-        id="some-id"
+        id={id}
         type="text"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         dark
         large
       />
@@ -73,42 +80,42 @@ storiesOf('Input', module)
   .add('Textarea', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="textarea"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
       />
       <Input
-        id="some-id"
+        id={id}
         type="textarea"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         large
       />
       <Input
-        id="some-id"
+        id={id}
         type="textarea"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         dark
       />
       <Input
-        id="some-id"
+        id={id}
         type="textarea"
-        name="some-name"
-        label="Hello"
-        placeholder="Placeholder"
+        name={name}
+        label={label}
+        placeholder={placeholder}
         required
-        info="Some info here"
+        info={info}
         dark
         large
       />
@@ -117,33 +124,33 @@ storiesOf('Input', module)
   .add('Submit', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="submit"
-        name="some-name"
-        label="Hello"
+        name={name}
+        value={value}
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="submit"
-        name="some-name"
-        label="Hello"
+        name={name}
+        value={value}
         large
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="submit"
-        name="some-name"
-        label="Hello"
+        name={name}
+        value={value}
         dark
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="submit"
-        name="some-name"
-        label="Hello"
+        name={name}
+        value={value}
         large
         dark
         onClick={someEvent}
@@ -153,9 +160,9 @@ storiesOf('Input', module)
   .add('Checkbox', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="checkbox"
-        name="some-name"
+        name={name}
         label="Some checkbox"
         value={1}
         checked
@@ -163,9 +170,9 @@ storiesOf('Input', module)
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkbox"
-        name="some-name"
+        name={name}
         label="Some checkbox"
         value={1}
         checked
@@ -174,9 +181,9 @@ storiesOf('Input', module)
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkbox"
-        name="some-name"
+        name={name}
         label="Some checkbox"
         value={1}
         checked
@@ -185,9 +192,9 @@ storiesOf('Input', module)
         onClick={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkbox"
-        name="some-name"
+        name={name}
         label="Some checkbox"
         value={1}
         checked
@@ -201,40 +208,40 @@ storiesOf('Input', module)
   .add('CheckboxGroup', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="checkboxGroup"
-        name="some-name"
-        label="Some cool select label"
-        info="Some info here"
+        name={name}
+        label={label}
+        info={info}
         required
         checkboxes={checkboxes}
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkboxGroup"
-        name="some-name"
-        label="Some cool select label"
-        info="Some info here"
+        name={name}
+        label={label}
+        info={info}
         required
         checkboxes={checkboxes}
         large
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkboxGroup"
-        name="some-name"
-        label="Some cool select label"
-        info="Some info here"
+        name={name}
+        label={label}
+        info={info}
         required
         checkboxes={checkboxes}
         dark
       />
       <Input
-        id="some-id"
+        id={id}
         type="checkboxGroup"
-        name="some-name"
-        label="Some cool select label"
-        info="Some info here"
+        name={name}
+        label={label}
+        info={info}
         required
         checkboxes={checkboxes}
         dark
@@ -245,41 +252,41 @@ storiesOf('Input', module)
   .add('Select', () => (
     <div>
       <Input
-        id="some-id"
+        id={id}
         type="select"
-        name="some-name"
-        label="Some cool select label"
+        name={name}
+        label={label}
         value={2}
-        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        options={options}
         onChange={someEvent}
       />
       <Input
-        id="some-id"
+        id={id}
         type="select"
-        name="some-name"
-        label="Some cool select label"
+        name={name}
+        label={label}
         value={2}
-        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        options={options}
         onChange={someEvent}
         large
       />
       <Input
-        id="some-id"
+        id={id}
         type="select"
-        name="some-name"
-        label="Some cool select label"
+        name={name}
+        label={label}
         value={2}
-        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        options={options}
         onChange={someEvent}
         dark
       />
       <Input
-        id="some-id"
+        id={id}
         type="select"
-        name="some-name"
-        label="Some cool select label"
+        name={name}
+        label={label}
         value={2}
-        options={[{ value: 1, label: 'First' }, { value: 2, label: 'Second' }]}
+        options={options}
         onChange={someEvent}
         dark
         large

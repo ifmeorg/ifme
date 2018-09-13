@@ -8,7 +8,7 @@ import css from '../Input/Input.scss';
 
 export type Props = {
   children: any,
-  title?: string,
+  title: string,
   dark?: boolean,
   large?: boolean,
 };
@@ -26,7 +26,7 @@ export class Accordion extends React.Component<Props, State> {
   displayContent = () => {
     const { children } = this.props;
     return (
-      <div>
+      <div className="accordionContent">
         {typeof children === 'string' ? renderHTML(children) : children}
       </div>
     );
@@ -48,14 +48,16 @@ export class Accordion extends React.Component<Props, State> {
     return (
       <div className={this.inputClassNames()}>
         <div
-          className={`${globalCss.gridRowSpaceBetween} ${css.accordion}`}
+          className={`accordion ${globalCss.gridRowSpaceBetween} ${
+            css.accordion
+          }`}
           onClick={this.toggleOpen}
           onKeyDown={this.toggleOpen}
           role="button"
           tabIndex="0"
           aria-expanded={open}
         >
-          {title && <div>{title}</div>}
+          <div>{title}</div>
           <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
         </div>
         {open && this.displayContent()}

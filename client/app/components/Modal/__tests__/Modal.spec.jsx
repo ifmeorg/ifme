@@ -1,5 +1,5 @@
 // @flow
-import { render, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 import { Modal } from '../index';
 
@@ -25,15 +25,6 @@ describe('Modal', () => {
 
   describe('Text values for element and body', () => {
     const component = <Modal element="Hello" body={bodyText} title={title} />;
-
-    it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(component);
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
-    });
-
     it('toggles correctly', () => {
       const wrapper = shallow(component);
       expect(wrapper.find('#modalBackdrop').length).toEqual(0);
@@ -48,24 +39,15 @@ describe('Modal', () => {
   });
 
   describe('Text values for element and body with openListener', () => {
-    const component = (
-      <Modal
-        element="Hello"
-        body={bodyText}
-        title={title}
-        openListener={openListener}
-      />
-    );
-
-    it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(component);
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
-    });
-
     it('toggles correctly', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          openListener={openListener}
+        />
+      );
       const wrapper = shallow(component);
       expect(wrapper.find('#modalBackdrop').length).toEqual(0);
       expect(wrapper.find('#modal').length).toEqual(0);
@@ -81,23 +63,14 @@ describe('Modal', () => {
   });
 
   describe('HTML values for element and body', () => {
-    const component = (
-      <Modal
-        element={<button type="button">Hello</button>}
-        body={bodyHTML}
-        title={title}
-      />
-    );
-
-    it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(component);
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
-    });
-
     it('toggles correctly', () => {
+      const component = (
+        <Modal
+          element={<button type="button">Hello</button>}
+          body={bodyHTML}
+          title={title}
+        />
+      );
       const wrapper = shallow(component);
       expect(wrapper.find('#modalBackdrop').length).toEqual(0);
       expect(wrapper.find('#modal').length).toEqual(0);
@@ -111,24 +84,15 @@ describe('Modal', () => {
   });
 
   describe('HTML values for element and body with openListener', () => {
-    const component = (
-      <Modal
-        element={<button type="button">Hello</button>}
-        body={bodyHTML}
-        title={title}
-        openListener={openListener}
-      />
-    );
-
-    it('renders correctly', () => {
-      let wrapper = null;
-      expect(() => {
-        wrapper = render(component);
-      }).not.toThrow();
-      expect(wrapper).not.toBeNull();
-    });
-
     it('toggles correctly', () => {
+      const component = (
+        <Modal
+          element={<button type="button">Hello</button>}
+          body={bodyHTML}
+          title={title}
+          openListener={openListener}
+        />
+      );
       const wrapper = shallow(component);
       expect(wrapper.find('#modalBackdrop').length).toEqual(0);
       expect(wrapper.find('#modal').length).toEqual(0);
