@@ -6,8 +6,20 @@ import { InputSubmit } from './InputSubmit';
 import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
-import { InputDefault } from './InputDefault';
+import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import css from './Input.scss';
+
+const TYPES = [
+  'text',
+  'textarea',
+  'submit',
+  'checkbox',
+  'number',
+  'time',
+  'date',
+  'select',
+  'checkboxGroup',
+];
 
 const REQUIRES_LABEL = [
   'textarea',
@@ -19,8 +31,6 @@ const REQUIRES_LABEL = [
   'checkboxGroup',
 ];
 
-const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date'];
-
 export type Option = {
   value: any,
   label: string,
@@ -29,10 +39,10 @@ export type Option = {
 export type Checkbox = {
   id: string,
   name?: string,
-  value?: any,
+  value: any,
   checked?: boolean,
   uncheckedValue?: any,
-  label?: string,
+  label: string,
   onClick?: Function,
   info?: string,
 };
@@ -120,6 +130,7 @@ export class Input extends React.Component<Props, State> {
     const {
       id, onClick, value, large, dark,
     } = this.props;
+    if (!value) return null;
     return (
       <InputSubmit
         id={id}
@@ -157,6 +168,7 @@ export class Input extends React.Component<Props, State> {
       info,
       onClick,
     } = this.props;
+    if (!value || !label) return null;
     return (
       <InputCheckbox
         id={id}
@@ -212,22 +224,21 @@ export class Input extends React.Component<Props, State> {
       label, info, required, id,
     } = this.props;
     const { error } = this.state;
-    if (label || info || required || error) {
-      return (
-        <InputLabel
-          label={label}
-          required={required}
-          info={info}
-          id={id}
-          error={error}
-        />
-      );
-    }
-    return null;
+    if (!label) return null;
+    return (
+      <InputLabel
+        label={label}
+        required={required}
+        info={info}
+        id={id}
+        error={error}
+      />
+    );
   };
 
   render() {
     const { type, dark, large } = this.props;
+    if (!TYPES.includes(type)) return null;
     return (
       <div className={`${dark ? css.dark : ''} ${large ? css.large : ''}`}>
         {REQUIRES_LABEL.includes(type) && this.displayLabel()}

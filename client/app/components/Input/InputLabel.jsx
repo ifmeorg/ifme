@@ -12,7 +12,7 @@ import globalCss from '../../styles/_global.scss';
 
 export type Props = {
   id: string,
-  label?: string,
+  label: string,
   required?: boolean,
   info?: string,
   error?: boolean,

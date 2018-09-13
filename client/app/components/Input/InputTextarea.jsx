@@ -8,6 +8,9 @@ import { EditorState } from 'draft-js';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
 
+// TODO (julianguyen): Write tests for this, mocking draft-js is hard
+// https://github.com/facebook/draft-js/issues/325
+
 export type Props = {
   id: string,
   name?: string,

@@ -2,19 +2,20 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Accordion } from '../components/Accordion';
 
-storiesOf('Accordion', module).add('Without name', () => (
+const title = 'Accordions have pianos';
+const children = <strong>Hello</strong>;
+
+storiesOf('Accordion', module).add('Accordion', () => (
   <div>
-    <Accordion title="Accordions have pianos">
-      <strong>Hello</strong>
+    <Accordion title={title}>{children}</Accordion>
+    <Accordion title={title} large>
+      {children}
     </Accordion>
-    <Accordion title="Accordions have pianos" large>
-      <strong>Hello</strong>
+    <Accordion title={title} dark>
+      {children}
     </Accordion>
-    <Accordion title="Accordions have pianos" dark>
-      <strong>Hello</strong>
-    </Accordion>
-    <Accordion title="Accordions have pianos" dark large>
-      <strong>Hello</strong>
+    <Accordion title={title} dark large>
+      {<strong>Hello</strong>}
     </Accordion>
   </div>
 ));
