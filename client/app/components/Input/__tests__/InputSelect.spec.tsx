@@ -2,14 +2,13 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { InputSelect } from '../InputSelect';
+import { InputMocks } from '../../../mocks/InputMocks';
 
-const id = 'some-id';
-const name = 'some-name';
-const value = 'Some Value';
-const options = [{ value: 1, label: 'First' }, { value: 2, label: 'Second' }];
-const someEvent = () => {
-  window.alert('Event triggered!');
-};
+const { id } = InputMocks.inputSelectProps;
+const { name } = InputMocks.inputSelectProps;
+const { value } = InputMocks.inputSelectProps;
+const { options } = InputMocks.inputSelectProps;
+const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {
   beforeEach(() => {

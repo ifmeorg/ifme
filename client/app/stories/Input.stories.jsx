@@ -1,487 +1,228 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Input } from '../components/Input';
-
-const someEvent = () => {
-  window.alert('Event triggered!');
-};
-const options = [{ value: 1, label: 'First' }, { value: 2, label: 'Second' }];
-const id = 'some-id';
-const name = 'some-name';
-const label = 'Some Label';
-const value = 'Some Value';
-const placeholder = 'Some Placeholder';
-const info = 'Some Info';
-const idTwo = 'some-other-id';
-const nameTwo = 'some-other-name';
-const labelTwo = 'Some Other Label';
-const checkboxes = [
-  {
-    id,
-    name,
-    label,
-    value: 1,
-    checked: true,
-    uncheckedValue: 0,
-  },
-  {
-    id: idTwo,
-    name: nameTwo,
-    label: labelTwo,
-    value: 2,
-  },
-];
+import { InputMocks } from '../mocks/InputMocks';
 
 storiesOf('Input', module)
   .add('Text', () => (
     <div>
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        large
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        large
-      />
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('Text with accordion', () => (
     <div>
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        accordion
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        large
-        accordion
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        accordion
-      />
-      <Input
-        id={id}
-        type="text"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        large
-        accordion
-      />
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
     </div>
   ))
   .add('Textarea', () => (
     <div>
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        large
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        large
-      />
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('Textarea with accordion', () => (
     <div>
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        accordion
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        large
-        accordion
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        accordion
-      />
-      <Input
-        id={id}
-        type="textarea"
-        name={name}
-        label={label}
-        placeholder={placeholder}
-        required
-        info={info}
-        dark
-        large
-        accordion
-      />
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextareaProps, {
+        required: true,
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
     </div>
   ))
   .add('Submit', () => (
     <div>
-      <Input
-        id={id}
-        type="submit"
-        name={name}
-        value={value}
-        onClick={someEvent}
-      />
-      <Input
-        id={id}
-        type="submit"
-        name={name}
-        value={value}
-        large
-        onClick={someEvent}
-      />
-      <Input
-        id={id}
-        type="submit"
-        name={name}
-        value={value}
-        dark
-        onClick={someEvent}
-      />
-      <Input
-        id={id}
-        type="submit"
-        name={name}
-        value={value}
-        large
-        dark
-        onClick={someEvent}
-      />
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('Checkbox', () => (
     <div>
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        label="Some checkbox"
-        value={1}
-        checked
-        uncheckedValue={0}
-        onChange={someEvent}
-      />
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        label="Some checkbox"
-        value={1}
-        checked
-        uncheckedValue={0}
-        large
-        onChange={someEvent}
-      />
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        label="Some checkbox"
-        value={1}
-        checked
-        uncheckedValue={0}
-        dark
-        onChange={someEvent}
-      />
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        label="Some checkbox"
-        value={1}
-        checked
-        uncheckedValue={0}
-        dark
-        large
-        onChange={someEvent}
-      />
+      {InputMocks.createInput(InputMocks.inputCheckboxProps, {
+        onChange: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxProps, {
+        onChange: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxProps, {
+        onChange: InputMocks.event,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('CheckboxGroup', () => (
     <div>
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        large
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        dark
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        dark
-        large
-      />
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('CheckboxGroup with accordion', () => (
     <div>
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        accordion
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        large
-        accordion
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        dark
-        accordion
-      />
-      <Input
-        id={id}
-        type="checkboxGroup"
-        name={name}
-        label={label}
-        info={info}
-        required
-        checkboxes={checkboxes}
-        dark
-        large
-        accordion
-      />
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
+        required: true,
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
     </div>
   ))
   .add('Select', () => (
     <div>
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        large
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        dark
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        dark
-        large
-      />
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        large: true,
+      })}
     </div>
   ))
   .add('Select with accordion', () => (
     <div>
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        accordion
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        large
-        accordion
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        dark
-        accordion
-      />
-      <Input
-        id={id}
-        type="select"
-        name={name}
-        label={label}
-        value={2}
-        options={options}
-        onChange={someEvent}
-        dark
-        large
-        accordion
-      />
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
     </div>
   ));

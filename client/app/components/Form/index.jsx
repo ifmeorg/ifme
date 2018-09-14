@@ -7,16 +7,18 @@ import css from './Form.scss';
 
 type FormInput = InputProps | Object;
 
+type Errors = { [string]: boolean } | {};
+
 export type Props = {
   inputs: FormInput[],
 };
 
 export type State = {
   inputs: InputProps[],
-  errors: { [string]: boolean } | {},
+  errors: Errors,
 };
 
-const hasErrors = errors => Object.values(errors).filter(key => key).length;
+export const hasErrors = (errors: Errors) => Object.values(errors).filter(key => key).length;
 
 const randomKey = () => Math.random()
   .toString(36)
@@ -55,7 +57,7 @@ export class Form extends React.Component<Props, State> {
       const newInput = Object.assign({}, input);
       if (this.isInputError(newInput)) {
         newInput.error = true;
-        newInput.key = randomKey();
+        newInput.myKey = randomKey(); // Triggers state change in child component
         newErrors[newInput.id] = true;
       }
       return newInput;
@@ -70,7 +72,7 @@ export class Form extends React.Component<Props, State> {
     <div key={input.id}>
       <Input
         id={input.id}
-        key={input.key}
+        key={input.myKey}
         type={input.type}
         name={input.name}
         label={input.label}
