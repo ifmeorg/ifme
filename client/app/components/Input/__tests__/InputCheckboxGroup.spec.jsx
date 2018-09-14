@@ -10,7 +10,7 @@ const idTwo = 'some-other-id';
 const nameTwo = 'some-other-name';
 const labelTwo = 'Some Other Label';
 const someEvent = () => {
-  window.alert('Event triggered!');
+  window.alert('Error');
 };
 const checkboxes = [
   {
@@ -42,12 +42,18 @@ describe('InputCheckboxGroup', () => {
       expect(
         typeof wrapper.state('checkboxes')[1].checked === 'undefined',
       ).toEqual(true);
-      wrapper.find(`input[name="${nameTwo}"]`).simulate('click');
+      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+        currentTarget: { checked: true },
+      });
       expect(wrapper.state('checkboxes')[1].checked).toEqual(true);
       expect(wrapper.state('checkboxes')[0].checked).toEqual(true);
-      wrapper.find(`input[name="${name}"][type="checkbox"]`).simulate('click');
+      wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')({
+        currentTarget: { checked: false },
+      });
       expect(wrapper.state('checkboxes')[0].checked).toEqual(false);
-      wrapper.find(`input[name="${nameTwo}"]`).simulate('click');
+      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+        currentTarget: { checked: false },
+      });
       expect(wrapper.state('checkboxes')[1].checked).toEqual(false);
       expect(window.alert).not.toHaveBeenCalled();
     });
@@ -65,14 +71,20 @@ describe('InputCheckboxGroup', () => {
       expect(
         typeof wrapper.state('checkboxes')[1].checked === 'undefined',
       ).toEqual(true);
-      wrapper.find(`input[name="${nameTwo}"]`).simulate('click');
+      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+        currentTarget: { checked: true },
+      });
       expect(wrapper.state('checkboxes')[1].checked).toEqual(true);
       expect(wrapper.state('checkboxes')[0].checked).toEqual(true);
-      wrapper.find(`input[name="${name}"][type="checkbox"]`).simulate('click');
+      wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')({
+        currentTarget: { checked: false },
+      });
       expect(wrapper.state('checkboxes')[0].checked).toEqual(false);
-      wrapper.find(`input[name="${nameTwo}"]`).simulate('click');
+      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+        currentTarget: { checked: false },
+      });
       expect(wrapper.state('checkboxes')[1].checked).toEqual(false);
-      expect(window.alert).toHaveBeenCalled();
+      expect(window.alert).toHaveBeenCalledWith('Error');
     });
   });
 });

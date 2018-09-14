@@ -7,6 +7,7 @@ export type Props = {
   large?: boolean,
   dark?: boolean,
   value: any,
+  disabled?: boolean,
   onClick?: Function,
 };
 
@@ -25,7 +26,7 @@ const buttonClassName = (large: ?boolean, dark: ?boolean) => {
 
 export const InputSubmit = (props: Props) => {
   const {
-    id, large, dark, onClick, value,
+    id, large, dark, onClick, value, disabled,
   } = props;
   return (
     <input
@@ -33,6 +34,7 @@ export const InputSubmit = (props: Props) => {
       type="submit"
       name="commit"
       value={value}
+      disabled={disabled}
       className={buttonClassName(large, dark)}
       onClick={onClick}
     />

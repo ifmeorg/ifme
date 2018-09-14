@@ -43,7 +43,7 @@ export class Accordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { title, id } = this.props;
+    const { title } = this.props;
     const { open } = this.state;
     return (
       <div className={this.inputClassNames()}>

@@ -8,63 +8,60 @@ import globalCss from '../../styles/_global.scss';
 import type { Checkbox as Props } from './index';
 import { Tooltip } from '../Tooltip';
 
-export type State = {
-  checked: boolean,
+const displayUnchecked = (name: ?string, uncheckedValue: ?any, id: string) => (
+  <input id={id} name={name} type="hidden" value={uncheckedValue} />
+);
+
+const handleOnChange = (
+  e: SyntheticEvent<HTMLInputElement>,
+  onChange?: Function,
+  id: string,
+) => {
+  const { checked } = e.currentTarget;
+  if (onChange) {
+    onChange({ checked, id });
+  }
 };
 
-export class InputCheckbox extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { checked: !!props.checked };
-  }
+const displayInfo = (info: ?string) => {
+  if (!info) return null;
+  return (
+    <Tooltip
+      element={<FontAwesomeIcon icon={faQuestion} />}
+      text={info}
+      right
+    />
+  );
+};
 
-  displayUnchecked = () => {
-    const { name, uncheckedValue, id } = this.props;
-    return <input id={id} name={name} type="hidden" value={uncheckedValue} />;
-  };
-
-  toggleChecked = () => {
-    const { checked } = this.state;
-    const { onClick, id } = this.props;
-    if (onClick) {
-      onClick({ checked: !checked, id });
-    }
-    this.setState({ checked: !checked });
-  };
-
-  displayInfo = () => {
-    const { info } = this.props;
-    if (!info) return null;
-    return (
-      <Tooltip
-        element={<FontAwesomeIcon icon={faQuestion} />}
-        text={info}
-        right
-      />
-    );
-  };
-
-  render() {
-    const {
-      id, name, value, label, uncheckedValue,
-    } = this.props;
-    const { checked } = this.state;
-    return (
-      <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
-        <div>
-          {typeof uncheckedValue !== 'undefined' && this.displayUnchecked()}
-          <input
-            id={id}
-            name={name}
-            type="checkbox"
-            value={value}
-            defaultChecked={checked}
-            onClick={this.toggleChecked}
-          />
-          <div className={css.checkboxLabel}>{renderHTML(label)}</div>
-        </div>
-        {this.displayInfo()}
+export const InputCheckbox = (props: Props) => {
+  const {
+    id,
+    name,
+    value,
+    label,
+    uncheckedValue,
+    checked,
+    info,
+    onChange,
+  } = props;
+  return (
+    <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
+      <div>
+        {typeof uncheckedValue !== 'undefined'
+          && displayUnchecked(name, uncheckedValue, id)}
+        <input
+          id={id}
+          name={name}
+          type="checkbox"
+          value={value}
+          defaultChecked={checked}
+          onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)
+          }
+        />
+        <div className={css.checkboxLabel}>{renderHTML(label)}</div>
       </div>
-    );
-  }
-}
+      {displayInfo(info)}
+    </div>
+  );
+};
