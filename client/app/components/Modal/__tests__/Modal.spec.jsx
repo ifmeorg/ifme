@@ -19,7 +19,7 @@ const openListener = () => {
 };
 
 describe('Modal', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 

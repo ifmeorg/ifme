@@ -30,6 +30,7 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
       return newItem;
     });
     if (required && hasError) {
+      console.log("HEY");
       hasError(newCheckboxes.filter(item => item.checked).length === 0);
     }
     this.setState({ checkboxes: newCheckboxes });

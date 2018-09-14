@@ -77,6 +77,54 @@ storiesOf('Input', module)
       />
     </div>
   ))
+  .add('Text with accordion', () => (
+    <div>
+      <Input
+        id={id}
+        type="text"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        accordion
+      />
+      <Input
+        id={id}
+        type="text"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        large
+        accordion
+      />
+      <Input
+        id={id}
+        type="text"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        dark
+        accordion
+      />
+      <Input
+        id={id}
+        type="text"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        dark
+        large
+        accordion
+      />
+    </div>
+  ))
   .add('Textarea', () => (
     <div>
       <Input
@@ -118,6 +166,54 @@ storiesOf('Input', module)
         info={info}
         dark
         large
+      />
+    </div>
+  ))
+  .add('Textarea with accordion', () => (
+    <div>
+      <Input
+        id={id}
+        type="textarea"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        accordion
+      />
+      <Input
+        id={id}
+        type="textarea"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        large
+        accordion
+      />
+      <Input
+        id={id}
+        type="textarea"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        dark
+        accordion
+      />
+      <Input
+        id={id}
+        type="textarea"
+        name={name}
+        label={label}
+        placeholder={placeholder}
+        required
+        info={info}
+        dark
+        large
+        accordion
       />
     </div>
   ))
@@ -249,6 +345,54 @@ storiesOf('Input', module)
       />
     </div>
   ))
+  .add('CheckboxGroup with accordion', () => (
+    <div>
+      <Input
+        id={id}
+        type="checkboxGroup"
+        name={name}
+        label={label}
+        info={info}
+        required
+        checkboxes={checkboxes}
+        accordion
+      />
+      <Input
+        id={id}
+        type="checkboxGroup"
+        name={name}
+        label={label}
+        info={info}
+        required
+        checkboxes={checkboxes}
+        large
+        accordion
+      />
+      <Input
+        id={id}
+        type="checkboxGroup"
+        name={name}
+        label={label}
+        info={info}
+        required
+        checkboxes={checkboxes}
+        dark
+        accordion
+      />
+      <Input
+        id={id}
+        type="checkboxGroup"
+        name={name}
+        label={label}
+        info={info}
+        required
+        checkboxes={checkboxes}
+        dark
+        large
+        accordion
+      />
+    </div>
+  ))
   .add('Select', () => (
     <div>
       <Input
@@ -290,6 +434,54 @@ storiesOf('Input', module)
         onChange={someEvent}
         dark
         large
+      />
+    </div>
+  ))
+  .add('Select with accordion', () => (
+    <div>
+      <Input
+        id={id}
+        type="select"
+        name={name}
+        label={label}
+        value={2}
+        options={options}
+        onChange={someEvent}
+        accordion
+      />
+      <Input
+        id={id}
+        type="select"
+        name={name}
+        label={label}
+        value={2}
+        options={options}
+        onChange={someEvent}
+        large
+        accordion
+      />
+      <Input
+        id={id}
+        type="select"
+        name={name}
+        label={label}
+        value={2}
+        options={options}
+        onChange={someEvent}
+        dark
+        accordion
+      />
+      <Input
+        id={id}
+        type="select"
+        name={name}
+        label={label}
+        value={2}
+        options={options}
+        onChange={someEvent}
+        dark
+        large
+        accordion
       />
     </div>
   ));

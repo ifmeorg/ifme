@@ -28,7 +28,7 @@ export class InputTextarea extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      value: props.value,
+      value: props.value || '',
       editorState: EditorState.createWithContent(
         stateFromHTML(props.value || ''),
       ),
@@ -37,13 +37,24 @@ export class InputTextarea extends React.Component<Props, State> {
 
   onEditorStateChange = (editorState: any) => {
     const { required, hasError } = this.props;
+    const { value } = this.state;
     const contentValueHTML = stateToHTML(editorState.getCurrentContent());
     const contentValue = contentValueHTML === '<p><br></p>' ? '' : contentValueHTML;
-    if (required && hasError) {
-      hasError(!contentValue);
+    if (value !== contentValue) {
+      if (required && hasError) {
+        hasError(!contentValue);
+      }
+      this.setState({ editorState, value: contentValue });
     }
-    this.setState({ editorState, value: contentValue });
-  };
+  }
+
+  onBlur = () => {
+    const { required, hasError } = this.props;
+    const { value } = this.state;
+    if (required && hasError) {
+      hasError(!value);
+    }
+  }
 
   displayEditor = () => {
     const { editorState } = this.state;
@@ -65,9 +76,10 @@ export class InputTextarea extends React.Component<Props, State> {
         }}
         editorState={editorState}
         onEditorStateChange={this.onEditorStateChange}
+        onBlur={this.onBlur}
       />
     );
-  };
+  }
 
   render() {
     const { id, name, required } = this.props;

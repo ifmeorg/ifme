@@ -37,16 +37,22 @@ const displayTags = (required: ?boolean, info: ?string) => (
   </div>
 );
 
+const displayLabel = (id: string, label: string, error: ?string) => {
+  return (
+    <label htmlFor={id} className={error ? css.error : ''}>
+      {label}
+    </label>
+  );
+};
+
 export const InputLabel = (props: Props) => {
   const {
     error, label, required, info, id,
   } = props;
   return (
     <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
-      <div>
-        <label htmlFor={id} className={error ? css.error : ''}>
-          {label}
-        </label>
+      <div className={css.labelInfo}>
+        {displayLabel(id, label, error)}
         {error ? <FontAwesomeIcon icon={faExclamation} /> : null}
       </div>
       {required || info ? displayTags(required, info) : null}
