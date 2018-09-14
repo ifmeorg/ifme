@@ -47,7 +47,7 @@ describe('InputDefault', () => {
           required
           info={info}
           hasError={someEvent}
-        />
+        />,
       );
       const value = 'Some value';
       wrapper.find('input').simulate('change', { currentTarget: { value } });

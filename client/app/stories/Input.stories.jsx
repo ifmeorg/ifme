@@ -263,7 +263,7 @@ storiesOf('Input', module)
         value={1}
         checked
         uncheckedValue={0}
-        onClick={someEvent}
+        onChange={someEvent}
       />
       <Input
         id={id}
@@ -274,7 +274,7 @@ storiesOf('Input', module)
         checked
         uncheckedValue={0}
         large
-        onClick={someEvent}
+        onChange={someEvent}
       />
       <Input
         id={id}
@@ -285,7 +285,7 @@ storiesOf('Input', module)
         checked
         uncheckedValue={0}
         dark
-        onClick={someEvent}
+        onChange={someEvent}
       />
       <Input
         id={id}
@@ -297,7 +297,7 @@ storiesOf('Input', module)
         uncheckedValue={0}
         dark
         large
-        onClick={someEvent}
+        onChange={someEvent}
       />
     </div>
   ))

@@ -19,7 +19,7 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
     this.state = { checkboxes: props.checkboxes };
   }
 
-  clickCheckbox = (checkbox: { checked: boolean, id: string }) => {
+  handleOnChange = (checkbox: { checked: boolean, id: string }) => {
     const { hasError, required } = this.props;
     const { checkboxes } = this.state;
     const newCheckboxes = checkboxes.map((item: Checkbox) => {
@@ -30,7 +30,6 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
       return newItem;
     });
     if (required && hasError) {
-      console.log("HEY");
       hasError(newCheckboxes.filter(item => item.checked).length === 0);
     }
     this.setState({ checkboxes: newCheckboxes });
@@ -49,7 +48,7 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
             checked={checkbox.checked}
             uncheckedValue={checkbox.uncheckedValue}
             label={checkbox.label}
-            onClick={(e: any) => this.clickCheckbox(e)}
+            onChange={this.handleOnChange}
           />
         ))}
       </div>
