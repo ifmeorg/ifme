@@ -32,13 +32,7 @@ describe('Input', () => {
     describe('with accordion prop', () => {
       it('toggles correctly', () => {
         const wrapper = mount(
-          <Input
-            id={id}
-            type="text"
-            name={name}
-            label={label}
-            accordion
-          />
+          <Input id={id} type="text" name={name} label={label} accordion />,
         );
         expect(wrapper.find('input').exists()).toEqual(false);
         wrapper.find('.accordion').simulate('click');
@@ -60,7 +54,7 @@ describe('Input', () => {
             label={label}
             checkboxes={checkboxes}
             accordion
-          />
+          />,
         );
         expect(wrapper.find('input').exists()).toEqual(false);
         wrapper.find('.accordion').simulate('click');
@@ -82,7 +76,7 @@ describe('Input', () => {
             label={label}
             options={options}
             accordion
-          />
+          />,
         );
         expect(wrapper.find('select').exists()).toEqual(false);
         wrapper.find('.accordion').simulate('click');

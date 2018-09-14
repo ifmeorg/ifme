@@ -46,7 +46,7 @@ export class InputTextarea extends React.Component<Props, State> {
       }
       this.setState({ editorState, value: contentValue });
     }
-  }
+  };
 
   onBlur = () => {
     const { required, hasError } = this.props;
@@ -54,7 +54,7 @@ export class InputTextarea extends React.Component<Props, State> {
     if (required && hasError) {
       hasError(!value);
     }
-  }
+  };
 
   displayEditor = () => {
     const { editorState } = this.state;
@@ -79,7 +79,7 @@ export class InputTextarea extends React.Component<Props, State> {
         onBlur={this.onBlur}
       />
     );
-  }
+  };
 
   render() {
     const { id, name, required } = this.props;

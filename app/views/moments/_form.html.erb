@@ -1,4 +1,29 @@
 <%= form_for(@moment) do |f| %>
+  <%
+  viewers_input = {}
+    if !@viewers.nil? && @viewers.length > 0
+      checkboxes = []
+      @viewers.each do |item|
+        checkboxes.push({
+          id: "moment_viewers_#{item.id}",
+          name: 'moment[viewers][]',
+          value: item.id,
+          checked: @moment.viewers.include?(item.id),
+          label: User.where(id: item.id).first.name
+        })
+      end
+      viewers_input = {
+        id: 'moment_viewers',
+        name: 'moment[viewers]',
+        type: 'checkboxGroup',
+        checkboxes: checkboxes,
+        label: t('shared.viewers.plural'),
+        dark: true,
+        accordion: true,
+        info: t('moments.form.viewers_hint')
+      }
+    end
+  %>
   <%= react_component('Form', props: {
     inputs: [
       {
@@ -37,6 +62,7 @@
         info: t('comment.hint'),
         dark: true,
       },
+      viewers_input,
       {
         id: 'moment_publishing',
         type: 'checkbox',
@@ -83,40 +109,6 @@
         data_type: 'strategy',
         data_type_plural: 'strategies'
       } %>
-
-    <% if !@viewers.nil? && @viewers.length > 0 %>
-      <div class="sidebar_field">
-        <div class="sidebar_label expand_toggle" data-toggle="#viewers">
-          <a href="#" class="toggle_button">
-            <i class="fa fa-caret-down"></i>
-          </a>
-          <div class="gridRow">
-            <%= f.label t('shared.viewers.plural'), class: 'smaller_margin_right' %>
-            <%= react_component('Tooltip', props: {
-              element: '<i class="fa fa-question-circle"></i>',
-              text: t('moments.form.viewers_hint'),
-              right: true
-            }) %>
-          </div>
-        </div>
-      </div>
-
-      <div id="viewers" class="display_none">
-        <div id="viewers_list">
-          <label>
-            <input type="checkbox" id="viewers_all" />
-            <span id="viewers_label"><%= t('common.actions.select_all') %></span>
-          </label>
-
-          <% @viewers.each do |item| %>
-            <label>
-              <%= f.check_box(:viewers, { multiple: true, checked: @moment.viewers.include?(item.id)}, item.id, nil) %>
-              <%= User.where(id: item.id).first.name %>
-            </label>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
 <% end %>

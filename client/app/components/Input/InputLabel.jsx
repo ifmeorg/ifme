@@ -37,13 +37,11 @@ const displayTags = (required: ?boolean, info: ?string) => (
   </div>
 );
 
-const displayLabel = (id: string, label: string, error: ?string) => {
-  return (
-    <label htmlFor={id} className={error ? css.error : ''}>
-      {label}
-    </label>
-  );
-};
+const displayLabel = (id: string, label: string, error: ?boolean) => (
+  <label htmlFor={id} className={error ? css.error : ''}>
+    {label}
+  </label>
+);
 
 export const InputLabel = (props: Props) => {
   const {

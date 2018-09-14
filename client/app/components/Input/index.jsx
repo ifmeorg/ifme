@@ -44,7 +44,7 @@ export type Checkbox = {
   checked?: boolean,
   uncheckedValue?: any,
   label: string,
-  onClick?: Function,
+  onChange?: Function,
   info?: string,
 };
 
@@ -82,6 +82,7 @@ export type Props = {
   checkboxes?: Checkbox[],
   onError?: Function,
   accordion?: boolean,
+  key?: string,
 };
 
 export type State = {
@@ -131,7 +132,7 @@ export class Input extends React.Component<Props, State> {
 
   displaySubmit = () => {
     const {
-      id, onClick, value, large, dark, type
+      id, onClick, value, large, dark, type, disabled,
     } = this.props;
     if (type === 'submit' && value) {
       return (
@@ -141,6 +142,7 @@ export class Input extends React.Component<Props, State> {
           value={value}
           large={large}
           dark={dark}
+          disabled={disabled}
         />
       );
     }
@@ -172,7 +174,7 @@ export class Input extends React.Component<Props, State> {
       uncheckedValue,
       label,
       info,
-      onClick,
+      onChange,
       type,
     } = this.props;
     if (type === 'checkbox' && value && label) {
@@ -185,7 +187,7 @@ export class Input extends React.Component<Props, State> {
           uncheckedValue={uncheckedValue}
           label={label}
           info={info}
-          onClick={onClick}
+          onChange={onChange}
         />
       );
     }
@@ -234,7 +236,7 @@ export class Input extends React.Component<Props, State> {
 
   displayLabel = () => {
     const {
-      label, info, required, id, accordion, type,
+      label, info, required, id, type,
     } = this.props;
     const { error } = this.state;
     if (REQUIRES_LABEL.includes(type) && label) {
@@ -252,11 +254,18 @@ export class Input extends React.Component<Props, State> {
   };
 
   render() {
-    const { type, dark, large, accordion, label, id } = this.props;
+    const {
+      type, dark, large, accordion, label, key,
+    } = this.props;
     if (!TYPES.includes(type)) return null;
     const content = (
-      <div className={`${dark ? css.dark : ''} ${large ? css.large : ''}`}>
-        {!accordion && <div className={css.labelNoAccordion}>{this.displayLabel()}</div>}
+      <div
+        key={key}
+        className={`${dark ? css.dark : ''} ${large ? css.large : ''}`}
+      >
+        {!accordion && (
+          <div className={css.labelNoAccordion}>{this.displayLabel()}</div>
+        )}
         {this.displayDefault()}
         {this.displayCheckbox()}
         {this.displayCheckboxGroup()}
@@ -265,13 +274,12 @@ export class Input extends React.Component<Props, State> {
         {this.displayTextarea()}
       </div>
     );
-    return accordion && label
-      ? <Accordion
-          title={this.displayLabel()}
-          dark={dark}
-          large={large}
-        >
-          {content}
-        </Accordion> : content;
+    return accordion && label ? (
+      <Accordion title={this.displayLabel()} dark={dark} large={large}>
+        {content}
+      </Accordion>
+    ) : (
+      content
+    );
   }
 }
