@@ -8,8 +8,8 @@ const name = 'some-name';
 const label = 'Some Label';
 const placeholder = 'Some Placeholder';
 const info = 'Some Info';
-const someEvent = () => {
-  window.alert('Event triggered!');
+const someEvent = (error: boolean) => {
+  window.alert(`Error is ${error}`);
 };
 
 describe('InputDefault', () => {
@@ -49,14 +49,14 @@ describe('InputDefault', () => {
           hasError={someEvent}
         />,
       );
-      const value = 'Some value';
-      wrapper.find('input').simulate('change', { currentTarget: { value } });
-      expect(wrapper.state('value')).toEqual(value);
+      wrapper
+        .find('input')
+        .simulate('change', { currentTarget: { value: 'Some Value' } });
+      expect(window.alert).toHaveBeenCalledWith('Error is false');
       wrapper
         .find('input')
         .simulate('change', { currentTarget: { value: '' } });
-      expect(wrapper.state('value')).toEqual('');
-      expect(window.alert).toHaveBeenCalled();
+      expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });
 });
