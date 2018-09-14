@@ -2,12 +2,13 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { InputDefault } from '../InputDefault';
+import { InputMocks } from '../../../mocks/InputMocks';
 
-const id = 'some-id';
-const name = 'some-name';
-const label = 'Some Label';
-const placeholder = 'Some Placeholder';
-const info = 'Some Info';
+const { id } = InputMocks.inputTextProps;
+const { name } = InputMocks.inputTextProps;
+const { label } = InputMocks.inputTextProps;
+const { info } = InputMocks.inputTextProps;
+const { placeholder } = InputMocks.inputTextProps;
 const someEvent = (error: boolean) => {
   window.alert(`Error is ${error}`);
 };

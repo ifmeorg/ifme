@@ -3,7 +3,8 @@
     "env",
     "flow",
     "react",
-    "stage-2"
+    "stage-2",
+    ["latest-node", { "target": 8 }]
   ],
   "env": {
     "test": {

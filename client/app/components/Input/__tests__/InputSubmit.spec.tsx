@@ -2,13 +2,12 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { InputSubmit } from '../InputSubmit';
+import { InputMocks } from '../../../mocks/InputMocks';
 
-const id = 'some-id';
-const name = 'some-name';
-const value = 'Some Value';
-const someEvent = () => {
-  window.alert('Event triggered!');
-};
+const { id } = InputMocks.inputSubmitProps;
+const { name } = InputMocks.inputSubmitProps;
+const { value } = InputMocks.inputSubmitProps;
+const someEvent = InputMocks.event;
 
 describe('InputSubmit', () => {
   beforeEach(() => {

@@ -82,7 +82,7 @@ export type Props = {
   checkboxes?: Checkbox[],
   onError?: Function,
   accordion?: boolean,
-  key?: string,
+  myKey?: string,
   myRef?: any,
 };
 
@@ -259,12 +259,12 @@ export class Input extends React.Component<Props, State> {
 
   render() {
     const {
-      type, dark, large, accordion, label, key,
+      type, dark, large, accordion, label, myKey,
     } = this.props;
     if (!TYPES.includes(type)) return null;
     const content = (
       <div
-        key={key}
+        key={myKey}
         className={`${dark ? css.dark : ''} ${large ? css.large : ''}`}
       >
         {!accordion && (

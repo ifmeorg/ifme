@@ -51,7 +51,11 @@ export const InputLabel = (props: Props) => {
     <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
       <div className={css.labelInfo}>
         {displayLabel(id, label, error)}
-        {error ? <FontAwesomeIcon icon={faExclamation} /> : null}
+        {error ? (
+          <div className="labelError">
+            <FontAwesomeIcon icon={faExclamation} />
+          </div>
+        ) : null}
       </div>
       {required || info ? displayTags(required, info) : null}
     </div>
