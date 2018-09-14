@@ -45,8 +45,10 @@ export class Form extends React.Component<Props, State> {
     const newErrors = Object.assign({}, errors);
     const newInputs = inputs.map((input: FormInput) => {
       const newInput = Object.assign({}, input);
+      console.log(newInput.type, newInput.value);
       if (
-        REQUIRES_DEFAULT.includes(newInput.type)
+        (REQUIRES_DEFAULT.includes(newInput.type)
+          || newInput.type === 'textarea')
         && newInput.required
         && !newInput.value
       ) {

@@ -1,6 +1,6 @@
 <%= form_for(@moment) do |f| %>
   <%
-  viewers_input = {}
+    viewers_input = {}
     if !@viewers.nil? && @viewers.length > 0
       checkboxes = []
       @viewers.each do |item|
@@ -9,7 +9,7 @@
           name: 'moment[viewers][]',
           value: item.id,
           checked: @moment.viewers.include?(item.id),
-          label: User.where(id: item.id).first.name
+          label: User.find(item.id).name
         })
       end
       viewers_input = {
