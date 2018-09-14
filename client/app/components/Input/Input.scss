@@ -92,11 +92,18 @@
 
 .label {
   @include setFontSize($size-16);
-  @include setMargin($size-0, $size-0, $size-10, $size-0);
   color: $black-50;
   transition: 0.25s;
   font-weight: $font-weight-400;
   transition-timing-function: linear;
+  &Info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &NoAccordion {
+    @include setMargin($size-0, $size-0, $size-10, $size-0);
+  }
   label {
     @include setMargin($size-0, $size-8, $size-0, $size-0);
     letter-spacing: 0.095em;
@@ -114,6 +121,12 @@
   cursor: pointer;
   + div {
     @include setMargin($size-0, $size-0, $size-10, $size-0);
+  }
+  &Title {
+    width: 100%;
+  }
+  &Caret {
+    @include setMargin($size-0, $size-0, $size-0, $size-8);
   }
 }
 

@@ -13,7 +13,7 @@ function messaging(ids) {
 }
 
 describe('CheckboxGroup', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 

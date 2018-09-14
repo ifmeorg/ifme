@@ -14,7 +14,7 @@ const someEvent = () => {
 };
 
 describe('InputCheckbox', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 

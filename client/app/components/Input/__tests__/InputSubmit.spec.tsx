@@ -11,7 +11,7 @@ const someEvent = () => {
 };
 
 describe('InputSubmit', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 

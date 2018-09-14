@@ -30,7 +30,7 @@ const checkboxes = [
 ];
 
 describe('InputCheckboxGroup', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 

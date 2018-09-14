@@ -12,7 +12,7 @@ const someEvent = () => {
 };
 
 describe('InputSelect', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     spyOn(window, 'alert');
   });
 
