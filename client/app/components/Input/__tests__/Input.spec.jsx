@@ -34,11 +34,26 @@ describe('Input', () => {
         const wrapper = mount(
           <Input id={id} type="text" name={name} label={label} accordion />,
         );
-        expect(wrapper.find('input').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('input').exists()).toEqual(true);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('input').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
       });
     });
   });
@@ -56,11 +71,26 @@ describe('Input', () => {
             accordion
           />,
         );
-        expect(wrapper.find('input').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('input').exists()).toEqual(true);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('input').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
       });
     });
   });
@@ -78,11 +108,26 @@ describe('Input', () => {
             accordion
           />,
         );
-        expect(wrapper.find('select').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
+        ).toEqual(false);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('select').exists()).toEqual(true);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
+        ).toEqual(true);
         wrapper.find('.accordion').simulate('click');
-        expect(wrapper.find('select').exists()).toEqual(false);
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('select')
+            .exists(),
+        ).toEqual(false);
       });
     });
   });
