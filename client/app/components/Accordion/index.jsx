@@ -8,7 +8,7 @@ import css from '../Input/Input.scss';
 
 export type Props = {
   children: any,
-  title: string,
+  title: any,
   dark?: boolean,
   large?: boolean,
 };
@@ -43,7 +43,7 @@ export class Accordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, id } = this.props;
     const { open } = this.state;
     return (
       <div className={this.inputClassNames()}>
@@ -57,8 +57,12 @@ export class Accordion extends React.Component<Props, State> {
           tabIndex="0"
           aria-expanded={open}
         >
-          <div>{title}</div>
-          <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
+          <div className={css.accordionTitle}>
+            {typeof title === 'string' ? renderHTML(title) : title}
+          </div>
+          <div className={css.accordionCaret}>
+            <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
+          </div>
         </div>
         {open && this.displayContent()}
       </div>
