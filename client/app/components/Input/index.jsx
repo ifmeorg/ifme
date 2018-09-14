@@ -83,6 +83,7 @@ export type Props = {
   onError?: Function,
   accordion?: boolean,
   key?: string,
+  myRef?: any,
 };
 
 export type State = {
@@ -109,6 +110,7 @@ export class Input extends React.Component<Props, State> {
       maxLength,
       min,
       max,
+      myRef,
     } = this.props;
     if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
@@ -126,6 +128,7 @@ export class Input extends React.Component<Props, State> {
         min={min}
         max={max}
         hasError={(error: boolean) => this.hasError(error)}
+        myRef={myRef}
       />
     );
   };
@@ -151,7 +154,7 @@ export class Input extends React.Component<Props, State> {
 
   displayTextarea = () => {
     const {
-      value, id, name, required, type,
+      value, id, name, required, type, myRef,
     } = this.props;
     if (type !== 'textarea') return null;
     return (
@@ -161,6 +164,7 @@ export class Input extends React.Component<Props, State> {
         name={name}
         required={required}
         hasError={(error: boolean) => this.hasError(error)}
+        myRef={myRef}
       />
     );
   };

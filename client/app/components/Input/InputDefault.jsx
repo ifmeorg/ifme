@@ -18,6 +18,7 @@ export type Props = {
   min?: number,
   max?: number,
   hasError?: Function,
+  myRef?: any,
 };
 
 const onChangeBlur = (
@@ -46,6 +47,7 @@ export const InputDefault = (props: Props) => {
     max,
     value,
     hasError,
+    myRef,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
@@ -67,6 +69,7 @@ export const InputDefault = (props: Props) => {
       }
       onBlur={(e: SyntheticEvent<HTMLInputElement>) => onChangeBlur(e, required, hasError)
       }
+      ref={myRef}
     />
   );
 };

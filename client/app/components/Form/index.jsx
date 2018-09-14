@@ -26,10 +26,13 @@ const randomKey = () => Math.random()
     .substring(2, 15);
 
 export class Form extends React.Component<Props, State> {
+  myRefs: Object;
+
   constructor(props: Props) {
     super(props);
     const inputs = props.inputs.filter((input: FormInput) => input !== {});
     this.state = { inputs, errors: {} };
+    this.myRefs = {};
   }
 
   handleError = (id: string, error: boolean) => {
@@ -39,19 +42,18 @@ export class Form extends React.Component<Props, State> {
     this.setState({ errors: newErrors });
   };
 
+  isInputError = (input: InputProps) => (REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea')
+    && input.required
+    && this.myRefs[input.id]
+    && !this.myRefs[input.id].value;
+
   clickSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
     const { inputs, errors } = this.state;
     const newErrors = Object.assign({}, errors);
-    const newInputs = inputs.map((input: FormInput) => {
+    const newInputs = inputs.map((input: InputProps) => {
       const newInput = Object.assign({}, input);
-      console.log(newInput.type, newInput.value);
-      if (
-        (REQUIRES_DEFAULT.includes(newInput.type)
-          || newInput.type === 'textarea')
-        && newInput.required
-        && !newInput.value
-      ) {
+      if (this.isInputError(newInput)) {
         newInput.error = true;
         newInput.key = randomKey();
         newErrors[newInput.id] = true;
@@ -90,6 +92,9 @@ export class Form extends React.Component<Props, State> {
         accordion={input.accordion}
         onClick={input.type === 'submit' ? this.clickSubmit : undefined}
         onError={input.type !== 'submit' ? this.handleError : undefined}
+        myRef={(element) => {
+          this.myRefs[input.id] = element;
+        }}
       />
     </div>
   );

@@ -128,6 +128,9 @@
   &Caret {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
   }
+  &Close {
+    display: none;
+  }
 }
 
 .error {
