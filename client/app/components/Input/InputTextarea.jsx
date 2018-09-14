@@ -17,6 +17,7 @@ export type Props = {
   value?: any,
   required?: boolean,
   hasError?: Function,
+  myRef?: any,
 };
 
 export type State = {
@@ -82,7 +83,9 @@ export class InputTextarea extends React.Component<Props, State> {
   };
 
   render() {
-    const { id, name, required } = this.props;
+    const {
+      id, name, required, myRef,
+    } = this.props;
     const { editorState, value } = this.state;
     const contentValue = value && value.length ? stateToHTML(editorState.getCurrentContent()) : '';
     return (
@@ -94,6 +97,7 @@ export class InputTextarea extends React.Component<Props, State> {
           id={id}
           name={name}
           required={required}
+          ref={myRef}
         />
       </div>
     );

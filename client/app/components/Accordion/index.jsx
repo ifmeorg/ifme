@@ -25,8 +25,9 @@ export class Accordion extends React.Component<Props, State> {
 
   displayContent = () => {
     const { children } = this.props;
+    const { open } = this.state;
     return (
-      <div className="accordionContent">
+      <div className={`${open ? 'accordionContent' : css.accordionClose}`}>
         {typeof children === 'string' ? renderHTML(children) : children}
       </div>
     );
@@ -64,7 +65,7 @@ export class Accordion extends React.Component<Props, State> {
             <FontAwesomeIcon icon={open ? faCaretUp : faCaretDown} />
           </div>
         </div>
-        {open && this.displayContent()}
+        {this.displayContent()}
       </div>
     );
   }
