@@ -32,10 +32,12 @@
       dark: true,
       options: [
         {
+          id: 'medication_strength_unit_mg',
           label: t('medications.units.mg'),
           value: t('medications.units.mg')
         },
         {
+          id: 'medication_strength_unit_ml',
           label: t('medications.units.ml'),
           value: t('medications.units.ml')
         }
@@ -60,14 +62,17 @@
       value: @medication.total_unit || nil,
       options: [
         {
+          id: 'medication_total_unit_tablets',
           label: t('medications.units.tablets.other'),
           value: t('medications.units.tablets.other')
         },
         {
+          id: 'medication_total_unit_mg',
           label: t('medications.units.mg'),
           value: t('medications.units.mg')
         },
         {
+          id: 'medication_total_unit_ml',
           label: t('medications.units.ml'),
           value: t('medications.units.ml')
         }
