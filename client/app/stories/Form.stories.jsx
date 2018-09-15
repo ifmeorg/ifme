@@ -5,6 +5,7 @@ import { InputMocks } from '../mocks/InputMocks';
 
 storiesOf('Form', module).add('Form', () => (
   <Form
+    action="/post-wont-work"
     inputs={[
       Object.assign({}, InputMocks.inputTextProps, { required: true }),
       Object.assign({}, InputMocks.inputTextareaProps, {

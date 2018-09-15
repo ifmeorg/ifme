@@ -2,7 +2,6 @@
 
 class MoodsController < ApplicationController
   include CollectionPageSetup
-  include QuickCreate
   include Shared
   before_action :set_mood, only: %i[show edit update destroy]
 
@@ -67,14 +66,7 @@ class MoodsController < ApplicationController
       name: params[:mood][:name],
       description: params[:mood][:description]
     )
-
-    result = if mood.save
-               render_checkbox(mood, 'mood', 'moment')
-             else
-               { error: 'error' }
-             end
-
-    respond_with_json(result)
+    shared_quick_create(mood)
   end
   # rubocop:enable MethodLength
 

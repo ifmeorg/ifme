@@ -1,2 +1,6 @@
 <% title "#{t('common.actions.edit_instance', instance: @group.name)}" %>
-<%= render 'form' %>
+<%= react_component('Form', props: edit_group_props) %>
+<div class="small_margin_top subtle">
+  <%= t('groups.form.cannot_delete') %>
+</div>
+

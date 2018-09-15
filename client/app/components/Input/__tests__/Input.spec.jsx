@@ -98,4 +98,36 @@ describe('Input', () => {
       });
     });
   });
+
+  describe('Tag', () => {
+    describe('with accordion prop', () => {
+      it('toggles correctly', () => {
+        const wrapper = mount(
+          InputMocks.createInput(InputMocks.inputTagProps, {
+            accordion: true,
+          }),
+        );
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
+        wrapper.find('.accordion').simulate('click');
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(true);
+        wrapper.find('.accordion').simulate('click');
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('input')
+            .exists(),
+        ).toEqual(false);
+      });
+    });
+  });
 });

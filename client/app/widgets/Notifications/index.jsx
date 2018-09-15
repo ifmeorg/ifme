@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import renderHTML from 'react-render-html';
 import { Modal } from '../../components/Modal';
+import { Utils } from '../../utils';
 
 export type Props = {
   element: any,
@@ -14,12 +15,14 @@ export type Props = {
 export type State = {
   notifications: string,
   alreadyMounted: boolean,
+  open: boolean,
+  modalKey?: string,
 };
 
 export class Notifications extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { notifications: '', alreadyMounted: false };
+    this.state = { notifications: '', alreadyMounted: false, open: false };
   }
 
   componentWillMount() {
@@ -71,8 +74,11 @@ export class Notifications extends React.Component<Props, State> {
           this.changeTitle(response.data.fetch_notifications.length);
           this.setBody(response.data.fetch_notifications);
           if (!alreadyMounted && response.data.fetch_notifications.length > 0) {
-            this.setState({ alreadyMounted: true });
-            window.document.getElementById('notificationsElement').click();
+            this.setState({
+              alreadyMounted: true,
+              open: true,
+              modalKey: Utils.randomString(),
+            });
           }
         }
       });
@@ -82,7 +88,7 @@ export class Notifications extends React.Component<Props, State> {
     axios.delete('/notifications/clear').then((response: any) => {
       if (response) {
         this.changeTitle(0);
-        window.document.getElementById('modalClose').click();
+        this.setState({ open: false, modalKey: Utils.randomString() });
         this.fetchNotifications();
       }
     });
@@ -107,7 +113,7 @@ export class Notifications extends React.Component<Props, State> {
 
   render() {
     const { element, plural, none } = this.props;
-    const { notifications } = this.state;
+    const { notifications, open, modalKey } = this.state;
     return (
       <Modal
         element={element}
@@ -115,6 +121,8 @@ export class Notifications extends React.Component<Props, State> {
         title={plural}
         body={notifications.length ? this.displayNotifications() : none}
         openListener={this.fetchNotifications}
+        open={open}
+        key={modalKey}
       />
     );
   }

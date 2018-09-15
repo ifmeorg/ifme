@@ -11,17 +11,19 @@ export type Props = {
   name: string,
   placeholder?: string,
   checkboxes: Checkbox[],
+  onChange?: Function,
 };
 
 export type State = {
   checkboxes: Checkbox[],
   autocompleteLabel?: string,
+  autoHighlight: boolean,
 };
 
 export class InputTag extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { checkboxes: props.checkboxes };
+    this.state = { checkboxes: props.checkboxes, autoHighlight: false };
   }
 
   check = (id: string, checked: boolean) => {
@@ -34,7 +36,9 @@ export class InputTag extends React.Component<Props, State> {
         }
         return newCheckbox;
       });
-      return { checkboxes, autocompleteLabel: undefined };
+      return checked
+        ? { checkboxes, autocompleteLabel: undefined }
+        : { checkboxes };
     });
   };
 
@@ -50,31 +54,34 @@ export class InputTag extends React.Component<Props, State> {
     }
   };
 
-  setAutocompleteLabel = (label: string) => {
-    this.setState({ autocompleteLabel: label });
-    if (label.length) {
-      const { checkboxes } = this.state;
-      const checkboxWithLabel = checkboxes.filter(
-        checkbox => checkbox.label === label,
-      );
-      if (checkboxWithLabel.length && !checkboxWithLabel[0].checked) {
-        this.check(checkboxWithLabel[0].id, true);
-      }
-    }
-  };
-
   shouldItemRender = (checkbox: Checkbox, label: string) => {
     const checkboxLabel = checkbox.label.toLowerCase();
     return checkboxLabel.indexOf(label.toLowerCase()) > -1;
   };
 
-  onChange = (e: SyntheticEvent<HTMLInputElement>) => {
+  labelExistsUnchecked = (label: string) => {
+    if (!label.length) return null;
+    const { checkboxes } = this.state;
+    const checkboxWithLabel = checkboxes.filter(
+      (checkbox: Checkbox) => checkbox.label.toLowerCase() === label.toLowerCase()
+        && !checkbox.checked,
+    );
+    return checkboxWithLabel.length && checkboxWithLabel[0].id;
+  };
+
+  onAutocompleteChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
-    this.setAutocompleteLabel(value);
+    this.setState({
+      autocompleteLabel: value,
+      autoHighlight: !!this.labelExistsUnchecked(value),
+    });
   };
 
   onSelect = (label: string) => {
-    this.setAutocompleteLabel(label);
+    const id = this.labelExistsUnchecked(label);
+    if (id) {
+      this.check(id, true);
+    }
   };
 
   getLabel = (checkbox: Checkbox) => checkbox.label;
@@ -95,9 +102,18 @@ export class InputTag extends React.Component<Props, State> {
     );
   };
 
+  onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    const { onChange } = this.props;
+    const { autocompleteLabel } = this.state;
+    if (e.key === 'Enter' && onChange) {
+      e.preventDefault();
+      onChange(autocompleteLabel);
+    }
+  };
+
   displayAutocomplete = () => {
     const { placeholder } = this.props;
-    const { autocompleteLabel, checkboxes } = this.state;
+    const { autocompleteLabel, checkboxes, autoHighlight } = this.state;
     return (
       <Autocomplete
         getItemValue={this.getLabel}
@@ -105,20 +121,22 @@ export class InputTag extends React.Component<Props, State> {
         renderItem={this.renderItem}
         shouldItemRender={this.shouldItemRender}
         value={autocompleteLabel}
-        onChange={this.onChange}
+        onChange={this.onAutocompleteChange}
         onSelect={this.onSelect}
         inputProps={{
           className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
+          onKeyPress: this.onKeyPress,
           placeholder,
         }}
         wrapperStyle={{}}
         renderMenu={this.renderMenu}
+        autoHighlight={autoHighlight}
       />
     );
   };
 
   renderMenu = (items: any) => (
-    <div className={`tagMenu ${css.tagMenu}`}>{items}</div>
+    <div className={`tagMenu ${items.length ? css.tagMenu : ''}`}>{items}</div>
   );
 
   renderItem = (checkbox: Checkbox, highlighted: boolean) => (

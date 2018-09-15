@@ -11,6 +11,7 @@ export type Props = {
   title: any,
   dark?: boolean,
   large?: boolean,
+  open?: boolean,
 };
 
 export type State = {
@@ -20,7 +21,7 @@ export type State = {
 export class Accordion extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { open: false };
+    this.state = { open: !!props.open };
   }
 
   displayContent = () => {
