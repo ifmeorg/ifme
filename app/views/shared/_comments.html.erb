@@ -25,7 +25,6 @@
 
       <div class="field no_margin_bottom">
         <%= f.text_area :comment, class: 'comment_textarea' %>
-        <%= render partial: '/shared/character_count', locals: { data: 'comment_comment' } %>
       </div>
 
       <% if local_assigns[:comments].length == 0 %>

@@ -2,7 +2,8 @@
 import React from 'react';
 import css from './Input.scss';
 
-export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date'];
+export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date', 'hidden'];
+export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date'];
 
 export type Props = {
   id: string,

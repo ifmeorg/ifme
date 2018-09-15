@@ -51,7 +51,7 @@
 .tagAutocomplete {
   @include setFontSize($size-18);
   @include setPadding($size-24, $size-24, $size-24, $size-24);
-  @include linearTransition(0.25);
+  @include linearTransition(0.25s);
   color: $white-80;
   background-color: $black-50;
   font-weight: $font-weight-400;
@@ -94,7 +94,7 @@
 
 .label {
   @include setFontSize($size-16);
-  @include linearTransition(0.25);
+  @include linearTransition(0.25s);
   color: $black-50;
   font-weight: $font-weight-400;
   &Info {
@@ -163,4 +163,8 @@
   &Label {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
   }
+}
+
+.hidden {
+  display: none;
 }

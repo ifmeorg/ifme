@@ -6,11 +6,12 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import css from './Modal.scss';
 
 export type Props = {
-  element: any,
+  element?: any,
   elementId?: string,
   body: any,
   title?: string,
   openListener?: Function,
+  open?: boolean,
 };
 
 export type State = {
@@ -20,7 +21,7 @@ export type State = {
 export class Modal extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { open: false };
+    this.state = { open: !!props.open };
   }
 
   displayContent = (content: any) => {
@@ -44,8 +45,7 @@ export class Modal extends React.Component<Props, State> {
           </div>
         ) : null}
         <div
-          id="modalClose"
-          className={css.modalBoxHeaderClose}
+          className={`modalClose ${css.modalBoxHeaderClose}`}
           onClick={this.toggleOpen}
           onKeyDown={this.toggleOpen}
           role="button"
@@ -68,10 +68,9 @@ export class Modal extends React.Component<Props, State> {
   };
 
   displayModalBox = () => (
-    <div id="modalBackdrop" className={css.modalBackdrop}>
+    <div className={`modalBackdrop ${css.modalBackdrop}`}>
       <div
-        id="modal"
-        className={css.modalBox}
+        className={`modal ${css.modalBox}`}
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
@@ -96,16 +95,18 @@ export class Modal extends React.Component<Props, State> {
     const { open } = this.state;
     return (
       <div className={css.modal}>
-        <div
-          id={elementId || null}
-          className={`modalElement ${css.modalElement}`}
-          onClick={this.toggleOpen}
-          onKeyDown={this.toggleOpen}
-          role="button"
-          tabIndex={0}
-        >
-          {this.displayContent(element)}
-        </div>
+        {element ? (
+          <div
+            id={elementId || null}
+            className={`modalElement ${css.modalElement}`}
+            onClick={this.toggleOpen}
+            onKeyDown={this.toggleOpen}
+            role="button"
+            tabIndex={0}
+          >
+            {this.displayContent(element)}
+          </div>
+        ) : null}
         {open ? this.displayModalBox() : null}
       </div>
     );

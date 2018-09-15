@@ -89,7 +89,7 @@ const inputSubmitProps = {
 
 const event = () => window.alert('Event triggered!');
 
-const createInput = (props: ?Props, extraProps: ?Props) => {
+const createInput = (props: Props, extraProps: any) => {
   const inputProps = Object.assign({}, props, extraProps);
   return React.createElement(Input, inputProps);
 };

@@ -15,6 +15,10 @@
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border-radius: $size-4;
     background: $white;
+    cursor: pointer;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   &Label {
