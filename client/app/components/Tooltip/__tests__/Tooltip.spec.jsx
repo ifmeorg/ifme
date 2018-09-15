@@ -20,7 +20,7 @@ describe('Tooltip', () => {
         let wrapper = null;
         expect(() => {
           wrapper = render(
-            <Tooltip element="Hello" text={<div>Some text</div>} />,
+            <Tooltip element={<div>Hello</div>} text="Some text" />,
           );
         }).not.toThrow();
         expect(wrapper).not.toBeNull();
@@ -44,7 +44,7 @@ describe('Tooltip', () => {
         let wrapper = null;
         expect(() => {
           wrapper = render(
-            <Tooltip element="Hello" text={<div>Some text</div>} right />,
+            <Tooltip element={<div>Hello</div>} text="Some text" right />,
           );
         }).not.toThrow();
         expect(wrapper).not.toBeNull();
@@ -68,7 +68,7 @@ describe('Tooltip', () => {
         let wrapper = null;
         expect(() => {
           wrapper = render(
-            <Tooltip element="Hello" text={<div>Some text</div>} center />,
+            <Tooltip element={<div>Hello</div>} text="Some text" center />,
           );
         }).not.toThrow();
         expect(wrapper).not.toBeNull();

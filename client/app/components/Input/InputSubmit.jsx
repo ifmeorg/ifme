@@ -9,6 +9,7 @@ export type Props = {
   value: any,
   disabled?: boolean,
   onClick?: Function,
+  formNoValidate?: boolean,
 };
 
 const buttonClassName = (large: ?boolean, dark: ?boolean) => {
@@ -26,7 +27,7 @@ const buttonClassName = (large: ?boolean, dark: ?boolean) => {
 
 export const InputSubmit = (props: Props) => {
   const {
-    id, large, dark, onClick, value, disabled,
+    id, large, dark, onClick, value, disabled, formNoValidate,
   } = props;
   return (
     <input
@@ -37,6 +38,7 @@ export const InputSubmit = (props: Props) => {
       disabled={disabled}
       className={buttonClassName(large, dark)}
       onClick={onClick}
+      formNoValidate={formNoValidate}
     />
   );
 };

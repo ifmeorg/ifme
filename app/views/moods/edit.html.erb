@@ -1,2 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @mood.name)}" %>
-<%= render 'form' %>
+<%= react_component('Form', props: edit_mood_props) %>

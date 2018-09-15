@@ -7,35 +7,34 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
-import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
+import {
+  InputDefault,
+  REQUIRES_DEFAULT,
+  DEFAULT_WITH_LABEL,
+} from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
 
-const TYPES = [
-  'text',
+export const TYPES = REQUIRES_DEFAULT.concat([
   'textarea',
   'submit',
   'checkbox',
-  'number',
-  'time',
-  'date',
   'select',
   'checkboxGroup',
   'tag',
-];
+]);
 
-const REQUIRES_LABEL = [
+const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
   'textarea',
-  'text',
-  'number',
-  'time',
-  'date',
   'select',
   'checkboxGroup',
   'tag',
-];
+]);
 
-const REQUIRED_POSSIBLE = ['text', 'textarea', 'checkboxGroup'];
+const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
+  'textarea',
+  'checkboxGroup',
+]);
 
 export type Option = {
   id: string,
@@ -65,7 +64,8 @@ export type Props = {
     | 'date'
     | 'select'
     | 'checkboxGroup'
-    | 'tag',
+    | 'tag'
+    | 'hidden',
   name?: string,
   label?: string,
   placeholder?: string,
@@ -89,8 +89,9 @@ export type Props = {
   checkboxes?: Checkbox[],
   onError?: Function,
   accordion?: boolean,
-  myKey?: string,
   myRef?: any,
+  accordionOpen?: boolean,
+  formNoValidate?: boolean,
 };
 
 export type State = {
@@ -142,7 +143,7 @@ export class Input extends React.Component<Props, State> {
 
   displaySubmit = () => {
     const {
-      id, onClick, value, large, dark, type, disabled,
+      id, onClick, value, large, dark, type, disabled, formNoValidate,
     } = this.props;
     if (type === 'submit' && value) {
       return (
@@ -153,6 +154,7 @@ export class Input extends React.Component<Props, State> {
           large={large}
           dark={dark}
           disabled={disabled}
+          formNoValidate={formNoValidate}
         />
       );
     }
@@ -247,7 +249,7 @@ export class Input extends React.Component<Props, State> {
 
   displayTag = () => {
     const {
-      type, checkboxes, name, id, placeholder,
+      type, checkboxes, name, id, placeholder, onChange,
     } = this.props;
     if (type === 'tag' && checkboxes && name) {
       return (
@@ -256,6 +258,7 @@ export class Input extends React.Component<Props, State> {
           name={name}
           checkboxes={checkboxes}
           placeholder={placeholder}
+          onChange={onChange}
         />
       );
     }
@@ -283,13 +286,14 @@ export class Input extends React.Component<Props, State> {
 
   render() {
     const {
-      type, dark, large, accordion, label, myKey,
+      type, dark, large, accordion, label, accordionOpen,
     } = this.props;
     if (!TYPES.includes(type)) return null;
     const content = (
       <div
-        key={myKey}
-        className={`${dark ? css.dark : ''} ${large ? css.large : ''}`}
+        className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
+          type === 'hidden' ? css.hidden : ''
+        }`}
       >
         {!accordion && (
           <div className={css.labelNoAccordion}>{this.displayLabel()}</div>
@@ -304,7 +308,12 @@ export class Input extends React.Component<Props, State> {
       </div>
     );
     return accordion && label ? (
-      <Accordion title={this.displayLabel()} dark={dark} large={large}>
+      <Accordion
+        title={this.displayLabel()}
+        open={accordionOpen}
+        dark={dark}
+        large={large}
+      >
         {content}
       </Accordion>
     ) : (

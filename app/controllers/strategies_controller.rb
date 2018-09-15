@@ -4,7 +4,6 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
-  include QuickCreate
   include Shared
 
   before_action :set_strategy, only: %i[show edit update destroy]
@@ -59,21 +58,13 @@ class StrategiesController < ApplicationController
     current_user.allies_by_status(:accepted).each do |item|
       viewers.push(item.id)
     end
-
     strategy = Strategy.new(user_id: current_user.id,
                             name: params[:strategy][:name],
                             description: params[:strategy][:description],
                             category: params[:strategy][:category],
                             published_at: Time.zone.now,
                             comment: true, viewers: viewers)
-
-    result = if strategy.save
-               render_checkbox(strategy, 'strategy', 'moment')
-             else
-               { error: 'error' }
-             end
-
-    respond_with_json(result)
+    shared_quick_create(strategy)
   end
   # rubocop:enable MethodLength
 
@@ -126,7 +117,6 @@ class StrategiesController < ApplicationController
       category: category ? [category.id] : nil,
       comment: false
     )
-
     respond_to do |format|
       if strategy.save
         PerformStrategyReminder.create!(strategy: strategy, active: false)

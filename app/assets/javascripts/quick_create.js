@@ -1,13 +1,3 @@
-function addToAutocomplete(json) {
-  var source = JSON.parse($("#" + json.autocomplete_id).attr("data-autocomplete-source"));
-  source.unshift(json.name)
-  $("#" + json.autocomplete_id).attr("data-autocomplete-source", JSON.stringify(source));
-  var sourceIds = JSON.parse($("#" + json.autocomplete_id).attr("data-autocomplete-source-ids"));
-  sourceIds.unshift(json.id);
-  $("#" + json.autocomplete_id).attr("data-autocomplete-source-ids", JSON.stringify(sourceIds));
-  $("#" + json.autocomplete_id).autocomplete({ source: source });
-}
-
 function quickCreate(form, data_type) {
   var values = $(form).serialize();
   $.ajax({
@@ -37,57 +27,3 @@ function quickCreate(form, data_type) {
     $('.quick_create_close').click();
   });
 }
-
-function closeQuickCreate() {
-  var quickCreateId = $(this).closest('.quick_create').attr('id');
-  if (quickCreateId === 'category_quick_create' || quickCreateId === 'mood_quick_create' || quickCreateId === 'strategy_quick_create') {
-    if (!$('#' + quickCreateId).hasClass('display_none')) {
-      $('#' + quickCreateId).toggleClass('display_none');
-    }
-  }
-  hideBackdrop();
-}
-
-var onReadyQuickCreate = function() {
-  $(".quick_create_close").click(function() {
-    closeQuickCreate.call(this);
-  });
-
-  $(".titlebar").parent().scroll(function() {
-    if ($(this).scrollTop() > 0) {
-      titlebarBorderShow();
-    }
-    else {
-      titlebarBorderHide();
-    }
-  });
-
-  $(".quick_create").click(function() {
-    closeQuickCreate.call(this);
-  });
-
-  $(".quick_create_text").click(function(event) {
-    event.stopPropagation();
-   });
-
-  if (newOrEdit(["moments", "strategies"])) {
-    $("#new_category").submit(function() {
-      quickCreate(this, "category");
-      return false;
-    });
-  }
-
-  if (newOrEdit(["moments"])) {
-    $("#new_mood").submit(function() {
-      quickCreate(this, "mood");
-      return false;
-    });
-
-    $("#new_strategy").submit(function() {
-      quickCreate(this, "strategy");
-      return false;
-    });
-  }
-};
-
-loadPage(onReadyQuickCreate);

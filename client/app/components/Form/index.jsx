@@ -1,38 +1,40 @@
 // @flow
 import React from 'react';
-import { Input } from '../Input';
+import { Input, TYPES as INPUT_TYPES } from '../Input';
 import type { Props as InputProps } from '../Input';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
+import { QuickCreate } from '../../widgets/QuickCreate';
+import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
+import { Utils } from '../../utils';
 import css from './Form.scss';
 
-type FormInput = InputProps | Object;
+type KeyProps = { myKey?: any };
+
+type MyInputProps = InputProps & KeyProps;
 
 type Errors = { [string]: boolean } | {};
 
 export type Props = {
-  inputs: FormInput[],
+  action?: string,
+  inputs: any[],
+  noFormTag?: boolean, // Can't have nested forms i.e. quick create
+  noFormTagSubmit?: Function,
+  noFormTagRef?: any,
 };
 
 export type State = {
-  inputs: InputProps[],
+  inputs: any[],
   errors: Errors,
 };
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter(key => key).length;
-
-const randomKey = () => Math.random()
-  .toString(36)
-  .substring(2, 15)
-  + Math.random()
-    .toString(36)
-    .substring(2, 15);
 
 export class Form extends React.Component<Props, State> {
   myRefs: Object;
 
   constructor(props: Props) {
     super(props);
-    const inputs = props.inputs.filter((input: FormInput) => input !== {});
+    const inputs = props.inputs.filter((input: any) => input !== {});
     this.state = { inputs, errors: {} };
     this.myRefs = {};
   }
@@ -44,69 +46,138 @@ export class Form extends React.Component<Props, State> {
     this.setState({ errors: newErrors });
   };
 
-  isInputError = (input: InputProps) => (REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea')
-    && input.required
-    && this.myRefs[input.id]
-    && !this.myRefs[input.id].value;
+  isInputError = (input: any) => {
+    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
+    return (
+      validType
+      && input.required
+      && this.myRefs[input.id]
+      && !this.myRefs[input.id].value
+    );
+  };
 
-  clickSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+  onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
     const { inputs, errors } = this.state;
     const newErrors = Object.assign({}, errors);
-    const newInputs = inputs.map((input: InputProps) => {
+    const newInputs = inputs.map((input: any) => {
       const newInput = Object.assign({}, input);
       if (this.isInputError(newInput)) {
         newInput.error = true;
-        newInput.myKey = randomKey(); // Triggers state change in child component
+        newInput.myKey = Utils.randomString(); // Triggers state change in child component
         newErrors[newInput.id] = true;
       }
       return newInput;
     });
+    console.log('error me', newErrors);
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
       this.setState({ inputs: newInputs, errors: newErrors });
     }
   };
 
-  displayInput = (input: InputProps) => (
-    <div key={input.id}>
-      <Input
-        id={input.id}
-        key={input.myKey}
-        type={input.type}
-        name={input.name}
-        label={input.label}
-        placeholder={input.placeholder}
-        error={input.error}
-        value={input.value}
-        readOnly={input.readOnly}
-        disabled={input.disabled}
-        required={input.required}
-        info={input.info}
-        minLength={input.minLength}
-        maxLength={input.maxLength}
-        dark={input.dark}
-        large={input.large}
-        checked={input.checked}
-        uncheckedValue={input.uncheckedValue}
-        options={input.options}
-        checkboxes={input.checkboxes}
-        accordion={input.accordion}
-        onClick={input.type === 'submit' ? this.clickSubmit : undefined}
-        onError={input.type !== 'submit' ? this.handleError : undefined}
-        myRef={(element) => {
-          this.myRefs[input.id] = element;
-        }}
-      />
-    </div>
-  );
+  handleNoFormTagSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    this.onSubmit(e);
+    const { noFormTagSubmit } = this.props;
+    if (noFormTagSubmit) {
+      noFormTagSubmit();
+    }
+  };
+
+  displayInput = (input: MyInputProps) => {
+    const { noFormTag } = this.props;
+    return (
+      <div key={input.id}>
+        <Input
+          id={input.id}
+          key={input.myKey}
+          type={input.type}
+          name={input.name}
+          label={input.label}
+          placeholder={input.placeholder}
+          error={input.error}
+          value={input.value}
+          readOnly={input.readOnly}
+          disabled={input.disabled}
+          required={input.required}
+          info={input.info}
+          minLength={input.minLength}
+          maxLength={input.maxLength}
+          dark={input.dark}
+          large={input.large}
+          checked={input.checked}
+          uncheckedValue={input.uncheckedValue}
+          options={input.options}
+          checkboxes={input.checkboxes}
+          accordion={input.accordion}
+          onClick={
+            input.type === 'submit' && noFormTag
+              ? this.handleNoFormTagSubmit
+              : undefined
+          }
+          onError={input.type !== 'submit' ? this.handleError : undefined}
+          myRef={(element) => {
+            this.myRefs[input.id] = element;
+          }}
+          formNoValidate={input.type === 'submit'}
+        />
+      </div>
+    );
+  };
+
+  displayQuickCreate = (input: QuickCreateProps) => {
+    const {
+      id, name, label, placeholder, checkboxes, formProps,
+    } = input;
+    if (!checkboxes || !name || !label) return null;
+    return (
+      <div key={id}>
+        <QuickCreate
+          id={id}
+          name={name}
+          label={label}
+          placeholder={placeholder}
+          checkboxes={checkboxes}
+          formProps={formProps}
+        />
+      </div>
+    );
+  };
+
+  displayInputs = () => {
+    const { inputs } = this.state;
+    return inputs.map((input: any) => {
+      if (INPUT_TYPES.includes(input.type)) {
+        return this.displayInput(input);
+      }
+      if (input.type === 'quickCreate') {
+        return this.displayQuickCreate(input);
+      }
+      return null;
+    });
+  };
 
   render() {
-    const { inputs } = this.state;
+    const { action, noFormTag, noFormTagRef } = this.props;
+    if (noFormTag) {
+      return (
+        <div className={css.form} ref={noFormTagRef}>
+          {this.displayInputs()}
+        </div>
+      );
+    }
+    if (!action) return null;
     return (
-      <div className={css.form}>
-        {inputs.map((input: InputProps) => this.displayInput(input))}
-      </div>
+      <form
+        onSubmit={this.onSubmit}
+        acceptCharset="UTF-8"
+        className={css.form}
+        method="post"
+        action={action}
+      >
+        {this.displayInputs()}
+      </form>
     );
   }
 }

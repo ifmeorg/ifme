@@ -23,87 +23,178 @@ describe('Modal', () => {
     spyOn(window, 'alert');
   });
 
-  describe('Text values for element and body', () => {
-    const component = <Modal element="Hello" body={bodyText} title={title} />;
-    it('toggles correctly', () => {
-      const wrapper = shallow(component);
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
-      wrapper.find('.modalElement').simulate('click');
-      expect(wrapper.find('#modalBackdrop').length).toEqual(1);
-      expect(wrapper.find('#modal').length).toEqual(1);
-      wrapper.find('.modalElement').simulate('click');
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
+  describe('has open prop as false', () => {
+    describe('has text values for element and body', () => {
+      const component = <Modal element="Hello" body={bodyText} title={title} />;
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+      });
+    });
+
+    describe('has text values for element and body with openListener', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element="Hello"
+            body={bodyText}
+            title={title}
+            openListener={openListener}
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+      });
+    });
+
+    describe('has HTML values for element and body', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element={<button type="button">Hello</button>}
+            body={bodyHTML}
+            title={title}
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+      });
+    });
+
+    describe('has HTML values for element and body with openListener', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element={<button type="button">Hello</button>}
+            body={bodyHTML}
+            title={title}
+            openListener={openListener}
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+      });
     });
   });
 
-  describe('Text values for element and body with openListener', () => {
-    it('toggles correctly', () => {
+  describe('has open prop as true', () => {
+    describe('has text values for element and body', () => {
       const component = (
-        <Modal
-          element="Hello"
-          body={bodyText}
-          title={title}
-          openListener={openListener}
-        />
+        <Modal element="Hello" body={bodyText} title={title} open />
       );
-      const wrapper = shallow(component);
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
-      wrapper.find('.modalElement').simulate('click');
-      expect(window.alert).toHaveBeenCalled();
-      expect(wrapper.find('#modalBackdrop').length).toEqual(1);
-      expect(wrapper.find('#modal').length).toEqual(1);
-      wrapper.find('.modalElement').simulate('click');
-      expect(window.alert).toHaveBeenCalled();
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+      });
     });
-  });
 
-  describe('HTML values for element and body', () => {
-    it('toggles correctly', () => {
-      const component = (
-        <Modal
-          element={<button type="button">Hello</button>}
-          body={bodyHTML}
-          title={title}
-        />
-      );
-      const wrapper = shallow(component);
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
-      wrapper.find('.modalElement').simulate('click');
-      expect(wrapper.find('#modalBackdrop').length).toEqual(1);
-      expect(wrapper.find('#modal').length).toEqual(1);
-      wrapper.find('.modalElement').simulate('click');
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
+    describe('has text values for element and body with openListener', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element="Hello"
+            body={bodyText}
+            title={title}
+            openListener={openListener}
+            open
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+      });
     });
-  });
 
-  describe('HTML values for element and body with openListener', () => {
-    it('toggles correctly', () => {
-      const component = (
-        <Modal
-          element={<button type="button">Hello</button>}
-          body={bodyHTML}
-          title={title}
-          openListener={openListener}
-        />
-      );
-      const wrapper = shallow(component);
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
-      wrapper.find('.modalElement').simulate('click');
-      expect(window.alert).toHaveBeenCalled();
-      expect(wrapper.find('#modalBackdrop').length).toEqual(1);
-      expect(wrapper.find('#modal').length).toEqual(1);
-      wrapper.find('.modalElement').simulate('click');
-      expect(window.alert).toHaveBeenCalled();
-      expect(wrapper.find('#modalBackdrop').length).toEqual(0);
-      expect(wrapper.find('#modal').length).toEqual(0);
+    describe('has HTML values for element and body', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element={<button type="button">Hello</button>}
+            body={bodyHTML}
+            title={title}
+            open
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+      });
+    });
+
+    describe('has HTML values for element and body with openListener', () => {
+      it('toggles correctly', () => {
+        const component = (
+          <Modal
+            element={<button type="button">Hello</button>}
+            body={bodyHTML}
+            title={title}
+            openListener={openListener}
+            open
+          />
+        );
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+        wrapper.find('.modalClose').simulate('click');
+        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
+        expect(wrapper.find('.modal').length).toEqual(0);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
+        expect(wrapper.find('.modal').length).toEqual(1);
+      });
     });
   });
 });

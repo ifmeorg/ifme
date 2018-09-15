@@ -3,7 +3,6 @@
 # rubocop:disable ClassLength
 class CategoriesController < ApplicationController
   include CollectionPageSetup
-  include QuickCreate
   include Shared
   before_action :set_category, only: %i[show edit update destroy]
 
@@ -94,15 +93,7 @@ class CategoriesController < ApplicationController
       name: params[:category][:name],
       description: params[:category][:description]
     )
-
-    if category.save
-      tag = params[:category][:tag].to_s
-      result = render_checkbox(category, 'category', tag)
-    else
-      result = { error: 'error' }
-    end
-
-    respond_with_json(result)
+    shared_quick_create(category)
   end
   # rubocop:enable MethodLength
 
