@@ -225,4 +225,37 @@ storiesOf('Input', module)
         accordion: true,
       })}
     </div>
+  ))
+  .add('Tag', () => (
+    <div>
+      {InputMocks.createInput(InputMocks.inputTagProps)}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        large: true,
+      })}
+    </div>
+  ))
+  .add('Tag with accordion', () => (
+    <div>
+      {InputMocks.createInput(InputMocks.inputTagProps, { accordion: true })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
+    </div>
   ));

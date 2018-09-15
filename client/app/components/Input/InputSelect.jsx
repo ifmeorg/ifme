@@ -37,7 +37,7 @@ export class InputSelect extends React.Component<Props, State> {
       <div className={css.select}>
         <select id={id} name={name} value={value} onChange={this.toggleValue}>
           {options.map((option: Option) => (
-            <option value={option.value} key={option.value}>
+            <option id={option.id} value={option.value} key={option.value}>
               {renderHTML(option.label)}
             </option>
           ))}

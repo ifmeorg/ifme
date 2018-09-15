@@ -6,6 +6,7 @@ import { InputSubmit } from './InputSubmit';
 import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
+import { InputTag } from './InputTag';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
@@ -20,6 +21,7 @@ const TYPES = [
   'date',
   'select',
   'checkboxGroup',
+  'tag',
 ];
 
 const REQUIRES_LABEL = [
@@ -30,9 +32,13 @@ const REQUIRES_LABEL = [
   'date',
   'select',
   'checkboxGroup',
+  'tag',
 ];
 
+const REQUIRED_POSSIBLE = ['text', 'textarea', 'checkboxGroup'];
+
 export type Option = {
+  id: string,
   value: any,
   label: string,
 };
@@ -58,7 +64,8 @@ export type Props = {
     | 'time'
     | 'date'
     | 'select'
-    | 'checkboxGroup',
+    | 'checkboxGroup'
+    | 'tag',
   name?: string,
   label?: string,
   placeholder?: string,
@@ -181,7 +188,7 @@ export class Input extends React.Component<Props, State> {
       onChange,
       type,
     } = this.props;
-    if (type === 'checkbox' && value && label) {
+    if (type === 'checkbox' && typeof value !== 'undefined' && label) {
       return (
         <InputCheckbox
           id={id}
@@ -238,6 +245,23 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+  displayTag = () => {
+    const {
+      type, checkboxes, name, id, placeholder,
+    } = this.props;
+    if (type === 'tag' && checkboxes && name) {
+      return (
+        <InputTag
+          id={id}
+          name={name}
+          checkboxes={checkboxes}
+          placeholder={placeholder}
+        />
+      );
+    }
+    return null;
+  };
+
   displayLabel = () => {
     const {
       label, info, required, id, type,
@@ -247,7 +271,7 @@ export class Input extends React.Component<Props, State> {
       return (
         <InputLabel
           label={label}
-          required={required}
+          required={REQUIRED_POSSIBLE.includes(type) && required}
           info={info}
           id={id}
           error={error}
@@ -274,8 +298,9 @@ export class Input extends React.Component<Props, State> {
         {this.displayCheckbox()}
         {this.displayCheckboxGroup()}
         {this.displaySelect()}
-        {this.displaySubmit()}
         {this.displayTextarea()}
+        {this.displayTag()}
+        {this.displaySubmit()}
       </div>
     );
     return accordion && label ? (
