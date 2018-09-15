@@ -336,7 +336,7 @@ vi:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>Để đọc nó,% {link}!</p>"
     new_group_subject: "if me | %{user} đã tạo một nhóm \"%{group}\""
-    new_group_body: "<p>%{user} đã tạo một nhóm \"%{group}\":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Để xem quy tắc ứng xử của chúng tôi %{link_to_code_of_conduct}!</p>"
+    new_group_body: "<p>%{user} đã tạo một nhóm \"%{group}\":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy làm theo %{link_to_code_of_conduct}!</p>"
     new_group_member_subject: "if me | %{user} đã tham gia nhóm của bạn \"%{group}\""
     add_group_leader_you_subject: "if me | Bạn trở thành người lãnh đạo của \"%{group}\""
     add_group_leader_subject: "if me | %{user} trở thành lãnh đạo của \"%{group}\""

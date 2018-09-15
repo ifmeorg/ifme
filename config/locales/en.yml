@@ -335,7 +335,7 @@ en:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>To read it, %{link}!</p>"
     new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>To see our code of conduct %{link_to_code_of_conduct}!</p>"
+    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>"
     new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
     add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
     add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
