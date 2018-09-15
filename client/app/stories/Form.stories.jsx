@@ -13,6 +13,7 @@ storiesOf('Form', module).add('Form', () => (
       }),
       InputMocks.inputSelectProps,
       Object.assign({}, InputMocks.inputCheckboxGroupProps, { required: true }),
+      InputMocks.inputTagProps,
       InputMocks.inputSubmitProps,
     ]}
   />

@@ -12,6 +12,7 @@ const component = (
       Object.assign({}, InputMocks.inputTextProps, { required: true }),
       InputMocks.inputSelectProps,
       Object.assign({}, InputMocks.inputCheckboxGroupProps, { required: true }),
+      InputMocks.inputTagProps,
       InputMocks.inputSubmitProps,
     ]}
   />
