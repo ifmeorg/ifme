@@ -288,5 +288,14 @@
     "link_name": "aamarill",
     "link": "http://github.com/aamarill",
     "social": "github"
+  },
+  {
+    "name": "Atibhi Agrawal",
+    "image": "/assets/contributors/atibhi_agrawal.jpg",
+    "profile": "I have always been a crusader of mental-health. Working with if-me over the summer as an Rails Girls Scholar 2018 was one of the most fullfilling experiences of my life. if-me is an amazing platform to share experiences and build a mental health community. It is full of positivity, love and goodwill.",
+    "location": "Bengaluru, India",
+    "link_name": "aSquare14",
+    "link": "https://github.com/aSquare14",
+    "social": "github"
   }
 ]
