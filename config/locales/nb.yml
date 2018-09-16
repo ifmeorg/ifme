@@ -43,6 +43,7 @@ nb:
    press: 'Presse'
    faq: 'Ofte stilte spørsmål'
    resources: 'Ressurser'
+   code_of_conduct: 'Oppførselskode'
 
  common:
    name: 'Navn'
@@ -334,7 +335,7 @@ nb:
     comment_text: "<p><i>%{comment}</i></p>"
     comment_link: "<p>For å lese det, %{link}!</p>"
     new_group_subject: "if me | %{user} lagde en gruppe \"%{group}\""
-    new_group_body: "<p>%{user} lagde en gruppe \"%{group}\":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p>"
+    new_group_body: "<p>%{user} lagde en gruppe \"%{group}\":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>Vennligst følg vår %{link_to_code_of_conduct}!</p>"
     new_group_member_subject: "if me | %{user} ble med i gruppe \"%{group}\""
     add_group_leader_you_subject: "if me | Du ble leder for gruppen \"%{group}\""
     add_group_leader_subject: "if me | %{user} ble en leder for gruppen \" %{group}\""
