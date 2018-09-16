@@ -104,10 +104,10 @@ export class InputTag extends React.Component<Props, State> {
 
   onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     const { onChange } = this.props;
-    const { autocompleteLabel } = this.state;
+    const { autocompleteLabel, checkboxes } = this.state;
     if (e.key === 'Enter' && onChange) {
       e.preventDefault();
-      onChange(autocompleteLabel);
+      onChange({ label: autocompleteLabel, checkboxes });
     }
   };
 

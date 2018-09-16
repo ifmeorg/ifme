@@ -7,6 +7,7 @@ import globalCss from '../../styles/_global.scss';
 import css from '../Input/Input.scss';
 
 export type Props = {
+  id: string,
   children: any,
   title: any,
   dark?: boolean,
@@ -45,10 +46,10 @@ export class Accordion extends React.Component<Props, State> {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, id } = this.props;
     const { open } = this.state;
     return (
-      <div className={this.inputClassNames()}>
+      <div id={`${id}_accordion`} className={this.inputClassNames()}>
         <div
           className={`accordion ${globalCss.gridRowSpaceBetween} ${
             css.accordion

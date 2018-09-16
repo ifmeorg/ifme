@@ -211,19 +211,18 @@ RSpec.describe CategoriesController, type: :controller do
         end
         it 'responds with a checkbox in json format' do
           post :quick_create, params: { category: valid_category_params }
-          response_keys = JSON.parse(response.body).keys
-          expect(response_keys).to contain_exactly('checkbox',
-                                                   'label',
-                                                   'wrapper_id',
-                                                   'autocomplete_id',
-                                                   'name',
-                                                   'id')
+          expect(response.body).to eq({
+                                        success: true,
+                                        id: Category.last.id,
+                                        name: Category.last.name,
+                                        slug: Category.last.slug
+                                      }.to_json)
         end
       end
       context 'when invalid params are supplied' do
         it 'responds with an error in json format' do
           post :quick_create, params: { category: invalid_category_params }
-          expect(response.body).to eq({ error: 'error' }.to_json)
+          expect(response.body).to eq({ success: false }.to_json)
         end
       end
     end

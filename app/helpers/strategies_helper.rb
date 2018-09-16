@@ -61,7 +61,7 @@ module StrategiesHelper
         dark: true
       },
       {
-        id: 'strategy_perform_strategy_reminder_attributes_active',
+        id: 'strategy_perform_strategy_reminder',
         type: 'checkbox',
         name: 'strategy[perform_strategy_reminder_attributes][active]',
         label: t('common.daily_reminder'),
@@ -112,12 +112,11 @@ module StrategiesHelper
 
   def strategy_viewers_input
     input = {}
-    if !@viewers.nil? && @viewers.length > 0
+    if @viewers && @viewers.length > 0
       checkboxes = []
       @viewers.each do |item|
         checkboxes.push({
           id: "strategy_viewers_#{item.id}",
-          name: 'strategy[viewers][]',
           value: item.id,
           checked: @strategy.viewers.include?(item.id),
           label: User.find(item.id).name
@@ -125,7 +124,7 @@ module StrategiesHelper
       end
       input = {
         id: 'strategy_viewers',
-        name: 'strategy[viewers]',
+        name: 'strategy[viewers][]',
         type: 'tag',
         checkboxes: checkboxes,
         label: t('shared.viewers.plural'),

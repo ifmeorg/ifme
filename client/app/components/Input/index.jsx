@@ -143,7 +143,14 @@ export class Input extends React.Component<Props, State> {
 
   displaySubmit = () => {
     const {
-      id, onClick, value, large, dark, type, disabled, formNoValidate,
+      id,
+      onClick,
+      value,
+      large,
+      dark,
+      type,
+      disabled,
+      formNoValidate,
     } = this.props;
     if (type === 'submit' && value) {
       return (
@@ -286,7 +293,13 @@ export class Input extends React.Component<Props, State> {
 
   render() {
     const {
-      type, dark, large, accordion, label, accordionOpen,
+      type,
+      dark,
+      large,
+      accordion,
+      label,
+      accordionOpen,
+      id,
     } = this.props;
     if (!TYPES.includes(type)) return null;
     const content = (
@@ -309,6 +322,7 @@ export class Input extends React.Component<Props, State> {
     );
     return accordion && label ? (
       <Accordion
+        id={id}
         title={this.displayLabel()}
         open={accordionOpen}
         dark={dark}

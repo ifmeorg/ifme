@@ -48,7 +48,6 @@ FactoryBot.define do
     sequence(:email) { |n| "some-email#{n}@ifme.org" }
     sequence(:name) { |n| "Some Person#{n}" }
     password 'password'
-    uid 'uid'
   end
 
   factory :user1, class: User do

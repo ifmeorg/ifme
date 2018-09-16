@@ -82,7 +82,7 @@
   }
   .some_focus_text {
     @include setFontSize($size-22);
-    padding: $size-20;
+    @include setPadding($size-20, $size-20, $size-20, $size-20);
     font-weight: $font-weight-300;
     a, .link_style {
       text-decoration: none;

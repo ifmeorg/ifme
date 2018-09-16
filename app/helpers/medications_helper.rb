@@ -44,7 +44,7 @@ module MedicationsHelper
         id: 'medication_strength_unit',
         type: 'select',
         name: 'medication[strength_unit]',
-        value: @medication.strength_unit || nil,
+        value: @medication.strength_unit || t('medications.units.mg'),
         dark: true,
         options: [
           {
@@ -75,7 +75,7 @@ module MedicationsHelper
         type: 'select',
         name: 'medication[total_unit]',
         dark: true,
-        value: @medication.total_unit || nil,
+        value: @medication.total_unit || t('medications.units.tablets.other'),
         options: [
           {
             id: 'medication_total_unit_tablets',
@@ -110,17 +110,20 @@ module MedicationsHelper
         type: 'select',
         name: 'medication[dosage_unit]',
         dark: true,
-        value: @medication.dosage_unit || nil,
+        value: @medication.dosage_unit || t('medications.units.tablets.other'),
         options: [
           {
+            id: 'medication_dosage_unit_tablets',
             label: t('medications.units.tablets.other'),
             value: t('medications.units.tablets.other')
           },
           {
+            id: 'medication_dosage_unit_mg',
             label: t('medications.units.mg'),
             value: t('medications.units.mg')
           },
           {
+            id: 'medication_dosage_unit_ml',
             label: t('medications.units.ml'),
             value: t('medications.units.ml')
           }
@@ -146,7 +149,7 @@ module MedicationsHelper
         dark: true,
       },
       {
-        id: 'medication_refill_reminder_attributes_active',
+        id: 'medication_refill_reminder',
         type: 'checkbox',
         dark: true,
         label: t('medications.refill_reminder'),
@@ -157,7 +160,7 @@ module MedicationsHelper
         value: true
       },
       {
-        id: 'medication_take_medication_reminder_attributes_active',
+        id: 'medication_take_medication_reminder',
         type: 'checkbox',
         dark: true,
         label: t('common.daily_reminder'),

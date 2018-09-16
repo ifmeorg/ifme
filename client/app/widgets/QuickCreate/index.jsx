@@ -29,11 +29,21 @@ export type State = {
   accordionOpen: boolean,
 };
 
+const alpha = (a: string, b: string) => {
+  if (a.toLowerCase() > b.toLowerCase()) return 1;
+  if (a.toLowerCase() < b.toLowerCase()) return -1;
+  return 0;
+};
+
+const sortAlpha = (checkboxes: Checkbox[]) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
+
 export class QuickCreate extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      checkboxes: props.checkboxes,
+      checkboxes: sortAlpha(props.checkboxes),
       open: false,
       accordionOpen: false,
     };
@@ -76,7 +86,7 @@ export class QuickCreate extends React.Component<Props, State> {
         accordionOpen: true,
         modalKey: Utils.randomString(),
         tagKey: Utils.randomString(),
-        checkboxes,
+        checkboxes: sortAlpha(checkboxes),
       };
     });
   };
@@ -92,12 +102,14 @@ export class QuickCreate extends React.Component<Props, State> {
     );
   };
 
-  onChange = (nameValue: string) => {
-    if (!this.labelExists(nameValue)) {
+  onChange = (data: { label: string, checkboxes: Checkbox[] }) => {
+    const { label, checkboxes } = data;
+    if (!this.labelExists(label)) {
       this.setState({
         open: true,
         modalKey: Utils.randomString(),
-        body: this.displayQuickCreateForm(nameValue),
+        body: this.displayQuickCreateForm(label),
+        checkboxes: sortAlpha(checkboxes),
       });
     }
   };
@@ -125,10 +137,10 @@ export class QuickCreate extends React.Component<Props, State> {
   };
 
   render() {
-    const { id, label } = this.props;
+    const { label } = this.props;
     const { open, modalKey, body } = this.state;
     return (
-      <div id={id}>
+      <div>
         {this.displayInputTag()}
         <div className={css.modal}>
           <Modal body={body} title={label} open={open} key={modalKey} />

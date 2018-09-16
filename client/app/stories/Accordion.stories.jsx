@@ -7,14 +7,16 @@ const children = <strong>Hello</strong>;
 
 storiesOf('Accordion', module).add('Accordion', () => (
   <div>
-    <Accordion title={title}>{children}</Accordion>
-    <Accordion title={title} large>
+    <Accordion id="some_id" title={title}>
       {children}
     </Accordion>
-    <Accordion title={title} dark>
+    <Accordion id="some_id" title={title} large>
       {children}
     </Accordion>
-    <Accordion title={title} dark large>
+    <Accordion id="some_id" title={title} dark>
+      {children}
+    </Accordion>
+    <Accordion id="some_id" title={title} dark large>
       {<strong>Hello</strong>}
     </Accordion>
   </div>
