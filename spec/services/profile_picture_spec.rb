@@ -15,7 +15,6 @@ describe ProfilePicture do
     'in development environment' do
       rendered = subject.fetch(LOCAL_ASSET, className: IMG_CLASS)
       expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-      expect(rendered).to include('"className":"'+IMG_CLASS+'"')
       expect(rendered).to include(LOCAL_ASSET)
       expect(rendered).not_to include(CLOUDINARY_HOST)
     end
@@ -25,7 +24,6 @@ describe ProfilePicture do
       allow(Rails).to receive(:env) { 'production'.inquiry }
       rendered = subject.fetch(LOCAL_ASSET, className: IMG_CLASS)
       expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-      expect(rendered).to include('"className":"'+IMG_CLASS+'"')
       expect(rendered).to include(LOCAL_ASSET)
       expect(rendered).to include(CLOUDINARY_HOST)
     end
@@ -34,7 +32,6 @@ describe ProfilePicture do
     'portraits' do
       rendered = subject.fetch(CLOUDINARY_ASSET_URL, className: IMG_CLASS)
       expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-      expect(rendered).to include('"className":"'+IMG_CLASS+'"')
       expect(rendered).to include(CLOUDINARY_ASSET_ID)
       expect(rendered).to include(CLOUDINARY_HOST)
     end

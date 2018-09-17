@@ -65,8 +65,13 @@ body, html {
   }
 }
 
+.htmlOptions {
+  height: 100%;
+}
+
 @import "core/*";
 @import "dashboard/*";
 @import "static/*";
+@import "secret_share/*";
 @import "overrides/*";
 @import "application/*";

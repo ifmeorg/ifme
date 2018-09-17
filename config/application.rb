@@ -45,7 +45,5 @@ module Ifme
     config.i18n.available_locales = ['pt-BR'].concat %i[en es sv nl it nb vi]
 
     config.i18n.default_locale = :en
-
-    config.secret_share_enabled = false
   end
 end

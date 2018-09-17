@@ -14,25 +14,18 @@
     <%= t('devise.invitations.edit.header') %>
   <% elsif reset_password_path? %>
     <%= t('layouts.title.reset_password') %>
-  <% elsif @page_edit.present? && @page_tooltip %>
+  <% elsif yield(:page_new).present? && @page_new %>
     <div>
       <%= yield(:title) %>
     </div>
     <div>
-      <%= link_to @page_tooltip, @page_edit, class: 'buttonM' %>
-    </div>
-  <% elsif yield(:page_new).present? && @page_tooltip %>
-    <div>
-      <%= yield(:title) %>
-    </div>
-    <div>
-      <%= link_to @page_tooltip, yield(:page_new), class: 'buttonM' %>
+      <%= link_to @page_new, yield(:page_new), class: 'buttonM' %>
     </div>
   <% elsif @page_author.present? %>
     <div>
       <%= yield(:title) %>
     </div>
-    <div id="page_author">
+    <div class="title no_margin_bottom">
       <%= @page_author %>
     </div>
   <% else %>

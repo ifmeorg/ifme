@@ -98,7 +98,7 @@ describe ApplicationHelper do
     end
 
     context 'when the controller and action match' do
-      let(:current_controller) { 'devise/sessions' }
+      let(:current_controller) { 'sessions' }
       let(:action_name) { 'new' }
       it { is_expected.to be true }
     end
@@ -128,7 +128,7 @@ describe ApplicationHelper do
     end
 
     context 'when the controller and action match the path' do
-      let(:current_controller) { 'devise/registrations' }
+      let(:current_controller) { 'registrations' }
       let(:action_name) { 'create' }
       it { is_expected.to be true }
     end
@@ -282,8 +282,8 @@ describe ApplicationHelper do
     end
 
     context 'when the controller and action match the path' do
-      let(:current_controller) { 'devise/invitations' }
-      let(:action_name) { 'accept' }
+      let(:current_controller) { 'users/invitations' }
+      let(:action_name) { 'update' }
       it { is_expected.to be true }
     end
 
@@ -314,6 +314,33 @@ describe ApplicationHelper do
     context 'when the controller and action match the path' do
       let(:current_controller) { 'devise/passwords' }
       let(:action_name) { 'edit' }
+      it { is_expected.to be true }
+    end
+
+    context 'when the path does not match' do
+      let(:page) { about_path }
+      it { is_expected.to be false }
+    end
+  end
+
+  describe 'secret_share_path?' do
+    let(:page) { '' }
+    let(:current_controller) { '' }
+    let(:action_name) { '' }
+    let(:moment) { create(:moment, :with_user, :with_secret_share) }
+    subject { secret_share_path? }
+
+    before(:each) do
+      params[:controller] = current_controller
+      allow(self).to receive('action_name').and_return(action_name)
+      allow(self).to receive('current_page?').and_return(false)
+      allow(self).to receive('current_page?').with(page).and_return(true)
+    end
+
+    context 'when the path matches' do
+      let(:current_controller) { 'secret_shares' }
+      let(:action_name) { 'show' }
+      let(:page) { secret_share_path(id: moment.id) }
       it { is_expected.to be true }
     end
 

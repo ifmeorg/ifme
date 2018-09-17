@@ -61,30 +61,21 @@ var onReadyAddComment = function() {
                 }
 
                 var newComment = '<div class="comment no_margin_top" id="' + commentid + '">';
-                newComment += '<div class="table">';
-                newComment += '<div class="table_row">';
-                newComment += '<div class="table_cell small_profile_picture_div vertical_align_middle padding_right">';
-                newComment += profile_picture;
-                newComment += '</div>';
-                newComment += '<div class="table_cell">';
+                newComment += '<div class="gridRowSpaceBetween">';
                 newComment += '<div class="comment_info">';
                 newComment += comment_info;
+                newComment += '</div>';
+                if (delete_comment !== null && delete_comment.length > 0) {
+                  newComment += delete_comment;
+                }
                 newComment += '</div>';
                 newComment += '<div class="comment_text">';
                 newComment += comment_text;
                 newComment += '</div>';
-
+                newComment += '<div class="subtle">';
                 if (visibility !== null && visibility.length > 0) {
                   newComment += visibility;
                 }
-                newComment += '</div>';
-
-
-                if (delete_comment !== null && delete_comment.length > 0) {
-                  newComment += delete_comment;
-                }
-
-                newComment += '</div>';
                 newComment += '</div>';
                 newComment += '</div>';
 

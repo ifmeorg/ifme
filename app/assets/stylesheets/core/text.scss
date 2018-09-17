@@ -1,5 +1,7 @@
-.small_font {
-  @include setFontSize($size-14);
+@mixin overflowText() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .subtle {

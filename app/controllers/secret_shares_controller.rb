@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SecretSharesController < ApplicationController
-  before_action :ensure_secret_share_enabled!
   skip_before_action :if_not_signed_in, only: [:show]
 
   def create
@@ -16,21 +15,14 @@ class SecretSharesController < ApplicationController
 
   def show
     @moment = Moment.find_secret_share!(params[:id])
+    author = User.find(@moment.user_id)
+    @page_author = link_to(author.name, profile_index_path(uid: get_uid(author.id)))
     render 'moments/show'
   end
 
   def destroy
-    moment = Moment.find_by!(
-      user: current_user, secret_share_identifier: params[:id]
-    )
+    moment = Moment.find_by!(user: current_user, id: params[:id])
     moment.update!(secret_share_identifier: nil)
     redirect_to moment_path(moment)
-  end
-
-  private
-
-  def ensure_secret_share_enabled!
-    return if Rails.configuration.secret_share_enabled
-    raise ActiveRecord::RecordNotFound
   end
 end

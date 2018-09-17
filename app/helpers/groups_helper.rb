@@ -75,14 +75,6 @@ module GroupsHelper
     end
   end
 
-  def render_group_member_partial(group)
-    render partial: '/shared/members', locals: { group: group }
-  end
-
-  def render_meeting_partial(meeting)
-    render partial: '/shared/meeting_info', locals: { meeting: meeting }
-  end
-
   def new_group_props
     new_form_props(group_form_inputs, groups_path)
   end

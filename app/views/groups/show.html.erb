@@ -1,49 +1,53 @@
 <% title @group.name %>
 <% page_new new_meeting_path(group_id: @group.id) %>
-
-<div class="group_info">
-  <div class="small_margin_bottom">
-    <%= sanitize(@group.description) %>
-  </div>
-
-  <div class="small_margin_bottom">
-    <%= react_component('Modal', props: {
-      element: "<button class=\"buttonS\">#{t('members', count: @group.group_members.count)}</button>",
-      title: t('notifications.members.title'),
-      body: render_group_member_partial(@group)
+<%= render partial: '/groups/story_body', locals: { group: @group } %>
+<% if user_is_leader_of?(@group) %>
+  <div class="gridItemBoxDark small_margin_top">
+    <%= react_component('StoryActions', props: {
+      dark: true,
+      actions: {
+        leave: user_can_leave?(@group) ? {
+          name: t('common.actions.leave'),
+          link: group_membership_path(group_id: @group.id, id: 'leave'),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        } : nil,
+        edit: user_can_edit?(@group) ? {
+          name: t('common.actions.edit'),
+          link: edit_group_path(@group)
+        } : nil,
+        delete: user_can_delete?(@group) ? {
+          name: t('common.actions.delete'),
+          link: url_for(@group),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        } : nil
+      }
     }) %>
   </div>
-
-  <div class="small_margin_bottom">
-    <strong>
-      <i class="fa fa-key"></i>
-      <%= t('groups.show.led_by') %>
-    </strong>
-    <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
-  </div>
-
-  <% if user_can_delete? @group %>
-    <div class="spacer"></div>
-    <%= delete_group_link(@group, class: 'buttonM') %>
-  <% elsif @group.members.include? current_user %>
-    <div class="spacer"></div>
-    <%= leave_group_link(@group, class: 'buttonM') %>
-  <% else %>
-    <div class="spacer"></div>
-    <%= join_group_link(@group, class: 'buttonM') %>
-  <% end %>
-</div>
+<% end %>
 
 <% if @meetings.present? %>
-  <div class="spacer"></div>
-  <div class="gridTwo">
+  <div class="gridTwo small_margin_top">
     <% @meetings.each do |meeting| %>
       <div class="gridTwoItemBoxLight">
-        <h1 class="meeting_name">
-          <%= link_to meeting.name, meeting_path(meeting) %>
-          <%= edit_meeting_link(meeting, class: 'display_inline_block') %>
-        </h1>
-        <%= render_meeting_partial(meeting) %>
+        <%= react_component('Story', html_options: htmlOptions, props: {
+          name: meeting.name,
+          link: url_for(meeting),
+          actions: {
+            edit: user_is_leader_of?(meeting) ? {
+              name: t('common.actions.edit'),
+              link: edit_meeting_path(meeting)
+            } : nil,
+            delete: meeting.leaders.include?(current_user) ? {
+              name: t('common.actions.delete'),
+				      link: url_for(meeting),
+				      dataConfirm: t('common.actions.confirm'),
+				      dataMethod: 'delete'
+            } : nil
+          },
+          body: render(partial: '/meetings/story_body', locals: { meeting: meeting })
+        }) %>
       </div>
     <% end %>
   </div>

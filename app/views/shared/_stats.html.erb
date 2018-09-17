@@ -22,15 +22,21 @@
               <% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
                 <%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>
               <% elsif local_assigns[:data_type] == 'category' && local_assigns[:profile] %>
-                <%= Category.where(id: key).first.name %>
+                <div class="some_focus_text_name">
+                  <%= Category.where(id: key).first.name %>
+                </div>
               <% elsif local_assigns[:data_type] == 'mood' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
                 <%= viewers_hover(get_viewers_for(Mood.where(id: key).first, 'mood'), Mood.where(id: key).first) %>
               <% elsif local_assigns[:data_type] == 'mood' && local_assigns[:profile] %>
-                <%= Mood.where(id: key).first.name %>
+                <div class="some_focus_text_name">
+                  <%= Mood.where(id: key).first.name %>
+                </div>
               <% elsif local_assigns[:data_type] == 'strategy' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
                 <%= viewers_hover(get_viewers_for(Strategy.where(id: key).first, 'strategy'), Strategy.where(id: key).first) %>
               <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:profile] %>
-                <%= Strategy.where(id: key).first.name %>
+                <div class="some_focus_text_name">
+                  <%= Strategy.where(id: key).first.name %>
+                </div>
               <% end %>
             </div>
           </div>

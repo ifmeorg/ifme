@@ -1,10 +1,1 @@
-<div class="gridTwoItemBoxLight">
-	<%= react_component('Story', props: {
-		name: category.name,
-		link: url_for(category),
-		actions: {
-			edit: edit_category_path(category),
-			delete: t('common.actions.confirm')
-		}
-	}) %>
-</div>
+<%= render partial: '/stories/category_or_mood', locals: { item: category } %>

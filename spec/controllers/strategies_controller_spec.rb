@@ -406,8 +406,8 @@ describe StrategiesController do
       it 'prints the reminders' do
         expect(subject).to(
           eq(
-            '<div class="small_margin_top">' \
-            '<i class="fa fa-bell small_margin_right"></i>' \
+            '<div>' \
+            '<i class="fa fa-bell smaller_margin_right"></i>' \
             'Daily reminder email</div>'
           )
         )

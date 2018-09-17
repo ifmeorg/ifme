@@ -3,18 +3,42 @@ import { storiesOf } from '@storybook/react';
 import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 import { Avatar } from '../components/Avatar';
 
+const name = 'Tara';
+
 storiesOf('Avatar', module)
-  .add('Without name', () => <Avatar src={photoTara} />)
-  .add('Without name and invalid image', () => (
-    <Avatar src="NonExistentFile.jpg" />
+  .add('With image', () => (
+    <div>
+      <Avatar src={photoTara} small />
+      <br />
+      <Avatar src={photoTara} />
+      <br />
+      <Avatar src={photoTara} large />
+    </div>
   ))
-  .add('With name', () => (
-    <Avatar src={photoTara} name="Tara Swenson" displayName />
+  .add('Without image', () => (
+    <div>
+      <Avatar small />
+      <br />
+      <Avatar />
+      <br />
+      <Avatar large />
+    </div>
   ))
-  .add('With name and invalid image', () => (
-    <Avatar
-      src="NonExistentFile.jpg"
-      name="Default On Loading Error"
-      displayName
-    />
+  .add('With image and name', () => (
+    <div>
+      <Avatar src={photoTara} name={name} small />
+      <br />
+      <Avatar src={photoTara} name={name} />
+      <br />
+      <Avatar src={photoTara} name={name} large />
+    </div>
+  ))
+  .add('Without image and with name', () => (
+    <div>
+      <Avatar small name={name} />
+      <br />
+      <Avatar name={name} />
+      <br />
+      <Avatar name={name} large />
+    </div>
   ));

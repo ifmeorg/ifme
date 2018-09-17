@@ -6,12 +6,15 @@ type Props = {
   dark?: boolean,
   normal?: boolean,
   label?: string,
+  secondary?: boolean,
 };
 
 export const Tag = (props: Props) => {
-  const { dark, normal, label } = props;
-  const labelClassNames = `tag ${css.tag} ${dark ? css.dark : ''}${
+  const {
+    dark, normal, label, secondary,
+  } = props;
+  const labelClassNames = `tag ${css.tag} ${dark ? css.dark : ''} ${
     normal ? css.normal : ''
-  }`;
-  return <span className={labelClassNames}>{label}</span>;
+  } ${secondary ? css.secondary : ''}`;
+  return <div className={labelClassNames}>{label}</div>;
 };

@@ -1,3 +1,12 @@
+@mixin inputStyle() {
+  box-sizing: border-box;
+  padding: $size-20;
+  box-shadow: $size-0 $size-2 $size-10 $black-10;
+  border-radius: $size-4;
+  background: $white;
+  border: none;
+}
+
 label {
   @include setFontSize($size-14);
   @include setPadding($size-12, $size-0, $size-12, $size-0);
@@ -25,12 +34,8 @@ textarea,
 select,
 fieldset {
   @include setFontSize($size-20);
+  @include inputStyle();
   @include setMargin($size-0, $size-10, $size-0, $size-0);
-  border-radius: $size-4;
-  border: none;
-  padding: $size-10;
-  background-color: $white;
-  box-sizing: border-box;
   @media screen and (max-width: $medium) {
     width: 100%;
   }
@@ -53,45 +58,4 @@ input[type="radio"] {
 .field,
 .actions {
   @include setMargin($size-0, $size-0, $size-40, $size-0);
-}
-
-.full_field,
-.name_field {
-  width: 100%;
-}
-
-.toggle_button:link, .toggle_button:visited {
-  @include setFontSize($size-26);
-  color: $black;
-  float: right;
-}
-
-.sidebar {
-  @media screen and (min-width: $medium) {
-    width: 30%;
-  }
-}
-
-.sidebar_field {
-  @include setPadding($size-16, $size-16, $size-16, $size-0);
-  @media screen and (max-width: $medium) {
-    width: 100%;
-  }
-}
-
-.sidebar_label.expand_toggle label {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-
-.special_textarea {
-  height: 200px;
-}
-
-textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus{
-  border-color: $black-20;
-  box-shadow: $size-0 $size-0 $size-2 $black-20;
 }

@@ -6,37 +6,11 @@
 
 .comment {
   margin-top: $size-40;
+  box-sizing: border-box;
   padding: $size-20;
-  background-color: $white;
-  border: $size-2 solid $mulberry;
-
-  div.table {
-    display: table;
-    table-layout: auto;
-    width: 100%;
-    border-collapse: separate;
-
-    @media screen and (max-width: $medium) {
-      .padding_right {
-        padding-right: $size-10 !important;
-      }
-    }
-
-    @media screen and (max-width: $small) {
-      .vertical_align_middle {
-        vertical-align: top !important;
-      }
-    }
-  }
-
-  div.table div.table_row {
-    display: table-row;
-  }
-
-  div.table div.table_cell {
-    display: table-cell;
-    word-break: break-word;
-  }
+  box-shadow: $size-0 $size-2 $size-10 $black-10;
+  border-radius: $size-4;
+  background: $white;
 
   .delete_comment {
     padding-left: $size-20;
@@ -61,11 +35,7 @@
 
 .comment_info {
   color: $mulberry;
-  padding-bottom: $size-10;
-  padding-left: $size-10;
-  padding-right: $size-10;
-  border-bottom: $size-1 solid $dusty-rose;
-
+  margin-bottom: $size-10;
   @media screen and (max-width: $small) {
     font-size: $size-16;
   }
@@ -87,8 +57,7 @@
 
 .comment_text {
   word-wrap: break-word;
-  padding: $size-10;
-  font-weight: $font-weight-300;
+  margin-bottom: $size-10;
 }
 
 .comment_textarea {

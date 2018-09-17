@@ -6,49 +6,33 @@
 </div>
 
 <% if @groups.any? %>
-  <h1 class="group_type"><%= t('groups.index.joined_groups') %></h1>
+  <div class="title"><%= t('groups.index.joined_groups') %></div>
   <div class="gridTwo">
     <% @groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
-        <h1 class="group_name">
-          <%= link_to group.name, group %>
-          <%= t('groups.index.leader') if user_is_leader_of? group %>
-        </h1>
-
-        <div class="small_margin_bottom">
-          <%= react_component('Modal', props: {
-            element: "<button class=\"buttonDarkS groupMembersButton\">#{t('members', count: group.group_members.count)}</button>",
-            title: t('notifications.members.title'),
-            body: render_group_member_partial(group)
-          }) %>
-        </div>
-
-        <div class="small_margin_bottom">
-          <strong>
-            <i class="fa fa-key"></i>
-            <%= t('groups.show.led_by') %>
-          </strong>
-
-          <%= group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
-        </div>
-
-        <%= strip_tags(group.description[0..80]) %>
-        <%= t('ellipsis') if group.description.length >= 80 %>
-
-        <div class="small_margin_top">
-          <% if user_can_edit?(group) %>
-            <i class="fa fa-pencil-alt action"></i>
-            <%= edit_group_link(group) %>
-          <% end %>
-          <% if user_can_leave?(group) %>
-            <i class="fa fa-times action"></i>
-            <%= leave_group_link(group) %>
-          <% end %>
-          <% if user_can_delete?(group) %>
-            <i class="fa fa-trash-alt action"></i>
-            <%= delete_group_link(group) %>
-          <% end %>
-        </div>
+        <%= react_component('Story', html_options: htmlOptions, props: {
+          name: group.name,
+          link: url_for(group),
+          actions: {
+            leave: user_can_leave?(group) ? {
+              name: t('common.actions.leave'),
+              link: group_membership_path(group_id: group.id, id: 'leave'),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            } : nil,
+            edit: user_can_edit?(group) ? {
+              name: t('common.actions.edit'),
+              link: edit_group_path(group)
+            } : nil,
+            delete: user_can_delete?(group) ? {
+              name: t('common.actions.delete'),
+              link: url_for(group),
+              dataConfirm: t('common.actions.confirm'),
+              dataMethod: 'delete'
+            } : nil,
+          },
+          body: render(partial: '/groups/story_body', locals: { group: group })
+        }) %>
       </div>
     <% end %>
   </div>
@@ -64,31 +48,23 @@
 <% end %>
 
 <% if @available_groups.any? %>
-  <div class="spacer"></div>
-
-  <h1 class="group_type"><%= t('groups.index.available_groups') %></h1>
+  <div class="title"><%= t('groups.index.available_groups') %></div>
 
   <div class="gridTwo">
     <% @available_groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
-        <h1 class="group_name">
-          <%= link_to group.name, group %>
-        </h1>
-
-        <div class="small_margin_bottom">
-          <%= react_component('Modal', props: {
-            element: "<button class=\"buttonDarkS groupMembersButton\">#{t('members', count: group.group_members.count)}</button>",
-            title: t('notifications.members.title'),
-            body: render_group_member_partial(group)
-          }) %>
-        </div>
-
-        <%= strip_tags(group.description[0..80]) %>
-        <%= t('ellipsis') if group.description.length >= 80 %>
-
-        <div class="small_margin_top">
-          <%= join_group_link(group) %>
-        </div>
+        <%= react_component('Story', html_options: htmlOptions, props: {
+          name: group.name,
+          link: url_for(group),
+          actions: {
+            join: {
+              name: t('common.actions.join'),
+              link: group_membership_path(group_id: group.id, id: 'join'),
+              dataMethod: 'post'
+            }
+          },
+          body: render(partial: '/groups/story_body', locals: { group: group })
+        }) %>
       </div>
     <% end %>
   </div>

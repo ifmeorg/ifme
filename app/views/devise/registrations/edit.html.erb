@@ -16,7 +16,7 @@
       <%= f.label t('common.form.email') %>
     </div>
     <% if current_user.provider == 'google_oauth2' %>
-      <div class="small_font small_margin_bottom">
+      <div class="small_margin_bottom">
         <%= raw t('devise.registrations.google_auth1') %>
       </div>
     <% end %>
@@ -40,8 +40,9 @@
     <div class="label">
       <%= f.label t('devise.registrations.edit.labels.profile_picture') %>
     </div>
-    <%= ProfilePicture.fetch(resource.avatar.url, className: 'mini_profile_picture') %>
-    <br>
+    <div class="small_margin_bottom">
+      <%= ProfilePicture.fetch(resource.avatar.url) %>
+    </div>
     <%= f.file_field :avatar %>
     <% unless resource.avatar.blank? %>
       <%= f.label :remove_avatar, class: 'checkbox' do %>
@@ -62,7 +63,7 @@
     </div>
 
     <% if current_user.provider == 'google_oauth2' %>
-      <div class="small_font">
+      <div>
         <%= raw t('devise.registrations.google_auth2') %>
       </div>
     <% end %>
@@ -82,9 +83,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit t('devise.registrations.edit.labels.update') %>
+    <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM' %>
   </div>
 <% end %>
 
 <div class="label"><label><%= raw t('devise.registrations.edit.delete.text') %></label></div>
-<%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete %>
+<%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

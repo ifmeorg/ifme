@@ -9,9 +9,7 @@ class ProfilePicture
   class << self
     def fetch(path, options = {})
       react_component 'Avatar', props: {
-        className: options[:className],
-        name: options[:name],
-        displayName: options[:name] ? true : false,
+        name: options[:name] || nil,
         src: normalize_url(path)
       }
     end

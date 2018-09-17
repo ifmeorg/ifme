@@ -21,8 +21,13 @@ describe('Story', () => {
         wrapper = render(
           <Story
             actions={{
-              edit: 'some-url',
-              delete: 'bluh',
+              edit: { link: 'some-url', name: 'Edit' },
+              delete: {
+                link: 'some-url',
+                name: 'Delete',
+                dataMethod: 'delete',
+                dataConfirm: 'Are you sure?',
+              },
               viewers: 'blah',
             }}
             name="Real Moment"
