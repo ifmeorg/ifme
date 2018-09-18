@@ -26,6 +26,7 @@ describe 'ToggleLanguage', js: true do
       it 'persists locale selection on a different page' do
         change_language('es')
         expect(page).to have_content es_root_title
+        scroll_to('.footer')
 
         change_page(
           ->{
