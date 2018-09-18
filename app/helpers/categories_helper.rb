@@ -35,7 +35,7 @@ module CategoriesHelper
         name: 'category[description]',
         label: t('common.form.description'),
         value: @category.description || nil,
-        dark: true,
+        dark: true
       }
     ]
   end

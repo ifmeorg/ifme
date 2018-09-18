@@ -15,9 +15,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    if @medication.user_id != current_user.id
-      redirect_to_path(medications_path)
-    end
+    redirect_to_path(medications_path) if @medication.user_id != current_user.id
   end
 
   # GET /medications/new

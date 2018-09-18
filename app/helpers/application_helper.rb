@@ -31,7 +31,7 @@ module ApplicationHelper
       # New user session with devise.
       (link_path == new_user_session_path || sign_in_path?) ||
       # New user registration with devise.
-      (link_path == new_user_registration_path ||  join_path?)
+      (link_path == new_user_registration_path || join_path?)
   end
   # rubocop:enable MethodLength
 
@@ -75,15 +75,15 @@ module ApplicationHelper
   def ally_accept_invitation_path?
     correct_devise_page?(accept_user_invitation_path,
                          'users/invitations', 'edit')
-      correct_devise_page?(accept_user_invitation_path,
-                           'users/invitations', 'update')
+    correct_devise_page?(accept_user_invitation_path,
+                         'users/invitations', 'update')
   end
 
   def reset_password_path?
     correct_devise_page?(edit_user_password_path,
                          'devise/passwords', 'edit') ||
       correct_devise_page?(edit_user_password_path,
-                          'devise/passwords', 'update')
+                           'devise/passwords', 'update')
   end
 
   def secret_share_path?

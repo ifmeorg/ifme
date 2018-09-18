@@ -14,9 +14,7 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.user_id != current_user.id
-      redirect_to_path(moods_path)
-    end
+    redirect_to_path(moods_path) if @mood.user_id != current_user.id
   end
 
   # GET /moods/new

@@ -40,7 +40,7 @@ class NotificationsController < ApplicationController
   private
 
   def convert_to_hash(string_obj)
-    hash = Hash.new
+    hash = {}
     JSON.parse(string_obj).each do |item|
       hash[item.first.to_sym] = item.second
     end

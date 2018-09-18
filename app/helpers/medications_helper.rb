@@ -38,7 +38,7 @@ module MedicationsHelper
         required: true,
         info: t('medications.form.strength_hint'),
         placeholder: t('medications.form.strength_placeholder'),
-        dark: true,
+        dark: true
       },
       {
         id: 'medication_strength_unit',
@@ -68,7 +68,7 @@ module MedicationsHelper
         required: true,
         info: t('medications.form.total_hint'),
         placeholder: t('medications.form.total_placeholder'),
-        dark: true,
+        dark: true
       },
       {
         id: 'medication_total_unit',
@@ -103,7 +103,7 @@ module MedicationsHelper
         required: true,
         info: t('medications.form.dosage_hint'),
         placeholder: t('medications.form.dosage_placeholder'),
-        dark: true,
+        dark: true
       },
       {
         id: 'medication_dosage_unit',
@@ -137,7 +137,7 @@ module MedicationsHelper
         value: @medication.refill || nil,
         info: t('medications.form.refill_hint'),
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'medication_comments',
@@ -146,7 +146,7 @@ module MedicationsHelper
         label: t('comment.plural'),
         value: @medication.comments || nil,
         info: t('medications.form.comments_hint'),
-        dark: true,
+        dark: true
       },
       {
         id: 'medication_refill_reminder',
@@ -186,7 +186,7 @@ module MedicationsHelper
   end
 
   def google_fields
-    common_fields.push({
+    common_fields.push(
       id: 'medication_add_to_google_cal',
       type: 'checkbox',
       dark: true,
@@ -196,6 +196,6 @@ module MedicationsHelper
       checked: @medication.add_to_google_cal,
       uncheckedValue: false,
       value: true
-    })
+    )
   end
 end

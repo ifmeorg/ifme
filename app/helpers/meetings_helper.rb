@@ -44,7 +44,7 @@ module MeetingsHelper
         value: @meeting.location || nil,
         placeholder: t('meetings.form.location_placeholder'),
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'meeting_time',
@@ -53,7 +53,7 @@ module MeetingsHelper
         label: t('meetings.info.meeting_time'),
         value: @meeting.time || nil,
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'meeting_date',
@@ -62,7 +62,7 @@ module MeetingsHelper
         label: t('common.date'),
         value: @meeting.date || nil,
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'meeting_maxmembers',
@@ -73,7 +73,7 @@ module MeetingsHelper
         placeholder: t('meetings.form.maximum_placeholder'),
         min: 0,
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'meeting_description',
@@ -82,7 +82,7 @@ module MeetingsHelper
         label: t('common.form.description'),
         value: @meeting.description || nil,
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'meeting_group_id',
@@ -104,11 +104,11 @@ module MeetingsHelper
 
   def attending(id)
     t('shared.meeting_info.attending') +
-    ' ' +
-    link_to(
-      t('common.actions.leave'),
-      leave_meetings_path(meeting_id: id)
-    )
+      ' ' +
+      link_to(
+        t('common.actions.leave'),
+        leave_meetings_path(meeting_id: id)
+      )
   end
 
   def one_spot(id)
