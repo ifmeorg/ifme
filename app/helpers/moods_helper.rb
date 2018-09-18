@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module MoodsHelper
   include FormHelper
 
@@ -17,6 +16,7 @@ module MoodsHelper
 
   private
 
+  # rubocop:disable MethodLength
   def mood_form_inputs
     [
       {
@@ -44,4 +44,5 @@ module MoodsHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 end

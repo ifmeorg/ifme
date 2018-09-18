@@ -31,7 +31,7 @@
   <div class="gridTwo small_margin_top">
     <% @meetings.each do |meeting| %>
       <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', html_options: htmlOptions, props: {
+        <%= react_component('Story', html_options: html_options, props: {
           name: meeting.name,
           link: url_for(meeting),
           actions: {

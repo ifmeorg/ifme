@@ -10,7 +10,7 @@
   <div class="gridTwo">
     <% @groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', html_options: htmlOptions, props: {
+        <%= react_component('Story', html_options: html_options, props: {
           name: group.name,
           link: url_for(group),
           actions: {
@@ -53,7 +53,7 @@
   <div class="gridTwo">
     <% @available_groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', html_options: htmlOptions, props: {
+        <%= react_component('Story', html_options: html_options, props: {
           name: group.name,
           link: url_for(group),
           actions: {

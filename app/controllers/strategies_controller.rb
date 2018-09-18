@@ -95,7 +95,6 @@ class StrategiesController < ApplicationController
 
   # POST /strategies
   # POST /strategies.json
-  # rubocop:disable MethodLength
   def create
     @strategy = Strategy.new(strategy_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
@@ -103,7 +102,6 @@ class StrategiesController < ApplicationController
     @strategy.published_at = Time.zone.now if publishing?
     shared_create(@strategy, 'strategy')
   end
-  # rubocop:enable MethodLength
 
   # POST /strategies
   # POST /strategies.json
@@ -132,7 +130,6 @@ class StrategiesController < ApplicationController
 
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
-  # rubocop:disable MethodLength
   def update
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
@@ -144,7 +141,6 @@ class StrategiesController < ApplicationController
     empty_array_for :viewers, :category
     shared_update(@strategy, 'strategy', strategy_params)
   end
-  # rubocop:enable MethodLength
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json

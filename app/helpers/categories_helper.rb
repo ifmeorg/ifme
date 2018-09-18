@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module CategoriesHelper
   include FormHelper
 
@@ -17,6 +16,7 @@ module CategoriesHelper
 
   private
 
+  # rubocop:disable MethodLength
   def category_form_inputs
     [
       {
@@ -39,4 +39,5 @@ module CategoriesHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 end

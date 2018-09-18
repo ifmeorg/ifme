@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module MedicationsHelper
   include FormHelper
 
@@ -17,6 +18,7 @@ module MedicationsHelper
     current_user.google_oauth2_enabled? ? google_fields : common_fields
   end
 
+  # rubocop:disable MethodLength
   def common_fields
     [
       {
@@ -184,7 +186,9 @@ module MedicationsHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def google_fields
     common_fields.push(
       id: 'medication_add_to_google_cal',
@@ -198,4 +202,6 @@ module MedicationsHelper
       value: true
     )
   end
+  # rubocop:enable MethodLength
 end
+# rubocop:enable ModuleLength

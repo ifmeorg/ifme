@@ -16,7 +16,8 @@ class SecretSharesController < ApplicationController
   def show
     @moment = Moment.find_secret_share!(params[:id])
     author = User.find(@moment.user_id)
-    @page_author = link_to(author.name, profile_index_path(uid: get_uid(author.id)))
+    path = profile_index_path(uid: get_uid(author.id))
+    @page_author = link_to(author.name, path)
     render 'moments/show'
   end
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module GroupsHelper
   include FormHelper
 
@@ -89,6 +90,7 @@ module GroupsHelper
     edit_inputs || common_inputs
   end
 
+  # rubocop:disable MethodLength
   def common_inputs
     [
       {
@@ -111,30 +113,33 @@ module GroupsHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def edit_inputs
-    inputs = nil
-    if action_name == 'edit' || action_name == 'update'
-      inputs = common_inputs
-      checkboxes = []
-      @group.group_members.each do |member|
-        checkboxes.push(
-          id: "group_leader_#{member.user_id}",
-          name: 'group[leader][]',
-          value: member.user_id,
-          checked: member.leader,
-          label: link_to(member.user.name, profile_index_path(uid: get_uid(member.user_id)))
-        )
-      end
-      inputs.push(
-        id: 'group_leader',
-        name: 'group[leader]',
-        type: 'checkboxGroup',
-        checkboxes: checkboxes,
-        label: t('groups.form.leaders'),
-        dark: true,
-        required: true
+    return unless action_name == 'edit' || action_name == 'update'
+    inputs = common_inputs
+    checkboxes = []
+    @group.group_members.each do |member|
+      path = profile_index_path(uid: get_uid(member.user_id))
+      checkboxes.push(
+        id: "group_leader_#{member.user_id}",
+        name: 'group[leader][]',
+        value: member.user_id,
+        checked: member.leader,
+        label: link_to(member.user.name, path)
       )
     end
+    inputs.push(
+      id: 'group_leader',
+      name: 'group[leader]',
+      type: 'checkboxGroup',
+      checkboxes: checkboxes,
+      label: t('groups.form.leaders'),
+      dark: true,
+      required: true
+    )
   end
+  # rubocop:enable MethodLength
 end
+# rubocop:enable ModuleLength

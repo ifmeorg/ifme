@@ -95,7 +95,6 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     group_id = meeting_params[:group_id]
     not_a_leader(group_id)
-    # rubocop:disable BlockLength
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(
@@ -103,7 +102,6 @@ class MeetingsController < ApplicationController
           user_id: current_user.id,
           leader: true
         )
-
         if meeting_member.save
           # Notify group members that you created a new meeting
           group_members = GroupMember.where(group_id: @meeting.group_id).all
@@ -115,8 +113,6 @@ class MeetingsController < ApplicationController
           format.json { render :show, status: :created, location: group_id }
         end
       end
-      # rubocop:enable BlockLength
-
       format.html { render :new }
       format.json do
         render json: @meeting.errors, status: :unprocessable_entity
@@ -130,13 +126,6 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
-      meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-      meeting_members.each do |member|
-        meeting_member_id = MeetingMember.where(
-          meeting_id: @meeting.id,
-          user_id: member.user_id
-        ).first.id
-      end
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
       MeetingNotificationsService.handle_members(current_user: current_user,
                                                  meeting: @meeting,
@@ -253,13 +242,11 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   # DELETE /meetings/1.json
-  # rubocop:disable MethodLength
   def destroy
     not_a_leader(@meeting.group_id)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id).all
     notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
-
     # Remove corresponding meeting members
     @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
     @meeting_members.each(&:destroy)
@@ -267,7 +254,6 @@ class MeetingsController < ApplicationController
     @meeting.destroy
     redirect_to_path(group_path(group_id))
   end
-  # rubocop:enable MethodLength
 
   private
 
