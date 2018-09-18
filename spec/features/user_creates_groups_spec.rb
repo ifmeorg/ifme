@@ -1,21 +1,20 @@
-describe 'UserCreatesGroups' do
-  scenario 'successfully' do
+describe 'UserCreatesGroups', js: true do
+  scenario 'sucessful' do
     user = create :user
     login_as user
     visit new_group_path
-    fill_in 'Name', with: 'A Group'
-    fill_in 'Description', with: 'A Group Description'
-    click_on 'Submit'
-
+    find('#group_name').set('A Group')
+    fill_in_textarea('A Group Description', '#group_description')
+    find('#submit').click
     expect(page).to have_content 'A Group Description'
   end
 
-  scenario 'unsucessfully' do
+  scenario 'unsuccessful' do
     user = create :user
     login_as user
     visit new_group_path
-    click_on 'Submit'
-
-    expect(page).to have_content "Name can't be blank"
+    find('#submit').click
+    expect(page).to have_content 'New Group'
+    expect(page).to have_css('.labelError')
   end
 end

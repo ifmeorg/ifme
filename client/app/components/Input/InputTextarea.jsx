@@ -39,14 +39,14 @@ export class InputTextarea extends React.Component<Props, State> {
   onEditorStateChange = (editorState: any) => {
     const { required, hasError } = this.props;
     const { value } = this.state;
-    const contentValueHTML = stateToHTML(editorState.getCurrentContent());
-    const contentValue = contentValueHTML === '<p><br></p>' ? '' : contentValueHTML;
+    const contentValue = stateToHTML(editorState.getCurrentContent());
     if (value !== contentValue) {
       if (required && hasError) {
         hasError(!contentValue);
       }
       this.setState({ editorState, value: contentValue });
     }
+    this.setState({ editorState });
   };
 
   onBlur = () => {
@@ -82,19 +82,24 @@ export class InputTextarea extends React.Component<Props, State> {
     );
   };
 
+  getContentValue = () => {
+    const { editorState, value } = this.state;
+    return value && value.length
+      ? stateToHTML(editorState.getCurrentContent())
+      : '';
+  };
+
   render() {
     const {
       id, name, required, myRef,
     } = this.props;
-    const { editorState, value } = this.state;
-    const contentValue = value && value.length ? stateToHTML(editorState.getCurrentContent()) : '';
     return (
-      <div className={inputCss.default}>
+      <div id={id} className={inputCss.default}>
         {this.displayEditor()}
         <input
           type="hidden"
-          value={contentValue}
-          id={id}
+          value={this.getContentValue()}
+          id={`${id}_value`}
           name={name}
           required={required}
           ref={myRef}

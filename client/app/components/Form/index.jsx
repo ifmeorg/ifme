@@ -69,7 +69,6 @@ export class Form extends React.Component<Props, State> {
       }
       return newInput;
     });
-    console.log('error me', newErrors);
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
       this.setState({ inputs: newInputs, errors: newErrors });

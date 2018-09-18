@@ -20,7 +20,11 @@ describe('Accordion', () => {
 
   describe('open props is true', () => {
     it('toggles correctly', () => {
-      const wrapper = shallow(<Accordion title={title} open>{children}</Accordion>);
+      const wrapper = shallow(
+        <Accordion title={title} open>
+          {children}
+        </Accordion>,
+      );
       expect(wrapper.find('.accordionContent').length).toEqual(1);
       wrapper.find('.accordion').simulate('click');
       expect(wrapper.find('.accordionContent').length).toEqual(0);
