@@ -52,7 +52,7 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="content <%= user_signed_in? && !static_page? ? 'dashboard' : 'static' %>">
+    <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>
       <% if user_signed_in? && !static_page? %>
@@ -66,6 +66,11 @@
             <%= render partial: "shared/page_title" %>
             <%= yield %>
           </div>
+        </div>
+      <% elsif secret_share_path? %>
+        <div class="secretShareContent">
+          <%= render partial: "shared/page_title" %>
+          <%= yield %>
         </div>
       <% else %>
         <div class="staticContent">

@@ -15,10 +15,7 @@ class MedicationsController < ApplicationController
   # GET /medications/1
   # GET /medications/1.json
   def show
-    if @medication.user_id == current_user.id
-      @page_edit = edit_medication_path(@medication)
-      @page_tooltip = t('medications.edit_medication')
-    else
+    if @medication.user_id != current_user.id
       redirect_to_path(medications_path)
     end
   end

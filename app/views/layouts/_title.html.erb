@@ -1,27 +1,19 @@
 <%= t('app_name') %>
-<% if current_page?(new_user_session_path) ||
-    (params[:controller] == "devise/sessions" && action_name == "new") %>
+<% if sign_in_path? %>
   - <%= t('account.sign_in') %>
-<% elsif current_page?(new_user_registration_path) ||
-  (params[:controller] == "devise/registrations" && action_name == "create") %>
+<% elsif join_path? %>
   - <%= t('account.sign_up') %>
-<% elsif current_page?(new_user_password_path) ||
-  (params[:controller] == "devise/passwords" && action_name == "new") %>
+<% elsif forgot_password_path? %>
   - <%= t('account.forgot_password') %>
-<% elsif current_page?(edit_user_registration_path) ||
-  (params[:controller] == "registrations" && action_name == "update") %>
+<% elsif update_account_path? %>
   - <%= t('account.singular') %>
 <% elsif current_page?(root_path) %>
   - <%= t('app_description') %>
-<% elsif current_page?(new_user_invitation_path) ||
-  (params[:controller] == "devise/invitations" && action_name == "new") ||
-  (params[:controller] == "users/invitations" && action_name == "create") %>
+<% elsif send_ally_invitation_path? %>
   - <%= t('devise.invitations.new.header') %>
-<% elsif current_page?(accept_user_invitation_path) ||
-  (params[:controller] == "devise/invitations" && action_name == "accept") %>
+<% elsif ally_accept_invitation_path? %>
   - <%= t('devise.invitations.edit.header') %>
-<% elsif current_page?(edit_user_password_path) ||
-  (params[:controller] == "devise/passwords" && action_name == "edit") %>
+<% elsif reset_password_path? %>
   - <%= t('layouts.title.reset_password') %>
 <% else %>
   - <%= yield(:title) %>

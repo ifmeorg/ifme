@@ -252,13 +252,12 @@ nb:
   singular: 'Øyeblikk'
   plural: 'Øyeblikk'
   edit_moment: 'Rediger øyeblikk'
-  tagged: 'tag øyeblikk'
+  tagged_moments: 'tag øyeblikk'
   new: 'Nytt øyeblikk'
   secret_share:
     singular: 'Hemmelig deling'
     expires_at: 'Utløper'
-    create: 'Lag'
-    cancel: 'Avbryt'
+    cancel_secret_share: 'Avbryt Hemmelig deling'
   form:
    why: 'Hva skjedde og hvordan føler du deg?'
    fix: 'Hva slags tanker vil du ha?'

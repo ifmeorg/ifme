@@ -1,4 +1,20 @@
 <% title @meeting.name %>
-<%= render partial: '/shared/meeting_info', locals: { meeting: @meeting, is_leader: @is_leader, show_group: true } %>
-
-<%= render partial: '/shared/comments', locals: { data: @meeting, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'meeting', is_member: @is_member, is_leader: @is_leader } %>
+<%= render partial: '/meetings/story_body', locals: { meeting: @meeting } %>
+<% if user_is_leader_of?(@meeting) %>
+  <div class="gridItemBoxDark small_margin_top">
+    <%= react_component('StoryActions', props: {
+      dark: true,
+      actions: {
+        delete: @meeting.leaders.include?(current_user) && {
+          name: t('common.actions.delete'),
+          link: url_for(@meeting),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        }
+      }
+    }) %>
+  </div>
+<% end %>
+<div class="small_margin_top">
+  <%= render partial: '/shared/comments', locals: { data: @meeting, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'meeting', is_member: @is_member, is_leader: @is_leader } %>
+</div>

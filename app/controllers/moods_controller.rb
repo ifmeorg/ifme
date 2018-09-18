@@ -14,10 +14,7 @@ class MoodsController < ApplicationController
   # GET /moods/1
   # GET /moods/1.json
   def show
-    if @mood.user_id == current_user.id
-      @page_edit = edit_mood_path(@mood)
-      @page_tooltip = t('moods.edit_mood')
-    else
+    if @mood.user_id != current_user.id
       redirect_to_path(moods_path)
     end
   end

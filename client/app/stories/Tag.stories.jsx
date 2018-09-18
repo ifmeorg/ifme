@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Tag } from '../components/Tag';
 
 storiesOf('Tag', module)
-  .add('TagGhostXs', () => <Tag label="Self-Injury" />)
-  .add('TagDarkXs', () => <Tag dark label="Self-Injury" />)
-  .add('Tag', () => <Tag normal label="Self-Injury" />);
+  .add('TagNormal', () => <Tag normal label="Self-Injury" />)
+  .add('TagSecondary', () => <Tag secondary label="Self-Injury" />)
+  .add('TagGhost', () => <Tag label="Self-Injury" />)
+  .add('TagDark', () => <Tag dark label="Self-Injury" />);

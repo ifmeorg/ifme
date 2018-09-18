@@ -254,13 +254,12 @@ es:
   singular: "Momento"
   plural: "Momentos"
   edit_moment: "Editar Momento"
-  tagged: "Etiquetar Momento"
+  tagged_moments: "Etiquetar Momento"
   new: "Nuevo Momento"
   secret_share:
     singular: 'Compartir en Secreto'
     expires_at: 'Caduca en'
-    create: 'Crear'
-    cancel: 'Cancelar'
+    cancel_secret_share: 'Cancelar Compartir en Secreto'
   form:
    why: "¿Qué ocurrió y cómo te sentiste"
    fix: "¿Qué pensamientos te gustaría tener?"

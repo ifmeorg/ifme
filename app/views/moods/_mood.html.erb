@@ -1,10 +1,1 @@
-<div class="gridTwoItemBoxLight">
-  <%= react_component('Story', props: {
-    name: mood.name,
-    link: url_for(mood),
-    actions: {
-			edit: edit_mood_path(mood),
-			delete: t('common.actions.confirm')
-		}
-  }) %>
-</div>
+<%= render partial: '/stories/category_or_mood', locals: { item: mood } %>

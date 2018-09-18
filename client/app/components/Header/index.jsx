@@ -16,7 +16,7 @@ export type Link = {
 };
 
 export type Profile = {
-  avatar: string,
+  avatar?: string,
   name: string,
   profile: Link,
   account: Link,

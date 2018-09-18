@@ -1,33 +1,40 @@
 <% title @profile.name %>
-<div class="table" id="profile_info">
-  <div class="table_cell profile_picture_div vertical_align_top padding_right">
-    <%= ProfilePicture.fetch(@profile.avatar.url, className: 'profile_picture') %>
-  </div>
-  <div class="table_cell vertical_align_middle">
-    <% if @profile.about %>
+<div class="center">
+  <%= ProfilePicture.fetch(@profile.avatar.url) %>
+  <% if @profile.about %>
+    <div class="small_margin_top">
       <%= @profile.about %>
-      <div class="spacer"></div>
-    <% end %>
-    <% if @profile == current_user %>
+    </div>
+  <% end %>
+  <% if @profile == current_user %>
+    <div class="small_margin_top">
       <%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
-      <div class="spacer"></div>
+    </div>
+  <% end %>
+  <% if User.where(id: @profile.id).first.location.present? %>
+    <div class="small_margin_top">
+      <i class="fa fa-location-arrow fa-inline smaller_margin_right"></i><%= User.where(id: @profile.id).first.location %>
+    </div>
+  <% end %>
+  <% if @profile.id != current_user.id %>
+    <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
+      <div class="small_margin_top">
+        <%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% elsif current_user.allies_by_status(:accepted).include? @profile %>
+      <div class="small_margin_top">
+        <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
+      <div class="small_margin_top">
+        <%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+      </div>
+    <% else %>
+      <div class="small_margin_top">
+        <%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
+      </div>
     <% end %>
-    <% if User.where(id: @profile.id).first.location.present? %>
-      <i class="fa fa-location-arrow fa-inline"></i><%= User.where(id: @profile.id).first.location %>
-      <br>
-    <% end %>
-    <% if @profile.id != current_user.id %>
-      <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-        <br><%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
-      <% elsif current_user.allies_by_status(:accepted).include? @profile %>
-        <br><%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
-      <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
-        <br><%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
-      <% else %>
-        <br><%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
-      <% end %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 
 <% if !@stories.nil? && @stories.any? %>
@@ -45,7 +52,7 @@
 
   <div class="gridTwo">
     <% @stories.each do |story| %>
-      <%= render partial: '/shared/story', locals: { story: story } %>
+      <%= render partial: '/stories/moment_or_strategy', locals: { item: story } %>
     <% end %>
   </div>
 

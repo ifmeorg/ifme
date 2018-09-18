@@ -12,7 +12,7 @@
   <div class="gridThree">
   <% @outgoing_ally_requests.each do |ally| %>
     <div class="gridThreeItemBoxLight center">
-      <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
+      <%= ProfilePicture.fetch(ally.avatar.url) %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="subtle"><%= ally.location %></div>
       <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
@@ -30,7 +30,7 @@
   <div class="gridThree">
   <% @incoming_ally_requests.each do |ally| %>
     <div class="gridThreeItemBoxLight center">
-      <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
+      <%= ProfilePicture.fetch(ally.avatar.url) %>
       <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
       <div class="subtle"><%= ally.location %></div>
       <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
@@ -49,7 +49,7 @@
   <div class="gridThree">
     <% @accepted_allies.each do |ally| %>
       <div class="gridThreeItemBoxLight center">
-        <%= ProfilePicture.fetch(ally.avatar.url, className: 'profile_picture') %>
+        <%= ProfilePicture.fetch(ally.avatar.url) %>
         <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
         <div class="subtle"><%= ally.location %></div>
         <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>

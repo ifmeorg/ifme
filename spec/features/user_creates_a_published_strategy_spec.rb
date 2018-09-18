@@ -64,16 +64,17 @@ describe 'UserCreatesAPublishedStrategy', js: true do
 
       # VIEWING
       expect(find('.pageTitle')).to have_content 'My New Strategy'
-      expect(page).to have_content 'Test Category'
-      expect(page).to have_content 'Some New Category'
+      expect(page).to have_content 'Test Category'.upcase
+      expect(page).to have_content 'Some New Category'.upcase
       expect(page).to have_content 'A strategy description'
-      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
+      find('.storyActionsViewers').hover
+      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2'
       expect(page).to have_content 'Daily reminder email'
       expect(page).to have_css('#new_comment')
-      expect(page).not_to have_selector '.draftBadge'
+      expect(page).not_to have_selector '.storyDraft'
 
       # EDITING
-      click_link('Edit Strategy')
+      find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
       strategy_description_text = 'I am changing my strategy description'
       fill_in_textarea(strategy_description_text, '#strategy_description')

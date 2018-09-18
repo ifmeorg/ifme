@@ -87,18 +87,19 @@ describe 'UserCreatesADraftMoment', js: true do
 
       # VIEWING AS OWNER
       expect(find('.pageTitle')).to have_content 'My New Moment'
-      expect(page).to have_content 'Test Category'
-      expect(page).to have_content 'Some New Category'
-      expect(page).to have_content 'Test Mood'
-      expect(page).to have_content 'Some New Mood'
+      expect(page).to have_content 'Test Category'.upcase
+      expect(page).to have_content 'Some New Category'.upcase
+      expect(page).to have_content 'Test Mood'.upcase
+      expect(page).to have_content 'Some New Mood'.upcase
       expect(page).to have_content 'What happened and how do you feel?'.upcase
       expect(page).to have_content 'A moment why'
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
       expect(page).to have_content 'Some New Strategy'
-      expect(page).to have_content 'Ally 1 is a viewer.'
+      find('.storyActionsViewers').hover
+      expect(page).to have_content 'Ally 1'
       expect(page).to have_css('#new_comment')
-      expect(page).to have_selector '.draftBadge'
+      expect(page).to have_selector '.storyDraft'
       back = current_url
 
       # TRYING TO VIEW AS ALLY
@@ -109,8 +110,8 @@ describe 'UserCreatesADraftMoment', js: true do
       visit back
 
       # EDITING
-      click_link('Edit Moment')
-      expect(find('.pageTitle')).to have_content 'My New Moment Edit Moment'
+      find('.storyActionsEdit').click
+      expect(find('.pageTitle')).to have_content 'Edit My New Moment'
       moment_why_text = 'I am changing my moment why'
       fill_in_textarea(moment_why_text, '#moment_why')
 
@@ -121,7 +122,7 @@ describe 'UserCreatesADraftMoment', js: true do
       # VIEWING AFTER EDITING
       expect(find('.pageTitle')).to have_content 'My New Moment'
       expect(page).to have_content moment_why_text
-      expect(page).not_to have_selector '.draftBadge'
+      expect(page).not_to have_selector '.storyDraft'
 
       # TRYING TO VIEW AS ALLY
       login_as ally

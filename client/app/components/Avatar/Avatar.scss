@@ -1,23 +1,37 @@
 @import "../../styles/_global.scss";
 
-$avatar-size: 120px;
-
 .avatar {
-  @include setMargin($size-20, $size-20, $size-20, $size-20);
-  @include setFontSize($size-18);
-  text-align: center;
-  text-shadow: 0 0.2em 0.4em $black-30;
+  @include setFontSize($size-20);
   color: $white;
-  .portrait {
-    border-radius: 50%;
-    margin: 0 auto;
-    overflow: hidden;
-    object-fit: cover;
-    background-color: $white;
-    height: $avatar-size;
-    width: $avatar-size;
+  display: inline-block;
+  text-align: center;
+}
+
+.image {
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  background: $mulberry-key-lime;
+  height: 100px;
+  width: 100px;
+}
+
+.large {
+  @include setFontSize($size-22);
+  .image {
+    height: 150px;
+    width: 150px;
   }
-  .name {
-    margin-top: 0.5em;
+}
+
+.small {
+  @include setFontSize($size-18);
+  .image {
+    height: 50px;
+    width: 50px;
   }
+}
+
+.name {
+  margin-top: 0.5em;
 }

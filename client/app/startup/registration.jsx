@@ -17,9 +17,15 @@ import { Resource } from '../components/Resource';
 import { Tag } from '../components/Tag';
 import { Logo } from '../components/Logo';
 import { Story } from '../components/Story';
+import { StoryDraft } from '../components/Story/StoryDraft';
+import { StoryActions } from '../components/Story/StoryActions';
+import { StoryCategories } from '../components/Story/StoryCategories';
+import { StoryMoods } from '../components/Story/StoryMoods';
+import { StoryDate } from '../components/Story/StoryDate';
 import { Tooltip } from '../components/Tooltip';
 import { Modal } from '../components/Modal';
 import { Form } from '../components/Form';
+import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
 
@@ -29,6 +35,7 @@ loadLocales();
 // This is how react_on_rails can see the Components in the browser.
 ReactOnRails.register({
   Avatar,
+  Accordion,
   Chart,
   ChartControl,
   Form,
@@ -40,6 +47,11 @@ ReactOnRails.register({
   Resource,
   Resources,
   Story,
+  StoryActions,
+  StoryCategories,
+  StoryDate,
+  StoryDraft,
+  StoryMoods,
   Tag,
   Tooltip,
 });

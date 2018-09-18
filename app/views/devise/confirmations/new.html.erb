@@ -6,7 +6,7 @@
   <div class="field"><div class="label"><%= f.label t('common.form.email') %></div>
   <%= f.email_field :email %></div>
 
-  <div class="actions"><%= f.submit t('devise.confirmations.resend_confirmation') %></div>
+  <div class="actions"><%= f.submit t('devise.confirmations.resend_confirmation'), class: 'buttonGhostM' %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

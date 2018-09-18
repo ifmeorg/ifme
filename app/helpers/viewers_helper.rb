@@ -1,17 +1,6 @@
 # frozen_string_literal: true
 
 module ViewersHelper
-  def number_of_viewers(current_user_id, strategy_owner_id, viewers)
-    if strategy_owner_id == current_user_id
-      names = viewers.map { |id| User.where(id: id).first.name }
-      t('shared.viewers_indicator.viewers_html',
-        count: viewers.count,
-        names: names.to_sentence)
-    else
-      t('shared.viewers_indicator.you_are_viewer_html', count: viewers.length)
-    end
-  end
-
   def viewers_hover(data, link)
     react_component(
       'Tooltip',

@@ -41,7 +41,7 @@ en:
    press: 'Press'
    faq: 'FAQ'
    resources: 'Resources'
-   code_of_conduct: 'Code Of Conduct'
+   code_of_conduct: 'Code of Conduct'
 
  common:
    name: 'Name'
@@ -252,13 +252,12 @@ en:
   singular: 'Moment'
   plural: 'Moments'
   edit_moment: 'Edit Moment'
-  tagged: 'Tagged Moments'
+  tagged_moments: 'Tagged Moments'
   new: 'New Moment'
   secret_share:
     singular: 'Secret Share'
     expires_at: 'Expire at'
-    create: 'Create'
-    cancel: 'Cancel'
+    cancel_secret_share: 'Cancel Secret Share'
   form:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'

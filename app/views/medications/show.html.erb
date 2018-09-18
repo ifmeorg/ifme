@@ -1,26 +1,25 @@
 <% title @medication.name %>
-<strong><%= t('medications.strength') %></strong>
-<%= t('medications.units.display', count: @medication.strength, unit: t("medications.units.#{@medication.strength_unit}", count: @medication.strength)) %>
-
-<br>
-
-<strong><%= t('medications.quantity') %></strong>
-<%= t('medications.units.display', count: @medication.total, unit: t("medications.units.#{@medication.total_unit}", count: @medication.total)) %>
-
-<br>
-
-<strong><%= t('medications.dosage') %></strong>
-<%= t('medications.units.display', count: @medication.dosage, unit: t("medications.units.#{@medication.dosage_unit}", count: @medication.dosage)) %>
-
-<br>
-
-<strong><%= t('medications.refill') %></strong>
-<%= format_date(@medication.refill) %>
-
+<%= render partial: '/medications/story_body', locals: { medication: @medication } %>
 <% if @medication.comments.present? %>
-  <div class="spacer"></div>
-	<strong><%= t('medications.show.comments') %></strong>
-	<%= @medication.comments %>
+	<%= sanitize(@medication.comments) %>
 <% end %>
-
-<%= print_reminders(@medication) %>
+<div class="gridItemBoxDark small_margin_top">
+  <div class="gridRowSpaceBetween">
+    <%= react_component('StoryActions', props: {
+      dark: true,
+      actions: {
+        edit: {
+          name: t('common.actions.edit'),
+          link: edit_medication_path(@medication)
+        },
+        delete: {
+          name: t('common.actions.delete'),
+          link: url_for(@medication),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        }
+      }
+    }) %>
+    <%= print_reminders(@medication) %>
+  </div>
+</div>

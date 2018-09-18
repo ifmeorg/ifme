@@ -1,6 +1,6 @@
 <% group.members.each do |member| %>
   <div class="gridRowSpaceBetween">
-    <%= link_to member.name, profile_index_path(uid: member.uid) %>
+    <%= link_to group.leaders.include?(member) ? "#{member.name} #{t('groups.index.leader')}" : member.name, profile_index_path(uid: member.uid) %>
     <% if member != current_user &&
       group.instance_of?(Group) &&
       group.leaders.include?(current_user) %>

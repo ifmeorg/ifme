@@ -1,55 +1,7 @@
-.story {
-  position: relative;
-  padding-bottom: 50px;
-  .class_name {
-    position: absolute;
-    right: $size-20;
-    bottom: $size-20;
-  }
-}
-
-.moment_date {
-  @include setFontSize($size-14);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $mulberry-50;
-}
-
-.moment_settings {
-  display: flex;
-  flex-direction: row;
-}
-
-.moment_header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.story {
-  @media screen and (max-width: $small) {
-    .story_name {
-      font-size: $size-20;
-      margin: $size-0 $size-0 $size-4 $size-0;
-      padding-bottom: $size-4;
-      border-bottom: $size-1 solid $dusty-rose;
-    }
-    .ally_name {
-      font-size: $size-18;
-      margin: $size-0 $size-0 $size-10 $size-0;
-    }
-  }
-}
-
-#page_author {
-  @include setFontSize($size-24);
-  vertical-align: middle;
-}
-
 #stats {
   @include setFontSize($size-22);
   @include setMargin($size-0, $size-0, $size-40, $size-0);
-  font-weight: $font-weight-300;
+  font-weight: $font-weight-400;
   #most_focus {
     width: 100%;
     font-size: $size-0;
@@ -66,23 +18,27 @@
     min-width: 0;
     text-align: center;
     color: $key-lime;
-    background-color: $mulberry;
     font-size: $size-0;
     // The first .some_focus child of #most_focus
     // has opacity 1, 2nd has 0.8 and 3rd has 0.6
     &:nth-child(1) {
-      opacity: 1;
+      background-color: $mulberry;
     }
     &:nth-child(2) {
-      opacity: 0.8;
+      background-color: $mulberry-80;
     }
     &:nth-child(3) {
-      opacity: 0.6;
+      background-color: $mulberry-70;
     }
   }
   .some_focus_text {
     @include setFontSize($size-22);
     @include setPadding($size-20, $size-20, $size-20, $size-20);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     font-weight: $font-weight-300;
     a, .link_style {
       text-decoration: none;
@@ -91,13 +47,14 @@
         opacity: 0.5;
       }
     }
+    .some_focus_text_name {
+      word-break: break-word;
+    }
     .tooltip {
       width: 100%;
       &Element {
         width: inherit;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        word-break: break-word;
       }
     }
   }
@@ -140,23 +97,20 @@
   }
 }
 
-#categories_list,
-#moods_list,
-#strategies_list,
-#viewers_list {
-  width: 100%;
-  label {
-    display: block;
-    font: inherit;
+#search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: $medium) {
+    flex-direction: column;
   }
 }
 
 #search_email,
 #search_name {
-  width: 600px;
+  flex-grow: 1;
   @media screen and (max-width: $medium) {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: $size-10;
+    margin: $size-0 $size-0 $size-10 $size-0;
   }
 }

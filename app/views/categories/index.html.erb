@@ -25,7 +25,7 @@
   <div class="gridTwo">
     <% (1..4).each do |n| %>
       <div class="gridTwoItemBoxLight">
-        <%= react_component('Story', props: {
+        <%= react_component('Story', html_options: htmlOptions, props: {
           name: t("categories.index.premade#{n}_name"),
           link: categories_path
         }) %>
