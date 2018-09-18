@@ -87,7 +87,6 @@ class MomentsController < ApplicationController
 
   # POST /moments
   # POST /moments.json
-  # rubocop:disable MethodLength
   def create
     @moment = Moment.new(moment_params.merge(user_id: current_user.id))
     @viewers = current_user.allies_by_status(:accepted)
@@ -97,7 +96,6 @@ class MomentsController < ApplicationController
     @moment.published_at = Time.zone.now if publishing?
     shared_create(@moment, 'moment')
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json

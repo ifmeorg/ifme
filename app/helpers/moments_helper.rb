@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module MomentsHelper
   include MoodsHelper
   include CategoriesHelper
@@ -16,6 +17,7 @@ module MomentsHelper
 
   private
 
+  # rubocop:disable MethodLength
   def moment_form_inputs
     [
       {
@@ -95,7 +97,9 @@ module MomentsHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength
   def moments_viewers_input
     input = {}
     if @viewers.present?
@@ -121,6 +125,7 @@ module MomentsHelper
     end
     input
   end
+  # rubocop:enable MethodLength
 
   def checkboxes_for(data)
     checkboxes = []
@@ -144,3 +149,4 @@ module MomentsHelper
     @moment.strategy
   end
 end
+# rubocop:enable ModuleLength

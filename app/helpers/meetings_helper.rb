@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module MeetingsHelper
   include FormHelper
 
@@ -25,6 +26,7 @@ module MeetingsHelper
 
   private
 
+  # rubocop:disable MethodLength
   def meeting_form_inputs
     [
       {
@@ -92,6 +94,7 @@ module MeetingsHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 
   def not_attending(id)
     t('shared.meeting_info.not_attending',
@@ -147,3 +150,4 @@ module MeetingsHelper
     end
   end
 end
+# rubocop:enable ModuleLength

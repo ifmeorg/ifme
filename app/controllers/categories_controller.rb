@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class CategoriesController < ApplicationController
   include CollectionPageSetup
   include Shared
@@ -33,12 +32,10 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   # POST /categories.json
-  # rubocop:disable MethodLength
   def create
     @category = Category.new(category_params.merge(user_id: current_user.id))
     shared_create(@category, 'category')
   end
-  # rubocop:enable MethodLength
 
   # POST /categories
   # POST /categories.json
@@ -81,7 +78,6 @@ class CategoriesController < ApplicationController
     shared_destroy(@category, 'category')
   end
 
-  # rubocop:disable MethodLength
   def quick_create
     category = Category.new(
       user_id: current_user.id,
@@ -90,7 +86,6 @@ class CategoriesController < ApplicationController
     )
     shared_quick_create(category)
   end
-  # rubocop:enable MethodLength
 
   private
 
@@ -107,4 +102,3 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name, :description)
   end
 end
-# rubocop:enable ClassLength

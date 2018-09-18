@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Shared
   extend ActiveSupport::Concern
 
@@ -7,14 +6,21 @@ module Shared
     helper_method :shared_create, :shared_update, :shared_destroy
   end
 
+  # rubocop:disable MethodLength
   def shared_quick_create(model_object)
-    if model_object.save
-      result = { success: true, id: model_object.id, name: model_object.name, slug: model_object.slug }
-    else
-      result = { success: false }
-    end
+    result = if model_object.save
+               {
+                 success: true,
+                 id: model_object.id,
+                 name: model_object.name,
+                 slug: model_object.slug
+               }
+             else
+               { success: false }
+             end
     respond_with_json(result)
   end
+  # rubocop:enable MethodLength
 
   def shared_create(model_object, model_name)
     respond_to do |format|

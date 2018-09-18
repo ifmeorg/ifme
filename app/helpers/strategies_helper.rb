@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module StrategiesHelper
   include CategoriesHelper
   include FormHelper
@@ -9,7 +10,10 @@ module StrategiesHelper
   end
 
   def quick_create_strategy_props
-    quick_create_form_props(quick_create_strategy_form_inputs, quick_create_strategies_path)
+    quick_create_form_props(
+      quick_create_strategy_form_inputs,
+      quick_create_strategies_path
+    )
   end
 
   def edit_strategy_props
@@ -18,6 +22,7 @@ module StrategiesHelper
 
   private
 
+  # rubocop:disable MethodLength
   def strategy_form_inputs
     [
       {
@@ -89,6 +94,7 @@ module StrategiesHelper
       }
     ]
   end
+  # rubocop:enable MethodLength
 
   def quick_create_strategy_form_inputs
     [
@@ -110,6 +116,7 @@ module StrategiesHelper
     checkboxes
   end
 
+  # rubocop:disable MethodLength
   def strategy_viewers_input
     input = {}
     if @viewers.present?
@@ -135,4 +142,6 @@ module StrategiesHelper
     end
     input
   end
+  # rubocop:enable MethodLength
 end
+# rubocop:enable ModuleLength

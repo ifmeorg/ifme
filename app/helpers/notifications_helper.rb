@@ -47,9 +47,7 @@ module NotificationsHelper
       group_name: data[:group],
       meeting_name: data[:typename]
     )
-    # rubocop:disable LineLength
     link = specific_meeting_link(data[:type], data[:typeid], data[:group_id])
-    # rubocop:enable LineLength
     notification_link(uniqueid, link, notification)
   end
 

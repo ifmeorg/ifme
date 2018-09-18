@@ -54,7 +54,6 @@ class MoodsController < ApplicationController
     shared_destroy(@mood, 'mood')
   end
 
-  # rubocop:disable MethodLength
   def quick_create
     mood = Mood.new(
       user_id: current_user.id,
@@ -63,7 +62,6 @@ class MoodsController < ApplicationController
     )
     shared_quick_create(mood)
   end
-  # rubocop:enable MethodLength
 
   private
 

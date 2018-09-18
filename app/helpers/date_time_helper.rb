@@ -11,6 +11,6 @@ module DateTimeHelper
   end
 
   def format_time(time_str)
-    I18n.l(time_str.to_time, format: '%I:%M %p')
+    I18n.l(Time.zone.parse(time_str), format: '%I:%M %p')
   end
 end

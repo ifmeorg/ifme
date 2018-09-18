@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+# rubocop:disable ModuleLength
 module ApplicationHelper
   include ViewersHelper
 
-  def htmlOptions
+  def html_options
     { class: 'htmlOptions' }
   end
 
@@ -144,3 +145,4 @@ module ApplicationHelper
         action_name == current_action)
   end
 end
+# rubocop:enable ModuleLength
