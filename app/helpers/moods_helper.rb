@@ -34,7 +34,7 @@ module MoodsHelper
         name: 'mood[description]',
         label: t('common.form.description'),
         value: @mood.description || nil,
-        dark: true,
+        dark: true
       },
       {
         id: 'submit',

@@ -28,7 +28,7 @@ module StrategiesHelper
         value: @strategy.name || nil,
         placeholder: t('strategies.form.name_hint'),
         required: true,
-        dark: true,
+        dark: true
       },
       {
         id: 'strategy_description',
@@ -46,7 +46,7 @@ module StrategiesHelper
         label: t('categories.plural'),
         placeholder: t('common.form.press_enter'),
         checkboxes: category_checkboxes,
-        formProps: quick_create_category_props,
+        formProps: quick_create_category_props
       },
       strategy_viewers_input,
       {
@@ -93,34 +93,34 @@ module StrategiesHelper
   def quick_create_strategy_form_inputs
     [
       strategy_form_inputs[0],
-      strategy_form_inputs[1],
+      strategy_form_inputs[1]
     ]
   end
 
   def category_checkboxes
     checkboxes = []
     @categories.each do |item|
-      checkboxes.push({
+      checkboxes.push(
         id: item.slug,
         label: item.name,
         value: item.id,
         checked: @strategy.category.include?(item.id)
-      })
+      )
     end
     checkboxes
   end
 
   def strategy_viewers_input
     input = {}
-    if @viewers && @viewers.length > 0
+    if @viewers.present?
       checkboxes = []
       @viewers.each do |item|
-        checkboxes.push({
+        checkboxes.push(
           id: "strategy_viewers_#{item.id}",
           value: item.id,
           checked: @strategy.viewers.include?(item.id),
           label: User.find(item.id).name
-        })
+        )
       end
       input = {
         id: 'strategy_viewers',

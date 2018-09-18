@@ -16,9 +16,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.user_id != current_user.id
-      redirect_to_path(categories_path)
-    end
+    redirect_to_path(categories_path) if @category.user_id != current_user.id
   end
 
   # GET /categories/new

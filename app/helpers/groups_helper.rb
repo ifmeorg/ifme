@@ -118,15 +118,15 @@ module GroupsHelper
       inputs = common_inputs
       checkboxes = []
       @group.group_members.each do |member|
-        checkboxes.push({
+        checkboxes.push(
           id: "group_leader_#{member.user_id}",
           name: 'group[leader][]',
           value: member.user_id,
           checked: member.leader,
           label: link_to(member.user.name, profile_index_path(uid: get_uid(member.user_id)))
-        })
+        )
       end
-      inputs.push({
+      inputs.push(
         id: 'group_leader',
         name: 'group[leader]',
         type: 'checkboxGroup',
@@ -134,7 +134,7 @@ module GroupsHelper
         label: t('groups.form.leaders'),
         dark: true,
         required: true
-      })
+      )
     end
   end
 end

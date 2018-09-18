@@ -98,15 +98,15 @@ module MomentsHelper
 
   def moments_viewers_input
     input = {}
-    if @viewers && @viewers.length > 0
+    if @viewers.present?
       checkboxes = []
       @viewers.each do |item|
-        checkboxes.push({
+        checkboxes.push(
           id: "moment_viewers_#{item.id}",
           value: item.id,
           checked: @moment.viewers.include?(item.id),
           label: User.find(item.id).name
-        })
+        )
       end
       input = {
         id: 'moment_viewers',
@@ -125,12 +125,12 @@ module MomentsHelper
   def checkboxes_for(data)
     checkboxes = []
     data.each do |item|
-      checkboxes.push({
+      checkboxes.push(
         id: item.slug,
         label: item.name,
         value: item.id,
         checked: data_for_moment(data).include?(item.id)
-      })
+      )
     end
     checkboxes
   end
