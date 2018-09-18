@@ -98,12 +98,11 @@ module MomentsHelper
 
   def moments_viewers_input
     input = {}
-    if !@viewers.nil? && @viewers.length > 0
+    if @viewers && @viewers.length > 0
       checkboxes = []
       @viewers.each do |item|
         checkboxes.push({
           id: "moment_viewers_#{item.id}",
-          name: 'moment[viewers][]',
           value: item.id,
           checked: @moment.viewers.include?(item.id),
           label: User.find(item.id).name
@@ -111,7 +110,7 @@ module MomentsHelper
       end
       input = {
         id: 'moment_viewers',
-        name: 'moment[viewers]',
+        name: 'moment[viewers][]',
         type: 'tag',
         checkboxes: checkboxes,
         label: t('shared.viewers.plural'),

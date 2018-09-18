@@ -48,12 +48,17 @@ module NotificationsHelper
       meeting_name: data[:typename]
     )
     # rubocop:disable LineLength
-    link = data[:type].include? 'remove' ? "/groups/#{data[:group_id]}" : "/meetings/#{data[:typeid]}"
+    link = specific_meeting_link(data[:type], data[:typeid], data[:group_id])
     # rubocop:enable LineLength
     notification_link(uniqueid, link, notification)
   end
 
   private
+
+  def specific_meeting_link(type, typeid, group_id)
+    return "/meetings/#{typeid}" unless type.include? 'remove'
+    "/groups/#{group_id}"
+  end
 
   def request_accept(user_id)
     add = "/allies/add?ally_id=#{user_id}"

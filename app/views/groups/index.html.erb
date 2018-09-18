@@ -23,6 +23,15 @@
           }) %>
         </div>
 
+        <div class="small_margin_bottom">
+          <strong>
+            <i class="fa fa-key"></i>
+            <%= t('groups.show.led_by') %>
+          </strong>
+
+          <%= group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
+        </div>
+
         <%= strip_tags(group.description[0..80]) %>
         <%= t('ellipsis') if group.description.length >= 80 %>
 
