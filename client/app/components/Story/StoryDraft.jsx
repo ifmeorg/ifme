@@ -10,7 +10,7 @@ export type Props = {
 export const StoryDraft = (props: Props) => {
   const { draft } = props;
   return (
-    <div className={css.draft}>
+    <div className={`storyDraft ${css.draft}`}>
       <Tag label={draft} />
     </div>
   );

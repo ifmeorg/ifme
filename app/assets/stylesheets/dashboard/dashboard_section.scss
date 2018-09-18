@@ -1,13 +1,4 @@
-.dashboardSection {
-  flex-basis: 80vw;
-  background: $white-80;
-  border-radius: $size-0 15px 15px $size-0;
-  padding: $size-44;
-  @media screen and (max-width: $medium) {
-    border-radius: 0;
-    padding: 15px 10px;
-    flex-basis: auto;
-  }
+@mixin dashboardSectionStyles() {
   @media screen and (max-width: $small) {
     @include buttonFull();
   }
@@ -27,6 +18,7 @@
     align-items: center;
     font-weight: bold;
     color: $mulberry;
+    word-break: break-word;
     > div:last-of-type {
       margin-left: auto;
     }
@@ -63,4 +55,17 @@
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.dashboardSection {
+  flex-basis: 80vw;
+  background: $white-80;
+  border-radius: $size-0 15px 15px $size-0;
+  padding: $size-44;
+  @media screen and (max-width: $medium) {
+    border-radius: 0;
+    padding: 15px 10px;
+    flex-basis: auto;
+  }
+  @include dashboardSectionStyles();
 }

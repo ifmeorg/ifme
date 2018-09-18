@@ -1,7 +1,9 @@
 <div class="margin_bottom">
   <%= form_for(:search, url: posts_search_index_path, html: { method: :get }) do |f| %>
-    <%= f.text_field :name, placeholder: t('search.search_by_name') %>
-    <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
-    <%= f.submit t('search.search'), class: 'no_margin_right' %>
+    <div id="search">
+      <%= f.text_field :name, placeholder: t('search.search_by_name') %>
+      <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
+      <%= f.submit t('search.search'), class: 'no_margin_right' %>
+    </div>
   <% end %>
 </div>

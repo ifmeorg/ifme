@@ -37,21 +37,23 @@
         <%= f.hidden_field :comment_by, value: current_user.id %>
         <%= f.hidden_field :commentable_id, value: local_assigns[:data].id %>
 
-        <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].user_id != current_user.id %>
-          <%= f.select :visibility, [
-            [t('shared.comments.share_everyone'), 'all'],
-            [t('shared.comments.share_with', name: User.where(id: local_assigns[:data].user_id).first.name), 'private']
-          ] %>
-        <% else %>
-          <%= f.hidden_field :visibility, value: 'all' %>
-          <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && !local_assigns[:data].viewers.blank? && local_assigns[:data].viewers.length > 0 %>
-            <%= f.select :viewers, local_assigns[:data].viewers.collect { |v|
-              [ t('shared.comments.share_with', name: User.where(id: v).first.name), v ]
-            }, include_blank: t('shared.comments.share_everyone') %>
+        <div class="small_margin_top">
+          <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && local_assigns[:data].user_id != current_user.id %>
+            <%= f.select :visibility, [
+              [t('shared.comments.share_everyone'), 'all'],
+              [t('shared.comments.share_with', name: User.where(id: local_assigns[:data].user_id).first.name), 'private']
+            ] %>
+          <% else %>
+            <%= f.hidden_field :visibility, value: 'all' %>
+            <% if (local_assigns[:commentable_type] == 'moment' || local_assigns[:commentable_type] == 'strategy') && !local_assigns[:data].viewers.blank? && local_assigns[:data].viewers.length > 0 %>
+              <%= f.select :viewers, local_assigns[:data].viewers.collect { |v|
+                [ t('shared.comments.share_with', name: User.where(id: v).first.name), v ]
+              }, include_blank: t('shared.comments.share_everyone') %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
 
-        <%= f.submit t('comment.singular'), class: 'no_margin_right small_margin_top', id: 'add_comment_button' %>
+        <%= f.submit t('comment.singular'), class: 'small_margin_top buttonDarkS', id: 'add_comment_button' %>
       </div>
     <% end %>
 
@@ -78,26 +80,19 @@
           <% else %>
             <div class="comment" id=<%= 'comment_' + comment.id.to_s %>>
           <% end %>
-            <div class="table">
-              <div class="table_row">
-                <div class="table_cell small_profile_picture_div vertical_align_middle padding_right">
-                  <%= raw result[:profile_picture] %>
-                </div>
-                <div class="table_cell">
-                  <div class="comment_info">
-                    <%= raw result[:comment_info] %>
-                  </div>
-                  <div class="comment_text">
-                    <%= raw result[:comment_text] %>
-                  </div>
-                  <div class="subtle">
-                    <%= raw result[:visibility] %>
-                  </div>
+              <div class="gridRowSpaceBetween">
+                <div class="comment_info">
+                  <%= raw result[:comment_info] %>
                 </div>
                 <%= raw result[:delete_comment] %>
               </div>
+              <div class="comment_text">
+                <%= raw result[:comment_text] %>
+              </div>
+              <div class="subtle">
+                <%= raw result[:visibility] %>
+              </div>
             </div>
-          </div>
         <% end %>
       <% end %>
     </div>

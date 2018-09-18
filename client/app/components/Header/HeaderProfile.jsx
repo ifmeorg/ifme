@@ -2,6 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { Avatar } from '../Avatar';
 import type { Profile } from './index';
 import { Notifications } from '../../widgets/Notifications';
 import css from './Header.scss';
@@ -47,13 +48,8 @@ export const HeaderProfile = (props: Props) => {
   const { profile } = props;
   return (
     <div className={css.headerProfile}>
-      {/* <div className={css.headerProfilePicture}>
-        <Avatar src={profile.avatar} />
-      </div> */}
-      <div className={css.headerProfileInfo}>
-        <div>{profile.name}</div>
-        {displayInfoLinks(profile)}
-      </div>
+      <Avatar src={profile.avatar} name={profile.name} small />
+      <div className={css.headerProfileInfo}>{displayInfoLinks(profile)}</div>
     </div>
   );
 };

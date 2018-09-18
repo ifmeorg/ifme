@@ -93,10 +93,10 @@ describe 'UserCreatesAPublishedMoment', js: true do
 
       # VIEWING
       expect(find('.pageTitle')).to have_content 'My New Moment'
-      expect(page).to have_content 'Test Category'
-      expect(page).to have_content 'Some New Category'
-      expect(page).to have_content 'Test Mood'
-      expect(page).to have_content 'Some New Mood'
+      expect(page).to have_content 'Test Category'.upcase
+      expect(page).to have_content 'Some New Category'.upcase
+      expect(page).to have_content 'Test Mood'.upcase
+      expect(page).to have_content 'Some New Mood'.upcase
       expect(page).to have_content 'What happened and how do you feel?'.upcase
       expect(page).to have_content 'A moment why'
       expect(page).to have_content 'What thoughts would you like to have?'.upcase
@@ -104,12 +104,13 @@ describe 'UserCreatesAPublishedMoment', js: true do
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
       expect(page).to have_content 'Some New Strategy'
-      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
+      find('.storyActionsViewers').hover
+      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2'
       expect(page).to have_css('#new_comment')
-      expect(page).not_to have_selector '.draftBadge'
+      expect(page).not_to have_selector '.storyDraft'
 
       # EDITING
-      click_link('Edit Moment')
+      find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Moment'
       moment_why_text = 'I am changing my moment why'
       fill_in_textarea(moment_why_text, '#moment_why')

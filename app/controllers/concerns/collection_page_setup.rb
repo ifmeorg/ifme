@@ -17,7 +17,7 @@ module CollectionPageSetup
     ).all
     user = model.where(user_id: current_user.id)
     setup_collection(collection, user, search, name)
-    @page_tooltip = t("#{model_name.pluralize}.new")
+    @page_new = t("#{model_name.pluralize}.new")
   end
 
   def setup_collection(collection, user, search, name)

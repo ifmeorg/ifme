@@ -1,0 +1,7 @@
+<div class="gridTwo">
+  <% local_assigns[:data].each do |item| %>
+    <% if item.user_id == current_user.id || (item.viewers.include?(current_user.id) && item.published?) %>
+      <%= render partial: '/stories/moment_or_strategy', locals: { item: item } %>
+    <% end %>
+  <% end %>
+</div>

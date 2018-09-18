@@ -153,13 +153,13 @@ class ApplicationController < ActionController::Base
       [moments, strategies].each do |records|
         objs = []
         records.find_each do |r|
-          objs.push(r.id) if data_included?(data_type, data_id, r)
+          objs.push(r) if data_included?(data_type, data_id, r)
         end
         result << objs
       end
     elsif data_type.in?(%w[mood strategy])
       moments.find_each do |m|
-        result << m.id if data_included?(data_type, data_id, m)
+        result << m if data_included?(data_type, data_id, m)
       end
     end
     result
@@ -169,8 +169,7 @@ class ApplicationController < ActionController::Base
   # rubocop:disable MethodLength
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
-    profile_picture = ProfilePicture.fetch(profile.avatar.url,
-                                           className: 'mini_profile_picture')
+    profile_picture = ProfilePicture.fetch(profile.avatar.url)
 
     comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
 
@@ -192,7 +191,7 @@ class ApplicationController < ActionController::Base
     end
 
     if comment_deletable?(data, data_type)
-      delete_comment = '<div class="table_cell delete_comment">'
+      delete_comment = '<div class="delete_comment">'
       delete_comment += link_to sanitize('<i class="fa fa-times"></i>'),
                                 '',
                                 id: "delete_comment_#{data.id}",
@@ -346,10 +345,7 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
-    if current_user.id == subject.user_id
-      @page_edit = send("edit_#{model_name}_path", subject)
-      @page_tooltip = t("#{model_name.pluralize}.edit_#{model_name}")
-    else
+    if current_user.id != subject.user_id
       ally = User.find(subject.user_id)
       @page_author = link_to(ally.name,
                              profile_index_path(uid: get_uid(ally.id)))

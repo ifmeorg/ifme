@@ -1,52 +1,84 @@
 <% title @moment.name %>
-<%= render partial: '/moments/info', locals: { data: @moment } %>
-<% if Rails.configuration.secret_share_enabled && @moment.owned_by?(current_user) %>
-  <button class="secret-share-button" onclick="$('#secret-share-area').toggleClass('display_none')">
-    <%= t ('moments.secret_share.singular') %>
-  </button>
-  <div class="<%= @moment.shared? ? '' : 'display_none' %>" id="secret-share-area">
-    <%= button_to t('moments.secret_share.create'), secret_shares_path(moment: @moment.id), {class: 'secret-share-button'} %>
-    <% if @moment.shared? %>
-      <%= button_to t('moments.secret_share.cancel'), secret_share_path(@moment.secret_share_identifier), {method: :delete, class: 'secret-share-button'} %>
-    <% end %>
-    <% if @moment.secret_share_identifier %>
-      <input type=text value="<%= secret_share_url(@moment.secret_share_identifier) %>">
-      <form class="secret-share-expire">
-        <%= t('moments.secret_share.expires_at') %>:
-        <input type="date" name="expire">
-        <input type="submit" value="<%= t('common.actions.submit') %>">
-      </form>
-    <% end %>
-    <!-- <%= secret_share_url(@moment.secret_share_identifier) if @moment.secret_share_identifier %> -->
+<div class="gridRowSpaceBetween">
+  <%= react_component('StoryDate', props: {
+    date: TimeAgo.created_or_edited(@moment)
+  }) %>
+  <% if !@moment.published? %>
+    <%= react_component('StoryDraft', props: {
+      draft: !@moment.published? ?  t('draft') : nil
+    }) %>
+  <% end %>
+</div>
+<div class="smaller_margin_top">
+  <%= react_component('StoryCategories', props: {
+    categories: @moment.category.map{ |item| Category.find(item).name }
+  }) %>
+  <%= react_component('StoryMoods', props: {
+    moods: @moment.mood.map{ |item| Mood.find(item).name }
+  }) %>
+</div>
+
+<% if @moment.why.present? %>
+  <div class="small_margin_top">
+    <div class="label"><%= label_tag t('moments.form.why') %></div>
+    <%= sanitize(@moment.why) %>
   </div>
 <% end %>
 
-<% if @moment.why.present? %>
-  <p>
-    <div class="label"><%= label_tag t('moments.form.why') %></div>
-    <%= sanitize(@moment.why) %>
-  </p>
-<% end %>
-
 <% if @moment.fix.present? %>
-  <p>
+  <div class="small_margin_top">
     <div class="label"><%= label_tag t('moments.form.fix') %></div>
     <%= sanitize(@moment.fix) %>
-  </p>
+  </div>
 <% end %>
 
 <% if @moment.strategy.count > 0 %>
-  <p>
+  <div class="small_margin_top">
     <div class="label"><%= label_tag t('moments.show.strategies') %></div>
     <% @moment.strategy.each do |item| %>
-        <span class="notification_wrapper">
-          <span class="tip_notifications_button link_style"><%= Strategy.where(id: item).first.name %></span><% if @moment.strategy.last != item %><%= ', ' %><% end %>
-        </span>
+      <div>
+        <%= link_to Strategy.find(item).name, Strategy.find(item) %>
+      </div>
     <% end %>
-  </p>
+  </div>
 <% end %>
 
-<%= render partial: '/shared/viewers_indicator', locals: { data: @moment } %>
+<% if @moment.owned_by?(current_user) && @moment.shared? %>
+  <div class="small_margin_top">
+    <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
+    <div class="subtle">
+      <%= secret_share_url(@moment.secret_share_identifier) %>
+    </div>
+  </div>
+<% end %>
+
+<% if @moment.owned_by?(current_user) %>
+  <div class="gridItemBoxDark small_margin_top">
+    <div class="gridRowSpaceBetween">
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          edit: {
+            link: edit_moment_path(@moment),
+            name: t('common.actions.edit')
+          },
+          delete: {
+            name: t('common.actions.delete'),
+            link: url_for(@moment),
+            dataMethod: 'delete',
+            dataConfirm:  t('common.actions.confirm')
+          },
+          viewers: get_viewer_list(@moment.viewers, nil)
+        }
+      }) %>
+      <% if @moment.shared? %>
+        <%= button_to t('moments.secret_share.cancel_secret_share'), secret_share_path(id: @moment.id), { method: :delete, class: 'buttonGhostXS' } %>
+      <% elsif @moment.published? %>
+        <%= button_to t('moments.secret_share.singular'), secret_shares_path(moment: @moment.id), { class: 'buttonGhostXS' } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <% if @comment.present? %>
   <%= render partial: '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>

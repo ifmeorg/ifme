@@ -6,7 +6,8 @@ RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
     other_group_member = create :user2
     create :group_member, user_id: other_group_member.id, group_id: group.id
     visit groups_path
-    click_link 'Leave'
+    find('.storyActionsLeave').click
+    page.driver.browser.switch_to.alert.accept
     expect(page).to have_content("You have left #{group.name}")
     expect(current_path).to eq(groups_path)
   end

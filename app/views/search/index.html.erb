@@ -8,7 +8,7 @@
   <% if @matching_users.present? %>
     <% @matching_users.each do |user| %>
         <div class="gridThreeItemBoxLight center">
-          <%= ProfilePicture.fetch(user.avatar.url, className: 'profile_picture') %>
+          <%= ProfilePicture.fetch(user.avatar.url) %>
           <h1 class="ally_name"><%= link_to user.name, profile_index_path(uid: get_uid(user.id)) %></h1>
           <div class="subtle"><%= user.location %></div>
 

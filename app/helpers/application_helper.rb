@@ -3,6 +3,10 @@
 module ApplicationHelper
   include ViewersHelper
 
+  def htmlOptions
+    { class: 'htmlOptions' }
+  end
+
   # rubocop:disable RescueStandardError
   def i18n_set?(key)
     I18n.t key, raise: true
@@ -25,32 +29,36 @@ module ApplicationHelper
         current_controller == link_controller
       ) ||
       # New user session with devise.
-      (link_path == new_user_session_path &&
-       current_controller == 'devise/sessions' && action_name == 'new') ||
+      (link_path == new_user_session_path || sign_in_path?) ||
       # New user registration with devise.
-      (link_path == new_user_registration_path &&
-       current_controller == 'devise/registrations' && action_name == 'create')
+      (link_path == new_user_registration_path ||  join_path?)
   end
   # rubocop:enable MethodLength
 
   def sign_in_path?
     correct_devise_page?(new_user_session_path,
-                         'devise/sessions', 'new')
+                         'sessions', 'new')
   end
 
   def join_path?
     correct_devise_page?(new_user_registration_path,
-                         'devise/registrations', 'create')
+                         'registrations', 'create') ||
+      correct_devise_page?(new_user_registration_path,
+                           'registrations', 'new')
   end
 
   def forgot_password_path?
     correct_devise_page?(new_user_password_path,
-                         'devise/passwords', 'new')
+                         'devise/passwords', 'new') ||
+      correct_devise_page?(new_user_password_path,
+                           'devise/passwords', 'create')
   end
 
   def update_account_path?
     correct_devise_page?(edit_user_registration_path,
-                         'registrations', 'update')
+                         'registrations', 'update') ||
+      correct_devise_page?(edit_user_registration_path,
+                           'registrations', 'edit')
   end
 
   def not_signed_in_root_path?
@@ -66,12 +74,20 @@ module ApplicationHelper
 
   def ally_accept_invitation_path?
     correct_devise_page?(accept_user_invitation_path,
-                         'devise/invitations', 'accept')
+                         'users/invitations', 'edit')
+      correct_devise_page?(accept_user_invitation_path,
+                           'users/invitations', 'update')
   end
 
   def reset_password_path?
     correct_devise_page?(edit_user_password_path,
-                         'devise/passwords', 'edit')
+                         'devise/passwords', 'edit') ||
+      correct_devise_page?(edit_user_password_path,
+                          'devise/passwords', 'update')
+  end
+
+  def secret_share_path?
+    params[:controller] == 'secret_shares' && action_name == 'show'
   end
 
   def static_page?

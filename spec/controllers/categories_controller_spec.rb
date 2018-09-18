@@ -13,7 +13,7 @@ RSpec.describe CategoriesController, type: :controller do
       before { get :index }
       it 'sets the categories and page tooltip ivar' do
         expect(assigns(:categories)).to eq [category]
-        expect(assigns(:page_tooltip)).to eq I18n.t('categories.new')
+        expect(assigns(:page_new)).to eq I18n.t('categories.new')
       end
       it 'renders the page' do
         expect(response).to render_template(:index)
@@ -30,10 +30,6 @@ RSpec.describe CategoriesController, type: :controller do
       include_context :logged_in_user
       context 'when the user created the category' do
         before { get :show, params: { id: category.id } }
-        it 'passes the edit link and tooltip text to the template' do
-          expect(assigns(:page_edit)).to eq edit_category_path(category)
-          expect(assigns(:page_tooltip)).to eq I18n.t('categories.edit_category')
-        end
         it 'renders the page' do
           expect(response).to render_template(:show)
         end

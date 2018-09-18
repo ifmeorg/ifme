@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { Tag } from '../Tag';
-import css from './Story.scss';
 
 export type Props = {
   categories: string[],
@@ -10,9 +9,9 @@ export type Props = {
 export const StoryCategories = (props: Props) => {
   const { categories } = props;
   return (
-    <div className={css.category}>
+    <div className="storyCategories">
       {categories.map(value => (
-        <Tag key={value} label={value} />
+        <Tag secondary key={value} label={value} />
       ))}
     </div>
   );

@@ -9,7 +9,7 @@
   <div class="gridTwo">
     <% @stories.each do |story| %>
       <% if current_user.id == story.user_id || (viewer_of?(story.viewers) && are_allies?(current_user.id, story.user_id)) %>
-        <%= render partial: '/shared/story', locals: { story: story, storyBy: true } %>
+      <%= render partial: '/stories/moment_or_strategy', locals: { item: story } %>
       <% end %>
     <% end %>
   </div>

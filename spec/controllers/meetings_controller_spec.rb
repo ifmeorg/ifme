@@ -37,8 +37,6 @@ RSpec.describe MeetingsController, :type => :controller do
               get :show, params: { id: meeting.id }
             end
 
-            it { expect(assigns(:page_edit)).to eq edit_meeting_path(meeting) }
-            it { expect(assigns(:page_tooltip)).to eq I18n.t('meetings.edit_meeting')}
             it { expect(response).to have_http_status(:ok) }
             it { expect(response).to render_template(:show) }
           end

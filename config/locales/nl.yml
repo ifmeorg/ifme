@@ -252,13 +252,12 @@ nl:
   singular: 'Moment'
   plural: 'Momenten'
   edit_moment: 'Bewerk Moment'
-  tagged: 'Getagde Momenten'
+  tagged_moments: 'Getagde Momenten'
   new: 'Nieuw Moment'
   secret_share:
     singular: 'Geheim Delen'
     expires_at: 'Verloopt op'
-    create: 'Aanmaken'
-    cancel: 'Annuleren'
+    cancel_secret_share: 'Annuleren Geheim Delen'
   form:
    why: 'Wat is er gebeurd en hoe wat is je gevoel?'
    fix: 'Welke gedachten zou je willen hebben?'

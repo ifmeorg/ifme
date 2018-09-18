@@ -51,7 +51,7 @@ class Moment < ApplicationRecord
 
   def self.find_secret_share!(identifier)
     find_by!(
-      'secret_share_expires_at > NOW()',
+      # 'secret_share_expires_at > NOW()', TODO: Turn off temporarily
       secret_share_identifier: identifier
     )
   end
@@ -89,8 +89,8 @@ class Moment < ApplicationRecord
   end
 
   def shared?
-    secret_share_identifier? &&
-      Time.zone.now < secret_share_expires_at
+    secret_share_identifier?
+    # && Time.zone.now < secret_share_expires_at TODO: Turn off temporarily
   end
 
   def strategy_name

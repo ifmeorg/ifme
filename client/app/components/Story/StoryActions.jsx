@@ -5,69 +5,117 @@ import {
   faPencilAlt,
   faTrash,
   faLock,
+  faDoorOpen,
+  faDoorClosed,
 } from '@fortawesome/free-solid-svg-icons';
 import css from './Story.scss';
 import { Tooltip } from '../Tooltip';
 
+export type Action = {
+  name: string,
+  link: string,
+  dataMethod?: string,
+  dataConfirm?: string,
+};
+
 export type Actions = {
-  edit?: string,
-  delete?: string,
+  edit?: Action,
+  delete?: Action,
+  join?: Action,
+  leave?: Action,
   viewers?: string,
 };
 
 export type Props = {
-  link: string,
   actions: Actions,
+  hasStory?: boolean,
+  dark?: boolean,
 };
 
 const EDIT = 'edit';
 const DELETE = 'delete';
+const JOIN = 'join';
+const LEAVE = 'leave';
 const VIEWERS = 'viewers';
 
-const classMap = {
-  edit: <FontAwesomeIcon icon={faPencilAlt} className={css.action} />,
-  delete: <FontAwesomeIcon icon={faTrash} className={css.action} />,
-  viewers: <FontAwesomeIcon icon={faLock} className={css.action} />,
+const classMap = (dark: ?boolean) => {
+  const className = dark ? css.actionDark : css.action;
+  return {
+    edit: <FontAwesomeIcon icon={faPencilAlt} className={className} />,
+    delete: <FontAwesomeIcon icon={faTrash} className={className} />,
+    join: <FontAwesomeIcon icon={faDoorOpen} className={className} />,
+    leave: <FontAwesomeIcon icon={faDoorClosed} className={className} />,
+    viewers: <FontAwesomeIcon icon={faLock} className={className} />,
+  };
 };
 
-const getHref = (actions: Actions, link: string, item: string) => {
-  if (item === EDIT) {
-    return actions[item];
-  }
-  return link;
-};
-
-const displayTooltip = (actions: Actions, item: string) => (
-  <div key={item}>
-    <Tooltip element={classMap[item]} text={actions[item]} right />
+const displayViewers = (
+  actions: Actions,
+  item: string,
+  hasStory: ?boolean,
+  dark: ?boolean,
+) => (
+  <div
+    key={item}
+    className="storyActionsViewers"
+    aria-label={actions[item]}
+    role="button"
+    tabIndex={0}
+  >
+    <Tooltip
+      className="storyActionsViewer"
+      element={classMap(dark)[item]}
+      text={actions[item]}
+      right={!!hasStory}
+    />
   </div>
 );
 
-const displayLink = (actions: Actions, link: string, item: string) => (
-  <div key={item}>
+const displayLink = (
+  actions: Actions,
+  item: string,
+  hasStory: ?boolean,
+  dark: ?boolean,
+) => {
+  const titleItem = item.charAt(0).toUpperCase() + item.slice(1);
+  const element = (
     <a
-      href={getHref(actions, link, item)}
-      data-method={item === DELETE ? DELETE : null}
-      data-confirm={item === DELETE ? actions[item] : null}
+      href={actions[item].link}
+      data-method={actions[item].dataMethod}
+      data-confirm={actions[item].dataConfirm}
     >
-      {classMap[item]}
+      {classMap(dark)[item]}
     </a>
-  </div>
-);
+  );
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      key={item}
+      aria-label={actions[item]}
+      className={`storyActions${titleItem}`}
+    >
+      <Tooltip element={element} text={actions[item].name} right={!!hasStory} />
+    </div>
+  );
+};
 
-const displayItem = (actions: Actions, link: string, item: string) => {
-  if (item === EDIT || item === DELETE) {
-    return displayLink(actions, link, item);
-  }
-  return displayTooltip(actions, item);
+const displayItem = (
+  actions: Actions,
+  item: string,
+  hasStory: ?boolean,
+  dark: ?boolean,
+) => {
+  if (item === VIEWERS) return displayViewers(actions, item, hasStory, dark);
+  return displayLink(actions, item, hasStory, dark);
 };
 
 export const StoryActions = (props: Props) => {
-  const { actions, link } = props;
+  const { actions, hasStory, dark } = props;
   return (
     <div className={css.actions}>
-      {[EDIT, DELETE, VIEWERS].map(
-        (item: string) => (actions[item] ? displayItem(actions, link, item) : null),
+      {[JOIN, EDIT, LEAVE, DELETE, VIEWERS].map(
+        (item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null),
       )}
     </div>
   );

@@ -1,0 +1,25 @@
+<div class="gridTwoItemBoxLight">
+  <%= react_component('Story', html_options: htmlOptions, props: {
+    name: local_assigns[:item].name,
+    link: url_for(local_assigns[:item]),
+    date: TimeAgo.created_or_edited(local_assigns[:item]),
+    actions: {
+      edit: local_assigns[:item].user_id == current_user.id ? {
+        link: local_assigns[:item].class.name == 'Moment' ? edit_moment_path(local_assigns[:item]) : edit_strategy_path(local_assigns[:item]),
+        name: t('common.actions.edit')
+      } : nil,
+      delete: local_assigns[:item].user_id == current_user.id ? {
+        name: t('common.actions.delete'),
+        link: url_for(local_assigns[:item]),
+        dataMethod: 'delete',
+        dataConfirm:  t('common.actions.confirm')
+      } : nil,
+      viewers: local_assigns[:item].user_id == current_user.id ? get_viewer_list(local_assigns[:item].viewers, nil) : nil,
+    },
+    draft: !local_assigns[:item].published? ?  t('draft') : nil,
+    categories: local_assigns[:item].category.map{ |item| Category.find(item).name },
+    moods: local_assigns[:item].class.name == 'Moment' ? local_assigns[:item].mood.map{ |item| Mood.find(item).name } : nil,
+    storyBy: local_assigns[:item].user_id != current_user.id ? link_to(User.where(id: local_assigns[:item].user_id).first.name, profile_index_path(uid: get_uid(local_assigns[:item].user_id))) : nil,
+    storyType: local_assigns[:item].class.name == 'Moment' ? t('moments.singular') : t('strategies.singular')
+  }) %>
+</div>

@@ -253,13 +253,12 @@ sv:
   singular: 'Ögonblick'
   plural: 'Ögonblicken'
   edit_moment: 'Redigera Ögonblick'
-  tagged: 'Taggade Ögonblick'
+  tagged_moments: 'Taggade Ögonblick'
   new: 'Nya Ögonblick'
   secret_share:
     singular: 'Hemlig Andel'
     expires_at: 'Förfaller vid'
-    create: 'Skapa'
-    cancel: 'Annullera'
+    cancel_secret_share: 'Annullera Hemlig Andel'
   form:
    why: 'Vad hände och hur känner du dig?'
    fix: 'Vilka tankar skulle du vilja ha?'

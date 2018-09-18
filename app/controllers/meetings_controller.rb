@@ -20,11 +20,6 @@ class MeetingsController < ApplicationController
       leader: true
     ).exists?
 
-    if @is_leader
-      @page_edit = edit_meeting_path(@meeting)
-      @page_tooltip = t('meetings.edit_meeting')
-    end
-
     @no_hide_page = false
     if hide_page(@meeting)
       redirect_to_path(group_path(@meeting.group_id))

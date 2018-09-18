@@ -67,7 +67,7 @@
   <div class="gridMany">
     <% @blurbs.each do |blurb| %>
       <div class="gridManyItem">
-        <%= ProfilePicture.fetch(blurb['image'], className: 'home_picture') %>
+        <%= ProfilePicture.fetch(blurb['image']) %>
       </div>
     <% end %>
   </div>

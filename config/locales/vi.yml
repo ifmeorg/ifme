@@ -252,13 +252,12 @@ vi:
   singular: 'Khoản khắc'
   plural: 'Khoản khắc'
   edit_moment: 'Hiệu chỉnh khoản khắc'
-  tagged: 'Những khoản khắc đã được ghi'
+  tagged_moments: 'Những khoản khắc đã được ghi'
   new: 'Khoản khắc mới'
   secret_share:
     singular: 'Chia sẻ bí mật'
     expires_at: 'Hết hạn lúc'
-    create: 'Tạo mới'
-    cancel: 'Hủy bỏ'
+    cancel_secret_share: 'Hủy bỏ chia sẻ bí mật'
   form:
    why: 'Chuyện gì đã xảy ra và bạn cảm thấy thế nào?'
    fix: 'Suy nghĩ nào mà bạn muốn có?'

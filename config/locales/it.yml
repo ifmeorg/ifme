@@ -252,13 +252,12 @@ it:
   singular: 'Momento'
   plural: 'Momenti'
   edit_moment: 'Modifica Momento'
-  tagged: 'Momenti taggati'
+  tagged_moments: 'Momenti taggati'
   new: 'Nuovo Momento'
   secret_share:
     singular: 'Condivisione Segreta'
     expires_at: 'Scadenza'
-    create: 'Crea'
-    cancel: 'Annulla'
+    cancel_secret_share: 'Annulla Condivisione Segreta'
   form:
    why: 'Cos’è successo e come ti senti?'
    fix: 'Che pensieri ti piacerebbe avere?'
