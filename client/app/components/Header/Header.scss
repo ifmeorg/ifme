@@ -91,6 +91,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: $white;
     &Info {
       @include setFontSize($size-18);
       color: $white;
