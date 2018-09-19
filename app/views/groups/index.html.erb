@@ -44,9 +44,9 @@
     <%= t('pages.faq.group_question') %>
   </div>
 
-    <%= raw t('pages.faq.group_answer',{
+  <%= raw t('pages.faq.group_answer',{
     			groups: link_to(t('groups.singular'), groups_path)
-    			}) %>
+    		}) %>
 <% end %>
 
 <% if @available_groups.any? %>
