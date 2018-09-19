@@ -84,3 +84,8 @@
     border-radius: $size-4;
   }
 }
+
+.categories,
+.moods {
+  word-break: break-all;
+}

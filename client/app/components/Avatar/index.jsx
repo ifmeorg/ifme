@@ -40,7 +40,7 @@ export const Avatar = (props: Props) => {
         {src ? (
           displayImage(alt, src)
         ) : (
-          <div className={css.image} aria-label={alt} ariaRole="image" />
+          <div className={css.image} aria-hidden />
         )}
       </LazyLoad>
       {name && displayName(name)}

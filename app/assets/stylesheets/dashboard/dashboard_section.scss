@@ -19,21 +19,23 @@
       align-items: center;
       font-weight: bold;
       color: $mulberry;
-      word-break: break-word;
-      > div:last-of-type {
+      word-break: break-all;
+      a {
+        color: $mulberry;
+      }
+      &Right {
         margin-left: auto;
+        padding-left: $size-20;
       }
       @media screen and (max-width: $small) {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        > div:last-of-type {
+        &Right {
           margin: $size-10 $size-0 $size-0 $size-0;
+          padding-left: $size-0;
           width: 100%;
         }
-      }
-      a {
-        color: $mulberry;
       }
     }
     &Author {
@@ -41,6 +43,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      white-space: nowrap;
       > div:first-of-type {
         display: flex;
         margin-right: $size-10;

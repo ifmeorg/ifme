@@ -50,6 +50,7 @@ vi:
    date: 'Chung kỳ:'
    daily_reminder: 'Email nhắc nhở hàng ngày'
    actions:
+    plural: Hành động
     submit: 'Đệ trình'
     submit_publish: 'Xuất bản'
     submit_draft: 'Bản nháp'

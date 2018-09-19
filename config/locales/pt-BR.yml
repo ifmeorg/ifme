@@ -50,6 +50,7 @@ pt-BR:
    date: 'Data:'
    daily_reminder: 'Email de lembrete diário'
    actions:
+    plural: Ações
     submit: 'Enviar'
     submit_publish: 'Publicar'
     submit_draft: 'Rascunho'

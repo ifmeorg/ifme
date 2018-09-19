@@ -51,6 +51,7 @@ sv:
    date: 'Datum:'
    daily_reminder: 'Daglig påminnelse via e-post'
    actions:
+    plural: Handlingar
     submit: 'Skicka'
     submit_publish: 'Publicera'
     submit_draft: 'Utkast'
