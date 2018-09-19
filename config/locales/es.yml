@@ -378,7 +378,7 @@ es:
     data_access_question: "¿Quién tiene acceso a mi información?"
     data_access_answer: "La información no se brinda a ni es accesible a ningún tercero. Eliminar tu cuenta borrará toda tu información. <br><br>La información del usuario es analizada dentro de la aplicación para proveer recomendaciones personalizadas."
     moment_question: "¿Qué es un Momento?"
-    moment_answer: "Un  <strong>%{moments}</strong> es un evento o situación que afecta nuestra salud mental. Puede ser algo positivo o negativo. Es como una página en un diario o un nuevo estado en redes sociales.<br><br> Se puede etiquetar con Estrategias, Categorías, y Estados de Ánimo. Puedes elegir quiénes de tus aliados pueden ver y comentar. Puedes hacer que sólo sea visible para ti."
+    moment_answer: "Un <strong>%{moments}</strong> es un evento o situación que afecta nuestra salud mental. Puede ser algo positivo o negativo. Es como una página en un diario o un nuevo estado en redes sociales.<br><br>Se puede etiquetar con Estrategias, Categorías, y Estados de Ánimo. Puedes elegir quiénes de tus aliados pueden ver y comentar. Puedes hacer que sólo sea visible para ti."
     strategy_question: "¿Qué es una Estrategia?"
     strategy_answer: "Una <strong>%{strategies}</strong> es una actividad, serie de pensamientos, o forma de cuidado personal que nos ayuda a enfrentar el Momento o a concentrarnos en la recuperación. <br><br> Se puede etiquetar con Categorías. Podemos elegir qué aliados pueden ver y comentar. Podemos hacer que sólo sea visible para nosotros mismos. Las Estrategias compartidas serán visibles para todos los aliados especificados, ¡por lo cual puedes etiquetar tus Momentos con sus Estrategias!"
     category_question: "¿Qué es una Categoría?"
