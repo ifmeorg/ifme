@@ -9,3 +9,13 @@
     width: 100%;
   }
 }
+
+.ally {
+  text-align: center;
+  > a:first-of-type {
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    display: block;
+    color: $mulberry;
+    font-weight: bold;
+  }
+}

@@ -50,6 +50,7 @@ it:
    date: 'Data:'
    daily_reminder: 'EMail giornaliera'
    actions:
+    plural: Azioni
     submit: 'Invia'
     submit_publish: 'Pubblica'
     submit_draft: 'Bozza'

@@ -50,6 +50,7 @@ nb:
    date: 'Dato:'
    daily_reminder: 'Daglig påminnelses epost'
    actions:
+    plural: Handlinger
     submit: 'Bekreft'
     submit_publish: 'Publiser'
     submit_draft: 'Utkast'

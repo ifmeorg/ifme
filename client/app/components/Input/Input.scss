@@ -119,6 +119,7 @@
   letter-spacing: 0.095em;
   text-transform: uppercase;
   font-weight: $font-weight-400;
+  flex-wrap: nowrap;
   cursor: pointer;
   + div {
     @include setMargin($size-0, $size-0, $size-10, $size-0);

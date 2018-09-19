@@ -15,18 +15,18 @@
   <% elsif reset_password_path? %>
     <%= t('layouts.title.reset_password') %>
   <% elsif yield(:page_new).present? && @page_new %>
-    <div>
+    <div class="pageTitleLeft">
       <%= yield(:title) %>
     </div>
-    <div>
+    <div class="pageTitleRight">
       <%= link_to @page_new, yield(:page_new), class: 'buttonM' %>
     </div>
   <% elsif @page_author.present? %>
-    <div>
+    <div class="pageTitleLeft">
       <%= yield(:title) %>
     </div>
-    <div class="title no_margin_bottom">
-      <%= @page_author %>
+    <div class="pageTitleRight">
+      <%= render partial: '/shared/page_author', locals: { author: @page_author } %>
     </div>
   <% else %>
     <%= yield(:title) %>

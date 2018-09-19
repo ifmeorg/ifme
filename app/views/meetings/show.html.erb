@@ -1,18 +1,21 @@
 <% title @meeting.name %>
 <%= render partial: '/meetings/story_body', locals: { meeting: @meeting } %>
 <% if user_is_leader_of?(@meeting) %>
-  <div class="gridItemBoxDark small_margin_top">
-    <%= react_component('StoryActions', props: {
-      dark: true,
-      actions: {
-        delete: @meeting.leaders.include?(current_user) && {
-          name: t('common.actions.delete'),
-          link: url_for(@meeting),
-          dataConfirm: t('common.actions.confirm'),
-          dataMethod: 'delete'
+  <div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
+    <div class="gridRowSpaceBetween">
+      <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          delete: @meeting.leaders.include?(current_user) && {
+            name: t('common.actions.delete'),
+            link: url_for(@meeting),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          }
         }
-      }
-    }) %>
+      }) %>
+    </div>
   </div>
 <% end %>
 <div class="small_margin_top">

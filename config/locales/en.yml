@@ -50,6 +50,7 @@ en:
    date: 'Date:'
    daily_reminder: 'Daily reminder email'
    actions:
+    plural: 'Actions'
     submit: 'Submit'
     submit_publish: 'Publish'
     submit_draft: 'Draft'

@@ -169,17 +169,12 @@ class ApplicationController < ActionController::Base
   # rubocop:disable MethodLength
   def generate_comment(data, data_type)
     profile = User.find(data.comment_by)
-    profile_picture = ProfilePicture.fetch(profile.avatar.url)
-
     comment_info = link_to(profile.name, profile_index_path(uid: profile.uid))
-
     if current_user != profile && !current_user.mutual_allies?(profile)
       comment_info += " #{t('shared.comments.not_allies')}"
     end
-
     comment_info += " - #{TimeAgo.formatted_ago(data.created_at)}"
     comment_text = sanitize(data.comment)
-
     if data_type == 'moment'
       visibility = CommentVisibility.build(data,
                                            Moment.find(data.commentable_id),
@@ -189,7 +184,6 @@ class ApplicationController < ActionController::Base
                                            Strategy.find(data.commentable_id),
                                            current_user)
     end
-
     if comment_deletable?(data, data_type)
       delete_comment = '<div class="delete_comment">'
       delete_comment += link_to sanitize('<i class="fa fa-times"></i>'),
@@ -198,10 +192,8 @@ class ApplicationController < ActionController::Base
                                 class: 'delete_comment_button'
       delete_comment += '</div>'
     end
-
     {
       commentid: data.id,
-      profile_picture: profile_picture,
       comment_info: comment_info,
       comment_text: comment_text,
       visibility: visibility,
@@ -345,11 +337,11 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
-    if current_user.id != subject.user_id
-      ally = User.find(subject.user_id)
-      @page_author = link_to(ally.name,
-                             profile_index_path(uid: get_uid(ally.id)))
-    end
+    @page_author = if current_user.id != subject.user_id
+                     User.find(subject.user_id)
+                   else
+                     User.find(current_user.id)
+                   end
     @no_hide_page = true
     # rubocop:disable GuardClause
     if subject.comment

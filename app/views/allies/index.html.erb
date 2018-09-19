@@ -1,19 +1,14 @@
 <% title t('allies.index.title') %>
-<div id="allies_search">
-  <%= render partial: '/search/form' %>
-  <div class="small_margin_top">
-  <%= link_to t('allies.index.invite'), new_user_invitation_path %>
-  </div>
-</div>
+<%= render partial: '/search/form' %>
+<%= link_to t('allies.index.invite'), new_user_invitation_path, class: 'small_margin_top buttonDarkM fullWidth center' %>
 
 <% if @outgoing_ally_requests.any? %>
   <strong><%= t('allies.index.outgoing') %></strong>
   <div class="spacer"></div>
   <div class="gridThree">
   <% @outgoing_ally_requests.each do |ally| %>
-    <div class="gridThreeItemBoxLight center">
-      <%= ProfilePicture.fetch(ally.avatar.url) %>
-      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+    <div class="gridThreeItemBoxLight ally">
+      <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: get_uid(ally.id)) %>
       <div class="subtle"><%= ally.location %></div>
       <%= link_to t('allies.index.cancel'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
     </div>
@@ -29,9 +24,8 @@
   <div class="spacer"></div>
   <div class="gridThree">
   <% @incoming_ally_requests.each do |ally| %>
-    <div class="gridThreeItemBoxLight center">
-      <%= ProfilePicture.fetch(ally.avatar.url) %>
-      <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+    <div class="gridThreeItemBoxLight ally">
+      <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: get_uid(ally.id)) %>
       <div class="subtle"><%= ally.location %></div>
       <%= link_to t('allies.accept'), add_allies_path(ally_id: ally.id), method: :post %> | <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
     </div>
@@ -48,9 +42,8 @@
 <% if @accepted_allies.present? %>
   <div class="gridThree">
     <% @accepted_allies.each do |ally| %>
-      <div class="gridThreeItemBoxLight center">
-        <%= ProfilePicture.fetch(ally.avatar.url) %>
-        <h1 class="ally_name"><%= link_to ally.name, profile_index_path(uid: get_uid(ally.id)) %></h1>
+      <div class="gridThreeItemBoxLight ally">
+        <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: get_uid(ally.id)) %>
         <div class="subtle"><%= ally.location %></div>
         <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
       </div>

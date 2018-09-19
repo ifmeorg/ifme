@@ -55,7 +55,7 @@ describe ApplicationHelper do
     end
 
     context 'new user session with devise' do
-      let(:current_controller) { 'devise/sessions' }
+      let(:current_controller) { 'sessions' }
       let(:action_name)        { 'new' }
       let(:path)               { new_user_session_path }
 
@@ -63,7 +63,7 @@ describe ApplicationHelper do
     end
 
     context 'new user registration with devise' do
-      let(:current_controller) { 'devise/registrations' }
+      let(:current_controller) { 'registrations' }
       let(:action_name)        { 'create' }
       let(:path)               { new_user_registration_path }
 

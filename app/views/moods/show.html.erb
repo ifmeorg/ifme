@@ -9,21 +9,24 @@
     <%= t('warnings.yes_description') %>
   </div>
 <% end %>
-<div class="gridItemBoxDark small_margin_top">
-	<%= react_component('StoryActions', props: {
-		dark: true,
-		actions: {
-			delete: {
-				name: t('common.actions.delete'),
-				link: url_for(@mood),
-				dataConfirm: t('common.actions.confirm'),
-				dataMethod: 'delete'
-      },
-      edit: {
-				name: t('common.actions.edit'),
-				link: edit_mood_path(@mood)
+<div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
+	<div class="gridRowSpaceBetween">
+		<div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+		<%= react_component('StoryActions', props: {
+			dark: true,
+			actions: {
+				delete: {
+					name: t('common.actions.delete'),
+					link: url_for(@mood),
+					dataConfirm: t('common.actions.confirm'),
+					dataMethod: 'delete'
+				},
+				edit: {
+					name: t('common.actions.edit'),
+					link: edit_mood_path(@mood)
+				}
 			}
-		}
-	}) %>
+		}) %>
+	</div>
 </div>
 <%= render partial: '/tag_usage/index', locals: { data: @mood.id, data_type: 'mood', user_id: @mood.user_id } %>

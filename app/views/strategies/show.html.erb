@@ -24,22 +24,25 @@
 <% if @strategy.user_id == current_user.id %>
   <div class="gridItemBoxDark small_margin_top">
     <div class="gridRowSpaceBetween">
-      <%= react_component('StoryActions', props: {
-        dark: true,
-        actions: {
-          edit: {
-            link: edit_strategy_path(@strategy),
-            name: t('common.actions.edit')
-          },
-          delete: {
-            name: t('common.actions.delete'),
-            link: url_for(@strategy),
-            dataMethod: 'delete',
-            dataConfirm:  t('common.actions.confirm')
-          },
-          viewers: get_viewer_list(@strategy.viewers, nil)
-        }
-      }) %>
+      <div class="gridRowSpaceBetween">
+        <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+        <%= react_component('StoryActions', props: {
+          dark: true,
+          actions: {
+            edit: {
+              link: edit_strategy_path(@strategy),
+              name: t('common.actions.edit')
+            },
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(@strategy),
+              dataMethod: 'delete',
+              dataConfirm:  t('common.actions.confirm')
+            },
+            viewers: get_viewer_list(@strategy.viewers, nil)
+          }
+        }) %>
+      </div>
       <%= print_reminders(@strategy) %>
     </div>
   </div>

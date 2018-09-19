@@ -50,6 +50,7 @@ es:
    date: "Fecha"
    daily_reminder: "Correo electrónico para el recordatorio diario"
    actions:
+    plural: Comportamiento
     submit: "Enviar"
     submit_publish: 'Publicar'
     submit_draft: 'Borrador'

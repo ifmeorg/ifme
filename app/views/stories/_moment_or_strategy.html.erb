@@ -1,5 +1,6 @@
 <div class="gridTwoItemBoxLight">
   <%= react_component('Story', html_options: html_options, props: {
+    prerender: true,
     name: local_assigns[:item].name,
     link: url_for(local_assigns[:item]),
     date: TimeAgo.created_or_edited(local_assigns[:item]),

@@ -13,8 +13,6 @@
   border: $size-1 solid $mulberry;
   mix-blend-mode: normal;
   color: $mulberry;
-  word-wrap: break-word;
-  display: inline;
 
   &:last-child{
     @include setMargin($size-0, $size-0, $size-0, $size-0);
