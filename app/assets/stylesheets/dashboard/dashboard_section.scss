@@ -44,7 +44,7 @@
       flex-direction: row;
       align-items: center;
       white-space: nowrap;
-      > div:first-of-type {
+      .avatar {
         display: flex;
         margin-right: $size-10;
       }

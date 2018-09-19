@@ -17,6 +17,7 @@ export type State = {
   alreadyMounted: boolean,
   open: boolean,
   modalKey?: string,
+  signedInKey?: number,
 };
 
 export class Notifications extends React.Component<Props, State> {
@@ -36,13 +37,14 @@ export class Notifications extends React.Component<Props, State> {
     window.document.title = count === 0 ? title : `(${count}) ${title}`;
   };
 
-  getPusherKey = (signedIn: number) => {
+  getPusherKey = (signedInKey: number) => {
+    this.setState({ signedInKey });
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
     ).filter(item => item.getAttribute('name') === 'pusher-key')[0];
     const pusherKey = metaPusherKey.getAttribute('content');
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
-    const channel = pusher.subscribe(`private-${signedIn}`);
+    const channel = pusher.subscribe(`private-${signedInKey}`);
     channel.bind('new_notification', (response: any) => {
       if (response && response.data) {
         this.fetchNotifications();
@@ -59,12 +61,14 @@ export class Notifications extends React.Component<Props, State> {
   };
 
   fetchNotifications = () => {
-    const { alreadyMounted } = this.state;
+    const { alreadyMounted, signedInKey } = this.state;
     axios
       .get('/notifications/signed_in')
       .then((response: any) => {
         if (response && response.data && response.data.signed_in !== -1) {
-          this.getPusherKey(response.data.signed_in);
+          if (response.data.signed_in !== signedInKey) {
+            this.getPusherKey(response.data.signed_in);
+          }
           return axios.get('/notifications/fetch_notifications');
         }
         return -1;
