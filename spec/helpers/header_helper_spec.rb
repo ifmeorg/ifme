@@ -39,6 +39,7 @@ describe HeaderHelper do
         let(:active) { false }
         it 'returns correct props' do
           expect(subject).to eq({
+            prerender: true,
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -56,6 +57,7 @@ describe HeaderHelper do
         let(:active) { true }
         it 'returns correct props' do
           expect(subject).to eq({
+            prerender: true,
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -79,6 +81,7 @@ describe HeaderHelper do
         let(:active) { false }
         it 'returns correct props' do
           expect(subject).to eq({
+            prerender: true,
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -97,6 +100,7 @@ describe HeaderHelper do
         let(:active) { true }
         it 'returns correct props' do
           expect(subject).to eq({
+            prerender: true,
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },

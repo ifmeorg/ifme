@@ -11,6 +11,7 @@
     <% @groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {
+          prerender: true,
           name: group.name,
           link: url_for(group),
           actions: {
@@ -56,6 +57,7 @@
     <% @available_groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {
+          prerender: true,
           name: group.name,
           link: url_for(group),
           actions: {

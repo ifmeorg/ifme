@@ -32,6 +32,7 @@
     <% @meetings.each do |meeting| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {
+          prerender: true,
           name: meeting.name,
           link: url_for(meeting),
           actions: {

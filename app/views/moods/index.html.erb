@@ -24,6 +24,7 @@
     <% (1..4).each do |n| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {
+          prerender: true,
           name: t("moods.index.premade#{n}_name"),
           link: moods_path
         }) %>
