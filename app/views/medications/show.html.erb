@@ -5,21 +5,24 @@
 <% end %>
 <div class="gridItemBoxDark small_margin_top">
   <div class="gridRowSpaceBetween">
-    <%= react_component('StoryActions', props: {
-      dark: true,
-      actions: {
-        edit: {
-          name: t('common.actions.edit'),
-          link: edit_medication_path(@medication)
-        },
-        delete: {
-          name: t('common.actions.delete'),
-          link: url_for(@medication),
-          dataConfirm: t('common.actions.confirm'),
-          dataMethod: 'delete'
+    <div class="gridRowSpaceBetween">
+      <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          edit: {
+            name: t('common.actions.edit'),
+            link: edit_medication_path(@medication)
+          },
+          delete: {
+            name: t('common.actions.delete'),
+            link: url_for(@medication),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          }
         }
-      }
-    }) %>
+      }) %>
+    </div>
     <%= print_reminders(@medication) %>
   </div>
 </div>

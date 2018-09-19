@@ -2,28 +2,31 @@
 <% page_new new_meeting_path(group_id: @group.id) %>
 <%= render partial: '/groups/story_body', locals: { group: @group } %>
 <% if user_is_leader_of?(@group) %>
-  <div class="gridItemBoxDark small_margin_top">
-    <%= react_component('StoryActions', props: {
-      dark: true,
-      actions: {
-        leave: user_can_leave?(@group) ? {
-          name: t('common.actions.leave'),
-          link: group_membership_path(group_id: @group.id, id: 'leave'),
-          dataConfirm: t('common.actions.confirm'),
-          dataMethod: 'delete'
-        } : nil,
-        edit: user_can_edit?(@group) ? {
-          name: t('common.actions.edit'),
-          link: edit_group_path(@group)
-        } : nil,
-        delete: user_can_delete?(@group) ? {
-          name: t('common.actions.delete'),
-          link: url_for(@group),
-          dataConfirm: t('common.actions.confirm'),
-          dataMethod: 'delete'
-        } : nil
-      }
-    }) %>
+  <div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
+    <div class="gridRowSpaceBetween">
+      <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          leave: user_can_leave?(@group) ? {
+            name: t('common.actions.leave'),
+            link: group_membership_path(group_id: @group.id, id: 'leave'),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          } : nil,
+          edit: user_can_edit?(@group) ? {
+            name: t('common.actions.edit'),
+            link: edit_group_path(@group)
+          } : nil,
+          delete: user_can_delete?(@group) ? {
+            name: t('common.actions.delete'),
+            link: url_for(@group),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          } : nil
+        }
+      }) %>
+    </div>
   </div>
 <% end %>
 

@@ -3,14 +3,6 @@ require_relative './shared_examples'
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::TextHelper
 
-AVATAR_COMPONENT_NAME = 'Avatar';
-
-RSpec::Matchers.define :be_avatar_component do
-  match do
-    have_tag('script', with: { 'data-component-name': AVATAR_COMPONENT_NAME })
-  end
-end
-
 describe ApplicationController do
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
@@ -198,7 +190,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'moment')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
@@ -211,7 +202,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comment(new_comment, 'moment')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: "Visible only between you and #{user2.name}",
@@ -230,7 +220,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'moment')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,
@@ -243,7 +232,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comment(new_comment, 'moment')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: "Visible only between you and #{user1.name}",
@@ -266,7 +254,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'strategy')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
@@ -279,7 +266,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comment(new_comment, 'strategy')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: "Visible only between you and #{user2.name}",
@@ -298,7 +284,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'strategy')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,
@@ -311,7 +296,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comment(new_comment, 'strategy')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: "Visible only between you and #{user1.name}",
@@ -336,7 +320,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'meeting')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user1),
             comment_text: comment,
             visibility: nil,
@@ -352,7 +335,6 @@ describe ApplicationController do
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comment(new_comment, 'meeting')).to include(
             commentid: new_comment.id,
-            :profile_picture => be_avatar_component,
             comment_info: comment_info(user2),
             comment_text: comment,
             visibility: nil,

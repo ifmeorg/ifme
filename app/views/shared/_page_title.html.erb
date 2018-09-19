@@ -26,7 +26,7 @@
       <%= yield(:title) %>
     </div>
     <div class="title no_margin_bottom">
-      <%= @page_author %>
+      <%= render partial: '/shared/page_author', locals: { author: @page_author } %>
     </div>
   <% else %>
     <%= yield(:title) %>

@@ -55,22 +55,25 @@
 <% if @moment.owned_by?(current_user) %>
   <div class="gridItemBoxDark small_margin_top">
     <div class="gridRowSpaceBetween">
-      <%= react_component('StoryActions', props: {
-        dark: true,
-        actions: {
-          edit: {
-            link: edit_moment_path(@moment),
-            name: t('common.actions.edit')
-          },
-          delete: {
-            name: t('common.actions.delete'),
-            link: url_for(@moment),
-            dataMethod: 'delete',
-            dataConfirm:  t('common.actions.confirm')
-          },
-          viewers: get_viewer_list(@moment.viewers, nil)
-        }
-      }) %>
+      <div class="gridRowSpaceBetween">
+        <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+        <%= react_component('StoryActions', props: {
+          dark: true,
+          actions: {
+            edit: {
+              link: edit_moment_path(@moment),
+              name: t('common.actions.edit')
+            },
+            delete: {
+              name: t('common.actions.delete'),
+              link: url_for(@moment),
+              dataMethod: 'delete',
+              dataConfirm:  t('common.actions.confirm')
+            },
+            viewers: get_viewer_list(@moment.viewers, nil)
+          }
+        }) %>
+      </div>
       <% if @moment.shared? %>
         <%= button_to t('moments.secret_share.cancel_secret_share'), secret_share_path(id: @moment.id), { method: :delete, class: 'buttonGhostXS' } %>
       <% elsif @moment.published? %>

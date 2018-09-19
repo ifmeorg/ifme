@@ -37,7 +37,11 @@ export const Avatar = (props: Props) => {
       }`}
     >
       <LazyLoad height={height} offset={height} once>
-        {src ? displayImage(alt, src) : <div className={css.image} />}
+        {src ? (
+          displayImage(alt, src)
+        ) : (
+          <div className={css.image} aria-label={alt} ariaRole="image" />
+        )}
       </LazyLoad>
       {name && displayName(name)}
     </div>
