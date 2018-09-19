@@ -107,6 +107,7 @@ nl:
     placeholder: 'Geef één of meerdere met komma gescheiden e-mailadressen op.'
 
  categories:
+  singular: 'Categorie'
   plural: 'Categorieën'
   edit_category: "Bewerk Categorie"
   new: "Nieuwe Categorie"
@@ -375,21 +376,21 @@ nl:
     data_access_question: 'Wie heeft er toegang tot mijn data?'
     data_access_answer: 'Data wordt niet gegeven aan en wordt niet toegankelijk gemaakt aan derden.<br><br>Gebruikers data wordt geanalyseerd binnen de applicatie voor persoonlijke aanbevelingen.'
     moment_question: 'Wat is een Moment?'
-    moment_answer: 'Een <strong>Moment</strong> is een gebeurtenis of situatie die je gesteldheid beïnvloed. Het kan zowel positief als negatief zijn. Beschouw het als een dagboek of een statusupdate.<br><br>Je kunt je herinneringen taggen met Strategieën, Categorieën en Stemmingen. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken.'
+    moment_answer: 'Een <strong>%{moments}</strong> is een gebeurtenis of situatie die je gesteldheid beïnvloed. Het kan zowel positief als negatief zijn. Beschouw het als een dagboek of een statusupdate.<br><br>Je kunt je herinneringen taggen met Strategieën, Categorieën en Stemmingen. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken.'
     strategy_question: 'Wat is een Strategie?'
-    strategy_answer: 'Een <strong>Strategie</strong> is een activiteit, gedachtengang of vorm van self-care die je ergens mee helpt omgaan of om je focus mee te verleggen.<br><br>Je kunt ze taggen met Categorieën. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken. Gedeelde Strategieën zullen zichtbaar zijn voor alle opgegeven bondgenoten, wat betekend dat je jouw Momenten kan taggen met hun Strategieën!'
+    strategy_answer: 'Een <strong>%{strategies}</strong> is een activiteit, gedachtengang of vorm van self-care die je ergens mee helpt omgaan of om je focus mee te verleggen.<br><br>Je kunt ze taggen met Categorieën. Je kunt ook kiezen welke bondgenoten het kunnen bekijken en er commentaar op kunnen geven. Ook kun je ze enkel voor jou zichtbaar maken. Gedeelde Strategieën zullen zichtbaar zijn voor alle opgegeven bondgenoten, wat betekend dat je jouw Momenten kan taggen met hun Strategieën!'
     category_question: 'Wat is een Categorie?'
-    category_answer: 'Een <strong>Categorie</strong> is een tag welke personen, plaatsen en dingen omschrijft die belangrijk zijn voor jou.'
+    category_answer: 'Een <strong>%{categories}</strong> is een tag welke personen, plaatsen en dingen omschrijft die belangrijk zijn voor jou.'
     mood_question: 'Wat is een Stemming?'
-    mood_answer: 'Een <strong>Stemming</strong> is een tag die je gesteldheid, gevoelens en emoties omschrijft.'
+    mood_answer: 'Een <strong>%{moods}</strong> is een tag die je gesteldheid, gevoelens en emoties omschrijft.'
     group_question: 'Wat is een Groep?'
-    group_answer: 'Een <strong>Groep</strong> biedt ondersteuning, mentorschap en discussies over geestelijke gezondheid. Je kunt zelf Groepen aanmaken en je bondgenoten hebben dan de mogelijkheid daar bij aan te sluiten. Je kunt enkel lid worden van Groepen die zijn gemaakt door jouw bondgenoten.<br><br>Als een Groep Leider, kun je <strong>Samenkomsten</strong> organiseren. Samenkomsten hebben een locatie en een tijd. De locatie kan een fysieke plaats zijn of een Google Hangout URL. Bij Samenkomsten kun je commentaar plaatsen. Indien je een Groep Leider bent, dan kun je de Groep niet verlaten tenzij er een andere leider is. Groepen kunnen enkel worden verwijdert als je de enige deelnemer bent.'
+    group_answer: 'Een <strong>%{groups}</strong> biedt ondersteuning, mentorschap en discussies over geestelijke gezondheid. Je kunt zelf Groepen aanmaken en je bondgenoten hebben dan de mogelijkheid daar bij aan te sluiten. Je kunt enkel lid worden van Groepen die zijn gemaakt door jouw bondgenoten.<br><br>Als een Groep Leider, kun je <strong>Samenkomsten</strong> organiseren. Samenkomsten hebben een locatie en een tijd. De locatie kan een fysieke plaats zijn of een Google Hangout URL. Bij Samenkomsten kun je commentaar plaatsen. Indien je een Groep Leider bent, dan kun je de Groep niet verlaten tenzij er een andere leider is. Groepen kunnen enkel worden verwijdert als je de enige deelnemer bent.'
     medications_question: 'Hoe gebruik ik de Medicatie functie?'
-    medications_answer: 'De <strong>Medicatie</strong> functie stelt je in staat om een log bij te houden van de voorgeschreven medicatie die je gebruikt. Je kunt hier tevens je symptomen bij kwijt.'
+    medications_answer: 'De <strong>%{medications}</strong> functie stelt je in staat om een log bij te houden van de voorgeschreven medicatie die je gebruikt. Je kunt hier tevens je symptomen bij kwijt.'
     invite_question: 'Hoe kan ik mijn naasten uitnodigen om de app te gebruiken?'
-    invite_answer: 'Ga naar de <strong>Bondgenoten</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per e-mail uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
+    invite_answer: 'Ga naar de <strong>%{allies}</strong> pagina en klik op de "Nodig je naasten uit" link. Je kunt ze dan per e-mail uitnodigen. Indien je naaste de uitnodiging accepteert, dan verschijnt deze tussen je Bondgenoten.'
     email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
-    email_notifications_answer: "Ga naar de <strong>Account</strong> pagina. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
+    email_notifications_answer: "Ga naar de <strong>%{accounts}</strong> pagina door te drukken op %{desktop_icon} (desktop) of %{mobile_icon} (mobiel) in de navigatie balk. Je kunt je e-mail, wachtwoord, profiel foto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijderd, wordt al je data verwijderd."
   home:
     stories: 'Verhalen'
     not_signed_in:

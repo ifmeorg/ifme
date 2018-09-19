@@ -107,6 +107,7 @@ vi:
     placeholder: 'Thêm một hay nhiều địa chỉ email và ngăn cách các địa chỉ email này bằng các dấu phẩy'
 
  categories:
+  singular: 'Thể loại'
   plural: 'Danh sách'
   edit_category: "Chỉnh sửa danh sách"
   new: "Danh sách mới"
@@ -376,21 +377,21 @@ vi:
     data_access_question: 'Ai truy nhập vào dữ liệu của chúng tôi?'
     data_access_answer: 'Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác. Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.<br><br>Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.'
     moment_question: 'Khoản khắc là gì?'
-    moment_answer: '<strong>Khoản khắc</strong> là sự kiện hay tình huống đã làm ảnh hưởng đến sức khỏe tâm thần của bạn. Nó có thể là tích cực hoặc tiêu cực. Nghĩ về nó như nhật ký tham gia hay một trạng thái được đăng tải.<br><br>Bạn có thể gắn nhãn cho những ghi chép đó bằng từ khóa với chiến lược, danh mục, và tâm trạng. Bạn cho thể chọn đồng minh có thể xem và bình luận. Bạn cũng có thể lưu giữ những ghi chép đó cho một mình bạn.'
+    moment_answer: '<strong>%{moments}</strong> là sự kiện hay tình huống đã làm ảnh hưởng đến sức khỏe tâm thần của bạn. Nó có thể là tích cực hoặc tiêu cực. Nghĩ về nó như nhật ký tham gia hay một trạng thái được đăng tải.<br><br>Bạn có thể gắn nhãn cho những ghi chép đó bằng từ khóa với chiến lược, danh mục, và tâm trạng. Bạn cho thể chọn đồng minh có thể xem và bình luận. Bạn cũng có thể lưu giữ những ghi chép đó cho một mình bạn.'
     strategy_question: 'Chiến lược là gì?'
-    strategy_answer: '<strong>Chiến lược</strong> là một hoạt động, dòng suy nghĩ, một hình thức tự chăm sóc giúp đỡ bạn đối mặt với vấn đề hoặc giúp đỡ bạn hồi phục.<br><br>Bạn có thể gắn nhãn những ghi chép đó trong danh mục. Bạn có thể chọn những đồng minh có thể xem và bình luận, hoặc bạn có thể lưu giữ những ghi chép đó cho riêng bạn. Chia sẻ những chiến lược đến những đồng minh đã được chọn lọc, có nghĩa là bạn có thể gắn nhãn những khoản khắc này với thẻ chiến lược!'
+    strategy_answer: '<strong>%{strategies}</strong> là một hoạt động, dòng suy nghĩ, một hình thức tự chăm sóc giúp đỡ bạn đối mặt với vấn đề hoặc giúp đỡ bạn hồi phục.<br><br>Bạn có thể gắn nhãn những ghi chép đó trong danh mục. Bạn có thể chọn những đồng minh có thể xem và bình luận, hoặc bạn có thể lưu giữ những ghi chép đó cho riêng bạn. Chia sẻ những chiến lược đến những đồng minh đã được chọn lọc, có nghĩa là bạn có thể gắn nhãn những khoản khắc này với thẻ chiến lược!'
     category_question: 'Danh mục là gì?'
-    category_answer: '<strong>Danh mục</strong> là môt nhãn tên xuất hiện đại diện cho người, nơi chốn hay sự vật quan trọng đối với bạn.'
+    category_answer: '<strong>%{categories}</strong> là môt nhãn tên xuất hiện đại diện cho người, nơi chốn hay sự vật quan trọng đối với bạn.'
     mood_question: 'Tâm trạng là gì?'
-    mood_answer: '<strong>Tâm trạng</strong> là những nhãn miêu trả tâm trạng, cảm giác và cảm xúc của bạn.'
+    mood_answer: '<strong>%{moods}</strong> là những nhãn miêu trả tâm trạng, cảm giác và cảm xúc của bạn.'
     group_question: 'Nhóm là gì?'
-    group_answer: '<strong>Nhóm</strong> là một nguồn hỗ trợ, hướng dẫn và thảo luận về sức khỏe tâm thần. Bạn có thể tạo nhóm và những đồng minh của bạn có những chọn lựa để tham gia vào nhóm. Bạn cũng có thể tham gia vào những nhóm do đồng minh của bạn tạo ra.<br><br>Như là một nhóm trưởng, bạn có thể tạo ra <strong>các cuộc họp nhóm</strong>. Cuộc hóp có thời gian và nơi chốn. nơi chốn diễn ra cuộc họp có thể bên ngoài thực hoặc họp trên mạng qua Google Hangout. Tất cả cuộc họp sẽ cho phép bình luận. Nếu bạn là nhóm trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm trưởng mới thay thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên nhóm duy nhất.'
+    group_answer: '<strong>%{groups}</strong> là một nguồn hỗ trợ, hướng dẫn và thảo luận về sức khỏe tâm thần. Bạn có thể tạo nhóm và những đồng minh của bạn có những chọn lựa để tham gia vào nhóm. Bạn cũng có thể tham gia vào những nhóm do đồng minh của bạn tạo ra.<br><br>Như là một nhóm trưởng, bạn có thể tạo ra <strong>các cuộc họp nhóm</strong>. Cuộc hóp có thời gian và nơi chốn. nơi chốn diễn ra cuộc họp có thể bên ngoài thực hoặc họp trên mạng qua Google Hangout. Tất cả cuộc họp sẽ cho phép bình luận. Nếu bạn là nhóm trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm trưởng mới thay thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên nhóm duy nhất.'
     medications_question: 'Làm thế nào để sử dụng chức năng thuốc?'
-    medications_answer: '<strong>Chức năng thuốc</strong> lá chức năng cho phép bạn liên kết với toa thuốc mà bạn đang uống, bạn cũng có thể ghi chép những triệu chứng của bạn.'
+    medications_answer: 'Chức năng <strong>%{medications}</strong> lá chức năng cho phép bạn liên kết với toa thuốc mà bạn đang uống, bạn cũng có thể ghi chép những triệu chứng của bạn.'
     invite_question: 'Làm thế nào để mời những người bạn yêu thích tham gia vào ứng dụng?'
-    invite_answer: 'Chuyển <strong>đến trang đồng minh</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
+    invite_answer: 'Chuyển <strong>%{allies}</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
     email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
-    email_notifications_answer: "Truy cập trang <strong>Tài khoản</strong>. Bạn có thể sửa đổi email, mật khẩu, hình ảnh tiểu sử và tiểu sử ở đây. Bạn cũng có thể xóa tài khoản của bạn. Khi bạn xóa tài khoản của mình, tất cả dữ liệu của bạn sẽ bị xóa."
+    email_notifications_answer: 'Truy cập trang <strong>%{accounts}</ strong> bằng cách nhấn %{desktop_icon} (máy tính để bàn) hoặc %{mobile_icon} (di động) trong thanh điều hướng. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
   home:
     stories: 'Câu chuyện'
     not_signed_in:
