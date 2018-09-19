@@ -16,25 +16,12 @@ module ApplicationHelper
   end
   # rubocop:enable RescueStandardError
 
-  # rubocop:disable MethodLength
   def active?(link_path, environment = {})
-    current_controller = params[:controller]
-    link_controller = Rails.application.routes
-                           .recognize_path(link_path, environment)[:controller]
-    # Current page.
     current_page?(link_path) ||
-      # Current controller.
-      (
-        current_controller != 'profile' &&
-        current_controller != 'pages' &&
-        current_controller == link_controller
-      ) ||
-      # New user session with devise.
+      current_controller?(link_path, environment) ||
       (link_path == new_user_session_path && sign_in_path?) ||
-      # New user registration with devise.
       (link_path == new_user_registration_path && join_path?)
   end
-  # rubocop:enable MethodLength
 
   def sign_in_path?
     correct_devise_page?(new_user_session_path,
@@ -138,6 +125,15 @@ module ApplicationHelper
   end
 
   private
+
+  def current_controller?(link_path, environment = {})
+    current_controller = params[:controller]
+    link_controller = Rails.application.routes
+                           .recognize_path(link_path, environment)[:controller]
+    current_controller != 'profile' &&
+      current_controller != 'pages' &&
+      current_controller == link_controller
+  end
 
   def correct_devise_page?(path, current_controller, current_action)
     current_page?(path) ||
