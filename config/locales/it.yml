@@ -390,7 +390,7 @@ it:
     invite_question: 'Come posso invitare i miei cari a utilizzare l’app?'
     invite_answer: 'Vai sulla pagina <strong>%{allies}</strong> e clicca sul link "Invita i tuoi Cari". A quel punto potrai invitarli via EMail. Quando accetteranno, saranno aggiunti alla lista dei tuoi Alleati.'
     email_notifications_question: 'Come posso gestire le notifiche che ricevo via EMail?'
-    email_notifications_answer: "Vai sulla pagina <strong>%{accounts}</strong> cliccando su %{desktop_icon} (desktop) o %{mobile_icon} (smartphone/tablet) nella barra di navigazione. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
+    email_notifications_answer: "Vai sulla pagina <strong>%{accounts}</strong>. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati."
   home:
     stories: 'Storie'
     not_signed_in:

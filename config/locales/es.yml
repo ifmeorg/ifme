@@ -391,7 +391,7 @@ es:
     invite_question: "¿Cómo puedo invitar a mis seres queridos para que se unan a la página?"
     invite_answer: "Visita la sección de <strong>%{allies}</strong> y haz click en “Invita a tus seres queridos”. Podrás invitarlos vía correo electrónico. Cuando uno de tus seres queridos acepte la invitación, serán agregados a tu lista de Aliados."
     email_notifications_question: "¿Cómo puedo modificar mis preferencias de notificaciones de correo electrónico?"
-    email_notifications_answer: "Ve a la página de <strong>%{accounts}</strong> dando click en %{desktop_icon}(escritorio) o %{mobile_icon}(móvil) en la barra de navegación. Aquí puedes modificar tu correo electrónico, contraseña, foto de perfil, y biografía. También puedes eliminar tu cuenta."
+    email_notifications_answer: "Ve a la página de <strong>%{accounts}</strong>. Aquí puedes modificar tu correo electrónico, contraseña, foto de perfil, y biografía. También puedes eliminar tu cuenta."
   home:
     stories: "Historias"
     not_signed_in:

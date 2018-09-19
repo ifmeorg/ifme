@@ -391,7 +391,7 @@ vi:
     invite_question: 'Làm thế nào để mời những người bạn yêu thích tham gia vào ứng dụng?'
     invite_answer: 'Chuyển <strong>%{allies}</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
     email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
-    email_notifications_answer: 'Truy cập trang <strong>%{accounts}</ strong> bằng cách nhấn %{desktop_icon} (máy tính để bàn) hoặc %{mobile_icon} (di động) trong thanh điều hướng. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
+    email_notifications_answer: 'Truy cập trang <strong>%{accounts}</ strong>. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
   home:
     stories: 'Câu chuyện'
     not_signed_in:

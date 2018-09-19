@@ -390,7 +390,7 @@ en:
     invite_question: 'How can I invite my loved ones to join the app?'
     invite_answer: 'Go to the <strong>%{allies}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
     email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>%{accounts}</strong> page by hitting %{desktop_icon} (desktop) or %{mobile_icon} (mobile) in the navigation bar. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+    email_notifications_answer: "Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
   home:
     stories: 'Stories'
     not_signed_in:
