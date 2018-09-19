@@ -49,3 +49,9 @@
   box-shadow: 0 0 $size-2 $dusty-rose inset !important;
   padding: $size-10;
 }
+
+.fullWidth {
+  display: block;
+  width: 100%;
+  margin: 0;
+}

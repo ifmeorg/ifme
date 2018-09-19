@@ -46,9 +46,7 @@
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="small_margin_top">
     <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
-    <div class="subtle">
-      <%= secret_share_url(@moment.secret_share_identifier) %>
-    </div>
+    <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
   </div>
 <% end %>
 
