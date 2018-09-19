@@ -8,7 +8,8 @@ class ProfilePicture
 
   class << self
     def fetch(path, options = {})
-      alt = options[:alt] ||  I18n.t('devise.registrations.edit.labels.profile_picture')
+      alt = options[:alt] ||
+            I18n.t('devise.registrations.edit.labels.profile_picture')
       react_component 'Avatar', props: {
         name: options[:name] || nil,
         src: normalize_url(path),

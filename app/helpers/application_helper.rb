@@ -30,9 +30,9 @@ module ApplicationHelper
         current_controller == link_controller
       ) ||
       # New user session with devise.
-      (link_path == new_user_session_path || sign_in_path?) ||
+      (link_path == new_user_session_path && sign_in_path?) ||
       # New user registration with devise.
-      (link_path == new_user_registration_path || join_path?)
+      (link_path == new_user_registration_path && join_path?)
   end
   # rubocop:enable MethodLength
 

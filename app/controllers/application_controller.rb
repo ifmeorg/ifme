@@ -338,9 +338,9 @@ class ApplicationController < ActionController::Base
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
     @page_author = if current_user.id != subject.user_id
-                      User.find(subject.user_id)
+                     User.find(subject.user_id)
                    else
-                      User.find(current_user.id)
+                     User.find(current_user.id)
                    end
     @no_hide_page = true
     # rubocop:disable GuardClause
