@@ -11,6 +11,8 @@ import inputCss from './Input.scss';
 // TODO (julianguyen): Write tests for this, mocking draft-js is hard
 // https://github.com/facebook/draft-js/issues/325
 
+const EMPTY_HTML = '<p><br></p>';
+
 export type Props = {
   id: string,
   name?: string,
@@ -30,30 +32,27 @@ export class InputTextarea extends React.Component<Props, State> {
     super(props);
     this.state = {
       value: props.value || '',
-      editorState: EditorState.createWithContent(
-        stateFromHTML(props.value || ''),
-      ),
+      editorState:
+        props.value && props.value.length
+          ? EditorState.createWithContent(stateFromHTML(props.value))
+          : EditorState.createEmpty(),
     };
   }
 
   onEditorStateChange = (editorState: any) => {
     const { required, hasError } = this.props;
-    const { value } = this.state;
-    const contentValue = stateToHTML(editorState.getCurrentContent());
-    if (value !== contentValue) {
-      if (required && hasError) {
-        hasError(!contentValue);
-      }
-      this.setState({ editorState, value: contentValue });
+    const value = stateToHTML(editorState.getCurrentContent());
+    if (required && hasError) {
+      hasError(value === EMPTY_HTML);
     }
-    this.setState({ editorState });
+    this.setState({ editorState, value });
   };
 
   onBlur = () => {
     const { required, hasError } = this.props;
     const { value } = this.state;
     if (required && hasError) {
-      hasError(!value);
+      hasError(value === EMPTY_HTML);
     }
   };
 
@@ -82,23 +81,17 @@ export class InputTextarea extends React.Component<Props, State> {
     );
   };
 
-  getContentValue = () => {
-    const { editorState, value } = this.state;
-    return value && value.length
-      ? stateToHTML(editorState.getCurrentContent())
-      : '';
-  };
-
   render() {
     const {
       id, name, required, myRef,
     } = this.props;
+    const { value } = this.state;
     return (
       <div id={id} className={inputCss.default}>
         {this.displayEditor()}
         <input
           type="hidden"
-          value={this.getContentValue()}
+          value={value}
           id={`${id}_value`}
           name={name}
           required={required}
