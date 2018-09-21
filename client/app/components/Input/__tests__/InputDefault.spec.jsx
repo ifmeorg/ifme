@@ -52,11 +52,9 @@ describe('InputDefault', () => {
       );
       wrapper
         .find('input')
-        .simulate('change', { currentTarget: { value: 'Some Value' } });
+        .simulate('blur', { currentTarget: { value: 'Some Value' } });
       expect(window.alert).toHaveBeenCalledWith('Error is false');
-      wrapper
-        .find('input')
-        .simulate('change', { currentTarget: { value: '' } });
+      wrapper.find('input').simulate('blur', { currentTarget: { value: '' } });
       expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });

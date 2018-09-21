@@ -4,7 +4,7 @@ import React from 'react';
 import { Form, hasErrors } from '../index';
 import { InputMocks } from '../../../mocks/InputMocks';
 
-// TODO (julianguyen): Include textarea once mocking draft-js works
+// TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
 
 const component = (noFormTag: boolean) => (
   <Form
@@ -24,7 +24,7 @@ describe('Form', () => {
   describe('when noFormTag prop is true', () => {
     it('has no errors when submit is clicked', () => {
       const wrapper = mount(component(true));
-      wrapper.find('input[name="some-text-name"]').prop('onChange')({
+      wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
       });
       expect(hasErrors(wrapper.state().errors)).toEqual(0);
@@ -48,7 +48,7 @@ describe('Form', () => {
   describe('when noFormTag prop is false', () => {
     it('has no errors when submit is clicked', () => {
       const wrapper = mount(component(false));
-      wrapper.find('input[name="some-text-name"]').prop('onChange')({
+      wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
       });
       expect(hasErrors(wrapper.state().errors)).toEqual(0);
