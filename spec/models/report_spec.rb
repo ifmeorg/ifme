@@ -2,12 +2,16 @@
 #
 # Table name: reports
 #
-#  reporter_id         :integer
-#  reportee_id         :integer
-#  reasons             :text
-#  comment_id          :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
+#  id          :integer          not null, primary key
+#  reporter_id :integer
+#  reportee_id :integer
+#  reasons     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  comment_id  :integer
+#  user_id     :integer
+#
+
 RSpec.describe Report, type: :model do
   
   describe '#reports' do
