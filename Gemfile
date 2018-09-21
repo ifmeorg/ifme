@@ -17,7 +17,6 @@ gem 'resque', '1.26.0'
 gem 'resque-scheduler', '4.2.0'
 gem 'resque_mailer', '2.3.0'
 
-gem 'bootstrap-datepicker-rails', '~> 1.6.4.1'
 gem 'compass-rails', '~> 3.0.2'
 gem 'foundation-rails', '6.2.3.0'
 gem 'jbuilder', '~> 2.7.0'

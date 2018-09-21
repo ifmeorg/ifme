@@ -16,7 +16,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-readyselector
-//= require bootstrap-datepicker
 //= require underscore
 //= require i18n
 //= require i18n.js
