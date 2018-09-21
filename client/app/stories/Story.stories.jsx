@@ -30,7 +30,7 @@ storiesOf('Story', module)
         date="Created 2 Days ago"
         draft="Draft"
         storyType="Some Type"
-        storyBy="Some Person"
+        storyBy={{ author: 'Some Person' }}
       />
     </div>
   ));

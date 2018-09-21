@@ -230,6 +230,7 @@ nb:
    comments: 'Kommentarer:'
 
  meetings:
+  singular: Møte
   edit_meeting: 'Rediger møte'
   form:
    location_placeholder: 'URL eller gateaddresse'

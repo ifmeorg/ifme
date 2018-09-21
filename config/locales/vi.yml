@@ -230,6 +230,7 @@ vi:
    comments: 'Bình luận:'
 
  meetings:
+  singular: Gặp gỡ
   edit_meeting: 'Chỉnh sửa thông tin cuộc họp'
   form:
    location_placeholder: 'Liên kết mạnh hoặc địa chỉ'

@@ -230,6 +230,7 @@ nl:
    comments: 'Commentaar:'
 
  meetings:
+  singular: Samenkomst
   edit_meeting: 'Bewerk Samenkomst'
   form:
    location_placeholder: 'URL of straat'

@@ -230,6 +230,7 @@ it:
    comments: 'Commenti:'
 
  meetings:
+  singular: Raduno
   edit_meeting: 'Modifica Raduno'
   form:
    location_placeholder: 'URL o indirizzo'
