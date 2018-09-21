@@ -20,7 +20,10 @@
     draft: !local_assigns[:item].published? ?  t('draft') : nil,
     categories: local_assigns[:item].category.map{ |item| Category.find(item).name },
     moods: local_assigns[:item].class.name == 'Moment' ? local_assigns[:item].mood.map{ |item| Mood.find(item).name } : nil,
-    storyBy: local_assigns[:item].user_id != current_user.id ? link_to(User.where(id: local_assigns[:item].user_id).first.name, profile_index_path(uid: get_uid(local_assigns[:item].user_id))) : nil,
+    storyBy: {
+      author: link_to(User.find(local_assigns[:item].user_id).name, profile_index_path(uid: get_uid(local_assigns[:item].user_id))),
+      avatar: ProfilePicture.normalize_url(User.find(local_assigns[:item].user_id).avatar.url)
+    },
     storyType: local_assigns[:item].class.name == 'Moment' ? t('moments.singular') : t('strategies.singular')
   }) %>
 </div>

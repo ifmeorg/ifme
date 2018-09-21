@@ -19,8 +19,6 @@ class ProfilePicture
       }
     end
 
-    private
-
     def normalize_url(path)
       # prod, uploaded to cloudinary
       if cloudinary_src path
@@ -33,6 +31,8 @@ class ProfilePicture
         path
       end
     end
+
+    private
 
     def cloudinary_src(path)
       path&.include?('.cloudinary.com')

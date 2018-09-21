@@ -231,6 +231,7 @@ sv:
    comments: 'Kommentarer:'
 
  meetings:
+  singular: Möte
   edit_meeting: 'Redigera Möte'
   form:
    location_placeholder: 'URL eller gatuadress'

@@ -4,24 +4,29 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  &Type,
-  &By {
+  &Type {
     @include setFontSize($size-16);
-    @include setMargin($size-10, $size-0, $size-0, $size-0);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: $mulberry-80;
     a {
       color: $mulberry-80 !important;
     }
   }
-  &Type {
-    margin-left: auto;
-  }
-  .header {
+  &By {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    &Author {
+      @include setFontSize($size-18);
+      margin-left: $size-10;
+      color: $mulberry;
+      a {
+        color: $mulberry !important;
+      }
+    }
+  }
+  .header {
     &Title {
       display: flex;
       flex-direction: row;
@@ -45,12 +50,21 @@
   .tags {
     @include setMargin($size-10, $size-0, $size-0, $size-0);
   }
+  .info {
+    @include setMargin($size-12, $size-0, $size-0, $size-0);
+    &Right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
   .footer {
     margin-top: auto;
   }
 }
 
 .actions {
+  @include setMargin($size-4, $size-0, $size-0, $size-0);
   display: flex;
   flex-direction: row;
   .action {
@@ -70,7 +84,7 @@
 }
 
 .date {
-  @include setFontSize($size-14);
+  @include setFontSize($size-16);
   @include setMargin($size-10, $size-0, $size-0, $size-0);
   letter-spacing: 0.1em;
   text-transform: uppercase;

@@ -15,7 +15,6 @@
 class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :name
-  validates :description, length: { maximum: 2000 }
   validates :user_id, :name, presence: true
 
   belongs_to :user

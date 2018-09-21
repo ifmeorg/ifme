@@ -230,6 +230,7 @@ en:
    comments: 'Comments:'
 
  meetings:
+  singular: Meeting
   edit_meeting: 'Edit Meeting'
   form:
    location_placeholder: 'URL or street address'

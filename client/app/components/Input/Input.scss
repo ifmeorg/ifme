@@ -120,6 +120,7 @@
   text-transform: uppercase;
   font-weight: $font-weight-400;
   flex-wrap: nowrap;
+  user-select: none;
   cursor: pointer;
   + div {
     @include setMargin($size-0, $size-0, $size-10, $size-0);

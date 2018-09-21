@@ -230,7 +230,7 @@ es:
    comments: "Comentarios:"
 
  meetings:
-  singular: "Reunión"
+  singular: Reunión
   edit_meeting: "Editar Reunión"
   form:
    location_placeholder: "URL o dirección física"

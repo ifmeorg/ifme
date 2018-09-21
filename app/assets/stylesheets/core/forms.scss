@@ -8,7 +8,7 @@
 }
 
 label {
-  @include setFontSize($size-14);
+  @include setFontSize($size-16);
   @include setPadding($size-12, $size-0, $size-12, $size-0);
   letter-spacing: 0.095em;
   text-transform: uppercase;
