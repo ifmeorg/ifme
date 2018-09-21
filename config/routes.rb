@@ -85,11 +85,15 @@ Rails.application.routes.draw do
     end
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 >>>>>>> e2ce9622... Report Feature added for Profile and Comments, Admin dashboard implemented
 =======
 
 >>>>>>> f76f408b... List of Banned Users displayed in Admin Dashboard
+=======
+  
+>>>>>>> 96001dc4... Update schema
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
 >>>>>>> 9d9b4bff... Report Button added in Allies
     collection do

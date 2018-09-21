@@ -3,12 +3,15 @@
 #
 # Table name: reports
 #
-#  reporter_id         :integer
-#  reportee_id         :integer
-#  reasons             :text
-#  comment_id          :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
+#  id          :integer          not null, primary key
+#  reporter_id :integer
+#  reportee_id :integer
+#  reasons     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  comment_id  :integer
+#  user_id     :integer
+#
 
 class Report < ApplicationRecord
   belongs_to :user
@@ -19,10 +22,6 @@ class Report < ApplicationRecord
   validates :reporter_id, presence: true
   validates :reasons, presence: true
   after_create :send_mail_reports
-<<<<<<< 8784fb0de7f65dd536e41b275e4934c7197905b7
-=======
-  
->>>>>>> Ban User feature added and I18n keys
   #make sure reporter_id and reportee_id are different
 
   def send_mail_reports
