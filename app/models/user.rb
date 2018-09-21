@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -31,8 +30,8 @@
 #  invitation_sent_at     :datetime
 #  invitation_accepted_at :datetime
 #  invitation_limit       :integer
-#  invited_by_id          :integer
 #  invited_by_type        :string
+#  invited_by_id          :integer
 #  invitations_count      :integer          default(0)
 #  comment_notify         :boolean
 #  ally_notify            :boolean
@@ -41,6 +40,8 @@
 #  locale                 :string
 #  access_expires_at      :datetime
 #  refresh_token          :string
+#  admin                  :boolean          default(FALSE)
+#  banned                 :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord

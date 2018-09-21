@@ -5,7 +5,7 @@
 # Table name: meeting_members
 #
 #  id         :integer          not null, primary key
-#  meeting_id  :integer
+#  meeting_id :integer
 #  user_id    :integer
 #  leader     :boolean
 #  created_at :datetime

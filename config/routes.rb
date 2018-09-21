@@ -75,7 +75,7 @@ Rails.application.routes.draw do
       get 'admin_dashboard'
     end
   end
-
+  
   resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'posts'
