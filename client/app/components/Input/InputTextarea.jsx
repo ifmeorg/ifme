@@ -46,15 +46,11 @@ const actions = [
   }),
 ];
 
-const contentId = (id: string) => `${id}_content`;
-
-const editorId = (id: string) => `${id}_editor`;
-
-const classes = (id: string) => ({
+const classes = {
   button: css.button,
   selected: css.buttonSelected,
-  content: `editorContent ${contentId(id)} ${css.content}`,
-});
+  content: `editorContent ${css.content}`,
+};
 
 export type Props = {
   id: string,
@@ -72,6 +68,8 @@ export type State = {
 export class InputTextarea extends React.Component<Props, State> {
   editor: any;
 
+  editorRef: any;
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -80,15 +78,16 @@ export class InputTextarea extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    const { id } = this.props;
     const { value } = this.state;
-    this.editor = init({
-      element: document.getElementById(editorId(id)),
-      onChange: this.onChange,
-      classes: classes(id),
-      actions,
-    });
-    this.editor.content.innerHTML = value;
+    if (this.editorRef) {
+      this.editor = init({
+        element: this.editorRef.getElementsByClassName('editor')[0],
+        onChange: this.onChange,
+        classes,
+        actions,
+      });
+      this.editor.content.innerHTML = value;
+    }
   }
 
   onChange = (value: string) => {
@@ -104,23 +103,31 @@ export class InputTextarea extends React.Component<Props, State> {
   };
 
   onFocus = () => {
-    const { required, hasError, id } = this.props;
+    const { required, hasError } = this.props;
     if (required && hasError) {
       hasError(false);
     }
-    document.getElementsByClassName(contentId(id))[0].focus();
+    if (this.editorRef) {
+      this.editorRef.getElementsByClassName('editorContent')[0].focus();
+    }
   };
 
-  displayEditor = () => {
-    const { id } = this.props;
-    return <div id={editorId(id)} />;
+  displayHidden = () => {
+    const { name, required, myRef } = this.props;
+    const { value } = this.state;
+    return (
+      <input
+        type="hidden"
+        value={value}
+        name={name}
+        required={required}
+        ref={myRef}
+      />
+    );
   };
 
   render() {
-    const {
-      id, name, required, myRef,
-    } = this.props;
-    const { value } = this.state;
+    const { id } = this.props;
     return (
       <div
         id={id}
@@ -129,16 +136,12 @@ export class InputTextarea extends React.Component<Props, State> {
         onFocus={this.onFocus}
         tabIndex={0}
         role="textbox"
+        ref={(element) => {
+          this.editorRef = element;
+        }}
       >
-        {this.displayEditor()}
-        <input
-          type="hidden"
-          value={value}
-          id={`${id}_value`}
-          name={name}
-          required={required}
-          ref={myRef}
-        />
+        <div className="editor" />
+        {this.displayHidden()}
       </div>
     );
   }
