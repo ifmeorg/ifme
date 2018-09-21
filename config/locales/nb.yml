@@ -1,6 +1,6 @@
 nb:
  app_name: 'if me'
- app_description: 'Et samfunn for mental helse opplevelser.'
+ app_description: 'Et samfunn for mental helse opplevelser'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Opprettet %{created_at}'

@@ -4,14 +4,13 @@
     <title><%= render 'layouts/title' %></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#6d0839" />
+    <link rel="manifest" href="manifest.json">
     <%= csrf_meta_tags %>
     <% if (user_signed_in? && !static_page?) || secret_share_path? %>
     <meta name="robots" content="none">
     <% end %>
     <%= cl_client_hints_meta_tag %>
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="alternate" type="application/rss+xml" title="if me blog" href="https://medium.com/feed/ifme" />
 
     <!-- Webpack Assets START -->

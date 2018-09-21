@@ -1,0 +1,14 @@
+{
+  "name": "if-me.org",
+  "short_name": "if-me.org",
+  "start_url": "/",
+  "theme_color": "#6d0839",
+  "background_color": "#6d0839",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "icons": [{
+    "src": "./logo_512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

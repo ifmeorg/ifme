@@ -1,6 +1,6 @@
 nl:
  app_name: 'if me'
- app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen.'
+ app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Aangemaakt op %{created_at}'

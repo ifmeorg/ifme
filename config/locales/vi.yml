@@ -1,6 +1,6 @@
 vi:
  app_name: 'if me'
- app_description: 'Đồng sức khỏe tâm thần.'
+ app_description: 'Đồng sức khỏe tâm thần'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: '<strong>Tạo:</strong> %{created_at}'

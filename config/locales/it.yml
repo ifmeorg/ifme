@@ -1,6 +1,6 @@
 it:
  app_name: 'if me'
- app_description: 'Una community per la condivisione di esperienze relative alla salute mentale.'
+ app_description: 'Una community per la condivisione di esperienze relative alla salute mentale'
  email: 'join.ifme@gmail.com'
  ellipsis: " [...]"
  created: 'Creato %{created_at}'
