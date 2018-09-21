@@ -112,6 +112,36 @@ describe 'UserCreatesADraftMoment', js: true do
       # EDITING
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Moment'
+      expect(page).to have_field('moment_comment', checked: true)
+      expect(page).to have_field('moment_publishing', checked: true)
+
+      within('#moment_category_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Category'
+        expect(page).to have_content 'Some New Category'
+        find('.accordion').click
+      end
+
+      within('#moment_mood_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Mood'
+        expect(page).to have_content 'Some New Mood'
+        find('.accordion').click
+      end
+
+      within('#moment_strategy_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Strategy'
+        expect(page).to have_content 'Some New Strategy'
+        find('.accordion').click
+      end
+
+      within('#moment_viewers_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Ally 1'
+        find('.accordion').click
+      end
+
       moment_why_text = 'I am changing my moment why'
       fill_in_textarea(moment_why_text, '#moment_why')
 

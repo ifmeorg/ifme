@@ -134,19 +134,21 @@ module MomentsHelper
         id: item.slug,
         label: item.name,
         value: item.id,
-        checked: data_for_moment(data).include?(item.id)
+        checked: data_for(item)&.include?(item.id)
       )
     end
     checkboxes
   end
 
-  def data_for_moment(data)
-    if data == @categories
+  def data_for(item)
+    case item.class.name
+    when 'Category'
       @moment.category
-    elsif data == @moods
+    when 'Mood'
       @moment.mood
+    when 'Strategy'
+      @moment.strategy
     end
-    @moment.strategy
   end
 end
 # rubocop:enable ModuleLength

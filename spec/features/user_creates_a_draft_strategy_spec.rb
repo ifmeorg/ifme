@@ -79,6 +79,22 @@ describe 'UserCreatesADraftStrategy', js: true do
       visit back
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
+      expect(page).to have_field('strategy_comment', checked: true)
+      expect(page).to have_field('strategy_publishing', checked: true)
+
+      within('#strategy_category_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Category'
+        expect(page).to have_content 'Some New Category'
+        find('.accordion').click
+      end
+
+      within('#strategy_viewers_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Ally 1'
+        find('.accordion').click
+      end
+
       strategy_description_text = 'I am changing my strategy description'
       fill_in_textarea(strategy_description_text, '#strategy_description')
 
