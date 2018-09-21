@@ -41,8 +41,7 @@ class Moment < ApplicationRecord
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
-  validates :why, length: { minimum: 1, maximum: 2000 }
-  validates :fix, length: { maximum: 2000 }
+  validates :why, length: { minimum: 1 }
   validates :secret_share_expires_at,
             presence: true, if: :secret_share_identifier?
 

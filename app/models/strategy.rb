@@ -34,7 +34,7 @@ class Strategy < ApplicationRecord
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :description, presence: true
-  validates :description, length: { minimum: 1, maximum: 2000 }
+  validates :description, length: { minimum: 1 }
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }

@@ -3,10 +3,10 @@ describe 'ToggleLanguage', js: true do
 
   feature 'Toggling the locale dropdown to change the language' do
     let(:en_root_title) do
-      'A community for mental health experiences.'
+      'A community for mental health experiences'
     end
     let(:es_root_title) do
-      'Una comunidad para compartir experiencias de salud mental.'
+      'Una comunidad para compartir experiencias de salud mental'
     end
 
     let(:en_signed_in_root_title) { "Hello #{user.name}!" }
