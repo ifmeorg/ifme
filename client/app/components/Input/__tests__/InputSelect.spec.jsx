@@ -25,10 +25,14 @@ describe('InputSelect', () => {
         onChange={someEvent}
       />,
     );
-    wrapper.find('select').simulate('change', { currentTarget: { value: options[1].value } });
+    wrapper
+      .find('select')
+      .simulate('change', { currentTarget: { value: options[1].value } });
     expect(window.alert).toHaveBeenCalled();
     expect(wrapper.state('value')).toEqual(options[1].value);
-    wrapper.find('select').simulate('change', { currentTarget: { value: options[0].value } });
+    wrapper
+      .find('select')
+      .simulate('change', { currentTarget: { value: options[0].value } });
     expect(window.alert).toHaveBeenCalled();
     expect(wrapper.state('value')).toEqual(options[0].value);
   });
