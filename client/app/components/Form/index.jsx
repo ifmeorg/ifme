@@ -64,6 +64,7 @@ export class Form extends React.Component<Props, State> {
       const newInput = Object.assign({}, input);
       if (this.isInputError(newInput)) {
         newInput.error = true;
+        newInput.value = this.myRefs[input.id].value;
         newInput.myKey = Utils.randomString(); // Triggers state change in child component
         newErrors[newInput.id] = true;
       }

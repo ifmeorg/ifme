@@ -1,17 +1,60 @@
 // @flow
 import React from 'react';
-import { Editor } from 'react-draft-wysiwyg';
-import { stateToHTML } from 'draft-js-export-html';
-import { stateFromHTML } from 'draft-js-import-html';
-// $FlowFixMe
-import { EditorState } from 'draft-js';
+import ReactDOMServer from 'react-dom/server';
+import { init, exec } from 'pell';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import css from './InputTextarea.scss';
 import inputCss from './Input.scss';
 
-// TODO (julianguyen): Write tests for this, mocking draft-js is hard
-// https://github.com/facebook/draft-js/issues/325
+// TODO (julianguyen): Tests after writing stubs for pell editor
 
-const EMPTY_HTML = '<p><br></p>';
+const handleResult = (type: string) => {
+  switch (type) {
+    case 'link': {
+      const url = window.prompt('URL');
+      if (url) exec('createLink', url);
+      break;
+    }
+    case 'olist':
+      exec('insertOrderedList');
+      break;
+    case 'ulist':
+      exec('insertUnorderedList');
+      break;
+    default:
+      exec(type);
+      break;
+  }
+  return false;
+};
+
+const action = (type: string) => ({
+  name: type,
+  result: () => handleResult(type),
+});
+
+const actions = [
+  action('bold'),
+  action('italic'),
+  action('underline'),
+  action('strikethrough'),
+  action('olist'),
+  action('ulist'),
+  Object.assign({}, action('link'), {
+    icon: ReactDOMServer.renderToString(<FontAwesomeIcon icon={faLink} />),
+  }),
+];
+
+const contentId = (id: string) => `${id}_content`;
+
+const editorId = (id: string) => `${id}_editor`;
+
+const classes = (id: string) => ({
+  button: css.button,
+  selected: css.buttonSelected,
+  content: `editorContent ${contentId(id)} ${css.content}`,
+});
 
 export type Props = {
   id: string,
@@ -23,62 +66,54 @@ export type Props = {
 };
 
 export type State = {
-  editorState: any,
   value?: any,
 };
 
 export class InputTextarea extends React.Component<Props, State> {
+  editor: any;
+
   constructor(props: Props) {
     super(props);
     this.state = {
       value: props.value || '',
-      editorState:
-        props.value && props.value.length
-          ? EditorState.createWithContent(stateFromHTML(props.value))
-          : EditorState.createEmpty(),
     };
   }
 
-  onEditorStateChange = (editorState: any) => {
-    const { required, hasError } = this.props;
-    const value = stateToHTML(editorState.getCurrentContent());
-    if (required && hasError) {
-      hasError(value === EMPTY_HTML);
-    }
-    this.setState({ editorState, value });
+  componentDidMount() {
+    const { id } = this.props;
+    const { value } = this.state;
+    this.editor = init({
+      element: document.getElementById(editorId(id)),
+      onChange: this.onChange,
+      classes: classes(id),
+      actions,
+    });
+    this.editor.content.innerHTML = value;
+  }
+
+  onChange = (value: string) => {
+    this.setState({ value });
   };
 
   onBlur = () => {
     const { required, hasError } = this.props;
     const { value } = this.state;
     if (required && hasError) {
-      hasError(value === EMPTY_HTML);
+      hasError(!value || value === '<p><br></p>');
     }
   };
 
+  onFocus = () => {
+    const { required, hasError, id } = this.props;
+    if (required && hasError) {
+      hasError(false);
+    }
+    document.getElementsByClassName(contentId(id))[0].focus();
+  };
+
   displayEditor = () => {
-    const { editorState } = this.state;
-    return (
-      <Editor
-        toolbarClassName={css.toolbar}
-        toolbar={{
-          options: ['inline', 'list'],
-          inline: {
-            className: css.toolbarIcons,
-            inDropdown: false,
-            options: ['bold', 'italic', 'underline', 'strikethrough'],
-          },
-          list: {
-            className: css.toolbarIcons,
-            inDropdown: false,
-            options: ['unordered', 'ordered'],
-          },
-        }}
-        editorState={editorState}
-        onEditorStateChange={this.onEditorStateChange}
-        onBlur={this.onBlur}
-      />
-    );
+    const { id } = this.props;
+    return <div id={editorId(id)} />;
   };
 
   render() {
@@ -87,7 +122,14 @@ export class InputTextarea extends React.Component<Props, State> {
     } = this.props;
     const { value } = this.state;
     return (
-      <div id={id} className={inputCss.default}>
+      <div
+        id={id}
+        className={inputCss.default}
+        onBlur={this.onBlur}
+        onFocus={this.onFocus}
+        tabIndex={0}
+        role="textbox"
+      >
         {this.displayEditor()}
         <input
           type="hidden"

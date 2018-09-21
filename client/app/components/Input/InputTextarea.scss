@@ -1,35 +1,37 @@
 @import "../../styles/_global.scss";
 
-.toolbar {
-  @include setMargin($size-0, $size-0, $size-20, $size-0);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  > div {
-    @include setMargin($size-0, $size-20, $size-0, $size-0);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    :last-of-type {
-      @include setMargin($size-0, $size-0, $size-0, $size-0);
-    }
-    > div {
-      @include setMargin($size-0, $size-10, $size-0, $size-0);
-      :last-of-type {
-        @include setMargin($size-0, $size-0, $size-0, $size-0);
-      }
+.button {
+  @include setFontSize($size-24);
+  background: transparent;
+  color: $white;
+  border: none;
+  padding: $size-0;
+  margin-right: $size-16;
+  b, strong {
+    color: $white !important;
+  }
+  &Selected {
+    color: $key-lime;
+    b, strong {
+      color: $key-lime !important;
     }
   }
+}
 
-  &Icons {
-    filter: invert(100%);
-    :hover {
-      opacity: 0.5;
-    }
-    img {
-      width: 18px;
-      height: auto;
-    }
+.content {
+  @include setMargin($size-20, $size-0, $size-0, $size-0);
+  background: transparent;
+  padding: $size-0;
+  color: $white;
+  outline: none;
+  a {
+    color: $cornflower !important;
+    cursor: pointer;
+  }
+  b, strong {
+    color: $white !important;
+  }
+  p {
+    margin: $size-0;
   }
 }

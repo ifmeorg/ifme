@@ -156,6 +156,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  word-break: break-all;
   > div:first-of-type {
     display: flex;
     flex-direction: row;

@@ -22,7 +22,13 @@ export type Props = {
   myRef?: any,
 };
 
-const onChangeBlur = (
+const onFocus = (required: ?boolean, hasError: ?Function) => {
+  if (required && hasError) {
+    hasError(false);
+  }
+};
+
+const onBlur = (
   e: SyntheticEvent<HTMLInputElement>,
   required: ?boolean,
   hasError: ?Function,
@@ -66,9 +72,8 @@ export const InputDefault = (props: Props) => {
       maxLength={maxLength}
       min={min}
       max={max}
-      onChange={(e: SyntheticEvent<HTMLInputElement>) => onChangeBlur(e, required, hasError)
-      }
-      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onChangeBlur(e, required, hasError)
+      onFocus={() => onFocus(required, hasError)}
+      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
       }
       ref={myRef}
     />

@@ -27,7 +27,6 @@
 
   <div class="footerExtras">
     <div>
-      <!-- TODO: Use DropdownGhostSmall after React version update, issues with selected not appearing -->
       <%= select_tag 'locale', options_for_select(@locales.collect{ |l| [l[:name], l[:locale]] }, @locale) %>
     </div>
 
