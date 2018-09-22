@@ -47,9 +47,6 @@
     color: $black-80;
     font-weight: $font-weight-400;
   }
-  .tags {
-    @include setMargin($size-10, $size-0, $size-0, $size-0);
-  }
   .info {
     @include setMargin($size-12, $size-0, $size-0, $size-0);
     &Right {
@@ -101,5 +98,6 @@
 
 .categories,
 .moods {
+  @include setMargin($size-8, $size-0, $size-0, $size-0);
   word-break: break-all;
 }

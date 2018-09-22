@@ -1,7 +1,3 @@
-<div class="small_margin_bottom">
-  <%= sanitize(meeting.description) %>
-</div>
-
 <div>
   <strong>
     <%= t('common.form.location') %>:
@@ -30,20 +26,4 @@
   <strong>
     <%= get_meeting_members(meeting) %>
   </strong>
-</div>
-<div class="small_margin_top">
-  <%
-    if local_assigns[:show_group]
-      elementText = t('meetings.info.members_of_group_html',
-        count: meeting.members.count,
-        group: link_to(meeting.group.name, meeting.group))
-    else
-      elementText = t('members', count: meeting.members.count)
-    end
-  %>
-  <%= react_component('Modal', prerender: true, props: {
-    element: "<button class=\"buttonDarkXS meetingMembersButton\">#{elementText}</button>",
-    title: t('notifications.members.title'),
-    body: render(partial: '/groups/members', locals: { group: meeting })
-  }) %>
 </div>

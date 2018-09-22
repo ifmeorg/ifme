@@ -29,9 +29,8 @@
               link: url_for(group),
               dataConfirm: t('common.actions.confirm'),
               dataMethod: 'delete'
-            } : nil,
-          },
-          body: render(partial: '/groups/story_body', locals: { group: group })
+            } : nil
+          }
         }) %>
       </div>
     <% end %>
@@ -44,9 +43,9 @@
     <%= t('pages.faq.group_question') %>
   </div>
 
-  <%= raw t('pages.faq.group_answer',{
-    			groups: link_to(t('groups.singular'), groups_path)
-    		}) %>
+  <%= raw t('pages.faq.group_answer', {
+    group: link_to(t('groups.singular'), groups_path)
+  }) %>
 <% end %>
 
 <% if @available_groups.any? %>
@@ -64,8 +63,7 @@
               link: group_membership_path(group_id: group.id, id: 'join'),
               dataMethod: 'post'
             }
-          },
-          body: render(partial: '/groups/story_body', locals: { group: group })
+          }
         }) %>
       </div>
     <% end %>

@@ -17,9 +17,7 @@
   <%= paginate @strategies %>
 <% else %>
   <%= raw t('strategies.index.instructions') %>
-  <div class="actions">
-    <%= button_to t('common.actions.add'), premade_strategies_path %>
-  </div>
+  <%= button_to t('common.actions.add'), premade_strategies_path, class: 'small_margin_top buttonDarkS' %>
 
   <div class="spacer"></div>
 

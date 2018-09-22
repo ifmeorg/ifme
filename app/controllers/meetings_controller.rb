@@ -13,24 +13,25 @@ class MeetingsController < ApplicationController
       meeting_id: @meeting.id,
       user_id: current_user.id
     ).exists?
-
+    @is_group_member = GroupMember.where(
+      group_id: @meeting.group_id,
+      user_id: current_user.id
+    ).exists?
     @is_leader = MeetingMember.where(
       meeting_id: @meeting.id,
       user_id: current_user.id,
       leader: true
     ).exists?
-
     @no_hide_page = false
-    if hide_page(@meeting)
-      redirect_to_path(group_path(@meeting.group_id))
-    else
+    if @is_member
+      @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.where(
         commentable_id: @meeting.id,
         commentable_type: 'meeting'
       ).all.order('created_at DESC')
-
-      @no_hide_page = true
+    elsif !@is_group_member
+      redirect_to_path(groups_path)
     end
   end
   # rubocop:enable MethodLength
@@ -77,7 +78,6 @@ class MeetingsController < ApplicationController
   def new
     @group_id = params[:group_id]
     not_a_leader(@group_id)
-
     @meeting = Meeting.new
   end
 
@@ -173,8 +173,7 @@ class MeetingsController < ApplicationController
         meeting_id: params[:meeting_id],
         leader: true
       ).all
-      meeting_id = Meeting.where(id: params[:meeting_id]).first.id
-      meeting = Meeting.where(id: params[:meeting_id]).first.name
+      meeting = Meeting.find(params[:meeting_id])
 
       MeetingNotificationsService.handle_members(current_user: current_user,
                                                  meeting: meeting,
@@ -183,7 +182,7 @@ class MeetingsController < ApplicationController
 
       respond_to do |format|
         format.html do
-          redirect_to(meeting_path(meeting_id),
+          redirect_to(meeting_path(params[:meeting_id]),
                       notice: t('meetings.join_success'))
         end
         format.json do
@@ -281,15 +280,6 @@ class MeetingsController < ApplicationController
   def meeting_params
     params.require(:meeting).permit(:name, :description, :location, :date,
                                     :time, :maxmembers, :group_id)
-  end
-
-  def hide_page(meeting)
-    meeting_obj = Meeting.where(id: meeting.id)
-    meeting_member = MeetingMember.where(
-      meeting_id: meeting.id,
-      user_id: current_user.id
-    )
-    !(meeting_obj.exists? && meeting_member.exists?)
   end
 end
 # rubocop:enable ClassLength

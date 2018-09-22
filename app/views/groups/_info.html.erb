@@ -1,0 +1,39 @@
+<%= sanitize(local_assigns[:group].description) %>
+<div class="small_margin_top">
+  <%= react_component('Modal', props: {
+    element: "<button class=\"buttonDarkXS groupMembersButton\">#{t('members', count: local_assigns[:group].group_members.count)}</button>",
+    title: t('notifications.members.title'),
+    body: render(partial: '/groups/members', locals: { group: local_assigns[:group] })
+  }) %>
+</div>
+<div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
+  <div class="gridRowSpaceBetween">
+    <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+    <%= react_component('StoryActions', props: {
+      dark: true,
+      actions: {
+        join: !local_assigns[:group].members.include?(current_user) ? {
+          name: t('common.actions.join'),
+          link: group_membership_path(group_id: local_assigns[:group].id, id: 'join'),
+          dataMethod: 'post'
+        } : nil,
+        leave: local_assigns[:group].members.include?(current_user) && user_can_leave?(local_assigns[:group]) ? {
+          name: t('common.actions.leave'),
+          link: group_membership_path(group_id: local_assigns[:group].id, id: 'leave'),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        } : nil,
+        edit: user_can_edit?(local_assigns[:group]) ? {
+          name: t('common.actions.edit'),
+          link: edit_group_path(local_assigns[:group])
+        } : nil,
+        delete: user_can_delete?(local_assigns[:group]) ? {
+          name: t('common.actions.delete'),
+          link: url_for(local_assigns[:group]),
+          dataConfirm: t('common.actions.confirm'),
+          dataMethod: 'delete'
+        } : nil
+      }
+    }) %>
+  </div>
+</div>
