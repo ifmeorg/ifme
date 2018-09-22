@@ -55,6 +55,7 @@ module NotificationsHelper
 
   def specific_meeting_link(type, typeid, group_id)
     return "/meetings/#{typeid}" unless type.include? 'remove'
+
     "/groups/#{group_id}"
   end
 

@@ -59,9 +59,9 @@ describe Strategy do
     end
   end
 
-  describe "#published?" do
+  describe '#published?' do
     context 'when it has a publication date' do
-      let(:strategy) { build(:strategy, :with_published_at)}
+      let(:strategy) { build(:strategy, :with_published_at) }
       let(:subject) { strategy.published? }
 
       it { is_expected.to be true }

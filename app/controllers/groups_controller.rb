@@ -32,6 +32,7 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     return if @group.leaders.include?(current_user)
+
     flash[:error] = t('groups.form.error_edit_permission')
     redirect_to_index
   end
@@ -95,6 +96,7 @@ class GroupsController < ApplicationController
   def update_leaders
     updated_leader_ids = params[:group][:leader]
     return if updated_leader_ids.nil?
+
     LeaderUpdater.new(@group, updated_leader_ids.map(&:to_i)).update
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'UserCreatesAMedication', js: true do
   let(:user) { create(:user_oauth) }
   let(:medication) { user.medications.last }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: supports
@@ -15,7 +17,7 @@
 FactoryBot.define do
   factory :support do
     user_id { 1 }
-    support_type { "MyString" }
-    support_ids { "MyString" }
+    support_type { 'MyString' }
+    support_ids { 'MyString' }
   end
 end

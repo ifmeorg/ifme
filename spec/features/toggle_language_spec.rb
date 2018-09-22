@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'ToggleLanguage', js: true do
   let(:user) { create :user }
 
@@ -29,7 +31,7 @@ describe 'ToggleLanguage', js: true do
         scroll_to('.footer')
 
         change_page(
-          ->{
+          lambda {
             within '.footer' do
               click_link('Acerca de')
             end
@@ -56,7 +58,7 @@ describe 'ToggleLanguage', js: true do
         expect(page).to have_content(es_root_title)
 
         change_page(
-          ->{
+          lambda {
             within '#header' do
               click_link('Ingresar')
             end
@@ -74,7 +76,7 @@ describe 'ToggleLanguage', js: true do
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
         change_page(
-          ->{
+          lambda {
             within '.dashboardNav' do
               click_link('Momentos')
             end
@@ -121,7 +123,7 @@ describe 'ToggleLanguage', js: true do
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
         change_page(
-          ->{
+          lambda {
             within '.dashboardNav' do
               click_link('Estrategias')
             end

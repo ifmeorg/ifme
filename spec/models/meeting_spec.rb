@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: meetings
@@ -16,21 +18,21 @@
 #
 
 describe Meeting do
-  it "has a valid factory" do
+  it 'has a valid factory' do
     result = build :meeting
 
     expect(result).to be_valid
   end
-  context "when meeting does not have a group id" do
-    it "is not valid" do
+  context 'when meeting does not have a group id' do
+    it 'is not valid' do
       new_meeting = build(:meeting, group_id: nil)
       expect(new_meeting).to have(1).error_on(:group_id)
     end
   end
 
-  describe ".leaders" do
-    context "when group has leaders" do
-      it "returns the leaders" do
+  describe '.leaders' do
+    context 'when group has leaders' do
+      it 'returns the leaders' do
         leader = create :user1
         non_leader = create :user2
         meeting = create :meeting
@@ -45,8 +47,8 @@ describe Meeting do
       end
     end
 
-    context "when group has no leaders" do
-      it "returns an empty array" do
+    context 'when group has no leaders' do
+      it 'returns an empty array' do
         non_leader = create :user1
         meeting = create :meeting
         create :meeting_member, user_id: non_leader.id, leader: false,

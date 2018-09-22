@@ -21,6 +21,7 @@ module Users
 
     def invitation_flash_messages(invites, fails)
       return unless is_flashing_format?
+
       invites_flash(invites) unless invites.empty?
       fails_flash(fails) unless fails.empty?
     end

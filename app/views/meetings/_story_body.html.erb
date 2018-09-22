@@ -41,7 +41,7 @@
       elementText = t('members', count: meeting.members.count)
     end
   %>
-  <%= react_component('Modal', props: {
+  <%= react_component('Modal', prerender: true, props: {
     element: "<button class=\"buttonDarkXS meetingMembersButton\">#{elementText}</button>",
     title: t('notifications.members.title'),
     body: render(partial: '/groups/members', locals: { group: meeting })

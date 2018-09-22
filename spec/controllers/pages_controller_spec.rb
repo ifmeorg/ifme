@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe PagesController, type: :controller do
   describe 'GET #home' do
     it 'respond to request' do

@@ -270,6 +270,7 @@ class ApplicationController < ActionController::Base
 
   def data_included?(data_type, data_id, data)
     return false unless data_type.in?(%w[category mood strategy])
+
     data_id.in?(data[data_type])
   end
 

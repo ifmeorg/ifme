@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe NotificationsHelper do
   let(:uniqueid) { 'uniqueid' }
 
@@ -38,14 +40,14 @@ describe NotificationsHelper do
   end
 
   describe '#group_link' do
-    let(:data) {
+    let(:data) do
       {
         type: type,
         user: 'Julia Nguyen',
         group: 'Group name',
         group_id: 1
       }
-    }
+    end
     context 'type is new_group' do
       let(:type) { 'new_group' }
       it 'returns correct link' do
@@ -76,7 +78,7 @@ describe NotificationsHelper do
   end
 
   describe '#meeting_link' do
-    let(:data) {
+    let(:data) do
       {
         type: type,
         user: 'Julia Nguyen',
@@ -85,7 +87,7 @@ describe NotificationsHelper do
         group_id: 1,
         typeid: 1
       }
-    }
+    end
     context 'type is new_meeting' do
       let(:type) { 'new_meeting' }
       it 'returns correct link' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'UserVisitsGroupsPages', js: true do
   feature 'User vists groups page' do
     scenario 'successfully' do

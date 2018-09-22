@@ -15,7 +15,7 @@ describe MomentsController do
     it 'POST new' do
       get :new
       expect(response).to render_template(:new)
-      expect{ post :create, params: { moment: moment.attributes } }
+      expect { post :create, params: { moment: moment.attributes } }
         .to(change(Moment, :count).by(1))
     end
 
@@ -180,7 +180,6 @@ describe MomentsController do
   end
 
   describe 'Moment Analytic Charts' do
-
     it 'should contain react analytics objects' do
       create_time = Date.current
       new_user = create(:user1)
@@ -188,7 +187,7 @@ describe MomentsController do
       new_category = create(:category, user_id: new_user.id)
       new_mood = create(:mood, user_id: new_user.id)
       create(:moment, user_id: new_user.id, category: Array.new(1, new_category.id),
-             mood: Array.new(1, new_mood.id), created_at: create_time)
+                      mood: Array.new(1, new_mood.id), created_at: create_time)
 
       get :index
 

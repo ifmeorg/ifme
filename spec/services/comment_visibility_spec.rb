@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe CommentVisibility do
   describe '#build' do
     let(:owner) { FactoryBot.create(:user2, :with_allies) }
@@ -7,22 +9,24 @@ describe CommentVisibility do
     let(:strategy) { FactoryBot.create(:strategy, user_id: owner.id) }
     let(:moment) { FactoryBot.create(:moment, user_id: owner.id) }
 
-    let(:commentable) {
+    let(:commentable) do
       {
         strategy: strategy,
         moment: moment
       }
-    }
+    end
 
-    [:strategy, :moment].each do |commentable_name|
+    %i[strategy moment].each do |commentable_name|
       let(:commentable_id) { commentable[commentable_name] }
 
-      let(:comment) { Comment.create!(:commentable_type => commentable_name,
-                                      :commentable_id => commentable_id.id,
-                                      :comment_by => commenter.id,
-                                      :comment => 'test comment',
-                                      :visibility => visibility,
-                                      :viewers => viewers) }
+      let(:comment) do
+        Comment.create!(commentable_type: commentable_name,
+                        commentable_id: commentable_id.id,
+                        comment_by: commenter.id,
+                        comment: 'test comment',
+                        visibility: visibility,
+                        viewers: viewers)
+      end
 
       subject { CommentVisibility.build(comment, commentable_id, current_user) }
 
@@ -52,7 +56,7 @@ describe CommentVisibility do
 
         describe 'and comment was made by an ally' do
           let(:commenter) { ally_commenter }
-          let(:viewers) { [ ] }
+          let(:viewers) { [] }
 
           describe 'logged in as owner' do
             let(:current_user) { owner }

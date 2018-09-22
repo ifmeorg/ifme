@@ -19,6 +19,7 @@ class Support < ApplicationRecord
 
   def array_data
     return unless support_ids.is_a?(Array)
+
     self.support_ids = support_ids.collect(&:to_i)
   end
 end

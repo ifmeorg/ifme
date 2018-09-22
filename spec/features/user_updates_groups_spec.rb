@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.feature 'UserUpdatesGroups', type: :feature, js: true do
   scenario 'leader removes another leader' do
     leader = create :user1

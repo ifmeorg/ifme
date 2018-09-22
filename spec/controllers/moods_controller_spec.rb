@@ -211,11 +211,11 @@ RSpec.describe MoodsController, type: :controller do
         it 'responds with a checkbox in json format' do
           post :quick_create, params: { mood: valid_mood_params }
           expect(response.body).to eq({
-                                        success: true,
-                                        id: Mood.last.id,
-                                        name: Mood.last.name,
-                                        slug: Mood.last.slug
-                                      }.to_json)
+            success: true,
+            id: Mood.last.id,
+            name: Mood.last.name,
+            slug: Mood.last.slug
+          }.to_json)
         end
       end
       context 'when invalid params are supplied' do

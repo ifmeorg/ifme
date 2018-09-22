@@ -25,6 +25,7 @@ class MoodsController < ApplicationController
   # GET /moods/1/edit
   def edit
     return if @mood.user_id == current_user.id
+
     redirect_to_path(mood_path(@mood))
   end
 

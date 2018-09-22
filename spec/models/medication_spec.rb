@@ -37,8 +37,8 @@ describe Medication do
     describe 'when medication has refill reminder' do
       let(:medication) do
         FactoryBot.create(:medication,
-                           :with_refill_reminder,
-                           user_id: user.id)
+                          :with_refill_reminder,
+                          user_id: user.id)
       end
 
       it 'is a list containing the refill reminder' do
@@ -49,8 +49,8 @@ describe Medication do
     describe 'when medication has daily reminder' do
       let(:medication) do
         FactoryBot.create(:medication,
-                           :with_daily_reminder,
-                           user_id: user.id)
+                          :with_daily_reminder,
+                          user_id: user.id)
       end
 
       it 'is a list containing the daily reminder' do
@@ -61,8 +61,8 @@ describe Medication do
     describe 'when medication has both reminders' do
       let(:medication) do
         FactoryBot.create(:medication,
-                           :with_both_reminders,
-                           user_id: user.id)
+                          :with_both_reminders,
+                          user_id: user.id)
       end
 
       it 'is a list containing both reminders' do

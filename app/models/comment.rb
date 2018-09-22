@@ -27,6 +27,7 @@ class Comment < ApplicationRecord
 
   def array_data
     return unless viewers.is_a?(Array)
+
     self.viewers = viewers.collect(&:to_i)
   end
 
@@ -50,6 +51,7 @@ class Comment < ApplicationRecord
     association = associated_record
     return handle_meeting(association, creator) if commentable_type == 'meeting'
     return unless notify_of_creation?(association)
+
     send_notification!(creator, association, user_to_notify(association))
   end
 
@@ -107,6 +109,7 @@ class Comment < ApplicationRecord
 
   def send_notification!(creator, association, user_id)
     return if User.find(user_id).nil?
+
     data = notification_data(creator, association, type, unique_id(type))
     send_notification(data, notifications!(data, user_id), user_id)
   end

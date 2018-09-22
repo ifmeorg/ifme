@@ -40,6 +40,7 @@ class Medication < ApplicationRecord
 
   def active_reminders
     return unless refill_reminder && take_medication_reminder
+
     [refill_reminder, take_medication_reminder].select(&:active?)
   end
 end

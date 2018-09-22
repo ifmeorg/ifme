@@ -1,30 +1,32 @@
-require "spec_helper"
+# frozen_string_literal: true
 
-describe "NotificationMailer" do
-  let(:recipient)  { FactoryBot.create(:user1, email: "some@user.com") }
+require 'spec_helper'
+
+describe 'NotificationMailer' do
+  let(:recipient)  { FactoryBot.create(:user1, email: 'some@user.com') }
   let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, user_id: recipient.id) }
-  let(:medication_reminder)   { medication.take_medication_reminder }
+  let(:medication_reminder) { medication.take_medication_reminder }
   let(:strategy) { FactoryBot.create(:strategy, :with_daily_reminder, user_id: recipient.id) }
-  let(:strategy_reminder)   { strategy.perform_strategy_reminder }
+  let(:strategy_reminder) { strategy.perform_strategy_reminder }
 
-  describe "#take_medication" do
+  describe '#take_medication' do
     subject(:email) { NotificationMailer.take_medication(medication_reminder) }
 
-    it { expect(email.to).to eq(["some@user.com"]) }
+    it { expect(email.to).to eq(['some@user.com']) }
     it { expect(email.subject).to eq("Don't forget to take Fancy Medication Name!") }
   end
 
-  describe "#refill_medication" do
+  describe '#refill_medication' do
     subject(:email) { NotificationMailer.refill_medication(medication_reminder) }
 
-    it { expect(email.to).to eq(["some@user.com"]) }
-    it { expect(email.subject).to eq("Your refill for Fancy Medication Name is coming up soon!") }
+    it { expect(email.to).to eq(['some@user.com']) }
+    it { expect(email.subject).to eq('Your refill for Fancy Medication Name is coming up soon!') }
   end
 
-  describe "#perform_strategy" do
+  describe '#perform_strategy' do
     subject(:email) { NotificationMailer.perform_strategy(strategy_reminder) }
 
-    it { expect(email.to).to eq(["some@user.com"]) }
+    it { expect(email.to).to eq(['some@user.com']) }
     it { expect(email.subject).to eq("Don't forget to perform Test Strategy!") }
   end
 
@@ -101,15 +103,15 @@ describe "NotificationMailer" do
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} sent an ally request!") }
-      it { expect(email.body.encoded).to match("<p>Please <a href=\"http://localhost:3000/allies\">sign in</a> to accept or reject the request!</p>") }
+      it { expect(email.body.encoded).to match('<p>Please <a href="http://localhost:3000/allies">sign in</a> to accept or reject the request!</p>') }
     end
 
     describe 'when type is comment on moment' do
       let(:moment_desc) { 'some_moment_description' }
       let(:phrase_ally) { "<p>Your ally <strong>#{who_triggered_event.name}" }
-      let(:comment)     { "</strong> commented:</p><p><i>my_comment</i></p>" }
+      let(:comment)     { '</strong> commented:</p><p><i>my_comment</i></p>' }
       let(:link) do
-        "<p>To read it, <a href=\"http://localhost:3000/moments/1\">click here</a>!</p>"
+        '<p>To read it, <a href="http://localhost:3000/moments/1">click here</a>!</p>'
       end
 
       let(:data) do
@@ -133,5 +135,4 @@ describe "NotificationMailer" do
       it { expect(email.body.encoded).to match(link) }
     end
   end
-
 end

@@ -1,5 +1,6 @@
-module ScrollSpecSupport
+# frozen_string_literal: true
 
+module ScrollSpecSupport
   # sometimes the sticky header gets in the way
   # of clicking on elements. it's not ideal to
   # use javascript to click the element
@@ -24,5 +25,5 @@ module ScrollSpecSupport
 end
 
 RSpec.configure do |config|
-  config.include ScrollSpecSupport, :type => :feature
+  config.include ScrollSpecSupport, type: :feature
 end

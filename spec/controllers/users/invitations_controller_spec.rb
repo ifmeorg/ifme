@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ::Users::InvitationsController, type: :controller do
   let(:user) { create(:user, name: 'Jane') }
   let(:invitee1) { 'invitedfriend@gmail.com' }
@@ -6,7 +8,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
 
   describe '#create' do
     before(:all) { Devise.mailer.deliveries.clear }
-    before(:each) { @request.env["devise.mapping"] = Devise.mappings[:user] }
+    before(:each) { @request.env['devise.mapping'] = Devise.mappings[:user] }
 
     context 'when a user is not signed in' do
       before { post :create }
@@ -17,7 +19,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
       include_context :logged_in_user
 
       context 'when valid params are given' do
-        let(:invite_one_friend) { post :create, params: { user: { email: "#{invitee1}" } } }
+        let(:invite_one_friend) { post :create, params: { user: { email: invitee1.to_s } } }
         after(:each) { Devise.mailer.deliveries.clear }
 
         it 'creates a new user if the user does not exist' do
@@ -65,7 +67,7 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
       end
 
       context 'when invalid params are given' do
-        let(:invalid_invite) { post :create, params: { user: { email: "#{invalid_email}" } } }
+        let(:invalid_invite) { post :create, params: { user: { email: invalid_email.to_s } } }
 
         it 're-renders the invitation form' do
           invalid_invite

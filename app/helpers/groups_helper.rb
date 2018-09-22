@@ -71,6 +71,7 @@ module GroupsHelper
 
   def edit_meeting_link(meeting, html_options = {})
     return unless user_is_leader_of? meeting
+
     link_to edit_meeting_path(meeting), html_options do
       raw '<i class="fa fa-pencil-alt"></i>'
     end
@@ -118,6 +119,7 @@ module GroupsHelper
   # rubocop:disable MethodLength
   def edit_inputs
     return unless action_name == 'edit' || action_name == 'update'
+
     inputs = common_inputs
     checkboxes = []
     @group.group_members.each do |member|

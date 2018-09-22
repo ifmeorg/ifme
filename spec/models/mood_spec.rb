@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: moods
@@ -27,13 +29,13 @@ describe Mood do
         Mood.add_premade(user.id)
 
         expect(user.moods.size).to eq(5)
-        expect(user.moods.pluck(:name)).to eq([
-          "Accepting",
-          "Ambitious",
-          "Curious",
-          "Resentful",
-          "Hopeless"
-        ])
+        expect(user.moods.pluck(:name)).to eq(%w[
+                                                Accepting
+                                                Ambitious
+                                                Curious
+                                                Resentful
+                                                Hopeless
+                                              ])
       end
     end
   end

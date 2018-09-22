@@ -23,6 +23,7 @@ class MeetingNotificationsService
   def handle_members
     members.each do |member|
       next if member.user_id == current_user.id
+
       data = notification_data
       Notification.create(
         user_id: member.user_id,

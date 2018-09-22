@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 describe HeaderHelper do
   describe '#header_props' do
     let(:mobile_only) { 'mobile_only_stub' }
-    let(:profile) {
+    let(:profile) do
       {
         avatar: nil,
         name: current_user.name,
@@ -19,7 +21,7 @@ describe HeaderHelper do
           clear: 'Clear'
         }
       }
-    }
+    end
     subject { header_props }
 
     before(:each) do
@@ -38,8 +40,7 @@ describe HeaderHelper do
       context 'has no active link' do
         let(:active) { false }
         it 'returns correct props' do
-          expect(subject).to eq({
-            prerender: true,
+          expect(subject).to eq(
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -49,15 +50,14 @@ describe HeaderHelper do
             ],
             mobileOnly: mobile_only,
             profile: profile
-          })
+          )
         end
       end
 
       context 'has an active link' do
         let(:active) { true }
         it 'returns correct props' do
-          expect(subject).to eq({
-            prerender: true,
+          expect(subject).to eq(
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -67,7 +67,7 @@ describe HeaderHelper do
             ],
             mobileOnly: mobile_only,
             profile: profile
-          })
+          )
         end
       end
     end
@@ -80,8 +80,7 @@ describe HeaderHelper do
       context 'has no active link' do
         let(:active) { false }
         it 'returns correct props' do
-          expect(subject).to eq({
-            prerender: true,
+          expect(subject).to eq(
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -92,15 +91,14 @@ describe HeaderHelper do
             ],
             mobileOnly: nil,
             profile: nil
-          })
+          )
         end
       end
 
       context 'has an active link' do
         let(:active) { true }
         it 'returns correct props' do
-          expect(subject).to eq({
-            prerender: true,
+          expect(subject).to eq(
             home: { name: 'if me', url: '/' },
             links: [
               { name: 'About', url: '/about', active: false },
@@ -111,7 +109,7 @@ describe HeaderHelper do
             ],
             mobileOnly: nil,
             profile: nil
-          })
+          )
         end
       end
     end

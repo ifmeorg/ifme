@@ -32,6 +32,7 @@ module PagesHelper
     basic_check = data.is_a?(Hash) && data['name'].is_a?(String) &&
                   data['link'].is_a?(String)
     return false unless basic_check
+
     data_type_check(data_type, data)
   end
 
@@ -47,6 +48,7 @@ module PagesHelper
 
   def spacer_tag?(index, size)
     return '' unless index + 1 != size
+
     content_tag(:div, '', class: 'spacer')
   end
 end

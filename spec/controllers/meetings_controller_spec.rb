@@ -1,10 +1,12 @@
-RSpec.describe MeetingsController, :type => :controller do
+# frozen_string_literal: true
+
+RSpec.describe MeetingsController, type: :controller do
   describe 'without being logged in' do
     subject { controller }
-      # TODO: implement session controller
-      # it_behaves_like 'LoggedOut'
+    # TODO: implement session controller
+    # it_behaves_like 'LoggedOut'
     describe 'GET' do
-      %w(join leave comment delete_comment).each do |action|
+      %w[join leave comment delete_comment].each do |action|
         it "#{action} redirects to login" do
           get action
 

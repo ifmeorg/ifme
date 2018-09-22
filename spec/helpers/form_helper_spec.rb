@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
 describe FormHelper do
   let(:inputs) { nil }
   let(:action) { nil }
-  let(:valid_inputs) { [
-    { id: 'some-id', type: 'text', value: 'Hello' },
-    { id: 'some-other-id', type: 'number', value: 1 }
-  ] }
+  let(:valid_inputs) do
+    [
+      { id: 'some-id', type: 'text', value: 'Hello' },
+      { id: 'some-other-id', type: 'number', value: 1 }
+    ]
+  end
   let(:valid_action) { '/categories' }
 
   describe '#edit_form_props' do
@@ -20,8 +24,7 @@ describe FormHelper do
       let(:inputs) { valid_inputs }
       let(:action) { valid_action }
       it 'returns correct props' do
-        expect(subject).to eq({
-          prerender: true,
+        expect(subject).to eq(
           inputs: [
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
@@ -29,7 +32,7 @@ describe FormHelper do
             { id: 'submit', type: 'submit', value: 'Submit', dark: true }
           ],
           action: '/categories'
-        })
+        )
       end
     end
   end
@@ -47,15 +50,14 @@ describe FormHelper do
       let(:inputs) { valid_inputs }
       let(:action) { valid_action }
       it 'returns correct props' do
-        expect(subject).to eq({
-          prerender: true,
+        expect(subject).to eq(
           inputs: [
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
             { id: 'submit', type: 'submit', value: 'Submit', dark: true }
           ],
           action: '/categories'
-        })
+        )
       end
     end
   end
@@ -73,8 +75,7 @@ describe FormHelper do
       let(:inputs) { valid_inputs }
       let(:action) { valid_action }
       it 'returns correct props' do
-        expect(subject).to eq({
-          prerender: true,
+        expect(subject).to eq(
           inputs: [
             { id: 'some-id', type: 'text', value: 'Hello' },
             { id: 'some-other-id', type: 'number', value: 1 },
@@ -82,7 +83,7 @@ describe FormHelper do
           ],
           action: '/categories',
           noFormTag: true
-        })
+        )
       end
     end
   end

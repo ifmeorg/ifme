@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
 SimpleCov.start 'rails'
 
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'rspec/collection_matchers'
 require 'capybara/rails'
@@ -15,7 +17,7 @@ Warden.test_mode!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -39,7 +41,7 @@ RSpec.configure do |config|
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
   config.mock_with :rspec do |mock_config|
-    mock_config.syntax = [:expect, :should]
+    mock_config.syntax = %i[expect should]
   end
   # ## Mock Framework
   #
@@ -72,7 +74,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     if /selenium_remote/.match Capybara.current_driver.to_s
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.gsub("\n", '')
+      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
       server = Capybara.current_session.server
       Capybara.server_port = '3000'
       Capybara.server_host = ip

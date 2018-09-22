@@ -4,7 +4,6 @@
  * this bundle will be loaded in production.
  */
 
-import jstz from 'jstimezonedetect';
 import ReactOnRails from 'react-on-rails';
 import { loadLocales } from '../libs/i18n/I18nSetup';
 import '../styles/_global.scss';
@@ -29,7 +28,6 @@ import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
 
-window.jstz = jstz;
 loadLocales();
 
 // This is how react_on_rails can see the Components in the browser.

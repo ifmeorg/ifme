@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 describe ViewersHelper do
-  describe "viewers_hover" do
+  describe 'viewers_hover' do
     let(:element) { '<a href="/categories/test-category">Test Category</a>' }
     before(:each) do
       allow(self).to receive(:react_component).and_return(nil)
     end
 
-    it "displays only you when there are no viewers with link" do
+    it 'displays only you when there are no viewers with link' do
       new_user1 = create(:user1)
       new_category = create(:category, user_id: new_user1.id)
       new_moment = create(:moment, user_id: new_user1.id, category: Array.new(1, new_category.id))
@@ -20,7 +22,7 @@ describe ViewersHelper do
       viewers_hover(nil, new_category)
     end
 
-    it "displays list of viewers with link" do
+    it 'displays list of viewers with link' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_user3 = create(:user3)
@@ -39,13 +41,13 @@ describe ViewersHelper do
     end
   end
 
-  describe "get_viewers_for" do
-    it "returns empty array for invalid input" do
+  describe 'get_viewers_for' do
+    it 'returns empty array for invalid input' do
       result = get_viewers_for(nil, nil)
       expect(result.length).to eq(0)
     end
 
-    it "returns array of size 1 for valid input of data type category" do
+    it 'returns array of size 1 for valid input of data type category' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_category = create(:category, user_id: new_user1.id)
@@ -56,7 +58,7 @@ describe ViewersHelper do
       expect(result[0]).to eq(new_user2.id)
     end
 
-    it "returns array of size 2 for valid input of data type category" do
+    it 'returns array of size 2 for valid input of data type category' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_user3 = create(:user3)
@@ -69,7 +71,7 @@ describe ViewersHelper do
       expect(result[1]).to eq(new_user3.id)
     end
 
-    it "returns array of size 1 for valid input of data type mood" do
+    it 'returns array of size 1 for valid input of data type mood' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_mood = create(:mood, user_id: new_user1.id)
@@ -79,7 +81,7 @@ describe ViewersHelper do
       expect(result[0]).to eq(new_user2.id)
     end
 
-    it "returns array of size 2 for valid input of data type mood" do
+    it 'returns array of size 2 for valid input of data type mood' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_user3 = create(:user3)
@@ -91,7 +93,7 @@ describe ViewersHelper do
       expect(result[1]).to eq(new_user3.id)
     end
 
-    it "returns array of size 1 for valid input of data type strategy" do
+    it 'returns array of size 1 for valid input of data type strategy' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_strategy = create(:strategy, user_id: new_user1.id)
@@ -101,7 +103,7 @@ describe ViewersHelper do
       expect(result[0]).to eq(new_user2.id)
     end
 
-    it "returns array of size 2 for valid input of data type strategy" do
+    it 'returns array of size 2 for valid input of data type strategy' do
       new_user1 = create(:user1)
       new_user2 = create(:user2)
       new_user3 = create(:user3)
