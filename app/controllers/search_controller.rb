@@ -4,6 +4,7 @@ class SearchController < ApplicationController
   def index
     permitted = params.require(:search).permit(:email)
     raise ActionController::ParameterMissing if permitted.blank?
+
     @matching_users = search_by_email(permitted[:email].strip)
     @email_query = permitted[:email]
   rescue ActionController::ParameterMissing

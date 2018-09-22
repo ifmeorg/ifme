@@ -11,6 +11,7 @@ module ApplicationMailerHelper
     return user.ally_notify.nil? if notify_type == 'ally_notify'
     return user.group_notify.nil? if notify_type == 'group_notify'
     return user.meeting_notify.nil? if notify_type == 'meeting_notify'
+
     false
   end
 

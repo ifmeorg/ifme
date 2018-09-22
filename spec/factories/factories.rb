@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :group_member do
     association :user, factory: :user1
@@ -68,7 +70,7 @@ FactoryBot.define do
     name { 'Fancy Medication Name' }
     dosage { 10 }
     dosage_unit { 'tablet' }
-    refill { 01/01/2020 }
+    refill { 0o1 / 0o1 / 2020 }
     strength { 12 }
     strength_unit { 'mg' }
     total { '30' }

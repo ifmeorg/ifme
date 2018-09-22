@@ -42,7 +42,6 @@ RSpec.describe CompareLocalesSupport do
     end
   end
 
-
   describe 'check non english devise locales include all keys' do
     context 'when the source is devise_english' do
       let(:source) { described_class::LOCALES_FILES[:devise_english] }
@@ -83,7 +82,6 @@ RSpec.describe CompareLocalesSupport do
       end
     end
   end
-
 
   describe 'check non english devise_invitable locales include all keys' do
     context 'when the source is devise_invitable_english' do
@@ -167,9 +165,8 @@ RSpec.describe CompareLocalesSupport do
     end
   end
 
-
   describe 'check all locale files for missing tests' do
-    subject{Dir.glob("#{described_class::LOCALES_DIR}/*.yml")}
+    subject { Dir.glob("#{described_class::LOCALES_DIR}/*.yml") }
     it { is_expected.to match_array(described_class::LOCALES_FILES.values) }
   end
 end

@@ -1,4 +1,6 @@
-RSpec.feature "LeaderEditsGroups", type: :feature do
+# frozen_string_literal: true
+
+RSpec.feature 'LeaderEditsGroups', type: :feature do
   scenario 'successfully' do
     user = create :user
     login_as user

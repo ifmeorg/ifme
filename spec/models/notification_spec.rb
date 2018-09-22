@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: notifications
@@ -40,5 +42,4 @@ describe Notification do
 
     expect(assc.macro).to eq :belongs_to
   end
-
 end

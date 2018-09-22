@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-COMPONENT_NAME = 'Avatar';
-ALT = 'Profile picture';
+COMPONENT_NAME = 'Avatar'
+ALT = 'Profile picture'
 LOCAL_ASSET = '/assets/contributors/ABC123.jpg'
 CLOUDINARY_HOST = 'res.cloudinary.com'
 CLOUDINARY_ASSET_ID = 'XYZ789'
 CLOUDINARY_ASSET_URL = "https://#{CLOUDINARY_HOST}/image/upload/#{CLOUDINARY_ASSET_ID}.jpg"
-OPTIONS = { large: true, alt: 'Hello' }
+OPTIONS = { large: true, alt: 'Hello' }.freeze
 
 describe ProfilePicture do
   subject { described_class }
@@ -17,7 +17,7 @@ describe ProfilePicture do
       'in development environment' do
         rendered = subject.fetch(LOCAL_ASSET)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+ALT+'"')
+        expect(rendered).to include('"alt":"' + ALT + '"')
         expect(rendered).to include(LOCAL_ASSET)
         expect(rendered).not_to include(CLOUDINARY_HOST)
       end
@@ -27,7 +27,7 @@ describe ProfilePicture do
         allow(Rails).to receive(:env) { 'production'.inquiry }
         rendered = subject.fetch(LOCAL_ASSET)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+ALT+'"')
+        expect(rendered).to include('"alt":"' + ALT + '"')
         expect(rendered).to include(LOCAL_ASSET)
         expect(rendered).to include(CLOUDINARY_HOST)
       end
@@ -36,7 +36,7 @@ describe ProfilePicture do
       'portraits' do
         rendered = subject.fetch(CLOUDINARY_ASSET_URL)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+ALT+'"')
+        expect(rendered).to include('"alt":"' + ALT + '"')
         expect(rendered).to include(CLOUDINARY_ASSET_ID)
         expect(rendered).to include(CLOUDINARY_HOST)
       end
@@ -47,7 +47,7 @@ describe ProfilePicture do
       'in development environment' do
         rendered = subject.fetch(LOCAL_ASSET, OPTIONS)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+OPTIONS[:alt]+'"')
+        expect(rendered).to include('"alt":"' + OPTIONS[:alt] + '"')
         expect(rendered).to include('"large":true')
         expect(rendered).to include(LOCAL_ASSET)
         expect(rendered).not_to include(CLOUDINARY_HOST)
@@ -58,7 +58,7 @@ describe ProfilePicture do
         allow(Rails).to receive(:env) { 'production'.inquiry }
         rendered = subject.fetch(LOCAL_ASSET, OPTIONS)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+OPTIONS[:alt]+'"')
+        expect(rendered).to include('"alt":"' + OPTIONS[:alt] + '"')
         expect(rendered).to include('"large":true')
         expect(rendered).to include(LOCAL_ASSET)
         expect(rendered).to include(CLOUDINARY_HOST)
@@ -68,7 +68,7 @@ describe ProfilePicture do
       'portraits' do
         rendered = subject.fetch(CLOUDINARY_ASSET_URL, OPTIONS)
         expect(rendered).to have_tag('script', with: { 'data-component-name': COMPONENT_NAME })
-        expect(rendered).to include('"alt":"'+OPTIONS[:alt]+'"')
+        expect(rendered).to include('"alt":"' + OPTIONS[:alt] + '"')
         expect(rendered).to include('"large":true')
         expect(rendered).to include(CLOUDINARY_ASSET_ID)
         expect(rendered).to include(CLOUDINARY_HOST)

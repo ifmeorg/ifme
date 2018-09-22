@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe DateTimeHelper do
   describe '#format_date' do
     context 'MM/DD/YYY format' do

@@ -8,7 +8,6 @@
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
 const webpack = require('webpack');
-const baseConfig = require('./webpack.config.base');
 const glob = require('glob');
 const { resolve } = require('path');
 
@@ -23,6 +22,7 @@ const devBuild = process.env.NODE_ENV !== 'production';
 const { output } = webpackConfigLoader(configPath);
 const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const baseConfig = require('./webpack.config.base');
 
 const extractCSS = new ExtractTextPlugin(`${outputFilename}.css`);
 const cssLoaderWithModules = {
@@ -49,9 +49,8 @@ const config = Object.assign(baseConfig, {
 
   output: {
     // Name comes from the entry section.
-    filename: `${outputFilename}.js`,
-    chunkFilename: `${outputFilename}.chunk.js`,
-
+    filename: 'webpack-bundle.js',
+    chunkFilename: 'webpack-bundle.chunk.js',
     // Leading slash is necessary
     publicPath: `/${output.publicPath}`,
     path: output.path,

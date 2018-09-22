@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe NotificationsController, type: :controller do
   describe '#destroy' do
     let(:user) { FactoryBot.create(:user1) }

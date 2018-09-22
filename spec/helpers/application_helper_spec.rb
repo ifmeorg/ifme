@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ApplicationHelper do
   describe '#i18n_set?' do
     context 'when does not exist' do
@@ -73,7 +75,7 @@ describe ApplicationHelper do
     context 'sign out' do
       let(:current_controller) { 'profile' }
       let(:path)               { destroy_user_session_path }
-      let(:environment)        { { :method => :delete } }
+      let(:environment)        { { method: :delete } }
 
       it { is_expected.to be false }
     end
@@ -398,7 +400,7 @@ describe ApplicationHelper do
         icons = [{ fas: fas }, { far: far }, { fab: fab }]
         for icon_set in icons
           for icon in icon_set.values[0]
-            expect(get_icon_class(icon)).to eq("#{icon_set.keys[0].to_s} fa-#{icon}")
+            expect(get_icon_class(icon)).to eq("#{icon_set.keys[0]} fa-#{icon}")
           end
         end
       end
@@ -414,7 +416,7 @@ describe ApplicationHelper do
 
     context 'when icon and text are string values' do
       it 'returns icon text' do
-        expect(get_icon_text('facebook','Facebook')).to eq(
+        expect(get_icon_text('facebook', 'Facebook')).to eq(
           '<i class="fab fa-facebook smaller_margin_right"></i>Facebook'
         )
       end

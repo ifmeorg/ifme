@@ -3,7 +3,6 @@
 module HeaderHelper
   def header_props
     {
-      prerender: true,
       home: { name: t('app_name'), url: root_path },
       profile: user_signed_in? ? profile : nil,
       links: links,
@@ -15,6 +14,7 @@ module HeaderHelper
 
   def links
     return basic_links + add_not_signed_in_links unless user_signed_in?
+
     basic_links + add_signed_in_links
   end
 

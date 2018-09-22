@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'UserCreatesADraftMoment', js: true do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.second }

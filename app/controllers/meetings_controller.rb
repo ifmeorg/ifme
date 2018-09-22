@@ -274,6 +274,7 @@ class MeetingsController < ApplicationController
       leader: true
     )
     return if group_member.exists?
+
     redirect_to_path(group_path(group_id))
   end
 

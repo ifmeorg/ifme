@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :strategy do
-    name { "Test Strategy" }
-    description { "Test Description" }
+    name { 'Test Strategy' }
+    description { 'Test Description' }
     comment { true }
     user_id { 1 }
 

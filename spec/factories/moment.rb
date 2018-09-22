@@ -1,10 +1,10 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 FactoryBot.define do
   factory :moment do
-    name  { "Test Moment" }
-    why { "Test Why" }
-    fix { "Test fix" }
+    name  { 'Test Moment' }
+    why { 'Test Why' }
+    fix { 'Test fix' }
     comment { true }
 
     trait :with_secret_share do

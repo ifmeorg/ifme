@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -44,60 +46,62 @@
 describe User do
   let(:current_time) { Time.zone.now }
 
-  describe ".find_for_google_oauth2" do
-    let(:access_token) {
-      double({
-                info: double({ email: "some@user.com", name: "some name" }),
-                provider: "asdf",
-                credentials: double({ token: "some token",
-                                      expires_at: current_time.to_i,
-                                      refresh_token: "some refresh token"}),
-                uid: "some uid"
-      })
-    }
+  describe '.find_for_google_oauth2' do
+    let(:access_token) do
+      double(
+        info: double(email: 'some@user.com', name: 'some name'),
+        provider: 'asdf',
+        credentials: double(token: 'some token',
+                            expires_at: current_time.to_i,
+                            refresh_token: 'some refresh token'),
+        uid: 'some uid'
+      )
+    end
 
-    context "an existing user" do
-      let!(:user) { User.create(name: "some name", email: "some@user.com", password: "asdfasdf") }
+    context 'an existing user' do
+      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfasdf') }
 
-      it "updates token information" do
+      it 'updates token information' do
         User.find_for_google_oauth2(access_token)
         user.reload
-        expect(user.provider).to eq("asdf")
-        expect(user.token).to eq("some token")
-        expect(user.refresh_token).to eq("some refresh token")
-        expect(user.uid).to eq("some uid")
+        expect(user.provider).to eq('asdf')
+        expect(user.token).to eq('some token')
+        expect(user.refresh_token).to eq('some refresh token')
+        expect(user.uid).to eq('some uid')
         expect(user.access_expires_at).to eq(Time.at(current_time.to_i))
       end
 
-      it "returns a user" do
+      it 'returns a user' do
         expect(User.find_for_google_oauth2(access_token)).to eq(user.reload)
       end
     end
 
-    context "a new user" do
-      it "creates a new user" do
-        expect(User.where(email: "some@user.com").first).to be_nil
+    context 'a new user' do
+      it 'creates a new user' do
+        expect(User.where(email: 'some@user.com').first).to be_nil
         User.find_for_google_oauth2(access_token)
-        expect(User.where(email: "some@user.com").first).to be_a_kind_of(User)
+        expect(User.where(email: 'some@user.com').first).to be_a_kind_of(User)
       end
 
-      it "returns a user" do
+      it 'returns a user' do
         expect(User.find_for_google_oauth2(access_token)).to be_a_kind_of(User)
       end
     end
   end
 
-  describe "#access_token" do
-    let!(:user) { User.create(name: "some name",
-                              email: "some@user.com", 
-                              password: "asdfasdf", 
-                              token: "some token" )}
+  describe '#access_token' do
+    let!(:user) do
+      User.create(name: 'some name',
+                  email: 'some@user.com',
+                  password: 'asdfasdf',
+                  token: 'some token')
+    end
 
-    context "no expiration saved" do
-      it "updates the access token" do
-        User.stub(:update_access_token) {
-          "some new token"
-        }
+    context 'no expiration saved' do
+      it 'updates the access token' do
+        User.stub(:update_access_token) do
+          'some new token'
+        end
         user.access_expires_at = nil
 
         expect_any_instance_of(User).to receive(:update_access_token)
@@ -105,33 +109,33 @@ describe User do
       end
     end
 
-    context "an expired token" do
+    context 'an expired token' do
       before do
         user.access_expires_at = current_time - 600
       end
 
-      it "updates the access token" do
-        User.stub(:update_access_token) {
-          "some new token"
-        }
+      it 'updates the access token' do
+        User.stub(:update_access_token) do
+          'some new token'
+        end
         expect_any_instance_of(User).to receive(:update_access_token)
         user.google_access_token
       end
     end
 
-    context "a valid token" do
+    context 'a valid token' do
       before do
         user.access_expires_at = current_time + 600
       end
 
-      it "returns the current token" do
+      it 'returns the current token' do
         expect_any_instance_of(User).not_to receive(:update_access_token)
-        expect(user.google_access_token).to eq("some token")
+        expect(user.google_access_token).to eq('some token')
       end
     end
   end
 
-  describe "#available_groups" do
+  describe '#available_groups' do
     it "returns the groups that allys belong to and the user doesn't" do
       user = create :user1
       user_groups = create_list :group_with_member, 2, user_id: user.id
@@ -141,7 +145,7 @@ describe User do
       group_both_belong_to = user_groups.first
       create :group_member, group_id: group_both_belong_to.id, user_id: ally.id
 
-      result = user.available_groups("groups.created_at DESC")
+      result = user.available_groups('groups.created_at DESC')
 
       expect(result).to eq [group_only_ally_belongs_to]
     end

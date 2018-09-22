@@ -62,9 +62,7 @@ var onReadyApplication = function() {
       "X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
     }
   });
-
-  // Timezone detection
-  Cookies.set("timezone", jstz.determine().name());
+  Cookies.set('timezone', jstz.determine().name());
 };
 
 loadPage(onReadyApplication);

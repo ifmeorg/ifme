@@ -15,6 +15,7 @@ class CommentVisibility
 
   def build
     return unless should_show_visibility?
+
     I18n.t('shared.comments.visible_only_between_you_and',
            name: other_person.name)
   end

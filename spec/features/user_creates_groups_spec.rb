@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'UserCreatesGroups', js: true do
   scenario 'sucessful' do
     user = create :user

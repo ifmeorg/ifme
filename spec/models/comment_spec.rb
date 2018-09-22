@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: comments
@@ -100,7 +102,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -109,7 +111,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_moment.id,
           'typename' => new_moment.name
-        })
+        )
       end
 
       it 'sends a notification when a viewer comments on a Moment and visibility is private' do
@@ -120,7 +122,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -129,7 +131,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_moment.id,
           'typename' => new_moment.name
-        })
+        )
       end
     end
 
@@ -149,7 +151,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -158,7 +160,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_strategy.id,
           'typename' => new_strategy.name
-        })
+        )
       end
 
       it 'sends a notification when a viewer comments on a Strategy and visibility is private' do
@@ -169,7 +171,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -178,7 +180,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_strategy.id,
           'typename' => new_strategy.name
-        })
+        )
       end
     end
 

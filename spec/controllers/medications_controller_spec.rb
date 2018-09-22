@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe MedicationsController do
   describe '#print_reminders' do
     let(:user) { FactoryBot.create(:user1) }

@@ -88,12 +88,12 @@ describe AlliesController do
         end
 
         it 'sends an email notification to the ally' do
-          data = {  
-              user: user.name,
-              user_id: user.id,
-              uid: user.uid,
-              type: "#{notification_type}",
-              uniqueid: "#{notification_type}_#{user.id}"
+          data = {
+            user: user.name,
+            user_id: user.id,
+            uid: user.uid,
+            type: notification_type.to_s,
+            uniqueid: "#{notification_type}_#{user.id}"
           }.to_json
 
           allow(NotificationMailer).to receive(:notification_email).with(ally.id.to_s, data).and_return(notification)
@@ -107,11 +107,11 @@ describe AlliesController do
         let(:notification_type) { 'new_ally_request' }
 
         it 'creates a pending allyship request' do
-          expect(Allyship).to receive(:create).with({
+          expect(Allyship).to receive(:create).with(
             user_id: user.id,
             ally_id: ally.id.to_s,
             status: :pending_from_ally
-          })
+          )
 
           subject
         end

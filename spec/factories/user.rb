@@ -51,17 +51,17 @@ FactoryBot.define do
   end
 
   factory :user1, class: User do
-    name { "Oprah Chang" }
+    name { 'Oprah Chang' }
     sequence(:email) { |n| "oprah.chang#{n}@example.com" }
-    password { "password" }
-    location { "Toronto, ON, Canada" }
+    password { 'password' }
+    location { 'Toronto, ON, Canada' }
   end
 
   factory :user2, class: User do
-    name { "Plum Blossom" }
-    email { "plum.blossom@example.com" }
-    password { "password" }
-    location { "Toronto, ON, Canada" }
+    name { 'Plum Blossom' }
+    email { 'plum.blossom@example.com' }
+    password { 'password' }
+    location { 'Toronto, ON, Canada' }
 
     trait :with_allies do
       transient do
@@ -78,18 +78,18 @@ FactoryBot.define do
   end
 
   factory :user3, class: User do
-    name { "Gentle Breezy" }
-    email { "gentle.breezy@example.com" }
-    password { "password" }
-    location { "Toronto, ON, Canada" }
+    name { 'Gentle Breezy' }
+    email { 'gentle.breezy@example.com' }
+    password { 'password' }
+    location { 'Toronto, ON, Canada' }
   end
 
   factory :user_oauth, class: User do
-    name { "Orange Southland" }
-    email { "orange.southland@example.com" }
-    password { "password" }
-    location { "Toronto, ON, Canada" }
-    token { "has_a_token" }
+    name { 'Orange Southland' }
+    email { 'orange.southland@example.com' }
+    password { 'password' }
+    location { 'Toronto, ON, Canada' }
+    token { 'has_a_token' }
     access_expires_at { Time.zone.now + 600 }
   end
 end

@@ -1,6 +1,6 @@
 <%= sanitize(local_assigns[:group].description) %>
 <div class="small_margin_top">
-  <%= react_component('Modal', props: {
+  <%= react_component('Modal', prerender: true, props: {
     element: "<button class=\"buttonDarkXS groupMembersButton\">#{t('members', count: local_assigns[:group].group_members.count)}</button>",
     title: t('notifications.members.title'),
     body: render(partial: '/groups/members', locals: { group: local_assigns[:group] })

@@ -11,7 +11,7 @@ module PageTransitionSupport
   end
 
   def change_page(trigger, check_for_element, condition = be_present)
-    trigger.()
+    trigger.call
     expect(find(check_for_element, wait: 10)).to condition
   end
 end

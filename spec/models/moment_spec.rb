@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: moments
@@ -21,9 +23,7 @@
 #
 
 describe Moment do
-
   describe '.find_secret_share!' do
-
     context 'when a valid secret share moment exists' do
       let(:moment) { create(:moment, :with_user, :with_secret_share) }
       subject { Moment.find_secret_share!(moment.secret_share_identifier) }
@@ -62,9 +62,9 @@ describe Moment do
     end
   end
 
-  describe "#published?" do
+  describe '#published?' do
     context 'when it has a publication date' do
-      let(:moment) { build(:moment, :with_user, :with_published_at)}
+      let(:moment) { build(:moment, :with_user, :with_published_at) }
       let(:subject) { moment.published? }
 
       it { is_expected.to be true }

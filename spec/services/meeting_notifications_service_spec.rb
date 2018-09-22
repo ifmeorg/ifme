@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe MeetingNotificationsService do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
@@ -28,14 +30,14 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'group_id' => group.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'group_id' => group.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
       end
     end
 
@@ -49,14 +51,14 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'typeid' => meeting.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'typeid' => meeting.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
       end
     end
 
@@ -69,14 +71,14 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'typeid' => meeting.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'typeid' => meeting.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe DashboardNavHelper do
   describe '#dashboard_nav_link_to' do
     let(:active)    { true }
@@ -26,7 +28,7 @@ describe DashboardNavHelper do
     end
 
     context 'when options include method' do
-      let(:options) { { :method => :delete } }
+      let(:options) { { method: :delete } }
 
       it 'passes method in environment' do
         expect(self).to receive(:active?).with(path, options)

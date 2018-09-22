@@ -30,6 +30,7 @@ class MedicationsController < ApplicationController
     TakeMedicationReminder.find_or_initialize_by(medication_id: @medication.id)
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     return if @medication.user_id == current_user.id
+
     redirect_to_path(medication_path(@medication))
   end
 
@@ -51,6 +52,7 @@ class MedicationsController < ApplicationController
   # PATCH/PUT /medications/1.json
   def update
     return unless save_refill_to_google_calendar(@medication)
+
     if @medication.update(medication_params)
       redirect_to_medication(@medication)
     else

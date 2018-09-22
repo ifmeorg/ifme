@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
   scenario 'user leaves group that they belong to' do
     user = create :user1
@@ -22,7 +24,8 @@ RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
     find('.groupMembersButton').click
     click_link 'Remove'
     expect(page).to have_content(
-      "You have removed #{other_member.name} from #{group.name}")
+      "You have removed #{other_member.name} from #{group.name}"
+    )
     expect(current_path).to eq(groups_path)
   end
 end

@@ -97,7 +97,7 @@ describe StrategiesController do
       context 'when the comment is not saved' do
         it 'responds with json no_save: true' do
           post :comment, params: invalid_comment_params
-          expect(response.body).to eq({no_save: true}.to_json)
+          expect(response.body).to eq({ no_save: true }.to_json)
         end
       end
     end
@@ -315,8 +315,8 @@ describe StrategiesController do
   describe 'PATCH update' do
     let(:user)      { create(:user, id: 1) }
     let!(:strategy) { create(:strategy, user_id: 1, id: 1) }
-    let(:valid_strategy_params)   { {description: 'updated description'} }
-    let(:invalid_strategy_params) { {description: nil} }
+    let(:valid_strategy_params)   { { description: 'updated description' } }
+    let(:invalid_strategy_params) { { description: nil } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
