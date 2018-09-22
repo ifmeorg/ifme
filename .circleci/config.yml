@@ -1,79 +1,126 @@
 version: 2
-jobs:
-  build:
-    working_directory: ~/ifmeorg/ifme
-    parallelism: 1
-    shell: /bin/bash --login
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    docker:
+defaults: &defaults
+  working_directory: ~/ifmeorg/ifme
+  parallelism: 1
+  shell: /bin/bash --login
+  environment:
+    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+  docker:
     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
       command: /sbin/init
     - image: circleci/ruby:2.3.4
     - image: circleci/node:8.11.1
+jobs:
+  setup-coverage:
+    <<: *defaults
     steps:
-    # Machine Setup
-    - checkout
-    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-    - run:
-        working_directory: ~/ifmeorg/ifme
-        command: rm -f ifmeorg/ifme/.rvmrc; echo 2.3.4 > ifmeorg/ifme/.ruby-version; rvm use 2.3.4 --default
-    - run:
-        working_directory: ~/ifmeorg/ifme
-        command: nvm install 8.11.1 && nvm alias default 8.11.1
-    # Dependencies
-    # Restore the dependency cache
-    - restore_cache:
-        keys:
-        - v1-dep-{{ .Branch }}-
-        - v1-dep-master-
-        - v1-dep-
-    - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - run: sudo dpkg -i google-chrome.deb
-    - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - run: rm google-chrome.deb
-    - run: gem install bundler
-    - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
-    - run: rm -rf ~/.yarn
-    - run: npm i -g yarn
-    - run: yarn install
-    # Save dependency cache
-    - save_cache:
-        key: v1-dep-{{ .Branch }}-{{ epoch }}
-        paths:
-        - ~/.cache/yarn
-        - ./node_modules
-    - run: |-
-        mkdir -p config && echo 'test:
-          min_messages: error
-          database: circle_ruby_test
-          pool: 5
-          allow_concurrency: true
-          username: ubuntu
-          encoding: unicode
-          adapter: postgresql
-          host: localhost
-        ' > config/database.yml
-    - run:
-        command: bundle exec rake db:create db:schema:load --trace
-        environment:
-          RAILS_ENV: test
-          RACK_ENV: test
-    # Test
-    - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
-    - run: cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint:build && yarn build:test && yarn test
-    - run: bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
-    - run: RAILS_ENV=test bundle exec rake jasmine:ci
-    - run: bundle exec bundle-audit check --update
-    # Save test results
-    - store_test_results:
-        path: /tmp/circleci-test-results
-    # Save artifacts
-    - store_artifacts:
-        path: /tmp/circleci-artifacts
-    - store_artifacts:
-        path: /tmp/circleci-test-results
+      - checkout
+      - run:
+          name: Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.3.4 > ifmeorg/ifme/.ruby-version; rvm use 2.3.4 --default
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: nvm install 8.11.1 && nvm alias default 8.11.1
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - run: sudo dpkg -i google-chrome.deb
+      - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+      - run: rm google-chrome.deb
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: rm -rf ~/.yarn
+      - run: npm i -g yarn
+      - run: yarn install
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+          - ~/.cache/yarn
+          - ./node_modules
+      - run: |-
+          mkdir -p config && echo 'test:
+            min_messages: error
+            database: circle_ruby_test
+            pool: 5
+            allow_concurrency: true
+            username: ubuntu
+            encoding: unicode
+            adapter: postgresql
+            host: localhost
+          ' > config/database.yml
+      - run:
+          command: bundle exec rake db:create db:schema:load --trace
+          environment:
+            RAILS_ENV: test
+            RACK_ENV: test
+      - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - run:
+          name: Run React Jasmine Tests
+          command: |
+            cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint:build && yarn build:test && yarn test
+            cd tmp && cc-test-reporter format-coverage -t lcov -o codeclimate.react-jasmine.json coverage/react-jasmine/lcov.info
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.react-jasmine.json
+      - run:
+          name: Run Rails Rspec Tests
+          command: |
+            bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
+            cd tmp && cc-test-reporter format-coverage -t simplecov -o codeclimate.rails-rspec.json coverage/rails-rspec/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.rails-rspec.json
+      - run:
+          name: Run Rails Jasmine Tests
+          command: |
+            RAILS_ENV=test bundle exec rake jasmine:ci
+            cd tmp && cc-test-reporter format-coverage -t lcov -o codeclimate.rails-jasmine.json coverage/rails-jasmine/lcov.info
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.rails-jasmine.json
+      - run: bundle exec bundle-audit check --update
+      - store_test_results:
+          path: /tmp/circleci-test-results
+      - store_artifacts:
+          path: /tmp/circleci-artifacts
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+  upload-coverage:
+    <<: *defaults
+    environment:
+      - CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
+    steps:
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - run:
+          name: Upload coverage results to Code Climate
+          command: |
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
   deploy:
     docker:
       - image: buildpack-deps:trusty
@@ -83,15 +130,20 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
-
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
-      - deploy:
+      - setup-coverage
+      - build:
+          requires:
+            - setup-coverage
+      - upload-coverage:
           requires:
             - build
+      - deploy:
+          requires:
+            - upload-coverage
           filters:
             branches:
               only: master
