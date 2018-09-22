@@ -10,7 +10,7 @@ const someEvent = InputMocks.event;
 
 describe('InputSubmit', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   it('toggles clicking correctly', () => {

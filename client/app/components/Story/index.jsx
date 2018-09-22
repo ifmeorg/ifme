@@ -44,7 +44,7 @@ const header = (
 );
 
 const tags = (categories: ?(string[]), moods: ?(string[])) => (
-  <div className={css.tags}>
+  <div>
     {categories && <StoryCategories categories={categories} />}
     {moods && <StoryMoods moods={moods} />}
   </div>

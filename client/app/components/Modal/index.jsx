@@ -94,7 +94,7 @@ export class Modal extends React.Component<Props, State> {
     const { element, elementId } = this.props;
     const { open } = this.state;
     return (
-      <div className={css.modal}>
+      <div>
         {element ? (
           <div
             id={elementId || null}

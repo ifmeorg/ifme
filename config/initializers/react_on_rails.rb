@@ -10,7 +10,7 @@ ReactOnRails.configure do |config|
   # If you are never using server rendering, you may set this to "".
   # If you are using the same file for client and server rendering, having this set probably does
   # not affect performance.
-  config.server_bundle_js_file = "webpack-bundle.js"
+  config.server_bundle_js_file = ""
 
   # If you are using the ReactOnRails::TestHelper.configure_rspec_to_compile_assets(config)
   # with rspec then this controls what yarn command is run

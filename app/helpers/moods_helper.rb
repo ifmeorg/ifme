@@ -35,12 +35,6 @@ module MoodsHelper
         label: t('common.form.description'),
         value: @mood.description || nil,
         dark: true
-      },
-      {
-        id: 'submit',
-        type: 'submit',
-        value: t('common.actions.submit'),
-        dark: true
       }
     ]
   end

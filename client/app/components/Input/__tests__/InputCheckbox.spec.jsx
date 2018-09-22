@@ -15,7 +15,7 @@ const someEvent = (checkbox) => {
 
 describe('InputCheckbox', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   describe('has no uncheckedValue prop', () => {

@@ -1,5 +1,15 @@
 <% title @meeting.name %>
+<div class="small_margin_bottom">
+  <%= sanitize(@meeting.description) %>
+</div>
 <%= render partial: '/meetings/story_body', locals: { meeting: @meeting } %>
+<div class="small_margin_top">
+  <%= react_component('Modal', props: {
+    element: "<button class=\"buttonDarkXS meetingMembersButton\">#{t('members', count: @meeting.members.count)}</button>",
+    title: t('notifications.members.title'),
+    body: render(partial: '/groups/members', locals: { group: @meeting })
+  }) %>
+</div>
 <% if user_is_leader_of?(@meeting) %>
   <div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
     <div class="gridRowSpaceBetween">
@@ -7,7 +17,11 @@
       <%= react_component('StoryActions', props: {
         dark: true,
         actions: {
-          delete: @meeting.leaders.include?(current_user) && {
+          edit: {
+            name: t('common.actions.edit'),
+            link: edit_meeting_path(@meeting)
+          },
+          delete: {
             name: t('common.actions.delete'),
             link: url_for(@meeting),
             dataConfirm: t('common.actions.confirm'),

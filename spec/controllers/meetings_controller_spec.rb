@@ -51,7 +51,7 @@ RSpec.describe MeetingsController, type: :controller do
           end
 
           it { expect(response).to have_http_status(:redirect) }
-          it { expect(response).to redirect_to(group_path(meeting.group_id)) }
+          it { expect(response).to redirect_to(groups_path) }
         end
 
         context 'inexistent meeting id' do

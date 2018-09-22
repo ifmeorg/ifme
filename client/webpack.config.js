@@ -49,8 +49,8 @@ const config = Object.assign(baseConfig, {
 
   output: {
     // Name comes from the entry section.
-    filename: 'webpack-bundle.js',
-    chunkFilename: 'webpack-bundle.chunk.js',
+    filename: `${outputFilename}.js`,
+    chunkFilename: `${outputFilename}.chunk.js`,
     // Leading slash is necessary
     publicPath: `/${output.publicPath}`,
     path: output.path,

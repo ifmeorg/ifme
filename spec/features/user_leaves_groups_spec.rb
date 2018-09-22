@@ -7,7 +7,7 @@ RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
     group = create :group_with_member, user_id: user.id
     other_group_member = create :user2
     create :group_member, user_id: other_group_member.id, group_id: group.id
-    visit groups_path
+    visit group_path(group)
     find('.storyActionsLeave').click
     page.driver.browser.switch_to.alert.accept
     expect(page).to have_content("You have left #{group.name}")
@@ -20,7 +20,7 @@ RSpec.feature 'UserLeavesGroups', type: :feature, js: true do
     group = create :group_with_member, user_id: leader.id, leader: true
     other_member = create :user2
     create :group_member, user_id: other_member.id, group_id: group.id
-    visit groups_path
+    visit group_path(group)
     find('.groupMembersButton').click
     click_link 'Remove'
     expect(page).to have_content(

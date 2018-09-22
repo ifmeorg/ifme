@@ -52,5 +52,7 @@
 <% end %>
 
 <% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
-  <%= t('allies.index.none') %>
+  <div class="small_margin_top">
+    <%= t('allies.index.none') %>
+  </div>
 <% end %>

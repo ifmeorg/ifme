@@ -20,7 +20,7 @@ const openListener = () => {
 
 describe('Modal', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   describe('has open prop as false', () => {
@@ -28,14 +28,14 @@ describe('Modal', () => {
       const component = <Modal element="Hello" body={bodyText} title={title} />;
       it('toggles correctly', () => {
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
       });
     });
 
@@ -50,16 +50,16 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
       });
     });
 
@@ -73,14 +73,14 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
       });
     });
 
@@ -95,16 +95,16 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
       });
     });
   });
@@ -116,14 +116,14 @@ describe('Modal', () => {
       );
       it('toggles correctly', () => {
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
       });
     });
 
@@ -139,15 +139,15 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
       });
     });
 
@@ -162,14 +162,14 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
       });
     });
 
@@ -185,15 +185,15 @@ describe('Modal', () => {
           />
         );
         const wrapper = shallow(component);
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
         wrapper.find('.modalClose').simulate('click');
-        expect(wrapper.find('.modalBackdrop').length).toEqual(0);
-        expect(wrapper.find('.modal').length).toEqual(0);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
         expect(window.alert).toHaveBeenCalled();
-        expect(wrapper.find('.modalBackdrop').length).toEqual(1);
-        expect(wrapper.find('.modal').length).toEqual(1);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
       });
     });
   });
