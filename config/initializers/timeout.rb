@@ -7,5 +7,5 @@
 # early. To avoid clogging processing ability, Rack::Timeout terminates long
 # running requests.
 if defined?(Rack::Timeout)
-  Rack::Timeout.timeout = 20 # seconds
+  Rails.application.config.middleware.insert_before Rack::Runtime, Rack::Timeout, service_timeout: 30
 end
