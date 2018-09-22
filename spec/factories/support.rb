@@ -14,8 +14,8 @@
 
 FactoryBot.define do
   factory :support do
-    user_id 1
-    support_type "MyString"
-    support_ids "MyString"
+    user_id { 1 }
+    support_type { "MyString" }
+    support_ids { "MyString" }
   end
 end

@@ -78,6 +78,7 @@ group :development, :test do
 
   gem 'jshint'
   gem 'rubocop', '>= 0.49.0'
+  gem 'rubocop-rspec'
 
   gem 'foreman'
 end
