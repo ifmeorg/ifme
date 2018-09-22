@@ -1,10 +1,10 @@
 {
-  "plugins": ["jasmine", "flowtype"],
+  "plugins": ["flowtype", "jest", "react"],
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "jasmine": true
+    "jest/globals": true
   },
   "root": true,
   "rules": {

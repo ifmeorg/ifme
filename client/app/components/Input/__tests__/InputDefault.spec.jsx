@@ -15,7 +15,7 @@ const someEvent = (error: boolean) => {
 
 describe('InputDefault', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   describe('has invalid type prop', () => {

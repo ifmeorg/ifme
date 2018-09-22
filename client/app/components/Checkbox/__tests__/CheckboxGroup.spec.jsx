@@ -14,7 +14,7 @@ function messaging(ids) {
 
 describe('CheckboxGroup', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   describe('when there is one checkbox', () => {

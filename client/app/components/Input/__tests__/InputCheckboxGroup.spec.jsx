@@ -31,7 +31,7 @@ const checkboxes = [
 
 describe('InputCheckboxGroup', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   describe('has no required prop', () => {

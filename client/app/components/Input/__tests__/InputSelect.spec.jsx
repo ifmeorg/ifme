@@ -12,7 +12,7 @@ const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {
   beforeEach(() => {
-    spyOn(window, 'alert');
+    jest.spyOn(window, 'alert');
   });
 
   it('toggles options correctly', () => {
