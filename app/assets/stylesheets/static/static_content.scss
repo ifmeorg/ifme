@@ -47,6 +47,8 @@
         margin-bottom: $size-0;
       }
       &Logo > div > div {
+        display: flex;
+        justify-content: center;
         margin: 0 auto $size-30 auto;
       }
     }
