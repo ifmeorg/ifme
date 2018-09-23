@@ -79,7 +79,6 @@ jobs:
           name: Run React Jest Tests
           command: |
             cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint:build && yarn build:test && yarn test --coverage
-            cd ~/ifmeorg/ifme/ && cp client/coverage/coverage-final.json tmp/codeclimate.frontend.json
             cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t lcov -o codeclimate.frontend.json ../client/coverage/lcov.info
       - persist_to_workspace:
           root: tmp
@@ -89,8 +88,7 @@ jobs:
           name: Run Rails Rspec Tests
           command: |
             bundle exec rspec --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec.xml
-            cd ~/ifmeorg/ifme/ && cp coverage/.resultset.json tmp/codeclimate.backend.json
-            cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json
+            cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t simplecov -o codeclimate.backend.json ../coverage/.resultset.json
       - persist_to_workspace:
           root: tmp
           paths:
