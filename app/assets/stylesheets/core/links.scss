@@ -1,6 +1,7 @@
 @mixin staticContentFakeLink() {
   text-decoration: none;
   color: $cornflower;
+  transition: all 0.2s ease-in-out;
   &:hover {
     opacity: 0.5;
   }

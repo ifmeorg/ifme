@@ -5,6 +5,7 @@
   text-decoration: none;
   box-sizing: border-box;
   color: $mulberry !important;
+  transition: all 0.2s ease-in-out;
 }
 
 @mixin buttonFull() {
