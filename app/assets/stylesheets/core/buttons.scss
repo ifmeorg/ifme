@@ -1,5 +1,6 @@
 @mixin button() {
   background: $white;
+  display: inline-block;
   border-radius: $size-4;
   border: none;
   text-decoration: none;
