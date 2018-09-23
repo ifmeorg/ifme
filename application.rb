@@ -46,9 +46,9 @@ module Ifme
      'Referrer-Policy' => 'strict-origin-when-cross-origin',
      'Strict-Transport-Security' => 'max-age=31536000'
     }
-    
+
     # gzip the html/json responses
-    config.middleware.use Rack::Deflater, 
+    config.middleware.use Rack::Deflater,
       include: %w[text/html application/json image/svg+xml]
     # export translations for use in javascript
     config.middleware.use I18n::JS::Middleware
