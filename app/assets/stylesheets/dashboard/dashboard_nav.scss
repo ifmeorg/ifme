@@ -7,14 +7,15 @@
   }
 
   &Links {
-    @include setFontSize($size-20);
+    @include setFontSize($size-16);
     a {
       display: block;
-      padding: $size-18 $size-26;
+      padding: $size-14 $size-26;
       text-decoration: none;
       border: none;
       color: $white;
       background: $black-20;
+      transition: all 0.2s ease-in-out;
     }
     &Active {
       background: $white-70 !important;
