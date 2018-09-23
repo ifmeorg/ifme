@@ -46,6 +46,7 @@
       flex-direction: column;
       justify-content: flex-start;
       > div {
+        padding: $size-10 0;
         text-align: center;
       }
       > div:nth-of-type(2n), > div:nth-of-type(3n) {
