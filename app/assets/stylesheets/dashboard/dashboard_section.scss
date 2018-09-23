@@ -21,6 +21,7 @@
       color: $mulberry;
       word-break: break-all;
       a {
+        display: inline-block;
         color: $mulberry;
       }
       &Right {
