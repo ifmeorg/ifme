@@ -78,6 +78,34 @@
     }
   }
 
+  .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: $size-20 0;
+    @media screen and (min-width: $medium) {
+      flex-direction: row;
+    }
+  }
+
+  .article__heading {
+    width: 100%;
+    @media screen and (min-width: $medium) {
+      min-width: 320px;
+      max-width: 320px;
+      text-align: right;
+    }
+  }
+
+  .article__content {
+    flex-grow: 1;
+    @media screen and (min-width: $medium) {
+      margin-top: 7px;
+      margin-left: $size-40;
+    }
+  }
+
   .purple_yay {
     @include setFontSize($size-30);
     color: $purple-yay;
