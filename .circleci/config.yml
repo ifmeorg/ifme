@@ -106,8 +106,6 @@ jobs:
           path: /tmp/circleci-test-results
   upload-coverage:
     <<: *defaults
-    environment:
-      - CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
     steps:
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
