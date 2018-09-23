@@ -12,6 +12,9 @@
 
 .ally {
   text-align: center;
+  a {
+    transition: all 0.2s ease-in-out;
+  }
   > a:first-of-type {
     @include setMargin($size-0, $size-0, $size-20, $size-0);
     display: block;
