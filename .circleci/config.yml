@@ -113,6 +113,7 @@ jobs:
           name: Upload coverage results to Code Climate
           command: |
             ./tmp/cc-test-reporter sum-coverage --output tmp/codeclimate.total.json --parts 2 tmp/codeclimate.*.json
+            sed -i.bak 's@"/home/ubuntu/ifmeorg/ifme/@"@' tmp/codeclimate.total.json
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
   deploy:
     docker:
