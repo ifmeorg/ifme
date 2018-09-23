@@ -1,8 +1,9 @@
 .staticContent {
   color: $white;
   width: 100%;
+  max-width: 1200px;
   box-sizing: border-box;
-  padding: $size-40 60px;
+  padding: $size-40 34px;
   @media screen and (max-width: $medium) {
     padding: $size-20;
   }
@@ -32,7 +33,7 @@
 
   .message {
     &Hero {
-      @include setMargin($size-0, $size-0, $size-50 * 2, $size-0);
+      @include setMargin(75px, $size-0, $size-50 * 2, $size-0);
     }
     &Main {
       @include setFontSize($size-32);

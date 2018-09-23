@@ -10,9 +10,9 @@ export type Props = {
 export const Resources = (props: Props) => {
   const { resources } = props;
   return (
-    <div className={css.gridTwo}>
+    <div className={css.gridThree}>
       {resources.map(resource => (
-        <div className={css.gridTwoItem}>
+        <div className={css.gridThreeItem}>
           <Resource
             tagged
             tags={resource.languages.concat(resource.tags)}

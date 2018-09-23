@@ -19,7 +19,9 @@
   }
 
   &Links {
-    padding: 66px 114px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 66px 34px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -57,7 +59,9 @@
   }
 
   &Extras {
-    padding: $size-0 114px 66px 114px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $size-0 34px 66px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
