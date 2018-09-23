@@ -117,7 +117,42 @@
   }
 
   form {
+    max-width: 446px;
+    margin: 0 auto;
     text-align: center;
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    .label {
+      margin-bottom: 0;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      padding: 0;
+      text-align: left;
+    }
+
+    [type='text'],
+    [type='email'],
+    [type='password'],
+    [type='submit'] {
+      width: 100%;
+    }
+
+    [type='checkbox'] {
+      float: left;
+      width: 20px;
+      height: 20px;
+    }
+
+    .actions {
+      margin-bottom: 100px;
+    }
   }
 
   .partner {
