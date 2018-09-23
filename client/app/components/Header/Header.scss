@@ -20,6 +20,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media (max-width: $medium) {
+      display: block;
+    }
   }
 
   &Link {
@@ -46,6 +49,7 @@
     @include setFontSize($size-30);
     display: none;
     color: $white;
+    cursor: pointer;
     @media screen and (max-width: $medium) {
       display: block;
     }
@@ -65,12 +69,10 @@
       bottom: 0;
       top: 0;
       &Nav {
-        margin-bottom: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
         width: 100%;
+        display: block;
+        margin-bottom: auto;
+        padding-bottom: $size-20;
         > div {
           overflow: auto;
           width: 100%;
@@ -80,6 +82,7 @@
         background: $black-70;
         height: 100%;
         width: 100%;
+        overflow-y: scroll;
       }
     }
   }
