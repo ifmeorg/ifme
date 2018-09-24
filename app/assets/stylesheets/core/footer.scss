@@ -44,7 +44,7 @@
       text-align: right;
     }
     @media screen and (max-width: $medium) {
-      padding: 33px 57px;
+      padding: 33px 20px;
       flex-direction: column;
       justify-content: flex-start;
       > div {
@@ -67,7 +67,7 @@
     justify-content: space-between;
     align-items: center;
     @media screen and (max-width: $medium) {
-      padding: $size-0 57px 33px 57px;
+      padding: $size-0 20px 33px;
       flex-direction: column;
       justify-content: flex-start;
       > div:last-of-type {
