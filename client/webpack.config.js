@@ -106,7 +106,7 @@ const config = Object.assign(baseConfig, {
         test: /\.css$/,
         include: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          devBuild ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -121,7 +121,7 @@ const config = Object.assign(baseConfig, {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          devBuild ? 'style-loader' : MiniCssExtractPlugin.loader,
           cssLoaderWithModules,
         ],
       },
@@ -129,7 +129,7 @@ const config = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          devBuild ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -145,7 +145,7 @@ const config = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          devBuild ? 'style-loader' : MiniCssExtractPlugin.loader,
           cssLoaderWithModules,
           'sass-loader',
         ],
