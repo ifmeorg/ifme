@@ -49,6 +49,7 @@
   width: min-content;
   display: -ms-grid;
   -ms-grid-columns: min-content;
+  @include standardTransition();
   @include setSize($size-30);
   @include setColor($white, $key-lime);
 

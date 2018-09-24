@@ -7,10 +7,11 @@
   }
 
   &Links {
-    @include setFontSize($size-20);
+    @include setFontSize($size-16);
     a {
+      @include standardTransition();
       display: block;
-      padding: $size-18 $size-26;
+      padding: $size-14 $size-26;
       text-decoration: none;
       border: none;
       color: $white;
