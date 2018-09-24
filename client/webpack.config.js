@@ -7,7 +7,6 @@
 // https://github.com/shakacode/react_on_rails/tree/master/spec/dummy/client
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client
 
-const webpack = require('webpack');
 const glob = require('glob');
 const { resolve } = require('path');
 
@@ -24,10 +23,6 @@ const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 
-const extractCSS = new MiniCssExtractPlugin({
-  fileName: `${outputFilename}.css`,
-  chunkFilename: `${outputFilename}.chunk.css`,
-});
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
@@ -83,11 +78,10 @@ const config = Object.assign(baseConfig, {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-      DEBUG: false,
+    new MiniCssExtractPlugin({
+      fileName: `${outputFilename}.css`,
+      chunkFilename: `${outputFilename}.chunk.css`,
     }),
-    extractCSS,
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
   ],
 

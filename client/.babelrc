@@ -4,6 +4,9 @@
     "@babel/preset-flow",
     "@babel/preset-react"
   ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ],
   "env": {
     "test": {
       "plugins": [
@@ -12,8 +15,7 @@
     },
     "development": {
       "plugins": [
-        "flow-react-proptypes",
-        "@babel/plugin-proposal-class-properties"
+        "flow-react-proptypes"
       ]
     }
   }
