@@ -24,8 +24,8 @@ module.exports = Object.assign(baseConfig, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]-[hash].css',
-      chunkFilename: '[name]-[hash].chunk.css',
+      fileName: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
 
@@ -50,6 +50,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         include: /node_modules/,
         use: [
+          'css-hot-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -65,6 +66,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
+          'css-hot-loader',
           MiniCssExtractPlugin.loader,
           cssLoaderWithModules
         ],
@@ -73,6 +75,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
         use: [
+          'css-hot-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -89,6 +92,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
         use: [
+          'css-hot-loader',
           MiniCssExtractPlugin.loader,
           cssLoaderWithModules,
           'sass-loader',

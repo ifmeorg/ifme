@@ -75,6 +75,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "caniuse-lite": "^1.0.30000830",
     "compression-webpack-plugin": "^2.0.0",
+    "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.0",
     "empty": "^0.10.1",
     "enzyme": "^3.6.0",
