@@ -58,7 +58,7 @@
 
 @mixin gridItemBoxDark() {
   @include gridItemBox();
-  background: $mulberry-80;
+  background: $black-20;
   color: $white;
   h1, h1 > a {
     @include gridH1();
