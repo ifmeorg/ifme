@@ -44,6 +44,10 @@ body, html {
   line-height: 1.4;
 }
 
+.body--modal-open {
+  overflow: hidden;
+}
+
 .content {
   margin: 0 auto;
   padding: 0;

@@ -84,6 +84,11 @@ export class Modal extends React.Component<Props, State> {
   toggleOpen = () => {
     const { open } = this.state;
     const { openListener } = this.props;
+    if (!open) {
+      document.body.classList.add('body--modal-open');
+    } else {
+      document.body.classList.remove('body--modal-open');
+    }
     if (!open && openListener) {
       openListener();
     }
