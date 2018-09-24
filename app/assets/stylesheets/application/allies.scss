@@ -12,6 +12,9 @@
 
 .ally {
   text-align: center;
+  a {
+    @include standardTransition();
+  }
   > a:first-of-type {
     @include setMargin($size-0, $size-0, $size-20, $size-0);
     display: block;
