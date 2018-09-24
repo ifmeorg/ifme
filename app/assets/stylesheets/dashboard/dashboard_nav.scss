@@ -7,7 +7,7 @@
   }
 
   &Links {
-    @include setFontSize($size-16);
+    @include setFontSize($size-18);
     a {
       @include standardTransition();
       display: block;

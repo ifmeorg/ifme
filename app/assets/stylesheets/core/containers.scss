@@ -34,14 +34,6 @@
   white-space: nowrap;
 }
 
-.spacing {
-  margin-right: $size-10 !important;
-  @media screen and (max-width: $medium) {
-    margin-right: 0 !important;
-    margin-bottom: $size-10 !important;
-  }
-}
-
 .viewersIndicator {
   color: $dusty-rose;
   font-weight: bold;
