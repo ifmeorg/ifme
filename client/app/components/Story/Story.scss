@@ -105,5 +105,6 @@
 .categories,
 .moods {
   @include setMargin($size-8, $size-0, $size-0, $size-0);
+  font-size: $size-0;
   word-break: break-all;
 }
