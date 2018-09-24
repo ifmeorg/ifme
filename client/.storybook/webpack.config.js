@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const baseConfig = require('../webpack.config.base');
 
 const cssLoaderWithModules = {
@@ -23,9 +23,10 @@ module.exports = Object.assign(baseConfig, {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
+    new ExtractCssChunks({
       fileName: '[name].css',
       chunkFilename: '[id].css',
+      hot: true,
     }),
   ],
 
@@ -50,8 +51,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         include: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           {
             loader: 'css-loader',
             options: {
@@ -66,8 +66,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           cssLoaderWithModules
         ],
       },
@@ -75,8 +74,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           {
             loader: 'css-loader',
             options: {
@@ -92,8 +90,7 @@ module.exports = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           cssLoaderWithModules,
           'sass-loader',
         ],

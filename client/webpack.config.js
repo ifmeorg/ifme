@@ -11,7 +11,7 @@ const glob = require('glob');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
@@ -19,9 +19,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 
 const configPath = resolve('..', 'config');
-const devBuild = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV !== 'production';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
+const outputFilename = `[name]-[hash]${devMode ? '' : '.min'}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',
@@ -34,7 +34,7 @@ const cssLoaderWithModules = {
 };
 
 const config = Object.assign(baseConfig, {
-  mode: devBuild ? 'development' : 'production',
+  mode: devMode ? 'development' : 'production',
   context: resolve(__dirname),
 
   entry: {
@@ -55,7 +55,7 @@ const config = Object.assign(baseConfig, {
   },
 
   optimization: {
-    minimizer: devBuild ? [] : [
+    minimizer: devMode ? [] : [
       new UglifyJsPlugin({
         sourceMap: false,
       }),
@@ -77,9 +77,10 @@ const config = Object.assign(baseConfig, {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
-      fileName: '[name].css',
-      chunkFilename: '[id].css',
+    new ExtractCssChunks({
+      filename: `${outputFilename}.css`,
+      chunkFilename: `${outputFilename}.chunk.css`,
+      hot: !!devMode,
     }),
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
   ],
@@ -105,8 +106,7 @@ const config = Object.assign(baseConfig, {
         test: /\.css$/,
         include: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           {
             loader: 'css-loader',
             options: {
@@ -121,8 +121,7 @@ const config = Object.assign(baseConfig, {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           cssLoaderWithModules,
         ],
       },
@@ -130,8 +129,7 @@ const config = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           {
             loader: 'css-loader',
             options: {
@@ -147,8 +145,7 @@ const config = Object.assign(baseConfig, {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
         use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           cssLoaderWithModules,
           'sass-loader',
         ],
@@ -187,7 +184,7 @@ const config = Object.assign(baseConfig, {
 
 module.exports = config;
 
-if (devBuild) {
+if (devMode) {
   console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
   module.exports.devtool = 'eval-source-map';
 } else {
