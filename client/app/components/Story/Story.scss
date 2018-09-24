@@ -10,8 +10,8 @@
     text-transform: uppercase;
     color: $mulberry-80;
     a {
+      @include standardTransition();
       color: $mulberry-80 !important;
-      transition: all 0.2s ease-in-out;
     }
   }
   &By {
@@ -23,8 +23,8 @@
       margin-left: $size-10;
       color: $mulberry;
       a {
+        @include standardTransition();
         color: $mulberry !important;
-        transition: all 0.2s ease-in-out;
       }
     }
   }
@@ -40,9 +40,9 @@
   }
   .name {
     @include setFontSize($size-20);
+    @include standardTransition();
     color: $mulberry;
     word-break: break-word;
-    transition: all 0.2s ease-in-out;
   }
   .body {
     @include setMargin($size-10, $size-0, $size-0, $size-0);
@@ -82,7 +82,7 @@
     }
   }
   a {
-    transition: all 0.2s ease-in-out;
+    @include standardTransition();
   }
 }
 

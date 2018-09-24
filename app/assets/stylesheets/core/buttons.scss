@@ -1,11 +1,11 @@
 @mixin button() {
+  @include standardTransition();
   background: $white;
   border-radius: $size-4;
   border: none;
   text-decoration: none;
   box-sizing: border-box;
   color: $mulberry !important;
-  transition: all 0.2s ease-in-out;
 }
 
 @mixin buttonFull() {

@@ -9,13 +9,13 @@
   &Links {
     @include setFontSize($size-16);
     a {
+      @include standardTransition();
       display: block;
       padding: $size-14 $size-26;
       text-decoration: none;
       border: none;
       color: $white;
       background: $black-20;
-      transition: all 0.2s ease-in-out;
     }
     &Active {
       background: $white-70 !important;
