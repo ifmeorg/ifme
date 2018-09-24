@@ -1,10 +1,8 @@
 {
   "presets": [
-    "env",
-    "flow",
-    "react",
-    "stage-2",
-    ["latest-node", { "target": 8 }]
+    "@babel/preset-env",
+    "@babel/preset-flow",
+    "@babel/preset-react"
   ],
   "env": {
     "test": {
@@ -14,7 +12,8 @@
     },
     "development": {
       "plugins": [
-        "flow-react-proptypes"
+        "flow-react-proptypes",
+        "@babel/plugin-proposal-class-properties"
       ]
     }
   }

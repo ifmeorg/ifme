@@ -12,9 +12,9 @@ const glob = require('glob');
 const { resolve } = require('path');
 
 const CompressionPlugin = require('compression-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
 const configPath = resolve('..', 'config');
@@ -24,7 +24,10 @@ const outputFilename = `[name]-[hash]${devBuild ? '' : '.min'}`;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 
-const extractCSS = new ExtractTextPlugin(`${outputFilename}.css`);
+const extractCSS = new MiniCssExtractPlugin({
+  fileName: `${outputFilename}.css`,
+  chunkFilename: `${outputFilename}.chunk.css`,
+});
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
@@ -36,6 +39,7 @@ const cssLoaderWithModules = {
 };
 
 const config = Object.assign(baseConfig, {
+  mode: devBuild ? 'development' : 'production',
 
   context: resolve(__dirname),
 
@@ -56,6 +60,28 @@ const config = Object.assign(baseConfig, {
     path: output.path,
   },
 
+  optimization: {
+    minimizer: devBuild ? [] : [
+      new UglifyJsPlugin({
+        sourceMap: false,
+      }),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          discardComments: {
+            removeAll: true,
+          },
+        },
+      }),
+      new CompressionPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css|html)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+    ],
+  },
+
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
@@ -63,36 +89,7 @@ const config = Object.assign(baseConfig, {
     }),
     extractCSS,
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
-  ].concat(devBuild ? [] : [
-    new UglifyJsPlugin({
-      sourceMap: false,
-    }),
-    /**
-     * OptimizeCssAssetsPlugin doesn't play nicely with CompressionPlugin; enabling
-     * OptimizeCssAssetsPlugin prevents the CSS from being gzipped. Since we use
-     * OptimizeCssAssetsPlugin primarily to remove comments, I value gzip over comment
-     * removal for now.
-     *
-     * A GitHub issue is already filed for this problem:
-     * https://github.com/webpack-contrib/compression-webpack-plugin/issues/62
-     *
-     * Re-enable this plugin once the issue has been resolved.
-     */
-    // new OptimizeCssAssetsPlugin({
-    //   cssProcessorOptions: {
-    //     discardComments: {
-    //       removeAll: true,
-    //     },
-    //   },
-    // }),
-    new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|css|html)$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
-  ]),
+  ],
 
   module: {
     rules: [
@@ -114,53 +111,50 @@ const config = Object.assign(baseConfig, {
       {
         test: /\.css$/,
         include: /node_modules/,
-        loader: extractCSS.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: false,
-                camelCase: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+              camelCase: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
             },
-          ],
-        }),
+          },
+        ],
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: extractCSS.extract({
-          fallback: 'style-loader',
-          use: [cssLoaderWithModules],
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          cssLoaderWithModules,
+        ],
       },
       {
         test: /\.(sass|scss)$/,
         include: /node_modules/,
-        loader: extractCSS.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: false,
-                camelCase: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-              },
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+              camelCase: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
             },
-            'sass-loader',
-          ],
-        }),
+          },
+          'sass-loader',
+        ],
       },
       {
         test: /\.(sass|scss)$/,
         exclude: /node_modules/,
-        loader: extractCSS.extract({
-          fallback: 'style-loader',
-          use: [cssLoaderWithModules, 'sass-loader'],
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          cssLoaderWithModules,
+          'sass-loader',
+        ],
       },
       {
         test: /\.ya?ml$/,
