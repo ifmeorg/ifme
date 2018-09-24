@@ -21,3 +21,7 @@
   transition: $duration;
   transition-timing-function: linear;
 }
+
+@mixin standardTransition() {
+  transition: all 0.2s ease-in-out;
+}

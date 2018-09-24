@@ -16,13 +16,14 @@
   }
 
   .link {
-    @include setFontSize($size-24);
+    @include setFontSize($size-20);
     display: block;
     color: $white;
     padding-bottom: $size-10;
   }
 
   a {
+    @include standardTransition();
     text-decoration: none;
     color: $white;
     &:hover {
@@ -31,7 +32,7 @@
   }
 
   .author {
-    @include setFontSize($size-18);
+    @include setFontSize($size-14);
     @include setMargin($size-0, $size-0, $size-10, $size-0);
     color: $white-50;
     line-height: 1.5;
