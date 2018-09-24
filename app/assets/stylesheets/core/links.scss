@@ -1,4 +1,5 @@
 @mixin staticContentFakeLink() {
+  @include standardTransition();
   text-decoration: none;
   color: $cornflower;
   &:hover {

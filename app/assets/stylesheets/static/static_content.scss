@@ -1,8 +1,9 @@
 .staticContent {
   color: $white;
   width: 100%;
+  max-width: 1200px;
   box-sizing: border-box;
-  padding: $size-40 60px;
+  padding: $size-40 34px;
   @media screen and (max-width: $medium) {
     padding: $size-20;
   }
@@ -32,7 +33,7 @@
 
   .message {
     &Hero {
-      @include setMargin($size-0, $size-0, $size-50 * 2, $size-0);
+      @include setMargin(75px, $size-0, $size-50 * 2, $size-0);
     }
     &Main {
       @include setFontSize($size-32);
@@ -47,6 +48,8 @@
         margin-bottom: $size-0;
       }
       &Logo > div > div {
+        display: flex;
+        justify-content: center;
         margin: 0 auto $size-30 auto;
       }
     }
@@ -76,6 +79,35 @@
     }
   }
 
+  .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: $size-20 0;
+    @media screen and (min-width: $medium) {
+      flex-direction: row;
+    }
+    &Heading {
+      width: 100%;
+      @media screen and (min-width: $medium) {
+        min-width: 320px;
+        max-width: 320px;
+        text-align: right;
+      }
+    }
+    &Content {
+      flex-grow: 1;
+      p:first-of-type {
+        margin-top: 0;
+      }
+      @media screen and (min-width: $medium) {
+        margin-top: 7px;
+        margin-left: $size-40;
+      }
+    }
+  }
+
   .purple_yay {
     @include setFontSize($size-30);
     color: $purple-yay;
@@ -84,7 +116,42 @@
   }
 
   form {
+    max-width: 446px;
+    margin: 0 auto;
     text-align: center;
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    .label {
+      margin-bottom: 0;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      padding: 0;
+      text-align: left;
+    }
+
+    [type='text'],
+    [type='email'],
+    [type='password'],
+    [type='submit'] {
+      width: 100%;
+    }
+
+    [type='checkbox'] {
+      float: left;
+      width: 20px;
+      height: 20px;
+    }
+
+    .actions {
+      margin-bottom: 100px;
+    }
   }
 
   .partner {
