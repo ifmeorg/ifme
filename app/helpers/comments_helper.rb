@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CommentsHelper
   # rubocop:disable MethodLength
   def generate_comment(data, data_type)
