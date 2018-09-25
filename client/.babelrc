@@ -1,15 +1,16 @@
 {
   "presets": [
-    "env",
-    "flow",
-    "react",
-    "stage-2",
-    ["latest-node", { "target": 8 }]
+    "@babel/preset-env",
+    "@babel/preset-flow",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
   ],
   "env": {
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs"
       ]
     },
     "development": {

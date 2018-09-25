@@ -41,12 +41,9 @@ export class ChartControl extends React.Component<
 
   constructor(props: chartControlProp) {
     super(props);
-
-    const { initialParams } = this.props;
-
     this.state = {
-      type: initialParams.type,
-      data: initialParams.data,
+      type: props.initialParams.type,
+      data: props.initialParams.data,
     };
   }
 
