@@ -20,32 +20,26 @@
       only the last one will load correctly in production, as though there is
       a global registry and the last bundle overwrites the entire registry.
     -->
-    <%= javascript_pack_tag 'webpack_bundle' %>
+    <%= javascript_pack_tag 'webpack_bundle', defer: Rails.env.production? %>
     <%= stylesheet_pack_tag 'webpack_bundle' %>
     <!-- Webpack Assets END -->
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+
+    <!-- Jstimezonedetect -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js' async></script>
 
     <% if user_signed_in? %>
       <!-- Pusher -->
-      <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+      <script src="https://js.pusher.com/3.0/pusher.min.js" async></script>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
 
-    <!-- Jstimezonedetect -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js'></script>
-
-    <!-- jQuery UI -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/flick/jquery-ui.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <style type="text/css">
-      .ui-autocomplete-loading { background: white url("/assets/ui-anim_basic_16x16.gif") right center no-repeat; }
-    </style>
-
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete"
-        async defer></script>
+    <% if join_path? || update_account_path? %>
+      <!-- Google Maps API -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete" async></script>
+    <% end %>
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
