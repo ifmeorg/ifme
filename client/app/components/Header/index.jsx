@@ -52,9 +52,12 @@ export class Header extends React.Component<Props, State> {
 
   displayToggle = () => {
     const { mobileNavOpen, toggled } = this.state;
+    const body = ((document.body: any): HTMLBodyElement);
     if (toggled && mobileNavOpen) {
+      body.classList.add('bodyHeaderOpen');
       return <FontAwesomeIcon icon={faTimes} />;
     }
+    body.classList.remove('bodyHeaderOpen');
     return <FontAwesomeIcon icon={faBars} />;
   };
 
