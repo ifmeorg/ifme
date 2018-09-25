@@ -3,7 +3,6 @@
  * Add components only if needed in current application, because
  * this bundle will be loaded in production.
  */
-import '@babel/polyfill';
 import ReactOnRails from 'react-on-rails';
 import { loadLocales } from '../libs/i18n/I18nSetup';
 import '../styles/_global.scss';
