@@ -20,7 +20,7 @@
       only the last one will load correctly in production, as though there is
       a global registry and the last bundle overwrites the entire registry.
     -->
-    <%= javascript_pack_tag 'webpack_bundle', defer: Rails.env.production? %>
+    <%= javascript_pack_tag 'webpack_bundle' %>
     <%= stylesheet_pack_tag 'webpack_bundle' %>
     <!-- Webpack Assets END -->
 
