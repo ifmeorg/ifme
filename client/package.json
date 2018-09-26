@@ -9,7 +9,7 @@
     "lint:setup": "flow-typed install",
     "lint:flow": "flow",
     "lint:eslint": "eslint 'app/**/*.js' 'app/**/*.jsx'",
-    "lint:prettier": "./node_modules/.bin/prettier \"app/**/*.{js,jsx}\" --write --single-quote  --trailing-comma all && git add .",
+    "lint:prettier": "./node_modules/.bin/prettier \"app/**/*.{js,jsx}\" --write --single-quote  --trailing-comma all",
     "lint": "yarn lint:flow && yarn lint:prettier && yarn lint:eslint --fix",
     "lint:build": "yarn lint:flow && yarn lint:eslint",
     "storybook": "start-storybook -p 6006",
@@ -39,6 +39,7 @@
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0",
     "js-yaml": "^3.8.2",
+    "jstimezonedetect": "^1.0.6",
     "pell": "^1.0.4",
     "prop-types": "^15.5.10",
     "react": "^16.4.0",
@@ -51,7 +52,8 @@
     "react-on-rails": "11.1.4",
     "react-render-html": "^0.6.0",
     "shortid": "^2.2.8",
-    "superagent": "^3.5.2"
+    "superagent": "^3.5.2",
+    "universal-cookie": "^3.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

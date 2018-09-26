@@ -9,7 +9,6 @@
 
 const glob = require('glob');
 const { resolve } = require('path');
-
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -56,6 +55,27 @@ const config = Object.assign(baseConfig, {
   },
 
   optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
     minimizer: devMode ? [] : [
       new UglifyJsPlugin({
         sourceMap: false,
