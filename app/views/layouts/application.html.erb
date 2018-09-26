@@ -26,8 +26,13 @@
     <!-- Webpack Assets END -->
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <%= inline_css 'application.css' %>
-    <%= inline_js 'application.js' %>
+    <% if Rails.env.production? %>
+      <%= inline_css 'application.css' %>
+      <%= inline_js 'application.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% end %>
 
     <% if user_signed_in? %>
       <!-- Pusher -->
@@ -46,7 +51,7 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>">
+    <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>" role="main">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>
       <% if user_signed_in? && !static_page? %>

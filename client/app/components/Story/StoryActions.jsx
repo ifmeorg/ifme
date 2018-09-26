@@ -83,6 +83,7 @@ const displayLink = (
       href={actions[item].link}
       data-method={actions[item].dataMethod}
       data-confirm={actions[item].dataConfirm}
+      aria-label={actions[item].name}
     >
       {classMap(dark)[item]}
     </a>

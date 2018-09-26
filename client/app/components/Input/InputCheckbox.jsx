@@ -8,8 +8,8 @@ import globalCss from '../../styles/_global.scss';
 import type { Checkbox as Props } from './index';
 import { Tooltip } from '../Tooltip';
 
-const displayUnchecked = (name: ?string, uncheckedValue: ?any, id: string) => (
-  <input id={id} name={name} type="hidden" value={uncheckedValue} />
+const displayUnchecked = (name: ?string, uncheckedValue: ?any) => (
+  <input name={name} type="hidden" value={uncheckedValue} />
 );
 
 const handleOnChange = (
@@ -49,7 +49,7 @@ export const InputCheckbox = (props: Props) => {
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
       <div>
         {typeof uncheckedValue !== 'undefined'
-          && displayUnchecked(name, uncheckedValue, id)}
+          && displayUnchecked(name, uncheckedValue)}
         <input
           id={id}
           name={name}
@@ -58,6 +58,7 @@ export const InputCheckbox = (props: Props) => {
           defaultChecked={checked}
           onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)
           }
+          aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
         />
         <div className={css.checkboxLabel}>{renderHTML(label)}</div>
       </div>
