@@ -119,6 +119,7 @@ export class Input extends React.Component<Props, State> {
       min,
       max,
       myRef,
+      label,
     } = this.props;
     if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
@@ -137,6 +138,7 @@ export class Input extends React.Component<Props, State> {
         max={max}
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
+        label={label}
       />
     );
   };
@@ -274,7 +276,7 @@ export class Input extends React.Component<Props, State> {
 
   displayLabel = () => {
     const {
-      label, info, required, id, type,
+      label, info, required, type,
     } = this.props;
     const { error } = this.state;
     if (REQUIRES_LABEL.includes(type) && label) {
@@ -283,7 +285,6 @@ export class Input extends React.Component<Props, State> {
           label={label}
           required={REQUIRED_POSSIBLE.includes(type) && required}
           info={info}
-          id={id}
           error={error}
         />
       );

@@ -210,7 +210,7 @@ class ApplicationController < ActionController::Base
 
     return '' if total_count <= 1
 
-    result = '<div class="center" id="stats">'
+    result = '<div class="center" class="stats">'
     result += if total_count == 1
                 t('stats.total_moment', count: total_count.to_s)
               else

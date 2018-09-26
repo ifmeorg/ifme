@@ -11,7 +11,6 @@ import css from './Input.scss';
 import globalCss from '../../styles/_global.scss';
 
 export type Props = {
-  id: string,
   label: string,
   required?: boolean,
   info?: string,
@@ -37,20 +36,18 @@ const displayTags = (required: ?boolean, info: ?string) => (
   </div>
 );
 
-const displayLabel = (id: string, label: string, error: ?boolean) => (
-  <label htmlFor={id} className={error ? css.error : ''}>
-    {label}
-  </label>
+const displayLabel = (label: string, error: ?boolean) => (
+  <div className={`${error ? css.error : ''} ${css.labelText}`}>{label}</div>
 );
 
 export const InputLabel = (props: Props) => {
   const {
-    error, label, required, info, id,
+    error, label, required, info,
   } = props;
   return (
     <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
       <div className={css.labelInfo}>
-        {displayLabel(id, label, error)}
+        {displayLabel(label, error)}
         {error ? (
           <div className="labelError">
             <FontAwesomeIcon icon={faExclamation} />

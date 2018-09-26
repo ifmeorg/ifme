@@ -1,6 +1,6 @@
 <% title t('allies.index.title') %>
 <%= render partial: '/search/form' %>
-<%= link_to t('allies.index.invite'), new_user_invitation_path, class: 'small_margin_top buttonDarkM fullWidth center' %>
+<%= link_to t('allies.index.invite'), new_user_invitation_path, class: 'smallMarginTop buttonDarkM fullWidth center' %>
 
 <% if @outgoing_ally_requests.any? %>
   <strong><%= t('allies.index.outgoing') %></strong>
@@ -52,7 +52,7 @@
 <% end %>
 
 <% if @outgoing_ally_requests.empty? && @incoming_ally_requests.empty? && @accepted_allies.count == 0 %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <%= t('allies.index.none') %>
   </div>
 <% end %>

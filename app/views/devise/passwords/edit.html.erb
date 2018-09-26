@@ -2,23 +2,17 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <div class="label">
-      <%= f.label :password, t('devise.new_password') %>
-    </div>
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="label">
+    <%= t('devise.new_password') %>
   </div>
+  <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.new_password') %>
 
-  <div class="field">
-    <div class="label">
-      <%= f.label :password_confirmation, t('devise.passwords.edit.confirmation') %>
-    </div>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="label smallMarginTop">
+    <%= t('devise.passwords.edit.confirmation') %>
   </div>
+  <%= f.password_field :password_confirmation, autocomplete: 'off', 'aria-label': t('devise.passwords.edit.confirmation') %>
 
-  <div class="actions">
-    <%= f.submit t('devise.password_change'), class: 'buttonGhostM' %>
-  </div>
+  <%= f.submit t('devise.password_change'), class: 'buttonGhostM smallMarginTop' %>
 <% end %>
 
 <%= render "devise/shared/links" %>

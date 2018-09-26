@@ -360,7 +360,7 @@ nb:
     main_message_one: "%{app_name} er et samfunn for mental helse opplevelser som oppmuntrer folk til å dele sine personlige historier med betrodde allierte."
     message_text_one: "Betrodde allierte er folkene vi samhandler med på en daglig basis, inkludert venner, familiemedlemmer, kollegaer, lærere, og mental helse arbeidere."
     main_message_two: "Å takle mental helse er det som gjør oss til mennesker. Men for mange av oss, er det vanskelig å være åpne om det."
-    message_text_two: "Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.<p><div class=\"subtitle block\">\"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>"
+    message_text_two: "Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.<p><div class=\"subtitle block\">\"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>"
     main_message_three: "Vil du støtte oss?"
     message_text_three: "Vår applikasjon er ett <u>fullstendig</u> åpent kildekode-prosjekt. Den er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.</p><p>I 2016, mottok vi et samfunnsstipend fra %{linebreak_link}. I 2017, mottok vi støtte fra %{fund_club_link}.</p>Du kan støtte oss ved å donere til vår %{patreon_link}.</p>"
     linebreak: 'Linebreak'
@@ -369,7 +369,7 @@ nb:
     description: "Hvis du er interessert i å skrive for oss, kontakt oss på %{email}! Vi tar også imot anonyme innleveringer."
   contribute:
     main_message_one: "if me er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett."
-    message_text_one: "Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>oversettere</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class=\"no_margin_bottom\">Vennligst %{email_link} så kommer vi i kontakt med deg! Du vil bli invitert til å delta i vår %{slack_link} side, vårt hovedkommunikasjonsmiddel. Forsikr deg at du 'forker' vårt oppbevaringssted på %{github_link}!</p>"
+    message_text_one: "Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>oversettere</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class=\"noMarginBottom\">Vennligst %{email_link} så kommer vi i kontakt med deg! Du vil bli invitert til å delta i vår %{slack_link} side, vårt hovedkommunikasjonsmiddel. Forsikr deg at du 'forker' vårt oppbevaringssted på %{github_link}!</p>"
     more_contributors: 'Flere fabelaktige bidragsytere!'
     thanks: 'Masse takk til'
     slack: 'Slack'
@@ -428,7 +428,7 @@ nb:
     social_media: 'Sosiale medier platformer'
     social_media_description: '<p>Kommunikasjon, engasjement og handlinger tatt gjennom eksterne sosiale medie platformer som denne nettsiden deltar på er tilpasset vilkårene og betingelsene i tillegg til personvernserklæringene holdt med de ulike sosiale mediene.</p><p>Brukere er rådet til å bruke sosiale medie platformene klokt og kommunisere / engasjere dem med ventet omsorg og forsiktighet med tanke på deres eget personvern og personlige detaljer. Denne nettsiden vil aldri spørre etter personlig eller sensitiv informasjon igjennom sosiale medie platformer og oppfordrer brukere som ønsker å diskutere sensitive detaljer til å kontakte dem igjennom hovedkommunikasjonskanaler slik som telefon eller e-post.</p><p>Denne nettsiden kan bruke sosiale delingsknapper som hjelper med å dele web-innhold direkte fra nettsider til den sosiale medie platformen. Brukere oppfordres til å bruke slike sosiale delingsknapper på egen diskresjon og får med seg den sosiale medie platformen kan spore og lagre din foresporsel om å dele en nettside hendholdsvis igjennom din sosiale medie platform.</p>'
     contact: 'Kontakt oss'
-    contact_description: "<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class=\"no_margin_bottom\"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class=\"noMarginBottom\"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>"
   resources:
     communities: Samfunn
     education: Utdanning

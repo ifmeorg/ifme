@@ -15,7 +15,7 @@ module ReminderHelper
 
   def format_reminders(reminder_names)
     reminders = '<div>'
-    reminders += '<i class="fa fa-bell smaller_margin_right"></i>'
+    reminders += '<i class="fa fa-bell smallerMarginRight"></i>'
     reminders += reminder_names.to_sentence(
       two_words_connector: t('support.array.words_connector')
     )

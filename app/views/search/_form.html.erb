@@ -1,10 +1,10 @@
 <%= form_for(:search, url: search_index_path, html: { method: :get }) do |f| %>
-  <div id="search">
+  <div class="search">
     <% if @email.nil? %>
       <%= f.text_field :email, placeholder: t('search.form.search_by_email'), 'aria-label': t('search.form.search_by_email') %>
     <% else %>
       <%= f.text_field :email, placeholder: t('search.form.search_by_email'), value: @email, 'aria-label': t('search.form.search_by_email') %>
     <% end %>
-    <%= f.submit t('search.search'), class: 'no_margin_right' %>
+    <%= f.submit t('search.search'), class: 'searchSubmit' %>
   </div>
 <% end %>

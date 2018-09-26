@@ -120,20 +120,9 @@
     margin: 0 auto;
     text-align: center;
 
-    .field {
-      margin-bottom: 12px;
-    }
-
-    .label {
-      margin-bottom: 0;
-      padding-top: 12px;
-      padding-bottom: 12px;
-    }
-
+    .label,
     label {
-      display: block;
-      padding: 0;
-      text-align: left;
+      color: $white;
     }
 
     [type='text'],

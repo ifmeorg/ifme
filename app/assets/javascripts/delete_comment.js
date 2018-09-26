@@ -8,9 +8,9 @@ var onReadyDeleteComment = function() {
       $(comment).remove();
 
       if ($('.comment').length === 0) {
-        $('.actions').addClass('no_margin_bottom');
+        $('.actions').addClass('noMarginBottom');
       } else {
-        $('.comment').first().addClass('no_margin_top');
+        $('.comment').first().addClass('noMarginTop');
       }
 
       var url;

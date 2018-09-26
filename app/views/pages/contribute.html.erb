@@ -18,8 +18,8 @@
   <% @blurbs.each do |blurb| %>
     <div class="gridThreeItemBoxGhost center">
       <%= ProfilePicture.fetch(blurb["image"], name: blurb['name']) %>
-      <div class="contributor_profile small_margin_top"><%= blurb["profile"] %></div>
-      <div class="small_margin_top">
+      <div class="contributor_profile smallMarginTop"><%= blurb["profile"] %></div>
+      <div class="smallMarginTop">
         <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
         <br /><%= content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
       </div>

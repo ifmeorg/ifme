@@ -1,90 +1,73 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <div class="label"><%= t('common.name') %></div>
-    <%= f.text_field :name, 'aria-label': t('common.name') %>
-  </div>
+  <div class="label"><%= t('common.name') %></div>
+  <%= f.text_field :name, 'aria-label': t('common.name') %>
 
-  <div class="field">
-    <div class="label"><%= t('common.form.location') %></div>
-    <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional'), 'aria-label': t('common.form.location') %>
-  </div>
+  <div class="label smallMarginTop"><%= t('common.form.location') %></div>
+  <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional'), 'aria-label': t('common.form.location') %>
 
-  <div class="field">
-    <div class="label">
-      <%= t('common.form.email') %>
+  <div class="label smallMarginTop">
+    <%= t('common.form.email') %>
+  </div>
+  <% if current_user.provider == 'google_oauth2' %>
+    <div>
+      <%= raw t('devise.registrations.google_auth1') %>
     </div>
-    <% if current_user.provider == 'google_oauth2' %>
-      <div class="small_margin_bottom">
-        <%= raw t('devise.registrations.google_auth1') %>
-      </div>
-    <% end %>
+  <% end %>
+  <%= f.email_field :email, 'aria-label': t('common.form.email') %>
 
-    <%= f.email_field :email, 'aria-label': t('common.form.email') %>
-  </div>
-
-  <div class="field">
-    <div class="label"><%= t('devise.registrations.email_notifications') %></div>
-    <%= f.check_box :comment_notify, { checked: current_user.comment_notify || current_user.comment_notify.nil?, 'aria-label': t('devise.registrations.comment_notify_text') }, 'true', 'false' %><%= t('devise.registrations.comment_notify_text') %><br>
-    <%= f.check_box :ally_notify, { checked: current_user.ally_notify || current_user.ally_notify.nil?, 'aria-label': t('devise.registrations.ally_notify_text') }, 'true', 'false' %><%= t('devise.registrations.ally_notify_text') %><br>
-    <%= f.check_box :group_notify, { checked: current_user.group_notify || current_user.group_notify.nil?, 'aria-label': t('devise.registrations.group_notify_text') }, 'true', 'false' %><%= t('devise.registrations.group_notify_text') %><br>
-    <%= f.check_box :meeting_notify, { checked: current_user.meeting_notify || current_user.meeting_notify.nil?, 'aria-label': t('devise.registrations.meeting_notify_text') }, 'true', 'false' %><%= t('devise.registrations.meeting_notify_text') %>
-  </div>
+  <div class="label smallMarginTop"><%= t('devise.registrations.email_notifications') %></div>
+  <%= f.check_box :comment_notify, { checked: current_user.comment_notify || current_user.comment_notify.nil?, 'aria-label': t('devise.registrations.comment_notify_text') }, 'true', 'false' %><%= t('devise.registrations.comment_notify_text') %><br>
+  <%= f.check_box :ally_notify, { checked: current_user.ally_notify || current_user.ally_notify.nil?, 'aria-label': t('devise.registrations.ally_notify_text') }, 'true', 'false' %><%= t('devise.registrations.ally_notify_text') %><br>
+  <%= f.check_box :group_notify, { checked: current_user.group_notify || current_user.group_notify.nil?, 'aria-label': t('devise.registrations.group_notify_text') }, 'true', 'false' %><%= t('devise.registrations.group_notify_text') %><br>
+  <%= f.check_box :meeting_notify, { checked: current_user.meeting_notify || current_user.meeting_notify.nil?, 'aria-label': t('devise.registrations.meeting_notify_text') }, 'true', 'false' %><%= t('devise.registrations.meeting_notify_text') %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div class="field">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="smallMarginTop">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <div class="label">
-      <%= t('devise.registrations.edit.labels.profile_picture') %>
-    </div>
-    <div class="small_margin_bottom">
-      <%= ProfilePicture.fetch(resource.avatar.url) %>
-    </div>
-    <%= f.file_field :avatar, 'aria-label': t('devise.registrations.edit.labels.profile_picture') %>
-    <% unless resource.avatar.blank? %>
-      <%= f.label :remove_avatar, class: 'checkbox' do %>
-        <%= f.check_box :remove_avatar, 'aria-label': t('devise.registrations.edit.labels.remove_picture') %>
-        <%= t('devise.registrations.edit.labels.remove_picture') %>
-      <% end %>
+  <div class="label smallMarginTop">
+    <%= t('devise.registrations.edit.labels.profile_picture') %>
+  </div>
+  <div class="smallMarginBottom">
+    <%= ProfilePicture.fetch(resource.avatar.url) %>
+  </div>
+  <%= f.file_field :avatar, 'aria-label': t('devise.registrations.edit.labels.profile_picture') %>
+  <% unless resource.avatar.blank? %>
+    <%= f.label :remove_avatar, class: 'checkbox' do %>
+      <%= f.check_box :remove_avatar, 'aria-label': t('devise.registrations.edit.labels.remove_picture') %>
+      <%= t('devise.registrations.edit.labels.remove_picture') %>
     <% end %>
-  </div>
+  <% end %>
 
-  <div class="field">
-    <div class="label"><%= t('navigation.about') %></div>
-    <%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about'), 'aria-label': t('devise.registrations.edit.placeholders.about') %>
-  </div>
+  <div class="label smallMarginTop"><%= t('navigation.about') %></div>
+  <%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about'), 'aria-label': t('devise.registrations.edit.placeholders.about') %>
 
-  <div class="field">
-    <div class="label">
-      <%= raw t('devise.registrations.edit.labels.password_for') %>
+  <div class="label smallMarginTop">
+    <%= raw t('devise.registrations.edit.labels.password_for') %>
+  </div>
+  <% if current_user.provider == 'google_oauth2' %>
+    <div>
+      <%= raw t('devise.registrations.google_auth2') %>
     </div>
-    <% if current_user.provider == 'google_oauth2' %>
-      <div>
-        <%= raw t('devise.registrations.google_auth2') %>
-      </div>
-    <% end %>
-  </div>
+  <% end %>
 
-  <div class="field">
-    <div class="label"><%= t('devise.new_password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
+  <div class="label smallMarginTop"><%= t('devise.new_password') %></div>
+  <%= f.password_field :password, autocomplete: 'off', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
+  <div class="smallerMarginTop">
     <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': t('devise.registrations.placeholders.repeat_password') %>
   </div>
 
 	<% if current_user.provider != 'google_oauth2' %>
-    <div class="field">
-      <div class="label"><%= t('devise.current_password') %></div>
-      <%= f.password_field :current_password, autocomplete: 'off', placeholder: t('devise.registrations.edit.placeholders.required'), 'aria-label': t('devise.registrations.edit.placeholders.required') %>
-    </div>
+    <div class="label smallMarginTop"><%= t('devise.current_password') %></div>
+    <%= f.password_field :current_password, autocomplete: 'off', placeholder: t('devise.registrations.edit.placeholders.required'), 'aria-label': t('devise.registrations.edit.placeholders.required') %>
   <% end %>
 
-  <div class="actions">
+  <div class="smallMarginTop">
     <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM' %>
   </div>
 <% end %>
 
-<div class="label"><%= raw t('devise.registrations.edit.delete.text') %></div>
+<div class="label smallMarginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
 <%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>

@@ -65,17 +65,9 @@
     font-weight: $font-weight-400;
   }
 
-  .label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 7px;
-
-    label {
-      @include setFontSize($size-14);
-      padding: 0;
-    }
+  .label,
+  label {
+    color: $mulberry-70;
   }
 }
 
