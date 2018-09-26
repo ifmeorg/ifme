@@ -20,7 +20,7 @@
       only the last one will load correctly in production, as though there is
       a global registry and the last bundle overwrites the entire registry.
     -->
-    <%= javascript_pack_tag 'webpack_bundle', defer: Rails.env.production? %>
+    <%= javascript_pack_tag 'webpack_bundle', 'data-turbolinks-track': true, defer: true %>
     <%= stylesheet_pack_tag 'webpack_bundle' %>
     <!-- Webpack Assets END -->
 
@@ -29,13 +29,17 @@
 
     <% if user_signed_in? %>
       <!-- Pusher -->
-      <%= javascript_include_tag 'https://js.pusher.com/3.0/pusher.min.js', async: true %>
+      <% pusher_url = 'https://js.pusher.com/3.0/pusher.min.js' %>
+      <link rel="preconnect" href=<%= pusher_url %>>
+      <%= javascript_include_tag pusher_url, async: true %>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
 
     <% if join_path? || update_account_path? %>
       <!-- Google Maps API -->
-      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete", async: true %>
+      <% google_maps_url = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete" %>
+      <link rel="preconnect" href=<%= google_maps_url %>>
+      <%= javascript_include_tag google_maps_url, async: true %>
     <% end %>
   </head>
 
