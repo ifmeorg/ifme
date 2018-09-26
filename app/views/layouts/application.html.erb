@@ -24,8 +24,8 @@
     <%= stylesheet_pack_tag 'webpack_bundle' %>
     <!-- Webpack Assets END -->
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
+    <%= inline_css 'application.css' %>
+    <%= inline_js 'application.js' %>
 
     <% if user_signed_in? %>
       <!-- Pusher -->
