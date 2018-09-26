@@ -1,38 +1,22 @@
 <% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
-  <div class="smallMarginTop">
+  <div class="small_margin_top">
     <% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:user_id]) %>
-
     <% if local_assigns[:data_type] == 'category' %>
       <% moments = usage[0] %>
       <% strategies = usage[1] %>
       <% if moments.length > 0 %>
-        <%= react_component('Accordion', props: {
-          id: 'tagged_moments',
-          large: true,
-          dark: true,
-          title: t('moments.tagged_moments'),
-          children: render(partial: '/tag_usage/stories', locals: { data: moments })
-        }) %>
+        <div class="title"><%= t('moments.tagged_moments') %></div>
+        <%= render partial: '/tag_usage/stories', locals: { data: moments } %>
       <% end %>
       <% if strategies.any? %>
-        <%= react_component('Accordion', props: {
-          id: 'tagged_strategies',
-          large: true,
-          dark: true,
-          title: t('strategies.tagged_strategies'),
-          children: render(partial: '/tag_usage/stories', locals: { data: strategies })
-        }) %>
+        <div class="title"><%= t('strategies.tagged_strategies') %></div>
+        <%= render partial: '/tag_usage/stories', locals: { data: strategies } %>
       <% end %>
     <% else %>
       <% moments = usage %>
       <% if moments.any? %>
-        <%= react_component('Accordion', props: {
-          id: 'tagged_moments',
-          large: true,
-          dark: true,
-          title: t('moments.tagged_moments'),
-          children: render(partial: '/tag_usage/stories', locals: { data: moments })
-        }) %>
+        <div class="title"><%= t('moments.tagged_moments') %></div>
+        <%= render partial: '/tag_usage/stories', locals: { data: moments } %>
     <% end %>
   <% end %>
   </div>
