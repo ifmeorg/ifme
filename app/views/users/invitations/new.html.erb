@@ -8,8 +8,10 @@
     <% else %>
       <%= f.label field %>
     <% end %>
-    <%= f.text_field field, placeholder: t('allies.form.placeholder'), 'aria-label': t('allies.form.placeholder') %>
+    <%= f.text_field field, placeholder: t('allies.form.placeholder'), 'aria-label': t('allies.form.placeholder'), class: 'fullWidth' %>
   <% end -%>
 
-  <%= f.submit t('devise.invitations.new.submit_button'), class: 'buttonDarkM smallMarginTop' %>
+  <div class="smallMarginTop">
+    <%= f.submit t('devise.invitations.new.submit_button'), class: 'buttonDarkM' %>
+  </div>
 <% end %>
