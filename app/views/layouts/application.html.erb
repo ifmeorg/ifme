@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="manifest.json">
+    <meta name="Description" content=<%= t('app_description') %>>
     <meta name="theme-color" content="#6d0839">
     <%= csrf_meta_tags %>
     <% if (user_signed_in? && !static_page?) || secret_share_path? %>
@@ -21,9 +22,10 @@
       a global registry and the last bundle overwrites the entire registry.
     -->
     <%= javascript_pack_tag 'webpack_bundle', 'data-turbolinks-track': true, defer: true %>
-    <%= stylesheet_pack_tag 'webpack_bundle' %>
+    <%= stylesheet_pack_tag 'webpack_bundle', media: 'all' %>
     <!-- Webpack Assets END -->
 
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <%= inline_css 'application.css' %>
     <%= inline_js 'application.js' %>
 
