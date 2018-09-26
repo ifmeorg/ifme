@@ -29,13 +29,13 @@
 
     <% if user_signed_in? %>
       <!-- Pusher -->
-      <script src="https://js.pusher.com/3.0/pusher.min.js" async></script>
+      <%= javascript_include_tag 'https://js.pusher.com/3.0/pusher.min.js', async: true %>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
 
     <% if join_path? || update_account_path? %>
       <!-- Google Maps API -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&libraries=places&callback=initAutocomplete" async></script>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete", async: true %>
     <% end %>
   </head>
 
