@@ -2,6 +2,8 @@
 
 # rubocop:disable ClassLength
 class MeetingsController < ApplicationController
+  include CommentsHelper
+
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1

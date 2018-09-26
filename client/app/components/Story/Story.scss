@@ -5,11 +5,12 @@
   flex-direction: column;
   height: 100%;
   &Type {
-    @include setFontSize($size-16);
+    @include setFontSize($size-12);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: $mulberry-80;
     a {
+      @include standardTransition();
       color: $mulberry-80 !important;
     }
   }
@@ -22,6 +23,7 @@
       margin-left: $size-10;
       color: $mulberry;
       a {
+        @include standardTransition();
         color: $mulberry !important;
       }
     }
@@ -38,6 +40,7 @@
   }
   .name {
     @include setFontSize($size-20);
+    @include standardTransition();
     color: $mulberry;
     word-break: break-word;
   }
@@ -78,10 +81,13 @@
       margin-right: $size-0;
     }
   }
+  a {
+    @include standardTransition();
+  }
 }
 
 .date {
-  @include setFontSize($size-16);
+  @include setFontSize($size-12);
   @include setMargin($size-10, $size-0, $size-0, $size-0);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -99,5 +105,6 @@
 .categories,
 .moods {
   @include setMargin($size-8, $size-0, $size-0, $size-0);
+  font-size: $size-0;
   word-break: break-all;
 }

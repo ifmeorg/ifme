@@ -306,5 +306,14 @@
     "link_name": "prateksha_u",
     "link": "https://github.com/prateksha",
     "social": "github"
+  },
+  {
+    "name": "Nishiki Liu",
+    "image": "/assets/contributors/nishiki_liu.jpg",
+    "profile": "I am a full stack developer with design and illustration experience. I believe it is our responsibility to build software for good. if me focuses on a prevalent issue that is too often overlooked, and through loved ones, it gives people tools to heal.",
+    "location": "United States",
+    "link_name": "nshki.com",
+    "link": "https://nshki.com",
+    "social": "globe"
   }
 ]

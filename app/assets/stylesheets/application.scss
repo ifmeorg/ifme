@@ -44,6 +44,16 @@ body, html {
   line-height: 1.4;
 }
 
+.bodyModalOpen {
+  overflow: hidden;
+}
+
+.bodyHeaderOpen {
+  @media screen and (max-width: $medium) {
+    overflow: hidden;
+  }
+}
+
 .content {
   margin: 0 auto;
   padding: 0;

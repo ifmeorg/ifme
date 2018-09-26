@@ -2,6 +2,7 @@
 
 @mixin linkStyle() {
   a {
+    @include standardTransition();
     color: $white;
     text-decoration: none;
     &:hover {
@@ -45,6 +46,7 @@
     @include setFontSize($size-30);
     display: none;
     color: $white;
+    cursor: pointer;
     @media screen and (max-width: $medium) {
       display: block;
     }
@@ -79,6 +81,7 @@
         background: $black-70;
         height: 100%;
         width: 100%;
+        overflow-y: scroll;
       }
     }
   }

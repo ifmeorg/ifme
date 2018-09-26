@@ -21,6 +21,7 @@
       color: $mulberry;
       word-break: break-all;
       a {
+        display: inline-block;
         color: $mulberry;
       }
       &Right {
@@ -52,7 +53,7 @@
   }
 
   .subtitle {
-    @include setFontSize($size-28);
+    @include setFontSize($size-22);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
     color: $mulberry-70;
     font-weight: $font-weight-400;
@@ -69,6 +70,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 7px;
+
+    label {
+      @include setFontSize($size-14);
+      padding: 0;
+    }
   }
 }
 
@@ -79,7 +86,7 @@
   padding: $size-44;
   @media screen and (max-width: $medium) {
     border-radius: 0;
-    padding: 15px 10px;
+    padding: 15px 20px;
     flex-basis: auto;
   }
   @include dashboardSectionStyles();
