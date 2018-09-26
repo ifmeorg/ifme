@@ -361,7 +361,7 @@ sv:
     main_message_one: "%{app_name} är en gemenskap för mentala erfarenheter som uppmuntrar människor att dela sina personliga historier med betrodda allierade."
     message_text_one: "Tillförlitliga allierade är de människor vi samarbetar med dagligen, inklusive vänner, familjemedlemmar, medarbetare, lärare och psykiatriska arbetstagare."
     main_message_two: "Att hantera mental hälsa är det som gör oss mänskliga. Men för många av oss är det en kamp att vara öppen om det."
-    message_text_two: "Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class=\"subtitle block\">\"Det är inte bara allt i ditt huvud, det är runt dig. Vi kan läka tillsammans.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>"
+    message_text_two: "Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class=\"subtitle block\">\"Det är inte bara allt i ditt huvud, det är runt dig. Vi kan läka tillsammans.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>"
     main_message_three: "Vill du hjälpa till att finansiera oss?"
     message_text_three: "Vår app är ett <u>fullständigt</u> öppen källkods-projekt. Det är byggt och underhållet av volontärer med många olika bakgrunder och kunskaper.</p><p>År 2016 mottog vi ett stipendium från %{linebreak_link}. År 2017 mottog vi finansiering från %{fund_club_link}.</p>Du kan stödja oss genom att donera till vår %{patreon_link}.</p>"
     linebreak: 'Linebreak'
@@ -370,7 +370,7 @@ sv:
     description: "Om du är intresserad av att skriva för oss, pitcha oss på %{email}! Vi välkomnar anonyma inlägg också."
   contribute:
     main_message_one: "if me är byggs och underhålls av volontärer med många olika bakgrunder och kunskaper."
-    message_text_one: "Vi letar alltid efter idéer från alla, inklusive <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>, <strong>mjukvaruutvecklare</strong>, <strong>översättare</strong>, och <strong>användarupplevelse-designers</strong>!<p class=\"no_margin_bottom\">Vänligen %{email_link} och vi kommer att kontakta dig! Du kommer bli inbjuden att delta i vår %{slack_link} sida, vårt primära kommunikationsverktyg. Forka vår kodbas som hostas på %{github_link}!</p>"
+    message_text_one: "Vi letar alltid efter idéer från alla, inklusive <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>, <strong>mjukvaruutvecklare</strong>, <strong>översättare</strong>, och <strong>användarupplevelse-designers</strong>!<p class=\"noMarginBottom\">Vänligen %{email_link} och vi kommer att kontakta dig! Du kommer bli inbjuden att delta i vår %{slack_link} sida, vårt primära kommunikationsverktyg. Forka vår kodbas som hostas på %{github_link}!</p>"
     more_contributors: 'Mer Fantastiska Bidragsgivare!'
     thanks: 'Ett stort tack till'
     slack: 'Slack'
@@ -429,7 +429,7 @@ sv:
     social_media: 'Sociala medieplattformar'
     social_media_description: '<p>Kommunikation, engagemang och åtgärder som vidtas via externa sociala medieplattformar som den här webbplatsen deltar på är anpassade till villkoren samt de sekretesspolicyer som hölls med respektive sociala medieplattform.</p><p>Användare rekommenderas att använda sociala medieplattformar klokt och kommunicera/engagera dem med vederbörlig försiktighet och noggrannhet i fråga om sin egen integritet och personliga uppgifter. Den här webbplatsen kommer aldrig att begära personlig eller känslig information via sociala medieplattformar och uppmuntra användare som vill diskutera känsliga detaljer för att kontakta dem via primära kommunikationskanaler, t.ex. via telefon eller e-post.</p><p>Den här webbplatsen kan använda sociala delningsknappar som hjälper till att dela webbinnehåll direkt från webbsidor till den aktuella sociala medieplattformen. Användare rekommenderas innan du använder sådana sociala delningsknappar som de gör så efter eget gottfinnande och noterar att social media-plattformen kan spåra och spara din begäran om att dela en webbsida via ditt sociala media-plattformskonto.</p>'
     contact: 'Kontakta Oss'
-    contact_description: "<p>Vänligen %{email_link} om du har några frågor eller problem.</p><p class=\"no_margin_bottom\"><em>Sekretesspolicy anpassad från %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Vänligen %{email_link} om du har några frågor eller problem.</p><p class=\"noMarginBottom\"><em>Sekretesspolicy anpassad från %{jamie_king_media}.</em></p>"
   resources:
     communities: Gemenskaperna
     education: Utbildning

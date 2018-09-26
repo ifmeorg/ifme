@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import shortid from 'shortid';
+import { Utils } from '../../utils';
 import css from './Resource.scss';
 import { Tag } from '../Tag';
 
@@ -18,7 +18,7 @@ const taggedResources = (tagged: ?boolean, tags: ?(string[])) => {
     return (
       <div className="tags">
         {tags.map(tag => (
-          <Tag normal label={tag} key={shortid.generate()} />
+          <Tag normal label={tag} key={Utils.randomString()} />
         ))}
       </div>
     );

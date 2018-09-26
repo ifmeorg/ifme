@@ -1,21 +1,21 @@
 var readMoreHideContent = function() {
-  $('.read_more_content').addClass('hide_content');
-  $('.read_less_show').addClass('hide_content');
-  $('.read_more_show').removeClass('hide_content');
+  $('.read_more_content').addClass('hideContent');
+  $('.readLessShow').addClass('hideContent');
+  $('.readMoreShow').removeClass('hideContent');
 };
 
 var toggleProfileBlurb = function() {
   $(this).fadeOut(400, function() {
-    $(this).siblings('.read_more_content').toggleClass('hide_content');
+    $(this).siblings('.read_more_content').toggleClass('hideContent');
     // When [...] button is clicked to expand profile blurb
     if ($(this).attr('id') === 'moreContent') {
-      $(this).siblings('.read_less_show').removeClass('hide_content').show();
+      $(this).siblings('.readLessShow').removeClass('hideContent').show();
     }
     // When [Less] button is clicked to collapse profile blurb
     else {
-      $(this).siblings('.read_more_show').removeClass('hide_content').show();
+      $(this).siblings('.readMoreShow').removeClass('hideContent').show();
     }
-    $(this).addClass('hide_content');
+    $(this).addClass('hideContent');
   });
 };
 
@@ -31,7 +31,7 @@ var contributorReadMoreFeature = function(){
       visibleProfileText = $(this).text().substr(0, maxProfileLength);
       invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
 
-      var profileContent = visibleProfileText + '<span class="read_more_show hide_content toggle" id="moreContent">'+ I18n.t('ellipsis') +'</span><span class="read_more_content">' + invisibleProfileText + '</span><span class="read_less_show toggle" id="lessContent">'+ I18n.t('less')+'</span>';
+      var profileContent = visibleProfileText + '<span class="readMoreShow hideContent toggle" id="moreContent">'+ I18n.t('ellipsis') +'</span><span class="read_more_content">' + invisibleProfileText + '</span><span class="readLessShow toggle" id="lessContent">'+ I18n.t('less')+'</span>';
 
       $(this).html(profileContent);
       readMoreHideContent();

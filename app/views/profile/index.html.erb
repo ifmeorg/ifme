@@ -14,7 +14,7 @@
     <% end %>
     <% if User.where(id: @profile.id).first.location.present? %>
       <div>
-        <i class="fa fa-location-arrow fa-inline smaller_margin_right"></i><%= User.where(id: @profile.id).first.location %>
+        <i class="fa fa-location-arrow fa-inline smallerMarginRight"></i><%= User.where(id: @profile.id).first.location %>
       </div>
     <% end %>
     <% if @profile.id != current_user.id %>

@@ -20,7 +20,7 @@ const baseConfig = require('./webpack.config.base');
 const configPath = resolve('..', 'config');
 const devMode = process.env.NODE_ENV !== 'production';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]-[hash]${devMode ? '' : '.min'}`;
+const outputFilename = `[name]${devMode ? '-[hash]' : ''}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',

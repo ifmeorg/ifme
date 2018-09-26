@@ -407,7 +407,7 @@ describe StrategiesController do
         expect(subject).to(
           eq(
             '<div>' \
-            '<i class="fa fa-bell smaller_margin_right"></i>' \
+            '<i class="fa fa-bell smallerMarginRight"></i>' \
             'Daily reminder email</div>'
           )
         )

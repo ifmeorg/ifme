@@ -360,7 +360,7 @@ nl:
     main_message_one: "%{app_name} is een gemeenschap voor geestelijke gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen te delen met hun vertrouwde bondgenoten."
     message_text_one: "Vertrouwde bondgenoten zijn de mensen met wie we dagelijks contact mee hebben, zoals vrienden, familie leden, collega's leraren en GGZ-medewerkers."
     main_message_two: "Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn."
-    message_text_two: "Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.<p><div class=\"subtitle block\">\"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>"
+    message_text_two: "Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.<p><div class=\"subtitle block\">\"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>"
     main_message_three: "Wil je ons financieel helpen?"
     message_text_three: "Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van %{linebreak_link}. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>"
     linebreak: 'Linebreak'
@@ -369,7 +369,7 @@ nl:
     description: "Als je voor ons wilt schrijven, stuur ons een e-mail op %{email}! We staan open voor anonieme bijdragen."
   contribute:
     main_message_one: "if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achteggronden met verschillende vaardigheden."
-    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"no_margin_bottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
+    message_text_one: "We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class=\"noMarginBottom\">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>"
     more_contributors: 'Meer fantastische bijdragers!'
     thanks: 'Enorme dank gaat naar'
     slack: 'Slack'
@@ -428,7 +428,7 @@ nl:
     social_media: 'Social Media Platformen'
     social_media_description: '<p>Communicatie, loyaliteit en acties vanuit externe social media platformen waar deze website in participeert zijn onderhevig aan de voorwaarden en privacy policies van deze respectievelijke platformen.</p><p>Gebruikers wordt geadviseerd om social media platformen wijs en spaarzaam op te communiceren met betrekking tot hun eigen privacy en persoonlijke details. Deze website zal nooit om persoonlijke of gevoelige informatie vragen via sociale media platformen en raad gebruikers aan om gevoelige details te delen door primaire middelen van communicatie zoals telefoon of e-mail.</p><p>Deze website kan gebruik maken van knoppen voor delen op social media om te helpen bij het delen van web content met anderen direct op de gebruikte sociale media. Gebruikers wordt geadviseerd alvorens het gebruik na te denken over het feit dat het platform de gegevens kan volgen en plaatsen door jouw account.</p>'
     contact: 'Neem contact met ons op'
-    contact_description: "<p>Graag %{email_link} indien je vragen of opmerkingen hebt.</p><p class=\"no_margin_bottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Graag %{email_link} indien je vragen of opmerkingen hebt.</p><p class=\"noMarginBottom\"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>"
   resources:
     communities: Gemeenschappen
     education: Educatie

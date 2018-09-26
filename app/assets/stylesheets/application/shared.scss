@@ -1,26 +1,20 @@
-#stats {
+.stats {
   @include setFontSize($size-22);
   @include setMargin($size-0, $size-0, $size-40, $size-0);
   font-weight: $font-weight-400;
-  #most_focus {
+  .mostFocus {
     width: 100%;
     font-size: $size-0;
-  }
-  // Align .small_focus children linearly only
-  // when min-width is at least 1025px i.e. $medium
-  @media screen and (min-width: $medium + 1) {
-    #most_focus {
+    @media screen and (min-width: $medium + 1) {
       display: flex;
     }
   }
-  .some_focus {
+  .someFocus {
     flex: 1;
     min-width: 0;
     text-align: center;
     color: $key-lime;
     font-size: $size-0;
-    // The first .some_focus child of #most_focus
-    // has opacity 1, 2nd has 0.8 and 3rd has 0.6
     &:nth-child(1) {
       background-color: $mulberry;
     }
@@ -30,50 +24,34 @@
     &:nth-child(3) {
       background-color: $mulberry-70;
     }
-  }
-  .some_focus_text {
-    @include setFontSize($size-22);
-    @include setPadding($size-20, $size-20, $size-20, $size-20);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    font-weight: $font-weight-300;
-    a, .link_style {
-      text-decoration: none;
-      color: $key-lime;
-      &:hover {
-        opacity: 0.5;
+    &Text {
+      @include setFontSize($size-22);
+      @include setPadding($size-20, $size-20, $size-20, $size-20);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      font-weight: $font-weight-300;
+      a, .link_style {
+        text-decoration: none;
+        color: $key-lime;
+        &:hover {
+          opacity: 0.5;
+        }
       }
-    }
-    .some_focus_text_name {
-      word-break: break-word;
-    }
-    .tooltip {
-      width: 100%;
-      &Element {
-        width: inherit;
+      &Name {
         word-break: break-word;
       }
     }
   }
-}
-
-#tag_usage.margin_bottom {
-  @include setMargin($size-0, $size-0, $size-20, $size-0);
-}
-
-.tag_type.margin_top {
-  @include setMargin($size-20, $size-0, $size-0, $size-0);
-}
-
-.group_type,
-.tag_type {
-  @include setFontSize($size-30);
-  @include setMargin($size-0, $size-0, $size-20, $size-0);
-  font-weight: $font-weight-200;
-  padding: 0;
+  .tooltip {
+    width: 100%;
+    &Element {
+      width: inherit;
+      word-break: break-word;
+    }
+  }
 }
 
 .pagination {
@@ -97,7 +75,7 @@
   }
 }
 
-#search {
+.search {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -105,12 +83,16 @@
   @media screen and (max-width: $medium) {
     flex-direction: column;
   }
-}
-
-#search_email,
-#search_name {
-  flex-grow: 1;
-  @media screen and (max-width: $medium) {
-    margin: $size-0 $size-0 $size-10 $size-0;
+  &Submit {
+    margin-left: $size-8;
+    @media screen and (max-width: $medium) {
+      margin-left: $size-0;
+    }
+  }
+  input[type="text"] {
+    flex-grow: 1;
+    @media screen and (max-width: $medium) {
+      margin: $size-0 $size-0 $size-10 $size-0;
+    }
   }
 }

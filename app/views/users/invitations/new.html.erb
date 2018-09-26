@@ -1,20 +1,17 @@
 <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { id: 'invitations', method: :post } do |f| %>
   <%= devise_error_messages! %>
-
   <% resource.class.invite_key_fields.each do |field| -%>
-    <div class="field">
+    <% if field.to_s == 'email' %>
       <div class="label">
-        <% if field.to_s == 'email' %>
-          <%= f.label t('common.form.email') %>
-        <% else %>
-          <%= f.label field %>
-        <% end %>
+        <%= t('common.form.email') %>
       </div>
-      <%= f.text_field field, placeholder: t('allies.form.placeholder') %>
-    </div>
+    <% else %>
+      <%= f.label field %>
+    <% end %>
+    <%= f.text_field field, placeholder: t('allies.form.placeholder'), 'aria-label': t('allies.form.placeholder'), class: 'fullWidth' %>
   <% end -%>
 
-  <div class="small_margin_top">
-    <%= f.submit t("devise.invitations.new.submit_button"), class: 'buttonDarkM' %>
+  <div class="smallMarginTop">
+    <%= f.submit t('devise.invitations.new.submit_button'), class: 'buttonDarkM' %>
   </div>
 <% end %>

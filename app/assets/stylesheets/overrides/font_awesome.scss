@@ -5,8 +5,3 @@
 .fa-left {
   @include setMargin($size-0, $size-0, $size-0, $size-20);
 }
-
-/* close icon */
-.fa-times {
-  cursor: pointer;
-}

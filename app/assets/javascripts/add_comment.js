@@ -8,10 +8,6 @@ var onReadyAddComment = function() {
         $('#comment_comment').prop('disabled', true);
         $(this).val(I18n.t('comment.posting'));
 
-        if ($('.comment').length > 0) {
-          $('.actions').removeClass('no_margin_bottom');
-        }
-
         var url;
         if (isShow(['moments'])) {
           url = '/moments/comment';
@@ -55,12 +51,7 @@ var onReadyAddComment = function() {
                 var visibility = json.visibility;
                 var delete_comment = json.delete_comment;
 
-                // Remove no_margin_top on first comment
-                if ($('.comment').length > 0) {
-                  $('.comment.no_margin_top').removeClass('no_margin_top');
-                }
-
-                var newComment = '<div class="comment no_margin_top" id="' + commentid + '">';
+                var newComment = '<div class="comment smallMarginTop" id="' + commentid + '">';
                 newComment += '<div class="gridRowSpaceBetween">';
                 newComment += '<div class="comment_info">';
                 newComment += comment_info;
@@ -80,10 +71,6 @@ var onReadyAddComment = function() {
                 newComment += '</div>';
 
                 $('#comments').prepend(newComment);
-
-                if ($('.comment').length > 0) {
-                  $('.actions').removeClass('no_margin_bottom');
-                }
               }
             }
           },

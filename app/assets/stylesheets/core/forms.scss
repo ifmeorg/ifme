@@ -7,17 +7,16 @@
   border: none;
 }
 
+.label,
 label {
+  @include setMargin($size-0, $size-0, $size-10, $size-0);
   @include setFontSize($size-16);
-  @include setPadding($size-12, $size-0, $size-12, $size-0);
+  @include linearTransition(0.25s);
   letter-spacing: 0.095em;
   text-transform: uppercase;
-}
-
-.label {
-  @include setMargin($size-0, $size-0, $size-20, $size-0);
-  width: auto;
+  font-weight: $font-weight-400;
   display: inherit;
+  width: auto;
 }
 
 .label i, .sidebar_label i {
@@ -35,7 +34,6 @@ select,
 fieldset {
   @include setFontSize($size-20);
   @include inputStyle();
-  @include setMargin($size-0, $size-10, $size-0, $size-0);
   @media screen and (max-width: $medium) {
     width: 100%;
   }
@@ -47,15 +45,4 @@ input[type="radio"] {
   width: auto;
   height: auto;
   box-shadow: none;
-}
-
-.field input[type="text"],
-.field input[type="passsword"],
-.field input[type="email"] {
-  @include setMargin(auto, $size-0, auto, auto);
-}
-
-.field,
-.actions {
-  @include setMargin($size-0, $size-0, $size-40, $size-0);
 }

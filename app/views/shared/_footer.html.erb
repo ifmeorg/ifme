@@ -27,7 +27,7 @@
 
   <div class="footerExtras">
     <div>
-      <%= select_tag 'locale', options_for_select(@locales.collect{ |l| [l[:name], l[:locale]] }, @locale) %>
+      <%= select_tag 'locale', options_for_select(@locales.collect{ |l| [l[:name], l[:locale]] }, @locale), 'aria-label': t('language') %>
     </div>
 
     <div>

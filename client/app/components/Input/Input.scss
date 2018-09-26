@@ -105,7 +105,7 @@
   &NoAccordion {
     @include setMargin($size-0, $size-0, $size-10, $size-0);
   }
-  label {
+  &Text {
     @include setMargin($size-0, $size-8, $size-0, $size-0);
     letter-spacing: 0.095em;
     text-transform: uppercase;

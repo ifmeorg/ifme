@@ -15,27 +15,3 @@
 p {
   word-wrap: break-word;
 }
-
-ul:not(.ui-autocomplete, .no_bullet_list),
-ol:not(.ui-autocomplete, .no_bullet_list)  {
-  padding-left: 0;
-}
-
-ul:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list),
-ol:not(.ui-autocomplete, .no_bullet_list) li:not(.ui-autocomplete, .no_bullet_list)  {
-  list-style-position:inside;
-}
-
-li:not(.ui-autocomplete, .no_bullet_list) {
-  list-style-type: circle;
-}
-
-ul.no_bullet_list {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-ul.no_bullet_list li {
-  list-style-type: none;
-}

@@ -1,16 +1,8 @@
-.right {
-  text-align: right;
-}
-
 .center {
   text-align: center;
   &Margin {
     margin: 0 auto;
   }
-}
-
-.no_center {
-  text-align: left !important;
 }
 
 .spacer {
@@ -22,16 +14,6 @@
   @media screen and (max-width: $medium) {
     height: $size-10;
   }
-}
-
-.block {
-  display: block !important;
-}
-
-.inline-block {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .viewersIndicator {

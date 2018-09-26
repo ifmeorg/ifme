@@ -9,23 +9,23 @@
     }) %>
   <% end %>
 </div>
-<div class="smaller_margin_top">
+<div class="smallerMarginTop">
   <%= react_component('StoryCategories', props: {
     categories: @strategy.category.map{ |item| Category.find(item).name }
   }) %>
 </div>
 
 <% if @strategy.description.present? %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <%= sanitize(@strategy.description) %>
   </div>
 <% end %>
 
 <% if @strategy.user_id == current_user.id %>
-  <div class="gridItemBoxDark small_margin_top">
+  <div class="gridItemBoxDark smallMarginTop">
     <div class="gridRowSpaceBetween">
       <div class="gridRowSpaceBetween">
-        <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+        <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
         <%= react_component('StoryActions', props: {
           dark: true,
           actions: {
