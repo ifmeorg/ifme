@@ -1,6 +1,5 @@
 // @flow
 import * as jstz from 'jstimezonedetect';
-import Cookies from 'universal-cookie';
+import Cookies from 'js-cookie';
 
-const cookies = new Cookies();
-cookies.set('timezone', jstz.determine().name());
+Cookies.set('timezone', jstz.determine().name());
