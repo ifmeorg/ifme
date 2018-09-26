@@ -3,6 +3,7 @@
 # rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetup
+  include CommentsHelper
   include ReminderHelper
   include Shared
 
