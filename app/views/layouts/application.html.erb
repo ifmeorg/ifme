@@ -21,8 +21,12 @@
       only the last one will load correctly in production, as though there is
       a global registry and the last bundle overwrites the entire registry.
     -->
+    <% if Rails.env.production? %>
+      <%= inline_css 'webpack_bundle.css' %>
+    <% else %>
+      <%= stylesheet_pack_tag 'webpack_bundle', media: 'all' %>
+    <% end %>
     <%= javascript_pack_tag 'webpack_bundle', 'data-turbolinks-track': true, defer: true %>
-    <%= stylesheet_pack_tag 'webpack_bundle', media: 'all' %>
     <!-- Webpack Assets END -->
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">

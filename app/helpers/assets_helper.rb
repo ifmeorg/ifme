@@ -10,7 +10,7 @@ module AssetsHelper
   end
 
   def inline_css(path)
-    content = inline_file(path)
+    content = inline_file(path, true)
     return nil unless content
 
     "<style>#{content}</style>".html_safe
@@ -18,14 +18,20 @@ module AssetsHelper
 
   private
 
-  def inline_file(path)
-    if Rails.application.assets
-      asset = Rails.application.assets.find_asset(path)
-      return nil unless asset
-
-      asset.source
+  def inline_file(path, css = false)
+    if css && path == 'webpack_bundle.css'
+      File.read(Rails.root.join('public', 'webpack', path))
+    elsif Rails.application.assets
+      get_application_asset(path)
     else
       File.read(Rails.root.join('public', asset_path(path)))
     end
+  end
+
+  def get_application_asset(path)
+    asset = Rails.application.assets.find_asset(path)
+    return nil unless asset
+
+    asset.source
   end
 end
