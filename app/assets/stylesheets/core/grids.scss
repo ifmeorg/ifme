@@ -58,6 +58,16 @@
 
 @mixin gridItemBoxDark() {
   @include gridItemBox();
+  background: $mulberry;
+  color: $white;
+  h1, h1 > a {
+    @include gridH1();
+    color: $white;
+   }
+}
+
+@mixin gridItemBoxGhost() {
+  @include gridItemBox();
   background: $black-20;
   color: $white;
   h1, h1 > a {
@@ -74,6 +84,9 @@
     &BoxDark {
       @include gridItemBoxDark();
     }
+    &BoxGhost {
+      @include gridItemBoxGhost();
+    }
   }
 
   &Two {
@@ -87,6 +100,10 @@
       &BoxDark {
         @include gridTwoItem();
         @include gridItemBoxDark();
+      }
+      &BoxGhost {
+        @include gridTwoItem();
+        @include gridItemBoxGhost();
       }
     }
   }
@@ -102,6 +119,10 @@
       &BoxDark {
         @include gridThreeItem();
         @include gridItemBoxDark();
+      }
+      &BoxGhost {
+        @include gridThreeItem();
+        @include gridItemBoxGhost();
       }
     }
   }
