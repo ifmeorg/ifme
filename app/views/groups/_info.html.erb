@@ -1,14 +1,14 @@
 <%= sanitize(local_assigns[:group].description) %>
-<div class="small_margin_top">
+<div class="smallMarginTop">
   <%= react_component('Modal', props: {
     element: "<button class=\"buttonDarkXS groupMembersButton\">#{t('members', count: local_assigns[:group].group_members.count)}</button>",
     title: t('notifications.members.title'),
     body: render(partial: '/groups/members', locals: { group: local_assigns[:group] })
   }) %>
 </div>
-<div class="gridItemBoxDark gridRowSpaceBetween small_margin_top">
+<div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
   <div class="gridRowSpaceBetween">
-    <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+    <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
     <%= react_component('StoryActions', props: {
       dark: true,
       actions: {

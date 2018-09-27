@@ -1,16 +1,8 @@
-.right {
-  text-align: right;
-}
-
 .center {
   text-align: center;
   &Margin {
     margin: 0 auto;
   }
-}
-
-.no_center {
-  text-align: left !important;
 }
 
 .spacer {
@@ -24,6 +16,7 @@
   }
 }
 
+<<<<<<< HEAD
 .block {
   display: block !important;
 }
@@ -34,6 +27,8 @@
   white-space: nowrap;
 }
 
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
 .viewersIndicator {
   color: $dusty-rose;
   font-weight: bold;

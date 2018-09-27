@@ -2,26 +2,20 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="center">
-    <div class="field">
-      <div class="label"><%= f.label t('common.form.email') %></div>
-      <%= f.email_field :email %>
-    </div>
+    <div class="label smallMarginTop"><%= t('common.form.email') %></div>
+    <%= f.email_field :email, 'aria-label': t('common.form.email') %>
 
-    <div class="field">
-      <div class="label"><%= f.label t('devise.password') %></div>
-      <%= f.password_field :password, autocomplete: 'off' %>
-    </div>
+    <div class="label smallMarginTop"><%= t('devise.password') %></div>
+    <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.password') %>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <div class="label">
-          <%= f.check_box :remember_me %>
-          <%= f.label t('devise.remember_me') %>
-        </div>
+      <div class="label smallMarginTop">
+        <%= f.check_box :remember_me, 'aria-label': t('devise.remember_me') %>
+        <%= t('devise.remember_me') %>
       </div>
     <% end -%>
 
-    <div class="actions"><%= f.submit t('account.sign_in'), class: 'buttonGhostM' %></div>
+    <%= f.submit t('account.sign_in'), class: 'buttonGhostM smallMarginTop' %>
   </div>
 <% end %>
 

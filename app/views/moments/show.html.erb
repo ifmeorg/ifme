@@ -9,7 +9,7 @@
     }) %>
   <% end %>
 </div>
-<div class="smaller_margin_top">
+<div class="smallerMarginTop">
   <%= react_component('StoryCategories', props: {
     categories: @moment.category.map{ |item| Category.find(item).name }
   }) %>
@@ -19,21 +19,21 @@
 </div>
 
 <% if @moment.why.present? %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.form.why') %></div>
     <%= sanitize(@moment.why) %>
   </div>
 <% end %>
 
 <% if @moment.fix.present? %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.form.fix') %></div>
     <%= sanitize(@moment.fix) %>
   </div>
 <% end %>
 
 <% if @moment.strategy.count > 0 %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.show.strategies') %></div>
     <% @moment.strategy.each do |item| %>
       <div>
@@ -44,17 +44,17 @@
 <% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
     <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
   </div>
 <% end %>
 
 <% if @moment.owned_by?(current_user) %>
-  <div class="gridItemBoxDark small_margin_top">
+  <div class="gridItemBoxDark smallMarginTop">
     <div class="gridRowSpaceBetween">
       <div class="gridRowSpaceBetween">
-        <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+        <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
         <%= react_component('StoryActions', props: {
           dark: true,
           actions: {

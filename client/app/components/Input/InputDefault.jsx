@@ -20,6 +20,7 @@ export type Props = {
   max?: number,
   hasError?: Function,
   myRef?: any,
+  label?: string,
 };
 
 const onFocus = (required: ?boolean, hasError: ?Function) => {
@@ -55,6 +56,7 @@ export const InputDefault = (props: Props) => {
     value,
     hasError,
     myRef,
+    label,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
@@ -76,6 +78,7 @@ export const InputDefault = (props: Props) => {
       onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
       }
       ref={myRef}
+      aria-label={label}
     />
   );
 };

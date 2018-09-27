@@ -106,7 +106,7 @@ export class Notifications extends React.Component<Props, State> {
         {renderHTML(notifications)}
         <button
           type="button"
-          className="buttonDarkS small_margin_top"
+          className="buttonDarkS smallMarginTop"
           onClick={this.clearNotifications}
         >
           {clear}

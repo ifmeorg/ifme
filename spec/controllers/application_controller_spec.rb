@@ -131,6 +131,8 @@ describe ApplicationController do
       end
     end
   end
+<<<<<<< HEAD
+=======
 
   describe 'moments_stats' do
     before(:example) do
@@ -148,18 +150,19 @@ describe ApplicationController do
     it 'has more than one moment created this month' do
       new_moment1 = create(:moment, user_id: user1.id)
       new_moment2 = create(:moment, user_id: user1.id)
-      expect(controller.moments_stats).to eq('<div class="center" id="stats">You have written a <strong>total</strong> of <strong>2</strong> moments.</div>')
+      expect(controller.moments_stats).to eq('<div class="center stats">You have written a <strong>total</strong> of <strong>2</strong> moments.</div>')
     end
 
     it 'has more than one moment created on different months' do
       new_moment1 = create(:moment, user_id: user1.id, created_at: '2014-01-01 00:00:00')
       new_moment2 = create(:moment, user_id: user1.id)
 
-      expect(controller.moments_stats).to eq('<div class="center" id="stats">You have written a <strong>total</strong> of <strong>2</strong> moments. This <strong>month</strong> you wrote <strong>1</strong> moment.</div>')
+      expect(controller.moments_stats).to eq('<div class="center stats">You have written a <strong>total</strong> of <strong>2</strong> moments. This <strong>month</strong> you wrote <strong>1</strong> moment.</div>')
 
       new_moment3 = create(:moment, user_id: user1.id)
 
-      expect(controller.moments_stats).to eq('<div class="center" id="stats">You have written a <strong>total</strong> of <strong>3</strong> moments. This <strong>month</strong> you wrote <strong>2</strong> moments.</div>')
+      expect(controller.moments_stats).to eq('<div class="center stats">You have written a <strong>total</strong> of <strong>3</strong> moments. This <strong>month</strong> you wrote <strong>2</strong> moments.</div>')
     end
   end
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
 end

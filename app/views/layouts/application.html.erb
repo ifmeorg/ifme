@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="manifest.json">
+    <meta name="Description" content=<%= t('app_description') %>>
     <meta name="theme-color" content="#6d0839">
     <%= csrf_meta_tags %>
     <% if (user_signed_in? && !static_page?) || secret_share_path? %>
@@ -20,27 +21,54 @@
       only the last one will load correctly in production, as though there is
       a global registry and the last bundle overwrites the entire registry.
     -->
-    <%= javascript_pack_tag 'webpack_bundle' %>
-    <%= stylesheet_pack_tag 'webpack_bundle' %>
+    <% if Rails.env.production? %>
+      <%= inline_css 'webpack_bundle.css' %>
+    <% else %>
+      <%= stylesheet_pack_tag 'webpack_bundle', media: 'all' %>
+    <% end %>
+    <%= javascript_pack_tag 'webpack_bundle', 'data-turbolinks-track': true, defer: true %>
     <!-- Webpack Assets END -->
 
+<<<<<<< HEAD
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: Rails.env.production? %>
 
     <% if user_signed_in? %>
       <!-- Pusher -->
       <%= javascript_include_tag 'https://js.pusher.com/3.0/pusher.min.js', async: true %>
+=======
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <% if Rails.env.production? %>
+      <%= inline_css 'application.css' %>
+      <%= inline_js 'application.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <!-- Pusher -->
+      <% pusher_url = 'https://js.pusher.com/3.0/pusher.min.js' %>
+      <link rel="preconnect" href=<%= pusher_url %>>
+      <%= javascript_include_tag pusher_url, async: true %>
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
 
     <% if join_path? || update_account_path? %>
       <!-- Google Maps API -->
+<<<<<<< HEAD
       <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete", async: true %>
+=======
+      <% google_maps_url = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete" %>
+      <link rel="preconnect" href=<%= google_maps_url %>>
+      <%= javascript_include_tag google_maps_url, async: true %>
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     <% end %>
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>">
+    <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>" role="main">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>
       <% if user_signed_in? && !static_page? %>

@@ -360,7 +360,7 @@ it:
     main_message_one: "%{app_name} è una community dedicata a esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare."
     message_text_one: "Gli alleati sono le persone con cui interagiamo quotidianamente includendo amici, familiari, colleghi, professori ed esperti di salute mentale."
     main_message_two: "Avere a che fare con la salute mentale è ciò che ci rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto difficile."
-    message_text_two: "Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.<p><div class=\"subtitle block\">\"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"no_margin_bottom\">La salute mentale è un'esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l'aiuto di tutti, motivo per cui il progetto è open source.</p>"
+    message_text_two: "Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.<p><div class=\"subtitle block\">\"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">La salute mentale è un'esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l'aiuto di tutti, motivo per cui il progetto è open source.</p>"
     main_message_three: "Vuoi finanziarci?"
     message_text_three: "La nostra app è un progetto <u>completamente</u> open source. È costruito e mantenuto da volontari dalle differenti storie e abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da %{linebreak_link}. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.</p>Puoi supportarci donando a %{patreon_link}.</p>"
     linebreak: 'Linebreak'
@@ -369,7 +369,7 @@ it:
     description: "Se vorresti scrivere per noi, contattaci su %{email}! Diamo il benvenuto anche a contribuzioni anonime."
   contribute:
     main_message_one: "if me è costruito e mantenuto da volontari con differenti storie e abilità."
-    message_text_one: "Siamo sempre in cerca di nuove idee da chiunque, includendo <strong>appassionati</strong>, <strong>professionisti</strong>, <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>user experience designers</strong>!<p class=\"no_margin_bottom\">Raggiungici tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale slack %{slack_link}, la nostra principale forma di comunicazione. Non dimenticare di forkare la nostra repository github %{github_link}!</p>"
+    message_text_one: "Siamo sempre in cerca di nuove idee da chiunque, includendo <strong>appassionati</strong>, <strong>professionisti</strong>, <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>user experience designers</strong>!<p class=\"noMarginBottom\">Raggiungici tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale slack %{slack_link}, la nostra principale forma di comunicazione. Non dimenticare di forkare la nostra repository github %{github_link}!</p>"
     more_contributors: 'Altri fantastici contributori!'
     thanks: 'Grazie mille a'
     slack: 'Slack'
@@ -428,7 +428,7 @@ it:
     social_media: 'Piattaforme di Social Media'
     social_media_description: '<p>Comunicazioni ed azioni effettuare su piattaforme social esterne a questo sito sono soggette ai Termini e Condizioni delle stesse.</p><p>È importante utilizare con cautela tali piattaforme, tenendo conto dei rispettivi comportamenti riguardo la privacy. Questo sito non chiederà mai informazioni personali riguardo piattaforme social: Gli utenti che intendono discutere di tali informazioni sono invitati a utilizzare le principali forme di comunicazione: Telefono ed EMail.</p><p>Il sito potrebbe utilizzare tasti di condivisione social per facilitare appunto la condivisione di contenuti interessanti sulle stesse. È importante tener conto prima di utilizzare questa funzionalità che la piattaforma social potrebbe monitorare e salvare la richiesta o mostrarla sul tuo account, in base alla funzionalità del canale social.</p>'
     contact: 'Contattaci'
-    contact_description: "<p>Per favore, inviaci una EMail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"no_margin_bottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
+    contact_description: "<p>Per favore, inviaci una EMail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class=\"noMarginBottom\"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>"
   resources:
     communities: Community
     education: Educazione

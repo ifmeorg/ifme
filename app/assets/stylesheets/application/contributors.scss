@@ -1,9 +1,9 @@
-.hide_content {
+.hideContent {
   display: none;
 }
 
-.read_more_show,
-.read_less_show {
+.readMoreShow,
+.readLessShow {
   @include staticContentFakeLink();
   cursor: pointer;
 }

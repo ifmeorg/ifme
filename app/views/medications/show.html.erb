@@ -3,10 +3,10 @@
 <% if @medication.comments.present? %>
 	<%= sanitize(@medication.comments) %>
 <% end %>
-<div class="gridItemBoxDark small_margin_top">
+<div class="gridItemBoxDark smallMarginTop">
   <div class="gridRowSpaceBetween">
     <div class="gridRowSpaceBetween">
-      <div class="smaller_margin_right"><%= t('common.actions.plural') %>:</div>
+      <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
       <%= react_component('StoryActions', props: {
         dark: true,
         actions: {

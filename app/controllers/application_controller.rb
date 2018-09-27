@@ -200,6 +200,8 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
+<<<<<<< HEAD
+=======
   # rubocop:disable MethodLength
   # TODO: move this logic out of the controller and into a helper method
   def moments_stats
@@ -210,7 +212,7 @@ class ApplicationController < ActionController::Base
 
     return '' if total_count <= 1
 
-    result = '<div class="center" id="stats">'
+    result = '<div class="center stats">'
     result += if total_count == 1
                 t('stats.total_moment', count: total_count.to_s)
               else
@@ -230,6 +232,7 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
   private
 
   def data_included?(data_type, data_id, data)

@@ -94,6 +94,7 @@ export class Header extends React.Component<Props, State> {
             onKeyDown={this.toggle}
             role="button"
             tabIndex="0"
+            aria-label="Expand menu" // TODO: intl in React not working in Rails
           >
             {this.displayToggle()}
           </div>

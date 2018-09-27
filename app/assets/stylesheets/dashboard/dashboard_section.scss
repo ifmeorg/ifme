@@ -65,6 +65,7 @@
     font-weight: $font-weight-400;
   }
 
+<<<<<<< HEAD
   .label {
     display: flex;
     flex-direction: row;
@@ -76,6 +77,11 @@
       @include setFontSize($size-14);
       padding: 0;
     }
+=======
+  .label,
+  label {
+    color: $mulberry-70;
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
   }
 }
 

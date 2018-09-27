@@ -23,7 +23,7 @@ module GroupsHelper
 
   def edit_group_link(group)
     link_to t('common.actions.edit'), edit_group_path(group),
-            class: 'small_margin_right'
+            class: 'smallMarginRight'
   end
 
   def leader_link(leader)

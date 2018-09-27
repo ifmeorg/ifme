@@ -3,7 +3,7 @@
 <%= render partial: '/groups/info', locals: { group: @group } %>
 
 <% if @meetings.present? %>
-  <div class="gridTwo small_margin_top">
+  <div class="gridTwo smallMarginTop">
     <% @meetings.each do |meeting| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {
