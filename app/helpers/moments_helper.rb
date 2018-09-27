@@ -109,10 +109,26 @@ module MomentsHelper
     return '' if total_count <= 1
 
     result = '<div class="center" id="stats">'
+<<<<<<< HEAD
     total_moment
 
     if total_count != monthly_count
       monthly_moment
+=======
+    result += if total_count == 1
+                t('stats.total_moment', count: total_count.to_s)
+              else
+                t('stats.total_moments', count: total_count.to_s)
+              end
+
+    if total_count != monthly_count
+      result += ' '
+      result += if monthly_count == 1
+                  t('stats.monthly_moment', count: monthly_count.to_s)
+                else
+                  t('stats.monthly_moments', count: monthly_count.to_s)
+                end
+>>>>>>> a08ea6446528b5f6ef650d7c032f41e140a11446
     end
 
     result + '</div>'
