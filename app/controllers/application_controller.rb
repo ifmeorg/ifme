@@ -200,6 +200,9 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
   # rubocop:disable MethodLength
   # TODO: move this logic out of the controller and into a helper method
   def moments_stats
@@ -230,6 +233,9 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+>>>>>>> a08ea6446528b5f6ef650d7c032f41e140a11446
   private
 
   def data_included?(data_type, data_id, data)

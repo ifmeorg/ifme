@@ -37,6 +37,13 @@
     "font-awesome": "^4.7.0",
     "intl": "^1.2.5",
     "js-cookie": "^2.2.0",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "js-yaml": "^3.8.2",
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     "jstimezonedetect": "^1.0.6",
     "pell": "^1.0.4",
     "react": "^16.4.0",
@@ -47,7 +54,18 @@
     "react-intl": "^2.4.0",
     "react-lazyload": "^2.3.0",
     "react-on-rails": "11.1.4",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "react-render-html": "^0.6.0",
+    "shortid": "^2.2.8",
+    "superagent": "^3.5.2",
+    "universal-cookie": "^3.0.4"
+=======
     "react-render-html": "^0.6.0"
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+    "react-render-html": "^0.6.0"
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -67,9 +85,24 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-flow-react-proptypes": "^24.1.2",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "babel-plugin-import": "^1.6.7",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "caniuse-lite": "^1.0.30000830",
+    "compression-webpack-plugin": "^2.0.0",
+    "css-loader": "^1.0.0",
+    "empty": "^0.10.1",
+=======
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.0",
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "compression-webpack-plugin": "^2.0.0",
+    "css-loader": "^1.0.0",
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
@@ -80,6 +113,13 @@
     "eslint-plugin-jest": "^21.22.1",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "expose-loader": "^0.7.5",
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     "extract-css-chunks-webpack-plugin": "^3.1.1",
     "file-loader": "^2.0.0",
     "flow-bin": "^0.80.0",
@@ -91,13 +131,35 @@
     "node-sass": "^4.9.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "prettier-eslint": "^8.8.2",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.5.2",
     "sass-loader": "^7.1.0",
     "storybook-addon-intl": "^2.3.0",
+    "superagent-mock": "^3.5.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8",
+=======
+    "react-test-renderer": "^16.5.2",
+    "sass-loader": "^7.1.0",
+    "storybook-addon-intl": "^2.3.0",
+=======
+    "react-test-renderer": "^16.5.2",
+    "sass-loader": "^7.1.0",
+    "storybook-addon-intl": "^2.3.0",
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1",
+<<<<<<< HEAD
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     "webpack-manifest-plugin": "^2.0.4",
     "yml-loader": "^2.1.0"
   },

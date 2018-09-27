@@ -6,6 +6,30 @@
     <div class="label"><%= t('common.name') %></div>
     <%= f.text_field :name, 'aria-label': t('common.name') %>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <div class="field">
+      <div class="label"><%= f.label t('devise.registrations.new.label') %></div>
+      <%= f.text_field :location, class: 'smaller_margin_bottom', placeholder: t('common.form.location') %>
+      <%= f.email_field :email, placeholder: t('common.form.email') %>
+    </div>
+
+    <div class="field">
+      <div class="label"><%= f.label t('devise.password') %></div>
+      <%= f.password_field :password, autocomplete: 'off', class: 'smaller_margin_bottom', placeholder: t('devise.password') %>
+      <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password') %>
+    </div>
+=======
+    <div class="label smallMarginTop"><%= t('devise.registrations.new.label') %></div>
+    <%= f.text_field :location, class: 'smallerMarginBottom', placeholder: t('common.form.location'), 'aria-label': t('common.form.location') %>
+    <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
+
+    <div class="label smallMarginTop"><%= t('devise.password') %></div>
+    <%= f.password_field :password, autocomplete: 'off', class: 'smallerMarginBottom', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
+    <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': ('devise.registrations.placeholders.repeat_password') %>
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+
+=======
     <div class="label smallMarginTop"><%= t('devise.registrations.new.label') %></div>
     <%= f.text_field :location, class: 'smallerMarginBottom', placeholder: t('common.form.location'), 'aria-label': t('common.form.location') %>
     <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
@@ -14,6 +38,7 @@
     <%= f.password_field :password, autocomplete: 'off', class: 'smallerMarginBottom', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
     <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': ('devise.registrations.placeholders.repeat_password') %>
 
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     <%= f.submit t('account.sign_up'), class: 'buttonGhostM smallMarginTop' %>
   </div>
 <% end %>

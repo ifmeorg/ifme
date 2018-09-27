@@ -120,9 +120,32 @@
     margin: 0 auto;
     text-align: center;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    .field {
+      margin-bottom: 12px;
+    }
+
+    .label {
+      margin-bottom: 0;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      padding: 0;
+      text-align: left;
+=======
     .label,
     label {
       color: $white;
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
+=======
+    .label,
+    label {
+      color: $white;
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
     }
 
     [type='text'],

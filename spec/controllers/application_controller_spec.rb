@@ -131,6 +131,8 @@ describe ApplicationController do
       end
     end
   end
+<<<<<<< HEAD
+=======
 
   describe 'moments_stats' do
     before(:example) do
@@ -162,4 +164,5 @@ describe ApplicationController do
       expect(controller.moments_stats).to eq('<div class="center stats">You have written a <strong>total</strong> of <strong>3</strong> moments. This <strong>month</strong> you wrote <strong>2</strong> moments.</div>')
     end
   end
+>>>>>>> 426c92e1c86992eb551dab6f873560b76991f939
 end

@@ -100,6 +100,42 @@ module MomentsHelper
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
+  def moments_stats
+    total_count = current_user.moments.all.count
+    monthly_count = current_user.moments.where(
+      created_at: Time.current.beginning_of_month..Time.current
+    ).count
+
+    return '' if total_count <= 1
+
+    result = '<div class="center" id="stats">'
+<<<<<<< HEAD
+    total_moment
+
+    if total_count != monthly_count
+      monthly_moment
+=======
+    result += if total_count == 1
+                t('stats.total_moment', count: total_count.to_s)
+              else
+                t('stats.total_moments', count: total_count.to_s)
+              end
+
+    if total_count != monthly_count
+      result += ' '
+      result += if monthly_count == 1
+                  t('stats.monthly_moment', count: monthly_count.to_s)
+                else
+                  t('stats.monthly_moments', count: monthly_count.to_s)
+                end
+>>>>>>> a08ea6446528b5f6ef650d7c032f41e140a11446
+    end
+
+    result + '</div>'
+  end
+  # rubocop:enable MethodLength
+
+  # rubocop:disable MethodLength
   def moments_viewers_input
     input = {}
     if @viewers.present?
@@ -149,6 +185,25 @@ module MomentsHelper
     when 'Strategy'
       @moment.strategy
     end
+  end
+
+  private
+
+  def total_moment
+    result += if total_count == 1
+                t('stats.total_moment', count: total_count.to_s)
+              else
+                t('stats.total_moments', count: total_count.to_s)
+              end
+  end
+
+  def monthly_moment
+    result += ' '
+      result += if monthly_count == 1
+                  t('stats.monthly_moment', count: monthly_count.to_s)
+                else
+                  t('stats.monthly_moments', count: monthly_count.to_s)
+                end
   end
 end
 # rubocop:enable ModuleLength
