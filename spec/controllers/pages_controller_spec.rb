@@ -4,7 +4,7 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #home' do
     it 'respond to request' do
       get :home
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     context 'logged in' do
@@ -44,7 +44,7 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #contribute' do
     it 'respond to request' do
       get :contribute
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'read external JSON file' do
@@ -61,7 +61,7 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #partners' do
     it 'respond to request' do
       get :partners
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'read external JSON file' do
@@ -76,21 +76,21 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #about' do
     it 'respond to request' do
       get :about
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
   describe 'GET #faq' do
     it 'respond to request' do
       get :faq
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
   describe 'GET #privacy' do
     it 'respond to request' do
       get :privacy
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 
@@ -123,7 +123,7 @@ RSpec.describe PagesController, type: :controller do
   describe 'GET #resources' do
     it 'respond to request' do
       get :resources
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 end
