@@ -74,7 +74,7 @@ module NotificationsHelper
   end
 
   def request_actions(user_id)
-    "<div>#{request_accept(user_id)}#{request_reject(user_id)}</div>"
+    "<div>#{request_accept(user_id)} | #{request_reject(user_id)}</div>"
   end
 
   def comment_object(comment_type, data)

@@ -56,7 +56,7 @@ describe AlliesController do
         }
       end
 
-      subject { post :add, params: { ally_id: ally.id, format: :json } }
+      subject { post :add, params: { ally_id: ally.id } }
 
       context 'with an existing ally request' do
         let!(:allyship) do
@@ -95,10 +95,8 @@ describe AlliesController do
             type: notification_type.to_s,
             uniqueid: "#{notification_type}_#{user.id}"
           }.to_json
-
           allow(NotificationMailer).to receive(:notification_email).with(ally.id.to_s, data).and_return(notification)
           expect(notification).to receive(:deliver_now)
-
           subject
         end
       end
@@ -112,13 +110,14 @@ describe AlliesController do
             ally_id: ally.id.to_s,
             status: :pending_from_ally
           )
-
           subject
+          expect(response).to redirect_to allies_path
         end
 
         it 'creates a new allyship request notification' do
           expect(Notification).to receive(:create).with(notification_params)
           subject
+          expect(response).to redirect_to allies_path
         end
       end
     end
@@ -132,7 +131,6 @@ describe AlliesController do
 
   describe 'DELETE #remove' do
     let!(:allyship) { double(:allyship) }
-    subject { delete :remove, params: { ally_id: ally.id, format: :json } }
 
     context 'when user is logged in' do
       include_context :logged_in_user
@@ -140,13 +138,13 @@ describe AlliesController do
       it 'deletes the allyship' do
         allow(Allyship).to receive(:where).and_return(allyship)
         expect(allyship).to receive(:destroy_all)
-        subject
+        delete :remove, params: { ally_id: ally.id }
+        expect(response).to redirect_to allies_path
       end
     end
 
     context 'when user is not logged in' do
       before { delete :remove }
-
       it_behaves_like :with_no_logged_in_user
     end
   end
