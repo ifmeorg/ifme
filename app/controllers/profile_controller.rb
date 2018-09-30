@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ProfileController < ApplicationController
+  include StoriesHelper
+
   def index
     # If the specified profile doesn't exist, view the current user's profile
     user = User.find_by(uid: params[:uid])

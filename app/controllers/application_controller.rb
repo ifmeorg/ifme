@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include CommentsHelper
+  include StoriesHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -168,39 +169,6 @@ class ApplicationController < ActionController::Base
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
-  def get_stories(user, include_allies)
-    if user.id == current_user.id
-      my_moments = user.moments.all.recent
-      my_strategies = user.strategies.all.recent
-    end
-
-    if include_allies && user.id == current_user.id
-      allies = user.allies_by_status(:accepted)
-      allies.each do |ally|
-        my_moments += user_stories(ally, 'moments')
-        my_strategies += user_stories(ally, 'strategies')
-      end
-    elsif !include_allies && user.id != current_user.id
-      my_moments = user_stories(user, 'moments')
-      my_strategies = user_stories(user, 'strategies')
-    end
-
-    moments = Moment.where(id: my_moments.map(&:id)).order(created_at: :desc)
-    strategies = Strategy.where(id: my_strategies.map(&:id))
-                         .order(created_at: :desc)
-
-    stories =
-      if moments.count.positive?
-        moments.zip(strategies).flatten.compact
-      else
-        strategies.compact
-      end
-
-    stories.sort_by(&:created_at).reverse!
-  end
-  # rubocop:enable MethodLength
-
-  # rubocop:disable MethodLength
   # TODO: move this logic out of the controller and into a helper method
   def moments_stats
     total_count = current_user.moments.all.count
@@ -307,19 +275,6 @@ class ApplicationController < ActionController::Base
 
   def user_moments(user_id)
     Moment.where(user_id: user_id)
-  end
-
-  def user_stories(user, collection)
-    case collection
-    when 'moments'
-      query = Moment.published
-    when 'strategies'
-      query = Strategy.published
-    end
-
-    query.where(user_id: user.id).all.recent.map do |story|
-      story if story.viewers.include?(current_user.id)
-    end.compact
   end
 end
 # rubocop:enable ClassLength
