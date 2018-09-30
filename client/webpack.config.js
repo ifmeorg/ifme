@@ -18,7 +18,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 
 const configPath = resolve('..', 'config');
-const devMode = process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV === 'development';
 const { output } = webpackConfigLoader(configPath);
 const outputFilename = `[name]${devMode ? '-[hash]' : ''}`;
 
