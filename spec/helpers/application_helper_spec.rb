@@ -431,7 +431,7 @@ describe ApplicationHelper do
     subject { image_link_to(image_path, url, image_tag_options, link_to_options) }
 
     context 'with no options' do
-      it { is_expected.to eq('<a href="/some-path"><img src="/some-image-path" alt="Some image path" /></a>') }
+      it { is_expected.to eq('<a href="/some-path"><img alt="Some image path" src="/some-image-path" /></a>') }
     end
 
     context 'with image_tag_options' do
@@ -441,7 +441,7 @@ describe ApplicationHelper do
 
     context 'with link_to_options' do
       let(:link_to_options) { { class: 'someClass' } }
-      it { is_expected.to eq('<a class="someClass" href="/some-path"><img src="/some-image-path" alt="Some image path" /></a>') }
+      it { is_expected.to eq('<a class="someClass" href="/some-path"><img alt="Some image path" src="/some-image-path" /></a>') }
     end
   end
 end
