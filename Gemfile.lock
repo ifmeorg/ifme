@@ -183,7 +183,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
-    i18n (0.9.5)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     i18n-js (3.0.11)
       i18n (>= 0.6.6, < 2)
@@ -321,9 +321,9 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-i18n (5.0.4)
-      i18n (~> 0.7)
-      railties (~> 5.0)
+    rails-i18n (5.1.1)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -547,7 +547,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-controller-testing
   rails-erd (~> 1.4, >= 1.4.4)
-  rails-i18n (~> 5.0.0)
+  rails-i18n (~> 5.1.1)
   rails_12factor (= 0.0.3)
   react_on_rails (= 11.1.4)
   resque (= 1.27.4)
