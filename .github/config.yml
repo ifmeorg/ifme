@@ -6,4 +6,22 @@ sentimentBotToxicityThreshold: .7
 
 # *Required* Comment to reply with
 sentimentBotReplyComment: >
-  Please review our code of conduct, the wonderful Contributor Convenant, and be respectful of everyone.
+  Please review our code of conduct and be respectful of everyone.
+
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thank you for opening this issue with us! If you haven't already, please follow these [next steps](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack) to officially join our contributor community.
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Thank you for opening this pull request with us! Be sure to follow our [Pull Request Practices](https://github.com/ifmeorg/ifme/wiki/Pull-Request-Practices). Let us know if you have any questions on [Slack](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack).
+
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Thank you for merging this pull request with us! If you haven't already, in another pull request, please [add yourself](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our [Contribute](https://www.if-me.org/contribute) page.
