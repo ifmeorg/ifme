@@ -88,7 +88,7 @@ GEM
       nokogiri (~> 1.8)
     chronic (0.10.2)
     chunky_png (1.3.10)
-    cloudinary (1.8.3)
+    cloudinary (1.9.1)
       aws_cf_signer
       rest-client
     coderay (1.1.2)
@@ -511,7 +511,7 @@ DEPENDENCIES
   certified (= 1.0.0)
   chromedriver-helper
   chronic (= 0.10.2)
-  cloudinary (~> 1.8.1)
+  cloudinary (~> 1.9.1)
   compass-rails (~> 3.0.2)
   database_cleaner
   devise (~> 4.3)
