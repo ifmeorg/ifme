@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
-gem 'uglifier', '~> 3.2.0'
+gem 'uglifier', '~> 4.1.19'
 
 gem 'carrierwave', '~> 1.2.3'
 gem 'certified', '1.0.0'
