@@ -200,36 +200,6 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
-  # TODO: move this logic out of the controller and into a helper method
-  def moments_stats
-    total_count = current_user.moments.all.count
-    monthly_count = current_user.moments.where(
-      created_at: Time.current.beginning_of_month..Time.current
-    ).count
-
-    return '' if total_count <= 1
-
-    result = '<div class="center stats">'
-    result += if total_count == 1
-                t('stats.total_moment', count: total_count.to_s)
-              else
-                t('stats.total_moments', count: total_count.to_s)
-              end
-
-    if total_count != monthly_count
-      result += ' '
-      result += if monthly_count == 1
-                  t('stats.monthly_moment', count: monthly_count.to_s)
-                else
-                  t('stats.monthly_moments', count: monthly_count.to_s)
-                end
-    end
-
-    result + '</div>'
-  end
-  # rubocop:enable MethodLength
-
   private
 
   def data_included?(data_type, data_id, data)
