@@ -3,49 +3,60 @@
 module StoriesHelper
   # rubocop:disable MethodLength
   def get_stories(user, include_allies)
-    if user.id == current_user.id
-      my_moments = user.moments.all.recent
-      my_strategies = user.strategies.all.recent
-    end
-
-    if include_allies && user.id == current_user.id
-      allies = user.allies_by_status(:accepted)
-      allies.each do |ally|
-        my_moments += user_stories(ally, 'moments')
-        my_strategies += user_stories(ally, 'strategies')
+    moments, strategies =
+      if user == current_user
+        get_current_user_stories(user, include_allies)
+      else
+        get_user_stories(user, include_allies)
       end
-    elsif !include_allies && user.id != current_user.id
-      my_moments = user_stories(user, 'moments')
-      my_strategies = user_stories(user, 'strategies')
-    end
-
-    moments = Moment.where(id: my_moments.map(&:id)).order(created_at: :desc)
-    strategies = Strategy.where(id: my_strategies.map(&:id))
-                         .order(created_at: :desc)
 
     stories =
-      if moments.count.positive?
-        moments.zip(strategies).flatten.compact
+      if moments.any?
+        moments.zip(strategies).flatten
       else
-        strategies.compact
+        strategies
       end
 
-    stories.sort_by(&:created_at).reverse!
+    stories.compact.sort_by(&:created_at).reverse!
   end
   # rubocop:enable MethodLength
 
   private
 
-  def user_stories(user, collection)
-    case collection
-    when 'moments'
-      query = Moment.published
-    when 'strategies'
-      query = Strategy.published
+  # rubocop:disable MethodLength
+  def get_current_user_stories(user, include_allies)
+    user_moments = user.moments.all.recent
+    user_strategies = user.strategies.all.recent
+
+    if include_allies
+      user.allies_by_status(:accepted).each do |ally|
+        user_moments += user_stories(ally, Moment)
+        user_strategies += user_stories(ally, Strategy)
+      end
     end
 
-    query.where(user_id: user.id).all.recent.map do |story|
-      story if story.viewers.include?(current_user.id)
-    end.compact
+    [
+      Moment.where(id: user_moments.map(&:id)),
+      Strategy.where(id: user_strategies.map(&:id))
+    ]
+  end
+  # rubocop:enable MethodLength
+
+  def get_user_stories(user, include_allies)
+    return [Moment.none, Strategy.none] unless include_allies
+
+    user_moments = user_stories(user, Moment)
+    user_strategies = user_stories(user, Strategy)
+
+    [
+      Moment.where(id: user_moments.map(&:id)),
+      Strategy.where(id: user_strategies.map(&:id))
+    ]
+  end
+
+  def user_stories(user, scope)
+    scope.published.where(user_id: user.id).recent.select do |story|
+      story.viewers.include?(current_user.id)
+    end
   end
 end
