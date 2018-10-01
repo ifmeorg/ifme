@@ -58,6 +58,7 @@ jobs:
           paths:
           - ~/.cache/yarn
           - ./node_modules
+          - ./vendor/bundle
       - run: |-
           mkdir -p config && echo 'test:
             min_messages: error
