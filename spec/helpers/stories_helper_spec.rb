@@ -4,7 +4,11 @@ describe StoriesHelper, type: :controller do
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
 
-  controller(ApplicationController) do
+  class FakeStoriesController < ApplicationController
+    include StoriesHelper
+  end
+
+  controller(FakeStoriesController) do
   end
 
   describe '#get_stories' do

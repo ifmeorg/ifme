@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include CommentsHelper
-  include StoriesHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -87,7 +86,7 @@ class ApplicationController < ActionController::Base
   helper_method :avatar_url, :viewer_of?,
                 :are_allies?, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
-                :generate_comment, :get_stories, :moments_stats
+                :generate_comment, :moments_stats
 
   def if_not_signed_in
     return if user_signed_in?
