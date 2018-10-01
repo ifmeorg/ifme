@@ -432,9 +432,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    selenium-webdriver (3.4.4)
+    selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
-      rubyzip (~> 1.0)
+      rubyzip (~> 1.2)
     signet (0.9.2)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -561,7 +561,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 0.4.1)
-  selenium-webdriver (~> 3.4.4)
+  selenium-webdriver (~> 3.14.0)
   simplecov
   spring
   turbolinks (~> 5.2.0)
