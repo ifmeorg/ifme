@@ -192,12 +192,12 @@ GEM
       nokogiri (>= 1.6)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
-    jasmine (2.7.0)
-      jasmine-core (>= 2.7.0, < 3.0.0)
+    jasmine (3.2.0)
+      jasmine-core (= 3.2.0)
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (2.99.2)
+    jasmine-core (3.2.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -528,7 +528,7 @@ DEPENDENCIES
   groupdate (= 3.2)
   i18n-js (>= 3.0.0.rc11)
   inline_svg
-  jasmine (~> 2.7.0)
+  jasmine (~> 3.2.0)
   jbuilder (~> 2.7.0)
   jquery-rails (= 4.1.1)
   jshint
