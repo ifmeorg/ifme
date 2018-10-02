@@ -157,7 +157,7 @@ module MedicationsHelper
         label: t('medications.refill_reminder'),
         info: t('medications.form.refill_reminder_hint'),
         name: 'medication[refill_reminder_attributes][active]',
-        checked: @medication.try(:refill_reminder).try(:active),
+        checked: @medication&.refill_reminder&.active,
         uncheckedValue: false,
         value: true
       },
@@ -168,7 +168,7 @@ module MedicationsHelper
         label: t('common.daily_reminder'),
         info: t('medications.form.daily_reminder_hint'),
         name: 'medication[take_medication_reminder_attributes][active]',
-        checked: @medication.try(:take_medication_reminder).try(:active),
+        checked: @medication&.take_medication_reminder&.active,
         uncheckedValue: false,
         value: true
       },
@@ -176,13 +176,13 @@ module MedicationsHelper
         id: 'medication_refill_reminder_attributes_id',
         name: 'medication[refill_reminder_attributes][id]',
         type: 'hidden',
-        value: @medication.try(:refill_reminder).try(:id)
+        value: @medication&.refill_reminder&.id
       },
       {
         id: 'medication_take_medication_reminder_attributes_id',
         name: 'medication[take_medication_reminder_attributes][id]',
         type: 'hidden',
-        value: @medication.try(:take_medication_reminder).try(:id)
+        value: @medication&.take_medication_reminder&.:id
       }
     ]
   end
