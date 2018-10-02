@@ -48,10 +48,6 @@ class Strategy < ApplicationRecord
     viewers.map!(&:to_i)
   end
 
-  def category_name
-    category&.name
-  end
-
   def published?
     published_at.present?
   end
