@@ -40,7 +40,7 @@ gem 'rails-i18n', '~> 5.1.1'
 gem 'underscore-rails', '1.8.3'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'sdoc', '0.4.1', group: :doc
+gem 'sdoc', '1.0.0', group: :doc
 
 gem 'font-awesome-sass'
 gem 'inline_svg'
