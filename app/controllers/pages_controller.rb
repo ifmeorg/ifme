@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
+  include StoriesHelper
+
   skip_before_action :if_not_signed_in
 
   def home
