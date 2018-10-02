@@ -2,12 +2,7 @@
 
 module CalendarHelper
   def new_cal_refill_reminder_needed?(medication)
-    if medication.add_to_google_cal &&
-       medication.refill &&
-       (medication.add_to_google_cal_changed? || medication.refill_changed?)
-      true
-    else
-      false
-    end
+    medication.add_to_google_cal && medication.refill &&
+      (medication.add_to_google_cal_changed? || medication.refill_changed?)
   end
 end
