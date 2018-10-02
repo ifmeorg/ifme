@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
-describe MomentsHelper do
+describe MomentsHelper, type: :controller do
+  let(:user1) { create(:user1) }
+
+  controller(ApplicationController) do
+  end
+
   describe 'moments_stats' do
     before(:example) do
       sign_in user1
     end
+
     it 'has no moments' do
       expect(controller.moments_stats).to eq('')
     end
