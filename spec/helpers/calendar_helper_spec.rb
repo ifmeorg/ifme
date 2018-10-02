@@ -9,7 +9,7 @@ describe CalendarHelper do
     it 'when add_to_google_cal is true without a refill date' do
       medication.add_to_google_cal = true
       medication.refill = nil
-      expect(new_cal_refill_reminder_needed?(medication)).to eq(false)
+      expect(new_cal_refill_reminder_needed?(medication)).to eq(nil)
     end
 
     it 'when add_to_google_cal is true with a refill date' do
