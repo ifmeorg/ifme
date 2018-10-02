@@ -49,6 +49,19 @@ module CommentsHelper
     set_show_with_comments_variables(subject, model_name)
   end
 
+  def comment_for(model_name)
+    @comment = Comment.create_from!(params)
+    @comment.notify_of_creation!(current_user)
+
+    respond_with_json(
+      generate_comment(@comment, model_name)
+    )
+  rescue ActiveRecord::RecordInvalid
+    respond_not_saved
+  end
+
+  private
+
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
     @page_author = if current_user.id != subject.user_id
@@ -74,14 +87,19 @@ module CommentsHelper
       user_created_data?(data.commentable_id, data_type)
   end
 
-  def comment_for(model_name)
-    @comment = Comment.create_from!(params)
-    @comment.notify_of_creation!(current_user)
-
-    respond_with_json(
-      generate_comment(@comment, model_name)
-    )
-  rescue ActiveRecord::RecordInvalid
-    respond_not_saved
+  # rubocop:disable MethodLength
+  def user_created_data?(id, data_type)
+    case data_type
+    when 'moment'
+      Moment.where(id: id, user_id: current_user.id).exists?
+    when 'strategy'
+      Strategy.where(id: id, user_id: current_user.id).exists?
+    when 'meeting'
+      MeetingMember.where(meeting_id: id, leader: true,
+                          user_id: current_user.id).exists?
+    else
+      false
+    end
   end
+  # rubocop:enable MethodLength
 end
