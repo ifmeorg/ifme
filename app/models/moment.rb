@@ -72,11 +72,11 @@ class Moment < ApplicationRecord
   end
 
   def category_name
-    category.try(:name)
+    category&.name
   end
 
   def mood_name
-    mood.try(:name)
+    mood&.name
   end
 
   def owned_by?(user)
@@ -93,6 +93,6 @@ class Moment < ApplicationRecord
   end
 
   def strategy_name
-    strategy.try(:name)
+    strategy&.name
   end
 end

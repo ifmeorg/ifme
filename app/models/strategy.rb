@@ -49,7 +49,7 @@ class Strategy < ApplicationRecord
   end
 
   def category_name
-    category.try(:name)
+    category&.name
   end
 
   def published?
