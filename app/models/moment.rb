@@ -71,28 +71,16 @@ class Moment < ApplicationRecord
     self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
   end
 
-  def category_name
-    category.try(:name)
-  end
-
-  def mood_name
-    mood.try(:name)
-  end
-
   def owned_by?(user)
     user&.id == user_id
   end
 
   def published?
-    !published_at.nil?
+    published_at.present?
   end
 
   def shared?
     secret_share_identifier?
     # && Time.zone.now < secret_share_expires_at TODO: Turn off temporarily
-  end
-
-  def strategy_name
-    strategy.try(:name)
   end
 end
