@@ -49,6 +49,19 @@ module CommentsHelper
     set_show_with_comments_variables(subject, model_name)
   end
 
+  def comment_for(model_name)
+    @comment = Comment.create_from!(params)
+    @comment.notify_of_creation!(current_user)
+
+    respond_with_json(
+      generate_comment(@comment, model_name)
+    )
+  rescue ActiveRecord::RecordInvalid
+    respond_not_saved
+  end
+
+  private
+
   # rubocop:disable MethodLength
   def set_show_with_comments_variables(subject, model_name)
     @page_author = if current_user.id != subject.user_id
@@ -72,17 +85,6 @@ module CommentsHelper
   def comment_deletable?(data, data_type)
     data.comment_by == current_user.id ||
       user_created_data?(data.commentable_id, data_type)
-  end
-
-  def comment_for(model_name)
-    @comment = Comment.create_from!(params)
-    @comment.notify_of_creation!(current_user)
-
-    respond_with_json(
-      generate_comment(@comment, model_name)
-    )
-  rescue ActiveRecord::RecordInvalid
-    respond_not_saved
   end
 
   # rubocop:disable MethodLength
