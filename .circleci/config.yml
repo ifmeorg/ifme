@@ -10,7 +10,7 @@ defaults: &defaults
     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
       command: /sbin/init
     - image: circleci/ruby:2.3.4
-    - image: circleci/node:8.11.1
+    - image: circleci/node:8.12.0
 jobs:
   setup-coverage:
     <<: *defaults
@@ -38,7 +38,7 @@ jobs:
           command: rm -f ifmeorg/ifme/.rvmrc; echo 2.3.4 > ifmeorg/ifme/.ruby-version; rvm use 2.3.4 --default
       - run:
           working_directory: ~/ifmeorg/ifme
-          command: nvm install 8.11.1 && nvm alias default 8.11.1
+          command: nvm install 8.12.0 && nvm alias default 8.12.0
       - restore_cache:
           keys:
           - v1-dep-{{ .Branch }}-
