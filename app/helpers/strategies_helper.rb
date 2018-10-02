@@ -73,7 +73,7 @@ module StrategiesHelper
         info: t('strategies.form.daily_reminder_hint'),
         value: true,
         uncheckedValue: false,
-        checked: @strategy.try(:perform_strategy_reminder).try(:active),
+        checked: @strategy&.perform_strategy_reminder&.active,
         dark: true
       },
       {
@@ -90,7 +90,7 @@ module StrategiesHelper
         id: 'strategy_perform_strategy_reminder_attributes_id',
         name: 'strategy[perform_strategy_reminder_attributes][id]',
         type: 'hidden',
-        value: @strategy.try(:perform_strategy_reminder).try(:id)
+        value: @strategy&.perform_strategy_reminder&.id
       }
     ]
   end
