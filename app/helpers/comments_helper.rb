@@ -84,4 +84,20 @@ module CommentsHelper
   rescue ActiveRecord::RecordInvalid
     respond_not_saved
   end
+
+  # rubocop:disable MethodLength
+  def user_created_data?(id, data_type)
+    case data_type
+    when 'moment'
+      Moment.where(id: id, user_id: current_user.id).exists?
+    when 'strategy'
+      Strategy.where(id: id, user_id: current_user.id).exists?
+    when 'meeting'
+      MeetingMember.where(meeting_id: id, leader: true,
+                          user_id: current_user.id).exists?
+    else
+      false
+    end
+  end
+  # rubocop:enable MethodLength
 end

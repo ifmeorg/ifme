@@ -257,22 +257,6 @@ class ApplicationController < ActionController::Base
        data.viewers.include?(current_user.id))
   end
 
-  # rubocop:disable MethodLength
-  def user_created_data?(id, data_type)
-    case data_type
-    when 'moment'
-      Moment.where(id: id, user_id: current_user.id).exists?
-    when 'strategy'
-      Strategy.where(id: id, user_id: current_user.id).exists?
-    when 'meeting'
-      MeetingMember.where(meeting_id: id, leader: true,
-                          user_id: current_user.id).exists?
-    else
-      false
-    end
-  end
-  # rubocop:enable MethodLength
-
   def record_model_name(record)
     record.class.name.downcase
   end
