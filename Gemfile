@@ -65,7 +65,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 2.15.1'
+  gem 'capybara', '~> 3.8.2'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'jasmine', '~> 2.7.0'
