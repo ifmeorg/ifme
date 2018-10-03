@@ -19,18 +19,7 @@ class MeetingMember < ApplicationRecord
   belongs_to :user, foreign_key: :user_id
   belongs_to :group_member, foreign_key: :user_id
 
-  def self.member?(user, meeting)
-    exists?(
-      meeting_id: meeting.id,
-      user_id: user.id
-    )
-  end
-
-  def self.leader?(user, meeting)
-    exists?(
-      meeting_id: meeting.id,
-      user_id: user.id,
-      leader: true
-    )
+  def leader?
+    self.leader
   end
 end

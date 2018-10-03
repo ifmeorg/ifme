@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
-    if @is_member
+    if @is_member.present?
       @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.meeting_comments(@meeting)
@@ -26,17 +26,19 @@ class MeetingsController < ApplicationController
 
   # rubocop:disable MethodLength
   def delete_comment
-    comment_exists = Comment.exists?(id: params[:commentid])
-    is_my_comment = Comment.user_comment?(params[:commentid], current_user)
+    comment = Comment.find_by(id: params[:commentid])
+    is_my_comment = comment.present? && comment.comment_by == current_user.id
 
-    if comment_exists
-      meeting_id = Comment.find(params[:commentid]).commentable_id
-      meeting = Meeting.find(meeting_id)
-      is_my_meeting = MeetingMember.leader?(current_user, meeting)
-      is_member = MeetingMember.member?(current_user, meeting)
+    if comment.present?
+      meeting_id = comment.commentable_id
+      meeting = Meeting.find_by(id: meeting_id)
+      is_my_meeting = MeetingMember.find_by(
+        id: current_user.id, leader: true
+      )
+      is_member = meeting.members.find_by(id: current_user).present?
     end
 
-    if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
+    if comment.present? && ((is_my_comment&& is_member) || is_my_meeting)
       remove_notification
     end
     head :ok
@@ -44,14 +46,14 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    leader?(Group.find(params[:group_id]))
+    leader?(Group.find_by(id: params[:group_id]))
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
     leader?(@meeting.group)
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id)
+    @meeting_members = @meeting.members
   end
 
   # POST /meetings
@@ -59,12 +61,11 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
-    leader?(Group.find(meeting_params[:group_id]))
+    leader?(Group.find_by(id: meeting_params[:group_id]))
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(
-          meeting_id: @meeting.id,
-          user_id: current_user.id,
+          id: current_user.id,
           leader: true
         )
         if meeting_member.save
@@ -86,7 +87,7 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1.json
   def update
     if @meeting.update(meeting_params)
-      @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
+      @meeting_members = @meeting.members
       notify_members(@meeting, @meeting_members, 'update_meeting')
 
       respond_to do |format|
@@ -130,7 +131,7 @@ class MeetingsController < ApplicationController
         meeting_id: params[:meeting_id],
         leader: true
       ).all
-      meeting = Meeting.find(params[:meeting_id])
+      meeting = Meeting.find_by(id: params[:meeting_id])
       notify_members(meeting, meeting_leaders, 'join_meeting')
 
       respond_to do |format|
@@ -229,9 +230,9 @@ class MeetingsController < ApplicationController
 
   def define_members
     @meeting = Meeting.friendly.find(params[:id])
-    @is_member = MeetingMember.member?(current_user, @meeting)
+    @is_member = @meeting.members.find_by(id: current_user.id)
     @is_group_member = GroupMember.member?(current_user, @meeting.group)
-    @is_leader = MeetingMember.leader?(current_user, @meeting)
+    @is_leader = MeetingMember.find_by(user_id: current_user.id, leader: true)
   end
 
   def notify_members(meeting, members, type)
