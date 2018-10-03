@@ -70,7 +70,7 @@ class MeetingsController < ApplicationController
         )
         if meeting_member.save
           # Notify group members that you created a new meeting
-          group_members = GroupMember.where(group_id: @meeting.group_id)
+          group_members = @meeting.group.members
           notify_members(@meeting, group_members, 'new_meeting')
           format.html { redirect_to group_path(group_id) }
           format.json { render :show, status: :created, location: group_id }
@@ -218,7 +218,9 @@ class MeetingsController < ApplicationController
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def leader?(group)
-    return if GroupMember.leader?(current_user, group)
+    return if GroupMember.find_by(
+      user_id: current_user.id, group_id: group.id, leader: true
+    ).present?
 
     redirect_to_path(group_path(group.id))
   end
@@ -231,8 +233,10 @@ class MeetingsController < ApplicationController
   def define_members
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = @meeting.members.find_by(id: current_user.id)
-    @is_group_member = GroupMember.member?(current_user, @meeting.group)
-    @is_leader = MeetingMember.find_by(user_id: current_user.id, leader: true)
+    @is_group_member = @meeting.group.members.find_by(id: current_user.id)
+    @is_leader = MeetingMember.find_by(
+      user_id: current_user.id, meeting_id: @meeting.id, leader: true
+    )
   end
 
   def notify_members(meeting, members, type)
