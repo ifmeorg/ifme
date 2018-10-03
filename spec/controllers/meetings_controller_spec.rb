@@ -244,9 +244,7 @@ RSpec.describe MeetingsController, type: :controller do
           get :edit, params: { id: meeting.id }
         end
 
-        it do
-          expect(response).to redirect_to group_path(group_member.group_id)
-        end
+        it { expect(response).to redirect_to group_path(group_member.group_id) }
       end
     end
   end

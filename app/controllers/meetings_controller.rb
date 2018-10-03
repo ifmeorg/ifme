@@ -38,7 +38,7 @@ class MeetingsController < ApplicationController
       is_member = meeting.members.find_by(id: current_user).present?
     end
 
-    if comment.present? && ((is_my_comment&& is_member) || is_my_meeting)
+    if comment.present? && ((is_my_commen && is_member) || is_my_meeting)
       remove_notification
     end
     head :ok
