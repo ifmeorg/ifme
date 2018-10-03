@@ -9,7 +9,6 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
-    @no_hide_page = false
     if @is_member
       @no_hide_page = true
       @comment = Comment.new
@@ -24,28 +23,15 @@ class MeetingsController < ApplicationController
     comment_for('meeting')
   end
 
-  # rubocop:disable MethodLength
   def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(
-      id: params[:commentid],
-      comment_by: current_user.id
-    ).exists?
+    comment_exists = Comment.exists?(id: params[:commentid])
+    is_my_comment = Comment.user_comment?(params[:commentid], current_user)
 
     if comment_exists
-      meeting_id = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_meeting = MeetingMember.where(
-        meeting_id: meeting_id,
-        user_id: current_user.id,
-        leader: true
-      ).exists?
-      is_member = MeetingMember.where(
-        meeting_id: meeting_id,
-        user_id: current_user.id
-      ).exists?
-    else
-      is_my_meeting = false
-      is_member = false
+      meeting_id = Comment.find(params[:commentid]).commentable_id
+      meeting = Meeting.find(meeting_id)
+      is_my_meeting = MeetingMember.leader?(current_user, meeting)
+      is_member = MeetingMember.member?(current_user, meeting)
     end
 
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
@@ -55,7 +41,6 @@ class MeetingsController < ApplicationController
 
     head :ok
   end
-  # rubocop:enable MethodLength
 
   # GET /meetings/new
   def new
@@ -267,8 +252,8 @@ class MeetingsController < ApplicationController
 
   def define_members
     @meeting = Meeting.friendly.find(params[:id])
-    @is_member = MeetingMember.member?(current_user, @meeting).exists?
-    @is_group_member = GroupMember.member?(current_user, @meeting).exists?
-    @is_leader = MeetingMember.leader?(current_user, @meeting).exists?
+    @is_member = MeetingMember.member?(current_user, @meeting)
+    @is_group_member = GroupMember.member?(current_user, @meeting)
+    @is_leader = MeetingMember.leader?(current_user, @meeting)
   end
 end

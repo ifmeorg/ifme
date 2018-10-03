@@ -34,7 +34,7 @@ class GroupMember < ApplicationRecord
   end
 
   def self.member?(user, meeting)
-    where(
+    exists?(
       group_id: meeting.group_id,
       user_id: user.id
     )

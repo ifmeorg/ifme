@@ -20,17 +20,20 @@ class MeetingMember < ApplicationRecord
   belongs_to :group_member, foreign_key: :user_id
 
   def self.member?(user, meeting)
-    where(
+    exists?(
       meeting_id: meeting.id,
       user_id: user.id
     )
   end
 
   def self.leader?(user, meeting)
-    where(
+    exists?(
       meeting_id: meeting.id,
       user_id: user.id,
       leader: true
     )
+  end
+
+  def self.user_meeting?(user, meeting)
   end
 end
