@@ -293,7 +293,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.5.1)
-    railroady (1.4.2)
+    railroady (1.5.3)
     rails (5.2.1)
       actioncable (= 5.2.1)
       actionmailer (= 5.2.1)
@@ -542,7 +542,7 @@ DEPENDENCIES
   pusher (= 1.1.0)
   rack-rewrite
   rack-timeout
-  railroady (= 1.4.2)
+  railroady (= 1.5.3)
   rails (~> 5.2.1)
   rails-controller-testing
   rails-erd (~> 1.4, >= 1.4.4)
