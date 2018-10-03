@@ -67,11 +67,8 @@ class MeetingsController < ApplicationController
         )
         if meeting_member.save
           # Notify group members that you created a new meeting
-          group_members = GroupMember.where(group_id: @meeting.group_id).all
-          MeetingNotificationsService.handle_members(current_user: current_user,
-                                                     meeting: @meeting,
-                                                     type: 'new_meeting',
-                                                     members: group_members)
+          group_members = GroupMember.where(group_id: @meeting.group_id)
+          notify_members(@meeting, group_members, 'new_meeting')
           format.html { redirect_to group_path(group_id) }
           format.json { render :show, status: :created, location: group_id }
         end
@@ -88,10 +85,8 @@ class MeetingsController < ApplicationController
   def update
     if @meeting.update(meeting_params)
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-      MeetingNotificationsService.handle_members(current_user: current_user,
-                                                 meeting: @meeting,
-                                                 type: 'update_meeting',
-                                                 members: @meeting_members)
+      notify_members(@meeting, @meeting_members, 'update_meeting')
+
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.slug) }
         format.json do
@@ -133,11 +128,7 @@ class MeetingsController < ApplicationController
         leader: true
       ).all
       meeting = Meeting.find(params[:meeting_id])
-
-      MeetingNotificationsService.handle_members(current_user: current_user,
-                                                 meeting: meeting,
-                                                 type: 'join_meeting',
-                                                 members: meeting_leaders)
+      notify_members(meeting, meeting_leaders, 'join_meeting')
 
       respond_to do |format|
         format.html do
@@ -236,5 +227,14 @@ class MeetingsController < ApplicationController
     @is_member = MeetingMember.member?(current_user, @meeting)
     @is_group_member = GroupMember.member?(current_user, @meeting.group)
     @is_leader = MeetingMember.leader?(current_user, @meeting)
+  end
+
+  def notify_members(meeting, members, type)
+    MeetingNotificationsService.handle_members(
+      current_user: current_user,
+      meeting: meeting,
+      type: type,
+      members: members
+    )
   end
 end
