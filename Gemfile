@@ -8,7 +8,7 @@ gem 'rack-rewrite'
 gem 'rails', '~> 5.2.1'
 
 gem 'activerecord-import'
-gem 'bcrypt', '3.1.11'
+gem 'bcrypt', '3.1.12'
 gem 'devise', '~> 4.3'
 gem 'devise_invitable'
 gem 'devise_uid'
