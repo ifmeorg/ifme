@@ -15,6 +15,23 @@ module MomentsHelper
     edit_form_props(moment_form_inputs, moment_path(@moment))
   end
 
+  # rubocop:disable MethodLength
+  def moments_stats
+    total_count = current_user.moments.all.count
+    monthly_count = current_user.moments.where(
+      created_at: Time.current.beginning_of_month..Time.current
+    ).count
+    return '' if total_count <= 1
+
+    result = '<div class="center stats">'
+    result += total_moment(total_count)
+    if total_count != monthly_count
+      result += " #{monthly_moment(monthly_count)}"
+    end
+    result + '</div>'
+  end
+  # rubocop:enable MethodLength
+
   private
 
   # rubocop:disable MethodLength
@@ -149,6 +166,26 @@ module MomentsHelper
     when 'Strategy'
       @moment.strategy
     end
+  end
+
+  def total_moment(total_count)
+    unless total_count == 1
+      return t(
+        'stats.total_moments', count: total_count
+      )
+    end
+
+    t('stats.total_moment', count: total_count)
+  end
+
+  def monthly_moment(monthly_count)
+    unless monthly_count == 1
+      return t(
+        'stats.monthly_moments', count: monthly_count
+      )
+    end
+
+    t('stats.monthly_moment', count: monthly_count)
   end
 end
 # rubocop:enable ModuleLength
