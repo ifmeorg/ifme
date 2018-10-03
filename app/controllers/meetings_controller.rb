@@ -107,16 +107,11 @@ class MeetingsController < ApplicationController
 
   # rubocop:disable MethodLength
   def join
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
-    meeting_member = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      user_id: current_user.id
-    )
-
-    if meeting_member.exists?
+    meeting = Meeting.find(params[:meeting_id])
+    if MeetingMember.member?(current_user, meeting)
       respond_to do |format|
-        format.html { redirect_to group_path(group_id) }
-        format.json { render :show, location: group_path(group_id) }
+        format.html { redirect_to group_path(meeting.group_id) }
+        format.json { render :show, location: group_path(meeting.group_id) }
       end
     else
       @meeting_member = MeetingMember.create!(
@@ -126,11 +121,7 @@ class MeetingsController < ApplicationController
       )
 
       # Notify meeting leaders
-      meeting_leaders = MeetingMember.where(
-        meeting_id: params[:meeting_id],
-        leader: true
-      )
-      meeting = Meeting.find(params[:meeting_id])
+      meeting_leaders = MeetingMember.leaders(meeting)
       notify_members(meeting, meeting_leaders, 'join_meeting')
 
       respond_to do |format|
@@ -139,7 +130,7 @@ class MeetingsController < ApplicationController
                       notice: t('meetings.join_success'))
         end
         format.json do
-          render :show, status: :created, location: group_path(group_id)
+          render :show, status: :created, location: group_path(meeting.group_id)
         end
       end
     end
@@ -147,41 +138,30 @@ class MeetingsController < ApplicationController
 
   # rubocop:disable MethodLength
   def leave
-    meeting_name = Meeting.where(id: params[:meeting_id]).first.name
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
+    meeting = Meeting.find(params[:meeting_id])
 
     # Cannot leave When you are the only leader
-    is_leader = MeetingMember.where(
-      user_id: current_user.id,
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    are_leaders = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    if is_leader == 1 && are_leaders == is_leader
+    is_leader = MeetingMember.leader?(current_user, meeting)
+    if is_leader && MeetingMember.leaders.count == 1
       respond_to do |format|
         format.html do
-          redirect_to(group_path(group_id), alert: t('meetings.leave.error'))
+          redirect_to(
+            group_path(meeting.group_id), alert: t('meetings.leave.error')
+          )
         end
         format.json { head :no_content }
       end
     else
       # Remove user from meeting
-      meeting_member = MeetingMember.find_by(
-        user_id: current_user.id,
-        meeting_id: params[:meeting_id]
-      )
-      meeting_member.destroy
+      MeetingMember.member(current_user, meeting).destroy
 
       respond_to do |format|
         format.html do
           redirect_to(
-            group_path(group_id),
+            group_path(meeting.group_id),
             notice: t(
               'meetings.leave.success',
-              meeting: meeting_name
+              meeting: meeting.name
             )
           )
         end
@@ -192,7 +172,6 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   # DELETE /meetings/1.json
-  # rubocop:disable MethodLength
   def destroy
     leader?(@meeting.group)
     # Notify group members that the meeting has been deleted

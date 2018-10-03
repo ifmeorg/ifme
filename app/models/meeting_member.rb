@@ -33,4 +33,18 @@ class MeetingMember < ApplicationRecord
       leader: true
     )
   end
+
+  def self.member(user, meeting)
+  	where(
+      meeting_id: meeting.id,
+      user_id: user.id
+    )
+  end
+
+  def self.leaders(meeting_id)
+  	where(
+			meeting_id: meeting.id,
+			leader: true
+  	)
+  end
 end
