@@ -44,6 +44,13 @@ class Comment < ApplicationRecord
         viewers: viewers
       )
     end
+
+    def meeting_comments(meeting)
+      where(
+        commentable_id: meeting.id,
+        commentable_type: 'meeting'
+      ).order('created_at DESC')
+    end
   end
 
   # Notify commentable_id user that they have a new comment

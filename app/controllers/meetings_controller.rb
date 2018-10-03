@@ -1,42 +1,23 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
   include CommentsHelper
 
   before_action :set_meeting, only: %i[show edit update destroy]
+  before_action :define_members, only: %i[show]
 
   # GET /meetings/1
   # GET /meetings/1.json
-  # rubocop:disable MethodLength
   def show
-    @meeting = Meeting.friendly.find(params[:id])
-    @is_member = MeetingMember.where(
-      meeting_id: @meeting.id,
-      user_id: current_user.id
-    ).exists?
-    @is_group_member = GroupMember.where(
-      group_id: @meeting.group_id,
-      user_id: current_user.id
-    ).exists?
-    @is_leader = MeetingMember.where(
-      meeting_id: @meeting.id,
-      user_id: current_user.id,
-      leader: true
-    ).exists?
     @no_hide_page = false
     if @is_member
       @no_hide_page = true
       @comment = Comment.new
-      @comments = Comment.where(
-        commentable_id: @meeting.id,
-        commentable_type: 'meeting'
-      ).all.order('created_at DESC')
+      @comments = Comment.meeting_comments(@meeting)
     elsif !@is_group_member
       redirect_to_path(groups_path)
     end
   end
-  # rubocop:enable MethodLength
 
   def comment
     params[:visibility] = 'all'
@@ -283,5 +264,11 @@ class MeetingsController < ApplicationController
     params.require(:meeting).permit(:name, :description, :location, :date,
                                     :time, :maxmembers, :group_id)
   end
+
+  def define_members
+    @meeting = Meeting.friendly.find(params[:id])
+    @is_member = MeetingMember.member?(current_user, @meeting).exists?
+    @is_group_member = GroupMember.member?(current_user, @meeting).exists?
+    @is_leader = MeetingMember.leader?(current_user, @meeting).exists?
+  end
 end
-# rubocop:enable ClassLength

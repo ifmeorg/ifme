@@ -32,4 +32,11 @@ class GroupMember < ApplicationRecord
     # are readonly
     MeetingMember.where(id: meeting_membership_ids).destroy_all
   end
+
+  def self.member?(user, meeting)
+    where(
+      group_id: meeting.group_id,
+      user_id: user.id
+    )
+  end
 end
