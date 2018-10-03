@@ -44,13 +44,13 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    leader?(Group.find(params[:group_id]))
+    redirect_if_not_leader(Group.find(params[:group_id]))
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
-    leader?(@meeting.group)
+    redirect_if_not_leader(@meeting.group)
     @meeting_members = MeetingMember.where(meeting_id: @meeting.id)
   end
 
@@ -59,7 +59,7 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
-    leader?(Group.find(meeting_params[:group_id]))
+    redirect_if_not_leader(Group.find(meeting_params[:group_id]))
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(
@@ -173,7 +173,7 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
-    leader?(@meeting.group)
+    redirect_if_not_leader(@meeting.group)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id)
     notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
@@ -195,7 +195,7 @@ class MeetingsController < ApplicationController
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
-  def leader?(group)
+  def redirect_if_not_leader(group)
     return if GroupMember.leader?(current_user, group)
 
     redirect_to_path(group_path(group.id))
