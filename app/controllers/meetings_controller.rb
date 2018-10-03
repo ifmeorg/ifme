@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
   include CommentsHelper
 
