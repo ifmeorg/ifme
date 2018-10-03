@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 (function ($) {
-  const ready = $.fn.ready;
+  const { ready } = $.fn;
   $.fn.ready = function (fn) {
     if (this.context === undefined) {
       // The $().ready(fn) case.
@@ -15,3 +16,4 @@
     }
   };
 }(jQuery));
+/* eslint-enable no-param-reassign */

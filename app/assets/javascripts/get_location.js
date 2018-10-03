@@ -1,6 +1,8 @@
 function getLocation() {
   const input = document.getElementById('user_location');
+  /* eslint-disable no-new */
   new google.maps.places.SearchBox(input);
+  /* eslint-enable no-new */
 }
 
 const initAutocomplete = function () {

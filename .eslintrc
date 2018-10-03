@@ -2,12 +2,24 @@
   "plugins": ["flowtype", "jest", "react"],
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "parser": "babel-eslint",
+  "globals": {
+    "$": true,
+    "I18n": true,
+    "Cookies": true,
+    "onReadyToggleLocale": true,
+    "loadPage": true,
+    "isShow": true,
+    "_": true,
+    "google": true,
+    "jQuery": true
+  },
   "env": {
     "browser": true,
     "jest/globals": true
   },
   "root": true,
   "rules": {
+    "object-curly-newline": ["warn"],
     "import/prefer-default-export": ["off"],
     "react/require-default-props": ["off"],
     "jsx-a11y/label-has-for": ["off"],

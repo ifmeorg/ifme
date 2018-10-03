@@ -45,11 +45,11 @@ const onReadyAddComment = function () {
 
               if (!json.no_save) {
                 const commentid = `comment_${json.commentid}`;
-                const profile_picture = json.profile_picture;
-                const comment_info = json.comment_info;
-                const comment_text = json.comment_text;
-                const visibility = json.visibility;
-                const delete_comment = json.delete_comment;
+                /* eslint-disable camelcase */
+                const { comment_info,
+                  comment_text,
+                  delete_comment,
+                  visibility } = json;
 
                 let newComment = `<div class="comment smallMarginTop" id="${commentid}">`;
                 newComment += '<div class="gridRowSpaceBetween">';
@@ -71,6 +71,7 @@ const onReadyAddComment = function () {
                 newComment += '</div>';
 
                 $('#comments').prepend(newComment);
+                /* eslint-enable camelcase */
               }
             }
           },

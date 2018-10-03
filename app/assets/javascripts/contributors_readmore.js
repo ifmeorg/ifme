@@ -10,9 +10,7 @@ const toggleProfileBlurb = function () {
     // When [...] button is clicked to expand profile blurb
     if ($(this).attr('id') === 'moreContent') {
       $(this).siblings('.readLessShow').removeClass('hideContent').show();
-    }
-    // When [Less] button is clicked to collapse profile blurb
-    else {
+    } else { // When [Less] button is clicked to collapse profile blurb
       $(this).siblings('.readMoreShow').removeClass('hideContent').show();
     }
     $(this).addClass('hideContent');
@@ -30,7 +28,8 @@ const contributorReadMoreFeature = function () {
     profileTextLength = $(this).text().length;
     if (profileTextLength > maxProfileLength) {
       visibleProfileText = $(this).text().substr(0, maxProfileLength);
-      invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
+      invisibleProfileText = $(this).text()
+        .substr(maxProfileLength, profileTextLength - maxProfileLength);
 
       const profileContent = `${visibleProfileText}<span class="readMoreShow hideContent toggle" id="moreContent">${I18n.t('ellipsis')}</span><span class="read_more_content">${invisibleProfileText}</span><span class="readLessShow toggle" id="lessContent">${I18n.t('less')}</span>`;
 
