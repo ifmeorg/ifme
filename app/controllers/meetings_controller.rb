@@ -86,7 +86,7 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1.json
   def update
     if @meeting.update(meeting_params)
-      @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
+      @meeting_members = MeetingMember.where(meeting_id: @meeting.id)
       notify_members(@meeting, @meeting_members, 'update_meeting')
 
       respond_to do |format|
@@ -129,7 +129,7 @@ class MeetingsController < ApplicationController
       meeting_leaders = MeetingMember.where(
         meeting_id: params[:meeting_id],
         leader: true
-      ).all
+      )
       meeting = Meeting.find(params[:meeting_id])
       notify_members(meeting, meeting_leaders, 'join_meeting')
 
@@ -196,10 +196,10 @@ class MeetingsController < ApplicationController
   def destroy
     leader?(@meeting.group)
     # Notify group members that the meeting has been deleted
-    group_members = GroupMember.where(group_id: @meeting.group_id).all
+    group_members = GroupMember.where(group_id: @meeting.group_id)
     notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
     # Remove corresponding meeting members
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
+    @meeting_members = MeetingMember.where(meeting_id: @meeting.id)
     @meeting_members.each(&:destroy)
     group_id = @meeting.group_id
     @meeting.destroy
