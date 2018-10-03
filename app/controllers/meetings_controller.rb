@@ -38,31 +38,26 @@ class MeetingsController < ApplicationController
       CommentNotificationsService.remove(comment_id: params[:commentid],
                                          model_name: 'meeting')
     end
-
     head :ok
   end
 
   # GET /meetings/new
   def new
-    @group_id = params[:group_id]
-    not_a_leader(@group_id)
+    leader?(Group.find(params[:group_id]))
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
-    @group_id = @meeting.group_id
-    not_a_leader(@group_id)
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
+    leader?(@meeting.group)
+    @meeting_members = MeetingMember.where(meeting_id: @meeting.id)
   end
 
   # POST /meetings
   # POST /meetings.json
-  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
-    group_id = meeting_params[:group_id]
-    not_a_leader(group_id)
+    leader?(Group.find(meeting_params[:group_id]))
     respond_to do |format|
       if @meeting.save
         meeting_member = MeetingMember.new(
@@ -87,11 +82,9 @@ class MeetingsController < ApplicationController
       end
     end
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
-  # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
       @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
@@ -114,9 +107,7 @@ class MeetingsController < ApplicationController
       end
     end
   end
-  # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
   def join
     group_id = Meeting.where(id: params[:meeting_id]).first.group_id
     meeting_member = MeetingMember.where(
@@ -159,9 +150,7 @@ class MeetingsController < ApplicationController
       end
     end
   end
-  # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
   def leave
     meeting_name = Meeting.where(id: params[:meeting_id]).first.name
     group_id = Meeting.where(id: params[:meeting_id]).first.group_id
@@ -205,12 +194,11 @@ class MeetingsController < ApplicationController
       end
     end
   end
-  # rubocop:enable MethodLength
 
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
-    not_a_leader(@meeting.group_id)
+    leader?(@meeting.group)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id).all
     notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
@@ -225,24 +213,17 @@ class MeetingsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_meeting
     @meeting = Meeting.friendly.find(params[:id])
-  rescue
+  rescue StandardError
     redirect_to_path(groups_path)
   end
-  # rubocop:enable RescueStandardError
 
   # Checks if user is a meeting leader, if not redirect to group_path
-  def not_a_leader(group_id)
-    group_member = GroupMember.where(
-      group_id: group_id,
-      user_id: current_user.id,
-      leader: true
-    )
-    return if group_member.exists?
+  def leader?(group)
+    return if GroupMember.leader?(current_user, group)
 
-    redirect_to_path(group_path(group_id))
+    redirect_to_path(group_path(group.id))
   end
 
   def meeting_params
@@ -253,7 +234,7 @@ class MeetingsController < ApplicationController
   def define_members
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = MeetingMember.member?(current_user, @meeting)
-    @is_group_member = GroupMember.member?(current_user, @meeting)
+    @is_group_member = GroupMember.member?(current_user, @meeting.group)
     @is_leader = MeetingMember.leader?(current_user, @meeting)
   end
 end

@@ -24,7 +24,7 @@ FactoryBot.define do
     time { Time.now }
     maxmembers { 1 }
     date { Date.tomorrow }
-    sequence(:group_id)
+    group
   end
 
   factory :bad_group, class: Group do

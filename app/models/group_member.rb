@@ -33,10 +33,18 @@ class GroupMember < ApplicationRecord
     MeetingMember.where(id: meeting_membership_ids).destroy_all
   end
 
-  def self.member?(user, meeting)
+  def self.member?(user, group)
     exists?(
-      group_id: meeting.group_id,
+      group_id: group.id,
       user_id: user.id
+    )
+  end
+
+  def self.leader?(user, group)
+    exists?(
+      group_id: group.id,
+      user_id: user.id,
+      leader: true
     )
   end
 end
