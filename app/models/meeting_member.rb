@@ -33,7 +33,4 @@ class MeetingMember < ApplicationRecord
       leader: true
     )
   end
-
-  def self.user_meeting?(user, meeting)
-  end
 end
