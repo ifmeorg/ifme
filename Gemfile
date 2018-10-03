@@ -45,7 +45,7 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '3.2'
+gem 'groupdate', '4.0.1'
 
 gem 'react_on_rails', '11.1.4'
 gem 'webpacker'
