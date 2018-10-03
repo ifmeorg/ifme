@@ -82,6 +82,15 @@ describe Comment do
         new_comment = Comment.create_from!(comment: short_comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
         expect(Comment.count).to eq(1)
       end
+
+      it 'returns meeting comments' do
+        meeting = create :meeting
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: meeting.id
+        comments = 5.times do
+          Comment.create_from!(comment: short_comment, commentable_type: 'meeting', commentable_id: meeting.id, comment_by: user1.id, visibility: 'all')
+        end
+        expect(Comment.meeting_comments(meeting).count).to eq(5)
+      end
     end
   end
 
