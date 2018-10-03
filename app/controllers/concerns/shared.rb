@@ -49,11 +49,9 @@ module Shared
   def shared_destroy(model_object, model_name)
     moments = current_user.moments.all
     strategies = current_user.strategies.all
-    moments.each do |moment|
-      update_moment(model_object, model_name, moment)
-    end
-    strategies.each do |strategy|
-      update_strategy(model_object, model_name, strategy)
+    moments.each { |m| update_object(model_object, model_name, m) }
+    if model_object.class == Category
+      strategies.each { |s| update_object(model_object, model_name, s) }
     end
     model_object.destroy
     redirect_to_path(index_path(model_name))
@@ -61,18 +59,12 @@ module Shared
 
   private
 
-  def update_moment(model_object, model_name, moment)
-    moment[model_name].delete(model_object.id)
+  def update_object(model_object, model_name, object)
+    object[model_name].delete(model_object.id)
     params = {}
-    params[model_name] = moment[model_name]
-    Moment.find_by(id: moment.id).update(params)
-  end
-
-  def update_strategy(model_object, model_name, strategy)
-    strategy[model_name].delete(model_object.id)
-    params = {}
-    params[model_name] = strategy[model_name]
-    Strategy.find_by(id: strategy.id).update(params)
+    params[model_name] = object[model_name]
+    model_class = model_name.singularize.classify.constantize
+    model_class.find_by(id: object.id).update(params)
   end
 
   def index_path(model_name)
