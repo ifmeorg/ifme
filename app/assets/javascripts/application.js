@@ -22,32 +22,31 @@
 //= require i18n/translations
 //= require_tree .
 
-I18n.locale = Cookies.get("locale") || I18n.defaultLocale;
+I18n.locale = Cookies.get('locale') || I18n.defaultLocale;
 
 function isShow(forms) {
-  var result = false;
-  _.each(forms, function(form) {
-    if ($("body").hasClass(form + " show")) {
+  let result = false;
+  _.each(forms, (form) => {
+    if ($('body').hasClass(`${form} show`)) {
       result = true;
-      return;
     }
   });
 
   return result;
 }
 
-var onReadyApplication = function() {
+const onReadyApplication = function () {
   $.ajaxSetup({
     headers: {
-      "X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
-    }
+      'X-CSRF-Token': $("meta[name='csrf-token']").attr('content'),
+    },
   });
 };
 
 loadPage(onReadyApplication);
 
-var beforeunloadApplication = function() {
+const beforeunloadApplication = function () {
   $(window).scrollTop(0);
 };
 
-$(window).on("beforeunload", beforeunloadApplication);
+$(window).on('beforeunload', beforeunloadApplication);

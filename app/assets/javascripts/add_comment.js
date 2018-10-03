@@ -1,6 +1,6 @@
-var onReadyAddComment = function() {
+const onReadyAddComment = function () {
   if (isShow(['moments', 'strategies', 'meetings'])) {
-    $(document).on('click', '#add_comment_button', function(event) {
+    $(document).on('click', '#add_comment_button', function (event) {
       event.preventDefault();
 
       if (!$(this).prop('disabled')) {
@@ -8,7 +8,7 @@ var onReadyAddComment = function() {
         $('#comment_comment').prop('disabled', true);
         $(this).val(I18n.t('comment.posting'));
 
-        var url;
+        let url;
         if (isShow(['moments'])) {
           url = '/moments/comment';
         } else if (isShow(['strategies'])) {
@@ -17,26 +17,26 @@ var onReadyAddComment = function() {
           url = '/meetings/comment';
         }
 
-        var viewers;
+        let viewers;
         if ($('#comment_viewers').length) {
           viewers = $('#comment_viewers').val();
         }
 
-        var data = {
+        const data = {
           commentable_type: $('#comment_commentable_type').val(),
-          commentable_id:$('#comment_commentable_id').val(),
+          commentable_id: $('#comment_commentable_id').val(),
           comment_by: $('#comment_comment_by').val(),
           comment: $('#comment_comment').val(),
           visibility: $('#comment_visibility').val(),
-          viewers: viewers
+          viewers,
         };
 
         $.ajax({
           dataType: 'json',
-          url: url,
+          url,
           type: 'POST',
-          data: data,
-          success: function(json) {
+          data,
+          success(json) {
             if (json !== undefined) {
               $('#add_comment_button').prop('disabled', false);
               $('#comment_comment').prop('disabled', false);
@@ -44,14 +44,14 @@ var onReadyAddComment = function() {
               $('#add_comment_button').val(I18n.t('comment.singular'));
 
               if (!json.no_save) {
-                var commentid = 'comment_' + json.commentid;
-                var profile_picture = json.profile_picture;
-                var comment_info = json.comment_info;
-                var comment_text = json.comment_text;
-                var visibility = json.visibility;
-                var delete_comment = json.delete_comment;
+                const commentid = `comment_${json.commentid}`;
+                const profile_picture = json.profile_picture;
+                const comment_info = json.comment_info;
+                const comment_text = json.comment_text;
+                const visibility = json.visibility;
+                const delete_comment = json.delete_comment;
 
-                var newComment = '<div class="comment smallMarginTop" id="' + commentid + '">';
+                let newComment = `<div class="comment smallMarginTop" id="${commentid}">`;
                 newComment += '<div class="gridRowSpaceBetween">';
                 newComment += '<div class="comment_info">';
                 newComment += comment_info;
@@ -74,11 +74,11 @@ var onReadyAddComment = function() {
               }
             }
           },
-          error: function() {
+          error() {
             $('#add_comment_button').prop('disabled', false);
             $('#comment_comment').prop('disabled', false);
-          $('#add_comment_button').val(I18n.t('comment.singular'));
-          }
+            $('#add_comment_button').val(I18n.t('comment.singular'));
+          },
         });
       }
     });
