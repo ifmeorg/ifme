@@ -52,7 +52,7 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'bundler-audit'
-  gem 'dotenv-rails', '~> 2.2.1'
+  gem 'dotenv-rails', '~> 2.5.0'
 
   gem 'spring'
 
