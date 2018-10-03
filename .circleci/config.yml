@@ -141,7 +141,12 @@ workflows:
             - build
   build-test-deploy:
     jobs:
-      - setup-coverage
+      - setup-coverage:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
       - build:
           requires:
             - setup-coverage
