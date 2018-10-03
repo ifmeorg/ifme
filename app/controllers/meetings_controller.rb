@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def delete_comment
     comment = Comment.find_by(id: params[:commentid])
-    is_my_comment = comment.present? && comment.comment_by == current_user.id
+    is_my_comment = comment.present? && (comment.comment_by == current_user.id)
 
     if comment.present?
       meeting_id = comment.commentable_id
@@ -38,7 +38,7 @@ class MeetingsController < ApplicationController
       is_member = meeting.members.find_by(id: current_user).present?
     end
 
-    if comment.present? && ((is_my_commen && is_member) || is_my_meeting)
+    if comment.present? && ((is_my_comment && is_member) || is_my_meeting)
       remove_notification
     end
     head :ok
