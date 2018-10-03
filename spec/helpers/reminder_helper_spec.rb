@@ -5,21 +5,21 @@ describe ReminderHelper do
     name1, name2
   ]
 
-  describe '#has_reminders?' do
+  describe '#reminders?' do
     it 'returns false when data has no active_reminder method' do
-      expect(has_reminders?({})).to be_falsey
+      expect(reminders?({})).to be_falsey
     end
 
     it 'returns false when data has no active reminder' do
       user = FactoryBot.create(:user)      
       medication = FactoryBot.create(:medication, user_id: user.id)      
-      expect(has_reminders?(medication)).to be_falsey
+      expect(reminders?(medication)).to be_falsey
     end
 
     it 'returns true when data is good' do
       user = FactoryBot.create(:user)
       medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)      
-      expect(has_reminders?(medication)).to be_truthy
+      expect(reminders?(medication)).to be_truthy
     end
   end
 
