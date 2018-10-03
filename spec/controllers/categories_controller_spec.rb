@@ -175,6 +175,7 @@ RSpec.describe CategoriesController, type: :controller do
 
   describe 'DELETE #destroy' do
     let!(:moment) { create(:moment, user_id: user.id, category: [category.id]) }
+    let!(:strategy) { create(:strategy, comment: false, name: 'a', description: 'b', user_id: user.id, category: [category.id]) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -185,6 +186,10 @@ RSpec.describe CategoriesController, type: :controller do
       it 'removes categories from existing moments' do
         delete :destroy, params: { id: category.id }
         expect(moment.reload.category).not_to include(category.id)
+      end
+      it 'removes categories from existing strategies' do
+        delete :destroy, params: { id: category.id }
+        expect(strategy.reload.category).not_to include(category.id)
       end
       it 'redirects to the category index page' do
         delete :destroy, params: { id: category.id }
