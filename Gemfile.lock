@@ -211,9 +211,18 @@ GEM
       therubyracer (~> 0.12.1)
     json (2.1.0)
     jwt (1.5.6)
-    kaminari (0.17.0)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.6.0)
@@ -531,7 +540,7 @@ DEPENDENCIES
   jbuilder (~> 2.7.0)
   jquery-rails (= 4.1.1)
   jshint
-  kaminari (= 0.17.0)
+  kaminari (= 1.1.1)
   letter_opener
   omniauth (~> 1.6.1)
   omniauth-google-oauth2 (~> 0.5.2)
