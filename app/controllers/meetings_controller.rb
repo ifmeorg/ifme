@@ -23,6 +23,7 @@ class MeetingsController < ApplicationController
     comment_for('meeting')
   end
 
+  # rubocop:disable MethodLength
   def delete_comment
     comment_exists = Comment.exists?(id: params[:commentid])
     is_my_comment = Comment.user_comment?(params[:commentid], current_user)
@@ -35,8 +36,7 @@ class MeetingsController < ApplicationController
     end
 
     if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
-                                         model_name: 'meeting')
+      remove_notification
     end
     head :ok
   end
@@ -55,6 +55,7 @@ class MeetingsController < ApplicationController
 
   # POST /meetings
   # POST /meetings.json
+  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
     leader?(Group.find(meeting_params[:group_id]))
@@ -103,6 +104,7 @@ class MeetingsController < ApplicationController
     end
   end
 
+  # rubocop:disable MethodLength
   def join
     group_id = Meeting.where(id: params[:meeting_id]).first.group_id
     meeting_member = MeetingMember.where(
@@ -142,6 +144,7 @@ class MeetingsController < ApplicationController
     end
   end
 
+  # rubocop:disable MethodLength
   def leave
     meeting_name = Meeting.where(id: params[:meeting_id]).first.name
     group_id = Meeting.where(id: params[:meeting_id]).first.group_id
@@ -188,6 +191,7 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   # DELETE /meetings/1.json
+  # rubocop:disable MethodLength
   def destroy
     leader?(@meeting.group)
     # Notify group members that the meeting has been deleted
@@ -235,6 +239,13 @@ class MeetingsController < ApplicationController
       meeting: meeting,
       type: type,
       members: members
+    )
+  end
+
+  def remove_notification
+    CommentNotificationsService.remove(
+      comment_id: params[:commentid],
+      model_name: 'meeting'
     )
   end
 end
