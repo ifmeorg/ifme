@@ -76,7 +76,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'jshint'
   gem 'rubocop', '>= 0.49.0'
   gem 'rubocop-rspec'
 
