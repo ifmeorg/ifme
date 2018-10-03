@@ -5,21 +5,21 @@ describe ReminderHelper do
     name1, name2
   ]
 
+  let(:user) {FactoryBot.create(:user)}
+
   describe '#reminders?' do
     it 'returns false when data has no active_reminder method' do
-      expect(reminders?({})).to be_falsey
+      expect(reminders?({})).to be false
     end
 
-    it 'returns false when data has no active reminder' do
-      user = FactoryBot.create(:user)      
+    it 'returns false when data has no active reminder' do      
       medication = FactoryBot.create(:medication, user_id: user.id)      
-      expect(reminders?(medication)).to be_falsey
+      expect(reminders?(medication)).to be false
     end
 
     it 'returns true when data is good' do
-      user = FactoryBot.create(:user)
       medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)      
-      expect(reminders?(medication)).to be_truthy
+      expect(reminders?(medication)).to be true
     end
   end
 
@@ -46,7 +46,6 @@ describe ReminderHelper do
     end
   
     it 'returns correct html when data has reminders' do
-      user = FactoryBot.create(:user)
       medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)
       reminders = print_reminders(medication)
       expected_html = '<div><i class="fa fa-bell smallerMarginRight"></i>' + I18n.t('common.daily_reminder') + '</div>'
