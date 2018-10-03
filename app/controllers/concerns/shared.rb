@@ -48,8 +48,12 @@ module Shared
 
   def shared_destroy(model_object, model_name)
     moments = current_user.moments.all
+    strategies = current_user.strategies.all
     moments.each do |moment|
       update_moment(model_object, model_name, moment)
+    end
+    strategies.each do |strategy|
+      update_strategy(model_object, model_name, strategy)
     end
     model_object.destroy
     redirect_to_path(index_path(model_name))
@@ -62,6 +66,13 @@ module Shared
     params = {}
     params[model_name] = moment[model_name]
     Moment.find_by(id: moment.id).update(params)
+  end
+
+  def update_strategy(model_object, model_name, strategy)
+    strategy[model_name].delete(model_object.id)
+    params = {}
+    params[model_name] = strategy[model_name]
+    Strategy.find_by(id: strategy.id).update(params)
   end
 
   def index_path(model_name)
