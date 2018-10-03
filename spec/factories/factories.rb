@@ -61,11 +61,6 @@ FactoryBot.define do
     status { :pending_from_ally }
   end
 
-  factory :category do
-    name  { 'Test Category' }
-    description { 'Test Description' }
-  end
-
   factory :medication do
     name { 'Fancy Medication Name' }
     dosage { 10 }
