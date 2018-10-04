@@ -37,7 +37,8 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    leader?(Group.find_by(id: params[:group_id]))
+    @group = Group.find_by(id: params[:group_id])
+    leader?(@group)
     @meeting = Meeting.new
   end
 
@@ -52,7 +53,8 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
-    leader?(Group.find_by(id: meeting_params[:group_id]))
+    @group = Group.find_by(id: meeting_params[:group_id])
+    leader?(@group)
     respond_to do |format|
       if @meeting.save
         meeting_member = @meeting.meeting_members.new(
@@ -63,8 +65,8 @@ class MeetingsController < ApplicationController
           # Notify group members that you created a new meeting
           group_members = @meeting.group.members
           notify_members(@meeting, group_members, 'new_meeting')
-          format.html { redirect_to group_path(group_id) }
-          format.json { render :show, status: :created, location: group_id }
+          format.html { redirect_to group_path(@group.id) }
+          format.json { render :show, status: :created, location: @group.id }
         end
       end
       format.html { render :new }
