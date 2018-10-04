@@ -78,7 +78,6 @@ class MeetingsController < ApplicationController
 
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
-  # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
       @meeting_members = @meeting.members
@@ -211,7 +210,7 @@ class MeetingsController < ApplicationController
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def redirect_unless_leader_for(group)
-    redirect_to_path(group_path(group.id)) unless group.led_by(current_user)
+    redirect_to_path(group_path(group.id)) unless group.led_by?(current_user)
   end
 
   def meeting_params
@@ -237,8 +236,8 @@ class MeetingsController < ApplicationController
 
   def remove_notification(comment, meeting)
     remove_notification! if (my_comment?(comment) && \
-                           meeting.member?(current_user)) || \
-                           meeting.leader?(current_user)
+                            meeting.member?(current_user)) || \
+                            meeting.led_by?(current_user)
   end
 
   def my_comment?(comment)

@@ -29,7 +29,7 @@ class Group < ApplicationRecord
   end
 
   def member?(user)
-    members.find_by(id: current_user.id)
+    members.find_by(id: user.id)
   end
 
   def notifications
