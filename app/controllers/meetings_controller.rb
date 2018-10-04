@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
-    if @is_member.present?
+    if member_for(@meeting)
       @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.meeting_comments(@meeting)
@@ -27,19 +27,11 @@ class MeetingsController < ApplicationController
   # rubocop:disable MethodLength
   def delete_comment
     comment = Comment.find_by(id: params[:commentid])
-    is_my_comment = comment.present? && (comment.comment_by == current_user.id)
 
     if comment.present?
       meeting_id = comment.commentable_id
       meeting = Meeting.find_by(id: meeting_id)
-      is_my_meeting = MeetingMember.find_by(
-        id: current_user.id, leader: true
-      )
-      is_member = meeting.members.find_by(id: current_user).present?
-    end
-
-    if comment.present? && ((is_my_comment && is_member) || is_my_meeting)
-      remove_notification
+      remove_notification(comment, meeting)
     end
     head :ok
   end
@@ -64,8 +56,8 @@ class MeetingsController < ApplicationController
     leader?(Group.find_by(id: meeting_params[:group_id]))
     respond_to do |format|
       if @meeting.save
-        meeting_member = MeetingMember.new(
-          id: current_user.id,
+        meeting_member = @meeting.meeting_members.new(
+          user_id: current_user.id,
           leader: true
         )
         if meeting_member.save
@@ -232,11 +224,8 @@ class MeetingsController < ApplicationController
 
   def define_members
     @meeting = Meeting.friendly.find(params[:id])
-    @is_member = @meeting.members.find_by(id: current_user.id)
     @is_group_member = @meeting.group.members.find_by(id: current_user.id)
-    @is_leader = MeetingMember.find_by(
-      user_id: current_user.id, meeting_id: @meeting.id, leader: true
-    )
+    @is_leader = leader_for(@meeting)
   end
 
   def notify_members(meeting, members, type)
@@ -248,10 +237,28 @@ class MeetingsController < ApplicationController
     )
   end
 
-  def remove_notification
+  def remove_notification!
     CommentNotificationsService.remove(
       comment_id: params[:commentid],
       model_name: 'meeting'
     )
+  end
+
+  def remove_notification(comment, meeting)
+    if (my_comment?(comment) && member_for(meeting)) || leader_for(meeting)
+      remove_notification!
+    end
+  end
+
+  def my_comment?(comment)
+    comment.present? && (comment.comment_by == current_user.id)
+  end
+
+  def member_for(meeting)
+    meeting.members.find_by(id: current_user.id).present?
+  end
+
+  def leader_for(meeting)
+    meeting.meeting_members.find_by(user_id: current_user.id, leader: true)
   end
 end
