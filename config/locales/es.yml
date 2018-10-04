@@ -36,8 +36,8 @@ es:
    rss: 'RSS'
    twitter: "Twitter"
    facebook: "Facebook"
-   feedback: "retroalimentación"
-   give_feedback: 'Retroalimentar'
+   feedback: "comentarios"
+   give_feedback: 'Enviar comentarios'
    press: 'Prensa'
    faq: 'Preguntas Frecuentes'
    resources: "Recursos"
@@ -174,7 +174,7 @@ es:
   mailer:
    html:
     app_description: "%{app_name} es una comunidad que anima a las personas a compartir sus experiencias de salud mental con sus seres queridos."
-    no_reply: "No puedes responder a este correo electrónico. Si tienes preguntas, dudas, o retroalimentación, por favor envía un mensaje a %{email}!"
+    no_reply: "No puedes responder a este correo electrónico. Si tienes preguntas, dudas, o comentarios, por favor envía un mensaje a %{email}!"
   title:
    reset_password: "Reestablece tu contraseña"
 
