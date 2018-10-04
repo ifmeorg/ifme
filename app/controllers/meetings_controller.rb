@@ -24,7 +24,6 @@ class MeetingsController < ApplicationController
     comment_for('meeting')
   end
 
-  # rubocop:disable MethodLength
   def delete_comment
     comment = Comment.find_by(id: params[:commentid])
 
@@ -77,6 +76,7 @@ class MeetingsController < ApplicationController
 
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
+  # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
       @meeting_members = @meeting.members
@@ -185,7 +185,6 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   # DELETE /meetings/1.json
-  # rubocop:disable MethodLength
   def destroy
     leader?(@meeting.group)
     # Notify group members that the meeting has been deleted
@@ -204,7 +203,7 @@ class MeetingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
     @meeting = Meeting.friendly.find(params[:id])
-  rescue RecordNotFound
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(groups_path)
   end
 
@@ -239,8 +238,8 @@ class MeetingsController < ApplicationController
   end
 
   def remove_notification(comment, meeting)
-    remove_notification! if (my_comment?(comment) && member_for(meeting)) ||\
-    leader_for(meeting)
+    remove_notification! if (my_comment?(comment) && member_for(meeting)) || \
+                            leader_for(meeting)
   end
 
   def my_comment?(comment)
