@@ -59,7 +59,8 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       if @meeting.save
         meeting_member = @meeting.meeting_members.new(
-          user_id: current_user.id, leader: true )
+          user_id: current_user.id, leader: true
+        )
         if meeting_member.save
           # Notify group members that you created a new meeting
           send_notification(@meeting, @meeting.group.members, 'new_meeting')
@@ -76,8 +77,7 @@ class MeetingsController < ApplicationController
   # PATCH/PUT /meetings/1.json
   def update
     if @meeting.update(meeting_params)
-      @meeting_members = @meeting.members
-      send_notification(@meeting, @meeting_members, 'update_meeting')
+      send_notification(@meeting, @meeting.members, 'update_meeting')
 
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.slug) }
@@ -108,7 +108,7 @@ class MeetingsController < ApplicationController
       respond_to do |format|
         format.html do
           redirect_to(meeting_path(meeting.id),
-            notice: t('meetings.join_success'))
+                      notice: t('meetings.join_success'))
         end
         format.json do
           render :show, status: :created, location: group_path(meeting.group_id)
@@ -125,7 +125,7 @@ class MeetingsController < ApplicationController
       respond_to do |format|
         format.html do
           redirect_to(group_path(meeting.group_id),
-            alert: t('meetings.leave.error'))
+                      alert: t('meetings.leave.error'))
         end
         format.json { head :no_content }
       end
@@ -135,8 +135,10 @@ class MeetingsController < ApplicationController
 
       respond_to do |format|
         format.html do
-          redirect_to(group_path(meeting.group_id),
-            notice: t('meetings.leave.success', meeting: meeting.name))
+          redirect_to(
+            group_path(meeting.group_id),
+            notice: t('meetings.leave.success', meeting: meeting.name)
+          )
         end
         format.json { head :no_content }
       end
@@ -148,7 +150,7 @@ class MeetingsController < ApplicationController
   def destroy
     redirect_unless_leader_for(@meeting.group)
     # Notify group members that the meeting has been deleted
-    notifications_for_meeting_members(@meeting, group.members, 'remove_meeting')
+    send_notification(@meeting, group.members, 'remove_meeting')
     # Remove corresponding meeting members
     @meeting.meeting_members.destroy_all
     @meeting.destroy
