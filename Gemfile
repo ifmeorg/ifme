@@ -15,7 +15,7 @@ gem 'devise_uid'
 gem 'pg', '0.18.4'
 gem 'resque', '1.27.4'
 gem 'resque-scheduler', '4.2.0'
-gem 'resque_mailer', '2.3.0'
+gem 'resque_mailer', '2.4.3'
 
 gem 'compass-rails', '~> 3.1.0'
 gem 'foundation-rails', '6.4.3.0'
