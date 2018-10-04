@@ -5,16 +5,16 @@ class MeetingsController < ApplicationController
   include CommentsHelper
 
   before_action :set_meeting, only: %i[show edit update destroy]
-  before_action :define_members, only: %i[show]
 
   # GET /meetings/1
   # GET /meetings/1.json
   def show
+    @meeting = Meeting.friendly.find(params[:id])
     if member_for(@meeting)
       @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.meeting_comments(@meeting)
-    elsif !@is_group_member
+    elsif !group_member_for(@meeting)
       redirect_to_path(groups_path)
     end
   end
@@ -222,12 +222,6 @@ class MeetingsController < ApplicationController
                                     :time, :maxmembers, :group_id)
   end
 
-  def define_members
-    @meeting = Meeting.friendly.find(params[:id])
-    @is_group_member = @meeting.group.members.find_by(id: current_user.id)
-    @is_leader = leader_for(@meeting)
-  end
-
   def notify_members(meeting, members, type)
     MeetingNotificationsService.handle_members(
       current_user: current_user,
@@ -260,5 +254,9 @@ class MeetingsController < ApplicationController
 
   def leader_for(meeting)
     meeting.meeting_members.find_by(user_id: current_user.id, leader: true)
+  end
+
+  def group_member_for(meeting)
+    meeting.group.members.find_by(id: current_user.id)
   end
 end
