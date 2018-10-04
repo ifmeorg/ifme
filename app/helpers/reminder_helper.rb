@@ -4,7 +4,7 @@ module ReminderHelper
   def print_reminders(data)
     reminders = ''
 
-    if reminders?(data)
+    if active_reminders?(data)
       names_arr = data.active_reminders.map(&:name)
       reminders = format_reminders(names_arr)
     end
@@ -14,7 +14,7 @@ module ReminderHelper
 
   private
 
-  def reminders?(data)
+  def active_reminders?(data)
     data.methods.include?(:active_reminders) && data.active_reminders&.any?
   end
 

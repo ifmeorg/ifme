@@ -7,19 +7,19 @@ describe ReminderHelper do
 
   let(:user) {FactoryBot.create(:user)}
 
-  describe '#reminders?' do
+  describe '#active_reminders?' do
     it 'returns false when data has no active_reminder method' do
-      expect(reminders?({})).to be false
+      expect(active_reminders?({})).to be false
     end
 
     it 'returns false when data has no active reminder' do      
       medication = FactoryBot.create(:medication, user_id: user.id)      
-      expect(reminders?(medication)).to be false
+      expect(active_reminders?(medication)).to be false
     end
 
     it 'returns true when data is good' do
       medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)      
-      expect(reminders?(medication)).to be true
+      expect(active_reminders?(medication)).to be true
     end
   end
 
