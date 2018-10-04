@@ -52,7 +52,6 @@ class MeetingsController < ApplicationController
 
   # POST /meetings
   # POST /meetings.json
-  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
@@ -65,8 +64,7 @@ class MeetingsController < ApplicationController
         )
         if meeting_member.save
           # Notify group members that you created a new meeting
-          group_members = @meeting.group.members
-          send_notification(@meeting, group_members, 'new_meeting')
+          send_notification(@meeting, @meeting.group.members, 'new_meeting')
           format.html { redirect_to group_path(@group.id) }
           format.json { render :show, status: :created, location: @group.id }
         end
@@ -101,7 +99,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # rubocop:disable MethodLength
   def join
     meeting = Meeting.find(params[:meeting_id])
     if meeting.member?(current_user)
@@ -115,7 +112,7 @@ class MeetingsController < ApplicationController
         leader: false
       )
 
-      notify_members(meeting, meeting.leaders, 'join_meeting')
+      send_notification(meeting, meeting.leaders, 'join_meeting')
 
       respond_to do |format|
         format.html do
@@ -129,7 +126,6 @@ class MeetingsController < ApplicationController
     end
   end
 
-  # rubocop:disable MethodLength
   def leave
     meeting = Meeting.find(params[:meeting_id])
 
@@ -146,7 +142,7 @@ class MeetingsController < ApplicationController
       end
     else
       # Remove user from meeting
-      meeting.member(current_user).destroy
+      meeting.meeting_member(user_id: current_user.id).destroy
 
       respond_to do |format|
         format.html do
