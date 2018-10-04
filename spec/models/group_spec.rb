@@ -47,6 +47,30 @@ describe Group do
     end
   end
 
+  describe '#member?' do
+    context 'when user is not a member of the group' do
+      it 'returns false' do
+        user = create :user1
+        group = create :group_with_member
+
+        result = group.member?(user)
+
+        expect(result).to be false
+      end
+    end
+
+    context 'when user is a member of the group' do
+      it 'returns true' do
+        user = create :user1
+        group = create :group_with_member, user_id: user.id
+
+        result = group.member?(user)
+
+        expect(result).to be true
+      end
+    end
+  end
+
   describe '#leaders' do
     context 'when group has leaders' do
       it 'returns the leaders' do

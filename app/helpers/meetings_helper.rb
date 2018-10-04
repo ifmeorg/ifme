@@ -90,7 +90,7 @@ module MeetingsHelper
         id: 'meeting_group_id',
         type: 'hidden',
         name: 'meeting[group_id]',
-        value:  @group_id || @meeting.group_id
+        value:  @group.id || @meeting.group_id
       }
     ]
   end
