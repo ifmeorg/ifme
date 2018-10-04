@@ -30,8 +30,8 @@ describe Meeting do
     end
   end
 
-  describe '.leaders' do
-    context 'when group has leaders' do
+  describe '#leaders' do
+    context 'when meeting has leaders' do
       it 'returns the leaders' do
         leader = create :user1
         non_leader = create :user2
@@ -47,7 +47,7 @@ describe Meeting do
       end
     end
 
-    context 'when group has no leaders' do
+    context 'when meeting has no leaders' do
       it 'returns an empty array' do
         non_leader = create :user1
         meeting = create :meeting
@@ -57,6 +57,63 @@ describe Meeting do
         result = meeting.leaders
 
         expect(result).to eq []
+      end
+    end
+  end
+
+  describe '#led_by?' do
+    context 'when user is not a leader of the meeting' do
+      it 'returns false' do
+        user = create :user1
+        meeting = create :meeting
+        create :meeting_member, user_id: user.id, leader: false,
+                                meeting_id: meeting.id
+
+        result = meeting.led_by?(user)
+
+        expect(result).to be false
+      end
+    end
+
+    context 'when user is a leader of the meeting' do
+      it 'returns true' do
+        user = create :user1
+        meeting = create :meeting
+        create :meeting_member, user_id: user.id, leader: true,
+                                meeting_id: meeting.id
+
+        result = meeting.led_by?(user)
+
+        expect(result).to be true
+      end
+    end
+  end
+
+  describe '#member?' do
+    context 'when user is not a member of the meeting' do
+      it 'returns false' do
+        user = create :user1
+        member = create :user2
+        meeting = create :meeting
+        create :meeting_member, user_id: member.id, leader: false,
+                                meeting_id: meeting.id
+
+        result = meeting.member?(user)
+
+        expect(result).to be false
+      end
+    end
+
+    context 'when user is a member of the meeting' do
+      it 'returns true' do
+        user = create :user1
+        meeting = create :meeting
+        create :meeting_member, user_id: user.id, leader: false,
+                                meeting_id: meeting.id
+
+        result = meeting.member?(user)
+
+        expect(result).to be true
       end
     end
   end

@@ -28,4 +28,12 @@ class Meeting < ApplicationRecord
   has_many :leaders, -> { where(meeting_members: { leader: true }) },
            through: :meeting_members, source: :user
   has_many :comments, as: :commentable
+
+  def member?(user)
+    members.find_by(id: user.id).present?
+  end
+
+  def led_by?(user)
+    leaders.include? user
+  end
 end
