@@ -13,7 +13,7 @@ class MeetingsController < ApplicationController
     if @meeting.member?(current_user)
       @no_hide_page = true
       @comment = Comment.new
-      @comments = Comment.meeting_comments(@meeting)
+      @comments = @meeting.comments
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
     end
