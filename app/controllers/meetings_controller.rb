@@ -10,7 +10,9 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.json
   def show
     @meeting = Meeting.friendly.find(params[:id])
-    if @meeting.member?(current_user)
+    @is_member = @meeting.member?(current_user)
+    @is_leader = @meeting.led_by?(current_user)
+    if @is_member
       @no_hide_page = true
       @comment = Comment.new
       @comments = @meeting.comments
