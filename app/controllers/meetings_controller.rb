@@ -66,7 +66,7 @@ class MeetingsController < ApplicationController
         if meeting_member.save
           # Notify group members that you created a new meeting
           group_members = @meeting.group.members
-          notify_members(@meeting, group_members, 'new_meeting')
+          send_notification(@meeting, group_members, 'new_meeting')
           format.html { redirect_to group_path(@group.id) }
           format.json { render :show, status: :created, location: @group.id }
         end
@@ -83,7 +83,7 @@ class MeetingsController < ApplicationController
   def update
     if @meeting.update(meeting_params)
       @meeting_members = @meeting.members
-      notify_members(@meeting, @meeting_members, 'update_meeting')
+      send_notification(@meeting, @meeting_members, 'update_meeting')
 
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.slug) }
@@ -197,7 +197,7 @@ class MeetingsController < ApplicationController
                                     :time, :maxmembers, :group_id)
   end
 
-  def notify_members(meeting, members, type)
+  def send_notification(meeting, members, type)
     MeetingNotificationsService.handle_members(
       current_user: current_user,
       meeting: meeting,
