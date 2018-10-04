@@ -204,7 +204,7 @@ class MeetingsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_meeting
     @meeting = Meeting.friendly.find(params[:id])
-  rescue StandardError
+  rescue RecordNotFound
     redirect_to_path(groups_path)
   end
 
@@ -239,9 +239,8 @@ class MeetingsController < ApplicationController
   end
 
   def remove_notification(comment, meeting)
-    if (my_comment?(comment) && member_for(meeting)) || leader_for(meeting)
-      remove_notification!
-    end
+    remove_notification! if (my_comment?(comment) && member_for(meeting)) ||\
+    leader_for(meeting)
   end
 
   def my_comment?(comment)
