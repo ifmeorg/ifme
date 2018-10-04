@@ -14,7 +14,7 @@ class MeetingsController < ApplicationController
       @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.meeting_comments(@meeting)
-    elsif !group_member_for(@meeting)
+    elsif !group_member_for(@meeting.group)
       redirect_to_path(groups_path)
     end
   end
@@ -38,13 +38,13 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   def new
     @group = Group.find_by(id: params[:group_id])
-    leader?(@group)
+    redirect_unless_leader_for(@group)
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
-    leader?(@meeting.group)
+    redirect_unless_leader_for(@meeting.group)
     @meeting_members = @meeting.members
   end
 
@@ -54,7 +54,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
-    leader?(@group)
+    redirect_unless_leader_for(@group)
     respond_to do |format|
       if @meeting.save
         meeting_member = @meeting.meeting_members.new(
@@ -188,7 +188,7 @@ class MeetingsController < ApplicationController
   # DELETE /meetings/1
   # DELETE /meetings/1.json
   def destroy
-    leader?(@meeting.group)
+    redirect_unless_leader_for(@meeting.group)
     # Notify group members that the meeting has been deleted
     group_members = GroupMember.where(group_id: @meeting.group_id).all
     notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
@@ -210,12 +210,8 @@ class MeetingsController < ApplicationController
   end
 
   # Checks if user is a meeting leader, if not redirect to group_path
-  def leader?(group)
-    return if GroupMember.find_by(
-      user_id: current_user.id, group_id: group.id, leader: true
-    ).present?
-
-    redirect_to_path(group_path(group.id))
+  def redirect_unless_leader_for(group)
+    redirect_to_path(group_path(group.id)) unless group_leader_for(group)
   end
 
   def meeting_params
@@ -256,7 +252,11 @@ class MeetingsController < ApplicationController
     meeting.meeting_members.find_by(user_id: current_user.id, leader: true)
   end
 
-  def group_member_for(meeting)
-    meeting.group.members.find_by(id: current_user.id)
+  def group_member_for(group)
+    group.members.find_by(id: current_user.id)
+  end
+
+  def group_leader_for(group)
+    group.group_members.find_by(user_id: current_user.id, leader: true)
   end
 end
