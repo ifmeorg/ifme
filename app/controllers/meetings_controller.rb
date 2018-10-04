@@ -10,11 +10,11 @@ class MeetingsController < ApplicationController
   # GET /meetings/1.json
   def show
     @meeting = Meeting.friendly.find(params[:id])
-    if member_for(@meeting)
+    if @meeting.member?(current_user)
       @no_hide_page = true
       @comment = Comment.new
       @comments = Comment.meeting_comments(@meeting)
-    elsif !group_member_for(@meeting.group)
+    elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
     end
   end
@@ -211,7 +211,7 @@ class MeetingsController < ApplicationController
 
   # Checks if user is a meeting leader, if not redirect to group_path
   def redirect_unless_leader_for(group)
-    redirect_to_path(group_path(group.id)) unless group_leader_for(group)
+    redirect_to_path(group_path(group.id)) unless group.led_by(current_user)
   end
 
   def meeting_params
@@ -236,27 +236,12 @@ class MeetingsController < ApplicationController
   end
 
   def remove_notification(comment, meeting)
-    remove_notification! if (my_comment?(comment) && member_for(meeting)) || \
-                            leader_for(meeting)
+    remove_notification! if (my_comment?(comment) && \
+                           meeting.member?(current_user)) || \
+                           meeting.leader?(current_user)
   end
 
   def my_comment?(comment)
     comment.present? && (comment.comment_by == current_user.id)
-  end
-
-  def member_for(meeting)
-    meeting.members.find_by(id: current_user.id).present?
-  end
-
-  def leader_for(meeting)
-    meeting.meeting_members.find_by(user_id: current_user.id, leader: true)
-  end
-
-  def group_member_for(group)
-    group.members.find_by(id: current_user.id)
-  end
-
-  def group_leader_for(group)
-    group.group_members.find_by(user_id: current_user.id, leader: true)
   end
 end
