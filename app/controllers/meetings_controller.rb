@@ -65,6 +65,7 @@ class MeetingsController < ApplicationController
         if meeting_member.save
           # Notify group members that you created a new meeting
           send_notification(@meeting, @meeting.group.members, 'new_meeting')
+
           format.html { redirect_to group_path(@group.id) }
           format.json { render :show, status: :created, location: @group.id }
         end
@@ -82,6 +83,7 @@ class MeetingsController < ApplicationController
     if @meeting.update(meeting_params)
       @meeting_members = @meeting.members
       send_notification(@meeting, @meeting_members, 'update_meeting')
+
 
       respond_to do |format|
         format.html { redirect_to meeting_path(@meeting.slug) }
@@ -111,7 +113,6 @@ class MeetingsController < ApplicationController
         user_id: current_user.id,
         leader: false
       )
-
       send_notification(meeting, meeting.leaders, 'join_meeting')
 
       respond_to do |format|
