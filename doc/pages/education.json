@@ -202,5 +202,29 @@
     "link": "https://mhwkb.github.io/",
     "tags": ["directory", "learning"],
     "languages": ["en"]
+  },
+  {
+    "name": "Mental Health First Aid International",
+    "link": "http://www.mhfainternational.org/",
+    "tags": ["crisis_prevention", "safety_planning", "suicide_prevention"],
+    "languages": ["various"]
+  },
+  {
+    "name": "International OCD Foundation",
+    "link": "https://iocdf.org/",
+    "tags": ["ocd", "learning", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "International Bipolar Foundation",
+    "link": "http://ibpf.org/",
+    "tags": ["bipolar", "learning", "directory"],
+    "languages": ["various"]
+  },
+  {
+    "name": "Psychology Today",
+    "link": "https://www.psychologytoday.com",
+    "tags": ["learning", "directory"],
+    "languages": ["en"]
   }
 ]
