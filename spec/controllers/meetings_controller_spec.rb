@@ -181,12 +181,12 @@ RSpec.describe MeetingsController, type: :controller do
   describe 'GET #new' do
     let!(:user) { create(:user) }
     let!(:group_member) do
-      create(:group_member, group_id: 1, id: 1, user: user, leader: true)
+      create(:group_member, id: 1, user: user, leader: true)
     end
 
     context 'when the user is not logged in' do
       before do
-        get :new, params: { group_id: group_member.id }
+        get :new, params: { group_id: group_member.group_id }
       end
 
       it { expect(response).to redirect_to new_user_session_path }
@@ -197,7 +197,7 @@ RSpec.describe MeetingsController, type: :controller do
 
       context 'user is the group leader' do
         before do
-          get :new, params: { group_id: group_member.id }
+          get :new, params: { group_id: group_member.group_id }
         end
 
         it { expect(response).to have_http_status(:ok) }
@@ -206,18 +206,18 @@ RSpec.describe MeetingsController, type: :controller do
       context 'user is not the leader' do
         before do
           group_member.update!(leader: false)
-          get :new, params: { group_id: group_member.id }
+          get :new, params: { group_id: group_member.group_id }
         end
 
-        it { expect(response).to redirect_to group_path(group_member.id) }
+        it { expect(response).to redirect_to group_path(group_member.group_id) }
       end
     end
   end
 
   describe 'GET #edit' do
     let!(:user) { create(:user, id: 1) }
-    let(:meeting) { create(:meeting, group_id: 1, id: 1) }
-    let!(:group_member) { create(:group_member, group_id: 1, id: 1, user: user, leader: true) }
+    let(:meeting) { create(:meeting, id: 1) }
+    let!(:group_member) { create(:group_member, group_id: meeting.group_id, id: 1, user: user, leader: true) }
     let(:meeting_member) { create(:meeting_member, user: user, meeting: meeting) }
 
     context 'when the user is not logged in' do
@@ -244,7 +244,7 @@ RSpec.describe MeetingsController, type: :controller do
           get :edit, params: { id: meeting.id }
         end
 
-        it { expect(response).to redirect_to group_path(group_member.id) }
+        it { expect(response).to redirect_to group_path(group_member.group_id) }
       end
     end
   end
