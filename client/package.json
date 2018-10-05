@@ -46,7 +46,8 @@
     "react-html-parser": "^2.0.2",
     "react-lazyload": "^2.3.0",
     "react-on-rails": "11.2.2",
-    "react-render-html": "^0.6.0"
+    "react-render-html": "^0.6.0",
+    "react-toastify": "^4.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
