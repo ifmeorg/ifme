@@ -20,6 +20,10 @@ describe GroupNotifier do
   end
   subject { GroupNotifier.new(group, type, current_user) }
 
+  after do
+    subject.send_notifications_to(recipients)
+  end
+
   it 'creates push notifications' do
     allow(subject).to receive(:create_notification)
     allow(subject).to receive(:send_email_notification)
@@ -40,9 +44,4 @@ describe GroupNotifier do
     allow(subject).to receive(:send_email_notification)
     expect(Notification).to receive(:create).with(user_id: recipient.id, uniqueid: "notifier_#{current_user.id}", data: data)
   end
-
-  after do
-    subject.send_notifications_to(recipients)
-  end
-
 end
