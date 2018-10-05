@@ -26,14 +26,13 @@ export type Props = {
   onClick?: Function,
 };
 
-const copyToClipBoard = (e) => {
-  e.target.select();
+const copyToClipBoard = (e: SyntheticEvent<HTMLInputElement>) => {
+  e.currentTarget.select();
   document.execCommand('copy');
   // TODO: Once i18n and react are playing nicely this can be changed
   toast('Secret Share Link Copied!', { autoClose: 5000 });
 };
 
-// event.target.select(); document.execCommand("copy");
 const onFocus = (required: ?boolean, hasError: ?Function) => {
   if (required && hasError) {
     hasError(false);
