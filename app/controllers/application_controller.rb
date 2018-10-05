@@ -113,38 +113,7 @@ class ApplicationController < ActionController::Base
   end
 
   # rubocop:disable MethodLength
-  # TODO: move this method out of the controller + refactor
-  def most_focus(data_type, profile_id)
-    data = []
-    user_id = profile_id || current_user.id
-    moments =
-      if current_user.id == profile_id
-        user_moments(user_id)
-      else
-        user_moments(user_id).where.not(published_at: nil)
-      end
-    if data_type == 'category'
-      strategies = user_strategies(user_id)
-      [moments, strategies].each do |records|
-        records.where(user_id: user_id).find_each do |r|
-          if r.category.any? && (profile_id.blank? ||
-                                 profile_exists?(profile_id, r))
-            data += r.category
-          end
-        end
-      end
-    elsif data_type.in?(%w[mood strategy])
-      moments.find_each do |m|
-        data_obj = m[data_type]
-        if data_obj.any? && (profile_id.blank? ||
-                             profile_exists?(profile_id, m))
-          data += data_obj
-        end
-      end
-    end
-
-    data.empty? ? {} : top_three_focus(data)
-  end
+  
   # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
@@ -175,25 +144,6 @@ class ApplicationController < ActionController::Base
     return false unless data_type.in?(%w[category mood strategy])
 
     data_id.in?(data[data_type])
-  end
-
-  # TODO: refactor calling method to pass a hash to start with
-  def top_three_focus(data)
-    # Turn data array into hash of value => freq_of_value
-    freq = data.each_with_object(Hash.new(0)) do |value, hash|
-      hash[value] += 1
-    end
-
-    # Sort hash and take highest 3 values
-    freq.sort_by do |occurrences, _value|
-      occurrences
-    end[0..2].to_h
-  end
-
-  def profile_exists?(profile, data)
-    profile.present? &&
-      (current_user.id == profile ||
-       data.viewers.include?(current_user.id))
   end
 
   def record_model_name(record)
