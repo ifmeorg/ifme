@@ -46,7 +46,7 @@
     "react-html-parser": "^2.0.2",
     "react-intl": "^2.4.0",
     "react-lazyload": "^2.3.0",
-    "react-on-rails": "11.1.4",
+    "react-on-rails": "11.1.5",
     "react-render-html": "^0.6.0"
   },
   "devDependencies": {
