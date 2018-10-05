@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
                        if: proc { |c| c.request.format == 'application/json' }
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
+  before_action :set_raven_context, if: proc { Rails.env.production? }
 
   # i18n
   before_action :set_locale
@@ -229,6 +230,11 @@ class ApplicationController < ActionController::Base
 
   def user_moments(user_id)
     Moment.where(user_id: user_id)
+  end
+
+  def set_raven_context
+    Raven.user_context(id: current_user.id)
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end
 # rubocop:enable ClassLength
