@@ -23,16 +23,15 @@ module MomentsHelper
 
   def secret_share_url_input(moment)
     { inputs: [
-        {
-          id: 'secretShareLink',
-          type: 'text',
-          name: 'secretShareInput',
-          readOnly: true,
-          value: secret_share_url(moment.secret_share_identifier) || nil,
-          dark: true
-        }
-      ], action:  moment_path(moment)
-    }
+      {
+        id: 'secretShareLink',
+        type: 'text',
+        name: 'secretShareInput',
+        readOnly: true,
+        value: secret_share_url(moment.secret_share_identifier) || nil,
+        dark: true
+      }
+    ], action:  moment_path(moment) }
   end
 
   # rubocop:disable MethodLength
