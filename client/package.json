@@ -47,7 +47,8 @@
     "react-intl": "^2.4.0",
     "react-lazyload": "^2.3.0",
     "react-on-rails": "11.1.4",
-    "react-render-html": "^0.6.0"
+    "react-render-html": "^0.6.0",
+    "react-toastify": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

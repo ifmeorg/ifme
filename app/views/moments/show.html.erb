@@ -44,9 +44,11 @@
 <% end %>
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
-  <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
-    <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
+  <div class="secretShare">
+    <span title="<%=t('moments.secret_share.copy_secret_share')%>">
+      <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
+      <%= react_component('Form', props: secret_share_url_props) %>
+    </span>
   </div>
 <% end %>
 

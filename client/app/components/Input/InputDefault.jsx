@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import css from './Input.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date', 'hidden'];
 export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date'];
@@ -21,8 +23,17 @@ export type Props = {
   hasError?: Function,
   myRef?: any,
   label?: string,
+  onClick?: Function,
 };
 
+const copyToClipBoard = (e) => {
+  e.target.select();
+  document.execCommand('copy');
+  // TODO: Once i18n and react are playing nicely this can be changed
+  toast('Secret Share Link Copied!', { autoClose: 5000 });
+};
+
+// event.target.select(); document.execCommand("copy");
 const onFocus = (required: ?boolean, hasError: ?Function) => {
   if (required && hasError) {
     hasError(false);
@@ -57,10 +68,11 @@ export const InputDefault = (props: Props) => {
     hasError,
     myRef,
     label,
+    onClick,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
-    <input
+    <><input
       className={css.default}
       id={id}
       type={type}
@@ -79,6 +91,10 @@ export const InputDefault = (props: Props) => {
       }
       ref={myRef}
       aria-label={label}
+      onClick={(e: SyntheticEvent<HTMLInputElement>) => copyToClipBoard(e)}
     />
+      <ToastContainer />
+    </>
+
   );
 };

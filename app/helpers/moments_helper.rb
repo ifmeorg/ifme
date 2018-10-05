@@ -15,7 +15,34 @@ module MomentsHelper
     edit_form_props(moment_form_inputs, moment_path(@moment))
   end
 
+  def secret_share_url_props
+    { inputs: [
+        {
+          id: 'secretShareLink',
+          type: 'text',
+          name: 'secretShareInput',
+          readOnly: true,
+          value: secret_share_url(@moment.secret_share_identifier) || nil,
+          dark: true
+        }
+      ], action:  moment_path(@moment)
+    }
+  end
+
   private
+
+  def copy_input
+    [
+      {
+        id: 'myId',
+        type: 'text',
+        name: 'myName',
+        readOnly: true,
+        value: secret_share_url(@moment.secret_share_identifier) || nil,
+        dark: true
+      }
+    ]
+  end
 
   # rubocop:disable MethodLength
   def moment_form_inputs

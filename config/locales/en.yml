@@ -261,6 +261,8 @@ en:
     singular: 'Secret Share'
     expires_at: 'Expire at'
     cancel_secret_share: 'Cancel Secret Share'
+    copy_secret_share: 'Click To Copy'
+    link_copied: 'Secret Share link copied to clipboard'
   form:
    why: 'What happened and how do you feel?'
    fix: 'What thoughts would you like to have?'
