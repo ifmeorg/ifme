@@ -261,6 +261,8 @@ vi:
     singular: 'Chia sẻ bí mật'
     expires_at: 'Hết hạn lúc'
     cancel_secret_share: 'Hủy bỏ chia sẻ bí mật'
+    copy_secret_share: 'Nhấp để sao chép'
+    link_copied: 'Đã sao chép liên kết Chia sẻ bí mật vào khay nhớ tạm'
   form:
    why: 'Chuyện gì đã xảy ra và bạn cảm thấy thế nào?'
    fix: 'Suy nghĩ nào mà bạn muốn có?'

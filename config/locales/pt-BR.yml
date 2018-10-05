@@ -261,6 +261,8 @@ pt-BR:
     singular: 'Compartilhar Segredo'
     expires_at: 'Expirar em'
     cancel_secret_share: 'Cancelar Compartilhar Segredo'
+    copy_secret_share: 'Clique para copiar'
+    link_copied: 'Link de compartilhamento secreto copiado para a área de transferência'
   form:
    why: 'O que aconteceu e como você se sente ?'
    fix: 'Quais pensamentos você gostaria de ter ? '

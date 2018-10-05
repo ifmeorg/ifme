@@ -262,6 +262,8 @@ sv:
     singular: 'Hemlig Andel'
     expires_at: 'Förfaller vid'
     cancel_secret_share: 'Annullera Hemlig Andel'
+    copy_secret_share: 'Klicka för att kopiera'
+    link_copied: 'Secret Share länk kopieras till Urklipp'
   form:
    why: 'Vad hände och hur känner du dig?'
    fix: 'Vilka tankar skulle du vilja ha?'

@@ -261,6 +261,8 @@ es:
     singular: 'Compartir en Secreto'
     expires_at: 'Caduca en'
     cancel_secret_share: 'Cancelar Compartir en Secreto'
+    copy_secret_share: 'Haga clic para copiar'
+    link_copied: 'Secreto Compartir enlace copiado al portapapeles'
   form:
    why: "¿Qué ocurrió y cómo te sentiste"
    fix: "¿Qué pensamientos te gustaría tener?"

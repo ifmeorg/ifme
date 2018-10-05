@@ -261,6 +261,8 @@ nl:
     singular: 'Geheim Delen'
     expires_at: 'Verloopt op'
     cancel_secret_share: 'Annuleren Geheim Delen'
+    copy_secret_share: 'Klik om te kopiëren'
+    link_copied: 'Secret Share-link gekopieerd naar klembord'
   form:
    why: 'Wat is er gebeurd en hoe wat is je gevoel?'
    fix: 'Welke gedachten zou je willen hebben?'

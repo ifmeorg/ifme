@@ -261,6 +261,8 @@ it:
     singular: 'Condivisione Segreta'
     expires_at: 'Scadenza'
     cancel_secret_share: 'Annulla Condivisione Segreta'
+    copy_secret_share: 'Clicca per copiare'
+    link_copied: 'Link Condividi segreta copiato negli appunti'
   form:
    why: 'Cos’è successo e come ti senti?'
    fix: 'Che pensieri ti piacerebbe avere?'
