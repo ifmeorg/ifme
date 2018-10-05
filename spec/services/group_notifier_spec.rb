@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 describe GroupNotifier do
-  let(:current_user) { double(User, name: 'user', id: 1) }
-  let(:group) { double(Group, name: 'group', id: 1) }
+  let(:current_user) { build(:user) }
+  let(:group) { build(:group) }
   let(:type) { 'notifier' }
-  let(:recipient) { double(User, id: 2) }
+  let(:recipient) { build(:user) }
   let(:recipients) { [recipient] }
-  let(:new_notifications) { [double(Notification)] }
+  let(:new_notifications) { [build(:notification)] }
   let(:client) { double('client') }
   let(:mailer) { double('mailer') }
   let(:data) do
