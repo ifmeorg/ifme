@@ -8088,9 +8088,9 @@ react-modal@^3.5.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
-react-on-rails@11.1.4:
-  version "11.1.4"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.4.tgz#7370c1005f8c19ed00cbfd056a9a42201dd4dd98"
+react-on-rails@11.1.5:
+  version "11.1.5"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.5.tgz#e69b39b5f6b0101f66cd4ae6a0c2d91e427dd59c"
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
 
