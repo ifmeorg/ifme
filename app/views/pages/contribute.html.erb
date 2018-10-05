@@ -1,5 +1,6 @@
 <% title t('navigation.contribute') %>
 
+
 <div class="messageMain">
   <%= t('pages.contribute.main_message_one') %>
 </div>
@@ -17,7 +18,16 @@
   <% @blurbs.each do |blurb| %>
     <div class="gridThreeItemBoxGhost center">
       <%= ProfilePicture.fetch(blurb["image"], name: blurb['name']) %>
-      <div class="contributor_profile smallMarginTop"><%= blurb["profile"] %></div>
+      <% avatar_small = react_component('Avatar', props: {
+        src: blurb["image"],
+        small: true
+      })%>
+      <%= react_component('Modal', props: {
+        element: "<button class=\"buttonGhostXS\">Learn More...</button>",
+        title: "#{blurb['name']} contributes because...",
+        body: blurb["profile"]
+      }) %>
+
       <div class="smallMarginTop">
         <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
         <br /><%= content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
