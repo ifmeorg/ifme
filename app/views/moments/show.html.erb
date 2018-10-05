@@ -47,7 +47,7 @@
   <div class="secretShare">
     <span title="<%=t('moments.secret_share.copy_secret_share')%>">
       <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
-      <%= react_component('Form', props: secret_share_url_props) %>
+      <%= react_component('Form', props: secret_share_url_props(@moment)) %>
     </span>
   </div>
 <% end %>
