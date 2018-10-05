@@ -32,6 +32,20 @@ module MomentsHelper
     result + '</div>'
   end
 
+  def secret_share_url_props
+    { inputs: [
+        {
+          id: 'secretShareLink',
+          type: 'text',
+          name: 'secretShareInput',
+          readOnly: true,
+          value: secret_share_url(@moment.secret_share_identifier) || nil,
+          dark: true
+        }
+      ], action:  moment_path(@moment)
+    }
+  end
+
   private
 
   def moment_name
