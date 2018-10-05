@@ -104,7 +104,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.scss$": "identity-obj-proxy"
+      "\\.(css|scss)$": "identity-obj-proxy"
     },
     "setupFiles": [
       "./app/libs/testHelper.js"
