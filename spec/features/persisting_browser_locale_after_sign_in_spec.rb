@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.feature 'Persisting browser locale after sign in', type: :feature do
-  scenario 'When user sign in, sign out, then change local', js: true do
+  scenario 'When user sign in, sign out, then change local', js: true, header: true do
     user = create :user
 
     login_as user
@@ -12,8 +12,13 @@ RSpec.feature 'Persisting browser locale after sign in', type: :feature do
       'your mental health.'
     )
 
+    open_header_if_hidden
+
     within('#header') { find('a[href="/users/sign_out"]').click }
-    expect(find('#header')).to have_content('SIGN IN')
+
+    open_header_if_hidden
+
+    expect(find('#header')).to have_content(/sign in/i)
 
     change_language('es')
 
