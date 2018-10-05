@@ -67,7 +67,6 @@ export const InputDefault = (props: Props) => {
     hasError,
     myRef,
     label,
-    onClick,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
