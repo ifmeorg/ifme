@@ -1,8 +1,3 @@
-/**
- * TODO: Split up development configuration from production configuration
- * in order to support hot reloading.
- */
-
 // For inspiration on your webpack configuration, see:
 // https://github.com/shakacode/react_on_rails/tree/master/spec/dummy/client
 // https://github.com/shakacode/react-webpack-rails-tutorial/tree/master/client

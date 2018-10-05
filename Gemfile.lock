@@ -445,6 +445,8 @@ GEM
     selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    sentry-raven (2.7.4)
+      faraday (>= 0.7.6, < 1.0)
     signet (0.10.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -572,6 +574,7 @@ DEPENDENCIES
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 1.0.0)
   selenium-webdriver (~> 3.14.1)
+  sentry-raven
   simplecov
   spring
   turbolinks (~> 5.2.0)
