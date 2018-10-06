@@ -13,6 +13,8 @@ pt-BR:
  language: 'Idioma'
  true: 'sim'
  false: 'não'
+ expand_menu: 'expandir menu'
+ close: 'fechar'
 
  languages:
    en: English

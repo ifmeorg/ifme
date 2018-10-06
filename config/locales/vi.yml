@@ -13,6 +13,8 @@ vi:
  language: 'Ngôn ngữ'
  true: 'có'
  false: 'không'
+ expand_menu: 'mở rộng menu'
+ close: 'gần'
 
  languages:
    en: English

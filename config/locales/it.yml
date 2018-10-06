@@ -13,6 +13,8 @@ it:
  language: 'Lingua'
  true: 'sì'
  false: 'no'
+ expand_menu: 'espandere il menu'
+ close: 'vicino'
 
  languages:
    en: English

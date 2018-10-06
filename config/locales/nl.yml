@@ -13,6 +13,8 @@ nl:
  language: 'Taal'
  true: 'ja'
  false: 'nee'
+ expand_menu: 'vouw menu uit'
+ close: 'dichtbij'
 
  languages:
    en: English
