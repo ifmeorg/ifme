@@ -80,6 +80,16 @@ const inputTagProps = {
   checkboxes,
 };
 
+const inputSwitchProps = {
+  id: 'some-switch-id',
+  type: 'switch',
+  name: 'some-switch-name',
+  label: 'Some Switch Label',
+  info: 'Some Tag Info',
+  value: true,
+  uncheckedValue: false,
+};
+
 const inputSubmitProps = {
   id: 'some-submit-id',
   type: 'submit',
@@ -102,6 +112,7 @@ export const InputMocks = {
   inputCheckboxGroupProps,
   inputSubmitProps,
   inputTagProps,
+  inputSwitchProps,
   event,
   createInput,
 };
