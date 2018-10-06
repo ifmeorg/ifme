@@ -85,7 +85,7 @@ const inputSwitchProps = {
   type: 'switch',
   name: 'some-switch-name',
   label: 'Some Switch Label',
-  info: 'Some Tag Info',
+  info: 'Some Switch Info',
   value: true,
   uncheckedValue: false,
 };
