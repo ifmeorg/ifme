@@ -2,7 +2,7 @@
   "name": "ifme",
   "private": true,
   "scripts": {
-    "build:test": "NODE_ENV=test webpack --config webpack.config.js --display-error-details",
+    "build:test": "rm -rf public/webpack-test && NODE_ENV=test webpack --config webpack.config.js --display-error-details",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "NODE_ENV=development webpack -w --config webpack.config.js",
     "debug": "yarn build:production --display-modules --sort-modules-by size",

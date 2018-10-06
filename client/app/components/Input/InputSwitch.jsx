@@ -8,7 +8,7 @@ export type Props = {
   id: string,
   name: string,
   label: string,
-  value?: boolean,
+  value?: any,
   checked?: boolean,
   uncheckedValue?: any,
 };
@@ -50,7 +50,8 @@ export class InputSwitch extends React.Component<Props, State> {
           }`}
         >
           <div
-            className={`.switchToggle ${css.switchToggle}`}
+            id={`${id}_switch`}
+            className={`switchToggle ${css.switchToggle}`}
             onClick={this.toggleChecked}
             onKeyPress={this.onKeyPress}
             role="switch"
