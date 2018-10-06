@@ -3,6 +3,7 @@ import React from 'react';
 import { Utils } from '../../utils';
 import { Input } from './index';
 import css from './InputSwitch.scss';
+import { I18n } from '../../libs/i18n';
 
 export type Props = {
   id: string,
@@ -58,7 +59,7 @@ export class InputSwitch extends React.Component<Props, State> {
             aria-checked={checked}
             tabIndex={0}
           >
-            {checked ? 'ON' : 'OFF'}
+            {checked ? I18n.t('true') : I18n.t('false')}
           </div>
         </div>
         <div className={css.switchHidden}>

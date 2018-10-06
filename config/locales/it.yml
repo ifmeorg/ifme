@@ -11,6 +11,8 @@ it:
  click_here: "clicca qui"
  less: " [Di meno]"
  language: 'Lingua'
+ true: 'sì'
+ false: 'no'
 
  languages:
    en: English

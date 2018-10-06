@@ -11,6 +11,8 @@ es:
  click_here: "da click aquí"
  less: " [Menos]"
  language: 'Idioma'
+ true: 'si'
+ false: 'no'
 
  languages:
    en: English

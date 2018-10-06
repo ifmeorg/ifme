@@ -11,6 +11,8 @@ pt-BR:
  click_here: "clique aqui"
  less: " [Menos]"
  language: 'Idioma'
+ true: 'sim'
+ false: 'não'
 
  languages:
    en: English

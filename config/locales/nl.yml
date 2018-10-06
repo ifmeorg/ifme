@@ -11,6 +11,8 @@ nl:
  click_here: "klik hier"
  less: " [Minder]"
  language: 'Taal'
+ true: 'ja'
+ false: 'nee'
 
  languages:
    en: English

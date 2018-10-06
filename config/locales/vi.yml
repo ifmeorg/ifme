@@ -11,6 +11,8 @@ vi:
  click_here: "nhấn vào đây"
  less: " [Ít hơn]"
  language: 'Ngôn ngữ'
+ true: 'có'
+ false: 'không'
 
  languages:
    en: English

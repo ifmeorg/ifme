@@ -3,7 +3,7 @@
 .switch {
   @include setFontSize($size-20);
   display: inline-block;
-  min-width: 140px;
+  min-width: 120px;
 
   &Wrapper {
     display: flex;
@@ -29,6 +29,7 @@
     border-radius: $size-4;
     color: $mulberry-80;
     cursor: pointer;
+    text-transform: uppercase;
   }
 
   &Hidden {
