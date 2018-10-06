@@ -38,11 +38,30 @@ export class InputSwitch extends React.Component<Props, State> {
     }
   };
 
-  render() {
+  displaySwitchHidden = () => {
     const {
       id, name, label, value, uncheckedValue,
     } = this.props;
     const { checked, key } = this.state;
+    return (
+      <div className={css.switchHidden}>
+        <Input
+          id={id}
+          key={key}
+          type="checkbox"
+          name={name}
+          label={label}
+          value={value}
+          uncheckedValue={uncheckedValue}
+          checked={checked}
+        />
+      </div>
+    );
+  };
+
+  render() {
+    const { id } = this.props;
+    const { checked } = this.state;
     return (
       <div className={css.switch}>
         <div
@@ -62,18 +81,7 @@ export class InputSwitch extends React.Component<Props, State> {
             {checked ? I18n.t('true') : I18n.t('false')}
           </div>
         </div>
-        <div className={css.switchHidden}>
-          <Input
-            id={id}
-            key={key}
-            type="checkbox"
-            name={name}
-            label={label}
-            value={value}
-            uncheckedValue={uncheckedValue}
-            checked={checked}
-          />
-        </div>
+        {this.displaySwitchHidden()}
       </div>
     );
   }
