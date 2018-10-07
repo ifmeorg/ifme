@@ -4,6 +4,7 @@
   @include setFontSize($size-16);
   display: inline-block;
   min-width: 120px;
+  letter-spacing:  0.095em;
 
   &Wrapper {
     display: flex;
