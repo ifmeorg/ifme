@@ -76,6 +76,7 @@ es:
      press_enter: 'Presione ENTER para agregar'
    time_ago: 'hace %{date}'
    write_to_us: "escríbenos"
+   days:
    date:
     abbr_day_names:
     -
@@ -196,6 +197,7 @@ es:
   edit_medication: "Editar medicamento"
   refill_reminder: "Recordatorio para resurtir medicinas via correo electrónico"
   dosage: "Dosis diaria:"
+  weekly_dosage:
   refill: "Resurtir:"
   quantity: "Cantidad total:"
   strength: "Concentración:"
@@ -204,7 +206,6 @@ es:
    strength_placeholder: "e.g. 100"
    total_placeholder: "e.g. 30"
    dosage: "dosis"
-   weekly_dosage:
    dosage_placeholder: "e.g. 2"
    refill: "resurtir"
    comments_hint: "Agrega más comentarios aquí, por ejemplo, tus síntomas."

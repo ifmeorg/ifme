@@ -76,6 +76,7 @@ nb:
      press_enter: 'Press ENTER for å legge til'
    time_ago: "%{date} siden"
    write_to_us: "skriv til oss"
+   days:
    date:
      abbr_day_names:
      - sø.
@@ -196,6 +197,7 @@ nb:
   edit_medication: 'Rediger medisinering'
   refill_reminder: 'Påminnelsesepost om når du må fylle på'
   dosage: 'Daglig dose:'
+  weekly_dosage: 'Ukentlig dose:'
   refill: 'Påfyllelse:'
   quantity: 'Total kvantitet:'
   strength: 'Styrke:'
@@ -205,7 +207,6 @@ nb:
    total_placeholder: 'f.eks. 30'
    dosage: 'dose'
    dosage_placeholder: 'f.eks. 2'
-   weekly_dosage: 'Ukentlig dose'
    refill: 'påfyll'
    comments_hint: 'Legg til ytterlige kommentarer her f.eks. loggføring av symptomer'
    add_to_google_cal: 'Google Kalender påminnelse'

@@ -76,6 +76,7 @@ it:
      press_enter: 'Premi INVIO per aggiungere'
    time_ago: "%{date} fa"
    write_to_us: "scrivici"
+   days:
    date:
     abbr_day_names:
     -
@@ -196,6 +197,7 @@ it:
   edit_medication: 'Modifica Medicazione'
   refill_reminder: 'EMail di Notifica per la ricarica'
   dosage: 'Dosaggio giornaliero:'
+  weekly_dosage:
   refill: 'Riempimento:'
   quantity: 'Quantità totale:'
   strength: 'Peso:'
@@ -205,7 +207,6 @@ it:
    total_placeholder: 'es. 30'
    dosage: 'dosaggio'
    dosage_placeholder: 'es. 2'
-   weekly_dosage:
    refill: 'riempimento'
    comments_hint: 'Aggiungi qualsiasi commento aggiuntivo qui, esempio: sintomi'
    add_to_google_cal: 'Reminder Google Calendar'

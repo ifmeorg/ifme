@@ -76,6 +76,7 @@ pt-BR:
      press_enter: 'Pressione ENTER para adicionar'
    time_ago: "%{date} atrás"
    write_to_us: "join.ifme@gmail.com"
+   days:
    date:
     abbr_day_names:
     -
@@ -196,6 +197,7 @@ pt-BR:
   edit_medication: 'Editar Medicamento'
   refill_reminder: 'Email de lembrete do refil de medicamento'
   dosage: 'Dosagem diária:'
+  weekly_dosage:
   refill: 'Refil de medicamento:'
   quantity: 'Quantidade Total:'
   strength: 'Dosagem:'
@@ -205,7 +207,6 @@ pt-BR:
    total_placeholder: 'e.g. 30mg'
    dosage: 'dosagem'
    dosage_placeholder: 'e.g. 2mg'
-   weekly_dosage:
    refill: 'refil'
    comments_hint: 'Adcione quasiquer comentários adcionais aqui, por exemplo: registrando os sintomas'
    add_to_google_cal: 'Lembrete do Google Calendar'
