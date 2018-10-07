@@ -6,6 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 import { Logo } from '../Logo';
 import { HeaderProfile } from './HeaderProfile';
 import css from './Header.scss';
+import { I18n } from '../../libs/i18n';
 
 export type Link = {
   name: string,
@@ -81,6 +82,7 @@ export class Header extends React.Component<Props, State> {
 
   displayDesktop = () => {
     const { home } = this.props;
+    const { mobileNavOpen } = this.state;
     return (
       <div className={css.headerDesktop}>
         <div className={css.headerDesktopHome}>
@@ -94,7 +96,7 @@ export class Header extends React.Component<Props, State> {
             onKeyDown={this.toggle}
             role="button"
             tabIndex="0"
-            aria-label="Expand menu" // TODO: intl in React not working in Rails
+            aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
           >
             {this.displayToggle()}
           </div>

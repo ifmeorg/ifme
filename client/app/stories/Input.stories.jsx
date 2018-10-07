@@ -184,7 +184,6 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
-        large: true,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
@@ -205,7 +204,6 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
-        large: true,
         accordion: true,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
@@ -253,6 +251,39 @@ storiesOf('Input', module)
         accordion: true,
       })}
       {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
+    </div>
+  ))
+  .add('Switch', () => (
+    <div>
+      {InputMocks.createInput(InputMocks.inputSwitchProps)}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
+        dark: true,
+        large: true,
+      })}
+    </div>
+  ))
+  .add('Switch with accordion', () => (
+    <div>
+      {InputMocks.createInput(InputMocks.inputSwitchProps, { accordion: true })}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSwitchProps, {
         dark: true,
         large: true,
         accordion: true,

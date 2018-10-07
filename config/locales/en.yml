@@ -11,6 +11,10 @@ en:
  click_here: "click here"
  less: " [Less]"
  language: 'Language'
+ true: 'yes'
+ false: 'no'
+ expand_menu: 'expand menu'
+ close: 'close'
 
  languages:
    en: English

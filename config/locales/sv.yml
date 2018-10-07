@@ -11,6 +11,10 @@ sv:
  click_here: "Klicka här"
  less: " [Mindre]"
  language: 'Språk'
+ true: 'ja'
+ false: 'nej'
+ expand_menu: 'expandera menyn'
+ close: 'stänga'
 
  languages:
    en: English
