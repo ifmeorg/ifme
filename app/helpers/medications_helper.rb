@@ -135,16 +135,7 @@ module MedicationsHelper
         id: 'medication_weekly_dosage',
         name: 'medication[weekly_dosage]',
         type: 'checkboxGroup',
-        checkboxes: (0..6).map{|i|
-          {
-            id: "medication_weekly_dosage_#{i}",
-            type: 'checkbox',
-            name: 'medication[weekly_dosage][]',
-            label: t('common.date.abbr_day_names')[i],
-            checked: @medication.weekly_dosage.include?(i),
-            value: i,
-          }
-        },
+        checkboxes: days_checkbox,
         label: t('common.days'),
         info: t('medications.form.weekly_dosage_hint'),
         dark: true,
@@ -222,5 +213,22 @@ module MedicationsHelper
     )
   end
   # rubocop:enable MethodLength
+
+  # rubocop:disable MethodLength
+  def days_checkbox
+    week_days = 0.upto(6)
+    week_days.map do |i|
+      {
+        id: "medication_weekly_dosage_#{i}",
+        type: 'checkbox',
+        name: 'medication[weekly_dosage][]',
+        label: I18n.t('common.date.abbr_day_names')[i],
+        checked: @medication.weekly_dosage.include?(i),
+        value: i
+      }
+    end
+  end
+  # rubocop:enable MethodLength
 end
+
 # rubocop:enable ModuleLength
