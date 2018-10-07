@@ -1,7 +1,7 @@
 @import "../../styles/_global.scss";
 
 .switch {
-  @include setFontSize($size-20);
+  @include setFontSize($size-16);
   display: inline-block;
   min-width: 120px;
 
@@ -15,12 +15,12 @@
   &On {
     @include linearTransition(0.5s);
     background: $key-lime;
+    justify-content: flex-end;
   }
 
   &Off {
     @include linearTransition(0.5s);
     background: $mulberry-70;
-    justify-content: flex-end;
   }
 
   &Toggle {
