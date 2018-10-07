@@ -15,6 +15,7 @@ const component = (noFormTag: boolean) => (
       InputMocks.inputSelectProps,
       Object.assign({}, InputMocks.inputCheckboxGroupProps, { required: true }),
       InputMocks.inputTagProps,
+      InputMocks.inputSwitchProps,
       InputMocks.inputSubmitProps,
     ]}
   />
