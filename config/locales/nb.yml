@@ -11,6 +11,10 @@ nb:
  click_here: "klikk her"
  less: " [Mindre]"
  language: 'Språk'
+ true: 'ja'
+ false: 'nei'
+ expand_menu: 'utvide menyen'
+ close: 'lukk'
 
  languages:
    en: English

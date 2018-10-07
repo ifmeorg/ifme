@@ -1,21 +1,10 @@
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
 import { storiesOf } from '@storybook/react';
-import { defaultMessages } from '../libs/i18n/default';
-
-const TitleComponent = injectIntl(({ count, intl }) => (
-  <h1>
-    {intl.formatMessage(defaultMessages.sharedCharacterCount, {
-      number: count,
-    })}
-  </h1>
-));
+import { I18n } from '../libs/i18n';
 
 storiesOf('I18n', module).add('Message with variable', () => (
   <div>
-    <TitleComponent count={15} />
-    <p>
-      <FormattedMessage id="pages.home.not_signed_in.main_message_one" />
-    </p>
+    <h1>{I18n.t('created', { created_at: 'Blah' })}</h1>
+    <p>{I18n.t('draft')}</p>
   </div>
 ));
