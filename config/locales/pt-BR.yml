@@ -223,7 +223,7 @@ pt-BR:
   index:
    title: 'Medicamentos'
    subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
-   total: 'Total:'
+   total: 'Total'
    instructions: "Você ainda não tem nenhum medicamento salvo.<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a)."
    example_name: 'Prozac'
    example_strength: '10 mg'

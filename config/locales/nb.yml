@@ -223,7 +223,7 @@ nb:
   index:
    title: 'Medisiner'
    subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
-   total: 'Totalt:'
+   total: 'Totalt'
    instructions: "Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse."
    example_name: 'Prozac'
    example_strength: '10 mg'

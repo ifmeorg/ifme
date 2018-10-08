@@ -223,7 +223,7 @@ en:
   index:
    title: 'Medications'
    subtitle: 'Keep track of your medications, including dosage and refill information.'
-   total: 'Total:'
+   total: 'Total'
    instructions: "You haven't saved any medications yet.<br><br>Here's an example of a saved medication! You can also write about your experience."
    example_name: 'Prozac'
    example_strength: '10 mg'
