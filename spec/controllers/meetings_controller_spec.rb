@@ -306,4 +306,34 @@ RSpec.describe MeetingsController, type: :controller do
       end
     end
   end
+
+  describe 'PATCH/PUT #update' do
+    let(:meeting) { create(:meeting) }
+    let!(:user) { create(:user) }
+    let(:valid_update_params) { attributes_for(:meeting).merge(name: 'updated name') }
+    let(:invalid_update_params) { { name: nil, description: nil } }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      context 'when valid params are supplied' do
+        before { patch :update, params: { id: meeting.id, meeting: valid_update_params } }
+        it 'updates the meeting' do
+          expect(meeting.reload.name).to eq 'updated name'
+        end
+        it 'redirects to the meeting page' do
+          expect(response).to redirect_to meeting_path(meeting.reload.slug)
+        end
+      end
+      context 'when invalid params are supplied' do
+        before { patch :update, params: { id: meeting.id, meeting: invalid_update_params } }
+        it 're-renders the edit form' do
+          expect(response).to render_template(:edit)
+        end
+      end
+    end
+    context 'when the user is not logged in' do
+      before { patch :update, params: { id: meeting.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
