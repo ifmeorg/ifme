@@ -77,16 +77,7 @@ sv:
      press_enter: 'Tryck på ENTER för att lägga till'
    time_ago: "%{date} sedan"
    write_to_us: "skriv till oss"
-   days:
-   date:
-    abbr_day_names:
-    - Mån
-    - Tis
-    - Ons
-    - Tor
-    - Fre
-    - Lör
-    - Sön
+   days: 'dagar'
 
  comment:
   singular: 'Kommentar'

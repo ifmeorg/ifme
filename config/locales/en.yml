@@ -77,15 +77,6 @@ en:
    time_ago: "%{date} ago"
    write_to_us: "write to us"
    days: Days
-   date:
-    abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
 
  comment:
   singular: 'Comment'

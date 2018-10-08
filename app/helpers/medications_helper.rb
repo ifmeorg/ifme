@@ -222,7 +222,7 @@ module MedicationsHelper
         id: "medication_weekly_dosage_#{i}",
         type: 'checkbox',
         name: 'medication[weekly_dosage][]',
-        label: I18n.t('common.date.abbr_day_names')[i],
+        label: t(:'date.abbr_day_names')[i],
         checked: @medication.weekly_dosage.include?(i),
         value: i
       }

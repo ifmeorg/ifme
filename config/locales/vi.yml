@@ -76,16 +76,7 @@ vi:
      press_enter: 'Vui lòng nhắn ENTER để cộng thêm'
    time_ago: "Cách đây %{date} ngày"
    write_to_us: "viết cho chúng tôi"
-   days:
-   date:
-    abbr_day_names:
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+   days: 'Ngày'
 
  comment:
   singular: 'Bình luận'
@@ -197,7 +188,7 @@ vi:
   edit_medication: 'Chỉnh sửa thuốc'
   refill_reminder: 'Email nhắc nhở bổ sung thuốc'
   dosage: 'Liều dùng hàng ngày:'
-  weekly_dosage:
+  weekly_dosage: 'Liều lượng hàng tuần:'
   refill: 'Bổ sung:'
   quantity: 'Tổng số:'
   strength: 'Sức khỏe:'
@@ -214,7 +205,7 @@ vi:
    strength_hint: 'Việc sử dụng thuốc, thường được tìm thấy bên cạnh tên'
    total_hint: 'Tổng số viên và số thuốc'
    dosage_hint: 'Số lượng viên và liều lượng mỗi ngày'
-   weekly_dosage_hint:
+   weekly_dosage_hint: 'Ngày nào trong tuần thuốc này được kê toa'
    refill_hint: 'Khi nào cần cấp lại thuốc'
    refill_reminder_hint: "Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới"
    daily_reminder_hint: "Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc"

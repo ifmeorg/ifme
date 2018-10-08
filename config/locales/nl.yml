@@ -76,16 +76,7 @@ nl:
      press_enter: 'Druk op ENTER om toe te voegen'
    time_ago: "%{date} geleden"
    write_to_us: "schrijf ons"
-   days:
-   date:
-    abbr_day_names:
-    - Zo
-    - Ma
-    - Di
-    - Wo
-    - Do
-    - Vr
-    - Za
+   days: 'dagen'
 
  comment:
   singular: 'Commentaar'

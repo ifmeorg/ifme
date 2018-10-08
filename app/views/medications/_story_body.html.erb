@@ -9,7 +9,7 @@
 <div>
   <% if local_assigns[:medication].weekly? %>
     <strong><%= t('medications.weekly_dosage') %></strong>
-    <%= local_assigns[:medication].weekly_dosage.map{|i| I18n.t('common.date.abbr_day_names')[i] }.join(', ') %>;
+    <%= local_assigns[:medication].weekly_dosage.map{|i| t(:'date.abbr_day_names')[i] }.join(', ') %>;
   <% else %>
     <strong><%= t('medications.dosage') %></strong>
   <% end %>

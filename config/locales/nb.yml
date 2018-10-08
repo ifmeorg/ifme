@@ -76,16 +76,7 @@ nb:
      press_enter: 'Press ENTER for å legge til'
    time_ago: "%{date} siden"
    write_to_us: "skriv til oss"
-   days:
-   date:
-     abbr_day_names:
-     - sø.
-     - ma.
-     - ti.
-     - on.
-     - to.
-     - fr.
-     - lø.
+   days: 'Dager'
 
  comment:
   singular: 'Kommentar'

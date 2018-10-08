@@ -76,16 +76,7 @@ es:
      press_enter: 'Presione ENTER para agregar'
    time_ago: 'hace %{date}'
    write_to_us: "escríbenos"
-   days:
-   date:
-    abbr_day_names:
-    -
-    -
-    -
-    -
-    -
-    -
-    -
+   days: 'Dias'
 
  comment:
   singular: "Comentario"
@@ -197,7 +188,7 @@ es:
   edit_medication: "Editar medicamento"
   refill_reminder: "Recordatorio para resurtir medicinas via correo electrónico"
   dosage: "Dosis diaria:"
-  weekly_dosage:
+  weekly_dosage: 'Dosis semanal:'
   refill: "Resurtir:"
   quantity: "Cantidad total:"
   strength: "Concentración:"
@@ -213,7 +204,7 @@ es:
    google_cal_hint: "Agregaremos un recordatorio para este medicamento a tu calendario de Google."
    strength_hint: "La concentración del medicamento, por lo general se encuentra junto al nombre."
    total_hint: "Número total de tabletas o cantidad de medicamento."
-   weekly_dosage_hint:
+   weekly_dosage_hint: '¿Cuál de los días de la semana se prescribe este medicamento?'
    dosage_hint: "Número de tabletas o dósis diaria."
    refill_hint: "Cuándo resurtir esta receta."
    refill_reminder_hint: "Te enviaremos un correo la semana antes de que debas resurtir tu medicamento."
