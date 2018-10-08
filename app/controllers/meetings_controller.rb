@@ -62,7 +62,7 @@ class MeetingsController < ApplicationController
       )
       if meeting_member.save
         # Notify group members that you created a new meeting
-        send_notification(@meeting, @meeting.group.members, 'new_meeting')
+        send_notification(@meeting, @meeting.group.group_members, 'new_meeting')
         redirect_to group_path(@group.id)
       end
     else
@@ -113,7 +113,7 @@ class MeetingsController < ApplicationController
   def destroy
     redirect_unless_leader_for(@meeting.group) and return
     # Notify group members that the meeting has been deleted
-    send_notification(@meeting, group.members, 'remove_meeting')
+    send_notification(@meeting, group.group_members, 'remove_meeting')
     # Remove corresponding meeting members
     @meeting.meeting_members.destroy_all
     @meeting.destroy
