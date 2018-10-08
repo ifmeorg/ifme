@@ -10,9 +10,8 @@ module MedicationRefillHelper
     args = calendar_uploader_params(medication)
     CalendarUploader.new(args).upload_event
     true
-    rescue StandardError
-      return_to_sign_in
-    end
+  rescue StandardError
+    return_to_sign_in
   end
 
   def calendar_uploader_params(medication)

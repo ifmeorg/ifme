@@ -124,6 +124,7 @@ class MomentsController < ApplicationController
   end
 
   private
+
   def set_moment
     @moment = Moment.friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound

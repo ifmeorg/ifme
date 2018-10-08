@@ -2,7 +2,8 @@
 
 module DateTimeHelper
   def format_date(date_str)
-    date_formatted = date_str.to_date
+    begin
+      date_formatted = date_str.to_date
     rescue ArgumentError
       date_formatted = Date.strptime(date_str, '%m/%d/%Y')
     end
