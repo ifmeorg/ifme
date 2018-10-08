@@ -144,12 +144,12 @@ class User < ApplicationRecord
   end
 
   def update_access_token
-    refresh_token_params = { 'refresh_token' => refresh_token,
-                             'client_id'     => nil,
-                             'client_secret' => nil,
-                             'grant_type'    => 'refresh_token' }
-    uri = URI.parse(User::OAUTH_TOKEN_URL)
-    response = Net::HTTP.post_form(uri, refresh_token_params)
+    params = { 'refresh_token' => refresh_token,
+               'client_id'     => nil,
+               'client_secret' => nil,
+               'grant_type'    => 'refresh_token' }
+
+    response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)
     new_expiration_time = Time.zone.now + decoded_response['expires_in']
     new_access_token = decoded_response['access_token']
