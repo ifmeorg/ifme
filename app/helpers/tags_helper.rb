@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module TagsHelper
-  # rubocop:disable MethodLength
   def tag_usage(data_id, data_type, user_id)
     result = []
     moments = Moment.where(user_id: user_id).order('created_at DESC')
@@ -11,7 +10,6 @@ module TagsHelper
     end
     result
   end
-  # rubocop:enable MethodLength
 
   private
 

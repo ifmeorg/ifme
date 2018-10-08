@@ -146,7 +146,7 @@ class ApplicationController < ActionController::Base
 
     data.empty? ? {} : top_three_focus(data)
   end
-  # rubocop:enable MethodLength  
+  # rubocop:enable MethodLength
 
   private
 
