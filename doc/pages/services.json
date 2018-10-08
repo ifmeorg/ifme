@@ -36,12 +36,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Feerless",
-    "link": "https://feerless.us",
-    "tags": ["trigger_warnings", "netflix", "free", "open_source"],
-    "languages": ["en"]
-  },
-  {
     "name": "BetterHelp",
     "link": "https://www.betterhelp.com",
     "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
@@ -147,6 +141,18 @@
     "name": "Calm",
     "link": "https://www.calm.com",
     "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Simple Habit",
+    "link": "https://www.simplehabit.com/",
+    "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Daylio",
+    "link": "https://daylio.webflow.io/",
+    "tags": ["mood_tracking", "android", "ios"],
     "languages": ["en"]
   }
 ]

@@ -11,6 +11,10 @@ es:
  click_here: "da click aquí"
  less: " [Menos]"
  language: 'Idioma'
+ true: 'si'
+ false: 'no'
+ expand_menu: 'ampliar menú'
+ close: 'cerca'
 
  languages:
    en: English
@@ -503,6 +507,7 @@ es:
       addiction: adicción
       rehabilitation: rehabilitación
       teachers: maestros
+      bipolar: bipolar
 
  profile:
   index:

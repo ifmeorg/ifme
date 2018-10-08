@@ -4,7 +4,7 @@
  * this bundle will be loaded in production.
  */
 import ReactOnRails from 'react-on-rails';
-import { loadLocales } from '../libs/i18n/I18nSetup';
+import { setup } from '../libs/i18n/setup';
 import '../styles/_global.scss';
 import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
@@ -27,7 +27,7 @@ import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
 
-loadLocales();
+setup();
 
 // This is how react_on_rails can see the Components in the browser.
 ReactOnRails.register({

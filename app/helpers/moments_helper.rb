@@ -93,7 +93,7 @@ module MomentsHelper
       moments_viewers_input,
       {
         id: 'moment_comment',
-        type: 'checkbox',
+        type: 'switch',
         name: 'moment[comment]',
         label: t('comment.allow_comments'),
         value: true,
@@ -104,7 +104,7 @@ module MomentsHelper
       },
       {
         id: 'moment_publishing',
-        type: 'checkbox',
+        type: 'switch',
         label: t('moments.form.draft_question'),
         dark: true,
         name: 'publishing',

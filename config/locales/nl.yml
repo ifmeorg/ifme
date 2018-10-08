@@ -11,6 +11,10 @@ nl:
  click_here: "klik hier"
  less: " [Minder]"
  language: 'Taal'
+ true: 'ja'
+ false: 'nee'
+ expand_menu: 'vouw menu uit'
+ close: 'dichtbij'
 
  languages:
    en: English
@@ -503,6 +507,7 @@ nl:
       addiction: verslaving
       rehabilitation: rehabilitatie
       teachers: leraren
+      bipolar: bipolar
 
  profile:
   index:
