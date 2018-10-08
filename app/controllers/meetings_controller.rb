@@ -1,17 +1,17 @@
 # frozen_string_literal: true
-
 # rubocop:disable ClassLength
+
 class MeetingsController < ApplicationController
   include CommentsHelper
 
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
-  # GET /meetings/1.json
   def show
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = @meeting.member?(current_user)
     @is_leader = @meeting.led_by?(current_user)
+
     if @is_member
       @no_hide_page = true
       @comment = Comment.new
@@ -51,154 +51,73 @@ class MeetingsController < ApplicationController
   end
 
   # POST /meetings
-  # POST /meetings.json
   # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
     redirect_unless_leader_for(@group)
-    respond_to do |format|
-      if @meeting.save
-        meeting_member = @meeting.meeting_members.new(
-          user_id: current_user.id,
-          leader: true
-        )
-        if meeting_member.save
-          # Notify group members that you created a new meeting
-          group_members = @meeting.group.members
-          notify_members(@meeting, group_members, 'new_meeting')
-          format.html { redirect_to group_path(@group.id) }
-          format.json { render :show, status: :created, location: @group.id }
-        end
+    if @meeting.save
+      meeting_member = @meeting.meeting_members.new(
+        user_id: current_user.id, leader: true
+      )
+      if meeting_member.save
+        # Notify group members that you created a new meeting
+        send_notification(@meeting, @meeting.group.members, 'new_meeting')
+        redirect_to group_path(@group.id)
       end
-      format.html { render :new }
-      format.json do
-        render json: @meeting.errors, status: :unprocessable_entity
-      end
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
   def update
     if @meeting.update(meeting_params)
-      @meeting_members = @meeting.members
-      notify_members(@meeting, @meeting_members, 'update_meeting')
-
-      respond_to do |format|
-        format.html { redirect_to meeting_path(@meeting.slug) }
-        format.json do
-          render json: @meeting.errors, status: :unprocessable_entity
-        end
-      end
+      send_notification(@meeting, @meeting.members, 'update_meeting')
+      redirect_to meeting_path(@meeting.slug)
     else
-      respond_to do |format|
-        format.html { render :edit }
-        format.json do
-          render json: @meeting.errors, status: :unprocessable_entity
-        end
-      end
+      render :edit
     end
   end
 
-  # rubocop:disable MethodLength
   def join
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
-    meeting_member = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      user_id: current_user.id
-    )
-
-    if meeting_member.exists?
-      respond_to do |format|
-        format.html { redirect_to group_path(group_id) }
-        format.json { render :show, location: group_path(group_id) }
-      end
+    meeting = Meeting.find(params[:meeting_id])
+    if meeting.member?(current_user)
+      redirect_to group_path(meeting.group_id)
     else
-      @meeting_member = MeetingMember.create!(
-        meeting_id: params[:meeting_id],
-        user_id: current_user.id,
-        leader: false
+      @meeting_member = meeting.meeting_members.create!(
+        user_id: current_user.id, leader: false
       )
+      send_notification(meeting, meeting.leaders, 'join_meeting')
 
-      # Notify meeting leaders
-      meeting_leaders = MeetingMember.where(
-        meeting_id: params[:meeting_id],
-        leader: true
-      ).all
-      meeting = Meeting.find_by(id: params[:meeting_id])
-      notify_members(meeting, meeting_leaders, 'join_meeting')
-
-      respond_to do |format|
-        format.html do
-          redirect_to(meeting_path(params[:meeting_id]),
-                      notice: t('meetings.join_success'))
-        end
-        format.json do
-          render :show, status: :created, location: group_path(group_id)
-        end
-      end
+      redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
     end
   end
 
-  # rubocop:disable MethodLength
   def leave
-    meeting_name = Meeting.where(id: params[:meeting_id]).first.name
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
+    meeting = Meeting.find(params[:meeting_id])
 
     # Cannot leave When you are the only leader
-    is_leader = MeetingMember.where(
-      user_id: current_user.id,
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    are_leaders = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    if is_leader == 1 && are_leaders == is_leader
-      respond_to do |format|
-        format.html do
-          redirect_to(group_path(group_id), alert: t('meetings.leave.error'))
-        end
-        format.json { head :no_content }
-      end
+    if meeting.led_by?(current_user) && meeting.leaders.count == 1
+      redirect_to(group_path(meeting.group_id),
+                  alert: t('meetings.leave.error'))
     else
       # Remove user from meeting
-      meeting_member = MeetingMember.find_by(
-        user_id: current_user.id,
-        meeting_id: params[:meeting_id]
-      )
-      meeting_member.destroy
-
-      respond_to do |format|
-        format.html do
-          redirect_to(
-            group_path(group_id),
-            notice: t(
-              'meetings.leave.success',
-              meeting: meeting_name
-            )
-          )
-        end
-        format.json { head :no_content }
-      end
+      meeting.meeting_members.find_by(user_id: current_user.id).destroy
+      redirect_to(group_path(meeting.group_id),
+                  notice: t('meetings.leave.success', meeting: meeting.name))
     end
   end
 
   # DELETE /meetings/1
-  # DELETE /meetings/1.json
   def destroy
     redirect_unless_leader_for(@meeting.group)
     # Notify group members that the meeting has been deleted
-    group_members = GroupMember.where(group_id: @meeting.group_id).all
-    notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
+    send_notification(@meeting, group.members, 'remove_meeting')
     # Remove corresponding meeting members
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-    @meeting_members.each(&:destroy)
-    group_id = @meeting.group_id
+    @meeting.meeting_members.destroy_all
     @meeting.destroy
-    redirect_to_path(group_path(group_id))
+    redirect_to_path(group_path(@meeting.group_id))
   end
 
   private
@@ -220,7 +139,7 @@ class MeetingsController < ApplicationController
                                     :time, :maxmembers, :group_id)
   end
 
-  def notify_members(meeting, members, type)
+  def send_notification(meeting, members, type)
     MeetingNotificationsService.handle_members(
       current_user: current_user,
       meeting: meeting,
