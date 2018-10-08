@@ -7,6 +7,7 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
+import { InputSwitch } from './InputSwitch';
 import {
   InputDefault,
   REQUIRES_DEFAULT,
@@ -22,6 +23,7 @@ export const TYPES = REQUIRES_DEFAULT.concat([
   'select',
   'checkboxGroup',
   'tag',
+  'switch',
 ]);
 
 const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
@@ -29,6 +31,7 @@ const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
   'select',
   'checkboxGroup',
   'tag',
+  'switch',
 ]);
 
 const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
@@ -65,7 +68,8 @@ export type Props = {
     | 'select'
     | 'checkboxGroup'
     | 'tag'
-    | 'hidden',
+    | 'hidden'
+    | 'switch',
   name?: string,
   label?: string,
   placeholder?: string,
@@ -274,6 +278,31 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+  displaySwitch = () => {
+    const {
+      type,
+      id,
+      name,
+      label,
+      value,
+      checked,
+      uncheckedValue,
+    } = this.props;
+    if (type === 'switch' && label && name) {
+      return (
+        <InputSwitch
+          id={id}
+          name={name}
+          label={label}
+          value={value}
+          checked={checked}
+          uncheckedValue={uncheckedValue}
+        />
+      );
+    }
+    return null;
+  };
+
   displayLabel = () => {
     const {
       label, info, required, type,
@@ -318,6 +347,7 @@ export class Input extends React.Component<Props, State> {
         {this.displaySelect()}
         {this.displayTextarea()}
         {this.displayTag()}
+        {this.displaySwitch()}
         {this.displaySubmit()}
       </div>
     );

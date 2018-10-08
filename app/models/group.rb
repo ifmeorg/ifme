@@ -28,6 +28,10 @@ class Group < ApplicationRecord
     leaders.include? user
   end
 
+  def member?(user)
+    members.find_by(id: user.id).present?
+  end
+
   def notifications
     Notification.where('uniqueid ilike ?', '%new_group%').select do |n|
       JSON.parse(n.data)['group_id'].to_i == id

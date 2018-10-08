@@ -56,7 +56,7 @@ module StrategiesHelper
       strategy_viewers_input,
       {
         id: 'strategy_comment',
-        type: 'checkbox',
+        type: 'switch',
         name: 'strategy[comment]',
         label: t('comment.allow_comments'),
         value: true,
@@ -66,19 +66,8 @@ module StrategiesHelper
         dark: true
       },
       {
-        id: 'strategy_perform_strategy_reminder',
-        type: 'checkbox',
-        name: 'strategy[perform_strategy_reminder_attributes][active]',
-        label: t('common.daily_reminder'),
-        info: t('strategies.form.daily_reminder_hint'),
-        value: true,
-        uncheckedValue: false,
-        checked: @strategy.try(:perform_strategy_reminder).try(:active),
-        dark: true
-      },
-      {
         id: 'strategy_publishing',
-        type: 'checkbox',
+        type: 'switch',
         label: t('strategies.form.draft_question'),
         dark: true,
         name: 'publishing',
@@ -87,10 +76,21 @@ module StrategiesHelper
         checked: !@strategy.published?
       },
       {
+        id: 'strategy_perform_strategy_reminder',
+        type: 'checkbox',
+        name: 'strategy[perform_strategy_reminder_attributes][active]',
+        label: t('common.daily_reminder'),
+        info: t('strategies.form.daily_reminder_hint'),
+        value: true,
+        uncheckedValue: false,
+        checked: @strategy&.perform_strategy_reminder&.active,
+        dark: true
+      },
+      {
         id: 'strategy_perform_strategy_reminder_attributes_id',
         name: 'strategy[perform_strategy_reminder_attributes][id]',
         type: 'hidden',
-        value: @strategy.try(:perform_strategy_reminder).try(:id)
+        value: @strategy&.perform_strategy_reminder&.id
       }
     ]
   end

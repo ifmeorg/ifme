@@ -11,6 +11,10 @@ pt-BR:
  click_here: "clique aqui"
  less: " [Menos]"
  language: 'Idioma'
+ true: 'sim'
+ false: 'não'
+ expand_menu: 'expandir menu'
+ close: 'fechar'
 
  languages:
    en: English
@@ -504,6 +508,7 @@ pt-BR:
       addiction: vício
       rehabilitation: reabilitação
       teachers: professores
+      bipolar: bipolar
 
  profile:
   index:

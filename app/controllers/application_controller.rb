@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include CommentsHelper
   include TagsHelper
+  include MomentsHelper
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -23,6 +24,7 @@ class ApplicationController < ActionController::Base
                        if: proc { |c| c.request.format == 'application/json' }
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
+  before_action :set_raven_context, if: proc { Rails.env.production? }
 
   # i18n
   before_action :set_locale
@@ -146,36 +148,6 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength  
 
-  # rubocop:disable MethodLength
-  # TODO: move this logic out of the controller and into a helper method
-  def moments_stats
-    total_count = current_user.moments.all.count
-    monthly_count = current_user.moments.where(
-      created_at: Time.current.beginning_of_month..Time.current
-    ).count
-
-    return '' if total_count <= 1
-
-    result = '<div class="center stats">'
-    result += if total_count == 1
-                t('stats.total_moment', count: total_count.to_s)
-              else
-                t('stats.total_moments', count: total_count.to_s)
-              end
-
-    if total_count != monthly_count
-      result += ' '
-      result += if monthly_count == 1
-                  t('stats.monthly_moment', count: monthly_count.to_s)
-                else
-                  t('stats.monthly_moments', count: monthly_count.to_s)
-                end
-    end
-
-    result + '</div>'
-  end
-  # rubocop:enable MethodLength
-
   private
 
   # TODO: refactor calling method to pass a hash to start with
@@ -231,6 +203,13 @@ class ApplicationController < ActionController::Base
 
   def user_moments(user_id)
     Moment.where(user_id: user_id)
+  end
+
+  def set_raven_context
+    if user_signed_in?
+      Raven.user_context(id: current_user.id)
+    end
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end
 # rubocop:enable ClassLength

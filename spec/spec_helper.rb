@@ -82,6 +82,10 @@ RSpec.configure do |config|
     end
   end
 
+  config.before(:header => true) do
+    config.include HiddenHeaderSupport
+  end
+
   config.after(:each) do
     Capybara.reset_sessions!
     Capybara.use_default_driver

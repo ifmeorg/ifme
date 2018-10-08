@@ -11,6 +11,10 @@ vi:
  click_here: "nhấn vào đây"
  less: " [Ít hơn]"
  language: 'Ngôn ngữ'
+ true: 'có'
+ false: 'không'
+ expand_menu: 'mở rộng menu'
+ close: 'gần'
 
  languages:
    en: English
@@ -504,6 +508,7 @@ vi:
       addiction: nghiện
       rehabilitation: hàn gắng
       teachers: giáo viên
+      bipolar: bipolar
 
  profile:
   index:

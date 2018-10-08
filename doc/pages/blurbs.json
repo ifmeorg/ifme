@@ -315,5 +315,14 @@
     "link_name": "nshki.com",
     "link": "https://nshki.com",
     "social": "globe"
+  },
+  {
+    "name": "Jennifer Winer",
+    "image": "/assets/contributors/jennifer_winer.jpg",
+    "profile": "Creative problem solver and coder with a passion for people and enhancing relationships through technology. Women Who Code meetup organizer, mental health advocate, artist & amateur hiker.",
+    "location": "Colorado, USA",
+    "link_name": "jenniferwiner.com",
+    "link": "https://www.jenniferwiner.com",
+    "social": "globe"
   }
 ]
