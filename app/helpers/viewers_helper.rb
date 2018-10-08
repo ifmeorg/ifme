@@ -49,4 +49,30 @@ module ViewersHelper
     end
     []
   end
+
+  def get_viewers_input(viewers, name, thing)
+    input = {}
+    if viewers.present?
+      checkboxes = []
+      viewers.each do |item|
+        checkboxes.push(
+          id: "#{name}_viewers_#{item.id}",
+          value: item.id,
+          checked: thing.viewers.include?(item.id),
+          label: User.find(item.id).name
+        )
+      end
+      input = {
+        id: "#{name}_viewers",
+        name: "#{name}[viewers][]",
+        type: 'tag',
+        checkboxes: checkboxes,
+        label: t('shared.viewers.plural'),
+        dark: true,
+        accordion: true,
+        placeholder: t("#{name}.form.viewers_hint")
+      }
+    end
+    input
+  end
 end

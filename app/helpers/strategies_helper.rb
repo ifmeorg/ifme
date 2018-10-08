@@ -118,29 +118,7 @@ module StrategiesHelper
 
   # rubocop:disable MethodLength
   def strategy_viewers_input
-    input = {}
-    if @viewers.present?
-      checkboxes = []
-      @viewers.each do |item|
-        checkboxes.push(
-          id: "strategy_viewers_#{item.id}",
-          value: item.id,
-          checked: @strategy.viewers.include?(item.id),
-          label: User.find(item.id).name
-        )
-      end
-      input = {
-        id: 'strategy_viewers',
-        name: 'strategy[viewers][]',
-        type: 'tag',
-        checkboxes: checkboxes,
-        label: t('shared.viewers.plural'),
-        dark: true,
-        accordion: true,
-        placeholder: t('strategies.form.viewers_hint')
-      }
-    end
-    input
+    get_viewers_input(@viewers, 'strategy', @strategy)
   end
   # rubocop:enable MethodLength
 end

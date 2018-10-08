@@ -118,29 +118,7 @@ module MomentsHelper
 
   # rubocop:disable MethodLength
   def moments_viewers_input
-    input = {}
-    if @viewers.present?
-      checkboxes = []
-      @viewers.each do |item|
-        checkboxes.push(
-          id: "moment_viewers_#{item.id}",
-          value: item.id,
-          checked: @moment.viewers.include?(item.id),
-          label: User.find(item.id).name
-        )
-      end
-      input = {
-        id: 'moment_viewers',
-        name: 'moment[viewers][]',
-        type: 'tag',
-        checkboxes: checkboxes,
-        label: t('shared.viewers.plural'),
-        dark: true,
-        accordion: true,
-        placeholder: t('moments.form.viewers_hint')
-      }
-    end
-    input
+    get_viewers_input(@viewers, 'moment', @moment)
   end
   # rubocop:enable MethodLength
 
