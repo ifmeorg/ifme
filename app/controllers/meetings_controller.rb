@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+# rubocop:disable ClassLength
+
 class MeetingsController < ApplicationController
   include CommentsHelper
 
@@ -49,6 +51,7 @@ class MeetingsController < ApplicationController
   end
 
   # POST /meetings
+  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
