@@ -336,4 +336,46 @@ RSpec.describe MeetingsController, type: :controller do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe 'DELETE #destroy' do
+    let(:user) { create(:user) }
+    let(:group) { create(:group) }
+    let(:meeting) { create(:meeting, group_id: group.id) }
+    let!(:group_member) { create(:group_member, group_id: meeting.group_id, user: user, leader: true) }
+    let(:meeting_member) { create(:meeting_member, user: user, meeting: meeting) }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      
+      context 'user is the group leader' do
+        it 'deletes the meeting members' do
+          expect { delete :destroy, params: { id: meeting.id } }
+            .to change(MeetingMember, :count).by(-1)
+        end
+
+        it 'deletes the meeting' do
+          expect { delete :destroy, params: { id: meeting.id } }
+            .to change(Meeting, :count).by(-1)
+        end
+        
+        it 'redirects to the group path page' do
+          delete :destroy, params: { id: meeting.id }
+          expect(response).to redirect_to group_path(group.id)
+        end
+      end
+
+      context 'user is not the leader' do
+        before do
+          group_member.update!(leader: false)
+          delete :destroy, params: { id: meeting.id }
+        end
+
+        it { expect(response).to redirect_to group_path(group.id) }
+      end
+    end
+    context 'when the user is not logged in' do
+      before { delete :destroy, params: { id: meeting.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
 end
