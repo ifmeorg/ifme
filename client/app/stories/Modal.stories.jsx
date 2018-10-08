@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Modal } from '../components/Modal';
+import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
@@ -39,6 +40,14 @@ storiesOf('Modal', module)
   .add('HTML values for element and body with openListener', () => (
     <Modal
       element={<button type="button">Hello</button>}
+      body={bodyHTML}
+      title={title}
+      openListener={openListener}
+    />
+  ))
+  .add('Avatar component as the element', () => (
+    <Modal
+      element={{ component: 'Avatar', props: { src: photoTara, small: true } }}
       body={bodyHTML}
       title={title}
       openListener={openListener}

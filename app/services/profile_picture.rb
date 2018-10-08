@@ -16,7 +16,7 @@ class ProfilePicture
         small: options[:small] || nil,
         large: options[:large] || nil,
         alt: alt,
-      },prerender: options[:prerender] || nil
+      }
     end
 
     def normalize_url(path)
