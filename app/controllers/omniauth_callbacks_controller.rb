@@ -10,7 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_session_path, notice: t('omniauth.access_denied')
     end
   end
-  
+
   def user
     @user ||= User.find_for_google_oauth2(
       request.env['omniauth.auth'],
