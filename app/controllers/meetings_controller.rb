@@ -1,17 +1,15 @@
 # frozen_string_literal: true
-
-# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
   include CommentsHelper
 
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
-  # GET /meetings/1.json
   def show
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = @meeting.member?(current_user)
     @is_leader = @meeting.led_by?(current_user)
+
     if @is_member
       @no_hide_page = true
       @comment = Comment.new
@@ -51,69 +49,45 @@ class MeetingsController < ApplicationController
   end
 
   # POST /meetings
-  # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
     redirect_unless_leader_for(@group)
-    respond_to do |format|
-      if @meeting.save
-        meeting_member = @meeting.meeting_members.new(
-          user_id: current_user.id, leader: true
-        )
-        if meeting_member.save
-          # Notify group members that you created a new meeting
-          send_notification(@meeting, @meeting.group.members, 'new_meeting')
-          format.html { redirect_to group_path(@group.id) }
-          format.json { render :show, status: :created, location: @group.id }
-        end
+    if @meeting.save
+      meeting_member = @meeting.meeting_members.new(
+        user_id: current_user.id, leader: true
+      )
+      if meeting_member.save
+        # Notify group members that you created a new meeting
+        send_notification(@meeting, @meeting.group.members, 'new_meeting')
+        redirect_to group_path(@group.id)
       end
-      format.html { render :new }
-      format.json { render_json(@meeting.errors, 'unprocessable_entity') }
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
   def update
     if @meeting.update(meeting_params)
       send_notification(@meeting, @meeting.members, 'update_meeting')
-
-      respond_to do |format|
-        format.html { redirect_to meeting_path(@meeting.slug) }
-        format.json { render_json(@meeting.errors, 'unprocessable_entity') }
-      end
+      redirect_to meeting_path(@meeting.slug)
     else
-      respond_to do |format|
-        format.html { render :edit }
-        format.json { render_json(@meeting.errors, 'unprocessable_entity') }
-      end
+      render :edit
     end
   end
 
   def join
     meeting = Meeting.find(params[:meeting_id])
     if meeting.member?(current_user)
-      respond_to do |format|
-        format.html { redirect_to group_path(meeting.group_id) }
-        format.json { render :show, location: group_path(meeting.group_id) }
-      end
+      redirect_to group_path(meeting.group_id)
     else
       @meeting_member = meeting.meeting_members.create!(
-        user_id: current_user.id,
-        leader: false
+        user_id: current_user.id, leader: false
       )
       send_notification(meeting, meeting.leaders, 'join_meeting')
 
-      respond_to do |format|
-        format.html do
-          redirect_to(meeting_path(meeting.id),
-                      notice: t('meetings.join_success'))
-        end
-        format.json do
-          render :show, status: :created, location: group_path(meeting.group_id)
-        end
-      end
+      redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
     end
   end
 
@@ -122,31 +96,17 @@ class MeetingsController < ApplicationController
 
     # Cannot leave When you are the only leader
     if meeting.led_by?(current_user) && meeting.leaders.count == 1
-      respond_to do |format|
-        format.html do
-          redirect_to(group_path(meeting.group_id),
-                      alert: t('meetings.leave.error'))
-        end
-        format.json { head :no_content }
-      end
+      redirect_to(group_path(meeting.group_id),
+                  alert: t('meetings.leave.error'))
     else
       # Remove user from meeting
       meeting.meeting_members.find_by(user_id: current_user.id).destroy
-
-      respond_to do |format|
-        format.html do
-          redirect_to(
-            group_path(meeting.group_id),
-            notice: t('meetings.leave.success', meeting: meeting.name)
-          )
-        end
-        format.json { head :no_content }
-      end
+      redirect_to(group_path(meeting.group_id),
+                  notice: t('meetings.leave.success', meeting: meeting.name))
     end
   end
 
   # DELETE /meetings/1
-  # DELETE /meetings/1.json
   def destroy
     redirect_unless_leader_for(@meeting.group)
     # Notify group members that the meeting has been deleted
@@ -200,9 +160,5 @@ class MeetingsController < ApplicationController
 
   def my_comment?(comment)
     comment.present? && (comment.comment_by == current_user.id)
-  end
-
-  def render_json(message, status)
-    render json: message, status: status.to_sym
   end
 end
