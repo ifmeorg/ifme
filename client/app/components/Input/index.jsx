@@ -176,7 +176,7 @@ export class Input extends React.Component<Props, State> {
 
   displayTextarea = () => {
     const {
-      value, id, name, required, type, myRef,
+      value, id, name, required, type, myRef, dark,
     } = this.props;
     if (type !== 'textarea') return null;
     return (
@@ -187,6 +187,7 @@ export class Input extends React.Component<Props, State> {
         required={required}
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
+        dark={dark}
       />
     );
   };

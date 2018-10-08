@@ -30,6 +30,9 @@
       background-color: $mulberry;
       color: $white;
     }
+    &::placeholder {
+      color: $white-80;
+    }
   }
   .select {
     background-color: $mulberry-70;
@@ -52,8 +55,8 @@
   @include setFontSize($size-18);
   @include setPadding($size-24, $size-24, $size-24, $size-24);
   @include linearTransition(0.25s);
-  color: $white-80;
-  background-color: $black-50;
+  color: $white;
+  background-color: $white-10;
   font-weight: $font-weight-400;
   border: none;
   border-radius: $size-4;
@@ -62,7 +65,7 @@
   box-sizing: border-box;
   &:focus,
   &:focus-within {
-    background-color: $black-70;
+    background-color: $white-20;
     outline: none;
   }
   &::placeholder {
@@ -72,19 +75,19 @@
 
 .select {
   @include setPadding($size-24, $size-24, $size-24, $size-24);
-  background-color: $black-50;
+  background-color: $white-10;
   border: none;
   border-radius: $size-4;
   box-shadow: $size-0 $size-2 $size-6 $black-20;
   box-sizing: border-box;
   width: 100%;
   &:focus-within {
-    background-color: $black-70;
+    background-color: $white-20;
     outline: none;
   }
   select {
     @include setFontSize($size-18);
-    color: $white-80;
+    color: $white;
     font-weight: $font-weight-400;
     background: transparent;
     border: none;
@@ -97,7 +100,7 @@
 .label {
   @include setFontSize($size-16);
   @include linearTransition(0.25s);
-  color: $black-50;
+  color: $white-80;
   font-weight: $font-weight-400;
   &Info {
     display: flex;
@@ -117,7 +120,7 @@
 .accordion {
   @include setFontSize($size-16);
   @include setMargin($size-0, $size-0, $size-10, $size-0);
-  color: $black-50;
+  color: $white-80;
   letter-spacing: 0.095em;
   text-transform: uppercase;
   font-weight: $font-weight-400;
@@ -155,7 +158,7 @@
 
 .checkbox {
   @include setFontSize($size-18);
-  color: $black-50;
+  color: $white;
   display: flex;
   flex-direction: row;
   align-items: center;

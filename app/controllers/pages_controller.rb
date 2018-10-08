@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
       load_dashboard_data if @stories.present? && @stories.count.positive?
     else
-      @posts = set_posts
+      @posts = fetch_posts
     end
   end
 
@@ -51,13 +51,14 @@ class PagesController < ApplicationController
   def change_locale!(locale)
     response_key =
       if locale == current_user.locale
-        :signed_in_no_reload
+        'signed_in_no_reload'
       else
-        :signed_in_reload
+        'signed_in_reload'
       end
-
     current_user.update!(locale: locale)
-    render json: { response_key => locale }
+    hash = {}
+    hash[response_key.to_sym] = locale
+    render json: hash.to_json
   end
 
   def load_dashboard_data
@@ -91,17 +92,12 @@ class PagesController < ApplicationController
     posts = []
     medium.posts.each do |post|
       posts.push(
-        'link_name' => post[1]['title'],
-        'link' => "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
-        'author' => parse_author(post)
+        link_name: post[1]['title'],
+        link: "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
+        author: parse_author(post)
       )
     end
     posts
-  end
-
-  def set_posts
-    non_medium_posts = JSON.parse(File.read('doc/pages/posts.json'))
-    fetch_posts.concat(non_medium_posts.reverse)
   end
 
   def set_press
