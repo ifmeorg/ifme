@@ -50,6 +50,8 @@ class User < ApplicationRecord
     pending_from_ally: 2
   }.freeze
 
+  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
@@ -141,14 +143,13 @@ class User < ApplicationRecord
     @meeting_notify.nil? && @comment_notify = true
   end
 
-  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-
   def update_access_token
     refresh_token_params = { 'refresh_token' => refresh_token,
                              'client_id'     => nil,
                              'client_secret' => nil,
                              'grant_type'    => 'refresh_token' }
-    response = Net::HTTP.post_form(User::OAUTH_TOKEN_URL, refresh_token_params)
+    uri = URI.parse(User::OAUTH_TOKEN_URL)
+    response = Net::HTTP.post_form(uri, refresh_token_params)
     decoded_response = JSON.parse(response.body)
     new_expiration_time = Time.zone.now + decoded_response['expires_in']
     new_access_token = decoded_response['access_token']
