@@ -248,4 +248,62 @@ RSpec.describe MeetingsController, type: :controller do
       end
     end
   end
+
+  describe 'POST #create' do
+    let!(:user) { create(:user) }
+    let!(:group) { create(:group) }
+    let!(:group_member) do
+      create(:group_member, id: 1, user: user, group: group, leader: true)
+    end
+    let(:valid_meeting_params) { attributes_for(:meeting).merge(group_id: group.id) }
+    let(:invalid_meeting_params) { { name: nil, description: nil, group_id: group.id } }
+
+    context 'when the user is not logged in' do
+      before do
+        post :create, params: { meeting: valid_meeting_params }
+      end
+
+      it { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      context 'when params are invalid' do
+        before do
+          post :create, params: { meeting: invalid_meeting_params }
+        end
+        
+        it { expect(response).to render_template(:new) }
+      end
+
+      context 'when params are valid' do
+        context 'user is the group leader' do
+          it 'creates a new meeting' do
+            expect { post :create, params: { meeting: valid_meeting_params }}
+              .to change(Meeting, :count).by 1
+          end
+
+          it 'creates a new meeting_member' do
+            expect { post :create, params: { meeting: valid_meeting_params }}
+              .to change(MeetingMember, :count).by 1
+          end
+
+          it 'redirects to group path' do
+            post :create, params: { meeting: valid_meeting_params }
+            expect(response).to redirect_to group_path(group.id)
+          end
+        end
+
+        context 'user is not the leader' do
+          before do
+            group_member.update!(leader: false)
+            post :create, params: { meeting: valid_meeting_params }
+          end
+
+          it { expect(response).to redirect_to group_path(group.id) }
+        end
+      end
+    end
+  end
 end
