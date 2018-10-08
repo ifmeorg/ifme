@@ -129,7 +129,7 @@ export class Modal extends React.Component<Props, State> {
     return null;
   }
 
-  resolveComponent = (component) => {
+  resolveComponent = (component: string) => {
     /** Really only returns Avatar right now but more could be added if needed */
     switch (component) {
       case 'Avatar':

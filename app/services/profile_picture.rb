@@ -11,11 +11,11 @@ class ProfilePicture
       alt = options[:alt] ||
             I18n.t('devise.registrations.edit.labels.profile_picture')
       react_component 'Avatar', props: {
-        name: options[:name] || nil, 
+        name: options[:name] || nil,
         src: normalize_url(path),
         small: options[:small] || nil,
         large: options[:large] || nil,
-        alt: alt,
+        alt: alt
       }
     end
 
