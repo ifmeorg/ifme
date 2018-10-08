@@ -51,11 +51,13 @@ describe 'ToggleLanguage', js: true do
         change_language('en')
       end
 
-      it 'persists locale selection from signed out to signed in state' do
+      it 'persists locale selection from signed out to signed in state', header: true do
         expect(page).to have_content en_root_title
 
         change_language('es')
         expect(page).to have_content(es_root_title)
+
+        open_header_if_hidden
 
         change_page(
           lambda {
@@ -77,7 +79,7 @@ describe 'ToggleLanguage', js: true do
 
         change_page(
           lambda {
-            within '.dashboardNav' do
+            within '.dashboardSection' do
               click_link('Momentos')
             end
           },
@@ -117,14 +119,14 @@ describe 'ToggleLanguage', js: true do
         expect(find('.pageTitle')).to have_content en_signed_in_root_title
       end
 
-      it 'persists locale selection on a different page' do
+      it 'persists locale selection on a different page', feature: true do
         expect(find('.pageTitle')).to have_content en_signed_in_root_title
         change_language('es')
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
         change_page(
           lambda {
-            within '.dashboardNav' do
+            within '.dashboardSection' do
               click_link('Estrategias')
             end
           },
