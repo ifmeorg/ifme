@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 # rubocop:disable ClassLength
-
 class MeetingsController < ApplicationController
   include CommentsHelper
 
@@ -56,6 +55,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
     redirect_unless_leader_for(@group)
+
     if @meeting.save
       meeting_member = @meeting.meeting_members.new(
         user_id: current_user.id, leader: true
