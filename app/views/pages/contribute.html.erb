@@ -14,25 +14,9 @@
   %>
 </div>
 
-<div class="gridThree marginTop">
+<div class="gridMany marginTop">
   <% @blurbs.each do |blurb| %>
-    <div class="gridThreeItemBoxGhost center">
-      <%= ProfilePicture.fetch(blurb["image"], name: blurb['name']) %>
-      <% avatar_small = react_component('Avatar', props: {
-        src: blurb["image"],
-        small: true
-      })%>
-      <%= react_component('Modal', props: {
-        element: "<button class=\"buttonGhostXS\">Learn More...</button>",
-        title: "#{blurb['name']} contributes because...",
-        body: blurb["profile"]
-      }) %>
-
-      <div class="smallMarginTop">
-        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
-        <br /><%= content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
-      </div>
-    </div>
+    <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
   <% end %>
 </div>
 
