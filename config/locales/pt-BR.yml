@@ -174,8 +174,6 @@ pt-BR:
    signin: 'Conte-nos a sua história'
    create_account: 'Junte-se a comunidade'
    update_account: 'Personalize sua conta'
-   if: 'if'
-   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} é uma comunidade que encoraja pessoas a compartilharem suas experiências relacionadas a saúde mental com as pessoas que você ama"
@@ -204,7 +202,7 @@ pt-BR:
    google_cal_hint: " Nós iremos adcionar um lembrete sobre esse medicamento no Google Calendar"
    strength_hint: 'Potência do medicamento, normalmente é encontrada pŕoximo ao nome do medicamento'
    total_hint: 'Quantidade total de comprimidos ou porções necessárias'
-   weekly_dosage_hint: 'Qual dos dias da semana esta medicação é prescrita'
+   weekly_dosage_hint: Dias da semana para tomar este medicamento
    dosage_hint: 'Número de comprimidos ou dosagem diária'
    refill_hint: 'Quando atualizar essa receita médica'
    refill_reminder_hint: "Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento."
@@ -289,9 +287,6 @@ pt-BR:
   edit_mood: 'Editar Humor'
   new: 'Novo Humor'
   example_moods: 'Nervoso, Ansioso, esperançoso'
-  label:
-   one: 'Humor:'
-   other: 'Humor'
   index:
    subtitle: 'Crie tags para descrever seu estado de espírito, sentimentos, e emoções.'
    premade1_name: 'Aceitação'
@@ -522,7 +517,7 @@ pt-BR:
   not_authorized: 'Não Autorizado'
 
  search:
-  search: 'Buscar'
+  label: 'Buscar'
   search_by_name: 'Buscar pelo nome'
   form:
    search_by_location: 'Buscar por localização'
@@ -562,7 +557,6 @@ pt-BR:
     you: 'Apenas você'
     you_link: 'Visível apenas para você'
     many: 'Visível para %{viewers}'
-  character_count: 'Você tem %{number} caracteres restantes.'
   meeting_info:
     attending: 'Você irá participar.Quer mudar de idéia?'
     not_attending: 'Você não irá participar. %{join}'

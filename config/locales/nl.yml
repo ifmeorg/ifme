@@ -174,8 +174,6 @@ nl:
    signin: 'Vertel je verhalen'
    create_account: 'Wordt nu lid van de gemeenschap'
    update_account: 'Pas je account aan'
-   if: 'if'
-   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} is een gemeenschap die mensen aanmoedigd om hun verhalen over geestelijke gezondheid te delen met hun naasten."
@@ -205,7 +203,7 @@ nl:
    strength_hint: 'Medicatie sterkte, meestal gevonden naast de naam'
    total_hint: 'Totale hoeveelheid pillen of hoeveelheid medicatie'
    dosage_hint: 'Hoeveelheid pillen of dosis per dag'
-   weekly_dosage_hint: 'Op welke dagen in de week deze medicatie gebruikt dient te worden'
+   weekly_dosage_hint: Dagen van de week om dit medicijn te nemen
    refill_hint: 'Wanneer dit voorschrift bijgevuld moet worden'
    refill_reminder_hint: "We e-mailen je een herinnering een week voordat je medicatie bijgevult moet worden."
    daily_reminder_hint: "We mailen je dagelijks een herinnering om je medicatie in te nemen"
@@ -289,9 +287,6 @@ nl:
   edit_mood: 'Bewerk Stemming'
   new: 'Nieuwe Stemming'
   example_moods: 'Nerveus, Angstig, Hoopvol'
-  label:
-   one: 'Stemming:'
-   other: 'Stemmingen:'
   index:
    subtitle: 'Maak tags aan die je gemoedstoestand, gevoelens en emoties omschrijven.'
    premade1_name: 'Accepterend'
@@ -521,7 +516,7 @@ nl:
   not_authorized: 'Niet toegestaan'
 
  search:
-  search: 'Zoeken'
+  label: 'Zoeken'
   search_by_name: 'Zoeken op naam'
   form:
    search_by_location: 'Zoeken op locatie'
@@ -561,7 +556,6 @@ nl:
     you: 'Alleen jij'
     you_link: 'Zichtbaar alleen voor jou'
     many: 'Zichtbaar voor %{viewers}'
-  character_count: 'Je hebt nog %{number} karakters over.'
   meeting_info:
     attending: 'Je neemt deel. Verander je van gedachte?'
     not_attending: 'Je neemt niet deel. %{join}'

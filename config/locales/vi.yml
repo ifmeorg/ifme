@@ -174,8 +174,6 @@ vi:
    signin: 'Kể chuyện của bạn bây giờ'
    create_account: 'Tham gia cộng đồng bây giờ'
    update_account: 'Hiệu đính tài khoản'
-   if: 'if'
-   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} là một cộng đồng khuyến khích người chia sẻ những câu chuyện của sức khỏe tinh thần với những người thân quen."
@@ -205,7 +203,7 @@ vi:
    strength_hint: 'Việc sử dụng thuốc, thường được tìm thấy bên cạnh tên'
    total_hint: 'Tổng số viên và số thuốc'
    dosage_hint: 'Số lượng viên và liều lượng mỗi ngày'
-   weekly_dosage_hint: 'Ngày nào trong tuần thuốc này được kê toa'
+   weekly_dosage_hint: Các ngày trong tuần để uống thuốc này
    refill_hint: 'Khi nào cần cấp lại thuốc'
    refill_reminder_hint: "Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới"
    daily_reminder_hint: "Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc"
@@ -290,9 +288,6 @@ vi:
   edit_mood: 'Hiệu đính tâm trạng'
   new: 'Tâm trạng mới'
   example_moods: 'Lo lắng, Hoang mang, Hy vọng'
-  label:
-   one: 'Âm trạng:'
-   other: 'Âm trạng:'
   index:
    subtitle: 'Tạo một thẻ miêu tả tâm trạng, cảm giác và cảm xúc của bạn.'
    premade1_name: 'Chấp nhận'
@@ -522,7 +517,7 @@ vi:
   not_authorized: 'Không xác minh'
 
  search:
-  search: 'Tìm kiếm'
+  label: 'Tìm kiếm'
   search_by_name: 'Tìm kiêm bằng tên'
   form:
    search_by_location: 'Tìm kiếm bằng nơi chốn'
@@ -562,7 +557,6 @@ vi:
     you: 'Duy nhất có bạn'
     you_link: 'Hiển thị duy nhất cho bạn'
     many: 'Hiển thị đối với %{khán giả}'
-  character_count: 'Bạn còn %{number} ký tự.'
   meeting_info:
     attending: 'Bạn đang tham gia vào, có thay đổi quyết định không?'
     not_attending: 'Bạn đang tham gia vào. %{join}'

@@ -1,319 +1,313 @@
 en:
- app_name: 'if me'
- app_description: 'A community for mental health experiences'
- email: 'join.ifme@gmail.com'
- ellipsis: " [...]"
+ app_name: if me
+ app_description: A community for mental health experiences
+ email: join.ifme@gmail.com
+ ellipsis: ' [...]'
  created: 'Created %{created_at}'
- draft: "Draft"
+ draft: Draft
  edited: 'Created %{created_at} (edited)'
  edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
- salutation: "Hi %{name},"
- click_here: "click here"
- less: " [Less]"
- language: 'Language'
+ salutation: 'Hi %{name},'
+ click_here: click here
+ less: ' [Less]'
+ language: Language
  true: 'yes'
  false: 'no'
- expand_menu: 'expand menu'
- close: 'close'
+ expand_menu: expand menu
+ close: close
 
  languages:
-   en: English
-   es: Español
-   nl: Nederlands
-   pt-BR: Português
-   sv: Svenska
-   various: Various
-   vi: Tiếng Việt
-   it: Italiano
-   nb: Norsk
+  en: English
+  es: Español
+  nl: Nederlands
+  pt-BR: Português
+  sv: Svenska
+  various: Various
+  vi: Tiếng Việt
+  it: Italiano
+  nb: Norsk
 
  navigation:
-   about: 'About'
-   blog: 'Blog'
-   contribute: 'Contribute'
-   partners: 'Partners'
-   privacy: 'Privacy Policy'
-   github: 'GitHub'
-   patreon: 'Patreon'
-   opencollective: 'Open Collective'
-   instagram: 'Instagram'
-   rss: 'RSS'
-   twitter: "Twitter"
-   facebook: "Facebook"
-   feedback: 'feedback'
-   give_feedback: 'Give Feedback'
-   press: 'Press'
-   faq: 'FAQ'
-   resources: 'Resources'
-   code_of_conduct: 'Code of Conduct'
+  about: About
+  blog: Blog
+  contribute: Contribute
+  partners: Partners
+  privacy: Privacy Policy
+  github: GitHub
+  patreon: Patreon
+  opencollective: Open Collective
+  instagram: Instagram
+  rss: RSS
+  twitter: Twitter
+  facebook: Facebook
+  feedback: feedback
+  give_feedback: Give Feedback
+  press: Press
+  faq: FAQ
+  resources: Resources
+  code_of_conduct: Code of Conduct
 
  common:
-   name: 'Name'
-   you: 'You'
-   title: 'Title'
-   date: 'Date:'
-   daily_reminder: 'Daily reminder email'
-   actions:
-    plural: 'Actions'
-    submit: 'Submit'
-    submit_publish: 'Publish'
-    submit_draft: 'Draft'
-    confirm: 'Are you sure?'
-    delete: 'Delete'
-    edit: 'Edit'
-    edit_instance: 'Edit %{instance}'
-    join: 'Join'
-    leave: 'Leave'
-    add: 'Add'
-    add_all: 'Add all'
-    select_all: 'Select all'
-    remove: 'Remove'
-   form:
-     email: "Email"
-     location: "Location"
-     description: 'Description'
-     error_explanation: 'Please fill out the marked fields!'
-     press_enter: 'Press ENTER to add'
-   time_ago: "%{date} ago"
-   write_to_us: "write to us"
-   days: Days
+  name: Name
+  you: You
+  title: Title
+  date: 'Date:'
+  daily_reminder: Daily reminder email
+  actions:
+   plural: Actions
+   submit: Submit
+   submit_publish: Publish
+   submit_draft: Draft
+   confirm: Are you sure?
+   delete: Delete
+   edit: Edit
+   edit_instance: 'Edit %{instance}'
+   join: Join
+   leave: Leave
+   add: Add
+   add_all: Add all
+   select_all: Select all
+   remove: Remove
+  form:
+   email: Email
+   location: Location
+   description: Description
+   error_explanation: Please fill out the marked fields!
+   press_enter: Press ENTER to add
+  time_ago: '%{date} ago'
+  write_to_us: write to us
+  days: Days
 
  comment:
-  singular: 'Comment'
-  plural: 'Comments'
-  posting: 'Posting comment...'
-  allow_comments: 'Allow Comments?'
-  hint: 'Only you and viewers can comment'
-  control: 'Control who can view and comment'
+  singular: Comment
+  plural: Comments
+  posting: Posting comment...
+  allow_comments: Allow Comments?
+  hint: Only you and viewers can comment
+  control: Control who can view and comment
 
  account:
-  singular: 'Account'
-  sign_in: 'Sign in'
-  sign_up: 'Sign up'
-  forgot_password: 'Forgot your password?'
+  singular: Account
+  sign_in: Sign in
+  sign_up: Sign up
+  forgot_password: Forgot your password?
 
  members:
-   one: '%{count} member'
-   other: '%{count} members'
+  one: '%{count} member'
+  other: '%{count} members'
 
  allies:
-  add_ally: 'Add to Allies'
-  cancel_ally_request: 'Cancel Request'
-  accept: 'Accept'
-  reject: 'Reject'
+  add_ally: Add to Allies
+  cancel_ally_request: Cancel Request
+  accept: Accept
+  reject: Reject
   index:
-    title: 'Allies'
-    outgoing: 'Outgoing Requests'
-    incoming: 'Incoming Requests'
-    invite: 'Invite your loved ones!'
-    none: 'You currently have no allies! You can search for them or invite loved ones to join!'
-    view_all_allies: 'View all allies'
-    cancel: 'Cancel'
+   title: Allies
+   outgoing: Outgoing Requests
+   incoming: Incoming Requests
+   invite: Invite your loved ones!
+   none: You currently have no allies! You can search for them or invite loved ones to join!
+   view_all_allies: View all allies
+   cancel: Cancel
   form:
-    placeholder: 'Enter one or more comma-separated emails'
+   placeholder: Enter one or more comma-separated emails
 
  categories:
-  singular: 'Category'
-  plural: 'Categories'
-  edit_category: "Edit Category"
-  new: "New Category"
+  singular: Category
+  plural: Categories
+  edit_category: Edit Category
+  new: New Category
   form:
-   name_hint: 'Categorize recurring people, places, things, activities, and more'
+   name_hint: Categorize recurring people, places, things, activities, and more
   label:
    one: 'Category:'
    other: 'Categories:'
   index:
-   subtitle: 'Life is messy, categorize the different people, places, and things.'
-   premade1_name: 'Family'
-   premade1_description: 'Family related'
-   premade2_name: 'Friends'
-   premade2_description: 'Friends related'
-   premade3_name: 'Work'
-   premade3_description: 'Work related'
-   premade4_name: 'Meditation'
-   premade4_description: 'Meditation, deep breathing, and relaxing activities'
+   subtitle: Life is messy, categorize the different people, places, and things.
+   premade1_name: Family
+   premade1_description: Family related
+   premade2_name: Friends
+   premade2_description: Friends related
+   premade3_name: Work
+   premade3_description: Work related
+   premade4_name: Meditation
+   premade4_description: Meditation, deep breathing, and relaxing activities
    instructions: "You haven't created any custom categories yet.<br>You can also add the following premade categories and customize them another time."
 
  errors:
-  home_page: 'Return home'
+  home_page: Return home
   internal_server_error:
-   header_message: 'This page cannot be displayed'
+   header_message: This page cannot be displayed
   not_found:
-   header_message: 'This page does not exist'
+   header_message: This page does not exist
 
  groups:
-  singular: 'Group'
-  plural: 'Groups'
+  singular: Group
+  plural: Groups
   form:
-    leaders: 'Leaders'
-    only_leader: "You are the only leader, therefore you can't leave."
-    cannot_delete: 'Please note that you cannot delete groups.'
-    error_save: "We can't save this group because: "
-    error_edit_permission: 'You must be a leader of a group in order to edit it'
+   leaders: Leaders
+   only_leader: "You are the only leader, therefore you can't leave."
+   cannot_delete: Please note that you cannot delete groups.
+   error_save: "We can't save this group because: "
+   error_edit_permission: You must be a leader of a group in order to edit it
   index:
-   subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
-   available_groups: 'Available Groups'
-   joined_groups: 'Joined Groups'
-   leader: '(Leader)'
+   subtitle: Create and join groups that offer support, mentorship, and discussions.
+   available_groups: Available Groups
+   joined_groups: Joined Groups
+   leader: (Leader)
    instructions: "You aren't a part of any groups yet."
   join:
-    success: 'You have joined this group.'
-    group_not_exists: "You cannot join a group that doesn't exist."
+   success: You have joined this group.
+   group_not_exists: "You cannot join a group that doesn't exist."
   leave:
-    error: 'You cannot leave the group, you are the only leader.'
-    success: "You have left %{group}"
-    remove_member_success: "You have removed %{user} from %{group}"
-    remove_member_error: "You cannot kick a group member because you are not a leader."
-  new: 'New Group'
+    error: You cannot leave the group, you are the only leader.
+    success: 'You have left %{group}'
+    remove_member_success: 'You have removed %{user} from %{group}'
+    remove_member_error: You cannot kick a group member because you are not a leader.
+  new: New Group
   show:
    led_by: 'Led by:'
-   delete: 'Delete group'
+   delete: Delete group
 
  layouts:
   application:
-   signin: 'Tell your stories now'
-   create_account: 'Join the community now'
-   update_account: 'Customize your account'
-   if: 'if'
-   me: 'me'
+   signin: Tell your stories now
+   create_account: Join the community now
+   update_account: Customize your account
   mailer:
    html:
-    app_description: "%{app_name} is a community that encourages people to share their mental health stories with loved ones."
-    no_reply: "You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!"
+    app_description: '%{app_name} is a community that encourages people to share their mental health stories with loved ones.'
+    no_reply: 'You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!'
   title:
    reset_password: Reset your password
 
  medications:
-  singular: 'Medication'
-  edit_medication: 'Edit Medication'
-  refill_reminder: 'Refill reminder email'
+  singular: Medication
+  edit_medication: Edit Medication
+  refill_reminder: Refill reminder email
   dosage: 'Daily Dosage:'
   weekly_dosage: 'Weekly dosage:'
   refill: 'Refill:'
   quantity: 'Total Quantity:'
   strength: 'Strength:'
   form:
-   strength: 'Strength'
-   strength_placeholder: 'e.g. 100'
-   total_placeholder: 'e.g. 30'
-   dosage: 'dosage'
-   dosage_placeholder: 'e.g. 2'
-   refill: 'refill'
-   comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
-   add_to_google_cal: 'Google Calendar reminder'
+   strength: Strength
+   strength_placeholder: e.g. 100
+   total_placeholder: e.g. 30
+   dosage: dosage
+   dosage_placeholder: e.g. 2
+   refill: refill
+   comments_hint: Add any additional comments here, e.g. logging your symptoms
+   add_to_google_cal: Google Calendar reminder
    google_cal_hint: "We'll add a reminder for this medication to your Google calendar."
-   strength_hint: 'Medication strength, usually found beside the name'
-   total_hint: 'Total number of pills or amount of medication'
-   dosage_hint: 'Number of pills or servings daily'
-   weekly_dosage_hint: 'Which of the days in the week this medication is prescribed'
-   refill_hint: 'When to refill this prescription'
+   strength_hint: Medication strength, usually found beside the name
+   total_hint: Total number of pills or amount of medication
+   dosage_hint: Number of pills or servings daily
+   weekly_dosage_hint: Days of the week to take this medication
+   refill_hint: When to refill this prescription
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
    daily_reminder_hint: "We'll email you a daily reminder to take this medication"
-  new: 'New Medication'
+  new: New Medication
   units:
-   display: "%{count} %{unit}"
-   mg: 'mg'
-   ml: 'ml'
+   display: '%{count} %{unit}'
+   mg: mg
+   ml: ml
    tablets:
-    one: 'tablet'
-    other: 'tablets'
+    one: tablet
+    other: tablets
   reminder_mailer:
-    subject: "Don't forget to take %{name}!"
-    body: "Here's a friendly reminder to take your medication %{name}!"
+   subject: "Don't forget to take %{name}!"
+   body: "Here's a friendly reminder to take your medication %{name}!"
   refill_mailer:
-    subject: "Your refill for %{name} is coming up soon!"
-    body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
+   subject: 'Your refill for %{name} is coming up soon!'
+   body: "Here's a friendly reminder to refill your medication %{name} on %{refill}!"
   index:
-   title: 'Medications'
-   subtitle: 'Keep track of your medications, including dosage and refill information.'
+   title: Medications
+   subtitle: Keep track of your medications, including dosage and refill information.
    total: Total
    instructions: "You haven't saved any medications yet.<br><br>Here's an example of a saved medication! You can also write about your experience."
-   example_name: 'Prozac'
-   example_strength: '10 mg'
-   example_total: '40 tablets'
-   example_dosage: '2 tablets'
-   example_refill: '05/31/2016'
+   example_name: Prozac
+   example_strength: 10 mg
+   example_total: 40 tablets
+   example_dosage: 2 tablets
+   example_refill: 05/31/2016
   show:
    comments: 'Comments:'
 
  meetings:
   singular: Meeting
-  edit_meeting: 'Edit Meeting'
+  edit_meeting: Edit Meeting
   form:
-   location_placeholder: 'URL or street address'
-   maximum_members: 'Maximum Members'
-   maximum_placeholder: '0 if no maximum'
-  join_success: 'You have joined this meeting.'
+   location_placeholder: URL or street address
+   maximum_members: Maximum Members
+   maximum_placeholder: 0 if no maximum
+  join_success: You have joined this meeting.
   info:
-   cancel_meeting: 'Cancel meeting'
-   meeting_time: 'Time'
+   cancel_meeting: Cancel meeting
+   meeting_time: Time
    members_of_group_html:
     one: '%{count} Member of %{group}'
     other: '%{count} Members of %{group}'
   reminder_mailer:
-    subject: "Your meeting \"%{meeting_name}\" is tomorrow at %{time}!"
-    body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
+   subject: 'Your meeting "%{meeting_name}" is tomorrow at %{time}!'
+   body: "Here's a friendly reminder that your meeting tomorrow, \"%{meeting_name}\", will be taking place at %{time} at %{location}!"
   leave:
-    error: 'You cannot leave the meeting, you are the only leader.'
-    success: 'You have left %{meeting}'
-  new: 'New Meeting'
+   error: You cannot leave the meeting, you are the only leader.
+   success: 'You have left %{meeting}'
+  new: New Meeting
 
  moments:
-  singular: 'Moment'
-  plural: 'Moments'
-  edit_moment: 'Edit Moment'
-  tagged_moments: 'Tagged Moments'
-  new: 'New Moment'
+  singular: Moment
+  plural: Moments
+  edit_moment: Edit Moment
+  tagged_moments: Tagged Moments
+  new: New Moment
   secret_share:
-    singular: 'Secret Share'
-    expires_at: 'Expire at'
-    cancel_secret_share: 'Cancel Secret Share'
+   singular: Secret Share
+   expires_at: Expire at
+   cancel_secret_share: Cancel Secret Share
   form:
-   why: 'What happened and how do you feel?'
-   fix: 'What thoughts would you like to have?'
-   what_happened: 'What happened?'
-   viewers_hint: 'Allies who can view your moment'
-   draft_question: 'Do you want to save your moment as draft?'
-
+   why: What happened and how do you feel?
+   fix: What thoughts would you like to have?
+   what_happened: What happened?
+   viewers_hint: Allies who can view your moment
+   draft_question: Do you want to save your moment as draft?
   index:
-   subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
+   subtitle: Delve deep into your moments - events and situations that affect your mental health.
    instructions: "You haven't written about any moments yet.<br><br>Don't know where to start? What's something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don't have to share it right away - only when you're ready to! Here's an example of a Moment."
-   example_name: 'Panicking over interview tomorrow!'
-   example_category: 'Career'
+   example_name: Panicking over interview tomorrow!
+   example_category: Career
   show:
-   strategies: 'What strategies would help?'
+   strategies: What strategies would help?
 
  moods:
-  singular: 'Mood'
-  plural: 'Moods'
-  edit_mood: 'Edit Mood'
-  new: 'New Mood'
-  example_moods: 'Nervous, Anxious, Hopeful'
-  label:
-   one: 'Mood:'
-   other: 'Moods:'
+  singular: Mood
+  plural: Moods
+  edit_mood: Edit Mood
+  new: New Mood
+  example_moods: Nervous, Anxious, Hopeful
   index:
-   subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-   premade1_name: 'Accepting'
-   premade1_description: 'Accepting and being at peace with differences and limitations'
-   premade2_name: 'Ambitious'
-   premade2_description: 'Feeling optimistic about achieving goals'
-   premade3_name: 'Curious'
-   premade3_description: 'Feeling curious about uncertainty'
-   premade4_name: 'Resentful'
-   premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
-   premade5_name: 'Hopeless'
-   premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
+   subtitle: Create tags describing your state of mind, feelings, and emotions.
+   premade1_name: Accepting
+   premade1_description: Accepting and being at peace with differences and limitations
+   premade2_name: Ambitious
+   premade2_description: Feeling optimistic about achieving goals
+   premade3_name: Curious
+   premade3_description: Feeling curious about uncertainty
+   premade4_name: Resentful
+   premade4_description: Not accepting certain facts, feeling angry, vengeful, and/or jealous
+   premade5_name: Hopeless
+   premade5_description: Feeling sad and hopeless - unable to find any possible solutions
    instructions: "You haven't created any custom moods yet.<br>You can also add the following premade moods and customize them another time."
 
  notifications:
-  plural: 'Notifications'
-  none: 'There are none'
-  clear: 'Clear'
-  created_by_html: "<strong>Created by</strong>: %{name}"
-  preview: 'View more'
+  plural: Notifications
+  none: There are none
+  clear: Clear
+  created_by_html: '<strong>Created by</strong>: %{name}'
+  preview: View more
   members:
-   title: 'List of Members'
+   title: List of Members
   ally:
    accepted: '%{name} accepted your ally request!'
    sent_html: '%{link_to_user} sent an ally request!'
@@ -331,270 +325,268 @@ en:
    update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
    join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
   mailer:
-    comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
-    comment_on_private_body: "<p>Your ally <strong>%{user}</strong> commented privately:</p>"
-    comment_on_body: "<p>Your ally <strong>%{user}</strong> commented:</p>"
-    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
-    comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>To read it, %{link}!</p>"
-    new_group_subject: "if me | %{user} created a group \"%{group}\""
-    new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>"
-    new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
-    add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
-    add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
-    add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
-    remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
-    update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
-    new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>"
-    new_meeting_link: "<p>To learn more and attend, %{link}!</p>"
-    update_meeting_link: "<p>To learn more, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
-    join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
-    join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
+   comment_on_moment_subject: "if me | %{user} commented on your moment \"%{moment}\""
+   comment_on_strategy_subject: "if me | %{user} commented on your strategy \"%{strategy}\""
+   comment_on_meeting_subject: "if me | %{user} commented on the meeting \"%{meeting}\" in the group \"%{group}\""
+   comment_on_private_body: '<p>Your ally <strong>%{user}</strong> commented privately:</p>'
+   comment_on_body: '<p>Your ally <strong>%{user}</strong> commented:</p>'
+   comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+   comment_text: '<p><i>%{comment}</i></p>'
+   comment_link: '<p>To read it, %{link}!</p>'
+   new_group_subject: "if me | %{user} created a group \"%{group}\""
+   new_group_body: "<p>%{user} created a group \"%{group}\":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>"
+   new_group_member_subject: "if me | %{user} joined your group \"%{group}\""
+   add_group_leader_you_subject: "if me | You became a leader of \"%{group}\""
+   add_group_leader_subject: "if me | %{user} became a leader of \" %{group}\""
+   add_remove_group_leader_body: "<p>To see \"%{group}\", %{link}!</p>"
+   remove_group_leader_you_subject: "if me | You are no longer a leader of \"%{group}\""
+   remove_group_leader_subject: "if me | %{user} is no longer a leader of \"%{group}\""
+   update_meeting_subject: "if me | %{user} has updated the meeting \"%{meeting}\" for \"%{group}\""
+   new_meeting_subject: "if me | %{user} has created a new meeting \"%{meeting}\" for \"%{group}\""
+   meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>'
+   new_meeting_link: '<p>To learn more and attend, %{link}!</p>'
+   update_meeting_link: '<p>To learn more, %{link}!</p>'
+   remove_meeting_subject: "if me | %{user} has cancelled \"%{meeting}\" for \"%{group}\""
+   join_meeting_subject: "if me | %{user} has joined \"%{meeting}\" for \"%{group}\""
+   join_meeting_body: "<p>To see \"%{meeting}\", %{link}!</p>"
 
  omniauth:
-  google: 'Google'
-  access_denied: 'Access Denied'
+  google: Google
+  access_denied: Access Denied
 
  pages:
   about:
-    send_us: 'us'
-    email_us: 'Feel free to email %{email_link}!'
-    main_message_one: "%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies."
-    message_text_one: "Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers."
-    main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
-    message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
-    main_message_three: "Wanna help fund us?"
-    message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
-    linebreak: 'Linebreak'
-    fund_club: 'Fund Club'
+   send_us: us
+   email_us: 'Feel free to email %{email_link}!'
+   main_message_one: '%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies.'
+   message_text_one: 'Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.'
+   main_message_two: "Dealing with mental health is what makes us human. But for a lot of us, it's a struggle to be open about it."
+   message_text_two: "Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class=\"subtitle block\">\"It's not just all in your head, it's all around you. We can heal together.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>"
+   main_message_three: Wanna help fund us?
+   message_text_three: "Our app is a <u>completely</u> open source project. It's built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>"
+   linebreak: Linebreak
+   fund_club: Fund Club
   blog:
-    description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
+   description: "If you're interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too."
   contribute:
-    main_message_one: "if me is built and maintained by volunteers of many different backgrounds and skill sets."
-    message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"noMarginBottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
-    more_contributors: 'More Fabulous Contributors!'
-    thanks: 'A huge thanks to'
-    slack: 'Slack'
+   main_message_one: if me is built and maintained by volunteers of many different backgrounds and skill sets.
+   message_text_one: "We're always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class=\"noMarginBottom\">Please %{email_link} and we'll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>"
+   more_contributors: More Fabulous Contributors!
+   thanks: A huge thanks to
+   slack: Slack
   faq:
-    title: 'Frequently Asked Questions'
-    data_access_question: 'Who has access to my data?'
-    data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
-    moment_question: 'What is a Moment?'
-    moment_answer: 'A <strong>%{moment}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Moments with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Moments only visible to you.'
-    strategy_question: 'What is a Strategy?'
-    strategy_answer: 'A <strong>%{strategy}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Strategies with Categories. You can also choose which allies can view and comment. You can also make Strategies only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
-    category_question: 'What is a Category?'
-    category_answer: 'A <strong>%{category}</strong> is a tag that can represent the people, places, and things that are important to you.'
-    mood_question: 'What is a Mood?'
-    mood_answer: 'A <strong>%{mood}</strong> is a tag describing your state of mind, feelings, and emotions.'
-    group_question: 'What is a Group?'
-    group_answer: 'A <strong>%{group}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
-    medications_question: 'How do I use the Medications feature?'
-    medications_answer: 'The <strong>%{medications}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
-    invite_question: 'How can I invite my loved ones to join the app?'
-    invite_answer: 'Go to the <strong>%{allies}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
-    email_notifications_question: 'How can I modify email notifications?'
-    email_notifications_answer: "Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted."
+   title: Frequently Asked Questions
+   data_access_question: Who has access to my data?
+   data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
+   moment_question: What is a Moment?
+   moment_answer: 'A <strong>%{moment}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Moments with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Moments only visible to you.'
+   strategy_question: What is a Strategy?
+   strategy_answer: 'A <strong>%{strategy}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Strategies with Categories. You can also choose which allies can view and comment. You can also make Strategies only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
+   category_question: 'What is a Category?'
+   category_answer: 'A <strong>%{category}</strong> is a tag that can represent the people, places, and things that are important to you.'
+   mood_question: What is a Mood?
+   mood_answer: 'A <strong>%{mood}</strong> is a tag describing your state of mind, feelings, and emotions.'
+   group_question: What is a Group?
+   group_answer: 'A <strong>%{group}</strong> offers support, mentorship, and discussions on mental health. You can create Groups and your allies have the option of joining. You can only join groups that are created by your allies.<br><br>As a Group leader, you can create <strong>Meetings</strong>. Meetings have a location and time. The location can be a physical place or a Google Hangout URL. Meetings also allow for comments. If you are a Group leader, you cannot leave a group unless there is another leader. Groups can only be deleted when you are the only member.'
+   medications_question: How do I use the Medications feature?
+   medications_answer: 'The <strong>%{medications}</strong> feature allows you to log the prescription drugs you are taking. You can also log your symptoms.'
+   invite_question: 'How can I invite my loved ones to join the app?'
+   invite_answer: 'Go to the <strong>%{allies}</strong> page and click the "Invite your loved ones" link. You will be able to invite them via email. When your loved one accepts the invite, they will be added to your Allies list.'
+   email_notifications_question: How can I modify email notifications?
+   email_notifications_answer: 'Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted.'
   home:
-    stories: 'Stories'
-    not_signed_in:
-      main_message_one: 'Better communication with loved ones leads to better mental health.'
-      message_text_one: "We need each other's support to break down stigmas."
-      message_one: 'Share your stories with loved ones and get the support you deserve'
-      message_two: 'Be you, no strings attached and with security and privacy'
-      message_three: 'Document your moods, medications, and self-care'
-      main_message_two: 'We are open source because mental health should be open.'
-      message_text_two: "We are <strong>always</strong> looking for your %{help} and %{feedback}!"
-      help: 'help'
-    signed_in_empty:
-      main_message_one: 'Hello %{name}!'
-      message_text_one: "Here's how you can start sharing your stories."
-      main_message_two: 'Tell us about yourself.'
-      cell_one: 'Customize your %{profile} - add a bio and profile picture<br>Add custom %{moods} to best describe your emotions<br>Add %{allies} - friends, family, and others who you want to share with'
-      main_message_three: 'Write your stories.'
-      cell_two: 'Create custom %{categories} to help organize your moments<br>Write about the %{moments} - the events and situations that affect your mental health'
-      main_message_four: 'Take care of yourself.'
-      cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
-      main_message_five: 'Have any questions or concerns?'
-      message_text_three: 'Check out our %{faq} page or %{email_link}!'
-      strategize: 'Strategize'
+   stories: Stories
+   not_signed_in:
+    main_message_one: Better communication with loved ones leads to better mental health.
+    message_text_one: "We need each other's support to break down stigmas."
+    message_one: Share your stories with loved ones and get the support you deserve
+    message_two: Be you, no strings attached and with security and privacy
+    message_three: Document your moods, medications, and self-care
+    main_message_two: We are open source because mental health should be open.
+    message_text_two: 'We are <strong>always</strong> looking for your %{help} and %{feedback}!'
+    help: help
+   signed_in_empty:
+    main_message_one: 'Hello %{name}!'
+    message_text_one: "Here's how you can start sharing your stories."
+    main_message_two: Tell us about yourself.
+    cell_one: 'Customize your %{profile} - add a bio and profile picture<br>Add custom %{moods} to best describe your emotions<br>Add %{allies} - friends, family, and others who you want to share with'
+    main_message_three: Write your stories.
+    cell_two: 'Create custom %{categories} to help organize your moments<br>Write about the %{moments} - the events and situations that affect your mental health'
+    main_message_four: Take care of yourself.
+    cell_three: '%{strategize} your self-care plan!<br>Currently taking %{medications}? Keep track of it and create reminders!<br>Need extra support? Join or create a %{group} to open up'
+    main_message_five: Have any questions or concerns?
+    message_text_three: 'Check out our %{faq} page or %{email_link}!'
+    strategize: Strategize
   partners:
-    description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
+   description: 'These are the incredible organizations we are inspired by and have had the privilege of working with. We would love to work with your organization, email us at %{email}.'
   privacy:
-    summary: 'Summary'
-    summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
-    user_data: 'User Data'
-    user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
-    cookies: 'Use of Cookies'
-    cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
-    social_media: 'Social Media Platforms'
-    social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
-    contact: 'Contact Us'
-    contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"noMarginBottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
+   summary: Summary
+   summary_description: '<p>This privacy policy is for this website and governs the privacy of its users who choose to use it.</p><p>Given the sensitive content of the website, privacy is an incredibly important concern to us. The policy sets out to outline how user data is collected, what it is used for, and how it is protected.</p>'
+   user_data: User Data
+   user_data_description: '<p>Users are intended to provide us with personal excerpts from their lives (in the Moments feature) and anecdotes on medication. Data from the Moments feature is shared with whomever the user chooses to share it with. Data from the Medication feature is only visible to the user. Both data will not be used for any additional purposes and not be surrendered to external parties.</p><p>The application also contains data with regard to support groups and strategies to tackle mental health challenges. This data is only accessible to users that are given permission to view it. Data from both features may be shown publicly to showcase them to current and future users. However, user identities will be kept private.</p>'
+   cookies: Use of Cookies
+   cookies_description: "<p>This website uses cookies to better the users experience while visiting the website. Where applicable this website uses a cookie control system allowing the user on their first visit to the website to allow or disallow the use of cookies on their computer / device.</p><p>Cookies are small files saved to the user's computers hard drive that track, save and store information about the user's interactions and usage of the website. This allows the website, through its server to provide the users with a tailored experience within this website.</p><p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computers hard drive they should take necessary steps within their web browsers security settings to block all cookies from this website and its external serving vendors.</p><p>This website uses tracking software to monitor visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. The software will save a cookie to your computer’s hard drive in order to track and monitor your engagement and usage of the website, but will not store, save or collect personal information. You can read Google's %{google_privacy_policy} for further information.</p>"
+   social_media: Social Media Platforms
+   social_media_description: '<p>Communication, engagement and actions taken through external social media platforms that this website participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform respectively.</p><p>Users are advised to use social media platforms wisely and communicate / engage upon them with due care and caution in regard to their own privacy and personal details. This website will never ask for personal or sensitive information through social media platforms and encourage users wishing to discuss sensitive details to contact them through primary communication channels such as by telephone or email.</p><p>This website may use social sharing buttons which help share web content directly from web pages to the social media platform in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the social media platform may track and save your request to share a web page respectively through your social media platform account.</p>'
+   contact: Contact Us
+   contact_description: "<p>Please %{email_link} if you have any questions or concerns.</p><p class=\"noMarginBottom\"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>"
   resources:
     communities: Communities
     education: Education
     hotlines: Hotlines
     services: Services
     tags:
-      people_of_colour: people of colour
-      women_of_colour: women of colour
-      black_women: black women
-      domestic_violence: domestic violence
-      dating_violence: dating violence
-      cyberbullying: cyberbullying
-      therapy: therapy
-      counseling: counseling
-      youth: youth
-      lgbtqia: LGBTQIA
-      harassment: harassment
-      self_care: self-care
-      women: women
-      chatbot: chatbot
-      anonymous: anonymous
-      free: free
-      paid: paid
-      twenty_four_seven: 24/7
-      videos: videos
-      blog: blog
-      podcast: podcast
-      books: books
-      publication: publication
-      video_chat: video chat
-      texting: texting
-      open_source: open source
-      workplace: workplace
-      social_justice: social justice
-      tech_industry: tech industry
-      meditation: meditation
-      social_anxiety: social anxiety
-      trigger_warnings: trigger warnings
-      netflix: netflix
-      homeless: homeless
-      talks: talks
-      voice_chat: voice chat
-      training: training
-      directory: directory
-      self_injury: self-injury
-      treatment: treatment
-      care_planning: care planning
-      depression: depression
-      ocd: OCD
-      advice: advice
-      forum: forum
-      learning: learning
-      crisis_prevention: crisis prevention
-      safety_planning: safety planning
-      suicide_prevention: suicide prevention
-      android: android
-      ios: iOS
-      support_groups: support groups
-      mindfulness: mindfulness
-      journaling: journaling
-      mood_tracking: mood tracking
-      veterans: veterans
-      music: music
-      integrative: integrative
-      ptsd: PTSD
-      tbi: TBI
-      news: news
-      government: government
-      christian: christian
-      humor: humor
-      conference: conference
-      addiction: addiction
-      rehabilitation: rehabilitation
-      teachers: teachers
-      bipolar: bipolar
+     people_of_colour: people of colour
+     women_of_colour: women of colour
+     black_women: black women
+     domestic_violence: domestic violence
+     dating_violence: dating violence
+     cyberbullying: cyberbullying
+     therapy: therapy
+     counseling: counseling
+     youth: youth
+     lgbtqia: LGBTQIA
+     harassment: harassment
+     self_care: self-care
+     women: women
+     chatbot: chatbot
+     anonymous: anonymous
+     free: free
+     paid: paid
+     twenty_four_seven: 24/7
+     videos: videos
+     blog: blog
+     podcast: podcast
+     books: books
+     publication: publication
+     video_chat: video chat
+     texting: texting
+     open_source: open source
+     workplace: workplace
+     social_justice: social justice
+     tech_industry: tech industry
+     meditation: meditation
+     social_anxiety: social anxiety
+     trigger_warnings: trigger warnings
+     netflix: netflix
+     homeless: homeless
+     talks: talks
+     voice_chat: voice chat
+     training: training
+     directory: directory
+     self_injury: self-injury
+     treatment: treatment
+     care_planning: care planning
+     depression: depression
+     ocd: OCD
+     advice: advice
+     forum: forum
+     learning: learning
+     crisis_prevention: crisis prevention
+     safety_planning: safety planning
+     suicide_prevention: suicide prevention
+     android: android
+     ios: iOS
+     support_groups: support groups
+     mindfulness: mindfulness
+     journaling: journaling
+     mood_tracking: mood tracking
+     veterans: veterans
+     music: music
+     integrative: integrative
+     ptsd: PTSD
+     tbi: TBI
+     news: news
+     government: government
+     christian: christian
+     humor: humor
+     conference: conference
+     addiction: addiction
+     rehabilitation: rehabilitation
+     teachers: teachers
+     bipolar: bipolar
 
  profile:
   index:
-   title: 'Profile'
-   edit_user: 'Customize profile'
+   title: Profile
+   edit_user: Customize profile
 
  pusher:
-  not_authorized: 'Not Authorized'
+  not_authorized: Not Authorized
 
  search:
-  search: 'Search'
-  search_by_name: 'Search by name'
+  label: Search
+  search_by_name: Search by name
   form:
-   search_by_location: 'Search by location'
-   search_by_email: 'Search by email'
-
+   search_by_location: Search by location
+   search_by_email: Search by email
   index:
-   title: 'Search for Allies'
+   title: Search for Allies
    user_not_found: 'User %{email} not found'
 
  shared:
   footer:
-    licence: 'AGPL-3.0'
-    licence_subtitle: 'Licenced under %{licence}'
-    connect: 'connect'
+   licence: AGPL-3.0
+   licence_subtitle: 'Licenced under %{licence}'
+   connect: connect
   comments:
-    share_everyone: 'Share with everyone'
-    share_with: 'Share with %{name} only'
-    visible_only_between_you_and: 'Visible only between you and %{name}'
-    not_allies: '(not allies)'
+   share_everyone: Share with everyone
+   share_with: 'Share with %{name} only'
+   visible_only_between_you_and: 'Visible only between you and %{name}'
+   not_allies: (not allies)
   header:
-   signout: 'Sign out'
-   home: 'Home'
+   signout: Sign out
+   home: Home
   viewers_indicator:
-   disabled_comments: 'Comments have been disabled.'
+   disabled_comments: Comments have been disabled.
    you_are_viewer_html:
-    one: 'You are the only viewer.'
+    one: You are the only viewer.
     other: 'You are <strong>not</strong> the only viewer.'
    viewers_html:
-     zero: 'There are <strong>no</strong> viewers.'
-     one: '%{names} is a viewer.'
-     other: '%{names} are viewers.'
+    zero: 'There are <strong>no</strong> viewers.'
+    one: '%{names} is a viewer.'
+    other: '%{names} are viewers.'
   stats:
-    you_are_focusing: 'You are focusing the most on'
-    user_is_focusing: '%{name} is focusing the most on'
+   you_are_focusing: You are focusing the most on
+   user_is_focusing: '%{name} is focusing the most on'
   viewers:
-    plural: 'Viewers'
-    you: 'Only you'
-    you_link: 'Visible to only you'
-    many: 'Visible to %{viewers}'
-  character_count: 'You have %{number} characters left.'
+   plural: Viewers
+   you: Only you
+   you_link: Visible to only you
+   many: 'Visible to %{viewers}'
   meeting_info:
-    attending: 'You are attending. Change your mind?'
-    not_attending: 'You are not attending. %{join}'
-    not_attending_one_spot_left: 'You are not attending. There is one spot left to fill! %{join}'
-    not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
-    not_attending_no_spots_left: 'You are not attending. There is no room to join.'
+   attending: You are attending. Change your mind?
+   not_attending: 'You are not attending. %{join}'
+   not_attending_one_spot_left: 'You are not attending. There is one spot left to fill! %{join}'
+   not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
+   not_attending_no_spots_left: You are not attending. There is no room to join.
   quick_create:
    new: 'New %{name}'
 
  strategies:
-  singular: 'Strategy'
-  plural: 'Strategies'
-  edit_strategy: 'Edit Strategy'
-  tagged_strategies: 'Tagged Strategies'
-  new: 'New Strategy'
+  singular: Strategy
+  plural: Strategies
+  edit_strategy: Edit Strategy
+  tagged_strategies: Tagged Strategies
+  new: New Strategy
   form:
-   describe: 'Describe the strategy.'
-   strategies_label: 'What strategies would help achieve these thoughts?'
-   name_hint: 'Any activity, train of thought, or form or self-care that helps you'
-   viewers_hint: 'Allies who can view your strategy and tag their own moments with it'
+   describe: Describe the strategy.
+   strategies_label: What strategies would help achieve these thoughts?
+   name_hint: Any activity, train of thought, or form or self-care that helps you
+   viewers_hint: Allies who can view your strategy and tag their own moments with it
    daily_reminder_hint: "We'll email you a daily reminder to perform this strategy"
-   draft_question: 'Do you want to save your strategy as draft?'
+   draft_question: Do you want to save your strategy as draft?
   label:
    one: 'Strategy:'
    other: 'Strategies:'
   index:
-   subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
-   premade1_name: 'Five Minute Meditation'
+   subtitle: Strategize self-care to achieve desired thoughts and attitudes towards your moments.
+   premade1_name: Five Minute Meditation
    premade1_description: '1) <b>Find a relaxed, comfortable position.</b> You could be seated on a chair or on the floor on a cushion. Keep your back upright, but not too tight. Hands resting wherever they’re comfortable. Tongue on the roof of your mouth or wherever it’s comfortable.<br><br>2) <b>Notice and relax your body.</b> Try to notice the shape of your body, its weight. Let yourself relax and become curious about your body seated here—the sensations it experiences, the touch, the connection with the floor or the chair. Relax any areas of tightness or tension. Just breathe.<br><br>3) <b>Tune into your breath.</b> Feel the natural flow of breath—in, out. You don’t need to do anything to your breath. Not long, not short, just natural. Notice where you feel your breath in your body. It might be in your abdomen. It may be in your chest or throat or in your nostrils. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Be kind to your wandering mind.</b> Now as you do this, you might notice that your mind may start to wander. You may start thinking about other things. If this happens, it is not a problem. It’s very natural. Just notice that your mind has wandered. You can say “thinking” or “wandering” in your head softly. And then gently redirect your attention right back to the breathing.<br><br>5) <b>Stay here for five to seven minutes.</b> Notice your breath, in silence. From time to time, you’ll get lost in thought, then return to your breath.<br><br>6) <b>Check in before you check out.</b> After a few minutes, once again notice your body, your whole body, seated here. Let yourself relax even more deeply and then offer yourself some appreciation for doing this practice today.<br><br><i>Taken from http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
    instructions: "You haven't created any custom strategies yet.<br>You can also add the following premade strategy and customize it another time."
   reminder_mailer:
-    subject: "Don't forget to perform %{name}!"
-    body: "Here's a friendly reminder to perform %{name}!"
+   subject: "Don't forget to perform %{name}!"
+   body: "Here's a friendly reminder to perform %{name}!"
 
  stats:
   total_moments: 'You have written a <strong>total</strong> of <strong>%{count}</strong> moments.'
@@ -607,72 +599,71 @@ en:
   yes_description: "Writing one can help you and others better understand in detail"
 
  mailers:
-   accepted_ally_request:
-     subject: "if me | %{ally_name} accepted your ally request!"
-     message: "<p>Congrats! You can now share Moments, Strategies, and more with %{ally_name}.</p>"
-   new_ally_request:
-     subject: "if me | %{ally_name} sent an ally request!"
-     message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
+  accepted_ally_request:
+   subject: 'if me | %{ally_name} accepted your ally request!'
+   message: '<p>Congrats! You can now share Moments, Strategies, and more with %{ally_name}.</p>'
+  new_ally_request:
+   subject: 'if me | %{ally_name} sent an ally request!'
+   message: "<p>Please <a href=\"%{allies_url}\">sign in</a> to accept or reject the request!</p>"
 
  devise:
-  password: "Password"
-  new_password: "New password"
-  current_password: "Current password"
-  password_change: "Change my password"
-  remember_me: "Remember me"
+  password: Password
+  new_password: New password
+  current_password: Current password
+  password_change: Change my password
+  remember_me: Remember me
   confirmations:
-    resend_confirmation: "Resend confirmation instructions"
+   resend_confirmation: Resend confirmation instructions
   mailer:
-    confirmation:
-      link_instructions: "You can confirm your account email through the link below"
-      link_text: "Confirm my account"
-    reset_password:
-      link_instructions: "Someone has requested a link to change your password. You can do this through the link below."
-      ignore: "If you didn't request this, please ignore this email."
-      info: "Your password won't change until you access the link above and create a new one."
-    unlock:
-      info: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
-      link_instructions: "Click the link below to unlock your account"
-      link_text: "Unlock my account"
+   confirmation:
+    link_instructions: You can confirm your account email through the link below
+    link_text: Confirm my account
+   reset_password:
+    link_instructions: Someone has requested a link to change your password. You can do this through the link below.
+    ignore: "If you didn't request this, please ignore this email."
+    info: "Your password won't change until you access the link above and create a new one."
+   unlock:
+    info: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+    link_instructions: Click the link below to unlock your account
+    link_text: Unlock my account
   passwords:
-    edit:
-      confirmation: "Confirm new password"
-    new:
-      send_instructions: "Send me reset password instructions"
-
+   edit:
+    confirmation: Confirm new password
+   new:
+    send_instructions: Send me reset password instructions
   registrations:
-    email_notifications: "Email Notifications"
-    comment_notify_text: "Comments on moments, strategies, and meetings"
-    ally_notify_text: "New and accepted ally requests"
-    group_notify_text: "Group updates"
-    meeting_notify_text: "Meeting updates"
-    google_auth1: "If you no longer want to be authenticated with Google, please enter a new email and password."
-    google_auth2: "Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password."
+   email_notifications: Email Notifications
+   comment_notify_text: Comments on moments, strategies, and meetings
+   ally_notify_text: New and accepted ally requests
+   group_notify_text: Group updates
+   meeting_notify_text: Meeting updates
+   google_auth1: If you no longer want to be authenticated with Google, please enter a new email and password.
+   google_auth2: 'Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password.'
+   placeholders:
+    repeat_password: Repeat Password
+   edit:
+    labels:
+     profile_picture: Profile picture
+     remove_picture: Remove picture
+     password_for: 'Password for <strong>if me</strong> account'
+     update: Update
     placeholders:
-      repeat_password: "Repeat Password"
-    edit:
-      labels:
-        profile_picture: "Profile picture"
-        remove_picture: "Remove picture"
-        password_for: "Password for <strong>if me</strong> account"
-        update: "Update"
-      placeholders:
-        optional: "Optional"
-        about: "Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you"
-        required: "Required"
-      delete:
-        text: "Is <strong>if me</strong> not working out for you?"
-        button: "Permanently delete my account"
-        confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
-    new:
-      subtitle: "Start telling your stories and maintaining your health in a safe, private space"
-      label: "A few details"
+     optional: Optional
+     about: Introduce yourself! Why are you here and what are you looking to achieve? Please note this will be seen when users search for you
+     required: Required
+    delete:
+     text: 'Is <strong>if me</strong> not working out for you?'
+     button: Permanently delete my account
+     confirm: "Are you sure? You'll lose all of your data. But you can always sign up again!"
+   new:
+    subtitle: Start telling your stories and maintaining your health in a safe, private space
+    label: A few details
   sessions:
-    subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
+   subtitle: "Welcome back, we're looking forward to you helping you tackle your day"
   shared:
-    sign_in_google: 'Sign in with Google'
-    sign_up_google: 'Sign up with Google'
-    confirmation: "Didn't receive confirmation instructions?"
-    unlock: "Didn't receive unlock instructions?"
+   sign_in_google: Sign in with Google
+   sign_up_google: Sign up with Google
+   confirmation: "Didn't receive confirmation instructions?"
+   unlock: "Didn't receive unlock instructions?"
   unlock:
-    resend: 'Resend unlock instructions'
+   resend: Resend unlock instructions

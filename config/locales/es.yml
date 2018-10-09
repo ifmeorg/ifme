@@ -174,8 +174,6 @@ es:
    signin: "Comparte tus historias ahora"
    create_account: "Únete ya a la comunidad"
    update_account: "Personaliza tu cuenta"
-   if: "if"
-   me: "me"
   mailer:
    html:
     app_description: "%{app_name} es una comunidad que anima a las personas a compartir sus experiencias de salud mental con sus seres queridos."
@@ -204,7 +202,7 @@ es:
    google_cal_hint: "Agregaremos un recordatorio para este medicamento a tu calendario de Google."
    strength_hint: "La concentración del medicamento, por lo general se encuentra junto al nombre."
    total_hint: "Número total de tabletas o cantidad de medicamento."
-   weekly_dosage_hint: '¿Cuál de los días de la semana se prescribe este medicamento?'
+   weekly_dosage_hint: Días de la semana para tomar este medicamento
    dosage_hint: "Número de tabletas o dósis diaria."
    refill_hint: "Cuándo resurtir esta receta."
    refill_reminder_hint: "Te enviaremos un correo la semana antes de que debas resurtir tu medicamento."
@@ -289,9 +287,6 @@ es:
   edit_mood: "Editar Estados de Ánimo"
   new: "Nuevo Estado de Ánimo"
   example_moods: "Nervios, Ansiedad, Esperanza"
-  label:
-   one: "Estado de Ánimo:"
-   other: "Estados de Ánimo:"
   index:
    subtitle: "Crea etiquetas describiendo tu estado mental, sentimientos y emociones."
    premade1_name: "Aceptación"
@@ -521,7 +516,7 @@ es:
   not_authorized: "Sin Autorización"
 
  search:
-  search: "Búsqueda"
+  label: "Búsqueda"
   search_by_name: "Búsqueda por nombre"
   form:
    search_by_location: "Búsqueda por ubicación"
@@ -561,7 +556,6 @@ es:
     you: "Sólo tú"
     you_link: "Visible únicamente para ti"
     many: "Visible para %{viewers}"
-  character_count: "Te quedan %{number} caracteres"
   meeting_info:
     attending: "Vas a asistir. ¿Cambio de planes?"
     not_attending: "No vas a asistir. %{join}"
