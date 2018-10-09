@@ -72,30 +72,7 @@ module MedicationsHelper
         placeholder: t('medications.form.total_placeholder'),
         dark: true
       },
-      {
-        id: 'medication_total_unit',
-        type: 'select',
-        name: 'medication[total_unit]',
-        dark: true,
-        value: @medication.total_unit || t('medications.units.tablets.other'),
-        options: [
-          {
-            id: 'medication_total_unit_tablets',
-            label: t('medications.units.tablets.other'),
-            value: t('medications.units.tablets.other')
-          },
-          {
-            id: 'medication_total_unit_mg',
-            label: t('medications.units.mg'),
-            value: t('medications.units.mg')
-          },
-          {
-            id: 'medication_total_unit_ml',
-            label: t('medications.units.ml'),
-            value: t('medications.units.ml')
-          }
-        ]
-      },
+      medication_unit('total'),
       {
         id: 'medication_dosage',
         type: 'number',
@@ -107,30 +84,7 @@ module MedicationsHelper
         placeholder: t('medications.form.dosage_placeholder'),
         dark: true
       },
-      {
-        id: 'medication_dosage_unit',
-        type: 'select',
-        name: 'medication[dosage_unit]',
-        dark: true,
-        value: @medication.dosage_unit || t('medications.units.tablets.other'),
-        options: [
-          {
-            id: 'medication_dosage_unit_tablets',
-            label: t('medications.units.tablets.other'),
-            value: t('medications.units.tablets.other')
-          },
-          {
-            id: 'medication_dosage_unit_mg',
-            label: t('medications.units.mg'),
-            value: t('medications.units.mg')
-          },
-          {
-            id: 'medication_dosage_unit_ml',
-            label: t('medications.units.ml'),
-            value: t('medications.units.ml')
-          }
-        ]
-      },
+      medication_unit('dosage'),
       {
         id: 'medication_weekly_dosage',
         name: 'medication[weekly_dosage]',
@@ -229,6 +183,32 @@ module MedicationsHelper
     end
   end
   # rubocop:enable MethodLength
-end
 
+  def medication_unit(type)
+    {
+      id: "medication_#{type}_unit",
+      type: 'select',
+      name: "medication[#{type}_unit]",
+      dark: true,
+      value: @medication.dosage_unit || t('medications.units.tablets.other'),
+      options: [
+        {
+          id: "medication_#{type}_unit_tablets",
+          label: t('medications.units.tablets.other'),
+          value: t('medications.units.tablets.other')
+        },
+        {
+          id: "medication_#{type}_unit_mg",
+          label: t('medications.units.mg'),
+          value: t('medications.units.mg')
+        },
+        {
+          id: "medication_#{type}_unit_ml",
+          label: t('medications.units.ml'),
+          value: t('medications.units.ml')
+        }
+      ]
+    }
+  end
+end
 # rubocop:enable ModuleLength
