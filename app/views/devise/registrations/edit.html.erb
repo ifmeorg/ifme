@@ -5,7 +5,7 @@
   <%= f.text_field :name, 'aria-label': t('common.name') %>
 
   <div class="label smallMarginTop"><%= t('common.form.location') %></div>
-  <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional'), 'aria-label': t('common.form.location') %>
+  <%= react_component 'InputLocation', props: { placeholder: t('devise.registrations.edit.placeholders.optional') } %>
 
   <div class="label smallMarginTop">
     <%= t('common.form.email') %>
