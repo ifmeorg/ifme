@@ -14,12 +14,10 @@ export type Props = {
 };
 
 const buttonClassName = (small: ?boolean, large: ?boolean, dark: ?boolean) => {
-  if (large && !dark) return globalCss.buttonGhostL;
-  if (large && dark) return globalCss.buttonDarkL;
-  if (small && !dark) return globalCss.buttonGhostS;
-  if (small && dark) return globalCss.buttonDarkS;
-  if (dark) return globalCss.buttonDarkM;
-  return globalCss.buttonGhostM;
+  const theme = dark ? 'Dark' : 'Ghost';
+  const smallOrRegular = small ? 'S' : 'M';
+  const size = large ? 'L' : smallOrRegular;
+  return globalCss[`button${theme}${size}`];
 };
 
 export const InputSubmit = (props: Props) => {
