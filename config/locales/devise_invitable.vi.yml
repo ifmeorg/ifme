@@ -24,4 +24,4 @@ vi:
         someone_invited_you: "%{name} đã mời bạn tham gia http://www.if-me.org, một cộng đồng để chia sẻ kinh nghiệm về sức khoẻ tâm thần với người thân của bạn và theo dõi tâm trạng, thuốc men và chăm sóc bản thân của bạn. Bạn có thể chấp nhận lời mời qua liên kết bên dưới."
         accept: "Chấp nhận lời mời!"
         accept_until: "Lời mời này sẽ hết hạn trong %{due_date}."
-        ignore: "Nếu bạn không chấp nhận lời mời xin vui lòng bỏ qua email này.<br />\nTài khoản của bạn sẽ không được kích hoạt cho đến khi bạn truy nhập đường dẫn trên và cài đặt mật khẩu."
+        ignore: "Nếu bạn không chấp nhận lời mời xin vui lòng bỏ qua email này.<br />Tài khoản của bạn sẽ không được kích hoạt cho đến khi bạn truy nhập đường dẫn trên và cài đặt mật khẩu."

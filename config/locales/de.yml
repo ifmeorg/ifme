@@ -10,17 +10,20 @@ de:
  salutation: "Hallo %{name},"
  click_here: "Klick hier"
  less: " [Less]"
- language: 'Sprache'
- back_to_top: Zurück zum Anfang
+ language: Sprache
+ true: 'ya'
+ false: 'nein'
+ expand_menu: erweitere meine
+ close: schließen
 
  languages:
    en: English
    es: Español
    nl: Nederlands
-   ptbr: Português
+   pt-BR: Português
    sv: Svenska
-   various: Various
-   vn: Tiếng Việt
+   various: Verschiedene
+   vi: Tiếng Việt
    it: Italiano
    nb: Norsk
    de: Deutsch
@@ -44,6 +47,7 @@ de:
    press: 'Press'
    faq: 'FAQ'
    resources: 'Resourcen'
+   code_of_conduct: Verhaltensregeln
 
  common:
    name: 'Name'
@@ -52,6 +56,7 @@ de:
    date: 'Datum:'
    daily_reminder: 'Tägliche Erinnerungsmail'
    actions:
+    plural: Aktionen
     submit: 'Abschicken'
     submit_publish: 'Öffentlich'
     submit_draft: 'Entwurf'
@@ -73,6 +78,7 @@ de:
      press_enter: 'Drücke ENTER zum Hinzufügen'
    time_ago: "Vor %{date}"
    write_to_us: "schreibe uns"
+   days: Tage
 
  comment:
   singular: 'Kommentar'
@@ -109,6 +115,7 @@ de:
     placeholder: 'Gib eine oder mehrere durch Komma getrennte E-Mail Addressen ein.'
 
  categories:
+  singular: Kategorie
   plural: 'Kategorien'
   edit_category: "Kategorie ändern"
   new: "Neue Kategorie"
@@ -151,11 +158,14 @@ de:
    joined_groups: 'Beigetretenen Gruppen'
    leader: '(Administrator)'
    instructions: "Du bist noch keiner Gruppe beigetreten, aber du kannst hier klicken %{icon}, um eine zu erstellen!"
-  join_success: 'Du bist dieser Gruppe beigetreten.'
+  join:
+   success: Du bist dieser Gruppe beigetreten.
+   group_not_exists: Sie können keiner Gruppe beitreten, die nicht existiert.
   leave:
     error: 'Du kannst diese Gruppe nicht verlassen, da du der einzige Administrator bist.'
     success: "Du hast die Gruppe %{group} verlassen"
     remove_member_success: "Du hast den Benutzer %{user} aus der Gruppe %{group} entfernt"
+    remove_member_error: Du kannst kein Gruppenmitglied treten, weil du kein Anführer bist.
   new: 'Neue Gruppe'
   show:
    led_by: 'Moderiert durch:'
@@ -180,6 +190,7 @@ de:
   edit_medication: 'Arzneimittel bearbeiten'
   refill_reminder: 'Erinnerungsmail zum Auffüllen'
   dosage: 'Tägliche Dosis:'
+  weekly_dosage: 'Wöchentliche Dosierung:'
   refill: 'Auffüllen:'
   quantity: 'Gesamtmenge:'
   strength: 'Stärke:'
@@ -196,6 +207,7 @@ de:
    strength_hint: 'Arzneimittelstärke, normalerweise neben dem Namen zu finden'
    total_hint: 'Gesamtmenge an Pillen oder Menge des Arzneimittels'
    dosage_hint: 'Anzahl an Pillen oder Dosis pro Tag'
+   weekly_dosage_hint: Tage der Woche, um dieses Medikament einzunehmen
    refill_hint: 'Wann dieses Rezept erneuert werden muss'
    refill_reminder_hint: "Wir senden dir eine Erinnerungsmail in der Woche bevor dieses Arzneimittel aufgefüllt werden muss."
    daily_reminder_hint: "Wir senden dir eine tägliche Erinnerungsmail zum Einnehmen dieses Arzneimittels"
@@ -227,6 +239,7 @@ de:
    comments: 'Kommentare:'
 
  meetings:
+  singular: Meeting
   edit_meeting: 'Meeting editieren'
   form:
    location_placeholder: 'URL oder Strasse'
@@ -250,16 +263,13 @@ de:
  moments:
   singular: 'Moment'
   plural: 'Momente'
-  quick_moment_disclaimer: 'Dies wird mit allen Helfern geteilt, die Kommentare aktiviert haben. Du kannst dies später immernoch bearbeiten.'
-  categories_and_moods: 'Kategorieren und Stimmungen'
   edit_moment: 'Moment bearbeiten'
-  tagged: 'Getaggte Momente'
+  tagged_moments: 'Getaggte Momente'
   new: 'Neuer Moment'
   secret_share:
     singular: 'Geheimnis teilen'
     expires_at: 'Läuft ab am'
-    create: 'Erstellen'
-    cancel: 'Abbrechen'
+    cancel_secret_share: Stornieren Geheimnis teilen
   form:
    why: 'Was ist passiert und wie fühlst du dich?'
    fix: 'Woran würdest du gerne denken?'
@@ -506,6 +516,7 @@ de:
       addiction: Sucht
       rehabilitation: Rehabilitation
       teachers: Lehrer
+      bipolar: bipolar
 
  profile:
   index:
@@ -516,7 +527,7 @@ de:
   not_authorized: 'Nicht autorisiert'
 
  search:
-  search: 'Suche'
+  label: 'Suche'
   search_by_name: 'Nach Name suchen'
   form:
    search_by_location: 'Nach Ort suchen'
@@ -528,11 +539,9 @@ de:
 
  shared:
   footer:
-    licence_name: 'AGPL-3.0'
-    license: 'Wir &hearts; FOSS'
-    foss: 'Freie Open Source Software'
-    license_subtitle: 'Lizensiert durch %{license}'
-    connect: 'Vernetzen'
+   licence: AGPL-3.0
+   licence_subtitle: 'Lizensiert durch %{licence}'
+   connect: verbinden
   comments:
     share_everyone: 'Mit allen teilen'
     share_with: 'Nur mit %{name} teilen'
