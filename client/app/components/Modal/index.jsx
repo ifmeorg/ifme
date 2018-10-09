@@ -100,13 +100,15 @@ export class Modal extends React.Component<Props, State> {
 
   resolveElement = () => {
     const { element, elementId } = this.props;
-    let Component = null;
-    let renderComponent = null;
+    let renderComponent;
 
     if (typeof element === 'object' && element.component) {
       const { component, props } = element;
-      Component = this.resolveComponent(component);
-      renderComponent = <Component {...props} />;
+      renderComponent = React.createElement(
+        this.resolveComponent(component),
+        { ...props },
+        null,
+      );
     }
 
     if (element) {
@@ -119,9 +121,7 @@ export class Modal extends React.Component<Props, State> {
           role="button"
           tabIndex={0}
         >
-          {Component
-            ? renderComponent
-            : this.displayContent(element)}
+          {renderComponent || this.displayContent(element)}
         </div>
       );
     }
