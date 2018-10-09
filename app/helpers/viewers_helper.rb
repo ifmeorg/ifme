@@ -50,6 +50,7 @@ module ViewersHelper
     []
   end
 
+  # rubocop:disable MethodLength
   def get_viewers_input(viewers, name, translation_name, obj)
     input = {}
     if viewers.present?
@@ -75,4 +76,5 @@ module ViewersHelper
     end
     input
   end
+  # rubocop:enable MethodLength
 end
