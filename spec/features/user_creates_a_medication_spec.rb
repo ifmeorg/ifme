@@ -69,7 +69,8 @@ describe 'UserCreatesAMedication', js: true do
 
     context 'when uploader raises an error' do
       before do
-        CalendarUploader.stub_chain(:new, :upload_event).and_raise(Google::Apis::ClientError)
+        CalendarUploader.stub_chain(:new, :upload_event)
+          .and_raise(Google::Apis::ClientError.new('error'))
       end
 
       it 'redirects to sign in' do

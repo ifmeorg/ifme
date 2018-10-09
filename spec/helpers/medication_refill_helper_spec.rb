@@ -13,6 +13,7 @@ RSpec.describe MedicationRefillHelper, type: :helper do
 
     before do
       allow_any_instance_of(helper.class).to receive(:return_to_sign_in).and_return(exception_text)
+      allow_any_instance_of(User).to receive(:google_access_token).and_return("token")
       sign_in user
     end
 
@@ -22,10 +23,25 @@ RSpec.describe MedicationRefillHelper, type: :helper do
         allow_any_instance_of(helper.class).to receive(:new_cal_refill_reminder_needed?).and_return(true)
       end
 
-      it { expect(helper.save_refill_to_google_calendar(medication)).to eq(exception_text) }
+      context 'when upload event fails' do
+        before do
+          allow_any_instance_of(CalendarUploader).to receive(:upload_event)
+            .and_raise(Google::Apis::ClientError.new(exception_text))
+        end
+
+        it { expect(helper.save_refill_to_google_calendar(medication)).to eq(exception_text) }
+      end
+
+      context 'when upload event passes' do
+        before do
+          allow_any_instance_of(CalendarUploader).to receive(:upload_event).and_return(true)
+        end
+
+        it { expect(helper.save_refill_to_google_calendar(medication)).to eq(true) }
+      end
     end
 
-    context 'when the user has not google oauth2 enabled and/or they no need a new refill reminder' do
+    context 'when the user has not google oauth2 enabled and/or they dont need a new refill reminder' do
       it { expect(helper.save_refill_to_google_calendar(medication)).to eq(true) }
     end
   end
