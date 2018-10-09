@@ -47,5 +47,59 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         end  
       end
     end
+  
+    # context 'when user is logged in' do
+    #   include_context :logged_in_user
+    #   context 'when user don't have google_oauth2 authentication' do
+    #     before(:each) do
+    #       stub_env_for_omniauth
+
+    #       user = User.create!(:email => 'user@example.com', :password => 'my_secret')
+    #       sign_in user
+
+    #       get :google_oauth2
+    #     end
+
+    #     it 'should add google_oauth2 authentication to current user' do
+    #       user = User.where(:email => 'user@example.com').first
+    #       user.should_not be_nil
+    #       fb_authentication = user.authentications.where(:provider => 'google_oauth2').first
+    #       fb_authentication.should_not be_nil
+    #       fb_authentication.uid.should == '1234'
+    #     end
+
+    #     it { should be_user_signed_in }
+
+    #     it { response.should redirect_to authentications_path }
+        
+    #     it { flash[:notice].should == 'Facebook is connected with your account.'}
+    #   end
+      
+    #   context 'when user already connect with google_oauth2' do
+    #     before(:each) do
+    #       stub_env_for_omniauth
+          
+    #       user = User.create!(:email => 'ghost@nobody.com', :password => 'my_secret')
+    #       user.authentications.create!(:provider => 'google_oauth2', :uid => '1234')
+    #       sign_in user
+
+    #       get :google_oauth2
+    #     end
+        
+    #     it 'should not add new google_oauth2 authentication' do
+    #       user = User.where(:email => 'ghost@nobody.com').first
+    #       user.should_not be_nil
+    #       fb_authentications = user.authentications.where(:provider => 'google_oauth2')
+    #       fb_authentications.count.should == 1
+    #     end
+        
+    #     it { should be_user_signed_in }
+        
+    #     it { flash[:notice].should == 'Signed in successfully.' }
+        
+    #     it { response.should redirect_to tasks_path }
+        
+    #   end
+    # end
   end
 end
