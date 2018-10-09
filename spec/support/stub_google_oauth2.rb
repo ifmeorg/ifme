@@ -15,7 +15,7 @@ module StubGoogleOauth2
       credentials: {
         token: 'abcdefg12345',
         refresh_token: '12345abcdefg',
-        expires_at: 'DateTime.now'
+        expires_at: DateTime.now
       }
     })
   end
