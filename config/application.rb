@@ -52,7 +52,7 @@ module Ifme
       include: %w[text/html application/json image/svg+xml]
 
     config.middleware.use I18n::JS::Middleware
-    config.i18n.available_locales = ['pt-BR'].concat %i[en es sv nl it nb vi]
+    config.i18n.available_locales = ['en', 'es', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi'].map &:to_sym
     config.i18n.default_locale = :en
   end
 end

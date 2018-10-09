@@ -223,7 +223,7 @@ vi:
   index:
    title: 'Thuốc'
    subtitle: 'Theo dõi việc sử dụng thuốc, bao gồm liều lượng và thông tin bổ sung thuốc mới.'
-   total: 'Tổng cộng:'
+   total: Tổng cộng
    instructions: "Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn."
    example_name: 'Prozac'
    example_strength: '10 mg'

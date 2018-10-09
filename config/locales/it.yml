@@ -223,7 +223,7 @@ it:
   index:
    title: 'Medicazioni'
    subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e refill.'
-   total: 'Totale:'
+   total: Totale
    instructions: "Non hai ancora salvato nessuna medicazione.<br><br>Eccoti un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze."
    example_name: 'Prozac'
    example_strength: '10 mg'

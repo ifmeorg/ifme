@@ -7,6 +7,7 @@ import { setup } from './i18n/setup';
 
 Enzyme.configure({ adapter: new Adapter() });
 window.alert = () => {};
+window.location.reload = () => {};
 setup();
 
 export { React, TestUtils };

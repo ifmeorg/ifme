@@ -224,7 +224,7 @@ sv:
   index:
    title: 'Mediciner'
    subtitle: 'Håll koll på dina mediciner, inklusive dosering och påfyllningsinformation.'
-   total: 'Total:'
+   total: Total
    instructions: "Du har inte sparat några mediciner än.<br><br>Här är ett exempel på en sparad medicinering! Du kan också skriva om din upplevelse."
    example_name: 'Prozac'
    example_strength: '10 mg'

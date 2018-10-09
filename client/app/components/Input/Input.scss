@@ -1,5 +1,20 @@
 @import "../../styles/_global.scss";
 
+.small {
+  .default,
+  .tagAutocomplete {
+    @include setPadding($size-18, $size-18, $size-18, $size-18);
+  }
+  .select {
+    &Icon {
+      @include setPadding($size-0, $size-18, $size-0, $size-18);
+    }
+    select {
+      @include setPadding($size-18, $size-18, $size-18, $size-18);
+    }
+  }
+}
+
 .large {
   .default,
   .tagAutocomplete {
@@ -7,9 +22,12 @@
     @include setFontSize($size-20);
   }
   .select {
-    @include setPadding($size-26, $size-26, $size-26, $size-26);
+    &Icon {
+      @include setPadding($size-0, $size-26, $size-0, $size-26);
+    }
     select {
       @include setFontSize($size-20);
+      @include setPadding($size-26, $size-26, $size-26, $size-26);
     }
   }
   .label,
@@ -30,14 +48,17 @@
       background-color: $mulberry;
       color: $white;
     }
+    &::placeholder {
+      color: $white-80;
+    }
   }
   .select {
-    background-color: $mulberry-70;
-    &:focus-within {
-      background-color: $mulberry;
-    }
     select {
+      background-color: $mulberry-70;
       color: $white;
+      &:focus {
+        background-color: $mulberry;
+      }
     }
   }
   .label,
@@ -52,17 +73,17 @@
   @include setFontSize($size-18);
   @include setPadding($size-24, $size-24, $size-24, $size-24);
   @include linearTransition(0.25s);
-  color: $white-80;
-  background-color: $black-50;
+  color: $white;
+  background-color: $white-10;
   font-weight: $font-weight-400;
   border: none;
   border-radius: $size-4;
-  box-shadow: $size-0 $size-2 $size-6 $black-20;
+  box-shadow: $size-0 $size-2 $size-10 $black-10;
   width: 100%;
   box-sizing: border-box;
   &:focus,
   &:focus-within {
-    background-color: $black-70;
+    background-color: $white-20;
     outline: none;
   }
   &::placeholder {
@@ -71,31 +92,43 @@
 }
 
 .select {
-  @include setPadding($size-24, $size-24, $size-24, $size-24);
-  background-color: $black-50;
-  border: none;
-  border-radius: $size-4;
-  box-shadow: $size-0 $size-2 $size-6 $black-20;
-  box-sizing: border-box;
-  width: 100%;
-  &:focus-within {
-    background-color: $black-70;
-    outline: none;
+  position: relative;
+  &Icon {
+    @include setPadding($size-0, $size-24, $size-0, $size-24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: $size-0;
+    color: $white;
+    height: $size-20;
+    top: calc(50% - 10px);
+    pointer-events: none;
   }
   select {
     @include setFontSize($size-18);
-    color: $white-80;
+    @include setPadding($size-24, $size-24, $size-24, $size-24);
+    color: $white;
     font-weight: $font-weight-400;
-    background: transparent;
-    border: none;
     width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    background-color: $white-10;
+    border-radius: $size-4;
+    box-shadow: $size-0 $size-2 $size-10 $black-10;
+    border: none;
+    &:focus {
+      background-color: $white-20;
+    }
   }
 }
 
 .label {
   @include setFontSize($size-16);
   @include linearTransition(0.25s);
-  color: $black-50;
+  color: $white-80;
   font-weight: $font-weight-400;
   &Info {
     display: flex;
@@ -115,7 +148,7 @@
 .accordion {
   @include setFontSize($size-16);
   @include setMargin($size-0, $size-0, $size-10, $size-0);
-  color: $black-50;
+  color: $white-80;
   letter-spacing: 0.095em;
   text-transform: uppercase;
   font-weight: $font-weight-400;
@@ -153,7 +186,7 @@
 
 .checkbox {
   @include setFontSize($size-18);
-  color: $black-50;
+  color: $white;
   display: flex;
   flex-direction: row;
   align-items: center;
