@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 import renderHTML from 'react-render-html';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import css from './Input.scss';
 import type { Option } from './index';
 
@@ -35,7 +37,10 @@ export class InputSelect extends React.Component<Props, State> {
     const { value } = this.state;
     return (
       <div className={css.select}>
-        <select id={id} name={name} value={value} onChange={this.toggleValue}>
+        <div className={css.selectIcon}>
+          <FontAwesomeIcon icon={faCaretDown} />
+        </div>
+        <select id={id} name={name} value={value} onChange={this.toggleValue} tabIndex={0}>
           {options.map((option: Option) => (
             <option id={option.id} value={option.value} key={option.value}>
               {renderHTML(option.label)}

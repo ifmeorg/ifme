@@ -6,6 +6,9 @@
     @include setPadding($size-18, $size-18, $size-18, $size-18);
   }
   .select {
+    &Icon {
+      @include setPadding($size-0, $size-18, $size-0, $size-18);
+    }
     select {
       @include setPadding($size-18, $size-18, $size-18, $size-18);
     }
@@ -19,6 +22,9 @@
     @include setFontSize($size-20);
   }
   .select {
+    &Icon {
+      @include setPadding($size-0, $size-26, $size-0, $size-26);
+    }
     select {
       @include setFontSize($size-20);
       @include setPadding($size-26, $size-26, $size-26, $size-26);
@@ -47,12 +53,12 @@
     }
   }
   .select {
-    background-color: $mulberry-70;
-    &:focus-within {
-      background-color: $mulberry;
-    }
     select {
+      background-color: $mulberry-70;
       color: $white;
+      &:focus {
+        background-color: $mulberry;
+      }
     }
   }
   .label,
@@ -86,31 +92,36 @@
 }
 
 .select {
-  background-color: $white-10;
-  border: none;
-  border-radius: $size-4;
-  box-shadow: $size-0 $size-2 $size-10 $black-10;
-  width: 100%;
-  &:focus-within {
-    background-color: $white-20;
-    outline: none;
+  position: relative;
+  &Icon {
+    @include setPadding($size-0, $size-24, $size-0, $size-24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: $size-0;
+    color: $white;
+    height: $size-20;
+    top: calc(50% - 10px);
+    pointer-events: none;
   }
   select {
     @include setFontSize($size-18);
     @include setPadding($size-24, $size-24, $size-24, $size-24);
     color: $white;
     font-weight: $font-weight-400;
-    background: url('../../../../app/assets/images/caret_down.svg');
-    background-repeat: no-repeat;
-    background-position: center right;
-    background-origin: content-box;
-    border: none;
-    box-shadow: none;
     width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     box-sizing: border-box;
+    background-color: $white-10;
+    border-radius: $size-4;
+    box-shadow: $size-0 $size-2 $size-10 $black-10;
+    border: none;
+    &:focus {
+      background-color: $white-20;
+    }
   }
 }
 
