@@ -40,7 +40,7 @@ export class InputSelect extends React.Component<Props, State> {
         <div className={css.selectIcon}>
           <FontAwesomeIcon icon={faCaretDown} />
         </div>
-        <select id={id} name={name} value={value} onChange={this.toggleValue} tabIndex={0}>
+        <select id={id} name={name} value={value} onChange={this.toggleValue}>
           {options.map((option: Option) => (
             <option id={option.id} value={option.value} key={option.value}>
               {renderHTML(option.label)}
