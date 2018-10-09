@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2018_07_24_031319) do
     t.text "comments"
     t.string "slug"
     t.boolean "add_to_google_cal", default: false
-    t.integer  "weekly_dosage",     default: [0, 1, 2, 3, 4, 5, 6], array: true
+    t.integer "weekly_dosage", default: [0, 1, 2, 3, 4, 5, 6], array: true
     t.index ["slug"], name: "index_medications_on_slug", unique: true
   end
 

@@ -175,8 +175,6 @@ sv:
    signin: 'Berätta dina historier nu'
    create_account: 'Gå med i communityt nu'
    update_account: 'Anpassa ditt konto'
-   if: 'if'
-   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} är ett community som uppmuntrar människor att dela sin mentala hälsa med sina nära och kära."
@@ -206,7 +204,7 @@ sv:
    strength_hint: 'Läkemedelsstyrka, som vanligtvis finns bredvid namnet'
    total_hint: 'Totalt antal piller eller mängd medicinering'
    dosage_hint: 'Antal piller eller portioner dagligen'
-   weekly_dosage_hint: 'Vilken dag i veckan är detta läkemedel förskrivet'
+   weekly_dosage_hint: Dagar i veckan för att ta denna medicinering
    refill_hint: 'När ska du fylla på receptet'
    refill_reminder_hint: "Vi skickar e-post till dig med en påminnelse veckan innan läkemedlet behöver fyllas på igen."
    daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att ta detta läkemedel"
@@ -290,9 +288,6 @@ sv:
   edit_mood: 'Redigera Humör'
   new: 'Nytt Humör'
   example_moods: 'Nervös, Orolig, Förhoppningsfull'
-  label:
-   one: 'Humör:'
-   other: 'Humör:'
   index:
    subtitle: 'Skapa taggar som beskriver din sinnesstämning, känslor och känslor.'
    premade1_name: 'Acceptera'
@@ -522,7 +517,7 @@ sv:
   not_authorized: 'Inte behörig'
 
  search:
-  search: 'Sök'
+  label: 'Sök'
   search_by_name: 'Sök på namn'
   form:
    search_by_location: 'Sök efter plats'
@@ -562,7 +557,6 @@ sv:
     you: 'Bara du'
     you_link: 'Synlig för dig bara'
     many: 'Synlig för %{viewers}'
-  character_count: 'Du har %{number} tecken kvar.'
   meeting_info:
     attending: 'Du deltar. Ändra dig?'
     not_attending: 'Du deltar inte. %{join}'

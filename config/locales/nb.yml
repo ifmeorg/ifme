@@ -17,35 +17,35 @@ nb:
  close: 'lukk'
 
  languages:
-   en: English
-   es: Español
-   nl: Nederlands
-   pt-BR: Português
-   sv: Svenska
-   various: Various
-   vi: Tiếng Việt
-   it: Italiano
-   nb: Norsk
+  en: English
+  es: Español
+  nl: Nederlands
+  pt-BR: Português
+  sv: Svenska
+  various: Various
+  vi: Tiếng Việt
+  it: Italiano
+  nb: Norsk
 
  navigation:
-   about: 'Om'
-   blog: 'Blogg'
-   contribute: 'Bidra'
-   partners: 'Partnere'
-   privacy: 'Personvernerklæring'
-   github: 'GitHub'
-   patreon: 'Patreon'
-   opencollective: 'Open Collective'
-   instagram: 'Instagram'
-   rss: 'RSS'
-   twitter: "Twitter"
-   facebook: "Facebook"
-   feedback: 'tilbakemelding'
-   give_feedback: 'Gi tilbakemelding'
-   press: 'Presse'
-   faq: 'Ofte stilte spørsmål'
-   resources: 'Ressurser'
-   code_of_conduct: 'Oppførselskode'
+  about: 'Om'
+  blog: 'Blogg'
+  contribute: 'Bidra'
+  partners: 'Partnere'
+  privacy: 'Personvernerklæring'
+  github: 'GitHub'
+  patreon: 'Patreon'
+  opencollective: 'Open Collective'
+  instagram: 'Instagram'
+  rss: 'RSS'
+  twitter: "Twitter"
+  facebook: "Facebook"
+  feedback: 'tilbakemelding'
+  give_feedback: 'Gi tilbakemelding'
+  press: 'Presse'
+  faq: 'Ofte stilte spørsmål'
+  resources: 'Ressurser'
+  code_of_conduct: 'Oppførselskode'
 
  common:
    name: 'Navn'
@@ -174,8 +174,6 @@ nb:
    signin: 'Del dine historier nå'
    create_account: 'Bli med i samfunnet nå'
    update_account: 'Tilpass kontoen din'
-   if: 'if'
-   me: 'me'
   mailer:
    html:
     app_description: "%{app_name} er et samfunn som oppfordrer folk til å dele sine mental helse historier med sine kjente."
@@ -206,7 +204,7 @@ nb:
    total_hint: 'Totalt nummer av piller eller mengde medisin'
    dosage_hint: 'Nummer av piller eller daglig mengde'
    weekly_dosage_hint: 'Hvilken av dagene i uka du tar denne medisinen'
-   refill_hint: 'Når resepten må fylles på'
+   refill_hint: Dager i uken for å ta denne medisinen
    refill_reminder_hint: "Vi sender deg en påminnelse uken for medisinen må fylles på."
    daily_reminder_hint: "Vi sender deg en daglig påminnelse om å ta denne medisinen"
   new: 'Ny medisin'
@@ -289,9 +287,6 @@ nb:
   edit_mood: 'Rediger humør'
   new: 'Nytt humør'
   example_moods: 'Nervøs, engstelig, håpefull'
-  label:
-   one: 'Humør:'
-   other: 'Humør:'
   index:
    subtitle: 'Lag tagger som beskriver din sinnstilstand, følelser, og tanker.'
    premade1_name: 'Aksepterende'
@@ -521,7 +516,7 @@ nb:
   not_authorized: 'Ikke autorisert'
 
  search:
-  search: 'Søk'
+  label: 'Søk'
   search_by_name: 'Søk med navn'
   form:
    search_by_location: 'Søk med plassering'
@@ -561,7 +556,6 @@ nb:
     you: 'Kun deg'
     you_link: 'Kun synlig for deg'
     many: 'Synlig for %{viewers}'
-  character_count: 'Du har %{number} tegn igjen.'
   meeting_info:
     attending: 'Du deltar. Ombestemt deg?'
     not_attending: 'Du deltar ikke. %{join}'
