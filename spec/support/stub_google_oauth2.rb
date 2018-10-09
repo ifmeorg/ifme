@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module StubGoogle2Oauth
+module StubGoogleOauth2
   def stub_env_for_omniauth
     request.env["devise.mapping"] = Devise.mappings[:user]
 

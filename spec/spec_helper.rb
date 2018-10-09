@@ -40,7 +40,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
-  config.include StubGoogle2Oauth
+  config.include StubGoogleOauth2
   config.mock_with :rspec do |mock_config|
     mock_config.syntax = %i[expect should]
   end
