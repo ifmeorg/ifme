@@ -15,13 +15,13 @@ describe('ToggleLocale', () => {
     jest.spyOn(axios, 'post').mockImplementation(() => Promise.resolve());
   });
 
-  it('sets cookie and does not reload page when selected and previous locales are the same', () => {
+  it('does nothing if the previous locale is the same as the selected', () => {
     const wrapper = mount(component);
     wrapper.find('select').prop('onChange')({ currentTarget: { value: 'en' } });
     expect(axios.post).not.toHaveBeenCalled();
   });
 
-  it('sets cookies and reloads page when selected and previous locales are different', () => {
+  it('sets the locale cookie and makes a post request if the selected locale is different from the previous', () => {
     const wrapper = mount(component);
     wrapper.find('select').prop('onChange')({ currentTarget: { value: 'es' } });
     expect(Cookies.set).toHaveBeenCalledWith('locale', 'es');
