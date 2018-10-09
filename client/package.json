@@ -9,7 +9,7 @@
     "debug": "yarn build:production --display-modules --sort-modules-by size",
     "lint:setup": "flow-typed install",
     "lint:flow": "flow",
-    "lint:eslint": "eslint 'app/**/*.js' 'app/**/*.jsx'",
+    "lint:eslint": "eslint 'app/**/*.js' 'app/**/*.jsx' '../app/assets/javascripts/'",
     "lint:prettier": "./node_modules/.bin/prettier \"app/**/*.{js,jsx}\" --write --single-quote  --trailing-comma all",
     "lint": "yarn lint:flow && yarn lint:prettier && yarn lint:eslint --fix",
     "lint:build": "yarn lint:flow && yarn lint:eslint",
