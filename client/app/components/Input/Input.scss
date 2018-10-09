@@ -6,10 +6,8 @@
     @include setPadding($size-18, $size-18, $size-18, $size-18);
   }
   .select {
-    @include setPadding($size-0, $size-18, $size-0, $size-18);
-    height: 43px;
-    @media screen and (max-width: $medium) {
-      height: 40px;
+    select {
+      @include setPadding($size-18, $size-18, $size-18, $size-18);
     }
   }
 }
@@ -21,13 +19,9 @@
     @include setFontSize($size-20);
   }
   .select {
-    @include setPadding($size-0, $size-26, $size-0, $size-26);
-    height: 80px;
-    @media screen and (max-width: $medium) {
-      height: 49px;
-    }
     select {
       @include setFontSize($size-20);
+      @include setPadding($size-26, $size-26, $size-26, $size-26);
     }
   }
   .label,
@@ -92,31 +86,31 @@
 }
 
 .select {
-  @include setPadding($size-0, $size-24, $size-0, $size-24);
   background-color: $white-10;
   border: none;
   border-radius: $size-4;
   box-shadow: $size-0 $size-2 $size-10 $black-10;
-  box-sizing: border-box;
   width: 100%;
-  height: 76px;
-  @media screen and (max-width: $medium) {
-    height: 49px;
-  }
   &:focus-within {
     background-color: $white-20;
     outline: none;
   }
   select {
     @include setFontSize($size-18);
+    @include setPadding($size-24, $size-24, $size-24, $size-24);
     color: $white;
     font-weight: $font-weight-400;
-    background: transparent;
+    background: url('../../../../app/assets/images/caret_down.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-origin: content-box;
     border: none;
-    padding: $size-0;
     box-shadow: none;
     width: 100%;
-    height: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
   }
 }
 
