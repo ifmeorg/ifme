@@ -111,13 +111,14 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   def destroy
-    redirect_unless_leader_for(@meeting.group) and return
+    group = @meeting.group
+    redirect_unless_leader_for(group) and return
     # Notify group members that the meeting has been deleted
     send_notification(@meeting, group.group_members, 'remove_meeting')
     # Remove corresponding meeting members
     @meeting.meeting_members.destroy_all
     @meeting.destroy
-    redirect_to_path(group_path(@meeting.group_id))
+    redirect_to_path(group_path(group.id))
   end
 
   private
