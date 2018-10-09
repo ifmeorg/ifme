@@ -223,7 +223,7 @@ nl:
   index:
    title: 'Medicatie'
    subtitle: 'Houd je medicatie bij, inclusief informatie over dosis en bijvuldata.'
-   total: 'Totaal'
+   total: Totaal
    instructions: "Je hebt nog geen medicatie opgeslagen.<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven."
    example_name: 'Prozac'
    example_strength: '10 mg'

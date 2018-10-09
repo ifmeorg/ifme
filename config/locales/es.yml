@@ -223,7 +223,7 @@ es:
   index:
    title: "Medicamento"
    subtitle: "Mantén un seguimiento de tus medicamentos, incluyendo dosis e información para resurtir."
-   total: "Total"
+   total: Total
    instructions: "Aún no has guardado información de ningún medicamento.<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia."
    example_name: "Prozac"
    example_strength: "10 mg"

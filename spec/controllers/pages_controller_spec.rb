@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe PagesController, type: :controller do
+describe PagesController, type: :controller do
   describe 'GET #home' do
     it 'respond to request' do
       get :home
@@ -96,7 +96,7 @@ RSpec.describe PagesController, type: :controller do
 
   describe 'POST #toggle_locale' do
     context 'When user is signed in' do
-      let(:user) { create(:user) }
+      let(:user) { build(:user) }
       include_context :logged_in_user
 
       it 'has a 200 status when the locale changes' do
