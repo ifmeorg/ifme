@@ -90,7 +90,7 @@ module MomentsHelper
         checkboxes: checkboxes_for(@strategies),
         formProps: quick_create_strategy_props
       },
-      moments_viewers_input,
+      get_viewers_input(@viewers, 'moment', 'moments', @moment),
       {
         id: 'moment_comment',
         type: 'switch',
@@ -113,12 +113,6 @@ module MomentsHelper
         checked: !@moment.published?
       }
     ]
-  end
-  # rubocop:enable MethodLength
-
-  # rubocop:disable MethodLength
-  def moments_viewers_input
-    get_viewers_input(@viewers, 'moment', @moment)
   end
   # rubocop:enable MethodLength
 

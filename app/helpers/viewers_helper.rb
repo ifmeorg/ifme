@@ -50,7 +50,7 @@ module ViewersHelper
     []
   end
 
-  def get_viewers_input(viewers, name, thing)
+  def get_viewers_input(viewers, name, translation_name, obj)
     input = {}
     if viewers.present?
       checkboxes = []
@@ -58,7 +58,7 @@ module ViewersHelper
         checkboxes.push(
           id: "#{name}_viewers_#{item.id}",
           value: item.id,
-          checked: thing.viewers.include?(item.id),
+          checked: obj.viewers.include?(item.id),
           label: User.find(item.id).name
         )
       end
@@ -70,7 +70,7 @@ module ViewersHelper
         label: t('shared.viewers.plural'),
         dark: true,
         accordion: true,
-        placeholder: t("#{name}.form.viewers_hint")
+        placeholder: t("#{translation_name}.form.viewers_hint")
       }
     end
     input

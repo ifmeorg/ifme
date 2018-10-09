@@ -53,7 +53,7 @@ module StrategiesHelper
         checkboxes: category_checkboxes,
         formProps: quick_create_category_props
       },
-      strategy_viewers_input,
+      get_viewers_input(@viewers, 'strategy', 'strategies', @strategy),
       {
         id: 'strategy_comment',
         type: 'switch',
@@ -115,11 +115,5 @@ module StrategiesHelper
     end
     checkboxes
   end
-
-  # rubocop:disable MethodLength
-  def strategy_viewers_input
-    get_viewers_input(@viewers, 'strategy', @strategy)
-  end
-  # rubocop:enable MethodLength
 end
 # rubocop:enable ModuleLength

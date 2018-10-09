@@ -144,6 +144,7 @@ module MedicationsHelper
   end
   # rubocop:enable MethodLength
 
+  # rubocop:disable MethodLength, LineLength
   def medication_unit_field(type)
     {
       id: "medication_#{type}_unit",
@@ -170,19 +171,22 @@ module MedicationsHelper
       ]
     }
   end
+  # rubocop:enable MethodLength, LineLength
 
+  # rubocop:disable MethodLength
   def medication_field(type)
     {
       id: "medication_#{type}",
       type: 'number',
       name: "medication[#{type}]",
       label: t("medications.form.#{type}"),
-      value: @medication["#{type}"] || nil,
+      value: @medication[type.to_s] || nil,
       required: true,
       info: t("medications.form.#{type}_hint"),
       placeholder: t("medications.form.#{type}_placeholder"),
       dark: true
     }
   end
+  # rubocop:enable MethodLength
 end
 # rubocop:enable ModuleLength
