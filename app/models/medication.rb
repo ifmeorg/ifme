@@ -45,7 +45,7 @@ class Medication < ApplicationRecord
     [refill_reminder, take_medication_reminder].select(&:active?)
   end
 
-  def weekly?
-    weekly_dosage.count != 7
+  def daily?
+    weekly_dosage.count == 7
   end
 end
