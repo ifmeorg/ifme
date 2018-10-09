@@ -24,4 +24,4 @@ nb:
         someone_invited_you: "%{name} har invitert deg til å bli med i http://www.if-me.org, et felleskap for å dele mental helse opplevelser med dine kjente og holde styr på humøret ditt, medisiner, og selvpleie. Du kan akseptere invitasjonen igjennom linken nedenfor."
         accept: "Aksepter invitasjonen!"
         accept_until: "Denne invitasjonen utløper om %{due_date}."
-        ignore: "Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne e-posten.<br />\nKontoen din opprettes ikke før du klikker på linken ovenfor og setter passordet ditt."
+        ignore: "Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne e-posten.<br />Kontoen din opprettes ikke før du klikker på linken ovenfor og setter passordet ditt."
