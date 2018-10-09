@@ -44,6 +44,7 @@ export const ToggleLocale = (props: Props) => {
         value={locale}
         options={options(locales)}
         onChange={onChange}
+        small
       />
     </div>
   );

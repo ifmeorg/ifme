@@ -7,11 +7,19 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputTextProps, {
         required: true,
-        large: true,
+        small: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
       })}
       {InputMocks.createInput(InputMocks.inputTextProps, {
         required: true,
         large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputTextProps, {
         required: true,
@@ -28,11 +36,22 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputTextProps, {
         required: true,
+        small: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
         accordion: true,
       })}
       {InputMocks.createInput(InputMocks.inputTextProps, {
         required: true,
         large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTextProps, {
+        required: true,
+        dark: true,
+        small: true,
         accordion: true,
       })}
       {InputMocks.createInput(InputMocks.inputTextProps, {
@@ -52,7 +71,6 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputTextareaProps, {
         required: true,
-        large: true,
       })}
       {InputMocks.createInput(InputMocks.inputTextareaProps, {
         required: true,
@@ -97,11 +115,19 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputSubmitProps, {
         onClick: InputMocks.event,
-        large: true,
+        small: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
       })}
       {InputMocks.createInput(InputMocks.inputSubmitProps, {
         onClick: InputMocks.event,
         large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSubmitProps, {
+        onClick: InputMocks.event,
+        dark: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputSubmitProps, {
         onClick: InputMocks.event,
@@ -118,7 +144,6 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputCheckboxProps, {
         onChange: InputMocks.event,
-        large: true,
       })}
       {InputMocks.createInput(InputMocks.inputCheckboxProps, {
         onChange: InputMocks.event,
@@ -139,7 +164,6 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
         required: true,
-        large: true,
       })}
       {InputMocks.createInput(InputMocks.inputCheckboxGroupProps, {
         required: true,
@@ -184,10 +208,19 @@ storiesOf('Input', module)
     <div>
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
+        small: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
         large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
@@ -205,11 +238,22 @@ storiesOf('Input', module)
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
         accordion: true,
+        small: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        accordion: true,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
         large: true,
         accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputSelectProps, {
+        onChange: InputMocks.event,
+        dark: true,
+        accordion: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputSelectProps, {
         onChange: InputMocks.event,
@@ -226,9 +270,14 @@ storiesOf('Input', module)
   ))
   .add('Tag', () => (
     <div>
+      {InputMocks.createInput(InputMocks.inputTagProps, { small: true })}
       {InputMocks.createInput(InputMocks.inputTagProps)}
       {InputMocks.createInput(InputMocks.inputTagProps, {
         large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputTagProps, {
         dark: true,
@@ -241,10 +290,19 @@ storiesOf('Input', module)
   ))
   .add('Tag with accordion', () => (
     <div>
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        small: true,
+        accordion: true,
+      })}
       {InputMocks.createInput(InputMocks.inputTagProps, { accordion: true })}
       {InputMocks.createInput(InputMocks.inputTagProps, {
         large: true,
         accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputTagProps, {
+        dark: true,
+        accordion: true,
+        small: true,
       })}
       {InputMocks.createInput(InputMocks.inputTagProps, {
         dark: true,

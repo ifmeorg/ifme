@@ -75,6 +75,7 @@ export type Props = {
   placeholder?: string,
   error?: boolean,
   dark?: boolean,
+  small?: boolean,
   large?: boolean,
   value?: any,
   readOnly?: boolean,
@@ -153,6 +154,7 @@ export class Input extends React.Component<Props, State> {
       onClick,
       value,
       large,
+      small,
       dark,
       type,
       disabled,
@@ -165,6 +167,7 @@ export class Input extends React.Component<Props, State> {
           onClick={onClick}
           value={value}
           large={large}
+          small={small}
           dark={dark}
           disabled={disabled}
           formNoValidate={formNoValidate}
@@ -326,6 +329,7 @@ export class Input extends React.Component<Props, State> {
     const {
       type,
       dark,
+      small,
       large,
       accordion,
       label,
@@ -336,8 +340,8 @@ export class Input extends React.Component<Props, State> {
     const content = (
       <div
         className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
-          type === 'hidden' ? css.hidden : ''
-        }`}
+          small ? css.small : ''
+        } ${type === 'hidden' ? css.hidden : ''}`}
       >
         {!accordion && (
           <div className={css.labelNoAccordion}>{this.displayLabel()}</div>
