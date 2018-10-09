@@ -21,3 +21,11 @@
 
   <%= f.submit t("devise.invitations.edit.submit_button"), class: 'buttonGhostM smallMarginTop' %>
 <% end %>
+<div class="center">
+  <div class="smallMarginTop">
+    <%= button_to t('devise.shared.sign_up_google'),
+      omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
+      class: 'buttonGhostM'
+    %>
+  </div>
+</div>
