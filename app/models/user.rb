@@ -145,8 +145,8 @@ class User < ApplicationRecord
 
   def update_access_token
     params = { 'refresh_token' => refresh_token,
-               'client_id'     => nil,
-               'client_secret' => nil,
+               'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+               'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
                'grant_type'    => 'refresh_token' }
 
     response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
