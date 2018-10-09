@@ -78,7 +78,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
+    in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
 
   def ally?(user)

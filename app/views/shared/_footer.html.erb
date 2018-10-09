@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="footerExtras">
-    <%= react_component('ToggleLocale', props: { locale: @locale }) %>
+    <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>
     <div>
       <%= sanitize t('shared.footer.licence_subtitle',
         licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt', target: 'blank'))

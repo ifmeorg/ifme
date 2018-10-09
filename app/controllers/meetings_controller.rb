@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 # rubocop:disable ClassLength
-
 class MeetingsController < ApplicationController
   include CommentsHelper
 
@@ -69,6 +68,7 @@ class MeetingsController < ApplicationController
       render :new
     end
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /meetings/1
   def update
@@ -165,3 +165,4 @@ class MeetingsController < ApplicationController
     comment.present? && (comment.comment_by == current_user.id)
   end
 end
+# rubocop:enable ClassLength

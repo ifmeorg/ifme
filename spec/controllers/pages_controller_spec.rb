@@ -99,23 +99,25 @@ RSpec.describe PagesController, type: :controller do
       let(:user) { create(:user) }
       include_context :logged_in_user
 
-      it 'returns signed_in_reload object' do
+      it 'has a 200 status when the locale changes' do
         user.update!(locale: 'en')
         post :toggle_locale, params: { locale: 'es' }
-        expect(JSON.parse(response.body)).to eq('signed_in_reload' => 'es')
+        expect(user.locale).to eq('es')
+        expect(response.status).to eq(200)
       end
 
-      it 'returns signed_in_no_reload object' do
+      it 'has a 400 status when the locale is the same' do
         user.update!(locale: 'en')
         post :toggle_locale, params: { locale: 'en' }
-        expect(JSON.parse(response.body)).to eq('signed_in_no_reload' => 'en')
+        expect(user.locale).to eq('en')
+        expect(response.status).to eq(400)
       end
     end
 
     context 'When not signed in' do
-      it 'returns signed_out object' do
+      it 'has a 200 status' do
         post :toggle_locale, params: { locale: 'es' }
-        expect(JSON.parse(response.body)).to eq('signed_out' => true)
+        expect(response.status).to eq(200)
       end
     end
   end

@@ -38,11 +38,10 @@ class ApplicationController < ActionController::Base
   end
 
   # before_action
-  # rubocop:disable MethodLength
   def set_locale
     @locale = I18n.locale = locale
+    @locales = Rails.application.config.i18n.available_locales
   end
-  # rubocop:enable MethodLength
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
@@ -196,9 +195,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_raven_context
-    if user_signed_in?
-      Raven.user_context(id: current_user.id)
-    end
+    Raven.user_context(id: current_user.id) if user_signed_in?
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end

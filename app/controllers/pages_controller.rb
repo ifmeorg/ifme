@@ -27,9 +27,13 @@ class PagesController < ApplicationController
   end
 
   def toggle_locale
-    return render json: { signed_out: true } unless user_signed_in?
-
-    change_locale!(params[:locale])
+    if !user_signed_in? ||
+       (user_signed_in? && current_user.locale != params[:locale] &&
+        current_user.update(locale: params[:locale]))
+      render json: {}, status: :ok
+    else
+      render json: {}, status: :bad_request
+    end
   end
 
   def press
@@ -47,19 +51,6 @@ class PagesController < ApplicationController
   def privacy; end
 
   private
-
-  def change_locale!(locale)
-    response_key =
-      if locale == current_user.locale
-        'signed_in_no_reload'
-      else
-        'signed_in_reload'
-      end
-    current_user.update!(locale: locale)
-    hash = {}
-    hash[response_key.to_sym] = locale
-    render json: hash.to_json
-  end
 
   def load_dashboard_data
     params = { user_id: current_user.id }
