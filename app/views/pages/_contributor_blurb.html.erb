@@ -1,9 +1,21 @@
 <div class="gridManyItem center">
   <%= react_component('Modal', props: {
-    element: { component: 'Avatar', props: { src: ProfilePicture.normalize_url(blurb["image"]), name: blurb['name'], alt: "Contributor: #{blurb['name']}"} },
+    element: { 
+      component: 'Avatar', 
+      props: { 
+        src: ProfilePicture.normalize_url(blurb["image"]),
+        name: blurb['name'],
+        alt: t('pages.contribute.contributor_avatar_alt', {
+          name: blurb['name']
+        })
+      } 
+    },
     title: nil,
-    body: blurb["profile"]
+    body: <<~HEREDOC
+      #{blurb["profile"]} <br/>
+      <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}<br />
+      #{content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline")}
+      #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+    HEREDOC
   }) %>
-
- 
 </div>
