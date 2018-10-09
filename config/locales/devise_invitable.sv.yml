@@ -24,4 +24,4 @@ sv:
         someone_invited_you: "%{name} har bjudit in dig att gå med i http://if-me.org, en gemenskap där du kan dela mentala förberedelser med dina nära och kära och hålla reda på ditt humör, dina mediciner och din egenvård. Du kan acceptera inbjudan via länken nedan."
         accept: "Acceptera inbjudan!"
         accept_until: "Denna inbjudan upphör att gälla den %{due_date}."
-        ignore: "Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />\nDitt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord."
+        ignore: "Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord."

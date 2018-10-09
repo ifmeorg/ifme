@@ -1,6 +1,3 @@
-# if me: DO NOT modify this file. if you need to add translations, add them to sv.yml
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 sv:
   devise:
     confirmations:
