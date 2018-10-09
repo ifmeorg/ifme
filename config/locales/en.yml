@@ -76,6 +76,7 @@ en:
      press_enter: 'Press ENTER to add'
    time_ago: "%{date} ago"
    write_to_us: "write to us"
+   days: Days
 
  comment:
   singular: 'Comment'
@@ -187,6 +188,7 @@ en:
   edit_medication: 'Edit Medication'
   refill_reminder: 'Refill reminder email'
   dosage: 'Daily Dosage:'
+  weekly_dosage: 'Weekly dosage:'
   refill: 'Refill:'
   quantity: 'Total Quantity:'
   strength: 'Strength:'
@@ -203,6 +205,7 @@ en:
    strength_hint: 'Medication strength, usually found beside the name'
    total_hint: 'Total number of pills or amount of medication'
    dosage_hint: 'Number of pills or servings daily'
+   weekly_dosage_hint: 'Which of the days in the week this medication is prescribed'
    refill_hint: 'When to refill this prescription'
    refill_reminder_hint: "We'll email you a reminder the week before your medication needs to be refilled."
    daily_reminder_hint: "We'll email you a daily reminder to take this medication"

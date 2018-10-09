@@ -76,6 +76,7 @@ nb:
      press_enter: 'Press ENTER for å legge til'
    time_ago: "%{date} siden"
    write_to_us: "skriv til oss"
+   days: 'Dager'
 
  comment:
   singular: 'Kommentar'
@@ -187,6 +188,7 @@ nb:
   edit_medication: 'Rediger medisinering'
   refill_reminder: 'Påminnelsesepost om når du må fylle på'
   dosage: 'Daglig dose:'
+  weekly_dosage: 'Ukentlig dose:'
   refill: 'Påfyllelse:'
   quantity: 'Total kvantitet:'
   strength: 'Styrke:'
@@ -203,6 +205,7 @@ nb:
    strength_hint: 'Medisin styrke, vanligvis beskrevet ved siden av navnet'
    total_hint: 'Totalt nummer av piller eller mengde medisin'
    dosage_hint: 'Nummer av piller eller daglig mengde'
+   weekly_dosage_hint: 'Hvilken av dagene i uka du tar denne medisinen'
    refill_hint: 'Når resepten må fylles på'
    refill_reminder_hint: "Vi sender deg en påminnelse uken for medisinen må fylles på."
    daily_reminder_hint: "Vi sender deg en daglig påminnelse om å ta denne medisinen"

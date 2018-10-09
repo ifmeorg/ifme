@@ -76,6 +76,7 @@ pt-BR:
      press_enter: 'Pressione ENTER para adicionar'
    time_ago: "%{date} atrás"
    write_to_us: "join.ifme@gmail.com"
+   days: 'Dias'
 
  comment:
   singular: 'Comentário'
@@ -187,6 +188,7 @@ pt-BR:
   edit_medication: 'Editar Medicamento'
   refill_reminder: 'Email de lembrete do refil de medicamento'
   dosage: 'Dosagem diária:'
+  weekly_dosage: 'Dosagem semanal:'
   refill: 'Refil de medicamento:'
   quantity: 'Quantidade Total:'
   strength: 'Dosagem:'
@@ -202,6 +204,7 @@ pt-BR:
    google_cal_hint: " Nós iremos adcionar um lembrete sobre esse medicamento no Google Calendar"
    strength_hint: 'Potência do medicamento, normalmente é encontrada pŕoximo ao nome do medicamento'
    total_hint: 'Quantidade total de comprimidos ou porções necessárias'
+   weekly_dosage_hint: 'Qual dos dias da semana esta medicação é prescrita'
    dosage_hint: 'Número de comprimidos ou dosagem diária'
    refill_hint: 'Quando atualizar essa receita médica'
    refill_reminder_hint: "Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento."

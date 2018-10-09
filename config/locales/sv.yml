@@ -77,6 +77,7 @@ sv:
      press_enter: 'Tryck på ENTER för att lägga till'
    time_ago: "%{date} sedan"
    write_to_us: "skriv till oss"
+   days: 'dagar'
 
  comment:
   singular: 'Kommentar'
@@ -188,6 +189,7 @@ sv:
   edit_medication: 'Redigera läkemedel'
   refill_reminder: 'Påfyllnings-påminnelse'
   dosage: 'Daglig Dosering:'
+  weekly_dosage: 'vecko dosering:'
   refill: 'Påfyllning:'
   quantity: 'Total Kvantitet:'
   strength: 'Styrka:'
@@ -204,6 +206,7 @@ sv:
    strength_hint: 'Läkemedelsstyrka, som vanligtvis finns bredvid namnet'
    total_hint: 'Totalt antal piller eller mängd medicinering'
    dosage_hint: 'Antal piller eller portioner dagligen'
+   weekly_dosage_hint: 'Vilken dag i veckan är detta läkemedel förskrivet'
    refill_hint: 'När ska du fylla på receptet'
    refill_reminder_hint: "Vi skickar e-post till dig med en påminnelse veckan innan läkemedlet behöver fyllas på igen."
    daily_reminder_hint: "Vi skickar e-post till dig med en daglig påminnelse för att ta detta läkemedel"

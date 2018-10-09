@@ -76,6 +76,7 @@ it:
      press_enter: 'Premi INVIO per aggiungere'
    time_ago: "%{date} fa"
    write_to_us: "scrivici"
+   days: 'giorni'
 
  comment:
   singular: 'Commento'
@@ -187,6 +188,7 @@ it:
   edit_medication: 'Modifica Medicazione'
   refill_reminder: 'EMail di Notifica per la ricarica'
   dosage: 'Dosaggio giornaliero:'
+  weekly_dosage: 'Dosaggio settimanale:'
   refill: 'Riempimento:'
   quantity: 'Quantità totale:'
   strength: 'Peso:'
@@ -203,6 +205,7 @@ it:
    strength_hint: 'Quanto è potente questo medicinale? Solitamente si trova accanto al nome'
    total_hint: 'Numero totale di pillole o quantità totale'
    dosage_hint: 'Numero di pillole o dose giornaliera'
+   weekly_dosage_hint: 'Quale dei giorni della settimana è prescritto questo farmaco'
    refill_hint: 'Quando riempire questa prescrizione'
    refill_reminder_hint: "Ti invieremo una EMail la settimana prossima prima che la tua medicazione abbia bisogno di un refill."
    daily_reminder_hint: "Ti invieremo una EMail giornaliera ricordandoti di prendere la medicazione"
