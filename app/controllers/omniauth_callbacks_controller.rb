@@ -2,7 +2,7 @@
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
-    if user
+    if user.present?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: t('omniauth.google'))
       sign_in_and_redirect @user, event: :authentication
