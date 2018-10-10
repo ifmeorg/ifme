@@ -29,7 +29,8 @@ module MomentsHelper
         name: 'secretShareInput',
         readOnly: true,
         value: secret_share_url(moment.secret_share_identifier) || nil,
-        dark: true
+        dark: true,
+        copyOnClick: true
       }
     ], action:  moment_path(moment) }
   end

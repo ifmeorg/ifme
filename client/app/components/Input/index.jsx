@@ -80,6 +80,7 @@ export type Props = {
   minLength?: number,
   maxLength?: number,
   onClick?: Function,
+  copyOnClick?: boolean,
   onChange?: Function,
   checked?: boolean,
   uncheckedValue?: any,
@@ -120,6 +121,7 @@ export class Input extends React.Component<Props, State> {
       max,
       myRef,
       label,
+      copyOnClick,
     } = this.props;
     if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
@@ -139,6 +141,7 @@ export class Input extends React.Component<Props, State> {
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
         label={label}
+        copyOnClick={copyOnClick}
       />
     );
   };
