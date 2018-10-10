@@ -10,7 +10,11 @@
       @include setPadding($size-0, $size-18, $size-0, $size-18);
     }
     select {
-      @include setPadding($size-18, $size-18, $size-18, $size-18);
+      @include setPadding($size-18, $size-0, $size-18, $size-18);
+      padding-right: $size-18 * 2 + $size-12;
+      @media screen and (max-width: $medium) {
+        padding-right: $size-18 + $size-12;
+      }
     }
   }
 }
@@ -27,7 +31,11 @@
     }
     select {
       @include setFontSize($size-20);
-      @include setPadding($size-26, $size-26, $size-26, $size-26);
+      @include setPadding($size-26, $size-0, $size-26, $size-26);
+      padding-right: $size-26 * 2 + $size-12;
+      @media screen and (max-width: $medium) {
+        padding-right: $size-26 + $size-12;
+      }
     }
   }
   .label,
@@ -102,12 +110,13 @@
     right: $size-0;
     color: $white;
     height: $size-20;
+    width: $size-12;
     top: calc(50% - 10px);
     pointer-events: none;
   }
   select {
     @include setFontSize($size-18);
-    @include setPadding($size-24, $size-24, $size-24, $size-24);
+    @include setPadding($size-24, $size-0, $size-24, $size-24);
     color: $white;
     font-weight: $font-weight-400;
     width: 100%;
@@ -121,6 +130,10 @@
     border: none;
     &:focus {
       background-color: $white-20;
+    }
+    padding-right: $size-24 * 2 + $size-12;
+    @media screen and (max-width: $medium) {
+      padding-right: $size-24 + $size-12;
     }
   }
 }
