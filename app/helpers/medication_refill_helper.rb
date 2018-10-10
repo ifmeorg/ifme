@@ -8,12 +8,10 @@ module MedicationRefillHelper
                        new_cal_refill_reminder_needed?(medication)
     args = calendar_uploader_params(medication)
     CalendarUploader.new(args).upload_event
-    true
   rescue Google::Apis::ClientError
     return_to_sign_in
   rescue Google::Apis::ServerError
-    CalendarUploader.new(args).upload_event
-    true
+    redirect_to_medication(medication)
   end
 
   def calendar_uploader_params(medication)
