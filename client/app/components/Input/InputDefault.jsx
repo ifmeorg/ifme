@@ -72,30 +72,31 @@ export const InputDefault = (props: Props) => {
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
-    <><input
-      className={css.default}
-      id={id}
-      type={type}
-      name={name}
-      defaultValue={value}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      disabled={disabled}
-      required={required}
-      minLength={minLength}
-      maxLength={maxLength}
-      min={min}
-      max={max}
-      onFocus={() => onFocus(required, hasError)}
-      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
-      }
-      ref={myRef}
-      aria-label={label}
-      onClick={copyOnClick ? (e: SyntheticEvent<HTMLInputElement>) => { copyToClipBoard(e); }
-        : () => {}}
-    />
+    <div>
+      <input
+        className={css.default}
+        id={id}
+        type={type}
+        name={name}
+        defaultValue={value}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        disabled={disabled}
+        required={required}
+        minLength={minLength}
+        maxLength={maxLength}
+        min={min}
+        max={max}
+        onFocus={() => onFocus(required, hasError)}
+        onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
+        }
+        ref={myRef}
+        aria-label={label}
+        onClick={copyOnClick ? (e: SyntheticEvent<HTMLInputElement>) => { copyToClipBoard(e); }
+          : () => {}}
+      />
       <ToastContainer />
-    </>
+    </div>
 
   );
 };
