@@ -411,10 +411,8 @@ de:
       message_one: 'Teile deine Geschichten mit Nahestehenden und erhalte die Unterstützung, die dir zusteht.'
       message_two: 'Sei du selbst, ohne Vorurteile, mit Rücksicht auf deine Privatsphäre und einem Gefühl der Geborgenheit'
       message_three: 'Dokumentiere deine Stimmungen, Arzneimittel und persönliche Selbstfürsorge'
-      main_message_two: "Das Teilen von Erlebnissen ist der Schlüssel zur Entwicklung einer besseren geistigen Gesundheit."
-      message_text_two: "Lerne von der <strong>Gemeinschaft</strong> in unserem %{blog}."
-      main_message_three: 'Wir sind Open Source, weil mentale Gesundheit eine offene Angelegenheit sein sollte.'
-      message_text_three: "Wir sind <strong>immer</strong> auf der Suche nach %{help} und %{feedback}!"
+      main_message_two: Wir sind Open Source, weil mentale Gesundheit eine offene Angelegenheit sein sollte.
+      message_text_two: "Wir sind <strong>immer</strong> auf der Suche nach %{help} und %{feedback}!"
       help: 'Hilfe'
     signed_in_empty:
       main_message_one: 'Hallo %{name}!'
