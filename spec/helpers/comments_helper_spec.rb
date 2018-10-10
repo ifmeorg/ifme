@@ -7,17 +7,10 @@ describe CommentsHelper, type: :controller do
   controller(ApplicationController) do
   end
 
-  describe 'generate_comment' do
+  describe 'generate_comments' do
     let(:user3) { create(:user3) }
     let(:comment) { 'Hello from the outside' }
-
-    def delete_comment(comment_id)
-      %(<div class="delete_comment"><a id="delete_comment_#{comment_id}" class="delete_comment_button" href=""><i class="fa fa-times"></i></a></div>)
-    end
-
-    def comment_info(user)
-      %(<a href="/profile?uid=#{controller.get_uid(user.id)}">#{user.name}</a> - less than a minute ago)
-    end
+    let(:created_at) { 'Created less than a minute ago' }
 
     before do
       create(:allyships_accepted, user_id: user1.id, ally_id: user2.id)
@@ -34,26 +27,30 @@ describe CommentsHelper, type: :controller do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'moment')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user1),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user1.uid,
+            commentByName: user1.name,
+            commentByAvatar: user1.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
-          expect(controller.generate_comment(new_comment, 'moment')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user1),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user1.uid,
+            commentByName: user1.name,
+            commentByAvatar: user1.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: "Visible only between you and #{user2.name}",
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
 
@@ -64,26 +61,30 @@ describe CommentsHelper, type: :controller do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'moment')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user2),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user2.uid,
+            commentByName: user2.name,
+            commentByAvatar: user2.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
-          expect(controller.generate_comment(new_comment, 'moment')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user2),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user2.uid,
+            commentByName: user2.name,
+            commentByAvatar: user2.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: "Visible only between you and #{user1.name}",
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
     end
@@ -98,26 +99,30 @@ describe CommentsHelper, type: :controller do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'strategy')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user1),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user1.uid,
+            commentByName: user1.name,
+            commentByAvatar: user1.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
-          expect(controller.generate_comment(new_comment, 'strategy')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user1),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user1.uid,
+            commentByName: user1.name,
+            commentByAvatar: user1.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: "Visible only between you and #{user2.name}",
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
 
@@ -128,26 +133,30 @@ describe CommentsHelper, type: :controller do
 
         it 'generates a valid comment object when visbility is all' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'strategy')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user2),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user2.uid,
+            commentByName: user2.name,
+            commentByAvatar: user2.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
 
         it 'generates a valid comment object when visbility is private' do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
-          expect(controller.generate_comment(new_comment, 'strategy')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user2),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user2.uid,
+            commentByName: user2.name,
+            commentByAvatar: user2.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: "Visible only between you and #{user1.name}",
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
     end
@@ -164,14 +173,16 @@ describe CommentsHelper, type: :controller do
         it 'generates a valid comment object' do
           sign_in user1
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'meeting')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user1),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user1.uid,
+            commentByName: user1.name,
+            commentByAvatar: user1.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
 
@@ -179,14 +190,16 @@ describe CommentsHelper, type: :controller do
         it 'generates a valid comment object' do
           sign_in user2
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
-          expect(controller.generate_comment(new_comment, 'meeting')).to include(
-            commentid: new_comment.id,
-            comment_info: comment_info(user2),
-            comment_text: comment,
+          expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
+            id: new_comment.id,
+            commentByUid: user2.uid,
+            commentByName: user2.name,
+            commentByAvatar: user2.avatar.url,
+            comment: comment,
+            createdAt: created_at,
             visibility: nil,
-            delete_comment: delete_comment(new_comment.id),
-            no_save: false
-          )
+            deletable: true
+          }])
         end
       end
     end

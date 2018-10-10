@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 
 class CommentVisibility
-  attr_reader :comment, :owner, :current_user
+  attr_reader :comment, :owner, :current_user, :data_viewers
 
-  def self.build(comment, commentable_id, current_user)
-    new(comment, commentable_id, current_user).build
+  def self.build(comment, data, current_user)
+    new(comment, data, current_user).build
   end
 
-  def initialize(comment, commentable_id, current_user)
+  def self.viewable_to_current_user(comment, data, current_user)
+    new(comment, data, current_user).viewable_to_current_user
+  end
+
+  def initialize(comment, data, current_user)
     @comment = comment
-    @owner = User.find(commentable_id.user_id)
+    @owner = data&.user_id && User.find(data.user_id)
+    @data_viewers = data&.viewers
     @current_user = current_user
   end
 
@@ -18,6 +23,10 @@ class CommentVisibility
 
     I18n.t('shared.comments.visible_only_between_you_and',
            name: other_person.name)
+  end
+
+  def viewable_to_current_user
+    logged_in_user_can_view_comment?
   end
 
   private
@@ -50,8 +59,16 @@ class CommentVisibility
     @comment.comment_by == @current_user.id
   end
 
-  def logged_in_user_is_viewer?
+  def logged_in_user_is_comment_viewer?
     @comment.viewers.present? && @comment.viewers.include?(@current_user.id)
+  end
+
+  def logged_in_user_is_data_viewer?
+    @comment.visibility == 'all' && @data_viewers.include?(@current_user.id)
+  end
+
+  def logged_in_user_is_viewer?
+    logged_in_user_is_comment_viewer? || logged_in_user_is_data_viewer?
   end
 
   def logged_in_user_can_view_comment?
