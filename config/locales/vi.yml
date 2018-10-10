@@ -1,84 +1,80 @@
 vi:
  app_name: 'if me'
  app_description: 'Đồng sức khỏe tâm thần'
- email: 'join.ifme@gmail.com'
- ellipsis: " [...]"
+ email: join.ifme@gmail.com
+ ellipsis: ' [...]'
  created: 'Tạo %{created_at}'
- draft: "Nháp"
+ draft: Nháp
  edited: 'Tạo %{created_at} (chỉnh sửa)'
  edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
- salutation: "Xin chào  %{name},"
- click_here: "nhấn vào đây"
- less: " [Ít hơn]"
+ salutation: 'Xin chào  %{name},'
+ click_here: 'nhấn vào đây'
+ less: ' [Ít hơn]'
  language: 'Ngôn ngữ'
- true: 'có'
- false: 'không'
+ 'true': có
+ 'false': không
  expand_menu: 'mở rộng menu'
- close: 'gần'
-
+ close: gần
  languages:
-   en: English
-   es: Español
-   nl: Nederlands
-   pt-BR: Português
-   sv: Svenska
-   various: Various
-   vi: Tiếng Việt
-   it: Italiano
-   nb: Norsk
-   de: Deutsch
-
+  en: English
+  es: Español
+  nl: Nederlands
+  pt-BR: Português
+  sv: Svenska
+  various: Various
+  vi: 'Tiếng Việt'
+  it: Italiano
+  nb: Norsk
+  de: Deutsch
  navigation:
-   about: 'Về'
-   blog: 'Nhật ký'
-   contribute: 'Đóng góp'
-   partners: 'Đối tác'
-   privacy: 'Chính sách bảo mật'
-   github: 'GitHub'
-   patreon: 'Patreon'
-   opencollective: 'Open Collective'
-   instagram: 'Instagram'
-   rss: 'RSS'
-   twitter: "Twitter"
-   facebook: "Facebook"
-   feedback: 'Phản hồi'
-   give_feedback: 'Đưa phản hồi'
-   press: 'Press'
-   faq: 'FAQ'
-   resources: 'Nguồn'
-   code_of_conduct: 'Quy tắc ứng xu'
-
+  about: Về
+  blog: 'Nhật ký'
+  contribute: 'Đóng góp'
+  partners: 'Đối tác'
+  privacy: 'Chính sách bảo mật'
+  github: GitHub
+  patreon: Patreon
+  opencollective: 'Open Collective'
+  instagram: Instagram
+  rss: RSS
+  twitter: Twitter
+  facebook: Facebook
+  feedback: 'Phản hồi'
+  give_feedback: 'Đưa phản hồi'
+  press: Press
+  faq: FAQ
+  resources: Nguồn
+  code_of_conduct: 'Quy tắc ứng xu'
  common:
-   name: 'Tên'
-   you: 'Bạn'
-   title: 'Tiêu đề'
-   date: 'Chung kỳ:'
-   daily_reminder: 'Email nhắc nhở hàng ngày'
-   actions:
-    plural: Hành động
-    submit: 'Đệ trình'
-    submit_publish: 'Xuất bản'
-    submit_draft: 'Bản nháp'
-    confirm: 'Bạn có chắc chắn?'
-    delete: 'Xóa'
-    edit: 'Chỉnh sửa'
-    edit_instance: 'Chỉnh sửa %{instance}'
-    join: 'Tham gia'
-    leave: 'Rời khỏi'
-    add: 'Thêm vào'
-    add_all: 'Thêm vào tất cả'
-    select_all: 'Lựa chọn tất cả'
-    remove: 'Gỡ bỏ'
-   form:
-     email: "Email"
-     location: "Vị trí"
-     description: 'Mô tả'
-     error_explanation: 'Vui lòng điền đầy đủ các trường được làm đậm!'
-     press_enter: 'Vui lòng nhắn ENTER để cộng thêm'
-   time_ago: "Cách đây %{date} ngày"
-   write_to_us: "viết cho chúng tôi"
-   days: 'Ngày'
-
+  name: Tên
+  you: Bạn
+  title: 'Tiêu đề'
+  date: 'Chung kỳ:'
+  daily_reminder: 'Email nhắc nhở hàng ngày'
+  actions:
+   plural: 'Hành động'
+   submit: 'Đệ trình'
+   submit_publish: 'Xuất bản'
+   submit_draft: 'Bản nháp'
+   confirm: 'Bạn có chắc chắn?'
+   delete: Xóa
+   edit: 'Chỉnh sửa'
+   edit_instance: 'Chỉnh sửa %{instance}'
+   join: 'Tham gia'
+   leave: 'Rời khỏi'
+   add: 'Thêm vào'
+   add_all: 'Thêm vào tất cả'
+   select_all: 'Lựa chọn tất cả'
+   remove: 'Gỡ bỏ'
+  form:
+   email: Email
+   location: 'Vị trí'
+   description: 'Mô tả'
+   error_explanation: 'Vui lòng điền đầy đủ các trường được làm đậm!'
+   press_enter: 'Vui lòng nhắn ENTER để cộng thêm'
+  time_ago: 'Cách đây %{date} ngày'
+  write_to_us: 'viết cho chúng tôi'
+  days: Ngày
  comment:
   singular: 'Bình luận'
   plural: 'Bình luận'
@@ -86,38 +82,34 @@ vi:
   allow_comments: 'Cho phép bình luận?'
   hint: 'Chỉ có bạn và người xem có thể bình luận'
   control: 'Quản lý ai có thể xem và bình luận'
-
  account:
   singular: 'Tài khoản'
   sign_in: 'Đăng nhập'
   sign_up: 'Đăng ký'
   forgot_password: 'Quên mật khẩu?'
-
  members:
-   one: '%{count} thành viên'
-   other: '%{count} thành viên'
-
+  one: '%{count} thành viên'
+  other: '%{count} thành viên'
  allies:
   add_ally: 'Công thêm thành viên'
   cancel_ally_request: 'Hủy yêu cầu'
   accept: 'Chấp thuận'
   reject: 'Từ chối'
   index:
-    title: 'Thành viên'
-    outgoing: 'Yêu cầu gửi ra bên ngoài'
-    incoming: 'Yêu cầu được gửi đến'
-    invite: 'Mời bạn bè của bạn tham gia!'
-    none: 'Hiện thời bạn không có đồng minh nào, bạn có thể tìm kiến và mời bạn bè mình tham gia!'
-    view_all_allies: 'Xem tất cả đồng minh'
-    cancel: 'Hủy'
+   title: 'Thành viên'
+   outgoing: 'Yêu cầu gửi ra bên ngoài'
+   incoming: 'Yêu cầu được gửi đến'
+   invite: 'Mời bạn bè của bạn tham gia!'
+   none: 'Hiện thời bạn không có đồng minh nào, bạn có thể tìm kiến và mời bạn bè mình tham gia!'
+   view_all_allies: 'Xem tất cả đồng minh'
+   cancel: Hủy
   form:
-    placeholder: 'Thêm một hay nhiều địa chỉ email và ngăn cách các địa chỉ email này bằng các dấu phẩy'
-
+   placeholder: 'Thêm một hay nhiều địa chỉ email và ngăn cách các địa chỉ email này bằng các dấu phẩy'
  categories:
   singular: 'Thể loại'
   plural: 'Danh sách'
-  edit_category: "Chỉnh sửa danh sách"
-  new: "Danh sách mới"
+  edit_category: 'Chỉnh sửa danh sách'
+  new: 'Danh sách mới'
   form:
    name_hint: 'Danh sách lập lại người, nơi chốn, sự vật, hoạt động và nhiều hơn nữa'
   label:
@@ -133,43 +125,40 @@ vi:
    premade3_description: 'Công việc liên quan'
    premade4_name: 'Thiền định'
    premade4_description: 'Thiền định, thở sâu, và các hoạt động thư giản'
-   instructions: "Bạn chưa tạo danh sách nào cả.<br>Bạn có thể dùng những danh sách đã được tạo sẵn và tùy chỉnh chúng vào một thời điểm khác."
-
+   instructions: 'Bạn chưa tạo danh sách nào cả.<br>Bạn có thể dùng những danh sách đã được tạo sẵn và tùy chỉnh chúng vào một thời điểm khác.'
  errors:
   home_page: 'Quay lại trang chính'
   internal_server_error:
    header_message: 'Trang không thể hiển thị'
   not_found:
    header_message: 'Trang này không tồn tại'
-
  groups:
-  singular: 'Nhóm'
-  plural: 'Nhóm'
+  singular: Nhóm
+  plural: Nhóm
   form:
-    leaders: 'Nhóm trưởng'
-    only_leader: "Bạn là trưởng nhóm duy nhất, vì vậy bạn không thể rời bỏ."
-    cannot_delete: 'Xin lưu ý bạn không thể xóa bỏ nhóm.'
-    error_save: "Bạn không thể lưu nhóm này vì: "
-    error_edit_permission: 'Bạn phải là trưởng nhóm để có thể chỉnh sửa'
+   leaders: 'Nhóm trưởng'
+   only_leader: 'Bạn là trưởng nhóm duy nhất, vì vậy bạn không thể rời bỏ.'
+   cannot_delete: 'Xin lưu ý bạn không thể xóa bỏ nhóm.'
+   error_save: 'Bạn không thể lưu nhóm này vì: '
+   error_edit_permission: 'Bạn phải là trưởng nhóm để có thể chỉnh sửa'
   index:
    subtitle: 'Tạo và tham gia nhóm để hỗ trợ, hướng dẫn và thảo luận.'
    available_groups: 'Nhóm hiện hữu'
    joined_groups: 'Tham gia nhóm'
    leader: '(Nhóm trưởng)'
-   instructions: "Bạn chưa là thành viên của nhóm nào cả."
+   instructions: 'Bạn chưa là thành viên của nhóm nào cả.'
   join:
-    success: 'Bạn đã tham gia nhóm.'
-    group_not_exists: "Bạn không thể tham gia một nhóm không tồn tại."
+   success: 'Bạn đã tham gia nhóm.'
+   group_not_exists: 'Bạn không thể tham gia một nhóm không tồn tại.'
   leave:
-    error: 'Bạn không thể rời nhóm, bạn là nhóm trưởng.'
-    success: "Bạn đã ra khỏi nhóm %{group}"
-    remove_member_success: "Bạn đã gở bỏ %{user} ra khỏi nhóm %{group}"
-    remove_member_error: "Bạn không thể đá một thành viên nhóm vì bạn không phải là một nhà lãnh đạo."
+   error: 'Bạn không thể rời nhóm, bạn là nhóm trưởng.'
+   success: 'Bạn đã ra khỏi nhóm %{group}'
+   remove_member_success: 'Bạn đã gở bỏ %{user} ra khỏi nhóm %{group}'
+   remove_member_error: 'Bạn không thể đá một thành viên nhóm vì bạn không phải là một nhà lãnh đạo.'
   new: 'Nhóm mới'
   show:
    led_by: 'Điểu khiển bởi:'
    delete: 'Xóa nhóm'
-
  layouts:
   application:
    signin: 'Kể chuyện của bạn bây giờ'
@@ -177,13 +166,12 @@ vi:
    update_account: 'Hiệu đính tài khoản'
   mailer:
    html:
-    app_description: "%{app_name} là một cộng đồng khuyến khích người chia sẻ những câu chuyện của sức khỏe tinh thần với những người thân quen."
-    no_reply: "Bạn không thể hồi đáp lại email này. Nếu bạn có bất kỳ câu hỏi, mối quan tâm hay phản biện nào, hãy gửi email cho chúng tôi tại %{email}!"
+    app_description: '%{app_name} là một cộng đồng khuyến khích người chia sẻ những câu chuyện của sức khỏe tinh thần với những người thân quen.'
+    no_reply: 'Bạn không thể hồi đáp lại email này. Nếu bạn có bất kỳ câu hỏi, mối quan tâm hay phản biện nào, hãy gửi email cho chúng tôi tại %{email}!'
   title:
-   reset_password: Cài đặt lại mật khẩu
-
+   reset_password: 'Cài đặt lại mật khẩu'
  medications:
-  singular: 'Thuộc'
+  singular: Thuộc
   edit_medication: 'Chỉnh sửa thuốc'
   refill_reminder: 'Email nhắc nhở bổ sung thuốc'
   dosage: 'Liều dùng hàng ngày:'
@@ -200,43 +188,42 @@ vi:
    refill: 'bổ sung'
    comments_hint: 'Thêm bình luận vào đây, ví dụ: trạng thái của bạn'
    add_to_google_cal: 'Lịch nhắc nhở của Google'
-   google_cal_hint: "Chúng ta sẽ thêm vào nhắc nhở cho các vấn đề liên quan đến thuốc trong lịch Google."
+   google_cal_hint: 'Chúng ta sẽ thêm vào nhắc nhở cho các vấn đề liên quan đến thuốc trong lịch Google.'
    strength_hint: 'Việc sử dụng thuốc, thường được tìm thấy bên cạnh tên'
    total_hint: 'Tổng số viên và số thuốc'
    dosage_hint: 'Số lượng viên và liều lượng mỗi ngày'
-   weekly_dosage_hint: Các ngày trong tuần để uống thuốc này
+   weekly_dosage_hint: 'Các ngày trong tuần để uống thuốc này'
    refill_hint: 'Khi nào cần cấp lại thuốc'
-   refill_reminder_hint: "Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới"
-   daily_reminder_hint: "Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc"
+   refill_reminder_hint: 'Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới'
+   daily_reminder_hint: 'Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc'
   new: 'Thuốc mới'
   units:
-   display: "%{count} %{unit}"
-   mg: 'mg'
-   ml: 'ml'
+   display: '%{count} %{unit}'
+   mg: mg
+   ml: ml
    tablets:
-    one: 'viên'
-    other: 'viên'
+    one: viên
+    other: viên
   reminder_mailer:
-    subject: "Đừng quên uống %{name}!"
-    body: "Đây là nhắc nhở bạn cần phải uống thuốc %{name}!"
+   subject: 'Đừng quên uống %{name}!'
+   body: 'Đây là nhắc nhở bạn cần phải uống thuốc %{name}!'
   refill_mailer:
-    subject: "Thuốc mới %{name} của bạn sẽ có sớm!"
-    body: "Đây là nhắc nhở bạn cần bổ sung thuốc mới %{name} vào ngày %{refill}!"
+   subject: 'Thuốc mới %{name} của bạn sẽ có sớm!'
+   body: 'Đây là nhắc nhở bạn cần bổ sung thuốc mới %{name} vào ngày %{refill}!'
   index:
-   title: 'Thuốc'
+   title: Thuốc
    subtitle: 'Theo dõi việc sử dụng thuốc, bao gồm liều lượng và thông tin bổ sung thuốc mới.'
-   total: Tổng cộng
-   instructions: "Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn."
-   example_name: 'Prozac'
+   total: 'Tổng cộng'
+   instructions: 'Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn.'
+   example_name: Prozac
    example_strength: '10 mg'
    example_total: '40 viên'
    example_dosage: '2 viên'
-   example_refill: '05/31/2016'
+   example_refill: 05/31/2016
   show:
    comments: 'Bình luận:'
-
  meetings:
-  singular: Gặp gỡ
+  singular: 'Gặp gỡ'
   edit_meeting: 'Chỉnh sửa thông tin cuộc họp'
   form:
    location_placeholder: 'Liên kết mạnh hoặc địa chỉ'
@@ -250,13 +237,12 @@ vi:
     one: '%{count} Thành viên của nhóm %{group}'
     other: '%{count} Thành viên của nhóm %{group}'
   reminder_mailer:
-    subject: "Cuộc họp nhóm được gọi là \"%{meeting_name}\" sẽ diễn ra vào ngày mai tại %{time}!"
-    body: "Đây là lời nhắc thân thiện rằng cuộc họp của bạn vào ngày mai được gọi là \"%{meeting_name}\" sẽ diễn ra vào lúc %{time} tại %{location}!"
+   subject: 'Cuộc họp nhóm được gọi là "%{meeting_name}" sẽ diễn ra vào ngày mai tại %{time}!'
+   body: 'Đây là lời nhắc thân thiện rằng cuộc họp của bạn vào ngày mai được gọi là "%{meeting_name}" sẽ diễn ra vào lúc %{time} tại %{location}!'
   leave:
-    error: 'Bạn không thể bỏ qua buổi họp nhóm vì bạn là trưởng nhóm duy nhất.'
-    success: 'Bạn đã rời khỏi cuộc họp %{meeting}'
+   error: 'Bạn không thể bỏ qua buổi họp nhóm vì bạn là trưởng nhóm duy nhất.'
+   success: 'Bạn đã rời khỏi cuộc họp %{meeting}'
   new: 'Cuộc họp mới'
-
  moments:
   singular: 'Khoản khắc'
   plural: 'Khoản khắc'
@@ -264,25 +250,22 @@ vi:
   tagged_moments: 'Những khoản khắc đã được ghi'
   new: 'Khoản khắc mới'
   secret_share:
-    singular: 'Chia sẻ bí mật'
-    expires_at: 'Hết hạn lúc'
-    cancel_secret_share: 'Hủy bỏ chia sẻ bí mật'
+   singular: 'Chia sẻ bí mật'
+   expires_at: 'Hết hạn lúc'
+   cancel_secret_share: 'Hủy bỏ chia sẻ bí mật'
   form:
    why: 'Chuyện gì đã xảy ra và bạn cảm thấy thế nào?'
    fix: 'Suy nghĩ nào mà bạn muốn có?'
    what_happened: 'Điều gì đã xảy ra?'
    viewers_hint: 'Những đồng minh có thể xem bình luận của bạn'
    draft_question: 'Bạn có muốn lưu lại khoản khắc này như một bản nháp không?'
-
   index:
    subtitle: 'Đào sâu vào khoản khắc của bạn – sự kiện tình huống đã ảnh hưởng đến sức khỏe tinh thần của bạn.'
-   instructions: "Bạn chưa viết về bất kỳ khoảnh khắc nào được nêu ra.<br><br>Không biết bắt đầu từ đâu? Có chuyện gì xảy ra hôm nay mà bạn muốn chia sẻ và thảo luận với người thân yêu? Nó có thể là tích cực hoặc tiêu cực! Bạn có thể không phải chia sẻ ngay - chỉ khi bạn đã sẵn sàng! Dưới đây là ví dụ về Một phút giây.
-"
+   instructions: 'Bạn chưa viết về bất kỳ khoảnh khắc nào được nêu ra.<br><br>Không biết bắt đầu từ đâu? Có chuyện gì xảy ra hôm nay mà bạn muốn chia sẻ và thảo luận với người thân yêu? Nó có thể là tích cực hoặc tiêu cực! Bạn có thể không phải chia sẻ ngay - chỉ khi bạn đã sẵn sàng! Dưới đây là ví dụ về Một phút giây.'
    example_name: 'hoảng sợ vì buổi phỏng vấn vào ngày mai!'
    example_category: 'Nghề nghiệp'
   show:
    strategies: 'Có cách nào sẽ giúp cho bạn không?'
-
  moods:
   singular: 'Tâm trạng'
   plural: 'Tâm trạng'
@@ -301,13 +284,12 @@ vi:
    premade4_description: 'Cảm giác không chấp nhận một sự thật nào đó, cảm giác tức giận, muốn bào thù, và hoặc ganh tỵ'
    premade5_name: 'Thất vọng'
    premade5_description: 'Cảm giác buồn và vô vọng – không tìm thấy giải pháp'
-   instructions: "Bạn chưa tạo bất kỳ tâm trạng tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm các giai điệu trước và tùy chỉnh thời gian khác."
-
+   instructions: 'Bạn chưa tạo bất kỳ tâm trạng tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm các giai điệu trước và tùy chỉnh thời gian khác.'
  notifications:
   plural: 'Thông báo'
   none: 'Không có cái nào'
   clear: 'Sạch sẽ'
-  created_by_html: "<strong>Được tạo bởi</strong>:% {name}"
+  created_by_html: '<strong>Được tạo bởi</strong>:% {name}'
   preview: 'Xem thêm'
   members:
    title: 'Danh sách thành viên'
@@ -328,245 +310,237 @@ vi:
    update_meeting: '%{name} đã cập nhật "%{meeting_name}" cho "%{group_name}"'
    join_meeting: '%{name} đã tham gia "%{meeting_name}" cho "%{group_name}'
   mailer:
-    comment_on_moment_subject: "if me | % {user} đã nhận xét về thời điểm của bạn \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} đã nhận xét về chiến lược của bạn \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} đã nhận xét về cuộc họp\"%{meeting} \"trong nhóm\"%{group}\""
-    comment_on_private_body: "<p>Đồng minh của bạn <strong>%{user}</strong> đã nhận xét riêng:</p>"
-    comment_on_body: "<p>Đồng minh của bạn <strong>%{user}</strong> đã nhận xét:</p>"
-    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
-    comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>Để đọc nó,% {link}!</p>"
-    new_group_subject: "if me | %{user} đã tạo một nhóm \"%{group}\""
-    new_group_body: "<p>%{user} đã tạo một nhóm \"%{group}\":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy làm theo %{link_to_code_of_conduct}!</p>"
-    new_group_member_subject: "if me | %{user} đã tham gia nhóm của bạn \"%{group}\""
-    add_group_leader_you_subject: "if me | Bạn trở thành người lãnh đạo của \"%{group}\""
-    add_group_leader_subject: "if me | %{user} trở thành lãnh đạo của \"%{group}\""
-    add_remove_group_leader_body: "<p>Để xem \"%{group}\", % {link}!</p>"
-    remove_group_leader_you_subject: "if me | Bạn không còn là người lãnh đạo của \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} không còn là người lãnh đạo của \"%{group}\""
-    update_meeting_subject: "if me | %{user} đã cập nhật cuộc họp \"%{meeting}\" cho \"%{group}\""
-    new_meeting_subject: "if me | %{user} đã tạo một cuộc họp mới \"%{meeting}\" cho \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Vị trí:</strong> %{location}</p><p><strong>Ngày:</strong> %{date}</p><p><strong>Thời gian:</strong> %{time}</p>"
-    new_meeting_link: "<p>Để tìm hiểu thêm và tham dự, %{link}!</p>"
-    update_meeting_link: "<p>Để tìm hiểu thêm, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} đã hủy \"% {meeting}\" cho \"%{group}\""
-    join_meeting_subject: "if me | %{user} đã tham gia \"% {meeting}\" cho \"%{group}\""
-    join_meeting_body: "<p>Để xem \"%{meeting}\", %{link}!</p>"
-
+   comment_on_moment_subject: 'if me | % {user} đã nhận xét về thời điểm của bạn "%{moment}"'
+   comment_on_strategy_subject: 'if me | %{user} đã nhận xét về chiến lược của bạn "%{strategy}"'
+   comment_on_meeting_subject: 'if me | %{user} đã nhận xét về cuộc họp"%{meeting} "trong nhóm"%{group}"'
+   comment_on_private_body: '<p>Đồng minh của bạn <strong>%{user}</strong> đã nhận xét riêng:</p>'
+   comment_on_body: '<p>Đồng minh của bạn <strong>%{user}</strong> đã nhận xét:</p>'
+   comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+   comment_text: '<p><i>%{comment}</i></p>'
+   comment_link: '<p>Để đọc nó,% {link}!</p>'
+   new_group_subject: 'if me | %{user} đã tạo một nhóm "%{group}"'
+   new_group_body: '<p>%{user} đã tạo một nhóm "%{group}":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy làm theo %{link_to_code_of_conduct}!</p>'
+   new_group_member_subject: 'if me | %{user} đã tham gia nhóm của bạn "%{group}"'
+   add_group_leader_you_subject: 'if me | Bạn trở thành người lãnh đạo của "%{group}"'
+   add_group_leader_subject: 'if me | %{user} trở thành lãnh đạo của "%{group}"'
+   add_remove_group_leader_body: '<p>Để xem "%{group}", % {link}!</p>'
+   remove_group_leader_you_subject: 'if me | Bạn không còn là người lãnh đạo của "%{group}"'
+   remove_group_leader_subject: 'if me | %{user} không còn là người lãnh đạo của "%{group}"'
+   update_meeting_subject: 'if me | %{user} đã cập nhật cuộc họp "%{meeting}" cho "%{group}"'
+   new_meeting_subject: 'if me | %{user} đã tạo một cuộc họp mới "%{meeting}" cho "%{group}"'
+   meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Vị trí:</strong> %{location}</p><p><strong>Ngày:</strong> %{date}</p><p><strong>Thời gian:</strong> %{time}</p>'
+   new_meeting_link: '<p>Để tìm hiểu thêm và tham dự, %{link}!</p>'
+   update_meeting_link: '<p>Để tìm hiểu thêm, %{link}!</p>'
+   remove_meeting_subject: 'if me | %{user} đã hủy "% {meeting}" cho "%{group}"'
+   join_meeting_subject: 'if me | %{user} đã tham gia "% {meeting}" cho "%{group}"'
+   join_meeting_body: '<p>Để xem "%{meeting}", %{link}!</p>'
  omniauth:
-  google: 'Google'
+  google: Google
   access_denied: 'Truy nhập từ chối'
-
  pages:
   about:
-    send_us: 'chúng tôi'
-    email_us: 'Hãy email %{email_link}!'
-    main_message_one: "%{app_name} là một cộng đồng của sức khỏe tâm thần trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ với những đồng minh thân tín."
-    message_text_one: "Những đồng minh hay bạn bè thân tín là những người có liên hệ trong cuộc sống hàng ngày bao gốm bạn bè, thành viên gia đình, đồng nghiệp, giáo viên và những nhân viên chăm sóc sức khỏe tâm thần."
-    main_message_two: "Giải quyết cá vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó."
-    message_text_two: "Không phải ai cũng là nhà tư vấn hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chinh la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.<p><div class=\"subtitle block\">\"Không phải chỉ là trong đầu của bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng nhau chửa lành cho nhau.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Sức khỏe tâm thần là những kinh nghiệm của từng các nhân và riêng việt. không có hai cái não giống nhau, giải quyết cá vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>"
-    main_message_three: "Mong muốn ủng hộ chúng tôi?"
-    message_text_three: "Ứng dụng của chúng tôi là một dự án mã nguồn mở <u>hoàn toàn </u>. Nó được xây dựng và duy trì bởi các tình nguyện viên có nhiều nền tảng và kỹ năng khác nhau.</p><p>Vào năm 2016, chúng tôi đã nhận được khoản trợ cấp cộng đồng từ %{linebreak_link}. Năm 2017, chúng tôi nhận được tài trợ từ %{fund_club_link}.</p>Bạn có thể hỗ trợ chúng tôi bằng cách quyên góp cho %{patreon_link} của chúng tôi.</p>"
-    linebreak: 'Linebreak'
-    fund_club: 'Fund Club'
+   send_us: 'chúng tôi'
+   email_us: 'Hãy email %{email_link}!'
+   main_message_one: '%{app_name} là một cộng đồng của sức khỏe tâm thần trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ với những đồng minh thân tín.'
+   message_text_one: 'Những đồng minh hay bạn bè thân tín là những người có liên hệ trong cuộc sống hàng ngày bao gốm bạn bè, thành viên gia đình, đồng nghiệp, giáo viên và những nhân viên chăm sóc sức khỏe tâm thần.'
+   main_message_two: 'Giải quyết cá vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó.'
+   message_text_two: 'Không phải ai cũng là nhà tư vấn hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chinh la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.<p><div class="subtitle block">"Không phải chỉ là trong đầu của bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng nhau chửa lành cho nhau."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Sức khỏe tâm thần là những kinh nghiệm của từng các nhân và riêng việt. không có hai cái não giống nhau, giải quyết cá vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>'
+   main_message_three: 'Mong muốn ủng hộ chúng tôi?'
+   message_text_three: 'Ứng dụng của chúng tôi là một dự án mã nguồn mở <u>hoàn toàn </u>. Nó được xây dựng và duy trì bởi các tình nguyện viên có nhiều nền tảng và kỹ năng khác nhau.</p><p>Vào năm 2016, chúng tôi đã nhận được khoản trợ cấp cộng đồng từ %{linebreak_link}. Năm 2017, chúng tôi nhận được tài trợ từ %{fund_club_link}.</p>Bạn có thể hỗ trợ chúng tôi bằng cách quyên góp cho %{patreon_link} của chúng tôi.</p>'
+   linebreak: Linebreak
+   fund_club: 'Fund Club'
   blog:
-    description: "Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi nặc danh."
+   description: 'Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi nặc danh.'
   contribute:
-    main_message_one: "if me được xây dựng và duy trì bởi nhiều tình nguyện viên khác nhau với kiến thức và kinh nghiệm khác nhau."
-    message_text_one: "Chúng tôi tìm kiếm những ý tưởng từ tất cả mọi người, bao gồm: <strong>các nhà tư vấn tâm lý</strong>, <strong>chuyên gia sức khỏe</strong>, <strong>nhà phát triển phần mềm</strong>, <strong>biên dịch</strong>, and <strong>những nhà thiết kế chuyên nghiệp. </strong>!<p class=\"noMarginBottom\">Vui lòng %{email_link} và chúng tôi sẽ kết nối với bạn! Bạn sẽ được mời tham gia trang %{slack_link}, công cụ truyền thông chính của chúng tôi. Hãy chắc chắn kiểm tra mã của chúng tôi trên %{github_link}!</p>"
-    more_contributors: 'Những nhà đóng góp khác!'
-    thanks: 'Một lời cảm ơn nồng nhiệt đến'
-    slack: 'Slack'
+   main_message_one: 'if me được xây dựng và duy trì bởi nhiều tình nguyện viên khác nhau với kiến thức và kinh nghiệm khác nhau.'
+   message_text_one: 'Chúng tôi tìm kiếm những ý tưởng từ tất cả mọi người, bao gồm: <strong>các nhà tư vấn tâm lý</strong>, <strong>chuyên gia sức khỏe</strong>, <strong>nhà phát triển phần mềm</strong>, <strong>biên dịch</strong>, and <strong>những nhà thiết kế chuyên nghiệp. </strong>!<p class="noMarginBottom">Vui lòng %{email_link} và chúng tôi sẽ kết nối với bạn! Bạn sẽ được mời tham gia trang %{slack_link}, công cụ truyền thông chính của chúng tôi. Hãy chắc chắn kiểm tra mã của chúng tôi trên %{github_link}!</p>'
+   more_contributors: 'Những nhà đóng góp khác!'
+   thanks: 'Một lời cảm ơn nồng nhiệt đến'
+   slack: Slack
   faq:
-    title: 'Những câu hỏi thường được hỏi'
-    data_access_question: 'Ai truy nhập vào dữ liệu của chúng tôi?'
-    data_access_answer: 'Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác. Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.<br><br>Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.'
-    moment_question: 'Khoản khắc là gì?'
-    moment_answer: '<strong>%{moment}</strong> là sự kiện hay tình huống đã làm ảnh hưởng đến sức khỏe tâm thần của bạn. Nó có thể là tích cực hoặc tiêu cực. Nghĩ về nó như nhật ký tham gia hay một trạng thái được đăng tải.<br><br>Bạn có thể gắn nhãn cho những ghi chép đó bằng từ khóa với chiến lược, danh mục, và tâm trạng. Bạn cho thể chọn đồng minh có thể xem và bình luận. Bạn cũng có thể lưu giữ những ghi chép đó cho một mình bạn.'
-    strategy_question: 'Chiến lược là gì?'
-    strategy_answer: '<strong>%{strategy}</strong> là một hoạt động, dòng suy nghĩ, một hình thức tự chăm sóc giúp đỡ bạn đối mặt với vấn đề hoặc giúp đỡ bạn hồi phục.<br><br>Bạn có thể gắn nhãn những ghi chép đó trong danh mục. Bạn có thể chọn những đồng minh có thể xem và bình luận, hoặc bạn có thể lưu giữ những ghi chép đó cho riêng bạn. Chia sẻ những chiến lược đến những đồng minh đã được chọn lọc, có nghĩa là bạn có thể gắn nhãn những khoản khắc này với thẻ chiến lược!'
-    category_question: 'Danh mục là gì?'
-    category_answer: '<strong>%{category}</strong> là môt nhãn tên xuất hiện đại diện cho người, nơi chốn hay sự vật quan trọng đối với bạn.'
-    mood_question: 'Tâm trạng là gì?'
-    mood_answer: '<strong>%{mood}</strong> là những nhãn miêu trả tâm trạng, cảm giác và cảm xúc của bạn.'
-    group_question: 'Nhóm là gì?'
-    group_answer: '<strong>%{group}</strong> là một nguồn hỗ trợ, hướng dẫn và thảo luận về sức khỏe tâm thần. Bạn có thể tạo nhóm và những đồng minh của bạn có những chọn lựa để tham gia vào nhóm. Bạn cũng có thể tham gia vào những nhóm do đồng minh của bạn tạo ra.<br><br>Như là một nhóm trưởng, bạn có thể tạo ra <strong>các cuộc họp nhóm</strong>. Cuộc hóp có thời gian và nơi chốn. nơi chốn diễn ra cuộc họp có thể bên ngoài thực hoặc họp trên mạng qua Google Hangout. Tất cả cuộc họp sẽ cho phép bình luận. Nếu bạn là nhóm trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm trưởng mới thay thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên nhóm duy nhất.'
-    medications_question: 'Làm thế nào để sử dụng chức năng thuốc?'
-    medications_answer: 'Chức năng <strong>%{medications}</strong> lá chức năng cho phép bạn liên kết với toa thuốc mà bạn đang uống, bạn cũng có thể ghi chép những triệu chứng của bạn.'
-    invite_question: 'Làm thế nào để mời những người bạn yêu thích tham gia vào ứng dụng?'
-    invite_answer: 'Chuyển <strong>%{allies}</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
-    email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
-    email_notifications_answer: 'Truy cập trang <strong>%{accounts}</strong>. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
+   title: 'Những câu hỏi thường được hỏi'
+   data_access_question: 'Ai truy nhập vào dữ liệu của chúng tôi?'
+   data_access_answer: 'Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác. Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.<br><br>Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.'
+   moment_question: 'Khoản khắc là gì?'
+   moment_answer: '<strong>%{moment}</strong> là sự kiện hay tình huống đã làm ảnh hưởng đến sức khỏe tâm thần của bạn. Nó có thể là tích cực hoặc tiêu cực. Nghĩ về nó như nhật ký tham gia hay một trạng thái được đăng tải.<br><br>Bạn có thể gắn nhãn cho những ghi chép đó bằng từ khóa với chiến lược, danh mục, và tâm trạng. Bạn cho thể chọn đồng minh có thể xem và bình luận. Bạn cũng có thể lưu giữ những ghi chép đó cho một mình bạn.'
+   strategy_question: 'Chiến lược là gì?'
+   strategy_answer: '<strong>%{strategy}</strong> là một hoạt động, dòng suy nghĩ, một hình thức tự chăm sóc giúp đỡ bạn đối mặt với vấn đề hoặc giúp đỡ bạn hồi phục.<br><br>Bạn có thể gắn nhãn những ghi chép đó trong danh mục. Bạn có thể chọn những đồng minh có thể xem và bình luận, hoặc bạn có thể lưu giữ những ghi chép đó cho riêng bạn. Chia sẻ những chiến lược đến những đồng minh đã được chọn lọc, có nghĩa là bạn có thể gắn nhãn những khoản khắc này với thẻ chiến lược!'
+   category_question: 'Danh mục là gì?'
+   category_answer: '<strong>%{category}</strong> là môt nhãn tên xuất hiện đại diện cho người, nơi chốn hay sự vật quan trọng đối với bạn.'
+   mood_question: 'Tâm trạng là gì?'
+   mood_answer: '<strong>%{mood}</strong> là những nhãn miêu trả tâm trạng, cảm giác và cảm xúc của bạn.'
+   group_question: 'Nhóm là gì?'
+   group_answer: '<strong>%{group}</strong> là một nguồn hỗ trợ, hướng dẫn và thảo luận về sức khỏe tâm thần. Bạn có thể tạo nhóm và những đồng minh của bạn có những chọn lựa để tham gia vào nhóm. Bạn cũng có thể tham gia vào những nhóm do đồng minh của bạn tạo ra.<br><br>Như là một nhóm trưởng, bạn có thể tạo ra <strong>các cuộc họp nhóm</strong>. Cuộc hóp có thời gian và nơi chốn. nơi chốn diễn ra cuộc họp có thể bên ngoài thực hoặc họp trên mạng qua Google Hangout. Tất cả cuộc họp sẽ cho phép bình luận. Nếu bạn là nhóm trưởng, bạn không thể rời khỏi nhóm trừ khi có một nhóm trưởng mới thay thế. Nhóm chỉ có thể bị hủy bỏ khi bạn là thành viên nhóm duy nhất.'
+   medications_question: 'Làm thế nào để sử dụng chức năng thuốc?'
+   medications_answer: 'Chức năng <strong>%{medications}</strong> lá chức năng cho phép bạn liên kết với toa thuốc mà bạn đang uống, bạn cũng có thể ghi chép những triệu chứng của bạn.'
+   invite_question: 'Làm thế nào để mời những người bạn yêu thích tham gia vào ứng dụng?'
+   invite_answer: 'Chuyển <strong>%{allies}</strong> và các "mời bạn tham gia" bạn có thể tham gia nhóm. Khi những người bạn được mời chấp nhận lời mời, người mà bạn sẽ được đưa vào danh sách đồng minh của bạn.'
+   email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
+   email_notifications_answer: 'Truy cập trang <strong>%{accounts}</strong>. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
   home:
-    stories: 'Câu chuyện'
-    not_signed_in:
-      main_message_one: 'Một cuộc trao đổi tích cực với những người bạn yêu mến sẽ giúp cho bạn có một sức khỏe tâm thần tốt hơn.'
-      message_text_one: "Chúng ta cần nhau có nhau để phá bỏ đi những triệu chứng hay mầm bệnh này."
-      message_one: 'Chia sẻ câu chuyện của bạn với những người yêu mến và nhận những hỗ trợ ma bạn xứng đáng được nhận'
-      message_two: 'Cùng với việc hệ thống và chính sách bảo mật thông tin cá nhân, hãy là chính mình, không có ràng buộc nào cả'
-      message_three: 'Ghi chép lại tâm trạng, thuốc, và tự chăm sóc bản thân của bạn'
-      main_message_two: 'Chúng tôi là một mã nguồn mở bởi vì sức khỏe tâm thần cần được chia sẻ rộng rãi.'
-      message_text_two: "Chúng tôi <strong>luôn</strong> tìm kiếm %{help} và %{feedback}!"
-      help: 'cứu giúp'
-    signed_in_empty:
-      main_message_one: 'Xin chào %{name}!'
-      message_text_one: "Bạn có thể bắt đầu chia sẻ câu chuyện của mình."
-      main_message_two: 'Hãy cho chúng tôi biết về bạn.'
-      cell_one: 'Tùy chỉnh %{profile} của bạn - thêm hình ảnh tiểu sử và sinh học - Thêm tùy chỉnh %{moods} để mô tả tốt nhất cảm xúc của bạn<brThêm %{allies} - bạn bè, gia đình và những người khác mà bạn muốn chia sẻ với'
-      main_message_three: 'Viết câu chuyện của bạn.'
-      cell_two: 'Tạo %{categories} tùy chỉnh để giúp sắp xếp khoảnh khắc của bạn.<br>Viết về %{moments} - các sự kiện và tình huống ảnh hưởng đến sức khoẻ tinh thần của bạn.'
-      main_message_four: 'Hãy chăm sóc bản thân của bạn.'
-      cell_three: '%{strategize} kế hoạch chăm sóc sức khoẻ của bạn!<br>Hiện đang dùng %{medications}? Theo dõi và tạo lời nhắc!<br>Cần thêm hỗ trợ? Tham gia hoặc tạo một %{group} để mở'
-      main_message_five: 'Có câu  hỏi hay mối bận tâm nào?'
-      message_text_three: 'Hãy kiểm tra trang %{faq} của chúng tôi hoặc % {email_link}!'
-      strategize: 'Chiến thuật'
+   stories: 'Câu chuyện'
+   not_signed_in:
+    main_message_one: 'Một cuộc trao đổi tích cực với những người bạn yêu mến sẽ giúp cho bạn có một sức khỏe tâm thần tốt hơn.'
+    message_text_one: 'Chúng ta cần nhau có nhau để phá bỏ đi những triệu chứng hay mầm bệnh này.'
+    message_one: 'Chia sẻ câu chuyện của bạn với những người yêu mến và nhận những hỗ trợ ma bạn xứng đáng được nhận'
+    message_two: 'Cùng với việc hệ thống và chính sách bảo mật thông tin cá nhân, hãy là chính mình, không có ràng buộc nào cả'
+    message_three: 'Ghi chép lại tâm trạng, thuốc, và tự chăm sóc bản thân của bạn'
+    main_message_two: 'Chúng tôi là một mã nguồn mở bởi vì sức khỏe tâm thần cần được chia sẻ rộng rãi.'
+    message_text_two: 'Chúng tôi <strong>luôn</strong> tìm kiếm %{help} và %{feedback}!'
+    help: 'cứu giúp'
+   signed_in_empty:
+    main_message_one: 'Xin chào %{name}!'
+    message_text_one: 'Bạn có thể bắt đầu chia sẻ câu chuyện của mình.'
+    main_message_two: 'Hãy cho chúng tôi biết về bạn.'
+    cell_one: 'Tùy chỉnh %{profile} của bạn - thêm hình ảnh tiểu sử và sinh học - Thêm tùy chỉnh %{moods} để mô tả tốt nhất cảm xúc của bạn<brThêm %{allies} - bạn bè, gia đình và những người khác mà bạn muốn chia sẻ với'
+    main_message_three: 'Viết câu chuyện của bạn.'
+    cell_two: 'Tạo %{categories} tùy chỉnh để giúp sắp xếp khoảnh khắc của bạn.<br>Viết về %{moments} - các sự kiện và tình huống ảnh hưởng đến sức khoẻ tinh thần của bạn.'
+    main_message_four: 'Hãy chăm sóc bản thân của bạn.'
+    cell_three: '%{strategize} kế hoạch chăm sóc sức khoẻ của bạn!<br>Hiện đang dùng %{medications}? Theo dõi và tạo lời nhắc!<br>Cần thêm hỗ trợ? Tham gia hoặc tạo một %{group} để mở'
+    main_message_five: 'Có câu  hỏi hay mối bận tâm nào?'
+    message_text_three: 'Hãy kiểm tra trang %{faq} của chúng tôi hoặc % {email_link}!'
+    strategize: 'Chiến thuật'
   partners:
-    description: 'Có rất nhiều tổ chức thực sự tuyệt vời mà chúng tôi đã được truyền cảm hứng và vinh dự làm việc. Chúng tôi rất muốn làm việc với tổ chức của bạn, gửi email cho chúng tôi theo địa chỉ %{email}.'
+   description: 'Có rất nhiều tổ chức thực sự tuyệt vời mà chúng tôi đã được truyền cảm hứng và vinh dự làm việc. Chúng tôi rất muốn làm việc với tổ chức của bạn, gửi email cho chúng tôi theo địa chỉ %{email}.'
   privacy:
-    summary: 'Tóm tắt'
-    summary_description: '<p>Chính sách bảo mật này dành cho trang web này và chi phối sự riêng tư của những người sử dụng nó.</p><p>Với nội dung nhạy cảm của trang web, sự riêng tư là mối quan tâm vô cùng quan trọng đối với chúng tôi. Chính sách đề ra cách phác thảo cách thu thập dữ liệu người dùng, cách sử dụng và cách thức bảo vệ nó.</p>'
-    user_data: 'Dữ liệu người dùng'
-    user_data_description: '<p>Người dùng được cung cấp cho chúng tôi những trích đoạn cá nhân từ cuộc sống của họ (trong tính năng khoản khắc) và giai thoại về thuốc men. Dữ liệu từ tính năng Moments được chia sẻ với bất cứ ai mà người dùng chọn chia sẻ. Dữ liệu từ tính năng Thuốc chỉ hiển thị cho người dùng. Cả hai dữ liệu sẽ không được sử dụng cho bất kỳ mục đích bổ sung nào và không được đầu hàng cho các bên bên ngoài. Ứng dụng cũng chứa dữ liệu liên quan đến các nhóm hỗ trợ và các chiến lược để giải quyết các thách thức về sức khoẻ tâm thần. Dữ liệu này chỉ có thể truy cập được cho người dùng được phép xem. Dữ liệu từ cả hai tính năng có thể được hiển thị công khai để giới thiệu cho những người dùng hiện tại và tương lai. Tuy nhiên, danh tính người dùng sẽ được giữ kín.</p>'
-    cookies: 'Sử dụng văn bản ghi thông tin'
-    cookies_description: "<p>Trang web này sử dụng cookie để cải thiện trải nghiệm người dùng khi truy cập trang web. Trường hợp trang web này sử dụng hệ thống kiểm soát cookie cho phép người dùng truy cập vào trang web lần đầu tiên để cho phép hoặc không cho phép sử dụng cookie trên máy tính / thiết bị.</p><p>Cookie là các tệp nhỏ được lưu vào máy tính của người dùng lái xe theo dõi, lưu và lưu trữ thông tin về tương tác của người dùng và cách sử dụng trang web. Điều này cho phép trang web thông qua máy chủ của nó cung cấp cho người dùng trải nghiệm phù hợp trong trang web này. Người dùng được khuyên rằng nếu họ muốn từ chối việc sử dụng và lưu cookie từ trang web này vào máy tính của họ trên ổ cứng họ nên thực hiện các bước cần thiết trong cài đặt bảo mật trình duyệt web của họ để chặn tất cả cookie khỏi trang web này và các nhà cung cấp dịch vụ bên ngoài của trang web.</p><p>Trang web này sử dụng phần mềm theo dõi để theo dõi khách truy cập để hiểu rõ hơn cách sử dụng. Phần mềm này được Google Analytics cung cấp sử dụng cookie để theo dõi việc sử dụng của khách truy cập. Phần mềm sẽ lưu một cookie vào ổ cứng máy tính của bạn để theo dõi và theo dõi sự tham gia của bạn và sử dụng trang web, nhưng sẽ không lưu, lưu hoặc thu thập thông tin cá nhân. Bạn có thể đọc %{google_privacy_policy} của Google để biết thêm thông tin.</p>"
-    social_media: 'Nền tảng truyền thông xã hội'
-    social_media_description: '<p>Thông tin, sự tương tác và các hành động được thực hiện thông qua các nền tảng phương tiện truyền thông xã hội bên ngoài mà trang web này tham gia là tùy chỉnh theo các điều khoản và điều kiện cũng như các chính sách bảo mật được tổ chức với từng nền tảng truyền thông xã hội tương ứng. sử dụng nền tảng phương tiện truyền thông xã hội một cách khôn ngoan và giao tiếp / tham gia vào họ cẩn thận và thận trọng liên quan đến quyền riêng tư và thông tin cá nhân của họ. Trang web này sẽ không bao giờ yêu cầu thông tin cá nhân hoặc nhạy cảm thông qua các phương tiện truyền thông xã hội và khuyến khích người dùng muốn thảo luận chi tiết nhạy cảm để liên lạc với họ thông qua các kênh truyền thông chính như điện thoại hoặc email.</p><p>Trang web này có thể sử dụng các nút chia sẻ trên mạng xã hội giúp chia sẻ nội dung web trực tiếp từ các trang web đến nền tảng phương tiện truyền thông xã hội đang được đề cập. Người dùng được khuyên trước khi sử dụng các nút chia sẻ trên mạng xã hội theo ý riêng của họ và lưu ý rằng nền tảng phương tiện truyền thông xã hội có thể theo dõi và lưu yêu cầu chia sẻ trang web tương ứng qua tài khoản nền tảng truyền thông xã hội của bạn.</p>'
-    contact: 'Liên hệ với chúng tôi'
-    contact_description: "<p>Vui lòng %{email_link} nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào.</p><p class=\"noMarginBottom\"><em>Chính sách Bảo mật được điều chỉnh từ% {jamie_king_media}.</em></p>"
+   summary: 'Tóm tắt'
+   summary_description: '<p>Chính sách bảo mật này dành cho trang web này và chi phối sự riêng tư của những người sử dụng nó.</p><p>Với nội dung nhạy cảm của trang web, sự riêng tư là mối quan tâm vô cùng quan trọng đối với chúng tôi. Chính sách đề ra cách phác thảo cách thu thập dữ liệu người dùng, cách sử dụng và cách thức bảo vệ nó.</p>'
+   user_data: 'Dữ liệu người dùng'
+   user_data_description: '<p>Người dùng được cung cấp cho chúng tôi những trích đoạn cá nhân từ cuộc sống của họ (trong tính năng khoản khắc) và giai thoại về thuốc men. Dữ liệu từ tính năng Moments được chia sẻ với bất cứ ai mà người dùng chọn chia sẻ. Dữ liệu từ tính năng Thuốc chỉ hiển thị cho người dùng. Cả hai dữ liệu sẽ không được sử dụng cho bất kỳ mục đích bổ sung nào và không được đầu hàng cho các bên bên ngoài. Ứng dụng cũng chứa dữ liệu liên quan đến các nhóm hỗ trợ và các chiến lược để giải quyết các thách thức về sức khoẻ tâm thần. Dữ liệu này chỉ có thể truy cập được cho người dùng được phép xem. Dữ liệu từ cả hai tính năng có thể được hiển thị công khai để giới thiệu cho những người dùng hiện tại và tương lai. Tuy nhiên, danh tính người dùng sẽ được giữ kín.</p>'
+   cookies: 'Sử dụng văn bản ghi thông tin'
+   cookies_description: '<p>Trang web này sử dụng cookie để cải thiện trải nghiệm người dùng khi truy cập trang web. Trường hợp trang web này sử dụng hệ thống kiểm soát cookie cho phép người dùng truy cập vào trang web lần đầu tiên để cho phép hoặc không cho phép sử dụng cookie trên máy tính / thiết bị.</p><p>Cookie là các tệp nhỏ được lưu vào máy tính của người dùng lái xe theo dõi, lưu và lưu trữ thông tin về tương tác của người dùng và cách sử dụng trang web. Điều này cho phép trang web thông qua máy chủ của nó cung cấp cho người dùng trải nghiệm phù hợp trong trang web này. Người dùng được khuyên rằng nếu họ muốn từ chối việc sử dụng và lưu cookie từ trang web này vào máy tính của họ trên ổ cứng họ nên thực hiện các bước cần thiết trong cài đặt bảo mật trình duyệt web của họ để chặn tất cả cookie khỏi trang web này và các nhà cung cấp dịch vụ bên ngoài của trang web.</p><p>Trang web này sử dụng phần mềm theo dõi để theo dõi khách truy cập để hiểu rõ hơn cách sử dụng. Phần mềm này được Google Analytics cung cấp sử dụng cookie để theo dõi việc sử dụng của khách truy cập. Phần mềm sẽ lưu một cookie vào ổ cứng máy tính của bạn để theo dõi và theo dõi sự tham gia của bạn và sử dụng trang web, nhưng sẽ không lưu, lưu hoặc thu thập thông tin cá nhân. Bạn có thể đọc %{google_privacy_policy} của Google để biết thêm thông tin.</p>'
+   social_media: 'Nền tảng truyền thông xã hội'
+   social_media_description: '<p>Thông tin, sự tương tác và các hành động được thực hiện thông qua các nền tảng phương tiện truyền thông xã hội bên ngoài mà trang web này tham gia là tùy chỉnh theo các điều khoản và điều kiện cũng như các chính sách bảo mật được tổ chức với từng nền tảng truyền thông xã hội tương ứng. sử dụng nền tảng phương tiện truyền thông xã hội một cách khôn ngoan và giao tiếp / tham gia vào họ cẩn thận và thận trọng liên quan đến quyền riêng tư và thông tin cá nhân của họ. Trang web này sẽ không bao giờ yêu cầu thông tin cá nhân hoặc nhạy cảm thông qua các phương tiện truyền thông xã hội và khuyến khích người dùng muốn thảo luận chi tiết nhạy cảm để liên lạc với họ thông qua các kênh truyền thông chính như điện thoại hoặc email.</p><p>Trang web này có thể sử dụng các nút chia sẻ trên mạng xã hội giúp chia sẻ nội dung web trực tiếp từ các trang web đến nền tảng phương tiện truyền thông xã hội đang được đề cập. Người dùng được khuyên trước khi sử dụng các nút chia sẻ trên mạng xã hội theo ý riêng của họ và lưu ý rằng nền tảng phương tiện truyền thông xã hội có thể theo dõi và lưu yêu cầu chia sẻ trang web tương ứng qua tài khoản nền tảng truyền thông xã hội của bạn.</p>'
+   contact: 'Liên hệ với chúng tôi'
+   contact_description: '<p>Vui lòng %{email_link} nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào.</p><p class="noMarginBottom"><em>Chính sách Bảo mật được điều chỉnh từ% {jamie_king_media}.</em></p>'
   resources:
-    communities: Cộng đồng
-    education: Giáo dục
-    hotlines: Khẩn cấp
-    services: Dịch vụ
-    tags:
-      people_of_colour: người da màu
-      women_of_colour: phụ nữ da màu
-      black_women: phụ nữ da đen
-      domestic_violence: bạo hành gia đình
-      dating_violence: bạo hành cặp bồ
-      cyberbullying: máy tính
-      therapy: trị liệu
-      counseling: tư vấn
-      youth: tuổi trẻ
-      lgbtqia: LGBTQIA
-      harassment: quấy rối
-      self_care: tự chăm sóc
-      women: phụ nữ
-      chatbot: chatbot
-      anonymous: ẩn danh
-      free: miến phí
-      paid: thanh toán
-      twenty_four_seven: 24/7
-      videos: ghi hình
-      blog: nhật ký
-      podcast: kênh
-      books: sách
-      publication: xuất bản
-      video_chat: trò chuyện bằng hình ảnh
-      texting: tin nhắn
-      open_source: mã nguồn mở
-      workplace: nơi làm việc
-      social_justice: đạo đức xã hội – công lý
-      tech_industry: công nghệ
-      meditation: thiền định
-      social_anxiety: lo lắng xã hội
-      trigger_warnings: cảnh báo
-      netflix: netflix
-      homeless: vô gia cư
-      talks: nói chuyện
-      voice_chat: tán ngẫu
-      training: đào tạo
-      directory: danh mục hướng dẫn
-      self_injury: tổn thương
-      treatment: điều trị
-      care_planning: chương trình chăm sóc
-      depression: căng thẳng
-      ocd: OCD
-      advice: lời khuyên
-      forum: diễn đàn
-      learning: học hỏi
-      crisis_prevention: phòng chống khủng hoảng
-      safety_planning: kế hoạch an toàn
-      suicide_prevention: phòng chống tự tử
-      android: android
-      ios: iOS
-      support_groups:  nhóm hỗ trợ
-      mindfulness: toàn tâm
-      journaling: ghi nhật ký
-      mood_tracking: theo dõi tâm trạng
-      veterans: cựu binh
-      music: âm nhạc
-      integrative: âm nhạc
-      ptsd: PTSD
-      tbi: TBI
-      news: tin tức
-      government: chính phủ
-      christian: người đạo tin lành
-      humor: hài hước
-      conference: họp nhóm
-      addiction: nghiện
-      rehabilitation: hàn gắng
-      teachers: giáo viên
-      bipolar: bipolar
-
+   communities: 'Cộng đồng'
+   education: 'Giáo dục'
+   hotlines: 'Khẩn cấp'
+   services: 'Dịch vụ'
+   tags:
+    people_of_colour: 'người da màu'
+    women_of_colour: 'phụ nữ da màu'
+    black_women: 'phụ nữ da đen'
+    domestic_violence: 'bạo hành gia đình'
+    dating_violence: 'bạo hành cặp bồ'
+    cyberbullying: 'máy tính'
+    therapy: 'trị liệu'
+    counseling: 'tư vấn'
+    youth: 'tuổi trẻ'
+    lgbtqia: LGBTQIA
+    harassment: 'quấy rối'
+    self_care: 'tự chăm sóc'
+    women: 'phụ nữ'
+    chatbot: chatbot
+    anonymous: 'ẩn danh'
+    free: 'miến phí'
+    paid: 'thanh toán'
+    twenty_four_seven: 24/7
+    videos: 'ghi hình'
+    blog: 'nhật ký'
+    podcast: kênh
+    books: sách
+    publication: 'xuất bản'
+    video_chat: 'trò chuyện bằng hình ảnh'
+    texting: 'tin nhắn'
+    open_source: 'mã nguồn mở'
+    workplace: 'nơi làm việc'
+    social_justice: 'đạo đức xã hội – công lý'
+    tech_industry: 'công nghệ'
+    meditation: 'thiền định'
+    social_anxiety: 'lo lắng xã hội'
+    trigger_warnings: 'cảnh báo'
+    netflix: netflix
+    homeless: 'vô gia cư'
+    talks: 'nói chuyện'
+    voice_chat: 'tán ngẫu'
+    training: 'đào tạo'
+    directory: 'danh mục hướng dẫn'
+    self_injury: 'tổn thương'
+    treatment: 'điều trị'
+    care_planning: 'chương trình chăm sóc'
+    depression: 'căng thẳng'
+    ocd: OCD
+    advice: 'lời khuyên'
+    forum: 'diễn đàn'
+    learning: 'học hỏi'
+    crisis_prevention: 'phòng chống khủng hoảng'
+    safety_planning: 'kế hoạch an toàn'
+    suicide_prevention: 'phòng chống tự tử'
+    android: android
+    ios: iOS
+    support_groups: 'nhóm hỗ trợ'
+    mindfulness: 'toàn tâm'
+    journaling: 'ghi nhật ký'
+    mood_tracking: 'theo dõi tâm trạng'
+    veterans: 'cựu binh'
+    music: 'âm nhạc'
+    integrative: 'âm nhạc'
+    ptsd: PTSD
+    tbi: TBI
+    news: 'tin tức'
+    government: 'chính phủ'
+    christian: 'người đạo tin lành'
+    humor: 'hài hước'
+    conference: 'họp nhóm'
+    addiction: nghiện
+    rehabilitation: 'hàn gắng'
+    teachers: 'giáo viên'
+    bipolar: bipolar
  profile:
   index:
    title: 'Hồ sơ'
    edit_user: 'Tùy chỉnh tiểu sử'
-
  pusher:
   not_authorized: 'Không xác minh'
-
  search:
   label: 'Tìm kiếm'
   search_by_name: 'Tìm kiêm bằng tên'
   form:
    search_by_location: 'Tìm kiếm bằng nơi chốn'
    search_by_email: 'Tìm kiếm bằng email'
-
   index:
    title: 'Tìm đồng minh'
    user_not_found: 'Người dùng %{email} không tìm thấy'
-
  shared:
   footer:
-    licence: 'AGPL-3.0'
-    licence_subtitle: 'Được cấp phép theo %{licence}'
-    connect: 'kết nối'
+   licence: AGPL-3.0
+   licence_subtitle: 'Được cấp phép theo %{licence}'
+   connect: 'kết nối'
   comments:
-    share_everyone: 'Chia sẻ với mọi người'
-    share_with: 'Chia sẻ với %{name}'
-    visible_only_between_you_and: 'Chỉ hiển thị giữa bạn và %{name}'
-    not_allies: '(không đồng minh)'
+   share_everyone: 'Chia sẻ với mọi người'
+   share_with: 'Chia sẻ với %{name}'
+   visible_only_between_you_and: 'Chỉ hiển thị giữa bạn và %{name}'
+   not_allies: '(không đồng minh)'
   header:
    signout: 'Đăng xuất'
-   home: 'Nhà'
+   home: Nhà
   viewers_indicator:
    disabled_comments: 'Bình luận được hiển thị.'
    you_are_viewer_html:
     one: 'Bạn là người xem duy nhất.'
     other: 'Bạn <strong>không</strong> phải là người xem duy nhất.'
    viewers_html:
-     zero: 'Có <strong>không</strong> người xem.'
-     one: '%{names} là người xem.'
-     other: '%{names} là người xem.'
+    zero: 'Có <strong>không</strong> người xem.'
+    one: '%{names} là người xem.'
+    other: '%{names} là người xem.'
   stats:
-    you_are_focusing: 'Bạn tập trung vào nhất'
-    user_is_focusing: '%{name} đang tập trung nhiều nhất vào'
+   you_are_focusing: 'Bạn tập trung vào nhất'
+   user_is_focusing: '%{name} đang tập trung nhiều nhất vào'
   viewers:
-    plural: 'Người xem'
-    you: 'Duy nhất có bạn'
-    you_link: 'Hiển thị duy nhất cho bạn'
-    many: 'Hiển thị đối với %{khán giả}'
+   plural: 'Người xem'
+   you: 'Duy nhất có bạn'
+   you_link: 'Hiển thị duy nhất cho bạn'
+   many: 'Hiển thị đối với %{khán giả}'
   meeting_info:
-    attending: 'Bạn đang tham gia vào, có thay đổi quyết định không?'
-    not_attending: 'Bạn đang tham gia vào. %{join}'
-    not_attending_one_spot_left: 'Bạn không tham gia, chỉ còn một chổ duy nhất! %{join}'
-    not_attending_spots_left: 'Bạn không tham dự. Có %{number} điểm còn lại để điền! %{tham gia}'
-    not_attending_no_spots_left: 'Bạn không tham dự. Không có chỗ để tham gia.'
+   attending: 'Bạn đang tham gia vào, có thay đổi quyết định không?'
+   not_attending: 'Bạn đang tham gia vào. %{join}'
+   not_attending_one_spot_left: 'Bạn không tham gia, chỉ còn một chổ duy nhất! %{join}'
+   not_attending_spots_left: 'Bạn không tham dự. Có %{number} điểm còn lại để điền! %{tham gia}'
+   not_attending_no_spots_left: 'Bạn không tham dự. Không có chỗ để tham gia.'
   quick_create:
    new: 'Mới %{name}'
-
  strategies:
   singular: 'Chiến lược'
   plural: 'Chiến lược'
@@ -578,7 +552,7 @@ vi:
    strategies_label: 'Chiến lược nào sẽ giúp ban đạt được suy nghĩ này?'
    name_hint: 'Có bất kỳ hành động, dòng suy nghĩ hay hình tự chăm sóc nào giúp đỡ bạn hay không?'
    viewers_hint: 'Đồng minh có thể xem chiến lược của bạn và gắng bình luận của bạn vào chiến lược đó'
-   daily_reminder_hint: "Chúng tôi sẽ gửi email nhắc nhở để bạn thực hiện chiến lược đó"
+   daily_reminder_hint: 'Chúng tôi sẽ gửi email nhắc nhở để bạn thực hiện chiến lược đó'
    draft_question: 'Bạn có muốn lưu chiến lược đó như bản nháp không?'
   label:
    one: 'Chiến lược:'
@@ -587,88 +561,83 @@ vi:
    subtitle: 'Chiến lược chăm sóc bản thân giúp bạn đạt được những mong muốn và thái độ cần thiết cho khoản khắc của bạn.'
    premade1_name: 'Năm phút thiền định'
    premade1_description: '1) <b>Tìm một vị trí thật thoải mái, bạn có thể ngồi trên ghế hoặc đệm.</b> Giữ lưng thẳng đứng nhưng không cần quá cứng ngắt. Để tay ở chổ nào bạn thấy thoải mái nhất, thả lỏng miệng.<br><br>2) <b>Nhận biết cơ thề và thả lỏng nó.</b> Cố gắng nhận biết cơ thể mình, trọng lượng. hãy để cho cơ thể được thư giản và để tâm đến vị trí ngồi của mình. Cảm giác, sự đụng chạm, liên kết giữa ghế và sàn. Thả lỏng những vùng bị chặt. Chỉ thở, theo dõi hơi thở, thở ra thở vào.<br><br>3) <b>Bạn không cần làm gì với hơi thở của mình, không dài không ngắn chỉ thở cách bình thường.</b> Nhận biết hơi thở của mình trong người trong vùng bụng, có thể trong lồng ngực, cuốn họng hoặc khoan mũi. See if you can feel the sensations of breath, one breath at a time. When one breath ends, the next breath begins.<br><br>4) <b>Nhẹ nhàn cùng dòng suy nghĩ của bạn.</b> Khi bạn thực hiện điều này, có lúc bạn sẽ biết suy nghĩ của bạn bắt đầu lang thang. Bạn bắt đầu nghĩ về những điều khác, nếu điểu đó xảy ra, không vấn đề gì cả, điều đó bình thường.Chỉ nhận biết tâm trí bạn đang rong chơi, bạn có thể nói:  suy nghĩ của mình đang rong chơi – thì thầm - nho nhỏ. Và từ từ điều khiển suy nghĩ của mình quay về việc thở.<br><br>5) <b>Cứ như vậy, như vậy trong vòng năm đến bảy phút.</b> Nhận biết hơn thở trong thinh lặng. Từ từ bạn sẽ quay về được với việc thở.<br><br>6) <b>Thở ra thở vào.</b> Sau vài phút, một khi bạn nhận biết cơ thể, toàn cơ thể, vị trí ngồi. cho phép người bạn thả lỏng sâu hơn và tự thưởng cho mình vì đã làm được điều này trong ngày hôm nay.<br><br><i>Trích từ: http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Bạn chưa tạo bất kỳ chiến lược tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm chiến lược làm sẵn sau và tùy chỉnh nó một lần nữa."
+   instructions: 'Bạn chưa tạo bất kỳ chiến lược tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm chiến lược làm sẵn sau và tùy chỉnh nó một lần nữa.'
   reminder_mailer:
-    subject: "Đừng quên thể hiện %{name}!"
-    body: "Đậy là nhắc nhở để thể hiện %{name}!"
-
+   subject: 'Đừng quên thể hiện %{name}!'
+   body: 'Đậy là nhắc nhở để thể hiện %{name}!'
  stats:
   total_moments: 'Bạn đã viết <strong>tổng số</strong> <strong>%{count}</strong> khoảnh khắc.'
   total_moment: 'Bạn đã viết <strong>tổng số</strong> <strong>%{count}</strong> khoảnh khắc.'
   monthly_moments: '<strong>Tháng</strong> bạn đã viết <strong>%{count}</strong> khoảnh khắc.'
   monthly_moment: '<strong>Tháng</strong> bạn đã viết <strong>%{count}</strong> khoảnh khắc.'
-
  warnings:
-  no_description: "Bạn không viết miêu tả nào!"
-  yes_description: "Viết ra sẽ giúp cho bạn và những người khác hiểu về vấn đề một cách chiết tiết hơn"
-
+  no_description: 'Bạn không viết miêu tả nào!'
+  yes_description: 'Viết ra sẽ giúp cho bạn và những người khác hiểu về vấn đề một cách chiết tiết hơn'
  mailers:
-   accepted_ally_request:
-     subject: "if me | %{ally_name} chấp nhận yêu cầu của đồng minh!"
-     message: "<p>Chúc mừng! Giờ đây, bạn có thể chia sẻ khoảnh khắc, chiến lược và hơn thế nữa với %{ally_name}.</p>"
-   new_ally_request:
-     subject: "if me | %{ally_name} đã gửi một yêu cầu của đồng minh!"
-     message: "<p>Vui lòng <a href=\"%{allies_url}\">đăng nhập</a> để chấp nhận hoặc từ chối yêu cầu!</p>"
-
+  accepted_ally_request:
+   subject: 'if me | %{ally_name} chấp nhận yêu cầu của đồng minh!'
+   message: '<p>Chúc mừng! Giờ đây, bạn có thể chia sẻ khoảnh khắc, chiến lược và hơn thế nữa với %{ally_name}.</p>'
+  new_ally_request:
+   subject: 'if me | %{ally_name} đã gửi một yêu cầu của đồng minh!'
+   message: '<p>Vui lòng <a href="%{allies_url}">đăng nhập</a> để chấp nhận hoặc từ chối yêu cầu!</p>'
  devise:
-  password: "Mật khẩu"
-  new_password: "Mật khẩu mới"
-  current_password: "Mật khẩu hiện giờ"
-  password_change: "Thay đổi mật khẩu"
-  remember_me: "Ghi nhớ tôi"
+  password: 'Mật khẩu'
+  new_password: 'Mật khẩu mới'
+  current_password: 'Mật khẩu hiện giờ'
+  password_change: 'Thay đổi mật khẩu'
+  remember_me: 'Ghi nhớ tôi'
   confirmations:
-    resend_confirmation: "Gửi lại hướng dẫn xác nhận"
+   resend_confirmation: 'Gửi lại hướng dẫn xác nhận'
   mailer:
-    confirmation:
-      link_instructions: "Bạn có thể xác nhận tài khoản của bạn thông qua liên kết bên dưới"
-      link_text: "Xác nhận tài khoản"
-    reset_password:
-      link_instructions: "Có người đã yêu cầu gửi đường dẫn thay đổi mật khẩu của bạn. Bạn có thể thực hiên thông qua liên kết bên dưới."
-      ignore: "Nếu bạn không yêu cầu, vui lòng bỏ qua email này."
-      info: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy nhập vào liện kết trên và từ đó tạo một mật khẩu mới."
-    unlock:
-      info: "Tài khoản của bạn đã bị khóa vì đã đăng nhập nhiều lần không thành công."
-      link_instructions: "Nhấn vào đường dẫn bên dưới để mở khóa tài khoản của bạn"
-      link_text: "Mở khóa tài khoản của bạn"
+   confirmation:
+    link_instructions: 'Bạn có thể xác nhận tài khoản của bạn thông qua liên kết bên dưới'
+    link_text: 'Xác nhận tài khoản'
+   reset_password:
+    link_instructions: 'Có người đã yêu cầu gửi đường dẫn thay đổi mật khẩu của bạn. Bạn có thể thực hiên thông qua liên kết bên dưới.'
+    ignore: 'Nếu bạn không yêu cầu, vui lòng bỏ qua email này.'
+    info: 'Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy nhập vào liện kết trên và từ đó tạo một mật khẩu mới.'
+   unlock:
+    info: 'Tài khoản của bạn đã bị khóa vì đã đăng nhập nhiều lần không thành công.'
+    link_instructions: 'Nhấn vào đường dẫn bên dưới để mở khóa tài khoản của bạn'
+    link_text: 'Mở khóa tài khoản của bạn'
   passwords:
-    edit:
-      confirmation: "Xác nhận mật khẩu mới"
-    new:
-      send_instructions: "Gửi hướng dẫn cài đặt lại mật khẩu"
-
+   edit:
+    confirmation: 'Xác nhận mật khẩu mới'
+   new:
+    send_instructions: 'Gửi hướng dẫn cài đặt lại mật khẩu'
   registrations:
-    email_notifications: "Email thông báo"
-    comment_notify_text: "Bình luận trên các khoản khắc, chiến lược và họp nhóm"
-    ally_notify_text: "Mới và chấp nhận tất cả những yêu cầu"
-    group_notify_text: "Cập nhật nhóm"
-    meeting_notify_text: "Cập nhật họp nhóm"
-    google_auth1: "Nếu bạn không muốn xác minh tài khoản thông qua Google, xin vui lòng đăng nhập bằng một email và mật khẩu mới."
-    google_auth2: "Bởi vì bạn xác minh tài khoản thông quan Google, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới."
+   email_notifications: 'Email thông báo'
+   comment_notify_text: 'Bình luận trên các khoản khắc, chiến lược và họp nhóm'
+   ally_notify_text: 'Mới và chấp nhận tất cả những yêu cầu'
+   group_notify_text: 'Cập nhật nhóm'
+   meeting_notify_text: 'Cập nhật họp nhóm'
+   google_auth1: 'Nếu bạn không muốn xác minh tài khoản thông qua Google, xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
+   google_auth2: 'Bởi vì bạn xác minh tài khoản thông quan Google, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
+   placeholders:
+    repeat_password: 'Lập lại mật khẩu lần nữa'
+   edit:
+    labels:
+     profile_picture: 'Hình ảnh đại diện'
+     remove_picture: 'Gỡ bỏ hình ảnh đại diện'
+     password_for: 'Mật khẩu cho tài khoản <strong>if me</strong>'
+     update: 'Cập nhật'
     placeholders:
-      repeat_password: "Lập lại mật khẩu lần nữa"
-    edit:
-      labels:
-        profile_picture: "Hình ảnh đại diện"
-        remove_picture: "Gỡ bỏ hình ảnh đại diện"
-        password_for: "Mật khẩu cho tài khoản <strong>if me</strong>"
-        update: "Cập nhật"
-      placeholders:
-        optional: "Chọn lựa"
-        about: "Giới thiệu chính bạn và tại sao bạn lại ở đây bạn mong đợi sẽ đạt đươc điều gì, xin vui lòng lưu ý điều này sẽ xuất hiện khi người dùng tìm kiếm bạn"
-        required: "Yêu cầu"
-      delete:
-        text: "Đây có phải là trang <strong>if me</strong> không giúp bạn?"
-        button: "Xóa tài khoản của tôi vĩnh viễn"
-        confirm: "Bạn có chắc chắn không? Bạn sẽ mất tất cả dữ liệu của bạn, tuy nhiên bạn có thể đăng ký bất cứ lúc nào!"
-    new:
-      subtitle: "Bắt đầu chia sẻ câu chuyện của bạn, và duy trì sức khỏe của bạn một nơi an toàn và riêng tư"
-      label: "Một vài chi tiết"
+     optional: 'Chọn lựa'
+     about: 'Giới thiệu chính bạn và tại sao bạn lại ở đây bạn mong đợi sẽ đạt đươc điều gì, xin vui lòng lưu ý điều này sẽ xuất hiện khi người dùng tìm kiếm bạn'
+     required: 'Yêu cầu'
+    delete:
+     text: 'Đây có phải là trang <strong>if me</strong> không giúp bạn?'
+     button: 'Xóa tài khoản của tôi vĩnh viễn'
+     confirm: 'Bạn có chắc chắn không? Bạn sẽ mất tất cả dữ liệu của bạn, tuy nhiên bạn có thể đăng ký bất cứ lúc nào!'
+   new:
+    subtitle: 'Bắt đầu chia sẻ câu chuyện của bạn, và duy trì sức khỏe của bạn một nơi an toàn và riêng tư'
+    label: 'Một vài chi tiết'
   sessions:
-    subtitle: "Chào mừng bạn quay  trở lại, chúng tôi hy vọng sẽ giúp bạn gỡ bỏ những rắc rối"
+   subtitle: 'Chào mừng bạn quay  trở lại, chúng tôi hy vọng sẽ giúp bạn gỡ bỏ những rắc rối'
   shared:
-    sign_in_google: 'Đăng nhập với Google'
-    sign_up_google: 'Đăng ký với Google'
-    confirmation: "Không nhận được hướng dẫn xác nhận?"
-    unlock: "Không nhận được hứng dẫn mở khóa?"
+   sign_in_google: 'Đăng nhập với Google'
+   sign_up_google: 'Đăng ký với Google'
+   confirmation: 'Không nhận được hướng dẫn xác nhận?'
+   unlock: 'Không nhận được hứng dẫn mở khóa?'
   unlock:
-    resend: 'Gửi lại hướng dẫn mở khóa'
+   resend: 'Gửi lại hướng dẫn mở khóa'
