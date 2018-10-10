@@ -1,63 +1,60 @@
-# if me: DO NOT modify this file. if you need to add translations, add them to en.yml
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 fl:
   devise:
     confirmations:
-      confirmed: "Ang iyong account ay matagumpay na nakomperma."
-      send_instructions: "Ikaw ay makakatanggap ng email na may kalakip na mga instruksiyon tungkol sa kung papaano i-komperma ang iyong account sa kakaunting minuto."
-      send_paranoid_instructions: "Kapag ang iyong email address ay umiiral sa aming database, ikaw ay makakatanggap ng email na may kasamang mga instruksiyon kung papaano i-komperma ang iyong account sa kakaunting minuto."
+      confirmed: 'Ang iyong account ay matagumpay na nakomperma.'
+      send_instructions: 'Ikaw ay makakatanggap ng email na may kalakip na mga instruksiyon tungkol sa kung papaano i-komperma ang iyong account sa kakaunting minuto.'
+      send_paranoid_instructions: 'Kapag ang iyong email address ay umiiral sa aming database, ikaw ay makakatanggap ng email na may kasamang mga instruksiyon kung papaano i-komperma ang iyong account sa kakaunting minuto.'
     failure:
-      already_authenticated: "Ikaw ay ay naka-signed in na."
-      inactive: "Ang iyong account ay hindi pa aktibo."
-      invalid: "Hindi tama ang email o password."
-      locked: "Ang iyong account ay nai-locked."
-      last_attempt: "Mayroon kapang isang subok bago ma-locked ang iyong account."
-      not_found_in_database: "Hindi tama ang email o password."
-      timeout: "Ang sesyon ay natapos na. Kung maaari mag-sign in para makapagpatuloy."
-      unauthenticated: "Kailangan mong mag-sign in o mag-sign up bago magpatuloy."
-      unconfirmed: "Kinakailangan mong magkomperma sa iyong account bago magpatuloy."
+      already_authenticated: 'Ikaw ay ay naka-signed in na.'
+      inactive: 'Ang iyong account ay hindi pa aktibo.'
+      invalid: 'Hindi tama ang email o password.'
+      locked: 'Ang iyong account ay nai-locked.'
+      last_attempt: 'Mayroon kapang isang subok bago ma-locked ang iyong account.'
+      not_found_in_database: 'Hindi tama ang email o password.'
+      timeout: 'Ang sesyon ay natapos na. Kung maaari mag-sign in para makapagpatuloy.'
+      unauthenticated: 'Kailangan mong mag-sign in o mag-sign up bago magpatuloy.'
+      unconfirmed: 'Kinakailangan mong magkomperma sa iyong account bago magpatuloy.'
     mailer:
       confirmation_instructions:
-        subject: "Ang mga instruksiyon para sa kompermasyon"
+        subject: 'Ang mga instruksiyon para sa kompermasyon'
       reset_password_instructions:
-        subject: "I-reset ang mga instruksiyon para sa password"
+        subject: 'I-reset ang mga instruksiyon para sa password'
       unlock_instructions:
-        subject: "I-unlock ang mga Instruksiyon"
+        subject: 'I-unlock ang mga Instruksiyon'
       password_change:
-        subject: "Nabago ang Password"
+        subject: 'Nabago ang Password'
     omniauth_callbacks:
-      failure: "Hindi makapagpatotoo sa iyo mula sa %{kind} dahil sa \"%{reason}\"."
-      success: "Matagumpay na napatotoo mula sa %{kind} account."
+      failure: 'Hindi makapagpatotoo sa iyo mula sa %{kind} dahil sa "%{reason}".'
+      success: 'Matagumpay na napatotoo mula sa %{kind} account.'
     passwords:
-      no_token: "Hindi ka maka-akses sa pahinang ito kung wala kang password reset mula sa iyong email. Kapag gusto mong baguhin ang password gamit ang email, dapat siguraduhin na gamitin ang buong URL na ibinigay."
-      send_instructions: "Ikaw ay makatanggap ng email na may kalakip na mga tungkol sa kung papaano ma-reset ang iyong password sa iilang minuto."
-      send_paranoid_instructions: "Kapag ang iyung email ay nasa database na namin, ikaw ay makakatanggap ng recovery link sa iyong email address your email address sa iilang minuto."
-      updated: "Ang password mo ay matagumpay na napalitan.Ikaw ngayon ay naka-signed in na."
-      updated_not_active: "Ang iyong password ay matagumpay nang napalitan."
+      no_token: 'Hindi ka maka-akses sa pahinang ito kung wala kang password reset mula sa iyong email. Kapag gusto mong baguhin ang password gamit ang email, dapat siguraduhin na gamitin ang buong URL na ibinigay.'
+      send_instructions: 'Ikaw ay makatanggap ng email na may kalakip na mga tungkol sa kung papaano ma-reset ang iyong password sa iilang minuto.'
+      send_paranoid_instructions: 'Kapag ang iyung email ay nasa database na namin, ikaw ay makakatanggap ng recovery link sa iyong email address your email address sa iilang minuto.'
+      updated: 'Ang password mo ay matagumpay na napalitan.Ikaw ngayon ay naka-signed in na.'
+      updated_not_active: 'Ang iyong password ay matagumpay nang napalitan.'
     registrations:
-      destroyed: "Paalam! Ang iyong account ay matagumpay na nakansela. Ninanais naming makita kayong muli."
-      signed_up: "Maligayang pagdating! You have signed up successfully."
-      signed_up_but_inactive: "Ikaw ay matagumpay na naka-signed up. Gayunpaman, hindi pa namin kayo mapasign in dahil ang iyong  account ay hindi pa aktibo."
-      signed_up_but_locked: "Ikaw ay matagumpay na naka-signed up. Gayunpaman,, hindi pa namin kayo mapasign in dahil ang iyong  account ay nakalock."
-      signed_up_but_unconfirmed: "Ang mensahi na may kompermasyon sa link ay naipadala na sa iyong email address. Kami ay nakikiusap na buksan ang link para mapagana ang iyong account."
-      update_needs_confirmation: "Ang iyong account ay matagumpay nang na-updeyt, pero kinakailangan pa naming i-verify ang iyong bagong email address. Kami ay nakiki-usap na tingnan ang iyong email at mag-klik sa confirm link para ma-finalize ang pagkomperma sa iyong bagong email address."
-      updated: "Matagumpay mong na-update ang iyong account."
+      destroyed: 'Paalam! Ang iyong account ay matagumpay na nakansela. Ninanais naming makita kayong muli.'
+      signed_up: 'Maligayang pagdating! You have signed up successfully.'
+      signed_up_but_inactive: 'Ikaw ay matagumpay na naka-signed up. Gayunpaman, hindi pa namin kayo mapasign in dahil ang iyong  account ay hindi pa aktibo.'
+      signed_up_but_locked: 'Ikaw ay matagumpay na naka-signed up. Gayunpaman,, hindi pa namin kayo mapasign in dahil ang iyong  account ay nakalock.'
+      signed_up_but_unconfirmed: 'Ang mensahi na may kompermasyon sa link ay naipadala na sa iyong email address. Kami ay nakikiusap na buksan ang link para mapagana ang iyong account.'
+      update_needs_confirmation: 'Ang iyong account ay matagumpay nang na-updeyt, pero kinakailangan pa naming i-verify ang iyong bagong email address. Kami ay nakiki-usap na tingnan ang iyong email at mag-klik sa confirm link para ma-finalize ang pagkomperma sa iyong bagong email address.'
+      updated: 'Matagumpay mong na-update ang iyong account.'
     sessions:
-      signed_in: "Matagumpay kang naka-signed in."
-      signed_out: "Matagumpay kang naka-signed out."
-      already_signed_out: "Matagumpay kang naka-signed out."
+      signed_in: 'Matagumpay kang naka-signed in.'
+      signed_out: 'Matagumpay kang naka-signed out.'
+      already_signed_out: 'Matagumpay kang naka-signed out.'
     unlocks:
-      send_instructions: "Ikaw ay makakatanggap ng email namay kalakip na mga instruksiyon tungkol sa kung papaano ma-unlock ang iyong account sa iilang minuto."
-      send_paranoid_instructions: "Kapag ang iyong account ay umiiral, ikaw ay makakatanggap ng email namay kalakip na instruksiyon tungkol sa kung papaano ito ma-unlock sa iilang minuto."
-      unlocked: "Ang iyong account ay matagumpay nang na-unlock. Mag-sign in para makapagpatuloy."
+      send_instructions: 'Ikaw ay makakatanggap ng email namay kalakip na mga instruksiyon tungkol sa kung papaano ma-unlock ang iyong account sa iilang minuto.'
+      send_paranoid_instructions: 'Kapag ang iyong account ay umiiral, ikaw ay makakatanggap ng email namay kalakip na instruksiyon tungkol sa kung papaano ito ma-unlock sa iilang minuto.'
+      unlocked: 'Ang iyong account ay matagumpay nang na-unlock. Mag-sign in para makapagpatuloy.'
   errors:
     messages:
-      already_confirmed: "tapos nang nakomperma, maaaring subukang magsign in"
-      confirmation_period_expired: "kailangang ikomperma sa loob ng %{period}, maaaring magbigay ng bagong rekwest"
-      expired: "na expire na, mangyaring mag-request ng bago"
-      not_found: "hindi makita"
-      not_locked: "hindi nakalocked"
+      already_confirmed: 'tapos nang nakomperma, maaaring subukang magsign in'
+      confirmation_period_expired: 'kailangang ikomperma sa loob ng %{period}, maaaring magbigay ng bagong rekwest'
+      expired: 'na expire na, mangyaring mag-request ng bago'
+      not_found: 'hindi makita'
+      not_locked: 'hindi nakalocked'
       not_saved:
-        one: "may 1 error na nagbabawal sa %{resource} para mai-save:"
-        other: "%{count} may mga errors na nagbabawal sa %{resource} para mai-save:"
+        one: 'may 1 error na nagbabawal sa %{resource} para mai-save:'
+        other: '%{count} may mga errors na nagbabawal sa %{resource} para mai-save:'
