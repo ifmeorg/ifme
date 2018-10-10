@@ -24,6 +24,7 @@ export type Props = {
   myRef?: any,
   label?: string,
   onClick?: Function,
+  copyOnClick?: boolean,
 };
 
 const copyToClipBoard = (e: SyntheticEvent<HTMLInputElement>) => {
@@ -67,6 +68,7 @@ export const InputDefault = (props: Props) => {
     hasError,
     myRef,
     label,
+    copyOnClick,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
@@ -91,7 +93,7 @@ export const InputDefault = (props: Props) => {
         ref={myRef}
         aria-label={label}
         aria-invalid={hasError}
-        onClick={(e: SyntheticEvent<HTMLInputElement>) => copyToClipBoard(e)}
+        onClick={(e: SyntheticEvent<HTMLInputElement>) => copyOnClick(e)}
       />
       <ToastContainer />
     </Fragment>
