@@ -93,7 +93,8 @@ export const InputDefault = (props: Props) => {
         ref={myRef}
         aria-label={label}
         aria-invalid={hasError}
-        onClick={(e: SyntheticEvent<HTMLInputElement>) => copyOnClick(e)}
+        onClick={copyOnClick ? (e: SyntheticEvent<HTMLInputElement>) => { copyToClipBoard(e); }
+          : () => {}}
       />
       <ToastContainer />
     </Fragment>
