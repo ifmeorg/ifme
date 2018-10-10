@@ -1,5 +1,12 @@
 @import "../../styles/_global.scss";
 
+@mixin paddingForSelectIcon($padding) {
+  padding-right: $padding * 2 + $size-12;
+  @media screen and (max-width: $medium) {
+    padding-right: $padding + $size-12;
+  }
+}
+
 .small {
   .default,
   .tagAutocomplete {
@@ -11,10 +18,7 @@
     }
     select {
       @include setPadding($size-18, $size-0, $size-18, $size-18);
-      padding-right: $size-18 * 2 + $size-12;
-      @media screen and (max-width: $medium) {
-        padding-right: $size-18 + $size-12;
-      }
+      @include paddingForSelectIcon($size-18);
     }
   }
 }
@@ -32,10 +36,7 @@
     select {
       @include setFontSize($size-20);
       @include setPadding($size-26, $size-0, $size-26, $size-26);
-      padding-right: $size-26 * 2 + $size-12;
-      @media screen and (max-width: $medium) {
-        padding-right: $size-26 + $size-12;
-      }
+      @include paddingForSelectIcon($size-26);
     }
   }
   .label,
@@ -117,6 +118,7 @@
   select {
     @include setFontSize($size-18);
     @include setPadding($size-24, $size-0, $size-24, $size-24);
+    @include paddingForSelectIcon($size-24);
     color: $white;
     font-weight: $font-weight-400;
     width: 100%;
@@ -130,10 +132,6 @@
     border: none;
     &:focus {
       background-color: $white-20;
-    }
-    padding-right: $size-24 * 2 + $size-12;
-    @media screen and (max-width: $medium) {
-      padding-right: $size-24 + $size-12;
     }
   }
 }
