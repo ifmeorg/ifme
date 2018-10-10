@@ -11,8 +11,8 @@ de:
   click_here: 'Klick hier'
   less: ' [Less]'
   language: Sprache
-  'true': ya
-  'false': nein
+  yes_text: ya
+  no_text: nein
   expand_menu: 'erweitere meine'
   close: schließen
   languages:
