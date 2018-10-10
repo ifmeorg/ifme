@@ -98,9 +98,9 @@ class User < ApplicationRecord
   def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
-      u.name = data.name
       u.password = Devise.friendly_token[0, 20]
     end
+    user.name ||= data.name
 
     user.update!(
       provider: access_token.provider,
