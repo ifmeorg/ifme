@@ -10,10 +10,8 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.friendly.find(params[:id])
     @is_member = @meeting.member?(current_user)
     @is_leader = @meeting.led_by?(current_user)
-
     if @is_member
       @no_hide_page = true
-      @comment = Comment.new
       @comments = generate_comments(@meeting.comments)
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
@@ -22,11 +20,11 @@ class MeetingsController < ApplicationController
 
   def comment
     params[:visibility] = 'all'
-    comment_for('meeting')
+    create_comment
   end
 
   def delete_comment
-    comment = Comment.find_by(id: params[:commentid])
+    comment = Comment.find_by(id: params[:comment_id])
 
     if comment.present?
       meeting_id = comment.commentable_id
@@ -150,7 +148,7 @@ class MeetingsController < ApplicationController
 
   def remove_notification!
     CommentNotificationsService.remove(
-      comment_id: params[:commentid],
+      comment_id: params[:comment_id],
       model_name: 'meeting'
     )
   end

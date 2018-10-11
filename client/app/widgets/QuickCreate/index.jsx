@@ -5,7 +5,7 @@ import { Input } from '../../components/Input';
 import type { Checkbox } from '../../components/Input';
 import { Utils } from '../../utils';
 import css from './QuickCreate.scss';
-import { QuickCreateForm } from './QuickCreateForm';
+import { DynamicForm } from '../../components/Form/DynamicForm';
 
 // value - e.g. category.id
 // label - e.g. category.name
@@ -71,30 +71,33 @@ export class QuickCreate extends React.Component<Props, State> {
     ).length;
   };
 
-  onCreate = (checkbox: { label: string, value: number, id: string }) => {
-    const { label, value, id } = checkbox;
-    this.setState((prevState: State) => {
-      const { checkboxes } = prevState;
-      checkboxes.push({
-        id,
-        label,
-        value,
-        checked: true,
+  onCreate = (response: any) => {
+    const { data } = response;
+    if (data && data.success) {
+      const { name, id, slug } = data;
+      this.setState((prevState: State) => {
+        const { checkboxes } = prevState;
+        checkboxes.push({
+          id: slug,
+          label: name,
+          value: id,
+          checked: true,
+        });
+        return {
+          open: false,
+          accordionOpen: true,
+          modalKey: Utils.randomString(),
+          tagKey: Utils.randomString(),
+          checkboxes: sortAlpha(checkboxes),
+        };
       });
-      return {
-        open: false,
-        accordionOpen: true,
-        modalKey: Utils.randomString(),
-        tagKey: Utils.randomString(),
-        checkboxes: sortAlpha(checkboxes),
-      };
-    });
+    }
   };
 
   displayQuickCreateForm = (nameValue: string) => {
     const { formProps } = this.props;
     return (
-      <QuickCreateForm
+      <DynamicForm
         nameValue={nameValue}
         formProps={formProps}
         onCreate={this.onCreate}

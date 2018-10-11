@@ -7,21 +7,19 @@
     local_assigns[:data].comment &&
     (
       current_user.id == local_assigns[:data].user_id ||
-      local_assigns[:no_hide_page]
+      @no_hide_page
     )
   ) ||
   (
     local_assigns[:commentable_type] == 'meeting' &&
-    local_assigns[:is_member]
+    @is_member
   )
 ) %>
 <%= react_component('Comments', props: {
-  # commentable: local_assigns[:data].comment,
-  # commentableType: local_assigns[:commentable_type],
-  # commentableUserId: local_assigns[:data].user_id,
-  # currentUserId: current_user.id,
-  # noHidePage: local_assigns[:no_hide_page],
-  # isMember: local_assigns[:is_member],
-  comments: @comments
+  comments: @comments,
+  formProps: comments_form_props(
+    local_assigns[:data],
+    local_assigns[:commentable_type]
+  )
 }) %>
 <% end %>

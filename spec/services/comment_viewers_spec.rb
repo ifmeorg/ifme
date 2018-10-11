@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe CommentVisibility do
+describe CommentViewers do
   describe '#build' do
     let(:owner) { FactoryBot.create(:user2, :with_allies) }
     let(:ally) { owner.allies.first }
@@ -28,7 +28,7 @@ describe CommentVisibility do
                         viewers: viewers)
       end
 
-      subject { CommentVisibility.build(comment, commentable_id, current_user) }
+      subject { CommentViewers.build(comment, commentable_id, current_user) }
 
       describe 'private comments (visible to you and 1 ally)' do
         let(:visibility) { 'private' }
@@ -123,7 +123,7 @@ describe CommentVisibility do
     end
   end
 
-  describe '#viewable_to_current_user' do
+  describe '#current_user_viewable' do
     let(:owner) { FactoryBot.create(:user2, :with_allies) }
     let(:ally) { owner.allies.first }
     let(:ally_commenter) { owner.allies.second }
@@ -150,7 +150,7 @@ describe CommentVisibility do
                         viewers: viewers)
       end
 
-      subject { CommentVisibility.viewable_to_current_user(comment, commentable_id, current_user) }
+      subject { CommentViewers.current_user_viewable(comment, commentable_id, current_user) }
 
       describe 'private comments (visible to you and 1 ally)' do
         let(:visibility) { 'private' }

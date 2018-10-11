@@ -81,6 +81,4 @@
   </div>
 <% end %>
 
-<% if @comment.present? %>
-  <%= render partial: '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>
-<% end %>
+<%= render partial: '/shared/comments', locals: { data: @moment, commentable_type: 'moment' } %>

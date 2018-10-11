@@ -22,19 +22,19 @@ class StrategiesController < ApplicationController
   end
 
   def comment
-    comment_for('strategy')
+    create_comment
   end
 
   # rubocop:disable MethodLength
   def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
+    comment_exists = Comment.where(id: params[:comment_id]).exists?
     is_my_comment = Comment.where(
-      id: params[:commentid],
+      id: params[:comment_id],
       comment_by: current_user.id
     ).exists?
 
     if comment_exists
-      strategyid = Comment.where(id: params[:commentid]).first.commentable_id
+      strategyid = Comment.where(id: params[:comment_id]).first.commentable_id
       is_my_strategy = Strategy.where(
         id: strategyid,
         user_id: current_user.id
@@ -44,7 +44,7 @@ class StrategiesController < ApplicationController
     end
 
     if comment_exists && (is_my_comment || is_my_strategy)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
+      CommentNotificationsService.remove(comment_id: params[:comment_id],
                                          model_name: 'strategy')
     end
 

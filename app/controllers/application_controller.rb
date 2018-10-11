@@ -77,7 +77,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :avatar_url, :viewer_of?,
                 :are_allies?, :get_uid, :most_focus,
-                :tag_usage, :can_notify, :if_not_signed_in,:moments_stats
+                :tag_usage, :can_notify, :if_not_signed_in,
+                :moments_stats
 
   def if_not_signed_in
     return if user_signed_in?
@@ -166,10 +167,6 @@ class ApplicationController < ActionController::Base
       format.html { redirect_to path }
       format.json { head :no_content }
     end
-  end
-
-  def respond_not_saved
-    respond_with_json(no_save: true)
   end
 
   def respond_with_json(reponse)

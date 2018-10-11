@@ -127,13 +127,13 @@ describe MomentsController do
         end
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { commentid: 1 } }.to(
+          expect { get :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
-          get :delete_comment, params: { commentid: 1 }
+          get :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -148,14 +148,14 @@ describe MomentsController do
         let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { commentid: 1 } }.to(
+          expect { get :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
           comment
-          get :delete_comment, params: { commentid: 1 }
+          get :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -163,7 +163,7 @@ describe MomentsController do
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, params: { commentid: 1 }
+          get :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end

@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-class CommentVisibility
+class CommentViewers
   attr_reader :comment, :owner, :current_user, :data_viewers
 
   def self.build(comment, data, current_user)
     new(comment, data, current_user).build
   end
 
-  def self.viewable_to_current_user(comment, data, current_user)
-    new(comment, data, current_user).viewable_to_current_user
+  def self.current_user_viewable(comment, data, current_user)
+    new(comment, data, current_user).current_user_viewable
   end
 
   def initialize(comment, data, current_user)
     @comment = comment
-    @owner = data&.user_id && User.find(data.user_id)
-    @data_viewers = data&.viewers
+    @owner = data[:user_id] && User.find(data[:user_id])
+    @data_viewers = data[:viewers]
     @current_user = current_user
   end
 
@@ -25,7 +25,7 @@ class CommentVisibility
            name: other_person.name)
   end
 
-  def viewable_to_current_user
+  def current_user_viewable
     logged_in_user_can_view_comment?
   end
 

@@ -126,13 +126,13 @@ RSpec.describe MeetingsController, type: :controller do
 
       context 'when the comment exists and belongs to the current_user' do
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { commentid: 1 } }.to(
+          expect { get :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
-          get :delete_comment, params: { commentid: 1 }
+          get :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -148,14 +148,14 @@ RSpec.describe MeetingsController, type: :controller do
         let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { commentid: 1 } }.to(
+          expect { get :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
           comment
-          get :delete_comment, params: { commentid: 1 }
+          get :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -163,7 +163,7 @@ RSpec.describe MeetingsController, type: :controller do
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, params: { commentid: 99 }
+          get :delete_comment, params: { comment_id: 99 }
           expect(response.body).to eq('')
         end
       end

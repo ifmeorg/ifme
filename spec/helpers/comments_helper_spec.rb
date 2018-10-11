@@ -7,7 +7,7 @@ describe CommentsHelper, type: :controller do
   controller(ApplicationController) do
   end
 
-  describe 'generate_comments' do
+  describe '#generate_comments' do
     let(:user3) { create(:user3) }
     let(:comment) { 'Hello from the outside' }
     let(:created_at) { 'Created less than a minute ago' }
@@ -34,7 +34,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user1.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
@@ -48,7 +48,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user1.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: "Visible only between you and #{user2.name}",
+            viewers: "Visible only between you and #{user2.name}",
             deletable: true
           }])
         end
@@ -68,7 +68,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user2.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
@@ -82,7 +82,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user2.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: "Visible only between you and #{user1.name}",
+            viewers: "Visible only between you and #{user1.name}",
             deletable: true
           }])
         end
@@ -106,7 +106,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user1.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
@@ -120,7 +120,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user1.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: "Visible only between you and #{user2.name}",
+            viewers: "Visible only between you and #{user2.name}",
             deletable: true
           }])
         end
@@ -140,7 +140,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user2.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
@@ -154,7 +154,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user2.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: "Visible only between you and #{user1.name}",
+            viewers: "Visible only between you and #{user1.name}",
             deletable: true
           }])
         end
@@ -180,7 +180,7 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user1.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
@@ -197,11 +197,15 @@ describe CommentsHelper, type: :controller do
             commentByAvatar: user2.avatar.url,
             comment: comment,
             createdAt: created_at,
-            visibility: nil,
+            viewers: nil,
             deletable: true
           }])
         end
       end
     end
   end
+
+  # describe '#show_with_comments' do
+
+  # end
 end

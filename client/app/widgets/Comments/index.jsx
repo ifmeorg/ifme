@@ -4,32 +4,30 @@ import renderHTML from 'react-render-html';
 import { StoryBy } from '../../components/Story/StoryBy';
 import { StoryDate } from '../../components/Story/StoryDate';
 import { StoryActions } from '../../components/Story/StoryActions';
+import { DynamicForm } from '../../components/Form/DynamicForm';
 import css from './Comments.scss';
 import { I18n } from '../../libs/i18n';
+import { Utils } from '../../utils';
 
 type Comment = {
   id: number,
   commentByUid: string,
   commentByName: string,
-  commentByAvatar: string,
+  commentByAvatar?: string,
   comment: any,
-  visibility?: string,
+  viewers?: string,
   createdAt: string,
   deletable: boolean,
 };
 
 export type Props = {
-  // commentable: boolean,
-  // commentableType: string,
-  // commentableUserId: number,
-  // currentUserId: number,
-  // noHidePage?: boolean,
-  // isMember?: boolean,
   comments?: Comment[],
+  formProps: any,
 };
 
 export type State = {
   comments?: Comment[],
+  key?: string,
 };
 
 export class Comments extends React.Component<Props, State> {
@@ -38,7 +36,7 @@ export class Comments extends React.Component<Props, State> {
     this.state = { comments: props.comments };
   }
 
-  getActions = (visibility: ?string, deletable: boolean) => (
+  getActions = (viewers: ?string, deletable: boolean) => (
     {
       delete: deletable && {
         name: I18n.t('common.actions.delete'),
@@ -46,16 +44,9 @@ export class Comments extends React.Component<Props, State> {
         dataConfirm: I18n.t('common.actions.confirm'),
         dataMethod: 'delete',
       },
-      viewers: visibility,
+      viewers,
     }
   )
-
-  displayContent = (content: any) => {
-    if (typeof content === 'string') {
-      return renderHTML(content);
-    }
-    return content;
-  };
 
   displayComment = (myComment: Comment) => {
     const {
@@ -64,33 +55,52 @@ export class Comments extends React.Component<Props, State> {
       commentByName,
       commentByAvatar,
       comment,
-      visibility,
+      viewers,
       createdAt,
       deletable,
     } = myComment;
     const author = <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>;
     return (
       <div key={id} className={css.comment}>
+        <div className={css.commentContent}>
+          {renderHTML(comment)}
+        </div>
+        <StoryDate date={createdAt} />
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />
           <StoryActions
-            actions={this.getActions(visibility, deletable)}
+            actions={this.getActions(viewers, deletable)}
             hasStory
           />
-        </div>
-        <StoryDate date={createdAt} />
-        <div className={css.commentContent}>
-          {this.displayContent(comment)}
         </div>
       </div>
     );
   }
 
+  onCreate = (response: any) => {
+    const { data } = response;
+    if (data && data.comment) {
+      this.setState((prevState: State) => {
+        const { comments } = prevState;
+        comments.unshift(data.comment);
+        return { comments, key: Utils.randomString() };
+      });
+    }
+  }
+
   render() {
-    const { comments } = this.state;
+    const { formProps } = this.props;
+    const { comments, key } = this.state;
     return (
-      <div className="comments">
-        {comments.map((comment: Comment) => this.displayComment(comment))}
+      <div>
+        <DynamicForm
+          formProps={formProps}
+          onCreate={this.onCreate}
+          key={key}
+        />
+        <div className={`${comments ? css.comments : ''}`}>
+          {comments.map((comment: Comment) => this.displayComment(comment))}
+        </div>
       </div>
     );
   }

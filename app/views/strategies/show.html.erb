@@ -48,7 +48,6 @@
   </div>
 <% end %>
 
-
-<%= render partial: '/shared/comments', locals: { data: @strategy, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'strategy' } %>
+<%= render partial: '/shared/comments', locals: { data: @strategy, commentable_type: 'strategy' } %>
 
 <%= render partial: '/tag_usage/index', locals: { data: @strategy.id, data_type: 'strategy', user_id: @strategy.user_id } %>

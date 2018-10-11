@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
-import { Form } from '../../components/Form';
+import { Form } from './index';
 
 export type Props = {
-  nameValue: string,
+  nameValue?: string,
   formProps: any,
   onCreate: Function,
 };
@@ -13,7 +13,7 @@ export type State = {
   formProps: any,
 };
 
-export class QuickCreateForm extends React.Component<Props, State> {
+export class DynamicForm extends React.Component<Props, State> {
   myRef: any;
 
   constructor(props: Props) {
@@ -24,7 +24,9 @@ export class QuickCreateForm extends React.Component<Props, State> {
   processFormProps = () => {
     const { nameValue, formProps } = this.props;
     const processedFormProps = Object.assign({}, formProps);
-    processedFormProps.inputs[0].value = nameValue;
+    if (nameValue) {
+      processedFormProps.inputs[0].value = nameValue;
+    }
     return processedFormProps;
   };
 
@@ -51,13 +53,9 @@ export class QuickCreateForm extends React.Component<Props, State> {
   onSubmit = () => {
     const { formProps } = this.state;
     axios.post(formProps.action, this.getParams()).then((response: any) => {
-      const { data } = response;
-      if (data && data.success) {
-        const { onCreate } = this.props;
-        const { name, id, slug } = data;
-        if (onCreate) {
-          onCreate({ label: name, value: id, id: slug });
-        }
+      const { onCreate } = this.props;
+      if (onCreate) {
+        onCreate(response);
       }
     });
   };
