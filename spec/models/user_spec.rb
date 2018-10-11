@@ -5,8 +5,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
+#  email                  :string           default('), not null
+#  encrypted_password     :string           default('), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -136,7 +136,7 @@ describe User do
   end
 
   describe '#available_groups' do
-    it "returns the groups that allys belong to and the user doesn't" do
+    it 'returns the groups that allys belong to and the user doesnt' do
       user = create :user1
       user_groups = create_list :group_with_member, 2, user_id: user.id
       ally = create :user2
@@ -148,6 +148,55 @@ describe User do
       result = user.available_groups('groups.created_at DESC')
 
       expect(result).to eq [group_only_ally_belongs_to]
+    end
+  end
+
+  describe '#update_access_token' do
+    let!(:user) do
+      User.create(name: 'some name',
+                  email: 'some@user.com',
+                  password: 'asdfasdf',
+                  token: 'some token')
+    end
+
+    request = {
+      'refresh_token'   =>  nil,
+      'client_id'       =>  ENV['GOOGLE_CLIENT_ID'],
+      'client_secret'   =>  ENV['GOOGLE_CLIENT_SECRET'],
+      'grant_type'      =>  'refresh_token'
+    }
+
+    context 'when request is successful' do
+      before do
+        response = {
+          'access_token': 'MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3',
+          'token_type': 'bearer',
+          'expires_in': 3600,
+          'refresh_token': 'IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk',
+          'scope': 'create'
+        }.to_json
+
+        Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
+      end
+
+      it 'returns a new access token' do
+        expect(user.update_access_token).to eq('MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3')
+      end
+    end
+
+    context 'when request is unsuccessful' do
+      before do
+        response = {
+          'error': 'inavalid request',
+          'error_description': 'Could not determine client ID from request.'
+        }.to_json
+
+        Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
+      end
+
+      it 'returns a new access token' do
+        expect { user.update_access_token }.to raise_error(NoMethodError)
+      end
     end
   end
 end
