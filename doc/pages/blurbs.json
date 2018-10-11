@@ -324,5 +324,14 @@
     "link_name": "jenniferwiner.com",
     "link": "https://www.jenniferwiner.com",
     "social": "globe"
+  },
+  {
+    "name": "Emily Ringoen",
+    "image": "/assets/contributors/emily_ringoen.jpg",
+    "profile": "Full stack developer living in the rocky mountains. I have a desire to use technology to enrich and improve lives and communities. Besides coding, I also love to run, climb, draw and read.",
+    "location": "Colorado, USA",
+    "link_name": "emilyaringoen",
+    "link": "https://github.com/emilyaringoen",
+    "social": "github"
   }
 ]
