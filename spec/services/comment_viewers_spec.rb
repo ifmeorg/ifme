@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe CommentViewers do
-  describe '#build' do
+  describe '#viewers' do
     let(:owner) { FactoryBot.create(:user2, :with_allies) }
     let(:ally) { owner.allies.first }
     let(:ally_commenter) { owner.allies.second }
@@ -17,18 +17,18 @@ describe CommentViewers do
     end
 
     %i[strategy moment].each do |commentable_name|
-      let(:commentable_id) { commentable[commentable_name] }
+      let(:my_commentable) { commentable[commentable_name] }
 
       let(:comment) do
         Comment.create!(commentable_type: commentable_name,
-                        commentable_id: commentable_id.id,
+                        commentable_id: my_commentable.id,
                         comment_by: commenter.id,
                         comment: 'test comment',
                         visibility: visibility,
                         viewers: viewers)
       end
 
-      subject { CommentViewers.build(comment, commentable_id, current_user) }
+      subject { CommentViewers.viewers(comment, current_user) }
 
       describe 'private comments (visible to you and 1 ally)' do
         let(:visibility) { 'private' }
@@ -123,7 +123,7 @@ describe CommentViewers do
     end
   end
 
-  describe '#current_user_viewable' do
+  describe '#viewable' do
     let(:owner) { FactoryBot.create(:user2, :with_allies) }
     let(:ally) { owner.allies.first }
     let(:ally_commenter) { owner.allies.second }
@@ -139,18 +139,18 @@ describe CommentViewers do
     end
 
     %i[strategy moment].each do |commentable_name|
-      let(:commentable_id) { commentable[commentable_name] }
+      let(:my_commentable) { commentable[commentable_name] }
 
       let(:comment) do
         Comment.create!(commentable_type: commentable_name,
-                        commentable_id: commentable_id.id,
+                        commentable_id: my_commentable.id,
                         comment_by: commenter.id,
                         comment: 'test comment',
                         visibility: visibility,
                         viewers: viewers)
       end
 
-      subject { CommentViewers.current_user_viewable(comment, commentable_id, current_user) }
+      subject { CommentViewers.viewable(comment, current_user) }
 
       describe 'private comments (visible to you and 1 ally)' do
         let(:visibility) { 'private' }

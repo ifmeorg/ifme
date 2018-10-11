@@ -48,6 +48,6 @@
   </div>
 <% end %>
 
-<%= render partial: '/shared/comments', locals: { data: @strategy, commentable_type: 'strategy' } %>
+<%= render partial: '/shared/comments', locals: { commentable: @strategy } %>
 
 <%= render partial: '/tag_usage/index', locals: { data: @strategy.id, data_type: 'strategy', user_id: @strategy.user_id } %>

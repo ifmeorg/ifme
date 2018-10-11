@@ -7,12 +7,10 @@ module CommentsHelper
     result_comments = []
     comments = comments.select { |c| User.where(id: c.comment_by).exists? }
     comments.each do |comment|
-      data = get_data(comment)
-      next unless
-        CommentViewers.current_user_viewable(comment, data, current_user)
+      next unless CommentViewers.viewable(comment, current_user)
 
       user = User.find(comment.comment_by)
-      result_comments.push(comment_hash(comment, data, user))
+      result_comments.push(comment_hash(comment, user))
     end
     result_comments
   end
@@ -35,7 +33,8 @@ module CommentsHelper
   end
 
   def remove_comment(comment)
-    if !comment.nil? && comment_deletable?(comment)
+    if !comment.nil? &&
+       CommentViewers.deletable(comment, current_user)
       CommentNotificationsService.remove(comment_id: comment.id,
                                          model_name: comment.commentable_type)
       render json: { id: comment.id }, status: :ok
@@ -54,14 +53,14 @@ module CommentsHelper
     t('created', created_at: TimeAgo.formatted_ago(value))
   end
 
-  def comment_hash(comment, data, user)
+  def comment_hash(comment, user)
     {
       id: comment.id,
       commentByUid: user.uid,
       commentByName: user.name,
       commentByAvatar: user.avatar.url,
       comment: sanitize(comment.comment),
-      viewers: CommentViewers.build(comment, data, current_user),
+      viewers: CommentViewers.viewers(comment, current_user),
       createdAt: created_at(comment.created_at),
       deleteAction: delete_action(comment)
     }
@@ -89,13 +88,8 @@ module CommentsHelper
     ).order(created_at: :desc))
   end
 
-  def comment_deletable?(comment)
-    comment.comment_by == current_user.id ||
-      user_created_data?(comment.commentable_id, comment.commentable_type)
-  end
-
   def delete_action(comment)
-    return unless comment_deletable?(comment)
+    return unless CommentViewers.deletable(comment, current_user)
 
     case comment.commentable_type
     when 'moment'
@@ -105,19 +99,5 @@ module CommentsHelper
     else
       delete_comment_meetings_path(comment_id: comment.id)
     end
-  end
-
-  def user_created_data?(id, data_type)
-    if data_type == 'meeting'
-      MeetingMember.where(meeting_id: id, leader: true,
-                          user_id: current_user.id).exists?
-    end
-    model = data_type.classify.constantize
-    model.where(id: id, user_id: current_user.id).exists?
-  end
-
-  def get_data(comment)
-    model = comment.commentable_type.classify.constantize
-    model.find(comment.commentable_id)
   end
 end

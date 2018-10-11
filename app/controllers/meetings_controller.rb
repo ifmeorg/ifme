@@ -8,11 +8,12 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   def show
     @meeting = Meeting.friendly.find(params[:id])
-    @is_member = @meeting.member?(current_user)
-    @is_leader = @meeting.led_by?(current_user)
-    if @is_member
+    if @meeting.member?(current_user)
       @no_hide_page = true
-      @comments = generate_comments(@meeting.comments)
+      @comments = generate_comments(Comment.where(
+        commentable_id: @meeting.id,
+        commentable_type: 'meeting'
+      ).order(created_at: :desc))
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
     end

@@ -1,25 +1,16 @@
 <% if (
   (
-    (
-      local_assigns[:commentable_type] == 'moment' ||
-      local_assigns[:commentable_type] == 'strategy'
-    ) &&
-    local_assigns[:data].comment &&
-    (
-      current_user.id == local_assigns[:data].user_id ||
-      @no_hide_page
-    )
+    %w[moment strategy].include?(local_assigns[:commentable].class.name.downcase) &&
+    local_assigns[:commentable].comment &&
+    (current_user.id == local_assigns[:commentable].user_id || @no_hide_page)
   ) ||
-  (
-    local_assigns[:commentable_type] == 'meeting' &&
-    @is_member
-  )
+  (local_assigns[:commentable].class.name.downcase == 'meeting' && @meeting.member?(current_user))
 ) %>
 <%= react_component('Comments', props: {
   comments: @comments,
   formProps: comments_form_props(
-    local_assigns[:data],
-    local_assigns[:commentable_type]
+    local_assigns[:commentable],
+    local_assigns[:commentable].class.name.downcase
   )
 }) %>
 <% end %>
