@@ -351,7 +351,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (6.0.4)
-    react_on_rails (11.1.6)
+    react_on_rails (11.1.7)
       addressable
       connection_pool
       execjs (~> 2.5)
@@ -561,7 +561,7 @@ DEPENDENCIES
   rails-erd (~> 1.4, >= 1.4.4)
   rails-i18n (~> 5.1.1)
   rails_12factor (= 0.0.3)
-  react_on_rails (= 11.1.6)
+  react_on_rails (= 11.1.7)
   resque (= 1.27.4)
   resque-scheduler (= 4.3.1)
   resque_mailer (= 2.4.3)
