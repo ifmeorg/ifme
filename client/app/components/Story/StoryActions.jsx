@@ -16,6 +16,7 @@ export type Action = {
   link: string,
   dataMethod?: string,
   dataConfirm?: string,
+  onClick?: Function,
 };
 
 export type Actions = {
@@ -78,12 +79,20 @@ const displayLink = (
   dark: ?boolean,
 ) => {
   const titleItem = item.charAt(0).toUpperCase() + item.slice(1);
+  const {
+    link, dataMethod, dataConfirm, name, onClick,
+  } = actions[item];
   const element = (
     <a
-      href={actions[item].link}
-      data-method={actions[item].dataMethod}
-      data-confirm={actions[item].dataConfirm}
-      aria-label={actions[item].name}
+      href={link}
+      data-method={dataMethod}
+      data-confirm={dataConfirm}
+      aria-label={name}
+      onClick={
+        onClick
+          ? (e: SyntheticEvent<HTMLInputElement>) => onClick(e, link)
+          : undefined
+      }
     >
       {classMap(dark)[item]}
     </a>

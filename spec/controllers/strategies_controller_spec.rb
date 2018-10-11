@@ -78,11 +78,11 @@ describe StrategiesController do
       build(:comment, comment_by: user.id, commentable_type: 'strategy')
     end
     let(:valid_comment_params) do
-      comment.attributes.merge(
+      { comment: comment.attributes.merge(
         'commentable_id' => strategy.id, 'visibility' => 'all'
-      )
+      ) }
     end
-    let(:invalid_comment_params) { comment.attributes }
+    let(:invalid_comment_params) { { comment: comment.attributes } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -97,7 +97,7 @@ describe StrategiesController do
       context 'when the comment is not saved' do
         it 'responds with json no_save: true' do
           post :comment, params: invalid_comment_params
-          expect(response.body).to eq({ no_save: true }.to_json)
+          expect(response.body).to eq({}.to_json)
         end
       end
     end
@@ -108,7 +108,7 @@ describe StrategiesController do
     end
   end
 
-  describe 'GET delete_comment' do
+  describe 'DELETE delete_comment' do
     context 'when the user is logged in' do
       include_context :logged_in_user
 
@@ -124,40 +124,40 @@ describe StrategiesController do
 
         context 'when the comment belongs to the current_user' do
           it 'destroys the comment' do
-            expect { get :delete_comment, params: { comment_id: comment.id } }
+            expect { delete :delete_comment, params: { comment_id: comment.id } }
               .to change(Comment, :count).by(-1)
           end
 
           it 'renders nothing' do
-            get :delete_comment, params: { commentid: comment.id }
-            expect(response.body).to be_empty
+            delete :delete_comment, params: { comment_id: comment.id }
+            expect(response.body).to eq({ id: comment.id }.to_json)
           end
         end
 
         context 'when the strategy belongs to the current_user' do
           it 'destroys the comment' do
-            expect { get :delete_comment, params: { comment_id: comment.id } }
+            expect { delete :delete_comment, params: { comment_id: comment.id } }
               .to change(Comment, :count).by(-1)
           end
 
           it 'renders nothing' do
             comment
-            get :delete_comment, params: { commentid: 1 }
-            expect(response.body).to be_empty
+            delete :delete_comment, params: { comment_id: 1 }
+            expect(response.body).to eq({}.to_json)
           end
         end
       end
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, params: { commentid: 1 }
-          expect(response.body).to be_empty
+          delete :delete_comment, params: { comment_id: 1 }
+          expect(response.body).to eq({}.to_json)
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :delete_comment }
+      before { delete :delete_comment }
       it_behaves_like :with_no_logged_in_user
     end
   end

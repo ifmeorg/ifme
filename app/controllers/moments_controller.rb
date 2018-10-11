@@ -14,12 +14,10 @@ class MomentsController < ApplicationController
   def index
     if current_user
       @user_logged_in = true
-
       period = 'day'
       # +1 day buffer to ensure we include today as well
       end_date = Date.current + 1.day
       start_date = get_start_by_period(period, end_date)
-
       @react_moments = Moment.where(user: current_user)
                              .group_by_period(period,
                                               :created_at,
@@ -27,7 +25,6 @@ class MomentsController < ApplicationController
     else
       @user_logged_in = false
     end
-
     page_collection('@moments', 'moment')
   end
   # rubocop:enable MethodLength
@@ -39,37 +36,12 @@ class MomentsController < ApplicationController
   end
 
   def comment
-    create_comment
+    create_comment(params[:comment])
   end
 
-  # rubocop:disable MethodLength
   def delete_comment
-    comment_exists = Comment.where(id: params[:comment_id]).exists?
-    is_my_comment = Comment.where(
-      id: params[:comment_id],
-      comment_by: current_user.id
-    ).exists?
-
-    if comment_exists
-      momentid = Comment.where(id: params[:comment_id]).first.commentable_id
-      is_my_moment = Moment.where(
-        id: momentid,
-        user_id: current_user.id
-      ).exists?
-      is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
-    else
-      is_my_moment = false
-      is_a_viewer = false
-    end
-
-    if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      CommentNotificationsService.remove(comment_id: params[:comment_id],
-                                         model_name: 'moment')
-    end
-
-    head :ok
+    remove_comment(Comment.where(id: params[:comment_id]).first)
   end
-  # rubocop:enable MethodLength
 
   # GET /moments/new
   def new
@@ -140,13 +112,10 @@ class MomentsController < ApplicationController
 
   def set_association_variables!
     @viewers = current_user.allies_by_status(:accepted)
-
     @categories = Category.where(user: current_user).order(created_at: :desc)
     @category = Category.new
-
     @moods = Mood.where(user: current_user).order(created_at: :desc)
     @mood = Mood.new
-
     @strategies = associated_strategies
     @strategy = Strategy.new
   end
@@ -154,7 +123,6 @@ class MomentsController < ApplicationController
   def associated_strategies
     # current_user's strategies and all viewable strategies from allies
     strategy_ids = current_user.strategies.pluck(:id)
-
     @viewers.each do |ally|
       ally.strategies.each do |strategy|
         strategy_ids << strategy.id if strategy.viewer?(current_user)

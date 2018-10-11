@@ -35,7 +35,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_moments_path(comment_id: new_comment.id)
           }])
         end
 
@@ -49,7 +49,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: "Visible only between you and #{user2.name}",
-            deletable: true
+            deleteAction: delete_comment_moments_path(comment_id: new_comment.id)
           }])
         end
       end
@@ -69,7 +69,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_moments_path(comment_id: new_comment.id)
           }])
         end
 
@@ -83,7 +83,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: "Visible only between you and #{user1.name}",
-            deletable: true
+            deleteAction: delete_comment_moments_path(comment_id: new_comment.id)
           }])
         end
       end
@@ -107,7 +107,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_strategies_path(comment_id: new_comment.id)
           }])
         end
 
@@ -121,7 +121,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: "Visible only between you and #{user2.name}",
-            deletable: true
+            deleteAction: delete_comment_strategies_path(comment_id: new_comment.id)
           }])
         end
       end
@@ -141,7 +141,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_strategies_path(comment_id: new_comment.id)
           }])
         end
 
@@ -155,7 +155,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: "Visible only between you and #{user1.name}",
-            deletable: true
+            deleteAction: delete_comment_strategies_path(comment_id: new_comment.id)
           }])
         end
       end
@@ -181,7 +181,7 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_meetings_path(comment_id: new_comment.id)
           }])
         end
       end
@@ -198,14 +198,10 @@ describe CommentsHelper, type: :controller do
             comment: comment,
             createdAt: created_at,
             viewers: nil,
-            deletable: true
+            deleteAction: delete_comment_meetings_path(comment_id: new_comment.id)
           }])
         end
       end
     end
   end
-
-  # describe '#show_with_comments' do
-
-  # end
 end

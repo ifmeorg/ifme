@@ -34,7 +34,6 @@ class Comment < ApplicationRecord
   class << self
     def create_from!(params)
       viewers = params[:viewers].blank? ? [] : [params[:viewers].to_i]
-
       Comment.create!(
         commentable_type: params[:commentable_type],
         commentable_id: params[:commentable_id],

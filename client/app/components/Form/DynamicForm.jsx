@@ -32,7 +32,9 @@ export class DynamicForm extends React.Component<Props, State> {
 
   getParams = () => {
     const params = {};
-    Array.from(this.myRef.querySelectorAll('input')).forEach((input: any) => {
+    const inputs = Array.from(this.myRef.querySelectorAll('input'));
+    const selects = Array.from(this.myRef.querySelectorAll('select'));
+    inputs.concat(selects).forEach((input: any) => {
       if (input.id !== 'submit') {
         // Assumes name is in model[column] format
         const indexOfFirstBracket = input.name.indexOf('[');

@@ -83,9 +83,9 @@ describe MomentsController do
     let(:moment) { create(:moment, user: user) }
     let(:comment) { build(:comment, comment_by: user.id) }
     let(:valid_comment_params) do
-      comment.attributes.merge(commentable_id: moment.id, visibility: 'all')
+      { comment: comment.attributes.merge(commentable_id: moment.id, visibility: 'all') }
     end
-    let(:invalid_comment_params) { comment.attributes }
+    let(:invalid_comment_params) { { comment: comment.attributes } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -100,19 +100,18 @@ describe MomentsController do
       context 'when the comment is not saved' do
         it 'responds with json no_save: true' do
           post :comment, params: invalid_comment_params
-          expect(response.body).to eq({ no_save: true }.to_json)
+          expect(response.body).to eq({}.to_json)
         end
       end
     end
 
     context 'when the user is not logged in' do
       before { post :comment }
-
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'GET delete_comment' do
+  describe 'DELETE delete_comment' do
     let(:user) { create(:user, id: 1) }
 
     context 'when the user is logged in' do
@@ -127,15 +126,14 @@ describe MomentsController do
         end
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { comment_id: 1 } }.to(
+          expect { delete :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
-          get :delete_comment, params: { comment_id: 1 }
-
-          expect(response.body).to eq('')
+          delete :delete_comment, params: { comment_id: 1 }
+          expect(response.body).to eq({ id: 1 }.to_json)
         end
       end
 
@@ -148,33 +146,30 @@ describe MomentsController do
         let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { comment_id: 1 } }.to(
+          expect { delete :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
           comment
-          get :delete_comment, params: { comment_id: 1 }
-
-          expect(response.body).to eq('')
+          delete :delete_comment, params: { comment_id: 1 }
+          expect(response.body).to eq({ id: 1 }.to_json)
         end
       end
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, params: { comment_id: 1 }
-
-          expect(response.body).to eq('')
+          delete :delete_comment, params: { comment_id: 1 }
+          expect(response.body).to eq({}.to_json)
         end
       end
     end
 
     context 'when the user is not logged in' do
       before do
-        get :delete_comment
+        delete :delete_comment
       end
-
       it_behaves_like :with_no_logged_in_user
     end
   end
@@ -188,9 +183,7 @@ describe MomentsController do
       new_mood = create(:mood, user_id: new_user.id)
       create(:moment, user_id: new_user.id, category: Array.new(1, new_category.id),
                       mood: Array.new(1, new_mood.id), created_at: create_time)
-
       get :index
-
       expect(assigns(:react_moments)).to have_key(create_time)
       expect(assigns(:react_moments)[create_time]).to eq(1)
     end

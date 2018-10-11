@@ -75,9 +75,9 @@ RSpec.describe MeetingsController, type: :controller do
     let(:meeting) { create(:meeting) }
     let(:comment) { build(:comment, comment_by: user.id, commentable_type: 'meeting') }
     let(:valid_comment_params) do
-      comment.attributes.merge(commentable_id: meeting.id)
+      { comment: comment.attributes.merge(commentable_id: meeting.id) }
     end
-    let(:invalid_comment_params) { comment.attributes }
+    let(:invalid_comment_params) { { comment: comment.attributes } }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -104,7 +104,7 @@ RSpec.describe MeetingsController, type: :controller do
     end
   end
 
-  describe 'GET #delete_comment' do
+  describe 'DELETE #delete_comment' do
     let(:user) { create(:user, id: 1) }
     let(:meeting) { create(:meeting, id: 1) }
     let!(:meeting_member) do
@@ -126,13 +126,13 @@ RSpec.describe MeetingsController, type: :controller do
 
       context 'when the comment exists and belongs to the current_user' do
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { comment_id: 1 } }.to(
+          expect { delete :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
-          get :delete_comment, params: { comment_id: 1 }
+          delete :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -148,14 +148,14 @@ RSpec.describe MeetingsController, type: :controller do
         let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
 
         it 'destroys the comment' do
-          expect { get :delete_comment, params: { comment_id: 1 } }.to(
+          expect { delete :delete_comment, params: { comment_id: 1 } }.to(
             change(Comment, :count).by(-1)
           )
         end
 
         it 'renders nothing' do
           comment
-          get :delete_comment, params: { comment_id: 1 }
+          delete :delete_comment, params: { comment_id: 1 }
 
           expect(response.body).to eq('')
         end
@@ -163,7 +163,7 @@ RSpec.describe MeetingsController, type: :controller do
 
       context 'when the comment does not exist' do
         it 'renders nothing' do
-          get :delete_comment, params: { comment_id: 99 }
+          delete :delete_comment, params: { comment_id: 99 }
           expect(response.body).to eq('')
         end
       end
@@ -171,7 +171,7 @@ RSpec.describe MeetingsController, type: :controller do
 
     context 'when the user is not logged in' do
       before do
-        get :delete_comment
+        delete :delete_comment
       end
 
       it_behaves_like :with_no_logged_in_user

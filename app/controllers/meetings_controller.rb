@@ -19,19 +19,19 @@ class MeetingsController < ApplicationController
   end
 
   def comment
-    params[:visibility] = 'all'
-    create_comment
+    create_comment(params[:comment])
   end
 
   def delete_comment
     comment = Comment.find_by(id: params[:comment_id])
-
     if comment.present?
       meeting_id = comment.commentable_id
       meeting = Meeting.find_by(id: meeting_id)
       remove_notification(comment, meeting)
+      render json: { id: comment.id }, status: :ok
+    else
+      render json: {}, status: :bad_request
     end
-    head :ok
   end
 
   # GET /meetings/new

@@ -99,7 +99,8 @@ module CommentsFormHelper
 
   def input_for_moment_or_strategy(commentable_data)
     owner = User.find(commentable_data.user_id)
-    [visibility_input_not_owner(owner)] if owner.id != current_user.id
+    return [visibility_input_not_owner(owner)] if owner.id != current_user.id
+
     return unless commentable_data.viewers.present? &&
                   commentable_data.viewers.any?
 
@@ -111,8 +112,9 @@ module CommentsFormHelper
 
   def visibility_or_viewers_input(commentable_data, commentable_type)
     if %w[moment strategy].include?(commentable_type)
-      input_for_moment_or_strategy(commentable_data)
+      return input_for_moment_or_strategy(commentable_data)
     end
+
     [basic_props('visibility', 'hidden', 'all')]
   end
 end

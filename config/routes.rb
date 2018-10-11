@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :moments do
     collection do
       post 'comment'
-      get 'delete_comment'
+      delete 'delete_comment'
     end
   end
 
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       post 'comment'
       post 'premade'
       post 'quick_create'
-      get 'delete_comment'
+      delete 'delete_comment'
     end
   end
 
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
       post 'comment'
-      get 'delete_comment'
+      delete 'delete_comment'
     end
   end
 

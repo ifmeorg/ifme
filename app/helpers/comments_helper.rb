@@ -20,26 +20,34 @@ module CommentsHelper
   def show_with_comments(subject)
     model_name = record_model_name(subject)
     if current_user.id != subject.user_id && hide_page?(subject)
-      path = send("#{model_name.pluralize}_path")
-      return redirect_to_path(path)
+      return redirect_to_path(send("#{model_name.pluralize}_path"))
     end
+
     set_show_with_comments_variables(subject, model_name)
   end
 
-  def create_comment
-    comment = Comment.create_from!(params[:comment])
+  def create_comment(comment)
+    comment = Comment.create_from!(comment)
     comment.notify_of_creation!(current_user)
     render json: success_response(comment.id), status: :ok
   rescue ActiveRecord::RecordInvalid
     render json: {}, status: :bad_request
   end
 
+  def remove_comment(comment)
+    if !comment.nil? && comment_deletable?(comment)
+      CommentNotificationsService.remove(comment_id: comment.id,
+                                         model_name: comment.commentable_type)
+      render json: { id: comment.id }, status: :ok
+    else
+      render json: {}, status: :bad_request
+    end
+  end
+
   private
 
   def success_response(comment_id)
-    {
-      comment: generate_comments(Comment.where(id: comment_id)).first
-    }
+    { comment: generate_comments(Comment.where(id: comment_id)).first }
   end
 
   def created_at(value)
@@ -55,13 +63,14 @@ module CommentsHelper
       comment: sanitize(comment.comment),
       viewers: CommentViewers.build(comment, data, current_user),
       createdAt: created_at(comment.created_at),
-      deletable: comment_deletable?(comment, comment.commentable_type)
+      deleteAction: delete_action(comment)
     }
   end
 
   def page_author(subject)
-    User.find(subject.user_id) if current_user.id != subject.user_id
-    User.find(current_user.id)
+    return User.find(current_user.id) unless current_user.id != subject.user_id
+
+    User.find(subject.user_id)
   end
 
   def comment_action(model_name)
@@ -80,9 +89,22 @@ module CommentsHelper
     ).order(created_at: :desc))
   end
 
-  def comment_deletable?(data, data_type)
-    data.comment_by == current_user.id ||
-      user_created_data?(data.commentable_id, data_type)
+  def comment_deletable?(comment)
+    comment.comment_by == current_user.id ||
+      user_created_data?(comment.commentable_id, comment.commentable_type)
+  end
+
+  def delete_action(comment)
+    return unless comment_deletable?(comment)
+
+    case comment.commentable_type
+    when 'moment'
+      delete_comment_moments_path(comment_id: comment.id)
+    when 'strategy'
+      delete_comment_strategies_path(comment_id: comment.id)
+    else
+      delete_comment_meetings_path(comment_id: comment.id)
+    end
   end
 
   def user_created_data?(id, data_type)
