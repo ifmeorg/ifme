@@ -3,30 +3,17 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { InputLocation } from '../InputLocation';
 
-// stub out the calls for google
-window.google = {
-  maps: {
-    places: {
-      Autocomplete: class {}
-    },
-    event: {
-      addListener: jest.fn()
-    }
-  }
-};
-
 describe('InputLocation', () => {
   describe('handle location input', () => {
     it('updates the value of the input', () => {
-      const placeholder = 'Location';
-      const wrapper = shallow(<InputLocation placeholder={placeholder}/>,);
+      const wrapper = shallow(
+        <InputLocation placeholder="Location" apiKey="fakeKey" />,
+      );
       const value = 'Test Location';
 
-      wrapper
-        .find('input')
-        .simulate('change', { target: { value: value }});
+      wrapper.find('LocationAutocomplete').simulate('change', { target: { value } });
 
-      expect(wrapper.find('input').props().value).toEqual(value);
+      expect(wrapper.find('LocationAutocomplete').props().value).toEqual(value);
     });
   });
 });
