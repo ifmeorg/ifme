@@ -7,7 +7,7 @@
     <%= f.text_field :name, 'aria-label': t('common.name') %>
 
     <div class="label smallMarginTop"><%= t('devise.registrations.new.label') %></div>
-    <%= react_component 'InputLocation', props: { placeholder: t('common.form.location'), apiKey: ENV['GOOGLE_API_KEY']} %>
+    <%= react_component 'Input', props: { type: 'location', placeholder: t('common.form.location'), googleAPIKey: ENV['GOOGLE_API_KEY'], id: 'user_input'} %>
 
     <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
 

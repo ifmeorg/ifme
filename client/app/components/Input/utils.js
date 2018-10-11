@@ -9,6 +9,7 @@ export const TYPES = REQUIRES_DEFAULT.concat([
   'checkboxGroup',
   'tag',
   'switch',
+  'location',
 ]);
 
 export const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
@@ -54,7 +55,8 @@ export type Props = {
     | 'checkboxGroup'
     | 'tag'
     | 'hidden'
-    | 'switch',
+    | 'switch'
+    | 'location',
   name?: string,
   label?: string,
   placeholder?: string,
@@ -83,6 +85,7 @@ export type Props = {
   myRef?: any,
   accordionOpen?: boolean,
   formNoValidate?: boolean,
+  googleAPIKey?: string,
 };
 
 export type State = {

@@ -1,12 +1,12 @@
 // @flow
 import React from 'react';
 import LocationAutocomplete from 'location-autocomplete';
-import css from './Input.scss';
 import { I18n } from '../../libs/i18n';
 
 export type Props = {
   placeholder: string,
   apiKey: string,
+  id: string,
 };
 
 export type State = {
@@ -33,6 +33,7 @@ export class InputLocation extends React.Component<Props, State> {
     const ariaLabel = I18n.t('common.form.location');
     const { placeholder } = this.props;
     const { apiKey } = this.props;
+    const { id } = this.props;
     const { address } = this.state;
     return (
       <LocationAutocomplete
@@ -42,7 +43,7 @@ export class InputLocation extends React.Component<Props, State> {
         onChange={this.handleChange}
         onDropdownSelect={this.handleDropdownSelect}
         className="smallerMarginBottom"
-        id="user_input"
+        id={id}
         aria-label={ariaLabel}
         value={address}
       />

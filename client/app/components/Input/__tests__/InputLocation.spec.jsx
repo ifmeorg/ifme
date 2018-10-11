@@ -11,7 +11,9 @@ describe('InputLocation', () => {
       );
       const value = 'Test Location';
 
-      wrapper.find('LocationAutocomplete').simulate('change', { target: { value } });
+      wrapper
+        .find('LocationAutocomplete')
+        .simulate('change', { target: { value } });
 
       expect(wrapper.find('LocationAutocomplete').props().value).toEqual(value);
     });
