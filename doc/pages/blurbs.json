@@ -324,5 +324,14 @@
     "link_name": "jenniferwiner.com",
     "link": "https://www.jenniferwiner.com",
     "social": "globe"
+  },
+  {
+    "name": "Emma Smith",
+    "image": "/assets/contributors/emma_smith.jpg",
+    "profile": "I design and build software for the arts. And, when I'm giving my typing fingers a rest, I paint, bake bread, and bike around NYC.",
+    "location": "Brooklyn",
+    "link_name": "emmasmith.me",
+    "link": "https://www.emmasmith.me/",
+    "social": "globe"
   }
 ]
