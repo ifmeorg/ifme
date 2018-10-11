@@ -1,4 +1,4 @@
-<% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
+<% if %w(category mood strategy).include? local_assigns[:data_type] %>
 	<% most_focus = most_focus(local_assigns[:data_type], local_assigns[:profile]) %>
 	<% if most_focus.length > 0 %>
     <div class="stats">
