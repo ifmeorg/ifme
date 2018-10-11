@@ -95,7 +95,7 @@ describe StrategiesController do
       end
 
       context 'when the comment is not saved' do
-        it 'responds with json no_save: true' do
+        it 'renders correct response' do
           post :comment, params: invalid_comment_params
           expect(response.body).to eq({}.to_json)
         end
@@ -118,7 +118,8 @@ describe StrategiesController do
             :comment,
             comment_by: user.id,
             commentable_id: strategy.id,
-            visibility: 'all'
+            visibility: 'all',
+            commentable_type: 'strategy'
           )
         end
 
@@ -128,7 +129,7 @@ describe StrategiesController do
               .to change(Comment, :count).by(-1)
           end
 
-          it 'renders nothing' do
+          it 'renders correct response' do
             delete :delete_comment, params: { comment_id: comment.id }
             expect(response.body).to eq({ id: comment.id }.to_json)
           end
@@ -140,7 +141,7 @@ describe StrategiesController do
               .to change(Comment, :count).by(-1)
           end
 
-          it 'renders nothing' do
+          it 'renders correct response' do
             comment
             delete :delete_comment, params: { comment_id: 1 }
             expect(response.body).to eq({}.to_json)
@@ -149,7 +150,7 @@ describe StrategiesController do
       end
 
       context 'when the comment does not exist' do
-        it 'renders nothing' do
+        it 'renders correct response' do
           delete :delete_comment, params: { comment_id: 1 }
           expect(response.body).to eq({}.to_json)
         end

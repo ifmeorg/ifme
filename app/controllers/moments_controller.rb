@@ -3,7 +3,7 @@
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
-  include CommentsHelper
+  include CommentActions
   include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
@@ -36,11 +36,11 @@ class MomentsController < ApplicationController
   end
 
   def comment
-    create_comment(params[:comment])
+    comment_create(params[:comment])
   end
 
   def delete_comment
-    remove_comment(Comment.where(id: params[:comment_id]).first)
+    comment_delete(Comment.where(id: params[:comment_id]).first)
   end
 
   # GET /moments/new

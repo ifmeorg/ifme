@@ -90,9 +90,9 @@ RSpec.describe MeetingsController, type: :controller do
       end
 
       context 'when the comment is not saved' do
-        it 'responds with json no_save: true' do
+        it 'renders correct response' do
           post :comment, params: invalid_comment_params
-          expect(response.body).to eq({ no_save: true }.to_json)
+          expect(response.body).to eq({}.to_json)
         end
       end
     end
@@ -131,10 +131,9 @@ RSpec.describe MeetingsController, type: :controller do
           )
         end
 
-        it 'renders nothing' do
+        it 'renders correct response' do
           delete :delete_comment, params: { comment_id: 1 }
-
-          expect(response.body).to eq('')
+          expect(response.body).to eq({ id: 1 }.to_json)
         end
       end
 
@@ -153,18 +152,17 @@ RSpec.describe MeetingsController, type: :controller do
           )
         end
 
-        it 'renders nothing' do
+        it 'renders correct response' do
           comment
           delete :delete_comment, params: { comment_id: 1 }
-
-          expect(response.body).to eq('')
+          expect(response.body).to eq({ id: 1 }.to_json)
         end
       end
 
       context 'when the comment does not exist' do
-        it 'renders nothing' do
+        it 'renders correct response' do
           delete :delete_comment, params: { comment_id: 99 }
-          expect(response.body).to eq('')
+          expect(response.body).to eq({}.to_json)
         end
       end
     end

@@ -80,7 +80,8 @@ export class Form extends React.Component<Props, State> {
     e.preventDefault();
     this.onSubmit(e);
     const { noFormTagSubmit } = this.props;
-    if (noFormTagSubmit) {
+    const { errors } = this.state;
+    if (noFormTagSubmit && hasErrors(errors) === 0) {
       noFormTagSubmit();
     }
   };

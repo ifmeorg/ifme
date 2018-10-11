@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-module CommentsFormHelper
+module CommentFormHelper
   include FormHelper
 
-  def comments_form_props(commentable, commentable_type)
+  def comment_form_props(commentable, commentable_type)
     inputs = [
       basic_props('commentable_type', 'hidden', commentable_type),
       basic_props('comment_by', 'hidden', current_user.id),
       basic_props('commentable_id', 'hidden', commentable.id),
-      basic_props('comment', 'textarea')
+      basic_props('comment', 'textarea', nil, true, t('comment.singular'))
     ].concat(visibility_or_viewers_input(commentable, commentable_type))
     quick_create_form_props(inputs, get_action(commentable_type))
   end
@@ -26,14 +26,16 @@ module CommentsFormHelper
     end
   end
 
-  def basic_props(field, input_type, value = nil)
-    {
+  def basic_props(field, input_type, value = nil, required = nil, label = nil)
+    props = {
       id: "comment_#{field}",
       name: "comment[#{field}]",
       type: input_type,
-      dark: true,
       value: value
     }
+    props = props.merge(required: true) if required
+    props = props.merge(label: label) if label
+    input_type == 'hidden' ? props : props.merge(dark: true)
   end
 
   def comment_visibility_option(value, label)
@@ -91,21 +93,15 @@ module CommentsFormHelper
   def input_for_moment_or_strategy(commentable)
     owner = User.find(commentable.user_id)
     return [visibility_input_not_owner(owner)] if owner.id != current_user.id
+    return [] unless commentable.viewers.present? &&
+                     commentable.viewers.any?
 
-    return unless commentable.viewers.present? &&
-                  commentable.viewers.any?
-
-    [
-      basic_props('visibility', 'hidden', 'all'),
-      viewers_input_data_viewers(commentable.viewers)
-    ]
+    [viewers_input_data_viewers(commentable.viewers)]
   end
 
   def visibility_or_viewers_input(commentable, commentable_type)
-    if %w[moment strategy].include?(commentable_type)
-      return input_for_moment_or_strategy(commentable)
-    end
+    return [] unless %w[moment strategy].include?(commentable_type)
 
-    [basic_props('visibility', 'hidden', 'all')]
+    input_for_moment_or_strategy(commentable)
   end
 end

@@ -81,7 +81,7 @@ describe MomentsController do
   describe 'POST comment' do
     let(:user) { create(:user) }
     let(:moment) { create(:moment, user: user) }
-    let(:comment) { build(:comment, comment_by: user.id) }
+    let(:comment) { build(:comment, comment_by: user.id, commentable_type: 'moment') }
     let(:valid_comment_params) do
       { comment: comment.attributes.merge(commentable_id: moment.id, visibility: 'all') }
     end
@@ -98,7 +98,7 @@ describe MomentsController do
       end
 
       context 'when the comment is not saved' do
-        it 'responds with json no_save: true' do
+        it 'renders correct response' do
           post :comment, params: invalid_comment_params
           expect(response.body).to eq({}.to_json)
         end
@@ -119,11 +119,14 @@ describe MomentsController do
 
       context 'when the comment exists and belongs to the current_user' do
         let!(:new_moment) { create(:moment, id: 1, user_id: 1) }
-        let!(:comment) do
-          create(
-            :comment, id: 1, comment_by: 1, commentable_id: 1, visibility: 'all'
-          )
-        end
+        let!(:comment) { create(
+          :comment,
+          id: 1,
+          comment_by: 1,
+          commentable_id: 1,
+          visibility: 'all',
+          commentable_type: 'moment'
+        ) }
 
         it 'destroys the comment' do
           expect { delete :delete_comment, params: { comment_id: 1 } }.to(
@@ -131,7 +134,7 @@ describe MomentsController do
           )
         end
 
-        it 'renders nothing' do
+        it 'renders correct response' do
           delete :delete_comment, params: { comment_id: 1 }
           expect(response.body).to eq({ id: 1 }.to_json)
         end
@@ -151,7 +154,7 @@ describe MomentsController do
           )
         end
 
-        it 'renders nothing' do
+        it 'renders correct response' do
           comment
           delete :delete_comment, params: { comment_id: 1 }
           expect(response.body).to eq({ id: 1 }.to_json)
@@ -159,7 +162,7 @@ describe MomentsController do
       end
 
       context 'when the comment does not exist' do
-        it 'renders nothing' do
+        it 'renders correct response' do
           delete :delete_comment, params: { comment_id: 1 }
           expect(response.body).to eq({}.to_json)
         end

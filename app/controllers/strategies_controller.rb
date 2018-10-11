@@ -3,7 +3,7 @@
 # rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetup
-  include CommentsHelper
+  include CommentActions
   include ReminderHelper
   include Shared
 
@@ -22,11 +22,11 @@ class StrategiesController < ApplicationController
   end
 
   def comment
-    create_comment(params[:comment])
+    comment_create(params[:comment])
   end
 
   def delete_comment
-    remove_comment(Comment.where(id: params[:comment_id]).first)
+    comment_delete(Comment.where(id: params[:comment_id]).first)
   end
 
   def quick_create

@@ -27,14 +27,14 @@ export type Props = {
 };
 
 export type State = {
-  comments?: Comment[],
+  comments: (Comment | any)[],
   key?: string,
 };
 
 export class Comments extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { comments: props.comments };
+    this.state = { comments: props.comments || [] };
   }
 
   onDeleteClick = (e: SyntheticEvent<HTMLInputElement>, action: string) => {
@@ -44,10 +44,9 @@ export class Comments extends React.Component<Props, State> {
       if (data && data.id) {
         this.setState((prevState: State) => {
           const { comments } = prevState;
-          const newComments = comments
-            && comments.filter(
-              (comment: Comment) => comment.id !== parseInt(data.id, 10),
-            );
+          const newComments = comments.filter(
+            (comment: Comment) => comment.id !== parseInt(data.id, 10),
+          );
           return { comments: newComments };
         });
       }
@@ -83,7 +82,7 @@ export class Comments extends React.Component<Props, State> {
     } = myComment;
     const author = <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>;
     return (
-      <div key={id} className={css.comment}>
+      <div key={id} className={`comment ${css.comment}`}>
         <div className={css.commentContent}>{renderHTML(comment)}</div>
         <StoryDate date={createdAt} />
         <div className={css.commentInfo}>
@@ -102,7 +101,7 @@ export class Comments extends React.Component<Props, State> {
     if (data && data.comment) {
       this.setState((prevState: State) => {
         const { comments } = prevState;
-        if (comments) comments.unshift(data.comment);
+        comments.unshift(data.comment);
         return { comments, key: Utils.randomString() };
       });
     }
@@ -110,9 +109,9 @@ export class Comments extends React.Component<Props, State> {
 
   displayComments = () => {
     const { comments } = this.state;
-    if (!comments) return null;
+    if (comments.length === 0) return null;
     return (
-      <div className={css.comments}>
+      <div id="comments" className={css.comments}>
         {comments.map((comment: Comment) => this.displayComment(comment))}
       </div>
     );
@@ -120,11 +119,11 @@ export class Comments extends React.Component<Props, State> {
 
   render() {
     const { formProps } = this.props;
-    const { comments, key } = this.state;
+    const { key } = this.state;
     return (
       <div>
         <DynamicForm formProps={formProps} onCreate={this.onCreate} key={key} />
-        {comments && this.displayComments()}
+        {this.displayComments()}
       </div>
     );
   }

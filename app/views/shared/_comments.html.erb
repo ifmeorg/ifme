@@ -6,11 +6,11 @@
   ) ||
   (local_assigns[:commentable].class.name.downcase == 'meeting' && @meeting.member?(current_user))
 ) %>
-<%= react_component('Comments', props: {
-  comments: @comments,
-  formProps: comments_form_props(
-    local_assigns[:commentable],
-    local_assigns[:commentable].class.name.downcase
-  )
-}) %>
+  <%= react_component('Comments', props: {
+    comments: @comments,
+    formProps: comment_form_props(
+      local_assigns[:commentable],
+      local_assigns[:commentable].class.name.downcase
+    )
+  }) %>
 <% end %>

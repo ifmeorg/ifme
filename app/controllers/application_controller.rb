@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include CommentsHelper
+  include CommentFormHelper
   include TagsHelper
   include MomentsHelper
 

@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 # rubocop:disable ClassLength
 class MeetingsController < ApplicationController
-  include CommentsHelper
-
+  include CommentActions
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -20,7 +19,7 @@ class MeetingsController < ApplicationController
   end
 
   def comment
-    create_comment(params[:comment])
+    comment_create(params[:comment])
   end
 
   def delete_comment

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CommentViewers
+class CommentViewersService
   attr_reader :comment, :owner, :current_user, :commentable_viewers
 
   def self.viewers(comment, current_user)
