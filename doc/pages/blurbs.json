@@ -326,6 +326,15 @@
     "social": "globe"
   },
   {
+    "name": "Emma Smith",
+    "image": "/assets/contributors/emma_smith.png",
+    "profile": "I imagine a world where difference is celebrated, vulnerability is known as strength, and all are included in the circle of the human family.",
+    "location": "Brooklyn",
+    "link_name": "emmasmith.me",
+    "link": "https://www.emmasmith.me/",
+    "social": "globe"
+  },
+  {
     "name": "John Maguire",
     "image": "/assets/contributors/john_maguire.png",
     "profile": "I'm a fullstack developer with a penchant for TDD based out of NYC. When I'm not writing code I'm either working on pursuing a graduate degree in computer science, cooking, or training strongman.",
