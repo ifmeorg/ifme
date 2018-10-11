@@ -324,5 +324,14 @@
     "link_name": "jenniferwiner.com",
     "link": "https://www.jenniferwiner.com",
     "social": "globe"
+  },
+  {
+    "name": "John Maguire",
+    "image": "/assets/contributors/john_maguire.png",
+    "profile": "I'm a fullstack developer with a penchant for TDD based out of NYC. When I'm not writing code I'm either working on pursuing a graduate degree in computer science, cooking, or training strongman.",
+    "location": "Brooklyn, NYC",
+    "link_name": "johnmaguiredeveloper.com",
+    "link": "http://johnmaguiredeveloper.com",
+    "social": "globe"
   }
 ]
