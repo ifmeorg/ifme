@@ -90,7 +90,7 @@ describe StrategiesController do
       context 'when the comment is saved' do
         it 'responds with an OK status' do
           post :comment, params: valid_comment_params
-          expect(response).to be_successful
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -275,7 +275,7 @@ describe StrategiesController do
 
         it 'responds with a 422 status' do
           post(:create, format: 'json', params: strategy_params)
-          expect(response.status).to eq(422)
+          expect(response).to have_http_status(:unprocessable_entity)
         end
       end
 
