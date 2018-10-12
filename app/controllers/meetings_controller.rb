@@ -6,7 +6,6 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.friendly.find(params[:id])
     if @meeting.member?(current_user)
-      @no_hide_page = true
       @comments = generate_comments(Comment.where(
         commentable_id: @meeting.id,
         commentable_type: 'meeting'

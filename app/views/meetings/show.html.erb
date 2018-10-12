@@ -32,6 +32,8 @@
     </div>
   </div>
 <% end %>
-<div class="smallMarginTop">
-  <%= render partial: '/shared/comments', locals: { commentable: @meeting } %>
-</div>
+<% if @meeting.member?(current_user) %>
+  <div class="smallMarginTop">
+    <%= render partial: '/shared/comments', locals: { commentable: @meeting } %>
+  </div>
+<% end %>

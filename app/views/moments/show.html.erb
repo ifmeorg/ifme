@@ -81,4 +81,6 @@
   </div>
 <% end %>
 
-<%= render partial: '/shared/comments', locals: { commentable: @moment } %>
+<% if @moment.published? && @moment.comment %>
+  <%= render partial: '/shared/comments', locals: { commentable: @moment } %>
+<% end %>

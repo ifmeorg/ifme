@@ -100,7 +100,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'Some New Strategy'
       find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 1'
-      expect(page).to have_css('#comments')
+      expect(page).not_to have_css('#comments')
       expect(page).to have_selector '.storyDraft'
       back = current_url
 
@@ -153,6 +153,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(find('.pageTitle')).to have_content 'My New Moment'
       expect(page).to have_content moment_why_text
       expect(page).not_to have_selector '.storyDraft'
+      expect(page).to have_css('#comments')
 
       # TRYING TO VIEW AS ALLY
       login_as ally

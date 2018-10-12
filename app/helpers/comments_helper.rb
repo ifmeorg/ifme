@@ -54,7 +54,6 @@ module CommentsHelper
 
   def set_show_with_comments_variables(subject, model_name)
     @page_author = page_author(subject)
-    @no_hide_page = true
     return unless subject.comment
 
     @comments = generate_comments(Comment.where(
