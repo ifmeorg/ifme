@@ -79,11 +79,11 @@ describe Medication do
     let(:daily_medication) { FactoryBot.create(:medication, user_id: user.id) }
 
     it 'is weekly medication' do
-      expect(weekly_medication.daily?).to be false
+      expect(weekly_medication.daily?).to be_falsey
     end
 
     it 'is daily medication' do
-      expect(daily_medication.daily?).to be true
+      expect(daily_medication.daily?).to be_truthy
     end
   end
 end

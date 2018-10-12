@@ -71,7 +71,7 @@ describe Meeting do
 
         result = meeting.led_by?(user)
 
-        expect(result).to be false
+        expect(result).to be_falsey
       end
     end
 
@@ -84,7 +84,7 @@ describe Meeting do
 
         result = meeting.led_by?(user)
 
-        expect(result).to be true
+        expect(result).to be_truthy
       end
     end
   end
@@ -100,7 +100,7 @@ describe Meeting do
 
         result = meeting.member?(user)
 
-        expect(result).to be false
+        expect(result).to be_falsey
       end
     end
 
@@ -113,7 +113,7 @@ describe Meeting do
 
         result = meeting.member?(user)
 
-        expect(result).to be true
+        expect(result).to be_truthy
       end
     end
   end

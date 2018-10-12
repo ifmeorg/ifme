@@ -31,7 +31,7 @@ describe Group do
 
         result = group.led_by?(user)
 
-        expect(result).to be false
+        expect(result).to be_falsey
       end
     end
 
@@ -42,7 +42,7 @@ describe Group do
 
         result = group.led_by?(user)
 
-        expect(result).to be true
+        expect(result).to be_truthy
       end
     end
   end
@@ -56,7 +56,7 @@ describe Group do
 
         result = group.member?(non_member_user)
 
-        expect(result).to be false
+        expect(result).to be_falsey
       end
     end
 
@@ -67,7 +67,7 @@ describe Group do
 
         result = group.member?(user)
 
-        expect(result).to be true
+        expect(result).to be_truthy
       end
     end
   end

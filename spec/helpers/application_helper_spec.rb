@@ -32,28 +32,28 @@ describe ApplicationHelper do
 
     context 'current page' do
       let(:is_current_page) { true }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'current controller' do
       let(:current_controller) { 'moments' }
       let(:path)               { new_moment_path }
 
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'current controller and profile' do
       let(:current_controller) { 'profile' }
       let(:path)               { 'profile?user_id=2' }
 
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
 
     context 'current controller and about' do
       let(:current_controller) { 'pages' }
       let(:path)               { 'about' }
 
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
 
     context 'new user session with devise' do
@@ -61,7 +61,7 @@ describe ApplicationHelper do
       let(:action_name)        { 'new' }
       let(:path)               { new_user_session_path }
 
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'new user registration with devise' do
@@ -69,7 +69,7 @@ describe ApplicationHelper do
       let(:action_name)        { 'create' }
       let(:path)               { new_user_registration_path }
 
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'sign out' do
@@ -77,7 +77,7 @@ describe ApplicationHelper do
       let(:path)               { destroy_user_session_path }
       let(:environment)        { { method: :delete } }
 
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -96,18 +96,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { new_user_session_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match' do
       let(:current_controller) { 'sessions' }
       let(:action_name) { 'new' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -126,18 +126,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { new_user_registration_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'registrations' }
       let(:action_name) { 'create' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -156,18 +156,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { new_user_password_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'devise/passwords' }
       let(:action_name) { 'new' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -186,18 +186,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { edit_user_registration_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'registrations' }
       let(:action_name) { 'update' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -215,17 +215,17 @@ describe ApplicationHelper do
     context 'when the path matches and user is not signed in' do
       let(:page) { root_path }
       let(:user_signed_in) { false }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path matches and user is signed in' do
       let(:page) { root_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -244,24 +244,24 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { new_user_invitation_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'devise/invitations' }
       let(:action_name) { 'new' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when another controller and action match the path' do
       let(:current_controller) { 'users/invitations' }
       let(:action_name) { 'create' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -280,18 +280,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { accept_user_invitation_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'users/invitations' }
       let(:action_name) { 'update' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -310,18 +310,18 @@ describe ApplicationHelper do
 
     context 'when the path matches' do
       let(:page) { edit_user_password_path }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the controller and action match the path' do
       let(:current_controller) { 'devise/passwords' }
       let(:action_name) { 'edit' }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -343,12 +343,12 @@ describe ApplicationHelper do
       let(:current_controller) { 'secret_shares' }
       let(:action_name) { 'show' }
       let(:page) { secret_share_path(id: moment.id) }
-      it { is_expected.to be true }
+      it { is_expected.to be_truthy }
     end
 
     context 'when the path does not match' do
       let(:page) { about_path }
-      it { is_expected.to be false }
+      it { is_expected.to be_falsey }
     end
   end
 
@@ -363,24 +363,24 @@ describe ApplicationHelper do
     context 'non-devise is the active page' do
       context 'when it is a static page' do
         let(:page) { about_path }
-        it { is_expected.to be true }
+        it { is_expected.to be_truthy }
       end
 
       context 'when it is not a static page' do
         let(:page) { moments_path }
-        it { is_expected.to be false }
+        it { is_expected.to be_falsey }
       end
     end
 
     context 'devise path is the active page' do
       context 'when it is a static page' do
         let(:page) { accept_user_invitation_path }
-        it { is_expected.to be true }
+        it { is_expected.to be_truthy }
       end
 
       context 'when it is not a static page' do
         let(:page) { new_user_password_path }
-        it { is_expected.to be false }
+        it { is_expected.to be_falsey }
       end
     end
   end
