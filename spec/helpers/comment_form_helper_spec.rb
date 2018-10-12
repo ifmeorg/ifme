@@ -90,7 +90,7 @@ describe CommentFormHelper, type: :controller do
             {
               id: 'comment_viewers_everyone',
               label: 'Share with everyone',
-              value: nil
+              value: ''
             },
             {
               id: "comment_viewers_#{user2.id}",
@@ -101,7 +101,7 @@ describe CommentFormHelper, type: :controller do
           id: 'comment_viewers',
           name: 'comment[viewers]',
           type: 'select',
-          value: 'all',
+          value: '',
           dark: true
         ]).concat([submit_input]),
         action: comment_index_path,

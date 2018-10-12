@@ -35,7 +35,7 @@ const alpha = (a: string, b: string) => {
   return 0;
 };
 
-const sortAlpha = (checkboxes: Checkbox[]) =>
+const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
@@ -71,25 +71,28 @@ export class QuickCreate extends React.Component<Props, State> {
     ).length;
   };
 
+  addToCheckboxes = (data: { name: string, id: string, slug: string }) => {
+    const { checkboxes } = this.state;
+    const { name, id, slug } = data;
+    const newCheckboxes = checkboxes.slice(0);
+    newCheckboxes.push({
+      id: slug,
+      label: name,
+      value: id,
+      checked: true,
+    });
+    return sortAlpha(newCheckboxes);
+  };
+
   onCreate = (response: any) => {
     const { data } = response;
     if (data && data.success) {
-      const { name, id, slug } = data;
-      this.setState((prevState: State) => {
-        const { checkboxes } = prevState;
-        checkboxes.push({
-          id: slug,
-          label: name,
-          value: id,
-          checked: true,
-        });
-        return {
-          open: false,
-          accordionOpen: true,
-          modalKey: Utils.randomString(),
-          tagKey: Utils.randomString(),
-          checkboxes: sortAlpha(checkboxes),
-        };
+      this.setState({
+        open: false,
+        accordionOpen: true,
+        modalKey: Utils.randomString(),
+        tagKey: Utils.randomString(),
+        checkboxes: this.addToCheckboxes(data),
       });
     }
   };

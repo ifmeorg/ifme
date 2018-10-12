@@ -36,9 +36,9 @@ class CommentController < ApplicationController
     render json: {}, status: :bad_request
   end
 
-  def remove_meeting_notification!
+  def remove_meeting_notification!(comment_id)
     CommentNotificationsService.remove(
-      comment_id: params[:comment_id],
+      comment_id: comment_id,
       model_name: 'meeting'
     )
   end
@@ -48,7 +48,7 @@ class CommentController < ApplicationController
     return unless (my_comment && meeting.member?(current_user)) ||
                   meeting.led_by?(current_user)
 
-    remove_meeting_notification!
+    remove_meeting_notification!(comment.id)
   end
 
   def comment_delete_moment_or_strategy(comment)

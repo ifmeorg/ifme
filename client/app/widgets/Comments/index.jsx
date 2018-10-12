@@ -101,8 +101,10 @@ export class Comments extends React.Component<Props, State> {
     if (data && data.comment) {
       this.setState((prevState: State) => {
         const { comments } = prevState;
-        comments.unshift(data.comment);
-        return { comments, key: Utils.randomString() };
+        return {
+          comments: [data.comment].concat(comments),
+          key: Utils.randomString(),
+        };
       });
     }
   };

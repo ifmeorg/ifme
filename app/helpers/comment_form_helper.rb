@@ -80,9 +80,11 @@ module CommentFormHelper
   def viewers_input_data_viewers(viewers)
     {
       options: [
-        comment_viewers_option('everyone', t('shared.comments.share_everyone'))
+        comment_viewers_option(
+          'everyone', t('shared.comments.share_everyone'), ''
+        )
       ].concat(viewers_options(viewers))
-    }.merge(basic_props('viewers', 'select', 'all'))
+    }.merge(basic_props('viewers', 'select', ''))
   end
 
   def input_for_moment_or_strategy(commentable)
