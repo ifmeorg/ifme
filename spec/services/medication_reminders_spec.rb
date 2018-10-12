@@ -35,6 +35,23 @@ describe MedicationReminders do
         end
       end
     end
+
+    describe "weekly dosage" do
+      let!(:user) { FactoryBot.create(:user1) }
+      let!(:medication) { FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id, weekly_dosage: [1,2,3,4]) }
+      let!(:reminder) { medication.take_medication_reminder }
+
+      it "doesn't send an email" do
+        allow(Time).to receive(:current).and_return(Time.zone.local(2018, 02, 25))
+        MedicationReminders.new.send_take_medication_reminder_emails
+        expect(deliveries.count).to eq(0)
+      end
+      it "send an email" do
+        allow(Time).to receive(:current).and_return(Time.zone.local(2018, 02, 26))
+        MedicationReminders.new.send_take_medication_reminder_emails
+        expect(deliveries.count).to eq(1)
+      end
+    end
   end
 
   describe '#send_refill_reminder_emails' do

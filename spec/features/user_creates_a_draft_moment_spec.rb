@@ -84,7 +84,7 @@ describe 'UserCreatesADraftMoment', js: true do
         find('.accordion').click
       end
 
-      find('#moment_comment').click
+      find('#moment_comment_switch').click
       find('#submit').click
 
       # VIEWING AS OWNER
@@ -114,8 +114,6 @@ describe 'UserCreatesADraftMoment', js: true do
       # EDITING
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Moment'
-      expect(page).to have_field('moment_comment', checked: true)
-      expect(page).to have_field('moment_publishing', checked: true)
 
       within('#moment_category_accordion') do
         find('.accordion').click
@@ -148,7 +146,7 @@ describe 'UserCreatesADraftMoment', js: true do
       fill_in_textarea(moment_why_text, '#moment_why')
 
       # PUBLISH
-      find('#moment_publishing').click
+      find('#moment_publishing_switch').click
       find('#submit').click
 
       # VIEWING AFTER EDITING

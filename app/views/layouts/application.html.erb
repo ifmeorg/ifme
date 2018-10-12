@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="manifest.json">
-    <meta name="Description" content=<%= t('app_description') %>>
+    <meta name="description" content="<%= t('app_description') %>">
     <meta name="theme-color" content="#6d0839">
     <%= csrf_meta_tags %>
     <% if (user_signed_in? && !static_page?) || secret_share_path? %>

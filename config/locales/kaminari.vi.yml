@@ -1,17 +1,17 @@
 vi:
-  views:
-    pagination:
-      first: "&laquo; Đầu tiên"
-      last: "Cuối cùng &raquo;"
-      previous: "&lsaquo; Trước"
-      next: "Kế tiếp &rsaquo;"
-      truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "Không tìm thấy %{entry_name}"
-          one: "Hiển thị <b>1</b> %{entry_name}"
-          other: "Hiển thị <b>tài khoản %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Hiển thị %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> trong <b>%{total}</b> tổng cộng"
+ views:
+  pagination:
+   first: '&laquo; Đầu tiên'
+   last: 'Cuối cùng &raquo;'
+   previous: '&lsaquo; Trước'
+   next: 'Kế tiếp &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: 'Không tìm thấy %{entry_name}'
+     one: 'Hiển thị <b>1</b> %{entry_name}'
+     other: 'Hiển thị <b>tài khoản %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Hiển thị %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> trong <b>%{total}</b> tổng cộng'

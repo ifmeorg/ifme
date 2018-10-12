@@ -40,6 +40,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
+  config.include StubGoogleOauth2
   config.mock_with :rspec do |mock_config|
     mock_config.syntax = %i[expect should]
   end
@@ -80,6 +81,10 @@ RSpec.configure do |config|
       Capybara.server_host = ip
       Capybara.app_host = "http://#{server.host}:#{server.port}"
     end
+  end
+
+  config.before(:header => true) do
+    config.include HiddenHeaderSupport
   end
 
   config.after(:each) do

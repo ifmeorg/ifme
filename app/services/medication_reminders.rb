@@ -2,7 +2,7 @@
 
 class MedicationReminders
   def send_take_medication_reminder_emails
-    TakeMedicationReminder.active.each do |reminder|
+    TakeMedicationReminder.active.for_day.each do |reminder|
       NotificationMailer.take_medication(reminder).deliver_now
     end
   end

@@ -18,6 +18,7 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
+#  weekly_dosage      integer[]         [0, 1, 2, 3, 4, 5, 6]
 #
 
 class Medication < ApplicationRecord
@@ -42,5 +43,9 @@ class Medication < ApplicationRecord
     return unless refill_reminder && take_medication_reminder
 
     [refill_reminder, take_medication_reminder].select(&:active?)
+  end
+
+  def daily?
+    weekly_dosage.count == 7
   end
 end

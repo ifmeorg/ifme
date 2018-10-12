@@ -1,27 +1,27 @@
 pt-BR:
   devise:
     failure:
-      invited: "Você tem um convite pendente ,aceite-o para terminar de criar sua conta."
+      invited: 'Você tem um convite pendente ,aceite-o para terminar de criar sua conta.'
     invitations:
-      send_instructions: "Um convite foi enviado para o endereço %{email}."
-      failed_send: "Ocorreu um erro:  O usuário do email '%{email}' não pôde ser convidado."
-      invitation_token_invalid: "O token de convite não é válido"
-      updated: "Sua senha foi criada com sucesso. Você está cadastrado."
-      updated_not_active: "Sua senha foi definida com sucesso."
-      no_invitations_remaining: "Não existem convites pendentes."
-      invitation_removed: "Seu convite foi removido."
+      send_instructions: 'Um convite foi enviado para o endereço %{email}.'
+      failed_send: 'Ocorreu um erro:  O usuário do email %{email} não pôde ser convidado.'
+      invitation_token_invalid: 'O token de convite não é válido'
+      updated: 'Sua senha foi criada com sucesso. Você está cadastrado.'
+      updated_not_active: 'Sua senha foi definida com sucesso.'
+      no_invitations_remaining: 'Não existem convites pendentes.'
+      invitation_removed: 'Seu convite foi removido.'
       new:
-        header: "Enviar um convite para um aliado."
-        submit_button: "Enviar Convite"
+        header: 'Enviar um convite para um aliado.'
+        submit_button: 'Enviar Convite'
       edit:
-        header: "Definir sua senha"
-        submit_button: "Defina sua senha"
+        header: 'Definir sua senha'
+        submit_button: 'Defina sua senha'
     mailer:
       invitation_instructions:
-        subject: "{%name} convidou você para participar do if me!"
-        subject_nameless: "Você acabou de ser convidado para participar do if me!"
-        hello: "Olá %{email}!"
-        someone_invited_you: "%{name} foi convidado para se juntar ao http://www.if-me.org, uma comunidade para compartilhar experiências sobre saúde mental com as pessoas amadas e manter o registro do seu humor, medicamentos, and cuidado pessoal. Você pode aceitar o convite através do link abaixo."
-        accept: "Aceitar convite "
-        accept_until: "Este convite é valido até %{due_date}."
-        ignore: "Se você não quiser aceitar o convite , por favor ignore este email.<br />\nSua conta não será criada até que você acesse o link abaixo , e configure sua senha."
+        subject: '{%name} convidou você para participar do if me!'
+        subject_nameless: 'Você acabou de ser convidado para participar do if me!'
+        hello: 'Olá %{email}!'
+        someone_invited_you: '%{name} foi convidado para se juntar ao http://www.if-me.org, uma comunidade para compartilhar experiências sobre saúde mental com as pessoas amadas e manter o registro do seu humor, medicamentos, and cuidado pessoal. Você pode aceitar o convite através do link abaixo.'
+        accept: 'Aceitar convite '
+        accept_until: 'Este convite é valido até %{due_date}.'
+        ignore: 'Se você não quiser aceitar o convite , por favor ignore este email.<br />Sua conta não será criada até que você acesse o link abaixo , e configure sua senha.'

@@ -56,7 +56,7 @@ module StrategiesHelper
       strategy_viewers_input,
       {
         id: 'strategy_comment',
-        type: 'checkbox',
+        type: 'switch',
         name: 'strategy[comment]',
         label: t('comment.allow_comments'),
         value: true,
@@ -64,6 +64,16 @@ module StrategiesHelper
         checked: @strategy.comment,
         info: t('comment.hint'),
         dark: true
+      },
+      {
+        id: 'strategy_publishing',
+        type: 'switch',
+        label: t('strategies.form.draft_question'),
+        dark: true,
+        name: 'publishing',
+        value: '0',
+        uncheckedValue: '1',
+        checked: !@strategy.published?
       },
       {
         id: 'strategy_perform_strategy_reminder',
@@ -75,16 +85,6 @@ module StrategiesHelper
         uncheckedValue: false,
         checked: @strategy&.perform_strategy_reminder&.active,
         dark: true
-      },
-      {
-        id: 'strategy_publishing',
-        type: 'checkbox',
-        label: t('strategies.form.draft_question'),
-        dark: true,
-        name: 'publishing',
-        value: '0',
-        uncheckedValue: '1',
-        checked: !@strategy.published?
       },
       {
         id: 'strategy_perform_strategy_reminder_attributes_id',

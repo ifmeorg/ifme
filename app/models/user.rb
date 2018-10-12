@@ -78,7 +78,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
+    in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
 
   def ally?(user)
@@ -98,9 +98,9 @@ class User < ApplicationRecord
   def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
-      u.name = data.name
       u.password = Devise.friendly_token[0, 20]
     end
+    user.name ||= data.name
 
     user.update!(
       provider: access_token.provider,
