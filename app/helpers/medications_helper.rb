@@ -144,14 +144,15 @@ module MedicationsHelper
   end
   # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength, LineLength
+  # rubocop:disable MethodLength
   def medication_unit_field(type)
     {
       id: "medication_#{type}_unit",
       type: 'select',
       name: "medication[#{type}_unit]",
       dark: true,
-      value: @medication["#{type}_unit"] || t('medications.units.tablets.other'),
+      value: @medication["#{type}_unit"] ||
+        t('medications.units.tablets.other'),
       options: [
         {
           id: "medication_#{type}_unit_tablets",
@@ -171,7 +172,7 @@ module MedicationsHelper
       ]
     }
   end
-  # rubocop:enable MethodLength, LineLength
+  # rubocop:enable MethodLength
 
   # rubocop:disable MethodLength
   def medication_field(type)

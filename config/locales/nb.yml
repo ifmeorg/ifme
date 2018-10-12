@@ -196,6 +196,7 @@ nb:
       refill_hint: 'Dager i uken for å ta denne medisinen'
       refill_reminder_hint: 'Vi sender deg en påminnelse uken for medisinen må fylles på.'
       daily_reminder_hint: 'Vi sender deg en daglig påminnelse om å ta denne medisinen'
+      total: Totalt
     new: 'Ny medisin'
     units:
       display: '%{count} %{unit}'
@@ -213,7 +214,6 @@ nb:
     index:
       title: Medisiner
       subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
-      total: Totalt
       instructions: 'Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse.'
       example_name: Prozac
       example_strength: '10 mg'
