@@ -45,7 +45,7 @@
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
+    <div class="label" id="secretShare"><%= label_tag t('moments.secret_share.singular') %></div>
     <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
   </div>
 <% end %>
@@ -81,6 +81,6 @@
   </div>
 <% end %>
 
-<% if @moment.published? && @moment.comment %>
+<% if user_signed_in? && @moment.published? && @moment.comment %>
   <%= render partial: '/shared/comments', locals: { commentable: @moment } %>
 <% end %>
