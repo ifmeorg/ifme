@@ -75,6 +75,7 @@ export type Props = {
   placeholder?: string,
   error?: boolean,
   dark?: boolean,
+  small?: boolean,
   large?: boolean,
   value?: any,
   readOnly?: boolean,
@@ -153,6 +154,7 @@ export class Input extends React.Component<Props, State> {
       onClick,
       value,
       large,
+      small,
       dark,
       type,
       disabled,
@@ -165,6 +167,7 @@ export class Input extends React.Component<Props, State> {
           onClick={onClick}
           value={value}
           large={large}
+          small={small}
           dark={dark}
           disabled={disabled}
           formNoValidate={formNoValidate}
@@ -176,7 +179,7 @@ export class Input extends React.Component<Props, State> {
 
   displayTextarea = () => {
     const {
-      value, id, name, required, type, myRef,
+      value, id, name, required, type, myRef, dark,
     } = this.props;
     if (type !== 'textarea') return null;
     return (
@@ -187,6 +190,7 @@ export class Input extends React.Component<Props, State> {
         required={required}
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
+        dark={dark}
       />
     );
   };
@@ -325,6 +329,7 @@ export class Input extends React.Component<Props, State> {
     const {
       type,
       dark,
+      small,
       large,
       accordion,
       label,
@@ -335,8 +340,8 @@ export class Input extends React.Component<Props, State> {
     const content = (
       <div
         className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
-          type === 'hidden' ? css.hidden : ''
-        }`}
+          small ? css.small : ''
+        } ${type === 'hidden' ? css.hidden : ''}`}
       >
         {!accordion && (
           <div className={css.labelNoAccordion}>{this.displayLabel()}</div>

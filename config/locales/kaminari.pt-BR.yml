@@ -1,17 +1,17 @@
 pt-BR:
-  views:
-    pagination:
-      first: "&laquo; Primeira Página"
-      last: "Última Página &raquo;"
-      previous: "&lsaquo; Anterior"
-      next: "Pŕoxima &rsaquo;"
-      truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "%{entry_name} não foi encontrado"
-          one: "Mostrando <b>1</b> %{entry_name}"
-          other: "Mostrando <b>todos %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> registros"
+ views:
+  pagination:
+   first: '&laquo; Primeira Página'
+   last: 'Última Página &raquo;'
+   previous: '&lsaquo; Anterior'
+   next: 'Pŕoxima &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: '%{entry_name} não foi encontrado'
+     one: 'Mostrando <b>1</b> %{entry_name}'
+     other: 'Mostrando <b>todos %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> registros'

@@ -26,6 +26,7 @@ import { Form } from '../components/Form';
 import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
+import { ToggleLocale } from '../widgets/ToggleLocale';
 
 setup();
 
@@ -50,5 +51,6 @@ ReactOnRails.register({
   StoryDraft,
   StoryMoods,
   Tag,
+  ToggleLocale,
   Tooltip,
 });

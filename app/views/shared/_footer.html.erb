@@ -24,12 +24,8 @@
       <%= link_to(t('navigation.twitter'), 'http://twitter.com/ifmeorg', target: 'blank') %>
     </div>
   </div>
-
   <div class="footerExtras">
-    <div>
-      <%= select_tag 'locale', options_for_select(@locales.collect{ |l| [l[:name], l[:locale]] }, @locale), 'aria-label': t('language') %>
-    </div>
-
+    <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>
     <div>
       <%= sanitize t('shared.footer.licence_subtitle',
         licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt', target: 'blank'))
