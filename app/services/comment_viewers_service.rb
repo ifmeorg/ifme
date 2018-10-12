@@ -19,8 +19,10 @@ class CommentViewersService
     commentable = get_commentable(comment)
     @comment = comment
     @owner = commentable[:user_id] && User.find(commentable[:user_id])
-    @commentable_viewers = commentable[:viewers] ||
-                           commentable&.members&.pluck(:id)
+    @commentable_viewers =
+      unless commentable.nil?
+        commentable[:viewers] || commentable.members&.pluck(:id)
+      end
     @current_user = current_user
   end
 
@@ -46,27 +48,16 @@ class CommentViewersService
   end
 
   def other_person
-    if commentable_owner?
-      if (viewer = User.where(id: @comment.viewers[0]).first)
-        # you are logged in as owner, you made the comment,
-        # and it is visible to a viewer
-        viewer
-      else
-        # you are logged in as owner, and comment was made by somebody else
-        User.find(@comment.comment_by)
-      end
-    else
-      # you are logged in as comment maker, and it is visible to you and owner
-      @owner
-    end
+    return @owner unless commentable_owner?
+
+    User.find_by(id: @comment.viewers.first) || User.find(@comment.comment_by)
   end
 
   def commentable_owner?
     if @comment.commentable_type == 'meeting'
-      return MeetingMember.where(meeting_id: @comment.commentable_id,
-                                 leader: true,
-                                 user_id: current_user.id).exists?
+      return Meeting.find_by(@comment.commentable_id).led_by?(current_user)
     end
+
     @owner.id == @current_user.id
   end
 
