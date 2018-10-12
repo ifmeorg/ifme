@@ -72,17 +72,13 @@ const displayViewers = (
   </div>
 );
 
-const displayLink = (
-  actions: Actions,
-  item: string,
-  hasStory: ?boolean,
-  dark: ?boolean,
-) => {
-  const titleItem = item.charAt(0).toUpperCase() + item.slice(1);
+const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
+
+const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
   const {
     link, dataMethod, dataConfirm, name, onClick,
   } = actions[item];
-  const element = (
+  return (
     <a
       href={link}
       data-method={dataMethod}
@@ -97,18 +93,28 @@ const displayLink = (
       {classMap(dark)[item]}
     </a>
   );
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      key={item}
-      aria-label={actions[item]}
-      className={`storyActions${titleItem}`}
-    >
-      <Tooltip element={element} text={actions[item].name} right={!!hasStory} />
-    </div>
-  );
 };
+
+const displayLink = (
+  actions: Actions,
+  item: string,
+  hasStory: ?boolean,
+  dark: ?boolean,
+) => (
+  <div
+    role="button"
+    tabIndex={0}
+    key={item}
+    aria-label={actions[item]}
+    className={`storyActions${titleItem(item)}`}
+  >
+    <Tooltip
+      element={tooltipElement(item, actions, dark)}
+      text={actions[item].name}
+      right={!!hasStory}
+    />
+  </div>
+);
 
 const displayItem = (
   actions: Actions,

@@ -8,7 +8,7 @@ module CommentFormHelper
       basic_props('commentable_type', 'hidden', commentable_type),
       basic_props('comment_by', 'hidden', current_user.id),
       basic_props('commentable_id', 'hidden', commentable.id),
-      basic_props('comment', 'textarea', nil, true, t('comment.singular'))
+      basic_props('comment', 'textarea')
     ].concat(visibility_or_viewers_input(commentable, commentable_type))
     quick_create_form_props(inputs, get_action(commentable_type))
   end
@@ -26,16 +26,22 @@ module CommentFormHelper
     end
   end
 
-  def basic_props(field, input_type, value = nil, required = nil, label = nil)
+  def basic_props_overrides(props, input_type)
+    props = props.merge(dark: true) if input_type != 'hidden'
+    if input_type == 'textarea'
+      props = props.merge(required: true, label: t('comment.singular'))
+    end
+    props
+  end
+
+  def basic_props(field, input_type, value = nil)
     props = {
       id: "comment_#{field}",
       name: "comment[#{field}]",
       type: input_type,
       value: value
     }
-    props = props.merge(required: true) if required
-    props = props.merge(label: label) if label
-    input_type == 'hidden' ? props : props.merge(dark: true)
+    basic_props_overrides(props, input_type)
   end
 
   def comment_visibility_option(value, label)
