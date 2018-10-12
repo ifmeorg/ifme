@@ -62,7 +62,7 @@ describe StrategiesController do
 
         it 'renders no content for a json request' do
           get :show, format: 'json', params: { id: id }
-          expect(response.body).to eq('')
+          expect(response.body).to be_empty
         end
       end
     end
@@ -90,7 +90,7 @@ describe StrategiesController do
       context 'when the comment is saved' do
         it 'responds with an OK status' do
           post :comment, params: valid_comment_params
-          expect(response.status).to eq(200)
+          expect(response).to be_successful
         end
       end
 
@@ -130,7 +130,7 @@ describe StrategiesController do
 
           it 'renders nothing' do
             get :delete_comment, params: { commentid: comment.id }
-            expect(response.body).to eq('')
+            expect(response.body).to be_empty
           end
         end
 
@@ -143,8 +143,7 @@ describe StrategiesController do
           it 'renders nothing' do
             comment
             get :delete_comment, params: { commentid: 1 }
-
-            expect(response.body).to eq('')
+            expect(response.body).to be_empty
           end
         end
       end
@@ -152,7 +151,7 @@ describe StrategiesController do
       context 'when the comment does not exist' do
         it 'renders nothing' do
           get :delete_comment, params: { commentid: 1 }
-          expect(response.body).to eq('')
+          expect(response.body).to be_empty
         end
       end
     end
@@ -164,8 +163,6 @@ describe StrategiesController do
   end
 
   describe 'POST premade' do
-    let(:user) { create(:user, id: 1) }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
 
@@ -191,8 +188,6 @@ describe StrategiesController do
   end
 
   describe 'GET new' do
-    let(:user) { create(:user, id: 1) }
-
     context 'when the user is logged in' do
       include_context :logged_in_user
 
@@ -209,42 +204,41 @@ describe StrategiesController do
   end
 
   describe 'GET edit' do
-    let(:user)        { create(:user, id: 1) }
-    let!(:strategy1)  { create(:strategy, user_id: 1, id: 1) }
-    let!(:strategy2)  { create(:strategy, user_id: 2, id: 2) }
+    let(:another_user) { create(:user) }
+    let!(:strategy1)   { create(:strategy, user: user) }
+    let!(:strategy2)   { create(:strategy, user: another_user) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       context 'when the strategy belongs to the current user' do
         it 'renders the edit template' do
-          get :edit, params: { id: 1 }
+          get :edit, params: { id: strategy1.id }
           expect(response).to render_template('edit')
         end
       end
 
       context 'when the strategy does not belong to the current user' do
         it 'redirects html requests to the strategy_path' do
-          get :edit, params: { id: 2 }
+          get :edit, params: { id: strategy2.id }
           expect(response).to redirect_to(strategy_path(strategy2))
         end
 
         it 'renders nothing for json requests' do
-          get :edit, format: 'json', params: { id: 2 }
-          expect(response.body).to eq('')
+          get :edit, format: 'json', params: { id: strategy2.id }
+          expect(response.body).to be_empty
         end
       end
     end
 
     context 'when the user is not logged in' do
-      before { get :edit, params: { id: 2 } }
+      before { get :edit, params: { id: strategy2.id } }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe 'POST create' do
-    let(:user) { create(:user, id: 1) }
-    let(:valid_strategy_params) { FactoryBot.attributes_for(:strategy) }
+    let(:valid_strategy_params) { attributes_for(:strategy) }
     let(:invalid_strategy_params) { valid_strategy_params.merge(name: nil) }
 
     context 'when the user is logged in' do
@@ -262,12 +256,6 @@ describe StrategiesController do
         it 'redirects to the strategy show page for html requests' do
           post :create, params: strategy_params
           expect(response).to redirect_to(strategy_path(assigns(:strategy)))
-        end
-
-        it 'redirects to the strategy show' do
-          post :create, params: strategy_params
-          expect(response.status).to eq(302)
-          expect(response.location).to eq(strategy_url(assigns(:strategy)))
         end
       end
 
@@ -292,10 +280,11 @@ describe StrategiesController do
       end
 
       context 'when the user_id is hacked' do
+        let(:another_user) { create(:user) }
+
         it 'creates a new strategy, ignoring the user_id parameter' do
           # passing a user_id isn't an error, but it shouldn't
           # affect the owner of the created item
-          another_user = create(:user)
           hacked_strategy_params =
             valid_strategy_params.merge(user_id: another_user.id)
           expect { post :create, params: { strategy: hacked_strategy_params } }
@@ -313,8 +302,7 @@ describe StrategiesController do
   end
 
   describe 'PATCH update' do
-    let(:user)      { create(:user, id: 1) }
-    let!(:strategy) { create(:strategy, user_id: 1, id: 1) }
+    let!(:strategy) { create(:strategy, user: user) }
     let(:valid_strategy_params)   { { description: 'updated description' } }
     let(:invalid_strategy_params) { { description: nil } }
 
@@ -323,24 +311,24 @@ describe StrategiesController do
 
       context 'when the params are valid' do
         it 'updates the strategy record' do
-          patch :update, params: { id: 1, strategy: valid_strategy_params }
+          patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
           expect(strategy.reload.description).to eq('updated description')
         end
 
         it 'redirects to the show page' do
-          patch :update, params: { id: 1, strategy: valid_strategy_params }
+          patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
           expect(response).to redirect_to(strategy_path(strategy))
         end
       end
 
       context 'when the params are invalid' do
         it 'does not update the record' do
-          patch :update, params: { id: 1, strategy: invalid_strategy_params }
+          patch :update, params: { id: strategy.id, strategy: invalid_strategy_params }
           expect(strategy.reload.description).to eq('Test Description')
         end
 
         it 'renders the edit view' do
-          patch :update, params: { id: 1, strategy: invalid_strategy_params }
+          patch :update, params: { id: strategy.id, strategy: invalid_strategy_params }
           expect(response).to render_template('edit')
         end
       end
@@ -348,7 +336,7 @@ describe StrategiesController do
 
     context 'when the user is not logged in' do
       before do
-        patch :update, params: { id: 1 }
+        patch :update, params: { id: strategy.id }
       end
 
       it_behaves_like :with_no_logged_in_user
@@ -356,51 +344,50 @@ describe StrategiesController do
   end
 
   describe 'DELETE destroy' do
-    let(:user)      { create(:user, id: 1) }
-    let!(:strategy) { create(:strategy, user_id: 1, id: 1) }
+    let!(:strategy) { create(:strategy, user: user) }
 
     context 'when the user is logged in' do
       include_context :logged_in_user
 
       it 'destroys the strategy' do
-        expect { delete :destroy, params: { id: 1 } }.to(
+        expect { delete :destroy, params: { id: strategy.id } }.to(
           change(Strategy, :count).by(-1)
         )
       end
 
       it 'redirects to the strategies path for html requests' do
-        delete :destroy, params: { id: 1 }
+        delete :destroy, params: { id: strategy.id }
         expect(response).to redirect_to(strategies_path)
       end
 
       it 'responds with no content to json requests' do
-        delete :destroy, format: 'json', params: { id: 1 }
-        expect(response.body).to eq('')
+        delete :destroy, format: 'json', params: { id: strategy.id }
+        expect(response.body).to be_empty
       end
     end
 
     context 'when the user is not logged in' do
-      before { delete :destroy, params: { id: 1 } }
+      before { delete :destroy, params: { id: strategy.id } }
 
       it_behaves_like :with_no_logged_in_user
     end
   end
 
   describe '#print_reminders' do
-    let(:user) { FactoryBot.create(:user1) }
-    let(:strategy) { create(:strategy, name: 'test', user_id: user.id) }
+    let(:user) { create(:user1) }
+    let(:strategy) { create(:strategy, name: 'test', user: user) }
 
     subject { controller.print_reminders(strategy) }
 
     describe 'when strategy has no reminders' do
-      let(:strategy) { FactoryBot.create(:strategy, user_id: user.id) }
+      let(:strategy) { create(:strategy, user: user) }
 
       it { is_expected.to eq('') }
     end
 
     describe 'when strategy has daily reminder' do
       let(:strategy) do
-        FactoryBot.create(:strategy, :with_daily_reminder, user_id: user.id)
+        create(:strategy, :with_daily_reminder, user: user)
       end
 
       it 'prints the reminders' do
