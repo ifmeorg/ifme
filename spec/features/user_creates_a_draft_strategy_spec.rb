@@ -53,7 +53,7 @@ describe 'UserCreatesADraftStrategy', js: true do
         find('.accordion').click
       end
 
-      find('#strategy_comment').click
+      find('#strategy_comment_switch').click
       find('#strategy_perform_strategy_reminder').click
       find('#submit').click
 
@@ -79,8 +79,6 @@ describe 'UserCreatesADraftStrategy', js: true do
       visit back
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
-      expect(page).to have_field('strategy_comment', checked: true)
-      expect(page).to have_field('strategy_publishing', checked: true)
 
       within('#strategy_category_accordion') do
         find('.accordion').click
@@ -99,7 +97,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       fill_in_textarea(strategy_description_text, '#strategy_description')
 
       # PUBLISH
-      find('#strategy_publishing').click
+      find('#strategy_publishing_switch').click
       find('#submit').click
 
       # VIEWING AFTER EDITING

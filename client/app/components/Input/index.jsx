@@ -7,6 +7,7 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
+import { InputSwitch } from './InputSwitch';
 import {
   InputDefault,
   REQUIRES_DEFAULT,
@@ -22,6 +23,7 @@ export const TYPES = REQUIRES_DEFAULT.concat([
   'select',
   'checkboxGroup',
   'tag',
+  'switch',
 ]);
 
 const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
@@ -29,6 +31,7 @@ const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
   'select',
   'checkboxGroup',
   'tag',
+  'switch',
 ]);
 
 const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
@@ -65,12 +68,14 @@ export type Props = {
     | 'select'
     | 'checkboxGroup'
     | 'tag'
-    | 'hidden',
+    | 'hidden'
+    | 'switch',
   name?: string,
   label?: string,
   placeholder?: string,
   error?: boolean,
   dark?: boolean,
+  small?: boolean,
   large?: boolean,
   value?: any,
   readOnly?: boolean,
@@ -149,6 +154,7 @@ export class Input extends React.Component<Props, State> {
       onClick,
       value,
       large,
+      small,
       dark,
       type,
       disabled,
@@ -161,6 +167,7 @@ export class Input extends React.Component<Props, State> {
           onClick={onClick}
           value={value}
           large={large}
+          small={small}
           dark={dark}
           disabled={disabled}
           formNoValidate={formNoValidate}
@@ -172,7 +179,7 @@ export class Input extends React.Component<Props, State> {
 
   displayTextarea = () => {
     const {
-      value, id, name, required, type, myRef,
+      value, id, name, required, type, myRef, dark,
     } = this.props;
     if (type !== 'textarea') return null;
     return (
@@ -183,6 +190,7 @@ export class Input extends React.Component<Props, State> {
         required={required}
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
+        dark={dark}
       />
     );
   };
@@ -274,6 +282,31 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+  displaySwitch = () => {
+    const {
+      type,
+      id,
+      name,
+      label,
+      value,
+      checked,
+      uncheckedValue,
+    } = this.props;
+    if (type === 'switch' && label && name) {
+      return (
+        <InputSwitch
+          id={id}
+          name={name}
+          label={label}
+          value={value}
+          checked={checked}
+          uncheckedValue={uncheckedValue}
+        />
+      );
+    }
+    return null;
+  };
+
   displayLabel = () => {
     const {
       label, info, required, type,
@@ -296,6 +329,7 @@ export class Input extends React.Component<Props, State> {
     const {
       type,
       dark,
+      small,
       large,
       accordion,
       label,
@@ -306,8 +340,8 @@ export class Input extends React.Component<Props, State> {
     const content = (
       <div
         className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
-          type === 'hidden' ? css.hidden : ''
-        }`}
+          small ? css.small : ''
+        } ${type === 'hidden' ? css.hidden : ''}`}
       >
         {!accordion && (
           <div className={css.labelNoAccordion}>{this.displayLabel()}</div>
@@ -318,6 +352,7 @@ export class Input extends React.Component<Props, State> {
         {this.displaySelect()}
         {this.displayTextarea()}
         {this.displayTag()}
+        {this.displaySwitch()}
         {this.displaySubmit()}
       </div>
     );
