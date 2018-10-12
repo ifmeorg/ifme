@@ -100,7 +100,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'Some New Strategy'
       find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 1'
-      expect(page).to have_css('#new_comment')
+      expect(page).to have_css('#comments')
       expect(page).to have_selector '.storyDraft'
       back = current_url
 

@@ -111,7 +111,7 @@ export class Comments extends React.Component<Props, State> {
     const { comments } = this.state;
     if (comments.length === 0) return null;
     return (
-      <div id="comments" className={css.comments}>
+      <div className={css.comments}>
         {comments.map((comment: Comment) => this.displayComment(comment))}
       </div>
     );
@@ -121,7 +121,7 @@ export class Comments extends React.Component<Props, State> {
     const { formProps } = this.props;
     const { key } = this.state;
     return (
-      <div>
+      <div id="comments">
         <DynamicForm formProps={formProps} onCreate={this.onCreate} key={key} />
         {this.displayComments()}
       </div>

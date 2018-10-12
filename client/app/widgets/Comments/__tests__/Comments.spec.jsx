@@ -100,7 +100,7 @@ describe('Comments', () => {
 
   it('add and delete a comment', async () => {
     const wrapper = mount(component);
-    expect(wrapper.find('#comments').exists()).toEqual(false);
+    expect(wrapper.find('.comment').exists()).toEqual(false);
     wrapper.find('input[name="comment[comment]"]').simulate('change', {
       currentTarget: { value },
     });
@@ -110,13 +110,13 @@ describe('Comments', () => {
     wrapper.find('input[type="submit"]').simulate('click');
     await axiosPostSpy();
     wrapper.update();
-    expect(wrapper.find('#comments').exists()).toEqual(true);
+    expect(wrapper.find('.comment').exists()).toEqual(true);
     wrapper
       .find('.storyActionsDelete')
       .find('a')
       .simulate('click');
     await axiosDeleteSpy();
     wrapper.update();
-    expect(wrapper.find('#comments').exists()).toEqual(false);
+    expect(wrapper.find('.comment').exists()).toEqual(false);
   });
 });
