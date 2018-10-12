@@ -55,7 +55,7 @@ class CommentViewersService
 
   def commentable_owner?
     if @comment.commentable_type == 'meeting'
-      return Meeting.find_by(@comment.commentable_id).led_by?(current_user)
+      return Meeting.find(@comment.commentable_id).led_by?(current_user)
     end
 
     @owner.id == @current_user.id

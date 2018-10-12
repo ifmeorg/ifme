@@ -1,7 +1,5 @@
 # frozen_string_literal: true
-# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
-  include CommentActions
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
@@ -15,22 +13,6 @@ class MeetingsController < ApplicationController
       ).order(created_at: :desc))
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
-    end
-  end
-
-  def comment
-    comment_create(params[:comment])
-  end
-
-  def delete_comment
-    comment = Comment.find_by(id: params[:comment_id])
-    if comment.present?
-      meeting_id = comment.commentable_id
-      meeting = Meeting.find_by(id: meeting_id)
-      remove_notification(comment, meeting)
-      render json: { id: comment.id }, status: :ok
-    else
-      render json: {}, status: :bad_request
     end
   end
 
@@ -145,22 +127,4 @@ class MeetingsController < ApplicationController
       members: members
     )
   end
-
-  def remove_notification!
-    CommentNotificationsService.remove(
-      comment_id: params[:comment_id],
-      model_name: 'meeting'
-    )
-  end
-
-  def remove_notification(comment, meeting)
-    remove_notification! if (my_comment?(comment) && \
-                            meeting.member?(current_user)) || \
-                            meeting.led_by?(current_user)
-  end
-
-  def my_comment?(comment)
-    comment.present? && (comment.comment_by == current_user.id)
-  end
 end
-# rubocop:enable ClassLength

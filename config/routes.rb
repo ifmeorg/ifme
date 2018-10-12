@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comment, :except => [:index, :show, :new, :edit, :update, :create, :destroy] do
+    collection do
+      post 'create'
+      delete 'delete'
+    end
+  end
+
   resources :medications
 
   resources :moods do
@@ -28,21 +35,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :moments do
-    collection do
-      post 'comment'
-      delete 'delete_comment'
-    end
-  end
+  resources :moments
 
   resources :secret_shares, only: [:create, :show, :destroy]
 
   resources :strategies do
     collection do
-      post 'comment'
       post 'premade'
       post 'quick_create'
-      delete 'delete_comment'
     end
   end
 
@@ -58,8 +58,6 @@ Rails.application.routes.draw do
     collection do
       get 'join'
       get 'leave'
-      post 'comment'
-      delete 'delete_comment'
     end
   end
 

@@ -59,7 +59,7 @@ const formProps = {
       dark: true,
     },
   ],
-  action: '/moments/comment',
+  action: '/comment/create',
   noFormTag: true,
 };
 
@@ -73,7 +73,7 @@ const comment = {
   commentByName: 'Kind Human',
   commentByUid: 'uid',
   createdAt: 'Created less than a minute ago',
-  deleteAction: '/moments/delete_comment?comment_id=1',
+  deleteAction: '/comment/delete?comment_id=1',
   id,
   viewers: 'Visible only between you and Lane Kim',
 };

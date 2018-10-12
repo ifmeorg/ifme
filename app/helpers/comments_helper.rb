@@ -66,13 +66,6 @@ module CommentsHelper
   def delete_action(comment)
     return unless CommentViewersService.deletable(comment, current_user)
 
-    case comment.commentable_type
-    when 'moment'
-      delete_comment_moments_path(comment_id: comment.id)
-    when 'strategy'
-      delete_comment_strategies_path(comment_id: comment.id)
-    else
-      delete_comment_meetings_path(comment_id: comment.id)
-    end
+    delete_comment_index_path(comment_id: comment.id)
   end
 end

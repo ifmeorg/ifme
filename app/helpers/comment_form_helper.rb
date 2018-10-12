@@ -10,21 +10,10 @@ module CommentFormHelper
       basic_props('commentable_id', 'hidden', commentable.id),
       basic_props('comment', 'textarea')
     ].concat(visibility_or_viewers_input(commentable, commentable_type))
-    quick_create_form_props(inputs, get_action(commentable_type))
+    quick_create_form_props(inputs, comment_index_path)
   end
 
   private
-
-  def get_action(commentable_type)
-    case commentable_type
-    when 'moment'
-      comment_moments_path
-    when 'strategy'
-      comment_strategies_path
-    else
-      comment_meetings_path
-    end
-  end
 
   def basic_props_overrides(props, input_type)
     props = props.merge(dark: true) if input_type != 'hidden'

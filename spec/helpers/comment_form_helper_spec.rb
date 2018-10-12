@@ -69,7 +69,7 @@ describe CommentFormHelper, type: :controller do
           value: 'all',
           dark: true
         ]).concat([submit_input]),
-        action: "/#{commentable_type.pluralize}/comment",
+        action: comment_index_path,
         noFormTag: true
       }
     end
@@ -77,7 +77,7 @@ describe CommentFormHelper, type: :controller do
     def owner_has_no_viewers_inputs(commentable_type)
       {
         inputs: default_inputs(user1.id, commentable.id, commentable_type).concat([submit_input]),
-        action: "/#{commentable_type.pluralize}/comment",
+        action: comment_index_path,
         noFormTag: true
 
       }
@@ -104,7 +104,7 @@ describe CommentFormHelper, type: :controller do
           value: 'all',
           dark: true
         ]).concat([submit_input]),
-        action: "/#{commentable_type.pluralize}/comment",
+        action: comment_index_path,
         noFormTag: true
       }
     end
