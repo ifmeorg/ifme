@@ -64,12 +64,12 @@ describe Strategy do
       let(:strategy) { build(:strategy, :with_published_at) }
       let(:subject) { strategy.published? }
 
-      it { is_expected.to be_truthy }
+      it { is_expected.to be true }
     end
     context 'when it does not have a publication date' do
       let(:strategy) { create(:strategy) }
       let(:subject) { strategy.published? }
-      it { is_expected.to be_falsey }
+      it { is_expected.to be false }
     end
   end
 end

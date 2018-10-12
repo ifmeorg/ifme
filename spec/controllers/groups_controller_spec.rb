@@ -87,7 +87,7 @@ RSpec.describe GroupsController, type: :controller do
       put :update, params: { id: group.id, group: { leader: [user.id] } }
 
       non_leader.reload
-      expect(non_leader.leader).to be_truthy
+      expect(non_leader.leader).to be true
     end
   end
 end

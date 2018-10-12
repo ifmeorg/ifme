@@ -54,11 +54,11 @@ describe Moment do
     let(:user) { moment.user }
     let(:subject) { moment.owned_by?(user) }
 
-    it { is_expected.to be_truthy }
+    it { is_expected.to be true }
 
     context 'when the user does not own the moment' do
       let(:user) { create(:user) }
-      it { is_expected.to be_falsey }
+      it { is_expected.to be false }
     end
   end
 
@@ -67,12 +67,12 @@ describe Moment do
       let(:moment) { build(:moment, :with_user, :with_published_at) }
       let(:subject) { moment.published? }
 
-      it { is_expected.to be_truthy }
+      it { is_expected.to be true }
     end
     context 'when it does not have a publication date' do
       let(:moment) { create(:moment, :with_user) }
       let(:subject) { moment.published? }
-      it { is_expected.to be_falsey }
+      it { is_expected.to be false }
     end
   end
 end

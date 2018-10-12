@@ -38,8 +38,8 @@ describe 'UserCreatesAMedication', js: true do
       end
 
       expect(medication.name).to eq(name)
-      expect(medication.take_medication_reminder.active?).to be_falsey
-      expect(medication.refill_reminder.active?).to be_falsey
+      expect(medication.take_medication_reminder.active?).to be false
+      expect(medication.refill_reminder.active?).to be false
     end
 
     context 'with reminders checked' do
@@ -49,8 +49,8 @@ describe 'UserCreatesAMedication', js: true do
         expect(CalendarUploader).to_not receive(:new)
         find('#submit').click
         expect(find('.pageTitle')).to have_content(name)
-        expect(medication.take_medication_reminder.active?).to be_truthy
-        expect(medication.refill_reminder.active?).to be_truthy
+        expect(medication.take_medication_reminder.active?).to be true
+        expect(medication.refill_reminder.active?).to be true
       end
     end
 
@@ -62,8 +62,8 @@ describe 'UserCreatesAMedication', js: true do
         expect(CalendarUploader).to receive_message_chain(:new, :upload_event)
         find('#submit').click
         expect(find('.pageTitle')).to have_content(name)
-        expect(medication.take_medication_reminder.active?).to be_truthy
-        expect(medication.refill_reminder.active?).to be_truthy
+        expect(medication.take_medication_reminder.active?).to be true
+        expect(medication.refill_reminder.active?).to be true
       end
     end
 
