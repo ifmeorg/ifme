@@ -136,7 +136,7 @@ describe User do
   end
 
   describe '#available_groups' do
-    it 'returns the groups that allys belong to and the user doesnt' do
+    it "returns the groups that allys belong to and the user does'nt" do
       user = create :user1
       user_groups = create_list :group_with_member, 2, user_id: user.id
       ally = create :user2

@@ -57,7 +57,7 @@ RSpec.describe MedicationRefillHelper, type: :helper do
       end
     end
 
-    context 'when the user has not google oauth2 enabled and/or they dont need a new refill reminder' do
+    context "when the user has not google oauth2 enabled and/or they don't need a new refill reminder" do
       it { expect(helper.save_refill_to_google_calendar(medication)).to eq(true) }
     end
   end
