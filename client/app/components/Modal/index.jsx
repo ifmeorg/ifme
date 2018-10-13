@@ -34,14 +34,16 @@ export class Modal extends React.Component<Props, State> {
   displayModalHeader = () => {
     const { title } = this.props;
     return (
-      <div className={css.modalBoxHeader}>
+      <React.Fragment>
         {title ? (
-          <div
-            id="modalTitle"
-            className={css.modalBoxHeaderTitle}
-            aria-label={title}
-          >
-            {title}
+          <div className={css.modalBoxHeader}>
+            <div
+              id="modalTitle"
+              className={css.modalBoxHeaderTitle}
+              aria-label={title}
+            >
+              {title}
+            </div>
           </div>
         ) : null}
         <div
@@ -54,17 +56,23 @@ export class Modal extends React.Component<Props, State> {
         >
           {this.displayCloseSvg()}
         </div>
-      </div>
+      </React.Fragment>
     );
   };
 
   displayCloseSvg = () => (
-    <svg width="36" height="35" viewBox="0 0 36 35" fill="#D0839" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="36"
+      height="35"
+      viewBox="0 0 36 35"
+      fill="#6D0839"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
+        fill="#6D0839"
         d="M18.4141 17.7071L34.707 34L34 34.7071L17.707 18.4141L1.41406 34.7071L0.707031 34L17 17.7071L0 0.707108L0.707031 0L17.707 17L34.707 0L35.4141 0.707108L18.4141 17.7071Z"
-        fill="#D0839"
       />
     </svg>
   );
@@ -113,10 +121,9 @@ export class Modal extends React.Component<Props, State> {
 
     if (typeof element === 'object' && element.component) {
       const { component, props } = element;
-      renderComponent = React.createElement(
-        this.resolveComponent(component),
-        { ...props },
-      );
+      renderComponent = React.createElement(this.resolveComponent(component), {
+        ...props,
+      });
     }
 
     if (element) {
@@ -135,7 +142,7 @@ export class Modal extends React.Component<Props, State> {
     }
 
     return null;
-  }
+  };
 
   resolveComponent = (component: string) => {
     /** Really only returns Avatar right now but more could be added if needed */
@@ -144,7 +151,7 @@ export class Modal extends React.Component<Props, State> {
       default:
         return Avatar;
     }
-  }
+  };
 
   render() {
     const { open } = this.state;

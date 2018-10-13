@@ -22,15 +22,16 @@
   &Box {
     @include setFontSize($size-20);
     @include fadeIn(0.5s);
-    padding: $size-20;
+    padding: $size-30 $size-50;
+    position: relative;
     font-weight: $font-weight-400;
     color: $black;
     box-sizing: border-box;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border-radius: $size-4;
     background: $white;
-    width: 50vw;
-    height: 60vh;
+    width: 60vw;
+    height: 65vh;
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
       width: 100vw;
@@ -39,7 +40,6 @@
     }
     &Header {
       @include setMargin($size-0, $size-0, $size-20, $size-0);
-      height: $size-20;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -51,7 +51,9 @@
       }
       &Close {
         cursor: pointer;
-        margin-left: auto;
+        position: absolute;
+        top: $size-26;
+        right: $size-26;
       }
     }
     &Body {

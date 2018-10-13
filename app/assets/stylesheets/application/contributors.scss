@@ -1,9 +1,34 @@
-.hideContent {
-  display: none;
-}
+.contributorModal-body {
+	display: flex;
+	flex-direction: row;
 
-.readMoreShow,
-.readLessShow {
-  @include staticContentFakeLink();
-  cursor: pointer;
+	.contributorModal-body-photo {
+		flex: 0 1 30%;
+	}
+
+	.contributorModal-body-copy {
+		margin-left: $size-18;
+
+		h4.contributorModal-name {
+			font-size: $size-36;
+			color: $mulberry;
+			line-height: $size-42;
+			font-weight: 400;
+			margin: $size-24 0 $size-10 0;
+		}
+
+		.contributorModal-body-socialLinks {
+			font-size: $size-14;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+
+			i:last-of-type {
+				margin-left: $size-22;
+			}
+		}
+
+		p {
+			font-size: $size-18;
+		}
+	}
 }

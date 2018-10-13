@@ -4,18 +4,31 @@
       component: 'Avatar', 
       props: { 
         src: ProfilePicture.normalize_url(blurb["image"]),
-        name: blurb['name'],
         alt: t('pages.contribute.contributor_avatar_alt', {
           name: blurb['name']
         })
       } 
     },
-    title: nil,
     body: <<~HEREDOC
-      #{blurb["profile"]} <br/>
-      <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}<br />
-      #{content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline")}
-      #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+      <div class="contributorModal-body">
+        <div class="contributorModal-body-photo">
+          <div class="avatar Avatar__avatar___3vcX_ Avatar__large___1dps1">
+            <img class="Avatar__image___2cXeU" src="#{ProfilePicture.normalize_url(blurb["image"])}">
+          </div>
+        </div>
+
+        <div class="contributorModal-body-copy">
+          <h4 class="contributorModal-name">
+            #{blurb["name"]}
+          </h4>
+          <div class="contributorModal-body-socialLinks">
+            <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}
+            #{content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline")}
+            #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+          </div>
+          <p>#{blurb["profile"]}</p>
+        </div>
+     
     HEREDOC
   }) %>
 </div>
