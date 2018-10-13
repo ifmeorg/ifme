@@ -50,12 +50,14 @@ class CommentViewersService
   def other_person
     return @owner unless commentable_owner?
 
-    User.find_by(id: @comment.viewers.first) || User.find(@comment.comment_by)
+    User.find_by(id: @comment.viewers.first) ||
+      User.find_by(id: @comment.comment_by)
   end
 
   def commentable_owner?
     if @comment.commentable_type == 'meeting'
-      return Meeting.find(@comment.commentable_id).led_by?(current_user)
+      meeting = Meeting.find_by(id: @comment.commentable_id)
+      return meeting&.led_by?(current_user)
     end
 
     @owner.id == @current_user.id

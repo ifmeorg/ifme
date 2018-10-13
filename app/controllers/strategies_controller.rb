@@ -152,7 +152,8 @@ class StrategiesController < ApplicationController
       description: params[:strategy][:description],
       category: params[:strategy][:category],
       published_at: Time.zone.now,
-      comment: true, viewers: viewers
+      comment: true,
+      viewers: viewers
     }
   end
 end

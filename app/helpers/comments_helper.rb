@@ -19,7 +19,10 @@ module CommentsHelper
       return redirect_to_path(send("#{model_name.pluralize}_path"))
     end
 
-    set_show_with_comments_variables(subject, model_name)
+    @page_author = page_author(subject)
+    return unless subject.comments
+
+    @comments = generate_comments(subject.comments.order(created_at: :desc))
   end
 
   private
@@ -50,16 +53,6 @@ module CommentsHelper
   def comment_action(model_name)
     comment_moments_path if model_name == 'moment'
     comment_strategies_path
-  end
-
-  def set_show_with_comments_variables(subject, model_name)
-    @page_author = page_author(subject)
-    return unless subject.comment
-
-    @comments = generate_comments(Comment.where(
-      commentable_id: subject.id,
-      commentable_type: model_name
-    ).order(created_at: :desc))
   end
 
   def delete_action(comment)

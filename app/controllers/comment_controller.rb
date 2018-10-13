@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 class CommentController < ApplicationController
   def create
-    comment_create(params[:comment])
+    create_comment(params[:comment])
   end
 
   def delete
-    comment_delete(Comment.where(id: params[:comment_id]).first)
+    delete_comment(Comment.where(id: params[:comment_id]).first)
   end
 
   private
 
-  def comment_create(comment)
+  def create_comment(comment)
     comment_id = CommentService.create(comment, current_user)
     response = {
       comment: generate_comments(Comment.where(id: comment_id)).first
@@ -20,13 +20,13 @@ class CommentController < ApplicationController
     bad_request_response
   end
 
-  def comment_delete(comment)
+  def delete_comment(comment)
     return bad_request_response if comment.nil?
 
     if %w[moment strategy].include?(comment.commentable_type)
-      comment_delete_moment_or_strategy(comment)
+      delete_comment_moment_or_strategy(comment)
     elsif comment.commentable_type == 'meeting'
-      comment_delete_meeting(comment)
+      delete_comment_meeting(comment)
     else
       bad_request_response
     end
@@ -51,14 +51,14 @@ class CommentController < ApplicationController
     remove_meeting_notification!(comment.id)
   end
 
-  def comment_delete_moment_or_strategy(comment)
+  def delete_comment_moment_or_strategy(comment)
     comment_id = CommentService.delete(comment, current_user)
     render json: { id: comment_id }, status: :ok
   rescue ArgumentError
     bad_request_response
   end
 
-  def comment_delete_meeting(comment)
+  def delete_comment_meeting(comment)
     if comment.present?
       meeting_id = comment.commentable_id
       meeting = Meeting.find_by(id: meeting_id)
