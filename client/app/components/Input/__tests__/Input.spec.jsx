@@ -130,4 +130,36 @@ describe('Input', () => {
       });
     });
   });
+
+  describe('Switch', () => {
+    describe('with accordion prop', () => {
+      it('toggles correctly', () => {
+        const wrapper = mount(
+          InputMocks.createInput(InputMocks.inputSwitchProps, {
+            accordion: true,
+          }),
+        );
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
+        ).toEqual(false);
+        wrapper.find('.accordion').simulate('click');
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
+        ).toEqual(true);
+        wrapper.find('.accordion').simulate('click');
+        expect(
+          wrapper
+            .find('.accordionContent')
+            .find('.switch')
+            .exists(),
+        ).toEqual(false);
+      });
+    });
+  });
 });

@@ -70,6 +70,9 @@
       padding: $size-0 20px 33px;
       flex-direction: column;
       justify-content: flex-start;
+      > div:first-of-type {
+        width: 100%;
+      }
       > div:last-of-type {
         @include setMargin($size-20, $size-0, $size-0, $size-0);
       }

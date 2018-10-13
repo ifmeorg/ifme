@@ -1,27 +1,27 @@
 es:
   devise:
     failure:
-      invited: "Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta."
+      invited: 'Tienes una invitación pendiente, acéptala para terminar de crear tu cuenta.'
     invitations:
-      send_instructions: "Una invitación de correo se ha enviado para %{email}."
-      failed_send: "Ocurrió un error. No se ha podido invitar a '%{email}'."
-      invitation_token_invalid: "¡El token de invitación no es valido!"
-      updated_not_active: "Tu contraseña se ha establecido exitosamente."
-      updated: "Tu contraseña se ha capturado con éxito, ya te encuentras dentro del sistema."
-      no_invitations_remaining: "No quedan más invitaciones"
-      invitation_removed: "Se ha removido tu invitación."
+      send_instructions: 'Una invitación de correo se ha enviado para %{email}.'
+      failed_send: 'Ocurrió un error. No se ha podido invitar a %{email}.'
+      invitation_token_invalid: '¡El token de invitación no es valido!'
+      updated_not_active: 'Tu contraseña se ha establecido exitosamente.'
+      updated: 'Tu contraseña se ha capturado con éxito, ya te encuentras dentro del sistema.'
+      no_invitations_remaining: 'No quedan más invitaciones'
+      invitation_removed: 'Se ha removido tu invitación.'
       new:
-        header: "Enviar Invitación"
-        submit_button: "Envia una invitación"
+        header: 'Enviar Invitación'
+        submit_button: 'Envia una invitación'
       edit:
-        header: "Establecer contraseña"
-        submit_button: "Guardar mi contraseña"
+        header: 'Establecer contraseña'
+        submit_button: 'Guardar mi contraseña'
     mailer:
       invitation_instructions:
-        subject: "¡ %{name} te ha invitado a if me!"
-        subject_nameless: "¡Te han invitado a if me!"
-        hello: "Hola %{email}!"
-        someone_invited_you: "%{name} te ha invitado a unirte a http://www.if-me.org, una comunidad para compartir experiencias de salud mental con tus seres queridos y mantener un registro de tus emociones, medicamento, y auto-cuidado. Puedes aceptar la invitación a través del hipervínculo de abajo."
-        accept: "¡Aceptar la invitación!"
-        accept_until: "Esta invitación expirará el día %{due_date}."
-        ignore: "Si no deseas aceptar la invitación, por favor ignora este mensaje.<br />Tu cuenta no será creada hasta que accedas al hipervínculo de arriba y establezcas tu contraseña."
+        subject: '¡ %{name} te ha invitado a if me!'
+        subject_nameless: '¡Te han invitado a if me!'
+        hello: 'Hola %{email}!'
+        someone_invited_you: '%{name} te ha invitado a unirte a http://www.if-me.org, una comunidad para compartir experiencias de salud mental con tus seres queridos y mantener un registro de tus emociones, medicamento, y auto-cuidado. Puedes aceptar la invitación a través del hipervínculo de abajo.'
+        accept: '¡Aceptar la invitación!'
+        accept_until: 'Esta invitación expirará el día %{due_date}.'
+        ignore: 'Si no deseas aceptar la invitación, por favor ignora este mensaje.<br />Tu cuenta no será creada hasta que accedas al hipervínculo de arriba y establezcas tu contraseña.'
