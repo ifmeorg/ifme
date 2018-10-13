@@ -5,8 +5,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default('), not null
-#  encrypted_password     :string           default('), not null
+#  email                  :string           default(''), not null
+#  encrypted_password     :string           default(''), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -136,7 +136,7 @@ describe User do
   end
 
   describe '#available_groups' do
-    it "returns the groups that allys belong to and the user does'nt" do
+    it "returns the groups that allys belong to and the user doesn't" do
       user = create :user1
       user_groups = create_list :group_with_member, 2, user_id: user.id
       ally = create :user2
@@ -187,7 +187,7 @@ describe User do
     context 'when request is unsuccessful' do
       before do
         response = {
-          'error': 'inavalid request',
+          'error': 'invalid request',
           'error_description': 'Could not determine client ID from request.'
         }.to_json
 
