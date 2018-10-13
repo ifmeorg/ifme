@@ -54,7 +54,7 @@ class CommentController < ApplicationController
   def delete_comment_moment_or_strategy(comment)
     comment_id = CommentService.delete(comment, current_user)
     render json: { id: comment_id }, status: :ok
-  rescue ArgumentError
+  rescue TypeError
     bad_request_response
   end
 

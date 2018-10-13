@@ -119,8 +119,8 @@ describe CommentViewersService do
     end
   end
 
-  describe '#viewable' do
-    subject { CommentViewersService.viewable(comment, current_user) }
+  describe '#viewable?' do
+    subject { CommentViewersService.viewable?(comment, current_user) }
 
     context 'private comments (visible to you and 1 ally)' do
       let(:visibility) { 'private' }
@@ -214,8 +214,8 @@ describe CommentViewersService do
     end
   end
 
-  describe '#deletable' do
-    subject { CommentViewersService.deletable(comment, current_user) }
+  describe '#deletable?' do
+    subject { CommentViewersService.deletable?(comment, current_user) }
 
     context 'private comments (visible to you and 1 ally)' do
       let(:visibility) { 'private' }

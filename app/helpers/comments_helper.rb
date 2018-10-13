@@ -5,7 +5,7 @@ module CommentsHelper
     result_comments = []
     comments = comments.select { |c| User.where(id: c.comment_by).exists? }
     comments.each do |comment|
-      next unless CommentViewersService.viewable(comment, current_user)
+      next unless CommentViewersService.viewable?(comment, current_user)
 
       user = User.find(comment.comment_by)
       result_comments.push(comment_hash(comment, user))
@@ -56,7 +56,7 @@ module CommentsHelper
   end
 
   def delete_action(comment)
-    return unless CommentViewersService.deletable(comment, current_user)
+    return unless CommentViewersService.deletable?(comment, current_user)
 
     delete_comment_index_path(comment_id: comment.id)
   end

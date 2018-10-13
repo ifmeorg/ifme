@@ -24,13 +24,13 @@ class CommentService
 
   def delete
     if !@comment.nil? &&
-       CommentViewersService.deletable(@comment, @current_user)
+       CommentViewersService.deletable?(@comment, @current_user)
       CommentNotificationsService.remove(comment_id: @comment[:id],
                                          model_name:
                                           @comment[:commentable_type])
       @comment[:id]
     else
-      raise ArgumentError
+      raise 'Comment cannot be deleted'
     end
   end
 end

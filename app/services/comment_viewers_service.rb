@@ -7,12 +7,12 @@ class CommentViewersService
     new(comment, current_user).viewers
   end
 
-  def self.viewable(comment, current_user)
-    new(comment, current_user).viewable
+  def self.viewable?(comment, current_user)
+    new(comment, current_user).viewable?
   end
 
-  def self.deletable(comment, current_user)
-    new(comment, current_user).deletable
+  def self.deletable?(comment, current_user)
+    new(comment, current_user).deletable?
   end
 
   def initialize(comment, current_user)
@@ -27,25 +27,22 @@ class CommentViewersService
   end
 
   def viewers
-    return unless show_viewers?
+    return unless @comment.visibility == 'private' && viewable?
 
     I18n.t('shared.comments.visible_only_between_you_and',
            name: other_person.name)
   end
 
-  def viewable
-    viewable?
+  def viewable?
+    current_user_comment? || commentable_owner? ||
+      viewer?
   end
 
-  def deletable
+  def deletable?
     current_user_comment? || commentable_owner?
   end
 
   private
-
-  def show_viewers?
-    @comment.visibility == 'private' && viewable?
-  end
 
   def other_person
     return @owner unless commentable_owner?
@@ -78,11 +75,6 @@ class CommentViewersService
 
   def viewer?
     comment_viewer? || commentable_viewer?
-  end
-
-  def viewable?
-    current_user_comment? || commentable_owner? ||
-      viewer?
   end
 
   def get_commentable(comment)
