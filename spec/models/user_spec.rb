@@ -59,7 +59,7 @@ describe User do
     end
 
     context 'an existing user' do
-      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfasdf') }
+      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfaS1!df') }
 
       it 'updates token information' do
         User.find_for_google_oauth2(access_token)
@@ -93,7 +93,7 @@ describe User do
     let!(:user) do
       User.create(name: 'some name',
                   email: 'some@user.com',
-                  password: 'asdfasdf',
+                  password: 'asdfasdF!1',
                   token: 'some token')
     end
 
@@ -131,6 +131,30 @@ describe User do
       it 'returns the current token' do
         expect_any_instance_of(User).not_to receive(:update_access_token)
         expect(user.google_access_token).to eq('some token')
+      end
+    end
+  end
+
+  describe '#validations' do
+    context 'password' do
+      let(:user) { create :user }
+
+      context 'with valid one' do
+        it 'saves without any errors' do
+          user.password = 'waspAr$0'
+          expect(user.save).to be true
+        end
+      end
+
+      context 'with invalid one' do
+        it 'should return respective error message' do
+          ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
+            user.password = password
+            expect(user.save).to be false
+
+            expect(user).to have(1).error_on(:password)
+          end
+        end
       end
     end
   end

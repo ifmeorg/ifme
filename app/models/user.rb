@@ -84,6 +84,8 @@ class User < ApplicationRecord
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
 
+  validate :password_complexity
+
   def ally?(user)
     allies_by_status(:accepted).include?(user)
   end
@@ -159,7 +161,17 @@ class User < ApplicationRecord
     )
   end
 
+  def valid_password?
+    google_oauth2_enabled? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
+  end
+
   private
+
+  def password_complexity
+    return if valid_password?
+
+    errors.add :password, I18n.t('devise.registrations.password_complexity_error')
+  end
 
   def accepted_ally_ids
     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
