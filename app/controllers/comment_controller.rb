@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 class CommentController < ApplicationController
   def create
-    comment_id = CommentService.create(params[:comment], current_user)
     response = {
-      comment: generate_comments(Comment.where(id: comment_id)).first
+      comment: generate_comments(
+        Comment.where(id: handle_create(params[:comment]))
+      ).first
     }
     render json: response, status: :ok
   rescue ActiveRecord::RecordInvalid
@@ -37,9 +38,18 @@ class CommentController < ApplicationController
     remove_meeting_notification!(comment.id)
   end
 
+  def handle_create(comment_params)
+    comment = Comment.create_from!(comment_params)
+    comment.notify_of_creation!(current_user)
+    comment.id
+  end
+
   def handle_delete(comment)
     if %w[moment strategy].include?(comment.commentable_type)
-      CommentService.delete(comment, current_user)
+      CommentViewersService.deletable?(comment, current_user)
+      CommentNotificationsService.remove(comment_id: comment.id,
+                                         model_name:
+                                          comment.commentable_type)
     elsif comment.commentable_type == 'meeting'
       meeting_id = comment.commentable_id
       meeting = Meeting.find_by(id: meeting_id)

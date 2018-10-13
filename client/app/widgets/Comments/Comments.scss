@@ -5,6 +5,7 @@
 }
 
 .comment {
+  @include fadeIn(1.5s);
   @include gridItemBoxLight();
 
   &:last-of-type {
