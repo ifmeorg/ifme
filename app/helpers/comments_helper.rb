@@ -49,11 +49,6 @@ module CommentsHelper
     User.find(subject.user_id)
   end
 
-  def comment_action(model_name)
-    comment_moments_path if model_name == 'moment'
-    comment_strategies_path
-  end
-
   def delete_action(comment)
     return unless CommentViewersService.deletable?(comment, current_user)
 

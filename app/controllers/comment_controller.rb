@@ -1,40 +1,26 @@
 # frozen_string_literal: true
 class CommentController < ApplicationController
   def create
-    create_comment(params[:comment])
-  end
-
-  def delete
-    delete_comment(Comment.where(id: params[:comment_id]).first)
-  end
-
-  private
-
-  def create_comment(comment)
-    comment_id = CommentService.create(comment, current_user)
+    comment_id = CommentService.create(params[:comment], current_user)
     response = {
       comment: generate_comments(Comment.where(id: comment_id)).first
     }
     render json: response, status: :ok
   rescue ActiveRecord::RecordInvalid
-    bad_request_response
-  end
-
-  def delete_comment(comment)
-    return bad_request_response if comment.nil?
-
-    if %w[moment strategy].include?(comment.commentable_type)
-      delete_comment_moment_or_strategy(comment)
-    elsif comment.commentable_type == 'meeting'
-      delete_comment_meeting(comment)
-    else
-      bad_request_response
-    end
-  end
-
-  def bad_request_response
     render json: {}, status: :bad_request
   end
+
+  def delete
+    comment = Comment.where(id: params[:comment_id]).first
+    raise 'Comment does not exist' if comment.nil?
+
+    handle_delete(comment)
+    render json: { id: comment.id }, status: :ok
+  rescue TypeError, RuntimeError
+    render json: {}, status: :bad_request
+  end
+
+  private
 
   def remove_meeting_notification!(comment_id)
     CommentNotificationsService.remove(
@@ -51,21 +37,13 @@ class CommentController < ApplicationController
     remove_meeting_notification!(comment.id)
   end
 
-  def delete_comment_moment_or_strategy(comment)
-    comment_id = CommentService.delete(comment, current_user)
-    render json: { id: comment_id }, status: :ok
-  rescue TypeError
-    bad_request_response
-  end
-
-  def delete_comment_meeting(comment)
-    if comment.present?
+  def handle_delete(comment)
+    if %w[moment strategy].include?(comment.commentable_type)
+      CommentService.delete(comment, current_user)
+    elsif comment.commentable_type == 'meeting'
       meeting_id = comment.commentable_id
       meeting = Meeting.find_by(id: meeting_id)
       remove_meeting_notification(comment, meeting)
-      render json: { id: comment.id }, status: :ok
-    else
-      bad_request_response
     end
   end
 end
