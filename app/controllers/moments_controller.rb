@@ -125,13 +125,11 @@ class MomentsController < ApplicationController
 
   private
 
-  # rubocop:disable RescueStandardError
   def set_moment
     @moment = Moment.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(moments_path)
   end
-  # rubocop:enable RescueStandardError
 
   def moment_params
     params.require(:moment).permit(

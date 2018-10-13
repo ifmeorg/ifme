@@ -90,13 +90,11 @@ class CategoriesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_category
     @category = Category.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(categories_path)
   end
-  # rubocop:enable RescueStandardError
 
   def category_params
     params.require(:category).permit(:name, :description)

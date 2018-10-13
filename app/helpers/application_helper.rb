@@ -8,13 +8,11 @@ module ApplicationHelper
     { class: 'htmlOptions' }
   end
 
-  # rubocop:disable RescueStandardError
   def i18n_set?(key)
     I18n.t key, raise: true
-  rescue
+  rescue I18n::MissingTranslationData
     false
   end
-  # rubocop:enable RescueStandardError
 
   def active?(link_path, environment = {})
     current_page?(link_path) ||
