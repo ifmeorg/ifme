@@ -3,7 +3,6 @@
 module CommentsHelper
   def generate_comments(comments)
     result_comments = []
-    comments = comments.select { |c| User.where(id: c.comment_by).exists? }
     comments.each do |comment|
       next unless CommentViewersService.viewable?(comment, current_user)
 

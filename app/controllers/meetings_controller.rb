@@ -6,10 +6,7 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.friendly.find(params[:id])
     if @meeting.member?(current_user)
-      @comments = generate_comments(Comment.where(
-        commentable_id: @meeting.id,
-        commentable_type: 'meeting'
-      ).order(created_at: :desc))
+      @comments = generate_comments(@meeting.comments.order(created_at: :desc))
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
     end
