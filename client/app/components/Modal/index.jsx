@@ -107,14 +107,13 @@ export class Modal extends React.Component<Props, State> {
       renderComponent = React.createElement(
         this.resolveComponent(component),
         { ...props },
-        null,
       );
     }
 
     if (element) {
       return (
         <div
-          id={elementId || null}
+          id={elementId}
           className={`modalElement ${css.modalElement}`}
           onClick={this.toggleOpen}
           onKeyDown={this.toggleOpen}
