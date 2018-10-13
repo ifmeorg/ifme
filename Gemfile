@@ -88,6 +88,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver', '~> 3.14.1'
   gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 3.1.2', require: false
 end
 
 group :production do
