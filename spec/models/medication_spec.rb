@@ -18,6 +18,7 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
+#  weekly_dosage      integer[]         [0, 1, 2, 3, 4, 5, 6]
 #
 
 describe Medication do
@@ -69,6 +70,20 @@ describe Medication do
         expect(subject).to eq([medication.refill_reminder,
                                medication.take_medication_reminder])
       end
+    end
+  end
+
+  describe 'daily?' do
+    let(:user) { FactoryBot.create(:user1) }
+    let(:weekly_medication) { FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [1,2,3,4]) }
+    let(:daily_medication) { FactoryBot.create(:medication, user_id: user.id) }
+
+    it 'is weekly medication' do
+      expect(weekly_medication.daily?).to be false
+    end
+
+    it 'is daily medication' do
+      expect(daily_medication.daily?).to be true
     end
   end
 end

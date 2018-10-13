@@ -1,0 +1,60 @@
+de:
+  devise:
+    confirmations:
+      confirmed: 'Deine E-Mail-Adresse wurde erfolgreich bestätigt.'
+      send_instructions: 'Du wirst in einigen Minuten eine E-Mail erhalten mit Anweisungen, wie du deine E-Mail-Adresse bestätigen kannst.'
+      send_paranoid_instructions: 'Wenn deine E-Mail-Adresse in unserer Datenbank bereits existiert, wirst du in einigen Minuten eine E-Mail erhalten mit Anweisungen, wie du deine E-Mail-Adresse bestätigen kannst.'
+    failure:
+      already_authenticated: 'Du bist schon eingeloggt.'
+      inactive: 'Dein Account ist noch nicht freigeschaltet.'
+      invalid: 'Ungültige %{authentication_keys} oder Passwort.'
+      locked: 'Dein Account ist gesperrt.'
+      last_attempt: 'Du hast noch einen Versuch bis dein Account gesperrt wird.'
+      not_found_in_database: 'Ungültige %{authentication_keys} oder Passwort.'
+      timeout: 'Deine Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.'
+      unauthenticated: 'Um fortzufahren, musst dich einloggen oder anmelden.'
+      unconfirmed: 'Du musst deine E-Mail-Adresse bestätigen, um fortzufahren.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Anweisungen zur Bestätigung'
+      reset_password_instructions:
+        subject: 'Anweisungen zum Zurücksetzen des Passworts'
+      unlock_instructions:
+        subject: 'Anweisungen zum Entsperren'
+      password_change:
+        subject: 'Passwort geändert'
+    omniauth_callbacks:
+      failure: 'Konnte dich nicht bestätigen %{kind}, weil "%{reason}."'
+      success: 'Erfolgreich bestätigt vom %{kind} Account.'
+    passwords:
+      no_token: 'Du kannst auf diese Seite nicht zugreifen, ohne von einer E-Mail zum Zurücksetzen des Passworts zu kommen. Wenn du von einer E-Mail zum Zurücksetzen des Passworts kommst, stelle sicher, dass du die komplette URL verwendet hast.'
+      send_instructions: 'Du wirst in einigen Minuten eine E-Mail erhalten mit Anweisungen, wie du dein Passwort zurücksetzen kannst.'
+      send_paranoid_instructions: 'Wenn deine E-Mail-Adresse bereits in unserer Datenbank existiert, wirst du in einigen Minuten eine E-Mail erhalten mit einem Link zur Passwortwiederherstellung.'
+      updated: 'Dein Passwort wurde erfolgreich geändert. Du bist nun eingeloggt.'
+      updated_not_active: 'Dein Passwort wurde erfolgreich geändert.'
+    registrations:
+      destroyed: 'Tschüss! Dein Account wurde erfolgreich gelöscht. Wir hoffen, dich bald wiederzusehen.'
+      signed_up: 'Willkommen! Du hast dich erfolgreich angemeldet.'
+      signed_up_but_inactive: 'Du hast dich erfolgreich angemeldet. Wir konnten dich jedoch nicht einloggen, weil dein Account noch nicht freigeschaltet ist.'
+      signed_up_but_locked: 'Du hast dich erfolgreich angemeldet. Wir konnten dich jedoch nicht einloggen, weil dein Account gesperrt ist.'
+      signed_up_but_unconfirmed: 'Eine Nachricht mit dem Bestätigungslink ist an deine E-Mail-Adresse gesendet worden. Bitte folge dem Link, um deinen Account freizuschalten.'
+      update_needs_confirmation: 'Du hast deinen Account erfolgreich aktualisiert, aber wir müssen deine neue E-Mail-Adresse bestätigen. Bitte checke deine E-Mails und folge dem Link, um deine neue E-Mail-Adresse zu bestätigen.'
+      updated: 'Dein Account wurde erfolgreich aktualisiert.'
+    sessions:
+      signed_in: 'Erfolgreich eingeloggt.'
+      signed_out: 'Erfolgreich abgemeldet.'
+      already_signed_out: 'Erfolgreich abgemeldet.'
+    unlocks:
+      send_instructions: 'Du wirst in einigen Minuten eine E-Mail erhalten mit Anweisungen, wie du deinen Account entsperren kannst.'
+      send_paranoid_instructions: 'Wenn dein Account bereits existierst, wirst du in einigen Minuten eine E-Mail erhalten mit Anweisungen zum Entsperren.'
+      unlocked: 'Dein Account wurde erfolgreich entsperrt. Bitte logge dich ein, um fortzufahren.'
+  errors:
+    messages:
+      already_confirmed: 'war bereits bestätigt, bitte versuche, dich einzuloggen'
+      confirmation_period_expired: 'muss innerhalb von %{period} bestätigt werden, bitte fordere eine neue an'
+      expired: 'ist abgelaufen, bitte fordere eine neue an'
+      not_found: 'nicht gefunden'
+      not_locked: 'war nicht gesperrt'
+      not_saved:
+        one: '1 Fehler verhinderte das Speichern von %{resource}'
+        other: '%{count} Fehler verhinderten das Speichern von %{resource}'

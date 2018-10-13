@@ -1,675 +1,643 @@
 nb:
- app_name: 'if me'
- app_description: 'Et samfunn for mental helse opplevelser'
- email: 'join.ifme@gmail.com'
- ellipsis: " [...]"
- created: 'Opprettet %{created_at}'
- draft: "Utkast"
- edited: 'Opprettet %{created_at} (redigert)'
- edited_updated_at: 'Opprettet %{created_at} (redigert %{updated_at})'
- salutation: "Hei %{name},"
- click_here: "klikk her"
- less: " [Mindre]"
- language: 'Språk'
- true: 'ja'
- false: 'nei'
- expand_menu: 'utvide menyen'
- close: 'lukk'
-
- languages:
-   en: English
-   es: Español
-   nl: Nederlands
-   pt-BR: Português
-   sv: Svenska
-   various: Various
-   vi: Tiếng Việt
-   it: Italiano
-   nb: Norsk
-
- navigation:
-   about: 'Om'
-   blog: 'Blogg'
-   contribute: 'Bidra'
-   partners: 'Partnere'
-   privacy: 'Personvernerklæring'
-   github: 'GitHub'
-   patreon: 'Patreon'
-   opencollective: 'Open Collective'
-   instagram: 'Instagram'
-   rss: 'RSS'
-   twitter: "Twitter"
-   facebook: "Facebook"
-   feedback: 'tilbakemelding'
-   give_feedback: 'Gi tilbakemelding'
-   press: 'Presse'
-   faq: 'Ofte stilte spørsmål'
-   resources: 'Ressurser'
-   code_of_conduct: 'Oppførselskode'
-
- common:
-   name: 'Navn'
-   you: 'Deg'
-   title: 'Tittel'
-   date: 'Dato:'
-   daily_reminder: 'Daglig påminnelses epost'
-   actions:
-    plural: Handlinger
-    submit: 'Bekreft'
-    submit_publish: 'Publiser'
-    submit_draft: 'Utkast'
-    confirm: 'Er du sikker?'
-    delete: 'Slett'
-    edit: 'Rediger'
-    edit_instance: 'Rediger %{instance}'
-    join: 'Bli med'
-    leave: 'Forlat'
-    add: 'Legg til'
-    add_all: 'Legg til alle'
-    select_all: 'Velg alle'
-    remove: 'Fjern'
-   form:
-     email: "E-post"
-     location: "Plassering"
-     description: 'Beskrivelse'
-     error_explanation: 'Vennligst fyll inn de markerte feltene!'
-     press_enter: 'Press ENTER for å legge til'
-   time_ago: "%{date} siden"
-   write_to_us: "skriv til oss"
-
- comment:
-  singular: 'Kommentar'
-  plural: 'Kommentarer'
-  posting: 'Publiserer kommentar...'
-  allow_comments: 'Tillat kommentarer?'
-  hint: 'Kun deg og seere kan kommentere'
-  control: 'Kontroller hvem som kan se og kommentere'
-
- account:
-  singular: 'Konto'
-  sign_in: 'Logg inn'
-  sign_up: 'Registrer'
-  forgot_password: 'Glemt passordet ditt?'
-
- members:
-   one: '%{count} medlem'
-   other: '%{count} medlemmer'
-
- allies:
-  add_ally: 'Legg til allierte'
-  cancel_ally_request: 'Avbryt forespørsel'
-  accept: 'Godta'
-  reject: 'Avvis'
-  index:
-    title: 'Allierte'
-    outgoing: 'Utgående forespørsler'
-    incoming: 'Innkommende forespørsler'
-    invite: 'Inviter dine kjente!'
-    none: 'Du har for øyeblikket ingen allierte! Du kan søke etter dem eller invitere kjente til å bli med!'
-    view_all_allies: 'Se alle allierte'
-    cancel: 'Avbryt'
-  form:
-    placeholder: 'Skriv inn en eller flere kommaseparerte e-poster'
-
- categories:
-  singular: 'Kategori'
-  plural: 'Kategorier'
-  edit_category: "Rediger kategori"
-  new: "Ny kategori"
-  form:
-   name_hint: 'Kategoriser gjentakende folk, steder, ting, aktiviteter osv.'
-  label:
-   one: 'Kategori:'
-   other: 'Kategorier:'
-  index:
-   subtitle: 'Livet er rotete, kategoriser de ulike menneskene, stedene, og tingene.'
-   premade1_name: 'Familie'
-   premade1_description: 'Familierelatert'
-   premade2_name: 'Venner'
-   premade2_description: 'Vennerelatert'
-   premade3_name: 'Jobb'
-   premade3_description: 'Jobbrelatert'
-   premade4_name: 'Meditasjon'
-   premade4_description: 'Meditasjon, dyp pusting, og avslappende aktiviteter'
-   instructions: "Du har ikke opprettet noen tilpassede kategorier enda.<br>Du kan også legge til de følgende ferdiglagde kategoriene og tilpasse de senere."
-
- errors:
-  home_page: 'Tilbake hjem'
-  internal_server_error:
-   header_message: 'Denne siden kan ikke vises'
-  not_found:
-   header_message: 'Denne siden finnes ikke'
-
- groups:
-  singular: 'Gruppe'
-  plural: 'Grupper'
-  form:
-    leaders: 'Ledere'
-    only_leader: "Du er den eneste lederen, du kan derfor ikke dra."
-    cannot_delete: 'Vennligst legg merke til at du ikke kan slette grupper.'
-    error_save: "Vi kan ikke lagre denne gruppen fordi: "
-    error_edit_permission: 'Du må være lederen av gruppen for å kunne redigere den'
-  index:
-   subtitle: 'Opprett og bli med i grupper som tilbyr støtte, mentorskap, og diskusjoner.'
-   available_groups: 'Tilgjengelige grupper'
-   joined_groups: 'Grupper du deltar i'
-   leader: '(Leder)'
-   instructions: "Du er ikke en del av noen grupper enda!<br><br>Støttegrupper er bra for å ha åpne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere møter online eller offline. Du kan også bli med i grupper som dine allierte har opprettet."
-  join:
-    success: 'Du har blitt med i denne gruppen.'
-    group_not_exists: "Du kan ikke bli med i en gruppe som ikke eksisterer."
-  leave:
-    error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
-    success: "Du har forlatt %{group}"
-    remove_member_success: "Du har fjernet %{user} fra %{group}"
-    remove_member_error: "Du kan ikke sparke et gruppemedlem fordi du ikke er leder."
-  new: 'Ny gruppe'
-  show:
-   led_by: 'Ledet av:'
-   delete: 'Slett gruppe'
-
- layouts:
-  application:
-   signin: 'Del dine historier nå'
-   create_account: 'Bli med i samfunnet nå'
-   update_account: 'Tilpass kontoen din'
-   if: 'if'
-   me: 'me'
-  mailer:
-   html:
-    app_description: "%{app_name} er et samfunn som oppfordrer folk til å dele sine mental helse historier med sine kjente."
-    no_reply: "Du kan ikke svare på denne e-posten. Hvis du har noen spørsmål, bekymringer, eller tilbakemeldinger vennligst send epost til %{email}!"
-  title:
-   reset_password: Tilbakestill passordet ditt
-
- medications:
-  singular: 'Medisinering'
-  edit_medication: 'Rediger medisinering'
-  refill_reminder: 'Påminnelsesepost om når du må fylle på'
-  dosage: 'Daglig dose:'
-  refill: 'Påfyllelse:'
-  quantity: 'Total kvantitet:'
-  strength: 'Styrke:'
-  form:
-   strength: 'Styrke'
-   strength_placeholder: 'f.eks. 100'
-   total_placeholder: 'f.eks. 30'
-   dosage: 'dose'
-   dosage_placeholder: 'f.eks. 2'
-   refill: 'påfyll'
-   comments_hint: 'Legg til ytterlige kommentarer her f.eks. loggføring av symptomer'
-   add_to_google_cal: 'Google Kalender påminnelse'
-   google_cal_hint: "Vi legger til en påminnelse for denne medisinen til din Google kalender."
-   strength_hint: 'Medisin styrke, vanligvis beskrevet ved siden av navnet'
-   total_hint: 'Totalt nummer av piller eller mengde medisin'
-   dosage_hint: 'Nummer av piller eller daglig mengde'
-   refill_hint: 'Når resepten må fylles på'
-   refill_reminder_hint: "Vi sender deg en påminnelse uken for medisinen må fylles på."
-   daily_reminder_hint: "Vi sender deg en daglig påminnelse om å ta denne medisinen"
-  new: 'Ny medisin'
-  units:
-   display: "%{count} %{unit}"
-   mg: 'mg'
-   ml: 'ml'
-   tablets:
-    one: 'tablett'
-    other: 'tabletter'
-  reminder_mailer:
-    subject: "Ikke glem å ta %{name}!"
-    body: "Her er en vennlig påminnelse om å ta %{name}!"
-  refill_mailer:
-    subject: "Du må fylle opp %{name} snart!"
-    body: "Her er en vennlig påminnelse om å fylle opp %{name} på %{refill}!"
-  index:
-   title: 'Medisiner'
-   subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
-   total: 'Totalt:'
-   instructions: "Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse."
-   example_name: 'Prozac'
-   example_strength: '10 mg'
-   example_total: '40 tabletter'
-   example_dosage: '2 tabletter'
-   example_refill: '31/05/2016'
-  show:
-   comments: 'Kommentarer:'
-
- meetings:
-  singular: Møte
-  edit_meeting: 'Rediger møte'
-  form:
-   location_placeholder: 'URL eller gateaddresse'
-   maximum_members: 'Maks medlemmer'
-   maximum_placeholder: '0 hvis ingen maks'
-  join_success: 'Du har blitt med i dette møtet.'
-  info:
-   cancel_meeting: 'Avlys møte'
-   meeting_time: 'Tid'
-   members_of_group_html:
-    one: '%{count} Medlem av %{group}'
-    other: '%{count} Medlemmer av %{group}'
-  reminder_mailer:
-    subject: "Ditt møte \"%{meeting_name}\" er i morgen kl %{time}!"
-    body: "Her er en vennlig påminnelse om at møtet ditt i morgen, \"%{meeting_name}\", vil finne sted kl %{time} på %{location}!"
-  leave:
-    error: 'Du kan ikke forlate møtet, du er den eneste lederen.'
-    success: 'Du har forlatt %{meeting}'
-  new: 'Nytt møte'
-
- moments:
-  singular: 'Øyeblikk'
-  plural: 'Øyeblikk'
-  edit_moment: 'Rediger øyeblikk'
-  tagged_moments: 'tag øyeblikk'
-  new: 'Nytt øyeblikk'
-  secret_share:
-    singular: 'Hemmelig deling'
-    expires_at: 'Utløper'
-    cancel_secret_share: 'Avbryt Hemmelig deling'
-  form:
-   why: 'Hva skjedde og hvordan føler du deg?'
-   fix: 'Hva slags tanker vil du ha?'
-   what_happened: 'Hva skjedde?'
-   viewers_hint: 'Allierte som kan se øyeblikket ditt'
-   draft_question: 'Vil du lagre øyeblikket ditt som ett utkast?'
-
-  index:
-   subtitle: 'Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker din mentale helse.'
-   instructions: "Du har ikke skrevet om noen øyeblikk enda.<br><br>Vet ikke hvor du skal begynne? Er det noe som har skjedd i dag som du har lyst til å dele og diskutere med kjente? Det kan være positivt eller negativt! Du må ikke dele det med en gang - bare når du er klar! Her er ett eksempel på ett øyeblikk."
-   example_name: 'Har panikk over intervju i morgen!'
-   example_category: 'Karriere'
-  show:
-   strategies: 'Hvilke strategier kan hjelpe?'
-
- moods:
-  singular: 'Humør'
-  plural: 'Humør'
-  edit_mood: 'Rediger humør'
-  new: 'Nytt humør'
-  example_moods: 'Nervøs, engstelig, håpefull'
-  label:
-   one: 'Humør:'
-   other: 'Humør:'
-  index:
-   subtitle: 'Lag tagger som beskriver din sinnstilstand, følelser, og tanker.'
-   premade1_name: 'Aksepterende'
-   premade1_description: 'Aksepterende og i fred med forskjeller og begrensninger'
-   premade2_name: 'Ambisiøs'
-   premade2_description: 'Optimistiske følelser om oppnåelse av mål'
-   premade3_name: 'Nysgjerrig'
-   premade3_description: 'Nysgjerrige følelser om uvitenhet'
-   premade4_name: 'Ergelig'
-   premade4_description: 'Aksepterer ikke enkelte fakta, følelser av sinne, hevngjerrighet, og/eller sjalusi'
-   premade5_name: 'Hjelpesløs'
-   premade5_description: 'Føle seg lei og hjelpesløs - ute av stand til å finne noen mulige løsninger'
-   instructions: "Du har ikke laget noen tilpassede humør enda.<br>Du kan også legge til de følgende forhåndslagde humørene og tilpasse de senere."
-
- notifications:
-  plural: 'Notifikasjoner'
-  none: 'Det er ingen'
-  clear: 'Klar'
-  created_by_html: "<strong>Laget av</strong>: %{name}"
-  preview: 'Se mer'
-  members:
-   title: 'Liste over medlemmer'
-  ally:
-   accepted: '%{name} aksepterte din allianseforespørsel!'
-   sent_html: '%{link_to_user} sendte en allianseforespørsel!'
+  app_name: 'if me'
+  app_description: 'Et samfunn for mental helse opplevelser'
+  email: join.ifme@gmail.com
+  ellipsis: ' [...]'
+  created: 'Opprettet %{created_at}'
+  draft: Utkast
+  edited: 'Opprettet %{created_at} (redigert)'
+  edited_updated_at: 'Opprettet %{created_at} (redigert %{updated_at})'
+  salutation: 'Hei %{name},'
+  click_here: 'klikk her'
+  less: ' [Mindre]'
+  language: Språk
+  yes_text: ja
+  no_text: nei
+  expand_menu: 'utvide menyen'
+  close: lukk
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various: Various
+    vi: 'Tiếng Việt'
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+  navigation:
+    about: Om
+    blog: Blogg
+    contribute: Bidra
+    partners: Partnere
+    privacy: Personvernerklæring
+    github: GitHub
+    patreon: Patreon
+    opencollective: 'Open Collective'
+    instagram: Instagram
+    rss: RSS
+    twitter: Twitter
+    facebook: Facebook
+    feedback: tilbakemelding
+    give_feedback: 'Gi tilbakemelding'
+    press: Presse
+    faq: 'Ofte stilte spørsmål'
+    resources: Ressurser
+    code_of_conduct: Oppførselskode
+  common:
+    name: Navn
+    you: Deg
+    title: Tittel
+    date: 'Dato:'
+    daily_reminder: 'Daglig påminnelses epost'
+    actions:
+      plural: Handlinger
+      submit: Bekreft
+      submit_publish: Publiser
+      submit_draft: Utkast
+      confirm: 'Er du sikker?'
+      delete: Slett
+      edit: Rediger
+      edit_instance: 'Rediger %{instance}'
+      join: 'Bli med'
+      leave: Forlat
+      add: 'Legg til'
+      add_all: 'Legg til alle'
+      select_all: 'Velg alle'
+      remove: Fjern
+    form:
+      email: E-post
+      location: Plassering
+      description: Beskrivelse
+      error_explanation: 'Vennligst fyll inn de markerte feltene!'
+      press_enter: 'Press ENTER for å legge til'
+    time_ago: '%{date} siden'
+    write_to_us: 'skriv til oss'
+    days: Dager
   comment:
-   full: '%{name} kommenterte "%{comment}" på %{typename}'
-   truncated: '%{name} kommenterte "%{comment}" [...] på %{typename}'
-  group:
-   new_group: '%{name} lagde en gruppe "%{group_name}"'
-   new_group_member: '%{name} ble med i gruppen din "%{group_name}"'
-   add_group_leader: '%{name} ble en leder av "%{group_name}"'
-   remove_group_leader: '%{name} er ikke lenger leder av "%{group_name}"'
-  meeting:
-   new_meeting: '%{name} lagde ett nytt møte "%{meeting_name}" for "%{group_name}"'
-   remove_meeting: '%{name} har kansellert "%{meeting_name}" i "%{group_name}"'
-   update_meeting: '%{name} har oppdatert "%{meeting_name}" i "%{group_name}"'
-   join_meeting: '%{name} has blitt med "%{meeting_name}" i "%{group_name}"'
-  mailer:
-    comment_on_moment_subject: "if me | %{user} kommenterte på ditt øyeblikk \"%{moment}\""
-    comment_on_strategy_subject: "if me | %{user} kommenterte på din strategi \"%{strategy}\""
-    comment_on_meeting_subject: "if me | %{user} kommenterte på møtet \"%{meeting}\" i gruppen \"%{group}\""
-    comment_on_private_body: "<p>Din allierte <strong>%{user}</strong> kommenterte privat:</p>"
-    comment_on_body: "<p>Din allierte <strong>%{user}</strong> kommenterte:</p>"
-    comment_text_cutoff: "<p><i>%{comment} [...]</i></p>"
-    comment_text: "<p><i>%{comment}</i></p>"
-    comment_link: "<p>For å lese det, %{link}!</p>"
-    new_group_subject: "if me | %{user} lagde en gruppe \"%{group}\""
-    new_group_body: "<p>%{user} lagde en gruppe \"%{group}\":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>Vennligst følg vår %{link_to_code_of_conduct}!</p>"
-    new_group_member_subject: "if me | %{user} ble med i gruppe \"%{group}\""
-    add_group_leader_you_subject: "if me | Du ble leder for gruppen \"%{group}\""
-    add_group_leader_subject: "if me | %{user} ble en leder for gruppen \" %{group}\""
-    add_remove_group_leader_body: "<p>For å se \"%{group}\", %{link}!</p>"
-    remove_group_leader_you_subject: "if me | Du er ikke lenger en leder for \"%{group}\""
-    remove_group_leader_subject: "if me | %{user} er ikke lenger en leder for gruppen \"%{group}\""
-    update_meeting_subject: "if me | %{user} har oppdatert møtet \"%{meeting}\" i \"%{group}\""
-    new_meeting_subject: "if me | %{user} har laget ett nytt møte \"%{meeting}\" i \"%{group}\""
-    meeting_body: "<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Plassering:</strong> %{location}</p><p><strong>Dato:</strong> %{date}</p><p><strong>Tid:</strong> %{time}</p>"
-    new_meeting_link: "<p>For å lære mer og bli med, %{link}!</p>"
-    update_meeting_link: "<p>For å lære mer, %{link}!</p>"
-    remove_meeting_subject: "if me | %{user} har kansellert \"%{meeting}\" i \"%{group}\""
-    join_meeting_subject: "if me | %{user} har blitt med i \"%{meeting}\" i \"%{group}\""
-    join_meeting_body: "<p>For å se \"%{meeting}\", %{link}!</p>"
-
- omniauth:
-  google: 'Google'
-  access_denied: 'Adgang avvist'
-
- pages:
-  about:
-    send_us: 'oss'
-    email_us: 'Ta gjerne kontakt med %{email_link}!'
-    main_message_one: "%{app_name} er et samfunn for mental helse opplevelser som oppmuntrer folk til å dele sine personlige historier med betrodde allierte."
-    message_text_one: "Betrodde allierte er folkene vi samhandler med på en daglig basis, inkludert venner, familiemedlemmer, kollegaer, lærere, og mental helse arbeidere."
-    main_message_two: "Å takle mental helse er det som gjør oss til mennesker. Men for mange av oss, er det vanskelig å være åpne om det."
-    message_text_two: "Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.<p><div class=\"subtitle block\">\"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen.\"</div><div class=\"spacer\"></div><div class=\"purple_yay\">&hearts;</div></p><p class=\"noMarginBottom\">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>"
-    main_message_three: "Vil du støtte oss?"
-    message_text_three: "Vår applikasjon er ett <u>fullstendig</u> åpent kildekode-prosjekt. Den er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.</p><p>I 2016, mottok vi et samfunnsstipend fra %{linebreak_link}. I 2017, mottok vi støtte fra %{fund_club_link}.</p>Du kan støtte oss ved å donere til vår %{patreon_link}.</p>"
-    linebreak: 'Linebreak'
-    fund_club: 'Fund Club'
-  blog:
-    description: "Hvis du er interessert i å skrive for oss, kontakt oss på %{email}! Vi tar også imot anonyme innleveringer."
-  contribute:
-    main_message_one: "if me er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett."
-    message_text_one: "Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>oversettere</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class=\"noMarginBottom\">Vennligst %{email_link} så kommer vi i kontakt med deg! Du vil bli invitert til å delta i vår %{slack_link} side, vårt hovedkommunikasjonsmiddel. Forsikr deg at du 'forker' vårt oppbevaringssted på %{github_link}!</p>"
-    more_contributors: 'Flere fabelaktige bidragsytere!'
-    thanks: 'Masse takk til'
-    slack: 'Slack'
-  faq:
-    title: 'Ofte stilte spørsmål'
-    data_access_question: 'Hvem har tilgang til min informasjon?'
-    data_access_answer: 'Informasjon er ikke delt eller offentliggjort til noen tredjepart. Slettelse av kontoen din vil fjerne all informasjonen din.<br><br>Brukerdata er analysert innenfor applikasjonen for å gi tilpassede anbefalinger.'
-    moment_question: 'Hva er ett øyeblikk?'
-    moment_answer: 'Ett <strong>%{moment}</strong> er en hendelse eller situasjon som påvirker din mentale helse. Det kan enten være positivt eller negativt. Tenk på det som en side av en dagbok eller en statusoppdatering.<br><br>Du kan tagge Øyeblikk med strategier, kategorier, og humør. Du kan også velge hvilke allierte som kan se og kommentere. Du kan også lage minner som kun du kan se.'
-    strategy_question: 'Hva er en strategi?'
-    strategy_answer: 'En <strong>%{strategy}</strong> er en aktivitet, tankerekke, eller form for selvpleie som hjelper deg med å takle eller fokusere på helbredelse.<br><br>Du kan tagge Strategier med kategorier. Du kan også velge hvilke allierte som kan se og kommentere. Du kan også lage minner som kun du kan se. Delte strategier vil kun være synlige for alle spefiserte allierte, som betyr at du kan tagge minnene dine med deres strategier!'
-    category_question: 'Hva er en kategori?'
-    category_answer: 'En <strong>%{category}</strong> er en tag som kan representere menneskene, stedene, og tingene som er viktige for deg.'
-    mood_question: 'Hva er et humør?'
-    mood_answer: 'Et <strong>%{mood}</strong> er en tag som beskriver din sinnstilstand og følelser.'
-    group_question: 'Hva er en gruppe?'
-    group_answer: 'En <strong>%{group}</strong> tilbyr støtte, mentorskap, og diskusjoner om mental helse. Du kan lage grupper og dine allierte har muligheten til å bli med. Du kan bli med i grupper som er laget av dine allierte.<br><br>Som en gruppeleder, kan du opprette <strong>møter</strong>. Møter har en plassering og tid. Plasseringen kan være et fysisk sted eller en Google Hangout link. Møter tillater også kommentarer. Hvis du er en gruppeleder, så kan du ikke forlate gruppen hvis det ikke er en annen leder. Grupper kan kun slettes hvis du er det eneste medlemmet.'
-    medications_question: 'Hvordan bruker jeg medisineringsegenskapen?'
-    medications_answer: '<strong>%{medications}</strong> lar deg loggføre resept-medisinene du tar. Du kan også loggføre symptomene dine.'
-    invite_question: 'Hvordan kan jeg invitere kjente til å bli med i applikasjonen?'
-    invite_answer: 'Gå til <strong>%{allies}</strong> siden og klikk på "Inviter dine kjente" linken. Du kan da invitere dem via e-post. Når dine kjente aksepterer invitasjonen, blir de lagt til din liste over allierte.'
-    email_notifications_question: 'Hvordan kan jeg forandre e-post påminnelser?'
-    email_notifications_answer: "Gå til <strong>%{accounts}</strong> siden. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din."
-  home:
-    stories: 'Historier'
-    not_signed_in:
-      main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'
-      message_text_one: "Vi trenger hverandres støtte for å bryte ned stigmaer."
-      message_one: 'Del dine historier med kjente og få støtten du fortjener'
-      message_two: 'Vær deg selv, ingen forpliktelser og med sikkerhet og personvern'
-      message_three: 'Dokumenter ditt humør, medisiner, og selvpleie'
-      main_message_two: 'Vi har åpen kildekode fordi mental helse burde være åpent.'
-      message_text_two: "Vi er <strong>alltid</strong> på utkikk etter din %{help} og %{feedback}!"
-      help: 'hjelp'
-    signed_in_empty:
-      main_message_one: 'Hallo %{name}!'
-      message_text_one: "Slik kan du begynne å dele dine historier."
-      main_message_two: 'Fortell oss om deg selv.'
-      cell_one: 'Tilpass din %{profile} - legg til en bio og profilbilde<br>Legg til tilpassede %{moods} for å best beskrive dine føleleser<br>Del %{allies} - venner, familie, og andre du vil dele med'
-      main_message_three: 'Skriv dine historier.'
-      cell_two: 'Lag tilpassede %{categories} for å organisere øyeblikkene dine<br>Skriv om %{moments} - hendelsene og situasjonene som påvirker din mentale helse'
-      main_message_four: 'Ta vare på deg selv.'
-      cell_three: '%{strategize} din plan for selvpleie!<br>Tar for tiden %{medications}? Hold styr på det og lag påminnelser!<br>Trenger du ekstra støtte? Bli med i eller lag en %{group} for å snakke ut'
-      main_message_five: 'Har du noen spørsmål eller bekymringer?'
-      message_text_three: 'Sjekk ut vår %{faq} side eller %{email_link}!'
-      strategize: 'Lag en strategiplan'
-  partners:
-    description: 'Disse er de fantastiske organisasjonene som har inspirert oss og som vi har privileget til å jobbe med. Vi vil gjerne jobbe med din organisasjon, send oss en e-post til %{email}.'
-  privacy:
-    summary: 'Oppsummering'
-    summary_description: '<p>Denne personvernserklæringen er for denne nettsiden og regjerer personvernet til brukerene som velger å bruke den.</p><p>Gitt det sensitive innholdet til nettsiden er personvern en utrolig viktig bekymring for oss. Retningslinjene omrisser hvordan brukerinformasjon er samlet, hva det brukes til, og hvordan det beskyttes.</p>'
-    user_data: 'Brukerinformasjpn'
-    user_data_description: '<p>Brukere er tiltenkt å gi oss personlige utdrag fra sine liv (i øyeblikksegenskapen) og anekdoter om medisinbruk. Informasjon fra øyeblikksegenskapen er delt med de brukeren velger å dele det med. Informasjon fra medisineringsegenskapene er kun synlig for brukeren. Ingen av de vil bli brukt til ytterlige årsaker eller delt med eksterne kilder.</p><p>Applikasjonen inneholder også informasjon med tanke på støttegrupper og strategier for å takle mental helse utfordringer. Denne informasjonen er kun tilgjengelig for brukere som har spesiell tillatelse til å se det. Informasjon fra begge egenskapene kan vises offentlig for å vise dem frem til nåværende og fremtidige brukere. Derimot, brukeridentitet vil forbli privat.</p>'
-    cookies: 'Bruk av cookies'
-    cookies_description: "<p>Denne nettsiden bruker cookies for å bedre brukeropplevelsen når man besøker siden. Der det er egnet bruker nettsiden ett cookie kontrolleringssystem som tillater brukeren ved forste besøk å tillate eller forby cookies på computeren/enheten.</p><p>Cookies er små filer lagret på brukerens computers hard drive som sporer, lagrer informasjon om brukerens interaksjoner og bruk av nettsiden. Dette tillater nettsiden, gjennom serveren å tilby brukere en skreddersydd opplevelse innenfor nettsiden.</p><p>Brukere rådes at hvis de ønsker å benekte bruken og lagringen av cookies fra denne nettsiden på deres datamaskins hard drive at de bør ta nødvendige steg innenfor deres nettlesers sikkerhetsinstillinger for å blokkere alle cookies fra denne nettsiden og dens eksterne serverings leverandører.</p><p>Denne nettsiden bruker sporingsprogramvare for å overvåke besøkende slik at de bedre kan forstå hvordan de bruker det. Denne programvaren er forsørget av Google Analytics som bruker cookies for å overvåke besøksbruk. Programvaren lagrer en cookie på datamaskinen din sin hard drive slik at den kan overvåke og registrere ditt ingrep og bruk av nettsiden, men vil ikke lagre eller samle inn personlig informasjon. Du kan lese Googles %{google_privacy_policy} for mer informasjon.</p>"
-    social_media: 'Sosiale medier platformer'
-    social_media_description: '<p>Kommunikasjon, engasjement og handlinger tatt gjennom eksterne sosiale medie platformer som denne nettsiden deltar på er tilpasset vilkårene og betingelsene i tillegg til personvernserklæringene holdt med de ulike sosiale mediene.</p><p>Brukere er rådet til å bruke sosiale medie platformene klokt og kommunisere / engasjere dem med ventet omsorg og forsiktighet med tanke på deres eget personvern og personlige detaljer. Denne nettsiden vil aldri spørre etter personlig eller sensitiv informasjon igjennom sosiale medie platformer og oppfordrer brukere som ønsker å diskutere sensitive detaljer til å kontakte dem igjennom hovedkommunikasjonskanaler slik som telefon eller e-post.</p><p>Denne nettsiden kan bruke sosiale delingsknapper som hjelper med å dele web-innhold direkte fra nettsider til den sosiale medie platformen. Brukere oppfordres til å bruke slike sosiale delingsknapper på egen diskresjon og får med seg den sosiale medie platformen kan spore og lagre din foresporsel om å dele en nettside hendholdsvis igjennom din sosiale medie platform.</p>'
-    contact: 'Kontakt oss'
-    contact_description: "<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class=\"noMarginBottom\"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>"
-  resources:
-    communities: Samfunn
-    education: Utdanning
-    hotlines: Hjelpelinjer
-    services: Tjenester
-    tags:
-      people_of_colour: fargede folk
-      women_of_colour: fargede kvinner
-      black_women: svarte kvinner
-      domestic_violence: vold i hjemmet
-      dating_violence: vold i forhold
-      cyberbullying: nettmobbing
-      therapy: terapi
-      counseling: rådgivning
-      youth: ungdom
-      lgbtqia: LGBTQIA
-      harassment: trakkassering
-      self_care: selvpleie
-      women: kvinner
-      chatbot: chatbot
-      anonymous: anonymt
-      free: gratis
-      paid: betalt
-      twenty_four_seven: 24/7
-      videos: videoer
-      blog: blogg
-      podcast: podcast
-      books: bøker
-      publication: publikasjon
-      video_chat: videosamtale
-      texting: teksting
-      open_source: åpen kildekode
-      workplace: arbeidsplass
-      social_justice: sosial rettferdighet
-      tech_industry: IT-bransjen
-      meditation: meditasjon
-      social_anxiety: sosial angst
-      trigger_warnings: avtrekkelsesadvarsler
-      netflix: netflix
-      homeless: uteligger
-      talks: samtaler
-      voice_chat: lydsamtale
-      training: trening
-      directory: direktorat
-      self_injury: selvskading
-      treatment: behandling
-      care_planning: omsorgsplanlegging
-      depression: depresjon
-      ocd: OCD
-      advice: råd
-      forum: forum
-      learning: læring
-      crisis_prevention: kriseforhindring
-      safety_planning: sikkerhetsplanlegging
-      suicide_prevention: selvmordsforhindring
-      android: android
-      ios: iOS
-      support_groups: støttegrupper
-      mindfulness: tankefullhet
-      journaling: journalforing
-      mood_tracking: humørsporing
-      veterans: veteraner
-      music: musikk
-      integrative: integrerende
-      ptsd: PTSD
-      tbi: TBI
-      news: nyheter
-      government: stat
-      christian: kristen
-      humor: humor
-      conference: konferanse
-      addiction: avhengighet
-      rehabilitation: rehabilitering
-      teachers: lærere
-      bipolar: bipolar
-
- profile:
-  index:
-   title: 'Profil'
-   edit_user: 'Tilpass profilen'
-
- pusher:
-  not_authorized: 'Ikke autorisert'
-
- search:
-  search: 'Søk'
-  search_by_name: 'Søk med navn'
-  form:
-   search_by_location: 'Søk med plassering'
-   search_by_email: 'Søk med e-post'
-
-  index:
-   title: 'Søk etter allierte'
-   user_not_found: 'Bruker %{email} ikke funnet'
-
- shared:
-  footer:
-    licence: 'AGPL-3.0'
-    licence_subtitle: 'Lisensiert under %{licence}'
-    connect: 'koble til'
-  comments:
-    share_everyone: 'Del med alle'
-    share_with: 'Del kun med %{name}'
-    visible_only_between_you_and: 'Kun synlig for deg og %{name}'
-    not_allies: '(ikke allierte)'
-  header:
-   signout: 'Logg ut'
-   home: 'Hjem'
-  viewers_indicator:
-   disabled_comments: 'Kommentarer har blitt deaktivert.'
-   you_are_viewer_html:
-    one: 'Du er den eneste seeren.'
-    other: 'Du er <strong>ikke</strong> den eneste seeren.'
-   viewers_html:
-     zero: 'Det er <strong>ingen</strong> seere.'
-     one: '%{names} er en seer.'
-     other: '%{names} er seere.'
-  stats:
-    you_are_focusing: 'Du fokuserer mest på'
-    user_is_focusing: '%{name} fokuserer mest på'
-  viewers:
-    plural: 'Seere'
-    you: 'Kun deg'
-    you_link: 'Kun synlig for deg'
-    many: 'Synlig for %{viewers}'
-  character_count: 'Du har %{number} tegn igjen.'
-  meeting_info:
-    attending: 'Du deltar. Ombestemt deg?'
-    not_attending: 'Du deltar ikke. %{join}'
-    not_attending_one_spot_left: 'Du er ikke deltakende. Det er en plass igjen! %{join}'
-    not_attending_spots_left: 'Du er ikke deltakende. Det er %{number} plasser igjen! %{join}'
-    not_attending_no_spots_left: 'Du er ikke deltakende. Det er ikke noe mer plass igjen.'
-  quick_create:
-   new: 'Ny %{name}'
-
- strategies:
-  singular: 'Strategi'
-  plural: 'Strategier'
-  edit_strategy: 'Rediger strategi'
-  tagged_strategies: 'Taggede strategier'
-  new: 'Ny strategi'
-  form:
-   describe: 'Beskriv strategien.'
-   strategies_label: 'Hvilke strategier kan hjelpe deg oppnå disse tankene?'
-   name_hint: 'Hvilken som helst aktivitet, tankerekke eller form for selvpleie som hjelper deg'
-   viewers_hint: 'Allierte som kan se din strategi og tagge deres egne øyeblikk med det'
-   daily_reminder_hint: "Vi sender deg en daglig påminnelse om å utføre denne strategien"
-   draft_question: "Vil du lagre din strategi som ett utkast?"
-  label:
-   one: 'Strategi:'
-   other: 'Strategier:'
-  index:
-   subtitle: 'Planlegg selvpleie for å oppnå ønskede tanker og innstillinger for øyeblikkene dine.'
-   premade1_name: 'Fem minutters meditasjon'
-   premade1_description: '1) <b>Finn en rolig og behagelig stilling.</b> Du kan sitte på en stol eller på gulvet på en pute. Hold ryggen din rett, men ikke for stramt. Hendene hviler hvor de er komfortable. Tungen i taket av munnen eller hvor det er komfortabelt.<br><br>2) <b>Legg merke til og slapp av i kroppen din.</b> Prøv å legge merke til formen til kroppen, vekten dens. La deg selv slappe av bli nyskjerrig på kroppen din sittende her-sensasjonene den opplever, berøringen, tilknytningen med gulvet eller stolen. Avslapp områder med tranghet eller spenning. Bare pust.<br><br>3) <b>Bli en med pusten din.</b> Føl den naturlige strømningen av innpust og utpust. Du trenger ikke å gjøre noe med pusten din. Ikke for lang, ikke for kort, kun naturlig. Legg merke til hvor du føler pusten din i kroppen. Det er kanskje i magen. Det kan være i brystet, halsen eller i neseborene dine. Se om du kan føle sensasjonen av pusten, ett pust av gangen. Når ett pust ender, begynner det neste.<br><br>4) <b>Vær snill med ditt vandrende sinn.</b> Nå som du gjør dette, legger du kanskje merke til at tankene dine begynner å vandre. Du begynner kanskje å tenke på andre ting. Hvis dette skjer, så er ikke det et problem. Det er veldig naturlig. Legg bare merke til at tankene dine har vandret. Du kan si "tenkende" eller "vandrende" i hodet ditt rolig. Og deretter vennlig omdiriger oppmerksomheten din tilbake til pusten din.<br><br>5) <b>Bli her i fem til syv minutter.</b> Legg merke til pusten din, i stillhet. Fra tid til annen, blir du tapt i en tanke, returner til pusten din.<br><br>6) <b>Sjekk inn for du sjekker ut.</b> Etter ett par minutter, legg merke til kroppen din igjen, hele kroppen din, sittende her. La deg selv slappe av enda dypere og deretter tilby deg selv verdsettelse for at du gjorde denne øvelsen i dag.<br><br><i>Tatt fra http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-   instructions: "Du har ikke laget noen tilpassede strategier enda.<br>Du kan også legge til de følgende forhåndslagde strategien og tilpasse den fra tid til annen."
-  reminder_mailer:
-    subject: "Ikke glem å utføre %{name}!"
-    body: "Her en en vennlig påminnelse om å utføre %{name}!"
-
- stats:
-  total_moments: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> øyeblikk.'
-  total_moment: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> øyeblikk.'
-  monthly_moments: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> øyeblikk.'
-  monthly_moment: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> øyeblikk.'
-
- warnings:
-  no_description: "Du skrev ikke en beskrivelse!"
-  yes_description: "A skrive en kan hjelpe deg og andre bedre forstå i detalj"
-
- mailers:
-   accepted_ally_request:
-     subject: "if me | %{ally_name} aksepterte din allianseforesporsel!"
-     message: "<p>Gratulerer! Du kan nå dele øyeblikk, strategier og mer med %{ally_name}.</p>"
-   new_ally_request:
-     subject: "if me | %{ally_name} sendte en allianseforespørsel!"
-     message: "<p>Vennligst <a href=\"%{allies_url}\">logg inn</a> for å akseptere eller avvise forespørselen!</p>"
-
- devise:
-  password: "Passord"
-  new_password: "Nytt passord"
-  current_password: "Nåværende passord"
-  password_change: "Rediger passordet mitt"
-  remember_me: "Husk meg"
-  confirmations:
-    resend_confirmation: "Send bekreftelsesinstruksjoner på nytt"
-  mailer:
-    confirmation:
-      link_instructions: "Du kan bekrefte konto e-posten gjennom linken nedenfor"
-      link_text: "Bekreft kontoen min"
-    reset_password:
-      link_instructions: "Noen har spurt om en link til å forandre passordet ditt. Du kan gjøre dette gjennom linken nedenfor."
-      ignore: "Hvis du ikke spurte om dette, vennligst ignorer denne e-posten."
-      info: "Passordet ditt forandres ikke for du klikker på linken ovenfor og lager ett nytt."
-    unlock:
-      info: "Kontoen din har blitt låst på grunn av et overdrevent nummer av mislykkede innloggingsforsøk."
-      link_instructions: "Klikk på linken nedenfor for å låse opp kontoen din"
-      link_text: "Lås opp kontoen min"
-  passwords:
-    edit:
-      confirmation: "Bekreft nytt passord"
-    new:
-      send_instructions: "Send meg instruksjoner for tilbakestilling av passord"
-
-  registrations:
-    email_notifications: "E-post varslinger"
-    comment_notify_text: "Kommentarer på øyeblikk, strategier og møter"
-    ally_notify_text: "Nye og aksepterte allianseforespørseler"
-    group_notify_text: "Gruppeoppdateringer"
-    meeting_notify_text: "Møteoppdateringer"
-    google_auth1: "Hvis du ikke lenger ønsker å bli autorisert med Google, vennligst fyll inn en ny e-post og passord."
-    google_auth2: "Siden du ikke er autorisert med Google trenger du ikke å taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn e-post og passord på nytt."
-    placeholders:
-      repeat_password: "Gjenta passord"
-    edit:
-      labels:
-        profile_picture: "Profilbilde"
-        remove_picture: "Fjern bilde"
-        password_for: "Passord for <strong>if me</strong> konto"
-        update: "Oppdater"
-      placeholders:
-        optional: "Valgfritt"
-        about: "Introduser deg selv! Hvorfor du er her og hva du er ute etter å oppnå? Vennligst legg merke til at dette kan sees av alle brukere som søker etter deg"
-        required: "Krevet"
-      delete:
-        text: "Hvis <strong>if me</strong> ikke fungerer for deg?"
-        button: "Slett kontoen min permanent"
-        confirm: "Er du sikker? Du kommer til å miste all informasjonen din. Men du kan alltids registrere deg på nytt!"
-    new:
-      subtitle: "Begynn å fortell dine historier og opprettholde helsen din på et trygt, privat sted"
-      label: "Ett par detaljer"
-  sessions:
-    subtitle: "Velkommen tilbake, vi ser frem til å hjelpe deg takle dagen din"
+    singular: Kommentar
+    plural: Kommentarer
+    posting: 'Publiserer kommentar...'
+    allow_comments: 'Tillat kommentarer?'
+    hint: 'Kun deg og seere kan kommentere'
+    control: 'Kontroller hvem som kan se og kommentere'
+  account:
+    singular: Konto
+    sign_in: 'Logg inn'
+    sign_up: Registrer
+    forgot_password: 'Glemt passordet ditt?'
+  members:
+    one: '%{count} medlem'
+    other: '%{count} medlemmer'
+  allies:
+    add_ally: 'Legg til allierte'
+    cancel_ally_request: 'Avbryt forespørsel'
+    accept: Godta
+    reject: Avvis
+    index:
+      title: Allierte
+      outgoing: 'Utgående forespørsler'
+      incoming: 'Innkommende forespørsler'
+      invite: 'Inviter dine kjente!'
+      none: 'Du har for øyeblikket ingen allierte! Du kan søke etter dem eller invitere kjente til å bli med!'
+      view_all_allies: 'Se alle allierte'
+      cancel: Avbryt
+    form:
+      placeholder: 'Skriv inn en eller flere kommaseparerte e-poster'
+  categories:
+    singular: Kategori
+    plural: Kategorier
+    edit_category: 'Rediger kategori'
+    new: 'Ny kategori'
+    form:
+      name_hint: 'Kategoriser gjentakende folk, steder, ting, aktiviteter osv.'
+    label:
+      one: 'Kategori:'
+      other: 'Kategorier:'
+    index:
+      subtitle: 'Livet er rotete, kategoriser de ulike menneskene, stedene, og tingene.'
+      premade1_name: Familie
+      premade1_description: Familierelatert
+      premade2_name: Venner
+      premade2_description: Vennerelatert
+      premade3_name: Jobb
+      premade3_description: Jobbrelatert
+      premade4_name: Meditasjon
+      premade4_description: 'Meditasjon, dyp pusting, og avslappende aktiviteter'
+      instructions: 'Du har ikke opprettet noen tilpassede kategorier enda.<br>Du kan også legge til de følgende ferdiglagde kategoriene og tilpasse de senere.'
+  errors:
+    home_page: 'Tilbake hjem'
+    internal_server_error:
+      header_message: 'Denne siden kan ikke vises'
+    not_found:
+      header_message: 'Denne siden finnes ikke'
+  groups:
+    singular: Gruppe
+    plural: Grupper
+    form:
+      leaders: Ledere
+      only_leader: 'Du er den eneste lederen, du kan derfor ikke dra.'
+      cannot_delete: 'Vennligst legg merke til at du ikke kan slette grupper.'
+      error_save: 'Vi kan ikke lagre denne gruppen fordi: '
+      error_edit_permission: 'Du må være lederen av gruppen for å kunne redigere den'
+    index:
+      subtitle: 'Opprett og bli med i grupper som tilbyr støtte, mentorskap, og diskusjoner.'
+      available_groups: 'Tilgjengelige grupper'
+      joined_groups: 'Grupper du deltar i'
+      leader: (Leder)
+      instructions: 'Du er ikke en del av noen grupper enda!<br><br>Støttegrupper er bra for å ha åpne diskusjoner om mental helse! Du kan opprette grupper, invitere medlemmer og organisere møter online eller offline. Du kan også bli med i grupper som dine allierte har opprettet.'
+    join:
+      success: 'Du har blitt med i denne gruppen.'
+      group_not_exists: 'Du kan ikke bli med i en gruppe som ikke eksisterer.'
+    leave:
+      error: 'Du kan ikke forlate denne gruppen, du er den eneste lederen.'
+      success: 'Du har forlatt %{group}'
+      remove_member_success: 'Du har fjernet %{user} fra %{group}'
+      remove_member_error: 'Du kan ikke sparke et gruppemedlem fordi du ikke er leder.'
+    new: 'Ny gruppe'
+    show:
+      led_by: 'Ledet av:'
+      delete: 'Slett gruppe'
+  layouts:
+    application:
+      signin: 'Del dine historier nå'
+      create_account: 'Bli med i samfunnet nå'
+      update_account: 'Tilpass kontoen din'
+    mailer:
+      html:
+        app_description: '%{app_name} er et samfunn som oppfordrer folk til å dele sine mental helse historier med sine kjente.'
+        no_reply: 'Du kan ikke svare på denne e-posten. Hvis du har noen spørsmål, bekymringer, eller tilbakemeldinger vennligst send epost til %{email}!'
+    title:
+      reset_password: 'Tilbakestill passordet ditt'
+  medications:
+    singular: Medisinering
+    edit_medication: 'Rediger medisinering'
+    refill_reminder: 'Påminnelsesepost om når du må fylle på'
+    dosage: 'Daglig dose:'
+    weekly_dosage: 'Ukentlig dose:'
+    refill: 'Påfyllelse:'
+    quantity: 'Total kvantitet:'
+    strength: 'Styrke:'
+    form:
+      strength: Styrke
+      strength_placeholder: 'f.eks. 100'
+      total_placeholder: 'f.eks. 30'
+      dosage: dose
+      dosage_placeholder: 'f.eks. 2'
+      refill: påfyll
+      comments_hint: 'Legg til ytterlige kommentarer her f.eks. loggføring av symptomer'
+      add_to_google_cal: 'Google Kalender påminnelse'
+      google_cal_hint: 'Vi legger til en påminnelse for denne medisinen til din Google kalender.'
+      strength_hint: 'Medisin styrke, vanligvis beskrevet ved siden av navnet'
+      total_hint: 'Totalt nummer av piller eller mengde medisin'
+      dosage_hint: 'Nummer av piller eller daglig mengde'
+      weekly_dosage_hint: 'Hvilken av dagene i uka du tar denne medisinen'
+      refill_hint: 'Dager i uken for å ta denne medisinen'
+      refill_reminder_hint: 'Vi sender deg en påminnelse uken for medisinen må fylles på.'
+      daily_reminder_hint: 'Vi sender deg en daglig påminnelse om å ta denne medisinen'
+    new: 'Ny medisin'
+    units:
+      display: '%{count} %{unit}'
+      mg: mg
+      ml: ml
+      tablets:
+        one: tablett
+        other: tabletter
+    reminder_mailer:
+      subject: 'Ikke glem å ta %{name}!'
+      body: 'Her er en vennlig påminnelse om å ta %{name}!'
+    refill_mailer:
+      subject: 'Du må fylle opp %{name} snart!'
+      body: 'Her er en vennlig påminnelse om å fylle opp %{name} på %{refill}!'
+    index:
+      title: Medisiner
+      subtitle: 'Hold styr på medisinene dine, inkludert dose og påfyllingsinformasjon.'
+      total: Totalt
+      instructions: 'Du har ikke lagret noen medisiner enda.<br><br>Her er et eksempel på en lagret medisin! Du kan også skrive om din opplevelse.'
+      example_name: Prozac
+      example_strength: '10 mg'
+      example_total: '40 tabletter'
+      example_dosage: '2 tabletter'
+      example_refill: 31/05/2016
+    show:
+      comments: 'Kommentarer:'
+  meetings:
+    singular: Møte
+    edit_meeting: 'Rediger møte'
+    form:
+      location_placeholder: 'URL eller gateaddresse'
+      maximum_members: 'Maks medlemmer'
+      maximum_placeholder: '0 hvis ingen maks'
+    join_success: 'Du har blitt med i dette møtet.'
+    info:
+      cancel_meeting: 'Avlys møte'
+      meeting_time: Tid
+      members_of_group_html:
+        one: '%{count} Medlem av %{group}'
+        other: '%{count} Medlemmer av %{group}'
+    reminder_mailer:
+      subject: 'Ditt møte "%{meeting_name}" er i morgen kl %{time}!'
+      body: 'Her er en vennlig påminnelse om at møtet ditt i morgen, "%{meeting_name}", vil finne sted kl %{time} på %{location}!'
+    leave:
+      error: 'Du kan ikke forlate møtet, du er den eneste lederen.'
+      success: 'Du har forlatt %{meeting}'
+    new: 'Nytt møte'
+  moments:
+    singular: Øyeblikk
+    plural: Øyeblikk
+    edit_moment: 'Rediger øyeblikk'
+    tagged_moments: 'tag øyeblikk'
+    new: 'Nytt øyeblikk'
+    secret_share:
+      singular: 'Hemmelig deling'
+      expires_at: Utløper
+      cancel_secret_share: 'Avbryt Hemmelig deling'
+    form:
+      why: 'Hva skjedde og hvordan føler du deg?'
+      fix: 'Hva slags tanker vil du ha?'
+      what_happened: 'Hva skjedde?'
+      viewers_hint: 'Allierte som kan se øyeblikket ditt'
+      draft_question: 'Vil du lagre øyeblikket ditt som ett utkast?'
+    index:
+      subtitle: 'Dykk dypt inn i øyeblikkene dine - hendelser og situasjoner som påvirker din mentale helse.'
+      instructions: 'Du har ikke skrevet om noen øyeblikk enda.<br><br>Vet ikke hvor du skal begynne? Er det noe som har skjedd i dag som du har lyst til å dele og diskutere med kjente? Det kan være positivt eller negativt! Du må ikke dele det med en gang - bare når du er klar! Her er ett eksempel på ett øyeblikk.'
+      example_name: 'Har panikk over intervju i morgen!'
+      example_category: Karriere
+    show:
+      strategies: 'Hvilke strategier kan hjelpe?'
+  moods:
+    singular: Humør
+    plural: Humør
+    edit_mood: 'Rediger humør'
+    new: 'Nytt humør'
+    example_moods: 'Nervøs, engstelig, håpefull'
+    index:
+      subtitle: 'Lag tagger som beskriver din sinnstilstand, følelser, og tanker.'
+      premade1_name: Aksepterende
+      premade1_description: 'Aksepterende og i fred med forskjeller og begrensninger'
+      premade2_name: Ambisiøs
+      premade2_description: 'Optimistiske følelser om oppnåelse av mål'
+      premade3_name: Nysgjerrig
+      premade3_description: 'Nysgjerrige følelser om uvitenhet'
+      premade4_name: Ergelig
+      premade4_description: 'Aksepterer ikke enkelte fakta, følelser av sinne, hevngjerrighet, og/eller sjalusi'
+      premade5_name: Hjelpesløs
+      premade5_description: 'Føle seg lei og hjelpesløs - ute av stand til å finne noen mulige løsninger'
+      instructions: 'Du har ikke laget noen tilpassede humør enda.<br>Du kan også legge til de følgende forhåndslagde humørene og tilpasse de senere.'
+  notifications:
+    plural: Notifikasjoner
+    none: 'Det er ingen'
+    clear: Klar
+    created_by_html: '<strong>Laget av</strong>: %{name}'
+    preview: 'Se mer'
+    members:
+      title: 'Liste over medlemmer'
+    ally:
+      accepted: '%{name} aksepterte din allianseforespørsel!'
+      sent_html: '%{link_to_user} sendte en allianseforespørsel!'
+    comment:
+      full: '%{name} kommenterte "%{comment}" på %{typename}'
+      truncated: '%{name} kommenterte "%{comment}" [...] på %{typename}'
+    group:
+      new_group: '%{name} lagde en gruppe "%{group_name}"'
+      new_group_member: '%{name} ble med i gruppen din "%{group_name}"'
+      add_group_leader: '%{name} ble en leder av "%{group_name}"'
+      remove_group_leader: '%{name} er ikke lenger leder av "%{group_name}"'
+    meeting:
+      new_meeting: '%{name} lagde ett nytt møte "%{meeting_name}" for "%{group_name}"'
+      remove_meeting: '%{name} har kansellert "%{meeting_name}" i "%{group_name}"'
+      update_meeting: '%{name} har oppdatert "%{meeting_name}" i "%{group_name}"'
+      join_meeting: '%{name} has blitt med "%{meeting_name}" i "%{group_name}"'
+    mailer:
+      comment_on_moment_subject: 'if me | %{user} kommenterte på ditt øyeblikk "%{moment}"'
+      comment_on_strategy_subject: 'if me | %{user} kommenterte på din strategi "%{strategy}"'
+      comment_on_meeting_subject: 'if me | %{user} kommenterte på møtet "%{meeting}" i gruppen "%{group}"'
+      comment_on_private_body: '<p>Din allierte <strong>%{user}</strong> kommenterte privat:</p>'
+      comment_on_body: '<p>Din allierte <strong>%{user}</strong> kommenterte:</p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>For å lese det, %{link}!</p>'
+      new_group_subject: 'if me | %{user} lagde en gruppe "%{group}"'
+      new_group_body: '<p>%{user} lagde en gruppe "%{group}":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>Vennligst følg vår %{link_to_code_of_conduct}!</p>'
+      new_group_member_subject: 'if me | %{user} ble med i gruppe "%{group}"'
+      add_group_leader_you_subject: 'if me | Du ble leder for gruppen "%{group}"'
+      add_group_leader_subject: 'if me | %{user} ble en leder for gruppen " %{group}"'
+      add_remove_group_leader_body: '<p>For å se "%{group}", %{link}!</p>'
+      remove_group_leader_you_subject: 'if me | Du er ikke lenger en leder for "%{group}"'
+      remove_group_leader_subject: 'if me | %{user} er ikke lenger en leder for gruppen "%{group}"'
+      update_meeting_subject: 'if me | %{user} har oppdatert møtet "%{meeting}" i "%{group}"'
+      new_meeting_subject: 'if me | %{user} har laget ett nytt møte "%{meeting}" i "%{group}"'
+      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Plassering:</strong> %{location}</p><p><strong>Dato:</strong> %{date}</p><p><strong>Tid:</strong> %{time}</p>'
+      new_meeting_link: '<p>For å lære mer og bli med, %{link}!</p>'
+      update_meeting_link: '<p>For å lære mer, %{link}!</p>'
+      remove_meeting_subject: 'if me | %{user} har kansellert "%{meeting}" i "%{group}"'
+      join_meeting_subject: 'if me | %{user} har blitt med i "%{meeting}" i "%{group}"'
+      join_meeting_body: '<p>For å se "%{meeting}", %{link}!</p>'
+  omniauth:
+    google: Google
+    access_denied: 'Adgang avvist'
+  pages:
+    about:
+      send_us: oss
+      email_us: 'Ta gjerne kontakt med %{email_link}!'
+      main_message_one: '%{app_name} er et samfunn for mental helse opplevelser som oppmuntrer folk til å dele sine personlige historier med betrodde allierte.'
+      message_text_one: 'Betrodde allierte er folkene vi samhandler med på en daglig basis, inkludert venner, familiemedlemmer, kollegaer, lærere, og mental helse arbeidere.'
+      main_message_two: 'Å takle mental helse er det som gjør oss til mennesker. Men for mange av oss, er det vanskelig å være åpne om det.'
+      message_text_two: 'Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.<p><div class="subtitle block">"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>'
+      main_message_three: 'Vil du støtte oss?'
+      message_text_three: 'Vår applikasjon er ett <u>fullstendig</u> åpent kildekode-prosjekt. Den er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.</p><p>I 2016, mottok vi et samfunnsstipend fra %{linebreak_link}. I 2017, mottok vi støtte fra %{fund_club_link}.</p>Du kan støtte oss ved å donere til vår %{patreon_link}.</p>'
+      linebreak: Linebreak
+      fund_club: 'Fund Club'
+    blog:
+      description: 'Hvis du er interessert i å skrive for oss, kontakt oss på %{email}! Vi tar også imot anonyme innleveringer.'
+    contribute:
+      main_message_one: 'if me er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.'
+      message_text_one: 'Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>oversettere</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class="noMarginBottom">Vennligst %{email_link} så kommer vi i kontakt med deg! Du vil bli invitert til å delta i vår %{slack_link} side, vårt hovedkommunikasjonsmiddel. Forsikr deg at du ''forker'' vårt oppbevaringssted på %{github_link}!</p>'
+      more_contributors: 'Flere fabelaktige bidragsytere!'
+      thanks: 'Masse takk til'
+      slack: Slack
+    faq:
+      title: 'Ofte stilte spørsmål'
+      data_access_question: 'Hvem har tilgang til min informasjon?'
+      data_access_answer: 'Informasjon er ikke delt eller offentliggjort til noen tredjepart. Slettelse av kontoen din vil fjerne all informasjonen din.<br><br>Brukerdata er analysert innenfor applikasjonen for å gi tilpassede anbefalinger.'
+      moment_question: 'Hva er ett øyeblikk?'
+      moment_answer: 'Ett <strong>%{moment}</strong> er en hendelse eller situasjon som påvirker din mentale helse. Det kan enten være positivt eller negativt. Tenk på det som en side av en dagbok eller en statusoppdatering.<br><br>Du kan tagge Øyeblikk med strategier, kategorier, og humør. Du kan også velge hvilke allierte som kan se og kommentere. Du kan også lage minner som kun du kan se.'
+      strategy_question: 'Hva er en strategi?'
+      strategy_answer: 'En <strong>%{strategy}</strong> er en aktivitet, tankerekke, eller form for selvpleie som hjelper deg med å takle eller fokusere på helbredelse.<br><br>Du kan tagge Strategier med kategorier. Du kan også velge hvilke allierte som kan se og kommentere. Du kan også lage minner som kun du kan se. Delte strategier vil kun være synlige for alle spefiserte allierte, som betyr at du kan tagge minnene dine med deres strategier!'
+      category_question: 'Hva er en kategori?'
+      category_answer: 'En <strong>%{category}</strong> er en tag som kan representere menneskene, stedene, og tingene som er viktige for deg.'
+      mood_question: 'Hva er et humør?'
+      mood_answer: 'Et <strong>%{mood}</strong> er en tag som beskriver din sinnstilstand og følelser.'
+      group_question: 'Hva er en gruppe?'
+      group_answer: 'En <strong>%{group}</strong> tilbyr støtte, mentorskap, og diskusjoner om mental helse. Du kan lage grupper og dine allierte har muligheten til å bli med. Du kan bli med i grupper som er laget av dine allierte.<br><br>Som en gruppeleder, kan du opprette <strong>møter</strong>. Møter har en plassering og tid. Plasseringen kan være et fysisk sted eller en Google Hangout link. Møter tillater også kommentarer. Hvis du er en gruppeleder, så kan du ikke forlate gruppen hvis det ikke er en annen leder. Grupper kan kun slettes hvis du er det eneste medlemmet.'
+      medications_question: 'Hvordan bruker jeg medisineringsegenskapen?'
+      medications_answer: '<strong>%{medications}</strong> lar deg loggføre resept-medisinene du tar. Du kan også loggføre symptomene dine.'
+      invite_question: 'Hvordan kan jeg invitere kjente til å bli med i applikasjonen?'
+      invite_answer: 'Gå til <strong>%{allies}</strong> siden og klikk på "Inviter dine kjente" linken. Du kan da invitere dem via e-post. Når dine kjente aksepterer invitasjonen, blir de lagt til din liste over allierte.'
+      email_notifications_question: 'Hvordan kan jeg forandre e-post påminnelser?'
+      email_notifications_answer: 'Gå til <strong>%{accounts}</strong> siden. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din.'
+    home:
+      stories: Historier
+      not_signed_in:
+        main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'
+        message_text_one: 'Vi trenger hverandres støtte for å bryte ned stigmaer.'
+        message_one: 'Del dine historier med kjente og få støtten du fortjener'
+        message_two: 'Vær deg selv, ingen forpliktelser og med sikkerhet og personvern'
+        message_three: 'Dokumenter ditt humør, medisiner, og selvpleie'
+        main_message_two: 'Vi har åpen kildekode fordi mental helse burde være åpent.'
+        message_text_two: 'Vi er <strong>alltid</strong> på utkikk etter din %{help} og %{feedback}!'
+        help: hjelp
+      signed_in_empty:
+        main_message_one: 'Hallo %{name}!'
+        message_text_one: 'Slik kan du begynne å dele dine historier.'
+        main_message_two: 'Fortell oss om deg selv.'
+        cell_one: 'Tilpass din %{profile} - legg til en bio og profilbilde<br>Legg til tilpassede %{moods} for å best beskrive dine føleleser<br>Del %{allies} - venner, familie, og andre du vil dele med'
+        main_message_three: 'Skriv dine historier.'
+        cell_two: 'Lag tilpassede %{categories} for å organisere øyeblikkene dine<br>Skriv om %{moments} - hendelsene og situasjonene som påvirker din mentale helse'
+        main_message_four: 'Ta vare på deg selv.'
+        cell_three: '%{strategize} din plan for selvpleie!<br>Tar for tiden %{medications}? Hold styr på det og lag påminnelser!<br>Trenger du ekstra støtte? Bli med i eller lag en %{group} for å snakke ut'
+        main_message_five: 'Har du noen spørsmål eller bekymringer?'
+        message_text_three: 'Sjekk ut vår %{faq} side eller %{email_link}!'
+        strategize: 'Lag en strategiplan'
+    partners:
+      description: 'Disse er de fantastiske organisasjonene som har inspirert oss og som vi har privileget til å jobbe med. Vi vil gjerne jobbe med din organisasjon, send oss en e-post til %{email}.'
+    privacy:
+      summary: Oppsummering
+      summary_description: '<p>Denne personvernserklæringen er for denne nettsiden og regjerer personvernet til brukerene som velger å bruke den.</p><p>Gitt det sensitive innholdet til nettsiden er personvern en utrolig viktig bekymring for oss. Retningslinjene omrisser hvordan brukerinformasjon er samlet, hva det brukes til, og hvordan det beskyttes.</p>'
+      user_data: Brukerinformasjpn
+      user_data_description: '<p>Brukere er tiltenkt å gi oss personlige utdrag fra sine liv (i øyeblikksegenskapen) og anekdoter om medisinbruk. Informasjon fra øyeblikksegenskapen er delt med de brukeren velger å dele det med. Informasjon fra medisineringsegenskapene er kun synlig for brukeren. Ingen av de vil bli brukt til ytterlige årsaker eller delt med eksterne kilder.</p><p>Applikasjonen inneholder også informasjon med tanke på støttegrupper og strategier for å takle mental helse utfordringer. Denne informasjonen er kun tilgjengelig for brukere som har spesiell tillatelse til å se det. Informasjon fra begge egenskapene kan vises offentlig for å vise dem frem til nåværende og fremtidige brukere. Derimot, brukeridentitet vil forbli privat.</p>'
+      cookies: 'Bruk av cookies'
+      cookies_description: '<p>Denne nettsiden bruker cookies for å bedre brukeropplevelsen når man besøker siden. Der det er egnet bruker nettsiden ett cookie kontrolleringssystem som tillater brukeren ved forste besøk å tillate eller forby cookies på computeren/enheten.</p><p>Cookies er små filer lagret på brukerens computers hard drive som sporer, lagrer informasjon om brukerens interaksjoner og bruk av nettsiden. Dette tillater nettsiden, gjennom serveren å tilby brukere en skreddersydd opplevelse innenfor nettsiden.</p><p>Brukere rådes at hvis de ønsker å benekte bruken og lagringen av cookies fra denne nettsiden på deres datamaskins hard drive at de bør ta nødvendige steg innenfor deres nettlesers sikkerhetsinstillinger for å blokkere alle cookies fra denne nettsiden og dens eksterne serverings leverandører.</p><p>Denne nettsiden bruker sporingsprogramvare for å overvåke besøkende slik at de bedre kan forstå hvordan de bruker det. Denne programvaren er forsørget av Google Analytics som bruker cookies for å overvåke besøksbruk. Programvaren lagrer en cookie på datamaskinen din sin hard drive slik at den kan overvåke og registrere ditt ingrep og bruk av nettsiden, men vil ikke lagre eller samle inn personlig informasjon. Du kan lese Googles %{google_privacy_policy} for mer informasjon.</p>'
+      social_media: 'Sosiale medier platformer'
+      social_media_description: '<p>Kommunikasjon, engasjement og handlinger tatt gjennom eksterne sosiale medie platformer som denne nettsiden deltar på er tilpasset vilkårene og betingelsene i tillegg til personvernserklæringene holdt med de ulike sosiale mediene.</p><p>Brukere er rådet til å bruke sosiale medie platformene klokt og kommunisere / engasjere dem med ventet omsorg og forsiktighet med tanke på deres eget personvern og personlige detaljer. Denne nettsiden vil aldri spørre etter personlig eller sensitiv informasjon igjennom sosiale medie platformer og oppfordrer brukere som ønsker å diskutere sensitive detaljer til å kontakte dem igjennom hovedkommunikasjonskanaler slik som telefon eller e-post.</p><p>Denne nettsiden kan bruke sosiale delingsknapper som hjelper med å dele web-innhold direkte fra nettsider til den sosiale medie platformen. Brukere oppfordres til å bruke slike sosiale delingsknapper på egen diskresjon og får med seg den sosiale medie platformen kan spore og lagre din foresporsel om å dele en nettside hendholdsvis igjennom din sosiale medie platform.</p>'
+      contact: 'Kontakt oss'
+      contact_description: '<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class="noMarginBottom"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>'
+    resources:
+      communities: Samfunn
+      education: Utdanning
+      hotlines: Hjelpelinjer
+      services: Tjenester
+      tags:
+        people_of_colour: 'fargede folk'
+        women_of_colour: 'fargede kvinner'
+        black_women: 'svarte kvinner'
+        domestic_violence: 'vold i hjemmet'
+        dating_violence: 'vold i forhold'
+        cyberbullying: nettmobbing
+        therapy: terapi
+        counseling: rådgivning
+        youth: ungdom
+        lgbtqia: LGBTQIA
+        harassment: trakkassering
+        self_care: selvpleie
+        women: kvinner
+        chatbot: chatbot
+        anonymous: anonymt
+        free: gratis
+        paid: betalt
+        twenty_four_seven: 24/7
+        videos: videoer
+        blog: blogg
+        podcast: podcast
+        books: bøker
+        publication: publikasjon
+        video_chat: videosamtale
+        texting: teksting
+        open_source: 'åpen kildekode'
+        workplace: arbeidsplass
+        social_justice: 'sosial rettferdighet'
+        tech_industry: IT-bransjen
+        meditation: meditasjon
+        social_anxiety: 'sosial angst'
+        trigger_warnings: avtrekkelsesadvarsler
+        netflix: netflix
+        homeless: uteligger
+        talks: samtaler
+        voice_chat: lydsamtale
+        training: trening
+        directory: direktorat
+        self_injury: selvskading
+        treatment: behandling
+        care_planning: omsorgsplanlegging
+        depression: depresjon
+        ocd: OCD
+        advice: råd
+        forum: forum
+        learning: læring
+        crisis_prevention: kriseforhindring
+        safety_planning: sikkerhetsplanlegging
+        suicide_prevention: selvmordsforhindring
+        android: android
+        ios: iOS
+        support_groups: støttegrupper
+        mindfulness: tankefullhet
+        journaling: journalforing
+        mood_tracking: humørsporing
+        veterans: veteraner
+        music: musikk
+        integrative: integrerende
+        ptsd: PTSD
+        tbi: TBI
+        news: nyheter
+        government: stat
+        christian: kristen
+        humor: humor
+        conference: konferanse
+        addiction: avhengighet
+        rehabilitation: rehabilitering
+        teachers: lærere
+        bipolar: bipolar
+  profile:
+    index:
+      title: Profil
+      edit_user: 'Tilpass profilen'
+  pusher:
+    not_authorized: 'Ikke autorisert'
+  search:
+    label: Søk
+    search_by_name: 'Søk med navn'
+    form:
+      search_by_location: 'Søk med plassering'
+      search_by_email: 'Søk med e-post'
+    index:
+      title: 'Søk etter allierte'
+      user_not_found: 'Bruker %{email} ikke funnet'
   shared:
-    sign_in_google: 'Logg inn med Google'
-    sign_up_google: 'Registrer deg med Google'
-    confirmation: "Mottok ikke bekreftelsesinstruksjoner?"
-    unlock: "Mottok ikke opplåsningsinstruksjoner?"
-  unlock:
-    resend: 'Send opplåsningsinstruksjoner på nytt'
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: 'Lisensiert under %{licence}'
+      connect: 'koble til'
+    comments:
+      share_everyone: 'Del med alle'
+      share_with: 'Del kun med %{name}'
+      visible_only_between_you_and: 'Kun synlig for deg og %{name}'
+      not_allies: '(ikke allierte)'
+    header:
+      signout: 'Logg ut'
+      home: Hjem
+    viewers_indicator:
+      disabled_comments: 'Kommentarer har blitt deaktivert.'
+      you_are_viewer_html:
+        one: 'Du er den eneste seeren.'
+        other: 'Du er <strong>ikke</strong> den eneste seeren.'
+      viewers_html:
+        zero: 'Det er <strong>ingen</strong> seere.'
+        one: '%{names} er en seer.'
+        other: '%{names} er seere.'
+    stats:
+      you_are_focusing: 'Du fokuserer mest på'
+      user_is_focusing: '%{name} fokuserer mest på'
+    viewers:
+      plural: Seere
+      you: 'Kun deg'
+      you_link: 'Kun synlig for deg'
+      many: 'Synlig for %{viewers}'
+    meeting_info:
+      attending: 'Du deltar. Ombestemt deg?'
+      not_attending: 'Du deltar ikke. %{join}'
+      not_attending_one_spot_left: 'Du er ikke deltakende. Det er en plass igjen! %{join}'
+      not_attending_spots_left: 'Du er ikke deltakende. Det er %{number} plasser igjen! %{join}'
+      not_attending_no_spots_left: 'Du er ikke deltakende. Det er ikke noe mer plass igjen.'
+    quick_create:
+      new: 'Ny %{name}'
+  strategies:
+    singular: Strategi
+    plural: Strategier
+    edit_strategy: 'Rediger strategi'
+    tagged_strategies: 'Taggede strategier'
+    new: 'Ny strategi'
+    form:
+      describe: 'Beskriv strategien.'
+      strategies_label: 'Hvilke strategier kan hjelpe deg oppnå disse tankene?'
+      name_hint: 'Hvilken som helst aktivitet, tankerekke eller form for selvpleie som hjelper deg'
+      viewers_hint: 'Allierte som kan se din strategi og tagge deres egne øyeblikk med det'
+      daily_reminder_hint: 'Vi sender deg en daglig påminnelse om å utføre denne strategien'
+      draft_question: 'Vil du lagre din strategi som ett utkast?'
+    label:
+      one: 'Strategi:'
+      other: 'Strategier:'
+    index:
+      subtitle: 'Planlegg selvpleie for å oppnå ønskede tanker og innstillinger for øyeblikkene dine.'
+      premade1_name: 'Fem minutters meditasjon'
+      premade1_description: '1) <b>Finn en rolig og behagelig stilling.</b> Du kan sitte på en stol eller på gulvet på en pute. Hold ryggen din rett, men ikke for stramt. Hendene hviler hvor de er komfortable. Tungen i taket av munnen eller hvor det er komfortabelt.<br><br>2) <b>Legg merke til og slapp av i kroppen din.</b> Prøv å legge merke til formen til kroppen, vekten dens. La deg selv slappe av bli nyskjerrig på kroppen din sittende her-sensasjonene den opplever, berøringen, tilknytningen med gulvet eller stolen. Avslapp områder med tranghet eller spenning. Bare pust.<br><br>3) <b>Bli en med pusten din.</b> Føl den naturlige strømningen av innpust og utpust. Du trenger ikke å gjøre noe med pusten din. Ikke for lang, ikke for kort, kun naturlig. Legg merke til hvor du føler pusten din i kroppen. Det er kanskje i magen. Det kan være i brystet, halsen eller i neseborene dine. Se om du kan føle sensasjonen av pusten, ett pust av gangen. Når ett pust ender, begynner det neste.<br><br>4) <b>Vær snill med ditt vandrende sinn.</b> Nå som du gjør dette, legger du kanskje merke til at tankene dine begynner å vandre. Du begynner kanskje å tenke på andre ting. Hvis dette skjer, så er ikke det et problem. Det er veldig naturlig. Legg bare merke til at tankene dine har vandret. Du kan si "tenkende" eller "vandrende" i hodet ditt rolig. Og deretter vennlig omdiriger oppmerksomheten din tilbake til pusten din.<br><br>5) <b>Bli her i fem til syv minutter.</b> Legg merke til pusten din, i stillhet. Fra tid til annen, blir du tapt i en tanke, returner til pusten din.<br><br>6) <b>Sjekk inn for du sjekker ut.</b> Etter ett par minutter, legg merke til kroppen din igjen, hele kroppen din, sittende her. La deg selv slappe av enda dypere og deretter tilby deg selv verdsettelse for at du gjorde denne øvelsen i dag.<br><br><i>Tatt fra http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
+      instructions: 'Du har ikke laget noen tilpassede strategier enda.<br>Du kan også legge til de følgende forhåndslagde strategien og tilpasse den fra tid til annen.'
+    reminder_mailer:
+      subject: 'Ikke glem å utføre %{name}!'
+      body: 'Her en en vennlig påminnelse om å utføre %{name}!'
+  stats:
+    total_moments: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> øyeblikk.'
+    total_moment: 'Du har skrevet ett <strong>totalt</strong> av <strong>%{count}</strong> øyeblikk.'
+    monthly_moments: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> øyeblikk.'
+    monthly_moment: 'Denne <strong>maaneden</strong> skrev du <strong>%{count}</strong> øyeblikk.'
+  warnings:
+    no_description: 'Du skrev ikke en beskrivelse!'
+    yes_description: 'A skrive en kan hjelpe deg og andre bedre forstå i detalj'
+  mailers:
+    accepted_ally_request:
+      subject: 'if me | %{ally_name} aksepterte din allianseforesporsel!'
+      message: '<p>Gratulerer! Du kan nå dele øyeblikk, strategier og mer med %{ally_name}.</p>'
+    new_ally_request:
+      subject: 'if me | %{ally_name} sendte en allianseforespørsel!'
+      message: '<p>Vennligst <a href="%{allies_url}">logg inn</a> for å akseptere eller avvise forespørselen!</p>'
+  devise:
+    password: Passord
+    new_password: 'Nytt passord'
+    current_password: 'Nåværende passord'
+    password_change: 'Rediger passordet mitt'
+    remember_me: 'Husk meg'
+    confirmations:
+      resend_confirmation: 'Send bekreftelsesinstruksjoner på nytt'
+    mailer:
+      confirmation:
+        link_instructions: 'Du kan bekrefte konto e-posten gjennom linken nedenfor'
+        link_text: 'Bekreft kontoen min'
+      reset_password:
+        link_instructions: 'Noen har spurt om en link til å forandre passordet ditt. Du kan gjøre dette gjennom linken nedenfor.'
+        ignore: 'Hvis du ikke spurte om dette, vennligst ignorer denne e-posten.'
+        info: 'Passordet ditt forandres ikke for du klikker på linken ovenfor og lager ett nytt.'
+      unlock:
+        info: 'Kontoen din har blitt låst på grunn av et overdrevent nummer av mislykkede innloggingsforsøk.'
+        link_instructions: 'Klikk på linken nedenfor for å låse opp kontoen din'
+        link_text: 'Lås opp kontoen min'
+    passwords:
+      edit:
+        confirmation: 'Bekreft nytt passord'
+      new:
+        send_instructions: 'Send meg instruksjoner for tilbakestilling av passord'
+    registrations:
+      email_notifications: 'E-post varslinger'
+      comment_notify_text: 'Kommentarer på øyeblikk, strategier og møter'
+      ally_notify_text: 'Nye og aksepterte allianseforespørseler'
+      group_notify_text: Gruppeoppdateringer
+      meeting_notify_text: Møteoppdateringer
+      google_auth1: 'Hvis du ikke lenger ønsker å bli autorisert med Google, vennligst fyll inn en ny e-post og passord.'
+      google_auth2: 'Siden du ikke er autorisert med Google trenger du ikke å taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn e-post og passord på nytt.'
+      placeholders:
+        repeat_password: 'Gjenta passord'
+      edit:
+        labels:
+          profile_picture: Profilbilde
+          remove_picture: 'Fjern bilde'
+          password_for: 'Passord for <strong>if me</strong> konto'
+          update: Oppdater
+        placeholders:
+          optional: Valgfritt
+          about: 'Introduser deg selv! Hvorfor du er her og hva du er ute etter å oppnå? Vennligst legg merke til at dette kan sees av alle brukere som søker etter deg'
+          required: Krevet
+        delete:
+          text: 'Hvis <strong>if me</strong> ikke fungerer for deg?'
+          button: 'Slett kontoen min permanent'
+          confirm: 'Er du sikker? Du kommer til å miste all informasjonen din. Men du kan alltids registrere deg på nytt!'
+      new:
+        subtitle: 'Begynn å fortell dine historier og opprettholde helsen din på et trygt, privat sted'
+        label: 'Ett par detaljer'
+    sessions:
+      subtitle: 'Velkommen tilbake, vi ser frem til å hjelpe deg takle dagen din'
+    shared:
+      sign_in_google: 'Logg inn med Google'
+      sign_up_google: 'Registrer deg med Google'
+      confirmation: 'Mottok ikke bekreftelsesinstruksjoner?'
+      unlock: 'Mottok ikke opplåsningsinstruksjoner?'
+    unlock:
+      resend: 'Send opplåsningsinstruksjoner på nytt'

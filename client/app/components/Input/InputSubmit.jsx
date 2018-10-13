@@ -4,6 +4,7 @@ import globalCss from '../../styles/_global.scss';
 
 export type Props = {
   id: string,
+  small?: boolean,
   large?: boolean,
   dark?: boolean,
   value: any,
@@ -12,22 +13,23 @@ export type Props = {
   formNoValidate?: boolean,
 };
 
-const buttonClassName = (large: ?boolean, dark: ?boolean) => {
-  if (large && !dark) {
-    return globalCss.buttonGhostL;
-  }
-  if (large && dark) {
-    return globalCss.buttonDarkL;
-  }
-  if (dark) {
-    return globalCss.buttonDarkM;
-  }
-  return globalCss.buttonGhostM;
+const buttonClassName = (small: ?boolean, large: ?boolean, dark: ?boolean) => {
+  const theme = dark ? 'Dark' : 'Ghost';
+  const smallOrRegular = small ? 'S' : 'M';
+  const size = large ? 'L' : smallOrRegular;
+  return globalCss[`button${theme}${size}`];
 };
 
 export const InputSubmit = (props: Props) => {
   const {
-    id, large, dark, onClick, value, disabled, formNoValidate,
+    id,
+    small,
+    large,
+    dark,
+    onClick,
+    value,
+    disabled,
+    formNoValidate,
   } = props;
   return (
     <input
@@ -36,7 +38,7 @@ export const InputSubmit = (props: Props) => {
       name="commit"
       value={value}
       disabled={disabled}
-      className={buttonClassName(large, dark)}
+      className={buttonClassName(small, large, dark)}
       onClick={onClick}
       formNoValidate={formNoValidate}
     />

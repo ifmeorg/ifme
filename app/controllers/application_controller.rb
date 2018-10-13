@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include CommentsHelper
+  include TagsHelper
   include MomentsHelper
 
   # Prevent CSRF attacks by raising an exception.
@@ -37,21 +38,10 @@ class ApplicationController < ActionController::Base
   end
 
   # before_action
-  # rubocop:disable MethodLength
   def set_locale
-    @locales = [
-      { name: t('languages.en'), locale: :en },
-      { name: t('languages.es'), locale: :es },
-      { name: t('languages.nl'), locale: :nl },
-      { name: t('languages.pt-BR'), locale: :'pt-BR' },
-      { name: t('languages.sv'), locale: :sv },
-      { name: t('languages.it'), locale: :it },
-      { name: t('languages.nb'), locale: :nb },
-      { name: t('languages.vi'), locale: :vi }
-    ].freeze
     @locale = I18n.locale = locale
+    @locales = Rails.application.config.i18n.available_locales
   end
-  # rubocop:enable MethodLength
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
@@ -147,35 +137,7 @@ class ApplicationController < ActionController::Base
   end
   # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
-  def tag_usage(data_id, data_type, user_id)
-    result = []
-    moments = user_moments(user_id).order('created_at DESC')
-    if data_type == 'category'
-      strategies = user_strategies(user_id).order('created_at DESC')
-      [moments, strategies].each do |records|
-        objs = []
-        records.find_each do |r|
-          objs.push(r) if data_included?(data_type, data_id, r)
-        end
-        result << objs
-      end
-    elsif data_type.in?(%w[mood strategy])
-      moments.find_each do |m|
-        result << m if data_included?(data_type, data_id, m)
-      end
-    end
-    result
-  end
-  # rubocop:enable MethodLength
-
   private
-
-  def data_included?(data_type, data_id, data)
-    return false unless data_type.in?(%w[category mood strategy])
-
-    data_id.in?(data[data_type])
-  end
 
   # TODO: refactor calling method to pass a hash to start with
   def top_three_focus(data)
@@ -233,9 +195,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_raven_context
-    if user_signed_in?
-      Raven.user_context(id: current_user.id)
-    end
+    Raven.user_context(id: current_user.id) if user_signed_in?
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end

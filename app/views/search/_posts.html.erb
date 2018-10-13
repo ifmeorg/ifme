@@ -3,7 +3,7 @@
     <div class="search">
       <%= f.text_field :name, placeholder: t('search.search_by_name'), 'aria-label': t('search.search_by_name') %>
       <%= f.hidden_field :data_type, value: local_assigns[:data_type] %>
-      <%= f.submit t('search.search'), class: 'searchSubmit' %>
+      <%= f.submit t('search.label'), class: 'searchSubmit' %>
     </div>
   <% end %>
 </div>

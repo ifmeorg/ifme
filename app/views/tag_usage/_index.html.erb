@@ -1,5 +1,5 @@
 <% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
-  <div class="small_margin_top">
+  <div class="smallMarginTop">
     <% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:user_id]) %>
     <% if local_assigns[:data_type] == 'category' %>
       <% moments = usage[0] %>
