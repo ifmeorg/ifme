@@ -70,19 +70,18 @@ export class Form extends React.Component<Props, State> {
       }
       return newInput;
     });
+    const { noFormTagSubmit } = this.props;
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
       this.setState({ inputs: newInputs, errors: newErrors });
+    } else if (noFormTagSubmit) {
+      noFormTagSubmit();
     }
   };
 
   handleNoFormTagSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     this.onSubmit(e);
-    const { noFormTagSubmit } = this.props;
-    if (noFormTagSubmit) {
-      noFormTagSubmit();
-    }
   };
 
   displayInput = (input: MyInputProps) => {

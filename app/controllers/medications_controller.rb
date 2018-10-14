@@ -93,13 +93,11 @@ class MedicationsController < ApplicationController
   end
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_medication
     @medication = Medication.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(medications_path)
   end
-  # rubocop:enable RescueStandardError
 
   def medication_params
     params.require(:medication).permit(
@@ -108,7 +106,8 @@ class MedicationsController < ApplicationController
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],
-      refill_reminder_attributes: %i[active id]
+      refill_reminder_attributes: %i[active id],
+      weekly_dosage: []
     )
   end
 end

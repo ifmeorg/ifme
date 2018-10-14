@@ -50,10 +50,11 @@ describe Group do
   describe '#member?' do
     context 'when user is not a member of the group' do
       it 'returns false' do
-        user = create :user1
-        group = create :group_with_member
+        member_user = create :user
+        non_member_user = create :user1
+        group = create :group_with_member, user_id: member_user.id
 
-        result = group.member?(user)
+        result = group.member?(non_member_user)
 
         expect(result).to be false
       end

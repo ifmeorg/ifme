@@ -1,39 +1,15 @@
 # frozen_string_literal: true
-# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
-  include CommentsHelper
-
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
   def show
     @meeting = Meeting.friendly.find(params[:id])
-    @is_member = @meeting.member?(current_user)
-    @is_leader = @meeting.led_by?(current_user)
-
-    if @is_member
-      @no_hide_page = true
-      @comment = Comment.new
-      @comments = @meeting.comments
+    if @meeting.member?(current_user)
+      @comments = generate_comments(@meeting.comments.order(created_at: :desc))
     elsif !@meeting.group.member?(current_user)
       redirect_to_path(groups_path)
     end
-  end
-
-  def comment
-    params[:visibility] = 'all'
-    comment_for('meeting')
-  end
-
-  def delete_comment
-    comment = Comment.find_by(id: params[:commentid])
-
-    if comment.present?
-      meeting_id = comment.commentable_id
-      meeting = Meeting.find_by(id: meeting_id)
-      remove_notification(comment, meeting)
-    end
-    head :ok
   end
 
   # GET /meetings/new
@@ -69,6 +45,7 @@ class MeetingsController < ApplicationController
       render :new
     end
   end
+  # rubocop:enable MethodLength
 
   # PATCH/PUT /meetings/1
   def update
@@ -147,22 +124,5 @@ class MeetingsController < ApplicationController
       type: type,
       members: members
     )
-  end
-
-  def remove_notification!
-    CommentNotificationsService.remove(
-      comment_id: params[:commentid],
-      model_name: 'meeting'
-    )
-  end
-
-  def remove_notification(comment, meeting)
-    remove_notification! if (my_comment?(comment) && \
-                            meeting.member?(current_user)) || \
-                            meeting.led_by?(current_user)
-  end
-
-  def my_comment?(comment)
-    comment.present? && (comment.comment_by == current_user.id)
   end
 end

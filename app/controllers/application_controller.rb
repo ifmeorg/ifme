@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
   include CommentsHelper
+  include CommentFormHelper
   include TagsHelper
   include MomentsHelper
 
@@ -38,21 +39,10 @@ class ApplicationController < ActionController::Base
   end
 
   # before_action
-  # rubocop:disable MethodLength
   def set_locale
-    @locales = [
-      { name: t('languages.en'), locale: :en },
-      { name: t('languages.es'), locale: :es },
-      { name: t('languages.nl'), locale: :nl },
-      { name: t('languages.pt-BR'), locale: :'pt-BR' },
-      { name: t('languages.sv'), locale: :sv },
-      { name: t('languages.it'), locale: :it },
-      { name: t('languages.nb'), locale: :nb },
-      { name: t('languages.vi'), locale: :vi }
-    ].freeze
     @locale = I18n.locale = locale
+    @locales = Rails.application.config.i18n.available_locales
   end
-  # rubocop:enable MethodLength
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale
@@ -89,7 +79,7 @@ class ApplicationController < ActionController::Base
   helper_method :avatar_url, :viewer_of?,
                 :are_allies?, :get_uid, :most_focus,
                 :tag_usage, :can_notify, :if_not_signed_in,
-                :generate_comment, :moments_stats
+                :moments_stats
 
   def if_not_signed_in
     return if user_signed_in?
@@ -180,10 +170,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def respond_not_saved
-    respond_with_json(no_save: true)
-  end
-
   def respond_with_json(reponse)
     respond_to do |format|
       format.html { render json: reponse }
@@ -206,9 +192,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_raven_context
-    if user_signed_in?
-      Raven.user_context(id: current_user.id)
-    end
+    Raven.user_context(id: current_user.id) if user_signed_in?
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 end

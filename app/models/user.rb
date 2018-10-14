@@ -50,6 +50,8 @@ class User < ApplicationRecord
     pending_from_ally: 2
   }.freeze
 
+  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
@@ -78,7 +80,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
+    in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
 
   def ally?(user)
@@ -98,9 +100,9 @@ class User < ApplicationRecord
   def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
-      u.name = data.name
       u.password = Devise.friendly_token[0, 20]
     end
+    user.name ||= data.name
 
     user.update!(
       provider: access_token.provider,
@@ -141,14 +143,13 @@ class User < ApplicationRecord
     @meeting_notify.nil? && @comment_notify = true
   end
 
-  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-
   def update_access_token
-    refresh_token_params = { 'refresh_token' => refresh_token,
-                             'client_id'     => nil,
-                             'client_secret' => nil,
-                             'grant_type'    => 'refresh_token' }
-    response = Net::HTTP.post_form(User::OAUTH_TOKEN_URL, refresh_token_params)
+    params = { 'refresh_token' => refresh_token,
+               'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+               'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+               'grant_type'    => 'refresh_token' }
+
+    response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)
     new_expiration_time = Time.zone.now + decoded_response['expires_in']
     new_access_token = decoded_response['access_token']

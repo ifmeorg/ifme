@@ -1,27 +1,27 @@
 it:
   devise:
     failure:
-      invited: "Hai un invito in sospeso, accettalo per completare la creazione del tuo account."
+      invited: 'Hai un invito in sospeso, accettalo per completare la creazione del tuo account.'
     invitations:
-      send_instructions: "Una EMail con l’invito è stata inviata a %{email}."
-      failed_send: "An error occurred. '%{email}' could not be invited."
-      invitation_token_invalid: "Il token d’invito non è valido! Sei sicuro l’url sia giusto?"
-      updated: "La tua password è stata salvata con successo. Sei ora loggato."
-      updated_not_active: "La tua password è stata salvata con successo."
-      no_invitations_remaining: "Nessun invito rimanente"
-      invitation_removed: "Il tuo invito è stato rimosso."
+      send_instructions: 'Una EMail con l’invito è stata inviata a %{email}.'
+      failed_send: 'An error occurred. %{email} could not be invited.'
+      invitation_token_invalid: 'Il token d’invito non è valido! Sei sicuro l’url sia giusto?'
+      updated: 'La tua password è stata salvata con successo. Sei ora loggato.'
+      updated_not_active: 'La tua password è stata salvata con successo.'
+      no_invitations_remaining: 'Nessun invito rimanente'
+      invitation_removed: 'Il tuo invito è stato rimosso.'
       new:
-        header: "Invia un invito a un alleato"
-        submit_button: "Invia un invito"
+        header: 'Invia un invito a un alleato'
+        submit_button: 'Invia un invito'
       edit:
-        header: "Scegli la tua password"
-        submit_button: "Salva la mia password"
+        header: 'Scegli la tua password'
+        submit_button: 'Salva la mia password'
     mailer:
       invitation_instructions:
-        subject: "%{name} ti ha invitato a unirti a if me!"
-        subject_nameless: "Someone invited you to join if me!"
-        hello: "Hey %{email}!"
-        someone_invited_you: "%{name} ti ha invitato a unirti http://www.if-me.org, una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari - permette inoltre di tenere traccia di stati d’animo, medicazioni, e cura di sé. Puoi accettare l’invito tramite il link sottostante."
-        accept: "Accetta l’invito!"
-        accept_until: "Questo invito scadrà il %{due_date}."
+        subject: '%{name} ti ha invitato a unirti a if me!'
+        subject_nameless: 'Someone invited you to join if me!'
+        hello: 'Hey %{email}!'
+        someone_invited_you: '%{name} ti ha invitato a unirti http://www.if-me.org, una community che incoraggia le persone a condividere storie sulla loro salute mentale con i propri cari - permette inoltre di tenere traccia di stati d’animo, medicazioni, e cura di sé. Puoi accettare l’invito tramite il link sottostante.'
+        accept: 'Accetta l’invito!'
+        accept_until: 'Questo invito scadrà il %{due_date}.'
         ignore: "Se non vuoi accettare l’invito, ignora questa EMail.<br />\nIl tuo account non sarà creato finché non accederai al link sottostante e sceglierai una password."

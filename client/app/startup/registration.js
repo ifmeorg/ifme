@@ -26,6 +26,8 @@ import { Form } from '../components/Form';
 import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
+import { ToggleLocale } from '../widgets/ToggleLocale';
+import { Comments } from '../widgets/Comments';
 
 setup();
 
@@ -35,6 +37,7 @@ ReactOnRails.register({
   Accordion,
   Chart,
   ChartControl,
+  Comments,
   Form,
   Header,
   HeaderProfile,
@@ -50,5 +53,6 @@ ReactOnRails.register({
   StoryDraft,
   StoryMoods,
   Tag,
+  ToggleLocale,
   Tooltip,
 });

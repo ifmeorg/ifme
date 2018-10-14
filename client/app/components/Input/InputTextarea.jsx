@@ -59,6 +59,7 @@ export type Props = {
   required?: boolean,
   hasError?: Function,
   myRef?: any,
+  dark?: boolean,
 };
 
 export type State = {
@@ -127,11 +128,11 @@ export class InputTextarea extends React.Component<Props, State> {
   };
 
   render() {
-    const { id } = this.props;
+    const { id, dark } = this.props;
     return (
       <div
         id={id}
-        className={inputCss.default}
+        className={`${inputCss.default} ${dark ? css.dark : ''}`}
         onBlur={this.onBlur}
         onFocus={this.onFocus}
         tabIndex={0}

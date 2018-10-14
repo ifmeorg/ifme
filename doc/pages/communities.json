@@ -88,5 +88,11 @@
     "link": "https://www.viet-care.org/",
     "tags": ["free", "support_groups", "conference"],
     "languages": ["en", "vi"]
+  },
+  {
+    "name": "National Alliance on Mental Illness (NAMI)",
+    "link": "https://www.nami.org/",
+    "tags": ["free", "support_groups", "directory"],
+    "languages": ["en", "es"]
   }
 ]

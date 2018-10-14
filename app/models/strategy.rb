@@ -55,4 +55,8 @@ class Strategy < ApplicationRecord
   def self.link
     '/strategies'
   end
+
+  def comments
+    Comment.comments_from(self)
+  end
 end

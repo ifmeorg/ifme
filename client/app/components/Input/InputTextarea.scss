@@ -11,9 +11,9 @@
     color: $white !important;
   }
   &Selected {
-    color: $key-lime;
+    color: $mulberry;
     b, strong {
-      color: $key-lime !important;
+      color: $mulberry !important;
     }
   }
 }
@@ -25,7 +25,7 @@
   color: $white;
   outline: none;
   a {
-    color: $cornflower !important;
+    color: $steel-blue !important;
     cursor: pointer;
   }
   b, strong {
@@ -33,5 +33,29 @@
   }
   p {
     margin: $size-0;
+  }
+}
+
+.dark {
+  .button {
+    color: $white;
+    b, strong {
+      color: $white !important;
+    }
+    &Selected {
+      color: $key-lime;
+      b, strong {
+        color: $key-lime !important;
+      }
+    }
+  }
+  .content {
+    color: $white;
+    a {
+      color: $cornflower !important;
+    }
+    b, strong {
+      color: $white !important;
+    }
   }
 }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe 'ToggleLanguage', js: true do
+describe 'ToggleLocale', js: true do
   let(:user) { create :user }
 
   feature 'Toggling the locale dropdown to change the language' do

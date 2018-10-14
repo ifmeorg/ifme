@@ -78,7 +78,7 @@ export class InputSwitch extends React.Component<Props, State> {
             aria-checked={checked}
             tabIndex={0}
           >
-            {checked ? I18n.t('true') : I18n.t('false')}
+            {checked ? I18n.t('yes_text') : I18n.t('no_text')}
           </div>
         </div>
         {this.displaySwitchHidden()}
