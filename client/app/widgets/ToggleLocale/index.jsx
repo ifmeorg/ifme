@@ -4,6 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { I18n } from '../../libs/i18n';
 import { Input } from '../../components/Input';
+import { InputLabel } from '../../components/Input/InputLabel';
 
 export type Props = {
   locale: string,
@@ -36,7 +37,12 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
 export const ToggleLocale = (props: Props) => {
   const { locale, locales } = props;
   return (
-    <div aria-label={I18n.t('language')}>
+    <div>
+      <InputLabel
+        label="locale"
+        className="visuallyHidden"
+        info={I18n.t('Choose a Language')}
+      />
       <Input
         id="locale"
         type="select"
