@@ -65,7 +65,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 1'
       expect(page).to have_content 'Daily reminder email'
-      expect(page).to have_css('#new_comment')
+      expect(page).not_to have_css('#comments')
       expect(page).to have_selector '.storyDraft'
       back = current_url
 
@@ -104,6 +104,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       expect(find('.pageTitle')).to have_content 'My New Strategy'
       expect(page).to have_content strategy_description_text
       expect(page).not_to have_selector '.storyDraft'
+      expect(page).to have_css('#comments')
 
       # TRYING TO VIEW AS ALLY
       login_as ally

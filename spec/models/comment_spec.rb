@@ -85,6 +85,58 @@ describe Comment do
     end
   end
 
+  describe 'comments' do
+    before do
+      create(
+        :comment,
+        commentable_id: 0,
+        commentable_type: commentable_type,
+        comment_by: user2.id,
+        comment: short_comment,
+        visibility: 'all'
+      )
+      create(
+        :comment,
+        commentable_id: commentable.id,
+        commentable_type: commentable_type,
+        comment_by: user2.id,
+        comment: short_comment,
+        visibility: 'all'
+      )
+    end
+
+    context 'when commentable type is a moment' do
+      let(:commentable) { create(:moment, comment: true, user_id: user1.id, viewers: [user2.id]) }
+      let(:commentable_type) { 'moment' }
+
+      it 'returns correct number of comments' do
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+
+    context 'when commentable type is a strategy' do
+      let(:commentable) { create(:strategy, comment: true, user_id: user1.id, viewers: [user2.id]) }
+      let(:commentable_type) { 'strategy' }
+
+      it 'returns correct number of comments' do
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+
+    context 'when commentable type is a meeting' do
+      let(:commentable) { create(:meeting) }
+      let(:commentable_type) { 'meeting' }
+
+      it 'returns correct number of comments' do
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: commentable.id
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+  end
+
   describe 'notify_of_creation!' do
     context 'Moments' do
       it 'does not send a notification when the user created both the Moment and comment' do
