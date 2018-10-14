@@ -137,12 +137,20 @@ describe User do
 
   describe '#validations' do
     context 'password' do
-      let(:user) { create :user }
+      let(:user) { build :user }
+
+      context 'when oauth is enabled' do
+        it 'saves without any errors even if the password strength is less' do
+          user.password = 'warsdasdf'
+          user.token = 'access token'
+          expect(user.valid?).to be true
+        end
+      end
 
       context 'with valid one' do
         it 'saves without any errors' do
           user.password = 'waspAr$0'
-          expect(user.save).to be true
+          expect(user.valid?).to be true
         end
       end
 
@@ -150,7 +158,7 @@ describe User do
         it 'should return respective error message' do
           ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
             user.password = password
-            expect(user.save).to be false
+            expect(user.valid?).to be false
 
             expect(user).to have(1).error_on(:password)
           end
