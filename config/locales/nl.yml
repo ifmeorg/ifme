@@ -619,6 +619,7 @@ nl:
       meeting_notify_text: 'Samenkomstupdates'
       google_auth1: 'Als je niet langer via Google wilt inloggen, geef dan een nieuw e-mailadres en wachtwoord op.'
       google_auth2: 'Omdat je via Google inlogt, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen, geef dan een nieuw e-mailadres en wachtwoord op.'
+      password_complexity_error: 'moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.'
       placeholders:
         repeat_password: 'Herhaal Wachtwoord'
       edit:
