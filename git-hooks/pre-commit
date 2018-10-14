@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e  # Stop script if any command returns an error
+echo "Running pre-commit hook"
+
+rubocop
+rspec
+cd client
+yarn lint
+yarn test
