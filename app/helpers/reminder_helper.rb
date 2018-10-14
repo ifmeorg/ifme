@@ -20,7 +20,7 @@ module ReminderHelper
 
   def format_reminders(reminder_names)
     reminders = '<div>'
-    reminders += '<i class="fa fa-bell smallerMarginRight"></i>'
+    reminders += '<i class="fa fa-bell smallMarginRight"></i>'
     reminders += join_names(reminder_names)
     reminders += '</div>'
     reminders

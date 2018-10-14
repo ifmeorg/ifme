@@ -6,20 +6,12 @@
   @include setMargin($size-0, $size-20, $size-0, $size-0);
 }
 
-.smallerMarginRight {
-  @include setMargin($size-0, $size-10, $size-0, $size-0);
-}
-
 .marginLeft {
   @include setMargin($size-0, $size-0, $size-0, $size-40);
 }
 
 .smallMarginLeft {
   @include setMargin($size-0, $size-0, $size-0, $size-20);
-}
-
-.smallerMarginLeft {
-  @include setMargin($size-0, $size-0, $size-0, $size-10);
 }
 
 .marginTop {
@@ -30,20 +22,12 @@
   @include setMargin($size-20, $size-0, $size-0, $size-0);
 }
 
-.smallerMarginTop {
-  @include setMargin($size-10, $size-0, $size-0, $size-0);
-}
-
 .marginBottom {
   @include setMargin($size-0, $size-0, $size-40, $size-0);
 }
 
 .smallMarginBottom {
   @include setMargin($size-0, $size-0, $size-20, $size-0);
-}
-
-.smallerMarginBottom {
-  @include setMargin($size-0, $size-0, $size-10, $size-0);
 }
 
 .noMarginBottom {
