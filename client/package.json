@@ -13,9 +13,8 @@
     "lint:prettier": "./node_modules/.bin/prettier \"app/**/*.{js,jsx}\" --write --single-quote  --trailing-comma all",
     "lint": "yarn lint:flow && yarn lint:prettier && yarn lint:eslint --fix",
     "lint:build": "yarn lint:flow && yarn lint:eslint",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "yarn build-i18n && start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "start": "yarn build-i18n && yarn storybook",
     "test": "NODE_PATH=./app jest",
     "test:debug": "NODE_PATH=./app node --inspect-brk jest --runInBand"
   },

@@ -13,7 +13,7 @@ module PagesHelper
 
   def print_partners(data)
     html = ''
-    data.each_with_index do |d, index|
+    data.each do |d|
       break unless valid_hash?('partners', d)
 
       image = image_tag(d['image_link'], alt: d['name'])
