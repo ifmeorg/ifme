@@ -1,63 +1,51 @@
 .marginRight {
-  margin-right: $size-40 !important;
+  @include setMargin($size-0, $size-40, $size-0, $size-0);
 }
 
 .smallMarginRight {
-  margin-right: $size-20 !important;
+  @include setMargin($size-0, $size-20, $size-0, $size-0);
 }
 
 .smallerMarginRight {
-  margin-right: $size-10 !important;
+  @include setMargin($size-0, $size-10, $size-0, $size-0);
 }
 
 .marginLeft {
-  margin-left: $size-40 !important;
+  @include setMargin($size-0, $size-0, $size-0, $size-40);
 }
 
 .smallMarginLeft {
-  margin-left: $size-20 !important;
+  @include setMargin($size-0, $size-0, $size-0, $size-20);
 }
 
 .smallerMarginLeft {
-  margin-left: $size-10 !important;
+  @include setMargin($size-0, $size-0, $size-0, $size-10);
 }
 
 .marginTop {
-  margin-top: $size-40 !important;
+  @include setMargin($size-40, $size-0, $size-0, $size-0);
 }
 
 .smallMarginTop {
-  margin-top: $size-20 !important;
+  @include setMargin($size-20, $size-0, $size-0, $size-0);
 }
 
 .smallerMarginTop {
-  margin-top: $size-10 !important;
+  @include setMargin($size-10, $size-0, $size-0, $size-0);
 }
 
 .marginBottom {
-  margin-bottom: $size-40 !important;
+  @include setMargin($size-0, $size-0, $size-40, $size-0);
 }
 
 .smallMarginBottom {
-  margin-bottom: $size-20 !important;
+  @include setMargin($size-0, $size-0, $size-20, $size-0);
 }
 
 .smallerMarginBottom {
-  margin-bottom: $size-10 !important;
-}
-
-.noMarginTop{
-  margin-top: $size-0 !important;
+  @include setMargin($size-0, $size-0, $size-10, $size-0);
 }
 
 .noMarginBottom {
-  margin-bottom: $size-0 !important;
-}
-
-.noMarginLeft {
-  margin-left: $size-0 !important;
-}
-
-.noMarginRight {
-  margin-right: $size-0 !important;
+  margin-bottom: $size-0;
 }
