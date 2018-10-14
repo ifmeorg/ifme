@@ -7,7 +7,7 @@ module NotificationsHelper
     notification = t(
       "notifications.comment.#{i18n_key}",
       name: data[:user],
-      comment: data[:comment],
+      comment: strip_tags(data[:comment]),
       typename: data[:typename]
     )
     notification_link(uniqueid, comment[:path], notification)

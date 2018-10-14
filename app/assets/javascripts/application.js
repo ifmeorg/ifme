@@ -24,18 +24,6 @@
 
 I18n.locale = Cookies.get("locale") || I18n.defaultLocale;
 
-function isShow(forms) {
-  var result = false;
-  _.each(forms, function(form) {
-    if ($("body").hasClass(form + " show")) {
-      result = true;
-      return;
-    }
-  });
-
-  return result;
-}
-
 var onReadyApplication = function() {
   $.ajaxSetup({
     headers: {

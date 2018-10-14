@@ -10,7 +10,7 @@ class SecretSharesController < ApplicationController
       secret_share_identifier: SecureRandom.uuid,
       secret_share_expires_at: 1.day.from_now
     )
-    redirect_to moment_path(moment)
+    redirect_to moment_path(moment, anchor: 'secretShare')
   end
 
   def show

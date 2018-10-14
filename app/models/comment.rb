@@ -20,7 +20,8 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
   validates :comment, length: { minimum: 0, maximum: 1000 }, presence: true
-  validates :commentable_type, :commentable_id, :comment_by, presence: true
+  validates :commentable_type, inclusion: %w[moment strategy meeting]
+  validates :commentable_id, :comment_by, presence: true
   validates :visibility, inclusion: %w[all private]
 
   before_save :array_data
@@ -34,7 +35,7 @@ class Comment < ApplicationRecord
   class << self
     def create_from!(params)
       viewers = params[:viewers].blank? ? [] : [params[:viewers].to_i]
-
+      params[:visibility] = 'all' if params[:visibility].blank?
       Comment.create!(
         commentable_type: params[:commentable_type],
         commentable_id: params[:commentable_id],
@@ -42,6 +43,13 @@ class Comment < ApplicationRecord
         comment: params[:comment],
         visibility: viewers.any? ? 'private' : params[:visibility],
         viewers: viewers
+      )
+    end
+
+    def comments_from(data)
+      Comment.where(
+        commentable_id: data.id,
+        commentable_type: data.class.name.downcase
       )
     end
   end

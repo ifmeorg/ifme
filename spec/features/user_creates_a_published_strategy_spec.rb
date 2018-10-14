@@ -70,7 +70,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2'
       expect(page).to have_content 'Daily reminder email'
-      expect(page).to have_css('#new_comment')
+      expect(page).to have_css('#comments')
       expect(page).not_to have_selector '.storyDraft'
 
       # EDITING
