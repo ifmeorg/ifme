@@ -108,10 +108,9 @@
     }
   }
 
-  .purple_yay {
+  .purpleYay {
     @include setFontSize($size-30);
     color: $purple-yay;
-    text-align: center;
     text-shadow: $size-0 $size-0 $size-4 $purple-yay;
   }
 
