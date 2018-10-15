@@ -23,7 +23,7 @@ export const DropdownFactory = (variationClassName: string) => {
     value: propValue,
   }: Props) => (
     <select
-      className={`${css.dropdown} ${variationClassName}`}
+      className={window.navigator.appVersion && `${css.dropdown} ${variationClassName}`}
       onChange={onChange}
       value={propValue}
     >
