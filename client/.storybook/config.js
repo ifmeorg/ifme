@@ -28,11 +28,10 @@ const globalDecorator = (storyFn, context) => withInfo(withInfoConfig)(storyFn)(
 addDecorator(globalDecorator);
 setup();
 addDecorator(backgrounds([
-  { name: 'mulberry-wood', value: '#6D0839' },
-  { name: 'dark-gray', value: '#3F3F3F' }, // 25% gray
-  { name: 'gray', value: '#7F7F7F' }, // 50% gray
-  { name: 'light-gray', value: '#BFBFBF', default: true }, // 75% gray
+  { name: 'light-grey', value: '#D3D3D3' },
+  { name: 'grey', value: '#808080' },
   { name: 'white', value: '#FFFFFF' },
+  { name: 'mulberry', value: '#6D0839' },
 ]));
 
 // automatically import all files ending in *.stories.jsx

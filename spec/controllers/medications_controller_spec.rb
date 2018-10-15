@@ -18,7 +18,7 @@ describe MedicationsController do
       let(:medication) { FactoryBot.create(:medication, :with_refill_reminder, user_id: user.id) }
 
       it 'prints the reminder' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallerMarginRight"></i>Refill reminder email</div>')
+        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Refill reminder email</div>')
       end
     end
 
@@ -26,7 +26,7 @@ describe MedicationsController do
       let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id) }
 
       it 'prints the reminders' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallerMarginRight"></i>Daily reminder email</div>')
+        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Daily reminder email</div>')
       end
     end
 
@@ -34,7 +34,7 @@ describe MedicationsController do
       let(:medication) { FactoryBot.create(:medication, :with_both_reminders, user_id: user.id) }
 
       it 'prints the reminders' do
-        expect(subject).to eq('<div><i class="fa fa-bell smallerMarginRight"></i>Refill reminder email, Daily reminder email</div>')
+        expect(subject).to eq('<div><i class="fa fa-bell smallMarginRight"></i>Refill reminder email, Daily reminder email</div>')
       end
     end
 

@@ -1,6 +1,7 @@
 <% title t('navigation.partners') %>
-<%= raw t('pages.partners.description', {
-  email: link_to(t('email'), "mailto:#{t('email')}")
-}) %>
-<div class="spacer"></div>
+<div class="marginBottom">
+  <%= raw t('pages.partners.description', {
+    email: link_to(t('email'), "mailto:#{t('email')}")
+  }) %>
+</div>
 <%= print_partners(@organizations) %>
