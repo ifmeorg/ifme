@@ -9320,10 +9320,10 @@ react-modal@^3.5.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
-react-on-rails@11.1.7:
-  version "11.1.7"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.7.tgz#bd69f8d51921495f945c6412982388f2f940be18"
-  integrity sha512-H/lScB1gPtE2sasoki/G/nxSvqRHmY2JVDXptBI7VctkUQr6EgD5BRADdbowE/EFzm7iH84a8aVOg6NUJ5zWBA==
+react-on-rails@11.1.8:
+  version "11.1.8"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.8.tgz#6d5ba72a514cac4ea4efddd8a80f61909d3e9bd7"
+  integrity sha512-vc4uw9IiDZcU4v8CwZEXOd4fVyp1Tu3LCcp9nKS4q3ffr/Ea+jphc+TrqR3nkVOAfcl67UciIDAjXrrnFezJVA==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
 
