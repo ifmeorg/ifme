@@ -1,3 +1,3 @@
 function loadPage(event) {
-  document.addEventListener("turbolinks:load", event);
+  document.addEventListener('turbolinks:load', event);
 }
