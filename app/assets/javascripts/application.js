@@ -18,9 +18,3 @@
 //= require i18n.js
 //= require i18n/translations
 //= require_tree .
-
-var beforeunloadApplication = function() {
-  $(window).scrollTop(0);
-};
-
-$(window).on("beforeunload", beforeunloadApplication);
