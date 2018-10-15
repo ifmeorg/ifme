@@ -350,7 +350,7 @@ de:
       main_message_one: '%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauenswürdigen Personen zu teilen.'
       message_text_one: 'Vertrauenswürdige Helfer sind Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit.'
       main_message_two: 'Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen.'
-      message_text_two: 'Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class="subtitle block">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="no_margin_bottom">Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open Source-Projekt ist.</p>'
+      message_text_two: '<p>Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.</p><p class="subtitle">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</p><p>Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open Source-Projekt ist.</p>'
       main_message_three: 'Möchtest du uns finanziell unterstützen?'
       message_text_three: 'Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -457,6 +457,7 @@ de:
         social_justice: 'soziale Gerechtigkeit'
         tech_industry: Technologiesektor
         meditation: Meditation
+        anxiety: Angst
         social_anxiety: 'soziale Phobie'
         trigger_warnings: Triggerwarnung
         netflix: Netflix
@@ -496,6 +497,13 @@ de:
         rehabilitation: Rehabilitation
         teachers: Lehrer
         bipolar: bipolar
+        goal_tracking: Zielverfolgung
+        social_network: 'Soziales Netzwerk'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'Überlebende sexueller Übergriffe'
+        political_movement: 'politische Bewegung'
+        reporting: Berichterstattung
   profile:
     index:
       title: Profil

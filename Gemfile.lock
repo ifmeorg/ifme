@@ -489,7 +489,6 @@ GEM
     uber (0.1.0)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
-    underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -579,11 +578,10 @@ DEPENDENCIES
   spring
   turbolinks (~> 5.2.0)
   uglifier (~> 4.1.19)
-  underscore-rails (= 1.8.3)
   webpacker
 
 RUBY VERSION
    ruby 2.3.4p112
 
 BUNDLED WITH
-   1.16.3
+   1.16.6

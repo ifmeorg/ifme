@@ -344,7 +344,7 @@ nb:
       main_message_one: '%{app_name} er et samfunn for mental helse opplevelser som oppmuntrer folk til å dele sine personlige historier med betrodde allierte.'
       message_text_one: 'Betrodde allierte er folkene vi samhandler med på en daglig basis, inkludert venner, familiemedlemmer, kollegaer, lærere, og mental helse arbeidere.'
       main_message_two: 'Å takle mental helse er det som gjør oss til mennesker. Men for mange av oss, er det vanskelig å være åpne om det.'
-      message_text_two: 'Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.<p><div class="subtitle block">"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>'
+      message_text_two: '<p>Ikke alle har en psykolog eller terapeut. Menneskene vi samhandler med på en daglig basis former våre følelser og handlinger. Å få dem involvert i mental helse behandling er nøkkelen til forbedring.</p><p class="subtitle">"Det er ikke bare alt i hodet ditt, det er rundt deg. Vi kan helbredes sammen."</p><p>Mental helse er virkelig en individuell og unik opplevelse. Ingen to hjerner er like! Å takle problemet krever ideer fra alle, det er derfor dette prosjektet har åpen kildekode.</p>'
       main_message_three: 'Vil du støtte oss?'
       message_text_three: 'Vår applikasjon er ett <u>fullstendig</u> åpent kildekode-prosjekt. Den er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.</p><p>I 2016, mottok vi et samfunnsstipend fra %{linebreak_link}. I 2017, mottok vi støtte fra %{fund_club_link}.</p>Du kan støtte oss ved å donere til vår %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +449,7 @@ nb:
         social_justice: 'sosial rettferdighet'
         tech_industry: IT-bransjen
         meditation: meditasjon
+        anxiety: angst
         social_anxiety: 'sosial angst'
         trigger_warnings: avtrekkelsesadvarsler
         netflix: netflix
@@ -488,6 +489,13 @@ nb:
         rehabilitation: rehabilitering
         teachers: lærere
         bipolar: bipolar
+        goal_tracking: målsporing
+        social_network: 'sosialt nettverk'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'overgrep overfor seksuelle overgrep'
+        political_movement: 'politisk bevegelse'
+        reporting: rapportering
   profile:
     index:
       title: Profil
