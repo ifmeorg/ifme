@@ -12,7 +12,10 @@ module MomentsHelper
   end
 
   def edit_moment_props(moment, viewers)
-    edit_form_props(moment_form_inputs(moment, viewers), moment_path(moment))
+    edit_form_props(
+      moment_form_inputs(moment, viewers),
+      moment_path(moment)
+    )
   end
 
   # rubocop:disable MethodLength
