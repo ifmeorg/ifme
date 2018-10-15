@@ -3,8 +3,6 @@ import backgrounds from '@storybook/addon-backgrounds';
 import { setDefaults, withInfo } from '@storybook/addon-info';
 import { addDecorator, configure } from '@storybook/react';
 
-import { setup } from 'libs/i18n/setup';
-
 import './stories.scss';
 
 // addon-info
@@ -26,7 +24,6 @@ const withInfoConfig = {
 
 const globalDecorator = (storyFn, context) => withInfo(withInfoConfig)(storyFn)(context);
 addDecorator(globalDecorator);
-setup();
 addDecorator(backgrounds([
   { name: 'light-grey', value: '#D3D3D3' },
   { name: 'grey', value: '#808080' },

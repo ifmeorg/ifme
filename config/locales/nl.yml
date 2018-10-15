@@ -2,14 +2,12 @@ nl:
   app_name: 'if me'
   app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Aangemaakt op %{created_at}'
   draft: Concept
   edited: 'Aangemaakt op %{created_at} (bewerkt)'
   edited_updated_at: 'Aangemaakt op %{created_at} (bewerkt op %{updated_at})'
   salutation: 'Hallo %{name},'
   click_here: 'klik hier'
-  less: ' [Minder]'
   language: Taal
   yes_text: ja
   no_text: nee

@@ -2,14 +2,12 @@ de:
   app_name: 'if me'
   app_description: 'ist eine Community rund um das Thema psychische Gesundheit'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Erstellt %{created_at}'
   draft: Draft
   edited: 'Erstellt %{created_at} (geändert)'
   edited_updated_at: 'Erstellt %{created_at} (geändert %{updated_at})'
   salutation: 'Hallo %{name},'
   click_here: 'Klick hier'
-  less: ' [Less]'
   language: Sprache
   yes_text: ya
   no_text: nein

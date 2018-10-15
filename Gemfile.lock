@@ -186,8 +186,6 @@ GEM
     httpclient (2.8.3)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
-    i18n-js (3.0.11)
-      i18n (>= 0.6.6, < 2)
     inline_svg (1.3.1)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
@@ -537,7 +535,6 @@ DEPENDENCIES
   friendly_id (~> 5.2.4)
   google-api-client (~> 0.24.3)
   groupdate (= 4.0.1)
-  i18n-js (>= 3.0.0.rc11)
   inline_svg
   jasmine (~> 2.7.0)
   jbuilder (~> 2.7.0)

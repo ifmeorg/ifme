@@ -2,14 +2,12 @@ nb:
   app_name: 'if me'
   app_description: 'Et samfunn for mental helse opplevelser'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Opprettet %{created_at}'
   draft: Utkast
   edited: 'Opprettet %{created_at} (redigert)'
   edited_updated_at: 'Opprettet %{created_at} (redigert %{updated_at})'
   salutation: 'Hei %{name},'
   click_here: 'klikk her'
-  less: ' [Mindre]'
   language: Språk
   yes_text: ja
   no_text: nei

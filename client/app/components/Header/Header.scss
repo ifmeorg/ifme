@@ -100,7 +100,7 @@
       color: $white;
       &Links {
         @include setFontSize($size-0);
-        @include setMargin($size-14, $size-0, $size-0, $size-0);
+        margin-top: $size-4;
         line-height: 3.5;
         display: flex;
         flex-direction: row;
@@ -108,9 +108,9 @@
         align-items: center;
         justify-content: space-evenly;
         > div {
-          @include setMargin($size-0, $size-8, $size-0, $size-0);
+          margin: $size-8 $size-8 $size-0 $size-0;
           &:last-of-type {
-            @include setMargin($size-0, $size-0, $size-0, $size-0);
+            margin: $size-8 $size-0 $size-0 $size-0;
           }
         }
       }

@@ -31,7 +31,7 @@ var contributorReadMoreFeature = function(){
       visibleProfileText = $(this).text().substr(0, maxProfileLength);
       invisibleProfileText = $(this).text().substr(maxProfileLength, profileTextLength - maxProfileLength);
 
-      var profileContent = visibleProfileText + '<span class="readMoreShow hideContent toggle" id="moreContent">'+ I18n.t('ellipsis') +'</span><span class="read_more_content">' + invisibleProfileText + '</span><span class="readLessShow toggle" id="lessContent">'+ I18n.t('less')+'</span>';
+      var profileContent = visibleProfileText + '<span class="readMoreShow hideContent toggle" id="moreContent"> [...]</span><span class="read_more_content">' + invisibleProfileText + '</span><span class="readLessShow toggle" id="lessContent"> [-]</span>';
 
       $(this).html(profileContent);
       readMoreHideContent();
