@@ -97,6 +97,9 @@ en:
       title: Allies
       outgoing: 'Outgoing Requests'
       incoming: 'Incoming Requests'
+      invited: 'Invited by email'
+      invited_on: 'Invited on: %{date}'
+      invitation_expired: 'Invitation expired?'
       invite: 'Invite your loved ones!'
       none: 'You currently have no allies! You can search for them or invite loved ones to join!'
       view_all_allies: 'View all allies'
