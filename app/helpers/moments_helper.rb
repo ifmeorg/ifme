@@ -8,7 +8,10 @@ module MomentsHelper
   include FormHelper
 
   def new_moment_props(moment, viewers)
-    new_form_props(moment_form_inputs(moment, viewers), moments_path)
+    new_form_props(
+      moment_form_inputs(moment, viewers),
+      moments_path
+    )
   end
 
   def edit_moment_props(moment, viewers)

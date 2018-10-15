@@ -6,7 +6,10 @@ module StrategiesHelper
   include FormHelper
 
   def new_strategy_props(strategy, viewers)
-    new_form_props(strategy_form_inputs(strategy, viewers), strategies_path)
+    new_form_props(
+      strategy_form_inputs(strategy, viewers),
+      strategies_path
+    )
   end
 
   def quick_create_strategy_props
@@ -17,7 +20,10 @@ module StrategiesHelper
   end
 
   def edit_strategy_props(strategy, viewers)
-    edit_form_props(strategy_form_inputs(strategy, viewers), strategy_path(strategy))
+    edit_form_props(
+      strategy_form_inputs(strategy, viewers),
+      strategy_path(strategy)
+    )
   end
 
   private
