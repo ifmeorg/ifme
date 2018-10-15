@@ -1,3 +1,4 @@
+// @flow
 export const I18n = Object.assign({}, window.I18n, {
   lookup: (scope, options = {}) => {
     const result = window.I18n.lookup(scope, options);
