@@ -108,6 +108,7 @@
         justify-content: space-evenly;
         > div {
           @include setMargin($size-0, $size-8, $size-0, $size-0);
+          flex-shrink: 0;
           &:last-of-type {
             @include setMargin($size-0, $size-0, $size-0, $size-0);
           }
