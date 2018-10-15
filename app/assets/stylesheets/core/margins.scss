@@ -1,33 +1,57 @@
 .marginRight {
-  @include setMargin($size-0, $size-40, $size-0, $size-0);
+  margin-right: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-20;
+  }
 }
 
 .smallMarginRight {
-  @include setMargin($size-0, $size-20, $size-0, $size-0);
+  margin-right: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-10;
+  }
 }
 
 .marginLeft {
-  @include setMargin($size-0, $size-0, $size-0, $size-40);
+  margin-left: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-20;
+  }
 }
 
 .smallMarginLeft {
-  @include setMargin($size-0, $size-0, $size-0, $size-20);
+  margin-left: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-10;
+  }
 }
 
 .marginTop {
-  @include setMargin($size-40, $size-0, $size-0, $size-0);
+  margin-top: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-20;
+  }
 }
 
 .smallMarginTop {
-  @include setMargin($size-20, $size-0, $size-0, $size-0);
+  margin-top: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-10;
+  }
 }
 
 .marginBottom {
-  @include setMargin($size-0, $size-0, $size-40, $size-0);
+  margin-bottom: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-20;
+  }
 }
 
 .smallMarginBottom {
-  @include setMargin($size-0, $size-0, $size-20, $size-0);
+  margin-bottom: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-10;
+  }
 }
 
 .noMarginBottom {

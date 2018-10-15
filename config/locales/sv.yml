@@ -3,13 +3,11 @@ sv:
   app_description: 'En gemenskap för mentala hälsoupplevelser'
   draft: Utkast
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Skapad %{created_at}'
   edited: 'Skapad %{created_at} (redigerad)'
   edited_updated_at: 'Skapad %{created_at} (redigerad %{updated_at})'
   salutation: 'Hej %{name},'
   click_here: 'Klicka här'
-  less: ' [Mindre]'
   language: Språk
   yes_text: ja
   no_text: nej

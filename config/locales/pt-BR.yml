@@ -3,13 +3,11 @@ pt-BR:
   app_description: 'Uma comunidade para o compartilhamento de experiências sobre saúde mental'
   draft: Rascunho
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Criada em%{created_at}'
   edited: 'Criada em %{created_at} (edited)'
   edited_updated_at: 'Data Criação %{created_at} (edited %{updated_at})'
   salutation: 'Olá %{name},'
   click_here: 'clique aqui'
-  less: ' [Menos]'
   language: Idioma
   yes_text: sim
   no_text: não

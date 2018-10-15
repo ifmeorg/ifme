@@ -2,14 +2,12 @@ vi:
   app_name: 'if me'
   app_description: 'Đồng sức khỏe tâm thần'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Tạo %{created_at}'
   draft: Nháp
   edited: 'Tạo %{created_at} (chỉnh sửa)'
   edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
   salutation: 'Xin chào  %{name},'
   click_here: 'nhấn vào đây'
-  less: ' [Ít hơn]'
   language: 'Ngôn ngữ'
   yes_text: có
   no_text: không

@@ -16,7 +16,9 @@ describe('I18n', () => {
 
         describe('has options', () => {
           it('returns correct result', () => {
-            expect(I18n.t('fake', { created_at: 'test' })).toEqual(missingTranslation);
+            expect(I18n.t('fake', { created_at: 'test' })).toEqual(
+              missingTranslation,
+            );
           });
         });
       });
@@ -56,7 +58,9 @@ describe('I18n', () => {
 
         describe('has options', () => {
           it('returns correct result', () => {
-            expect(I18n.t('fake', { created_at: 'test' })).toEqual(missingTranslation);
+            expect(I18n.t('fake', { created_at: 'test' })).toEqual(
+              missingTranslation,
+            );
           });
         });
       });

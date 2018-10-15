@@ -61,8 +61,34 @@ export class InputSwitch extends React.Component<Props, State> {
     );
   };
 
-  render() {
+  displaySwitchIcon = () => {
+    const { checked } = this.state;
+    if (checked) {
+      return <FontAwesomeIcon icon={faCheck} />;
+    }
+    return <FontAwesomeIcon icon={faTimes} />;
+  };
+
+  displaySwitch = () => {
     const { id } = this.props;
+    const { checked } = this.state;
+    return (
+      <div
+        id={`${id}_switch`}
+        className={`switchToggle ${css.switchToggle}`}
+        onClick={this.toggleChecked}
+        onKeyPress={this.onKeyPress}
+        role="switch"
+        aria-checked={checked}
+        tabIndex={0}
+        aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
+      >
+        {this.displaySwitchIcon()}
+      </div>
+    );
+  };
+
+  render() {
     const { checked } = this.state;
     return (
       <div className={css.switch}>
@@ -71,22 +97,7 @@ export class InputSwitch extends React.Component<Props, State> {
             checked ? css.switchOn : css.switchOff
           }`}
         >
-          <div
-            id={`${id}_switch`}
-            className={`switchToggle ${css.switchToggle}`}
-            onClick={this.toggleChecked}
-            onKeyPress={this.onKeyPress}
-            role="switch"
-            aria-checked={checked}
-            tabIndex={0}
-            aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
-          >
-            {checked ? (
-              <FontAwesomeIcon icon={faCheck} />
-            ) : (
-              <FontAwesomeIcon icon={faTimes} />
-            )}
-          </div>
+          {this.displaySwitch()}
         </div>
         {this.displaySwitchHidden()}
       </div>

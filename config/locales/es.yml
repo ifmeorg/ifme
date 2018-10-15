@@ -2,14 +2,12 @@ es:
   app_name: 'if me'
   app_description: 'Una comunidad para compartir experiencias de salud mental'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Creado %{created_at}'
   draft: Borrador
   edited: 'Creado %{created_at} (editado)'
   edited_updated_at: 'Creado %{created_at} (edited %{updated_at})'
   salutation: 'Hola %{name},'
   click_here: 'da click aquí'
-  less: ' [Menos]'
   language: Idioma
   yes_text: si
   no_text: 'no'
