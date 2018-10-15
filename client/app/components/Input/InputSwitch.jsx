@@ -1,5 +1,7 @@
 // @flow
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../../utils';
 import { Input } from './index';
 import css from './InputSwitch.scss';
@@ -77,8 +79,13 @@ export class InputSwitch extends React.Component<Props, State> {
             role="switch"
             aria-checked={checked}
             tabIndex={0}
+            aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
           >
-            {checked ? I18n.t('yes_text') : I18n.t('no_text')}
+            {checked ? (
+              <FontAwesomeIcon icon={faCheck} />
+            ) : (
+              <FontAwesomeIcon icon={faTimes} />
+            )}
           </div>
         </div>
         {this.displaySwitchHidden()}
