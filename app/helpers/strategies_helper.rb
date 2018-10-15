@@ -5,8 +5,8 @@ module StrategiesHelper
   include CategoriesHelper
   include FormHelper
 
-  def new_strategy_props
-    new_form_props(strategy_form_inputs, strategies_path)
+  def new_strategy_props(strategy, viewers)
+    new_form_props(strategy_form_inputs(strategy, viewers), strategies_path)
   end
 
   def quick_create_strategy_props
@@ -16,21 +16,21 @@ module StrategiesHelper
     )
   end
 
-  def edit_strategy_props
-    edit_form_props(strategy_form_inputs, strategy_path(@strategy))
+  def edit_strategy_props(strategy, viewers)
+    edit_form_props(strategy_form_inputs(strategy, viewers), strategy_path(strategy))
   end
 
   private
 
   # rubocop:disable MethodLength
-  def strategy_form_inputs
+  def strategy_form_inputs(strategy, viewers)
     [
       {
         id: 'strategy_name',
         type: 'text',
         name: 'strategy[name]',
         label: t('common.name'),
-        value: @strategy.name || nil,
+        value: strategy.name || nil,
         placeholder: t('strategies.form.name_hint'),
         required: true,
         dark: true
@@ -40,7 +40,7 @@ module StrategiesHelper
         type: 'textarea',
         name: 'strategy[description]',
         label: t('strategies.form.describe'),
-        value: @strategy.description || nil,
+        value: strategy.description || nil,
         required: true,
         dark: true
       },
@@ -53,7 +53,7 @@ module StrategiesHelper
         checkboxes: category_checkboxes,
         formProps: quick_create_category_props
       },
-      get_viewers_input(@viewers, 'strategy', 'strategies', @strategy),
+      get_viewers_input(viewers, 'strategy', 'strategies', strategy),
       {
         id: 'strategy_comment',
         type: 'switch',
@@ -61,7 +61,7 @@ module StrategiesHelper
         label: t('comment.allow_comments'),
         value: true,
         uncheckedValue: false,
-        checked: @strategy.comment,
+        checked: strategy.comment,
         info: t('comment.hint'),
         dark: true
       },
@@ -73,7 +73,7 @@ module StrategiesHelper
         name: 'publishing',
         value: '0',
         uncheckedValue: '1',
-        checked: !@strategy.published?
+        checked: !strategy.published?
       },
       {
         id: 'strategy_perform_strategy_reminder',
@@ -83,23 +83,24 @@ module StrategiesHelper
         info: t('strategies.form.daily_reminder_hint'),
         value: true,
         uncheckedValue: false,
-        checked: @strategy&.perform_strategy_reminder&.active,
+        checked: strategy&.perform_strategy_reminder&.active,
         dark: true
       },
       {
         id: 'strategy_perform_strategy_reminder_attributes_id',
         name: 'strategy[perform_strategy_reminder_attributes][id]',
         type: 'hidden',
-        value: @strategy&.perform_strategy_reminder&.id
+        value: strategy&.perform_strategy_reminder&.id
       }
     ]
   end
   # rubocop:enable MethodLength
 
   def quick_create_strategy_form_inputs
+    strategy_form = strategy_form_inputs(@strategy, @viewers)
     [
-      strategy_form_inputs[0],
-      strategy_form_inputs[1]
+      strategy_form[0],
+      strategy_form[1]
     ]
   end
 

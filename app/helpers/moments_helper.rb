@@ -7,12 +7,12 @@ module MomentsHelper
   include StrategiesHelper
   include FormHelper
 
-  def new_moment_props
-    new_form_props(moment_form_inputs, moments_path)
+  def new_moment_props(moment, viewers)
+    new_form_props(moment_form_inputs(moment, viewers), moments_path)
   end
 
-  def edit_moment_props
-    edit_form_props(moment_form_inputs, moment_path(@moment))
+  def edit_moment_props(moment, viewers)
+    edit_form_props(moment_form_inputs(moment, viewers), moment_path(moment))
   end
 
   # rubocop:disable MethodLength
@@ -35,14 +35,14 @@ module MomentsHelper
   private
 
   # rubocop:disable MethodLength
-  def moment_form_inputs
+  def moment_form_inputs(moment, viewers)
     [
       {
         id: 'moment_name',
         type: 'text',
         name: 'moment[name]',
         label: t('common.name'),
-        value: @moment.name || nil,
+        value: moment.name || nil,
         required: true,
         dark: true
       },
@@ -51,7 +51,7 @@ module MomentsHelper
         type: 'textarea',
         name: 'moment[why]',
         label: t('moments.form.why'),
-        value: @moment.why || nil,
+        value: moment.why || nil,
         required: true,
         dark: true
       },
@@ -60,7 +60,7 @@ module MomentsHelper
         type: 'textarea',
         name: 'moment[fix]',
         label: t('moments.form.fix'),
-        value: @moment.fix || nil,
+        value: moment.fix || nil,
         dark: true
       },
       {
@@ -90,7 +90,7 @@ module MomentsHelper
         checkboxes: checkboxes_for(@strategies),
         formProps: quick_create_strategy_props
       },
-      get_viewers_input(@viewers, 'moment', 'moments', @moment),
+      get_viewers_input(viewers, 'moment', 'moments', moment),
       {
         id: 'moment_comment',
         type: 'switch',
@@ -98,7 +98,7 @@ module MomentsHelper
         label: t('comment.allow_comments'),
         value: true,
         uncheckedValue: false,
-        checked: @moment.comment,
+        checked: moment.comment,
         info: t('comment.hint'),
         dark: true
       },
@@ -110,7 +110,7 @@ module MomentsHelper
         name: 'publishing',
         value: '0',
         uncheckedValue: '1',
-        checked: !@moment.published?
+        checked: !moment.published?
       }
     ]
   end
