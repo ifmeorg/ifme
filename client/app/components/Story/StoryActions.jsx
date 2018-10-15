@@ -16,6 +16,7 @@ export type Action = {
   link: string,
   dataMethod?: string,
   dataConfirm?: string,
+  onClick?: Function,
 };
 
 export type Actions = {
@@ -71,35 +72,49 @@ const displayViewers = (
   </div>
 );
 
+const titleItem = (item: string) => item.charAt(0).toUpperCase() + item.slice(1);
+
+const tooltipElement = (item: string, actions: Actions, dark: ?boolean) => {
+  const {
+    link, dataMethod, dataConfirm, name, onClick,
+  } = actions[item];
+  return (
+    <a
+      href={link}
+      data-method={dataMethod}
+      data-confirm={dataConfirm}
+      aria-label={name}
+      onClick={
+        onClick
+          ? (e: SyntheticEvent<HTMLInputElement>) => onClick(e, link)
+          : undefined
+      }
+    >
+      {classMap(dark)[item]}
+    </a>
+  );
+};
+
 const displayLink = (
   actions: Actions,
   item: string,
   hasStory: ?boolean,
   dark: ?boolean,
-) => {
-  const titleItem = item.charAt(0).toUpperCase() + item.slice(1);
-  const element = (
-    <a
-      href={actions[item].link}
-      data-method={actions[item].dataMethod}
-      data-confirm={actions[item].dataConfirm}
-      aria-label={actions[item].name}
-    >
-      {classMap(dark)[item]}
-    </a>
-  );
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      key={item}
-      aria-label={actions[item]}
-      className={`storyActions${titleItem}`}
-    >
-      <Tooltip element={element} text={actions[item].name} right={!!hasStory} />
-    </div>
-  );
-};
+) => (
+  <div
+    role="button"
+    tabIndex={0}
+    key={item}
+    aria-label={actions[item]}
+    className={`storyActions${titleItem(item)}`}
+  >
+    <Tooltip
+      element={tooltipElement(item, actions, dark)}
+      text={actions[item].name}
+      right={!!hasStory}
+    />
+  </div>
+);
 
 const displayItem = (
   actions: Actions,

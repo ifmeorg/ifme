@@ -12,13 +12,13 @@ describe ReminderHelper do
       expect(active_reminders?({})).to be false
     end
 
-    it 'returns false when data has no active reminder' do      
-      medication = FactoryBot.create(:medication, user_id: user.id)      
+    it 'returns false when data has no active reminder' do
+      medication = FactoryBot.create(:medication, user_id: user.id)
       expect(active_reminders?(medication)).to be false
     end
 
     it 'returns true when data is good' do
-      medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)      
+      medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)
       expect(active_reminders?(medication)).to be true
     end
   end
@@ -34,7 +34,7 @@ describe ReminderHelper do
   describe '#format_reminders' do
     it 'returns correct html div' do
       reminders = format_reminders(reminder_names)
-      expected_html = '<div><i class="fa fa-bell smallerMarginRight"></i>name1, name2</div>'
+      expected_html = '<div><i class="fa fa-bell smallMarginRight"></i>name1, name2</div>'
       expect(reminders).to eq(expected_html)
     end
   end
@@ -44,11 +44,11 @@ describe ReminderHelper do
       reminders = print_reminders({})
       expect(reminders).to eq('')
     end
-  
+
     it 'returns correct html when data has reminders' do
       medication = FactoryBot.create(:medication, :with_daily_reminder, user_id: user.id)
       reminders = print_reminders(medication)
-      expected_html = '<div><i class="fa fa-bell smallerMarginRight"></i>' + I18n.t('common.daily_reminder') + '</div>'
+      expected_html = '<div><i class="fa fa-bell smallMarginRight"></i>' + I18n.t('common.daily_reminder') + '</div>'
       expect(reminders).to eq(expected_html)
     end
   end

@@ -36,4 +36,8 @@ class Meeting < ApplicationRecord
   def led_by?(user)
     leaders.include? user
   end
+
+  def comments
+    Comment.comments_from(self)
+  end
 end

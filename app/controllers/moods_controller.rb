@@ -67,13 +67,11 @@ class MoodsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_mood
     @mood = Mood.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(moods_path)
   end
-  # rubocop:enable RescueStandardError
 
   def mood_params
     params.require(:mood).permit(:name, :description)

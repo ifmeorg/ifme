@@ -1,10 +1,7 @@
 <% title t('search.index.title') %>
 <%= render 'form' %>
 <%= link_to t('allies.index.view_all_allies'), allies_path, class: 'smallMarginTop buttonDarkM fullWidth center' %>
-
-<div class="spacer"></div>
-
-<div class="gridThree">
+<div class="gridThree marginTop">
   <% if @matching_users.present? %>
     <% @matching_users.each do |user| %>
         <div class="gridThreeItemBoxLight ally">

@@ -5,17 +5,6 @@
   }
 }
 
-.spacer {
-  width: 100%;
-  height: $size-40;
-  @media screen and (max-width: $medium) {
-    height: $size-20;
-  }
-  @media screen and (max-width: $medium) {
-    height: $size-10;
-  }
-}
-
 .viewersIndicator {
   color: $dusty-rose;
   font-weight: bold;

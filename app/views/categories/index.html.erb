@@ -17,10 +17,7 @@
 <% else %>
   <%= raw t('categories.index.instructions') %>
   <%= button_to t('common.actions.add_all'), premade_categories_path, class: 'smallMarginTop buttonDarkS' %>
-
-  <div class="spacer"></div>
-
-  <div class="gridTwo">
+  <div class="gridTwo marginTop">
     <% (1..4).each do |n| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {

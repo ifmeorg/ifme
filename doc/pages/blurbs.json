@@ -324,5 +324,32 @@
     "link_name": "jenniferwiner.com",
     "link": "https://www.jenniferwiner.com",
     "social": "globe"
+  },
+  {
+    "name": "Emma Smith",
+    "image": "/assets/contributors/emma_smith.png",
+    "profile": "I imagine a world where difference is celebrated, vulnerability is known as strength, and all are included in the circle of the human family.",
+    "location": "Brooklyn",
+    "link_name": "emmasmith.me",
+    "link": "https://www.emmasmith.me/",
+    "social": "globe"
+  },
+  {
+    "name": "John Maguire",
+    "image": "/assets/contributors/john_maguire.png",
+    "profile": "I'm a fullstack developer with a penchant for TDD based out of NYC. When I'm not writing code I'm either working on pursuing a graduate degree in computer science, cooking, or training strongman.",
+    "location": "Brooklyn, NYC",
+    "link_name": "johnmaguiredeveloper.com",
+    "link": "http://johnmaguiredeveloper.com",
+    "social": "globe"
+  },
+  {
+    "name": "Jasper Martin",
+    "image": "/assets/contributors/jasper_martin.png",
+    "profile": "I first encountered if-me when I was tasked to find an open source project to contribute on. It really is a great pleasure to contribute to this project because whenever I submit a pull request, I feel like I'm also helping people who have mental illness/difficulties in their life. I also want to thank the if-me community for helping me not just become a better developer, but also a better person.",
+    "location": "Manila, Philippines",
+    "link_name": "jaspervanbrian",
+    "link": "http://twitter.com/jaspervanbrian",
+    "social": "twitter"
   }
 ]

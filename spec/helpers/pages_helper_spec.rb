@@ -83,7 +83,6 @@ RSpec.describe PagesHelper, type: :helper do
             '<img alt="test1" src="/images/test1.png" />' \
           '</a>' \
         '</div>' \
-        '<div class="spacer"></div>' \
         '<div class="partner">' \
           '<a target="blank" href="http://if-me.org">' \
             '<img alt="test2" src="/images/test1.png" />' \
