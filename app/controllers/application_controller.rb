@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
-  include TagsHelper
-  include MomentsHelper
   include CommentsHelper
   include CommentFormHelper
+  include TagsHelper
+  include MomentsHelper
 
   protect_from_forgery with: :null_session,
                        if: proc { |c| c.request.format == 'application/json' }
@@ -95,15 +95,15 @@ class ApplicationController < ActionController::Base
   def most_focus(data_type, profile_id)
     data = []
     user_id = profile_id || current_user.id
+    user = User.find_by(id: user_id)
     moments =
       if current_user.id == profile_id
-        user_moments(user_id)
+        user.moments
       else
-        user_moments(user_id).where.not(published_at: nil)
+        user.moments.where.not(published_at: nil)
       end
     if data_type == 'category'
-      strategies = user_strategies(user_id)
-      [moments, strategies].each do |records|
+      [moments, user.strategies].each do |records|
         records.where(user_id: user_id).find_each do |r|
           if r.category.any? && (profile_id.blank? ||
                                  profile_exists?(profile_id, r))
@@ -146,10 +146,6 @@ class ApplicationController < ActionController::Base
        data.viewers.include?(current_user.id))
   end
 
-  def record_model_name(record)
-    record.class.name.downcase
-  end
-
   def redirect_to_path(path)
     respond_to do |format|
       format.html { redirect_to path }
@@ -168,14 +164,6 @@ class ApplicationController < ActionController::Base
     (!current_user.mutual_allies?(subject.user) \
     && !subject.viewer?(current_user)) \
     || !subject.published?
-  end
-
-  def user_strategies(user_id)
-    Strategy.where(user_id: user_id)
-  end
-
-  def user_moments(user_id)
-    Moment.where(user_id: user_id)
   end
 
   def set_raven_context

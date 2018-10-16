@@ -13,7 +13,7 @@ module CommentsHelper
   end
 
   def show_with_comments(subject)
-    model_name = record_model_name(subject)
+    model_name = subject.class.name.downcase
     if current_user.id != subject.user_id && hide_page?(subject)
       return redirect_to_path(send("#{model_name.pluralize}_path"))
     end

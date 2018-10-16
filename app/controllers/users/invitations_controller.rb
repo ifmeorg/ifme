@@ -28,9 +28,19 @@ module Users
     def flash_message(emails, has_invites)
       return unless emails.any?
 
-      status = has_invites ? :notice : :alert
-      message = has_invites ? :send_instructions : :failed_send
-      set_flash_message status, message, email: emails.join(', ')
+      set_flash_message(
+        get_status(has_invites),
+        get_message(has_invites),
+        email: emails.join(', ')
+      )
+    end
+
+    def get_status(has_invites)
+      has_invites ? :notice : :alert
+    end
+
+    def get_message(has_invites)
+      has_invites ? :send_instructions : :failed_send
     end
   end
 end
