@@ -98,11 +98,6 @@ FactoryBot.define do
     end
   end
 
-  factory :mood do
-    name  { 'Test Mood' }
-    description { 'Test Mood' }
-  end
-
   factory :comment do
     commentable_type { 'moment' }
     comment { 'Test Comment' }
