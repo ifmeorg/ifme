@@ -240,11 +240,12 @@ export class Input extends React.Component<Props, State> {
 
   displayLocation = () => {
     const {
-      type, placeholder, googleAPIKey, id,
+      type, placeholder, googleAPIKey, id, value,
     } = this.props;
     if (type === 'location' && placeholder && googleAPIKey) {
       return (
         <InputLocation
+          value={value}
           placeholder={placeholder}
           apiKey={googleAPIKey}
           id={id}

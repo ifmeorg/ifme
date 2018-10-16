@@ -7,6 +7,7 @@ export type Props = {
   placeholder: string,
   apiKey: string,
   id: string,
+  value?: any,
 };
 
 export type State = {
@@ -16,7 +17,7 @@ export type State = {
 export class InputLocation extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { address: '' };
+    this.state = { address: props.value || '' };
   }
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
