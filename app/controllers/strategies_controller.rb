@@ -34,9 +34,7 @@ class StrategiesController < ApplicationController
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(user_id: current_user.id)
-                          .all
-                          .order('created_at DESC')
+    @categories = current_user.categories.order('created_at DESC')
     @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
@@ -45,9 +43,7 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.user_id == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(user_id: current_user.id)
-                            .all
-                            .order('created_at DESC')
+      @categories = current_user.categories.order('created_at DESC')
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
@@ -62,7 +58,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
-    shared_create(@strategy, 'strategy')
+    shared_create(@strategy)
   end
 
   # POST /strategies
@@ -101,13 +97,13 @@ class StrategiesController < ApplicationController
       @strategy.published_at = nil
     end
     empty_array_for :viewers, :category
-    shared_update(@strategy, 'strategy', strategy_params)
+    shared_update(@strategy, strategy_params)
   end
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
-    shared_destroy(@strategy, 'strategy')
+    shared_destroy(@strategy)
   end
 
   private

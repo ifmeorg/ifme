@@ -14,7 +14,7 @@
 
 describe Category do
   context 'creation' do
-    it 'creates a valid category' do
+    it 'is valid' do
       category = create(:category, :with_user)
       expect(category).to be_valid
       expect(Category.count).to eq(1)
