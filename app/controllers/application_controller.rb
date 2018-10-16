@@ -14,24 +14,18 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
-  include CommentsHelper
-  include CommentFormHelper
   include TagsHelper
   include MomentsHelper
 
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session,
                        if: proc { |c| c.request.format == 'application/json' }
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :if_not_signed_in, unless: :devise_controller?
   before_action :set_raven_context, if: proc { Rails.env.production? }
-
-  # i18n
   before_action :set_locale
-
-  # Timezone
   around_action :with_timezone
+  helper_method :viewer_of?, :are_allies?, :get_uid,
+                :most_focus,:if_not_signed_in
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
@@ -51,7 +45,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     common = %i[location name email password
                 password_confirmation current_password]
-
     configure_for_account_update(common)
     configure_for_sign_up(common)
     configure_for_accept_invitation
@@ -76,18 +69,10 @@ class ApplicationController < ActionController::Base
                                                invitation_token]
   end
 
-  helper_method :avatar_url, :viewer_of?,
-                :are_allies?, :get_uid, :most_focus,
-                :tag_usage, :can_notify, :if_not_signed_in,
-                :moments_stats
-
   def if_not_signed_in
     return if user_signed_in?
 
-    respond_to do |format|
-      format.html { redirect_to new_user_session_path }
-      format.json { head :no_content }
-    end
+    redirect_to_path(new_user_session_path)
   end
 
   def are_allies?(user_id1, user_id2)
