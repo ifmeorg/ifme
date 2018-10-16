@@ -21,11 +21,13 @@ module Users
     def invitation_flash_messages(invites, fails)
       return unless is_flashing_format?
 
-      flash_message(invites, true) unless invites.empty?
-      flash_message(fails, false) unless fails.empty?
+      flash_message(invites, true)
+      flash_message(fails, false)
     end
 
     def flash_message(emails, has_invites)
+      return unless emails.any?
+
       status = has_invites ? :notice : :alert
       message = has_invites ? :send_instructions : :failed_send
       set_flash_message status, message, email: emails.join(', ')
