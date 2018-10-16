@@ -445,6 +445,8 @@ GEM
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.7.4)
       faraday (>= 0.7.6, < 1.0)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     signet (0.10.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -571,6 +573,7 @@ DEPENDENCIES
   sdoc (= 1.0.0)
   selenium-webdriver (~> 3.14.1)
   sentry-raven
+  shoulda-matchers (~> 3.1.2)
   simplecov
   spring
   turbolinks (~> 5.2.0)
