@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Chart } from './index';
 
 type chartControlState = {
@@ -57,7 +57,7 @@ export class ChartControl extends React.Component<
     const { types } = this.props;
     const { data, type } = this.state;
     return (
-      <div>
+      <Fragment>
         {types.map((value: string) => (
           <ChartControlButton
             key={value}
@@ -71,7 +71,7 @@ export class ChartControl extends React.Component<
           data={data[type]}
           chartType="Area"
         />
-      </div>
+      </Fragment>
     );
   }
 }

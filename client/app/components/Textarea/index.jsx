@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import css from './Textarea.scss';
 
 type Props = {
@@ -48,7 +48,7 @@ export class Textarea extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <div className={this.labelClassNames()}>{this.props.label}</div>
         <textarea
           className={css.textarea}
@@ -68,7 +68,7 @@ export class Textarea extends React.Component<Props, State> {
           onFocus={this.onFocus}
           onBlur={this.onBlur}
         />
-      </div>
+      </Fragment>
     );
   }
 }

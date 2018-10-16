@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Fragment } from 'react';
 import css from './Input.scss';
 
 type Props = {
@@ -56,7 +56,7 @@ export class Input extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <div className={this.labelClassNames()}>{this.props.label}</div>
         <input
           className={this.inputClassNames()}
@@ -74,7 +74,7 @@ export class Input extends React.Component<Props, State> {
           onFocus={this.onFocus}
           onBlur={this.onBlur}
         />
-      </div>
+      </Fragment>
     );
   }
 }
