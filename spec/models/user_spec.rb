@@ -143,8 +143,8 @@ describe User do
         before do
           user.save
         end
-        # password is just a attribute in user, it is not a field
-        # so, when password is nil, when it is not set
+        # password is just an attribute in user, it is not a field
+        # so, password is nil, when it is not set
         # devise will take care of nil/blank password while registering a user
         it 'should not throw any error' do
           user = User.first
