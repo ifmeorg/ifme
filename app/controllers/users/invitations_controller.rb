@@ -3,7 +3,6 @@
 module Users
   class InvitationsController < Devise::InvitationsController
     # POST /resource/invitation
-
     def create
       successful_invites = []
       failed_invites = []
@@ -22,16 +21,14 @@ module Users
     def invitation_flash_messages(invites, fails)
       return unless is_flashing_format?
 
-      invites_flash(invites) unless invites.empty?
-      fails_flash(fails) unless fails.empty?
+      flash_message(invites, true) unless invites.empty?
+      flash_message(fails, false) unless fails.empty?
     end
 
-    def invites_flash(invites)
-      set_flash_message :notice, :send_instructions, email: invites.join(', ')
-    end
-
-    def fails_flash(fails)
-      set_flash_message :alert, :failed_send, email: fails.join(', ')
+    def flash_message(emails, has_invites)
+      status = has_invites ? :notice : :alert
+      message = has_invites ? :send_instructions : :failed_send
+      set_flash_message status, message, email: emails.join(', ')
     end
   end
 end

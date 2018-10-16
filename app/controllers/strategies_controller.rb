@@ -5,8 +5,6 @@ class StrategiesController < ApplicationController
   include CollectionPageSetup
   include ReminderHelper
   include Shared
-  include CommentsHelper
-  include CommentFormHelper
 
   before_action :set_strategy, only: %i[show edit update destroy]
 

@@ -4,8 +4,6 @@
 class MomentsController < ApplicationController
   include CollectionPageSetup
   include Shared
-  include CommentsHelper
-  include CommentFormHelper
 
   before_action :set_moment, only: %i[show edit update destroy]
 

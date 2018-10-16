@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include TagsHelper
   include MomentsHelper
+  include CommentsHelper
+  include CommentFormHelper
 
   protect_from_forgery with: :null_session,
                        if: proc { |c| c.request.format == 'application/json' }
@@ -25,7 +27,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   around_action :with_timezone
   helper_method :viewer_of?, :are_allies?, :get_uid,
-                :most_focus,:if_not_signed_in
+                :most_focus, :if_not_signed_in
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
