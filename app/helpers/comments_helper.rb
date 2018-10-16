@@ -26,6 +26,12 @@ module CommentsHelper
 
   private
 
+  def hide_page?(subject)
+    (!current_user.mutual_allies?(subject.user) \
+    && !subject.viewer?(current_user)) \
+    || !subject.published?
+  end
+
   def created_at(value)
     t('created', created_at: TimeAgo.formatted_ago(value))
   end

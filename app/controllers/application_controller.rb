@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context, if: proc { Rails.env.production? }
   before_action :set_locale
   around_action :with_timezone
-  helper_method :viewer_of?, :are_allies?, :get_uid,
-                :most_focus, :if_not_signed_in
+  helper_method :viewer_of?, :are_allies?, :get_uid, :most_focus,
+                :if_not_signed_in, :redirect_to_path, :respond_with_json
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
@@ -69,6 +69,20 @@ class ApplicationController < ActionController::Base
                                       keys: %i[name password
                                                password_confirmation
                                                invitation_token]
+  end
+
+  def redirect_to_path(path)
+    respond_to do |format|
+      format.html { redirect_to path }
+      format.json { head :no_content }
+    end
+  end
+
+  def respond_with_json(reponse)
+    respond_to do |format|
+      format.html { render json: reponse }
+      format.json { render json: reponse }
+    end
   end
 
   def if_not_signed_in
@@ -127,6 +141,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def profile_exists?(profile, data)
+    profile.present? &&
+      (current_user.id == profile ||
+       data.viewers.include?(current_user.id))
+  end
+
   # TODO: refactor calling method to pass a hash to start with
   def top_three_focus(data)
     # Turn data array into hash of value => freq_of_value
@@ -138,32 +158,6 @@ class ApplicationController < ActionController::Base
     freq.sort_by do |occurrences, _value|
       occurrences
     end[0..2].to_h
-  end
-
-  def profile_exists?(profile, data)
-    profile.present? &&
-      (current_user.id == profile ||
-       data.viewers.include?(current_user.id))
-  end
-
-  def redirect_to_path(path)
-    respond_to do |format|
-      format.html { redirect_to path }
-      format.json { head :no_content }
-    end
-  end
-
-  def respond_with_json(reponse)
-    respond_to do |format|
-      format.html { render json: reponse }
-      format.json { render json: reponse }
-    end
-  end
-
-  def hide_page?(subject)
-    (!current_user.mutual_allies?(subject.user) \
-    && !subject.viewer?(current_user)) \
-    || !subject.published?
   end
 
   def set_raven_context

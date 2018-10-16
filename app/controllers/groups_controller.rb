@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
     return if @group.leaders.include?(current_user)
 
     flash[:error] = t('groups.form.error_edit_permission')
-    redirect_to_index
+    redirect_to_path(groups_path)
   end
 
   # POST /groups
@@ -76,8 +76,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     @group.destroy
-
-    redirect_to_index
+    redirect_to_path(groups_path)
   end
 
   private
@@ -115,10 +114,6 @@ class GroupsController < ApplicationController
       format.html { redirect_to group_path(@group) }
       format.json { render :show, status: :created, location: @group }
     end
-  end
-
-  def redirect_to_index
-    redirect_to_path(groups_path)
   end
 
   def render_new(errors)
