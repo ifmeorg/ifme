@@ -43,7 +43,7 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.0.1'
+gem 'groupdate', '4.0.2'
 
 gem 'react_on_rails', '11.1.8'
 gem 'webpacker'
