@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context, if: proc { Rails.env.production? }
   before_action :set_locale
   around_action :with_timezone
-  helper_method :viewer_of?, :are_allies?, :get_uid, :most_focus,
-                :if_not_signed_in, :redirect_to_path, :respond_with_json
+  helper_method :most_focus, :if_not_signed_in, :redirect_to_path,
+                :respond_with_json
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
@@ -89,19 +89,6 @@ class ApplicationController < ActionController::Base
     return if user_signed_in?
 
     redirect_to_path(new_user_session_path)
-  end
-
-  def are_allies?(user_id1, user_id2)
-    users = User.where(id: [user_id1, user_id2])
-    users.first.mutual_allies?(users.last)
-  end
-
-  def viewer_of?(viewers)
-    viewers.include? current_user.id
-  end
-
-  def get_uid(user_id)
-    User.find(user_id).uid
   end
 
   # rubocop:disable MethodLength
