@@ -26,8 +26,7 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context, if: proc { Rails.env.production? }
   before_action :set_locale
   around_action :with_timezone
-  helper_method :most_focus, :if_not_signed_in, :redirect_to_path,
-                :respond_with_json
+  helper_method :most_focus, :if_not_signed_in, :redirect_to_path
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
@@ -75,13 +74,6 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.html { redirect_to path }
       format.json { head :no_content }
-    end
-  end
-
-  def respond_with_json(reponse)
-    respond_to do |format|
-      format.html { render json: reponse }
-      format.json { render json: reponse }
     end
   end
 

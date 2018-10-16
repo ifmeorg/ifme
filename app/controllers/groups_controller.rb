@@ -56,12 +56,11 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   # rubocop:disable MethodLength
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        update_leaders
-        format.html { redirect_to groups_path }
-        format.json { head :no_content }
-      else
+    if @group.update(group_params)
+      update_leaders
+      redirect_to_path(groups_path)
+    else
+      respond_to do |format|
         format.html { render :edit }
         format.json do
           render json: @group.errors, status: :unprocessable_entity
@@ -69,7 +68,6 @@ class GroupsController < ApplicationController
       end
     end
   end
-
   # rubocop:enable MethodLength
 
   # DELETE /groups/1
