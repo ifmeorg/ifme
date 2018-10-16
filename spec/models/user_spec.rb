@@ -139,6 +139,21 @@ describe User do
     context 'password' do
       let(:user) { build :user }
 
+      context 'when password is blank' do
+        before do
+          user.save
+        end
+        # password is just a attribute in user, it is not a field
+        # so, when password is nil, when it is not set
+        # devise will take care of nil/blank password while registering a user
+        it 'should not throw any error' do
+          user = User.first
+          expect(user.password).to be nil
+
+          expect(user.valid?).to be true
+        end
+      end
+
       context 'when oauth is enabled' do
         it 'saves without any errors even if the password strength is less' do
           user.password = 'warsdasdf'
