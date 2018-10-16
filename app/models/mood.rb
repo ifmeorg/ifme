@@ -16,12 +16,7 @@ class Mood < ApplicationRecord
   extend FriendlyId
   friendly_id :name
   validates :user_id, :name, presence: true
-
   belongs_to :user
-
-  def self.link
-    'moods'
-  end
 
   def self.add_premade(user_id)
     (1..5).each do |num|

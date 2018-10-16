@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :category do
-    name  { 'Test category' }
+    name  { 'Test Category' }
     description { 'Test description category' }
 
     trait :with_user do
