@@ -1,4 +1,5 @@
 // @flow
+<<<<<<< HEAD
 import React from 'react';
 import { InputTextarea } from './InputTextarea';
 import { InputLabel } from './InputLabel';
@@ -14,6 +15,9 @@ import {
   DEFAULT_WITH_LABEL,
 } from './InputDefault';
 import { Accordion } from '../Accordion';
+=======
+import React, { Fragment } from 'react';
+>>>>>>> b78911b0465fec734d9ca7ff5b9d81d09e2320d4
 import css from './Input.scss';
 
 export const TYPES = REQUIRES_DEFAULT.concat([
