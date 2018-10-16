@@ -52,10 +52,6 @@ class Strategy < ApplicationRecord
     published_at.present?
   end
 
-  def self.link
-    '/strategies'
-  end
-
   def comments
     Comment.comments_from(self)
   end
