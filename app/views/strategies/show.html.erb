@@ -9,7 +9,7 @@
     }) %>
   <% end %>
 </div>
-<div class="smallerMarginTop">
+<div class="smallMarginTop">
   <%= react_component('StoryCategories', props: {
     categories: @strategy.category.map{ |item| Category.find(item).name }
   }) %>
@@ -25,7 +25,7 @@
   <div class="gridItemBoxDark smallMarginTop">
     <div class="gridRowSpaceBetween">
       <div class="gridRowSpaceBetween">
-        <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
+        <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
         <%= react_component('StoryActions', props: {
           dark: true,
           actions: {
@@ -48,7 +48,8 @@
   </div>
 <% end %>
 
-
-<%= render partial: '/shared/comments', locals: { data: @strategy, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'strategy' } %>
+<% if @strategy.published? && @strategy.comment %>
+  <%= render partial: '/shared/comments', locals: { commentable: @strategy } %>
+<% end %>
 
 <%= render partial: '/tag_usage/index', locals: { data: @strategy.id, data_type: 'strategy', user_id: @strategy.user_id } %>

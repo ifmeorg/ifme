@@ -2,14 +2,12 @@ es:
   app_name: 'if me'
   app_description: 'Una comunidad para compartir experiencias de salud mental'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Creado %{created_at}'
   draft: Borrador
   edited: 'Creado %{created_at} (editado)'
   edited_updated_at: 'Creado %{created_at} (edited %{updated_at})'
   salutation: 'Hola %{name},'
   click_here: 'da click aquí'
-  less: ' [Menos]'
   language: Idioma
   yes_text: si
   no_text: 'no'
@@ -344,7 +342,7 @@ es:
       main_message_one: '%{app_name}, por su significado en inglés, si a mi,  es una comunidad que nos alienta a compartir nuestras experiencias e historias de salud mental con aliados de confianza.'
       message_text_one: 'Los aliados son con quienes interactuamos a diario, incluyendo amigos, familiares, compañeros de trabajo, maestros, y trabajadores de la salud mental.'
       main_message_two: 'Sobrellevar la salud mental es lo que nos hace humanos. Sin embargo, para  muchos de nosotros, es difícil ser sinceros al respecto.'
-      message_text_two: 'No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.<p><div class="subtitle block">"Nada está sólo en tu mente, está todo alrededor de ti. Podemos sanar juntos."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>'
+      message_text_two: '<p>No todas las personas con las que hablamos son consejeros o terapeutas. Las personas con las que interactuamos diariamente afectan nuestras emociones y comportamiento. Involucrarlos en el tratamiento de nuestra salud mental es la clave para recuperarnos.</p><p class="subtitle">"Nada está sólo en tu mente, está todo alrededor de ti. Podemos sanar juntos."</p><p>La salud mental es una experiencia única e individual. ¡No hay dos cerebros idénticos!</p>'
       main_message_three: '¿Quieres ayudar a financiarnos?'
       message_text_three: 'Nuestra página es <u>completamente</u> open source. Es decir, se construye y mantiene por parte de voluntarios con diversas experiencias y habilidades profesionales.</p><p>En 2016, recibimos una subvención comunitaria por parte de %{linebreak_link}. En 2017, recibimos fondos de %{fund_club_link}.</p><p>Puedes apoyarnos con una donación en nuestro %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ es:
         social_justice: 'justicia social'
         tech_industry: 'industria de la tecnología'
         meditation: meditación
+        anxiety: ansiedad
         social_anxiety: 'ansiedad social'
         trigger_warnings: advertencia
         netflix: netflix
@@ -488,6 +487,13 @@ es:
         rehabilitation: rehabilitación
         teachers: maestros
         bipolar: bipolar
+        goal_tracking: 'seguimiento de objetivos'
+        social_network: 'red social'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'sobrevivientes de asalto sexual'
+        political_movement: 'movimiento político'
+        reporting: reportando
   profile:
     index:
       title: Perfil

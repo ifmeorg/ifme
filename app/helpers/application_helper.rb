@@ -109,7 +109,7 @@ module ApplicationHelper
   def get_icon_text(icon, text)
     html = ''
     if icon && text
-      html += "<i class=\"#{get_icon_class(icon)} smallerMarginRight\"></i>"
+      html += "<i class=\"#{get_icon_class(icon)} smallMarginRight\"></i>"
       html += text
     end
     html.html_safe

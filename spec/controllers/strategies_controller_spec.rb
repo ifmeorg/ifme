@@ -73,95 +73,6 @@ describe StrategiesController do
     end
   end
 
-  describe 'POST comment' do
-    let(:comment) do
-      build(:comment, comment_by: user.id, commentable_type: 'strategy')
-    end
-    let(:valid_comment_params) do
-      comment.attributes.merge(
-        'commentable_id' => strategy.id, 'visibility' => 'all'
-      )
-    end
-    let(:invalid_comment_params) { comment.attributes }
-
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-
-      context 'when the comment is saved' do
-        it 'responds with an OK status' do
-          post :comment, params: valid_comment_params
-          expect(response).to have_http_status(:ok)
-        end
-      end
-
-      context 'when the comment is not saved' do
-        it 'responds with json no_save: true' do
-          post :comment, params: invalid_comment_params
-          expect(response.body).to eq({ no_save: true }.to_json)
-        end
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before { post :comment }
-      it_behaves_like :with_no_logged_in_user
-    end
-  end
-
-  describe 'GET delete_comment' do
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-
-      context 'when the comment exists' do
-        let!(:comment) do
-          create(
-            :comment,
-            comment_by: user.id,
-            commentable_id: strategy.id,
-            visibility: 'all'
-          )
-        end
-
-        context 'when the comment belongs to the current_user' do
-          it 'destroys the comment' do
-            expect { get :delete_comment, params: { commentid: comment.id } }
-              .to change(Comment, :count).by(-1)
-          end
-
-          it 'renders nothing' do
-            get :delete_comment, params: { commentid: comment.id }
-            expect(response.body).to be_empty
-          end
-        end
-
-        context 'when the strategy belongs to the current_user' do
-          it 'destroys the comment' do
-            expect { get :delete_comment, params: { commentid: comment.id } }
-              .to change(Comment, :count).by(-1)
-          end
-
-          it 'renders nothing' do
-            comment
-            get :delete_comment, params: { commentid: 1 }
-            expect(response.body).to be_empty
-          end
-        end
-      end
-
-      context 'when the comment does not exist' do
-        it 'renders nothing' do
-          get :delete_comment, params: { commentid: 1 }
-          expect(response.body).to be_empty
-        end
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before { get :delete_comment }
-      it_behaves_like :with_no_logged_in_user
-    end
-  end
-
   describe 'POST premade' do
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -394,7 +305,7 @@ describe StrategiesController do
         expect(subject).to(
           eq(
             '<div>' \
-            '<i class="fa fa-bell smallerMarginRight"></i>' \
+            '<i class="fa fa-bell smallMarginRight"></i>' \
             'Daily reminder email</div>'
           )
         )

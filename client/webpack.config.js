@@ -13,9 +13,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const baseConfig = require('./webpack.config.base');
 
 const configPath = resolve('..', 'config');
-const devMode = process.env.NODE_ENV === 'development';
+const devOrTestMode = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test';
 const { output } = webpackConfigLoader(configPath);
-const outputFilename = `[name]${devMode ? '-[hash]' : ''}`;
+const outputFilename = `[name]${devOrTestMode ? '-[hash]' : ''}`;
 
 const cssLoaderWithModules = {
   loader: 'css-loader',
@@ -28,7 +28,7 @@ const cssLoaderWithModules = {
 };
 
 const config = Object.assign(baseConfig, {
-  mode: devMode ? 'development' : 'production',
+  mode: devOrTestMode ? 'development' : 'production',
   context: resolve(__dirname),
 
   entry: {
@@ -71,7 +71,7 @@ const config = Object.assign(baseConfig, {
         },
       },
     },
-    minimizer: devMode ? [] : [
+    minimizer: devOrTestMode ? [] : [
       new UglifyJsPlugin({
         sourceMap: false,
       }),
@@ -96,7 +96,7 @@ const config = Object.assign(baseConfig, {
     new ExtractCssChunks({
       filename: `${outputFilename}.css`,
       chunkFilename: `${outputFilename}.chunk.css`,
-      hot: !!devMode,
+      hot: !!devOrTestMode,
     }),
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
   ],
@@ -200,8 +200,8 @@ const config = Object.assign(baseConfig, {
 
 module.exports = config;
 
-if (devMode) {
-  console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
+if (devOrTestMode) {
+  console.log('Webpack dev or test build for Rails'); // eslint-disable-line no-console
   module.exports.devtool = 'eval-source-map';
 } else {
   console.log('Webpack production build for Rails'); // eslint-disable-line no-console

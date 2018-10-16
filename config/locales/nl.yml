@@ -2,14 +2,12 @@ nl:
   app_name: 'if me'
   app_description: 'Een gemeenschap voor geestelijke gezondheidservaringen'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Aangemaakt op %{created_at}'
   draft: Concept
   edited: 'Aangemaakt op %{created_at} (bewerkt)'
   edited_updated_at: 'Aangemaakt op %{created_at} (bewerkt op %{updated_at})'
   salutation: 'Hallo %{name},'
   click_here: 'klik hier'
-  less: ' [Minder]'
   language: Taal
   yes_text: ja
   no_text: nee
@@ -344,7 +342,7 @@ nl:
       main_message_one: '%{app_name} is een gemeenschap voor geestelijke gezondheidservaringen dat mensen aanspoort om hun persoonlijke verhalen te delen met hun vertrouwde bondgenoten.'
       message_text_one: 'Vertrouwde bondgenoten zijn de mensen met wie we dagelijks contact mee hebben, zoals vrienden, familie leden, collega''s leraren en GGZ-medewerkers.'
       main_message_two: 'Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn.'
-      message_text_two: 'Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.<p><div class="subtitle block">"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>'
+      message_text_two: '<p>Niet iedereen is een roodgever of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.</p><p class="subtitle">"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen."</p><p>Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>'
       main_message_three: 'Wil je ons financieel helpen?'
       message_text_three: 'Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van %{linebreak_link}. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ nl:
         social_justice: 'sociale gerechtigheid'
         tech_industry: 'tech industrie'
         meditation: meditatie
+        anxiety: angst
         social_anxiety: 'sociale angst'
         trigger_warnings: 'trigger waarschuwingen'
         netflix: netflix
@@ -488,6 +487,13 @@ nl:
         rehabilitation: rehabilitatie
         teachers: leraren
         bipolar: bipolar
+        goal_tracking: doeltracking
+        social_network: 'sociaal netwerk'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'aanranding overlevenden'
+        political_movement: 'politieke beweging'
+        reporting: rapportage
   profile:
     index:
       title: Profiel

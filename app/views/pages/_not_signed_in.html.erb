@@ -32,25 +32,27 @@
   <div class="messageMain">
     <%= t('pages.home.not_signed_in.main_message_one') %>
   </div>
-  <div class="messageBody">
+  <div class="messageBody marginBottom">
     <%= t('pages.home.not_signed_in.message_text_one') %>
-    <div class="spacer"></div>
   </div>
   <div class="gridThree center">
     <div class="gridThreeItem">
       <%= inline_svg('phone.svg', aria_hidden: true, class: 'notSignedInIcon') %>
-      <div class="spacer"></div>
-      <%= t('pages.home.not_signed_in.message_one') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_one') %>
+      </div>
     </div>
     <div class="gridThreeItem">
       <%= inline_svg('lotus.svg', aria_hidden: true, class: 'notSignedInIcon') %>
-      <div class="spacer"></div>
-      <%= t('pages.home.not_signed_in.message_two') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_two') %>
+      </div>
     </div>
     <div class="gridThreeItem">
       <%= inline_svg('documents.svg', aria_hidden: true , class: 'notSignedInIcon') %>
-      <div class="spacer"></div>
-      <%= t('pages.home.not_signed_in.message_three') %>
+      <div class="marginTop">
+        <%= t('pages.home.not_signed_in.message_three') %>
+      </div>
     </div>
   </div>
 </div>
@@ -63,8 +65,7 @@
     help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
     feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
   }) %>
-  <div class="spacer"></div>
-  <div class="gridMany">
+  <div class="gridMany marginTop">
     <% @blurbs.each do |blurb| %>
       <div class="gridManyItem">
         <%= ProfilePicture.fetch(blurb['image']) %>

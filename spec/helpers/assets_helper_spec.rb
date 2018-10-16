@@ -30,6 +30,7 @@ describe AssetsHelper do
 
     context 'webpack bundle path exists' do
       it 'returns HTML' do
+        allow(File).to receive('read').and_return('fake_path')
         expect(inline_css('webpack_bundle.css')).to_not be_nil
       end
     end

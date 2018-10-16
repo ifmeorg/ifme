@@ -2,14 +2,12 @@ it:
   app_name: 'if me'
   app_description: 'Una community per la condivisione di esperienze relative alla salute mentale'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Creato %{created_at}'
   draft: Bozza
   edited: 'Creato %{created_at} (modificato)'
   edited_updated_at: 'Creato %{created_at} (modificato %{updated_at})'
   salutation: 'Ciao %{name},'
   click_here: 'clicca qui'
-  less: ' [Di meno]'
   language: Lingua
   yes_text: sì
   no_text: 'no'
@@ -344,7 +342,7 @@ it:
       main_message_one: '%{app_name} è una community dedicata a esperienze sulla salute mentale che incoraggia i propri utenti a condividere le loro storie con alleati di cui ci si può fidare.'
       message_text_one: 'Gli alleati sono le persone con cui interagiamo quotidianamente includendo amici, familiari, colleghi, professori ed esperti di salute mentale.'
       main_message_two: 'Avere a che fare con la salute mentale è ciò che ci rende umani. Ma per molti di noi, essere aperti al riguardo è spesso molto difficile.'
-      message_text_two: 'Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.<p><div class="subtitle block">"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">La salute mentale è un''esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l''aiuto di tutti, motivo per cui il progetto è open source.</p>'
+      message_text_two: '<p>Non tutti sono terapeuti. Le persone con cui abbiamo a che fare ogni giorno danno forma alle nostre emozioni e comportamenti. Renderli partecipi nel trattamento della salute mentale è la chiave per la cura.</p><p class="subtitle">"Non è solo nella tua testa, ma tutto attorno a te. Possiamo raggiungere una soluzione, insieme."</p><p>La salute mentale è un''esperienza individuale ed unica. Al mondo non esistono due menti uguali! Affrontare il problema richiede l''aiuto di tutti, motivo per cui il progetto è open source.</p>'
       main_message_three: 'Vuoi finanziarci?'
       message_text_three: 'La nostra app è un progetto <u>completamente</u> open source. È costruito e mantenuto da volontari dalle differenti storie e abilità.</p><p>Nel 2016, abbiamo ricevuto un contributo comunitario da %{linebreak_link}. Nel 2017, abbiamo ricevuto finanziamenti da %{fund_club_link}.</p>Puoi supportarci donando a %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ it:
         social_justice: 'giustizia sociale'
         tech_industry: 'industria della tecnologia'
         meditation: meditazione
+        anxiety: ansia
         social_anxiety: 'ansia sociale'
         trigger_warnings: 'contenuto sensibile'
         netflix: netflix
@@ -488,6 +487,13 @@ it:
         rehabilitation: riabilitazione
         teachers: insegnanti
         bipolar: bipolar
+        goal_tracking: 'tracciamento degli obiettivi'
+        social_network: 'rete sociale'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'sopravvissuti all''assalto sessuale'
+        political_movement: 'movimento politico'
+        reporting: segnalazione
   profile:
     index:
       title: Profilo

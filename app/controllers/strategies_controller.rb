@@ -3,7 +3,6 @@
 # rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetup
-  include CommentsHelper
   include ReminderHelper
   include Shared
 
@@ -21,53 +20,15 @@ class StrategiesController < ApplicationController
     show_with_comments(@strategy)
   end
 
-  def comment
-    comment_for('strategy')
-  end
-
-  # rubocop:disable MethodLength
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(
-      id: params[:commentid],
-      comment_by: current_user.id
-    ).exists?
-
-    if comment_exists
-      strategyid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_strategy = Strategy.where(
-        id: strategyid,
-        user_id: current_user.id
-      ).exists?
-    else
-      is_my_strategy = false
-    end
-
-    if comment_exists && (is_my_comment || is_my_strategy)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
-                                         model_name: 'strategy')
-    end
-
-    head :ok
-  end
-  # rubocop:enable MethodLength
-
-  # rubocop:disable MethodLength
   def quick_create
-    # Assumme all viewers and comments allowed
+    # Assume all viewers and comments allowed
     viewers = []
     current_user.allies_by_status(:accepted).each do |item|
       viewers.push(item.id)
     end
-    strategy = Strategy.new(user_id: current_user.id,
-                            name: params[:strategy][:name],
-                            description: params[:strategy][:description],
-                            category: params[:strategy][:category],
-                            published_at: Time.zone.now,
-                            comment: true, viewers: viewers)
+    strategy = Strategy.new(quick_create_params(viewers))
     shared_quick_create(strategy)
   end
-  # rubocop:enable MethodLength
 
   # GET /strategies/new
   def new
@@ -182,6 +143,18 @@ class StrategiesController < ApplicationController
     symbols.each do |symbol|
       @strategy[symbol] = [] if strategy_params[symbol].nil?
     end
+  end
+
+  def quick_create_params(viewers)
+    {
+      user_id: current_user.id,
+      name: params[:strategy][:name],
+      description: params[:strategy][:description],
+      category: params[:strategy][:category],
+      published_at: Time.zone.now,
+      comment: true,
+      viewers: viewers
+    }
   end
 end
 # rubocop:enable ClassLength

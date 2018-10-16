@@ -9,7 +9,7 @@
     }) %>
   <% end %>
 </div>
-<div class="smallerMarginTop">
+<div class="smallMarginTop">
   <%= react_component('StoryCategories', props: {
     categories: @moment.category.map{ |item| Category.find(item).name }
   }) %>
@@ -45,7 +45,7 @@
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
-    <div class="label"><%= label_tag t('moments.secret_share.singular') %></div>
+    <div class="label" id="secretShare"><%= label_tag t('moments.secret_share.singular') %></div>
     <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
   </div>
 <% end %>
@@ -54,7 +54,7 @@
   <div class="gridItemBoxDark smallMarginTop">
     <div class="gridRowSpaceBetween">
       <div class="gridRowSpaceBetween">
-        <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
+        <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
         <%= react_component('StoryActions', props: {
           dark: true,
           actions: {
@@ -81,6 +81,6 @@
   </div>
 <% end %>
 
-<% if @comment.present? %>
-  <%= render partial: '/shared/comments', locals: { data: @moment, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'moment' } %>
+<% if user_signed_in? && @moment.published? && @moment.comment %>
+  <%= render partial: '/shared/comments', locals: { commentable: @moment } %>
 <% end %>

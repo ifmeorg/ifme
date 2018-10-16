@@ -13,7 +13,7 @@
 <% if user_is_leader_of?(@meeting) %>
   <div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
     <div class="gridRowSpaceBetween">
-      <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
+      <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
       <%= react_component('StoryActions', props: {
         dark: true,
         actions: {
@@ -32,6 +32,8 @@
     </div>
   </div>
 <% end %>
-<div class="smallMarginTop">
-  <%= render partial: '/shared/comments', locals: { data: @meeting, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'meeting', is_member: @is_member, is_leader: @is_leader } %>
-</div>
+<% if @meeting.member?(current_user) %>
+  <div class="smallMarginTop">
+    <%= render partial: '/shared/comments', locals: { commentable: @meeting } %>
+  </div>
+<% end %>
