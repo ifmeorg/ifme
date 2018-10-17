@@ -194,6 +194,7 @@ es:
       refill_hint: 'Cuándo resurtir esta receta.'
       refill_reminder_hint: 'Te enviaremos un correo la semana antes de que debas resurtir tu medicamento.'
       daily_reminder_hint: 'Te enviaremos un recordatorio diario para que ingenieras este medicamento.'
+      total: Total
     new: 'Nuevo Medicamento'
     units:
       display: '%{count} %{unit}'
@@ -211,7 +212,6 @@ es:
     index:
       title: Medicamento
       subtitle: 'Mantén un seguimiento de tus medicamentos, incluyendo dosis e información para resurtir.'
-      total: Total
       instructions: 'Aún no has guardado información de ningún medicamento.<br><br>¡Aquí hay un ejemplo de información sobre un medicamento! También puedes escribir sobre tu experiencia.'
       example_name: Prozac
       example_strength: '10 mg'

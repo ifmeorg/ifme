@@ -49,4 +49,36 @@ module ViewersHelper
     end
     []
   end
+
+  # rubocop:disable MethodLength
+  def get_viewers_input(viewers, name, translation_name, obj)
+    input = {}
+    if viewers.present?
+      input = {
+        id: "#{name}_viewers",
+        name: "#{name}[viewers][]",
+        type: 'tag',
+        checkboxes: checkboxes_viewers_input(viewers, name, obj),
+        label: t('shared.viewers.plural'),
+        dark: true,
+        accordion: true,
+        placeholder: t("#{translation_name}.form.viewers_hint")
+      }
+    end
+    input
+  end
+  # rubocop:enable MethodLength
+
+  def checkboxes_viewers_input(viewers, name, obj)
+    checkboxes = []
+    viewers.each do |item|
+      checkboxes.push(
+        id: "#{name}_viewers_#{item.id}",
+        value: item.id,
+        checked: obj.viewers.include?(item.id),
+        label: User.find(item.id).name
+      )
+    end
+    checkboxes
+  end
 end

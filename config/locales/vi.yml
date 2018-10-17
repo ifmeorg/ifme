@@ -194,6 +194,7 @@ vi:
       refill_hint: 'Khi nào cần cấp lại thuốc'
       refill_reminder_hint: 'Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới'
       daily_reminder_hint: 'Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc'
+      total: 'Tổng cộng'
     new: 'Thuốc mới'
     units:
       display: '%{count} %{unit}'
@@ -211,7 +212,6 @@ vi:
     index:
       title: Thuốc
       subtitle: 'Theo dõi việc sử dụng thuốc, bao gồm liều lượng và thông tin bổ sung thuốc mới.'
-      total: 'Tổng cộng'
       instructions: 'Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn.'
       example_name: Prozac
       example_strength: '10 mg'

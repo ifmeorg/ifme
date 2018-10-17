@@ -194,6 +194,7 @@ pt-BR:
       refill_hint: 'Quando atualizar essa receita médica'
       refill_reminder_hint: 'Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento.'
       daily_reminder_hint: 'Enviaremos um lembrete diário para tomar essa medicação.'
+      total: Total
     new: 'Nova Medicação'
     units:
       display: '%{count} %{unit}'
@@ -211,7 +212,6 @@ pt-BR:
     index:
       title: Medicamentos
       subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
-      total: Total
       instructions: 'Você ainda não tem nenhum medicamento salvo.<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a).'
       example_name: Prozac
       example_strength: '10 mg'
