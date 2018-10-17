@@ -1,14 +1,4 @@
 # frozen_string_literal: true
-
-module UserRelation
-  mattr_accessor :myself, :ally, :incoming_request, :outgoing_request, :other
-  MYSELF = 0
-  ALLY = 1
-  INCOMING_REQUEST = 2
-  OUTGOING_REQUEST = 3
-  OTHER = 4
-end
-
 # rubocop:disable ClassLength
 class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
