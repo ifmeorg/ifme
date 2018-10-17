@@ -47,7 +47,7 @@ it:
     name: Nome
     you: Tu
     title: Titolo
-    date: 'Data:'
+    date: Data
     daily_reminder: 'EMail giornaliera'
     actions:
       plural: Azioni

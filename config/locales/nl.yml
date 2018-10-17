@@ -47,7 +47,7 @@ nl:
     name: Naam
     you: Jij
     title: Titel
-    date: 'Datum:'
+    date: Datum
     daily_reminder: 'Dagelijkse herinnering e-mail'
     actions:
       plural: Acties

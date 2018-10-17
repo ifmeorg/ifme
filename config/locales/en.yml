@@ -47,7 +47,7 @@ en:
     name: Name
     you: You
     title: Title
-    date: 'Date:'
+    date: Date
     daily_reminder: 'Daily reminder email'
     actions:
       plural: Actions
