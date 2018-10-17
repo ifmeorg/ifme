@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 describe MeetingFormHelper do
-  let(:group) { create(:group) }
+  let(:group) { build(:group) }
   let(:meeting) { create(:meeting) }
-  let(:current_user) { create(:meeting_member, meeting: meeting).user }
 
   describe '#new_meeting_props' do
     it 'returns correct props' do

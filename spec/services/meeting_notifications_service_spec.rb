@@ -10,7 +10,7 @@ describe MeetingNotificationsService do
     let!(:meeting) { create :meeting, group_id: group.id }
     let!(:member1) { create :meeting_member, user_id: user.id, leader: true, meeting_id: meeting.id }
     let!(:member2) { create :meeting_member, user_id: ally.id, leader: false, meeting_id: meeting.id }
-    let!(:members) {  MeetingMember.where(meeting_id: meeting.id).all }
+    let!(:members) { meeting.members }
     let!(:uniqueid) { "#{type}_#{user.id}" }
     let!(:params) do
       {

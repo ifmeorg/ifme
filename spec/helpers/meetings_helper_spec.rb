@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 describe MeetingsHelper do
-  let(:group) { create(:group) }
   let(:meeting) { create(:meeting) }
   let(:current_user) { create(:meeting_member, meeting: meeting).user }
 

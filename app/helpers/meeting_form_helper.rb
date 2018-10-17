@@ -12,8 +12,8 @@ module MeetingFormHelper
 
   private
 
-  def meeting_input_props(field, type, label, value, placeholder = nil)
-    input = {
+  def meeting_input_props(field, type, label, value)
+    {
       id: "meeting_#{field}",
       type: type,
       name: "meeting[#{field}]",
@@ -22,7 +22,6 @@ module MeetingFormHelper
       required: true,
       dark: true
     }
-    placeholder ? input.merge(placeholder: t(placeholder)) : input
   end
 
   def meeting_group_id(value)
@@ -39,9 +38,10 @@ module MeetingFormHelper
       'maxmembers',
       'number',
       'meetings.form.maximum_members',
-      meeting&.maxmembers.to_s,
-      'meetings.form.maximum_placeholder'
-    ).merge(min: 0)
+      meeting&.maxmembers.to_s
+    ).merge(
+      placeholder: t('meetings.form.maximum_placeholder'), min: 0
+    )
   end
 
   def meeting_location(meeting)
@@ -49,9 +49,8 @@ module MeetingFormHelper
       'location',
       'text',
       'common.form.location',
-      meeting&.location,
-      'meetings.form.location_placeholder'
-    )
+      meeting&.location
+    ).merge(placeholder: t('meetings.form.location_placeholder'))
   end
 
   def meeting_time(meeting)
