@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class MeetingsController < ApplicationController
+  include MeetingsHelper
+  include MeetingFormHelper
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1

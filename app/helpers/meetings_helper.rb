@@ -1,9 +1,5 @@
 # frozen_string_literal: true
-
-# rubocop:disable ModuleLength
 module MeetingsHelper
-  include FormHelper
-
   def get_meeting_members(meeting)
     meeting_spots = spots(meeting)
     in_meeting = in_meeting(meeting)
@@ -16,85 +12,7 @@ module MeetingsHelper
     end
   end
 
-  def new_meeting_props(group_id)
-    new_form_props(meeting_form_inputs(nil, group_id), meetings_path)
-  end
-
-  def edit_meeting_props(meeting)
-    edit_form_props(meeting_form_inputs(meeting, nil), meeting_path(meeting))
-  end
-
   private
-
-  # rubocop:disable MethodLength
-  def meeting_form_inputs(meeting, group_id)
-    [
-      {
-        id: 'meeting_name',
-        type: 'text',
-        name: 'meeting[name]',
-        label: t('common.name'),
-        value: meeting&.name || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_location',
-        type: 'text',
-        name: 'meeting[location]',
-        label: t('common.form.location'),
-        value: meeting&.location || nil,
-        placeholder: t('meetings.form.location_placeholder'),
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_time',
-        type: 'time',
-        name: 'meeting[time]',
-        label: t('meetings.info.meeting_time'),
-        value: meeting&.time || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_date',
-        type: 'date',
-        name: 'meeting[date]',
-        label: t('common.date'),
-        value: meeting&.date || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_maxmembers',
-        type: 'number',
-        name: 'meeting[maxmembers]',
-        label: t('meetings.form.maximum_members'),
-        value: meeting&.maxmembers.to_s || nil,
-        placeholder: t('meetings.form.maximum_placeholder'),
-        min: 0,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_description',
-        type: 'textarea',
-        name: 'meeting[description]',
-        label: t('common.form.description'),
-        value: meeting&.description || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'meeting_group_id',
-        type: 'hidden',
-        name: 'meeting[group_id]',
-        value: group_id || meeting&.group_id
-      }
-    ]
-  end
-  # rubocop:enable MethodLength
 
   def not_attending(id)
     t('shared.meeting_info.not_attending',
@@ -150,4 +68,3 @@ module MeetingsHelper
     end
   end
 end
-# rubocop:enable ModuleLength
