@@ -81,5 +81,15 @@ describe MeetingNotificationsService do
         )
       end
     end
+
+    context 'when type is invalid' do
+      let!(:type) { 'fake_type' }
+
+      it 'raises the correct error' do
+        expect(Notification.count).to eq(0)
+        expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
+        expect(Notification.count).to eq(0)
+      end
+    end
   end
 end

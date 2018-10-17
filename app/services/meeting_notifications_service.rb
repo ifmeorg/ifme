@@ -29,7 +29,7 @@ class MeetingNotificationsService
   private
 
   def get_notifications(member, data)
-    Notification.create(
+    Notification.create!(
       user_id: member.id,
       uniqueid: uniqueid,
       data: data
@@ -57,7 +57,7 @@ class MeetingNotificationsService
     }.to_json
   end
 
-  def add_meeting_data
+  def new_or_update_meeting_data
     {
       user: current_user.name,
       typeid: meeting.id,
@@ -70,7 +70,8 @@ class MeetingNotificationsService
 
   def notification_data
     return remove_meeting_data if type == 'remove_meeting'
+    return unless %w[update_meeting new_meeting].include?(type)
 
-    add_meeting_data
+    new_or_update_meeting_data
   end
 end
