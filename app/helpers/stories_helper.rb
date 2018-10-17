@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 module StoriesHelper
-  def get_stories(user, include_allies = false)
-    moments, strategies =
-      if user == current_user
-        get_current_user_stories(user, include_allies)
-      else
-        get_user_stories(user)
-      end
+  def get_stories(user)
+    moments, strategies = get_user_stories(user)
     combine_stories(moments, strategies)
   end
 
@@ -22,36 +17,27 @@ module StoriesHelper
     stories.compact.sort_by(&:created_at).reverse!
   end
 
-  def user_objects(user, model_object, include_allies)
-    if include_allies
-      user.allies_by_status(:accepted).each do |ally|
-        model_object += user_stories(ally, model_object.class)
-      end
-    end
-    model_object
-  end
-
-  def get_current_user_stories(user, include_allies)
-    [
-      Moment.where(
-        id: user_objects(user, user.moments.recent, include_allies).map(&:id)
-      ),
-      Strategy.where(
-        id: user_objects(user, user.strategies.recent, include_allies).map(&:id)
-      )
-    ]
-  end
-
   def get_user_stories(user)
     [
-      Moment.where(id: user_stories(user, Moment).map(&:id)),
-      Strategy.where(id: user_stories(user, Strategy).map(&:id))
+      user_stories(user.moments.recent, user),
+      user_stories(user.strategies.recent, user)
     ]
   end
 
-  def user_stories(user, scope)
-    scope.published.where(user_id: user.id).recent.select do |story|
+  def viewable_published_stories(scope)
+    scope.published.select do |story|
       story.viewers.include?(current_user.id)
     end
+  end
+
+  def user_stories(scope, user)
+    return viewable_published_stories(scope) unless current_user.id == user.id
+
+    user.allies_by_status(:accepted).each do |ally|
+      scope_class = scope&.first&.class
+      ally_scope = scope_class == Moment ? ally.moments : ally.strategies
+      scope += viewable_published_stories(ally_scope)
+    end
+    scope
   end
 end
