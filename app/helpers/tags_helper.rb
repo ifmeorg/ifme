@@ -2,7 +2,7 @@
 module TagsHelper
   def tag_usage(data_id, data_type, user_id)
     result = []
-    moments = Moment.where(user_id: user_id).order('created_at DESC')
+    moments = User.find_by(id: user_id).moments.order('created_at DESC')
     if data_type == 'category'
       result = get_moments(data_id, data_type, user_id, moments)
     elsif data_type.in?(%w[mood strategy])
@@ -23,7 +23,7 @@ module TagsHelper
 
   def get_moments(data_id, data_type, user_id, moments)
     result = []
-    strategies = Strategy.where(user_id: user_id).order('created_at DESC')
+    strategies = User.find_by(id: user_id).strategies.order('created_at DESC')
     [moments, strategies].each do |records|
       objs = []
       records.find_each do |r|

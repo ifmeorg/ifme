@@ -2,12 +2,12 @@
 
 module StoriesHelper
   # rubocop:disable MethodLength
-  def get_stories(user, include_allies)
+  def get_stories(user, include_allies = false)
     moments, strategies =
       if user == current_user
         get_current_user_stories(user, include_allies)
       else
-        get_user_stories(user, include_allies)
+        get_user_stories(user)
       end
 
     stories =
@@ -42,9 +42,7 @@ module StoriesHelper
   end
   # rubocop:enable MethodLength
 
-  def get_user_stories(user, include_allies)
-    return [Moment.none, Strategy.none] unless include_allies
-
+  def get_user_stories(user)
     user_moments = user_stories(user, Moment)
     user_strategies = user_stories(user, Strategy)
 
