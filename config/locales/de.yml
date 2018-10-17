@@ -197,6 +197,7 @@ de:
       refill_hint: 'Wann dieses Rezept erneuert werden muss'
       refill_reminder_hint: 'Wir senden dir eine Erinnerungsmail in der Woche bevor dieses Arzneimittel aufgefüllt werden muss.'
       daily_reminder_hint: 'Wir senden dir eine tägliche Erinnerungsmail zum Einnehmen dieses Arzneimittels'
+      total: Gesamt
     new: 'Neues Arzneimittel'
     units:
       display: '%{count} %{unit}'
@@ -214,7 +215,6 @@ de:
     index:
       title: Arzneimittel
       subtitle: 'Behalte deine Arzneimittel im Auge, wie z.B. deren Dosis und wann sie wieder aufgefüllt werden müssen.'
-      total: 'Gesamt:'
       instructions: 'Du hast noch keine Arzneimittel gespeichert. Klicke %{icon} um eins hinzuzufügen!<br><br>Hier ist ein Beispieleintrag! Du kannst natürlich deine eigenen Daten benutzen.'
       example_name: Prozac
       example_strength: '10 mg'

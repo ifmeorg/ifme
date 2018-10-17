@@ -1,2 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @strategy.name)}" %>
-<%= react_component('Form', props: edit_strategy_props) %>
+<%= react_component('Form', props: edit_strategy_props(@strategy, @viewers)) %>

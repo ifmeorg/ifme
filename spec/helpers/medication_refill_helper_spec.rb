@@ -33,7 +33,7 @@ RSpec.describe MedicationRefillHelper, type: :helper do
         end
 
         it 'redirects to sign_in' do
-          expect(helper.save_refill_to_google_calendar(medication)).to eq(client_error_exception_text)
+          expect(helper.save_refill_to_google_calendar(medication)).to eq(false)
         end
       end
 
@@ -44,7 +44,7 @@ RSpec.describe MedicationRefillHelper, type: :helper do
         end
 
         it 'redirects to medication path' do
-          expect(helper.save_refill_to_google_calendar(medication)).to eq(server_error_exception_text)
+          expect(helper.save_refill_to_google_calendar(medication)).to eq(false)
         end
       end
 

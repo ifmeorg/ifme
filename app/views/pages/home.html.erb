@@ -8,7 +8,7 @@
 <% elsif @stories.any? %>
   <div class="gridTwo">
     <% @stories.each do |story| %>
-      <% if current_user.id == story.user_id || (viewer_of?(story.viewers) && are_allies?(current_user.id, story.user_id)) %>
+      <% if current_user.id == story.user_id || (story.viewers.include?(current_user.id) && current_user.mutual_allies?(User.find_by(id: story.user_id))) %>
       <%= render partial: '/stories/moment_or_strategy', locals: { item: story } %>
       <% end %>
     <% end %>

@@ -47,5 +47,5 @@ describe TagsHelper, type: :controller do
       result = controller.tag_usage(new_strategy.id, 'strategy', user1.id)
       expect(result.length).to eq(1)
     end
-  end  
+  end
 end

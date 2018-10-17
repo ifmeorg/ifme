@@ -20,7 +20,7 @@ module Shared
   end
 
   def shared_quick_create(model_object)
-    respond_with_json(shared_quick_create_result(model_object))
+    render json: shared_quick_create_result(model_object)
   end
 
   def shared_create(model_object)

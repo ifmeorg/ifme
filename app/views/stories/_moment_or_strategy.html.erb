@@ -20,7 +20,10 @@
     categories: local_assigns[:item].category.select{ |item| Category.find_by(id: item) }.map{ |item| Category.find(item).name },
     moods: local_assigns[:item].class.name == 'Moment' ? local_assigns[:item].mood.map{ |item| Mood.find(item).name } : nil,
     storyBy: {
-      author: link_to(User.find(local_assigns[:item].user_id).name, profile_index_path(uid: get_uid(local_assigns[:item].user_id))),
+      author: link_to(
+        User.find(local_assigns[:item].user_id).name,
+        profile_index_path(uid: User.find_by(id: local_assigns[:item].user_id).uid)
+      ),
       avatar: ProfilePicture.normalize_url(User.find(local_assigns[:item].user_id).avatar.url)
     },
     storyType: local_assigns[:item].class.name == 'Moment' ? t('moments.singular') : t('strategies.singular')
