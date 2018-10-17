@@ -88,22 +88,6 @@ module ApplicationHelper
     'fa fa-globe'
   end
 
-  def get_icon_text(icon, text)
-    return '' unless icon && text
-
-    "<i class=\"#{get_icon_class(icon)} smallMarginRight\"></i>#{text}"
-  end
-
-  def image_link_to(image_path, url, image_tag_options = {},
-                    link_to_options = {})
-    link_to url, link_to_options do
-      default_alt = File.basename(image_path, '.*')
-                        .sub(/-[[:xdigit:]]{32,64}\z/, '')
-                        .tr('-_', ' ').capitalize
-      image_tag image_path, { alt: default_alt }.merge(image_tag_options)
-    end
-  end
-
   private
 
   def current_controller?(link_path, environment = {})

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module ViewersHelper
   def viewers_hover(data, link)
     react_component(
@@ -32,13 +31,15 @@ module ViewersHelper
     )
   end
 
+  def only_you_as_viewer(link)
+    link ? t('shared.viewers.you_link') : t('shared.viewers.you')
+  end
+
   def get_viewer_list(data, link)
-    if data.blank?
-      link ? t('shared.viewers.you_link') : t('shared.viewers.you')
-    else
-      names = data.to_a.map { |id| User.find(id).name }.to_sentence
-      link ? t('shared.viewers.many', viewers: names) : names
-    end
+    return only_you_as_viewer(link) if data.blank?
+
+    names = data.to_a.map { |id| User.find_by(id: id).name }.to_sentence
+    link ? t('shared.viewers.many', viewers: names) : names
   end
 
   def get_viewers(data, data_type, obj)
@@ -50,24 +51,18 @@ module ViewersHelper
     []
   end
 
-  # rubocop:disable MethodLength
   def get_viewers_input(viewers, name, translation_name, obj)
-    input = {}
-    if viewers.present?
-      input = {
-        id: "#{name}_viewers",
-        name: "#{name}[viewers][]",
-        type: 'tag',
-        checkboxes: checkboxes_viewers_input(viewers, name, obj),
-        label: t('shared.viewers.plural'),
-        dark: true,
-        accordion: true,
-        placeholder: t("#{translation_name}.form.viewers_hint")
-      }
-    end
-    input
+    return {} if viewers.blank?
+
+    {
+      id: "#{name}_viewers",
+      name: "#{name}[viewers][]",
+      type: 'tag',
+      checkboxes: checkboxes_viewers_input(viewers, name, obj),
+      label: t('shared.viewers.plural'),
+      placeholder: t("#{translation_name}.form.viewers_hint")
+    }.merge(dark: true, accordion: true)
   end
-  # rubocop:enable MethodLength
 
   def checkboxes_viewers_input(viewers, name, obj)
     checkboxes = []
