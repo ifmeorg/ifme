@@ -1,7 +1,5 @@
 # frozen_string_literal: true
-
 module StoriesHelper
-  # rubocop:disable MethodLength
   def get_stories(user, include_allies = false)
     moments, strategies =
       if user == current_user
@@ -9,46 +7,45 @@ module StoriesHelper
       else
         get_user_stories(user)
       end
+    combine_stories(moments, strategies)
+  end
 
+  private
+
+  def combine_stories(moments, strategies)
     stories =
       if moments.any?
         moments.zip(strategies).flatten
       else
         strategies
       end
-
     stories.compact.sort_by(&:created_at).reverse!
   end
-  # rubocop:enable MethodLength
 
-  private
-
-  # rubocop:disable MethodLength
-  def get_current_user_stories(user, include_allies)
-    user_moments = user.moments.all.recent
-    user_strategies = user.strategies.all.recent
-
+  def user_objects(user, model_object, include_allies)
     if include_allies
       user.allies_by_status(:accepted).each do |ally|
-        user_moments += user_stories(ally, Moment)
-        user_strategies += user_stories(ally, Strategy)
+        model_object += user_stories(ally, model_object.class)
       end
     end
+    model_object
+  end
 
+  def get_current_user_stories(user, include_allies)
     [
-      Moment.where(id: user_moments.map(&:id)),
-      Strategy.where(id: user_strategies.map(&:id))
+      Moment.where(
+        id: user_objects(user, user.moments.recent, include_allies).map(&:id)
+      ),
+      Strategy.where(
+        id: user_objects(user, user.strategies.recent, include_allies).map(&:id)
+      )
     ]
   end
-  # rubocop:enable MethodLength
 
   def get_user_stories(user)
-    user_moments = user_stories(user, Moment)
-    user_strategies = user_stories(user, Strategy)
-
     [
-      Moment.where(id: user_moments.map(&:id)),
-      Strategy.where(id: user_strategies.map(&:id))
+      Moment.where(id: user_stories(user, Moment).map(&:id)),
+      Strategy.where(id: user_stories(user, Strategy).map(&:id))
     ]
   end
 
