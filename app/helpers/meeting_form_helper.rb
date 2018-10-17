@@ -2,8 +2,8 @@
 module MeetingFormHelper
   include FormHelper
 
-  def new_meeting_props(group_id)
-    new_form_props(meeting_form_inputs(nil, group_id), meetings_path)
+  def new_meeting_props(group)
+    new_form_props(meeting_form_inputs(nil, group), meetings_path)
   end
 
   def edit_meeting_props(meeting)
@@ -65,7 +65,7 @@ module MeetingFormHelper
     )
   end
 
-  def meeting_form_inputs(meeting, group_id)
+  def meeting_form_inputs(meeting, group)
     [
       meeting_input_props('name', 'text', 'common.name', meeting&.name),
       meeting_location(meeting),
@@ -73,7 +73,7 @@ module MeetingFormHelper
       meeting_input_props('date', 'date', 'common.date', meeting&.date),
       meeting_maxmembers(meeting),
       meeting_description(meeting),
-      meeting_group_id(group_id || meeting&.group_id)
+      meeting_group_id(group&.id || meeting&.group_id)
     ]
   end
 end

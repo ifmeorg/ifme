@@ -5,7 +5,7 @@ describe MeetingFormHelper do
 
   describe '#new_meeting_props' do
     it 'returns correct props' do
-      expect(new_meeting_props(group.id)).to eq(
+      expect(new_meeting_props(group)).to eq(
         inputs: [
           {
             id: 'meeting_name',
