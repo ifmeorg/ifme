@@ -9,11 +9,9 @@ class ProfileController < ApplicationController
     user = current_user if user.nil?
 
     # Determine how the profile should be displayed based on the user_id
-    @stories = if user == current_user
-                 paginate_stories(current_user)
-               elsif current_user.allies_by_status(:accepted).include?(user)
-                 paginate_stories(user)
-               end
+    if user == current_user || current_user.mutual_allies?(user)
+      @stories = Kaminari.paginate_array(get_stories(user)).page(params[:page])
+    end
 
     @profile = user
   end

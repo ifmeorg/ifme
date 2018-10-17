@@ -16,30 +16,6 @@ module StoriesHelper
       end
     stories.compact.sort_by(&:created_at).reverse!
   end
-  # rubocop:enable MethodLength
-
-  def paginate_stories(user)
-    Kaminari.paginate_array(get_stories(user)).page(params[:page])
-  end
-
-  # rubocop:disable MethodLength
-  def get_current_user_stories(user, include_allies)
-    user_moments = user.moments.all.recent
-    user_strategies = user.strategies.all.recent
-
-    if include_allies
-      user.allies_by_status(:accepted).each do |ally|
-        user_moments += user_stories(ally, Moment)
-        user_strategies += user_stories(ally, Strategy)
-      end
-    end
-
-    [
-      Moment.where(id: user_moments.map(&:id)),
-      Strategy.where(id: user_strategies.map(&:id))
-    ]
-  end
-  # rubocop:enable MethodLength
 
   def get_user_stories(user)
     [
