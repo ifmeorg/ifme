@@ -31,13 +31,11 @@ gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'figaro', '1.1.1'
 gem 'google-api-client', '~> 0.24.3'
-gem 'i18n-js', '>= 3.0.0.rc11'
 gem 'kaminari', '1.1.1'
 gem 'omniauth', '~> 1.8.1'
 gem 'omniauth-google-oauth2', '~> 0.5.2'
 gem 'pusher', '1.3.1'
 gem 'rails-i18n', '~> 5.1.1'
-gem 'underscore-rails', '1.8.3'
 
 gem 'friendly_id', '~> 5.2.4'
 gem 'sdoc', '1.0.0', group: :doc
@@ -45,9 +43,9 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.0.1'
+gem 'groupdate', '4.0.2'
 
-gem 'react_on_rails', '11.1.7'
+gem 'react_on_rails', '11.1.8'
 gem 'webpacker'
 
 group :development, :test do

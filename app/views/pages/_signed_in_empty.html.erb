@@ -2,9 +2,7 @@
   <%= t('pages.home.signed_in_empty.message_text_one') %>
 </div>
 
-<div class="spacer"></div>
-
-<div class="gridRow">
+<div class="gridRow marginTop">
   <div>
     <div class="signedInEmptyIcon">
       <%= inline_svg('phone.svg', { aria_hidden: true }) %>
@@ -20,9 +18,7 @@
   </div>
 </div>
 
-<div class="spacer"></div>
-
-<div class="gridRow">
+<div class="gridRow marginTop">
   <div>
     <div class="signedInEmptyIcon">
       <%= inline_svg('lotus.svg', { aria_hidden: true }) %>
@@ -37,9 +33,7 @@
   </div>
 </div>
 
-<div class="spacer"></div>
-
-<div class="gridRow">
+<div class="gridRow marginTop marginBottom">
   <div>
     <div class="signedInEmptyIcon">
       <%= inline_svg('documents.svg', { aria_hidden: true }) %>
@@ -55,11 +49,10 @@
   </div>
 </div>
 
-<div class="spacer"></div>
-<div class="spacer"></div>
-
-<div class="title"><%= t('pages.home.signed_in_empty.main_message_five') %></div>
-<%= raw t('pages.home.signed_in_empty.message_text_three', {
-  faq: link_to(t('navigation.faq'), faq_path),
-  email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
-}) %>
+<div class="marginTop">
+  <div class="title"><%= t('pages.home.signed_in_empty.main_message_five') %></div>
+  <%= raw t('pages.home.signed_in_empty.message_text_three', {
+    faq: link_to(t('navigation.faq'), faq_path),
+    email_link: link_to(t('common.write_to_us'), "mailto:#{t('email')}")
+  }) %>
+</div>

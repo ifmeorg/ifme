@@ -11,31 +11,7 @@
 // about supported directives.
 //
 //= require load_page.js
-//= require js.cookie.js
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-readyselector
-//= require underscore
-//= require i18n
-//= require i18n.js
-//= require i18n/translations
 //= require_tree .
-
-I18n.locale = Cookies.get("locale") || I18n.defaultLocale;
-
-var onReadyApplication = function() {
-  $.ajaxSetup({
-    headers: {
-      "X-CSRF-Token": $("meta[name='csrf-token']").attr("content")
-    }
-  });
-};
-
-loadPage(onReadyApplication);
-
-var beforeunloadApplication = function() {
-  $(window).scrollTop(0);
-};
-
-$(window).on("beforeunload", beforeunloadApplication);

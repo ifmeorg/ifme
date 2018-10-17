@@ -73,6 +73,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :user_id
   has_many :moods
   has_many :moments
+  has_many :categories
 
   belongs_to :invited_by, class_name: 'User'
 

@@ -1,27 +1,20 @@
 <% title t('strategies.plural') %>
 <% page_new new_strategy_path %>
-
 <div class="subtitle">
   <%= t('strategies.index.subtitle') %>
 </div>
 
 <% if @strategies.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'strategy' } %>
-
   <%= render partial: '/shared/stats', locals: { data_type: 'strategy' } %>
-
   <div class="gridTwo">
     <%= render @strategies %>
   </div>
-
   <%= paginate @strategies %>
 <% else %>
   <%= raw t('strategies.index.instructions') %>
   <%= button_to t('common.actions.add'), premade_strategies_path, class: 'smallMarginTop buttonDarkS' %>
-
-  <div class="spacer"></div>
-
-  <div class="gridTwo">
+  <div class="gridTwo marginTop">
     <div class="gridTwoItemBoxLight">
       <%= react_component('Story', html_options: html_options, props: {
         name: t('strategies.index.premade1_name'),

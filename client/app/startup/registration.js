@@ -4,7 +4,7 @@
  * this bundle will be loaded in production.
  */
 import ReactOnRails from 'react-on-rails';
-import { setup } from '../libs/i18n/setup';
+import { scrollToTop } from './scrollToTop';
 import '../styles/_global.scss';
 import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
@@ -29,7 +29,7 @@ import { Notifications } from '../widgets/Notifications';
 import { ToggleLocale } from '../widgets/ToggleLocale';
 import { Comments } from '../widgets/Comments';
 
-setup();
+scrollToTop();
 
 // This is how react_on_rails can see the Components in the browser.
 ReactOnRails.register({

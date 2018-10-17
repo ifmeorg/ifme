@@ -1,5 +1,7 @@
 // @flow
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../../utils';
 import { Input } from './index';
 import css from './InputSwitch.scss';
@@ -59,8 +61,34 @@ export class InputSwitch extends React.Component<Props, State> {
     );
   };
 
-  render() {
+  displaySwitchIcon = () => {
+    const { checked } = this.state;
+    if (checked) {
+      return <FontAwesomeIcon icon={faCheck} />;
+    }
+    return <FontAwesomeIcon icon={faTimes} />;
+  };
+
+  displaySwitch = () => {
     const { id } = this.props;
+    const { checked } = this.state;
+    return (
+      <div
+        id={`${id}_switch`}
+        className={`switchToggle ${css.switchToggle}`}
+        onClick={this.toggleChecked}
+        onKeyPress={this.onKeyPress}
+        role="switch"
+        aria-checked={checked}
+        tabIndex={0}
+        aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
+      >
+        {this.displaySwitchIcon()}
+      </div>
+    );
+  };
+
+  render() {
     const { checked } = this.state;
     return (
       <div className={css.switch}>
@@ -69,17 +97,7 @@ export class InputSwitch extends React.Component<Props, State> {
             checked ? css.switchOn : css.switchOff
           }`}
         >
-          <div
-            id={`${id}_switch`}
-            className={`switchToggle ${css.switchToggle}`}
-            onClick={this.toggleChecked}
-            onKeyPress={this.onKeyPress}
-            role="switch"
-            aria-checked={checked}
-            tabIndex={0}
-          >
-            {checked ? I18n.t('yes_text') : I18n.t('no_text')}
-          </div>
+          {this.displaySwitch()}
         </div>
         {this.displaySwitchHidden()}
       </div>

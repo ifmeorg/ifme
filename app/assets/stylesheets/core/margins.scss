@@ -1,63 +1,59 @@
 .marginRight {
-  margin-right: $size-40 !important;
+  margin-right: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-20;
+  }
 }
 
 .smallMarginRight {
-  margin-right: $size-20 !important;
-}
-
-.smallerMarginRight {
-  margin-right: $size-10 !important;
+  margin-right: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-10;
+  }
 }
 
 .marginLeft {
-  margin-left: $size-40 !important;
+  margin-left: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-20;
+  }
 }
 
 .smallMarginLeft {
-  margin-left: $size-20 !important;
-}
-
-.smallerMarginLeft {
-  margin-left: $size-10 !important;
+  margin-left: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-10;
+  }
 }
 
 .marginTop {
-  margin-top: $size-40 !important;
+  margin-top: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-20;
+  }
 }
 
 .smallMarginTop {
-  margin-top: $size-20 !important;
-}
-
-.smallerMarginTop {
-  margin-top: $size-10 !important;
+  margin-top: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-10;
+  }
 }
 
 .marginBottom {
-  margin-bottom: $size-40 !important;
+  margin-bottom: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-20;
+  }
 }
 
 .smallMarginBottom {
-  margin-bottom: $size-20 !important;
-}
-
-.smallerMarginBottom {
-  margin-bottom: $size-10 !important;
-}
-
-.noMarginTop{
-  margin-top: $size-0 !important;
+  margin-bottom: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-10;
+  }
 }
 
 .noMarginBottom {
-  margin-bottom: $size-0 !important;
-}
-
-.noMarginLeft {
-  margin-left: $size-0 !important;
-}
-
-.noMarginRight {
-  margin-right: $size-0 !important;
+  margin-bottom: $size-0;
 }

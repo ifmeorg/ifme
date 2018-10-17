@@ -2,14 +2,12 @@ en:
   app_name: 'if me'
   app_description: 'A community for mental health experiences'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Created %{created_at}'
   draft: Draft
   edited: 'Created %{created_at} (edited)'
   edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
   salutation: 'Hi %{name},'
   click_here: 'click here'
-  less: ' [Less]'
   language: Language
   yes_text: 'yes'
   no_text: 'no'
@@ -344,7 +342,7 @@ en:
       main_message_one: '%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies.'
       message_text_one: 'Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.'
       main_message_two: 'Dealing with mental health is what makes us human. But for a lot of us, it''s a struggle to be open about it.'
-      message_text_two: 'Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.<p><div class="subtitle block">"It''s not just all in your head, it''s all around you. We can heal together."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>'
+      message_text_two: '<p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><p class="subtitle">"It''s not just all in your head, it''s all around you. We can heal together."</p><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>'
       main_message_three: 'Wanna help fund us?'
       message_text_three: 'Our app is a <u>completely</u> open source project. It''s built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ en:
         social_justice: 'social justice'
         tech_industry: 'tech industry'
         meditation: meditation
+        anxiety: anxiety
         social_anxiety: 'social anxiety'
         trigger_warnings: 'trigger warnings'
         netflix: netflix
@@ -488,6 +487,13 @@ en:
         rehabilitation: rehabilitation
         teachers: teachers
         bipolar: bipolar
+        goal_tracking: 'goal tracking'
+        social_network: 'social network'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'sexual assault survivors'
+        political_movement: 'political movement'
+        reporting: reporting
   profile:
     index:
       title: Profile
