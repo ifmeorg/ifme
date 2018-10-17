@@ -8,22 +8,22 @@ describe ProfileController do
     end
 
     context 'when user is logged in' do
-      let(:user1) { build_stubbed(:user1) }
+      let(:user1) { create(:user1) }
       before { stub_current_user_with(user1) }
       it 'renders index template' do
-        get :index, params: { uid: 'user-uid' }
+        get :index, params: { uid: user1.uid }
         expect(response).to render_template(:index)
       end
 
       context 'when profile belongs to logged in user' do
         it 'assigns profile instance to be that of logged in user' do
-          get :index, params: { uid: 'user-uid' }
+          get :index, params: { uid: user1.uid }
           expect(assigns(:profile)).to eq(user1)
         end
 
         context 'when user has no moments and strategies' do
           it 'assigns stories instance with an empty array' do
-            get :index, params: { uid: 'user-uid' }
+            get :index, params: { uid: user1.uid }
             expect(assigns(:stories)).to match_array([])
           end
         end
@@ -33,7 +33,7 @@ describe ProfileController do
             stories = [build_stubbed(:moment), build_stubbed(:strategy)]
             allow_any_instance_of(ProfileController)
               .to receive(:get_stories).and_return(stories)
-            get :index, params: { uid: 'user-uid' }
+            get :index, params: { uid: user1.uid }
             expect(assigns(:stories)).to match_array(stories)
           end
         end
@@ -44,7 +44,7 @@ describe ProfileController do
 
         before do
           allow(User).to receive(:find_by).and_return(profile_owner)
-          get :index, params: { uid: 'user-uid' }
+          get :index, params: { uid: profile_owner.uid }
         end
 
         it 'does not assign stories' do

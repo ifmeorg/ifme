@@ -17,6 +17,21 @@ class ApplicationController < ActionController::Base
   around_action :with_timezone
   helper_method :if_not_signed_in, :redirect_to_path
 
+  private
+
+  def redirect_to_path(path)
+    respond_to do |format|
+      format.html { redirect_to path }
+      format.json { head :no_content }
+    end
+  end
+
+  def if_not_signed_in
+    return if user_signed_in?
+
+    redirect_to_path(new_user_session_path)
+  end
+
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])
     Time.use_zone(timezone) { yield }
@@ -39,21 +54,6 @@ class ApplicationController < ActionController::Base
     Raven.user_context(id: current_user.id) if user_signed_in?
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
-
-  def redirect_to_path(path)
-    respond_to do |format|
-      format.html { redirect_to path }
-      format.json { head :no_content }
-    end
-  end
-
-  def if_not_signed_in
-    return if user_signed_in?
-
-    redirect_to_path(new_user_session_path)
-  end
-
-  private
 
   def locale
     current_user&.locale || cookies[:locale] || I18n.default_locale

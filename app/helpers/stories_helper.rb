@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module StoriesHelper
-  def get_stories(user)
-    moments, strategies = get_user_stories(user)
+  def get_stories(user, include_allies = false)
+    moments, strategies = get_user_stories(user, include_allies)
     combine_stories(moments, strategies)
   end
 
@@ -17,10 +17,10 @@ module StoriesHelper
     stories.compact.sort_by(&:created_at).reverse!
   end
 
-  def get_user_stories(user)
+  def get_user_stories(user, include_allies)
     [
-      user_stories(user.moments.recent, user),
-      user_stories(user.strategies.recent, user)
+      user_stories(user.moments.recent, user, include_allies),
+      user_stories(user.strategies.recent, user, include_allies)
     ]
   end
 
@@ -30,8 +30,9 @@ module StoriesHelper
     end
   end
 
-  def user_stories(scope, user)
+  def user_stories(scope, user, include_allies)
     return viewable_published_stories(scope) unless current_user.id == user.id
+    return scope unless include_allies
 
     user.allies_by_status(:accepted).each do |ally|
       scope_class = scope&.first&.class
