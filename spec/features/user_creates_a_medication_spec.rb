@@ -58,7 +58,7 @@ describe 'UserCreatesAMedication', js: true do
       before do
         CalendarUploader.stub_chain(:new, :upload_event).and_return(true)
       end
-      
+
       it 'activates reminders' do
         find('#medication_refill_reminder').click
         find('#medication_take_medication_reminder').click

@@ -1,20 +1,6 @@
 # frozen_string_literal: true
 
 describe ApplicationHelper do
-  describe '#i18n_set?' do
-    context 'when does not exist' do
-      it 'returns false' do
-        expect(i18n_set?('i_do_not_exist')).to eq(false)
-      end
-    end
-
-    context 'when key exists' do
-      it 'returns i18n value' do
-        expect(i18n_set?('app_name')).to eq('if me')
-      end
-    end
-  end
-
   describe '#active?' do
     let(:is_current_page) { false }
     let(:current_controller) { '' }

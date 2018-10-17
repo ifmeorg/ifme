@@ -34,6 +34,19 @@ const displayInfo = (info: ?string) => {
   );
 };
 
+const displayCheckbox = (id, name, value, checked, onChange, label) => (
+  <input
+    id={id}
+    name={name}
+    type="checkbox"
+    value={value}
+    defaultChecked={checked}
+    onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)
+    }
+    aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
+  />
+);
+
 export const InputCheckbox = (props: Props) => {
   const {
     id,
@@ -50,16 +63,7 @@ export const InputCheckbox = (props: Props) => {
       <div>
         {typeof uncheckedValue !== 'undefined'
           && displayUnchecked(name, uncheckedValue)}
-        <input
-          id={id}
-          name={name}
-          type="checkbox"
-          value={value}
-          defaultChecked={checked}
-          onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)
-          }
-          aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
-        />
+        {displayCheckbox(id, name, value, checked, onChange, label)}
         <div className={css.checkboxLabel}>{renderHTML(label)}</div>
       </div>
       {displayInfo(info)}

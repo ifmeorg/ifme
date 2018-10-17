@@ -13,5 +13,5 @@ describe ApplicationController do
     it_behaves_like :most_focus, :category
     it_behaves_like :most_focus, :mood
     it_behaves_like :most_focus, :strategy
-  end  
+  end
 end
