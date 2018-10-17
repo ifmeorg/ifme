@@ -31,13 +31,15 @@ module ViewersHelper
     )
   end
 
+  def only_you_as_viewer(link)
+    link ? t('shared.viewers.you_link') : t('shared.viewers.you')
+  end
+
   def get_viewer_list(data, link)
-    if data.blank?
-      link ? t('shared.viewers.you_link') : t('shared.viewers.you')
-    else
-      names = data.to_a.map { |id| User.find(id).name }.to_sentence
-      link ? t('shared.viewers.many', viewers: names) : names
-    end
+    return only_you_as_viewer(link) if data.blank?
+
+    names = data.to_a.map { |id| User.find_by(id: id).name }.to_sentence
+    link ? t('shared.viewers.many', viewers: names) : names
   end
 
   def get_viewers(data, data_type, obj)
