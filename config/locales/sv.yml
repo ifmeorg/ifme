@@ -47,7 +47,7 @@ sv:
     name: Namn
     you: Du
     title: Titel
-    date: 'Datum:'
+    date: Datum
     daily_reminder: 'Daglig påminnelse via e-post'
     actions:
       plural: Handlingar

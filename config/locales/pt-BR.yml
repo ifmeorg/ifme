@@ -47,7 +47,7 @@ pt-BR:
     name: Nome
     you: Você
     title: Título
-    date: 'Data:'
+    date: Data
     daily_reminder: 'Email de lembrete diário'
     actions:
       plural: Ações

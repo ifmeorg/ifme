@@ -47,7 +47,7 @@ vi:
     name: Tên
     you: Bạn
     title: 'Tiêu đề'
-    date: 'Chung kỳ:'
+    date: 'Chung kỳ'
     daily_reminder: 'Email nhắc nhở hàng ngày'
     actions:
       plural: 'Hành động'

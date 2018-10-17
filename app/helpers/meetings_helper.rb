@@ -16,25 +16,25 @@ module MeetingsHelper
     end
   end
 
-  def new_meeting_props
-    new_form_props(meeting_form_inputs, meetings_path)
+  def new_meeting_props(group_id)
+    new_form_props(meeting_form_inputs(nil, group_id), meetings_path)
   end
 
-  def edit_meeting_props
-    edit_form_props(meeting_form_inputs, meeting_path(@meeting))
+  def edit_meeting_props(meeting)
+    edit_form_props(meeting_form_inputs(meeting, nil), meeting_path(meeting))
   end
 
   private
 
   # rubocop:disable MethodLength
-  def meeting_form_inputs
+  def meeting_form_inputs(meeting, group_id)
     [
       {
         id: 'meeting_name',
         type: 'text',
         name: 'meeting[name]',
         label: t('common.name'),
-        value: @meeting.name || nil,
+        value: meeting&.name || nil,
         required: true,
         dark: true
       },
@@ -43,7 +43,7 @@ module MeetingsHelper
         type: 'text',
         name: 'meeting[location]',
         label: t('common.form.location'),
-        value: @meeting.location || nil,
+        value: meeting&.location || nil,
         placeholder: t('meetings.form.location_placeholder'),
         required: true,
         dark: true
@@ -53,7 +53,7 @@ module MeetingsHelper
         type: 'time',
         name: 'meeting[time]',
         label: t('meetings.info.meeting_time'),
-        value: @meeting.time || nil,
+        value: meeting&.time || nil,
         required: true,
         dark: true
       },
@@ -62,7 +62,7 @@ module MeetingsHelper
         type: 'date',
         name: 'meeting[date]',
         label: t('common.date'),
-        value: @meeting.date || nil,
+        value: meeting&.date || nil,
         required: true,
         dark: true
       },
@@ -71,7 +71,7 @@ module MeetingsHelper
         type: 'number',
         name: 'meeting[maxmembers]',
         label: t('meetings.form.maximum_members'),
-        value: @meeting.maxmembers.to_s || nil,
+        value: meeting&.maxmembers.to_s || nil,
         placeholder: t('meetings.form.maximum_placeholder'),
         min: 0,
         required: true,
@@ -82,7 +82,7 @@ module MeetingsHelper
         type: 'textarea',
         name: 'meeting[description]',
         label: t('common.form.description'),
-        value: @meeting.description || nil,
+        value: meeting&.description || nil,
         required: true,
         dark: true
       },
@@ -90,7 +90,7 @@ module MeetingsHelper
         id: 'meeting_group_id',
         type: 'hidden',
         name: 'meeting[group_id]',
-        value:  @group.id || @meeting.group_id
+        value: group_id || meeting&.group_id
       }
     ]
   end

@@ -47,7 +47,7 @@ nb:
     name: Navn
     you: Deg
     title: Tittel
-    date: 'Dato:'
+    date: Dato
     daily_reminder: 'Daglig påminnelses epost'
     actions:
       plural: Handlinger
