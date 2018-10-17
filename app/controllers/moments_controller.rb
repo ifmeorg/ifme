@@ -3,6 +3,7 @@
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
   include CollectionPageSetup
+  include MomentsHelper
   include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]

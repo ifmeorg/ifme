@@ -1,41 +1,40 @@
-<% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
-	<% most_focus = most_focus(local_assigns[:data_type], local_assigns[:profile]) %>
-	<% if most_focus.length > 0 %>
+<% if %w[category mood strategy].include?(local_assigns[:data_type]) %>
+  <% most_focus_data = most_focus(local_assigns[:data_type], local_assigns[:user]) %>
+	<% if most_focus_data.present? %>
     <div class="stats">
-      <% if local_assigns[:profile] %>
+      <% if local_assigns[:user] %>
         <div class="title">
           <%= local_assigns[:data_type].pluralize.titleize %>
         </div>
       <% end %>
       <div class="subtitle">
-        <% if !local_assigns[:profile] || local_assigns[:profile] == current_user.id %>
+        <% if local_assigns[:user] == current_user %>
           <%= t('shared.stats.you_are_focusing') %>
-        <% elsif local_assigns[:profile] %>
-          <%= t('shared.stats.user_is_focusing', name: User.where(id: local_assigns[:profile]).first.name) %>
+        <% elsif local_assigns[:user] %>
+          <%= t('shared.stats.user_is_focusing', name: User.where(id: local_assigns[:user]).first.name) %>
         <% end %>
       </div>
-
       <div class="mostFocus">
-        <% most_focus.each do |key, value| %>
+        <% most_focus_data.each do |key, value| %>
           <div class="someFocus">
             <div class="someFocusText">
-              <% if local_assigns[:data_type] == 'category' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
+              <% if local_assigns[:data_type] == 'category' && local_assigns[:user] == current_user %>
                 <%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>
-              <% elsif local_assigns[:data_type] == 'category' && local_assigns[:profile] %>
+              <% elsif local_assigns[:data_type] == 'category' && local_assigns[:user] %>
                 <div class="someFocusTextName">
-                  <%= Category.where(id: key).first.name %>
+                  <%= Category.find_by(id: key).name %>
                 </div>
-              <% elsif local_assigns[:data_type] == 'mood' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
+              <% elsif local_assigns[:data_type] == 'mood' && local_assigns[:user] == current_user %>
                 <%= viewers_hover(get_viewers_for(Mood.where(id: key).first, 'mood'), Mood.where(id: key).first) %>
-              <% elsif local_assigns[:data_type] == 'mood' && local_assigns[:profile] %>
+              <% elsif local_assigns[:data_type] == 'mood' && local_assigns[:user] %>
                 <div class="someFocusTextName">
-                  <%= Mood.where(id: key).first.name %>
+                  <%= Mood.find_by(id: key).name %>
                 </div>
-              <% elsif local_assigns[:data_type] == 'strategy' && (!local_assigns[:profile] || local_assigns[:profile] == current_user.id) %>
+              <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] == current_user %>
                 <%= viewers_hover(get_viewers_for(Strategy.where(id: key).first, 'strategy'), Strategy.where(id: key).first) %>
-              <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:profile] %>
+              <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] %>
                 <div class="someFocusTextName">
-                  <%= Strategy.where(id: key).first.name %>
+                  <%= Strategy.find_by(id: key).name %>
                 </div>
               <% end %>
             </div>
