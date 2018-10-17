@@ -75,6 +75,8 @@ group :development, :test do
   gem 'rubocop-rspec'
 
   gem 'foreman'
+
+  gem 'bullet'
 end
 
 group :test do
