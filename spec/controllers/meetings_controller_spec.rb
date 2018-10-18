@@ -207,21 +207,28 @@ RSpec.describe MeetingsController, type: :controller do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do
-        before { patch :update, params: { id: meeting.id, meeting: valid_update_params } }
+        before do
+          allow(Meeting).to receive_message_chain(:friendly, :find).and_return(meeting)
+        end
+
         it 'updates the meeting' do
-          expect(meeting.reload.name).to eq 'updated name'
+          expect(meeting).to receive(:update).with(double(valid_update_params))
+          patch :update, params: { id: meeting.id, meeting: valid_update_params }
         end
         it 'redirects to the meeting page' do
+          patch :update, params: { id: meeting.id, meeting: valid_update_params }
           expect(response).to redirect_to meeting_path(meeting.reload.slug)
         end
       end
+      
       context 'when invalid params are supplied' do
-        before { patch :update, params: { id: meeting.id, meeting: invalid_update_params } }
         it 're-renders the edit form' do
+          patch :update, params: { id: meeting.id, meeting: invalid_update_params }
           expect(response).to render_template(:edit)
         end
       end
     end
+    
     context 'when the user is not logged in' do
       before { patch :update, params: { id: meeting.id } }
       it_behaves_like :with_no_logged_in_user
@@ -239,16 +246,16 @@ RSpec.describe MeetingsController, type: :controller do
       include_context :logged_in_user
       
       context 'user is the group leader' do
-        it 'deletes the meeting members' do
-          expect { delete :destroy, params: { id: meeting.id } }
-            .to change(MeetingMember, :count).by(-1)
+        before do
+          allow(Meeting).to receive_message_chain(:friendly, :find).and_return(meeting)
         end
 
-        it 'deletes the meeting' do
-          expect { delete :destroy, params: { id: meeting.id } }
-            .to change(Meeting, :count).by(-1)
+        it 'deletes the meeting and meeting members' do
+          expect(meeting.meeting_members).to receive(:destroy_all)
+          expect(meeting).to receive(:destroy)
+          delete :destroy, params: { id: meeting.id }
         end
-        
+
         it 'redirects to the group path page' do
           delete :destroy, params: { id: meeting.id }
           expect(response).to redirect_to group_path(group.id)
