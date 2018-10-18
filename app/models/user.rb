@@ -80,7 +80,7 @@ class User < ApplicationRecord
   }
 
   def active_for_authentication?
-    super && !self.banned
+    super && !banned
   end
 
   def ally?(user)

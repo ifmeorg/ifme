@@ -1,12 +1,10 @@
 <% title "#{'New Report'}" %>
 <%= form_for(:search, :url => {:action => "create", :ally_id => params[:ally_id], :comment_id => params[:comment_id]}, :method => "post") do |f| %>   
-    <div class="table">
-     <div class="field">
+
      <div class="label">
        <%= f.label 'Why are you reporting ?' %>
        <div class="align_right">
        </div>
-       <div class="clear"></div>
        <%= text_area(:report, :reasons) %>
    </div>
    <div>

@@ -27,12 +27,16 @@ module CommentsHelper
                                 class: 'delete_comment_button'
       delete_comment += '</div>'
     end
+    def comment_reportable?(data)
+      data.comment_by != current_user.id
+    end
     {
       commentid: data.id,
       comment_info: comment_info,
       comment_text: comment_text,
       visibility: visibility,
       delete_comment: delete_comment,
+      report_comment: report_comment,
       no_save: false
     }
   end
