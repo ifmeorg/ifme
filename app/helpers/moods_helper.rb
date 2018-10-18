@@ -16,27 +16,33 @@ module MoodsHelper
 
   private
 
-  # rubocop:disable MethodLength
   def mood_form_inputs
     [
-      {
-        id: 'mood_name',
-        type: 'text',
-        name: 'mood[name]',
-        label: t('common.name'),
-        value: @mood.name || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'mood_description',
-        type: 'textarea',
-        name: 'mood[description]',
-        label: t('common.form.description'),
-        value: @mood.description || nil,
-        dark: true
-      }
+      build_mood_name,
+      build_mood_description
     ]
   end
-  # rubocop:enable MethodLength
+
+  def build_mood_name
+    {
+      id: 'mood_name',
+      type: 'text',
+      name: 'mood[name]',
+      label: t('common.name'),
+      value: @mood.name || nil,
+      required: true,
+      dark: true
+    }
+  end
+
+  def build_mood_description
+    {
+      id: 'mood_description',
+      type: 'textarea',
+      name: 'mood[description]',
+      label: t('common.form.description'),
+      value: @mood.description || nil,
+      dark: true
+    }
+  end
 end
