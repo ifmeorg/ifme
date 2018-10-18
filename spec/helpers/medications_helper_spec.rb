@@ -18,15 +18,15 @@ describe MedicationsHelper do
     end
 
     it 'returns common medication fields' do
-      expect(get_field('medication_name')[:value]).to eq(@medication.name)
-      expect(get_field('medication_strength')[:value]).to eq(@medication.strength)
-      expect(get_field('medication_strength_unit')[:value]).to eq(@medication.strength_unit)
-      expect(get_field('medication_total')[:value]).to eq(@medication.total)
-      expect(get_field('medication_total_unit')[:value]).to eq(@medication.total_unit)
-      expect(get_field('medication_dosage')[:value]).to eq(@medication.dosage)
-      expect(get_field('medication_dosage_unit')[:value]).to eq(@medication.dosage_unit)
-      expect(get_field('medication_refill')[:value]).to eq(@medication.refill)
-      expect(get_field('medication_comments')[:value]).to eq(@medication.comments)
+      expect(get_field('medication_name')[:value]).to eq(medication.name)
+      expect(get_field('medication_strength')[:value]).to eq(medication.strength)
+      expect(get_field('medication_strength_unit')[:value]).to eq(medication.strength_unit)
+      expect(get_field('medication_total')[:value]).to eq(medication.total)
+      expect(get_field('medication_total_unit')[:value]).to eq(medication.total_unit)
+      expect(get_field('medication_dosage')[:value]).to eq(medication.dosage)
+      expect(get_field('medication_dosage_unit')[:value]).to eq(medication.dosage_unit)
+      expect(get_field('medication_refill')[:value]).to eq(medication.refill)
+      expect(get_field('medication_comments')[:value]).to eq(medication.comments)
     end
 
     context 'when refill reminder is active' do
@@ -34,7 +34,7 @@ describe MedicationsHelper do
       it 'sets a medication refill reminder' do
         @medication = medication
         expect(get_field('medication_refill_reminder')[:value]).to eq(true)
-        expect(get_field('medication_refill_reminder_attributes_id')[:value]).to eq(@medication.refill_reminder.id)
+        expect(get_field('medication_refill_reminder_attributes_id')[:value]).to eq(medication.refill_reminder.id)
       end
     end
 
@@ -43,7 +43,7 @@ describe MedicationsHelper do
       it 'sets a medication take medication reminder' do
         @medication = medication
         expect(get_field('medication_take_medication_reminder')[:value]).to eq(true)
-        expect(get_field('medication_take_medication_reminder_attributes_id')[:value]).to eq(@medication.take_medication_reminder.id)
+        expect(get_field('medication_take_medication_reminder_attributes_id')[:value]).to eq(medication.take_medication_reminder.id)
       end
     end
   end
@@ -63,7 +63,7 @@ describe MedicationsHelper do
       weekdays = days_checkbox
       0.upto(6).each do |i|
         expect(weekdays[i][:id]).to eq("medication_weekly_dosage_#{i}")
-        expect(weekdays[i][:checked]).to eq(@medication.weekly_dosage.include?(i))
+        expect(weekdays[i][:checked]).to eq(medication.weekly_dosage.include?(i))
       end
     end
   end
