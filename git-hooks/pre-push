@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e  # Stop script if any command returns an error
+echo "Running pre-push hook"
+
+# Allows us to read user input below, assigns stdin to keyboard
+exec < /dev/tty
+
+echo "Do you wish to run pre-push tests? (This is recommended)"
+select option in "Yes" "No"; do
+    if [ "$option" = "Yes" ]; then
+        rspec
+        cd client
+        yarn test
+        exit 0
+    elif [ "$option" = "No" ]; then
+        echo "Skipping tests..."
+        exit 0
+    else
+        echo "Please select option (1) or (2)."
+    fi
+done
