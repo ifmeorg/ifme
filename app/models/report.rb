@@ -22,7 +22,6 @@ class Report < ApplicationRecord
   validates :reporter_id, presence: true
   validates :reasons, presence: true
   after_create :send_mail_reports
-  #make sure reporter_id and reportee_id are different
 
   def send_mail_reports
     reporter_mail = User.where(id: reporter_id).pluck(:email)[0]
