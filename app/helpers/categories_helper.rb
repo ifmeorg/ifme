@@ -16,28 +16,34 @@ module CategoriesHelper
 
   private
 
-  # rubocop:disable MethodLength
   def category_form_inputs
     [
-      {
-        id: 'category_name',
-        type: 'text',
-        name: 'category[name]',
-        label: t('common.name'),
-        value: @category.name || nil,
-        required: true,
-        info: t('categories.form.name_hint'),
-        dark: true
-      },
-      {
-        id: 'category_description',
-        type: 'textarea',
-        name: 'category[description]',
-        label: t('common.form.description'),
-        value: @category.description || nil,
-        dark: true
-      }
+      build_category_name,
+      build_category_description
     ]
   end
-  # rubocop:enable MethodLength
+
+  def build_category_name
+    {
+      id: 'category_name',
+      type: 'text',
+      name: 'category[name]',
+      label: t('common.name'),
+      value: @category.name || nil,
+      required: true,
+      info: t('categories.form.name_hint'),
+      dark: true
+    }
+  end
+
+  def build_category_description
+    {
+      id: 'category_description',
+      type: 'textarea',
+      name: 'category[description]',
+      label: t('common.form.description'),
+      value: @category.description || nil,
+      dark: true
+    }
+  end
 end
