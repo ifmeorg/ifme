@@ -4,7 +4,7 @@ describe MedicationsHelper do
   let(:current_user) { create(:user) }
   let(:medication) { create(:medication, user: current_user) }
 
-  before(:each) do
+  before do
     @medication = medication
   end
 
@@ -12,8 +12,8 @@ describe MedicationsHelper do
     @fields.find {|f| f[:id] == field_name}
   end
 
-  describe 'fields' do
-    before(:each) do
+  describe '#common_fields' do
+    before do
       @fields = common_fields
     end
 
@@ -31,7 +31,7 @@ describe MedicationsHelper do
 
     context 'when refill reminder is active' do
       let(:medication) { create(:medication, :with_refill_reminder, user: current_user) }
-      it 'medication_refill_reminder is set' do
+      it 'sets a medication refill reminder' do
         @medication = medication
         expect(get_field('medication_refill_reminder')[:value]).to eq(true)
         expect(get_field('medication_refill_reminder_attributes_id')[:value]).to eq(@medication.refill_reminder.id)
@@ -40,7 +40,7 @@ describe MedicationsHelper do
 
     context 'when take medication reminder is active' do
       let(:medication) { create(:medication, :with_daily_reminder, user: current_user) }
-      it 'medication_take_medication_reminder is set' do
+      it 'sets a medication take medication reminder' do
         @medication = medication
         expect(get_field('medication_take_medication_reminder')[:value]).to eq(true)
         expect(get_field('medication_take_medication_reminder_attributes_id')[:value]).to eq(@medication.take_medication_reminder.id)
@@ -48,8 +48,8 @@ describe MedicationsHelper do
     end
   end
 
-  describe 'google_fields' do
-    before(:each) do
+  describe '#google_fields' do
+    before do
       @fields = google_fields
     end
 
@@ -58,13 +58,12 @@ describe MedicationsHelper do
     end
   end
 
-  describe 'days_checkbox' do
-    before { @weekdays = days_checkbox }
-
+  describe '#days_checkbox' do
     it 'returns weekly dosage checkboxes information' do
+      weekdays = days_checkbox
       0.upto(6).each do |i|
-        expect(@weekdays[i][:id]).to eq("medication_weekly_dosage_#{i}")
-        expect(@weekdays[i][:checked]).to eq(@medication.weekly_dosage.include?(i))
+        expect(weekdays[i][:id]).to eq("medication_weekly_dosage_#{i}")
+        expect(weekdays[i][:checked]).to eq(@medication.weekly_dosage.include?(i))
       end
     end
   end
