@@ -11,7 +11,7 @@ export type Props = {
 
 export type State = {
   checkboxes: any
-}
+};
 
 export class Resources extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -21,15 +21,15 @@ export class Resources extends React.Component<Props, State> {
   
   createCheckboxes = () => {
     const { resources } = this.props;
-    const tagsList = [...new Set(resources.map(res => res.tags.concat(res.languages)).flat())];
-    return tagsList.map(tag => {return {id: tag, key: tag, value: tag, label: tag, checked: false}})
+    const tagsList = [...new Set(resources.map(res => res.tags.concat(res.languages)).reduce((acc, val) => acc.concat(val), []))];
+    return tagsList.map(tag => {return {id: tag, key: tag, value: tag, label: tag, checked: false}});
   }
   
   checkboxChange = (box) => {
     this.setState((prevState: State) => {
       const updatedBoxes = prevState.checkboxes.filter(checkbox => checkbox.id !== box.id).concat(box);
-      return { checkboxes: updatedBoxes }
-    })
+      return { checkboxes: updatedBoxes };
+    });
   }
   
   filterList = (res, check) => {
@@ -39,18 +39,18 @@ export class Resources extends React.Component<Props, State> {
         r.tags.concat(r.languages).includes(t.id)
       );
       if(tagCheck.includes(false)) {
-        return false 
+        return false;
       } else {
-        return true
+        return true;
       } 
     });
     return matchingResources;
   }
   
   render() {
-  const { resources } = this.props;
-  const { checkboxes } = this.state;
-  const filteredResources = this.filterList(resources, checkboxes);
+    const { resources } = this.props;
+    const { checkboxes } = this.state;
+    const filteredResources = this.filterList(resources, checkboxes);
   
     return (
       <React.Fragment>
