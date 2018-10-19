@@ -1,36 +1,40 @@
 # frozen_string_literal: true
 
-# rubocop:disable ModuleLength
-module StrategiesHelper
-  include CategoriesHelper
+describe StrategiesHelper do
   include FormHelper
   include ViewersHelper
 
-  def new_strategy_props(strategy, viewers)
-    new_form_props(
-      strategy_form_inputs(strategy, viewers),
-      strategies_path
-    )
+  let(:user) { create(:user2, :with_allies) }
+  let(:strategy) { create(:strategy, user: user) }
+  let(:viewers) { user.allies_by_status(:accepted) }
+  let(:category_form_inputs_res) do
+    {
+      inputs: [
+        {
+          id: 'category_name',
+          type: 'text',
+          name: 'category[name]',
+          label: t('common.name'),
+          value: @category.name,
+          required: true,
+          info: t('categories.form.name_hint'),
+          dark: true
+        },
+        {
+          id: 'category_description',
+          type: 'textarea',
+          name: 'category[description]',
+          label: t('common.form.description'),
+          value: @category.description,
+          dark: true
+        },
+        submit_field
+      ],
+      action: '/categories/quick_create',
+      noFormTag: true
+    }
   end
-
-  def quick_create_strategy_props
-    quick_create_form_props(
-      quick_create_strategy_form_inputs,
-      quick_create_strategies_path
-    )
-  end
-
-  def edit_strategy_props(strategy, viewers)
-    edit_form_props(
-      strategy_form_inputs(strategy, viewers),
-      strategy_path(strategy)
-    )
-  end
-
-  private
-
-  # rubocop:disable MethodLength
-  def strategy_form_inputs(strategy, viewers)
+  let(:strategy_form_inputs_res) do
     [
       {
         id: 'strategy_name',
@@ -58,7 +62,7 @@ module StrategiesHelper
         label: t('categories.plural'),
         placeholder: t('common.form.press_enter'),
         checkboxes: category_checkboxes,
-        formProps: quick_create_category_props
+        formProps: category_form_inputs_res
       },
       get_viewers_input(viewers, 'strategy', 'strategies', strategy),
       {
@@ -98,30 +102,51 @@ module StrategiesHelper
         name: 'strategy[perform_strategy_reminder_attributes][id]',
         type: 'hidden',
         value: strategy&.perform_strategy_reminder&.id
-      }
-    ]
-  end
-  # rubocop:enable MethodLength
-
-  def quick_create_strategy_form_inputs
-    strategy_form = strategy_form_inputs(@strategy, @viewers)
-    [
-      strategy_form[0],
-      strategy_form[1]
+      },
     ]
   end
 
-  def category_checkboxes
-    checkboxes = []
-    @categories.each do |item|
-      checkboxes.push(
-        id: item.slug,
-        label: item.name,
-        value: item.id,
-        checked: @strategy.category.include?(item.id)
+  before(:each) do
+    @categories = []
+    @category = create(:category, user: user)
+  end
+
+  describe '#new_strategy_props' do
+    subject { new_strategy_props(strategy, viewers) }
+
+    it 'returns correct props' do
+      expect(subject).to eq(new_form_props(strategy_form_inputs_res, '/strategies'))
+    end
+  end
+
+  describe '#quick_create_strategy_props' do
+    before { @strategy = strategy }
+
+    subject { quick_create_strategy_props() }
+
+    it 'returns correct props' do
+      quick_strategy_form_inputs_res = [
+        strategy_form_inputs_res[0],
+        strategy_form_inputs_res[1]
+      ]
+
+      expect(subject).to eq(quick_create_form_props(
+        quick_strategy_form_inputs_res,
+        '/strategies/quick_create'
+      ))
+    end
+  end
+
+  describe '#edit_strategy_props' do
+    subject { edit_strategy_props(strategy, viewers) }
+
+    it 'returns correct props' do
+      expect(subject).to eq(
+        edit_form_props(
+          strategy_form_inputs_res,
+          "/strategies/#{strategy.slug}"
+        )
       )
     end
-    checkboxes
   end
 end
-# rubocop:enable ModuleLength
