@@ -137,20 +137,14 @@ describe User do
 
   describe '#validations' do
     context 'password' do
-      let(:user) { build :user }
+      let(:user) { build(:user, password: nil) }
 
       context 'when password is blank' do
-        before do
-          user.save
-        end
-        # password is just an attribute in user, it is not a field
-        # so, password is nil, when it is not set
-        # devise will take care of nil/blank password while registering a user
-        it 'should not throw any error' do
-          user = User.first
-          expect(user.password).to be nil
+        it 'should throw only password error from devise' do
+          expect(user.valid?).to be false
 
-          expect(user.valid?).to be true
+          expect(user).to have(1).error_on(:password)
+          expect(user.errors[:password]).not_to include(I18n.t('devise.registrations.password_complexity_error'))
         end
       end
 
@@ -162,14 +156,14 @@ describe User do
         end
       end
 
-      context 'with valid one' do
+      context 'when password is valid' do
         it 'saves without any errors' do
           user.password = 'waspAr$0'
           expect(user.valid?).to be true
         end
       end
 
-      context 'with invalid one' do
+      context 'when password is invalid' do
         it 'should return respective error message' do
           ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
             user.password = password

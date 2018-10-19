@@ -44,12 +44,15 @@
 #
 
 class User < ApplicationRecord
-  ALLY_STATUS = { accepted: 0,
-                  pending_from_user: 1,
-                  pending_from_ally: 2 }.freeze
+  include PasswordValidatable
+
+  ALLY_STATUS = {
+    accepted: 0,
+    pending_from_user: 1,
+    pending_from_ally: 2
+  }.freeze
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-  PWD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -108,9 +111,7 @@ class User < ApplicationRecord
   end
 
   def google_access_token
-    return token if access_expires_at && access_expires_at > Time.zone.now
-
-    update_access_token
+    google_access_token_expired? ? update_access_token : token
   end
 
   def google_oauth2_enabled?
@@ -163,12 +164,8 @@ class User < ApplicationRecord
 
   private
 
-  def password_complexity
-    return if google_oauth2_enabled?
-    return if password.blank? || (password =~ PWD_REGEX)
-
-    err_mess = I18n.t('devise.registrations.password_complexity_error')
-    errors.add(:password, err_mess)
+  def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
   end
 
   def accepted_ally_ids
