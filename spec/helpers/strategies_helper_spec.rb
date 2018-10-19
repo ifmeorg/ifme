@@ -28,7 +28,12 @@ describe StrategiesHelper do
           value: @category.description,
           dark: true
         },
-        submit_field
+        {
+          id: 'submit',
+          type: 'submit',
+          value: t('common.actions.submit'),
+          dark: true
+        }
       ],
       action: '/categories/quick_create',
       noFormTag: true
