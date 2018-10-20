@@ -58,6 +58,7 @@ export const InputCheckbox = (props: Props) => {
     info,
     onChange,
   } = props;
+  const resourcesPage = document.querySelector('body').classList.contains('resources');
   return (
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
       <div>

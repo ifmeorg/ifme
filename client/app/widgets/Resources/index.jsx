@@ -23,14 +23,14 @@ export class Resources extends React.Component<Props, State> {
     const { resources } = this.props;
     const tagsList = [...new Set(resources.map(res => res.tags.concat(res.languages)).reduce((acc, val) => acc.concat(val), []))];
     return tagsList.map(tag => {return {id: tag, key: tag, value: tag, label: tag, checked: false}});
-  }
+  };
   
   checkboxChange = (box) => {
     this.setState((prevState: State) => {
       const updatedBoxes = prevState.checkboxes.filter(checkbox => checkbox.id !== box.id).concat(box);
       return { checkboxes: updatedBoxes };
     });
-  }
+  };
   
   filterList = (res, check) => {
     const selectedTags = check.filter(c => c.checked === true);
@@ -45,7 +45,7 @@ export class Resources extends React.Component<Props, State> {
       } 
     });
     return matchingResources;
-  }
+  };
   
   render() {
     const { resources } = this.props;
@@ -54,13 +54,13 @@ export class Resources extends React.Component<Props, State> {
   
     return (
       <React.Fragment>
-        <InputTag
-          id='resourceTags'
-          name='resourceTags'
-          placeholder='Press ENTER to add'
-          checkboxes={checkboxes}
-          onCheckboxChange = {(box) => this.checkboxChange(box)}
-        />
+          <InputTag
+            id='resourceTags'
+            name='resourceTags'
+            placeholder='Press ENTER to add'
+            checkboxes={checkboxes}
+            onCheckboxChange = {(box) => this.checkboxChange(box)}
+          />
         <div className={css.gridThree}>
           {filteredResources.map(resource => (
             <div className={css.gridThreeItem} key={Utils.randomString()}>
