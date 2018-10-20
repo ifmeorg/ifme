@@ -31,7 +31,7 @@ class MedicationsController < ApplicationController
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     return if @medication.user_id == current_user.id
 
-    redirect_to_path(medication_path(@medication))
+    redirect_to_medication(@medication)
   end
 
   # POST /medications
@@ -67,10 +67,13 @@ class MedicationsController < ApplicationController
     redirect_to_path(medications_path)
   end
 
+  def redirect_to_medication(medication)
+    redirect_to_path(medication_path(medication))
+  end
+
   def return_to_sign_in
     sign_out current_user
     redirect_to_path(new_user_session_path)
-    false
   end
 
   private
@@ -82,13 +85,6 @@ class MedicationsController < ApplicationController
         render(json: @medication.errors,
                status: :unprocessable_entity)
       end
-    end
-  end
-
-  def redirect_to_medication(medication)
-    respond_to do |format|
-      format.html { redirect_to medication_path(medication) }
-      format.json { render :show, status: :ok, location: medication }
     end
   end
 

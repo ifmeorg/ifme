@@ -58,7 +58,7 @@ class MomentsController < ApplicationController
     @mood = Mood.new
     @strategy = Strategy.new
     @moment.published_at = Time.zone.now if publishing?
-    shared_create(@moment, 'moment')
+    shared_create(@moment)
   end
 
   # PATCH/PUT /moments/1
@@ -75,7 +75,7 @@ class MomentsController < ApplicationController
       @moment.published_at = nil
     end
     empty_array_for :viewers, :mood, :strategy, :category
-    shared_update(@moment, 'moment', moment_params)
+    shared_update(@moment, moment_params)
   end
   # rubocop:enable MethodLength
 

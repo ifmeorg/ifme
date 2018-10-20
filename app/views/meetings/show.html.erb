@@ -13,7 +13,7 @@
 <% if user_is_leader_of?(@meeting) %>
   <div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
     <div class="gridRowSpaceBetween">
-      <div class="smallerMarginRight"><%= t('common.actions.plural') %>:</div>
+      <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
       <%= react_component('StoryActions', props: {
         dark: true,
         actions: {

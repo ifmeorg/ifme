@@ -76,11 +76,12 @@ jobs:
             RAILS_ENV: test
             RACK_ENV: test
       - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
       - run:
           name: Run React Jest Tests
           command: |
             set -e
-            cd client && RAILS_ENV=test bundle exec rake react_on_rails:locale && yarn lint:setup && yarn lint:build && yarn build:test && yarn test --coverage
+            cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci
             cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t lcov -o codeclimate.frontend.json ../client/coverage/lcov.info
       - persist_to_workspace:
           root: tmp

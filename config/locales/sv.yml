@@ -3,13 +3,11 @@ sv:
   app_description: 'En gemenskap för mentala hälsoupplevelser'
   draft: Utkast
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Skapad %{created_at}'
   edited: 'Skapad %{created_at} (redigerad)'
   edited_updated_at: 'Skapad %{created_at} (redigerad %{updated_at})'
   salutation: 'Hej %{name},'
   click_here: 'Klicka här'
-  less: ' [Mindre]'
   language: Språk
   yes_text: ja
   no_text: nej
@@ -49,7 +47,7 @@ sv:
     name: Namn
     you: Du
     title: Titel
-    date: 'Datum:'
+    date: Datum
     daily_reminder: 'Daglig påminnelse via e-post'
     actions:
       plural: Handlingar
@@ -196,6 +194,7 @@ sv:
       refill_hint: 'När ska du fylla på receptet'
       refill_reminder_hint: 'Vi skickar e-post till dig med en påminnelse veckan innan läkemedlet behöver fyllas på igen.'
       daily_reminder_hint: 'Vi skickar e-post till dig med en daglig påminnelse för att ta detta läkemedel'
+      total: Total
     new: 'Ny Medicinering'
     units:
       display: '%{count} %{unit}'
@@ -213,7 +212,6 @@ sv:
     index:
       title: Mediciner
       subtitle: 'Håll koll på dina mediciner, inklusive dosering och påfyllningsinformation.'
-      total: Total
       instructions: 'Du har inte sparat några mediciner än.<br><br>Här är ett exempel på en sparad medicinering! Du kan också skriva om din upplevelse.'
       example_name: Prozac
       example_strength: '10 mg'
@@ -344,7 +342,7 @@ sv:
       main_message_one: '%{app_name} är en gemenskap för mentala erfarenheter som uppmuntrar människor att dela sina personliga historier med betrodda allierade.'
       message_text_one: 'Tillförlitliga allierade är de människor vi samarbetar med dagligen, inklusive vänner, familjemedlemmar, medarbetare, lärare och psykiatriska arbetstagare.'
       main_message_two: 'Att hantera mental hälsa är det som gör oss mänskliga. Men för många av oss är det en kamp att vara öppen om det.'
-      message_text_two: 'Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.<p><div class="subtitle block">"Det är inte bara allt i ditt huvud, det är runt dig. Vi kan läka tillsammans."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>'
+      message_text_two: '<p>Inte alla är en rådgivare eller terapeut. De människor som vi interagerar med varje dag formar våra känslor och beteende. Att få dem att delta i mentalvård är nyckeln till återhämtning.</p><p class="subtitle">"Det är inte bara allt i ditt huvud, det är runt dig. Vi kan läka tillsammans."</p><p>Mental hälsa är en sådan individ och unik upplevelse. Inga två hjärnor är lika! Att hantera problemet kräver idéer från alla, varför projektet är öppen källkod.</p>'
       main_message_three: 'Vill du hjälpa till att finansiera oss?'
       message_text_three: 'Vår app är ett <u>fullständigt</u> öppen källkods-projekt. Det är byggt och underhållet av volontärer med många olika bakgrunder och kunskaper.</p><p>År 2016 mottog vi ett stipendium från %{linebreak_link}. År 2017 mottog vi finansiering från %{fund_club_link}.</p>Du kan stödja oss genom att donera till vår %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ sv:
         social_justice: 'social rättvisa'
         tech_industry: IT-branschen
         meditation: meditation
+        anxiety: ångest
         social_anxiety: 'social ångest'
         trigger_warnings: trigger-varningar
         netflix: netflix
@@ -488,6 +487,13 @@ sv:
         rehabilitation: rehabilitering
         teachers: lärare
         bipolar: bipolar
+        goal_tracking: målsökning
+        social_network: 'socialt nätverk'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'Överlevande av sexuella övergrepp'
+        political_movement: 'politisk rörelse'
+        reporting: rapportering
   profile:
     index:
       title: Profil

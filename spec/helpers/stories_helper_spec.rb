@@ -19,7 +19,7 @@ describe StoriesHelper, type: :controller do
     before { sign_in user1 }
 
     context 'when not including allies' do
-      subject { controller.get_stories(user1, false) }
+      subject { controller.get_stories(user1) }
 
       context 'when there are no stories' do
         it { is_expected.to be_empty }
@@ -53,7 +53,7 @@ describe StoriesHelper, type: :controller do
         create(:strategy, user_id: ally_id, viewers: viewers, published_at: timestamp)
       end
 
-      subject { controller.get_stories(user1, true) }
+      subject { controller.get_stories(user1) }
 
       context 'when there are no stories' do
         it { is_expected.to be_empty }

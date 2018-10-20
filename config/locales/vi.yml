@@ -2,14 +2,12 @@ vi:
   app_name: 'if me'
   app_description: 'Đồng sức khỏe tâm thần'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Tạo %{created_at}'
   draft: Nháp
   edited: 'Tạo %{created_at} (chỉnh sửa)'
   edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
   salutation: 'Xin chào  %{name},'
   click_here: 'nhấn vào đây'
-  less: ' [Ít hơn]'
   language: 'Ngôn ngữ'
   yes_text: có
   no_text: không
@@ -49,7 +47,7 @@ vi:
     name: Tên
     you: Bạn
     title: 'Tiêu đề'
-    date: 'Chung kỳ:'
+    date: 'Chung kỳ'
     daily_reminder: 'Email nhắc nhở hàng ngày'
     actions:
       plural: 'Hành động'
@@ -196,6 +194,7 @@ vi:
       refill_hint: 'Khi nào cần cấp lại thuốc'
       refill_reminder_hint: 'Chúng tôi sẽ gửi email nhắc nhở cho bạn một tuần trước khi bạn cần bổ sung thuốc mới'
       daily_reminder_hint: 'Chúng tôi sẽ gửi nhắc nhở hàng ngày khi nào bạn cần uống thuốc'
+      total: 'Tổng cộng'
     new: 'Thuốc mới'
     units:
       display: '%{count} %{unit}'
@@ -213,7 +212,6 @@ vi:
     index:
       title: Thuốc
       subtitle: 'Theo dõi việc sử dụng thuốc, bao gồm liều lượng và thông tin bổ sung thuốc mới.'
-      total: 'Tổng cộng'
       instructions: 'Bạn chưa lưu lại thông tin thuốc nào cả.<br><br>Và đây là ví dụ để lưu! Bạn có thể viết ra kinh nghiệm của bạn.'
       example_name: Prozac
       example_strength: '10 mg'
@@ -344,7 +342,7 @@ vi:
       main_message_one: '%{app_name} là một cộng đồng của sức khỏe tâm thần trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ với những đồng minh thân tín.'
       message_text_one: 'Những đồng minh hay bạn bè thân tín là những người có liên hệ trong cuộc sống hàng ngày bao gốm bạn bè, thành viên gia đình, đồng nghiệp, giáo viên và những nhân viên chăm sóc sức khỏe tâm thần.'
       main_message_two: 'Giải quyết cá vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó.'
-      message_text_two: 'Không phải ai cũng là nhà tư vấn hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chinh la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.<p><div class="subtitle block">"Không phải chỉ là trong đầu của bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng nhau chửa lành cho nhau."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom">Sức khỏe tâm thần là những kinh nghiệm của từng các nhân và riêng việt. không có hai cái não giống nhau, giải quyết cá vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>'
+      message_text_two: '<p>Không phải ai cũng là nhà tư vấn hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chinh la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.</p><p class="subtitle">"Không phải chỉ là trong đầu của bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng nhau chửa lành cho nhau."</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các nhân và riêng việt. không có hai cái não giống nhau, giải quyết cá vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>'
       main_message_three: 'Mong muốn ủng hộ chúng tôi?'
       message_text_three: 'Ứng dụng của chúng tôi là một dự án mã nguồn mở <u>hoàn toàn </u>. Nó được xây dựng và duy trì bởi các tình nguyện viên có nhiều nền tảng và kỹ năng khác nhau.</p><p>Vào năm 2016, chúng tôi đã nhận được khoản trợ cấp cộng đồng từ %{linebreak_link}. Năm 2017, chúng tôi nhận được tài trợ từ %{fund_club_link}.</p>Bạn có thể hỗ trợ chúng tôi bằng cách quyên góp cho %{patreon_link} của chúng tôi.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ vi:
         social_justice: 'đạo đức xã hội – công lý'
         tech_industry: 'công nghệ'
         meditation: 'thiền định'
+        anxiety: 'sự lo ngại'
         social_anxiety: 'lo lắng xã hội'
         trigger_warnings: 'cảnh báo'
         netflix: netflix
@@ -488,6 +487,13 @@ vi:
         rehabilitation: 'hàn gắng'
         teachers: 'giáo viên'
         bipolar: bipolar
+        goal_tracking: 'theo dõi mục tiêu'
+        social_network: 'mạng xã hội'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'những người sống sót tấn công tình dục'
+        political_movement: 'phong trào chính trị'
+        reporting: 'Báo cáo'
   profile:
     index:
       title: 'Hồ sơ'

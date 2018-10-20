@@ -154,5 +154,23 @@
     "link": "https://daylio.webflow.io/",
     "tags": ["mood_tracking", "android", "ios"],
     "languages": ["en"]
+  },
+  {
+    "name": "Habitica",
+    "link": "https://habitica.com/",
+    "tags": ["goal_tracking", "social_network", "self_care", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Low Cost Help (US)",
+    "link": "http://lowcosthelp.com/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Callisto (US)",
+    "link": "https://www.projectcallisto.org/",
+    "tags": ["sexual_assault_survivors", "harassment", "reporting"],
+    "languages": ["en"]
   }
 ]

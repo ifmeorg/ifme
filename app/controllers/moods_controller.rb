@@ -33,26 +33,26 @@ class MoodsController < ApplicationController
   # POST /moods.json
   def create
     @mood = Mood.new(mood_params.merge(user_id: current_user.id))
-    shared_create(@mood, 'mood')
+    shared_create(@mood)
   end
 
   # POST /moods
   # POST /moods.json
   def premade
-    Mood.add_premade(current_user.id)
+    shared_add_premade(Mood, 5)
     redirect_to_path(moods_path)
   end
 
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    shared_update(@mood, 'mood', mood_params)
+    shared_update(@mood, mood_params)
   end
 
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
-    shared_destroy(@mood, 'mood')
+    shared_destroy(@mood)
   end
 
   def quick_create

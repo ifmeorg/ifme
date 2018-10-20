@@ -4122,10 +4122,10 @@ enzyme-adapter-utils@^1.8.0:
     object.assign "^4.1.0"
     prop-types "^15.6.2"
 
-enzyme@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.6.0.tgz#d213f280a258f61e901bc663d4cc2d6fd9a9dec8"
-  integrity sha512-onsINzVLGqKIapTVfWkkw6bYvm1o4CyJ9s8POExtQhAkVa4qFDW6DGCQGRy/5bfZYk+gmUbMNyayXiWDzTkHFQ==
+enzyme@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.7.0.tgz#9b499e8ca155df44fef64d9f1558961ba1385a46"
+  integrity sha512-QLWx+krGK6iDNyR1KlH5YPZqxZCQaVF6ike1eDJAOg0HvSkSCVImPsdWaNw6v+VrnK92Kg8jIOYhuOSS9sBpyg==
   dependencies:
     array.prototype.flat "^1.2.1"
     cheerio "^1.0.0-rc.2"
@@ -5721,11 +5721,6 @@ hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
   integrity sha1-MRYKNpMK2vH8BMYHT360FGXU7Es=
-
-i18n-js@^3.0.11:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/i18n-js/-/i18n-js-3.0.11.tgz#f9e96bdb641c5b9d6be12759d7c422089987ef02"
-  integrity sha512-v7dG3kYJTQTyox3NqDabPDE/ZotWntyMI9kh4cYi+XlCSnsIR+KBTS2opPyObL8WndnklcLzbNU92FP/mLge3Q==
 
 iconv-lite@0.4.19:
   version "0.4.19"
@@ -9325,10 +9320,10 @@ react-modal@^3.5.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
-react-on-rails@11.1.7:
-  version "11.1.7"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.7.tgz#bd69f8d51921495f945c6412982388f2f940be18"
-  integrity sha512-H/lScB1gPtE2sasoki/G/nxSvqRHmY2JVDXptBI7VctkUQr6EgD5BRADdbowE/EFzm7iH84a8aVOg6NUJ5zWBA==
+react-on-rails@11.1.8:
+  version "11.1.8"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.8.tgz#6d5ba72a514cac4ea4efddd8a80f61909d3e9bd7"
+  integrity sha512-vc4uw9IiDZcU4v8CwZEXOd4fVyp1Tu3LCcp9nKS4q3ffr/Ea+jphc+TrqR3nkVOAfcl67UciIDAjXrrnFezJVA==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
 

@@ -94,5 +94,17 @@
     "link": "https://www.nami.org/",
     "tags": ["free", "support_groups", "directory"],
     "languages": ["en", "es"]
+  },
+  {
+    "name": "Buddy Project",
+    "link": "http://www.buddy-project.org/",
+    "tags": ["support_groups", "suicide_prevention"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Elefriends (UK)",
+    "link": "https://www.elefriends.org.uk/",
+    "tags": ["support_groups", "anonymous", "android", "ios"],
+    "languages": ["en"]
   }
 ]

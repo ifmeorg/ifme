@@ -2,14 +2,12 @@ de:
   app_name: 'if me'
   app_description: 'ist eine Community rund um das Thema psychische Gesundheit'
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Erstellt %{created_at}'
   draft: Draft
   edited: 'Erstellt %{created_at} (geändert)'
   edited_updated_at: 'Erstellt %{created_at} (geändert %{updated_at})'
   salutation: 'Hallo %{name},'
   click_here: 'Klick hier'
-  less: ' [Less]'
   language: Sprache
   yes_text: ya
   no_text: nein
@@ -50,7 +48,7 @@ de:
     name: Name
     you: Du
     title: Titel
-    date: 'Datum:'
+    date: Datum
     daily_reminder: 'Tägliche Erinnerungsmail'
     actions:
       plural: Aktionen
@@ -199,6 +197,7 @@ de:
       refill_hint: 'Wann dieses Rezept erneuert werden muss'
       refill_reminder_hint: 'Wir senden dir eine Erinnerungsmail in der Woche bevor dieses Arzneimittel aufgefüllt werden muss.'
       daily_reminder_hint: 'Wir senden dir eine tägliche Erinnerungsmail zum Einnehmen dieses Arzneimittels'
+      total: Gesamt
     new: 'Neues Arzneimittel'
     units:
       display: '%{count} %{unit}'
@@ -216,7 +215,6 @@ de:
     index:
       title: Arzneimittel
       subtitle: 'Behalte deine Arzneimittel im Auge, wie z.B. deren Dosis und wann sie wieder aufgefüllt werden müssen.'
-      total: 'Gesamt:'
       instructions: 'Du hast noch keine Arzneimittel gespeichert. Klicke %{icon} um eins hinzuzufügen!<br><br>Hier ist ein Beispieleintrag! Du kannst natürlich deine eigenen Daten benutzen.'
       example_name: Prozac
       example_strength: '10 mg'
@@ -350,7 +348,7 @@ de:
       main_message_one: '%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauenswürdigen Personen zu teilen.'
       message_text_one: 'Vertrauenswürdige Helfer sind Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit.'
       main_message_two: 'Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen.'
-      message_text_two: 'Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.<p><div class="subtitle block">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="no_margin_bottom">Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open Source-Projekt ist.</p>'
+      message_text_two: '<p>Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.</p><p class="subtitle">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</p><p>Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open Source-Projekt ist.</p>'
       main_message_three: 'Möchtest du uns finanziell unterstützen?'
       message_text_three: 'Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -457,6 +455,7 @@ de:
         social_justice: 'soziale Gerechtigkeit'
         tech_industry: Technologiesektor
         meditation: Meditation
+        anxiety: Angst
         social_anxiety: 'soziale Phobie'
         trigger_warnings: Triggerwarnung
         netflix: Netflix
@@ -496,6 +495,13 @@ de:
         rehabilitation: Rehabilitation
         teachers: Lehrer
         bipolar: bipolar
+        goal_tracking: Zielverfolgung
+        social_network: 'Soziales Netzwerk'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'Überlebende sexueller Übergriffe'
+        political_movement: 'politische Bewegung'
+        reporting: Berichterstattung
   profile:
     index:
       title: Profil

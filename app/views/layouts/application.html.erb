@@ -54,7 +54,7 @@
     <% end %>
   </head>
 
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body>
     <div class="content <%= (user_signed_in? && !static_page?) || secret_share_path? ? 'dashboard' : 'static' %>" role="main">
       <%= react_component('Header', props: header_props) %>
       <%= render partial: 'shared/alerts' %>

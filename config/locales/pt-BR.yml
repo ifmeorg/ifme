@@ -3,13 +3,11 @@ pt-BR:
   app_description: 'Uma comunidade para o compartilhamento de experiências sobre saúde mental'
   draft: Rascunho
   email: join.ifme@gmail.com
-  ellipsis: ' [...]'
   created: 'Criada em%{created_at}'
   edited: 'Criada em %{created_at} (edited)'
   edited_updated_at: 'Data Criação %{created_at} (edited %{updated_at})'
   salutation: 'Olá %{name},'
   click_here: 'clique aqui'
-  less: ' [Menos]'
   language: Idioma
   yes_text: sim
   no_text: não
@@ -49,7 +47,7 @@ pt-BR:
     name: Nome
     you: Você
     title: Título
-    date: 'Data:'
+    date: Data
     daily_reminder: 'Email de lembrete diário'
     actions:
       plural: Ações
@@ -196,6 +194,7 @@ pt-BR:
       refill_hint: 'Quando atualizar essa receita médica'
       refill_reminder_hint: 'Iremos enviar um email com um lembrete uma semana antes do término do prazo, para atualizar os estoques do seu medicamento.'
       daily_reminder_hint: 'Enviaremos um lembrete diário para tomar essa medicação.'
+      total: Total
     new: 'Nova Medicação'
     units:
       display: '%{count} %{unit}'
@@ -213,7 +212,6 @@ pt-BR:
     index:
       title: Medicamentos
       subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
-      total: Total
       instructions: 'Você ainda não tem nenhum medicamento salvo.<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a).'
       example_name: Prozac
       example_strength: '10 mg'
@@ -344,7 +342,7 @@ pt-BR:
       main_message_one: '%{app_name} é uma comunidade para experiências relacionadas a saúde mental que encoraja as pessoas a compartilharem suas histórias pessoais com aliados de confiança.'
       message_text_one: 'Aliados de confiança são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares , companheiros de trabalho, professores, e profissionais da área de saúde mental.'
       main_message_two: 'Lidar com a saúde mental é o que nos faz humanos. Mas, para muitos de nós ,é um problema lidar com saúde mental de uma forma aberta.'
-      message_text_two: 'Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.<p><div class="subtitle block">"As questões relacionadas a saúde mental não estão apenas na sua mente, mas ao seu redor. E juntos, nós podemos resolvê-las."</div><div class="spacer"></div><div class="purple_yay">&hearts;</div></p><p class="noMarginBottom"> Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>'
+      message_text_two: '<p>Nem todas as pessoas são terapeutas ou conselheiras. As pessoas com as quais interagimos diariamente formam nossa emoções e comportamentos.Envolve-las no cuidado da sáude mental é a chave para a recuperação.</p><p class="subtitle">"As questões relacionadas a saúde mental não estão apenas na sua mente, mas ao seu redor. E juntos, nós podemos resolvê-las."</p><p>Saúde mental é uma experiência pessoal e única. Não existem duas mentes iguais! Identificar o problema necessita de novas idéias de diversas pessoas, por isso o projeto é open source.</p>'
       main_message_three: 'Quer patrocinar o projeto?'
       message_text_three: ' Nosso aplicativo é <u>completamente</u> open source(Código aberto). É construido e mantido por voluntários com diferentes experiências e habilidades.</p><p>Em 2016, recebemos o apoio de %{linebreak_link}. Em 2017, recebemos financiamento de %{fund_club_link}.</p>Você pode nos dar suporte através do %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -449,6 +447,7 @@ pt-BR:
         social_justice: 'justiça social'
         tech_industry: 'indústria tecnológica'
         meditation: meditação
+        anxiety: ansiedade
         social_anxiety: 'ansiedade social'
         trigger_warnings: 'avisos de segurança'
         netflix: netflix
@@ -488,6 +487,13 @@ pt-BR:
         rehabilitation: reabilitação
         teachers: professores
         bipolar: bipolar
+        goal_tracking: 'acompanhamento de metas'
+        social_network: 'rede social'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: 'sobreviventes de agressão sexual'
+        political_movement: 'movimento político'
+        reporting: reportando
   profile:
     index:
       title: Perfil
