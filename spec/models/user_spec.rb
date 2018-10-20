@@ -140,7 +140,7 @@ describe User do
       let(:user) { build(:user, password: nil) }
 
       context 'when password is blank' do
-        it 'should throw only password error from devise' do
+        it 'throws password error only from devise' do
           expect(user.valid?).to be false
 
           expect(user).to have(1).error_on(:password)
@@ -149,7 +149,7 @@ describe User do
       end
 
       context 'when oauth is enabled' do
-        it 'saves without any errors even if the password strength is less' do
+        it 'doesnt throw any errors even if the password strength is less' do
           user.password = 'warsdasdf'
           user.token = 'access token'
           expect(user.valid?).to be true
@@ -157,14 +157,14 @@ describe User do
       end
 
       context 'when password is valid' do
-        it 'saves without any errors' do
+        it 'doesnt throw any errors' do
           user.password = 'waspAr$0'
           expect(user.valid?).to be true
         end
       end
 
       context 'when password is invalid' do
-        it 'should return respective error message' do
+        it 'returns respective error message' do
           ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
             user.password = password
             expect(user.valid?).to be false

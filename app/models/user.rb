@@ -44,7 +44,7 @@
 #
 
 class User < ApplicationRecord
-  include PasswordValidatable
+  include PasswordValidator
 
   ALLY_STATUS = {
     accepted: 0,
@@ -156,10 +156,6 @@ class User < ApplicationRecord
       uid: access_token.uid,
       access_expires_at: Time.zone.at(access_token.credentials.expires_at)
     )
-  end
-
-  def valid_password?
-    google_oauth2_enabled? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
   end
 
   private
