@@ -58,4 +58,29 @@ describe('InputDefault', () => {
       expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });
+
+  describe('copyOnClick prop type', () => {
+    it('adds onClick prop ', () => {
+      const wrapper = shallow(
+        <InputDefault
+          id={id}
+          type="text"
+          name={name}
+          copyOnClick="true"
+        />,
+      );
+      expect(wrapper.find('input').prop('onClick').onClick).to.equal();
+    });
+
+    it('does not add onClick prop', () => {
+      const wrapper = shallow(
+        <InputDefault
+          id={id}
+          type="text"
+          name={name}
+        />,
+      );
+      expect(wrapper.props().onClick).to.equal(10);
+    });
+  });
 });
