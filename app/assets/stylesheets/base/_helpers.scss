@@ -1,0 +1,64 @@
+
+.hide {
+  &OnXSmall {
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+  }
+
+  &OnSmall {
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+  }
+
+  &OnMedium {
+    @media screen and (max-width: $medium) {
+      display: none;
+    }
+  }
+
+  &OnLarge {
+    @media screen and (max-width: $large) {
+      display: none;
+    }
+  }
+
+  &OnXLarge {
+    @media screen and (max-width: $x-large) {
+      display: none;
+    }
+  }
+}
+
+.show {
+  &OnXSmall {
+    @media screen and (max-width: $small) {
+      display: block;
+    }
+  }
+
+  &OnSmall {
+    @media screen and (max-width: $small) {
+      display: block;
+    }
+  }
+
+  &OnMedium {
+    @media screen and (max-width: $medium) {
+      display: block;
+    }
+  }
+
+  &OnLarge {
+    @media screen and (max-width: $large) {
+      display: block;
+    }
+  }
+
+  &OnXLarge {
+    @media screen and (max-width: $x-large) {
+      display: block;
+    }
+  }
+}

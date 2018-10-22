@@ -30,8 +30,10 @@
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border-radius: $size-4;
     background: $white;
-    width: 60vw;
+    width: 90vw;
+    max-width: 910px;
     height: 65vh;
+    max-height: 440px;
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
       width: 100vw;

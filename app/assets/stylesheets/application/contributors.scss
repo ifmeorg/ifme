@@ -1,31 +1,46 @@
-.contributorModal-body {
+.contributorModalBody {
 	display: flex;
 	flex-direction: row;
 
-	.contributorModal-body-photo {
-		flex: 0 1 30%;
-	}
+	.contributorModalBodyPhoto {
+    flex: 0 1 30%;
+    @media screen and (max-width: $small) {
+      flex: 0 1 25%;
+      .contributorModalAvatarMedium img.Avatar__image___2cXeU {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
 
-	.contributorModal-body-copy {
-		margin-left: $size-18;
+	.contributorModalBodyCopy {
+    margin-left: $size-18;
+    
+    .contributorModalHeader {
+      display: flex;
+      align-items: center;
 
-		h4.contributorModal-name {
-			font-size: $size-36;
-			color: $mulberry;
-			line-height: $size-42;
-			font-weight: 400;
-			margin: $size-24 0 $size-10 0;
-		}
+      h4.contributorModalName {
+        font-size: $size-36;
+        color: $mulberry;
+        line-height: $size-42;
+        font-weight: 400;
+        margin: $size-24 0 $size-10 0;
+        @media screen and (max-width: $small) {
+          margin-top: 0;
+        }
+      }
 
-		.contributorModal-body-socialLinks {
-			font-size: $size-14;
-			text-transform: uppercase;
-			letter-spacing: 2px;
+      .contributorModalBodySocialLinks {
+        font-size: $size-14;
+        text-transform: uppercase;
+        letter-spacing: 2px;
 
-			i:last-of-type {
-				margin-left: $size-22;
-			}
-		}
+        i:last-of-type {
+          margin-left: $size-10;
+        }
+      }
+    }
 
 		p {
 			font-size: $size-18;
