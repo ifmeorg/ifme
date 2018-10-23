@@ -96,25 +96,16 @@ class User < ApplicationRecord
     ally_groups.order(order) - groups
   end
 
-  # TODO: _signed_in_resource is unused and should be removed
-  # rubocop:disable MethodLength
-  def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
+  def self.find_for_google_oauth2(access_token)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
       u.password = Devise.friendly_token[0, 20]
     end
     user.name ||= data.name
 
-    user.update!(
-      provider: access_token.provider,
-      token: access_token.credentials.token,
-      refresh_token: access_token.credentials.refresh_token,
-      uid: access_token.uid,
-      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
-    )
+    update_access_token_fields(user: user, access_token: access_token)
     user
   end
-  # rubocop:enable MethodLength
 
   def google_access_token
     if !access_expires_at || Time.zone.now > access_expires_at
@@ -156,6 +147,16 @@ class User < ApplicationRecord
     new_access_token = decoded_response['access_token']
     update(token: new_access_token, access_expires_at: new_expiration_time)
     new_access_token
+  end
+
+  private_class_method def self.update_access_token_fields(user:, access_token:)
+    user.update!(
+      provider: access_token.provider,
+      token: access_token.credentials.token,
+      refresh_token: access_token.credentials.refresh_token,
+      uid: access_token.uid,
+      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
+    )
   end
 
   private
