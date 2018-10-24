@@ -1,4 +1,4 @@
 <div class="pageAuthor">
   <%= ProfilePicture.fetch(local_assigns[:author].avatar.url, small: true) %>
-  <%= link_to local_assigns[:author].name, profile_index_path(uid: get_uid(local_assigns[:author].id)) %>
+  <%= link_to local_assigns[:author].name, profile_index_path(uid: local_assigns[:author].uid) %>
 </div>

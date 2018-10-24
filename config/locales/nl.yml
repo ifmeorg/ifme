@@ -47,7 +47,7 @@ nl:
     name: Naam
     you: Jij
     title: Titel
-    date: 'Datum:'
+    date: Datum
     daily_reminder: 'Dagelijkse herinnering e-mail'
     actions:
       plural: Acties
@@ -194,6 +194,7 @@ nl:
       refill_hint: 'Wanneer dit voorschrift bijgevuld moet worden'
       refill_reminder_hint: 'We e-mailen je een herinnering een week voordat je medicatie bijgevult moet worden.'
       daily_reminder_hint: 'We mailen je dagelijks een herinnering om je medicatie in te nemen'
+      total: Totaal
     new: 'Nieuwe Medicatie'
     units:
       display: '%{count} %{unit}'
@@ -211,7 +212,6 @@ nl:
     index:
       title: Medicatie
       subtitle: 'Houd je medicatie bij, inclusief informatie over dosis en bijvuldata.'
-      total: Totaal
       instructions: 'Je hebt nog geen medicatie opgeslagen.<br><br>Hier is een voorbeeld van opgeslagen medicatie. Je kunt je ervaringen er ook bij schrijven.'
       example_name: Prozac
       example_strength: '10 mg'

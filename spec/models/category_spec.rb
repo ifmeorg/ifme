@@ -1,8 +1,7 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
-# Table name: moods
+# Table name: categories
 #
 #  id          :integer          not null, primary key
 #  name        :string
@@ -13,22 +12,22 @@
 #  slug        :string
 #
 
-describe Mood do
+describe Category do
   context 'creation' do
     it 'is valid' do
-      mood = create(:mood, :with_user)
-      expect(mood).to be_valid
-      expect(Mood.count).to eq(1)
+      category = create(:category, :with_user)
+      expect(category).to be_valid
+      expect(Category.count).to eq(1)
     end
 
     it 'is invalid without a user_id' do
-      mood = build(:mood, user_id: nil)
-      expect(mood).to be_invalid
+      category = build(:category, user_id: nil)
+      expect(category).to be_invalid
     end
 
     it 'is invalid without a name' do
-      mood = build(:mood, name: nil)
-      expect(mood).to have(1).error_on(:name)
+      category = build(:category, name: nil)
+      expect(category).to have(1).error_on(:name)
     end
   end
 

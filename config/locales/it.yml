@@ -47,7 +47,7 @@ it:
     name: Nome
     you: Tu
     title: Titolo
-    date: 'Data:'
+    date: Data
     daily_reminder: 'EMail giornaliera'
     actions:
       plural: Azioni
@@ -194,6 +194,7 @@ it:
       refill_hint: 'Quando riempire questa prescrizione'
       refill_reminder_hint: 'Ti invieremo una EMail la settimana prossima prima che la tua medicazione abbia bisogno di un refill.'
       daily_reminder_hint: 'Ti invieremo una EMail giornaliera ricordandoti di prendere la medicazione'
+      total: Totale
     new: 'Nuova Medicazione'
     units:
       display: '%{count} %{unit}'
@@ -211,7 +212,6 @@ it:
     index:
       title: Medicazioni
       subtitle: 'Tieni traccia delle tue medicazioni, includendo dosaggio e refill.'
-      total: Totale
       instructions: 'Non hai ancora salvato nessuna medicazione.<br><br>Eccoti un esempio di medicazione! Puoi anche scrivere riguardo le tue esperienze.'
       example_name: Prozac
       example_strength: '10 mg'

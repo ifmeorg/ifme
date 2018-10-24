@@ -2,13 +2,10 @@
 
 module ReminderHelper
   def print_reminders(data)
-    reminders = ''
+    return '' unless active_reminders?(data)
 
-    if active_reminders?(data)
-      names_arr = data.active_reminders.map(&:name)
-      reminders = format_reminders(names_arr)
-    end
-
+    names_arr = data.active_reminders.map(&:name)
+    reminders = format_reminders(names_arr)
     reminders.html_safe
   end
 

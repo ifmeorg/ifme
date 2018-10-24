@@ -13,7 +13,7 @@ module CommentsHelper
   end
 
   def show_with_comments(subject)
-    model_name = record_model_name(subject)
+    model_name = subject.class.name.downcase
     if current_user.id != subject.user_id && hide_page?(subject)
       return redirect_to_path(send("#{model_name.pluralize}_path"))
     end
@@ -25,6 +25,12 @@ module CommentsHelper
   end
 
   private
+
+  def hide_page?(subject)
+    (!current_user.mutual_allies?(subject.user) \
+    && !subject.viewer?(current_user)) \
+    || !subject.published?
+  end
 
   def created_at(value)
     t('created', created_at: TimeAgo.formatted_ago(value))

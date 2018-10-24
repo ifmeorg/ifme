@@ -1,2 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @meeting.name)}" %>
-<%= react_component('Form', props: edit_meeting_props) %>
+<%= react_component('Form', props: edit_meeting_props(@meeting)) %>

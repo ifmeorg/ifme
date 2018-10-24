@@ -34,48 +34,26 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params.merge(user_id: current_user.id))
-    shared_create(@category, 'category')
+    shared_create(@category)
   end
 
   # POST /categories
   # POST /categories.json
-  # rubocop:disable MethodLength
   def premade
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade1_name'),
-      description: t('categories.index.premade1_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade2_name'),
-      description: t('categories.index.premade2_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade3_name'),
-      description: t('categories.index.premade3_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade4_name'),
-      description: t('categories.index.premade4_description')
-    )
-
+    shared_add_premade(Category, 4)
     redirect_to_path(categories_path)
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    shared_update(@category, 'category', category_params)
+    shared_update(@category, category_params)
   end
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    shared_destroy(@category, 'category')
+    shared_destroy(@category)
   end
 
   def quick_create

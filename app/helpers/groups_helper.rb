@@ -123,7 +123,7 @@ module GroupsHelper
     inputs = common_inputs
     checkboxes = []
     @group.group_members.each do |member|
-      path = profile_index_path(uid: get_uid(member.user_id))
+      path = profile_index_path(uid: member.user.uid)
       checkboxes.push(
         id: "group_leader_#{member.user_id}",
         name: 'group[leader][]',
