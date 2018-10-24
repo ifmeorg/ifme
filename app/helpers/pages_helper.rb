@@ -34,10 +34,6 @@ module PagesHelper
   end
 
   def valid_data_type?(data_type, data)
-    if data_type == 'partners'
-      data['image_link'].is_a?(String)
-    elsif data_type == 'resources'
-      data['tags'].is_a?(Array) && data['languages'].is_a?(Array)
-    end
+    data['image_link'].is_a?(String) if data_type == 'partners'
   end
 end
