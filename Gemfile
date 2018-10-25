@@ -34,7 +34,7 @@ gem 'google-api-client', '~> 0.24.3'
 gem 'kaminari', '1.1.1'
 gem 'omniauth', '~> 1.8.1'
 gem 'omniauth-google-oauth2', '~> 0.5.2'
-gem 'pusher', '1.3.1'
+gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.1'
 
 gem 'friendly_id', '~> 5.2.4'
