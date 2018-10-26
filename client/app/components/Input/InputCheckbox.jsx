@@ -46,6 +46,9 @@ const displayCheckbox = (id, name, value, checked, onChange, label) => (
     aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
   />
 );
+const resourcesPageDisplay = (classCheck: ?boolean) => {
+  if (classCheck) return css.resources
+}
 
 export const InputCheckbox = (props: Props) => {
   const {
@@ -58,7 +61,8 @@ export const InputCheckbox = (props: Props) => {
     info,
     onChange,
   } = props;
-  const resourcesPage = document.querySelector('body').classList.contains('resources');
+  const body = ((document.body:any):HTMLBodyElement)
+  const resourcesPage = body.classList.contains('resources');
   return (
     <div className={`${css.checkbox} ${globalCss.gridRowSpaceBetween}`}>
       <div>
