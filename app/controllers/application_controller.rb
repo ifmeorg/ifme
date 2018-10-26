@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::TextHelper
+  include PageRedirectConcern
   include CommentsHelper
   include CommentFormHelper
   include TagsHelper
@@ -15,22 +16,8 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context, if: proc { Rails.env.production? }
   before_action :set_locale
   around_action :with_timezone
-  helper_method :if_not_signed_in, :redirect_to_path
 
   private
-
-  def redirect_to_path(path)
-    respond_to do |format|
-      format.html { redirect_to path }
-      format.json { head :no_content }
-    end
-  end
-
-  def if_not_signed_in
-    return if user_signed_in?
-
-    redirect_to_path(new_user_session_path)
-  end
 
   def with_timezone
     timezone = Time.find_zone(cookies[:timezone])

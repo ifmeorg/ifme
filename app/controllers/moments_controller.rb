@@ -2,7 +2,7 @@
 
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
-  include CollectionPageSetup
+  include CollectionPageSetupConcern
   include MomentsHelper
   include Shared
 

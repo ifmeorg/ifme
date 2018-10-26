@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MoodsController < ApplicationController
-  include CollectionPageSetup
+  include CollectionPageSetupConcern
   include Shared
   before_action :set_mood, only: %i[show edit update destroy]
 
