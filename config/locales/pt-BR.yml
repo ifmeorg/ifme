@@ -123,7 +123,7 @@ pt-BR:
       premade3_description: 'Relacionado ao trabalho'
       premade4_name: Meditação
       premade4_description: 'Meditação, respiração profunda, e atividades relaxantes'
-      instructions: 'Você ainda não criout nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
+      instructions: 'Você ainda não criou nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
   errors:
     home_page: 'Voltar a página principal'
     internal_server_error:
