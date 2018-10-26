@@ -13,6 +13,14 @@ export type State = {
   checkboxes: any
 };
 
+export type Selected = {
+  checked: boolean, 
+  id: string, 
+  key: string, 
+  label: string, 
+  value: string
+}
+
 export class Resources extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -22,20 +30,21 @@ export class Resources extends React.Component<Props, State> {
   createCheckboxes = () => {
     const { resources } = this.props;
     const tagsList = [...new Set(resources.map(res => res.tags.concat(res.languages)).reduce((acc, val) => acc.concat(val), []))];
-    return tagsList.map((tag: string) => {return {id: tag, key: tag, value: tag, label: tag, checked: false}});
+    return tagsList.map<*>((tag: string) => {return {id: tag, key: tag, value: tag, label: tag, checked: false}});
   };
   
-  checkboxChange = (box: {checked: boolean, id: string, key: string, label: string, value: string}) => {
+  checkboxChange = (box: Selected) => {
     this.setState((prevState: State) => {
       const updatedBoxes = prevState.checkboxes.filter(checkbox => checkbox.id !== box.id).concat(box);
       return { checkboxes: updatedBoxes };
     });
   };
   
-  filterList = (res: Array<*>, check: Array<*>) => {
+  filterList = (check: Array<*>) => {
+    const { resources } = this.props;
     const selectedTags = check.filter(c => c.checked === true);
-    const matchingResources = res.filter(r => {
-      const tagCheck = selectedTags.map(t => 
+    const matchingResources = resources.filter(r => {
+      const tagCheck = selectedTags.map((t: Selected)  => 
         r.tags.concat(r.languages).includes(t.id)
       );
       if(tagCheck.includes(false)) {
@@ -48,9 +57,8 @@ export class Resources extends React.Component<Props, State> {
   };
   
   render() {
-    const { resources } = this.props;
     const { checkboxes } = this.state;
-    const filteredResources = this.filterList(resources, checkboxes);
+    const filteredResources = this.filterList(checkboxes);
     return (
       <React.Fragment>
           <InputTag
