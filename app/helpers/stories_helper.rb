@@ -30,15 +30,19 @@ module StoriesHelper
     end
   end
 
-  def user_stories(scope, user, include_allies)
-    return viewable_published_stories(scope) unless current_user.id == user.id
-    return scope unless include_allies
-
+  def include_allies_in_stories(scope, user)
     user.allies_by_status(:accepted).each do |ally|
       scope_class = scope&.first&.class
       ally_scope = scope_class == Moment ? ally.moments : ally.strategies
       scope += viewable_published_stories(ally_scope)
     end
     scope
+  end
+
+  def user_stories(scope, user, include_allies)
+    return viewable_published_stories(scope) unless current_user.id == user.id
+    return scope unless include_allies
+
+    include_allies_in_stories(scope, user)
   end
 end
