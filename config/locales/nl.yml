@@ -116,9 +116,9 @@ nl:
     index:
       subtitle: 'Het leven is een rommeltje, categoriseer mensen, plaatsen en dingen.'
       premade1_name: Familie
-      premade1_description: 'Gerelateerd met familie'
+      premade1_description: 'Gerelateerd aan familie'
       premade2_name: Vrienden
-      premade2_description: 'Gerelateerd met vrienden'
+      premade2_description: 'Gerelateerd aan vrienden'
       premade3_name: Werk
       premade3_description: 'Werkgerelateerd'
       premade4_name: Meditatie
