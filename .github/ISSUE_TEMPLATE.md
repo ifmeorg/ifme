@@ -27,7 +27,7 @@
 # Do you want to be the assignee to work on this?
 
 ✅ <!--[YES, remove line if not applicable]-->
-🚫 <!--[NO, remove line if not applicable]-->
+🚫 
 
 <!--[
   You don't have to work on the issue to file an issue!
