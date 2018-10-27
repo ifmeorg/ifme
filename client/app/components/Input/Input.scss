@@ -212,12 +212,8 @@
   }
   &Label {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
+    text-transform: capitalize;
   }
-}
-
-.resources {
-  color: #FFFFFF;
-  text-transform: capitalize;
 }
 
 .hidden {
