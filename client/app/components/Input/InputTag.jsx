@@ -35,7 +35,7 @@ export class InputTag extends React.Component<Props, State> {
         if (newCheckbox.id === id) {
           newCheckbox.checked = checked;
           const { onCheckboxChange } = this.props;
-          if(onCheckboxChange) {
+          if (onCheckboxChange) {
             onCheckboxChange(newCheckbox);
           }
         }
