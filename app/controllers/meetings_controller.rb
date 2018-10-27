@@ -92,7 +92,7 @@ class MeetingsController < ApplicationController
   def destroy
     redirect_unless_leader_for(@meeting.group) && return
     # Notify group members that the meeting has been deleted
-    send_notification(@meeting, group.members, 'remove_meeting')
+    send_notification(@meeting, @meeting.group.members, 'remove_meeting')
     # Remove corresponding meeting members
     @meeting.meeting_members.destroy_all
     @meeting.destroy
