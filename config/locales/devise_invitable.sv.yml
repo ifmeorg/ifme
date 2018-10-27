@@ -1,27 +1,27 @@
 sv:
   devise:
     failure:
-      invited: "Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto."
+      invited: 'Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto.'
     invitations:
-      send_instructions: "Ett inbjudningsbrev har skickats till %{email}."
-      failed_send: "Ett fel uppstod. '%{email}' kunde inte bjudas in."
-      invitation_token_invalid: "Nyckeln i inbjudan är inte giltig!"
-      updated: "Ditt lösenord har upprättats. Du är nu inloggad."
-      updated_not_active: "Ditt lösenord har skapats."
-      no_invitations_remaining: "Inga inbjudningar kvar"
-      invitation_removed: "Din inbjudan har tagits bort."
+      send_instructions: 'Ett inbjudningsbrev har skickats till %{email}.'
+      failed_send: 'Ett fel uppstod. %{email} kunde inte bjudas in.'
+      invitation_token_invalid: 'Nyckeln i inbjudan är inte giltig!'
+      updated: 'Ditt lösenord har upprättats. Du är nu inloggad.'
+      updated_not_active: 'Ditt lösenord har skapats.'
+      no_invitations_remaining: 'Inga inbjudningar kvar'
+      invitation_removed: 'Din inbjudan har tagits bort.'
       new:
-        header: "Skicka en inbjudan till en allierad"
-        submit_button: "Skicka en inbjudan"
+        header: 'Skicka en inbjudan till en allierad'
+        submit_button: 'Skicka en inbjudan'
       edit:
-        header: "Ange ditt lösenord"
-        submit_button: "Skapa mitt lösenord"
+        header: 'Ange ditt lösenord'
+        submit_button: 'Skapa mitt lösenord'
     mailer:
       invitation_instructions:
-        subject: "Du har blivit inbjuden att gå med i if me!"
-        subject_nameless: "Någon inbjudna dig att gå med if me!"
-        hello: "Hej %{email}!"
-        someone_invited_you: "%{name} har bjudit in dig att gå med i http://if-me.org, en gemenskap där du kan dela mentala förberedelser med dina nära och kära och hålla reda på ditt humör, dina mediciner och din egenvård. Du kan acceptera inbjudan via länken nedan."
-        accept: "Acceptera inbjudan!"
-        accept_until: "Denna inbjudan upphör att gälla den %{due_date}."
-        ignore: "Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />\nDitt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord."
+        subject: 'Du har blivit inbjuden att gå med i if me!'
+        subject_nameless: 'Någon inbjudna dig att gå med if me!'
+        hello: 'Hej %{email}!'
+        someone_invited_you: '%{name} har bjudit in dig att gå med i http://if-me.org, en gemenskap där du kan dela mentala förberedelser med dina nära och kära och hålla reda på ditt humör, dina mediciner och din egenvård. Du kan acceptera inbjudan via länken nedan.'
+        accept: 'Acceptera inbjudan!'
+        accept_until: 'Denna inbjudan upphör att gälla den %{due_date}.'
+        ignore: 'Om du inte vill acceptera inbjudan, ignorerar du det här e-postmeddelandet.<br />Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.'

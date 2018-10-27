@@ -4,6 +4,7 @@ import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import css from './Modal.scss';
+import { I18n } from '../../libs/i18n';
 
 export type Props = {
   element?: any,
@@ -50,7 +51,7 @@ export class Modal extends React.Component<Props, State> {
           onKeyDown={this.toggleOpen}
           role="button"
           tabIndex={0}
-          aria-label="Close" // TODO: intl in React not working in Rails
+          aria-label={I18n.t('close')}
         >
           <FontAwesomeIcon icon={faTimes} />
         </div>

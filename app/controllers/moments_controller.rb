@@ -2,8 +2,8 @@
 
 # rubocop:disable ClassLength
 class MomentsController < ApplicationController
-  include CollectionPageSetup
-  include CommentsHelper
+  include CollectionPageSetupConcern
+  include MomentsHelper
   include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
@@ -14,12 +14,10 @@ class MomentsController < ApplicationController
   def index
     if current_user
       @user_logged_in = true
-
       period = 'day'
       # +1 day buffer to ensure we include today as well
       end_date = Date.current + 1.day
       start_date = get_start_by_period(period, end_date)
-
       @react_moments = Moment.where(user: current_user)
                              .group_by_period(period,
                                               :created_at,
@@ -27,7 +25,6 @@ class MomentsController < ApplicationController
     else
       @user_logged_in = false
     end
-
     page_collection('@moments', 'moment')
   end
   # rubocop:enable MethodLength
@@ -37,39 +34,6 @@ class MomentsController < ApplicationController
   def show
     show_with_comments(@moment)
   end
-
-  def comment
-    comment_for('moment')
-  end
-
-  # rubocop:disable MethodLength
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(
-      id: params[:commentid],
-      comment_by: current_user.id
-    ).exists?
-
-    if comment_exists
-      momentid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_moment = Moment.where(
-        id: momentid,
-        user_id: current_user.id
-      ).exists?
-      is_a_viewer = viewer_of?(Moment.where(id: momentid).first.viewers)
-    else
-      is_my_moment = false
-      is_a_viewer = false
-    end
-
-    if comment_exists && ((is_my_comment && is_a_viewer) || is_my_moment)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
-                                         model_name: 'moment')
-    end
-
-    head :ok
-  end
-  # rubocop:enable MethodLength
 
   # GET /moments/new
   def new
@@ -95,7 +59,7 @@ class MomentsController < ApplicationController
     @mood = Mood.new
     @strategy = Strategy.new
     @moment.published_at = Time.zone.now if publishing?
-    shared_create(@moment, 'moment')
+    shared_create(@moment)
   end
 
   # PATCH/PUT /moments/1
@@ -112,7 +76,7 @@ class MomentsController < ApplicationController
       @moment.published_at = nil
     end
     empty_array_for :viewers, :mood, :strategy, :category
-    shared_update(@moment, 'moment', moment_params)
+    shared_update(@moment, moment_params)
   end
   # rubocop:enable MethodLength
 
@@ -125,13 +89,11 @@ class MomentsController < ApplicationController
 
   private
 
-  # rubocop:disable RescueStandardError
   def set_moment
     @moment = Moment.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(moments_path)
   end
-  # rubocop:enable RescueStandardError
 
   def moment_params
     params.require(:moment).permit(
@@ -142,13 +104,10 @@ class MomentsController < ApplicationController
 
   def set_association_variables!
     @viewers = current_user.allies_by_status(:accepted)
-
     @categories = Category.where(user: current_user).order(created_at: :desc)
     @category = Category.new
-
     @moods = Mood.where(user: current_user).order(created_at: :desc)
     @mood = Mood.new
-
     @strategies = associated_strategies
     @strategy = Strategy.new
   end
@@ -156,7 +115,6 @@ class MomentsController < ApplicationController
   def associated_strategies
     # current_user's strategies and all viewable strategies from allies
     strategy_ids = current_user.strategies.pluck(:id)
-
     @viewers.each do |ally|
       ally.strategies.each do |strategy|
         strategy_ids << strategy.id if strategy.viewer?(current_user)

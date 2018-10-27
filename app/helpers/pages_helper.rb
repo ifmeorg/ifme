@@ -13,16 +13,13 @@ module PagesHelper
 
   def print_partners(data)
     html = ''
-    data.each_with_index do |d, index|
+    data.each do |d|
       break unless valid_hash?('partners', d)
 
       image = image_tag(d['image_link'], alt: d['name'])
       link = link_to(image, d['link'], target: 'blank')
-
-      html += content_tag(:div, link, class: 'partner') +
-              spacer_tag?(index, data.size)
+      html += content_tag(:div, link, class: 'partner')
     end
-
     html.html_safe
   end
 
@@ -44,11 +41,5 @@ module PagesHelper
                         data['languages'].is_a?(Array)
     end
     data_type_check
-  end
-
-  def spacer_tag?(index, size)
-    return '' unless index + 1 != size
-
-    content_tag(:div, '', class: 'spacer')
   end
 end

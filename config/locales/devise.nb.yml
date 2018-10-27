@@ -1,60 +1,60 @@
 nb:
   devise:
     confirmations:
-      confirmed: "Registreringen av din epost-adresse har vært velykket."
-      send_instructions: "Du vil motta en epost med instruksjoner om hvordan du kan registere epost-adressen din innen ett par minutter."
-      send_paranoid_instructions: "Hvis epost-adressen din allerede eksisterer i vår database vil du motta en epost med instruksjoner om hvordan du kan bekrefte epost-adressen din innen ett par minutter."
+      confirmed: 'Registreringen av din epost-adresse har vært velykket.'
+      send_instructions: 'Du vil motta en epost med instruksjoner om hvordan du kan registere epost-adressen din innen ett par minutter.'
+      send_paranoid_instructions: 'Hvis epost-adressen din allerede eksisterer i vår database vil du motta en epost med instruksjoner om hvordan du kan bekrefte epost-adressen din innen ett par minutter.'
     failure:
-      already_authenticated: "Du er allerede innlogget."
-      inactive: "Kontoen din er ikke aktivert enda."
-      invalid: "Ugyldig %{authentication_keys} eller passord."
-      locked: "Kontoen din er låst."
-      last_attempt: "Du har et forsøk igjen før kontoen din låses."
-      not_found_in_database: "Ugyldig %{authentication_keys} eller passord."
-      timeout: "Økten du har utløpt. Logg inn igjen for å fortsette."
-      unauthenticated: "Du må logge inn igjen for du kan fortsette."
-      unconfirmed: "Du må bekrefte epost-adressen din før du kan fortsette."
+      already_authenticated: 'Du er allerede innlogget.'
+      inactive: 'Kontoen din er ikke aktivert enda.'
+      invalid: 'Ugyldig %{authentication_keys} eller passord.'
+      locked: 'Kontoen din er låst.'
+      last_attempt: 'Du har et forsøk igjen før kontoen din låses.'
+      not_found_in_database: 'Ugyldig %{authentication_keys} eller passord.'
+      timeout: 'Økten du har utløpt. Logg inn igjen for å fortsette.'
+      unauthenticated: 'Du må logge inn igjen for du kan fortsette.'
+      unconfirmed: 'Du må bekrefte epost-adressen din før du kan fortsette.'
     mailer:
       confirmation_instructions:
-        subject: "Bekreftelsesinstruksjoner"
+        subject: Bekreftelsesinstruksjoner
       reset_password_instructions:
-        subject: "Instruksjoner for tilbakestilling av passord"
+        subject: 'Instruksjoner for tilbakestilling av passord'
       unlock_instructions:
-        subject: "Oppløsningsinstruksjoner"
+        subject: Oppløsningsinstruksjoner
       password_change:
-        subject: "Passord oppdatert"
+        subject: 'Passord oppdatert'
     omniauth_callbacks:
-      failure: "Kunne ikke autorisere deg fra %{kind} fordi \"%{reason}\"."
-      success: "Vellykket autorisering fra %{kind} konto."
+      failure: 'Kunne ikke autorisere deg fra %{kind} fordi "%{reason}".'
+      success: 'Vellykket autorisering fra %{kind} konto.'
     passwords:
-      no_token: "Du har ikke tilgang til denne siden hvis du ikke er videresendt fra en epost med passordsoppdatering. Hvis du kommer fra en epost med passordsoppdaterings, vær sikker på at du har skrevet inn hele URLn."
-      send_instructions: "Du vil motta en epost med instruksjoner om hvordan du kan tilbakestille passordet ditt innen ett par minutter."
-      send_paranoid_instructions: "Hvis eposten din eksisterer i vår database vil du motta en epost med passordgjenopprettelseslink innen ett par minutter."
-      updated: "Oppdateringen av passordet ditt var velykket. Du er nå innlogget."
-      updated_not_active: "Oppdateringen av passordet ditt var velykket."
+      no_token: 'Du har ikke tilgang til denne siden hvis du ikke er videresendt fra en epost med passordsoppdatering. Hvis du kommer fra en epost med passordsoppdaterings, vær sikker på at du har skrevet inn hele URLn.'
+      send_instructions: 'Du vil motta en epost med instruksjoner om hvordan du kan tilbakestille passordet ditt innen ett par minutter.'
+      send_paranoid_instructions: 'Hvis eposten din eksisterer i vår database vil du motta en epost med passordgjenopprettelseslink innen ett par minutter.'
+      updated: 'Oppdateringen av passordet ditt var velykket. Du er nå innlogget.'
+      updated_not_active: 'Oppdateringen av passordet ditt var velykket.'
     registrations:
-      destroyed: "Hade! Kanselleringen av kontoen din var vellykket. Vi håper å se deg igjen snart."
-      signed_up: "Velkommen! Registeringen din var vellykket."
-      signed_up_but_inactive: "Registeringen din var vellykket. Men, vi kunne ikke logge deg inn siden kontoen din ikke er aktivert enda."
-      signed_up_but_locked: "Registeringen din var velykket. Men, vi kunne ikke logge deg inn siden kontoen din er låst."
-      signed_up_but_unconfirmed: "En melding med en bekreftelseslink har blitt sendt til din epost-adresse. Vennligst følg linken for å aktivere kontoen din."
-      update_needs_confirmation: "Oppdateringen av kontoen din var vellykket, men vi må bekrefte din nye epost-adresse. Vennligst sjekk eposten din og følg bekreftelseslinken for å bekrefte din nye epost-adresse."
-      updated: "Oppdateringen av kontoen din var velykket."
+      destroyed: 'Hade! Kanselleringen av kontoen din var vellykket. Vi håper å se deg igjen snart.'
+      signed_up: 'Velkommen! Registeringen din var vellykket.'
+      signed_up_but_inactive: 'Registeringen din var vellykket. Men, vi kunne ikke logge deg inn siden kontoen din ikke er aktivert enda.'
+      signed_up_but_locked: 'Registeringen din var velykket. Men, vi kunne ikke logge deg inn siden kontoen din er låst.'
+      signed_up_but_unconfirmed: 'En melding med en bekreftelseslink har blitt sendt til din epost-adresse. Vennligst følg linken for å aktivere kontoen din.'
+      update_needs_confirmation: 'Oppdateringen av kontoen din var vellykket, men vi må bekrefte din nye epost-adresse. Vennligst sjekk eposten din og følg bekreftelseslinken for å bekrefte din nye epost-adresse.'
+      updated: 'Oppdateringen av kontoen din var velykket.'
     sessions:
-      signed_in: "Innloggingen var vellykket."
-      signed_out: "Utloggingen var velykket."
-      already_signed_out: "Utloggingen var velykket."
+      signed_in: 'Innloggingen var vellykket.'
+      signed_out: 'Utloggingen var velykket.'
+      already_signed_out: 'Utloggingen var velykket.'
     unlocks:
-      send_instructions: "Du vil motta en epost med instruksjoner om hvordan du kan låse opp kontoen din innen ett par minutter."
-      send_paranoid_instructions: "Hvis kontoen din eksisterer vil du motta en post med instruksjoner om hvordan du kan låse opp kontoen din innen ett par minutter."
-      unlocked: "Opplåsningen av kontoen din var velykket. Vennligst logg inn for å fortsette."
+      send_instructions: 'Du vil motta en epost med instruksjoner om hvordan du kan låse opp kontoen din innen ett par minutter.'
+      send_paranoid_instructions: 'Hvis kontoen din eksisterer vil du motta en post med instruksjoner om hvordan du kan låse opp kontoen din innen ett par minutter.'
+      unlocked: 'Opplåsningen av kontoen din var velykket. Vennligst logg inn for å fortsette.'
   errors:
     messages:
-      already_confirmed: "var allerede bekreftet, vennligst forsøk å logge inn"
-      confirmation_period_expired: "må bekreftes innen %{period}, vennligst be om en ny"
-      expired: "har utløpt, vennligst be om en ny"
-      not_found: "ikke funnet"
-      not_locked: "var ikke låst"
+      already_confirmed: 'var allerede bekreftet, vennligst forsøk å logge inn'
+      confirmation_period_expired: 'må bekreftes innen %{period}, vennligst be om en ny'
+      expired: 'har utløpt, vennligst be om en ny'
+      not_found: 'ikke funnet'
+      not_locked: 'var ikke låst'
       not_saved:
-        one: "1 error hindret dette %{resource} fra å lagres:"
-        other: "%{count} errorer hindret denne %{resource} fra å lagres:"
+        one: '1 error hindret dette %{resource} fra å lagres:'
+        other: '%{count} errorer hindret denne %{resource} fra å lagres:'

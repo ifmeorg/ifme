@@ -7,7 +7,7 @@ function handleCheckboxClick(allChecked) {
   window.alert(`Here's an example of an action: ${allChecked}`);
 }
 
-storiesOf('Checkbox', module).add('Checkbox', () => (
+storiesOf("Checkbox (don't use)", module).add('Checkbox', () => (
   <div>
     <h2>One CheckboxGroup</h2>
     <CheckboxGroup action={allChecked => handleCheckboxClick(allChecked)}>

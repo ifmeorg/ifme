@@ -8,7 +8,7 @@ describe 'UserCreatesAPublishedStrategy', js: true do
     it 'is not successful' do
       login_as user
       visit new_strategy_path
-      find('#strategy_publishing').click
+      find('#strategy_publishing_switch').click
       find('#submit').click
       expect(page).to have_content('New Strategy')
       expect(page).to have_css('.labelError')
@@ -57,9 +57,9 @@ describe 'UserCreatesAPublishedStrategy', js: true do
         find('.accordion').click
       end
 
-      find('#strategy_comment').click
+      find('#strategy_comment_switch').click
       find('#strategy_perform_strategy_reminder').click
-      find('#strategy_publishing').click
+      find('#strategy_publishing_switch').click
       find('#submit').click
 
       # VIEWING
@@ -70,14 +70,12 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 0, Ally 1, and Ally 2'
       expect(page).to have_content 'Daily reminder email'
-      expect(page).to have_css('#new_comment')
+      expect(page).to have_css('#comments')
       expect(page).not_to have_selector '.storyDraft'
 
       # EDITING
       find('.storyActionsEdit').click
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
-      expect(page).to have_field('strategy_comment', checked: true)
-      expect(page).to have_field('strategy_publishing', checked: false)
 
       within('#strategy_category_accordion') do
         find('.accordion').click

@@ -55,6 +55,10 @@ describe 'UserCreatesAMedication', js: true do
     end
 
     context 'with Google Calendar reminders checked' do
+      before do
+        CalendarUploader.stub_chain(:new, :upload_event).and_return(true)
+      end
+
       it 'activates reminders' do
         find('#medication_refill_reminder').click
         find('#medication_take_medication_reminder').click
@@ -69,7 +73,8 @@ describe 'UserCreatesAMedication', js: true do
 
     context 'when uploader raises an error' do
       before do
-        CalendarUploader.stub_chain(:new, :upload_event).and_raise(StandardError)
+        CalendarUploader.stub_chain(:new, :upload_event)
+          .and_raise(Google::Apis::ClientError.new('error'))
       end
 
       it 'redirects to sign in' do

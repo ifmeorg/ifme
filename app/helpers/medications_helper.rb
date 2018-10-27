@@ -31,17 +31,7 @@ module MedicationsHelper
         info: t('categories.form.name_hint'),
         dark: true
       },
-      {
-        id: 'medication_strength',
-        type: 'number',
-        name: 'medication[strength]',
-        label: t('medications.form.strength'),
-        value: @medication.strength || nil,
-        required: true,
-        info: t('medications.form.strength_hint'),
-        placeholder: t('medications.form.strength_placeholder'),
-        dark: true
-      },
+      medication_field('strength'),
       {
         id: 'medication_strength_unit',
         type: 'select',
@@ -61,76 +51,10 @@ module MedicationsHelper
           }
         ]
       },
-      {
-        id: 'medication_total',
-        type: 'number',
-        name: 'medication[total]',
-        label: t('medications.index.total'),
-        value: @medication.total || nil,
-        required: true,
-        info: t('medications.form.total_hint'),
-        placeholder: t('medications.form.total_placeholder'),
-        dark: true
-      },
-      {
-        id: 'medication_total_unit',
-        type: 'select',
-        name: 'medication[total_unit]',
-        dark: true,
-        value: @medication.total_unit || t('medications.units.tablets.other'),
-        options: [
-          {
-            id: 'medication_total_unit_tablets',
-            label: t('medications.units.tablets.other'),
-            value: t('medications.units.tablets.other')
-          },
-          {
-            id: 'medication_total_unit_mg',
-            label: t('medications.units.mg'),
-            value: t('medications.units.mg')
-          },
-          {
-            id: 'medication_total_unit_ml',
-            label: t('medications.units.ml'),
-            value: t('medications.units.ml')
-          }
-        ]
-      },
-      {
-        id: 'medication_dosage',
-        type: 'number',
-        name: 'medication[dosage]',
-        label: t('medications.form.dosage'),
-        value: @medication.dosage || nil,
-        required: true,
-        info: t('medications.form.dosage_hint'),
-        placeholder: t('medications.form.dosage_placeholder'),
-        dark: true
-      },
-      {
-        id: 'medication_dosage_unit',
-        type: 'select',
-        name: 'medication[dosage_unit]',
-        dark: true,
-        value: @medication.dosage_unit || t('medications.units.tablets.other'),
-        options: [
-          {
-            id: 'medication_dosage_unit_tablets',
-            label: t('medications.units.tablets.other'),
-            value: t('medications.units.tablets.other')
-          },
-          {
-            id: 'medication_dosage_unit_mg',
-            label: t('medications.units.mg'),
-            value: t('medications.units.mg')
-          },
-          {
-            id: 'medication_dosage_unit_ml',
-            label: t('medications.units.ml'),
-            value: t('medications.units.ml')
-          }
-        ]
-      },
+      medication_field('total'),
+      medication_unit_field('total'),
+      medication_field('dosage'),
+      medication_unit_field('dosage'),
       {
         id: 'medication_refill',
         type: 'date',
@@ -201,6 +125,68 @@ module MedicationsHelper
       uncheckedValue: false,
       value: true
     )
+  end
+  # rubocop:enable MethodLength
+
+  # rubocop:disable MethodLength
+  def days_checkbox
+    week_days = 0.upto(6)
+    week_days.map do |i|
+      {
+        id: "medication_weekly_dosage_#{i}",
+        type: 'checkbox',
+        name: 'medication[weekly_dosage][]',
+        label: t(:'date.abbr_day_names')[i],
+        checked: @medication.weekly_dosage.include?(i),
+        value: i
+      }
+    end
+  end
+  # rubocop:enable MethodLength
+
+  # rubocop:disable MethodLength
+  def medication_unit_field(type)
+    {
+      id: "medication_#{type}_unit",
+      type: 'select',
+      name: "medication[#{type}_unit]",
+      dark: true,
+      value: @medication["#{type}_unit"] ||
+        t('medications.units.tablets.other'),
+      options: [
+        {
+          id: "medication_#{type}_unit_tablets",
+          label: t('medications.units.tablets.other'),
+          value: t('medications.units.tablets.other')
+        },
+        {
+          id: "medication_#{type}_unit_mg",
+          label: t('medications.units.mg'),
+          value: t('medications.units.mg')
+        },
+        {
+          id: "medication_#{type}_unit_ml",
+          label: t('medications.units.ml'),
+          value: t('medications.units.ml')
+        }
+      ]
+    }
+  end
+  # rubocop:enable MethodLength
+
+  # rubocop:disable MethodLength
+  def medication_field(type)
+    {
+      id: "medication_#{type}",
+      type: 'number',
+      name: "medication[#{type}]",
+      label: t("medications.form.#{type}"),
+      value: @medication[type.to_s] || nil,
+      required: true,
+      info: t("medications.form.#{type}_hint"),
+      placeholder: t("medications.form.#{type}_placeholder"),
+      dark: true
+    }
   end
   # rubocop:enable MethodLength
 end

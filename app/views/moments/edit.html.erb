@@ -1,2 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @moment.name)}" %>
-<%= react_component('Form', props: edit_moment_props) %>
+<%= react_component('Form', props: edit_moment_props(@moment, @viewers)) %>

@@ -14,29 +14,28 @@
 #
 
 describe Mood do
-  let(:user) { create(:user1) }
-
-  describe '.add_premade' do
-    context 'new user without moods - before clicking premade' do
-      it 'has no moods attached to user' do
-        expect(user.moods).to eq([])
-        expect(user.moods.size).to eq(0)
-      end
+  context 'creation' do
+    it 'is valid' do
+      mood = create(:mood, :with_user)
+      expect(mood).to be_valid
+      expect(Mood.count).to eq(1)
     end
 
-    context 'new user without moods - clicks on premade' do
-      it 'attaches 5 default premade moods to user' do
-        Mood.add_premade(user.id)
+    it 'is invalid without a user_id' do
+      mood = build(:mood, user_id: nil)
+      expect(mood).to be_invalid
+    end
 
-        expect(user.moods.size).to eq(5)
-        expect(user.moods.pluck(:name)).to eq(%w[
-                                                Accepting
-                                                Ambitious
-                                                Curious
-                                                Resentful
-                                                Hopeless
-                                              ])
-      end
+    it 'is invalid without a name' do
+      mood = build(:mood, name: nil)
+      expect(mood).to have(1).error_on(:name)
+    end
+  end
+
+  context 'relation' do
+    it 'belongs to a user' do
+      assc = described_class.reflect_on_association(:user)
+      expect(assc.macro).to eq :belongs_to
     end
   end
 end

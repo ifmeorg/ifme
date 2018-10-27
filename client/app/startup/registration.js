@@ -4,7 +4,7 @@
  * this bundle will be loaded in production.
  */
 import ReactOnRails from 'react-on-rails';
-import { loadLocales } from '../libs/i18n/I18nSetup';
+import { scrollToTop } from './scrollToTop';
 import '../styles/_global.scss';
 import { Avatar } from '../components/Avatar';
 import { Chart } from '../components/Chart';
@@ -26,8 +26,10 @@ import { Form } from '../components/Form';
 import { Accordion } from '../components/Accordion';
 import { Resources } from '../widgets/Resources';
 import { Notifications } from '../widgets/Notifications';
+import { ToggleLocale } from '../widgets/ToggleLocale';
+import { Comments } from '../widgets/Comments';
 
-loadLocales();
+scrollToTop();
 
 // This is how react_on_rails can see the Components in the browser.
 ReactOnRails.register({
@@ -35,6 +37,7 @@ ReactOnRails.register({
   Accordion,
   Chart,
   ChartControl,
+  Comments,
   Form,
   Header,
   HeaderProfile,
@@ -50,5 +53,6 @@ ReactOnRails.register({
   StoryDraft,
   StoryMoods,
   Tag,
+  ToggleLocale,
   Tooltip,
 });

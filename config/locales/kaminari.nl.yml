@@ -1,17 +1,17 @@
 nl:
-  views:
-    pagination:
-      first: "&laquo; Eerste"
-      last: "Laatste &raquo;"
-      previous: "&lsaquo; Vorige"
-      next: "Volgende &rsaquo;"
-      truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "%{entry_name} niet gevonden"
-          one: "Weergeven van <b>1</b> %{entry_name}"
-          other: "Weergeven van <b>alle %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Weergeven van %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> van <b>%{total}</b> in totaal"
+ views:
+  pagination:
+   first: '&laquo; Eerste'
+   last: 'Laatste &raquo;'
+   previous: '&lsaquo; Vorige'
+   next: 'Volgende &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: '%{entry_name} niet gevonden'
+     one: 'Weergeven van <b>1</b> %{entry_name}'
+     other: 'Weergeven van <b>alle %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Weergeven van %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> van <b>%{total}</b> in totaal'

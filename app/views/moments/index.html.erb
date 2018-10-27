@@ -7,8 +7,7 @@
 
 <% if @moments.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
-  <div class="spacer"></div>
-  <div class="hideOnMobile">
+  <div class="hideOnMobile marginTop marginBottom">
     <%= react_component("ChartControl", props: {
       types: [],
       initialParams: {
@@ -18,15 +17,9 @@
         }
       }
     })%>
-
-    <div class="spacer"></div>
  </div>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'moment' } %>
-
-  <% if @moments.count > 0 %>
-    <div class="spacer"></div>
-  <% end %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'moment', user: current_user } %>
 
   <div class="gridTwo">
     <%= render @moments %>
@@ -35,10 +28,7 @@
   <%= paginate @moments %>
 <% else %>
   <%= raw t('moments.index.instructions') %>
-
-  <div class="spacer"></div>
-
-  <div class="gridTwo">
+  <div class="gridTwo marginTop">
     <div class="gridTwoItemBoxLight">
       <%= react_component('Story', html_options: html_options, props: {
         name: t('moments.index.example_name'),

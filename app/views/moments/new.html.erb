@@ -1,2 +1,2 @@
 <% title "#{t('moments.new')}" %>
-<%= react_component('Form', props: new_moment_props) %>
+<%= react_component('Form', props: new_moment_props(@moment, @viewers)) %>
