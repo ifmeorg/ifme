@@ -1,13 +1,9 @@
 # frozen_string_literal: true
-
 require_relative './shared_examples'
 
-include ActionView::Helpers::DateHelper
-include ActionView::Helpers::TextHelper
-
-describe ApplicationController do
-  let(:user1) { create(:user1) }
-  let(:user2) { create(:user2) }
+describe MostFocusHelper, type: :controller do
+  controller(ApplicationController) do
+  end
 
   describe '#most_focus' do
     it_behaves_like :most_focus, :category

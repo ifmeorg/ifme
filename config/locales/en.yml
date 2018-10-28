@@ -619,6 +619,7 @@ en:
       meeting_notify_text: 'Meeting updates'
       google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
       google_auth2: 'Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password.'
+      password_complexity_error: 'should contain 8 to 128 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character.'
       placeholders:
         repeat_password: 'Repeat Password'
       edit:

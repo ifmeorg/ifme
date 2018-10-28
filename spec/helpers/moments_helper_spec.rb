@@ -1,9 +1,8 @@
 # frozen_string_literal: true
-
 describe MomentsHelper, type: :controller do
   let(:user1) { create(:user1) }
 
-  controller(ApplicationController) do
+  controller(MomentsController) do
   end
 
   describe 'moments_stats' do

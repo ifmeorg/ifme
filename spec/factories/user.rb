@@ -47,20 +47,20 @@ FactoryBot.define do
   factory :user, class: 'User' do
     sequence(:email) { |n| "some-email#{n}@ifme.org" }
     sequence(:name) { |n| "Some Person#{n}" }
-    password { 'password' }
+    password { 'passworD%1' }
   end
 
   factory :user1, class: User do
     name { 'Oprah Chang' }
     sequence(:email) { |n| "oprah.chang#{n}@example.com" }
-    password { 'password' }
+    password { 'passworD%1' }
     location { 'Toronto, ON, Canada' }
   end
 
   factory :user2, class: User do
     name { 'Plum Blossom' }
     email { 'plum.blossom@example.com' }
-    password { 'password' }
+    password { 'passworD%1' }
     location { 'Toronto, ON, Canada' }
 
     trait :with_allies do
@@ -80,14 +80,14 @@ FactoryBot.define do
   factory :user3, class: User do
     name { 'Gentle Breezy' }
     email { 'gentle.breezy@example.com' }
-    password { 'password' }
+    password { 'passworD%1' }
     location { 'Toronto, ON, Canada' }
   end
 
   factory :user_oauth, class: User do
     name { 'Orange Southland' }
     email { 'orange.southland@example.com' }
-    password { 'password' }
+    password { 'passworD%1' }
     location { 'Toronto, ON, Canada' }
     token { 'has_a_token' }
     access_expires_at { Time.zone.now + 600 }

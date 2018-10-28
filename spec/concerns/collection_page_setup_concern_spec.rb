@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-
-class CollectionPageSetupTestController < ApplicationController
-  include CollectionPageSetup
+class CollectionPageSetupConcernTestController < ApplicationController
+  include CollectionPageSetupConcern
 end
 
-describe CollectionPageSetupTestController do
+describe CollectionPageSetupConcernTestController do
   it 'should setup a page' do
     user = create(:user)
     allow(subject).to receive(:current_user).and_return(user)

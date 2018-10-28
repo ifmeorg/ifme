@@ -45,7 +45,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       before do
         stub_env_for_omniauth
         allow(User).to receive(:find_for_google_oauth2)
-          .with(request.env["omniauth.auth"], nil).and_return(nil)
+          .with(request.env["omniauth.auth"]).and_return(nil)
         get :google_oauth2
       end
 

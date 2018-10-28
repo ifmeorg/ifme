@@ -123,7 +123,7 @@ pt-BR:
       premade3_description: 'Relacionado ao trabalho'
       premade4_name: Meditação
       premade4_description: 'Meditação, respiração profunda, e atividades relaxantes'
-      instructions: 'Você ainda não criout nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
+      instructions: 'Você ainda não criou nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
   errors:
     home_page: 'Voltar a página principal'
     internal_server_error:
@@ -619,6 +619,7 @@ pt-BR:
       meeting_notify_text: 'Atualizações de reuniões'
       google_auth1: 'Caso você não queira mais fazer login com sua conta Google, por favor digite um novo email e uma nova senha.'
       google_auth2: 'Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor cadastre-se com um novo email e uma nova senha.'
+      password_complexity_error: 'deve conter 8 a 128 caracteres, incluindo 1 maiúsculo, 1 minúsculo, 1 dígito e 1 caractere especial.'
       placeholders:
         repeat_password: 'Digite novamente sua senha'
       edit:

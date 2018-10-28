@@ -7,7 +7,7 @@
 <% if @categories.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'category' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'category', user: current_user } %>
 
   <div class="gridTwo">
     <%= render @categories %>
