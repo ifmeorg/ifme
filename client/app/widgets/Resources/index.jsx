@@ -77,7 +77,7 @@ export class Resources extends React.Component<Props, State> {
           checkboxes={checkboxes}
           onCheckboxChange={box => this.checkboxChange(box)}
         />
-        <div className={css.gridThree}>
+        <div className={`${css.gridThree} ${css.marginTop}`}>
           {filteredResources.map(resource => (
             <div className={css.gridThreeItem} key={Utils.randomString()}>
               <Resource

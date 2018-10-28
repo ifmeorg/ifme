@@ -12,7 +12,7 @@ export type Props = {
   placeholder?: string,
   checkboxes: Checkbox[],
   onChange?: Function,
-  onCheckboxChange?: Function
+  onCheckboxChange?: Function,
 };
 
 export type State = {

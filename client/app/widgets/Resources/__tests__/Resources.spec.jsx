@@ -33,7 +33,7 @@ const component = (
 );
 
 describe('Resources', () => {
-  it('filter when tag selected', () => {
+  it('filters when tag selected', () => {
     const wrapper = mount(component);
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
@@ -51,7 +51,7 @@ describe('Resources', () => {
     expect(wrapper.find('.tag').findWhere(t => t.text() === id).length).toEqual(1);
   });
 
-  it('unfilter when tag unselected', () => {
+  it('unfilters when tag unselected', () => {
     const wrapper = mount(component);
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
