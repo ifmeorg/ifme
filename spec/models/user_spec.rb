@@ -59,7 +59,7 @@ describe User do
     end
 
     context 'an existing user' do
-      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfasdf') }
+      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfaS1!df') }
 
       it 'updates token information' do
         User.find_for_google_oauth2(access_token)
@@ -93,7 +93,7 @@ describe User do
     let!(:user) do
       User.create(name: 'some name',
                   email: 'some@user.com',
-                  password: 'asdfasdf',
+                  password: 'asdfasdF!1',
                   token: 'some token')
     end
 
@@ -131,6 +131,47 @@ describe User do
       it 'returns the current token' do
         expect_any_instance_of(User).not_to receive(:update_access_token)
         expect(user.google_access_token).to eq('some token')
+      end
+    end
+  end
+
+  describe '#validations' do
+    context 'password' do
+      let(:user) { build(:user, password: nil) }
+
+      context 'when password is blank' do
+        it 'throws password error only from devise' do
+          expect(user.valid?).to be false
+
+          expect(user).to have(1).error_on(:password)
+          expect(user.errors[:password]).not_to include(I18n.t('devise.registrations.password_complexity_error'))
+        end
+      end
+
+      context 'when oauth is enabled' do
+        it 'doesnt throw any errors even if the password strength is less' do
+          user.password = 'warsdasdf'
+          user.token = 'access token'
+          expect(user.valid?).to be true
+        end
+      end
+
+      context 'when password is valid' do
+        it 'doesnt throw any errors' do
+          user.password = 'waspAr$0'
+          expect(user.valid?).to be true
+        end
+      end
+
+      context 'when password is invalid' do
+        it 'returns respective error message' do
+          ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
+            user.password = password
+            expect(user.valid?).to be false
+
+            expect(user).to have(1).error_on(:password)
+          end
+        end
       end
     end
   end

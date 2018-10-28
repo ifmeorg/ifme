@@ -16,10 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def user
-    @user ||= User.find_for_google_oauth2(
-      request.env['omniauth.auth'],
-      current_user
-    )
+    @user ||= User.find_for_google_oauth2(request.env['omniauth.auth'])
   end
 
   # returns the invitation token passed in with the callback url

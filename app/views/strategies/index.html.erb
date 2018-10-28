@@ -6,7 +6,7 @@
 
 <% if @strategies.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'strategy' } %>
-  <%= render partial: '/shared/stats', locals: { data_type: 'strategy' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'strategy', user: current_user } %>
   <div class="gridTwo">
     <%= render @strategies %>
   </div>

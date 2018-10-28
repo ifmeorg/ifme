@@ -44,6 +44,8 @@
 #
 
 class User < ApplicationRecord
+  include PasswordValidator
+
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,
@@ -83,6 +85,7 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
+  validate :password_complexity
 
   def ally?(user)
     allies_by_status(:accepted).include?(user)
@@ -96,32 +99,19 @@ class User < ApplicationRecord
     ally_groups.order(order) - groups
   end
 
-  # TODO: _signed_in_resource is unused and should be removed
-  # rubocop:disable MethodLength
-  def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
+  def self.find_for_google_oauth2(access_token)
     data = access_token.info
     user = find_or_initialize_by(email: data.email) do |u|
       u.password = Devise.friendly_token[0, 20]
     end
     user.name ||= data.name
 
-    user.update!(
-      provider: access_token.provider,
-      token: access_token.credentials.token,
-      refresh_token: access_token.credentials.refresh_token,
-      uid: access_token.uid,
-      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
-    )
+    update_access_token_fields(user: user, access_token: access_token)
     user
   end
-  # rubocop:enable MethodLength
 
   def google_access_token
-    if !access_expires_at || Time.zone.now > access_expires_at
-      update_access_token
-    else
-      token
-    end
+    google_access_token_expired? ? update_access_token : token
   end
 
   def google_oauth2_enabled?
@@ -158,7 +148,21 @@ class User < ApplicationRecord
     new_access_token
   end
 
+  private_class_method def self.update_access_token_fields(user:, access_token:)
+    user.update!(
+      provider: access_token.provider,
+      token: access_token.credentials.token,
+      refresh_token: access_token.credentials.refresh_token,
+      uid: access_token.uid,
+      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
+    )
+  end
+
   private
+
+  def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
+  end
 
   def accepted_ally_ids
     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)

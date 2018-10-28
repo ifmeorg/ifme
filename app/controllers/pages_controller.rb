@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def home
     @blurbs = set_blurbs
     if user_signed_in?
-      @stories = Kaminari.paginate_array(get_stories(current_user))
+      @stories = Kaminari.paginate_array(get_stories(current_user, true))
                          .page(params[:page])
 
       load_dashboard_data if @stories.present? && @stories.count.positive?

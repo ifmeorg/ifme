@@ -19,7 +19,7 @@
     })%>
  </div>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'moment' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'moment', user: current_user } %>
 
   <div class="gridTwo">
     <%= render @moments %>

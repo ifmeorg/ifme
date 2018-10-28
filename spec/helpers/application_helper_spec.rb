@@ -1,6 +1,11 @@
 # frozen_string_literal: true
-
 describe ApplicationHelper do
+  describe '#html_options' do
+    it 'returns correct hash' do
+      expect(html_options).to eq({ class: 'htmlOptions' })
+    end
+  end
+
   describe '#active?' do
     let(:is_current_page) { false }
     let(:current_controller) { '' }
