@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-
-module CollectionPageSetup
+module CollectionPageSetupConcern
   extend ActiveSupport::Concern
 
   included do

@@ -40,7 +40,7 @@
     }
   }
   .label,
-  .accordion, {
+  .accordion {
     @include setFontSize($size-18);
   }
   .checkbox {
@@ -133,6 +133,9 @@
     &:focus {
       background-color: $white-20;
     }
+    option {
+      color: initial;
+    }
   }
 }
 
@@ -209,6 +212,7 @@
   }
   &Label {
     @include setMargin($size-0, $size-0, $size-0, $size-8);
+    text-transform: capitalize;
   }
 }
 

@@ -620,6 +620,7 @@ es:
       meeting_notify_text: 'Actualizaciones de reuniones'
       google_auth1: 'Si ya no deseas verificar tu identidad a través de Google, por favor ingresa un nuevo correo electrónico y contraseña.'
       google_auth2: 'Debido a que tu identidad ha sido confirmada a través de Google, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña.'
+      password_complexity_error: 'debe contener de 8 a 128 caracteres, incluyendo 1 mayúscula, 1 minúscula, 1 dígito y 1 carácter especial.'
       placeholders:
         repeat_password: 'Repetir contraseña'
       edit:
