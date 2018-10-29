@@ -121,7 +121,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise_invitable (1.7.4)
+    devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     devise_uid (0.1.1)
@@ -526,7 +526,7 @@ DEPENDENCIES
   compass-rails (~> 3.1.0)
   database_cleaner
   devise (~> 4.3)
-  devise_invitable
+  devise_invitable (~> 1.7.5)
   devise_uid
   dotenv-rails (~> 2.5.0)
   factory_bot_rails
