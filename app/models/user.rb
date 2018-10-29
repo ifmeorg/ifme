@@ -44,6 +44,8 @@
 #
 
 class User < ApplicationRecord
+  include PasswordValidator
+
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,
@@ -83,6 +85,7 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
+  validate :password_complexity
 
   def ally?(user)
     allies_by_status(:accepted).include?(user)
@@ -108,11 +111,7 @@ class User < ApplicationRecord
   end
 
   def google_access_token
-    if !access_expires_at || Time.zone.now > access_expires_at
-      update_access_token
-    else
-      token
-    end
+    google_access_token_expired? ? update_access_token : token
   end
 
   def google_oauth2_enabled?
@@ -160,6 +159,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
+  end
 
   def accepted_ally_ids
     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)

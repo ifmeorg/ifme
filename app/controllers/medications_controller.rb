@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MedicationsController < ApplicationController
-  include CollectionPageSetup
+  include CollectionPageSetupConcern
   include ReminderHelper
   include MedicationRefillHelper
   before_action :set_medication, only: %i[show edit update destroy]

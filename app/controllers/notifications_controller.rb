@@ -43,23 +43,17 @@ class NotificationsController < ApplicationController
     hash
   end
 
-  # rubocop:disable MethodLength
   def render_notification(notification)
     uniqueid = notification[:uniqueid]
     data = convert_to_hash(notification[:data])
-    if data[:type].include? 'comment'
-      comment_link(uniqueid, data)
-    elsif data[:type].include? 'accepted_ally_request'
-      accepted_ally_link(uniqueid, data)
-    elsif data[:type].include? 'new_ally_request'
-      new_ally_request_link(uniqueid, data)
-    elsif data[:type].include? 'group'
-      group_link(uniqueid, data)
-    elsif data[:type].include? 'meeting'
-      meeting_link(uniqueid, data)
+    case data[:type]
+    when /comment/ then comment_link(uniqueid, data)
+    when /accepted_ally_request/ then accepted_ally_link(uniqueid, data)
+    when /new_ally_request/ then new_ally_request_link(uniqueid, data)
+    when /group/ then group_link(uniqueid, data)
+    when /meeting/ then meeting_link(uniqueid, data)
     end
   end
-  # rubocop:enable MethodLength
 
   # Use callbacks to share common setup or constraints between actions.
   def set_notification

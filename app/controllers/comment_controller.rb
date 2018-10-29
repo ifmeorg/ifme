@@ -12,7 +12,7 @@ class CommentController < ApplicationController
   end
 
   def delete
-    comment = Comment.where(id: params[:comment_id]).first
+    comment = Comment.find_by(id: params[:comment_id])
     raise 'Comment does not exist' if comment.nil?
 
     handle_delete(comment)

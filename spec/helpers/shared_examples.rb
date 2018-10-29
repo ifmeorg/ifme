@@ -1,14 +1,11 @@
 # frozen_string_literal: true
-
-require 'spec_helper'
-
 shared_examples :most_focus do |data_type|
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
-  let(:user_id) { user1.id }
+  let(:profile) { user1 }
   let(:data_length) { 2 }
-  let(:datum) { create(data_type, user_id: user_id) }
-  let(:data) { create_list(data_type, data_length, user_id: user_id) }
+  let(:datum) { create(data_type, user_id: profile.id) }
+  let(:data) { create_list(data_type, data_length, user_id: profile.id) }
   let(:data_ids) { data.map(&:id) }
   data_type_name = data_type.to_s
 
@@ -18,16 +15,16 @@ shared_examples :most_focus do |data_type|
 
   context "when no #{data_type_name.pluralize} exist" do
     it 'returns an empty hash' do
-      expect(controller.most_focus(data_type_name, nil)).to be_empty
+      expect(controller.most_focus(data_type_name, nil)).to be_nil
     end
   end
 
   context "when #{data_type_name.pluralize} exist" do
-    subject { controller.most_focus(data_type_name, user_id) }
+    subject { controller.most_focus(data_type_name, profile) }
 
     context "when the same #{data_type_name} is used twice" do
       before do
-        create_list(:moment, 2, data_type => [datum.id], user_id: user_id)
+        create_list(:moment, 2, :with_published_at, data_type => [datum.id], user_id: profile.id)
       end
 
       it "includes duplicate #{data_type_name.pluralize} once" do
@@ -41,8 +38,8 @@ shared_examples :most_focus do |data_type|
 
       context 'when viewing your own profile' do
         before do
-          create(:moment, data_type => [datum.id], user_id: user_id)
-          create(:moment, data_type => data_ids + [datum.id], user_id: user_id)
+          create(:moment, :with_published_at, data_type => [datum.id], user_id: profile.id)
+          create(:moment, :with_published_at, data_type => data_ids + [datum.id], user_id: profile.id)
         end
 
         it "returns a hash containing the top three unique #{data_type_name.pluralize}" do
@@ -52,29 +49,29 @@ shared_examples :most_focus do |data_type|
       end
 
       context "when viewing another user's profile" do
-        let(:user_id) { user2.id }
-        let(:time_stamp) { Time.now }
+        let(:profile) { user2 }
         before do
           create(
             :moment,
-            user_id: user_id,
+            user_id: profile.id,
             data_type => [datum.id],
             viewers: [user1.id],
             published_at: time_stamp
           )
           create(
             :moment,
-            user_id: user_id,
+            user_id: profile.id,
             data_type => data_ids,
             published_at: time_stamp
           )
         end
 
         context 'when published' do
+          let(:time_stamp) { Time.now }
+
           it "shows only the #{data_type_name.pluralize} for which you have viewing permission" do
             expect(subject.length).to eq(1)
             expect(subject[datum.id]).to eq(1)
-
             data_ids.each do |id|
               expect(subject[id]).to be_nil
             end
@@ -85,7 +82,7 @@ shared_examples :most_focus do |data_type|
           let(:time_stamp) { nil }
 
           it 'returns an empty hash' do
-            expect(subject).to be_empty
+            expect(subject).to be_nil
           end
         end
       end
