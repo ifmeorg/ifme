@@ -18,8 +18,8 @@ fr:
         submit_button: "Définir mon mot de passe"
     mailer:
       invitation_instructions:
-        subject: "%{name} vous a invité à rejoindre If me!"
-        subject_nameless: "Quelqu'un vous a invité à rejoindre If me!"
+        subject: "%{name} vous a invité à rejoindre if me!"
+        subject_nameless: "Quelqu'un vous a invité à rejoindre if me!"
         hello: "Salut %{email}!"
         someone_invited_you: "%{name} vous a invité à rejoindre http://www.if-me.org, une communauté pour partager vos experiences de santés mentales avec ceux que vous aimé et garder des traces de vos experiences, médications, et soins personnels. Vous pouvez accepter l'invitation grâce au lien ci-dessous."
         accept: "Accepter l'invitation!"
