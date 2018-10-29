@@ -148,37 +148,37 @@ RSpec.describe CompareLocalesSupport do
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_portuguese' do
+      context 'when comparing to kaminari_portuguese' do
         subject { described_class.compare(source, :kaminari_portuguese) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_swedish' do
+      context 'when comparing to kaminari_swedish' do
         subject { described_class.compare(source, :kaminari_swedish) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_dutch' do
+      context 'when comparing to kaminari_dutch' do
         subject { described_class.compare(source, :kaminari_dutch) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_italian' do
+      context 'when comparing to kaminari_italian' do
         subject { described_class.compare(source, :kaminari_italian) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_norwegian' do
+      context 'when comparing to kaminari_norwegian' do
         subject { described_class.compare(source, :kaminari_norwegian) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_vietnamese' do
+      context 'when comparing to kaminari_vietnamese' do
         subject { described_class.compare(source, :kaminari_vietnamese) }
         it { is_expected.to be_empty }
       end
 
-      context 'when comparing to devise_invitable_german' do
+      context 'when comparing to kaminari_german' do
         subject { described_class.compare(source, :kaminari_german) }
         it { is_expected.to be_empty }
       end

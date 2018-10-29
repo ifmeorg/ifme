@@ -620,6 +620,7 @@ sv:
       meeting_notify_text: Mötesuppdateringar
       google_auth1: 'Om du inte längre vill verifieras med Google anger du ett nytt e-post och lösenord.'
       google_auth2: 'Eftersom du är autentiserad med Google behöver du inte ange ditt lösenord. <br> Om du vill ändra detta anger du en ny e-postadress och lösenord.'
+      password_complexity_error: 'bör innehålla 8 till 128 tecken, inklusive 1 versal, 1 små bokstav, 1 siffra och 1 specialtecken.'
       placeholders:
         repeat_password: 'Repetera lösenord'
       edit:

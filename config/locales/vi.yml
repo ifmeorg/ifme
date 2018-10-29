@@ -620,6 +620,7 @@ vi:
       meeting_notify_text: 'Cập nhật họp nhóm'
       google_auth1: 'Nếu bạn không muốn xác minh tài khoản thông qua Google, xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
       google_auth2: 'Bởi vì bạn xác minh tài khoản thông quan Google, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
+      password_complexity_error: 'nên chứa 8 đến 128 ký tự, bao gồm 1 chữ hoa, 1 chữ thường, 1 chữ số và 1 ký tự đặc biệt.'
       placeholders:
         repeat_password: 'Lập lại mật khẩu lần nữa'
       edit:
