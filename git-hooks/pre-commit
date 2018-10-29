@@ -5,3 +5,6 @@ echo "Running pre-commit hook"
 rubocop
 cd client
 yarn lint
+
+cd ../config
+yamllint locales/
