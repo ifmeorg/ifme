@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
-import { Input, TYPES as INPUT_TYPES } from '../Input';
-import type { Props as InputProps } from '../Input';
+import { Input } from '../Input';
+import { TYPES as INPUT_TYPES } from '../Input/utils';
+import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';

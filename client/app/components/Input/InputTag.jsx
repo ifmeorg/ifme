@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import type { Checkbox } from './index';
+import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
 import inputCss from './Input.scss';
 import css from './InputTag.scss';

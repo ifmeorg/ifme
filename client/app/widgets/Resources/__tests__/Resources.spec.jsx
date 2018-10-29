@@ -48,7 +48,9 @@ describe('Resources', () => {
       .simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
-    expect(wrapper.find('.tag').findWhere(t => t.text() === id).length).toEqual(1);
+    expect(wrapper.find('.tag').findWhere(t => t.text() === id).length).toEqual(
+      1,
+    );
   });
 
   it('unfilters when tag unselected', () => {

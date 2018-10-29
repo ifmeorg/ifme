@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Input } from '../components/Input';
-import type { Props } from '../components/Input';
+import type { Props } from '../components/Input/utils';
 
 const options = [
   { id: 'some-option-one-id', value: 1, label: 'Some Option One' },

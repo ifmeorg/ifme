@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import css from './Input.scss';
 import globalCss from '../../styles/_global.scss';
-import type { Checkbox as Props } from './index';
+import type { Checkbox as Props } from './utils';
 import { Tooltip } from '../Tooltip';
 
 const displayUnchecked = (name: ?string, uncheckedValue: ?any) => (
