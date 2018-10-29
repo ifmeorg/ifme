@@ -17,7 +17,7 @@ module MedicationsHelper
     current_user.google_oauth2_enabled? ? google_fields : common_fields
   end
 
-  def basic_props(field)
+  def medication_basic_props(field)
     {
       id: "medication_#{field}",
       name: "medication[#{field}]",
@@ -38,10 +38,10 @@ module MedicationsHelper
 
   def medication_refill_reminder
     refill_reminder(
-      'refill_reminder',
+      'refill_reminder_attributes',
       t('medications.form.refill_reminder_hint'),
       @medication&.refill_reminder&.active,
-      t('medications.form.refill_reminder_hint')
+      t('medications.refill_reminder')
     )
   end
 
@@ -83,6 +83,20 @@ module MedicationsHelper
     }
   end
 
+  def medication_weekly_dosage
+    {
+      type: 'checkboxGroup',
+      checkboxes: days_checkbox,
+      label: t('common.days'),
+      info: t('medications.form.weekly_dosage_hint'),
+      required: true
+    }.merge(medication_basic_props('weekly_dosage'))
+  end
+
+  def extra_fields
+    [medication_weekly_dosage, medication_refill, medication_comments]
+  end
+
   def common_fields
     [
       medication_name,
@@ -92,7 +106,7 @@ module MedicationsHelper
       medication_unit_field('total'),
       medication_field('dosage'),
       medication_unit_field('dosage')
-    ].push(medication_refill, medication_comments).concat(reminder_fields)
+    ].concat(extra_fields).concat(reminder_fields)
   end
 
   def medication_comments
@@ -101,7 +115,7 @@ module MedicationsHelper
       label: t('comment.plural'),
       value: @medication.comments || nil,
       info: t('medications.form.comments_hint')
-    }.merge(basic_props('comments'))
+    }.merge(medication_basic_props('comments'))
   end
 
   def medication_strength_unit
@@ -112,7 +126,7 @@ module MedicationsHelper
         medication_type_unit_mg('strength'),
         medication_type_unit_ml('strength')
       ]
-    }.merge(basic_props('strength_unit'))
+    }.merge(medication_basic_props('strength_unit'))
   end
 
   def medication_name
@@ -122,7 +136,7 @@ module MedicationsHelper
       value: @medication.name || nil,
       info: t('categories.form.name_hint'),
       required: true
-    }.merge(basic_props('name'))
+    }.merge(medication_basic_props('name'))
   end
 
   def medication_refill
@@ -132,7 +146,7 @@ module MedicationsHelper
       value: @medication.refill || nil,
       info: t('medications.form.refill_hint'),
       required: true
-    }.merge(basic_props('refill'))
+    }.merge(medication_basic_props('refill'))
   end
 
   def google_fields
@@ -143,7 +157,7 @@ module MedicationsHelper
       checked: @medication.add_to_google_cal,
       uncheckedValue: true,
       value: true
-    }.merge(basic_props('add_to_google_cal')))
+    }.merge(medication_basic_props('add_to_google_cal')))
   end
 
   def days_checkbox
@@ -193,7 +207,7 @@ module MedicationsHelper
         medication_type_unit_mg(type),
         medication_type_unit_ml(type)
       ]
-    }.merge(basic_props("#{type}_unit"))
+    }.merge(medication_basic_props("#{type}_unit"))
   end
 
   def medication_field(type)
@@ -204,7 +218,7 @@ module MedicationsHelper
       info: t("medications.form.#{type}_hint"),
       placeholder: t("medications.form.#{type}_placeholder"),
       required: true
-    }.merge(basic_props(type))
+    }.merge(medication_basic_props(type))
   end
 end
 # rubocop:enable ModuleLength

@@ -33,7 +33,7 @@ describe MedicationsHelper do
       let(:medication) { create(:medication, :with_refill_reminder, user: current_user) }
       it 'sets a medication refill reminder' do
         @medication = medication
-        expect(get_field('medication_refill_reminder')[:value]).to eq(true)
+        expect(get_field('medication_refill_reminder_attributes')[:value]).to eq(true)
         expect(get_field('medication_refill_reminder_attributes_id')[:value]).to eq(medication.refill_reminder.id)
       end
     end
