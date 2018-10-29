@@ -154,8 +154,8 @@ module MedicationsHelper
       type: 'checkbox',
       label: t('medications.form.add_to_google_cal'),
       info: t('medications.form.google_cal_hint'),
-      checked: @medication.add_to_google_cal,
-      uncheckedValue: true,
+      checked: @medication.add_to_google_cal || nil,
+      uncheckedValue: false,
       value: true
     }.merge(medication_basic_props('add_to_google_cal')))
   end
