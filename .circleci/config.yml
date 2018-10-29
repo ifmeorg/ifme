@@ -83,6 +83,12 @@ jobs:
             set -e
             cd client && yarn lint:flow && yarn lint:eslint && yarn test:circleci
             cd ~/ifmeorg/ifme/tmp && ./cc-test-reporter format-coverage -t lcov -o codeclimate.frontend.json ../client/coverage/lcov.info
+      - run:
+          name: Run YAML linter
+          command: |
+            set -e
+            pip install yamllint
+            cd config && yamllint locales/
       - persist_to_workspace:
           root: tmp
           paths:
