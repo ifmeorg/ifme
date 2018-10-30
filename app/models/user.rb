@@ -101,10 +101,10 @@ class User < ApplicationRecord
 
   def self.find_for_google_oauth2(access_token)
     data = access_token.info
-    user = find_or_initialize_by(email: data.email) do |u|
-      u.password = Devise.friendly_token[0, 20]
-    end
+    user = find_or_initialize_by(email: data.email)
     user.name ||= data.name
+    # ensure a password is set for new and invited users so the user is valid
+    user.password ||= Devise.friendly_token[0, 20]
 
     update_access_token_fields(user: user, access_token: access_token)
     user
