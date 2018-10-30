@@ -97,6 +97,9 @@ nl:
       title: Bondgenoten
       outgoing: 'Uitgaande verzoeken'
       incoming: 'Binnenkomende verzoeken'
+      invited: 'Uitgenodigd per e-mail'
+      invited_on: 'Uitgenodigd op: %{date}'
+      invitation_expired: 'Uitnodiging verlopen'
       invite: 'Nodig je naasten uit!'
       none: 'Je hebt op dit moment geen bondgenoten! Je kunt op zoek naar hun gaan of naasten uitnodigen om lid te worden!'
       view_all_allies: 'Bekijk alle bondgenoten'

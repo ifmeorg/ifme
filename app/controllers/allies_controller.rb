@@ -11,6 +11,9 @@ class AlliesController < ApplicationController
                                           .sort_by! { |n| n.name.downcase }
     @outgoing_ally_requests = current_user.allies_by_status(:pending_from_ally)
                                           .sort_by! { |n| n.name.downcase }
+    @invited_allies = User.where(
+      invited_by_id: current_user.id, invitation_accepted_at: nil
+    )
   end
 
   def add
