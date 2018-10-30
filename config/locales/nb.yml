@@ -97,6 +97,9 @@ nb:
       title: Allierte
       outgoing: 'Utgående forespørsler'
       incoming: 'Innkommende forespørsler'
+      invited: 'Invitert via e-post'
+      invited_on: 'Invitert til: %{date}'
+      invitation_expired: 'Invitasjon utløpt'
       invite: 'Inviter dine kjente!'
       none: 'Du har for øyeblikket ingen allierte! Du kan søke etter dem eller invitere kjente til å bli med!'
       view_all_allies: 'Se alle allierte'

@@ -97,6 +97,9 @@ it:
       title: Alleati
       outgoing: 'Richieste Inviate'
       incoming: 'Richieste Ricevute'
+      invited: 'Invitato via email'
+      invited_on: 'Invitato su: %{date}'
+      invitation_expired: 'Invito scaduto'
       invite: 'Invita i tuoi cari!'
       none: 'Non hai ancora nessun alleato! Puoi cercarli o invitare qualcuno!'
       view_all_allies: 'Lista completa alleati'
