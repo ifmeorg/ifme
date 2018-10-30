@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/404' => 'errors#not_found'
   get '/500' => 'errors#internal_server_error'
 
-  resources :allies, except: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :allies, only: :index do
     collection do
       post 'add'
       post 'remove'
@@ -61,15 +61,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profile, except: [:show, :new, :create, :edit, :update, :destroy]
+  resources :profile, only: :index
 
-  resources :search, except: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :search, only: :index do
     collection do
       get 'posts'
     end
   end
 
-  resources :notifications, except: [:show, :new, :create, :edit, :update] do
+  resources :notifications, only: :destroy do
     collection do
       delete 'clear'
       get 'fetch_notifications'
