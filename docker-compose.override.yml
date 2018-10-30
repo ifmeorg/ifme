@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    volumes:
+      - .:/app
+    environment:
+      - RAILS_ENV=development
+      - RACK_ENV=development
+      - NODE_ENV=development
