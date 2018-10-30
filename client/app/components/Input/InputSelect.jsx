@@ -4,7 +4,7 @@ import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import css from './Input.scss';
-import type { Option } from './index';
+import type { Option } from './utils';
 
 export type Props = {
   id: string,

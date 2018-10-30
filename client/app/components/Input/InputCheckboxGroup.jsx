@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import type { Checkbox } from './index';
+import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
 
 export type Props = {

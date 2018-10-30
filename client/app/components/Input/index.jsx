@@ -8,100 +8,11 @@ import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
 import { InputSwitch } from './InputSwitch';
-import {
-  InputDefault,
-  REQUIRES_DEFAULT,
-  DEFAULT_WITH_LABEL,
-} from './InputDefault';
+import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
-
-export const TYPES = REQUIRES_DEFAULT.concat([
-  'textarea',
-  'submit',
-  'checkbox',
-  'select',
-  'checkboxGroup',
-  'tag',
-  'switch',
-]);
-
-const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
-  'textarea',
-  'select',
-  'checkboxGroup',
-  'tag',
-  'switch',
-]);
-
-const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
-  'textarea',
-  'checkboxGroup',
-]);
-
-export type Option = {
-  id: string,
-  value: any,
-  label: string,
-};
-
-export type Checkbox = {
-  id: string,
-  name?: string,
-  value: any,
-  checked?: boolean,
-  uncheckedValue?: any,
-  label: string,
-  onChange?: Function,
-  info?: string,
-};
-
-export type Props = {
-  id: string,
-  type: | 'text'
-    | 'textarea'
-    | 'submit'
-    | 'checkbox'
-    | 'number'
-    | 'time'
-    | 'date'
-    | 'select'
-    | 'checkboxGroup'
-    | 'tag'
-    | 'hidden'
-    | 'switch',
-  name?: string,
-  label?: string,
-  placeholder?: string,
-  error?: boolean,
-  dark?: boolean,
-  small?: boolean,
-  large?: boolean,
-  value?: any,
-  readOnly?: boolean,
-  disabled?: boolean,
-  required?: boolean,
-  info?: string,
-  minLength?: number,
-  maxLength?: number,
-  onClick?: Function,
-  onChange?: Function,
-  checked?: boolean,
-  uncheckedValue?: any,
-  min?: number,
-  max?: number,
-  options?: Option[],
-  checkboxes?: Checkbox[],
-  onError?: Function,
-  accordion?: boolean,
-  myRef?: any,
-  accordionOpen?: boolean,
-  formNoValidate?: boolean,
-};
-
-export type State = {
-  error: boolean,
-};
+import { TYPES, REQUIRES_LABEL, REQUIRED_POSSIBLE } from './utils';
+import type { Props, State } from './utils';
 
 export class Input extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -325,19 +236,11 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  render() {
+  displayContent = () => {
     const {
-      type,
-      dark,
-      small,
-      large,
-      accordion,
-      label,
-      accordionOpen,
-      id,
+      dark, small, accordion, large, type,
     } = this.props;
-    if (!TYPES.includes(type)) return null;
-    const content = (
+    return (
       <div
         className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
           small ? css.small : ''
@@ -356,6 +259,19 @@ export class Input extends React.Component<Props, State> {
         {this.displaySubmit()}
       </div>
     );
+  };
+
+  render() {
+    const {
+      type,
+      dark,
+      large,
+      accordion,
+      label,
+      accordionOpen,
+      id,
+    } = this.props;
+    if (!TYPES.includes(type)) return null;
     return accordion && label ? (
       <Accordion
         id={id}
@@ -364,10 +280,10 @@ export class Input extends React.Component<Props, State> {
         dark={dark}
         large={large}
       >
-        {content}
+        {this.displayContent()}
       </Accordion>
     ) : (
-      content
+      this.displayContent()
     );
   }
 }

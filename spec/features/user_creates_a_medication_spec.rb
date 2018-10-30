@@ -30,8 +30,8 @@ describe 'UserCreatesAMedication', js: true do
     end
 
     it 'creates a new medication' do
-      expect(CalendarUploader).to_not receive(:new)
       find('#submit').click
+      expect(CalendarUploader).to_not receive(:new)
 
       within '.pageTitle' do
         expect(page).to have_content(name)
@@ -44,10 +44,10 @@ describe 'UserCreatesAMedication', js: true do
 
     context 'with reminders checked' do
       it 'activates reminders' do
-        find('#medication_refill_reminder').click
-        find('#medication_take_medication_reminder').click
-        expect(CalendarUploader).to_not receive(:new)
+        find('#medication_refill_reminder_attributes').click
+        find('#medication_take_medication_reminder_attributes').click
         find('#submit').click
+        expect(CalendarUploader).to_not receive(:new)
         expect(find('.pageTitle')).to have_content(name)
         expect(medication.take_medication_reminder.active?).to be true
         expect(medication.refill_reminder.active?).to be true
@@ -60,8 +60,8 @@ describe 'UserCreatesAMedication', js: true do
       end
 
       it 'activates reminders' do
-        find('#medication_refill_reminder').click
-        find('#medication_take_medication_reminder').click
+        find('#medication_refill_reminder_attributes').click
+        find('#medication_take_medication_reminder_attributes').click
         find('#medication_add_to_google_cal').click
         expect(CalendarUploader).to receive_message_chain(:new, :upload_event)
         find('#submit').click
@@ -78,7 +78,7 @@ describe 'UserCreatesAMedication', js: true do
       end
 
       it 'redirects to sign in' do
-        find('#medication_refill_reminder').click
+        find('#medication_refill_reminder_attributes').click
         find('#medication_add_to_google_cal').click
         find('#submit').click
         expect(find('#new_user')).to be_present

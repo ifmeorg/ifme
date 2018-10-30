@@ -13,12 +13,16 @@ describe('Tag', () => {
 
     it('supports normal class', () => {
       const tag = shallow(<Tag normal />);
-      expect(tag.prop('className')).toEqual(expect.stringContaining(css.normal));
+      expect(tag.prop('className')).toEqual(
+        expect.stringContaining(css.normal),
+      );
     });
 
     it('supports secondary class', () => {
       const tag = shallow(<Tag secondary />);
-      expect(tag.prop('className')).toEqual(expect.stringContaining(css.secondary));
+      expect(tag.prop('className')).toEqual(
+        expect.stringContaining(css.secondary),
+      );
     });
   });
 });
