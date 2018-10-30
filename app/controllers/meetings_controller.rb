@@ -17,13 +17,13 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   def new
     @group = Group.find_by(id: params[:group_id])
-    redirect_unless_leader_for(@group)
+    redirect_unless_leader_for(@group) && return
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
-    redirect_unless_leader_for(@meeting.group)
+    redirect_unless_leader_for(@meeting.group) && return
     @meeting_members = @meeting.members
   end
 
@@ -32,7 +32,8 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
-    redirect_unless_leader_for(@group)
+    redirect_unless_leader_for(@group) && return
+
     if @meeting.save
       meeting_member = @meeting.meeting_members.new(
         user_id: current_user.id, leader: true
@@ -89,9 +90,9 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1
   def destroy
-    redirect_unless_leader_for(@meeting.group)
+    redirect_unless_leader_for(@meeting.group) && return
     # Notify group members that the meeting has been deleted
-    send_notification(@meeting, group.members, 'remove_meeting')
+    send_notification(@meeting, @meeting.group.members, 'remove_meeting')
     # Remove corresponding meeting members
     @meeting.meeting_members.destroy_all
     @meeting.destroy
