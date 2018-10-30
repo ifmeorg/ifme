@@ -69,7 +69,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: :destroy do
+  resources :notifications, only: [:destroy, :index] do
     collection do
       delete 'clear'
       get 'fetch_notifications'
