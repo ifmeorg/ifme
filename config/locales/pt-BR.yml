@@ -97,6 +97,9 @@ pt-BR:
       title: Aliados
       outgoing: 'Pedidos enviados'
       incoming: 'Pedidos recebidos'
+      invited: 'Convidado por email'
+      invited_on: 'Convidado em: %{date}'
+      invitation_expired: 'Convite expirado'
       invite: 'Convide as pessoas que você ama!'
       none: 'No momento você não tem aliados! Você pode buscar por eles ou convidar as pessoas que você ama!'
       view_all_allies: 'Ver todos os aliados'

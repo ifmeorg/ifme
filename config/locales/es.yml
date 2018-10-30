@@ -97,6 +97,9 @@ es:
       title: Aliados
       outgoing: 'Solicitudes Pendientes'
       incoming: 'Nuevas Solicitudes'
+      invited: 'Invitado por correo electrónico'
+      invited_on: 'Invitado en: %{date}'
+      invitation_expired: 'Invitación expirada'
       invite: '¡Invita a tus seres queridos!'
       none: 'Por el momento no tienes ningún aliado. ¡Puedes buscarlos o invitar a tus seres queridos a unirse!'
       view_all_allies: 'Ver a todos los aliados'

@@ -97,6 +97,9 @@ sv:
       title: Allierade
       outgoing: 'Utgående ansökningar'
       incoming: 'Inkomna förfrågningar'
+      invited: 'Inbjuden via e-post'
+      invited_on: 'Inbjuden till %{date}'
+      invitation_expired: 'Inbjudan utgick'
       invite: 'Bjud in dina nära och kära!'
       none: 'Du har för närvarande inga allierade! Du kan söka efter dem eller bjuda in dina nära och kära!'
       view_all_allies: 'Visa alla allierade'
