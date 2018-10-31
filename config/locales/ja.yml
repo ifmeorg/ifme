@@ -61,9 +61,9 @@ ja:
       edit_instance: '編集%{instance}'
       join: 登録
       leave: 去る
-      add: 付け加える
-      add_all: 全て付け加える
-      select_all: 全て選び出す
+      add: 追加する
+      add_all: 全て追加する
+      select_all: 全て選択する
       remove: 外す
     form:
       email: 電子メール
@@ -100,7 +100,7 @@ ja:
       incoming: '入リクエスト'
       invite: '大切な人を誘いましょう！'
       none: 'You can search for them or invite loved ones to join!'
-      view_all_allies: 全て仲間を見る
+      view_all_allies: 全ての仲間を見る
       cancel: キャンセル
     form:
       placeholder: 'Enter one or more comma-separated emails'
@@ -123,14 +123,14 @@ ja:
       premade3_name: 仕事
       premade3_description: 仕事に関係ある
       premade4_name: 瞑想
-      premade4_description: '瞑想と深呼吸とレラックスのこと'
+      premade4_description: '瞑想と深呼吸とリラックスのこと'
       instructions: 'カスタムカテゴリーはまだ作りません。<br>後でカスタマイズしたら、この作り置きのカテゴリーを使えます。'
   errors:
     home_page: 'ホームページに戻る'
     internal_server_error:
-      header_message: 'このページを見せることができません。'
+      header_message: 'このページを表示できません。'
     not_found:
-      header_message: 'このページが見つけませんでした。'
+      header_message: 'お探しのページは見つかりませんでした。'
   groups:
     singular: グループ
     plural: グループ
@@ -157,7 +157,7 @@ ja:
     new: 新しいグループ
     show:
       led_by: 'リーダー：'
-      delete: グループを消す
+      delete: グループを削除する
   layouts:
     application:
       signin: 'Tell your stories now'
@@ -166,7 +166,7 @@ ja:
     mailer:
       html:
         app_description: '%{app_name} is a community that encourages people to share their mental health stories with loved ones.'
-        no_reply: 'この電子メールは返事しないでください。質問があれば、%{email}で返事してください！'
+        no_reply: 'この電子メールには返信しないでください。質問があれば、%{email}宛にメールしてください！'
     title:
       reset_password: パスワードをリセットする
   medications:
@@ -205,7 +205,7 @@ ja:
         one: tablet
         other: tablets
     reminder_mailer:
-      subject: '%{name}を飲むこと忘れないでください！'
+      subject: '%{name}を飲み忘れないでください！'
       body: 'Here''s a friendly reminder to take your medication %{name}!'
     refill_mailer:
       subject: 'Your refill for %{name} is coming up soon!'
