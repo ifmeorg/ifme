@@ -344,6 +344,15 @@
     "social": "globe"
   },
   {
+    "name": "Marilyn Quintero",
+    "image": "/assets/contributors/marilyn_quintero.jpg",
+    "profile": "My life has changed since I started a healt diet, now I am feel awesome",
+    "location": "Guadalajara, Mexico",
+    "link_name": "MarilynQuintero",
+    "link": "https://github.com/MarilynQuintero",
+    "social": "github"
+  },
+  {
     "name": "Jasper Martin",
     "image": "/assets/contributors/jasper_martin.png",
     "profile": "I first encountered if-me when I was tasked to find an open source project to contribute on. It really is a great pleasure to contribute to this project because whenever I submit a pull request, I feel like I'm also helping people who have mental illness/difficulties in their life. I also want to thank the if-me community for helping me not just become a better developer, but also a better person.",
