@@ -211,7 +211,7 @@ ja:
       subject: 'Your refill for %{name} is coming up soon!'
       body: 'Here''s a friendly reminder to refill your medication %{name} on %{refill}!'
     index:
-      title: Medications
+      title: 処方薬
       subtitle: 'Keep track of your medications, including dosage and refill information.'
       instructions: 'You haven''t saved any medications yet.<br><br>Here''s an example of a saved medication! You can also write about your experience.'
       example_name: Prozac
@@ -220,7 +220,7 @@ ja:
       example_dosage: '2 tablets'
       example_refill: 05/31/2016
     show:
-      comments: 'Comments:'
+      comments: 'コメント：'
   meetings:
     singular: 会議
     edit_meeting: '会議を編集する'
@@ -243,11 +243,11 @@ ja:
       success: 'You have left %{meeting}'
     new: '新しい会議'
   moments:
-    singular: Moment
-    plural: Moments
-    edit_moment: 'Edit Moment'
-    tagged_moments: 'Tagged Moments'
-    new: 'New Moment'
+    singular: モーメント
+    plural: モーメント
+    edit_moment: 'モーメントを編集する'
+    tagged_moments: 'タグしたモーメント'
+    new: '新しいモーメント'
     secret_share:
       singular: 'Secret Share'
       expires_at: 'Expire at'
@@ -266,11 +266,11 @@ ja:
     show:
       strategies: 'What strategies would help?'
   moods:
-    singular: Mood
-    plural: Moods
-    edit_mood: 'Edit Mood'
-    new: 'New Mood'
-    example_moods: 'Nervous, Anxious, Hopeful'
+    singular: 気持ち
+    plural: 気持ち
+    edit_mood: '気分を編集する'
+    new: '新しい気分'
+    example_moods: '緊張、ハラハラ、楽観的'
     index:
       subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
       premade1_name: Accepting
@@ -285,8 +285,8 @@ ja:
       premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
       instructions: 'You haven''t created any custom moods yet.<br>You can also add the following premade moods and customize them another time.'
   notifications:
-    plural: Notifications
-    none: 'There are none'
+    plural: お知らせ
+    none: 'ありません'
     clear: Clear
     created_by_html: '<strong>Created by</strong>: %{name}'
     preview: 'View more'
@@ -334,8 +334,8 @@ ja:
       join_meeting_subject: 'if me | %{user} has joined "%{meeting}" for "%{group}"'
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
   omniauth:
-    google: Google
-    access_denied: 'Access Denied'
+    google: グーグル
+    access_denied: 'アクセスできません'
   pages:
     about:
       send_us: us
@@ -357,11 +357,11 @@ ja:
       thanks: 'A huge thanks to'
       slack: Slack
     faq:
-      title: 'Frequently Asked Questions'
-      data_access_question: 'Who has access to my data?'
-      data_access_answer: 'Data is not given or made accessible to any third party. Deleting your account will remove all of your data.<br><br>User data is analyzed within the app to provide customized recommendations.'
-      moment_question: 'What is a Moment?'
-      moment_answer: 'A <strong>%{moment}</strong> is an event and situation that affects your mental health. It can be positive or negative. Think of it as a journal entry or a status update.<br><br>You can tag Moments with Strategies, Categories, and Moods. You can also choose which allies can view and comment. You can also make Moments only visible to you.'
+      title: 'よくある質問'
+      data_access_question: '誰が私のデータをアクセスできますか？'
+      data_access_answer: '第三者はデータを見えることができます。アカウントを消したら、全てのデータが取り除けられます。<br><br>ユーザーデータがカスタマイズした勧めのためにアプリの中で解析されました。'
+      moment_question: 'モーメントはなんですか？'
+      moment_answer: '<strong>%{moment}</strong>はメンタルヘルスを影響するイベントです。いいモーメントと悪いモーメントもあります。記事に似ってます。<br><br>作戦、カテゴリー、気持ちもタグできます。どちらの仲間が見える、コメントすることに選択できます。自分だけモーメントを見えることもできます。'
       strategy_question: 'What is a Strategy?'
       strategy_answer: 'A <strong>%{strategy}</strong> is an activity, train of thought, or form of self-care that helps you cope or focus on recovery.<br><br>You can tag Strategies with Categories. You can also choose which allies can view and comment. You can also make Strategies only visible to you. Shared Strategies will be visible to all allies specified, which means you can tag your Moments with their Strategies!'
       category_question: 'What is a Category?'
@@ -497,19 +497,19 @@ ja:
         reporting: reporting
   profile:
     index:
-      title: Profile
-      edit_user: 'Customize profile'
+      title: プロファイル
+      edit_user: 'プロファイルをカスタマイズする'
   pusher:
     not_authorized: 'Not Authorized'
   search:
-    label: Search
-    search_by_name: 'Search by name'
+    label: 検索
+    search_by_name: '名前で検索する'
     form:
-      search_by_location: 'Search by location'
-      search_by_email: 'Search by email'
+      search_by_location: '場所で検索する'
+      search_by_email: '電子メールで検索する'
     index:
-      title: 'Search for Allies'
-      user_not_found: 'User %{email} not found'
+      title: '仲間を検索する'
+      user_not_found: 'ユーザー%{email}が見つけませんでした。'
   shared:
     footer:
       licence: AGPL-3.0
@@ -519,10 +519,10 @@ ja:
       share_everyone: 'Share with everyone'
       share_with: 'Share with %{name} only'
       visible_only_between_you_and: 'Visible only between you and %{name}'
-      not_allies: '(not allies)'
+      not_allies: '（仲間じゃない）'
     header:
-      signout: 'Sign out'
-      home: Home
+      signout: 'サインアウト'
+      home: ホーム
     viewers_indicator:
       disabled_comments: 'Comments have been disabled.'
       you_are_viewer_html:
@@ -537,9 +537,9 @@ ja:
       user_is_focusing: '%{name} is focusing the most on'
     viewers:
       plural: Viewers
-      you: 'Only you'
-      you_link: 'Visible to only you'
-      many: 'Visible to %{viewers}'
+      you: '自分だけ'
+      you_link: '自分だけ見えます。'
+      many: '%{viewers}が見えます。'
     meeting_info:
       attending: 'You are attending. Change your mind?'
       not_attending: 'You are not attending. %{join}'
@@ -547,13 +547,13 @@ ja:
       not_attending_spots_left: 'You are not attending. There are %{number} spots left to fill! %{join}'
       not_attending_no_spots_left: 'You are not attending. There is no room to join.'
     quick_create:
-      new: 'New %{name}'
+      new: '新しい%{name}'
   strategies:
-    singular: Strategy
-    plural: Strategies
-    edit_strategy: 'Edit Strategy'
-    tagged_strategies: 'Tagged Strategies'
-    new: 'New Strategy'
+    singular: 作戦
+    plural: 作戦
+    edit_strategy: '作戦を編集する'
+    tagged_strategies: 'タグした作戦'
+    new: '新しい作戦'
     form:
       describe: 'Describe the strategy.'
       strategies_label: 'What strategies would help achieve these thoughts?'
@@ -562,8 +562,8 @@ ja:
       daily_reminder_hint: 'We''ll email you a daily reminder to perform this strategy'
       draft_question: 'Do you want to save your strategy as draft?'
     label:
-      one: 'Strategy:'
-      other: 'Strategies:'
+      one: '作戦：'
+      other: '作戦：'
     index:
       subtitle: 'Strategize self-care to achieve desired thoughts and attitudes towards your moments.'
       premade1_name: 'Five Minute Meditation'
@@ -588,8 +588,8 @@ ja:
       subject: 'if me | %{ally_name} sent an ally request!'
       message: '<p>Please <a href="%{allies_url}">sign in</a> to accept or reject the request!</p>'
   devise:
-    password: Password
-    new_password: 'New password'
+    password: パスワード
+    new_password: '新しいパスワード'
     current_password: 'Current password'
     password_change: 'Change my password'
     remember_me: 'Remember me'
@@ -625,8 +625,8 @@ ja:
         repeat_password: 'Repeat Password'
       edit:
         labels:
-          profile_picture: 'Profile picture'
-          remove_picture: 'Remove picture'
+          profile_picture: 'プロファイルの写真'
+          remove_picture: '写真を削除する'
           password_for: 'Password for <strong>if me</strong> account'
           update: Update
         placeholders:
@@ -643,8 +643,8 @@ ja:
     sessions:
       subtitle: 'Welcome back, we''re looking forward to you helping you tackle your day'
     shared:
-      sign_in_google: 'Sign in with Google'
-      sign_up_google: 'Sign up with Google'
+      sign_in_google: 'グーグルでログインする'
+      sign_up_google: 'グーグルで登録する'
       confirmation: 'Didn''t receive confirmation instructions?'
       unlock: 'Didn''t receive unlock instructions?'
     unlock:
