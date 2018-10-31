@@ -15,55 +15,73 @@ RSpec.describe MeetingsController, type: :controller do
     end
 
     describe 'GET #show' do
-      let!(:meeting) { create(:meeting) }
-      let(:user) { create(:user) }
-      let!(:meeting_member) do
-        create(:meeting_member, user: user, meeting: meeting)
+      context 'when the user is not logged in' do
+        before { post(:create) }
+        it_behaves_like(:with_no_logged_in_user)
       end
 
-      context 'when user is logged in' do
-        before { sign_in user }
+      context 'when the user is logged in' do
+        include_context(:logged_in_user)
+        let(:user) { create(:user) }
 
-        context 'included in the meeting' do
-          context 'as member' do
-            before { get :show, params: { id: meeting.id } }
+        context 'when meeting is found' do
+          let!(:meeting) { create(:meeting) }
 
-            it { expect(response).to have_http_status(:ok) }
-            it { expect(response).to render_template(:show) }
-          end
-
-          context 'as leader' do
+          context 'when user has joined the meeting' do
             before do
-              meeting_member.update(leader: true)
-              get :show, params: { id: meeting.id }
+              create(:meeting_member, user: user, meeting: meeting)
             end
 
-            it { expect(response).to have_http_status(:ok) }
-            it { expect(response).to render_template(:show) }
+            it 'renders #show' do
+              get(:show, params: { id: meeting.id })
+              expect(response).to render_template(:show)
+            end
+
+            it 'list comments' do
+              expect_any_instance_of(
+                Meeting
+              ).to receive(:comments).and_call_original
+
+              get(:show, params: { id: meeting.id })
+            end
+          end
+
+          context 'when user has not joined the meeting' do
+            context "and user is a member of meeting's group" do
+              before do
+                create(:group_member, user: user, group: meeting.group)
+              end
+
+              it 'renders #show' do
+                get(:show, params: { id: meeting.id })
+                expect(response).to render_template(:show)
+              end
+
+              it 'does not list comments' do
+                expect_any_instance_of(Meeting).not_to receive(:comments)
+                get(:show, params: { id: meeting.id })
+              end
+            end
+
+            context "and user is not a member of meeting's group" do
+              it 'redirects to groups page' do
+                get(:show, params: { id: meeting.id })
+                expect(response).to redirect_to groups_path
+              end
+            end
           end
         end
 
-        context 'not included in the meeting' do
-          before do
-            meeting_member.destroy
-            get :show, params: { id: meeting.id }
+        context 'when meeting is not found' do
+          it 'redirecs to groups page' do
+            get(:show, params: { id: 'inexistent_id' })
+            expect(response).to redirect_to groups_path
           end
-
-          it { expect(response).to have_http_status(:redirect) }
-          it { expect(response).to redirect_to(groups_path) }
-        end
-
-        context 'inexistent meeting id' do
-          before { get :show, params: { id: 111 } }
-
-          it { expect(response).to have_http_status(:redirect) }
-          it { expect(response).to redirect_to(groups_path) }
         end
       end
 
       context 'when user is logged out' do
-        before { get :show, params: { id: meeting.id } }
-
+        before { get :show, params: { id: 'any_id' } }
         it_behaves_like :with_no_logged_in_user
       end
     end
