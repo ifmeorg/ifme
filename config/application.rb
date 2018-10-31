@@ -51,7 +51,7 @@ module Ifme
     config.middleware.use Rack::Deflater,
       include: %w[text/html application/json image/svg+xml]
 
-    config.i18n.available_locales = ['en', 'es', 'de', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi'].map &:to_sym
+    config.i18n.available_locales = ['en', 'es', 'de', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi', 'ja'].map &:to_sym
     config.i18n.default_locale = :en
   end
 end
