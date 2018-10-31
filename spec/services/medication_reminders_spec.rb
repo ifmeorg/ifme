@@ -69,7 +69,7 @@ describe MedicationReminders do
       let!(:reminder) { medication.refill_reminder }
 
       before 'pretend its a week before the refill is happening' do
-        allow(Time).to receive(:now).and_return(Time.strptime(refill_date, '%m/%d/%Y') - 1.week)
+        allow(Time).to receive(:current).and_return(Time.strptime(refill_date, '%m/%d/%Y') - 1.week)
       end
 
       context 'refill reminder is active ' do
