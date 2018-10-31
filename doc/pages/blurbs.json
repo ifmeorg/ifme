@@ -351,5 +351,14 @@
     "link_name": "jaspervanbrian",
     "link": "http://twitter.com/jaspervanbrian",
     "social": "twitter"
+  },
+  {
+    "name": "Jason Alsip",
+    "image": "/assets/contributors/jason_alsip.jpg",
+    "profile": "I've mostly been working as a backend developer on C# and Node.js applications these days, but I've been looking for ways I can diversify my skills and maybe get into more full-stack development.  The issues of mental health matter to me on a personal level, so I feel that when I found if-me I found a project that in giving back to I am helping not just myself but others as well.",
+    "location": "Indianapolis, IN",
+    "link_name": "matcha440",
+    "link": "https://github.com/matcha440",
+    "social": "github"
   }
 ]
