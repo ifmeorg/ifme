@@ -98,6 +98,9 @@ de:
       title: Helfer
       outgoing: 'Ausgehende Anfragen'
       incoming: 'Eingehende Anfragen'
+      invited: 'Eingeladen per Email'
+      invited_on: 'Eingeladen am: %{date}'
+      invitation_expired: 'Die Einladung ist abgelaufen'
       invite: 'Lade deine Freunde und Angehörigen ein!'
       none: 'Du hast momentan keine Helfer! Du kannst nach ihnen suchen oder sie zum Beitreten einladen!'
       view_all_allies: 'Alle Helfer ansehen'

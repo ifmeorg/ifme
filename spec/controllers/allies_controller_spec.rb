@@ -18,6 +18,7 @@ describe AlliesController do
       it 'sets the correct instance variables' do
         incoming_ally = create(:user, name: 'Stella')
         outgoing_ally = create(:user, name: 'Sam')
+        invited_ally = create(:user, invited_by: user)
 
         allow(user).to receive(:allies_by_status).with(:accepted).and_return([ally])
         allow(user).to receive(:allies_by_status).with(:pending_from_user).and_return([incoming_ally])
@@ -28,6 +29,7 @@ describe AlliesController do
         expect(assigns(:accepted_allies)).to eq [ally]
         expect(assigns(:incoming_ally_requests)).to eq [incoming_ally]
         expect(assigns(:outgoing_ally_requests)).to eq [outgoing_ally]
+        expect(assigns(:invited_allies)).to eq [invited_ally]
       end
     end
 
