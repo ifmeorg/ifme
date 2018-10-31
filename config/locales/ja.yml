@@ -28,7 +28,7 @@ ja:
   navigation:
     about: 'if meについて'
     blog: ブログ
-    contribute: Contribute
+    contribute: 貢献する
     partners: 提携
     privacy: 'プライバシーポリシー'
     github: GitHub
@@ -48,32 +48,32 @@ ja:
     name: 名前
     you: あなた
     title: タイトル
-    date: Date
+    date: 日付
     daily_reminder: 毎日のリマインドメール
     actions:
-      plural: Actions
-      submit: Submit
-      submit_publish: Publish
+      plural: 行動
+      submit: 完了
+      submit_publish: 発見
       submit_draft: 下書き
       confirm: 'よろしいですか？'
       delete: 消す
-      edit: 編集
+      edit: 編集する
       edit_instance: '編集%{instance}'
       join: 登録
-      leave: Leave
-      add: Add
-      add_all: 'Add all'
-      select_all: 'Select all'
-      remove: Remove
+      leave: 去る
+      add: 付け加える
+      add_all: 全て付け加える
+      select_all: 全て選び出す
+      remove: 外す
     form:
       email: 電子メール
       location: 場所
       description: Description
       error_explanation: 'Please fill out the marked fields!'
       press_enter: 'Press ENTER to add'
-    time_ago: '%{date} ago'
+    time_ago: '%{date}前に'
     write_to_us: 'write to us'
-    days: Days
+    days: 日
   comment:
     singular: コメント
     plural: コメント
@@ -87,20 +87,20 @@ ja:
     sign_up: アカウント登録
     forgot_password: 'パスワードを忘れましたか？'
   members:
-    one: '%{count} member'
-    other: '%{count} members'
+    one: '%{count}人のメンバー'
+    other: '%{count}人のメンバー'
   allies:
     add_ally: 仲間に加える
-    cancel_ally_request: 'Cancel Request'
+    cancel_ally_request: 'リクエストをキャンセルする'
     accept: 受け取る
     reject: 拒む
     index:
       title: 仲間
-      outgoing: 'Outgoing Requests'
-      incoming: 'Incoming Requests'
+      outgoing: 出リクエスト
+      incoming: '入リクエスト'
       invite: '大切な人を誘いましょう！'
-      none: 'You currently have no allies! You can search for them or invite loved ones to join!'
-      view_all_allies: 'View all allies'
+      none: 'You can search for them or invite loved ones to join!'
+      view_all_allies: 全て仲間を見る
       cancel: キャンセル
     form:
       placeholder: 'Enter one or more comma-separated emails'
@@ -168,23 +168,23 @@ ja:
         app_description: '%{app_name} is a community that encourages people to share their mental health stories with loved ones.'
         no_reply: 'この電子メールは返事しないでください。質問があれば、%{email}で返事してください！'
     title:
-      reset_password: 'Reset your password'
+      reset_password: パスワードをリセットする
   medications:
-    singular: Medication
-    edit_medication: 'Edit Medication'
-    refill_reminder: 'Refill reminder email'
-    dosage: 'Daily Dosage:'
-    weekly_dosage: 'Weekly dosage:'
-    refill: 'Refill:'
-    quantity: 'Total Quantity:'
-    strength: 'Strength:'
+    singular: 処方薬
+    edit_medication: 処方薬を編集をする
+    refill_reminder: 補充リマインドメール
+    dosage: '一日投薬量：'
+    weekly_dosage: '一週間投薬量：'
+    refill: '補充：'
+    quantity: '量：'
+    strength: '強度：'
     form:
-      strength: Strength
+      strength: 強度
       strength_placeholder: 'e.g. 100'
       total_placeholder: 'e.g. 30'
-      dosage: dosage
+      dosage: 投薬量
       dosage_placeholder: 'e.g. 2'
-      refill: refill
+      refill: 補充
       comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
       add_to_google_cal: 'Google Calendar reminder'
       google_cal_hint: 'We''ll add a reminder for this medication to your Google calendar.'
@@ -205,7 +205,7 @@ ja:
         one: tablet
         other: tablets
     reminder_mailer:
-      subject: 'Don''t forget to take %{name}!'
+      subject: '%{name}を飲むこと忘れないでください！'
       body: 'Here''s a friendly reminder to take your medication %{name}!'
     refill_mailer:
       subject: 'Your refill for %{name} is coming up soon!'
@@ -222,8 +222,8 @@ ja:
     show:
       comments: 'Comments:'
   meetings:
-    singular: Meeting
-    edit_meeting: 'Edit Meeting'
+    singular: 会議
+    edit_meeting: '会議を編集する'
     form:
       location_placeholder: 'URL or street address'
       maximum_members: 'Maximum Members'
@@ -241,7 +241,7 @@ ja:
     leave:
       error: 'You cannot leave the meeting, you are the only leader.'
       success: 'You have left %{meeting}'
-    new: 'New Meeting'
+    new: '新しい会議'
   moments:
     singular: Moment
     plural: Moments
