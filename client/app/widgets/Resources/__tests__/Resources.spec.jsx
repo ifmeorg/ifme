@@ -42,6 +42,7 @@ describe('Resources', () => {
       .find('.tagLabel')
       .at(0)
       .text();
+    expect(id).toEqual('android');
     wrapper
       .find('.tagLabel')
       .at(0)
@@ -61,6 +62,7 @@ describe('Resources', () => {
       .find('.tagLabel')
       .at(0)
       .text();
+    expect(id).toEqual('android');
     wrapper
       .find('.tagLabel')
       .at(0)
