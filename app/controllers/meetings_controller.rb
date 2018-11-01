@@ -6,7 +6,6 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/1
   def show
-    @meeting = Meeting.friendly.find(params[:id])
     if @meeting.member?(current_user)
       @comments = generate_comments(@meeting.comments.order(created_at: :desc))
     elsif !@meeting.group.member?(current_user)
