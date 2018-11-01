@@ -98,6 +98,9 @@ ja:
       title: 仲間
       outgoing: 出リクエスト
       incoming: '入リクエスト'
+      invited: 'Invited by email'
+      invited_on: 'Invited on: %{date}'
+      invitation_expired: 'Invitation expired'
       invite: '大切な人を誘いましょう！'
       none: 'You can search for them or invite loved ones to join!'
       view_all_allies: 全ての仲間を見る
