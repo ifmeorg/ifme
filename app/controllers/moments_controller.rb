@@ -10,24 +10,15 @@ class MomentsController < ApplicationController
 
   # GET /moments
   # GET /moments.json
-  # rubocop:disable MethodLength
   def index
     if current_user
       @user_logged_in = true
-      period = 'day'
-      # +1 day buffer to ensure we include today as well
-      end_date = Date.current + 1.day
-      start_date = get_start_by_period(period, end_date)
-      @react_moments = Moment.where(user: current_user)
-                             .group_by_period(period,
-                                              :created_at,
-                                              range: start_date..end_date).count
+      @react_moments = define_moments(current_user)
     else
       @user_logged_in = false
     end
     page_collection('@moments', 'moment')
   end
-  # rubocop:enable MethodLength
 
   # GET /moments/1
   # GET /moments/1.json
@@ -122,6 +113,17 @@ class MomentsController < ApplicationController
     end
 
     Strategy.where(id: strategy_ids).order(created_at: :desc)
+  end
+
+  def define_moments(user)
+    period = 'day'
+    # +1 day buffer to ensure we include today as well
+    end_date = Date.current + 1.day
+    start_date = get_start_by_period(period, end_date)
+    @react_moments = Moment.where(user: user)
+                           .group_by_period(period,
+                                            :created_at,
+                                            range: start_date..end_date).count
   end
 
   def get_start_by_period(period, end_date)
