@@ -2,7 +2,7 @@
 
 module StrategiesHelper
   include FormHelper
-  include StrategyFormInputs
+  include StrategyFormHelper
   include ViewersHelper
 
   def new_strategy_props(strategy, viewers)
@@ -42,6 +42,9 @@ module StrategiesHelper
   end
 
   def quick_create_strategy_form_inputs
-    strategy_form_inputs(@strategy, @viewers)[0..1]
+    [
+      build_strategy_name(@strategy),
+      build_strategy_description(@strategy)
+    ]
   end
 end
