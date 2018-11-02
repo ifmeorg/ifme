@@ -76,9 +76,7 @@
   <h1 class="articleHeading"><%= t('pages.faq.email_notifications_question') %></h1>
   <p class="articleContent noMarginBottom">
     <%= raw t('pages.faq.email_notifications_answer', {
-        accounts: link_to(t('account.singular'), edit_user_registration_path ),
-        desktop_icon: '<i class="fa fa-sort-asc smallerMarginLeft"></i>',
-        mobile_icon: '<i class="expand fa fa-bars smallerMarginLeft"></i>'
+        accounts: link_to(t('account.singular'), edit_user_registration_path )
     }) %>
   </p>
 </article>

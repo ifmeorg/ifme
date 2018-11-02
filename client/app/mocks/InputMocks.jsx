@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Input } from '../components/Input';
-import type { Props } from '../components/Input';
+import type { Props } from '../components/Input/utils';
 
 const options = [
   { id: 'some-option-one-id', value: 1, label: 'Some Option One' },
@@ -80,6 +80,16 @@ const inputTagProps = {
   checkboxes,
 };
 
+const inputSwitchProps = {
+  id: 'some-switch-id',
+  type: 'switch',
+  name: 'some-switch-name',
+  label: 'Some Switch Label',
+  info: 'Some Switch Info',
+  value: true,
+  uncheckedValue: false,
+};
+
 const inputSubmitProps = {
   id: 'some-submit-id',
   type: 'submit',
@@ -102,6 +112,7 @@ export const InputMocks = {
   inputCheckboxGroupProps,
   inputSubmitProps,
   inputTagProps,
+  inputSwitchProps,
   event,
   createInput,
 };

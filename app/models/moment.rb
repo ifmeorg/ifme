@@ -37,6 +37,7 @@ class Moment < ApplicationRecord
   before_save :strategy_array_data
 
   belongs_to :user
+
   has_many :comments, as: :commentable
 
   validates :comment, inclusion: [true, false]
@@ -71,20 +72,12 @@ class Moment < ApplicationRecord
     self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
   end
 
-  def category_name
-    category.try(:name)
-  end
-
-  def mood_name
-    mood.try(:name)
-  end
-
   def owned_by?(user)
     user&.id == user_id
   end
 
   def published?
-    !published_at.nil?
+    published_at.present?
   end
 
   def shared?
@@ -92,7 +85,7 @@ class Moment < ApplicationRecord
     # && Time.zone.now < secret_share_expires_at TODO: Turn off temporarily
   end
 
-  def strategy_name
-    strategy.try(:name)
+  def comments
+    Comment.comments_from(self)
   end
 end

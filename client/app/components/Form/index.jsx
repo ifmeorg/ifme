@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
-import { Input, TYPES as INPUT_TYPES } from '../Input';
-import type { Props as InputProps } from '../Input';
+import { Input } from '../Input';
+import { TYPES as INPUT_TYPES } from '../Input/utils';
+import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
@@ -70,19 +71,18 @@ export class Form extends React.Component<Props, State> {
       }
       return newInput;
     });
+    const { noFormTagSubmit } = this.props;
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
       this.setState({ inputs: newInputs, errors: newErrors });
+    } else if (noFormTagSubmit) {
+      noFormTagSubmit();
     }
   };
 
   handleNoFormTagSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     this.onSubmit(e);
-    const { noFormTagSubmit } = this.props;
-    if (noFormTagSubmit) {
-      noFormTagSubmit();
-    }
   };
 
   displayInput = (input: MyInputProps) => {

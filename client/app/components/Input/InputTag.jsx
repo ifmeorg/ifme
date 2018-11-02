@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import type { Checkbox } from './index';
+import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
 import inputCss from './Input.scss';
 import css from './InputTag.scss';
@@ -12,6 +12,7 @@ export type Props = {
   placeholder?: string,
   checkboxes: Checkbox[],
   onChange?: Function,
+  onCheckboxChange?: Function,
 };
 
 export type State = {
@@ -33,6 +34,10 @@ export class InputTag extends React.Component<Props, State> {
         const newCheckbox = Object.assign({}, checkbox);
         if (newCheckbox.id === id) {
           newCheckbox.checked = checked;
+          const { onCheckboxChange } = this.props;
+          if (onCheckboxChange) {
+            onCheckboxChange(newCheckbox);
+          }
         }
         return newCheckbox;
       });

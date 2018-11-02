@@ -7,7 +7,7 @@
 
 <% if @moods.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
-  <%= render partial: '/shared/stats', locals: { data_type: 'mood' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: current_user } %>
 
   <div class="gridTwo">
     <%= render @moods %>
@@ -17,10 +17,7 @@
 <% else %>
   <%= raw t('moods.index.instructions') %>
   <%= button_to t('common.actions.add_all'), premade_moods_path, class: 'smallMarginTop buttonDarkS' %>
-
-  <div class="spacer"></div>
-
-  <div class="gridTwo">
+  <div class="gridTwo marginTop">
     <% (1..4).each do |n| %>
       <div class="gridTwoItemBoxLight">
         <%= react_component('Story', html_options: html_options, props: {

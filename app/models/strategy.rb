@@ -48,15 +48,11 @@ class Strategy < ApplicationRecord
     viewers.map!(&:to_i)
   end
 
-  def category_name
-    category.try(:name)
-  end
-
   def published?
-    !published_at.nil?
+    published_at.present?
   end
 
-  def self.link
-    '/strategies'
+  def comments
+    Comment.comments_from(self)
   end
 end

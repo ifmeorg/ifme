@@ -7,25 +7,48 @@ module MomentsHelper
   include StrategiesHelper
   include FormHelper
 
-  def new_moment_props
-    new_form_props(moment_form_inputs, moments_path)
+  def new_moment_props(moment, viewers)
+    new_form_props(
+      moment_form_inputs(moment, viewers),
+      moments_path
+    )
   end
 
-  def edit_moment_props
-    edit_form_props(moment_form_inputs, moment_path(@moment))
+  def edit_moment_props(moment, viewers)
+    edit_form_props(
+      moment_form_inputs(moment, viewers),
+      moment_path(moment)
+    )
   end
+
+  # rubocop:disable MethodLength
+  def moments_stats
+    total_count = current_user.moments.all.count
+    monthly_count = current_user.moments.where(
+      created_at: Time.current.beginning_of_month..Time.current
+    ).count
+    return '' if total_count <= 1
+
+    result = '<div class="center stats">'
+    result += total_moment(total_count)
+    if total_count != monthly_count
+      result += " #{monthly_moment(monthly_count)}"
+    end
+    result + '</div>'
+  end
+  # rubocop:enable MethodLength
 
   private
 
   # rubocop:disable MethodLength
-  def moment_form_inputs
+  def moment_form_inputs(moment, viewers)
     [
       {
         id: 'moment_name',
         type: 'text',
         name: 'moment[name]',
         label: t('common.name'),
-        value: @moment.name || nil,
+        value: moment.name || nil,
         required: true,
         dark: true
       },
@@ -34,7 +57,7 @@ module MomentsHelper
         type: 'textarea',
         name: 'moment[why]',
         label: t('moments.form.why'),
-        value: @moment.why || nil,
+        value: moment.why || nil,
         required: true,
         dark: true
       },
@@ -43,7 +66,7 @@ module MomentsHelper
         type: 'textarea',
         name: 'moment[fix]',
         label: t('moments.form.fix'),
-        value: @moment.fix || nil,
+        value: moment.fix || nil,
         dark: true
       },
       {
@@ -73,57 +96,29 @@ module MomentsHelper
         checkboxes: checkboxes_for(@strategies),
         formProps: quick_create_strategy_props
       },
-      moments_viewers_input,
+      get_viewers_input(viewers, 'moment', 'moments', moment),
       {
         id: 'moment_comment',
-        type: 'checkbox',
+        type: 'switch',
         name: 'moment[comment]',
         label: t('comment.allow_comments'),
         value: true,
         uncheckedValue: false,
-        checked: @moment.comment,
+        checked: moment.comment,
         info: t('comment.hint'),
         dark: true
       },
       {
         id: 'moment_publishing',
-        type: 'checkbox',
+        type: 'switch',
         label: t('moments.form.draft_question'),
         dark: true,
         name: 'publishing',
         value: '0',
         uncheckedValue: '1',
-        checked: !@moment.published?
+        checked: !moment.published?
       }
     ]
-  end
-  # rubocop:enable MethodLength
-
-  # rubocop:disable MethodLength
-  def moments_viewers_input
-    input = {}
-    if @viewers.present?
-      checkboxes = []
-      @viewers.each do |item|
-        checkboxes.push(
-          id: "moment_viewers_#{item.id}",
-          value: item.id,
-          checked: @moment.viewers.include?(item.id),
-          label: User.find(item.id).name
-        )
-      end
-      input = {
-        id: 'moment_viewers',
-        name: 'moment[viewers][]',
-        type: 'tag',
-        checkboxes: checkboxes,
-        label: t('shared.viewers.plural'),
-        dark: true,
-        accordion: true,
-        placeholder: t('moments.form.viewers_hint')
-      }
-    end
-    input
   end
   # rubocop:enable MethodLength
 
@@ -149,6 +144,26 @@ module MomentsHelper
     when 'Strategy'
       @moment.strategy
     end
+  end
+
+  def total_moment(total_count)
+    unless total_count == 1
+      return t(
+        'stats.total_moments', count: total_count
+      )
+    end
+
+    t('stats.total_moment', count: total_count)
+  end
+
+  def monthly_moment(monthly_count)
+    unless monthly_count == 1
+      return t(
+        'stats.monthly_moments', count: monthly_count
+      )
+    end
+
+    t('stats.monthly_moment', count: monthly_count)
   end
 end
 # rubocop:enable ModuleLength

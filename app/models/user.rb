@@ -45,11 +45,15 @@
 #
 
 class User < ApplicationRecord
+  include PasswordValidator
+
   ALLY_STATUS = {
     accepted: 0,
     pending_from_user: 1,
     pending_from_ally: 2
   }.freeze
+
+  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -72,12 +76,17 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :user_id
   has_many :moods
   has_many :moments
+  has_many :categories
+
+  belongs_to :invited_by, class_name: 'User'
+
   after_initialize :set_defaults, unless: :persisted?
 
   validates :name, presence: true
   validates :locale, inclusion: {
-    in: [nil, 'en', 'es', 'pt-BR', 'sv', 'nl', 'it', 'nb', 'vi']
+    in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
+  validate :password_complexity
 
   def active_for_authentication?
     super && !banned
@@ -95,32 +104,19 @@ class User < ApplicationRecord
     ally_groups.order(order) - groups
   end
 
-  # TODO: _signed_in_resource is unused and should be removed
-  # rubocop:disable MethodLength
-  def self.find_for_google_oauth2(access_token, _signed_in_resource = nil)
+  def self.find_for_google_oauth2(access_token)
     data = access_token.info
-    user = find_or_initialize_by(email: data.email) do |u|
-      u.name = data.name
-      u.password = Devise.friendly_token[0, 20]
-    end
+    user = find_or_initialize_by(email: data.email)
+    user.name ||= data.name
+    # ensure a password is set for new and invited users so the user is valid
+    user.password ||= Devise.friendly_token[0, 20]
 
-    user.update!(
-      provider: access_token.provider,
-      token: access_token.credentials.token,
-      refresh_token: access_token.credentials.refresh_token,
-      uid: access_token.uid,
-      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
-    )
+    update_access_token_fields(user: user, access_token: access_token)
     user
   end
-  # rubocop:enable MethodLength
 
   def google_access_token
-    if !access_expires_at || Time.zone.now > access_expires_at
-      update_access_token
-    else
-      token
-    end
+    google_access_token_expired? ? update_access_token : token
   end
 
   def google_oauth2_enabled?
@@ -143,14 +139,13 @@ class User < ApplicationRecord
     @meeting_notify.nil? && @comment_notify = true
   end
 
-  OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-
   def update_access_token
-    refresh_token_params = { 'refresh_token' => refresh_token,
-                             'client_id'     => nil,
-                             'client_secret' => nil,
-                             'grant_type'    => 'refresh_token' }
-    response = Net::HTTP.post_form(User::OAUTH_TOKEN_URL, refresh_token_params)
+    params = { 'refresh_token' => refresh_token,
+               'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+               'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+               'grant_type'    => 'refresh_token' }
+
+    response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)
     new_expiration_time = Time.zone.now + decoded_response['expires_in']
     new_access_token = decoded_response['access_token']
@@ -158,7 +153,21 @@ class User < ApplicationRecord
     new_access_token
   end
 
+  private_class_method def self.update_access_token_fields(user:, access_token:)
+    user.update!(
+      provider: access_token.provider,
+      token: access_token.credentials.token,
+      refresh_token: access_token.credentials.refresh_token,
+      uid: access_token.uid,
+      access_expires_at: Time.zone.at(access_token.credentials.expires_at)
+    )
+  end
+
   private
+
+  def google_access_token_expired?
+    !access_expires_at || Time.zone.now > access_expires_at
+  end
 
   def accepted_ally_ids
     allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)

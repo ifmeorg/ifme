@@ -36,12 +36,6 @@
     "languages": ["en"]
   },
   {
-    "name": "Feerless",
-    "link": "https://feerless.us",
-    "tags": ["trigger_warnings", "netflix", "free", "open_source"],
-    "languages": ["en"]
-  },
-  {
     "name": "BetterHelp",
     "link": "https://www.betterhelp.com",
     "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
@@ -147,6 +141,36 @@
     "name": "Calm",
     "link": "https://www.calm.com",
     "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Simple Habit",
+    "link": "https://www.simplehabit.com/",
+    "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Daylio",
+    "link": "https://daylio.webflow.io/",
+    "tags": ["mood_tracking", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Habitica",
+    "link": "https://habitica.com/",
+    "tags": ["goal_tracking", "social_network", "self_care", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Low Cost Help (US)",
+    "link": "http://lowcosthelp.com/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Callisto (US)",
+    "link": "https://www.projectcallisto.org/",
+    "tags": ["sexual_assault_survivors", "harassment", "reporting"],
     "languages": ["en"]
   }
 ]

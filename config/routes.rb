@@ -5,10 +5,17 @@ Rails.application.routes.draw do
   get '/404' => 'errors#not_found'
   get '/500' => 'errors#internal_server_error'
 
-  resources :allies, :except => [:show, :new, :create, :edit, :update, :destroy] do
+  resources :allies, only: :index do
     collection do
       post 'add'
       post 'remove'
+    end
+  end
+
+  resources :comment, only: [:create, :destroy] do
+    collection do
+      post 'create'
+      delete 'delete'
     end
   end
 
@@ -28,21 +35,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :moments do
-    collection do
-      post 'comment'
-      get 'delete_comment'
-    end
-  end
+  resources :moments
 
   resources :secret_shares, only: [:create, :show, :destroy]
 
   resources :strategies do
     collection do
-      post 'comment'
       post 'premade'
       post 'quick_create'
-      get 'delete_comment'
     end
   end
 
@@ -58,12 +58,10 @@ Rails.application.routes.draw do
     collection do
       get 'join'
       get 'leave'
-      post 'comment'
-      get 'delete_comment'
     end
   end
 
-  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] do
+  resources :profile, only: :index do
     collection do
       post 'ban_user'
       post 'remove_ban'
@@ -75,14 +73,14 @@ Rails.application.routes.draw do
       get 'admin_dashboard'
     end
   end
-  
-  resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
+
+  resources :search, only: :index do
     collection do
       get 'posts'
     end
   end
 
-  resources :notifications, :except => [:show, :new, :create, :edit, :update] do
+  resources :notifications, only: [:destroy, :index] do
     collection do
       delete 'clear'
       get 'fetch_notifications'
@@ -97,75 +95,20 @@ Rails.application.routes.draw do
   match 'partners', to: 'pages#partners', via: :get
   match 'privacy', to: 'pages#privacy', via: :get
   match 'faq', to: 'pages#faq', via: :get
-  match 'toggle_locale', to: 'pages#toggle_locale', via: :get
+  match 'toggle_locale', to: 'pages#toggle_locale', via: :post
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
-  
-  devise_for :users, :controllers => { :registrations => :registrations,
-                                       :omniauth_callbacks => 'omniauth_callbacks',
-                                       :invitations => 'users/invitations',
-                                       :sessions => :sessions }
+
+  devise_for :users, controllers: { registrations: :registrations,
+                                       omniauth_callbacks: 'omniauth_callbacks',
+                                       invitations: 'users/invitations',
+                                       sessions: :sessions }
 
   post 'pusher/auth'
 
   Rails.configuration.i18n.available_locales.each do |locale|
     get locale.to_s => 'locales#set_initial_locale', defaults: { locale: locale.to_s }
   end
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 
   root 'pages#home'
 end

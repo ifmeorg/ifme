@@ -5,8 +5,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
+#  email                  :string           default(''), not null
+#  encrypted_password     :string           default(''), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -61,7 +61,7 @@ describe User do
     end
 
     context 'an existing user' do
-      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfasdf') }
+      let!(:user) { User.create(name: 'some name', email: 'some@user.com', password: 'asdfaS1!df') }
 
       it 'updates token information' do
         User.find_for_google_oauth2(access_token)
@@ -95,7 +95,7 @@ describe User do
     let!(:user) do
       User.create(name: 'some name',
                   email: 'some@user.com',
-                  password: 'asdfasdf',
+                  password: 'asdfasdF!1',
                   token: 'some token')
     end
 
@@ -137,6 +137,47 @@ describe User do
     end
   end
 
+  describe '#validations' do
+    context 'password' do
+      let(:user) { build(:user, password: nil) }
+
+      context 'when password is blank' do
+        it 'throws password error only from devise' do
+          expect(user.valid?).to be false
+
+          expect(user).to have(1).error_on(:password)
+          expect(user.errors[:password]).not_to include(I18n.t('devise.registrations.password_complexity_error'))
+        end
+      end
+
+      context 'when oauth is enabled' do
+        it 'doesnt throw any errors even if the password strength is less' do
+          user.password = 'warsdasdf'
+          user.token = 'access token'
+          expect(user.valid?).to be true
+        end
+      end
+
+      context 'when password is valid' do
+        it 'doesnt throw any errors' do
+          user.password = 'waspAr$0'
+          expect(user.valid?).to be true
+        end
+      end
+
+      context 'when password is invalid' do
+        it 'returns respective error message' do
+          ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
+            user.password = password
+            expect(user.valid?).to be false
+
+            expect(user).to have(1).error_on(:password)
+          end
+        end
+      end
+    end
+  end
+
   describe '#available_groups' do
     it "returns the groups that allys belong to and the user doesn't" do
       user = create :user1
@@ -150,6 +191,55 @@ describe User do
       result = user.available_groups('groups.created_at DESC')
 
       expect(result).to eq [group_only_ally_belongs_to]
+    end
+  end
+
+  describe '#update_access_token' do
+    let!(:user) do
+      User.create(name: 'some name',
+                  email: 'some@user.com',
+                  password: 'asdfasdf',
+                  token: 'some token')
+    end
+
+    request = {
+      'refresh_token'   =>  nil,
+      'client_id'       =>  ENV['GOOGLE_CLIENT_ID'],
+      'client_secret'   =>  ENV['GOOGLE_CLIENT_SECRET'],
+      'grant_type'      =>  'refresh_token'
+    }
+
+    context 'when request is successful' do
+      before do
+        response = {
+          'access_token': 'MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3',
+          'token_type': 'bearer',
+          'expires_in': 3600,
+          'refresh_token': 'IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk',
+          'scope': 'create'
+        }.to_json
+
+        Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
+      end
+
+      it 'returns a new access token' do
+        expect(user.update_access_token).to eq('MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3')
+      end
+    end
+
+    context 'when request is unsuccessful' do
+      before do
+        response = {
+          'error': 'invalid request',
+          'error_description': 'Could not determine client ID from request.'
+        }.to_json
+
+        Net::HTTP.stub(:post_form).with(URI.parse(User::OAUTH_TOKEN_URL), request) { double(body: response) }
+      end
+
+      it 'returns a new access token' do
+        expect { user.update_access_token }.to raise_error(NoMethodError)
+      end
     end
   end
 end

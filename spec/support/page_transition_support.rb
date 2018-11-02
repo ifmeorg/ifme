@@ -5,8 +5,8 @@ module PageTransitionSupport
     within 'select[name=locale]' do
       find("option[value=#{language_code}]").click
       expect(
-        find("option[value=#{language_code}][selected]", wait: 10)
-      ).to be_present
+        find("option[value=#{language_code}]", wait: 10)
+      ).to be_visible
     end
   end
 

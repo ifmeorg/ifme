@@ -2,10 +2,10 @@
 import React from 'react';
 import { Modal } from '../../components/Modal';
 import { Input } from '../../components/Input';
-import type { Checkbox } from '../../components/Input';
+import type { Checkbox } from '../../components/Input/utils';
 import { Utils } from '../../utils';
 import css from './QuickCreate.scss';
-import { QuickCreateForm } from './QuickCreateForm';
+import { DynamicForm } from '../../components/Form/DynamicForm';
 
 // value - e.g. category.id
 // label - e.g. category.name
@@ -35,7 +35,7 @@ const alpha = (a: string, b: string) => {
   return 0;
 };
 
-const sortAlpha = (checkboxes: Checkbox[]) =>
+const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   // eslint-disable-next-line implicit-arrow-linebreak
   checkboxes.sort((a: Checkbox, b: Checkbox) => alpha(a.label, b.label));
 
@@ -71,30 +71,36 @@ export class QuickCreate extends React.Component<Props, State> {
     ).length;
   };
 
-  onCreate = (checkbox: { label: string, value: number, id: string }) => {
-    const { label, value, id } = checkbox;
-    this.setState((prevState: State) => {
-      const { checkboxes } = prevState;
-      checkboxes.push({
-        id,
-        label,
-        value,
-        checked: true,
-      });
-      return {
+  addToCheckboxes = (data: { name: string, id: string, slug: string }) => {
+    const { checkboxes } = this.state;
+    const { name, id, slug } = data;
+    const newCheckboxes = checkboxes.slice(0);
+    newCheckboxes.push({
+      id: slug,
+      label: name,
+      value: id,
+      checked: true,
+    });
+    return sortAlpha(newCheckboxes);
+  };
+
+  onCreate = (response: any) => {
+    const { data } = response;
+    if (data && data.success) {
+      this.setState({
         open: false,
         accordionOpen: true,
         modalKey: Utils.randomString(),
         tagKey: Utils.randomString(),
-        checkboxes: sortAlpha(checkboxes),
-      };
-    });
+        checkboxes: this.addToCheckboxes(data),
+      });
+    }
   };
 
   displayQuickCreateForm = (nameValue: string) => {
     const { formProps } = this.props;
     return (
-      <QuickCreateForm
+      <DynamicForm
         nameValue={nameValue}
         formProps={formProps}
         onCreate={this.onCreate}

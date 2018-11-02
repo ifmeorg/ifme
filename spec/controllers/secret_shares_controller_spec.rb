@@ -18,6 +18,7 @@ describe SecretSharesController, type: :controller do
 
       it 'Creates Secret Share Identifier' do
         expect(moment.reload.secret_share_identifier).not_to be_nil
+        expect(response).to redirect_to moment_path(moment, anchor: 'secretShare')
       end
     end
 

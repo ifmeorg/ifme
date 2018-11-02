@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MoodsController < ApplicationController
-  include CollectionPageSetup
+  include CollectionPageSetupConcern
   include Shared
   before_action :set_mood, only: %i[show edit update destroy]
 
@@ -33,26 +33,26 @@ class MoodsController < ApplicationController
   # POST /moods.json
   def create
     @mood = Mood.new(mood_params.merge(user_id: current_user.id))
-    shared_create(@mood, 'mood')
+    shared_create(@mood)
   end
 
   # POST /moods
   # POST /moods.json
   def premade
-    Mood.add_premade(current_user.id)
+    shared_add_premade(Mood, 5)
     redirect_to_path(moods_path)
   end
 
   # PATCH/PUT /moods/1
   # PATCH/PUT /moods/1.json
   def update
-    shared_update(@mood, 'mood', mood_params)
+    shared_update(@mood, mood_params)
   end
 
   # DELETE /moods/1
   # DELETE /moods/1.json
   def destroy
-    shared_destroy(@mood, 'mood')
+    shared_destroy(@mood)
   end
 
   def quick_create
@@ -67,13 +67,11 @@ class MoodsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_mood
     @mood = Mood.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(moods_path)
   end
-  # rubocop:enable RescueStandardError
 
   def mood_params
     params.require(:mood).permit(:name, :description)

@@ -19,6 +19,6 @@ rm -rf public/webpack/development/* || true && \
 cd client && \
 bundle exec rake react_on_rails:locale && \
 yarn install && \
-yarn run build:development && \
+yarn build:development && \
 
 exit 0;

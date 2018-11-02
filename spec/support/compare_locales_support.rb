@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module CompareLocalesSupport
   LOCALES_DIR = './config/locales'
   LOCALES_FILES = {
@@ -11,6 +10,8 @@ module CompareLocalesSupport
     dutch: "#{LOCALES_DIR}/nl.yml",
     italian: "#{LOCALES_DIR}/it.yml",
     vietnamese: "#{LOCALES_DIR}/vi.yml",
+    german: "#{LOCALES_DIR}/de.yml",
+    french: "#{LOCALES_DIR}/fr.yml",
     devise_english: "#{LOCALES_DIR}/devise.en.yml",
     devise_spanish: "#{LOCALES_DIR}/devise.es.yml",
     devise_portuguese: "#{LOCALES_DIR}/devise.pt-BR.yml",
@@ -19,6 +20,8 @@ module CompareLocalesSupport
     devise_dutch: "#{LOCALES_DIR}/devise.nl.yml",
     devise_italian: "#{LOCALES_DIR}/devise.it.yml",
     devise_vietnamese: "#{LOCALES_DIR}/devise.vi.yml",
+    devise_german: "#{LOCALES_DIR}/devise.de.yml",
+    devise_french: "#{LOCALES_DIR}/devise.fr.yml",
     devise_invitable_english: "#{LOCALES_DIR}/devise_invitable.en.yml",
     devise_invitable_spanish: "#{LOCALES_DIR}/devise_invitable.es.yml",
     devise_invitable_portuguese: "#{LOCALES_DIR}/devise_invitable.pt-BR.yml",
@@ -27,6 +30,8 @@ module CompareLocalesSupport
     devise_invitable_dutch: "#{LOCALES_DIR}/devise_invitable.nl.yml",
     devise_invitable_italian: "#{LOCALES_DIR}/devise_invitable.it.yml",
     devise_invitable_vietnamese: "#{LOCALES_DIR}/devise_invitable.vi.yml",
+    devise_invitable_german: "#{LOCALES_DIR}/devise_invitable.de.yml",
+    devise_invitable_french: "#{LOCALES_DIR}/devise_invitable.fr.yml",
     kaminari_english: "#{LOCALES_DIR}/kaminari.en.yml",
     kaminari_spanish: "#{LOCALES_DIR}/kaminari.es.yml",
     kaminari_portuguese: "#{LOCALES_DIR}/kaminari.pt-BR.yml",
@@ -34,7 +39,9 @@ module CompareLocalesSupport
     kaminari_norwegian: "#{LOCALES_DIR}/kaminari.nb.yml",
     kaminari_dutch: "#{LOCALES_DIR}/kaminari.nl.yml",
     kaminari_italian: "#{LOCALES_DIR}/kaminari.it.yml",
-    kaminari_vietnamese: "#{LOCALES_DIR}/kaminari.vi.yml"
+    kaminari_vietnamese: "#{LOCALES_DIR}/kaminari.vi.yml",
+    kaminari_german: "#{LOCALES_DIR}/kaminari.de.yml",
+    kaminari_french: "#{LOCALES_DIR}/kaminari.fr.yml"
   }.freeze
 
   def self.flatten_keys(hash, prefix = '')

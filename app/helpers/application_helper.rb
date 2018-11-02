@@ -1,20 +1,10 @@
 # frozen_string_literal: true
-
-# rubocop:disable ModuleLength
 module ApplicationHelper
   include ViewersHelper
 
   def html_options
     { class: 'htmlOptions' }
   end
-
-  # rubocop:disable RescueStandardError
-  def i18n_set?(key)
-    I18n.t key, raise: true
-  rescue
-    false
-  end
-  # rubocop:enable RescueStandardError
 
   def active?(link_path, environment = {})
     current_page?(link_path) ||
@@ -24,29 +14,25 @@ module ApplicationHelper
   end
 
   def sign_in_path?
-    correct_devise_page?(new_user_session_path,
-                         'sessions', 'new')
+    devise_page?(new_user_session_path, 'sessions', 'new')
   end
 
   def join_path?
-    correct_devise_page?(new_user_registration_path,
-                         'registrations', 'create') ||
-      correct_devise_page?(new_user_registration_path,
-                           'registrations', 'new')
+    path = new_user_registration_path
+    devise_page?(path, 'registrations', 'create') ||
+      devise_page?(path, 'registrations', 'new')
   end
 
   def forgot_password_path?
-    correct_devise_page?(new_user_password_path,
-                         'devise/passwords', 'new') ||
-      correct_devise_page?(new_user_password_path,
-                           'devise/passwords', 'create')
+    path = new_user_password_path
+    devise_page?(path, 'devise/passwords', 'new') ||
+      devise_page?(path, 'devise/passwords', 'create')
   end
 
   def update_account_path?
-    correct_devise_page?(edit_user_registration_path,
-                         'registrations', 'update') ||
-      correct_devise_page?(edit_user_registration_path,
-                           'registrations', 'edit')
+    path = edit_user_registration_path
+    devise_page?(path, 'registrations', 'update') ||
+      devise_page?(path, 'registrations', 'edit')
   end
 
   def not_signed_in_root_path?
@@ -54,24 +40,21 @@ module ApplicationHelper
   end
 
   def send_ally_invitation_path?
-    correct_devise_page?(new_user_invitation_path,
-                         'devise/invitations', 'new') ||
-      correct_devise_page?(new_user_invitation_path,
-                           'users/invitations', 'create')
+    path = new_user_invitation_path
+    devise_page?(path, 'devise/invitations', 'new') ||
+      devise_page?(path, 'users/invitations', 'create')
   end
 
   def ally_accept_invitation_path?
-    correct_devise_page?(accept_user_invitation_path,
-                         'users/invitations', 'edit')
-    correct_devise_page?(accept_user_invitation_path,
-                         'users/invitations', 'update')
+    path = accept_user_invitation_path
+    devise_page?(path, 'users/invitations', 'edit') ||
+      devise_page?(path, 'users/invitations', 'update')
   end
 
   def reset_password_path?
-    correct_devise_page?(edit_user_password_path,
-                         'devise/passwords', 'edit') ||
-      correct_devise_page?(edit_user_password_path,
-                           'devise/passwords', 'update')
+    path = edit_user_password_path
+    devise_page?(path, 'devise/passwords', 'edit') ||
+      devise_page?(path, 'devise/passwords', 'update')
   end
 
   def secret_share_path?
@@ -82,8 +65,7 @@ module ApplicationHelper
     non_devise_paths = [
       about_path, resources_path, faq_path,
       contribute_path, partners_path, press_path, privacy_path
-    ]
-    non_devise_paths = non_devise_paths.select { |path| active?(path) }
+    ].select { |path| active?(path) }
     devise = ally_accept_invitation_path? || reset_password_path?
     devise || non_devise_paths.count == 1
   end
@@ -97,51 +79,28 @@ module ApplicationHelper
   end
 
   def get_icon_class(icon)
-    if %w[envelope gift rss].include?(icon)
-      "fas fa-#{icon}"
-    elsif icon == 'money-bill-alt'
-      'far fa-money-bill-alt'
-    elsif %w[facebook github instagram medium twitter].include?(icon)
-      "fab fa-#{icon}"
-    else
-      'fa fa-globe'
-    end
-  end
+    return 'far fa-money-bill-alt' if icon == 'money-bill-alt'
+    return "fas fa-#{icon}" if %w[envelope gift rss].include?(icon)
+    return "fab fa-#{icon}" if %w[
+      facebook github instagram medium twitter
+    ].include?(icon)
 
-  def get_icon_text(icon, text)
-    html = ''
-    if icon && text
-      html += "<i class=\"#{get_icon_class(icon)} smallerMarginRight\"></i>"
-      html += text
-    end
-    html.html_safe
-  end
-
-  def image_link_to(image_path, url, image_tag_options = {},
-                    link_to_options = {})
-    link_to url, link_to_options do
-      default_alt = File.basename(image_path, '.*')
-                        .sub(/-[[:xdigit:]]{32,64}\z/, '')
-                        .tr('-_', ' ').capitalize
-      image_tag image_path, { alt: default_alt }.merge(image_tag_options)
-    end
+    'fa fa-globe'
   end
 
   private
 
   def current_controller?(link_path, environment = {})
-    current_controller = params[:controller]
     link_controller = Rails.application.routes
                            .recognize_path(link_path, environment)[:controller]
-    current_controller != 'profile' &&
-      current_controller != 'pages' &&
-      current_controller == link_controller
+    params[:controller] != 'profile' &&
+      params[:controller] != 'pages' &&
+      params[:controller] == link_controller
   end
 
-  def correct_devise_page?(path, current_controller, current_action)
+  def devise_page?(path, current_controller, current_action)
     current_page?(path) ||
       (params[:controller] == current_controller &&
         action_name == current_action)
   end
 end
-# rubocop:enable ModuleLength

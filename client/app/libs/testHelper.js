@@ -1,10 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';
-import Enzyme from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() });
 window.alert = () => {};
+window.location.reload = () => {};
+window.document.execCommand = () => {};
 
 export { React, TestUtils };

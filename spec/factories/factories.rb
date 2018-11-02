@@ -37,7 +37,7 @@ FactoryBot.define do
     time { Time.now }
     maxmembers { 1 }
     date { Date.tomorrow }
-    sequence(:group_id)
+    group
   end
 
   factory :bad_group, class: Group do
@@ -74,16 +74,11 @@ FactoryBot.define do
     status { :pending_from_ally }
   end
 
-  factory :category do
-    name  { 'Test Category' }
-    description { 'Test Description' }
-  end
-
   factory :medication do
     name { 'Fancy Medication Name' }
     dosage { 10 }
     dosage_unit { 'tablet' }
-    refill { 0o1 / 0o1 / 2020 }
+    refill { "01/01/2020" }
     strength { 12 }
     strength_unit { 'mg' }
     total { '30' }
@@ -114,11 +109,6 @@ FactoryBot.define do
         create :refill_reminder, medication: medication
       end
     end
-  end
-
-  factory :mood do
-    name  { 'Test Mood' }
-    description { 'Test Mood' }
   end
 
   factory :comment do

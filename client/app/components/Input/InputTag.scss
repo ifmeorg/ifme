@@ -23,6 +23,7 @@
 
   &Label {
     @include setPadding($size-4, $size-4, $size-4, $size-4);
+    text-transform: capitalize;
   }
 
   &Highlighted {

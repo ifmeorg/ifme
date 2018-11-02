@@ -2,8 +2,7 @@
 
 # rubocop:disable ClassLength
 class StrategiesController < ApplicationController
-  include CollectionPageSetup
-  include CommentsHelper
+  include CollectionPageSetupConcern
   include ReminderHelper
   include Shared
 
@@ -21,61 +20,21 @@ class StrategiesController < ApplicationController
     show_with_comments(@strategy)
   end
 
-  def comment
-    comment_for('strategy')
-  end
-
-  # rubocop:disable MethodLength
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(
-      id: params[:commentid],
-      comment_by: current_user.id
-    ).exists?
-
-    if comment_exists
-      strategyid = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_strategy = Strategy.where(
-        id: strategyid,
-        user_id: current_user.id
-      ).exists?
-    else
-      is_my_strategy = false
-    end
-
-    if comment_exists && (is_my_comment || is_my_strategy)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
-                                         model_name: 'strategy')
-    end
-
-    head :ok
-  end
-  # rubocop:enable MethodLength
-
-  # rubocop:disable MethodLength
   def quick_create
-    # Assumme all viewers and comments allowed
+    # Assume all viewers and comments allowed
     viewers = []
     current_user.allies_by_status(:accepted).each do |item|
       viewers.push(item.id)
     end
-    strategy = Strategy.new(user_id: current_user.id,
-                            name: params[:strategy][:name],
-                            description: params[:strategy][:description],
-                            category: params[:strategy][:category],
-                            published_at: Time.zone.now,
-                            comment: true, viewers: viewers)
+    strategy = Strategy.new(quick_create_params(viewers))
     shared_quick_create(strategy)
   end
-  # rubocop:enable MethodLength
 
   # GET /strategies/new
   def new
     @viewers = current_user.allies_by_status(:accepted)
     @strategy = Strategy.new
-    @categories = Category.where(user_id: current_user.id)
-                          .all
-                          .order('created_at DESC')
+    @categories = current_user.categories.order('created_at DESC')
     @category = Category.new
     @strategy.build_perform_strategy_reminder
   end
@@ -84,9 +43,7 @@ class StrategiesController < ApplicationController
   def edit
     if @strategy.user_id == current_user.id
       @viewers = current_user.allies_by_status(:accepted)
-      @categories = Category.where(user_id: current_user.id)
-                            .all
-                            .order('created_at DESC')
+      @categories = current_user.categories.order('created_at DESC')
       @category = Category.new
       PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
     else
@@ -101,7 +58,7 @@ class StrategiesController < ApplicationController
     @viewers = current_user.allies_by_status(:accepted)
     @category = Category.new
     @strategy.published_at = Time.zone.now if publishing?
-    shared_create(@strategy, 'strategy')
+    shared_create(@strategy)
   end
 
   # POST /strategies
@@ -140,13 +97,13 @@ class StrategiesController < ApplicationController
       @strategy.published_at = nil
     end
     empty_array_for :viewers, :category
-    shared_update(@strategy, 'strategy', strategy_params)
+    shared_update(@strategy, strategy_params)
   end
 
   # DELETE /strategies/1
   # DELETE /strategies/1.json
   def destroy
-    shared_destroy(@strategy, 'strategy')
+    shared_destroy(@strategy)
   end
 
   private
@@ -156,13 +113,11 @@ class StrategiesController < ApplicationController
   end
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_strategy
     @strategy = Strategy.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(strategies_path)
   end
-  # rubocop:enable RescueStandardError
 
   def strategy_params
     params.require(:strategy).permit(
@@ -184,6 +139,18 @@ class StrategiesController < ApplicationController
     symbols.each do |symbol|
       @strategy[symbol] = [] if strategy_params[symbol].nil?
     end
+  end
+
+  def quick_create_params(viewers)
+    {
+      user_id: current_user.id,
+      name: params[:strategy][:name],
+      description: params[:strategy][:description],
+      category: params[:strategy][:category],
+      published_at: Time.zone.now,
+      comment: true,
+      viewers: viewers
+    }
   end
 end
 # rubocop:enable ClassLength

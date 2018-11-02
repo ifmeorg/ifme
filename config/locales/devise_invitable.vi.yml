@@ -1,27 +1,27 @@
 vi:
   devise:
     failure:
-      invited: "Bạn có một lời mời, xin vui lòng chấp thuận để tạo một tài khoản."
+      invited: 'Bạn có một lời mời, xin vui lòng chấp thuận để tạo một tài khoản.'
     invitations:
-      send_instructions: "Lời mời đã được gửi tới địa chỉ %{email}."
-      failed_send: "Một lỗi đã xuất hiện, đại chỉ %{email} không thể được mời."
-      invitation_token_invalid: "Mã khóa được cung cấp không giá trị!"
-      updated: "Cài đặt mật khẩu đã thành công, bạn có thể đăng nhập."
-      updated_not_active: "Mật khẩu của bạn đã cài đặt thành công."
-      no_invitations_remaining: "Không còn lời mời nào nữa"
-      invitation_removed: "Lời mời đã được gỡ bỏ."
+      send_instructions: 'Lời mời đã được gửi tới địa chỉ %{email}.'
+      failed_send: 'Một lỗi đã xuất hiện, đại chỉ %{email} không thể được mời.'
+      invitation_token_invalid: 'Mã khóa được cung cấp không giá trị!'
+      updated: 'Cài đặt mật khẩu đã thành công, bạn có thể đăng nhập.'
+      updated_not_active: 'Mật khẩu của bạn đã cài đặt thành công.'
+      no_invitations_remaining: 'Không còn lời mời nào nữa'
+      invitation_removed: 'Lời mời đã được gỡ bỏ.'
       new:
-        header: "Gửi một lời mời cho đồng minh"
-        submit_button: "Gửi một lời mời"
+        header: 'Gửi một lời mời cho đồng minh'
+        submit_button: 'Gửi một lời mời'
       edit:
-        header: "Cài đặt mật khẩu"
-        submit_button: "Cài đặt mật khẩu"
+        header: 'Cài đặt mật khẩu'
+        submit_button: 'Cài đặt mật khẩu'
     mailer:
       invitation_instructions:
-        subject: "%{name} đã mời bạn tham gia if me!"
-        subject_nameless: "Có ai đó mời bạn tham gia if me!"
-        hello: "Chào %{email}!"
-        someone_invited_you: "%{name} đã mời bạn tham gia http://www.if-me.org, một cộng đồng để chia sẻ kinh nghiệm về sức khoẻ tâm thần với người thân của bạn và theo dõi tâm trạng, thuốc men và chăm sóc bản thân của bạn. Bạn có thể chấp nhận lời mời qua liên kết bên dưới."
-        accept: "Chấp nhận lời mời!"
-        accept_until: "Lời mời này sẽ hết hạn trong %{due_date}."
-        ignore: "Nếu bạn không chấp nhận lời mời xin vui lòng bỏ qua email này.<br />\nTài khoản của bạn sẽ không được kích hoạt cho đến khi bạn truy nhập đường dẫn trên và cài đặt mật khẩu."
+        subject: '%{name} đã mời bạn tham gia if me!'
+        subject_nameless: 'Có ai đó mời bạn tham gia if me!'
+        hello: 'Chào %{email}!'
+        someone_invited_you: '%{name} đã mời bạn tham gia http://www.if-me.org, một cộng đồng để chia sẻ kinh nghiệm về sức khoẻ tâm thần với người thân của bạn và theo dõi tâm trạng, thuốc men và chăm sóc bản thân của bạn. Bạn có thể chấp nhận lời mời qua liên kết bên dưới.'
+        accept: 'Chấp nhận lời mời!'
+        accept_until: 'Lời mời này sẽ hết hạn trong %{due_date}.'
+        ignore: 'Nếu bạn không chấp nhận lời mời xin vui lòng bỏ qua email này.<br />Tài khoản của bạn sẽ không được kích hoạt cho đến khi bạn truy nhập đường dẫn trên và cài đặt mật khẩu.'

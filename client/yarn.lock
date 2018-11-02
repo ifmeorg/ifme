@@ -964,6 +964,54 @@
     node-fetch "^2.1.1"
     url-template "^2.0.8"
 
+"@sentry/browser@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-4.0.6.tgz#6a9183371c9d6c2c1905f14af17ad68e305ce918"
+  integrity sha512-tYXqJQOL+pYud8ICSLkxF7aMn3aLqqSq+H8tF4GPOtTEwmVZH1PEy8T+o2SOhHohJMvWEkEepElKGot71pu+NQ==
+  dependencies:
+    "@sentry/core" "4.0.6"
+    "@sentry/types" "4.0.6"
+    "@sentry/utils" "4.0.6"
+    md5 "2.2.1"
+
+"@sentry/core@4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-4.0.6.tgz#8e59445dde27e639ffcac23b4e40529cda4c9df7"
+  integrity sha512-xqUI59SSjA0f7ec6xy0RzZUJTxYP2smtHy3to+rvyyz5N4QBtL87yw9P0FngvBxNFEjfHYEO1V5gM9mA/5UByg==
+  dependencies:
+    "@sentry/hub" "4.0.6"
+    "@sentry/minimal" "4.0.6"
+    "@sentry/types" "4.0.6"
+    "@sentry/utils" "4.0.6"
+
+"@sentry/hub@4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-4.0.6.tgz#ab86bd50d12234a0699857452e925069311f54d1"
+  integrity sha512-7oQKnunDPo8JHzCcOC0CRcPm4Zl3apF0fFYL/nLe7XhCBGoaA2XubwoTx02iOtoNiyPp7QqT75KSXd0eMNq5KA==
+  dependencies:
+    "@sentry/types" "4.0.6"
+    "@sentry/utils" "4.0.6"
+
+"@sentry/minimal@4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-4.0.6.tgz#494d725f2d7c343724c47bbb0cd99302b6124e7d"
+  integrity sha512-xnMRx/EkC5YGP2qSJSvAksg4KM8LhIt9GwcNX9ZkInKy2LmWSgtHUYnHyGl1sP+xMirvsYO5HMrLKujjDaYNvQ==
+  dependencies:
+    "@sentry/hub" "4.0.6"
+    "@sentry/types" "4.0.6"
+
+"@sentry/types@4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-4.0.6.tgz#421478df17415802baa4d5e2d3db246e559a0fad"
+  integrity sha512-8TYqM+cRkGIXWYQVSJO3eJnnxi/GUUZVFpvlwNQvnxNZLVg8xyn08WYTRMAbKKBq27yb02NpJJTj04KvrUTc9g==
+
+"@sentry/utils@4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-4.0.6.tgz#77ca73fb7d2c436914d2dd84fa975dd5b618246d"
+  integrity sha512-m+6r+qMhOXBhw06bPpdha1Bg5KzK46/FMb9tyiA0KCGFR3/vNgKneXwoZJ5GDGTVaz3J189bXoXRHHlHXcH+4w==
+  dependencies:
+    "@sentry/types" "4.0.6"
+
 "@storybook/addon-actions@^4.0.0-alpha.21":
   version "4.0.0-alpha.22"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-4.0.0-alpha.22.tgz#d495e17bc912143c67ed6562cbeb1eb05d130fab"
@@ -4074,10 +4122,10 @@ enzyme-adapter-utils@^1.8.0:
     object.assign "^4.1.0"
     prop-types "^15.6.2"
 
-enzyme@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.6.0.tgz#d213f280a258f61e901bc663d4cc2d6fd9a9dec8"
-  integrity sha512-onsINzVLGqKIapTVfWkkw6bYvm1o4CyJ9s8POExtQhAkVa4qFDW6DGCQGRy/5bfZYk+gmUbMNyayXiWDzTkHFQ==
+enzyme@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-3.7.0.tgz#9b499e8ca155df44fef64d9f1558961ba1385a46"
+  integrity sha512-QLWx+krGK6iDNyR1KlH5YPZqxZCQaVF6ike1eDJAOg0HvSkSCVImPsdWaNw6v+VrnK92Kg8jIOYhuOSS9sBpyg==
   dependencies:
     array.prototype.flat "^1.2.1"
     cheerio "^1.0.0-rc.2"
@@ -5908,36 +5956,7 @@ interpret@^1.0.0, interpret@^1.1.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
   integrity sha1-ftGxQQxqDg94z5XTuEQMY/eLhhQ=
 
-intl-format-cache@^2.0.5:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-2.1.0.tgz#04a369fecbfad6da6005bae1f14333332dcf9316"
-  integrity sha1-BKNp/sv61tpgBbrh8UMzMy3PkxY=
-
-intl-messageformat-parser@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
-  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
-
-intl-messageformat@^2.0.0, intl-messageformat@^2.1.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
-  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
-  dependencies:
-    intl-messageformat-parser "1.4.0"
-
-intl-relativeformat@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/intl-relativeformat/-/intl-relativeformat-2.1.0.tgz#010f1105802251f40ac47d0e3e1a201348a255df"
-  integrity sha1-AQ8RBYAiUfQKxH0OPhogE0iiVd8=
-  dependencies:
-    intl-messageformat "^2.0.0"
-
-intl@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
-  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
-
-invariant@^2.1.1, invariant@^2.2.2, invariant@^2.2.4:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -7339,7 +7358,7 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-md5@^2.1.0:
+md5@2.2.1, md5@^2.1.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/md5/-/md5-2.2.1.tgz#53ab38d5fe3c8891ba465329ea23fac0540126f9"
   integrity sha1-U6s41f48iJG6RlMp6iP6wFQBJvk=
@@ -8969,7 +8988,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -9276,16 +9295,6 @@ react-inspector@^2.3.0:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
 
-react-intl@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.4.0.tgz#66c14dc9df9a73b2fbbfbd6021726e80a613eb15"
-  integrity sha1-ZsFNyd+ac7L7v71gIXJugKYT6xU=
-  dependencies:
-    intl-format-cache "^2.0.5"
-    intl-messageformat "^2.1.0"
-    intl-relativeformat "^2.0.0"
-    invariant "^2.1.1"
-
 react-is@^16.4.2, react-is@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
@@ -9311,10 +9320,10 @@ react-modal@^3.5.1:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
-react-on-rails@11.1.4:
-  version "11.1.4"
-  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.4.tgz#7370c1005f8c19ed00cbfd056a9a42201dd4dd98"
-  integrity sha512-6jdrMliju93aZi3N4ol/qy+XAxIPZBGctZQKFY0zzc1KakN+9fKPHujSt1477VXIZvFLEfi5fQpgO53Mz35qdA==
+react-on-rails@11.1.8:
+  version "11.1.8"
+  resolved "https://registry.yarnpkg.com/react-on-rails/-/react-on-rails-11.1.8.tgz#6d5ba72a514cac4ea4efddd8a80f61909d3e9bd7"
+  integrity sha512-vc4uw9IiDZcU4v8CwZEXOd4fVyp1Tu3LCcp9nKS4q3ffr/Ea+jphc+TrqR3nkVOAfcl67UciIDAjXrrnFezJVA==
   dependencies:
     "@babel/runtime-corejs2" "^7.0.0"
 
@@ -10425,13 +10434,6 @@ stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
-
-storybook-addon-intl@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-intl/-/storybook-addon-intl-2.3.0.tgz#94711276cefeb0b9ef13b1e70a96516c1fe0cfd2"
-  integrity sha512-RSBcNIERuMKTGFRmsb3pPn0rAXF50JJYWYvMUn5Zpp3d6v0V2IJfmGnU9Wm4mtmjSby7mCGU175FM4tIUbP9mw==
-  dependencies:
-    prop-types "^15.5.0"
 
 stream-browserify@^2.0.1:
   version "2.0.1"

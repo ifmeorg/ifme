@@ -1,0 +1,6 @@
+# Configuration file for YAML linting (https://github.com/adrienverge/yamllint)
+extends: default
+
+rules:
+  document-start: disable
+  line-length: disable

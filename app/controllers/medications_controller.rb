@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MedicationsController < ApplicationController
-  include CollectionPageSetup
+  include CollectionPageSetupConcern
   include ReminderHelper
   include MedicationRefillHelper
   before_action :set_medication, only: %i[show edit update destroy]
@@ -31,7 +31,7 @@ class MedicationsController < ApplicationController
     RefillReminder.find_or_initialize_by(medication_id: @medication.id)
     return if @medication.user_id == current_user.id
 
-    redirect_to_path(medication_path(@medication))
+    redirect_to_medication(@medication)
   end
 
   # POST /medications
@@ -67,10 +67,13 @@ class MedicationsController < ApplicationController
     redirect_to_path(medications_path)
   end
 
+  def redirect_to_medication(medication)
+    redirect_to_path(medication_path(medication))
+  end
+
   def return_to_sign_in
     sign_out current_user
     redirect_to_path(new_user_session_path)
-    false
   end
 
   private
@@ -85,21 +88,12 @@ class MedicationsController < ApplicationController
     end
   end
 
-  def redirect_to_medication(medication)
-    respond_to do |format|
-      format.html { redirect_to medication_path(medication) }
-      format.json { render :show, status: :ok, location: medication }
-    end
-  end
-
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_medication
     @medication = Medication.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(medications_path)
   end
-  # rubocop:enable RescueStandardError
 
   def medication_params
     params.require(:medication).permit(
@@ -108,7 +102,8 @@ class MedicationsController < ApplicationController
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],
-      refill_reminder_attributes: %i[active id]
+      refill_reminder_attributes: %i[active id],
+      weekly_dosage: []
     )
   end
 end

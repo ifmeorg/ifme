@@ -37,20 +37,18 @@
   </div>
 <% else %>
   <%= raw t('groups.index.instructions') %>
-  <div class="spacer"></div>
-
-  <div class="title">
-    <%= t('pages.faq.group_question') %>
+  <div class="smallMarginTop">
+    <div class="title">
+      <%= t('pages.faq.group_question') %>
+    </div>
+    <%= raw t('pages.faq.group_answer', {
+      group: link_to(t('groups.singular'), groups_path)
+    }) %>
   </div>
-
-  <%= raw t('pages.faq.group_answer', {
-    group: link_to(t('groups.singular'), groups_path)
-  }) %>
 <% end %>
 
 <% if @available_groups.any? %>
   <div class="title"><%= t('groups.index.available_groups') %></div>
-
   <div class="gridTwo">
     <% @available_groups.each do |group| %>
       <div class="gridTwoItemBoxLight">
