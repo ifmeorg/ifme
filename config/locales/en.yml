@@ -25,7 +25,7 @@ en:
     nb: Norsk
     de: Deutsch
     fr: Français
-navigation:
+  navigation:
     about: About
     blog: Blog
     contribute: Contribute

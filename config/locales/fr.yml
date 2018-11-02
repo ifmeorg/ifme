@@ -9,8 +9,8 @@ fr:
   salutation: 'Bonjour %{name},'
   click_here: 'cliquez ici'
   language: Langue
-  yes_text: 'oui'
-  no_text: 'non'
+  yes_text: oui
+  no_text: non
   expand_menu: 'dérouler le menu'
   close: fermer
   languages:
@@ -98,8 +98,11 @@ fr:
       title: Alliés
       outgoing: 'Demandes envoyées'
       incoming: 'Demandes reçues'
+      invited: 'Invité par email'
+      invited_on: 'Invité sur: %{date}'
+      invitation_expired: 'Invitation expirée'
       invite: 'Invitez vos proches!'
-      none: 'Vous n''avez actuellement pas d'alliés! Vous pouvez en rechercher ou inviter vos proches à vous rejoindre!'
+      none: 'Vous n''avez actuellement pas d''alliés! Vous pouvez en rechercher ou inviter vos proches à vous rejoindre!'
       view_all_allies: 'Voir tous les alliés'
       cancel: Annuler
     form:
@@ -145,7 +148,7 @@ fr:
       available_groups: 'Groupes disponibles'
       joined_groups: 'Membre des groupes'
       leader: (Animateur)
-      instructions: 'Vous n''êtes membres d'aucun groupe pour l''instant'
+      instructions: 'Vous n''êtes membres d''aucun groupe pour l''instant'
     join:
       success: 'Vous avez rejoint ce groupe.'
       group_not_exists: 'Vous ne pouvez pas rejoindre un groupe qui n''existe pas.'
@@ -272,7 +275,7 @@ fr:
     new: 'Nouvelle humeur'
     example_moods: 'Nerveux, anxieuse, stressé'
     index:
-      subtitle: 'Créer des étiquettes décrivant vos états d'esprits, sentiment et émotions.'
+      subtitle: 'Créer des étiquettes décrivant vos états d''esprits, sentiment et émotions.'
       premade1_name: Accepation
       premade1_description: 'Accepter et être en paix avec les différences et limitations.'
       premade2_name: Ambition
@@ -283,17 +286,17 @@ fr:
       premade4_description: 'Ne pas accepter certain faits, se sentir en colère, vindicatif(ve), et/ou jaloux(se)'
       premade5_name: Désespoir
       premade5_description: 'Sentiment de tristesse et déséspoir - incapable de trouver une solution'
-      instructions: 'Vous n''avez pas encore créé d'humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois.'
+      instructions: 'Vous n''avez pas encore créé d''humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois.'
   notifications:
     plural: Notifications
-    none: 'Aucune'
+    none: Aucune
     clear: Effacer
     created_by_html: '<strong>Créé par</strong>: %{name}'
     preview: 'Afficher plus'
     members:
       title: 'Liste des membres'
     ally:
-      accepted: '%{name} à accépté votre demande d'alliance!'
+      accepted: '%{name} à accépté votre demande d''alliance!'
       sent_html: '%{link_to_user} à envoyé une demande d''alliance!'
     comment:
       full: '%{name} a commenté "%{comment}" sur %{typename}'
@@ -398,9 +401,9 @@ fr:
         cell_three: '%{strategize} vos planning de soins!<br>Actuellement sous %{medications}? Gardez le contrôle et créez des rappels!<br>Besoin de soutien supplémentaire? Rejoingnez ou créez un %{group} pour échanger'
         main_message_five: 'Avez-vous des questions?'
         message_text_three: 'Jetez un coup d''oeil à la %{faq} ou utilisez %{email_link}!'
-        strategize: 'Organisez'
+        strategize: Organisez
     partners:
-      description: 'Voici les fantastiques organisations qui nous ont inspiré et avec les quelles nous avons eu le privilège de collaborer. Nous serions enchanté de collaborer avec votre organisation, contactez-nous à l'adresse email %{email}.'
+      description: 'Voici les fantastiques organisations qui nous ont inspiré et avec les quelles nous avons eu le privilège de collaborer. Nous serions enchanté de collaborer avec votre organisation, contactez-nous à l''adresse email %{email}.'
     privacy:
       summary: Résumé
       summary_description: '<p>Cette politique de confidentialité concerne ce site Internet et régit la confidentialité des données de ces utilisateurs.</p><p>Etant donné le caractère sensible du contenu de ce site Internet, la confidentialité est un élément crutial pour nous. Cette politique décrit comment les données sont collectées, à quelle fin elles sont utilisées et comment elles sont protégées.</p>'
@@ -620,6 +623,7 @@ fr:
       meeting_notify_text: 'Mise à jour de réunions'
       google_auth1: 'Si vous ne voulez plus vous identifiez avec Google, merci de fournir une adresse email et un nouveau mot de passe.'
       google_auth2: 'Comme vous vous êtes identifié via Google, vous n''avez pas besoin de mot de passe.<br>Si vous voulez changer cela, merci de fournir une adresse email et un nouveau mot de passe.'
+      password_complexity_error: 'doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.'
       placeholders:
         repeat_password: 'Répetez mot de passe'
       edit:
