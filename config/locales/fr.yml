@@ -65,6 +65,7 @@ fr:
       add_all: 'Tout ajouter'
       select_all: 'Tout sélectionner'
       remove: Supprimer
+      report: Rapport
     form:
       email: Email
       location: Emplacement

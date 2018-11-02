@@ -65,6 +65,7 @@ sv:
       add_all: 'Lägg till alla'
       select_all: 'Välj alla'
       remove: 'Ta bort'
+      report: Rapportera
     form:
       email: E-post
       location: Plats

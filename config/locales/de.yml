@@ -66,6 +66,7 @@ de:
       add_all: 'Alle hinzufügen'
       select_all: 'Alle auswählen'
       remove: entfernen
+      report: Bericht
     form:
       email: E-Mail
       location: Ort

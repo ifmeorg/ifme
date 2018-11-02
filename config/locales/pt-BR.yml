@@ -65,6 +65,7 @@ pt-BR:
       add_all: 'Adcionar tudo'
       select_all: 'Selecionar tudo'
       remove: Remover
+      report: Relatório
     form:
       email: Email
       location: Localização

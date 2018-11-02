@@ -41,11 +41,11 @@
         <td><%= report.comment_id %></td>
         <td><%= User.where(id: report.reporter_id).pluck(:email)[0] %></td>
         <td><%= User.where(id: report.reportee_id).pluck(:email)[0] %></td>
-        <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></td> 
+        <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, data: { confirm: t('common.actions.confirm') } %></td>
         </tr>
       <% end %>
     </tbody>
-  </table> 
+  </table>
 </div>
 
 <div class="container">
@@ -68,7 +68,7 @@
         </tr>
       <% end %>
     </tbody>
-  </table> 
+  </table>
 </div>
 
 </body>

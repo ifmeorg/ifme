@@ -65,6 +65,7 @@ es:
       add_all: 'Agregar todo'
       select_all: 'Seleccionar todo'
       remove: Remover
+      report: Informe
     form:
       email: 'Correo electrónico'
       location: Ubicación

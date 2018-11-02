@@ -65,6 +65,7 @@ vi:
       add_all: 'Thêm vào tất cả'
       select_all: 'Lựa chọn tất cả'
       remove: 'Gỡ bỏ'
+      report: 'Bài báo cáo'
     form:
       email: Email
       location: 'Vị trí'
