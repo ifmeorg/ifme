@@ -3,24 +3,34 @@ import React from 'react';
 import css from './Resources.scss';
 import { Resource } from '../../components/Resource';
 import { Utils } from '../../utils';
+import type { Checkbox } from '../../components/Input/utils';
 import { InputTag } from '../../components/Input/InputTag';
 import { I18n } from '../../libs/i18n';
 
+type ResourceProp = {
+  name: string,
+  link: string,
+  tags: string[],
+  languages: string[],
+  type: string,
+};
+
 export type Props = {
-  resources: any,
+  resources: ResourceProp[],
 };
 
 export type State = {
-  checkboxes: any,
+  checkboxes: Checkbox[],
 };
 
-export type Selected = {
-  checked: boolean,
-  id: string,
-  key: string,
-  label: string,
-  value: string,
-};
+const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  checkboxes.sort((a: Checkbox, b: Checkbox) => {
+    const aLabel = a.label.toLowerCase();
+    const bLabel = b.label.toLowerCase();
+    if (aLabel < bLabel) return -1;
+    return aLabel > bLabel ? 1 : 0;
+  });
 
 export class Resources extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -33,20 +43,22 @@ export class Resources extends React.Component<Props, State> {
     const tagsList = [
       ...new Set(
         resources
-          .map(res => res.tags.concat(res.languages))
+          .map((resource: ResourceProp) => resource.tags.concat(resource.languages))
           .reduce((acc, val) => acc.concat(val), []),
       ),
     ];
-    return tagsList.map<any>((tag: string) => ({
-      id: tag,
-      key: tag,
-      value: tag,
-      label: tag,
-      checked: false,
-    }));
+    return sortAlpha(
+      tagsList.map((tag: string) => ({
+        id: tag,
+        key: tag,
+        value: tag,
+        label: tag,
+        checked: false,
+      })),
+    );
   };
 
-  checkboxChange = (box: Selected) => {
+  checkboxChange = (box: Checkbox) => {
     this.setState((prevState: State) => {
       const updatedBoxes = prevState.checkboxes
         .filter(checkbox => checkbox.id !== box.id)
@@ -55,19 +67,40 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
-  filterList = (check: Array<*>) => {
+  filterList = (checkboxes: Checkbox[]) => {
     const { resources } = this.props;
-    const selectedTags = check.filter(c => c.checked === true);
-    const matchingResources = resources.filter((r) => {
-      const tagCheck = selectedTags.map((t: Selected) => r.tags.concat(r.languages).includes(t.id));
+    const selectedCheckboxes = checkboxes.filter(
+      (checkbox: Checkbox) => !!checkbox.checked,
+    );
+    return resources.filter((resource: ResourceProp) => {
+      const tagCheck = selectedCheckboxes.map((checkbox: Checkbox) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        resource.tags.concat(resource.languages).includes(checkbox.id));
       return !tagCheck.includes(false);
     });
-    return matchingResources;
+  };
+
+  displayTags = () => {
+    const { checkboxes } = this.state;
+    const filteredResources = this.filterList(checkboxes);
+    return (
+      <div className={`${css.gridThree} ${css.marginTop}`}>
+        {filteredResources.map((resource: ResourceProp) => (
+          <div className={css.gridThreeItem} key={Utils.randomString()}>
+            <Resource
+              tagged
+              tags={resource.languages.concat(resource.tags)}
+              title={resource.name}
+              link={resource.link}
+            />
+          </div>
+        ))}
+      </div>
+    );
   };
 
   render() {
     const { checkboxes } = this.state;
-    const filteredResources = this.filterList(checkboxes);
     return (
       <React.Fragment>
         <InputTag
@@ -77,18 +110,7 @@ export class Resources extends React.Component<Props, State> {
           checkboxes={checkboxes}
           onCheckboxChange={box => this.checkboxChange(box)}
         />
-        <div className={`${css.gridThree} ${css.marginTop}`}>
-          {filteredResources.map(resource => (
-            <div className={css.gridThreeItem} key={Utils.randomString()}>
-              <Resource
-                tagged
-                tags={resource.languages.concat(resource.tags)}
-                title={resource.name}
-                link={resource.link}
-              />
-            </div>
-          ))}
-        </div>
+        {this.displayTags()}
       </React.Fragment>
     );
   }
