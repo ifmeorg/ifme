@@ -65,6 +65,7 @@ nl:
       add_all: 'Alles toevoegen'
       select_all: 'Alles selecteren'
       remove: Verwijderen
+      report: 'Verslag doen van'
     form:
       email: E-mail
       location: Locatie

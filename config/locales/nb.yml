@@ -65,6 +65,7 @@ nb:
       add_all: 'Legg til alle'
       select_all: 'Velg alle'
       remove: Fjern
+      report: Rapportere
     form:
       email: E-post
       location: Plassering
