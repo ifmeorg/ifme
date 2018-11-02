@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-
-RSpec.describe CompareLocalesSupport do
+describe CompareLocalesSupport do
   describe 'check non english locales include all keys' do
     context 'when the source is english' do
       let(:source) { described_class::LOCALES_FILES[:english] }
@@ -42,6 +41,11 @@ RSpec.describe CompareLocalesSupport do
 
       context 'when comparing to german' do
         subject { described_class.compare(source, :german) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to french' do
+        subject { described_class.compare(source, :french) }
         it { is_expected.to be_empty }
       end
     end
@@ -90,6 +94,11 @@ RSpec.describe CompareLocalesSupport do
         subject { described_class.compare(source, :devise_german) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to devise_french' do
+        subject { described_class.compare(source, :devise_french) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -136,6 +145,11 @@ RSpec.describe CompareLocalesSupport do
         subject { described_class.compare(source, :devise_invitable_german) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to devise_invitable_french' do
+        subject { described_class.compare(source, :devise_invitable_french) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -180,6 +194,11 @@ RSpec.describe CompareLocalesSupport do
 
       context 'when comparing to kaminari_german' do
         subject { described_class.compare(source, :kaminari_german) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to kaminari_french' do
+        subject { described_class.compare(source, :kaminari_french) }
         it { is_expected.to be_empty }
       end
     end
