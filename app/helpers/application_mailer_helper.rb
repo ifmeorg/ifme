@@ -21,7 +21,7 @@ module ApplicationMailerHelper
 
   def notification_dictionary
     {
-      'new_ally_request'      => AllyNotifications::NewAllyRequest,
+      'new_ally_request' => AllyNotifications::NewAllyRequest,
       'accepted_ally_request' => AllyNotifications::AcceptedAllyRequest
     }
   end
