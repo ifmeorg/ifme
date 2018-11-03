@@ -61,41 +61,20 @@ Rails.application.routes.draw do
     end
   end
 
-<<<<<<< HEAD
-  resources :profile, only: :index
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-  resources :search, only: :index do
-=======
-  resources :reports
-=======
-  resources :profile, :except => [:show, :new, :create, :edit, :update, :destroy] do
+  resources :profile, only: :index do
     collection do
-      post 'ban_user'
+      post 'add_ban'
       post 'remove_ban'
     end
   end
->>>>>>> bcf98fd0... Ban User feature added and I18n keys
 
-=======
-  resources :reports do 
+  resources :reports, only: [:create, :new] do
     collection do
       get 'admin_dashboard'
     end
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-  
->>>>>>> e2ce9622... Report Feature added for Profile and Comments, Admin dashboard implemented
-=======
 
->>>>>>> f76f408b... List of Banned Users displayed in Admin Dashboard
-=======
-  
->>>>>>> 96001dc4... Update schema
-  resources :search, :except => [:show, :new, :create, :edit, :update, :destroy] do
->>>>>>> 9d9b4bff... Report Button added in Allies
+  resources :search, only: :index do
     collection do
       get 'posts'
     end

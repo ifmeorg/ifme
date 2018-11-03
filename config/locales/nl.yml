@@ -75,8 +75,18 @@ nl:
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'
     days: dagen
-  admin:
+  reports:
     admin_dashboard: 'Admin Dashboard'
+    reported_users: 'Reported Users'
+    banned_users: 'Banned Users'
+    reasons: Reasons
+    new: 'New Report for %{name}'
+    remove_ban: 'Remove Ban'
+    ban_user: 'Ban User'
+    report_sent: 'Report for %{name} sent'
+    report_error: 'Could not send report for %{name}'
+    reportee: Reportee
+    reporter: Reporter
   comment:
     singular: Commentaar
     plural: Commentaren

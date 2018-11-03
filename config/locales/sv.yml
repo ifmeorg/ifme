@@ -75,8 +75,18 @@ sv:
     time_ago: '%{date} sedan'
     write_to_us: 'skriv till oss'
     days: dagar
-  admin:
+  reports:
     admin_dashboard: 'Admin Dashboard'
+    reported_users: 'Reported Users'
+    banned_users: 'Banned Users'
+    reasons: Reasons
+    new: 'New Report for %{name}'
+    remove_ban: 'Remove Ban'
+    ban_user: 'Ban User'
+    report_sent: 'Report for %{name} sent'
+    report_error: 'Could not send report for %{name}'
+    reportee: Reportee
+    reporter: Reporter
   comment:
     singular: Kommentar
     plural: Kommentarer

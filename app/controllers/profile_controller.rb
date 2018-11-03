@@ -13,14 +13,12 @@ class ProfileController < ApplicationController
   end
 
   def ban_user
-    ban_user_id = params[:ban_user_id]
-    User.where(id: ban_user_id).update(banned: true)
+    User.where(id: params[:user_id]).update(banned: true)
     redirect_to_path admin_dashboard_path
   end
 
   def remove_ban
-    ban_user_id = params[:ban_user_id]
-    User.where(id: ban_user_id).update(banned: false)
+    User.where(id: params[:user_id]).update(banned: false)
     redirect_to_path admin_dashboard_path
   end
 end

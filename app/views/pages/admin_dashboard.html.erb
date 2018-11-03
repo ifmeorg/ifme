@@ -1,58 +1,57 @@
-<% title t('admin.admin_dashboard') %>
-<div class="title"><%= t('admin.reported_users') %></div>
-<table class="table table-hover" border=1px >
-  <thead>
-    <tr>
-      <th>Report-Id</th>
-      <th>Reporter-Id</th>
-      <th>Reported-Id</th>
-      <th>Reasons</th>
-      <th>Report Type</th>
-      <th>Comment-Id</th>
-      <th>Reporter's email</th>
-      <th>Reported User's email</th>
-      <th>Delete Report</th>
-    </tr>
-  </thead>
-  <tbody>
+<% title t('reports.admin_dashboard') %>
+<% if Report.count > 0 %>
+  <div class="title"><%= t('reports.reported_users') %></div>
+  <div class="gridTwo">
     <% Report.all.each do |report| %>
-      <tr>
-      <td><%= report.id%></td>
-      <td><%= report.reporter_id %></td>
-      <td><%= report.reportee_id %></td>
-      <td><%= report.reasons %></td>
-      <% if report.comment_id == -1 %>
-        <td>user</td>
-      <% else %>
-        <td><%= Comment.where(id: report.comment_id).pluck(:commentable_type)[0] %></td>
-      <% end %>
-      <td><%= report.comment_id %></td>
-      <td><%= User.where(id: report.reporter_id).pluck(:email)[0] %></td>
-      <td><%= User.where(id: report.reportee_id).pluck(:email)[0] %></td>
-      <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, data: { confirm: t('common.actions.confirm') } %></td>
-      </tr>
+      <div class="gridTwoItemBoxLight">
+        <div>
+          <strong><%= t('reports.reportee')%>:</strong> <%= link_to reportee(report).name, profile_index_path(uid: reportee(report).uid) %>
+        </div>
+        <div>
+          <strong><%= t('reports.reporter')%>:</strong> <%= link_to reporter(report).name, profile_index_path(uid: reporter(report).uid) %>
+        </div>
+        <% if report.comment_id.present? %>
+          <div class="smallMarginTop">
+            <%= react_component('Modal', props: {
+              element: "<button class=\"buttonDarkXS\">#{t('comment.singular')}</button>",
+              title: t('comment.singular'),
+              body: sanitize(Comment.find_by(id: report.comment_id).comment)
+            }) %>
+          </div>
+        <% end %>
+        <div class="smallMarginTop">
+          <%= react_component('Modal', props: {
+            element: "<button class=\"buttonDarkXS\">#{t('reports.reasons')}</button>",
+            title: t('reports.reasons'),
+            body: sanitize(report.reasons)
+          }) %>
+        </div>
+        <%= react_component('StoryDate', props: {
+          date: TimeAgo.created_or_edited(report)
+        }) %>
+      </div>
     <% end %>
-  </tbody>
-</table>
-<div class="marginTop">
-  <div class="title"><%= t('admin.banned_users') %></div>
-  <table class="table table-hover" border=1px >
-    <thead>
-      <tr>
-        <th>Banned User Name</th>
-        <th>Banned User ID</th>
-        <th>Remove Ban for the User</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% User.where(banned: true).each do |user| %>
-        <tr>
-        <td><%= user.name%></td>
-        <td><%= user.id %></td>
-        <td><%= link_to "Remove Ban", remove_ban_profile_index_path(ban_user_id: user.id), method: :post %>
+  </div>
+<% else %>
+  <div class="title">
+    <%= "#{t('no_text')} #{t('reports.reported_users')}".titleize %>
+  </div>
+<% end %>
 
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<% if banned_users.exists? %>
+  <div class="title"><%= t('reports.banned_users') %></div>
+  <div class="gridTwo">
+    <% banned_users.each do |user| %>
+      <div class="gridTwoItemBoxLight">
+        <%= link_to user.name, profile_index_path(uid: user.uid) %>
+        <div class="smallMarginTop">
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: user.id), method: :post %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="title">
+    <%= "#{t('no_text')} #{t('reports.banned_users')}".titleize %>
+  </div>
+<% end %>
