@@ -10,36 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_07_24_031319) do
-=======
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180724031319) do
-=======
-<<<<<<< d7b3cd1b43e3928b08ff3e2324c90671e2707d8c
-ActiveRecord::Schema.define(version: 20180905051356) do
-=======
-ActiveRecord::Schema.define(version: 20180831162612) do
->>>>>>> Report Button added in Allies
->>>>>>> bbe1eae... Report Button added in Allies
->>>>>>> 9d9b4bff... Report Button added in Allies
-=======
-ActiveRecord::Schema.define(version: 20180724031319) do
-<<<<<<< HEAD
->>>>>>> e2ce9622... Report Feature added for Profile and Comments, Admin dashboard implemented
+ActiveRecord::Schema.define(version: 2018_11_03_000904) do
 
-=======
->>>>>>> ed100778... Tests for Report Model added, Associations Created
-=======
-
-=======
->>>>>>> 96001dc4... Update schema
-ActiveRecord::Schema.define(version: 20180908064825) do
-
->>>>>>> bcf98fd0... Ban User feature added and I18n keys
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -209,14 +181,13 @@ ActiveRecord::Schema.define(version: 20180908064825) do
     t.datetime "updated_at"
   end
 
-  create_table "reports", id: :serial, force: :cascade do |t|
+  create_table "reports", force: :cascade do |t|
     t.integer "reporter_id"
     t.integer "reportee_id"
     t.text "reasons"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comment_id"
-    t.integer "user_id"
   end
 
   create_table "strategies", force: :cascade do |t|
@@ -285,8 +256,8 @@ ActiveRecord::Schema.define(version: 20180908064825) do
     t.string "locale"
     t.datetime "access_expires_at"
     t.string "refresh_token"
-    t.boolean "admin", default: false
     t.boolean "banned", default: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
