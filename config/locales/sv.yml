@@ -75,6 +75,8 @@ sv:
     time_ago: '%{date} sedan'
     write_to_us: 'skriv till oss'
     days: dagar
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Kommentar
     plural: Kommentarer

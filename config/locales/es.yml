@@ -75,6 +75,8 @@ es:
     time_ago: 'hace %{date}'
     write_to_us: escríbenos
     days: Dias
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Comentario
     plural: Comentarios

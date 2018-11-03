@@ -75,6 +75,8 @@ vi:
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: 'viết cho chúng tôi'
     days: Ngày
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: 'Bình luận'
     plural: 'Bình luận'

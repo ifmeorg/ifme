@@ -75,6 +75,8 @@ it:
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Commento
     plural: Commenti

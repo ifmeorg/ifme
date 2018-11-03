@@ -1,55 +1,41 @@
-<html lang="<%= @locale %>">
-<% title t('admin.dashboard') %>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
-<div class="container">
-  <h1>Reports Table for Admin </h1>
-  <table class="table table-hover" border=1px >
-    <thead>
+<% title t('admin.admin_dashboard') %>
+<div class="title"><%= t('admin.reported_users') %></div>
+<table class="table table-hover" border=1px >
+  <thead>
+    <tr>
+      <th>Report-Id</th>
+      <th>Reporter-Id</th>
+      <th>Reported-Id</th>
+      <th>Reasons</th>
+      <th>Report Type</th>
+      <th>Comment-Id</th>
+      <th>Reporter's email</th>
+      <th>Reported User's email</th>
+      <th>Delete Report</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Report.all.each do |report| %>
       <tr>
-        <th>Report-Id</th>
-        <th>Reporter-Id</th>
-        <th>Reported-Id</th>
-        <th>Reasons</th>
-        <th>Report Type</th>
-        <th>Comment-Id</th>
-        <th>Reporter's email</th>
-        <th>Reported User's email</th>
-        <th>Delete Report</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% Report.all.each do |report| %>
-        <tr>
-        <td><%= report.id%></td>
-        <td><%= report.reporter_id %></td>
-        <td><%= report.reportee_id %></td>
-        <td><%= report.reasons %></td>
-        <% if report.comment_id == -1 %>
-          <td>user</td>
-        <% else %>
-          <td><%= Comment.where(id: report.comment_id).pluck(:commentable_type)[0] %></td>
-        <% end %>
-        <td><%= report.comment_id %></td>
-        <td><%= User.where(id: report.reporter_id).pluck(:email)[0] %></td>
-        <td><%= User.where(id: report.reportee_id).pluck(:email)[0] %></td>
-        <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, data: { confirm: t('common.actions.confirm') } %></td>
-        </tr>
+      <td><%= report.id%></td>
+      <td><%= report.reporter_id %></td>
+      <td><%= report.reportee_id %></td>
+      <td><%= report.reasons %></td>
+      <% if report.comment_id == -1 %>
+        <td>user</td>
+      <% else %>
+        <td><%= Comment.where(id: report.comment_id).pluck(:commentable_type)[0] %></td>
       <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="container">
-  <h1>List of Banned Users </h1>
+      <td><%= report.comment_id %></td>
+      <td><%= User.where(id: report.reporter_id).pluck(:email)[0] %></td>
+      <td><%= User.where(id: report.reportee_id).pluck(:email)[0] %></td>
+      <td><%= link_to t('common.actions.delete'),  report_path(id: report.id), method: :delete, data: { confirm: t('common.actions.confirm') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="marginTop">
+  <div class="title"><%= t('admin.banned_users') %></div>
   <table class="table table-hover" border=1px >
     <thead>
       <tr>
@@ -70,6 +56,3 @@
     </tbody>
   </table>
 </div>
-
-</body>
-</html>
