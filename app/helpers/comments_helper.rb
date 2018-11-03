@@ -38,7 +38,7 @@ module CommentsHelper
 
   def comment_hash(comment, user)
     {
-      id: comment.id,
+      currentUserUid: current_user.uid,
       commentByUid: user.uid,
       commentByName: user.name,
       commentByAvatar: user.avatar.url,
@@ -46,7 +46,7 @@ module CommentsHelper
       viewers: CommentViewersService.viewers(comment, current_user),
       createdAt: created_at(comment.created_at),
       deleteAction: delete_action(comment)
-    }
+    }.merge(id: comment.id)
   end
 
   def page_author(subject)
