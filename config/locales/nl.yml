@@ -337,6 +337,12 @@ nl:
       remove_meeting_subject: 'if me | %{user} heeft de samenkomst "%{meeting}" geannuleerd voor de groep "%{group}"'
       join_meeting_subject: 'if me | %{user} heeft zich aangesloten bij de samenkomst "%{meeting}" voor de groep "%{group}"'
       join_meeting_body: '<p>Om "%{meeting}" te bekijken, %{link}!</p>'
+      reported_user_subject: 'You have reported a user!'
+      reported_user_body: 'You have reported %{reported_name}'
+      reportee_user_subject: 'You have been reported!'
+      reportee_user_body: 'You were reported by %{reportee_name}'
+    report:
+      report_message: 'Report sent'
   omniauth:
     google: Google
     access_denied: 'Toegang geweigerd'

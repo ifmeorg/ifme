@@ -337,6 +337,12 @@ sv:
       remove_meeting_subject: 'if me | %{user} har avbrutit "%{meeting}" för "%{group}"'
       join_meeting_subject: 'if me | %{user} anslöt sig "%{meeting}" för "%{group}"'
       join_meeting_body: '<p>För att se "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'You have reported a user!'
+      reported_user_body: 'You have reported %{reported_name}'
+      reportee_user_subject: 'You have been reported!'
+      reportee_user_body: 'You were reported by %{reportee_name}'
+    report:
+      report_message: 'Report sent'
   omniauth:
     google: Google
     access_denied: 'Åtkomst nekad'

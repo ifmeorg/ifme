@@ -2,19 +2,18 @@
 module PasswordValidator
   extend ActiveSupport::Concern
 
-  PASSWORD_REGEX =
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/.freeze
-
   private
 
   def password_complexity
     return if good_password?
 
-    error_message = t('devise.registrations.password_complexity_error')
+    error_message = I18n.t('devise.registrations.password_complexity_error')
     errors.add(:password, error_message)
   end
 
   def good_password?
-    google_oauth2_enabled? || password.blank? || (password =~ PASSWORD_REGEX)
+    password_regex =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
+    google_oauth2_enabled? || password.blank? || (password =~ password_regex)
   end
 end
