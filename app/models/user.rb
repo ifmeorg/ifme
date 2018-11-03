@@ -40,19 +40,14 @@
 #  locale                 :string
 #  access_expires_at      :datetime
 #  refresh_token          :string
-#  admin                  :boolean          default(FALSE)
-#  banned                 :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
   include PasswordValidator
 
   ALLY_STATUS = {
-    accepted: 0,
-    pending_from_user: 1,
-    pending_from_ally: 2
+    accepted: 0, pending_from_user: 1, pending_from_ally: 2
   }.freeze
-
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
   # Include default devise modules. Others available are:
@@ -141,9 +136,9 @@ class User < ApplicationRecord
 
   def update_access_token
     params = { 'refresh_token' => refresh_token,
-               'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+               'client_id' => ENV['GOOGLE_CLIENT_ID'],
                'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
-               'grant_type'    => 'refresh_token' }
+               'grant_type' => 'refresh_token' }
 
     response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)

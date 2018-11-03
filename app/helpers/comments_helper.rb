@@ -9,22 +9,7 @@ module CommentsHelper
       user = User.find(comment.comment_by)
       result_comments.push(comment_hash(comment, user))
     end
-<<<<<<< HEAD
     result_comments
-=======
-    def comment_reportable?(data)
-      data.comment_by != current_user.id
-    end
-    {
-      commentid: data.id,
-      comment_info: comment_info,
-      comment_text: comment_text,
-      visibility: visibility,
-      delete_comment: delete_comment,
-      report_comment: report_comment,
-      no_save: false
-    }
->>>>>>> aaefd3cd... Report block final (#4)
   end
 
   def show_with_comments(subject)

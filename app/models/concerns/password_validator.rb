@@ -1,16 +1,16 @@
 # frozen_string_literal: true
-
 module PasswordValidator
   extend ActiveSupport::Concern
 
-  PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
+  PASSWORD_REGEX =
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/.freeze
 
   private
 
   def password_complexity
     return if good_password?
 
-    error_message = I18n.t('devise.registrations.password_complexity_error')
+    error_message = t('devise.registrations.password_complexity_error')
     errors.add(:password, error_message)
   end
 
