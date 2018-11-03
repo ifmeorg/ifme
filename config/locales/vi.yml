@@ -76,17 +76,17 @@ vi:
     write_to_us: 'viết cho chúng tôi'
     days: Ngày
   reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
-    reportee: Reportee
-    reporter: Reporter
+    admin_dashboard: 'Bảng điều khiển quản trị'
+    reported_users: 'Người dùng đã báo cáo'
+    banned_users: 'Người bị cấm'
+    reasons: 'Lý Do'
+    new: 'Báo cáo mới cho %{name}'
+    remove_ban: 'Xóa lệnh cấm'
+    ban_user: 'Ngươi dung bị câm'
+    report_sent: 'Đã gửi báo cáo cho %{name}'
+    report_error: 'Không thể gửi báo cáo cho %{name}'
+    reportee: 'Người được báo cáo'
+    reporter: 'Phóng viên'
   comment:
     singular: 'Bình luận'
     plural: 'Bình luận'
@@ -349,12 +349,10 @@ vi:
       remove_meeting_subject: 'if me | %{user} đã hủy "% {meeting}" cho "%{group}"'
       join_meeting_subject: 'if me | %{user} đã tham gia "% {meeting}" cho "%{group}"'
       join_meeting_body: '<p>Để xem "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | Bạn đã báo cáo một người dùng'
+      reported_user_body: 'Bạn đã báo cáo %{reported_name}. Điều này sẽ được quản trị viên xem xét.'
+      reportee_user_subject: 'if me | Bạn đã được báo cáo'
+      reportee_user_body: 'Bạn đã được báo cáo. Điều này sẽ được quản trị viên xem xét.'
   omniauth:
     google: Google
     access_denied: 'Truy nhập từ chối'

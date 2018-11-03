@@ -77,16 +77,16 @@ nb:
     days: Dager
   reports:
     admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
+    reported_users: 'Rapporterte Brukere'
+    banned_users: 'Forbudte Brukere'
+    reasons: Grunner
+    new: 'Ny rapport for %{name}'
+    remove_ban: 'Fjern Ban'
+    ban_user: 'Forbud Bruker'
+    report_sent: 'Rapport for %{name} sendt'
+    report_error: 'Kunne ikke sende rapport for %{name}'
     reportee: Reportee
-    reporter: Reporter
+    reporter: 'Rapportert av'
   comment:
     singular: Kommentar
     plural: Kommentarer
@@ -349,12 +349,10 @@ nb:
       remove_meeting_subject: 'if me | %{user} har kansellert "%{meeting}" i "%{group}"'
       join_meeting_subject: 'if me | %{user} har blitt med i "%{meeting}" i "%{group}"'
       join_meeting_body: '<p>For å se "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | Du har rapportert en bruker'
+      reported_user_body: 'Du har rapportert %{reported_name}. Dette blir vurdert av en administrator.'
+      reportee_user_subject: 'if me | Du har blitt rapportert'
+      reportee_user_body: 'Du har blitt rapportert. Dette blir vurdert av en administrator.'
   omniauth:
     google: Google
     access_denied: 'Adgang avvist'

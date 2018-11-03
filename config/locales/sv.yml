@@ -77,16 +77,16 @@ sv:
     days: dagar
   reports:
     admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
+    reported_users: 'Rapporterade Användare'
+    banned_users: 'Förbjudna Användare'
+    reasons: Anledningar
+    new: 'Ny rapport för %{name}'
+    remove_ban: 'Ta bort banan'
+    ban_user: 'Stänga av användare'
+    report_sent: 'Rapport för %{name} skickad'
+    report_error: 'Det gick inte att skicka rapport för %{name}'
     reportee: Reportee
-    reporter: Reporter
+    reporter: 'Rapporterad av'
   comment:
     singular: Kommentar
     plural: Kommentarer
@@ -349,12 +349,10 @@ sv:
       remove_meeting_subject: 'if me | %{user} har avbrutit "%{meeting}" för "%{group}"'
       join_meeting_subject: 'if me | %{user} anslöt sig "%{meeting}" för "%{group}"'
       join_meeting_body: '<p>För att se "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | Du har rapporterat en användare'
+      reported_user_body: 'Du har rapporterat %{reported_name}. Detta kommer att granskas av en admin.'
+      reportee_user_subject: 'if me | Du har rapporterats'
+      reportee_user_body: 'Du har rapporterats. Detta kommer att granskas av en admin.'
   omniauth:
     google: Google
     access_denied: 'Åtkomst nekad'
