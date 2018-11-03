@@ -75,6 +75,8 @@ nl:
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'
     days: dagen
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Commentaar
     plural: Commentaren

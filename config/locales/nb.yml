@@ -75,6 +75,8 @@ nb:
     time_ago: '%{date} siden'
     write_to_us: 'skriv til oss'
     days: Dager
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Kommentar
     plural: Kommentarer

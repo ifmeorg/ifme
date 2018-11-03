@@ -75,6 +75,8 @@ fr:
     time_ago: 'il y a %{date}'
     write_to_us: 'nous écrire'
     days: Jours
+  admin:
+    admin_dashboard: 'Admin Dashboard'
   comment:
     singular: Commentaire
     plural: Commentaires
