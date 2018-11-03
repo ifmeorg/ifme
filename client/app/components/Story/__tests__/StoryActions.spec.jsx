@@ -17,6 +17,7 @@ describe('StoryActions', () => {
               dataMethod: 'delete',
               dataConfirm: 'Are you sure?',
             },
+            report: { link: 'some-url', name: 'Report' },
             viewers: 'blah',
           }}
         />,

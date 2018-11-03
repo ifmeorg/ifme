@@ -21,6 +21,7 @@ storiesOf('Story', module)
             dataMethod: 'delete',
             dataConfirm: 'Are you sure?',
           },
+          report: { link: 'some-url', name: 'Report' },
           viewers: 'blah',
         }}
         name="Real Moment"

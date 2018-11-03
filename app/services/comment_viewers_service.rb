@@ -34,8 +34,9 @@ class CommentViewersService
   end
 
   def viewable?
-    current_user_comment? || commentable_owner? ||
-      viewer?
+    !user_banned? &&
+      (current_user_comment? || commentable_owner? ||
+        viewer?)
   end
 
   def deletable?
@@ -43,6 +44,10 @@ class CommentViewersService
   end
 
   private
+
+  def user_banned?
+    User.find_by(id: @comment.comment_by).banned
+  end
 
   def other_person
     return @owner unless commentable_owner?

@@ -3,7 +3,7 @@
 #
 # Table name: supports
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  user_id      :integer
 #  support_type :string
 #  support_ids  :text

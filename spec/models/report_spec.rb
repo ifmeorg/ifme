@@ -2,14 +2,13 @@
 #
 # Table name: reports
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  reporter_id :integer
 #  reportee_id :integer
 #  reasons     :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  comment_id  :integer
-#  user_id     :integer
 #
 
 RSpec.describe Report, type: :model do

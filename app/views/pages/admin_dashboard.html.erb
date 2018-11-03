@@ -2,29 +2,27 @@
 <% if Report.count > 0 %>
   <div class="title"><%= t('reports.reported_users') %></div>
   <div class="gridTwo">
-    <% Report.all.each do |report| %>
+    <% Report.order('created_at DESC').all.each do |report| %>
       <div class="gridTwoItemBoxLight">
         <div>
-          <strong><%= t('reports.reportee')%>:</strong> <%= link_to reportee(report).name, profile_index_path(uid: reportee(report).uid) %>
+          <strong><%= t('reports.reportee')%>:</strong> <%= link_to reportee(report).name, profile_index_path(uid: reportee(report).uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: reportee(report).id), method: :post %>)
         </div>
         <div>
-          <strong><%= t('reports.reporter')%>:</strong> <%= link_to reporter(report).name, profile_index_path(uid: reporter(report).uid) %>
+          <strong><%= t('reports.reporter')%>:</strong> <%= link_to reporter(report).name, profile_index_path(uid: reporter(report).uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: reporter(report).id), method: :post %>)
         </div>
-        <% if report.comment_id.present? %>
-          <div class="smallMarginTop">
-            <%= react_component('Modal', props: {
-              element: "<button class=\"buttonDarkXS\">#{t('comment.singular')}</button>",
-              title: t('comment.singular'),
-              body: sanitize(Comment.find_by(id: report.comment_id).comment)
-            }) %>
-          </div>
-        <% end %>
-        <div class="smallMarginTop">
+        <div class="gridRowSpaceBetween smallMarginTop">
           <%= react_component('Modal', props: {
             element: "<button class=\"buttonDarkXS\">#{t('reports.reasons')}</button>",
             title: t('reports.reasons'),
             body: sanitize(report.reasons)
           }) %>
+          <% if report.comment_id.present? %>
+            <%= react_component('Modal', props: {
+              element: "<button class=\"buttonDarkXS\">#{t('comment.singular')}</button>",
+              title: t('comment.singular'),
+              body: sanitize(Comment.find_by(id: report.comment_id).comment)
+            }) %>
+          <% end %>
         </div>
         <%= react_component('StoryDate', props: {
           date: TimeAgo.created_or_edited(report)

@@ -53,8 +53,19 @@ export class Comments extends React.Component<Props, State> {
     });
   };
 
-  getActions = (viewers: ?string, deleteAction: ?string) => {
+  reportAction = (uid: string, id: number) => ({
+    name: I18n.t('common.actions.report'),
+    link: `/reports/new?uid=${uid}&comment_id=${id}`,
+  });
+
+  getActions = (
+    viewers: ?string,
+    deleteAction: ?string,
+    uid: string,
+    id: number,
+  ) => {
     const actions = {};
+    actions.report = this.reportAction(uid, id);
     if (viewers) {
       actions.viewers = viewers;
     }
@@ -88,7 +99,7 @@ export class Comments extends React.Component<Props, State> {
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />
           <StoryActions
-            actions={this.getActions(viewers, deleteAction)}
+            actions={this.getActions(viewers, deleteAction, commentByUid, id)}
             hasStory
           />
         </div>

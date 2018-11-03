@@ -71,7 +71,10 @@ module CommentFormHelper
   def viewers_options(viewers)
     options = []
     viewers.each do |viewer_id|
-      label = t('shared.comments.share_with', name: User.find(viewer_id).name)
+      user = User.find_by(id: viewer_id)
+      next if user.banned
+
+      label = t('shared.comments.share_with', name: user.name)
       options.push(comment_viewers_option(viewer_id, label, viewer_id))
     end
     options
