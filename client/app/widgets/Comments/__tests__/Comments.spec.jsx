@@ -69,6 +69,7 @@ const id = 1;
 
 const comment = {
   comment: value,
+  currentUserId: 'some-uid',
   commentByAvatar: null,
   commentByName: 'Kind Human',
   commentByUid: 'uid',
