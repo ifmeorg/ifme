@@ -7,6 +7,7 @@ import {
   faLock,
   faDoorOpen,
   faDoorClosed,
+  faExclamationTriangle,
 } from '@fortawesome/free-solid-svg-icons';
 import css from './Story.scss';
 import { Tooltip } from '../Tooltip';
@@ -24,6 +25,7 @@ export type Actions = {
   delete?: Action,
   join?: Action,
   leave?: Action,
+  report?: Action,
   viewers?: string,
 };
 
@@ -37,6 +39,7 @@ const EDIT = 'edit';
 const DELETE = 'delete';
 const JOIN = 'join';
 const LEAVE = 'leave';
+const REPORT = 'report';
 const VIEWERS = 'viewers';
 
 const classMap = (dark: ?boolean) => {
@@ -46,6 +49,9 @@ const classMap = (dark: ?boolean) => {
     delete: <FontAwesomeIcon icon={faTrash} className={className} />,
     join: <FontAwesomeIcon icon={faDoorOpen} className={className} />,
     leave: <FontAwesomeIcon icon={faDoorClosed} className={className} />,
+    report: (
+      <FontAwesomeIcon icon={faExclamationTriangle} className={className} />
+    ),
     viewers: <FontAwesomeIcon icon={faLock} className={className} />,
   };
 };
@@ -130,7 +136,7 @@ export const StoryActions = (props: Props) => {
   const { actions, hasStory, dark } = props;
   return (
     <div className={css.actions}>
-      {[JOIN, EDIT, LEAVE, DELETE, VIEWERS].map(
+      {[JOIN, EDIT, LEAVE, DELETE, REPORT, VIEWERS].map(
         (item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null),
       )}
     </div>
