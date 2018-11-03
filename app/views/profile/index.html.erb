@@ -39,11 +39,11 @@
     <% if current_user.admin? %>
       <% if @profile.banned?%>
         <div>
-          <%= link_to "Remove Ban", remove_ban_profile_index_path(ban_user_id: @profile.id), method: :post %>
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: @profile.id), method: :post %>
         </div>
       <% else %>
         <div>
-          <%= link_to "Ban User" , ban_user_profile_index_path(ban_user_id: @profile.id), method: :post %>
+          <%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: @profile.id), method: :post %>
         </div>
       <% end %>
     <% end %>

@@ -1,9 +1,2 @@
-<% title "#{'New Report'}" %>
-<%= form_for(:search, :url => {:action => "create", :ally_id => params[:ally_id], :comment_id => params[:comment_id]}, :method => "post") do |f| %>
-  <div class="label">
-    <%= f.label 'Why are you reporting ?' %>
-  </div>
-   <%= text_area(:report, :reasons) %>
-  <%= f.submit t('common.actions.submit') %>
-  </div>
-<% end %>
+<% title "#{t('reports.new', name: User.find_by(uid: params[:uid]).name)}" %>
+<%= react_component('Form', props: new_report_props(params[:uid], params[:comment_id])) %>

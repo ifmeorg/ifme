@@ -7,7 +7,6 @@ class AddReports < ActiveRecord::Migration[5.2]
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.integer "comment_id"
-      t.integer "user_id"
     end
   end
 end
