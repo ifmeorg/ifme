@@ -77,16 +77,16 @@ de:
     write_to_us: 'schreibe uns'
     days: Tage
   reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
-    reportee: Reportee
+    admin_dashboard: 'Admin-Dashboard'
+    reported_users: 'Gemeldete Benutzer'
+    banned_users: 'Verbotene Benutzer'
+    reasons: 'Gründe Dafür'
+    new: 'Neuer Bericht für %{name}'
+    remove_ban: 'Verbot Entfernen'
+    ban_user: 'Benutzer Blocken'
+    report_sent: 'Bericht für %{name} gesendet'
+    report_error: 'Bericht für %{name} konnte nicht gesendet werden'
+    reportee: Berichterstatter
     reporter: Reporter
   comment:
     singular: Kommentar
@@ -355,12 +355,10 @@ de:
       remove_meeting_subject: 'if me | %{user} hat das Meeting "%{meeting}" der Gruppe "%{group}" abgesagt'
       join_meeting_subject: 'if me | %{user} ist dem Meeting "%{meeting}" der Gruppe "%{group}" beigetreten'
       join_meeting_body: '<p>Um das Meeting "%{meeting}" zu sehen, %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | Sie haben einen Benutzer gemeldet'
+      reported_user_body: 'Sie haben berichtet %{reported_name}. Dies wird von einem Administrator überprüft.'
+      reportee_user_subject: 'if me | Sie wurden gemeldet'
+      reportee_user_body: 'Sie wurden gemeldet. Dies wird von einem Administrator überprüft.'
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'

@@ -76,15 +76,15 @@ it:
     write_to_us: scrivici
     days: giorni
   reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
+    admin_dashboard: 'Dashboard di amministrazione'
+    reported_users: 'Utenti Segnalati'
+    banned_users: 'Utenti Vietati'
+    reasons: Motivi
+    new: 'Nuovo rapporto per %{name}'
+    remove_ban: 'Rimuovi il divieto'
+    ban_user: 'Divieto all''utente'
+    report_sent: 'Rapporto per %{name} inviato'
+    report_error: 'Impossibile inviare un rapporto per %{name}'
     reportee: Reportee
     reporter: Reporter
   comment:
@@ -349,12 +349,10 @@ it:
       remove_meeting_subject: 'if me | %{user} ha eliminato "%{meeting}" per "%{group}"'
       join_meeting_subject: 'if me | %{user} si è unito a "%{meeting}" per "%{group}"'
       join_meeting_body: '<p>Per vedere "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | Hai segnalato un utente'
+      reported_user_body: 'Lei ha riferito %{reported_name}. Questo sarà esaminato da un amministratore.'
+      reportee_user_subject: 'if me | Sei stato segnalato'
+      reportee_user_body: 'Sei stato segnalato. Questo sarà esaminato da un amministratore.'
   omniauth:
     google: Google
     access_denied: 'Accesso Negato'

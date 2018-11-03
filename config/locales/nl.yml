@@ -76,17 +76,17 @@ nl:
     write_to_us: 'schrijf ons'
     days: dagen
   reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
+    admin_dashboard: 'Beheerdersdashboard'
+    reported_users: 'Gerapporteerde Gebruikers'
+    banned_users: 'Verbannen Gebruikers'
+    reasons: Redenen
+    new: 'Nieuw rapport voor %{name}'
+    remove_ban: 'Verwijder Verbod'
+    ban_user: 'Verban Gebruiker'
+    report_sent: 'Rapport voor %{name} verzonden'
+    report_error: 'Kan rapport niet verzenden voor %{name}'
     reportee: Reportee
-    reporter: Reporter
+    reporter: Verslaggever
   comment:
     singular: Commentaar
     plural: Commentaren
@@ -349,12 +349,10 @@ nl:
       remove_meeting_subject: 'if me | %{user} heeft de samenkomst "%{meeting}" geannuleerd voor de groep "%{group}"'
       join_meeting_subject: 'if me | %{user} heeft zich aangesloten bij de samenkomst "%{meeting}" voor de groep "%{group}"'
       join_meeting_body: '<p>Om "%{meeting}" te bekijken, %{link}!</p>'
-      reported_user_subject: 'You have reported a user!'
-      reported_user_body: 'You have reported %{reported_name}'
-      reportee_user_subject: 'You have been reported!'
-      reportee_user_body: 'You were reported by %{reportee_name}'
-    report:
-      report_message: 'Report sent'
+      reported_user_subject: 'if me | U heeft een gebruiker gemeld'
+      reported_user_body: 'Je hebt gemeld %{reported_name}. Dit wordt beoordeeld door een beheerder.'
+      reportee_user_subject: 'if me | U bent gemeld'
+      reportee_user_body: 'U bent gemeld. Dit wordt beoordeeld door een beheerder.'
   omniauth:
     google: Google
     access_denied: 'Toegang geweigerd'
