@@ -337,6 +337,12 @@ fr:
       remove_meeting_subject: 'if me | %{user} a annulé "%{meeting}" de "%{group}"'
       join_meeting_subject: 'if me | %{user} a rejoint "%{meeting}" de "%{group}"'
       join_meeting_body: '<p>Pour afficher "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'You have reported a user!'
+      reported_user_body: 'You have reported %{reported_name}'
+      reportee_user_subject: 'You have been reported!'
+      reportee_user_body: 'You were reported by %{reportee_name}'
+    report:
+      report_message: 'Report sent'
   omniauth:
     google: Google
     access_denied: 'Accès refusé'

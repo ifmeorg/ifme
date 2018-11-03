@@ -1,7 +1,7 @@
 # == Schema Information
 #
 # Table name: reports
-#  reporter_id             :string        
+#  reporter_id             :string
 #  reportee_id             :string
 #  comments                :text
 #  commentable_type        :string
@@ -11,10 +11,10 @@ describe ReportsController, type: :controller do
   describe "#create" do
     context "as an authenticated user" do
       before do
-        @report = FactoryBot.create(:report)
+        @report = create(:report)
       end
       it "adds a report" do
-        report_params = FactoryBot.attributes_for(:report)
+        report_params = attributes_for(:report)
         expect {
           report :create, params: { report: report_params }
         }

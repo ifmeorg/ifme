@@ -343,6 +343,12 @@ de:
       remove_meeting_subject: 'if me | %{user} hat das Meeting "%{meeting}" der Gruppe "%{group}" abgesagt'
       join_meeting_subject: 'if me | %{user} ist dem Meeting "%{meeting}" der Gruppe "%{group}" beigetreten'
       join_meeting_body: '<p>Um das Meeting "%{meeting}" zu sehen, %{link}!</p>'
+      reported_user_subject: 'You have reported a user!'
+      reported_user_body: 'You have reported %{reported_name}'
+      reportee_user_subject: 'You have been reported!'
+      reportee_user_body: 'You were reported by %{reportee_name}'
+    report:
+      report_message: 'Report sent'
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'
