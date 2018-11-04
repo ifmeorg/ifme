@@ -9,18 +9,6 @@ module ReportsHelper
     )
   end
 
-  def reportee(report)
-    User.find_by(id: report.reportee_id)
-  end
-
-  def reporter(report)
-    User.find_by(id: report.reporter_id)
-  end
-
-  def banned_users
-    User.where(banned: true)
-  end
-
   private
 
   def report_form_inputs

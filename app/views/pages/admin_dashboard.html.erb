@@ -5,10 +5,10 @@
     <% Report.order('created_at DESC').all.each do |report| %>
       <div class="gridTwoItemBoxLight">
         <div>
-          <strong><%= t('reports.reportee')%>:</strong> <%= link_to reportee(report).name, profile_index_path(uid: reportee(report).uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: reportee(report).id), method: :post %>)
+          <strong><%= t('reports.reportee')%>:</strong> <%= link_to report.reportee.name, profile_index_path(uid: report.reportee.uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: report.reportee.id), method: :post %>)
         </div>
         <div>
-          <strong><%= t('reports.reporter')%>:</strong> <%= link_to reporter(report).name, profile_index_path(uid: reporter(report).uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: reporter(report).id), method: :post %>)
+          <strong><%= t('reports.reporter')%>:</strong> <%= link_to report.reporter.name, profile_index_path(uid: report.reporter.uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: report.reporter.id), method: :post %>)
         </div>
         <div class="gridRowSpaceBetween smallMarginTop">
           <%= react_component('Modal', props: {
@@ -20,7 +20,7 @@
             <%= react_component('Modal', props: {
               element: "<button class=\"buttonDarkXS\">#{t('comment.singular')}</button>",
               title: t('comment.singular'),
-              body: sanitize(Comment.find_by(id: report.comment_id).comment)
+              body: sanitize(report.comment.comment)
             }) %>
           <% end %>
         </div>
@@ -36,6 +36,7 @@
   </div>
 <% end %>
 
+<% banned_users = User.where(banned: true) %>
 <% if banned_users.exists? %>
   <div class="title"><%= t('reports.banned_users') %></div>
   <div class="gridTwo">

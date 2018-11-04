@@ -13,23 +13,16 @@
 #
 
 class Report < ApplicationRecord
-  belongs_to :user
   belongs_to :reporter, class_name: 'User'
   belongs_to :reportee, class_name: 'User'
-  has_one :comment
+  belongs_to :comment, class_name: 'Comment'
   validates :reportee_id, presence: true
   validates :reporter_id, presence: true
   validates :reasons, presence: true
-  after_create :send_mail_reports
+  after_create :send_emails
 
-  def send_mail_reports
-    reporter_mail = User.where(id: reporter_id).pluck(:email)[0]
-    reportee_mail = User.where(id: reportee_id).pluck(:email)[0]
-    ReportMailer.reported_email(reporter_id,
-                                reportee_id,
-                                reporter_mail).deliver_now
-    ReportMailer.reportee_email(reportee_id,
-                                reporter_id,
-                                reportee_mail).deliver_now
+  def send_emails
+    ReportMailer.reported_email(reporter, reportee).deliver_now
+    ReportMailer.reportee_email(reportee).deliver_now
   end
 end
