@@ -363,6 +363,10 @@ de:
       reported_user_body: 'Sie haben berichtet %{reported_name}. Dies wird von einem Administrator überprüft.'
       reportee_user_subject: 'if me | Sie wurden gemeldet'
       reportee_user_body: 'Sie wurden gemeldet. Dies wird von einem Administrator überprüft.'
+      add_ban_subject: 'if me | Du wurdest verboten'
+      add_ban_body: 'Sie wurden wegen Verletzung unserer %{code_of_conduct_link} gesperrt.'
+      remove_ban_subject: 'if me | Sie sind nicht mehr verboten'
+      remove_ban_body: 'Sie waren zuvor wegen Verletzung unserer %{code_of_conduct_link} verboten worden. Sie sind nicht mehr verboten.'
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'

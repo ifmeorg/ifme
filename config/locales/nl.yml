@@ -338,7 +338,7 @@ nl:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Om het te lezen, %{link}!</p>'
       new_group_subject: 'if me | %{user} heeft de groep "%{group}" gemaakt'
-      new_group_body: '<p>%{user} maakte de groep "%{group}":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p><p>Volg alstublieft onze %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} maakte de groep "%{group}":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p><p>Volg alstublieft onze %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} is lid geworden van je groep "%{group}"'
       add_group_leader_you_subject: 'if me | Je bent een leider geworden in de groep "%{group}"'
       add_group_leader_subject: 'if me | %{user} is een leider geworden van de groep " %{group}"'
@@ -357,6 +357,10 @@ nl:
       reported_user_body: 'Je hebt gemeld %{reported_name}. Dit wordt beoordeeld door een beheerder.'
       reportee_user_subject: 'if me | U bent gemeld'
       reportee_user_body: 'U bent gemeld. Dit wordt beoordeeld door een beheerder.'
+      add_ban_subject: 'if me | Je bent verbannen'
+      add_ban_body: 'Je bent verbannen omdat je onze %{code_of_conduct_link} hebt geschonden.'
+      remove_ban_subject: 'if me | Je bent niet langer verbannen'
+      remove_ban_body: 'Je was eerder verbannen omdat je onze %{code_of_conduct_link} schond. Je bent niet langer verbannen.'
   omniauth:
     google: Google
     access_denied: 'Toegang geweigerd'
