@@ -1,18 +1,18 @@
 ja:
   app_name: 'if me'
-  app_description: 'A community for mental health experiences'
+  app_description: 'メンタルヘルスのコミュニティです'
   email: join.ifme@gmail.com
-  created: 'Created %{created_at}'
-  draft: Draft
-  edited: 'Created %{created_at} (edited)'
-  edited_updated_at: 'Created %{created_at} (edited %{updated_at})'
-  salutation: 'Hi %{name},'
-  click_here: 'click here'
-  language: Language
-  yes_text: 'yes'
-  no_text: 'no'
-  expand_menu: 'expand menu'
-  close: close
+  created: '作成%{created_at}'
+  draft: 下書き
+  edited: '作成%{created_at}（更新）'
+  edited_updated_at: '作成%{created_at}（更新%{updated_at}）'
+  salutation: 'こんにちは%{name}さん、'
+  click_here: 'クリック'
+  language: 言語
+  yes_text: 'はい'
+  no_text: 'いいえ'
+  expand_menu: 'メニューを開く'
+  close: 閉じる
   languages:
     en: English
     es: Español
@@ -27,152 +27,152 @@ ja:
     fr: Français
     ja: 日本語
   navigation:
-    about: About
-    blog: Blog
-    contribute: Contribute
-    partners: Partners
-    privacy: 'Privacy Policy'
+    about: 'プロフィール'
+    blog: ブログ
+    contribute: 貢献する
+    partners: 提携
+    privacy: 'プライバシーポリシー'
     github: GitHub
     patreon: Patreon
     opencollective: 'Open Collective'
     instagram: Instagram
     rss: RSS
-    twitter: Twitter
-    facebook: Facebook
-    feedback: feedback
-    give_feedback: 'Give Feedback'
-    press: Press
-    faq: FAQ
-    resources: Resources
-    code_of_conduct: 'Code of Conduct'
+    twitter: ツイッター
+    facebook: フェイスブック
+    feedback: フィードバック
+    give_feedback: フィードバックする
+    press: 報道機関
+    faq: よくある質問
+    resources: リーソス
+    code_of_conduct: 行動規範
   common:
-    name: Name
-    you: You
-    title: Title
-    date: Date
-    daily_reminder: 'Daily reminder email'
+    name: 名前
+    you: あなた
+    title: タイトル
+    date: 日付
+    daily_reminder: 毎日のリマインドメール
     actions:
-      plural: Actions
-      submit: Submit
-      submit_publish: Publish
-      submit_draft: Draft
-      confirm: 'Are you sure?'
-      delete: Delete
-      edit: Edit
-      edit_instance: 'Edit %{instance}'
-      join: Join
-      leave: Leave
-      add: Add
-      add_all: 'Add all'
-      select_all: 'Select all'
-      remove: Remove
+      plural: 行動
+      submit: 完了
+      submit_publish: 発見
+      submit_draft: 下書き
+      confirm: 'よろしいですか？'
+      delete: 消す
+      edit: 編集する
+      edit_instance: '編集%{instance}'
+      join: 登録
+      leave: 離れる
+      add: 追加する
+      add_all: 全て追加する
+      select_all: 全て選択する
+      remove: 外す
     form:
-      email: Email
-      location: Location
-      description: Description
-      error_explanation: 'Please fill out the marked fields!'
-      press_enter: 'Press ENTER to add'
-    time_ago: '%{date} ago'
-    write_to_us: 'write to us'
-    days: Days
+      email: 電子メール
+      location: 場所
+      description: ディスクリプション
+      error_explanation: 'マークされたフィールドに記入してください！'
+      press_enter: '追加するにはEnterキーを押します'
+    time_ago: '%{date}前に'
+    write_to_us: '私たちにコンタクトしてください'
+    days: 日
   comment:
-    singular: Comment
-    plural: Comments
-    posting: 'Posting comment...'
-    allow_comments: 'Allow Comments?'
-    hint: 'Only you and viewers can comment'
-    control: 'Control who can view and comment'
+    singular: コメント
+    plural: コメント
+    posting: 'コメントを投稿中…'
+    allow_comments: 'コメントを許可します？'
+    hint: 'あなたと視聴者だけがコメントできます。'
+    control: '表示したりコメントできるユーザーを制御します。'
   account:
-    singular: Account
-    sign_in: 'Sign in'
-    sign_up: 'Sign up'
-    forgot_password: 'Forgot your password?'
+    singular: アカウント
+    sign_in: ログイン
+    sign_up: アカウント登録
+    forgot_password: 'パスワードを忘れましたか？'
   members:
-    one: '%{count} member'
-    other: '%{count} members'
+    one: '%{count}人のメンバー'
+    other: '%{count}人のメンバー'
   allies:
-    add_ally: 'Add to Allies'
-    cancel_ally_request: 'Cancel Request'
-    accept: Accept
-    reject: Reject
+    add_ally: 仲間に加える
+    cancel_ally_request: 'リクエストをキャンセルする'
+    accept: 受け取る
+    reject: 拒む
     index:
-      title: Allies
-      outgoing: 'Outgoing Requests'
-      incoming: 'Incoming Requests'
-      invited: 'Invited by email'
-      invited_on: 'Invited on: %{date}'
-      invitation_expired: 'Invitation expired'
-      invite: 'Invite your loved ones!'
-      none: 'You currently have no allies! You can search for them or invite loved ones to join!'
-      view_all_allies: 'View all allies'
-      cancel: Cancel
+      title: 仲間
+      outgoing: 出リクエスト
+      incoming: '入リクエスト'
+      invited: '電子メールで招待されました。'
+      invited_on: '招待された：%{date}'
+      invitation_expired: '招待状の期限が切れました'
+      invite: '大切な人を招待しましょう！'
+      none: '仲間を増えるために検索するか、または大切な人を招待することができます。'
+      view_all_allies: 全ての仲間を見る
+      cancel: キャンセル
     form:
-      placeholder: 'Enter one or more comma-separated emails'
+      placeholder: 'コンマ区切りのメールを１つ以上入力してください'
   categories:
-    singular: Category
-    plural: Categories
-    edit_category: 'Edit Category'
-    new: 'New Category'
+    singular: カテゴリー
+    plural: カテゴリー
+    edit_category: カテゴリー編集
+    new: 新しいカテゴリー
     form:
-      name_hint: 'Categorize recurring people, places, things, activities, and more'
+      name_hint: '人、場所、物、アクティビティとかをカテゴライズします。'
     label:
-      one: 'Category:'
-      other: 'Categories:'
+      one: 'カテゴリー：'
+      other: 'カテゴリー：'
     index:
-      subtitle: 'Life is messy, categorize the different people, places, and things.'
-      premade1_name: Family
-      premade1_description: 'Family related'
-      premade2_name: Friends
-      premade2_description: 'Friends related'
-      premade3_name: Work
-      premade3_description: 'Work related'
-      premade4_name: Meditation
-      premade4_description: 'Meditation, deep breathing, and relaxing activities'
-      instructions: 'You haven''t created any custom categories yet.<br>You can also add the following premade categories and customize them another time.'
+      subtitle: '生活は大変なので、人や場所や物をカテゴリーしましょう。'
+      premade1_name: 家族
+      premade1_description: 家族に関係ある
+      premade2_name: 友達
+      premade2_description: 友達に関係ある
+      premade3_name: 仕事
+      premade3_description: 仕事に関係ある
+      premade4_name: 瞑想
+      premade4_description: '瞑想と深呼吸とリラックスのこと'
+      instructions: 'カスタムカテゴリーはまだ作りません。<br>後でカスタマイズしたら、この作り置きのカテゴリーを使えます。'
   errors:
-    home_page: 'Return home'
+    home_page: 'ホームページに戻る'
     internal_server_error:
-      header_message: 'This page cannot be displayed'
+      header_message: 'このページを表示できません。'
     not_found:
-      header_message: 'This page does not exist'
+      header_message: 'お探しのページは見つかりませんでした。'
   groups:
-    singular: Group
-    plural: Groups
+    singular: グループ
+    plural: グループ
     form:
-      leaders: Leaders
-      only_leader: 'You are the only leader, therefore you can''t leave.'
-      cannot_delete: 'Please note that you cannot delete groups.'
-      error_save: 'We can''t save this group because: '
-      error_edit_permission: 'You must be a leader of a group in order to edit it'
+      leaders: リーダー
+      only_leader: 'リーダーはあなたしかないから、離れることができません。'
+      cannot_delete: 'グループを削除することができません。'
+      error_save: 'グループを保存できない理由は：'
+      error_edit_permission: 'グループのリーダーじゃないから編集できません。'
     index:
-      subtitle: 'Create and join groups that offer support, mentorship, and discussions.'
-      available_groups: 'Available Groups'
-      joined_groups: 'Joined Groups'
-      leader: (Leader)
-      instructions: 'You aren''t a part of any groups yet.'
+      subtitle: 'サポート、メンタリング、ディスカッションを提供するグループを作成し、参加します。'
+      available_groups: '入れるグループ'
+      joined_groups: '入ったグループ'
+      leader: （リーダー）
+      instructions: 'グループはまだ参加しません。'
     join:
-      success: 'You have joined this group.'
-      group_not_exists: 'You cannot join a group that doesn''t exist.'
+      success: 'このグループに入りました。'
+      group_not_exists: '存在しないグループが入れません。'
     leave:
-      error: 'You cannot leave the group, you are the only leader.'
-      success: 'You have left %{group}'
-      remove_member_success: 'You have removed %{user} from %{group}'
-      remove_member_error: 'You cannot kick a group member because you are not a leader.'
-    new: 'New Group'
+      error: 'グループのリーダーはあなただけから、離れらることができません。'
+      success: '%{group}を離れていました。'
+      remove_member_success: '%{user}が%{group}から外しました。'
+      remove_member_error: 'リーダーじゃないからメンバーが外せません。'
+    new: 新しいグループ
     show:
-      led_by: 'Led by:'
-      delete: 'Delete group'
+      led_by: 'リーダー：'
+      delete: グループを削除する
   layouts:
     application:
-      signin: 'Tell your stories now'
-      create_account: 'Join the community now'
-      update_account: 'Customize your account'
+      signin: 'あなたの話を伝える'
+      create_account: 'コミュニティに参加する'
+      update_account: 'アカウントをカスタマイズする'
     mailer:
       html:
-        app_description: '%{app_name} is a community that encourages people to share their mental health stories with loved ones.'
-        no_reply: 'You cannot reply to this email. If you have any questions, concerns, or feedback please email %{email}!'
+        app_description: '%{app_name}はメンタルヘルスの話を大切な人と一緒に教えるコミュニティです。'
+        no_reply: 'この電子メールには返信しないでください。質問があれば、%{email}宛にメールしてください！'
     title:
-      reset_password: 'Reset your password'
+      reset_password: パスワードをリセットする
   medications:
     singular: Medication
     edit_medication: 'Edit Medication'
