@@ -13,12 +13,30 @@ class ProfileController < ApplicationController
   end
 
   def ban_user
-    User.where(id: params[:user_id]).update(banned: true)
-    redirect_to_path admin_dashboard_path
+    ban_or_remove(true)
   end
 
   def remove_ban
-    User.where(id: params[:user_id]).update(banned: false)
-    redirect_to_path admin_dashboard_path
+    ban_or_remove(false)
+  end
+
+  private
+
+  def ban_or_remove(banned)
+    user = User.where(id: params[:user_id]).update(banned: banned)
+    redirect_to(
+      admin_dashboard_path,
+      notice_or_alert(
+        user,
+        banned ? 'user_banned' : 'ban_removed'
+      )
+    )
+  end
+
+  def notice_or_alert(user, notice)
+    name = user&.first&.name || params[:user_id]
+    return { alert: t("reports.#{notice}_error", name: name) } unless user.any?
+
+    { notice: t("reports.#{notice}", name: name) }
   end
 end

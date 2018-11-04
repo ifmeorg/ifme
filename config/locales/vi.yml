@@ -87,6 +87,10 @@ vi:
     report_error: 'Không thể gửi báo cáo cho %{name}'
     reportee: 'Người được báo cáo'
     reporter: 'Phóng viên'
+    user_banned: '%{name} đã bị cấm'
+    ban_removed: 'Đã loại bỏ bị cấm trên %{name}'
+    user_banned_error: 'Không thể cấm %{name}'
+    ban_removed_error: 'Không thể xóa lệnh cấm đối với %{name}'
   comment:
     singular: 'Bình luận'
     plural: 'Bình luận'

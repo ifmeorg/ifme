@@ -87,6 +87,10 @@ fr:
     report_error: 'Impossible d''envoyer le rapport pour %{name}'
     reportee: Reporter
     reporter: 'Rapporté par'
+    user_banned: '%{name} a été bannie'
+    ban_removed: 'Banni enlevé sur %{name}'
+    user_banned_error: 'Impossible d''interdire %{name}'
+    ban_removed_error: 'Impossible de lever l''interdiction sur %{name}'
   comment:
     singular: Commentaire
     plural: Commentaires

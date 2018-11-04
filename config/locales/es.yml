@@ -87,6 +87,10 @@ es:
     report_error: 'No se pudo enviar el informe para %{name}'
     reportee: Reporte
     reporter: Reportee
+    user_banned: '%{name} ha sido prohibida'
+    ban_removed: 'Prohibida la eliminación de %{name}'
+    user_banned_error: 'No podía prohibir a %{name}'
+    ban_removed_error: 'No se pudo eliminar la prohibición de %{name}'
   comment:
     singular: Comentario
     plural: Comentarios

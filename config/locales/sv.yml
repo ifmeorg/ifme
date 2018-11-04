@@ -87,6 +87,10 @@ sv:
     report_error: 'Det gick inte att skicka rapport för %{name}'
     reportee: Reportee
     reporter: 'Rapporterad av'
+    user_banned: '%{name} har blivit bannlyst'
+    ban_removed: 'Banned borttagen på %{name}'
+    user_banned_error: 'Kunde inte förbyta %{name}'
+    ban_removed_error: 'Kunde inte ta bort förbud mot %{name}'
   comment:
     singular: Kommentar
     plural: Kommentarer

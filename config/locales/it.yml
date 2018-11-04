@@ -87,6 +87,10 @@ it:
     report_error: 'Impossibile inviare un rapporto per %{name}'
     reportee: Reportee
     reporter: Reporter
+    user_banned: '%{name} è stata bandita'
+    ban_removed: 'Bannato rimosso su %{name}'
+    user_banned_error: 'Non potrei vietare %{name}'
+    ban_removed_error: 'Impossibile rimuovere il divieto su %{name}'
   comment:
     singular: Commento
     plural: Commenti
