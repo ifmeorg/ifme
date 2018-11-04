@@ -87,6 +87,10 @@ pt-BR:
     report_error: 'Não foi possível enviar o relatório para %{name}'
     reportee: Denunciante
     reporter: Repórter
+    user_banned: '%{name} foi banida'
+    ban_removed: 'Banido removido em %{name}'
+    user_banned_error: 'Não foi possível proibir %{name}'
+    ban_removed_error: 'Não foi possível remover a proibição de %{name}'
   comment:
     singular: Comentário
     plural: Comentário

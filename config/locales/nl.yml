@@ -87,6 +87,10 @@ nl:
     report_error: 'Kan rapport niet verzenden voor %{name}'
     reportee: Reportee
     reporter: Verslaggever
+    user_banned: '%{name} is verboden'
+    ban_removed: 'Verboden verwijderd op %{name}'
+    user_banned_error: 'Kon %{name} niet verbieden'
+    ban_removed_error: 'Kan verbod op %{name} niet verwijderen'
   comment:
     singular: Commentaar
     plural: Commentaren

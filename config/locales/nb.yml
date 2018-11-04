@@ -87,6 +87,10 @@ nb:
     report_error: 'Kunne ikke sende rapport for %{name}'
     reportee: Reportee
     reporter: 'Rapportert av'
+    user_banned: '%{name} har blitt utestengt'
+    ban_removed: 'Forbudt fjernet på %{name}'
+    user_banned_error: 'Kunne ikke forby %{name}'
+    ban_removed_error: 'Kunne ikke fjerne forbud mot %{name}'
   comment:
     singular: Kommentar
     plural: Kommentarer
