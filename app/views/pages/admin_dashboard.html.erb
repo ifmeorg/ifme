@@ -5,10 +5,10 @@
     <% Report.order('created_at DESC').all.each do |report| %>
       <div class="gridTwoItemBoxLight">
         <div>
-          <strong><%= t('reports.reportee')%>:</strong> <%= link_to report.reportee.name, profile_index_path(uid: report.reportee.uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: report.reportee.id), method: :post %>)
+          <strong><%= t('reports.reportee')%>:</strong> <%= link_to report.reportee.name, profile_index_path(uid: report.reportee.uid) %> (<%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: report.reportee.id), method: :post %>)
         </div>
         <div>
-          <strong><%= t('reports.reporter')%>:</strong> <%= link_to report.reporter.name, profile_index_path(uid: report.reporter.uid) %> (<%= link_to t('reports.ban_user'), ban_user_profile_index_path(user_id: report.reporter.id), method: :post %>)
+          <strong><%= t('reports.reporter')%>:</strong> <%= link_to report.reporter.name, profile_index_path(uid: report.reporter.uid) %> (<%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: report.reporter.id), method: :post %>)
         </div>
         <div class="gridRowSpaceBetween smallMarginTop">
           <%= react_component('Modal', props: {

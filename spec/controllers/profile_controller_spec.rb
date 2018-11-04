@@ -57,7 +57,7 @@ describe ProfileController do
     end
   end
 
-  describe '#ban_user' do
+  describe '#add_ban' do
     let(:user2) { create(:user2) }
 
     before(:each) { Devise.mailer.deliveries.clear }
@@ -67,7 +67,7 @@ describe ProfileController do
 
       it 'cannot ban user' do
         sign_in user1
-        post :ban_user, params: { user_id: user2.id }
+        post :add_ban, params: { user_id: user2.id }
         expect(response.status).to eq(204)
         expect(Devise.mailer.deliveries.count).to eq(0)
       end
@@ -79,7 +79,7 @@ describe ProfileController do
       context 'when user exists' do
         it 'bans the user' do
           sign_in user1
-          post :ban_user, params: { user_id: user2.id }
+          post :add_ban, params: { user_id: user2.id }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:notice]).to eq("#{user2.name} has been banned")
           expect(Devise.mailer.deliveries.count).to eq(1)
@@ -89,7 +89,7 @@ describe ProfileController do
       context 'when user does not exist' do
         it 'does not ban the user' do
           sign_in user1
-          post :ban_user, params: { user_id: -1 }
+          post :add_ban, params: { user_id: -1 }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:alert]).to eq('Could not ban -1')
           expect(Devise.mailer.deliveries.count).to eq(0)

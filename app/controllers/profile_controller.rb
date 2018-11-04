@@ -12,17 +12,17 @@ class ProfileController < ApplicationController
                        .page(params[:page])
   end
 
-  def ban_user
-    ban_or_remove(true)
+  def add_ban
+    ban(true)
   end
 
   def remove_ban
-    ban_or_remove(false)
+    ban(false)
   end
 
   private
 
-  def ban_or_remove_mailer(user, banned)
+  def ban_mailer(user, banned)
     return unless user.any?
 
     if banned
@@ -32,11 +32,11 @@ class ProfileController < ApplicationController
     end
   end
 
-  def ban_or_remove(banned)
+  def ban(banned)
     return unless current_user.admin
 
     user = User.where(id: params[:user_id]).update(banned: banned)
-    ban_or_remove_mailer(user, banned)
+    ban_mailer(user, banned)
     redirect_to(
       admin_dashboard_path,
       notice_or_alert(
