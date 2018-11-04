@@ -1,4 +1,4 @@
-en:
+ja:
   app_name: 'if me'
   app_description: 'A community for mental health experiences'
   email: join.ifme@gmail.com
@@ -13,14 +13,13 @@ en:
   no_text: 'no'
   expand_menu: 'expand menu'
   close: close
-  load_more: 'Load more'
   languages:
     en: English
     es: Español
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various_languages: 'Various languages'
+    various: Various
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -68,33 +67,15 @@ en:
       add_all: 'Add all'
       select_all: 'Select all'
       remove: Remove
-      report: Report
     form:
       email: Email
       location: Location
       description: Description
       error_explanation: 'Please fill out the marked fields!'
-      empty_error: 'This field cannot be empty!'
-      search_by_keywords: 'Search by keywords'
+      press_enter: 'Press ENTER to add'
     time_ago: '%{date} ago'
     write_to_us: 'write to us'
     days: Days
-  reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
-    reportee: Reportee
-    reporter: Reporter
-    user_banned: '%{name} has been banned'
-    ban_removed: 'Ban removed on %{name}'
-    user_banned_error: 'Could not ban %{name}'
-    ban_removed_error: 'Could not remove ban on %{name}'
   comment:
     singular: Comment
     plural: Comments
@@ -155,7 +136,6 @@ en:
       header_message: 'This page cannot be displayed'
     not_found:
       header_message: 'This page does not exist'
-    empty_params: 'Can''t be blank'
   groups:
     singular: Group
     plural: Groups
@@ -203,7 +183,6 @@ en:
     refill: 'Refill:'
     quantity: 'Total Quantity:'
     strength: 'Strength:'
-    event_summary: 'Refill for %{name}.'
     form:
       strength: Strength
       strength_placeholder: 'e.g. 100'
@@ -268,15 +247,6 @@ en:
       error: 'You cannot leave the meeting, you are the only leader.'
       success: 'You have left %{meeting}'
     new: 'New Meeting'
-    google_cal:
-      create:
-        add: 'Add to Google Calendar'
-        success: 'Meeting added to Google Calendar successfully.'
-        error: 'Something went wrong while adding the meeting to Google Calendar.'
-      destroy:
-        remove: 'Remove from Google Calendar'
-        success: 'Meeting removed from Google Calendar successfully.'
-        error: 'Something went wrong while removing the meeting from Google Calendar.'
   moments:
     singular: Moment
     plural: Moments
@@ -287,7 +257,6 @@ en:
       singular: 'Secret Share'
       expires_at: 'Expire at'
       cancel_secret_share: 'Cancel Secret Share'
-      link_copied: 'Secret Share link copied to clipboard'
     form:
       why: 'What happened and how do you feel?'
       fix: 'What thoughts would you like to have?'
@@ -354,7 +323,7 @@ en:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>To read it, %{link}!</p>'
       new_group_subject: 'if me | %{user} created a group "%{group}"'
-      new_group_body: '<p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>'
+      new_group_body: '<p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>'
       new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
       add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
       add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
@@ -369,14 +338,6 @@ en:
       remove_meeting_subject: 'if me | %{user} has cancelled "%{meeting}" for "%{group}"'
       join_meeting_subject: 'if me | %{user} has joined "%{meeting}" for "%{group}"'
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | You have reported a user'
-      reported_user_body: 'You have reported %{reported_name}. This will be reviewed by an admin.'
-      reportee_user_subject: 'if me | You have been reported'
-      reportee_user_body: 'You have been reported. This will be reviewed by an admin.'
-      add_ban_subject: 'if me | You have been banned'
-      add_ban_body: 'You have been banned for violating our %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | You are no longer banned'
-      remove_ban_body: 'You were previously banned for violating our %{code_of_conduct_link}. You are no longer banned.'
   omniauth:
     google: Google
     access_denied: 'Access Denied'
@@ -395,7 +356,6 @@ en:
     blog:
       description: 'If you''re interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too.'
     contribute:
-      contributor_avatar_alt: 'Contributor biography for %{name}'
       main_message_one: 'if me is built and maintained by volunteers of many different backgrounds and skill sets.'
       message_text_one: 'We''re always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class="noMarginBottom">Please %{email_link} and we''ll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>'
       more_contributors: 'More Fabulous Contributors!'
@@ -422,10 +382,6 @@ en:
       email_notifications_question: 'How can I modify email notifications?'
       email_notifications_answer: 'Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted.'
     home:
-      update_pwd_modal:
-        title: 'Update password'
-        body: 'We have enforced better security measures for our users, please %{update_password_link}'
-        update_link: 'update your password.'
       stories: Stories
       not_signed_in:
         main_message_one: 'Better communication with loved ones leads to better mental health.'
@@ -462,8 +418,6 @@ en:
       contact: 'Contact Us'
       contact_description: '<p>Please %{email_link} if you have any questions or concerns.</p><p class="noMarginBottom"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>'
     resources:
-      description: 'This is our curated list of mental health resources, which includes communities, educational tools, hotlines, and services.'
-      emergency: 'If you or someone you know is experiencing a mental health emergency, reach out for help as soon as possible.'
       communities: Communities
       education: Education
       hotlines: Hotlines
@@ -478,7 +432,7 @@ en:
         therapy: therapy
         counseling: counseling
         youth: youth
-        lgbt: LGBT
+        lgbtqia: LGBTQIA
         harassment: harassment
         self_care: self-care
         women: women
@@ -546,17 +500,6 @@ en:
         sexual_assault_survivors: 'sexual assault survivors'
         political_movement: 'political movement'
         reporting: reporting
-        game: game
-        stress: stress
-        fidget: fidget
-        colouring: colouring
-        deaf: deaf
-        asl: ASL
-        latinx: latinx
-        hispanic: hispanic
-        senior_citizens: 'senior citizens'
-        black_people: 'black people'
-        sexual_health: 'sexual health'
   profile:
     index:
       title: Profile
@@ -682,16 +625,13 @@ en:
       meeting_notify_text: 'Meeting updates'
       google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
       google_auth2: 'Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password.'
-      password_errors:
-        format: 'should contain 8 to 128 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character.'
-        used: 'must be different from last three passwords.'
+      password_complexity_error: 'should contain 8 to 128 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character.'
       placeholders:
         repeat_password: 'Repeat Password'
       edit:
         labels:
           profile_picture: 'Profile picture'
           remove_picture: 'Remove picture'
-          about: About
           password_for: 'Password for <strong>if me</strong> account'
           update: Update
         placeholders:
