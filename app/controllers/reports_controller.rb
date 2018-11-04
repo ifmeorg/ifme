@@ -15,14 +15,23 @@ class ReportsController < ApplicationController
 
   def notice_or_alert(report)
     user = User.find_by(uid: params[:uid])
-    { alert: t('reports.report_error', name: user.name) } unless report
+    return { alert: t('reports.report_error', name: user.name) } unless report
 
     { notice: t('reports.report_sent', name: user.name) }
   end
 
+  def valid_report?(user)
+    current_user.ally?(user) &&
+      (params[:comment_id].blank? ||
+        Comment.where(id: params[:comment_id]).exists?)
+  end
+
   def create_report
+    user = User.find_by(uid: params[:uid])
+    return unless valid_report?(user)
+
     Report.create(reporter_id: current_user.id,
-                  reportee_id: User.find_by(uid: params[:uid]).id,
+                  reportee_id: user.id,
                   reasons: params[:report][:reasons],
                   comment_id: params[:comment_id])
   end
