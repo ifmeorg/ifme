@@ -22,10 +22,21 @@ class ProfileController < ApplicationController
 
   private
 
+  def ban_or_remove_mailer(user, banned)
+    return unless user.any?
+
+    if banned
+      BannedMailer.add_ban_email(user.first).deliver_now
+    else
+      BannedMailer.remove_ban_email(user.first).deliver_now
+    end
+  end
+
   def ban_or_remove(banned)
     return unless current_user.admin
 
     user = User.where(id: params[:user_id]).update(banned: banned)
+    ban_or_remove_mailer(user, banned)
     redirect_to(
       admin_dashboard_path,
       notice_or_alert(

@@ -338,7 +338,7 @@ pt-BR:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Veja o comentário, %{link}!</p>'
       new_group_subject: 'if me | %{user} criou um grupo chamado "%{group}"'
-      new_group_body: '<p>%{user} criou um grupo chamado "%{group}":</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p><p>Por favor siga o nosso %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} criou um grupo chamado "%{group}":</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p><p>Por favor siga o nosso %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} se juntou ao seu grupo "%{group}"'
       add_group_leader_you_subject: 'if me | Você  se tornou lider do grupo  "%{group}"'
       add_group_leader_subject: 'if me | %{user} se tornou líder do grupo " %{group}"'
@@ -357,6 +357,10 @@ pt-BR:
       reported_user_body: 'Você relatou %{reported_name}. Isso será revisado por um administrador.'
       reportee_user_subject: 'if me | Você foi denunciado'
       reportee_user_body: 'Você foi denunciado. Isso será revisado por um administrador.'
+      add_ban_subject: 'if me | Você foi banido'
+      add_ban_body: 'Você foi banido por violar nossa %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | Você não está mais banido'
+      remove_ban_body: 'Você foi banido anteriormente por violar nossa %{code_of_conduct_link}. Você não está mais banido.'
   omniauth:
     google: Google
     access_denied: 'Accesso Negado'

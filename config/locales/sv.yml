@@ -338,7 +338,7 @@ sv:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>För att läsa den, %{link}!</p>'
       new_group_subject: 'if me | %{user} skapade en grupp "%{group}"'
-      new_group_body: '<p>%{user} skapade en grupp "%{group}":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p><p>Vänligen följ vår %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} skapade en grupp "%{group}":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p><p>Vänligen följ vår %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} gick med i din grupp "%{group}"'
       add_group_leader_you_subject: 'if me | Du blev ledare för "%{group}"'
       add_group_leader_subject: 'if me | %{user} blev ledare för " %{group}"'
@@ -357,6 +357,10 @@ sv:
       reported_user_body: 'Du har rapporterat %{reported_name}. Detta kommer att granskas av en admin.'
       reportee_user_subject: 'if me | Du har rapporterats'
       reportee_user_body: 'Du har rapporterats. Detta kommer att granskas av en admin.'
+      add_ban_subject: 'if me | Du har förbjudits'
+      add_ban_body: 'Du har blivit bannad för att bryta mot vår %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | Du är inte längre förbjuden'
+      remove_ban_body: 'Du var tidigare förbjuden att bryta mot vår %{code_of_conduct_link}. Du är inte längre förbjuden.'
   omniauth:
     google: Google
     access_denied: 'Åtkomst nekad'

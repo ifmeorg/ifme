@@ -20,7 +20,7 @@ module NotificationMailerHelper
 
   def comment_on_meeting_subject(data)
     group_id = Meeting.find(data['typeid']).group_id
-    group = Group.where(id: group_id).first.name
+    group = Group.find_by(id: group_id).name
     I18n.t(
       val('comment_on_meeting_subject'),
       user: data['user'].to_s,
@@ -51,10 +51,10 @@ module NotificationMailerHelper
       val('new_group_body'),
       user: data['user'].to_s,
       group: data['group'].to_s,
-      description: Group.where(id: data['group_id']).first.description,
+      description: Group.find_by(id: data['group_id']).description,
       link: link_to(link_name, group_url(data['group_id'])),
-      link_to_code_of_conduct: link_to(t('navigation.code_of_conduct'),
-                                       'https://www.contributor-covenant.org/')
+      code_of_conduct_link: link_to(t('navigation.code_of_conduct'),
+                                    'https://www.contributor-covenant.org/')
     )
   end
 

@@ -60,6 +60,8 @@ describe ProfileController do
   describe '#ban_user' do
     let(:user2) { create(:user2) }
 
+    before(:each) { Devise.mailer.deliveries.clear }
+
     context 'when admin does not exist' do
       let(:user1) { create(:user1) }
 
@@ -67,6 +69,7 @@ describe ProfileController do
         sign_in user1
         post :ban_user, params: { user_id: user2.id }
         expect(response.status).to eq(204)
+        expect(Devise.mailer.deliveries.count).to eq(0)
       end
     end
 
@@ -79,6 +82,7 @@ describe ProfileController do
           post :ban_user, params: { user_id: user2.id }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:notice]).to eq("#{user2.name} has been banned")
+          expect(Devise.mailer.deliveries.count).to eq(1)
         end
       end
 
@@ -88,6 +92,7 @@ describe ProfileController do
           post :ban_user, params: { user_id: -1 }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:alert]).to eq('Could not ban -1')
+          expect(Devise.mailer.deliveries.count).to eq(0)
         end
       end
     end
@@ -96,6 +101,8 @@ describe ProfileController do
   describe '#remove_ban' do
     let(:user2) { create(:user2, banned: true) }
 
+    before(:each) { Devise.mailer.deliveries.clear }
+
     context 'when admin does not exist' do
       let(:user1) { create(:user1) }
 
@@ -103,6 +110,7 @@ describe ProfileController do
         sign_in user1
         post :remove_ban, params: { user_id: user2.id }
         expect(response.status).to eq(204)
+        expect(Devise.mailer.deliveries.count).to eq(0)
       end
     end
 
@@ -115,6 +123,7 @@ describe ProfileController do
           post :remove_ban, params: { user_id: user2.id }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:notice]).to eq("Ban removed on #{user2.name}")
+          expect(Devise.mailer.deliveries.count).to eq(1)
         end
       end
 
@@ -124,6 +133,7 @@ describe ProfileController do
           post :remove_ban, params: { user_id: -1 }
           expect(response).to redirect_to(admin_dashboard_path)
           expect(flash[:alert]).to eq('Could not remove ban on -1')
+          expect(Devise.mailer.deliveries.count).to eq(0)
         end
       end
     end
