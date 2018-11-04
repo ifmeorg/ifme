@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 describe CommentsHelper, type: :controller do
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
