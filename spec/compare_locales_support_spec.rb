@@ -48,6 +48,11 @@ describe CompareLocalesSupport do
         subject { described_class.compare(source, :french) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to japanese' do
+        subject { described_class.compare(source, :japanese) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -97,6 +102,11 @@ describe CompareLocalesSupport do
 
       context 'when comparing to devise_french' do
         subject { described_class.compare(source, :devise_french) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to devise_japanese' do
+        subject { described_class.compare(source, :devise_japanese) }
         it { is_expected.to be_empty }
       end
     end
@@ -150,6 +160,11 @@ describe CompareLocalesSupport do
         subject { described_class.compare(source, :devise_invitable_french) }
         it { is_expected.to be_empty }
       end
+
+      context 'when comparing to devise_invitable_japanese' do
+        subject { described_class.compare(source, :devise_invitable_japanese) }
+        it { is_expected.to be_empty }
+      end
     end
   end
 
@@ -199,6 +214,11 @@ describe CompareLocalesSupport do
 
       context 'when comparing to kaminari_french' do
         subject { described_class.compare(source, :kaminari_french) }
+        it { is_expected.to be_empty }
+      end
+
+      context 'when comparing to kaminari_japanese' do
+        subject { described_class.compare(source, :kaminari_japanese) }
         it { is_expected.to be_empty }
       end
     end
