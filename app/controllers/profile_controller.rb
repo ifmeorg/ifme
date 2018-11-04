@@ -22,21 +22,20 @@ class ProfileController < ApplicationController
 
   private
 
-  def ban_mailer(user, banned)
-    return unless user.any?
-
+  def update_and_email(user, banned)
+    user.update(banned: banned)
     if banned
-      BannedMailer.add_ban_email(user.first).deliver_now
+      BannedMailer.add_ban_email(user).deliver_now
     else
-      BannedMailer.remove_ban_email(user.first).deliver_now
+      BannedMailer.remove_ban_email(user).deliver_now
     end
   end
 
   def ban(banned)
     return unless current_user.admin
 
-    user = User.where(id: params[:user_id]).update(banned: banned)
-    ban_mailer(user, banned)
+    user = User.find_by(id: params[:user_id])
+    update_and_email(user, banned) if user.present?
     redirect_to(
       admin_dashboard_path,
       notice_or_alert(
@@ -47,9 +46,9 @@ class ProfileController < ApplicationController
   end
 
   def notice_or_alert(user, notice)
-    name = user&.first&.name || params[:user_id]
-    return { alert: t("reports.#{notice}_error", name: name) } unless user.any?
+    name = user&.name || params[:user_id]
+    return { notice: t("reports.#{notice}", name: name) } if user.present?
 
-    { notice: t("reports.#{notice}", name: name) }
+    { alert: t("reports.#{notice}_error", name: name) }
   end
 end
