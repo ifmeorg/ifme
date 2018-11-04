@@ -1,26 +1,23 @@
 # frozen_string_literal: true
-
-require 'spec_helper'
-
 describe 'NotificationMailer' do
-  let(:recipient)  { FactoryBot.create(:user1, email: 'some@user.com') }
-  let(:medication) { FactoryBot.create(:medication, :with_daily_reminder, user_id: recipient.id) }
+  let(:recipient)  { create(:user1, email: 'some@user.com') }
+  let(:medication) { create(:medication, :with_daily_reminder, user_id: recipient.id) }
   let(:medication_reminder) { medication.take_medication_reminder }
-  let(:strategy) { FactoryBot.create(:strategy, :with_daily_reminder, user_id: recipient.id) }
+  let(:strategy) { create(:strategy, :with_daily_reminder, user_id: recipient.id) }
   let(:strategy_reminder) { strategy.perform_strategy_reminder }
 
   describe '#take_medication' do
     subject(:email) { NotificationMailer.take_medication(medication_reminder) }
 
     it { expect(email.to).to eq(['some@user.com']) }
-    it { expect(email.subject).to eq("Don't forget to take Fancy Medication Name!") }
+    it { expect(email.subject).to eq("Don't forget to take #{medication.name}!") }
   end
 
   describe '#refill_medication' do
     subject(:email) { NotificationMailer.refill_medication(medication_reminder) }
 
     it { expect(email.to).to eq(['some@user.com']) }
-    it { expect(email.subject).to eq('Your refill for Fancy Medication Name is coming up soon!') }
+    it { expect(email.subject).to eq("Your refill for #{medication.name} is coming up soon!") }
   end
 
   describe '#perform_strategy' do
@@ -31,8 +28,8 @@ describe 'NotificationMailer' do
   end
 
   describe '#meeting_reminder' do
-    let(:member) { FactoryBot.create(:meeting_member, meeting: meeting).user }
-    let(:meeting) { FactoryBot.create(:meeting) }
+    let(:member) { create(:meeting_member, meeting: meeting).user }
+    let(:meeting) { create(:meeting) }
 
     subject(:email) { NotificationMailer.meeting_reminder(meeting, member) }
 
@@ -76,8 +73,7 @@ describe 'NotificationMailer' do
   end
 
   describe 'notification' do
-    let(:who_triggered_event) { FactoryBot.create(:user2) }
-
+    let(:who_triggered_event) { create(:user2) }
     let(:data) do
       {
         user: who_triggered_event.name,
