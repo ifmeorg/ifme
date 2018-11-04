@@ -44,7 +44,7 @@ module CompareLocalesSupport
     kaminari_italian: "#{LOCALES_DIR}/kaminari.it.yml",
     kaminari_vietnamese: "#{LOCALES_DIR}/kaminari.vi.yml",
     kaminari_german: "#{LOCALES_DIR}/kaminari.de.yml",
-    kaminari_french: "#{LOCALES_DIR}/kaminari.fr.yml"
+    kaminari_french: "#{LOCALES_DIR}/kaminari.fr.yml",
     kaminari_japanese: "#{LOCALES_DIR}/kaminari.ja.yml"
   }.freeze
 
