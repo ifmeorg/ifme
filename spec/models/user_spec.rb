@@ -261,7 +261,7 @@ describe User do
           expect(user.valid?).to be false
 
           expect(user).to have(1).error_on(:password)
-          expect(user.errors[:password]).not_to include(I18n.t('devise.registrations.password_complexity_error'))
+          expect(user.errors[:password]).not_to include(I18n.t('devise.registrations.password_errors.format'))
         end
       end
 
@@ -288,6 +288,48 @@ describe User do
 
             expect(user).to have(1).error_on(:password)
           end
+        end
+      end
+
+      context 'previous three password' do
+        it 'does saves on update and does not allows them as new password' do
+          password1 = 'Password@1'
+          user.password = password1
+          user.save
+          expect(user.password_histories.count).to eq(1),
+              'Expected to create password history when user is created'
+
+          expected_histories = 2
+          passwords_2_3 = ['Password@2', 'Password@3']
+          passwords_2_3.each_with_index do |password, index|
+            user.password = password
+            user.save
+            expect(user.reload.password_histories.count).to eq(expected_histories + index),
+              'Expected to create password history when password changes'
+          end
+
+          password4 = 'Password@4'
+          user.password = password4
+          user.save
+          expect(user.reload.password_histories.count).to eq(3),
+            'Expected to delete the old password history when the count reaches 3'
+
+          (passwords_2_3 + [password4]).each do |password|
+            user.password = password
+            saved = user.valid?
+            expect(user.valid?).to be(false),
+              'Expected user to be invalid if the password is one of the previous three password'
+            expect(user.errors[:password]).to include(I18n.t('devise.registrations.password_errors.used'))
+          end
+
+          user.password = password1
+          expect(user.valid?).to be(true),
+            'Expected user to be valid if the password is previous, but not from last three'
+
+          new_password = 'Password@5'
+          user.password = new_password
+          expect(user.valid?).to be(true),
+            'Expected user to be valid if the password is not previous password'
         end
       end
     end

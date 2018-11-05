@@ -59,7 +59,7 @@ class User < ApplicationRecord
          omniauth_providers: [:google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
-  before_save :remove_leading_trailing_whitespace
+
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts
@@ -72,8 +72,13 @@ class User < ApplicationRecord
   has_many :moods
   has_many :moments
   has_many :categories
+  has_many :password_histories
   belongs_to :invited_by, class_name: 'User'
+
   after_initialize :set_defaults, unless: :persisted?
+  before_save :remove_leading_trailing_whitespace
+  after_save :create_password_history
+
   validates :name, presence: true
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)

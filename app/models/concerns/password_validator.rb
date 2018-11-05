@@ -2,18 +2,53 @@
 module PasswordValidator
   extend ActiveSupport::Concern
 
+  MAX_PREVIOUS_PASSWORD = 3
+
   private
 
-  def password_complexity
-    return if good_password?
+  def create_password_history
+    return unless saved_change_to_encrypted_password?
 
-    error_message = I18n.t('devise.registrations.password_complexity_error')
-    errors.add(:password, error_message)
+    password_histories.create(encrypted_password: encrypted_password)
+
+    return if password_histories.count <= MAX_PREVIOUS_PASSWORD
+
+    password_histories.first.destroy
   end
 
-  def good_password?
+  def password_complexity
+    google_oauth2_enabled? ||
+      password.blank? ||
+      (matches_format? && not_in_used_passwords?)
+  end
+
+  def matches_format?
     password_regex =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
-    google_oauth2_enabled? || password.blank? || (password =~ password_regex)
+    return true if password =~ password_regex
+
+    errors.add(:password, I18n.t('devise.registrations.password_errors.format'))
+    false
+  end
+
+  def not_in_used_passwords?
+    password_histories.pluck(:encrypted_password).each do |ep|
+      next if not_a_used_password?(ep)
+
+      message = I18n.t('devise.registrations.password_errors.used')
+      errors.add(:password, message)
+
+      return false
+    end
+    true
+  end
+
+  def not_a_used_password?(encrypted_password)
+    bcrypt = ::BCrypt::Password.new(encrypted_password)
+    hashed_value = ::BCrypt::Engine.hash_secret(
+      [password, Devise.pepper].join, bcrypt.salt
+    )
+
+    hashed_value != encrypted_password
   end
 end
