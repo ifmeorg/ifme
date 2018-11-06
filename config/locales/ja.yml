@@ -140,7 +140,7 @@ ja:
     plural: グループ
     form:
       leaders: リーダー
-      only_leader: 'リーダーはあなたしかないから、離れることができません。'
+      only_leader: 'リーダーはあなたしかないから、立ち去ることができません。'
       cannot_delete: 'グループを削除することができません。'
       error_save: 'グループを保存できない理由は：'
       error_edit_permission: 'グループのリーダーじゃないから編集できません。'
