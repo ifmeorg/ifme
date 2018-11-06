@@ -27,7 +27,7 @@ ja:
     fr: Français
     ja: 日本語
   navigation:
-    about: 'プロフィール'
+    about: 'if me について'
     blog: ブログ
     contribute: 貢献する
     partners: 提携
@@ -43,10 +43,10 @@ ja:
     give_feedback: フィードバックする
     press: 報道機関
     faq: よくある質問
-    resources: リーソス
+    resources: リソース
     code_of_conduct: 行動規範
   common:
-    name: 名前
+    name: 名
     you: あなた
     title: タイトル
     date: 日付
@@ -72,9 +72,9 @@ ja:
       location: 場所
       description: ディスクリプション
       error_explanation: 'マークされたフィールドに記入してください！'
-      press_enter: '追加するにはEnterキーを押します'
+      press_enter: '追加するにはEnterキーを押してください'
     time_ago: '%{date}前に'
-    write_to_us: '私たちにコンタクトしてください'
+    write_to_us: 'コンタクトする'
     days: 日
   reports:
     admin_dashboard: 'Admin Dashboard'
@@ -96,7 +96,7 @@ ja:
     singular: コメント
     plural: コメント
     posting: 'コメントを投稿中…'
-    allow_comments: 'コメントを許可します？'
+    allow_comments: 'コメントを許可しますか？'
     hint: 'あなたと視聴者だけがコメントできます。'
     control: '表示したりコメントできるユーザーを制御します。'
   account:
@@ -136,7 +136,7 @@ ja:
       one: 'カテゴリー：'
       other: 'カテゴリー：'
     index:
-      subtitle: '人生は大変なので、人や場所や物をカテゴライズしましょう。'
+      subtitle: '人や場所や物をカテゴライズしましょう。'
       premade1_name: 家族
       premade1_description: 家族に関係ある
       premade2_name: 友達
