@@ -332,6 +332,26 @@ describe User do
             'Expected user to be valid if the password is not previous password'
         end
       end
+
+      context 'password_needs_update' do
+        it 'returns true if crossed 5 months' do
+          allow_any_instance_of(User).to receive(:password_updated_on)
+            .and_return(
+              Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months + 10.minute)
+            )
+
+          expect(user.password_needs_update?).to be (true)
+        end
+
+        it 'returns false if did not cross 5 months' do
+          allow_any_instance_of(User).to receive(:password_updated_on)
+            .and_return(
+              Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months - 10.minute)
+            )
+
+          expect(user.password_needs_update?).to be (false)
+        end
+      end
     end
   end
 

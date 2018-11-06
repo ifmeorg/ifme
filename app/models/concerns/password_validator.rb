@@ -3,8 +3,17 @@ module PasswordValidator
   extend ActiveSupport::Concern
 
   MAX_PREVIOUS_PASSWORD = 3
+  PASSWORD_VALIDITY_MONTHS = 6
+
+  def password_needs_update?
+    (password_updated_on + PASSWORD_VALIDITY_MONTHS.months) < Time.now
+  end
 
   private
+
+  def password_updated_on
+    password_histories.last.created_at
+  end
 
   def create_password_history
     return unless saved_change_to_encrypted_password?
