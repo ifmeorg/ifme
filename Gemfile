@@ -43,7 +43,7 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.0.2'
+gem 'groupdate', '4.1.0'
 
 gem 'react_on_rails', '11.1.8'
 gem 'webpacker'
@@ -63,7 +63,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.10.0'
+  gem 'capybara', '~> 3.10.1'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'jasmine', '~> 2.7.0'

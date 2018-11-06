@@ -1,33 +1,34 @@
 # frozen_string_literal: true
-
-RSpec.describe SearchController, type: :controller do
+describe SearchController, type: :controller do
   let(:user) { create(:user) }
+  let(:user2) {  create(:user, email: 'bar@email.com') }
+  let(:user3) {  create(:user, email: 'foo@email.com', banned: true) }
 
-  let!(:user_two) { create(:user, email: 'foo@email.com') }
-  let!(:user_three) { create(:user, email: 'bar@email.com') }
-
-  describe 'GET #index' do
+  describe '#index' do
     context 'when user is logged in' do
       include_context :logged_in_user
 
       context 'when have passed email' do
         it 'strip passed string' do
           expect_any_instance_of(String).to receive(:strip)
-
           get :index, params: { search: { email: '  hi@email.com ' } }
           expect(response).to render_template(:index)
         end
 
-        it 'filter by user email' do
+        it 'filters by non-banned user email' do
           get :index, params: { search: { email: 'bar@email.com' } }
+          expect(assigns(:matching_users)).to include(user2)
+          expect(response).to render_template(:index)
+        end
 
-          expect(assigns(:matching_users)).to include(user_three)
+        it 'does not filter banned user email' do
+          get :index, params: { search: { email: 'foo@email.com' } }
+          expect(assigns(:matching_users)).not_to include(user3)
           expect(response).to render_template(:index)
         end
 
         it 'keeps a reference to the email queried' do
           get :index, params: { search: { email: 'bar@email.com' } }
-
           expect(assigns(:email_query)).to include('bar@email.com')
           expect(response).to render_template(:index)
         end
@@ -36,7 +37,6 @@ RSpec.describe SearchController, type: :controller do
       context 'when have no passed email' do
         it 'sets the correct instance variables' do
           get :index, params: { search: {} }
-
           expect(response).to redirect_to('/allies')
         end
       end
@@ -49,7 +49,7 @@ RSpec.describe SearchController, type: :controller do
     end
   end
 
-  describe 'GET #posts' do
+  describe '#posts' do
     context 'when user is logged in' do
       include_context :logged_in_user
       let(:word) { 'passed-word' }

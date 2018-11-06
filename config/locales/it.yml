@@ -66,6 +66,7 @@ it:
       add_all: 'Aggiungi tutti'
       select_all: 'Seleziona tutto'
       remove: Rimuovi
+      report: Rapporto
     form:
       email: EMail
       location: Luogo
@@ -75,6 +76,22 @@ it:
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni
+  reports:
+    admin_dashboard: 'Dashboard di amministrazione'
+    reported_users: 'Utenti Segnalati'
+    banned_users: 'Utenti Vietati'
+    reasons: Motivi
+    new: 'Nuovo rapporto per %{name}'
+    remove_ban: 'Rimuovi il divieto'
+    ban_user: 'Divieto all''utente'
+    report_sent: 'Rapporto per %{name} inviato'
+    report_error: 'Impossibile inviare un rapporto per %{name}'
+    reportee: Reportee
+    reporter: Reporter
+    user_banned: '%{name} è stata bandita'
+    ban_removed: 'Bannato rimosso su %{name}'
+    user_banned_error: 'Non potrei vietare %{name}'
+    ban_removed_error: 'Impossibile rimuovere il divieto su %{name}'
   comment:
     singular: Commento
     plural: Commenti
@@ -322,7 +339,7 @@ it:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Per leggerlo, %{link}!</p>'
       new_group_subject: 'if me | %{user} ha creato il gruppo "%{group}"'
-      new_group_body: '<p>%{user} ha creato il gruppo "%{group}":</p><p><i>%{description}</i></p><p>Per saperne di più ed unirti, %{link}!</p><p>Per favore, segui il nostro %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} ha creato il gruppo "%{group}":</p><p><i>%{description}</i></p><p>Per saperne di più ed unirti, %{link}!</p><p>Per favore, segui il nostro %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} si è unito al tuo gruppo "%{group}"'
       add_group_leader_you_subject: 'if me | Sei diventato un leader di "%{group}"'
       add_group_leader_subject: 'if me | %{user} é diventato un leader di " %{group}"'
@@ -337,6 +354,14 @@ it:
       remove_meeting_subject: 'if me | %{user} ha eliminato "%{meeting}" per "%{group}"'
       join_meeting_subject: 'if me | %{user} si è unito a "%{meeting}" per "%{group}"'
       join_meeting_body: '<p>Per vedere "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'if me | Hai segnalato un utente'
+      reported_user_body: 'Lei ha riferito %{reported_name}. Questo sarà esaminato da un amministratore.'
+      reportee_user_subject: 'if me | Sei stato segnalato'
+      reportee_user_body: 'Sei stato segnalato. Questo sarà esaminato da un amministratore.'
+      add_ban_subject: 'if me | Sei stato escluso'
+      add_ban_body: 'Sei stato bannato per aver violato la nostra %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | Non sei più bannato'
+      remove_ban_body: 'In precedenza sei stato bannato per aver violato la nostra %{code_of_conduct_link}. Non sei più bannato.'
   omniauth:
     google: Google
     access_denied: 'Accesso Negato'

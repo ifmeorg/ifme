@@ -66,6 +66,7 @@ vi:
       add_all: 'Thêm vào tất cả'
       select_all: 'Lựa chọn tất cả'
       remove: 'Gỡ bỏ'
+      report: 'Bài báo cáo'
     form:
       email: Email
       location: 'Vị trí'
@@ -75,6 +76,22 @@ vi:
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: 'viết cho chúng tôi'
     days: Ngày
+  reports:
+    admin_dashboard: 'Bảng điều khiển quản trị'
+    reported_users: 'Người dùng đã báo cáo'
+    banned_users: 'Người bị cấm'
+    reasons: 'Lý Do'
+    new: 'Báo cáo mới cho %{name}'
+    remove_ban: 'Xóa lệnh cấm'
+    ban_user: 'Ngươi dung bị câm'
+    report_sent: 'Đã gửi báo cáo cho %{name}'
+    report_error: 'Không thể gửi báo cáo cho %{name}'
+    reportee: 'Người được báo cáo'
+    reporter: 'Phóng viên'
+    user_banned: '%{name} đã bị cấm'
+    ban_removed: 'Đã loại bỏ bị cấm trên %{name}'
+    user_banned_error: 'Không thể cấm %{name}'
+    ban_removed_error: 'Không thể xóa lệnh cấm đối với %{name}'
   comment:
     singular: 'Bình luận'
     plural: 'Bình luận'
@@ -322,7 +339,7 @@ vi:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Để đọc nó,% {link}!</p>'
       new_group_subject: 'if me | %{user} đã tạo một nhóm "%{group}"'
-      new_group_body: '<p>%{user} đã tạo một nhóm "%{group}":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy làm theo %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} đã tạo một nhóm "%{group}":</p><p><i>%{description}</i></p><p>Để tìm hiểu thêm và tham gia, %{link}!</p><p>Hãy làm theo %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} đã tham gia nhóm của bạn "%{group}"'
       add_group_leader_you_subject: 'if me | Bạn trở thành người lãnh đạo của "%{group}"'
       add_group_leader_subject: 'if me | %{user} trở thành lãnh đạo của "%{group}"'
@@ -337,6 +354,14 @@ vi:
       remove_meeting_subject: 'if me | %{user} đã hủy "% {meeting}" cho "%{group}"'
       join_meeting_subject: 'if me | %{user} đã tham gia "% {meeting}" cho "%{group}"'
       join_meeting_body: '<p>Để xem "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'if me | Bạn đã báo cáo một người dùng'
+      reported_user_body: 'Bạn đã báo cáo %{reported_name}. Điều này sẽ được quản trị viên xem xét.'
+      reportee_user_subject: 'if me | Bạn đã được báo cáo'
+      reportee_user_body: 'Bạn đã được báo cáo. Điều này sẽ được quản trị viên xem xét.'
+      add_ban_subject: 'if me | Bạn đã bị cấm'
+      add_ban_body: 'Bạn đã bị cấm vì vi phạm %{code_of_conduct_link} của chúng tôi.'
+      remove_ban_subject: 'if me | Bạn không còn bị cấm'
+      remove_ban_body: 'Trước đây bạn đã bị cấm vì vi phạm %{code_of_conduct_link} của chúng tôi. Bạn không còn bị cấm nữa.'
   omniauth:
     google: Google
     access_denied: 'Truy nhập từ chối'

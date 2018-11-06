@@ -66,6 +66,7 @@ en:
       add_all: 'Add all'
       select_all: 'Select all'
       remove: Remove
+      report: Report
     form:
       email: Email
       location: Location
@@ -75,6 +76,22 @@ en:
     time_ago: '%{date} ago'
     write_to_us: 'write to us'
     days: Days
+  reports:
+    admin_dashboard: 'Admin Dashboard'
+    reported_users: 'Reported Users'
+    banned_users: 'Banned Users'
+    reasons: Reasons
+    new: 'New Report for %{name}'
+    remove_ban: 'Remove Ban'
+    ban_user: 'Ban User'
+    report_sent: 'Report for %{name} sent'
+    report_error: 'Could not send report for %{name}'
+    reportee: Reportee
+    reporter: Reporter
+    user_banned: '%{name} has been banned'
+    ban_removed: 'Ban removed on %{name}'
+    user_banned_error: 'Could not ban %{name}'
+    ban_removed_error: 'Could not remove ban on %{name}'
   comment:
     singular: Comment
     plural: Comments
@@ -322,7 +339,7 @@ en:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>To read it, %{link}!</p>'
       new_group_subject: 'if me | %{user} created a group "%{group}"'
-      new_group_body: '<p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
       add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
       add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
@@ -337,6 +354,14 @@ en:
       remove_meeting_subject: 'if me | %{user} has cancelled "%{meeting}" for "%{group}"'
       join_meeting_subject: 'if me | %{user} has joined "%{meeting}" for "%{group}"'
       join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'if me | You have reported a user'
+      reported_user_body: 'You have reported %{reported_name}. This will be reviewed by an admin.'
+      reportee_user_subject: 'if me | You have been reported'
+      reportee_user_body: 'You have been reported. This will be reviewed by an admin.'
+      add_ban_subject: 'if me | You have been banned'
+      add_ban_body: 'You have been banned for violating our %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | You are no longer banned'
+      remove_ban_body: 'You were previously banned for violating our %{code_of_conduct_link}. You are no longer banned.'
   omniauth:
     google: Google
     access_denied: 'Access Denied'

@@ -1,4 +1,7 @@
 <div class="dashboardNavLinks">
+  <% if current_user.admin? %>
+    <%= dashboard_nav_link_to(t('reports.admin_dashboard'), admin_dashboard_path) %>
+  <% end %>
   <%= dashboard_nav_link_to(t('moments.plural'), moments_path) %>
   <%= dashboard_nav_link_to(t('categories.plural'), categories_path) %>
   <%= dashboard_nav_link_to(t('moods.plural'), moods_path) %>

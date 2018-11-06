@@ -1,9 +1,6 @@
 # frozen_string_literal: true
-
 module PasswordValidator
   extend ActiveSupport::Concern
-
-  PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
 
   private
 
@@ -15,6 +12,8 @@ module PasswordValidator
   end
 
   def good_password?
-    google_oauth2_enabled? || password.blank? || (password =~ PASSWORD_REGEX)
+    password_regex =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
+    google_oauth2_enabled? || password.blank? || (password =~ password_regex)
   end
 end

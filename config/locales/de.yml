@@ -67,6 +67,7 @@ de:
       add_all: 'Alle hinzufügen'
       select_all: 'Alle auswählen'
       remove: entfernen
+      report: Bericht
     form:
       email: E-Mail
       location: Ort
@@ -76,6 +77,22 @@ de:
     time_ago: 'Vor %{date}'
     write_to_us: 'schreibe uns'
     days: Tage
+  reports:
+    admin_dashboard: 'Admin-Dashboard'
+    reported_users: 'Gemeldete Benutzer'
+    banned_users: 'Verbotene Benutzer'
+    reasons: 'Gründe Dafür'
+    new: 'Neuer Bericht für %{name}'
+    remove_ban: 'Verbot Entfernen'
+    ban_user: 'Benutzer Blocken'
+    report_sent: 'Bericht für %{name} gesendet'
+    report_error: 'Bericht für %{name} konnte nicht gesendet werden'
+    reportee: Berichterstatter
+    reporter: Reporter
+    user_banned: '%{name} wurde gebannt'
+    ban_removed: 'Verboten am entfernt %{name}'
+    user_banned_error: 'Konnte nicht verbieten %{name}'
+    ban_removed_error: 'Verbot konnte nicht aufgehoben werden %{name}'
   comment:
     singular: Kommentar
     plural: Kommentare
@@ -343,6 +360,14 @@ de:
       remove_meeting_subject: 'if me | %{user} hat das Meeting "%{meeting}" der Gruppe "%{group}" abgesagt'
       join_meeting_subject: 'if me | %{user} ist dem Meeting "%{meeting}" der Gruppe "%{group}" beigetreten'
       join_meeting_body: '<p>Um das Meeting "%{meeting}" zu sehen, %{link}!</p>'
+      reported_user_subject: 'if me | Sie haben einen Benutzer gemeldet'
+      reported_user_body: 'Sie haben berichtet %{reported_name}. Dies wird von einem Administrator überprüft.'
+      reportee_user_subject: 'if me | Sie wurden gemeldet'
+      reportee_user_body: 'Sie wurden gemeldet. Dies wird von einem Administrator überprüft.'
+      add_ban_subject: 'if me | Du wurdest verboten'
+      add_ban_body: 'Sie wurden wegen Verletzung unserer %{code_of_conduct_link} gesperrt.'
+      remove_ban_subject: 'if me | Sie sind nicht mehr verboten'
+      remove_ban_body: 'Sie waren zuvor wegen Verletzung unserer %{code_of_conduct_link} verboten worden. Sie sind nicht mehr verboten.'
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'

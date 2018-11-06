@@ -26,6 +26,9 @@
         <div>
           <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
         </div>
+        <div>
+          <%= link_to t('common.actions.report'), new_report_path(uid: @profile.uid) %>
+        </div>
       <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
         <div>
           <%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
@@ -33,6 +36,17 @@
       <% else %>
         <div>
           <%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if current_user.admin? %>
+      <% if @profile.banned? %>
+        <div>
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: @profile.id), method: :post %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: @profile.id), method: :post %>
         </div>
       <% end %>
     <% end %>

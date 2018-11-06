@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: users
@@ -31,8 +30,8 @@
 #  invitation_sent_at     :datetime
 #  invitation_accepted_at :datetime
 #  invitation_limit       :integer
-#  invited_by_id          :integer
 #  invited_by_type        :string
+#  invited_by_id          :integer
 #  invitations_count      :integer          default(0)
 #  comment_notify         :boolean
 #  ally_notify            :boolean
@@ -47,11 +46,8 @@ class User < ApplicationRecord
   include PasswordValidator
 
   ALLY_STATUS = {
-    accepted: 0,
-    pending_from_user: 1,
-    pending_from_ally: 2
+    accepted: 0, pending_from_user: 1, pending_from_ally: 2
   }.freeze
-
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
   # Include default devise modules. Others available are:
@@ -61,9 +57,7 @@ class User < ApplicationRecord
          omniauth_providers: [:google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
-
   before_save :remove_leading_trailing_whitespace
-
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts
@@ -76,23 +70,25 @@ class User < ApplicationRecord
   has_many :moods
   has_many :moments
   has_many :categories
-
   belongs_to :invited_by, class_name: 'User'
-
   after_initialize :set_defaults, unless: :persisted?
-
   validates :name, presence: true
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
   validate :password_complexity
 
+  def active_for_authentication?
+    super && !banned
+  end
+
   def ally?(user)
     allies_by_status(:accepted).include?(user)
   end
 
   def allies_by_status(status)
-    allyships.includes(:ally).where(status: ALLY_STATUS[status]).map(&:ally)
+    allyships.includes(:ally).where(status: ALLY_STATUS[status])
+             .map(&:ally).reject(&:banned)
   end
 
   def available_groups(order)
@@ -100,12 +96,9 @@ class User < ApplicationRecord
   end
 
   def self.find_for_google_oauth2(access_token)
-    data = access_token.info
-    user = find_or_initialize_by(email: data.email)
-    user.name ||= data.name
-    # ensure a password is set for new and invited users so the user is valid
+    user = find_or_initialize_by(email: access_token.info.email)
+    user.name ||= access_token.info.name
     user.password ||= Devise.friendly_token[0, 20]
-
     update_access_token_fields(user: user, access_token: access_token)
     user
   end
@@ -136,10 +129,9 @@ class User < ApplicationRecord
 
   def update_access_token
     params = { 'refresh_token' => refresh_token,
-               'client_id'     => ENV['GOOGLE_CLIENT_ID'],
+               'client_id' => ENV['GOOGLE_CLIENT_ID'],
                'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
-               'grant_type'    => 'refresh_token' }
-
+               'grant_type' => 'refresh_token' }
     response = Net::HTTP.post_form(URI.parse(OAUTH_TOKEN_URL), params)
     decoded_response = JSON.parse(response.body)
     new_expiration_time = Time.zone.now + decoded_response['expires_in']

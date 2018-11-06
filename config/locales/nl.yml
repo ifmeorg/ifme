@@ -66,6 +66,7 @@ nl:
       add_all: 'Alles toevoegen'
       select_all: 'Alles selecteren'
       remove: Verwijderen
+      report: 'Verslag doen van'
     form:
       email: E-mail
       location: Locatie
@@ -75,6 +76,22 @@ nl:
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'
     days: dagen
+  reports:
+    admin_dashboard: 'Beheerdersdashboard'
+    reported_users: 'Gerapporteerde Gebruikers'
+    banned_users: 'Verbannen Gebruikers'
+    reasons: Redenen
+    new: 'Nieuw rapport voor %{name}'
+    remove_ban: 'Verwijder Verbod'
+    ban_user: 'Verban Gebruiker'
+    report_sent: 'Rapport voor %{name} verzonden'
+    report_error: 'Kan rapport niet verzenden voor %{name}'
+    reportee: Reportee
+    reporter: Verslaggever
+    user_banned: '%{name} is verboden'
+    ban_removed: 'Verboden verwijderd op %{name}'
+    user_banned_error: 'Kon %{name} niet verbieden'
+    ban_removed_error: 'Kan verbod op %{name} niet verwijderen'
   comment:
     singular: Commentaar
     plural: Commentaren
@@ -322,7 +339,7 @@ nl:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>Om het te lezen, %{link}!</p>'
       new_group_subject: 'if me | %{user} heeft de groep "%{group}" gemaakt'
-      new_group_body: '<p>%{user} maakte de groep "%{group}":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p><p>Volg alstublieft onze %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} maakte de groep "%{group}":</p><p><i>%{description}</i></p><p>Om meer te leren en lid te worden, %{link}!</p><p>Volg alstublieft onze %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} is lid geworden van je groep "%{group}"'
       add_group_leader_you_subject: 'if me | Je bent een leider geworden in de groep "%{group}"'
       add_group_leader_subject: 'if me | %{user} is een leider geworden van de groep " %{group}"'
@@ -337,6 +354,14 @@ nl:
       remove_meeting_subject: 'if me | %{user} heeft de samenkomst "%{meeting}" geannuleerd voor de groep "%{group}"'
       join_meeting_subject: 'if me | %{user} heeft zich aangesloten bij de samenkomst "%{meeting}" voor de groep "%{group}"'
       join_meeting_body: '<p>Om "%{meeting}" te bekijken, %{link}!</p>'
+      reported_user_subject: 'if me | U heeft een gebruiker gemeld'
+      reported_user_body: 'Je hebt gemeld %{reported_name}. Dit wordt beoordeeld door een beheerder.'
+      reportee_user_subject: 'if me | U bent gemeld'
+      reportee_user_body: 'U bent gemeld. Dit wordt beoordeeld door een beheerder.'
+      add_ban_subject: 'if me | Je bent verbannen'
+      add_ban_body: 'Je bent verbannen omdat je onze %{code_of_conduct_link} hebt geschonden.'
+      remove_ban_subject: 'if me | Je bent niet langer verbannen'
+      remove_ban_body: 'Je was eerder verbannen omdat je onze %{code_of_conduct_link} schond. Je bent niet langer verbannen.'
   omniauth:
     google: Google
     access_denied: 'Toegang geweigerd'
