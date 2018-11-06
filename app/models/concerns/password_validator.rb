@@ -6,7 +6,7 @@ module PasswordValidator
   PASSWORD_VALIDITY_MONTHS = 6
 
   def password_needs_update?
-    (password_updated_on + PASSWORD_VALIDITY_MONTHS.months) < Time.now
+    (password_updated_on + PASSWORD_VALIDITY_MONTHS.months) < Time.zone.now
   end
 
   private

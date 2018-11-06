@@ -405,6 +405,10 @@ es:
       email_notifications_question: '¿Cómo puedo modificar mis preferencias de notificaciones de correo electrónico?'
       email_notifications_answer: 'Ve a la página de <strong>%{accounts}</strong>. Aquí puedes modificar tu correo electrónico, contraseña, foto de perfil, y biografía. También puedes eliminar tu cuenta.'
     home:
+      update_pwd_modal:
+        title:
+        body:
+        update_link:
       stories: Historias
       not_signed_in:
         main_message_one: 'Mejor comunicación con nuestros seres queridos conlleva a mejor salud mental.'

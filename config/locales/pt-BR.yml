@@ -405,6 +405,10 @@ pt-BR:
       email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
       email_notifications_answer: 'Vá para a página <strong>%{accounts}</strong>. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira.'
     home:
+      update_pwd_modal:
+        title:
+        body:
+        update_link:
       stories: Histórias
       not_signed_in:
         main_message_one: 'Comunicação otimizada com as pessoas amadas leva a melhora da saúde mental.'

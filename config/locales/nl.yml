@@ -405,6 +405,10 @@ nl:
       email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
       email_notifications_answer: 'Ga naar de <strong>%{accounts}</strong> pagina. Je kunt je e-mail, wachtwoord, profielfoto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijdert, wordt al je ook data verwijderd.'
     home:
+      update_pwd_modal:
+        title:
+        body:
+        update_link:
       stories: Verhalen
       not_signed_in:
         main_message_one: 'Betere communicatie met naasten leidt tot betere geestelijke gezondheid.'

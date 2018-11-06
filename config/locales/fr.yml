@@ -405,6 +405,10 @@ fr:
       email_notifications_question: 'Comment puis-je modifier les alertes email?'
       email_notifications_answer: 'Rendez-vous sur la page <strong>%{accounts}</strong>. Vous pouvez modifier votre email, mot de passe, photo de profil, et bio ici. Vous pouvez aussi supprimer votre compte. Une fois votre compte supprimé, toutes vos données sont supprimées.'
     home:
+      update_pwd_modal:
+        title:
+        body:
+        update_link:
       stories: Histoire
       not_signed_in:
         main_message_one: 'Une meilleure communication avec vos proches conduit à un meilleur bien-être psychique.'
