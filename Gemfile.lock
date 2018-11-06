@@ -109,7 +109,7 @@ GEM
       compass (~> 1.0.0)
       sass-rails (< 5.1)
       sprockets (< 4.0)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.1)
     connection_pool (2.2.2)
     crass (1.0.4)
     database_cleaner (1.7.0)
@@ -198,7 +198,7 @@ GEM
       rack (>= 1.2.1)
       rake
     jasmine-core (2.99.2)
-    jbuilder (2.7.0)
+    jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jquery-rails (4.1.1)
@@ -539,7 +539,7 @@ DEPENDENCIES
   groupdate (= 4.1.0)
   inline_svg
   jasmine (~> 2.7.0)
-  jbuilder (~> 2.7.0)
+  jbuilder (~> 2.8.0)
   jquery-rails (= 4.1.1)
   jshint
   kaminari (= 1.1.1)
