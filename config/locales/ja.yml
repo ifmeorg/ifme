@@ -60,8 +60,8 @@ ja:
       delete: 消す
       edit: 編集する
       edit_instance: '編集%{instance}'
-      join: 登録
-      leave: 離れる
+      join: 参加する
+      leave: 立ち去る
       add: 追加する
       add_all: 全て追加する
       select_all: 全て選択する
@@ -93,17 +93,17 @@ ja:
   allies:
     add_ally: 仲間に加える
     cancel_ally_request: 'リクエストをキャンセルする'
-    accept: 受け取る
-    reject: 拒む
+    accept: 承認する
+    reject: 拒否する
     index:
       title: 仲間
-      outgoing: 出リクエスト
-      incoming: '入リクエスト'
+      outgoing: 申請したリクエスト
+      incoming: '受信したリクエスト'
       invited: '電子メールで招待されました。'
       invited_on: '招待された：%{date}'
       invitation_expired: '招待状の期限が切れました'
       invite: '大切な人を招待しましょう！'
-      none: '仲間を増えるために検索するか、または大切な人を招待することができます。'
+      none: '仲間を増やすために検索するか、または大切な人を招待することができます。'
       view_all_allies: 全ての仲間を見る
       cancel: キャンセル
     form:
@@ -114,12 +114,12 @@ ja:
     edit_category: カテゴリー編集
     new: 新しいカテゴリー
     form:
-      name_hint: '人、場所、物、アクティビティとかをカテゴライズします。'
+      name_hint: '人、場所、物、アクティビティなどをカテゴライズします。'
     label:
       one: 'カテゴリー：'
       other: 'カテゴリー：'
     index:
-      subtitle: '生活は大変なので、人や場所や物をカテゴリーしましょう。'
+      subtitle: '人生は大変なので、人や場所や物をカテゴライズしましょう。'
       premade1_name: 家族
       premade1_description: 家族に関係ある
       premade2_name: 友達
@@ -128,7 +128,7 @@ ja:
       premade3_description: 仕事に関係ある
       premade4_name: 瞑想
       premade4_description: '瞑想と深呼吸とリラックスのこと'
-      instructions: 'カスタムカテゴリーはまだ作りません。<br>後でカスタマイズしたら、この作り置きのカテゴリーを使えます。'
+      instructions: 'カスタム・カテゴリーはまだ作っていません。<br>後でカスタマイズしたら、この作り置きのカテゴリーを使えます。'
   errors:
     home_page: 'ホームページに戻る'
     internal_server_error:
@@ -154,10 +154,10 @@ ja:
       success: 'このグループに入りました。'
       group_not_exists: '存在しないグループが入れません。'
     leave:
-      error: 'グループのリーダーはあなただけから、離れらることができません。'
-      success: '%{group}を離れていました。'
+      error: 'グループのリーダーはあなただけから、立ち去ることができません。'
+      success: '%{group}を立ち去りました。'
       remove_member_success: '%{user}が%{group}から外しました。'
-      remove_member_error: 'リーダーじゃないからメンバーが外せません。'
+      remove_member_error: 'リーダーではないからメンバーが外せません。'
     new: 新しいグループ
     show:
       led_by: 'リーダー：'
