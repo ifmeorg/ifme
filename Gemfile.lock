@@ -293,7 +293,7 @@ GEM
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
     raabro (1.1.6)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-protection (2.0.4)
       rack
     rack-proxy (0.6.5)
