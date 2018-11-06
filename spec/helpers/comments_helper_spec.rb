@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 describe CommentsHelper, type: :controller do
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
@@ -29,6 +28,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user1.uid,
             commentByUid: user1.uid,
             commentByName: user1.name,
             commentByAvatar: user1.avatar.url,
@@ -43,6 +43,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user1.uid,
             commentByUid: user1.uid,
             commentByName: user1.name,
             commentByAvatar: user1.avatar.url,
@@ -63,6 +64,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user2.uid,
             commentByUid: user2.uid,
             commentByName: user2.name,
             commentByAvatar: user2.avatar.url,
@@ -77,6 +79,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'moment', commentable_id: new_moment.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user2.uid,
             commentByUid: user2.uid,
             commentByName: user2.name,
             commentByAvatar: user2.avatar.url,
@@ -101,6 +104,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user1.uid,
             commentByUid: user1.uid,
             commentByName: user1.name,
             commentByAvatar: user1.avatar.url,
@@ -115,6 +119,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user1.id, visibility: 'private', viewers: [user2.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user1.uid,
             commentByUid: user1.uid,
             commentByName: user1.name,
             commentByAvatar: user1.avatar.url,
@@ -135,6 +140,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user2.uid,
             commentByUid: user2.uid,
             commentByName: user2.name,
             commentByAvatar: user2.avatar.url,
@@ -149,6 +155,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'strategy', commentable_id: new_strategy.id, comment_by: user2.id, visibility: 'private', viewers: [user1.id])
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user2.uid,
             commentByUid: user2.uid,
             commentByName: user2.name,
             commentByAvatar: user2.avatar.url,
@@ -175,6 +182,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user1.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user1.uid,
             commentByUid: user1.uid,
             commentByName: user1.name,
             commentByAvatar: user1.avatar.url,
@@ -192,6 +200,7 @@ describe CommentsHelper, type: :controller do
           new_comment = create(:comment, comment: comment, commentable_type: 'meeting', commentable_id: new_meeting.id, comment_by: user2.id, visibility: 'all')
           expect(controller.generate_comments(Comment.where(id: new_comment.id))).to eq([{
             id: new_comment.id,
+            currentUserUid: user2.uid,
             commentByUid: user2.uid,
             commentByName: user2.name,
             commentByAvatar: user2.avatar.url,

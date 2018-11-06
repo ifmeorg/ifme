@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: meeting_members
 #
-#  id         :integer          not null, primary key
-#  meeting_id  :integer
+#  id         :bigint(8)        not null, primary key
+#  meeting_id :integer
 #  user_id    :integer
 #  leader     :boolean
 #  created_at :datetime

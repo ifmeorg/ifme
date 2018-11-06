@@ -66,6 +66,7 @@ nb:
       add_all: 'Legg til alle'
       select_all: 'Velg alle'
       remove: Fjern
+      report: Rapportere
     form:
       email: E-post
       location: Plassering
@@ -75,6 +76,22 @@ nb:
     time_ago: '%{date} siden'
     write_to_us: 'skriv til oss'
     days: Dager
+  reports:
+    admin_dashboard: 'Admin Dashboard'
+    reported_users: 'Rapporterte Brukere'
+    banned_users: 'Forbudte Brukere'
+    reasons: Grunner
+    new: 'Ny rapport for %{name}'
+    remove_ban: 'Fjern Ban'
+    ban_user: 'Forbud Bruker'
+    report_sent: 'Rapport for %{name} sendt'
+    report_error: 'Kunne ikke sende rapport for %{name}'
+    reportee: Reportee
+    reporter: 'Rapportert av'
+    user_banned: '%{name} har blitt utestengt'
+    ban_removed: 'Forbudt fjernet på %{name}'
+    user_banned_error: 'Kunne ikke forby %{name}'
+    ban_removed_error: 'Kunne ikke fjerne forbud mot %{name}'
   comment:
     singular: Kommentar
     plural: Kommentarer
@@ -322,7 +339,7 @@ nb:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>For å lese det, %{link}!</p>'
       new_group_subject: 'if me | %{user} lagde en gruppe "%{group}"'
-      new_group_body: '<p>%{user} lagde en gruppe "%{group}":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>Vennligst følg vår %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} lagde en gruppe "%{group}":</p><p><i>%{description}</i></p><p>For å lære mer og bli med, %{link}!</p><p>Vennligst følg vår %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} ble med i gruppe "%{group}"'
       add_group_leader_you_subject: 'if me | Du ble leder for gruppen "%{group}"'
       add_group_leader_subject: 'if me | %{user} ble en leder for gruppen " %{group}"'
@@ -337,6 +354,14 @@ nb:
       remove_meeting_subject: 'if me | %{user} har kansellert "%{meeting}" i "%{group}"'
       join_meeting_subject: 'if me | %{user} har blitt med i "%{meeting}" i "%{group}"'
       join_meeting_body: '<p>For å se "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'if me | Du har rapportert en bruker'
+      reported_user_body: 'Du har rapportert %{reported_name}. Dette blir vurdert av en administrator.'
+      reportee_user_subject: 'if me | Du har blitt rapportert'
+      reportee_user_body: 'Du har blitt rapportert. Dette blir vurdert av en administrator.'
+      add_ban_subject: 'if me | Du har blitt bannlyst'
+      add_ban_body: 'Du har blitt utestengt for å krenke vår %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | Du er ikke lenger utestengt'
+      remove_ban_body: 'Du ble tidligere forbudt for å krenke vår %{code_of_conduct_link}. Du er ikke lenger utestengt.'
   omniauth:
     google: Google
     access_denied: 'Adgang avvist'

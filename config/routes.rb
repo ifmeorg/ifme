@@ -61,7 +61,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profile, only: :index
+  resources :profile, only: :index do
+    collection do
+      post 'add_ban'
+      post 'remove_ban'
+    end
+  end
+
+  resources :reports, only: [:create, :new] do
+    collection do
+      get 'admin_dashboard'
+    end
+  end
 
   resources :search, only: :index do
     collection do
@@ -79,6 +90,7 @@ Rails.application.routes.draw do
 
   get 'pages/home'
   match 'about', to: 'pages#about', via: :get
+  match 'admin_dashboard', to: 'pages#admin_dashboard', via: :get
   match 'contribute', to: 'pages#contribute', via: :get
   match 'partners', to: 'pages#partners', via: :get
   match 'privacy', to: 'pages#privacy', via: :get

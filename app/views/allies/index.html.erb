@@ -52,7 +52,12 @@
         <div class="gridThreeItemBoxLight ally">
           <%= link_to ProfilePicture.fetch(ally.avatar.url, name: ally.name), profile_index_path(uid: ally.uid) %>
           <div class="subtle"><%= ally.location %></div>
-          <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+          <div>
+            <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: ally.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+          </div>
+          <div>
+            <%= link_to t('common.actions.report'), new_report_path(uid: ally.uid) %>
+          </div>
         </div>
       <% end %>
     </div>

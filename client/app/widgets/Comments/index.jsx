@@ -12,6 +12,7 @@ import { Utils } from '../../utils';
 
 type Comment = {
   id: number,
+  currentUserUid: number,
   commentByUid: string,
   commentByName: string,
   commentByAvatar?: string,
@@ -53,8 +54,22 @@ export class Comments extends React.Component<Props, State> {
     });
   };
 
-  getActions = (viewers: ?string, deleteAction: ?string) => {
+  reportAction = (uid: string, id: number) => ({
+    name: I18n.t('common.actions.report'),
+    link: `/reports/new?uid=${uid}&comment_id=${id}`,
+  });
+
+  getActions = (
+    viewers: ?string,
+    deleteAction: ?string,
+    currentUserUid: number,
+    uid: string,
+    id: number,
+  ) => {
     const actions = {};
+    if (currentUserUid !== uid) {
+      actions.report = this.reportAction(uid, id);
+    }
     if (viewers) {
       actions.viewers = viewers;
     }
@@ -72,6 +87,7 @@ export class Comments extends React.Component<Props, State> {
   displayComment = (myComment: Comment) => {
     const {
       id,
+      currentUserUid,
       commentByUid,
       commentByName,
       commentByAvatar,
@@ -88,7 +104,13 @@ export class Comments extends React.Component<Props, State> {
         <div className={css.commentInfo}>
           <StoryBy avatar={commentByAvatar} author={author} />
           <StoryActions
-            actions={this.getActions(viewers, deleteAction)}
+            actions={this.getActions(
+              viewers,
+              deleteAction,
+              currentUserUid,
+              commentByUid,
+              id,
+            )}
             hasStory
           />
         </div>

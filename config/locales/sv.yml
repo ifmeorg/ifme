@@ -66,6 +66,7 @@ sv:
       add_all: 'Lägg till alla'
       select_all: 'Välj alla'
       remove: 'Ta bort'
+      report: Rapportera
     form:
       email: E-post
       location: Plats
@@ -75,6 +76,22 @@ sv:
     time_ago: '%{date} sedan'
     write_to_us: 'skriv till oss'
     days: dagar
+  reports:
+    admin_dashboard: 'Admin Dashboard'
+    reported_users: 'Rapporterade Användare'
+    banned_users: 'Förbjudna Användare'
+    reasons: Anledningar
+    new: 'Ny rapport för %{name}'
+    remove_ban: 'Ta bort banan'
+    ban_user: 'Stänga av användare'
+    report_sent: 'Rapport för %{name} skickad'
+    report_error: 'Det gick inte att skicka rapport för %{name}'
+    reportee: Reportee
+    reporter: 'Rapporterad av'
+    user_banned: '%{name} har blivit bannlyst'
+    ban_removed: 'Banned borttagen på %{name}'
+    user_banned_error: 'Kunde inte förbyta %{name}'
+    ban_removed_error: 'Kunde inte ta bort förbud mot %{name}'
   comment:
     singular: Kommentar
     plural: Kommentarer
@@ -322,7 +339,7 @@ sv:
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>För att läsa den, %{link}!</p>'
       new_group_subject: 'if me | %{user} skapade en grupp "%{group}"'
-      new_group_body: '<p>%{user} skapade en grupp "%{group}":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p><p>Vänligen följ vår %{link_to_code_of_conduct}!</p>'
+      new_group_body: '<p>%{user} skapade en grupp "%{group}":</p><p><i>%{description}</i></p><p>För att lära sig mer och gå med, %{link}!</p><p>Vänligen följ vår %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} gick med i din grupp "%{group}"'
       add_group_leader_you_subject: 'if me | Du blev ledare för "%{group}"'
       add_group_leader_subject: 'if me | %{user} blev ledare för " %{group}"'
@@ -337,6 +354,14 @@ sv:
       remove_meeting_subject: 'if me | %{user} har avbrutit "%{meeting}" för "%{group}"'
       join_meeting_subject: 'if me | %{user} anslöt sig "%{meeting}" för "%{group}"'
       join_meeting_body: '<p>För att se "%{meeting}", %{link}!</p>'
+      reported_user_subject: 'if me | Du har rapporterat en användare'
+      reported_user_body: 'Du har rapporterat %{reported_name}. Detta kommer att granskas av en admin.'
+      reportee_user_subject: 'if me | Du har rapporterats'
+      reportee_user_body: 'Du har rapporterats. Detta kommer att granskas av en admin.'
+      add_ban_subject: 'if me | Du har förbjudits'
+      add_ban_body: 'Du har blivit bannad för att bryta mot vår %{code_of_conduct_link}.'
+      remove_ban_subject: 'if me | Du är inte längre förbjuden'
+      remove_ban_body: 'Du var tidigare förbjuden att bryta mot vår %{code_of_conduct_link}. Du är inte längre förbjuden.'
   omniauth:
     google: Google
     access_denied: 'Åtkomst nekad'

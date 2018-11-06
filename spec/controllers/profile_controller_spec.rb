@@ -1,9 +1,8 @@
 # frozen_string_literal: true
-
 describe ProfileController do
-  describe 'GET #index' do
+  describe '#index' do
     context 'when user is not logged in' do
-      before { get :index, params: { 'uid': 'user-id' } }
+      before { get :index, params: { uid: 'user-id' } }
       it { expect(response).to redirect_to(new_user_session_path) }
     end
 
@@ -53,6 +52,88 @@ describe ProfileController do
 
         it 'assigns profile instance to profile owner' do
           expect(assigns(:profile)).to eq(profile_owner)
+        end
+      end
+    end
+  end
+
+  describe '#add_ban' do
+    let(:user2) { create(:user2) }
+
+    before(:each) { Devise.mailer.deliveries.clear }
+
+    context 'when admin does not exist' do
+      let(:user1) { create(:user1) }
+
+      it 'cannot ban user' do
+        sign_in user1
+        post :add_ban, params: { user_id: user2.id }
+        expect(response.status).to eq(204)
+        expect(Devise.mailer.deliveries.count).to eq(0)
+      end
+    end
+
+    context 'when admin exists' do
+      let(:user1) { create(:user1, admin: true) }
+
+      context 'when user exists' do
+        it 'bans the user' do
+          sign_in user1
+          post :add_ban, params: { user_id: user2.id }
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:notice]).to eq("#{user2.name} has been banned")
+          expect(Devise.mailer.deliveries.count).to eq(1)
+        end
+      end
+
+      context 'when user does not exist' do
+        it 'does not ban the user' do
+          sign_in user1
+          post :add_ban, params: { user_id: -1 }
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:alert]).to eq('Could not ban -1')
+          expect(Devise.mailer.deliveries.count).to eq(0)
+        end
+      end
+    end
+  end
+
+  describe '#remove_ban' do
+    let(:user2) { create(:user2, banned: true) }
+
+    before(:each) { Devise.mailer.deliveries.clear }
+
+    context 'when admin does not exist' do
+      let(:user1) { create(:user1) }
+
+      it 'cannot ban user' do
+        sign_in user1
+        post :remove_ban, params: { user_id: user2.id }
+        expect(response.status).to eq(204)
+        expect(Devise.mailer.deliveries.count).to eq(0)
+      end
+    end
+
+    context 'when admin exists' do
+      let(:user1) { create(:user1, admin: true) }
+
+      context 'when user exists' do
+        it 'removes ban' do
+          sign_in user1
+          post :remove_ban, params: { user_id: user2.id }
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:notice]).to eq("Ban removed on #{user2.name}")
+          expect(Devise.mailer.deliveries.count).to eq(1)
+        end
+      end
+
+      context 'when user does not exist' do
+        it 'does not remove ban' do
+          sign_in user1
+          post :remove_ban, params: { user_id: -1 }
+          expect(response).to redirect_to(admin_dashboard_path)
+          expect(flash[:alert]).to eq('Could not remove ban on -1')
+          expect(Devise.mailer.deliveries.count).to eq(0)
         end
       end
     end

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 FactoryBot.define do
   factory :group_member do
     association :user, factory: :user1
