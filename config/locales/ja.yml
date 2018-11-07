@@ -6,7 +6,7 @@ ja:
   draft: 下書き
   edited: '作成%{created_at}（更新）'
   edited_updated_at: '作成%{created_at}（更新%{updated_at}）'
-  salutation: 'こんにちは%{name}さん、'
+  salutation: 'こんにちは、%{name}さん、'
   click_here: 'クリック'
   language: 言語
   yes_text: 'はい'
