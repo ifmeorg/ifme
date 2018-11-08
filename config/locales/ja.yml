@@ -171,7 +171,7 @@ ja:
       success: 'このグループに入りました。'
       group_not_exists: '存在しないグループが入れません。'
     leave:
-      error: 'グループのリーダーはあなただけから、立ち去ることができません。'
+      error: 'グループリーダーはあなたしかいませんので、立ち去ることができません。'
       success: '%{group}を立ち去りました。'
       remove_member_success: '%{user}が%{group}から外しました。'
       remove_member_error: 'あなたはリーダーではありませんので、メンバーを外せません。'
