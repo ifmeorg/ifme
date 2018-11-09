@@ -260,7 +260,7 @@ ja:
       subject: 'あなたの会議「%{meeting_name}」は明日の%{time}からです。'
       body: 'リマインダーです。あなたの会議「%{meeting_name}」は明日の%{time}からです。'
     leave:
-      error: 'リーダーはあなたしかいませんので、会合を立ち去ることができません。'
+      error: 'リーダーはあなたしかいませんので、会議を立ち去ることができません。'
       success: '%{meeting}を立ち去りました。'
     new: '新しい会合'
   moments:
