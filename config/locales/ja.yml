@@ -249,7 +249,7 @@ ja:
       location_placeholder: 'URLもしくは住所'
       maximum_members: '定員'
       maximum_placeholder: '定員がない場合は０'
-    join_success: 'この会合に参加しました。'
+    join_success: 'この会議に参加しました。'
     info:
       cancel_meeting: '会合をキャンセルする'
       meeting_time: 会合の時間
