@@ -2,24 +2,6 @@
 module MoodsHelper
   include FormHelper
 
-  Mood_name = {
-    id: 'mood_name',
-    type: 'text',
-    name: 'mood[name]',
-    label: t('common.name'),
-    value: @mood.name || nil,
-    required: true,
-    dark: true
-  }
-
-  Mood_description = {
-    id: 'mood_description',
-    type: 'textarea',
-    name: 'mood[description]',
-    label: t('common.form.description'),
-    value: @mood.description || nil,
-    dark: true
-  }
 
   def new_mood_props
     new_form_props(mood_form_inputs, moods_path)
@@ -35,7 +17,32 @@ module MoodsHelper
 
   private
 
-  def mood_form_inputs
-    [Mood_name, Mood_description]
+
+  def mood_name
+    {
+      id: 'mood_name',
+      type: 'text',
+      name: 'mood[name]',
+      label: t('common.name'),
+      value: @mood.name || nil,
+      required: true,
+      dark: true
+    }
   end
+
+  def mood_description
+    {
+      id: 'mood_description',
+      type: 'textarea',
+      name: 'mood[description]',
+      label: t('common.form.description'),
+      value: @mood.description || nil,
+      dark: true
+    }
+  end
+
+  def mood_form_inputs
+    [mood_name, mood_description]
+  end
+
 end
