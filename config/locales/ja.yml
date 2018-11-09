@@ -246,7 +246,7 @@ ja:
     singular: 会合
     edit_meeting: '会議を編集する'
     form:
-      location_placeholder: 'URLもしくは会合の住所'
+      location_placeholder: 'URLもしくは住所'
       maximum_members: '定員'
       maximum_placeholder: '定員がない場合は０'
     join_success: 'この会合に参加しました。'
