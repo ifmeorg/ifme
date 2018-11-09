@@ -252,7 +252,7 @@ ja:
     join_success: 'この会議に参加しました。'
     info:
       cancel_meeting: '会議をキャンセルする'
-      meeting_time: 会合の時間
+      meeting_time: 会議時間
       members_of_group_html:
         one: '%{count} Member of %{group}'
         other: '%{count} Members of %{group}'
