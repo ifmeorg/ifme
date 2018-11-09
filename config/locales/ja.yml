@@ -244,7 +244,7 @@ ja:
       comments: 'Comments:'
   meetings:
     singular: 会合
-    edit_meeting: '会合を編集する'
+    edit_meeting: '会議を編集する'
     form:
       location_placeholder: 'URLもしくは会合の住所'
       maximum_members: '定員'
