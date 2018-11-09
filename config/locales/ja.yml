@@ -251,7 +251,7 @@ ja:
       maximum_placeholder: '定員がない場合は０'
     join_success: 'この会議に参加しました。'
     info:
-      cancel_meeting: '会合をキャンセルする'
+      cancel_meeting: '会議をキャンセルする'
       meeting_time: 会合の時間
       members_of_group_html:
         one: '%{count} Member of %{group}'
