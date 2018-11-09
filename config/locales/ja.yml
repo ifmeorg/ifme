@@ -262,7 +262,7 @@ ja:
     leave:
       error: 'リーダーはあなたしかいませんので、会議を立ち去ることができません。'
       success: '%{meeting}を立ち去りました。'
-    new: '新しい会合'
+    new: '新しい会議'
   moments:
     singular: モーメント
     plural: モーメント
