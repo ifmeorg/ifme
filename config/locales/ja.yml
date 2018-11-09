@@ -257,7 +257,7 @@ ja:
         one: '%{count} Member of %{group}'
         other: '%{count} Members of %{group}'
     reminder_mailer:
-      subject: '%{meeting_name}という会合は明日%{time}にあります。'
+      subject: 'あなたの会議「%{meeting_name}」は明日の%{time}からです。'
       body: '忘れないでください。%{meeting_name}という会合は%{location}で%{time}に行います。'
     leave:
       error: 'リーダーはあなたしかいませんので、会合を立ち去ることができません。'
