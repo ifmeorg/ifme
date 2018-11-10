@@ -11,7 +11,7 @@ RUN apk update \
     npm \
     build-base \
     postgresql-dev \
-    add tzdata \
+    tzdata \
   && npm install --global yarn \
   && addgroup --system ifme \
   && adduser \
