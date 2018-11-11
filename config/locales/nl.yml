@@ -656,6 +656,7 @@ nl:
         labels:
           profile_picture: 'Profielfoto'
           remove_picture: 'Verwijder afbeelding'
+          about: Over
           password_for: 'Wachtwoord voor <strong>if me</strong> account'
           update: Updaten
         placeholders:

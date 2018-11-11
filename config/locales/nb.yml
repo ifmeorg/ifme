@@ -656,6 +656,7 @@ nb:
         labels:
           profile_picture: Profilbilde
           remove_picture: 'Fjern bilde'
+          about: Om
           password_for: 'Passord for <strong>if me</strong> konto'
           update: Oppdater
         placeholders:
