@@ -656,6 +656,7 @@ fr:
         labels:
           profile_picture: 'Photo de profile'
           remove_picture: 'Effacer la photo'
+          about: 'À notre propos'
           password_for: 'Mot de passe pour votre compte <strong>if me</strong>'
           update: 'Mise à jour'
         placeholders:

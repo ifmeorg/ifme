@@ -656,6 +656,7 @@ pt-BR:
         labels:
           profile_picture: 'Foto de perfil'
           remove_picture: 'Remover foto'
+          about: Sobre
           password_for: 'Senha para a conta do<strong>if me</strong>'
           update: Atualização
         placeholders:

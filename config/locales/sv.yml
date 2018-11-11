@@ -656,6 +656,7 @@ sv:
         labels:
           profile_picture: Profilbild
           remove_picture: 'Ta bort bilden'
+          about: Om
           password_for: 'Lösenord för <strong>if me</strong>-konto'
           update: Uppdatering
         placeholders:

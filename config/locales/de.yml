@@ -665,6 +665,7 @@ de:
         labels:
           profile_picture: Profilbild
           remove_picture: 'Bild entfernen'
+          about: 'Über uns'
           password_for: 'Passwort für dein <strong>if me</strong> Konto'
           update: Aktualisieren
         placeholders:

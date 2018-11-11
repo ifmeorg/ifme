@@ -76,7 +76,7 @@ module MomentsHelper
         label: t('categories.plural'),
         placeholder: t('common.form.press_enter'),
         checkboxes: checkboxes_for(@categories),
-        formProps: quick_create_category_props
+        formProps: quick_create_category_props(@category)
       },
       {
         id: 'moment_mood',

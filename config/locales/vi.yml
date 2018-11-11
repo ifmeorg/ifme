@@ -656,6 +656,7 @@ vi:
         labels:
           profile_picture: 'Hình ảnh đại diện'
           remove_picture: 'Gỡ bỏ hình ảnh đại diện'
+          about: Về
           password_for: 'Mật khẩu cho tài khoản <strong>if me</strong>'
           update: 'Cập nhật'
         placeholders:
