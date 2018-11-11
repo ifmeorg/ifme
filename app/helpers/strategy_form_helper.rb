@@ -36,7 +36,7 @@ module StrategyFormHelper
       label: t('categories.plural'),
       placeholder: t('common.form.press_enter'),
       checkboxes: category_checkboxes,
-      formProps: quick_create_category_props
+      formProps: quick_create_category_props(@category)
     }
   end
 

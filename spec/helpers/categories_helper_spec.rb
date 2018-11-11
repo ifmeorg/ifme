@@ -1,62 +1,88 @@
 # frozen_string_literal: true
-
 describe CategoriesHelper do
-  subject { TestClass.new(build_stubbed(:category, id: 999)) }
-
-  class TestClass
-    include CategoriesHelper
-    include Rails.application.routes.url_helpers
-
-    def initialize(category)
-      @category = category
-    end
-
-    def t(*args)
-      I18n.t(*args)
-    end
+  let(:user) { build(:user) }
+  let(:category) { build(:category, user_id: user.id) }
+  let(:quick_create) { false }
+  let(:no_form_tag) do
+    { noFormTag: true }
   end
-
-  let(:category_form_inputs_res) do
-    [
-      {
-        id: 'category_name',
-        type: 'text',
-        name: 'category[name]',
-        label: 'Name',
-        value: 'Test Category',
-        required: true,
-        info: 'Categorize recurring people, places, things, activities, and more',
-        dark: true
-      },
-      {
-        id: 'category_description',
-        type: 'textarea',
-        name: 'category[description]',
-        label: 'Description',
-        value: 'Test description category',
-        dark: true
-      }
-    ]
+  let(:category_props) do
+    {
+      inputs: [
+        {
+          id: 'category_name',
+          type: 'text',
+          name: 'category[name]',
+          label: 'Name',
+          value: category&.name || nil,
+          required: true,
+          info: 'Categorize recurring people, places, things, activities, and more',
+          dark: true
+        },
+        {
+          id: 'category_description',
+          type: 'textarea',
+          name: 'category[description]',
+          label: 'Description',
+          value: category&.description || nil,
+          dark: true
+        },
+        {
+          dark: true,
+          id: 'submit',
+          type: 'submit',
+          value: 'Submit'
+        }
+      ],
+      action: quick_create ? '/categories/quick_create' : '/categories'
+    }
   end
 
   describe '#new_category_props' do
-    it 'call method with correct params' do
-      expect(subject).to receive(:new_form_props).with(category_form_inputs_res, '/categories')
-      subject.new_category_props
+    context 'category is nil' do
+      let(:category) { nil }
+
+      it 'returns correct results' do
+        expect(new_category_props(category)).to eq(category_props)
+      end
+    end
+
+    context 'category exists' do
+      it 'returns correct results' do
+        expect(new_category_props(category)).to eq(category_props)
+      end
     end
   end
 
   describe '#quick_create_category_props' do
-    it 'call method with correct params' do
-      expect(subject).to receive(:quick_create_form_props).with(category_form_inputs_res, '/categories/quick_create')
-      subject.quick_create_category_props
+    let(:quick_create) { true }
+
+    context 'category is nil' do
+      let(:category) { nil }
+
+      it 'returns correct results' do
+        expect(quick_create_category_props(category)).to eq(category_props.merge(no_form_tag))
+      end
+    end
+
+    context 'category exists' do
+      it 'returns correct results' do
+        expect(quick_create_category_props(category)).to eq(category_props.merge(no_form_tag))
+      end
     end
   end
 
-  describe '#edit_category_props' do
-    it 'call method with correct params' do
-      expect(subject).to receive(:edit_form_props).with(category_form_inputs_res, '/categories/999')
-      subject.edit_category_props
+  describe '#new_category_props' do
+    context 'category is nil' do
+      it 'returns correct results' do
+        expect(new_category_props(category)).to eq(category_props)
+      end
+    end
+
+    context 'category exists' do
+      it 'returns correct results' do
+        expect(new_category_props(category)).to eq(category_props)
+      end
     end
   end
 end
