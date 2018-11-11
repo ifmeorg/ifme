@@ -1,2 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @category.name)}" %>
-<%= react_component('Form', props: edit_category_props) %>
+<%= react_component('Form', props: edit_category_props(@category)) %>
