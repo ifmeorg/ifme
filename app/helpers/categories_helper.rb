@@ -2,47 +2,49 @@
 module CategoriesHelper
   include FormHelper
 
-  def new_category_props
-    new_form_props(category_form_inputs, categories_path)
+  def new_category_props(category)
+    new_form_props(category_form_inputs(category), categories_path)
   end
 
-  def quick_create_category_props
-    quick_create_form_props(category_form_inputs, quick_create_categories_path)
+  def quick_create_category_props(category)
+    quick_create_form_props(
+      category_form_inputs(category), quick_create_categories_path
+    )
   end
 
-  def edit_category_props
-    edit_form_props(category_form_inputs, category_path(@category))
+  def edit_category_props(category)
+    edit_form_props(category_form_inputs(category), category_path(@category))
   end
 
   private
 
-  def category_form_inputs
+  def category_form_inputs(category)
     [
-      build_category_name,
-      build_category_description
+      category_name(category&.name),
+      category_description(category&.description)
     ]
   end
 
-  def build_category_name
+  def category_name(name)
     {
       id: 'category_name',
       type: 'text',
       name: 'category[name]',
       label: t('common.name'),
-      value: @category.name || nil,
+      value: name || nil,
       required: true,
       info: t('categories.form.name_hint'),
       dark: true
     }
   end
 
-  def build_category_description
+  def category_description(description)
     {
       id: 'category_description',
       type: 'textarea',
       name: 'category[description]',
       label: t('common.form.description'),
-      value: @category.description || nil,
+      value: description || nil,
       dark: true
     }
   end
