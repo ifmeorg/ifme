@@ -254,8 +254,8 @@ ja:
       cancel_meeting: '会議をキャンセルする'
       meeting_time: 会議時間
       members_of_group_html:
-        one: '%{count} Member of %{group}'
-        other: '%{count} Members of %{group}'
+        one: '%{count}人の%{group}メンバー'
+        other: '%{count}人の%{group}メンバー'
     reminder_mailer:
       subject: 'あなたの会議「%{meeting_name}」は明日の%{time}からです。'
       body: 'リマインダーです。あなたの会議「%{meeting_name}」は明日の%{time}からです。'
