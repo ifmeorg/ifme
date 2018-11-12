@@ -1,0 +1,36 @@
+@import "../../styles/_global.scss";
+
+.bullet {
+  @include setFontSize($size-24);
+  @include standardTransition();
+
+  $dimension: 42px;
+
+  height: $dimension;
+  width: $dimension;
+  line-height: $dimension;
+
+  border-radius: 50%;
+  
+  font-weight: bold;
+  text-align: center;
+
+  span {
+    vertical-align: middle;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &.normal {
+    color: $white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    color: $mulberry-80;
+    background-color: $white;
+  }
+}

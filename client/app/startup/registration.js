@@ -13,6 +13,7 @@ import { Header } from '../components/Header';
 import { HeaderProfile } from '../components/Header/HeaderProfile';
 import { Resource } from '../components/Resource';
 import { Tag } from '../components/Tag';
+import { Bullet } from '../components/Bullet';
 import { Logo } from '../components/Logo';
 import { Story } from '../components/Story';
 import { StoryDraft } from '../components/Story/StoryDraft';
