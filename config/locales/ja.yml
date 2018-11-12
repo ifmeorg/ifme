@@ -191,57 +191,57 @@ ja:
     title:
       reset_password: パスワードをリセットする
   medications:
-    singular: Medication
-    edit_medication: 'Edit Medication'
-    refill_reminder: 'Refill reminder email'
-    dosage: 'Daily Dosage:'
-    weekly_dosage: 'Weekly dosage:'
-    refill: 'Refill:'
-    quantity: 'Total Quantity:'
-    strength: 'Strength:'
+    singular: 処方薬
+    edit_medication: 処方薬を編集をする
+    refill_reminder: 補充リマインドメール
+    dosage: '一日投薬量：'
+    weekly_dosage: '一週間投薬量：'
+    refill: '補充：'
+    quantity: '量：'
+    strength: '強さ：'
     form:
-      strength: Strength
+      strength: 強さ
       strength_placeholder: 'e.g. 100'
       total_placeholder: 'e.g. 30'
-      dosage: dosage
+      dosage: 投薬量
       dosage_placeholder: 'e.g. 2'
-      refill: refill
-      comments_hint: 'Add any additional comments here, e.g. logging your symptoms'
-      add_to_google_cal: 'Google Calendar reminder'
-      google_cal_hint: 'We''ll add a reminder for this medication to your Google calendar.'
-      strength_hint: 'Medication strength, usually found beside the name'
-      total_hint: 'Total number of pills or amount of medication'
-      dosage_hint: 'Number of pills or servings daily'
-      weekly_dosage_hint: 'Days of the week to take this medication'
-      refill_hint: 'When to refill this prescription'
-      refill_reminder_hint: 'We''ll email you a reminder the week before your medication needs to be refilled.'
-      daily_reminder_hint: 'We''ll email you a daily reminder to take this medication'
-      total: Total
-    new: 'New Medication'
+      refill: 補充
+      comments_hint: 'ここにコメントしてください。例えば自分の症状を記録します。'
+      add_to_google_cal: 'Googleカレンダーリマインダ'
+      google_cal_hint: 'この処方薬のリマインダをGoogleカレンダーに追加します。'
+      strength_hint: '薬の強さは、たいてい薬名の横にあります。'
+      total_hint: '薬の総数または投薬量'
+      dosage_hint: '毎日の丸薬またはサービングの数'
+      weekly_dosage_hint: 'この処方薬を服用する曜日'
+      refill_hint: 'この処方箋を補充する時期'
+      refill_reminder_hint: '薬を補充する必要がある１週間前にあなたにリマインドメールします。'
+      daily_reminder_hint: '毎日この薬を服用をするために毎日リマインドメールします。'
+      total: 合計
+    new: '新しい処方薬'
     units:
       display: '%{count} %{unit}'
       mg: mg
       ml: ml
       tablets:
-        one: tablet
-        other: tablets
+        one: 錠
+        other: 錠
     reminder_mailer:
-      subject: 'Don''t forget to take %{name}!'
-      body: 'Here''s a friendly reminder to take your medication %{name}!'
+      subject: '%{name}の服用を忘れないでください！'
+      body: 'リマインダーです。%{name}を服用してください！'
     refill_mailer:
-      subject: 'Your refill for %{name} is coming up soon!'
-      body: 'Here''s a friendly reminder to refill your medication %{name} on %{refill}!'
+      subject: '%{name}の補充はもうすぐです！'
+      body: 'リマインダーです。%{refill}に%{name}を補充してください！'
     index:
-      title: Medications
-      subtitle: 'Keep track of your medications, including dosage and refill information.'
-      instructions: 'You haven''t saved any medications yet.<br><br>Here''s an example of a saved medication! You can also write about your experience.'
-      example_name: Prozac
+      title: 処方薬
+      subtitle: '投薬と補充の情報を追跡します。'
+      instructions: 'まだ処方薬を保存していません。<br><br>例の処方薬はこちらです。経験について書くことができます。'
+      example_name: プロザック
       example_strength: '10 mg'
-      example_total: '40 tablets'
-      example_dosage: '2 tablets'
+      example_total: '40錠'
+      example_dosage: '2錠'
       example_refill: 05/31/2016
     show:
-      comments: 'Comments:'
+      comments: 'コメント：'
   meetings:
     singular: 会議
     edit_meeting: '会議を編集する'
