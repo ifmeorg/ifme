@@ -243,49 +243,49 @@ ja:
     show:
       comments: 'Comments:'
   meetings:
-    singular: Meeting
-    edit_meeting: 'Edit Meeting'
+    singular: 会議
+    edit_meeting: '会議を編集する'
     form:
-      location_placeholder: 'URL or street address'
-      maximum_members: 'Maximum Members'
-      maximum_placeholder: '0 if no maximum'
-    join_success: 'You have joined this meeting.'
+      location_placeholder: 'URLもしくは住所'
+      maximum_members: '定員'
+      maximum_placeholder: '定員がない場合は０'
+    join_success: 'この会議に参加しました。'
     info:
-      cancel_meeting: 'Cancel meeting'
-      meeting_time: Time
+      cancel_meeting: '会議をキャンセルする'
+      meeting_time: 会議時間
       members_of_group_html:
-        one: '%{count} Member of %{group}'
-        other: '%{count} Members of %{group}'
+        one: '%{count}人の%{group}メンバー'
+        other: '%{count}人の%{group}メンバー'
     reminder_mailer:
-      subject: 'Your meeting "%{meeting_name}" is tomorrow at %{time}!'
-      body: 'Here''s a friendly reminder that your meeting tomorrow, "%{meeting_name}", will be taking place at %{time} at %{location}!'
+      subject: 'あなたの会議「%{meeting_name}」は明日の%{time}からです。'
+      body: 'リマインダーです。あなたの会議「%{meeting_name}」は明日の%{time}からです。'
     leave:
-      error: 'You cannot leave the meeting, you are the only leader.'
-      success: 'You have left %{meeting}'
-    new: 'New Meeting'
+      error: 'リーダーはあなたしかいませんので、会議を立ち去ることができません。'
+      success: '%{meeting}を立ち去りました。'
+    new: '新しい会議'
   moments:
-    singular: Moment
-    plural: Moments
-    edit_moment: 'Edit Moment'
-    tagged_moments: 'Tagged Moments'
-    new: 'New Moment'
+    singular: モーメント
+    plural: モーメント
+    edit_moment: 'モーメントを編集する'
+    tagged_moments: 'タグされたモーメント'
+    new: '新しいモーメント'
     secret_share:
-      singular: 'Secret Share'
-      expires_at: 'Expire at'
-      cancel_secret_share: 'Cancel Secret Share'
+      singular: '秘密シェア'
+      expires_at: '表示期限'
+      cancel_secret_share: '秘密シェアをキャンセルする'
     form:
-      why: 'What happened and how do you feel?'
-      fix: 'What thoughts would you like to have?'
-      what_happened: 'What happened?'
-      viewers_hint: 'Allies who can view your moment'
-      draft_question: 'Do you want to save your moment as draft?'
+      why: '何が起こりましたか？気分はどうですか？'
+      fix: 'どうしたらいいと思いますか？'
+      what_happened: '何が起こりましたか？'
+      viewers_hint: 'モーメントが見える仲間'
+      draft_question: 'このモーメントの下書きを保存したいですか？'
     index:
-      subtitle: 'Delve deep into your moments - events and situations that affect your mental health.'
-      instructions: 'You haven''t written about any moments yet.<br><br>Don''t know where to start? What''s something that happened today that you would like to share and discuss with a loved one? It can be positive or negative! You can don''t have to share it right away - only when you''re ready to! Here''s an example of a Moment.'
-      example_name: 'Panicking over interview tomorrow!'
-      example_category: Career
+      subtitle: 'あなたのメンタルヘルスに影響を与える出来事や状況を深く探る。'
+      instructions: 'まだモーメントについて何も書いていません。<br><br>大切な人と話し合いたいことはありますか？ポジテイブなことでもネガティブなことでも大丈夫です。モーメントを作成してもすぐに共有する必要はありません。モーメントの例はこちらです。'
+      example_name: '明日のインタビューについてパニック状態！'
+      example_category: キャリア
     show:
-      strategies: 'What strategies would help?'
+      strategies: 'どんな作戦がいいですか？'
   moods:
     singular: Mood
     plural: Moods
