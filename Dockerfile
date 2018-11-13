@@ -1,23 +1,23 @@
 # Dockerfile
-FROM ruby:2.3
+FROM ruby:2.3-alpine
 
 ENV PORT 3000
 ENV PATH /node_modules/.bin:$PATH
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-  && apt-get update -qq \
-  && apt-get install -y \
-    build-essential \
-    libpq-dev \
+RUN apk update \
+  && apk add \
     nodejs \
+    curl \
+    npm \
+    build-base \
+    postgresql-dev \
+    tzdata \
   && npm install --global yarn \
-  && groupadd --system ifme \
-  && useradd \
-    --create-home \
-    --gid ifme \
-    --home-dir /home/ifme \
-    --no-log-init \
-    --system \
+  && addgroup --system ifme \
+  && adduser \
+    -G ifme \
+    -h /home/ifme \
+    -S \
      ifme \
   && mkdir -p "/app" "/node_modules" \
   && chown ifme:ifme "/app" "/node_modules" \

@@ -2,10 +2,14 @@ version: '2'
 services:
   psql:
     image: postgres:9.6
+    container_name: ifme_pg
     environment:
       - POSTGRES_PASSWORD=
   app:
     build: .
+    container_name: ifme_app
+    volumes:
+    - .:/app
     ports:
       - "3000:3000"
     depends_on:
