@@ -212,7 +212,7 @@ ja:
       strength_hint: '薬の強さは、大抵薬名の横にあります。'
       total_hint: '薬の総数または投薬量'
       dosage_hint: '毎日の丸薬、またはサービングの数'
-      weekly_dosage_hint: 'この薬を服用する曜日'
+      weekly_dosage_hint: 'この薬を服用する日にち'
       refill_hint: 'この処方箋を補充する時期'
       refill_reminder_hint: '薬を補充する時の１週間前にあなたにリマインドメールを送ります。'
       daily_reminder_hint: '毎日この薬を服用をするために毎日リマインドメールします。'
