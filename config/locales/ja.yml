@@ -191,8 +191,8 @@ ja:
     title:
       reset_password: パスワードをリセットする
   medications:
-    singular: 処方薬
-    edit_medication: 処方薬を編集をする
+    singular: 薬
+    edit_medication: 薬を編集をする
     refill_reminder: 補充リマインドメール
     dosage: '一日投薬量：'
     weekly_dosage: '一週間投薬量：'
@@ -206,18 +206,18 @@ ja:
       dosage: 投薬量
       dosage_placeholder: 'e.g. 2'
       refill: 補充
-      comments_hint: 'ここにコメントしてください。例えば自分の症状を記録します。'
-      add_to_google_cal: 'Googleカレンダーリマインダ'
-      google_cal_hint: 'この処方薬のリマインダをGoogleカレンダーに追加します。'
-      strength_hint: '薬の強さは、たいてい薬名の横にあります。'
+      comments_hint: 'ここにコメントしてください。例えば自分の症状など。'
+      add_to_google_cal: 'Googleカレンダーリマインダー'
+      google_cal_hint: 'この薬のリマインダーをGoogleカレンダーに追加します。'
+      strength_hint: '薬の強さは、大抵薬名の横にあります。'
       total_hint: '薬の総数または投薬量'
-      dosage_hint: '毎日の丸薬またはサービングの数'
-      weekly_dosage_hint: 'この処方薬を服用する曜日'
+      dosage_hint: '毎日の丸薬、またはサービングの数'
+      weekly_dosage_hint: 'この薬を服用する曜日'
       refill_hint: 'この処方箋を補充する時期'
-      refill_reminder_hint: '薬を補充する必要がある１週間前にあなたにリマインドメールします。'
+      refill_reminder_hint: '薬を補充する時の１週間前にあなたにリマインドメールを送ります。'
       daily_reminder_hint: '毎日この薬を服用をするために毎日リマインドメールします。'
       total: 合計
-    new: '新しい処方薬'
+    new: '新しい薬'
     units:
       display: '%{count} %{unit}'
       mg: mg
@@ -229,12 +229,12 @@ ja:
       subject: '%{name}の服用を忘れないでください！'
       body: 'リマインダーです。%{name}を服用してください！'
     refill_mailer:
-      subject: '%{name}の補充はもうすぐです！'
+      subject: '%{name}の補充時がもうすぐですよ！'
       body: 'リマインダーです。%{refill}に%{name}を補充してください！'
     index:
-      title: 処方薬
+      title: 薬
       subtitle: '投薬と補充の情報を追跡します。'
-      instructions: 'まだ処方薬を保存していません。<br><br>例の処方薬はこちらです。経験について書くことができます。'
+      instructions: 'まだ薬を保存していません。<br><br>例の薬はこちらです。経験について書くことができます。'
       example_name: プロザック
       example_strength: '10 mg'
       example_total: '40錠'
