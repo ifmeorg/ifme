@@ -2,8 +2,8 @@
 
 describe MoodsHelper do
   let(:user) { create(:user) }
-  let(:mood) { build(:mood, user_id: user.id) }
-  let(:quick_create) { false }
+  let(:mood) { create(:mood, user_id: user.id) }
+  let(:no_form_tag) { {noFormTag: true} }
   let(:mood_props) do
     {
       inputs: [
@@ -12,7 +12,7 @@ describe MoodsHelper do
           type: 'text',
           name: 'mood[name]',
           label: t('common.name'),
-          value: mood&.name || nil,
+          value: @mood&.name || nil,
           required: true,
           dark: true
         },
@@ -21,22 +21,36 @@ describe MoodsHelper do
           type: 'textarea',
           name: 'mood[description]',
           label: t('common.form.description'),
-          value: mood&.description || nil,
-          dark: true
-        },
-        {
-          id: 'submit',
-          type: 'submit',
-          value: 'Submit',
+          value: @mood&.description || nil,
           dark: true
         }
       ],
-      action: quick_create ? '/moods/quick_create' : '/moods'
     }
   end
 
+  let(:submit_field) do
+    {
+      id: 'submit',
+      type: 'submit',
+      value: t('common.actions.submit'),
+      dark: true
+    }
+  end
+
+  let(:update_input) do
+    { id: '_method', name: '_method', type: 'hidden', value: 'patch' }
+  end
+
+  before(:example) do
+    @mood = mood
+  end
 
   describe '#new_mood_props' do
+    before(:example) do
+        mood_props[:action] = '/moods'
+        mood_props[:inputs].push(submit_field)
+    end
+
     it 'returns correct props' do
       expect(new_mood_props).to eq(mood_props)
     end
@@ -44,7 +58,8 @@ describe MoodsHelper do
 
   describe '#quick_create_mood_props' do
     before(:example) do
-      let(:quick_create) { true }
+        mood_props[:action] = '/moods/quick_create'
+        mood_props[:inputs].push(submit_field)
     end
 
     it 'returns correct props' do
@@ -52,9 +67,14 @@ describe MoodsHelper do
     end
   end
 
-  describe '#edit_form_props' do
+  describe '#edit_mood_props' do
+    before(:example) do
+        mood_props[:action] = '/moods/test-mood'
+        mood_props[:inputs].push(update_input).push(submit_field)
+    end
+
     it 'returns correct props' do
-      expect(edit_form_props).to eq(mood_props)
+      expect(edit_mood_props).to eq(mood_props)
     end
   end
 
