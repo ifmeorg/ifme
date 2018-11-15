@@ -2,7 +2,6 @@
 module MoodsHelper
   include FormHelper
 
-
   def new_mood_props
     new_form_props(mood_form_inputs, moods_path)
   end
@@ -16,7 +15,6 @@ module MoodsHelper
   end
 
   private
-
 
   def mood_name
     {
