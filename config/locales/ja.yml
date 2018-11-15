@@ -81,7 +81,7 @@ ja:
     reported_users: '報告されたユーザー'
     banned_users: 'アクセス禁止のユーザー'
     reasons: 理由
-    new: '%{name}新しい報告'
+    new: '%{name}さんの新しい報告'
     remove_ban: 'アクセス禁止を外します。'
     ban_user: 'ユーザーをアクセス禁止にします'
     report_sent: '%{name}の報告が送られました。'
