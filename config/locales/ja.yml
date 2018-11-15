@@ -67,7 +67,7 @@ ja:
       add_all: 全て追加する
       select_all: 全て選択する
       remove: 消す
-      report: Report
+      report: 報告する
     form:
       email: 電子メール
       location: 場所
@@ -78,21 +78,21 @@ ja:
     write_to_us: 'コンタクトする'
     days: 日
   reports:
-    admin_dashboard: 'Admin Dashboard'
-    reported_users: 'Reported Users'
-    banned_users: 'Banned Users'
-    reasons: Reasons
-    new: 'New Report for %{name}'
-    remove_ban: 'Remove Ban'
-    ban_user: 'Ban User'
-    report_sent: 'Report for %{name} sent'
-    report_error: 'Could not send report for %{name}'
-    reportee: Reportee
-    reporter: Reporter
-    user_banned: '%{name} has been banned'
-    ban_removed: 'Ban removed on %{name}'
-    user_banned_error: 'Could not ban %{name}'
-    ban_removed_error: 'Could not remove ban on %{name}'
+    admin_dashboard: '管理者ダッシュボード'
+    reported_users: '報告されたユーザー'
+    banned_users: 'アクセス禁止のユーザー'
+    reasons: 理由
+    new: '%{name}さんの新しい報告'
+    remove_ban: 'アクセス禁止を外します。'
+    ban_user: 'ユーザーをアクセス禁止にします'
+    report_sent: '%{name}の報告が送られました。'
+    report_error: '%{name}の報告を送ることができませんでした。'
+    reportee: 報告されたユーザー
+    reporter: 報告したユーザー
+    user_banned: '%{name}さんがアクセス禁止にされました'
+    ban_removed: '%{name}さんのアクセス禁止を外しました。'
+    user_banned_error: '%{name}さんをアクセス禁止にすることができませんでした'
+    ban_removed_error: '%{name}さんのアクセス禁止を外すことができませんでした'
   comment:
     singular: コメント
     plural: コメント
@@ -307,62 +307,62 @@ ja:
       premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
       instructions: 'You haven''t created any custom moods yet.<br>You can also add the following premade moods and customize them another time.'
   notifications:
-    plural: Notifications
-    none: 'There are none'
-    clear: Clear
-    created_by_html: '<strong>Created by</strong>: %{name}'
-    preview: 'View more'
+    plural: 通知
+    none: 'ありません'
+    clear: クリア
+    created_by_html: '<strong>作成者</strong>：%{name}'
+    preview: 'もっと見る'
     members:
-      title: 'List of Members'
+      title: 'メンバーのリスト'
     ally:
-      accepted: '%{name} accepted your ally request!'
-      sent_html: '%{link_to_user} sent an ally request!'
+      accepted: '%{name}さんがあなたの仲間リクエストを承認しました！'
+      sent_html: '%{link_to_user}さんがあなたに仲間リクエストを送りました！'
     comment:
-      full: '%{name} commented "%{comment}" on %{typename}'
-      truncated: '%{name} commented "%{comment}" [...] on %{typename}'
+      full: '%{name}さんが%{typename}について「%{comment}」をコメントしました。'
+      truncated: '%{name}さんが%{typename}について「%{comment}」 [...]をコメントしました。'
     group:
-      new_group: '%{name} created a group "%{group_name}"'
-      new_group_member: '%{name} joined your group "%{group_name}"'
-      add_group_leader: '%{name} became a leader of "%{group_name}"'
-      remove_group_leader: '%{name} is no longer a leader of "%{group_name}"'
+      new_group: '%{name}さんが%{group_name}というグループを作りました。'
+      new_group_member: '%{name}さんがあなたのグループ%{group_name}に入りました。'
+      add_group_leader: '%{name}さんが%{group_name}のリーダーになりました。'
+      remove_group_leader: '%{name}さんはもう%{group_name}のリーダーではありません。'
     meeting:
-      new_meeting: '%{name} created a new meeting "%{meeting_name}" for "%{group_name}"'
-      remove_meeting: '%{name} has cancelled "%{meeting_name}" for "%{group_name}"'
-      update_meeting: '%{name} has updated "%{meeting_name}" for "%{group_name}"'
-      join_meeting: '%{name} has joined "%{meeting_name}" for "%{group_name}"'
+      new_meeting: '%{name}さんが%{group_name}で%{meeting_name}という会議を作成しました。'
+      remove_meeting: '%{name}さんが%{group_name}の%{meeting_name}という会議を取り止めました。'
+      update_meeting: '%{name}さんが%{group_name}の%{meeting_name}という会議を更新しました。'
+      join_meeting: '%{name}さんが%{group_name}の%{meeting_name}という会議に参加しました。'
     mailer:
-      comment_on_moment_subject: 'if me | %{user} commented on your moment "%{moment}"'
-      comment_on_strategy_subject: 'if me | %{user} commented on your strategy "%{strategy}"'
-      comment_on_meeting_subject: 'if me | %{user} commented on the meeting "%{meeting}" in the group "%{group}"'
-      comment_on_private_body: '<p>Your ally <strong>%{user}</strong> commented privately:</p>'
-      comment_on_body: '<p>Your ally <strong>%{user}</strong> commented:</p>'
+      comment_on_moment_subject: 'if me | %{user}さんが%{moment}というモーメントについてコメントをしました。'
+      comment_on_strategy_subject: 'if me | %{user}さんが%{strategy}という作戦についてコメントをしました。'
+      comment_on_meeting_subject: 'if me | %{user}さんが%{group_name}の%{meeting_name}という会議にコメントをしました。'
+      comment_on_private_body: '<p>あなたの仲間<strong>%{user}さん</strong>がプライベートコメントをしました：</p>'
+      comment_on_body: '<p>あなたの仲間<strong>%{user}さん</strong>がコメントをしました：</p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
-      comment_link: '<p>To read it, %{link}!</p>'
-      new_group_subject: 'if me | %{user} created a group "%{group}"'
-      new_group_body: '<p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>'
-      new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
-      add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
-      add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
-      add_remove_group_leader_body: '<p>To see "%{group}", %{link}!</p>'
-      remove_group_leader_you_subject: 'if me | You are no longer a leader of "%{group}"'
-      remove_group_leader_subject: 'if me | %{user} is no longer a leader of "%{group}"'
-      update_meeting_subject: 'if me | %{user} has updated the meeting "%{meeting}" for "%{group}"'
-      new_meeting_subject: 'if me | %{user} has created a new meeting "%{meeting}" for "%{group}"'
-      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Location:</strong> %{location}</p><p><strong>Date:</strong> %{date}</p><p><strong>Time:</strong> %{time}</p>'
-      new_meeting_link: '<p>To learn more and attend, %{link}!</p>'
-      update_meeting_link: '<p>To learn more, %{link}!</p>'
-      remove_meeting_subject: 'if me | %{user} has cancelled "%{meeting}" for "%{group}"'
-      join_meeting_subject: 'if me | %{user} has joined "%{meeting}" for "%{group}"'
-      join_meeting_body: '<p>To see "%{meeting}", %{link}!</p>'
-      reported_user_subject: 'if me | You have reported a user'
-      reported_user_body: 'You have reported %{reported_name}. This will be reviewed by an admin.'
-      reportee_user_subject: 'if me | You have been reported'
-      reportee_user_body: 'You have been reported. This will be reviewed by an admin.'
-      add_ban_subject: 'if me | You have been banned'
-      add_ban_body: 'You have been banned for violating our %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | You are no longer banned'
-      remove_ban_body: 'You were previously banned for violating our %{code_of_conduct_link}. You are no longer banned.'
+      comment_link: '<p>読むにはこちらへ：%{link}!</p>'
+      new_group_subject: 'if me | %{user}さんが%{group}というグループを作成しました。'
+      new_group_body: '<p>%{user}さんが%{group}というグループを作成しました。</p><p><i>%{description}</i></p><p>詳しくは、%{link}!</p><p>%{link_to_code_of_conduct}に従ってください！</p>'
+      new_group_member_subject: 'if me | %{user}さんがあなたのグループ、%{group}に参加しました'
+      add_group_leader_you_subject: 'if me | あなたが%{group}のリーダーになりました'
+      add_group_leader_subject: 'if me | %{user}さんが%{group}のリーダーになりました'
+      add_remove_group_leader_body: '<p>%{group}を詳しく見るには、 %{link}！</p>'
+      remove_group_leader_you_subject: 'if me | あなたはもう%{group}のリーダーではありません'
+      remove_group_leader_subject: 'if me | %{user}さんはもう%{group}のリーダーではありません'
+      update_meeting_subject: 'if me | %{user}さんが%{group}の%{meeting}という会議を更新しました'
+      new_meeting_subject: 'if me | %{user}さんが%{group}の%{meeting}という会議を作成しました'
+      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>場所：</strong>%{location}</p><p><strong>日付：</strong>%{date}</p><p><strong>時間：</strong>%{time}</p>'
+      new_meeting_link: '<p>詳しくは、%{link}！</p>'
+      update_meeting_link: '<p>詳しくは、%{link}！</p>'
+      remove_meeting_subject: 'if me | %{user}さんが%{group}の%{meeting}という会議をキャンセルしました'
+      join_meeting_subject: 'if me | %{user}さんが%{group}の%{meeting}という会議に参加しました'
+      join_meeting_body: '<p>%{meeting}について、%{link}！</p>'
+      reported_user_subject: 'if me | あなたはユーザーを報告しました。'
+      reported_user_body: 'あなたは%{reported_name}を報告しました。これは管理者にレビューされます。'
+      reportee_user_subject: 'if me | あなたは報告されました'
+      reportee_user_body: 'あなたは報告されました。これは管理者にレビューされます。'
+      add_ban_subject: 'if me | あなたはアクセス禁止にされました'
+      add_ban_body: 'あなたは%{code_of_conduct_link}に違反してアクセス禁止されています。'
+      remove_ban_subject: 'if me | アクセス禁止が外されました'
+      remove_ban_body: 'あなたは%{code_of_conduct_link}に違反してアクセス禁止されていました。もう禁止されていません。'
   omniauth:
     google: Google
     access_denied: 'Access Denied'
