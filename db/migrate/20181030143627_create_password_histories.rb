@@ -5,13 +5,6 @@ class CreatePasswordHistories < ActiveRecord::Migration[5.2]
       t.string :encrypted_password
       t.datetime :created_at, null: false
     end
-
-    # Populate initial value from users table
-    execute <<-SQL
-      INSERT INTO password_histories(user_id, encrypted_password, created_at)
-        SELECT id, encrypted_password, updated_at
-        FROM users
-    SQL
   end
 
   # rake db:migrate:down VERSION=20181030143627

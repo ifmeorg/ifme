@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module AllyHelper
+module AllyConcern
   extend ActiveSupport::Concern
 
   ALLY_STATUS = {

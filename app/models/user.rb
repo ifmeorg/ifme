@@ -46,7 +46,7 @@
 
 class User < ApplicationRecord
   include PasswordValidator
-  include AllyHelper
+  include AllyConcern
 
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
