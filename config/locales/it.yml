@@ -406,9 +406,9 @@ it:
       email_notifications_answer: 'Vai sulla pagina <strong>%{accounts}</strong>. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati.'
     home:
       update_pwd_modal:
-        title:
-        body:
-        update_link:
+        title: 'Aggiorna password'
+        body: 'Abbiamo rafforzato le migliori misure di sicurezza per i nostri utenti, per favore %{update_password_link}'
+        update_link: 'aggiorna la tua password'
       stories: Storie
       not_signed_in:
         main_message_one: 'Una migliore comunicazioni con i propri cari porta ad un migliore stato mentale.'

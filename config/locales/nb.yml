@@ -406,9 +406,9 @@ nb:
       email_notifications_answer: 'Gå til <strong>%{accounts}</strong> siden. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din.'
     home:
       update_pwd_modal:
-        title:
-        body:
-        update_link:
+        title: 'Oppdater passord'
+        body: 'Vi har håndhevet bedre sikkerhetstiltak for våre brukere, vær så snill %{update_password_link}'
+        update_link: 'Oppdater passordet ditt.'
       stories: Historier
       not_signed_in:
         main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'

@@ -412,9 +412,9 @@ de:
       email_notifications_answer: 'Gehe zu deiner <strong>%{accounts}</strong>-Seite. Du kannst deine E-Mail, dein Passwort, dein Profilbild und Beschreibung ändern. Wenn du dein Konto löschst, gehe alle deine Daten verloren.'
     home:
       update_pwd_modal:
-        title:
-        body:
-        update_link:
+        title: 'Passwort erneuern'
+        body: 'Wir haben bessere Sicherheitsmaßnahmen für unsere Benutzer durchgesetzt %{update_password_link}'
+        update_link: 'Aktualisieren Sie Ihr Passwort.'
       stories: Geschichten
       welcome: Willkommen
       not_signed_in:
