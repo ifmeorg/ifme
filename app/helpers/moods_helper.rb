@@ -42,5 +42,4 @@ module MoodsHelper
   def mood_form_inputs
     [mood_name, mood_description]
   end
-
 end

@@ -3,7 +3,7 @@
 describe MoodsHelper do
   let(:user) { create(:user) }
   let(:mood) { create(:mood, user_id: user.id) }
-  let(:no_form_tag) { {noFormTag: true} }
+  let(:no_form_tag) { { noFormTag: true } }
   let(:mood_props) do
     {
       inputs: [
@@ -12,7 +12,7 @@ describe MoodsHelper do
           type: 'text',
           name: 'mood[name]',
           label: t('common.name'),
-          value: @mood&.name || nil,
+          value: @mood.name || nil,
           required: true,
           dark: true
         },
@@ -21,7 +21,7 @@ describe MoodsHelper do
           type: 'textarea',
           name: 'mood[description]',
           label: t('common.form.description'),
-          value: @mood&.description || nil,
+          value: @mood.description || nil,
           dark: true
         }
       ],
