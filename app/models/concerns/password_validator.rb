@@ -3,16 +3,22 @@ module PasswordValidator
   extend ActiveSupport::Concern
 
   MAX_PREVIOUS_PASSWORD = 3
-  PASSWORD_VALIDITY_MONTHS = 6
+  PASSWORD_VALIDITY_MONTHS = 12
 
   def password_needs_update?
-    password_histories.empty?
+    no_histories? || out_dated_password?
   end
 
   private
 
-  def password_updated_on
-    password_histories.last.created_at
+  def out_dated_password?
+    return false unless (updated_on = password_histories.last.try(:created_at))
+
+    (updated_on + PASSWORD_VALIDITY_MONTHS.months) < Time.zone.now
+  end
+
+  def no_histories?
+    password_histories.empty?
   end
 
   def create_password_history
@@ -41,8 +47,8 @@ module PasswordValidator
   end
 
   def not_in_used_passwords?
-    password_histories.pluck(:encrypted_password).each do |ep|
-      next if not_a_used_password?(ep)
+    password_histories.pluck(:encrypted_password).each do |encrypted_password|
+      next if not_a_used_password?(encrypted_password)
 
       message = I18n.t('devise.registrations.password_errors.used')
       errors.add(:password, message)

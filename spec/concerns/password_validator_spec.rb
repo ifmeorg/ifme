@@ -84,17 +84,50 @@ describe PasswordValidator, type: :model do
     context 'password_needs_update' do
       # As password_histories feature was not present initially, all existing users will not have passoword_histories.
       # User who are created after adding this feature will get a password history automatically, after creation.
+      context 'without any histories' do
+        before do
+          allow_any_instance_of(User).to receive(:out_dated_password?)
+            .and_return(false)
+        end
 
-      it 'returns true when there are no password_histories' do
-        allow(user).to receive(:password_histories).and_return([])
+        it 'returns true when there are no password_histories' do
+          allow(user).to receive(:password_histories).and_return([])
 
-        expect(user.password_needs_update?).to be (true)
+          expect(user.password_needs_update?).to be (true)
+        end
+
+        it 'returns false if there are any password_histories' do
+          allow(user).to receive(:password_histories).and_return([PasswordHistory.new])
+
+          expect(user.password_needs_update?).to be (false)
+        end
       end
 
-      it 'returns false if there are any password_histories' do
-        allow(user).to receive(:password_histories).and_return([PasswordHistory.new])
+      context 'with out_dated_password' do
+        before do
+          user.password = 'Password@1'
+          user.save
 
-        expect(user.password_needs_update?).to be (false)
+          allow_any_instance_of(User).to receive(:no_histories?)
+            .and_return(false)
+        end
+
+        it 'returns true if crossed password_validity months months' do
+          allow_any_instance_of(PasswordHistory).to receive(:created_at)
+            .and_return(
+              Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months + 10.minute)
+            )
+
+           expect(user.password_needs_update?).to be (true)
+        end
+
+        it 'returns false if did not cross 5 months' do
+          allow_any_instance_of(PasswordHistory).to receive(:created_at)
+            .and_return(
+              Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months - 10.minute)
+            )
+          expect(user.password_needs_update?).to be (false)
+        end
       end
     end
   end
