@@ -2,6 +2,7 @@
 import React from 'react';
 import { InputTextarea } from './InputTextarea';
 import { InputLabel } from './InputLabel';
+import { InputError } from './InputError';
 import { InputSubmit } from './InputSubmit';
 import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
@@ -238,6 +239,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+<<<<<<< HEAD
   displayLocation = () => {
     const {
       type, placeholder, googleAPIKey, id, value,
@@ -255,7 +257,29 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+=======
+  displayError = () => {
+    const {
+      label, info, required, type,
+    } = this.props;
+    const { error } = this.state;
+    //if (REQUIRES_LABEL.includes(type) && label) {
+      return (
+        <InputError
+          label={label}
+          required={REQUIRED_POSSIBLE.includes(type) && required}
+          info={info}
+          error={error}
+        />
+      );
+   // }
+    //return null;
+  };
+
+
+>>>>>>> Adds Error Label
   displayContent = () => {
+  
     const {
       dark, small, accordion, large, type,
     } = this.props;
@@ -277,6 +301,7 @@ export class Input extends React.Component<Props, State> {
         {this.displaySwitch()}
         {this.displayLocation()}
         {this.displaySubmit()}
+        {this.displayError()}
       </div>
     );
   };

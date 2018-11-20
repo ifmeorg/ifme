@@ -18,39 +18,22 @@ export type Props = {
   error?: boolean,
 };
 
-const displayTags = (required: ?boolean, info: ?string) => (
-  <div className={css.tags}>
-    {info ? (
-      <div>
-        <Tooltip
-          element={<FontAwesomeIcon icon={faQuestion} />}
-          text={info}
-          right
-        />
-      </div>
-    ) : null}
-    {required ? (
-      <div>
-        <FontAwesomeIcon icon={faAsterisk} />
-      </div>
-    ) : null}
-  </div>
-);
 
-const displayLabel = (label: string, error: ?boolean) => (
-  <div className={`${error ? css.error : ''} ${css.labelText}`}>{label}</div>
-);
-
-export const InputLabel = (props: Props) => {
+export const InputError = (props: Props) => {
   const {
     error, label, required, info,
   } = props;
   return (
     <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
     <div className={css.labelInfo}>
-      {displayLabel(label, error)}
+    {error ? (
+        <div className="labelError">
+          <FontAwesomeIcon icon={faExclamation} />
+          &emsp;
+          {I18n.t('common.form.error_explanation')}
+        </div>
+      ) : null}
     </div>
-    {required || info ? displayTags(required, info) : null}
   </div>
   );
 };
