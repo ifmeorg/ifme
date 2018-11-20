@@ -22,6 +22,10 @@ module PasswordValidator
   end
 
   def create_password_history
+    # Setting to nil to avoid triggering validation,
+    # when save is called multiple times
+    self.password = nil
+
     return unless saved_change_to_encrypted_password?
 
     password_histories.create(encrypted_password: encrypted_password)
