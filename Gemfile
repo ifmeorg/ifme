@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.8.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
-gem 'uglifier', '~> 4.1.19'
+gem 'uglifier', '~> 4.1.20'
 
 gem 'carrierwave', '~> 1.2.3'
 gem 'certified', '1.0.0'
@@ -63,7 +63,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.11.0'
+  gem 'capybara', '~> 3.11.1'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'jasmine', '~> 2.7.0'
