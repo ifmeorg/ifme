@@ -239,7 +239,6 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-<<<<<<< HEAD
   displayLocation = () => {
     const {
       type, placeholder, googleAPIKey, id, value,
@@ -257,13 +256,12 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-=======
   displayError = () => {
     const {
       label, info, required, type,
     } = this.props;
     const { error } = this.state;
-    //if (REQUIRES_LABEL.includes(type) && label) {
+    if (REQUIRES_LABEL.includes(type) && label) {
       return (
         <InputError
           label={label}
@@ -272,14 +270,11 @@ export class Input extends React.Component<Props, State> {
           error={error}
         />
       );
-   // }
-    //return null;
+    }
+    return null;
   };
 
-
->>>>>>> Adds Error Label
   displayContent = () => {
-  
     const {
       dark, small, accordion, large, type,
     } = this.props;
