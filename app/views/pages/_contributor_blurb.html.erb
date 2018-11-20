@@ -11,27 +11,27 @@
     },
     body: <<~HEREDOC
       <div class="contributorModalBody">
-        <div class="contributorModalBodyPhoto hideOnXSmall hideOnSmall">
-          <div class="avatar Avatar__avatar___3vcX_ Avatar__large___1dps1">
-            <img class="Avatar__image___2cXeU" src="#{ProfilePicture.normalize_url(blurb["image"])}">
-          </div>
+        <div class="contributorModalBodyPhoto hideOnSmall">
+          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
         </div>
 
         <div class="contributorModalBodyCopy">
           <div class="contributorModalHeader">
-            <div class="contributorModalBodyPhoto showOnSmall hideOnMedium hideOnLarge hideOnXLarge">
-              <div class="avatar Avatar__avatar___3vcX_ contributorModalAvatarMedium">
-                <img class="Avatar__image___2cXeU" src="#{ProfilePicture.normalize_url(blurb["image"])}">
-              </div>
+            <div class="contributorModalBodyPhoto showOnSmall">
+                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
             </div>
             <div>
-              <h4 class="contributorModalName">
+              <div role="heading" class="contributorModalName">
                 #{blurb["name"]}
-              </h4>
+              </div>
               <div class="contributorModalBodySocialLinks">
-                <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}
-                #{content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline")}
-                #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+                <div class="socialLink">
+                  <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}
+                </div>
+                <div class="socialLink">
+                  <i class="#{get_icon_class(blurb["social"])} fa-inline"></i>
+                  #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+                </div>
               </div>
             </div>
           </div>

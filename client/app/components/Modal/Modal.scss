@@ -22,7 +22,7 @@
   &Box {
     @include setFontSize($size-20);
     @include fadeIn(0.5s);
-    padding: $size-30 $size-50;
+    padding: $size-35;
     position: relative;
     font-weight: $font-weight-400;
     color: $black;
@@ -62,7 +62,7 @@
       @include dashboardSectionLink();
       overflow-x: hidden;
       overflow-y: auto;
-      height: calc(100% - 40px);
+      height: 100%;
       text-align: left;
       line-height: 1.4 !important;
     }
