@@ -1,6 +1,6 @@
 class ChangeRefillColumnType < ActiveRecord::Migration[5.2]
   def up
-    change_column(:medications, :refill, 'timestamp USING CAST(refill AS timestamp)')
+    change_column(:medications, :refill, 'timestamptz USING CAST(refill AS timestamptz)')
   end
 
   def down
