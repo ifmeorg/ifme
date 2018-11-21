@@ -17,13 +17,11 @@ gem 'resque', '1.27.4'
 gem 'resque-scheduler', '4.3.1'
 gem 'resque_mailer', '2.4.3'
 
-gem 'compass-rails', '~> 3.1.0'
-gem 'foundation-rails', '6.4.3.0'
 gem 'jbuilder', '~> 2.8.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
-gem 'uglifier', '~> 4.1.19'
+gem 'uglifier', '~> 4.1.20'
 
 gem 'carrierwave', '~> 1.2.3'
 gem 'certified', '1.0.0'
@@ -63,7 +61,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.10.1'
+  gem 'capybara', '~> 3.11.1'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'jasmine', '~> 2.7.0'

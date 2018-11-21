@@ -21,9 +21,6 @@ class MedicationReminders
                   .where('medications.refill': one_week_from_now_as_string)
   end
 
-  # TODO: Medication Refill dates are currently stored as strings in the
-  # database instead of timestamps. If we want to do more complicated reminders,
-  # we should migrate the data to timestamps.
   def one_week_from_now_as_string
     (Time.current + 1.week).strftime('%m/%d/%Y')
   end
