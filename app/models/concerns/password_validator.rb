@@ -22,10 +22,6 @@ module PasswordValidator
   end
 
   def create_password_history
-    # Setting to nil to avoid triggering validation,
-    # when save is called multiple times
-    self.password = nil
-
     return unless saved_change_to_encrypted_password?
 
     password_histories.create(encrypted_password: encrypted_password)
@@ -38,7 +34,11 @@ module PasswordValidator
   def password_complexity
     google_oauth2_enabled? ||
       password.blank? ||
-      (matches_format? && not_in_used_passwords?)
+      (!saved_change_to_encrypted_password? && strong_password?)
+  end
+
+  def strong_password?
+    matches_format? && not_a_used_password?
   end
 
   def matches_format?
@@ -50,9 +50,9 @@ module PasswordValidator
     false
   end
 
-  def not_in_used_passwords?
+  def not_a_used_password?
     password_histories.pluck(:encrypted_password).each do |encrypted_password|
-      next if not_a_used_password?(encrypted_password)
+      next unless matches_with?(encrypted_password)
 
       message = I18n.t('devise.registrations.password_errors.used')
       errors.add(:password, message)
@@ -62,12 +62,12 @@ module PasswordValidator
     true
   end
 
-  def not_a_used_password?(encrypted_password)
-    bcrypt = ::BCrypt::Password.new(encrypted_password)
+  def matches_with?(old_encrypted_password)
+    bcrypt = ::BCrypt::Password.new(old_encrypted_password)
     hashed_value = ::BCrypt::Engine.hash_secret(
       [password, Devise.pepper].join, bcrypt.salt
     )
 
-    hashed_value != encrypted_password
+    hashed_value == old_encrypted_password
   end
 end

@@ -11,6 +11,5 @@
 class PasswordHistory < ApplicationRecord
   belongs_to :user
 
-  validates :encrypted_password, presence: true
-  validates_uniqueness_of :encrypted_password, scope: :user_id
+  validates :encrypted_password, presence: true, uniqueness: { scope: :user_id }
 end
