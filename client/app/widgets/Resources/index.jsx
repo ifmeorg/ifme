@@ -106,7 +106,7 @@ export class Resources extends React.Component<Props, State> {
         <InputTag
           id="resourceTags"
           name="resourceTags"
-          placeholder={I18n.t('common.form.press_enter')}
+          placeholder={I18n.t('common.form.search_by_keywords')}
           checkboxes={checkboxes}
           onCheckboxChange={box => this.checkboxChange(box)}
         />
