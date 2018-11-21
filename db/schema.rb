@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_152925) do
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.integer "dosage"
+    t.datetime "refill"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "user_id"
@@ -103,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_152925) do
     t.string "slug"
     t.boolean "add_to_google_cal", default: false
     t.integer "weekly_dosage", default: [0, 1, 2, 3, 4, 5, 6], array: true
-    t.datetime "refill"
     t.index ["slug"], name: "index_medications_on_slug", unique: true
   end
 
