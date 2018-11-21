@@ -74,7 +74,7 @@ module MomentsHelper
         type: 'quickCreate',
         name: 'moment[category][]',
         label: t('categories.plural'),
-        placeholder: t('common.form.press_enter'),
+        placeholder: t('common.form.search_by_keywords'),
         checkboxes: checkboxes_for(@categories),
         formProps: quick_create_category_props(@category)
       },
@@ -83,7 +83,7 @@ module MomentsHelper
         type: 'quickCreate',
         name: 'moment[mood][]',
         label: t('moods.plural'),
-        placeholder: t('common.form.press_enter'),
+        placeholder: t('common.form.search_by_keywords'),
         checkboxes: checkboxes_for(@moods),
         formProps: quick_create_mood_props
       },
@@ -92,7 +92,7 @@ module MomentsHelper
         type: 'quickCreate',
         name: 'moment[strategy][]',
         label: t('strategies.plural'),
-        placeholder: t('common.form.press_enter'),
+        placeholder: t('common.form.search_by_keywords'),
         checkboxes: checkboxes_for(@strategies),
         formProps: quick_create_strategy_props
       },
