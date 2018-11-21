@@ -18,7 +18,6 @@ gem 'resque-scheduler', '4.3.1'
 gem 'resque_mailer', '2.4.3'
 
 gem 'compass-rails', '~> 3.1.0'
-gem 'foundation-rails', '6.4.3.0'
 gem 'jbuilder', '~> 2.8.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
