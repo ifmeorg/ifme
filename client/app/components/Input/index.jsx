@@ -257,19 +257,10 @@ export class Input extends React.Component<Props, State> {
   };
 
   displayError = () => {
-    const {
-      label, info, required, type,
-    } = this.props;
+    const { type } = this.props;
     const { error } = this.state;
-    if (REQUIRES_LABEL.includes(type) && label) {
-      return (
-        <InputError
-          label={label}
-          required={REQUIRED_POSSIBLE.includes(type) && required}
-          info={info}
-          error={error}
-        />
-      );
+    if (REQUIRES_LABEL.includes(type)) {
+      return <InputError error={error} />;
     }
     return null;
   };
