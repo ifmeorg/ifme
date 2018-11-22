@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 describe PasswordValidator, type: :model do
-
   describe '#password_validations' do
     let(:user) { build(:user, password: nil) }
 
@@ -33,7 +32,6 @@ describe PasswordValidator, type: :model do
         ['waspar$0', 'waspaRs0', 'waspar$o', 'WASPAR$0', 'Was$0'].each do |password|
           user.password = password
           expect(user.valid?).to be false
-
           expect(user).to have(1).error_on(:password)
         end
       end
@@ -92,13 +90,11 @@ describe PasswordValidator, type: :model do
 
         it 'returns true when there are no password_histories' do
           allow(user).to receive(:password_histories).and_return([])
-
           expect(user.password_needs_update?).to be (true)
         end
 
         it 'returns false if there are any password_histories' do
           allow(user).to receive(:password_histories).and_return([PasswordHistory.new])
-
           expect(user.password_needs_update?).to be (false)
         end
       end
@@ -107,7 +103,6 @@ describe PasswordValidator, type: :model do
         before do
           user.password = 'Password@1'
           user.save
-
           allow_any_instance_of(User).to receive(:no_histories?)
             .and_return(false)
         end
@@ -117,7 +112,6 @@ describe PasswordValidator, type: :model do
             .and_return(
               Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months + 10.minute)
             )
-
            expect(user.password_needs_update?).to be (true)
         end
 
