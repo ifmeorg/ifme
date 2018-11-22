@@ -6,6 +6,8 @@ module PasswordValidator
   PASSWORD_VALIDITY_MONTHS = 12
 
   def password_needs_update?
+    return false if google_oauth2_enabled?
+
     no_histories? || outdated_password?
   end
 
@@ -13,7 +15,7 @@ module PasswordValidator
 
   def outdated_password?
     updated_on = password_histories.last.try(:created_at)
-    return false unless google_oauth2_enabled? || updated_on
+    return false unless updated_on
 
     (updated_on + PASSWORD_VALIDITY_MONTHS.months) < Time.zone.now
   end
