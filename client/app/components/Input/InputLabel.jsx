@@ -9,7 +9,6 @@ import {
 import { Tooltip } from '../Tooltip';
 import css from './Input.scss';
 import globalCss from '../../styles/_global.scss';
-import { I18n } from '../../libs/i18n';
 
 export type Props = {
   label: string,
