@@ -110,7 +110,7 @@
   {
     "name": "Insight Timer",
     "link": "https://insighttimer.com",
-    "tags": ["free", "meditation", "teachers", "support_groups", "self_care", "android", "ios"],
+    "tags": ["free", "meditation", "teachers", "self_care", "android", "ios"],
     "languages": ["en"]
   },
   {
@@ -171,6 +171,12 @@
     "name": "Callisto (US)",
     "link": "https://www.projectcallisto.org/",
     "tags": ["sexual_assault_survivors", "harassment", "reporting"],
+    "languages": ["en"]
+  },
+  {
+    "name": "#selfcare app",
+    "link": "http://truluv.ai/selfcare/",
+    "tags": ["meditation", "game", "self_care", "android", "ios", "free"],
     "languages": ["en"]
   }
 ]
