@@ -73,7 +73,7 @@ de:
       location: Ort
       description: Beschreibung
       error_explanation: 'Bitte fülle die markierten Felder aus!'
-      press_enter: 'Drücke ENTER zum Hinzufügen'
+      search_by_keywords: 'Suche nach Schlüsselwörtern'
     time_ago: 'Vor %{date}'
     write_to_us: 'schreibe uns'
     days: Tage
@@ -532,6 +532,7 @@ de:
         sexual_assault_survivors: 'Überlebende sexueller Übergriffe'
         political_movement: 'politische Bewegung'
         reporting: Berichterstattung
+        game: spiel
   profile:
     index:
       title: Profil

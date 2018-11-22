@@ -72,7 +72,7 @@ pt-BR:
       location: Localização
       description: Descrição
       error_explanation: 'Please fill out the marked fields!'
-      press_enter: 'Pressione ENTER para adicionar'
+      search_by_keywords: 'Pesquisar por palavras-chave'
     time_ago: '%{date} atrás'
     write_to_us: join.ifme@gmail.com
     days: Dias
@@ -524,6 +524,7 @@ pt-BR:
         sexual_assault_survivors: 'sobreviventes de agressão sexual'
         political_movement: 'movimento político'
         reporting: reportando
+        game: jogo
   profile:
     index:
       title: Perfil

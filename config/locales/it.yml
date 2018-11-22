@@ -72,7 +72,7 @@ it:
       location: Luogo
       description: Descrizione
       error_explanation: 'Per favore, riempi i campi indicati!'
-      press_enter: 'Premi INVIO per aggiungere'
+      search_by_keywords: 'Cerca per parole chiave'
     time_ago: '%{date} fa'
     write_to_us: scrivici
     days: giorni
@@ -524,6 +524,7 @@ it:
         sexual_assault_survivors: 'sopravvissuti all''assalto sessuale'
         political_movement: 'movimento politico'
         reporting: segnalazione
+        game: gioco
   profile:
     index:
       title: Profilo

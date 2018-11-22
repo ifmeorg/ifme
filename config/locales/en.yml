@@ -72,7 +72,7 @@ en:
       location: Location
       description: Description
       error_explanation: 'Please fill out the marked fields!'
-      press_enter: 'Press ENTER to add'
+      search_by_keywords: 'Search by keyword'
     time_ago: '%{date} ago'
     write_to_us: 'write to us'
     days: Days
@@ -524,6 +524,7 @@ en:
         sexual_assault_survivors: 'sexual assault survivors'
         political_movement: 'political movement'
         reporting: reporting
+        game: game
   profile:
     index:
       title: Profile

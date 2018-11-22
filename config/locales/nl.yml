@@ -72,7 +72,7 @@ nl:
       location: Locatie
       description: Omschrijving
       error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
-      press_enter: 'Druk op ENTER om toe te voegen'
+      search_by_keywords: 'Zoeken op trefwoorden'
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'
     days: dagen
@@ -524,6 +524,7 @@ nl:
         sexual_assault_survivors: 'aanranding overlevenden'
         political_movement: 'politieke beweging'
         reporting: rapportage
+        game: spel
   profile:
     index:
       title: Profiel

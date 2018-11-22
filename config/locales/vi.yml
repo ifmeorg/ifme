@@ -72,7 +72,7 @@ vi:
       location: 'Vị trí'
       description: 'Mô tả'
       error_explanation: 'Vui lòng điền đầy đủ các trường được làm đậm!'
-      press_enter: 'Vui lòng nhắn ENTER để cộng thêm'
+      search_by_keywords: 'Tìm kiếm theo từ khóa'
     time_ago: 'Cách đây %{date} ngày'
     write_to_us: 'viết cho chúng tôi'
     days: Ngày
@@ -523,7 +523,8 @@ vi:
         adhd: ADHD
         sexual_assault_survivors: 'những người sống sót tấn công tình dục'
         political_movement: 'phong trào chính trị'
-        reporting: 'Báo cáo'
+        reporting: 'báo cáo'
+        game: 'trò chơi'
   profile:
     index:
       title: 'Hồ sơ'

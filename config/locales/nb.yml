@@ -72,7 +72,7 @@ nb:
       location: Plassering
       description: Beskrivelse
       error_explanation: 'Vennligst fyll inn de markerte feltene!'
-      press_enter: 'Press ENTER for å legge til'
+      search_by_keywords: 'Søk etter nøkkelord'
     time_ago: '%{date} siden'
     write_to_us: 'skriv til oss'
     days: Dager
@@ -524,6 +524,7 @@ nb:
         sexual_assault_survivors: 'overgrep overfor seksuelle overgrep'
         political_movement: 'politisk bevegelse'
         reporting: rapportering
+        game: spill
   profile:
     index:
       title: Profil

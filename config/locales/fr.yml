@@ -72,7 +72,7 @@ fr:
       location: Emplacement
       description: Description
       error_explanation: 'Merci de compléter les champs indiqués!'
-      press_enter: 'Pressez Entrée pour ajouter'
+      search_by_keywords: 'Recherche par mots-clés'
     time_ago: 'il y a %{date}'
     write_to_us: 'nous écrire'
     days: Jours
@@ -524,6 +524,7 @@ fr:
         sexual_assault_survivors: 'survivants d''agression sexuelle'
         political_movement: 'mouvement politique'
         reporting: signaler
+        game: jeu
   profile:
     index:
       title: Profile

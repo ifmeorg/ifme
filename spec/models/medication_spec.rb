@@ -6,7 +6,7 @@
 #  id                :bigint(8)        not null, primary key
 #  name              :string
 #  dosage            :integer
-#  refill            :string
+#  refill            :datetime
 #  created_at        :datetime
 #  updated_at        :datetime
 #  user_id           :integer
