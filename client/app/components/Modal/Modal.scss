@@ -33,8 +33,10 @@
     height: 60vh;
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
+      position: absolute;
       width: 100vw;
-      height: 100vh;
+      height: 80vh;
+      margin: 0 auto;
       border-radius: 0;
     }
     &Header {
