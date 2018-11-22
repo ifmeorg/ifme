@@ -71,7 +71,7 @@ en:
       location: Location
       description: Description
       error_explanation: 'Please fill out the marked fields!'
-      search_by_keywords: 'Search by keyword'
+      search_by_keywords: 'Search by keywords'
     time_ago: '%{date} ago'
     write_to_us: 'write to us'
     days: Days
