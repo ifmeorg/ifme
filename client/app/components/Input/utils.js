@@ -63,6 +63,7 @@ export type Props = {
   small?: boolean,
   large?: boolean,
   value?: any,
+  ariaLabel: any,
   readOnly?: boolean,
   disabled?: boolean,
   required?: boolean,

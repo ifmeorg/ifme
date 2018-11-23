@@ -159,14 +159,14 @@ export class Input extends React.Component<Props, State> {
 
   displaySelect = () => {
     const {
-      options, name, id, aria, value, onChange, type,
+      options, name, id, ariaLabel, value, onChange, type,
     } = this.props;
     if (type === 'select' && options) {
       return (
         <InputSelect
           name={name}
           id={id}
-          aria={aria}
+          ariaLabel={ariaLabel}
           value={value}
           options={options}
           onChange={onChange}

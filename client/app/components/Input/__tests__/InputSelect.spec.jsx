@@ -6,7 +6,7 @@ import { InputMocks } from '../../../mocks/InputMocks';
 
 const { id } = InputMocks.inputSelectProps;
 const { name } = InputMocks.inputSelectProps;
-const { aria } = InputMocks.inputSelectProps;
+const { ariaLabel } = InputMocks.inputSelectProps;
 const { value } = InputMocks.inputSelectProps;
 const { options } = InputMocks.inputSelectProps;
 const someEvent = InputMocks.event;
@@ -21,7 +21,7 @@ describe('InputSelect', () => {
       <InputSelect
         name={name}
         id={id}
-        aria={aria}
+        ariaLabel={ariaLabel}
         value={value}
         options={options}
         onChange={someEvent}
