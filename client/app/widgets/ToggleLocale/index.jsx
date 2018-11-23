@@ -50,6 +50,3 @@ export const ToggleLocale = (props: Props) => {
     </div>
   );
 };
-
-
-//<label for="locale">{I18n.t('language')}</label>

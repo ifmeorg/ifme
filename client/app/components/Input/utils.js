@@ -27,7 +27,7 @@ export const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
 export type Option = {
   id: string,
   value: any,
-  label: string
+  label: string,
 };
 
 export type Checkbox = {
