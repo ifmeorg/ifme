@@ -10,6 +10,7 @@ export type Props = {
   id: string,
   name?: string,
   ariaLabel?: string,
+  label?: string,
   value?: any,
   options: Option[],
   onChange?: Function,
@@ -35,7 +36,7 @@ export class InputSelect extends React.Component<Props, State> {
 
   render() {
     const {
-      id, name, options, ariaLabel, label
+      id, name, options, ariaLabel, label,
     } = this.props;
     const { value } = this.state;
     return (
