@@ -22,8 +22,7 @@ class CalendarUploader
   end
 
   def upload_event
-    parsed_date = Chronic.parse(date, endian_precedence: %i[little median])
-                         .to_time.iso8601
+    parsed_date = date.to_time.iso8601
 
     event = {
       summary: summary,
