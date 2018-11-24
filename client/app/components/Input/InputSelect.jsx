@@ -9,7 +9,7 @@ import type { Option } from './utils';
 export type Props = {
   id: string,
   name?: string,
-  ariaLabel?: any,
+  ariaLabel?: string,
   value?: any,
   options: Option[],
   onChange?: Function,
@@ -35,7 +35,7 @@ export class InputSelect extends React.Component<Props, State> {
 
   render() {
     const {
-      id, name, options, ariaLabel,
+      id, name, options, ariaLabel, label
     } = this.props;
     const { value } = this.state;
     return (
@@ -46,7 +46,7 @@ export class InputSelect extends React.Component<Props, State> {
         <select
           id={id}
           name={name}
-          aria-label={ariaLabel}
+          aria-label={label || ariaLabel}
           value={value}
           onChange={this.toggleValue}
         >
