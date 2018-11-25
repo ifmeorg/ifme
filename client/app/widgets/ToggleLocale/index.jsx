@@ -36,15 +36,15 @@ const onChange = (e: SyntheticEvent<HTMLInputElement>) => {
 export const ToggleLocale = (props: Props) => {
   const { locale, locales } = props;
   return (
-      <Input
-        id="locale"
-        type="select"
-        name="locale"
-        ariaLabel={I18n.t('language')}
-        value={locale}
-        options={options(locales)}
-        onChange={onChange}
-        small
-      />
+    <Input
+      id="locale"
+      type="select"
+      name="locale"
+      ariaLabel={I18n.t('language')}
+      value={locale}
+      options={options(locales)}
+      onChange={onChange}
+      small
+    />
   );
 };
