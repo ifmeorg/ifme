@@ -33,7 +33,6 @@
     height: 60vh;
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
-      position: absolute;
       width: 100vw;
       height: 100%;
       margin: 0 auto;
