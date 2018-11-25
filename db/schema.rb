@@ -167,6 +167,12 @@ ActiveRecord::Schema.define(version: 2018_11_19_152925) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "password_histories", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "encrypted_password"
+    t.datetime "created_at", null: false
+  end
+
   create_table "perform_strategy_reminders", id: :serial, force: :cascade do |t|
     t.integer "strategy_id", null: false
     t.boolean "active", null: false

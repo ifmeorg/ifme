@@ -46,10 +46,8 @@
 
 class User < ApplicationRecord
   include PasswordValidator
+  include AllyConcern
 
-  ALLY_STATUS = {
-    accepted: 0, pending_from_user: 1, pending_from_ally: 2
-  }.freeze
   OAUTH_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
 
   # Include default devise modules. Others available are:
@@ -59,7 +57,7 @@ class User < ApplicationRecord
          omniauth_providers: [:google_oauth2]
 
   mount_uploader :avatar, AvatarUploader
-  before_save :remove_leading_trailing_whitespace
+
   has_many :allyships
   has_many :allies, through: :allyships
   has_many :alerts
@@ -72,8 +70,13 @@ class User < ApplicationRecord
   has_many :moods
   has_many :moments
   has_many :categories
+  has_many :password_histories, dependent: :destroy
   belongs_to :invited_by, class_name: 'User'
+
   after_initialize :set_defaults, unless: :persisted?
+  before_save :remove_leading_trailing_whitespace
+  after_save :create_password_history
+
   validates :name, presence: true
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
@@ -82,19 +85,6 @@ class User < ApplicationRecord
 
   def active_for_authentication?
     super && !banned
-  end
-
-  def ally?(user)
-    allies_by_status(:accepted).include?(user)
-  end
-
-  def allies_by_status(status)
-    allyships.includes(:ally).where(status: ALLY_STATUS[status])
-             .map(&:ally).reject(&:banned)
-  end
-
-  def available_groups(order)
-    ally_groups.order(order) - groups
   end
 
   def self.find_for_google_oauth2(access_token)
@@ -111,10 +101,6 @@ class User < ApplicationRecord
 
   def google_oauth2_enabled?
     token.present?
-  end
-
-  def mutual_allies?(user)
-    ally?(user) && user.ally?(self)
   end
 
   def remove_leading_trailing_whitespace
@@ -156,14 +142,5 @@ class User < ApplicationRecord
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
-  end
-
-  def accepted_ally_ids
-    allyships.where(status: ALLY_STATUS[:accepted]).pluck(:ally_id)
-  end
-
-  def ally_groups
-    Group.includes(:group_members)
-         .where(group_members: { user_id: accepted_ally_ids })
   end
 end

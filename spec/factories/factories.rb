@@ -109,4 +109,9 @@ FactoryBot.define do
   factory :refill_reminder do
     active { true }
   end
+
+  factory :password_history do
+    user
+    encrypted_password { SecureRandom.hex }
+  end
 end

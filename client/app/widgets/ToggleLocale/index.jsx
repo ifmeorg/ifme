@@ -42,6 +42,7 @@ export const ToggleLocale = (props: Props) => {
         aria-label={I18n.t('language')}
         type="select"
         name="locale"
+        ariaLabel={I18n.t('language')}
         value={locale}
         options={options(locales)}
         onChange={onChange}
