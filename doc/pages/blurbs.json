@@ -360,5 +360,14 @@
     "link_name": "matcha440",
     "link": "https://github.com/matcha440",
     "social": "github"
+  },
+  {
+    "name": "Carl Summers",
+    "image": "/assets/contributors/carl_summers.jpg",
+    "profile": "I used to be an English teacher and musician but turned to programming. I found if-me after being told by a friend that open source projects could help me to code, and it was aligned with what I was looking for. I believe in its message as I spent a large portion of my life with mental health struggles. Contributing is my call to give back to those who are going and went through the same things that I did.",
+    "location": "Montreal, QC",
+    "link_name": "csumm",
+    "link": "https://github.com/csumm",
+    "social": "github"
   }
 ]
