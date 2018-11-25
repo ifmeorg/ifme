@@ -369,5 +369,14 @@
     "link_name": "csumm",
     "link": "https://github.com/csumm",
     "social": "github"
-  }
+  },
+  {
+    "name": "Alex Manzo",
+    "image": "/assets/contributors/alex_manzo.jpg",
+    "profile": "I'm a sports video producer turned web developer. By day I work on a government contract, and in my spare time I like to work on an array of side projects. Contributing to if me is my first foray into open source, and I'm excited to contribute as much as I can! I have done a lot of work on my own mental health over the past year. I know just how difficult different mental health challenges can be. I was so excited to find if me since it aligns so much with what I have been working on personally.",
+    "location": "Durham, NC",
+    "link_name": "alexmanzo",
+    "link": "https://github.com/alexmanzo",
+    "social": "github"
+ }
 ]
