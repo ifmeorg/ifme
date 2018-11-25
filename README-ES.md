@@ -6,7 +6,7 @@
 
 # if me
 
-[Si soy](https://www.if-me.org/) una comunidad para experiencias de salud mental que alienta a las personas a compartir sus historias personales con aliados de confianza. Los aliados de confianza son las personas con las que interactuamos a diario, incluidos amigos, familiares, compañeros de trabajo, maestros y trabajadores de salud mental.
+[if me](https://www.if-me.org/) una comunidad para experiencias de salud mental que alienta a las personas a compartir sus historias personales con aliados de confianza. Los aliados de confianza son las personas con las que interactuamos a diario, incluidos amigos, familiares, compañeros de trabajo, maestros y trabajadores de salud mental.
 
 Tratar con la salud mental es lo que nos hace humanos. Pero para muchos de nosotros, es una lucha ser abierto al respecto. No todos son consejeros o terapeutas. Las personas con las que interactuamos todos los días dan forma a nuestras emociones y comportamiento. Involucrarlos en el tratamiento de la salud mental es la clave para la recuperación.
 
@@ -42,10 +42,10 @@ También tenemos una página de [Patreon](https://www.patreon.com/ifme) donde pu
 ### Patrocinadores
 
 ¡Gracias a nuestros patrocinadores de Patreon, [Rob Drimmie](https://www.patreon.com/user?u=3251857),
-[Joseph D. Marhee](https://www.patreon.com/user?u=2899171) y 
+[Joseph D. Marhee](https://www.patreon.com/user?u=2899171) y
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-¡Gracias a todos nuestros patrocinadores de Open Collective! 
+¡Gracias a todos nuestros patrocinadores de Open Collective!
 [Become a backer!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
