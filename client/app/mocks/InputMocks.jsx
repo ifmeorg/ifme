@@ -46,6 +46,7 @@ const inputTextareaProps = {
 const inputSelectProps = {
   id: 'some-select-id',
   type: 'select',
+  ariaLabel: 'some-select-label',
   name: 'some-select-name',
   label: 'Some Select Label',
   value: 2,
