@@ -412,6 +412,10 @@ de:
       email_notifications_question: 'Wie kann ich meine E-Mail Einstellungen ändern?'
       email_notifications_answer: 'Gehe zu deiner <strong>%{accounts}</strong>-Seite. Du kannst deine E-Mail, dein Passwort, dein Profilbild und Beschreibung ändern. Wenn du dein Konto löschst, gehe alle deine Daten verloren.'
     home:
+      update_pwd_modal:
+        title: 'Passwort erneuern'
+        body: 'Wir haben bessere Sicherheitsmaßnahmen für unsere Benutzer durchgesetzt %{update_password_link}'
+        update_link: 'Aktualisieren Sie Ihr Passwort.'
       stories: Geschichten
       welcome: Willkommen
       not_signed_in:
@@ -659,7 +663,9 @@ de:
       meeting_notify_text: Meeting-Updates
       google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
       google_auth2: 'Da du mit Google angemeldet bist, brauchst du kein Passwort eingeen.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und ein Passwort ein.'
-      password_complexity_error: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen.'
+      password_errors:
+        format: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen.'
+        used: 'muss sich von den letzten drei Passwörtern unterscheiden.'
       placeholders:
         repeat_password: 'Passwort wiederholen'
       edit:

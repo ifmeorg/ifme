@@ -406,6 +406,10 @@ pt-BR:
       email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
       email_notifications_answer: 'Vá para a página <strong>%{accounts}</strong>. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira.'
     home:
+      update_pwd_modal:
+        title: 'Atualizar senha'
+        body: 'Nós reforçamos as medidas de segurança para nossos usuários, por favor %{update_password_link}'
+        update_link: 'atualize sua senha.'
       stories: Histórias
       not_signed_in:
         main_message_one: 'Comunicação otimizada com as pessoas amadas leva a melhora da saúde mental.'
@@ -650,7 +654,9 @@ pt-BR:
       meeting_notify_text: 'Atualizações de reuniões'
       google_auth1: 'Caso você não queira mais fazer login com sua conta Google, por favor digite um novo email e uma nova senha.'
       google_auth2: 'Com a sua conta Google, você não precisa digitar sua senha.<br> Caso você queira mudar isso, por favor cadastre-se com um novo email e uma nova senha.'
-      password_complexity_error: 'deve conter 8 a 128 caracteres, incluindo 1 maiúsculo, 1 minúsculo, 1 dígito e 1 caractere especial.'
+      password_errors:
+        format: 'deve conter 8 a 128 caracteres, incluindo 1 maiúsculo, 1 minúsculo, 1 dígito e 1 caractere especial.'
+        used: 'deve ser diferente das últimas três senhas.'
       placeholders:
         repeat_password: 'Digite novamente sua senha'
       edit:

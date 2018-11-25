@@ -406,6 +406,10 @@ sv:
       email_notifications_question: 'Hur kan jag ändra e-postmeddelanden?'
       email_notifications_answer: 'Gå till <strong>%{accounts}</strong> sidan. Du kan ändra din e-postadress, lösenord, profilbild och bio här. Du kan också ta bort ditt konto. När du har raderat ditt konto raderas alla dina data.'
     home:
+      update_pwd_modal:
+        title: 'Uppdatera lösenordet'
+        body: 'Vi har genomfört bättre säkerhetsåtgärder för våra användare, tack %{update_password_link}'
+        update_link: 'uppdatera lösenordet'
       stories: Berättelser
       not_signed_in:
         main_message_one: 'Bättre kommunikation med nära och kära leder till bättre mental hälsa.'
@@ -650,7 +654,9 @@ sv:
       meeting_notify_text: Mötesuppdateringar
       google_auth1: 'Om du inte längre vill verifieras med Google anger du ett nytt e-post och lösenord.'
       google_auth2: 'Eftersom du är autentiserad med Google behöver du inte ange ditt lösenord. <br> Om du vill ändra detta anger du en ny e-postadress och lösenord.'
-      password_complexity_error: 'bör innehålla 8 till 128 tecken, inklusive 1 versal, 1 små bokstav, 1 siffra och 1 specialtecken.'
+      password_errors:
+        format: 'bör innehålla 8 till 128 tecken, inklusive 1 versal, 1 små bokstav, 1 siffra och 1 specialtecken.'
+        used: 'måste skilja sig från de senaste tre lösenorden.'
       placeholders:
         repeat_password: 'Repetera lösenord'
       edit:

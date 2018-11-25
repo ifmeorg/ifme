@@ -406,6 +406,10 @@ es:
       email_notifications_question: '¿Cómo puedo modificar mis preferencias de notificaciones de correo electrónico?'
       email_notifications_answer: 'Ve a la página de <strong>%{accounts}</strong>. Aquí puedes modificar tu correo electrónico, contraseña, foto de perfil, y biografía. También puedes eliminar tu cuenta.'
     home:
+      update_pwd_modal:
+        title: 'Actualiza contraseña'
+        body: 'Hemos implementado mejores medidas de seguridad para nuestros usuarios, por favor %{update_password_link}'
+        update_link: 'actualiza tu contraseña.'
       stories: Historias
       not_signed_in:
         main_message_one: 'Mejor comunicación con nuestros seres queridos conlleva a mejor salud mental.'
@@ -650,7 +654,9 @@ es:
       meeting_notify_text: 'Actualizaciones de reuniones'
       google_auth1: 'Si ya no deseas verificar tu identidad a través de Google, por favor ingresa un nuevo correo electrónico y contraseña.'
       google_auth2: 'Debido a que tu identidad ha sido confirmada a través de Google, no necesitas ingresar tu contraseña.<br>Si deseas modificar esto, por favor ingresa un nuevo correo electrónico y contraseña.'
-      password_complexity_error: 'debe contener de 8 a 128 caracteres, incluyendo 1 mayúscula, 1 minúscula, 1 dígito y 1 carácter especial.'
+      password_errors:
+        format: 'debe contener de 8 a 128 caracteres, incluyendo 1 mayúscula, 1 minúscula, 1 dígito y 1 carácter especial.'
+        used: 'debe ser diferente de las últimas tres contraseñas.'
       placeholders:
         repeat_password: 'Repetir contraseña'
       edit:

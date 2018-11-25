@@ -406,6 +406,10 @@ vi:
       email_notifications_question: 'Làm thề nao để thiết kế lại thông báo?'
       email_notifications_answer: 'Truy cập trang <strong>%{accounts}</strong>. Bạn có thể sửa đổi email, mật khẩu, ảnh hồ sơ và Bạn cũng có thể xóa tài khoản của mình. Khi bạn xóa tài khoản, tất cả dữ liệu của bạn sẽ bị xóa.'
     home:
+      update_pwd_modal:
+        title: 'cập nhật mật khẩu của bạn'
+        body: 'Chúng tôi đã thực thi các biện pháp bảo mật tốt hơn cho người dùng của mình, vui lòng %{update_password_link}'
+        update_link: 'cập nhật mật khẩu của bạn.'
       stories: 'Câu chuyện'
       not_signed_in:
         main_message_one: 'Một cuộc trao đổi tích cực với những người bạn yêu mến sẽ giúp cho bạn có một sức khỏe tâm thần tốt hơn.'
@@ -650,7 +654,9 @@ vi:
       meeting_notify_text: 'Cập nhật họp nhóm'
       google_auth1: 'Nếu bạn không muốn xác minh tài khoản thông qua Google, xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
       google_auth2: 'Bởi vì bạn xác minh tài khoản thông quan Google, bạn không cần phải điền mật khẩu.<br>Nếu bạn muốn thay đổi xin vui lòng đăng nhập bằng một email và mật khẩu mới.'
-      password_complexity_error: 'nên chứa 8 đến 128 ký tự, bao gồm 1 chữ hoa, 1 chữ thường, 1 chữ số và 1 ký tự đặc biệt.'
+      password_errors:
+        format: 'nên chứa 8 đến 128 ký tự, bao gồm 1 chữ hoa, 1 chữ thường, 1 chữ số và 1 ký tự đặc biệt.'
+        used: 'phải khác với ba mật khẩu cuối cùng.'
       placeholders:
         repeat_password: 'Lập lại mật khẩu lần nữa'
       edit:

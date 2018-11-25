@@ -406,6 +406,10 @@ fr:
       email_notifications_question: 'Comment puis-je modifier les alertes email?'
       email_notifications_answer: 'Rendez-vous sur la page <strong>%{accounts}</strong>. Vous pouvez modifier votre email, mot de passe, photo de profil, et bio ici. Vous pouvez aussi supprimer votre compte. Une fois votre compte supprimé, toutes vos données sont supprimées.'
     home:
+      update_pwd_modal:
+        title: 'Mettre à jour le mot de passe'
+        body: 'Nous avons mis en place de meilleures mesures de sécurité pour nos utilisateurs, s''il vous plaît %{update_password_link}'
+        update_link: 'mettre à jour votre mot de passe.'
       stories: Histoire
       not_signed_in:
         main_message_one: 'Une meilleure communication avec vos proches conduit à un meilleur bien-être psychique.'
@@ -650,14 +654,16 @@ fr:
       meeting_notify_text: 'Mise à jour de réunions'
       google_auth1: 'Si vous ne voulez plus vous identifiez avec Google, merci de fournir une adresse email et un nouveau mot de passe.'
       google_auth2: 'Comme vous vous êtes identifié via Google, vous n''avez pas besoin de mot de passe.<br>Si vous voulez changer cela, merci de fournir une adresse email et un nouveau mot de passe.'
-      password_complexity_error: 'doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.'
+      password_errors:
+        format: 'doit contenir de 8 à 128 caractères, dont 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.'
+        used: 'doit être différent des trois derniers mots de passe.'
       placeholders:
         repeat_password: 'Répetez mot de passe'
       edit:
         labels:
           profile_picture: 'Photo de profile'
           remove_picture: 'Effacer la photo'
-          about: 'À notre propos'
+          about: 'À propos'
           password_for: 'Mot de passe pour votre compte <strong>if me</strong>'
           update: 'Mise à jour'
         placeholders:

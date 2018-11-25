@@ -406,6 +406,10 @@ nb:
       email_notifications_question: 'Hvordan kan jeg forandre e-post påminnelser?'
       email_notifications_answer: 'Gå til <strong>%{accounts}</strong> siden. Du kan forandre e-posten din, passordet, profilbildet, og biografien din her. Du kan også slette kontoen din. Med en gang du sletter kontoen din slettes all informasjonen din.'
     home:
+      update_pwd_modal:
+        title: 'Oppdater passord'
+        body: 'Vi har håndhevet bedre sikkerhetstiltak for våre brukere, vær så snill %{update_password_link}'
+        update_link: 'Oppdater passordet ditt.'
       stories: Historier
       not_signed_in:
         main_message_one: 'Bedre kommunikasjon med kjente leder til bedre mental helse.'
@@ -650,7 +654,9 @@ nb:
       meeting_notify_text: Møteoppdateringer
       google_auth1: 'Hvis du ikke lenger ønsker å bli autorisert med Google, vennligst fyll inn en ny e-post og passord.'
       google_auth2: 'Siden du ikke er autorisert med Google trenger du ikke å taste inn passordet ditt.<br>Hvis du ønsker å forandre dette, vennligst fyll inn e-post og passord på nytt.'
-      password_complexity_error: 'bør inneholde 8 til 128 tegn, inkludert 1 stor, 1 liten, 1 siffer og 1 spesialtegn.'
+      password_errors:
+        format: 'bør inneholde 8 til 128 tegn, inkludert 1 stor, 1 liten, 1 siffer og 1 spesialtegn.'
+        used: 'må være forskjellig fra de tre siste passordene.'
       placeholders:
         repeat_password: 'Gjenta passord'
       edit:

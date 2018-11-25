@@ -406,6 +406,10 @@ nl:
       email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
       email_notifications_answer: 'Ga naar de <strong>%{accounts}</strong> pagina. Je kunt je e-mail, wachtwoord, profielfoto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijdert, wordt al je ook data verwijderd.'
     home:
+      update_pwd_modal:
+        title: 'Vernieuw wachtwoord'
+        body: 'We hebben alsjeblieft betere beveiligingsmaatregelen voor onze gebruikers afgedwongen %{update_password_link}'
+        update_link: 'update uw wachtwoord.'
       stories: Verhalen
       not_signed_in:
         main_message_one: 'Betere communicatie met naasten leidt tot betere geestelijke gezondheid.'
@@ -650,7 +654,9 @@ nl:
       meeting_notify_text: 'Samenkomstupdates'
       google_auth1: 'Als je niet langer via Google wilt inloggen, geef dan een nieuw e-mailadres en wachtwoord op.'
       google_auth2: 'Omdat je via Google inlogt, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen, geef dan een nieuw e-mailadres en wachtwoord op.'
-      password_complexity_error: 'moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.'
+      password_errors:
+        format: 'moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.'
+        used: 'moet anders zijn dan de laatste drie wachtwoorden.'
       placeholders:
         repeat_password: 'Herhaal Wachtwoord'
       edit:

@@ -406,6 +406,10 @@ it:
       email_notifications_question: 'Come posso gestire le notifiche che ricevo via EMail?'
       email_notifications_answer: 'Vai sulla pagina <strong>%{accounts}</strong>. Puoi modificare la tua EMail, password, immagine del profilo e introduzione. Puoi anche eliminare il tuo account. Una volta fatto ciò, tutti i tuoi dati saranno eliminati.'
     home:
+      update_pwd_modal:
+        title: 'Aggiorna password'
+        body: 'Abbiamo rafforzato le migliori misure di sicurezza per i nostri utenti, per favore %{update_password_link}'
+        update_link: 'aggiorna la tua password'
       stories: Storie
       not_signed_in:
         main_message_one: 'Una migliore comunicazioni con i propri cari porta ad un migliore stato mentale.'
@@ -650,7 +654,9 @@ it:
       meeting_notify_text: 'Aggiornamenti sui raduni'
       google_auth1: 'Se non vuoi più effettuare l’autenticazione tramite Google, per favore inserisci una nuova EMail e password.'
       google_auth2: 'Avendo effettuato l’autenticazione tramite Google, non devi inserire la password.<br>Se non vuoi che sia così, per favore specifica una nuova EMail e password.'
-      password_complexity_error: 'dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1 minuscolo, 1 carattere e 1 carattere speciale.'
+      password_errors:
+        format: 'dovrebbe contenere da 8 a 128 caratteri, inclusi 1 maiuscolo, 1 minuscolo, 1 carattere e 1 carattere speciale.'
+        used: 'deve essere diverso dalle ultime tre password.'
       placeholders:
         repeat_password: 'Ripeti la password'
       edit:

@@ -72,7 +72,7 @@ en:
       location: Location
       description: Description
       error_explanation: 'Please fill out the marked fields!'
-      search_by_keywords: 'Search by keyword'
+      search_by_keywords: 'Search by keywords'
     time_ago: '%{date} ago'
     write_to_us: 'write to us'
     days: Days
@@ -406,6 +406,10 @@ en:
       email_notifications_question: 'How can I modify email notifications?'
       email_notifications_answer: 'Go to the <strong>%{accounts}</strong> page. You can modify your email, password, profile picture, and bio here. You can also delete your account. Once you delete your account, all your data is deleted.'
     home:
+      update_pwd_modal:
+        title: 'Update password'
+        body: 'We have enforced better security measures for our users, please %{update_password_link}'
+        update_link: 'update your password.'
       stories: Stories
       not_signed_in:
         main_message_one: 'Better communication with loved ones leads to better mental health.'
@@ -650,7 +654,9 @@ en:
       meeting_notify_text: 'Meeting updates'
       google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
       google_auth2: 'Since you are authenticated with Google, you do not need to enter your password.<br>If you want to change this, please enter a new email and password.'
-      password_complexity_error: 'should contain 8 to 128 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character.'
+      password_errors:
+        format: 'should contain 8 to 128 characters, including 1 uppercase, 1 lowercase, 1 digit, and 1 special character.'
+        used: 'must be different from last three passwords.'
       placeholders:
         repeat_password: 'Repeat Password'
       edit:
