@@ -287,24 +287,24 @@ ja:
     show:
       strategies: 'どんな作戦がいいですか？'
   moods:
-    singular: Mood
-    plural: Moods
-    edit_mood: 'Edit Mood'
-    new: 'New Mood'
-    example_moods: 'Nervous, Anxious, Hopeful'
+    singular: 気分
+    plural: 気分
+    edit_mood: '気分を編集する'
+    new: '新しい気分'
+    example_moods: '不安、ハラハラ、楽観的'
     index:
-      subtitle: 'Create tags describing your state of mind, feelings, and emotions.'
-      premade1_name: Accepting
-      premade1_description: 'Accepting and being at peace with differences and limitations'
-      premade2_name: Ambitious
-      premade2_description: 'Feeling optimistic about achieving goals'
-      premade3_name: Curious
-      premade3_description: 'Feeling curious about uncertainty'
-      premade4_name: Resentful
-      premade4_description: 'Not accepting certain facts, feeling angry, vengeful, and/or jealous'
-      premade5_name: Hopeless
-      premade5_description: 'Feeling sad and hopeless - unable to find any possible solutions'
-      instructions: 'You haven''t created any custom moods yet.<br>You can also add the following premade moods and customize them another time.'
+      subtitle: 'あなたの心の状態、気分、感情を記述するタグを作成します。'
+      premade1_name: 承諾
+      premade1_description: '事実には平和にいます。'
+      premade2_name: 野心的
+      premade2_description: '目標には希望があります。'
+      premade3_name: 好奇心
+      premade3_description: '不確実性を知りたいです。'
+      premade4_name: 恨みがましい
+      premade4_description: '事実を否定します。怒り、恨み、嫉妬を感じます。'
+      premade5_name: 切望的
+      premade5_description: '悲しい感じです。何もできないと考えます。'
+      instructions: '気分はまだ作成しませんでした。<br>後でカスタマイズしたら、この作り置きの気分を使えます。'
   notifications:
     plural: 通知
     none: 'ありません'
