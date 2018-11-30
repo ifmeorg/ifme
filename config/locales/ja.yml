@@ -291,20 +291,20 @@ ja:
     plural: 気分
     edit_mood: '気分を編集する'
     new: '新しい気分'
-    example_moods: '不安、ハラハラ、楽観的'
+    example_moods: '心配、不安、希望的'
     index:
-      subtitle: 'あなたの心の状態、気分、感情を記述するタグを作成します。'
-      premade1_name: 承諾
-      premade1_description: '事実には平和にいます。'
+      subtitle: 'あなたの気分と感情を記述するタグを作る。'
+      premade1_name: 認めている
+      premade1_description: '違いや制限を認めている。'
       premade2_name: 野心的
-      premade2_description: '目標には希望があります。'
-      premade3_name: 好奇心
-      premade3_description: '不確実性を知りたいです。'
+      premade2_description: '目標を達成する希望がある。'
+      premade3_name: 気になっている
+      premade3_description: '何何が知りたい'
       premade4_name: 恨みがましい
-      premade4_description: '事実を否定します。怒り、恨み、嫉妬を感じます。'
+      premade4_description: '事実を否定している。怒り、恨み、嫉妬などを感じている。'
       premade5_name: 切望的
-      premade5_description: '悲しい感じです。何もできないと考えます。'
-      instructions: '気分はまだ作成しませんでした。<br>後でカスタマイズしたら、この作り置きの気分を使えます。'
+      premade5_description: '悲しい。何もできないと考えざるが得ない。'
+      instructions: '気分はまだ作成してません。<br>後でカスタマイズしたら、この作り置きの気分を使えます。'
   notifications:
     plural: 通知
     none: 'ありません'
