@@ -360,5 +360,23 @@
     "link_name": "matcha440",
     "link": "https://github.com/matcha440",
     "social": "github"
-  }
+  },
+  {
+    "name": "Carl Summers",
+    "image": "/assets/contributors/carl_summers.jpg",
+    "profile": "I used to be an English teacher and musician but turned to programming. I found if-me after being told by a friend that open source projects could help me to code, and it was aligned with what I was looking for. I believe in its message as I spent a large portion of my life with mental health struggles. Contributing is my call to give back to those who are going and went through the same things that I did.",
+    "location": "Montreal, QC",
+    "link_name": "csumm",
+    "link": "https://github.com/csumm",
+    "social": "github"
+  },
+  {
+    "name": "Alex Manzo",
+    "image": "/assets/contributors/alex_manzo.jpg",
+    "profile": "I'm a sports video producer turned web developer. By day I work on a government contract, and in my spare time I like to work on an array of side projects. Contributing to if me is my first foray into open source, and I'm excited to contribute as much as I can! I have done a lot of work on my own mental health over the past year. I know just how difficult different mental health challenges can be. I was so excited to find if me since it aligns so much with what I have been working on personally.",
+    "location": "Durham, NC",
+    "link_name": "alexmanzo",
+    "link": "https://github.com/alexmanzo",
+    "social": "github"
+ }
 ]
