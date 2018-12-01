@@ -9,6 +9,8 @@ import type { Option } from './utils';
 export type Props = {
   id: string,
   name?: string,
+  ariaLabel?: string,
+  label?: string,
   value?: any,
   options: Option[],
   onChange?: Function,
@@ -33,14 +35,22 @@ export class InputSelect extends React.Component<Props, State> {
   };
 
   render() {
-    const { id, name, options } = this.props;
+    const {
+      id, name, options, ariaLabel, label,
+    } = this.props;
     const { value } = this.state;
     return (
       <div className={css.select}>
         <div className={css.selectIcon}>
           <FontAwesomeIcon icon={faCaretDown} />
         </div>
-        <select id={id} name={name} value={value} onChange={this.toggleValue}>
+        <select
+          id={id}
+          name={name}
+          aria-label={label || ariaLabel}
+          value={value}
+          onChange={this.toggleValue}
+        >
           {options.map((option: Option) => (
             <option id={option.id} value={option.value} key={option.value}>
               {renderHTML(option.label)}

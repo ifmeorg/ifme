@@ -34,7 +34,7 @@
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       border-radius: 0;
     }
     &Header {
