@@ -378,5 +378,14 @@
     "link_name": "alexmanzo",
     "link": "https://github.com/alexmanzo",
     "social": "github"
+ },
+ {
+   "name": "Lee Mulvey",
+   "image": "/assets/contributors/lee_mulvey.jpg",
+   "profile": "I spent 10+ years on a career track to being a police officer. While I have massive respect for the job that they do, I realized that I did not share the same values as most in that field. Five years ago, I decided to pursue my longtime hobby of web development as a proper career and now here I am. Mental health has been an issue close to my heart. I've had family and friends struggle with mental health–some who are no longer with us today. While we've come a long way in recent years battling the stigma (and sadly, even having to prove the existence of mental illness), we still have a long ways to go. The if-me platform excites me because it combines a great premise with things that I'm passionate about and I feel that I can contribute to. Proud contributor since Hacktoberfest 2018.",
+   "location": "Calgary, AB",
+   "link_name": "LMulvey",
+   "link": "https://github.com/lmulvey",
+   "social": "github"
  }
 ]
