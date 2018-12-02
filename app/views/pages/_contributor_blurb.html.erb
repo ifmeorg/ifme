@@ -1,0 +1,43 @@
+<div class="gridManyItem center">
+  <%= react_component('Modal', props: {
+    element: { 
+      component: 'Avatar', 
+      props: { 
+        src: ProfilePicture.normalize_url(blurb["image"]),
+        alt: t('pages.contribute.contributor_avatar_alt', {
+          name: blurb['name']
+        })
+      } 
+    },
+    body: <<~HEREDOC
+      <div class="contributorModalBody">
+        <div class="contributorModalBodyPhoto hideOnSmall">
+          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
+        </div>
+
+        <div class="contributorModalBodyCopy">
+          <div class="contributorModalHeader">
+            <div class="contributorModalBodyPhoto showOnSmall">
+                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
+            </div>
+            <div>
+              <div role="heading" class="contributorModalName">
+                #{blurb["name"]}
+              </div>
+              <div class="contributorModalBodySocialLinks">
+                <div class="socialLink">
+                  <i class="fa fa-location-arrow fa-inline"></i>#{blurb["location"]}
+                </div>
+                <div class="socialLink">
+                  <i class="#{get_icon_class(blurb["social"])} fa-inline"></i>
+                  #{link_to(blurb["link_name"], blurb["link"], target: 'blank')}
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>#{blurb["profile"]}</p>
+        </div>
+     
+    HEREDOC
+  }) %>
+</div>

@@ -1,9 +1,90 @@
-.hideContent {
-  display: none;
-}
+.contributorModalBody {
+	display: flex;
+	flex-direction: row;
 
-.readMoreShow,
-.readLessShow {
-  @include staticContentFakeLink();
-  cursor: pointer;
+	.contributorModalBodyPhoto {
+    flex: 0 1 30%;
+
+    &.showOnSmall {
+      display: none;
+    }
+
+    .contributorAvatar {
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      background: $mulberry-key-lime;
+      height: 150px;
+      width: 150px;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: $small) {
+      flex: 0 1 25%;
+      .contributorAvatar {
+        width: 100px;
+        height: 100px;
+      }
+
+      &.hideOnSmall{
+        display: none;
+      }
+
+      &.showOnSmall {
+        display: block;
+      }
+    }
+  }
+
+	.contributorModalBodyCopy {
+    margin-left: $size-18;
+    
+    .contributorModalHeader {
+      display: flex;
+      align-items: center;
+      flex-flow: row nowrap;
+
+      @media screen and (max-width: $small) {
+        flex-flow: column nowrap;
+        text-align: center;
+      }
+
+      .contributorModalName {
+        font-size: $size-36;
+        color: $mulberry;
+        line-height: $size-42;
+        font-weight: 400;
+        margin: $size-24 0 $size-10 0;
+
+        @media screen and (max-width: $small) {
+          margin-top: 0;
+        }
+      }
+
+      .contributorModalBodySocialLinks {
+        display: flex;
+        flex-flow: row nowrap;
+        font-size: $size-14;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        i:last-of-type {
+          margin-left: $size-10;
+        }
+        
+        @media screen and (max-width: $small) {
+          flex-flow: column nowrap;
+          text-align: center;
+
+          i:last-of-type {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+		p {
+			font-size: $size-18;
+		}
+	}
 }
