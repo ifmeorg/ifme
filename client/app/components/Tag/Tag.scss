@@ -1,7 +1,7 @@
 @import "../../styles/_global.scss";
 
 .tag {
-  @include setFontSize($size-12);
+  @include setFontSize($size-14);
   @include setMargin($size-0, $size-8, $size-8, $size-0);
   padding: $size-4 $size-12;
   text-indent: 4px;

@@ -6,6 +6,7 @@
   text-decoration: none;
   box-sizing: border-box;
   color: $mulberry !important;
+  cursor: pointer;
 }
 
 @mixin buttonFull() {
@@ -31,7 +32,7 @@
 }
 
 @mixin buttonXS() {
-  font-size: $size-14;
+  font-size: $size-16;
   padding: $size-12;
 }
 
