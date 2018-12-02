@@ -8,10 +8,10 @@
     @include setFontSize($size-12);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: $mulberry-80;
+    color: $mulberry-90;
     a {
       @include standardTransition();
-      color: $mulberry-80 !important;
+      color: $mulberry-90 !important;
     }
   }
   &By {
@@ -70,7 +70,7 @@
   .action {
     @include setFontSize($size-20);
     cursor: pointer;
-    color: $mulberry-80;
+    color: $mulberry-90;
     &Dark {
       color: $white,
     }
@@ -91,7 +91,7 @@
   @include setMargin($size-10, $size-0, $size-0, $size-0);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: $mulberry-80;
+  color: $mulberry-90;
 }
 
 .draft {
