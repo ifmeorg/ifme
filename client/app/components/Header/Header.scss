@@ -28,7 +28,6 @@
     font-size: $size-16;
     @media screen and (max-width: $medium) {
       text-align: center;
-      font-size: $size-18;
     }
   }
 
@@ -144,7 +143,6 @@
         flex-direction: row;
         letter-spacing: 0.0571429em;
         text-transform: uppercase;
-        font-weight: $font-weight-300;
         > div {
           @include setMargin($size-0, $size-26, $size-0, $size-0);
         }
