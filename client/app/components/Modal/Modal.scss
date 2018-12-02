@@ -4,6 +4,9 @@
   &Element {
     display: inline-block;
     cursor: pointer;
+    img:hover {
+      opacity: 0.8;
+    }
   }
 
   &Backdrop {
