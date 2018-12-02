@@ -1,14 +1,13 @@
 .contributorModalBody {
+  @include dashboardSectionLink();
 	display: flex;
-	flex-direction: row;
+  flex-direction: row;
 
-	.contributorModalBodyPhoto {
+	&Photo {
     flex: 0 1 30%;
-
     &.showOnSmall {
       display: none;
     }
-
     .contributorAvatar {
       border-radius: 50%;
       overflow: hidden;
@@ -18,73 +17,71 @@
       width: 150px;
       margin: 0 auto;
     }
-
+    @media screen and (max-width: $medium) {
+      .contributorAvatar {
+        height: 120px;
+        width: 120px;
+      }
+    }
     @media screen and (max-width: $small) {
       flex: 0 1 25%;
       .contributorAvatar {
         width: 100px;
         height: 100px;
       }
-
       &.hideOnSmall{
         display: none;
       }
-
       &.showOnSmall {
         display: block;
       }
     }
   }
 
-	.contributorModalBodyCopy {
-    margin-left: $size-18;
-    
+	&Copy {
+    margin-left: $size-40;
     .contributorModalHeader {
       display: flex;
       align-items: center;
       flex-flow: row nowrap;
-
-      @media screen and (max-width: $small) {
-        flex-flow: column nowrap;
-        text-align: center;
-      }
-
       .contributorModalName {
-        font-size: $size-36;
+        @include setMargin($size-0, $size-0, $size-10, $size-0);
+        @include setFontSize($size-36);
         color: $mulberry;
-        line-height: $size-42;
-        font-weight: 400;
-        margin: $size-24 0 $size-10 0;
-
-        @media screen and (max-width: $small) {
-          margin-top: 0;
-        }
       }
-
       .contributorModalBodySocialLinks {
+        @include setFontSize($size-16);
         display: flex;
         flex-flow: row nowrap;
-        font-size: $size-14;
         text-transform: uppercase;
         letter-spacing: 2px;
-
-        i:last-of-type {
-          margin-left: $size-10;
-        }
-        
-        @media screen and (max-width: $small) {
-          flex-flow: column nowrap;
-          text-align: center;
-
-          i:last-of-type {
-            margin-left: 0;
+        .socialLink {
+          margin-right: $size-20;
+          &:last-of-type {
+            margin-right: $size-0;
           }
         }
       }
     }
-
-		p {
-			font-size: $size-18;
-		}
+    @media screen and (max-width: $medium) {
+      margin-left: $size-30;
+    }
+    @media screen and (max-width: $small) {
+      margin-left: $size-0;
+      .contributorModalHeader {
+        flex-flow: column nowrap;
+        text-align: center;
+        .contributorModalBodySocialLinks {
+          flex-flow: column nowrap;
+          text-align: center;
+          .socialLink {
+            margin-right: $size-0;
+            &:last-of-type {
+              margin-top: $size-10;
+            }
+          }
+        }
+      }
+    }
 	}
 }

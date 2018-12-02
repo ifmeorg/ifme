@@ -22,9 +22,7 @@
   &Box {
     @include setFontSize($size-20);
     @include fadeIn(0.5s);
-    padding: $size-36;
-    position: relative;
-    font-weight: $font-weight-400;
+    @include setPadding($size-36, $size-36, $size-36, $size-36);
     color: $black;
     box-sizing: border-box;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
@@ -38,10 +36,12 @@
     @media screen and (max-width: $small) {
       width: 100vw;
       height: 100%;
-      border-radius: 0;
+      max-height: 100%;
+      border-radius: $size-0;
     }
     &Header {
       @include setMargin($size-0, $size-0, $size-20, $size-0);
+      height: $size-20;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -53,16 +53,14 @@
       }
       &Close {
         cursor: pointer;
-        position: absolute;
-        top: $size-26;
-        right: $size-26;
+        margin-left: auto;
       }
     }
     &Body {
       @include dashboardSectionLink();
       overflow-x: hidden;
       overflow-y: auto;
-      height: 100%;
+      height: calc(100% - 40px);
       text-align: left;
       line-height: 1.4 !important;
     }
