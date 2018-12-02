@@ -104,7 +104,7 @@ export class Modal extends React.Component<Props, State> {
     const { element, elementId } = this.props;
     let renderComponent;
 
-    if (typeof element === 'object' && element.component) {
+    if (element && element.component) {
       const { component, props } = element;
       renderComponent = React.createElement(this.resolveComponent(component), {
         ...props,

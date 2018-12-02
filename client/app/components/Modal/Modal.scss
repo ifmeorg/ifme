@@ -22,7 +22,7 @@
   &Box {
     @include setFontSize($size-20);
     @include fadeIn(0.5s);
-    padding: $size-35;
+    padding: $size-36;
     position: relative;
     font-weight: $font-weight-400;
     color: $black;
