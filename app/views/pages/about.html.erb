@@ -23,6 +23,18 @@
 </div>
 
 <div class="messageMain">
+  <%= t('pages.home.not_signed_in.main_message_two') %>
+</div>
+
+<div class="messageBody marginBottom">
+  <%= raw t('pages.home.not_signed_in.message_text_two', {
+    help: link_to(t('pages.home.not_signed_in.help'), contribute_path),
+    feedback: link_to(t('navigation.feedback'), 'http://goo.gl/forms/8EqoJDDiXY', target: 'blank')
+  }) %>
+</div>
+
+
+<div class="messageMain">
   <%= t('pages.about.main_message_three') %>
 </div>
 
