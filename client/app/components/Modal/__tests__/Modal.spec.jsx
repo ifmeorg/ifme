@@ -201,7 +201,10 @@ describe('Modal', () => {
       it('renders correctly', () => {
         const component = (
           <Modal
-            element={{ component: 'Avatar', props: { src: 'https://via.placeholder.com/75x75' } }}
+            element={{
+              component: 'Avatar',
+              props: { src: 'https://via.placeholder.com/75x75' },
+            }}
             body={bodyHTML}
             title={title}
           />

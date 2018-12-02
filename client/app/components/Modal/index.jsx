@@ -36,18 +36,16 @@ export class Modal extends React.Component<Props, State> {
   displayModalHeader = () => {
     const { title } = this.props;
     return (
-      <React.Fragment>
-        {title ? (
-          <div className={css.modalBoxHeader}>
-            <div
-              id="modalTitle"
-              className={css.modalBoxHeaderTitle}
-              aria-label={title}
-            >
-              {title}
-            </div>
+      <div className={css.modalBoxHeader}>
+        {title && (
+          <div
+            id="modalTitle"
+            className={css.modalBoxHeaderTitle}
+            aria-label={title}
+          >
+            {title}
           </div>
-        ) : null}
+        )}
         <div
           className={`modalClose ${css.modalBoxHeaderClose}`}
           onClick={this.toggleOpen}
@@ -58,7 +56,7 @@ export class Modal extends React.Component<Props, State> {
         >
           <FontAwesomeIcon icon={faTimes} color="#6D0839" />
         </div>
-      </React.Fragment>
+      </div>
     );
   };
 
@@ -103,14 +101,12 @@ export class Modal extends React.Component<Props, State> {
   resolveElement = () => {
     const { element, elementId } = this.props;
     let renderComponent;
-
     if (element && element.component) {
       const { component, props } = element;
       renderComponent = React.createElement(this.resolveComponent(component), {
         ...props,
       });
     }
-
     if (element) {
       return (
         <div
@@ -125,7 +121,6 @@ export class Modal extends React.Component<Props, State> {
         </div>
       );
     }
-
     return null;
   };
 
@@ -141,7 +136,6 @@ export class Modal extends React.Component<Props, State> {
   render() {
     const { open } = this.state;
     const renderElement = this.resolveElement();
-
     return (
       <div>
         {renderElement}
