@@ -1,5 +1,5 @@
 // @flow
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { Modal } from '../index';
 
@@ -192,6 +192,27 @@ describe('Modal', () => {
         expect(wrapper.find('.modal').exists()).toEqual(false);
         wrapper.find('.modalElement').simulate('click');
         expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+      });
+    });
+
+    describe('uses an Avatar component for an element and HTML values for the body', () => {
+      it('renders correctly', () => {
+        const component = (
+          <Modal
+            element={{
+              component: 'Avatar',
+              props: { src: 'https://via.placeholder.com/75x75' },
+            }}
+            body={bodyHTML}
+            title={title}
+          />
+        );
+
+        const wrapper = mount(component);
+        expect(wrapper.find('.avatar').exists()).toEqual(true);
+        wrapper.find('.avatar').simulate('click');
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
       });

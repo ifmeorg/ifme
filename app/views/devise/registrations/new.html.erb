@@ -7,8 +7,11 @@
     <%= f.text_field :name, 'aria-label': t('common.name') %>
 
     <div class="label smallMarginTop"><%= t('devise.registrations.new.label') %></div>
-    <%= f.text_field :location, class: 'smallMarginBottom', placeholder: t('common.form.location'), 'aria-label': t('common.form.location') %>
-    <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
+    <%= react_component 'Input', props: { type: 'location', placeholder: t('common.form.location'), googleAPIKey: ENV['GOOGLE_API_KEY'], id: 'user_input'} %>
+
+    <div class="smallMarginTop">
+      <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
+    </div>
 
     <div class="label smallMarginTop"><%= t('devise.password') %></div>
     <%= f.password_field :password, autocomplete: 'off', class: 'smallMarginBottom', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>

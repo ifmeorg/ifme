@@ -71,7 +71,7 @@ nl:
       location: Locatie
       description: Omschrijving
       error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
-      press_enter: 'Druk op ENTER om toe te voegen'
+      search_by_keywords: 'Zoeken op trefwoorden'
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'
     days: dagen
@@ -380,6 +380,7 @@ nl:
       description: 'Als je voor ons wil schrijven, stuur ons een e-mail op %{email}! We staan open voor anonieme bijdragen.'
     contribute:
       main_message_one: 'if me is ontwikkeld en onderhouden door vrijwilligers van verschillende achtergronden met verschillende vaardigheden.'
+      contributor_avatar_alt: "Bijdrage biografie voor %{name}"
       message_text_one: 'We zijn altijd op zoek naar nieuwe ideeën van iedereen, inclusief <strong>vooraanstaanden in de geestelijke gezondheidswereld</strong>, <strong>zorgprofessionals</strong>, <strong>software ontwikkelaars</strong>, <strong>vertalers</strong>, en <strong>user experience ontwerpers</strong>!<p class="noMarginBottom">Neem contact op met %{email_link} en wij zetten het in gang! Je zult worden uitgenodigd voor onze  %{slack_link} pagina, onze primaire communicatievorm. Maak een fork van onze broncode op %{github_link}!</p>'
       more_contributors: 'Meer fantastische bijdragers!'
       thanks: 'Enorme dank gaat naar'
@@ -405,6 +406,10 @@ nl:
       email_notifications_question: 'Hoe pas ik mijn e-mail notificaties aan?'
       email_notifications_answer: 'Ga naar de <strong>%{accounts}</strong> pagina. Je kunt je e-mail, wachtwoord, profielfoto en bio hier aanpassen. Je kunt je account hier ook permanent verwijderen. Als je je account verwijdert, wordt al je ook data verwijderd.'
     home:
+      update_pwd_modal:
+        title: 'Vernieuw wachtwoord'
+        body: 'We hebben alsjeblieft betere beveiligingsmaatregelen voor onze gebruikers afgedwongen %{update_password_link}'
+        update_link: 'update uw wachtwoord.'
       stories: Verhalen
       not_signed_in:
         main_message_one: 'Betere communicatie met naasten leidt tot betere geestelijke gezondheid.'
@@ -523,6 +528,7 @@ nl:
         sexual_assault_survivors: 'aanranding overlevenden'
         political_movement: 'politieke beweging'
         reporting: rapportage
+        game: spel
   profile:
     index:
       title: Profiel
@@ -648,13 +654,16 @@ nl:
       meeting_notify_text: 'Samenkomstupdates'
       google_auth1: 'Als je niet langer via Google wilt inloggen, geef dan een nieuw e-mailadres en wachtwoord op.'
       google_auth2: 'Omdat je via Google inlogt, hoef je geen wachtwoord op te geven.<br>Als je deze wilt wijzigen, geef dan een nieuw e-mailadres en wachtwoord op.'
-      password_complexity_error: 'moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.'
+      password_errors:
+        format: 'moet 8 tot 128 tekens bevatten, inclusief 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken.'
+        used: 'moet anders zijn dan de laatste drie wachtwoorden.'
       placeholders:
         repeat_password: 'Herhaal Wachtwoord'
       edit:
         labels:
           profile_picture: 'Profielfoto'
           remove_picture: 'Verwijder afbeelding'
+          about: Over
           password_for: 'Wachtwoord voor <strong>if me</strong> account'
           update: Updaten
         placeholders:

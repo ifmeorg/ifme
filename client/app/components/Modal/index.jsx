@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import css from './Modal.scss';
 import { I18n } from '../../libs/i18n';
+import { Avatar } from '../Avatar';
 
 export type Props = {
   element?: any,
@@ -36,7 +37,7 @@ export class Modal extends React.Component<Props, State> {
     const { title } = this.props;
     return (
       <div className={css.modalBoxHeader}>
-        {title ? (
+        {title && (
           <div
             id="modalTitle"
             className={css.modalBoxHeaderTitle}
@@ -44,7 +45,7 @@ export class Modal extends React.Component<Props, State> {
           >
             {title}
           </div>
-        ) : null}
+        )}
         <div
           className={`modalClose ${css.modalBoxHeaderClose}`}
           onClick={this.toggleOpen}
@@ -53,7 +54,7 @@ export class Modal extends React.Component<Props, State> {
           tabIndex={0}
           aria-label={I18n.t('close')}
         >
-          <FontAwesomeIcon icon={faTimes} />
+          <FontAwesomeIcon icon={faTimes} color="#6D0839" />
         </div>
       </div>
     );
@@ -97,23 +98,47 @@ export class Modal extends React.Component<Props, State> {
     this.setState({ open: !open });
   };
 
-  render() {
+  resolveElement = () => {
     const { element, elementId } = this.props;
+    let renderComponent;
+    if (element && element.component) {
+      const { component, props } = element;
+      renderComponent = React.createElement(this.resolveComponent(component), {
+        ...props,
+      });
+    }
+    if (element) {
+      return (
+        <div
+          id={elementId}
+          className={`modalElement ${css.modalElement}`}
+          onClick={this.toggleOpen}
+          onKeyDown={this.toggleOpen}
+          role="button"
+          tabIndex={0}
+        >
+          {renderComponent || this.displayContent(element)}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  resolveComponent = (component: string) => {
+    /** Really only returns Avatar right now but more could be added if needed */
+    switch (component) {
+      case 'Avatar':
+      default:
+        return Avatar;
+    }
+  };
+
+  render() {
     const { open } = this.state;
+    const renderElement = this.resolveElement();
     return (
       <div>
-        {element ? (
-          <div
-            id={elementId || null}
-            className={`modalElement ${css.modalElement}`}
-            onClick={this.toggleOpen}
-            onKeyDown={this.toggleOpen}
-            role="button"
-            tabIndex={0}
-          >
-            {this.displayContent(element)}
-          </div>
-        ) : null}
+        {renderElement}
         {open ? this.displayModalBox() : null}
       </div>
     );

@@ -36,6 +36,7 @@
     "font-awesome": "^4.7.0",
     "js-cookie": "^2.2.0",
     "jstimezonedetect": "^1.0.6",
+    "location-autocomplete": "^1.2.4",
     "pell": "^1.0.4",
     "react": "^16.4.0",
     "react-autocomplete": "^1.8.1",

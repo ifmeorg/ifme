@@ -1,9 +1,87 @@
-.hideContent {
-  display: none;
-}
+.contributorModalBody {
+  @include dashboardSectionLink();
+	display: flex;
+  flex-direction: row;
 
-.readMoreShow,
-.readLessShow {
-  @include staticContentFakeLink();
-  cursor: pointer;
+	&Photo {
+    flex: 0 1 30%;
+    &.showOnSmall {
+      display: none;
+    }
+    .contributorAvatar {
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      background: $mulberry-key-lime;
+      height: 150px;
+      width: 150px;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: $medium) {
+      .contributorAvatar {
+        height: 120px;
+        width: 120px;
+      }
+    }
+    @media screen and (max-width: $small) {
+      flex: 0 1 25%;
+      .contributorAvatar {
+        width: 100px;
+        height: 100px;
+      }
+      &.hideOnSmall{
+        display: none;
+      }
+      &.showOnSmall {
+        display: block;
+      }
+    }
+  }
+
+	&Copy {
+    margin-left: $size-40;
+    .contributorModalHeader {
+      display: flex;
+      align-items: center;
+      flex-flow: row nowrap;
+      .contributorModalName {
+        @include setMargin($size-0, $size-0, $size-10, $size-0);
+        @include setFontSize($size-36);
+        color: $mulberry;
+      }
+      .contributorModalBodySocialLinks {
+        @include setFontSize($size-16);
+        display: flex;
+        flex-flow: row nowrap;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        .socialLink {
+          margin-right: $size-20;
+          &:last-of-type {
+            margin-right: $size-0;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $medium) {
+      margin-left: $size-30;
+    }
+    @media screen and (max-width: $small) {
+      margin-left: $size-0;
+      .contributorModalHeader {
+        flex-flow: column nowrap;
+        text-align: center;
+        .contributorModalBodySocialLinks {
+          flex-flow: column nowrap;
+          text-align: center;
+          .socialLink {
+            margin-right: $size-0;
+            &:last-of-type {
+              margin-top: $size-10;
+            }
+          }
+        }
+      }
+    }
+	}
 }

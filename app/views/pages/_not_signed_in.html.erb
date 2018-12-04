@@ -67,9 +67,7 @@
   }) %>
   <div class="gridMany marginTop">
     <% @blurbs.each do |blurb| %>
-      <div class="gridManyItem">
-        <%= ProfilePicture.fetch(blurb['image']) %>
-      </div>
+      <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
     <% end %>
   </div>
 </div>

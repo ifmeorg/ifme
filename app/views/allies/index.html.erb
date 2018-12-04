@@ -33,15 +33,16 @@
 <% end %>
 <% if @invited_allies.any? %>
   <div class="marginTop">
-  <div class="title"><%= t('allies.index.invited') %></div>
-  <div class="gridThree">
-  <% @invited_allies.each do |ally| %>
-    <div class="gridThreeItemBoxLight ally">
-      <div><%= mail_to "#{ally.email}" %></div>
-      <div class="subtle"><%=t('allies.index.invited_on', date: format_date(ally.invitation_sent_at)) %></div>
-      <div class="subtle"><%= ally.invitation_sent_at < 2.weeks.ago ? t('allies.index.invitation_expired') : nil %></div>
+    <div class="title"><%= t('allies.index.invited') %></div>
+    <div class="gridThree">
+    <% @invited_allies.each do |ally| %>
+      <div class="gridThreeItemBoxLight ally">
+        <div><%= mail_to "#{ally.email}" %></div>
+        <div class="subtle"><%=t('allies.index.invited_on', date: format_date(ally.invitation_sent_at)) %></div>
+        <div class="subtle"><%= ally.invitation_sent_at < 2.weeks.ago ? t('allies.index.invitation_expired') : nil %></div>
+      </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 <% end %>
 <% if @accepted_allies.present? %>

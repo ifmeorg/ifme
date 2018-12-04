@@ -32,7 +32,6 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      font-weight: $font-weight-300;
       a, .link_style {
         text-decoration: none;
         color: $key-lime;
@@ -56,7 +55,7 @@
 
 .pagination {
   @include setMargin($size-40, $size-0, $size-0, $size-0);
-  color: $dusty-rose;
+  color: $eggplant;
   text-align: center;
   span.prev,
   span.first {
