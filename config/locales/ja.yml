@@ -72,7 +72,7 @@ ja:
       location: 場所
       description: ディスクリプション
       error_explanation: 'マークされたフィールドに記入してください！'
-      search_by_keywords: 'Search by keyword'
+      search_by_keywords: 'キーワードで検索する'
     time_ago: '%{date}前に'
     write_to_us: 'コンタクトする'
     days: 日
