@@ -43,7 +43,7 @@ gem 'inline_svg'
 
 gem 'groupdate', '4.1.0'
 
-gem 'react_on_rails', '11.1.8'
+gem 'react_on_rails', '11.2.0'
 gem 'webpacker'
 
 group :development, :test do
