@@ -380,6 +380,7 @@ en:
     blog:
       description: 'If you''re interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too.'
     contribute:
+      contributor_avatar_alt: 'Contributor biography for %{name}'
       main_message_one: 'if me is built and maintained by volunteers of many different backgrounds and skill sets.'
       message_text_one: 'We''re always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class="noMarginBottom">Please %{email_link} and we''ll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>'
       more_contributors: 'More Fabulous Contributors!'

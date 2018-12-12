@@ -380,6 +380,7 @@ sv:
     blog:
       description: 'Om du är intresserad av att skriva för oss, pitcha oss på %{email}! Vi välkomnar anonyma inlägg också.'
     contribute:
+      contributor_avatar_alt: 'Bidragsgivare biografi för %{name}'
       main_message_one: 'if me är byggs och underhålls av volontärer med många olika bakgrunder och kunskaper.'
       message_text_one: 'Vi letar alltid efter idéer från alla, inklusive <strong>mental hälsa-förespråkare</strong>, <strong>hälsoproffs</strong>, <strong>mjukvaruutvecklare</strong>, <strong>översättare</strong>, och <strong>användarupplevelse-designers</strong>!<p class="noMarginBottom">Vänligen %{email_link} och vi kommer att kontakta dig! Du kommer bli inbjuden att delta i vår %{slack_link} sida, vårt primära kommunikationsverktyg. Forka vår kodbas som hostas på %{github_link}!</p>'
       more_contributors: 'Mer Fantastiska Bidragsgivare!'

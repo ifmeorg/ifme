@@ -380,6 +380,7 @@ es:
     blog:
       description: '¡Si deseas escribir para nosotros, mándanos tu propuesta a %{email}! Puedes hacerlo también de forma anónima.'
     contribute:
+      contributor_avatar_alt: 'Biografía del colaborador para %{name}'
       main_message_one: 'if me es construido y se mantiene gracias a voluntarios con diversos antecedentes y tipos de habilidades'
       message_text_one: '¡Siempre estamos abiertos a ideas de cualquier índole y de todas las personas</strong>, <strong>partidarios de la salud mental</strong>, <strong>desarrolladores de software</strong>,  <strong>translators</strong>, <strong>traductores</strong>, y <strong>diseñadores de experiencia del usuario</strong>!<p class="noMarginBottom">Por favor, %{email_link} y nos comunicaremos contigo! Serás invitado a participar en nuestra página de %{slack_link}, nuestra herramienta principal de comunicación. ¡Asegúrate de crear una copia de nuestro repositorio almacenado en  %{github_link}!</p>'
       more_contributors: '¡Más Fabulosos Colaboradores!'

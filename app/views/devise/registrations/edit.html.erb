@@ -5,7 +5,13 @@
   <%= f.text_field :name, 'aria-label': t('common.name') %>
 
   <div class="label smallMarginTop"><%= t('common.form.location') %></div>
-  <%= f.text_field :location, placeholder: t('devise.registrations.edit.placeholders.optional'), 'aria-label': t('common.form.location') %>
+  <%= react_component 'Input', props: {
+    type: 'location',
+    placeholder: t('devise.registrations.edit.placeholders.optional'),
+    googleAPIKey: ENV['GOOGLE_API_KEY'],
+    id: 'user_input',
+    value: current_user.location || nil
+  } %>
 
   <div class="label smallMarginTop">
     <%= t('common.form.email') %>

@@ -380,6 +380,7 @@ vi:
     blog:
       description: 'Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi nặc danh.'
     contribute:
+      contributor_avatar_alt: 'Tiểu sử cộng tác viên cho %{name}'
       main_message_one: 'if me được xây dựng và duy trì bởi nhiều tình nguyện viên khác nhau với kiến thức và kinh nghiệm khác nhau.'
       message_text_one: 'Chúng tôi tìm kiếm những ý tưởng từ tất cả mọi người, bao gồm: <strong>các nhà tư vấn tâm lý</strong>, <strong>chuyên gia sức khỏe</strong>, <strong>nhà phát triển phần mềm</strong>, <strong>biên dịch</strong>, and <strong>những nhà thiết kế chuyên nghiệp. </strong>!<p class="noMarginBottom">Vui lòng %{email_link} và chúng tôi sẽ kết nối với bạn! Bạn sẽ được mời tham gia trang %{slack_link}, công cụ truyền thông chính của chúng tôi. Hãy chắc chắn kiểm tra mã của chúng tôi trên %{github_link}!</p>'
       more_contributors: 'Những nhà đóng góp khác!'

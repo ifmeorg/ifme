@@ -380,6 +380,7 @@ nb:
     blog:
       description: 'Hvis du er interessert i å skrive for oss, kontakt oss på %{email}! Vi tar også imot anonyme innleveringer.'
     contribute:
+      contributor_avatar_alt: 'Bidragsyter biografi for %{name}'
       main_message_one: 'if me er bygget og vedlikeholdt av frivillige fra mange ulike bakgrunner og ferdighetssett.'
       message_text_one: 'Vi er alltid på utkikk etter ideer fra alle, inkludert <strong>mental helse forkjempere</strong>, <strong>helsearbeidere</strong>, <strong>programutviklere</strong>, <strong>oversettere</strong>, og <strong>brukeropplevelsedesignere</strong>!<p class="noMarginBottom">Vennligst %{email_link} så kommer vi i kontakt med deg! Du vil bli invitert til å delta i vår %{slack_link} side, vårt hovedkommunikasjonsmiddel. Forsikr deg at du ''forker'' vårt oppbevaringssted på %{github_link}!</p>'
       more_contributors: 'Flere fabelaktige bidragsytere!'

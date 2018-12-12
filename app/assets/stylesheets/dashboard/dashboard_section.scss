@@ -55,7 +55,7 @@
   .subtitle {
     @include setFontSize($size-22);
     @include setMargin($size-0, $size-0, $size-20, $size-0);
-    color: $mulberry-70;
+    color: $mulberry-90;
     font-weight: $font-weight-400;
   }
 
@@ -67,7 +67,7 @@
 
   .label,
   label {
-    color: $mulberry-70;
+    color: $mulberry-90;
   }
 }
 

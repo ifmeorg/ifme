@@ -5,7 +5,7 @@ ruby '~> 2.3.4'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.12'
@@ -64,7 +64,6 @@ group :development, :test do
   gem 'capybara', '~> 3.12.0'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
-  gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
   gem 'rspec-rails', '~> 3.8.1'
@@ -72,7 +71,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'jshint'
   gem 'rubocop', '>= 0.49.0'
   gem 'rubocop-rspec'
 

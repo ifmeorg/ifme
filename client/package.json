@@ -14,7 +14,7 @@
     "storybook": "yarn build:i18n && start-storybook -p 6006",
     "test": "yarn build:i18n && yarn build:test && NODE_PATH=./app jest",
     "test:debug": "yarn build:i18n && yarn build:test && NODE_PATH=./app node --inspect-brk jest --runInBand",
-    "test:circleci": "yarn build:test && NODE_PATH=./app jest --coverage"
+    "test:circleci": "yarn build:test && NODE_PATH=./app jest --coverage --runInBand"
   },
   "cacheDirectories": [
     "node_modules",
@@ -36,6 +36,7 @@
     "font-awesome": "^4.7.0",
     "js-cookie": "^2.2.0",
     "jstimezonedetect": "^1.0.6",
+    "location-autocomplete": "^1.2.4",
     "pell": "^1.0.4",
     "react": "^16.4.0",
     "react-autocomplete": "^1.8.1",

@@ -380,6 +380,7 @@ it:
     blog:
       description: 'Se vorresti scrivere per noi, contattaci su %{email}! Diamo il benvenuto anche a contribuzioni anonime.'
     contribute:
+      contributor_avatar_alt: 'Biografia del collaboratore per %{name}'
       main_message_one: 'if me è costruito e mantenuto da volontari con differenti storie e abilità.'
       message_text_one: 'Siamo sempre in cerca di nuove idee da chiunque, includendo <strong>appassionati</strong>, <strong>professionisti</strong>, <strong>programmatori</strong>, <strong>traduttori</strong>, e <strong>user experience designers</strong>!<p class="noMarginBottom">Raggiungici tramite %{email_link} e ti ricontatteremo! Potrai unirti al nostro canale slack %{slack_link}, la nostra principale forma di comunicazione. Non dimenticare di forkare la nostra repository github %{github_link}!</p>'
       more_contributors: 'Altri fantastici contributori!'

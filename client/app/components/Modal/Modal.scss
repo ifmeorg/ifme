@@ -4,6 +4,9 @@
   &Element {
     display: inline-block;
     cursor: pointer;
+    img:hover {
+      opacity: 0.8;
+    }
   }
 
   &Backdrop {
@@ -22,20 +25,22 @@
   &Box {
     @include setFontSize($size-20);
     @include fadeIn(0.5s);
-    padding: $size-20;
-    font-weight: $font-weight-400;
+    @include setPadding($size-36, $size-36, $size-36, $size-36);
     color: $black;
     box-sizing: border-box;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
     border-radius: $size-4;
     background: $white;
-    width: 50vw;
-    height: 60vh;
+    width: 90vw;
+    max-width: 910px;
+    height: 65vh;
+    max-height: 440px;
     z-index: $z-index-front;
     @media screen and (max-width: $small) {
       width: 100vw;
       height: 100%;
-      border-radius: 0;
+      max-height: 100%;
+      border-radius: $size-0;
     }
     &Header {
       @include setMargin($size-0, $size-0, $size-20, $size-0);
@@ -45,7 +50,6 @@
       justify-content: space-between;
       align-items: center;
       &Title {
-        font-weight: $font-weight-300;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

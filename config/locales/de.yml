@@ -386,6 +386,7 @@ de:
     blog:
       description: 'Wenn du für uns schreiben möchtest, stelle dich gerne per E-Mail bei uns vor: %{email}! Auch anonyme Einsendungen werden berücksichtigt.'
     contribute:
+      contributor_avatar_alt: 'Mitwirkende Biographie für %{name}'
       main_message_one: 'if me wird von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen entwickelt und gepflegt.'
       message_text_one: 'Wir sind immer auf der Suche nach und offen für neuen Ideen, insbesondere von <strong>Experten im Bereich geistige Gesundheit</strong>, <strong>Gesundheitsexperten</strong>, <strong>Software-Entwickler</strong>, <strong>Übersetzer</strong> und <strong>UX Designer</strong>!<p class="no_margin_bottom">Bitte %{email_link} und wir setzen uns mit dir in Verbindung! Wir laden dich in zu unserer %{slack_link} Seite, unserem wichtigsten Kommunikationstool, ein. Schau auch, ob du unser Repository auf %{github_link} forken kannst!</p>'
       more_contributors: 'Weitere außergewöhnliche Mitwirkende!'

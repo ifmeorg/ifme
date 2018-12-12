@@ -8,6 +8,7 @@ import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
 import { InputSwitch } from './InputSwitch';
+import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
@@ -237,6 +238,23 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+  displayLocation = () => {
+    const {
+      type, placeholder, googleAPIKey, id, value,
+    } = this.props;
+    if (type === 'location' && placeholder && googleAPIKey) {
+      return (
+        <InputLocation
+          value={value}
+          placeholder={placeholder}
+          apiKey={googleAPIKey}
+          id={id}
+        />
+      );
+    }
+    return null;
+  };
+
   displayContent = () => {
     const {
       dark, small, accordion, large, type,
@@ -257,6 +275,7 @@ export class Input extends React.Component<Props, State> {
         {this.displayTextarea()}
         {this.displayTag()}
         {this.displaySwitch()}
+        {this.displayLocation()}
         {this.displaySubmit()}
       </div>
     );
