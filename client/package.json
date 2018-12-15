@@ -37,7 +37,7 @@
     "js-cookie": "^2.2.0",
     "jstimezonedetect": "^1.0.6",
     "location-autocomplete": "^1.2.4",
-    "pell": "^1.0.4",
+    "pell": "^1.0.6",
     "react": "^16.4.0",
     "react-autocomplete": "^1.8.1",
     "react-chartkick": "^0.1.3",
