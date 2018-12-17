@@ -1,8 +1,11 @@
 # frozen_string_literal: true
+require './config/locale'
+
 module CompareLocalesSupport
   LOCALES_DIR = './config/locales'
   ENGLISH_FILES = Dir.glob("#{LOCALES_DIR}/**/*en.yml")
-  NON_ENGLISH_LOCALES = ['es', 'de', 'it', 'nb', 'nl', 'pt-BR', 'sv', 'vi', 'fr']
+  NON_ENGLISH_LOCALES = Locale.available_locales
+  NON_ENGLISH_LOCALES.delete('en')
 
   def self.flatten_keys(hash, prefix = '')
     hash.keys.each_with_object([]) do |key, keys|
