@@ -20,11 +20,6 @@ describe CompareLocalesSupport do
 
         end
       end
-
-      context 'when comparing to devise_japanese' do
-        subject { described_class.compare(source, :devise_japanese) }
-        it { is_expected.to be_empty }
-      end
     end
   end
 end
