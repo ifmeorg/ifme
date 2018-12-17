@@ -156,7 +156,7 @@ GEM
       signet (~> 0.7)
     groupdate (4.1.1)
       activesupport (>= 4.2)
-    hashie (3.5.7)
+    hashie (3.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
@@ -223,8 +223,8 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    omniauth (1.8.1)
-      hashie (>= 3.4.6, < 3.6.0)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
     omniauth-google-oauth2 (0.5.4)
       jwt (>= 1.5)
@@ -492,7 +492,7 @@ DEPENDENCIES
   jquery-rails (= 4.1.1)
   kaminari (= 1.1.1)
   letter_opener
-  omniauth (~> 1.8.1)
+  omniauth (~> 1.9.0)
   omniauth-google-oauth2 (~> 0.5.4)
   pg (= 1.1.3)
   pry-byebug
