@@ -1,9 +1,10 @@
+@import '../base/colors';
+
 body {
   font-family: 'Lato', sans-serif;
 }
 
 #header-container {
-  background-color: rgba(106, 8, 58, 1) !important;
   padding: 10px;
 
   &.grid {
@@ -16,6 +17,9 @@ body {
 
   #mailer-content {
     grid-column-start: 2;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
   }
 
   &.grid {
@@ -24,21 +28,21 @@ body {
 }
 
 #footer-container {
-  background-color: rgba(106, 8, 58, 1) !important;
   padding: 30px;
-  color: #FFF5FE;
+  text-align: center;
 
   &.grid {
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 40% 20% 40%;
   }
 
   #footer-content {
     grid-column-start: 2;
-    font-size: smaller;
+    color: #A6A5A6;
 
     a {
-      color: #F4B7CA;
-      text-decoration: underline;
+      color: $mulberry;
+      font-weight: bold;
+      text-decoration: none;
     }
   }
 }
@@ -50,20 +54,26 @@ body {
 .grid {
   #header-content {
     grid-column-start: 2;
-    grid-template-columns: auto 85%;
-
-    h1 {
-      color: #FFF5FE;
-    }
+    grid-template-rows: 150px 70px 28px;
+    margin: 0 auto;
 
     h2 {
-      color: #F4B7CA;
+      color: $mulberry;
+      font-size: 1.25em;
     }
 
     img {
       height: 80%;
       position: relative;
       top: 15px;
+      margin: 0 auto;
+    }
+
+    hr {
+      width: 30%;
+      border: 1px $grey solid;
+      background: $grey;
+      margin-top: 1em;
     }
   }
 }
