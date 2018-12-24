@@ -26,7 +26,7 @@ it:
     de: Deutsch
     fr: Français
   navigation:
-    about: Cos’è
+    about: 'Riguardo a noi'
     blog: Blog
     contribute: Contribuisci
     partners: Partners
@@ -663,7 +663,7 @@ it:
         labels:
           profile_picture: 'Immagine del profilo'
           remove_picture: 'Rimuovi immagine'
-          about: Cos’è
+          about: 'Riguardo a me'
           password_for: 'Password del tuo account <strong>if me</strong>'
           update: Modifica
         placeholders:
