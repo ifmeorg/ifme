@@ -453,7 +453,7 @@ de:
       contact: 'Kontaktiere uns'
       contact_description: '<p>Bitte %{email_link}, wenn du irgendwelche Fragen oder Anregungen hast.</p><p class="no_margin_bottom"><em>Datenschutzrichtlinie angepasst von %{jamie_king_media}.</em></p>'
     resources:
-      description: 'Willkommem zu unserer gepflegten Sammlung zum Thema geistige Gesundheit, zusammengestellt durch %{communities}, %{education}, %{hotlines} und %{services}.'
+      description: 'Dies ist unsere kuratierte Liste von Ressourcen für psychische Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und Dienstleistungen umfasst.'
       communities: Communities
       education: Bildungsträger
       hotlines: Hotlines
