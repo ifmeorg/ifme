@@ -447,6 +447,7 @@ pt-BR:
       contact: 'Entre em contato conosco'
       contact_description: '<p>Envie um email pelo endereço %{email_link} caso você tenha questionamentos ou preocupações.</p><p class="noMarginBottom"><em>Poítica de  Privacidade adaptada de %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Esta é a nossa lista de recursos de saúde mental, que inclui comunidades, ferramentas educacionais, linhas diretas e serviços.'
       communities: 'Grupos Comunitários'
       education: Escolas
       hotlines: 'Denúncia Anônima'

@@ -26,11 +26,11 @@ gem 'uglifier', '~> 4.1.20'
 gem 'carrierwave', '~> 1.2.3'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
-gem 'cloudinary', '~> 1.11.0'
+gem 'cloudinary', '~> 1.11.1'
 gem 'figaro', '1.1.1'
-gem 'google-api-client', '~> 0.26.0'
+gem 'google-api-client', '~> 0.27.1'
 gem 'kaminari', '1.1.1'
-gem 'omniauth', '~> 1.8.1'
+gem 'omniauth', '~> 1.9.0'
 gem 'omniauth-google-oauth2', '~> 0.5.4'
 gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.2'
@@ -43,7 +43,7 @@ gem 'inline_svg'
 
 gem 'groupdate', '4.1.1'
 
-gem 'react_on_rails', '11.1.8'
+gem 'react_on_rails', '11.2.1'
 gem 'webpacker'
 
 group :development, :test do

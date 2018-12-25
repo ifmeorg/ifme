@@ -447,6 +447,7 @@ nl:
       contact: 'Neem contact met ons op'
       contact_description: '<p>%{email_link} indien je vragen of opmerkingen hebt.</p><p class="noMarginBottom"><em>Privacy Policy gebaseerd op %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Dit is onze samengestelde lijst met bronnen voor geestelijke gezondheidszorg, waaronder communities, educatieve tools, hotlines en services.'
       communities: Gemeenschappen
       education: Educatie
       hotlines: Meldpunten

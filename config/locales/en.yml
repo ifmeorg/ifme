@@ -447,6 +447,7 @@ en:
       contact: 'Contact Us'
       contact_description: '<p>Please %{email_link} if you have any questions or concerns.</p><p class="noMarginBottom"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>'
     resources:
+      description: 'This is our curated list of mental health resources, which includes communities, educational tools, hotlines, and services.'
       communities: Communities
       education: Education
       hotlines: Hotlines

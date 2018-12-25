@@ -447,6 +447,7 @@ sv:
       contact: 'Kontakta Oss'
       contact_description: '<p>Vänligen %{email_link} om du har några frågor eller problem.</p><p class="noMarginBottom"><em>Sekretesspolicy anpassad från %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Det här är vår kurerade lista över mentala resurser, som inkluderar samhällen, pedagogiska verktyg, hotlines och tjänster.'
       communities: Gemenskaperna
       education: Utbildning
       hotlines: Direktlinje

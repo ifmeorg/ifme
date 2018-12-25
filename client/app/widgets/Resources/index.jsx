@@ -84,18 +84,23 @@ export class Resources extends React.Component<Props, State> {
     const { checkboxes } = this.state;
     const filteredResources = this.filterList(checkboxes);
     return (
-      <div className={`${css.gridThree} ${css.marginTop}`}>
-        {filteredResources.map((resource: ResourceProp) => (
-          <div className={css.gridThreeItem} key={Utils.randomString()}>
-            <Resource
-              tagged
-              tags={resource.languages.concat(resource.tags)}
-              title={resource.name}
-              link={resource.link}
-            />
-          </div>
-        ))}
-      </div>
+      <React.Fragment>
+        <center className={css.marginTop}>
+          {`${filteredResources.length} ${I18n.t('navigation.resources').toLowerCase()}`}
+        </center>
+        <div className={`${css.gridThree} ${css.marginTop}`}>
+          {filteredResources.map((resource: ResourceProp) => (
+            <div className={css.gridThreeItem} key={Utils.randomString()}>
+              <Resource
+                tagged
+                tags={resource.languages.concat(resource.tags)}
+                title={resource.name}
+                link={resource.link}
+              />
+            </div>
+          ))}
+        </div>
+      </React.Fragment>
     );
   };
 
@@ -103,6 +108,9 @@ export class Resources extends React.Component<Props, State> {
     const { checkboxes } = this.state;
     return (
       <React.Fragment>
+        <center className={css.marginBottom}>
+          {I18n.t('pages.resources.description')}
+        </center>
         <InputTag
           id="resourceTags"
           name="resourceTags"

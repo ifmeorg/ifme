@@ -447,6 +447,7 @@ nb:
       contact: 'Kontakt oss'
       contact_description: '<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class="noMarginBottom"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Dette er vår kuraterte liste over mental helse ressurser, som inkluderer lokalsamfunn, pedagogiske verktøy, hotlines og tjenester.'
       communities: Samfunn
       education: Utdanning
       hotlines: Hjelpelinjer

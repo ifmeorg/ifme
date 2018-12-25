@@ -27,7 +27,7 @@ it:
     fr: Français
     ja: 日本語
   navigation:
-    about: Cos’è
+    about: 'Riguardo a noi'
     blog: Blog
     contribute: Contribuisci
     partners: Partners
@@ -447,6 +447,7 @@ it:
       contact: Contattaci
       contact_description: '<p>Per favore, inviaci una EMail su %{email_link} sei hai domande o c’è qualcosa che ti preoccupa.</p><p class="noMarginBottom"><em>Informativa sulla Privacy adattata da %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Questa è la nostra lista curata di risorse per la salute mentale, che include comunità, strumenti educativi, hotline e servizi.'
       communities: Community
       education: Educazione
       hotlines: Numeri
@@ -664,7 +665,7 @@ it:
         labels:
           profile_picture: 'Immagine del profilo'
           remove_picture: 'Rimuovi immagine'
-          about: Cos’è
+          about: 'Riguardo a me'
           password_for: 'Password del tuo account <strong>if me</strong>'
           update: Modifica
         placeholders:

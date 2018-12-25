@@ -447,6 +447,7 @@ es:
       contact: Contacto
       contact_description: '<p>Por favor, %{email_link} si tienes dudas, preguntas o preocupaciones.</p><p class="noMarginBottom"><em>Política de Privacidad adoptada de %{jamie_king_media}.</em></p>'
     resources:
+      description: 'Esta es nuestra lista curada de recursos de salud mental, que incluye comunidades, herramientas educativas, líneas directas y servicios.'
       communities: Comunidades
       education: Educación
       hotlines: 'Líneas de Ayuda'
