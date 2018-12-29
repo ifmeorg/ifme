@@ -8,8 +8,6 @@ services:
   app:
     build: .
     container_name: ifme_app
-    volumes:
-    - .:/app
     ports:
       - "3000:3000"
     depends_on:

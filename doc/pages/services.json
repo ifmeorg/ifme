@@ -178,5 +178,17 @@
     "link": "http://truluv.ai/selfcare/",
     "tags": ["meditation", "game", "self_care", "android", "ios", "free"],
     "languages": ["en"]
+  },
+  {
+    "name": "Open Path Psychotherapy Collective (US)",
+    "link": "https://openpathcollective.org/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Orchid Mental Health Pop (US)",
+    "link": "https://www.tryorchid.com/",
+    "tags": ["counseling", "therapy"],
+    "languages": ["en"]
   }
 ]
