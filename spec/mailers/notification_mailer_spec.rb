@@ -4,6 +4,7 @@ describe 'NotificationMailer' do
   let(:medication) { create(:medication, :with_daily_reminder, user_id: recipient.id) }
   let(:medication_reminder) { medication.take_medication_reminder }
   let(:strategy) { create(:strategy, :with_daily_reminder, user_id: recipient.id) }
+  let(:group) {create(:group)}
   let(:strategy_reminder) { strategy.perform_strategy_reminder }
 
   describe '#take_medication' do
@@ -97,9 +98,34 @@ describe 'NotificationMailer' do
       let(:type) { 'new_ally_request' }
 
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
+      # subject(:email) { NotificationMailer.notification_email(1, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} sent an ally request!") }
       it { expect(email.body.encoded).to match('<p>Please <a href="http://localhost:3000/allies">sign in</a> to accept or reject the request!</p>') }
+    end
+    
+    context 'when type is new_group' do
+      let(:type) { 'new_group' }
+      let(:link) {"<a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>"}
+      let(:code_of_conduct_link) {"<a href=\"https://www.contributor-covenant.org/\">Code of Conduct</a>"}
+
+      let(:data) do
+        {
+          user: who_triggered_event.name,
+          user_id: who_triggered_event.id,
+          uid: who_triggered_event.uid,
+          type: type,
+          uniqueid: 'some_unique_id',
+          group_id: group.id,
+          group: group.name
+        }.to_json
+      end
+
+      subject(:email) { NotificationMailer.notification_email(recipient, data) }
+
+      it { expect(email.subject).to eq("if me | #{who_triggered_event.name} created a group \"#{group.name}\"") }
+      it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+      it { expect(email.body.encoded).to match("<p>#{who_triggered_event.name} created a group \"#{group.name}\":</p><p><i>#{group.description}</i></p><p>To learn more and join, #{link}!</p><p>Please follow our #{code_of_conduct_link}!</p>") }
     end
 
     describe 'when type is comment on moment' do
@@ -124,7 +150,7 @@ describe 'NotificationMailer' do
       end
 
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
-
+      
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} commented on your moment \"#{moment_desc}\"") }
       it { expect(email.body.encoded).to match(phrase_ally) }
       it { expect(email.body.encoded).to match(comment) }
