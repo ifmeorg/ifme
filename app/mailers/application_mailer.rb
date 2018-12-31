@@ -50,11 +50,11 @@ class ApplicationMailer < ActionMailer::Base
   def group_notify(data, recipient)
     @recipient = recipient
     case data['type']
-    when 'new_group' || 'new_group_member'
+    when 'new_group', 'new_group_member'
       new_group_notify(data)
     when 'add_group_leader'
       add_group_notify(data, recipient)
-    when 'remove_group_leader' && you?(recipient, data)
+    when 'remove_group_leader' 
       remove_group_notify(data, recipient)
     when 'new_meeting'
       new_meeting_group_notify(data)
@@ -65,7 +65,7 @@ class ApplicationMailer < ActionMailer::Base
     when 'join_meeting'
       join_meeting_group_notify(data)
     else
-      # no op, don't send email
+      @message = nil
     end
     mail(to: recipient.email, subject: @subject) if defined?(@subject) && !@message.nil?
   end
@@ -110,6 +110,8 @@ class ApplicationMailer < ActionMailer::Base
     when 'new_group_member'
       @subject = new_group_member_subject(data)
       @message = add_remove_group_leader_body(data)
+    else
+      @message = nil
     end
   end
 
@@ -127,9 +129,9 @@ class ApplicationMailer < ActionMailer::Base
     if you?(recipient, data)
       @subject = remove_group_leader_you_subject(data)
       @message = add_remove_group_leader_body(data)
-    else 'remove_group_leader'
-    @subject = remove_group_leader_subject(data)
-    @message = add_remove_group_leader_body(data)
+    else 
+      @subject = remove_group_leader_subject(data)
+      @message = add_remove_group_leader_body(data)
     end
   end
 
