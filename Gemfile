@@ -23,7 +23,7 @@ gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier', '~> 4.1.20'
 
-gem 'carrierwave', '~> 1.3.0'
+gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.11.1'
