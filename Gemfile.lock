@@ -132,7 +132,7 @@ GEM
       sassc (>= 1.11)
     foreman (0.85.0)
       thor (~> 0.19.1)
-    friendly_id (5.2.4)
+    friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     fugit (1.1.6)
       et-orbi (~> 1.1, >= 1.1.6)
@@ -484,7 +484,7 @@ DEPENDENCIES
   figaro (= 1.1.1)
   font-awesome-sass
   foreman
-  friendly_id (~> 5.2.4)
+  friendly_id (~> 5.2.5)
   google-api-client (~> 0.27.1)
   groupdate (= 4.1.1)
   inline_svg
