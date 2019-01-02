@@ -44,7 +44,7 @@
     "react-dom": "^16.5.2",
     "react-html-parser": "^2.0.2",
     "react-lazyload": "^2.3.0",
-    "react-on-rails": "11.2.1",
+    "react-on-rails": "11.2.2",
     "react-render-html": "^0.6.0"
   },
   "devDependencies": {

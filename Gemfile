@@ -31,11 +31,11 @@ gem 'figaro', '1.1.1'
 gem 'google-api-client', '~> 0.27.1'
 gem 'kaminari', '1.1.1'
 gem 'omniauth', '~> 1.9.0'
-gem 'omniauth-google-oauth2', '~> 0.5.4'
+gem 'omniauth-google-oauth2', '~> 0.6.0'
 gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.2'
 
-gem 'friendly_id', '~> 5.2.4'
+gem 'friendly_id', '~> 5.2.5'
 gem 'sdoc', '1.0.0', group: :doc
 
 gem 'font-awesome-sass'
@@ -43,7 +43,7 @@ gem 'inline_svg'
 
 gem 'groupdate', '4.1.1'
 
-gem 'react_on_rails', '11.2.1'
+gem 'react_on_rails', '11.2.2'
 gem 'webpacker'
 
 group :development, :test do
