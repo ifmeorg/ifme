@@ -103,7 +103,6 @@ describe 'NotificationMailer' do
       let(:type) { 'new_ally_request' }
 
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
-      # subject(:email) { NotificationMailer.notification_email(1, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} sent an ally request!") }
       it { expect(email.body.encoded).to match('<p>Please <a href="http://localhost:3000/allies">sign in</a> to accept or reject the request!</p>') }
@@ -122,15 +121,7 @@ describe 'NotificationMailer' do
     context 'when type is new_group_member' do
       let(:type) { 'new_group_member' }
 
-      it do
-        puts "data #{data} recipient #{recipient}"
-      end
-
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
-
-      it do
-        puts "email #{email}"
-      end
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} joined your group \"#{group.name}\"") }
       it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
