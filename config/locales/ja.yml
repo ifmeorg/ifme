@@ -367,14 +367,14 @@ ja:
     access_denied: 'Access Denied'
   pages:
     about:
-      send_us: us
-      email_us: 'Feel free to email %{email_link}!'
-      main_message_one: '%{app_name} is a community for mental health experiences that encourages people to share their personal stories with trusted allies.'
-      message_text_one: 'Trusted allies are the people we interact with on a daily basis, including friends, family members, co-workers, teachers, and mental health workers.'
-      main_message_two: 'Dealing with mental health is what makes us human. But for a lot of us, it''s a struggle to be open about it.'
-      message_text_two: '<p>Not everyone is a counsellor or therapist. The people who we interact with everyday shape our emotions and behaviour. Getting them involved in mental health treatment is the key to recovery.</p><p class="subtitle">"It''s not just all in your head, it''s all around you. We can heal together."</p><p>Mental health is such an individual and unique experience. No two brains are alike! Tackling the problem requires ideas from everyone, which is why the project is open source.</p>'
-      main_message_three: 'Wanna help fund us?'
-      message_text_three: 'Our app is a <u>completely</u> open source project. It''s built and maintained by volunteers of many different backgrounds and skill sets.</p><p>In 2016, we received a community grant from %{linebreak_link}. In 2017, we received funding from %{fund_club_link}.</p>You can support us by donating to our %{patreon_link}.</p>'
+      send_us: 私たち
+      email_us: '%{email_link}にメールしてください！'
+      main_message_one: '%{app_name}は、信用できる仲間と個人的な話を分かち合うことを奨励するメンタルヘルスコミュニティです。'
+      message_text_one: '信用できる仲間は日常的に会話する人です。例えば、友達、家族、同僚、教師、そしてメンタルヘルスワーカーです。'
+      main_message_two: 'メンタルヘルスと向き合うことは人間的なことです。しかし、大勢な人にとってメンタルヘルスについて正直に話すことはすごく大変なことです。'
+      message_text_two: '<p>誰もがカウンセラーやセラピストではありません。毎日会話する人達があなたの感情や行動を影響します。メンタルヘルスの治療にこの人達を巻き込むことが大事です。</p><p class="subtitle">「あなたは一人じゃない。一緒に良くなろう。」</p><p>メンタルヘルスは個人的でユニークな経験です。問題を解決するためにははみんなからのアイデアが必要です。それがこのプロジェクトがオープンソースである理由です。</p>'
+      main_message_three: '私たちに資金を援助したいですか？'
+      message_text_three: 'このアプリケーションは<u>全て</u>オープンソースプロジェクトです。これはさまざまな分野とスキルのボランティアによって作成され維持されています。</p><p>２０１６年、%{linebreak_link}からコミュニティ助成金を受けました。２０１７年、%{fund_club_link}から資金援助を受けました。</p>%{patreon_link}に寄付することで私たちをサポートすることができます。</p>'
       linebreak: Linebreak
       fund_club: 'Fund Club'
     blog:
