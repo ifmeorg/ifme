@@ -364,7 +364,7 @@ ja:
       remove_ban_body: 'あなたは%{code_of_conduct_link}に違反してアクセス禁止されていました。もう禁止されていません。'
   omniauth:
     google: Google
-    access_denied: 'アクセスが禁止されました。'
+    access_denied: 'アクセス禁止'
   pages:
     about:
       send_us: 私たち
@@ -378,7 +378,7 @@ ja:
       linebreak: Linebreak
       fund_club: 'Fund Club'
     blog:
-      description: '私たちのブログに寄稿することに興味があるなら、%{email}で連絡してください！匿名の投稿も歓迎されます。'
+      description: '私たちのブログに寄稿したければ、%{email}に連絡してください！匿名の投稿も歓迎します。'
     contribute:
       contributor_avatar_alt: '%{name}のプロフィール'
       main_message_one: 'if meはさまざまな分野とスキルのボランティアによって作成され維持されています。'
