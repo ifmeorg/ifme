@@ -365,7 +365,7 @@ ja:
       remove_ban_body: 'あなたは%{code_of_conduct_link}に違反してアクセス禁止されていました。もう禁止されていません。'
   omniauth:
     google: Google
-    access_denied: 'Access Denied'
+    access_denied: 'アクセス禁止'
   pages:
     about:
       send_us: 私たち
@@ -379,13 +379,13 @@ ja:
       linebreak: Linebreak
       fund_club: 'Fund Club'
     blog:
-      description: 'If you''re interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too.'
+      description: '私たちのブログに寄稿したければ、%{email}に連絡してください！匿名の投稿も歓迎します。'
     contribute:
-      contributor_avatar_alt: 'Contributor biography for %{name}'
-      main_message_one: 'if me is built and maintained by volunteers of many different backgrounds and skill sets.'
-      message_text_one: 'We''re always looking for ideas from everyone, including <strong>mental health advocates</strong>, <strong>health professionals</strong>, <strong>software developers</strong>, <strong>translators</strong>, and <strong>user experience designers</strong>!<p class="noMarginBottom">Please %{email_link} and we''ll connect with you! You will be invited to participate in our %{slack_link} page, our primary communication tool. Be sure to fork our repository hosted on %{github_link}!</p>'
-      more_contributors: 'More Fabulous Contributors!'
-      thanks: 'A huge thanks to'
+      contributor_avatar_alt: '%{name}のプロフィール'
+      main_message_one: 'if meはさまざまな分野とスキルのボランティアによって作成され維持されています。'
+      message_text_one: '<strong>精神保健擁護家</strong>、<strong>医療従事者</strong>、<strong>ソフトウェア開発者</strong>、<strong>翻訳者</strong>、<strong>ユーザーエクスペリエンスデザイナー</strong>など、誰もが常にアイデアを探しています！<p class="noMarginBottom">貢献したかったら、%{email_link}！主要なコミュニケーションツールである%{slack_link}ページに参加するように招待されます。%{github_link}でホストされているリポジトリをフォークしてください！</p>'
+      more_contributors: 'もっと素晴らしい貢献者！'
+      thanks: 'ありがとうございます。'
       slack: Slack
     faq:
       title: 'よくある質問'
