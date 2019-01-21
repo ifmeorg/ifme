@@ -66,7 +66,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
-  gem 'rspec-rails', '~> 3.8.1'
+  gem 'rspec-rails', '~> 3.8.2'
 
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
