@@ -44,7 +44,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
@@ -139,7 +139,7 @@ GEM
       raabro (~> 1.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    google-api-client (0.27.3)
+    google-api-client (0.28.0)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.5, < 0.10.0)
       httpclient (>= 2.8.1, < 3.0)
@@ -485,7 +485,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   friendly_id (~> 5.2.5)
-  google-api-client (~> 0.27.3)
+  google-api-client (~> 0.28.0)
   groupdate (= 4.1.1)
   inline_svg
   jbuilder (~> 2.8.0)
