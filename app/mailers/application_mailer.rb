@@ -4,6 +4,7 @@ class ApplicationMailer < ActionMailer::Base
   include ActionView::Helpers::UrlHelper
   include ApplicationMailerHelper
   include NotificationMailerHelper
+  include GroupNotificationHelper
   default from: ENV['SMTP_ADDRESS']
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
@@ -20,13 +21,10 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def comment_notify(data, recipient)
-    @data = data
-    @recipient = recipient
-
     subject = extract_comment_notify_subject(data)
     generate_comment_notify_message(data)
-
-    mail(to: @recipient.email, subject: subject)
+    @recipient = recipient
+    mail(to: recipient.email, subject: subject)
   end
 
   def can_ally_notify(data, recipient)
@@ -49,13 +47,21 @@ class ApplicationMailer < ActionMailer::Base
 
   def group_notify(data, recipient)
     @recipient = recipient
-    case data['type']
-    when 'new_group', 'new_group_member'
+    if data['type'].start_with? 'new_group', 'new_group_member'
       new_group_notify(data)
-    when 'add_group_leader'
-      add_group_notify(data, recipient)
-    when 'remove_group_leader' 
-      remove_group_notify(data, recipient)
+    elsif data['type'].end_with? 'group_leader'
+      group_leader_notify(data, recipient, data['type'])
+    else
+      meeting_notify(data, data['type'])
+    end
+    mail(to: recipient.email, subject: @subject) if defined?(@subject) &&
+                                                    !@message.nil?
+  end
+
+  private
+
+  def meeting_notify(data, type)
+    case type
     when 'new_meeting'
       new_meeting_group_notify(data)
     when 'update_meeting'
@@ -64,13 +70,8 @@ class ApplicationMailer < ActionMailer::Base
       remove_meeting_group_notify(data)
     when 'join_meeting'
       join_meeting_group_notify(data)
-    else
-      @message = nil
     end
-    mail(to: recipient.email, subject: @subject) if defined?(@subject) && !@message.nil?
   end
-
-  private
 
   def generate_comment_notify_message(data)
     key = extract_comment_notify_key(data)
@@ -84,78 +85,5 @@ class ApplicationMailer < ActionMailer::Base
     @message += comment_link(link)
   end
 
-  def extract_comment_notify_key(data)
-    # TODO: all these methods in ApplicationMailerHelper use data['type'], so just pass the type
-    comment_on_moment_private(data) || comment_on_strategy_private(data) ?
-      val('comment_on_private_body') : val('comment_on_body')
-  end
 
-  def extract_comment_notify_subject(data)
-    # TODO: all these methods in ApplicationMailerHelper use data['type'], so just pass the type
-    if comment_on_moment(data) || comment_on_moment_private(data)
-      comment_on_moment_subject(data)
-    elsif comment_on_strategy(data) || comment_on_strategy_private(data)
-      comment_on_strategy_subject(data)
-    else
-      comment_on_meeting_subject(data)
-    end
-
-  end
-
-  def new_group_notify(data)
-    case data['type']
-    when 'new_group'
-      @subject = new_group_subject(data)
-      @message = new_group_body(data)
-    when 'new_group_member'
-      @subject = new_group_member_subject(data)
-      @message = add_remove_group_leader_body(data)
-    else
-      @message = nil
-    end
-  end
-
-  def add_group_notify(data, recipient)
-    if you?(recipient, data)
-      @subject = add_group_leader_you_subject(data)
-      @message = add_remove_group_leader_body(data)
-    else
-      @subject = add_group_leader_subject(data)
-      @message = add_remove_group_leader_body(data)
-    end
-  end
-
-  def remove_group_notify(data, recipient)
-    if you?(recipient, data)
-      @subject = remove_group_leader_you_subject(data)
-      @message = add_remove_group_leader_body(data)
-    else 
-      @subject = remove_group_leader_subject(data)
-      @message = add_remove_group_leader_body(data)
-    end
-  end
-
-  def new_meeting_group_notify(data)
-    @subject = new_meeting_subject(data)
-    @message = meeting_body(data) + new_meeting_link(data)
-  end
-
-  def update_meeting_group_notify(data)
-    @subject = update_meeting_subject(data)
-    @message = meeting_body(data) + update_meeting_link(data)
-  end
-
-  def remove_meeting_group_notify(data)
-    @subject = remove_meeting_subject(data)
-    @message = add_remove_group_leader_body(data)
-  end
-
-  def join_meeting_group_notify(data)
-    @subject = join_meeting_subject(data)
-    @message = join_meeting_body(data)
-  end
-
-  def commented_model(data)
-    data['type'].match(/comment_on_([^_]+)/)[1]
-  end
 end
