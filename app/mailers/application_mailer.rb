@@ -84,6 +84,4 @@ class ApplicationMailer < ActionMailer::Base
     link = link_to(I18n.t('click_here'), url)
     @message += comment_link(link)
   end
-
-
 end
