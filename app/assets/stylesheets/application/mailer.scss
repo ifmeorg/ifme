@@ -4,7 +4,7 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-#header-container {
+.header-container {
   padding: 10px;
 
   &.grid {
@@ -12,10 +12,10 @@ body {
   }
 }
 
-#mailer-container {
+.mailer-container {
   padding: 30px;
 
-  #mailer-content {
+  .mailer-content {
     grid-column-start: 2;
     text-align: center;
     font-size: 1.3em;
@@ -27,7 +27,7 @@ body {
   }
 }
 
-#footer-container {
+.footer-container {
   padding: 30px;
   text-align: center;
 
@@ -35,7 +35,7 @@ body {
     grid-template-columns: 40% 20% 40%;
   }
 
-  #footer-content {
+  .footer-content {
     grid-column-start: 2;
     color: $light-grey;
 
@@ -52,7 +52,7 @@ body {
 }
 
 .grid {
-  #header-content {
+  .header-content {
     grid-column-start: 2;
     grid-template-rows: 150px 70px 28px;
     margin: 0 auto;
