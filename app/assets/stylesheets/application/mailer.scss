@@ -1,4 +1,4 @@
-@import '../base/colors';
+@import "../base/colors";
 
 body {
   font-family: 'Lato', sans-serif;
@@ -37,7 +37,7 @@ body {
 
   #footer-content {
     grid-column-start: 2;
-    color: #A6A5A6;
+    color: $light-grey;
 
     a {
       color: $mulberry;
