@@ -530,6 +530,9 @@ nb:
         political_movement: 'politisk bevegelse'
         reporting: rapportering
         game: spill
+        stress: understreke
+        fidget: fidget
+        colouring: fargelegging
   profile:
     index:
       title: Profil

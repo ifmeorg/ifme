@@ -190,5 +190,35 @@
     "link": "https://www.tryorchid.com/",
     "tags": ["counseling", "therapy"],
     "languages": ["en"]
+  },
+  {
+    "name": "Antistress",
+    "link": "https://play.google.com/store/apps/details?id=com.JindoBlu.Antistress&hl=en_US",
+    "tags": ["android", "ios", "free", "game", "stress", "fidget"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happify",
+    "link": "https://www.happify.com/",
+    "tags": ["android", "ios", "paid", "game", "stress", "mindfulness"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Pigment",
+    "link": "http://pixiteapps.com/pigment/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Colorfy",
+    "link": "http://www.colorfy.net/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Bloom",
+    "link": "http://www.getbloom.net/",
+    "tags": ["ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
   }
 ]
