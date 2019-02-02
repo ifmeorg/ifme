@@ -530,6 +530,9 @@ vi:
         political_movement: 'phong trào chính trị'
         reporting: 'báo cáo'
         game: 'trò chơi'
+        stress: 'nhấn mạnh'
+        fidget: 'bồn chồn'
+        colouring: 'tô màu'
   profile:
     index:
       title: 'Hồ sơ'
