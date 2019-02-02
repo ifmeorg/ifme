@@ -537,6 +537,9 @@ de:
         political_movement: 'politische Bewegung'
         reporting: Berichterstattung
         game: spiel
+        stress: stress
+        fidget: zappeln
+        colouring: färbung
   profile:
     index:
       title: Profil

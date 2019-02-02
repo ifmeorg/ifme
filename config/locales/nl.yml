@@ -530,6 +530,9 @@ nl:
         political_movement: 'politieke beweging'
         reporting: rapportage
         game: spel
+        stress: spanning
+        fidget: wriemelen
+        colouring: kleur
   profile:
     index:
       title: Profiel

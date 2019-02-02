@@ -530,6 +530,9 @@ sv:
         political_movement: 'politisk rörelse'
         reporting: rapportering
         game: spel
+        stress: påfrestning
+        fidget: fidget
+        colouring: färg
   profile:
     index:
       title: Profil

@@ -530,6 +530,9 @@ it:
         political_movement: 'movimento politico'
         reporting: segnalazione
         game: gioco
+        stress: stress
+        fidget: agitarsi
+        colouring: colorazione
   profile:
     index:
       title: Profilo
