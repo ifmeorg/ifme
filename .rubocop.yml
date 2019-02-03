@@ -6,6 +6,7 @@ AllCops:
     - 'config/**/*'
     - 'spec/**/*'
     - 'client/node_modules/**/*'
+    - 'vendor/**/*'
 
 Documentation:
   Enabled: false
