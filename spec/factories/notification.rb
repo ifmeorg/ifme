@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 data = {
   cutoff: false,
   user: 'Julia Nguyen',
