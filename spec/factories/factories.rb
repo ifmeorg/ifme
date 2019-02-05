@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+# Do not use FactoryBot 5 behaviour, default to, "the association strategy would not always match the strategy of the parent object" https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#associations
+FactoryBot.use_parent_strategy = false
 FactoryBot.define do
   factory :group_member do
     association :user, factory: :user1
