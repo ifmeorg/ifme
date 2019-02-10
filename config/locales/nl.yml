@@ -71,6 +71,7 @@ nl:
       location: Locatie
       description: Omschrijving
       error_explanation: 'Vul alsjeblieft de gemarkeerde velden in!'
+      empty_error: 'Dit veld kan niet leeg zijn!'
       search_by_keywords: 'Zoeken op trefwoorden'
     time_ago: '%{date} geleden'
     write_to_us: 'schrijf ons'

@@ -257,9 +257,8 @@ export class Input extends React.Component<Props, State> {
   };
 
   displayError = () => {
-    const { type } = this.props;
     const { error } = this.state;
-    if (REQUIRES_LABEL.includes(type)) {
+    if (error) {
       return <InputError error={error} />;
     }
     return null;
