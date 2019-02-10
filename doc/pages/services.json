@@ -158,7 +158,7 @@
   {
     "name": "Habitica",
     "link": "https://habitica.com/",
-    "tags": ["goal_tracking", "social_network", "self_care", "android", "ios"],
+    "tags": ["game", "goal_tracking", "social_network", "self_care", "android", "ios"],
     "languages": ["en"]
   },
   {
@@ -219,6 +219,18 @@
     "name": "Bloom",
     "link": "http://www.getbloom.net/",
     "tags": ["ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Moodpath",
+    "link": "https://mymoodpath.com/",
+    "tags": ["ios", "android", "free", "depression", "mood_tracking", "anonymous"],
+    "languages": ["en", "de"]
+  },
+  {
+    "name": "Pacifica",
+    "link": "https://www.thinkpacifica.com/",
+    "tags": ["ios", "android", "paid", "depression", "anxiety", "mindfulness", "meditation", "mood_tracking"],
     "languages": ["en"]
   }
 ]
