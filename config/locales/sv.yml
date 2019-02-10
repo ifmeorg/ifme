@@ -71,6 +71,7 @@ sv:
       location: Plats
       description: Beskrivning
       error_explanation: 'Vänligen fyll i de markerade fälten!'
+      empty_error: 'Det här fältet kan inte vara tomt!'
       search_by_keywords: 'Sök med nyckelord'
     time_ago: '%{date} sedan'
     write_to_us: 'skriv till oss'

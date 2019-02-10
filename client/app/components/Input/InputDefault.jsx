@@ -79,6 +79,7 @@ export const InputDefault = (props: Props) => {
       }
       ref={myRef}
       aria-label={label}
+      aria-invalid={hasError}
     />
   );
 };

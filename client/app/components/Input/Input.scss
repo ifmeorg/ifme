@@ -149,6 +149,10 @@
     flex-direction: row;
     align-items: center;
   }
+  &Error {
+    @include setMargin($size-8, $size-0, $size-0, $size-0);
+    font-weight: bold;
+  }
   &NoAccordion {
     @include setMargin($size-0, $size-0, $size-10, $size-0);
   }

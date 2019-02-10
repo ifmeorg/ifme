@@ -72,6 +72,7 @@ de:
       location: Ort
       description: Beschreibung
       error_explanation: 'Bitte fülle die markierten Felder aus!'
+      empty_error: 'Dieses Feld kann nicht leer sein!'
       search_by_keywords: 'Suche nach Schlüsselwörtern'
     time_ago: 'Vor %{date}'
     write_to_us: 'schreibe uns'

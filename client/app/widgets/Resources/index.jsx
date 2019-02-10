@@ -86,7 +86,9 @@ export class Resources extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <center className={css.marginTop}>
-          {`${filteredResources.length} ${I18n.t('navigation.resources').toLowerCase()}`}
+          {`${filteredResources.length} ${I18n.t(
+            'navigation.resources',
+          ).toLowerCase()}`}
         </center>
         <div className={`${css.gridThree} ${css.marginTop}`}>
           {filteredResources.map((resource: ResourceProp) => (

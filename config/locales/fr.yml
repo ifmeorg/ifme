@@ -71,6 +71,7 @@ fr:
       location: Emplacement
       description: Description
       error_explanation: 'Merci de compléter les champs indiqués!'
+      empty_error: 'Ce champ ne peut pas être vide!'
       search_by_keywords: 'Recherche par mots-clés'
     time_ago: 'il y a %{date}'
     write_to_us: 'nous écrire'

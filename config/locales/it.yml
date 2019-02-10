@@ -71,6 +71,7 @@ it:
       location: Luogo
       description: Descrizione
       error_explanation: 'Per favore, riempi i campi indicati!'
+      empty_error: 'Questo campo non può essere vuoto!'
       search_by_keywords: 'Cerca per parole chiave'
     time_ago: '%{date} fa'
     write_to_us: scrivici
