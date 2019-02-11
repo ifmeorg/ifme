@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.2'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.12'
-gem 'devise', '~> 4.3'
+gem 'devise', '~> 4.6'
 gem 'devise_invitable', '~> 1.7.5'
 gem 'devise_uid'
 gem 'pg', '1.1.4'
