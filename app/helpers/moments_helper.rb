@@ -21,22 +21,17 @@ module MomentsHelper
     )
   end
 
-  # rubocop:disable MethodLength
   def moments_stats
-    total_count = current_user.moments.all.count
-    monthly_count = current_user.moments.where(
-      created_at: Time.current.beginning_of_month..Time.current
-    ).count
-    return '' if total_count <= 1
+    return '' if moment_count[:total] <= 1
 
     result = '<div class="center stats">'
-    result += total_moment(total_count)
-    if total_count != monthly_count
-      result += " #{monthly_moment(monthly_count)}"
+    result += total_moment
+    if moment_count[:total] != moment_count[:monthly]
+      result += " #{monthly_moment}"
     end
+
     result + '</div>'
   end
-  # rubocop:enable MethodLength
 
   private
 
@@ -146,24 +141,33 @@ module MomentsHelper
     end
   end
 
-  def total_moment(total_count)
-    unless total_count == 1
-      return t(
-        'stats.total_moments', count: total_count
-      )
-    end
-
-    t('stats.total_moment', count: total_count)
+  def moment_count
+    {
+      total: current_user.moments.all.count,
+      monthly: current_user.moments.where(
+        created_at: Time.current.beginning_of_month..Time.current
+      ).count
+    }
   end
 
-  def monthly_moment(monthly_count)
-    unless monthly_count == 1
+  def total_moment
+    unless moment_count[:total] == 1
       return t(
-        'stats.monthly_moments', count: monthly_count
+        'stats.total_moments', count: moment_count[:total]
       )
     end
 
-    t('stats.monthly_moment', count: monthly_count)
+    t('stats.total_moment', count: moment_count[:total])
+  end
+
+  def monthly_moment
+    unless moment_count[:monthly] == 1
+      return t(
+        'stats.monthly_moments', count: moment_count[:monthly]
+      )
+    end
+
+    t('stats.monthly_moment', count: moment_count[:monthly])
   end
 end
 # rubocop:enable ModuleLength
