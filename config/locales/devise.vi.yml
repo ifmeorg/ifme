@@ -20,7 +20,7 @@ vi:
       reset_password_instructions:
         subject: 'Hướng dẫn cài đặt lại mật khẩu'
       unlock_instructions:
-        subject: 'Hướng dẫn mở khóas'
+        subject: 'Hướng dẫn mở khóa'
       password_change:
         subject: 'Mật khẩu đã được thay đổi'
     omniauth_callbacks:
