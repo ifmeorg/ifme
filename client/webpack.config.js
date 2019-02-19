@@ -10,6 +10,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
 
 const configPath = resolve('..', 'config');
@@ -99,6 +100,8 @@ const config = Object.assign(baseConfig, {
       hot: !!devOrTestMode,
     }),
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
+    // only load moment.js data for locales we support (see config/locale.rb)
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
   ],
 
   module: {
