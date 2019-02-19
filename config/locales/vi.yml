@@ -1,6 +1,6 @@
 vi:
   app_name: 'if me'
-  app_description: 'Đồng sức khỏe tâm thần'
+  app_description: 'Cộng đồng sức khỏe tâm thần'
   email: join.ifme@gmail.com
   created: 'Tạo %{created_at}'
   draft: Nháp
@@ -43,7 +43,7 @@ vi:
     press: Press
     faq: FAQ
     resources: Nguồn
-    code_of_conduct: 'Quy tắc ứng xu'
+    code_of_conduct: 'Quy tắc ứng xử'
   common:
     name: Tên
     you: Bạn
@@ -65,7 +65,7 @@ vi:
       add_all: 'Thêm vào tất cả'
       select_all: 'Lựa chọn tất cả'
       remove: 'Gỡ bỏ'
-      report: 'Bài báo cáo'
+      report: 'Báo cáo'
     form:
       email: Email
       location: 'Vị trí'
@@ -79,11 +79,11 @@ vi:
   reports:
     admin_dashboard: 'Bảng điều khiển quản trị'
     reported_users: 'Người dùng đã báo cáo'
-    banned_users: 'Người bị cấm'
+    banned_users: 'Người dùng bị cấm'
     reasons: 'Lý Do'
     new: 'Báo cáo mới cho %{name}'
     remove_ban: 'Xóa lệnh cấm'
-    ban_user: 'Ngươi dung bị câm'
+    ban_user: 'Người bị câm'
     report_sent: 'Đã gửi báo cáo cho %{name}'
     report_error: 'Không thể gửi báo cáo cho %{name}'
     reportee: 'Người được báo cáo'
@@ -173,8 +173,8 @@ vi:
     leave:
       error: 'Bạn không thể rời nhóm, bạn là nhóm trưởng.'
       success: 'Bạn đã ra khỏi nhóm %{group}'
-      remove_member_success: 'Bạn đã gở bỏ %{user} ra khỏi nhóm %{group}'
-      remove_member_error: 'Bạn không thể đá một thành viên nhóm vì bạn không phải là một nhà lãnh đạo.'
+      remove_member_success: 'Bạn đã gỡ bỏ %{user} ra khỏi nhóm %{group}'
+      remove_member_error: 'Bạn không thể đá một thành viên nhóm vì bạn không phải là quản trị nhóm .'
     new: 'Nhóm mới'
     show:
       led_by: 'Điểu khiển bởi:'
@@ -275,7 +275,7 @@ vi:
       cancel_secret_share: 'Hủy bỏ chia sẻ bí mật'
     form:
       why: 'Chuyện gì đã xảy ra và bạn cảm thấy thế nào?'
-      fix: 'Suy nghĩ nào mà bạn muốn có?'
+      fix: 'Bạn muốn suy nghĩ về chuyện này như thế nào??'
       what_happened: 'Điều gì đã xảy ra?'
       viewers_hint: 'Những đồng minh có thể xem bình luận của bạn'
       draft_question: 'Bạn có muốn lưu lại khoản khắc này như một bản nháp không?'
@@ -301,7 +301,7 @@ vi:
       premade3_name: 'Hiếu kỳ '
       premade3_description: 'Cảm thấy tò mò và không chắc chắn'
       premade4_name: 'Tức giận'
-      premade4_description: 'Cảm giác không chấp nhận một sự thật nào đó, cảm giác tức giận, muốn bào thù, và hoặc ganh tỵ'
+      premade4_description: 'Cảm giác không chấp nhận một sự thật nào đó, cảm giác tức giận, muốn báo thù, và hoặc ganh tỵ'
       premade5_name: 'Thất vọng'
       premade5_description: 'Cảm giác buồn và vô vọng – không tìm thấy giải pháp'
       instructions: 'Bạn chưa tạo bất kỳ tâm trạng tùy chỉnh nào được nêu ra.<br>Bạn cũng có thể thêm các giai điệu trước và tùy chỉnh thời gian khác.'
@@ -369,16 +369,16 @@ vi:
     about:
       send_us: 'chúng tôi'
       email_us: 'Hãy email %{email_link}!'
-      main_message_one: '%{app_name} là một cộng đồng của sức khỏe tâm thần trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ với những đồng minh thân tín.'
-      message_text_one: 'Những đồng minh hay bạn bè thân tín là những người có liên hệ trong cuộc sống hàng ngày bao gốm bạn bè, thành viên gia đình, đồng nghiệp, giáo viên và những nhân viên chăm sóc sức khỏe tâm thần.'
-      main_message_two: 'Giải quyết cá vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó.'
-      message_text_two: '<p>Không phải ai cũng là nhà tư vấn hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chinh la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.</p><p class="subtitle">"Không phải chỉ là trong đầu của bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng nhau chửa lành cho nhau."</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các nhân và riêng việt. không có hai cái não giống nhau, giải quyết cá vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>'
+      main_message_one: '%{app_name} là một cộng đồng của sức khỏe tâm thần trong đó khuyến khích người dùng chia sẻ những câu chuyện cá nhân của họ với những người bạn thân tín.'
+      message_text_one: 'Những đồng minh hay bạn bè thân tín là những người có liên hệ trong cuộc sống hàng ngày bao gồm bạn bè, thành viên gia đình, đồng nghiệp, giáo viên và những nhân viên chăm sóc sức khỏe tâm thần.'
+      main_message_two: 'Giải quyết các vấn đề về sức khỏe tâm thần làm nên con người chúng ta. Nhưng nhiều người trong chúng ta đắn đo khi mở lòng để chia sẻ những điều đó.'
+      message_text_two: '<p>Không phải ai cũng là nhà tư vấn tâm lý hay trị liệu. Những người có liên hệ với cuộc sống chúng ta mỗi ngày chính la những người làm nên cảm xúc và cách cư xử của chúng ta. Mời gọi họ tham gia vào các phương pháp trị liệu sức khỏe tâm thần sẽ là chìa khóa giúp ta hồi phục.</p><p class="subtitle">"Không phải chỉ là trong suy nghĩcủa bạn không thôi, mà là tất cả những gì xung quanh bạn. Chúng ta cùng điều trị cho nhau."</p><p>Sức khỏe tâm thần là những kinh nghiệm của từng các nhân riêng việt. Không có hai cái não giống nhau, giải quyết các vấn đề đòi hỏi từ tất cả mọi người và đó là lý do tại sao dự án có mã nguồn mở.</p>'
       main_message_three: 'Mong muốn ủng hộ chúng tôi?'
       message_text_three: 'Ứng dụng của chúng tôi là một dự án mã nguồn mở <u>hoàn toàn </u>. Nó được xây dựng và duy trì bởi các tình nguyện viên có nhiều nền tảng và kỹ năng khác nhau.</p><p>Vào năm 2016, chúng tôi đã nhận được khoản trợ cấp cộng đồng từ %{linebreak_link}. Năm 2017, chúng tôi nhận được tài trợ từ %{fund_club_link}.</p>Bạn có thể hỗ trợ chúng tôi bằng cách quyên góp cho %{patreon_link} của chúng tôi.</p>'
       linebreak: Linebreak
       fund_club: 'Fund Club'
     blog:
-      description: 'Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi nặc danh.'
+      description: 'Nếu bạn quan tâm đến việc viết thư cho chúng tôi, hãy cho chúng tôi biết về %{email}! Chúng tôi hoan nghênh quá trình gửi ẩn danh.'
     contribute:
       contributor_avatar_alt: 'Tiểu sử cộng tác viên cho %{name}'
       main_message_one: 'if me được xây dựng và duy trì bởi nhiều tình nguyện viên khác nhau với kiến thức và kinh nghiệm khác nhau.'
@@ -389,7 +389,7 @@ vi:
     faq:
       title: 'Những câu hỏi thường được hỏi'
       data_access_question: 'Ai truy nhập vào dữ liệu của chúng tôi?'
-      data_access_answer: 'Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác. Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.<br><br>Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ luôn những dữ liệu trong tài khoản đó.'
+      data_access_answer: 'Dữ liệu sẽ không bị cung cấp hay xâm nhập bởi một bên thứ ba nào khác. Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ tất cả những dữ liệu trong tài khoản đó.<br><br>Xóa bỏ tài khoản của bạn sẽ có nghĩa là xóa bỏ tất cả những dữ liệu trong tài khoản đó.'
       moment_question: 'Khoản khắc là gì?'
       moment_answer: '<strong>%{moment}</strong> là sự kiện hay tình huống đã làm ảnh hưởng đến sức khỏe tâm thần của bạn. Nó có thể là tích cực hoặc tiêu cực. Nghĩ về nó như nhật ký tham gia hay một trạng thái được đăng tải.<br><br>Bạn có thể gắn nhãn cho những ghi chép đó bằng từ khóa với chiến lược, danh mục, và tâm trạng. Bạn cho thể chọn đồng minh có thể xem và bình luận. Bạn cũng có thể lưu giữ những ghi chép đó cho một mình bạn.'
       strategy_question: 'Chiến lược là gì?'
@@ -415,10 +415,10 @@ vi:
       not_signed_in:
         main_message_one: 'Một cuộc trao đổi tích cực với những người bạn yêu mến sẽ giúp cho bạn có một sức khỏe tâm thần tốt hơn.'
         message_text_one: 'Chúng ta cần nhau có nhau để phá bỏ đi những triệu chứng hay mầm bệnh này.'
-        message_one: 'Chia sẻ câu chuyện của bạn với những người yêu mến và nhận những hỗ trợ ma bạn xứng đáng được nhận'
-        message_two: 'Cùng với việc hệ thống và chính sách bảo mật thông tin cá nhân, hãy là chính mình, không có ràng buộc nào cả'
+        message_one: 'Chia sẻ câu chuyện của bạn với những người yêu mến và nhận những hỗ trợ mà bạn xứng đáng được nhận'
+        message_two: 'Cùng với việc hệ thống và chính sách bảo mật thông tin cá nhân, hãy tự do thể hiện chính mình'
         message_three: 'Ghi chép lại tâm trạng, thuốc, và tự chăm sóc bản thân của bạn'
-        main_message_two: 'Chúng tôi là một mã nguồn mở bởi vì sức khỏe tâm thần cần được chia sẻ rộng rãi.'
+        main_message_two: 'Chúng tôi là cộng đồng xây dựng trên mã nguồn mở bởi vì sức khoẻ tâm thần cũng cần được chia sẻ rộng rãi tương tự.'
         message_text_two: 'Chúng tôi <strong>luôn</strong> tìm kiếm %{help} và %{feedback}!'
         help: 'cứu giúp'
       signed_in_empty:
@@ -437,7 +437,7 @@ vi:
       description: 'Có rất nhiều tổ chức thực sự tuyệt vời mà chúng tôi đã được truyền cảm hứng và vinh dự làm việc. Chúng tôi rất muốn làm việc với tổ chức của bạn, gửi email cho chúng tôi theo địa chỉ %{email}.'
     privacy:
       summary: 'Tóm tắt'
-      summary_description: '<p>Chính sách bảo mật này dành cho trang web này và chi phối sự riêng tư của những người sử dụng nó.</p><p>Với nội dung nhạy cảm của trang web, sự riêng tư là mối quan tâm vô cùng quan trọng đối với chúng tôi. Chính sách đề ra cách phác thảo cách thu thập dữ liệu người dùng, cách sử dụng và cách thức bảo vệ nó.</p>'
+      summary_description: '<p>Chính sách bảo mật dành cho trang web này và chi phối sự riêng tư của những người sử dụng.</p><p>Với nội dung nhạy cảm của trang web, sự riêng tư là mối quan tâm vô cùng quan trọng đối với chúng tôi. Chính sách đề ra cách phác thảo cách thu thập dữ liệu người dùng, cách sử dụng và cách thức bảo vệ nó.</p>'
       user_data: 'Dữ liệu người dùng'
       user_data_description: '<p>Người dùng được cung cấp cho chúng tôi những trích đoạn cá nhân từ cuộc sống của họ (trong tính năng khoản khắc) và giai thoại về thuốc men. Dữ liệu từ tính năng Moments được chia sẻ với bất cứ ai mà người dùng chọn chia sẻ. Dữ liệu từ tính năng Thuốc chỉ hiển thị cho người dùng. Cả hai dữ liệu sẽ không được sử dụng cho bất kỳ mục đích bổ sung nào và không được đầu hàng cho các bên bên ngoài. Ứng dụng cũng chứa dữ liệu liên quan đến các nhóm hỗ trợ và các chiến lược để giải quyết các thách thức về sức khoẻ tâm thần. Dữ liệu này chỉ có thể truy cập được cho người dùng được phép xem. Dữ liệu từ cả hai tính năng có thể được hiển thị công khai để giới thiệu cho những người dùng hiện tại và tương lai. Tuy nhiên, danh tính người dùng sẽ được giữ kín.</p>'
       cookies: 'Sử dụng văn bản ghi thông tin'
