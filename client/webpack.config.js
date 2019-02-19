@@ -101,7 +101,7 @@ const config = Object.assign(baseConfig, {
     }),
     new ManifestPlugin({ publicPath: output.publicPath, writeToFileEmit: true }),
     // only load moment.js data for locales we support (see config/locale.rb)
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en|es|de|it|nb|nl|pt-BR|sv|vi|fr/),
   ],
 
   module: {
