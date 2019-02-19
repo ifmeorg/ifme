@@ -2,8 +2,8 @@ vi:
   devise:
     confirmations:
       confirmed: 'Địa chỉ email của bạn đã được xác nhận thành công.'
-      send_instructions: 'Bạn sẽ nhận được một hướng dẫn làm thến nào để xác nhận email trong vài phút nữa.'
-      send_paranoid_instructions: 'Nếu email của bạn có trong dữ liệu của chúng tôi, bạn sẽ nhận được một email hướng dẫn làm thến nào để xác nhận email trong vài phút nữa:'
+      send_instructions: 'Bạn sẽ nhận được một hướng dẫn làm thế nào để xác nhận email trong vài phút nữa.'
+      send_paranoid_instructions: 'Nếu email của bạn có trong dữ liệu của chúng tôi, bạn sẽ nhận được một email hướng dẫn làm thế nào để xác nhận email trong vài phút nữa:'
     failure:
       already_authenticated: 'Bạn đã được đăng ký.'
       inactive: 'Tài khoản của bạn chưa được kích hoạt.'
@@ -27,7 +27,7 @@ vi:
       failure: 'Không thể xác thực bạn từ %{kind} bởi vì "%{reason}".'
       success: 'Chứng thực thành công từ tài khoản %{kind}.'
     passwords:
-      no_token: 'Bạn không thể truy nhập vào trang này nếu không thông qua email hướng dẫn cài đặt mật khẩu, xin vui lòng bảo đảm sử dụng đúng đường dẫn đã được cung cấp.'
+      no_token: 'Bạn không thể truy nhập vào trang này nếu không thông qua email hướng dẫn cài đặt mật khẩu, xin vui lòng sử dụng đúng đường dẫn đã được cung cấp.'
       send_instructions: 'Bạn sẽ nhận được email hướng dẫn làm thế nào để cài đặt lại mật khẩu trong vài  phút nữa.'
       send_paranoid_instructions: 'Nếu địa chỉ emai của bạn tồn tại trong dữ liệu của chúng tôi, bạn sẽ nhận được một email hướng dẫn khôi phục lại mật khẩu trong vài phút nữa.'
       updated: 'Mật khẩu của bạn đã thay đổi thành công, bây giờ bạn đã được đăng nhập.'
@@ -37,7 +37,7 @@ vi:
       signed_up: 'Xin chào, bạn đã đăng ký thành công.'
       signed_up_but_inactive: 'Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể cho phép bạn đăng nhập, vì tài khoản của bạn chưa kích hoạt.'
       signed_up_but_locked: 'Bạn đã đăng ký thành công, tuy nhiên bạn chưa đăng nhập được bởi vì tài khoản của bạn đã bị khóa.'
-      signed_up_but_unconfirmed: 'Một tin nhắn với đường dẫn xác nhận sẽ được gửi tới địa chỉ email của bạn. vui lòng theo đường dẫn để kích hoạt tài khoản của bạn.'
+      signed_up_but_unconfirmed: 'Một tin nhắn với đường dẫn xác nhận sẽ được gửi tới địa chỉ email của bạn. Vui lòng theo đường dẫn để kích hoạt tài khoản của bạn.'
       update_needs_confirmation: 'Tài khoản của bạn đã cập nhật thành công, nhưng chúng tôi cần xác minh địa chỉ email mới của bạn. Xin vui lòng kiểm tra email và theo hướng dẫn để xác nhận địa chỉ email mới.'
       updated: 'Tài khoản của bạn đã được cập nhật thành công.'
     sessions:
