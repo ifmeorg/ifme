@@ -22,14 +22,12 @@ module MomentsHelper
   end
 
   def moments_stats
-    return '' if moment_count[:total] <= 1
-
+    return '' if moment_count[:total] < 1
     result = '<div class="center stats">'
     result += total_moment
     if moment_count[:total] != moment_count[:monthly]
       result += " #{monthly_moment}"
     end
-
     result + '</div>'
   end
 
@@ -151,23 +149,19 @@ module MomentsHelper
   end
 
   def total_moment
-    unless moment_count[:total] == 1
-      return t(
-        'stats.total_moments', count: moment_count[:total]
-      )
+    if moment_count[:total] == 1
+      t('stats.total_moment', count: moment_count[:total])
+    else
+      t('stats.total_moments', count: moment_count[:total])
     end
-
-    t('stats.total_moment', count: moment_count[:total])
   end
 
   def monthly_moment
-    unless moment_count[:monthly] == 1
-      return t(
-        'stats.monthly_moments', count: moment_count[:monthly]
-      )
+    if moment_count[:monthly] == 1
+      t('stats.monthly_moment', count: moment_count[:monthly])
+    else
+      t('stats.monthly_moments', count: moment_count[:monthly])
     end
-
-    t('stats.monthly_moment', count: moment_count[:monthly])
   end
 end
 # rubocop:enable ModuleLength
