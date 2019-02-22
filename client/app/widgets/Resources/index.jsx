@@ -17,6 +17,7 @@ type ResourceProp = {
 
 export type Props = {
   resources: ResourceProp[],
+  keywords: string[],
 };
 
 export type State = {
@@ -39,7 +40,7 @@ export class Resources extends React.Component<Props, State> {
   }
 
   createCheckboxes = () => {
-    const { resources } = this.props;
+    const { resources, keywords } = this.props;
     const tagsList = [
       ...new Set(
         resources
@@ -53,7 +54,7 @@ export class Resources extends React.Component<Props, State> {
         key: tag,
         value: tag,
         label: tag,
-        checked: false,
+        checked: keywords.some((keyword) => keyword.toLowerCase() === tag.toLowerCase())
       })),
     );
   };
