@@ -56,7 +56,7 @@ group :development, :test do
   gem 'railroady', '1.5.3'
   gem 'rails-erd', '~> 1.4', '>= 1.4.4'
 
-  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'better_errors', '~> 2.5'
   gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'

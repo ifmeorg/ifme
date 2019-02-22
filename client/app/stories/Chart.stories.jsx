@@ -1,4 +1,3 @@
-import 'chartjs';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Chart } from '../components/Chart';
