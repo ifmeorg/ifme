@@ -42,6 +42,7 @@ class PagesController < ApplicationController
 
   def resources
     @resources = fetch_resources
+    @keywords = filter_keywords
   end
 
   def about; end
@@ -51,6 +52,18 @@ class PagesController < ApplicationController
   def privacy; end
 
   private
+
+  def filter_keywords
+    return [] if params[:filter].nil?
+
+    word_tags.select { |r| params[:filter].map(&:downcase).include? r.downcase }
+  end
+
+  def word_tags
+    @resources.reduce([]) do |arr, resource|
+      arr + resource['tags'] + resource['languages']
+    end.uniq
+  end
 
   def load_dashboard_data
     params = { user_id: current_user.id }

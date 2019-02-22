@@ -123,6 +123,20 @@ describe PagesController, type: :controller do
   end
 
   describe 'GET #resources' do
+    describe 'when sending filter params' do
+      it 'filters the aforementioned resources' do
+        get :resources, params: { filter: ['ADD' , 'english'] }
+
+        expect(assigns(:keywords)).to match_array(['ADD', 'English'])
+      end
+
+      it 'filters only existing resources' do
+        get :resources, params: { filter: ['ADD' , 'someUnexistentTag'] }
+
+        expect(assigns(:keywords)).to match_array(['ADD'])
+      end
+    end
+
     it 'respond to request' do
       get :resources
       expect(response).to be_successful
