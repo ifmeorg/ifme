@@ -176,19 +176,13 @@ module MomentsHelper
   end
 
   def total_moment
-    if moment_count[:total] == 1
-      t('stats.total_moment', count: moment_count[:total])
-    else
-      t('stats.total_moments', count: moment_count[:total])
-    end
+    moment_key = moment_count[:total] == 1 ? 'moment' : 'moments'
+    t("stats.total_#{moment_key}", count: moment_count[:total])
   end
 
   def monthly_moment
-    if moment_count[:monthly] == 1
-      t('stats.monthly_moment', count: moment_count[:monthly])
-    else
-      t('stats.monthly_moments', count: moment_count[:monthly])
-    end
+    moment_key = moment_count[:monthly] == 1 ? 'moment' : 'moments'
+    t("stats.monthly_#{moment_key}", count: moment_count[:monthly])
   end
 end
 # rubocop:enable ModuleLength
