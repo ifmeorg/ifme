@@ -1,0 +1,27 @@
+en:
+  devise:
+    failure:
+      invited: 'Mayroon kang ngahihintay na imbitasyon, tanggapin ito upang matapos ang paglikha ng iyong account.'
+    invitations:
+      send_instructions: 'May pinadalang email na imbitasyon sa %{email}.'
+      failed_send: 'Nagkaron ng error. %{email} ay hindi maimbitahan.'
+      invitation_token_invalid: 'Hindi wasto ang token ng imbitasyon!'
+      updated: 'Tagumpay ang paglagay ng password. Ikaw ay signed in na.'
+      updated_not_active: 'Tagumpay ang paglagay ng password.'
+      no_invitations_remaining: 'Walang natirang mga imbitasyon'
+      invitation_removed: 'Inalis ang iyong imbitasyon.'
+      new:
+        header: 'Magpadala ng imbitasyon sa kapanig'
+        submit_button: 'Ipadala ang imbitasyon'
+      edit:
+        header: 'Magtakda ng password'
+        submit_button: 'Itakda ang aking password'
+    mailer:
+      invitation_instructions:
+        subject: 'Inimbita ka ni %{name} na sumali sa if me!'
+        subject_nameless: 'May nag-imbita sa yo na sumali sa if me!'
+        hello: 'Kamusta %{email}!'
+        someone_invited_you: 'Inimbita ka ni %{name} na sumali sa http://www.if-me.org, isang komunidad kung saan maaari mong ibahagi sa iyong mga mahal sa buhay ang iyong mga karanasan tungkol sa mental na kalusugan. Maaari mo ring subaybayan ang iyong mga mood, gamot, at pag-aalaga sa sarili dito. Tanggapin ang imbitasyon sa pamamagitan ng link sa ibaba.'
+        accept: 'Tanggapin ang imbitasyon!'
+        accept_until: 'Mag-e-expire ang imbitasyon na ito sa %{due_date}.'
+        ignore: 'Kung ayaw mong tanggapin ang imbitasyon, mangyaring huwag pansinin ang email na ito.<br />Your account won''t be created until you access the link above and set your password.'
