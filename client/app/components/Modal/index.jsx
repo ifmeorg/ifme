@@ -81,7 +81,7 @@ export class Modal extends React.Component<Props, State> {
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
-        onMouseEnter={() => this.setMouseInside(true)}
+        onMouseOver={() => this.setMouseInside(true)}
         onMouseLeave={() => this.setMouseInside(false)}
       >
         {this.displayModalHeader()}
