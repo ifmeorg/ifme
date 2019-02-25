@@ -83,14 +83,35 @@ export class Modal extends React.Component<Props, State> {
     </div>
   );
 
+  handleOnMouseEnter = () => {
+    document.onclick = null;
+  }
+  
+  handleOnMouseLeave = () => {
+    document.onclick = this.toggleOpen;
+  }
+
+  handleKeyPress = (e) => {
+    if( e.key !== 'Escape') return;
+    this.toggleOpen();
+  }
+
+   unregisterListeners() {
+    // Want to make it so you can close by clicking outside the modal
+    // document.onclick = null; // Code stub
+    document.onkeydown = null;
+  }
+
   toggleOpen = () => {
     const { open } = this.state;
     const { openListener } = this.props;
     const body = ((document.body: any): HTMLBodyElement);
     if (!open) {
       body.classList.add('bodyModalOpen');
+      document.onkeydown = this.handleKeyPress;
     } else {
       body.classList.remove('bodyModalOpen');
+      this.unregisterListeners();
     }
     if (!open && openListener) {
       openListener();
