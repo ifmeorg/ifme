@@ -70,10 +70,12 @@ export class Modal extends React.Component<Props, State> {
   };
 
   displayModalBox = () => (
-    <div 
-     className={`modalBackdrop ${css.modalBackdrop}`}
-     onClick={this.handleClick}
-     onKeyPress={this.handleKeyPress}>
+    <div
+      className={`modalBackdrop ${css.modalBackdrop}`}
+      onClick={this.handleClick}
+      onKeyDown={this.handleKeyPress}
+      tabIndex="0"
+    >
       <div
         className={`modal ${css.modalBox}`}
         role="dialog"
@@ -89,21 +91,20 @@ export class Modal extends React.Component<Props, State> {
   );
 
   handleClick = () => {
-    if(this.state.mouseInside) return;
+    if (this.state.mouseInside) return;
     this.toggleOpen();
-  }
+  };
 
-  handleKeyPress = (e) => {
-    console.log("Key pressed");
-    if( e.key !== 'Escape') return;
+  handleKeyPress = e => {
+    if (e.key !== 'Escape') return;
     this.toggleOpen();
-  }
+  };
 
-  setMouseInside =  b => {
-    this.setState({mouseInside: b})
-  }
+  setMouseInside = b => {
+    this.setState({ mouseInside: b });
+  };
 
-  toggleOpen = (e) => {
+  toggleOpen = e => {
     const { open } = this.state;
     const { openListener } = this.props;
     const body = ((document.body: any): HTMLBodyElement);
