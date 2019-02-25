@@ -23,7 +23,7 @@ export type State = {
 export class Modal extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { open: !!props.open };
+    this.state = { open: !!props.open, mouseInside: true };
   }
 
   displayContent = (content: any) => {
@@ -70,12 +70,17 @@ export class Modal extends React.Component<Props, State> {
   };
 
   displayModalBox = () => (
-    <div className={`modalBackdrop ${css.modalBackdrop}`}>
+    <div 
+     className={`modalBackdrop ${css.modalBackdrop}`}
+     onClick={this.handleClick}
+     onKeyPress={this.handleKeyPress}>
       <div
         className={`modal ${css.modalBox}`}
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
+        onMouseEnter={() => this.setMouseInside(true)}
+        onMouseLeave={() => this.setMouseInside(false)}
       >
         {this.displayModalHeader()}
         {this.displayModalBody()}
@@ -83,25 +88,29 @@ export class Modal extends React.Component<Props, State> {
     </div>
   );
 
+  handleClick = () => {
+    if(this.state.mouseInside) return;
+    this.toggleOpen();
+  }
+
   handleKeyPress = (e) => {
+    console.log("Key pressed");
     if( e.key !== 'Escape') return;
     this.toggleOpen();
   }
 
-   unregisterListeners() {
-    document.onkeydown = null;
+  setMouseInside =  b => {
+    this.setState({mouseInside: b})
   }
 
-  toggleOpen = () => {
+  toggleOpen = (e) => {
     const { open } = this.state;
     const { openListener } = this.props;
     const body = ((document.body: any): HTMLBodyElement);
     if (!open) {
       body.classList.add('bodyModalOpen');
-      document.onkeydown = this.handleKeyPress;
     } else {
       body.classList.remove('bodyModalOpen');
-      this.unregisterListeners();
     }
     if (!open && openListener) {
       openListener();
