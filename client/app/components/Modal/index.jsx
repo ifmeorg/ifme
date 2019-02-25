@@ -83,22 +83,12 @@ export class Modal extends React.Component<Props, State> {
     </div>
   );
 
-  handleOnMouseEnter = () => {
-    document.onclick = null;
-  }
-  
-  handleOnMouseLeave = () => {
-    document.onclick = this.toggleOpen;
-  }
-
   handleKeyPress = (e) => {
     if( e.key !== 'Escape') return;
     this.toggleOpen();
   }
 
    unregisterListeners() {
-    // Want to make it so you can close by clicking outside the modal
-    // document.onclick = null; // Code stub
     document.onkeydown = null;
   }
 
