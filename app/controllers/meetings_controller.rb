@@ -27,26 +27,14 @@ class MeetingsController < ApplicationController
   end
 
   # POST /meetings
-  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
     @group = Group.find_by(id: meeting_params[:group_id])
     redirect_unless_leader_for(@group) && return
 
-    if @meeting.save
-      meeting_member = @meeting.meeting_members.new(
-        user_id: current_user.id, leader: true
-      )
-      if meeting_member.save
-        # Notify group members that you created a new meeting
-        send_notification(@meeting, @meeting.group.members, 'new_meeting')
-        redirect_to group_path(@group.id)
-      end
-    else
-      render :new
-    end
+    render :new unless @meeting.save
+    set_meeting_member
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /meetings/1
   def update
@@ -124,5 +112,17 @@ class MeetingsController < ApplicationController
       type: type,
       members: members
     )
+  end
+
+  def set_meeting_member
+    meeting_member = @meeting.meeting_members.new(
+      user_id: current_user.id, leader: true
+    )
+
+    return unless meeting_member.save
+
+    # Notify group members that you created a new meeting
+    send_notification(@meeting, @meeting.group.members, 'new_meeting')
+    redirect_to group_path(@group.id)
   end
 end
