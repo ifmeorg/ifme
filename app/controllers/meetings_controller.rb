@@ -33,18 +33,7 @@ class MeetingsController < ApplicationController
     @group = Group.find_by(id: meeting_params[:group_id])
     redirect_unless_leader_for(@group) && return
 
-    if @meeting.save
-      meeting_member = @meeting.meeting_members.new(
-        user_id: current_user.id, leader: true
-      )
-      if meeting_member.save
-        # Notify group members that you created a new meeting
-        send_notification(@meeting, @meeting.group.members, 'new_meeting')
-        redirect_to group_path(@group.id)
-      end
-    else
-      render :new
-    end
+    save_new_meeting
   end
   # rubocop:enable MethodLength
 
@@ -124,5 +113,20 @@ class MeetingsController < ApplicationController
       type: type,
       members: members
     )
+  end
+
+  def save_new_meeting
+    if @meeting.save
+      meeting_member = @meeting.meeting_members.new(
+        user_id: current_user.id, leader: true
+      )
+      if meeting_member.save
+        # Notify group members that you created a new meeting
+        send_notification(@meeting, @meeting.group.members, 'new_meeting')
+        redirect_to group_path(@group.id)
+      end
+    else
+      render :new
+    end
   end
 end
