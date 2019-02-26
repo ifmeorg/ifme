@@ -21,106 +21,126 @@ module MomentsHelper
     )
   end
 
-  # rubocop:disable MethodLength
   def moments_stats
-    total_count = current_user.moments.all.count
-    monthly_count = current_user.moments.where(
-      created_at: Time.current.beginning_of_month..Time.current
-    ).count
-    return '' if total_count <= 1
+    return '' if moment_count[:total] < 1
 
     result = '<div class="center stats">'
-    result += total_moment(total_count)
-    if total_count != monthly_count
-      result += " #{monthly_moment(monthly_count)}"
+    result += total_moment
+    if moment_count[:total] != moment_count[:monthly]
+      result += " #{monthly_moment}"
     end
     result + '</div>'
   end
-  # rubocop:enable MethodLength
 
   private
 
+  def moment_name
+    {
+      id: 'moment_name',
+      type: 'text',
+      name: 'moment[name]',
+      label: t('common.name'),
+      value: @moment.name || nil,
+      required: true,
+      dark: true
+    }
+  end
+
+  def moment_why
+    {
+      id: 'moment_why',
+      type: 'textarea',
+      name: 'moment[why]',
+      label: t('moments.form.why'),
+      value: @moment.why || nil,
+      required: true,
+      dark: true
+    }
+  end
+
+  def moment_fix
+    {
+      id: 'moment_fix',
+      type: 'textarea',
+      name: 'moment[fix]',
+      label: t('moments.form.fix'),
+      value: @moment.fix || nil,
+      dark: true
+    }
+  end
+
+  def moment_category
+    {
+      id: 'moment_category',
+      type: 'quickCreate',
+      name: 'moment[category][]',
+      label: t('categories.plural'),
+      placeholder: t('common.form.search_by_keywords'),
+      checkboxes: checkboxes_for(@categories),
+      formProps: quick_create_category_props(@category)
+    }
+  end
+
+  def moment_mood
+    {
+      id: 'moment_mood',
+      type: 'quickCreate',
+      name: 'moment[mood][]',
+      label: t('moods.plural'),
+      placeholder: t('common.form.search_by_keywords'),
+      checkboxes: checkboxes_for(@moods),
+      formProps: quick_create_mood_props
+    }
+  end
+
+  def moment_strategy
+    {
+      id: 'moment_strategy',
+      type: 'quickCreate',
+      name: 'moment[strategy][]',
+      label: t('strategies.plural'),
+      placeholder: t('common.form.search_by_keywords'),
+      checkboxes: checkboxes_for(@strategies),
+      formProps: quick_create_strategy_props
+    }
+  end
+
   # rubocop:disable MethodLength
-  def moment_form_inputs(moment, viewers)
-    [
-      {
-        id: 'moment_name',
-        type: 'text',
-        name: 'moment[name]',
-        label: t('common.name'),
-        value: moment.name || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'moment_why',
-        type: 'textarea',
-        name: 'moment[why]',
-        label: t('moments.form.why'),
-        value: moment.why || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'moment_fix',
-        type: 'textarea',
-        name: 'moment[fix]',
-        label: t('moments.form.fix'),
-        value: moment.fix || nil,
-        dark: true
-      },
-      {
-        id: 'moment_category',
-        type: 'quickCreate',
-        name: 'moment[category][]',
-        label: t('categories.plural'),
-        placeholder: t('common.form.search_by_keywords'),
-        checkboxes: checkboxes_for(@categories),
-        formProps: quick_create_category_props(@category)
-      },
-      {
-        id: 'moment_mood',
-        type: 'quickCreate',
-        name: 'moment[mood][]',
-        label: t('moods.plural'),
-        placeholder: t('common.form.search_by_keywords'),
-        checkboxes: checkboxes_for(@moods),
-        formProps: quick_create_mood_props
-      },
-      {
-        id: 'moment_strategy',
-        type: 'quickCreate',
-        name: 'moment[strategy][]',
-        label: t('strategies.plural'),
-        placeholder: t('common.form.search_by_keywords'),
-        checkboxes: checkboxes_for(@strategies),
-        formProps: quick_create_strategy_props
-      },
-      get_viewers_input(viewers, 'moment', 'moments', moment),
-      {
-        id: 'moment_comment',
-        type: 'switch',
-        name: 'moment[comment]',
-        label: t('comment.allow_comments'),
-        value: true,
-        uncheckedValue: false,
-        checked: moment.comment,
-        info: t('comment.hint'),
-        dark: true
-      },
-      {
-        id: 'moment_publishing',
-        type: 'switch',
-        label: t('moments.form.draft_question'),
-        dark: true,
-        name: 'publishing',
-        value: '0',
-        uncheckedValue: '1',
-        checked: !moment.published?
-      }
-    ]
+  def moment_comment
+    {
+      id: 'moment_comment',
+      type: 'switch',
+      name: 'moment[comment]',
+      label: t('comment.allow_comments'),
+      value: true,
+      uncheckedValue: false,
+      checked: @moment.comment,
+      info: t('comment.hint'),
+      dark: true
+    }
   end
   # rubocop:enable MethodLength
+
+  def moment_publishing
+    {
+      id: 'moment_publishing',
+      type: 'switch',
+      label: t('moments.form.draft_question'),
+      dark: true,
+      name: 'publishing',
+      value: '0',
+      uncheckedValue: '1',
+      checked: !@moment.published?
+    }
+  end
+
+  def moment_form_inputs(moment, viewers)
+    [
+      moment_name, moment_why, moment_fix, moment_category, moment_mood,
+      moment_strategy, get_viewers_input(viewers, 'moment', 'moments', moment),
+      moment_comment, moment_publishing
+    ]
+  end
 
   def checkboxes_for(data)
     checkboxes = []
@@ -146,24 +166,23 @@ module MomentsHelper
     end
   end
 
-  def total_moment(total_count)
-    unless total_count == 1
-      return t(
-        'stats.total_moments', count: total_count
-      )
-    end
-
-    t('stats.total_moment', count: total_count)
+  def moment_count
+    {
+      total: current_user.moments.all.count,
+      monthly: current_user.moments.where(
+        created_at: Time.current.beginning_of_month..Time.current
+      ).count
+    }
   end
 
-  def monthly_moment(monthly_count)
-    unless monthly_count == 1
-      return t(
-        'stats.monthly_moments', count: monthly_count
-      )
-    end
+  def total_moment
+    moment_key = moment_count[:total] == 1 ? 'moment' : 'moments'
+    t("stats.total_#{moment_key}", count: moment_count[:total])
+  end
 
-    t('stats.monthly_moment', count: monthly_count)
+  def monthly_moment
+    moment_key = moment_count[:monthly] == 1 ? 'moment' : 'moments'
+    t("stats.monthly_#{moment_key}", count: moment_count[:monthly])
   end
 end
 # rubocop:enable ModuleLength
