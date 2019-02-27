@@ -100,9 +100,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    devise_invitable (1.7.5)
-      actionmailer (>= 4.1.0)
-      devise (>= 4.0.0)
+    devise_invitable (2.0.0)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     devise_uid (0.1.1)
       devise (>= 3.0.0)
       railties (>= 3.0)
@@ -137,7 +137,7 @@ GEM
     fugit (1.1.6)
       et-orbi (~> 1.1, >= 1.1.6)
       raabro (~> 1.1)
-    globalid (0.4.1)
+    globalid (0.4.2)
       activesupport (>= 4.2.0)
     google-api-client (0.28.4)
       addressable (~> 2.5, >= 2.5.1)
@@ -479,7 +479,7 @@ DEPENDENCIES
   cloudinary (~> 1.11.1)
   database_cleaner
   devise (~> 4.6)
-  devise_invitable (~> 1.7.5)
+  devise_invitable (~> 2.0.0)
   devise_uid
   dotenv-rails (~> 2.7.1)
   factory_bot_rails
