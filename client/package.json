@@ -33,6 +33,7 @@
     "chartkick": "^2.2.4",
     "es5-shim": "^4.5.9",
     "font-awesome": "^4.7.0",
+    "history": "^4.7.2",
     "js-cookie": "^2.2.0",
     "jstimezonedetect": "^1.0.6",
     "location-autocomplete": "^1.2.4",
