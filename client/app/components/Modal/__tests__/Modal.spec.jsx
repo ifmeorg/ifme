@@ -180,6 +180,7 @@ describe('Modal', () => {
           element="Hello"
           body={bodyText}
           title={title}
+          role="button"
           openListener={openListener}
           onMouseOver={handleMouseOver}
           onFocus={handleMouseOver}
@@ -338,6 +339,7 @@ describe('Modal', () => {
           element="Hello"
           body={bodyText}
           title={title}
+          role="button"
           openListener={openListener}
           onMouseLeave={handleMouseLeave}
           onBlur={handleMouseLeave}
@@ -360,11 +362,12 @@ describe('Modal', () => {
       const component = (
         <Modal
           element="Hello"
-          role="backdrop"
+          role="button"
           body={bodyText}
           title={title}
           openListener={openListener}
           onMouseOver={handleMouseLeave}
+          onFocus={handleMouseLeave}
           onClick={handleOnClick}
           open
         />

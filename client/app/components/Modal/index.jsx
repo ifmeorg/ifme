@@ -76,6 +76,7 @@ export class Modal extends React.Component<Props, State> {
       onClick={this.handleClick}
       onKeyDown={this.handleKeyPress}
       tabIndex="0"
+      role="button"
     >
       <div
         className={`modal ${css.modalBox}`}
@@ -94,7 +95,7 @@ export class Modal extends React.Component<Props, State> {
   );
 
   handleClick = () => {
-    const { mouseInside } = this.state
+    const { mouseInside } = this.state;
     if (mouseInside) return;
     this.toggleOpen();
   };
