@@ -63,7 +63,7 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def premade
-    strategy = quick_premade_strategy
+    strategy = get_premade_strategy
     respond_to do |format|
       if strategy.save
         PerformStrategyReminder.create!(strategy: strategy, active: false)
@@ -142,7 +142,7 @@ class StrategiesController < ApplicationController
     }
   end
 
-  def quick_premade_strategy
+  def get_premade_strategy
     category = Category.find_by(name: 'Meditation', user: current_user)
     Strategy.new(
       user: current_user,
