@@ -84,6 +84,8 @@ export class Modal extends React.Component<Props, State> {
         aria-describedby="modalDesc"
         onMouseOver={() => this.setMouseInside(true)}
         onMouseLeave={() => this.setMouseInside(false)}
+        onFocus={() =>  this.setMouseInside(true)}
+        onBlur={() => this.setMouseInside(false)}
       >
         {this.displayModalHeader()}
         {this.displayModalBody()}

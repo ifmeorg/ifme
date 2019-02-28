@@ -183,6 +183,7 @@ describe('Modal', () => {
           title={title}
           openListener={openListener}
           onMouseOver={handleMouseOver}
+          onFocus={handleMouseOver}
           onClick={handleOnClick}
         />
       );
@@ -340,6 +341,7 @@ describe('Modal', () => {
           title={title}
           openListener={openListener}
           onMouseLeave={handleMouseLeave}
+          onBlur={handleMouseLeave}
           onClick={handleOnClick}
           open
         />
