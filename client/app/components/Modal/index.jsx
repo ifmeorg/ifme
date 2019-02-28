@@ -18,6 +18,7 @@ export type Props = {
 
 export type State = {
   open: boolean,
+  mouseInside: boolean,
 };
 
 export class Modal extends React.Component<Props, State> {
@@ -95,16 +96,16 @@ export class Modal extends React.Component<Props, State> {
     this.toggleOpen();
   };
 
-  handleKeyPress = e => {
+  handleKeyPress = (e: any) => {
     if (e.key !== 'Escape') return;
     this.toggleOpen();
   };
 
-  setMouseInside = b => {
+  setMouseInside = (b: boolean) => {
     this.setState({ mouseInside: b });
   };
 
-  toggleOpen = e => {
+  toggleOpen = () => {
     const { open } = this.state;
     const { openListener } = this.props;
     const body = ((document.body: any): HTMLBodyElement);
