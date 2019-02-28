@@ -3,6 +3,7 @@
 class StrategiesController < ApplicationController
   include CollectionPageSetupConcern
   include ReminderHelper
+  include StrategiesConcern
   include Shared
 
   before_action :set_strategy, only: %i[show edit update destroy]
@@ -63,7 +64,7 @@ class StrategiesController < ApplicationController
   # POST /strategies
   # POST /strategies.json
   def premade
-    strategy = get_premade_strategy
+    strategy = premade_strategy
     respond_to do |format|
       if strategy.save
         PerformStrategyReminder.create!(strategy: strategy, active: false)
@@ -97,10 +98,6 @@ class StrategiesController < ApplicationController
 
   private
 
-  def render_errors(strategy)
-    render json: strategy.errors, status: :unprocessable_entity
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_strategy
     @strategy = Strategy.friendly.find(params[:id])
@@ -116,20 +113,6 @@ class StrategiesController < ApplicationController
     )
   end
 
-  def publishing?
-    params[:publishing] == '1'
-  end
-
-  def saving_as_draft?
-    params[:publishing] != '1'
-  end
-
-  def empty_array_for(*symbols)
-    symbols.each do |symbol|
-      @strategy[symbol] = [] if strategy_params[symbol].nil?
-    end
-  end
-
   def quick_create_params(viewers)
     {
       user_id: current_user.id,
@@ -140,16 +123,5 @@ class StrategiesController < ApplicationController
       comment: true,
       viewers: viewers
     }
-  end
-
-  def get_premade_strategy
-    category = Category.find_by(name: 'Meditation', user: current_user)
-    Strategy.new(
-      user: current_user,
-      name: t('strategies.index.premade1_name'),
-      description: t('strategies.index.premade1_description'),
-      category: category ? [category.id] : nil,
-      comment: false
-    )
   end
 end
