@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class StrategiesController < ApplicationController
   include CollectionPageSetupConcern
   include ReminderHelper
@@ -63,28 +62,18 @@ class StrategiesController < ApplicationController
 
   # POST /strategies
   # POST /strategies.json
-  # rubocop:disable MethodLength
   def premade
-    category = Category.find_by(name: 'Meditation', user: current_user)
-    strategy = Strategy.new(
-      user: current_user,
-      name: t('strategies.index.premade1_name'),
-      description: t('strategies.index.premade1_description'),
-      category: category ? [category.id] : nil,
-      comment: false
-    )
+    strategy = quick_premade_strategy
     respond_to do |format|
       if strategy.save
         PerformStrategyReminder.create!(strategy: strategy, active: false)
-        format.html { redirect_to strategies_path }
-        format.json { render :no_content }
+        format.json { head :no_content }
       else
-        format.html { redirect_to strategies_path }
         format.json { render_errors(strategy) }
       end
+      format.html { redirect_to strategies_path }
     end
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /strategies/1
   # PATCH/PUT /strategies/1.json
@@ -152,5 +141,15 @@ class StrategiesController < ApplicationController
       viewers: viewers
     }
   end
+
+  def quick_premade_strategy
+    category = Category.find_by(name: 'Meditation', user: current_user)
+    Strategy.new(
+      user: current_user,
+      name: t('strategies.index.premade1_name'),
+      description: t('strategies.index.premade1_description'),
+      category: category ? [category.id] : nil,
+      comment: false
+    )
+  end
 end
-# rubocop:enable ClassLength
