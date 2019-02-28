@@ -3,8 +3,9 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { Resources } from '../index';
 
-const component = (
+const component = props => (
   <Resources
+    keywords={[]}
     resources={[
       {
         name: '7 Cups',
@@ -29,12 +30,13 @@ const component = (
         type: 'Communities',
       },
     ]}
+    {...props}
   />
 );
 
 describe('Resources', () => {
   it('filters when tag selected', () => {
-    const wrapper = mount(component);
+    const wrapper = mount(component());
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
@@ -55,7 +57,7 @@ describe('Resources', () => {
   });
 
   it('unfilters when tag unselected', () => {
-    const wrapper = mount(component);
+    const wrapper = mount(component());
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
     const id = wrapper
@@ -73,5 +75,52 @@ describe('Resources', () => {
     });
     wrapper.update();
     expect(wrapper.find('.resource').length).toEqual(2);
+  });
+
+  describe('when the component updates', () => {
+    const history = { replace: () => null };
+    let historyMock;
+
+    beforeEach(() => {
+      historyMock = jest.spyOn(history, 'replace');
+    });
+
+    afterEach(() => {
+      historyMock.mockRestore();
+    });
+
+    describe('and the resources are being filtered', () => {
+      it('sends the selected tags to the URL', () => {
+        const wrapper = mount(component({ history }));
+
+        wrapper.setState({
+          checkboxes: [
+            { checked: true, value: 'alfredo' },
+            { checked: true, value: 'batman' },
+            { checked: false, value: 'vitor' },
+          ],
+        });
+
+        expect(historyMock).toHaveBeenCalledWith({
+          pathname: '/resources',
+          search: '?filter[]=alfredo&filter[]=batman',
+        });
+      });
+    });
+
+    describe('and there is no filters selected', () => {
+      it('resets the search query parameter', () => {
+        const wrapper = mount(component({ history }));
+
+        wrapper.setState({
+          checkboxes: [],
+        });
+
+        expect(historyMock).toHaveBeenCalledWith({
+          pathname: '/resources',
+          search: '',
+        });
+      });
+    });
   });
 });
