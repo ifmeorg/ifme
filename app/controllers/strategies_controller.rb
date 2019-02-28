@@ -20,12 +20,10 @@ class StrategiesController < ApplicationController
     show_with_comments(@strategy)
   end
 
+  #  POST /strategies/quick_create
   def quick_create
     # Assume all viewers and comments allowed
-    viewers = []
-    current_user.allies_by_status(:accepted).each do |item|
-      viewers.push(item.id)
-    end
+    viewers = current_user.allies_by_status(:accepted).pluck(:id)
     strategy = Strategy.new(quick_create_params(viewers))
     shared_quick_create(strategy)
   end
@@ -41,14 +39,13 @@ class StrategiesController < ApplicationController
 
   # GET /strategies/1/edit
   def edit
-    if @strategy.user_id == current_user.id
-      @viewers = current_user.allies_by_status(:accepted)
-      @categories = current_user.categories.order('created_at DESC')
-      @category = Category.new
-      PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
-    else
+    unless @strategy.user_id == current_user.id
       redirect_to_path(strategy_path(@strategy))
     end
+    @viewers = current_user.allies_by_status(:accepted)
+    @categories = current_user.categories.order('created_at DESC')
+    @category = Category.new
+    PerformStrategyReminder.find_or_initialize_by(strategy_id: @strategy.id)
   end
 
   # POST /strategies
