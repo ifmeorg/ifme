@@ -16,7 +16,7 @@ describe MomentsHelper, type: :controller do
 
     it 'has one moment' do
       new_moment = create(:moment, user_id: user1.id)
-      expect(controller.moments_stats).to eq('')
+      expect(controller.moments_stats).to eq('<div class="center stats">You have written a <strong>total</strong> of <strong>1</strong> moment.</div>')
     end
 
     it 'has more than one moment created this month' do
