@@ -174,7 +174,7 @@ describe('Modal', () => {
       });
     });
 
-    describe('closes when back drop is clicked', () => {
+    describe('does not close when back drop is clicked', () => {
       const component = (
         <Modal
           element="Hello"
