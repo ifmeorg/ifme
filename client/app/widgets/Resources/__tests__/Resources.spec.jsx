@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { Resources } from '../index';
 
-const component = props => (
+const getComponent = props => (
   <Resources
     keywords={[]}
     resources={[
@@ -36,7 +36,7 @@ const component = props => (
 
 describe('Resources', () => {
   it('filters when tag selected', () => {
-    const wrapper = mount(component());
+    const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
@@ -57,7 +57,7 @@ describe('Resources', () => {
   });
 
   it('unfilters when tag unselected', () => {
-    const wrapper = mount(component());
+    const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
     const id = wrapper
@@ -91,7 +91,7 @@ describe('Resources', () => {
 
     describe('and the resources are being filtered', () => {
       it('sends the selected tags to the URL', () => {
-        const wrapper = mount(component({ history }));
+        const wrapper = mount(getComponent({ history }));
 
         wrapper.setState({
           checkboxes: [
@@ -110,7 +110,7 @@ describe('Resources', () => {
 
     describe('and there is no filters selected', () => {
       it('resets the search query parameter', () => {
-        const wrapper = mount(component({ history }));
+        const wrapper = mount(getComponent({ history }));
 
         wrapper.setState({
           checkboxes: [],
