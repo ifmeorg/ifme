@@ -100,7 +100,7 @@ export class Modal extends React.Component<Props, State> {
     this.toggleOpen();
   };
 
-  handleKeyPress = (event: SyntheticKeyboardEvent) => {
+  handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
     if (event.key !== 'Escape') return;
     this.toggleOpen();
   };
