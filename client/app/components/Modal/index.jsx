@@ -18,13 +18,13 @@ export type Props = {
 
 export type State = {
   open: boolean,
-  mouseInside: boolean,
+  modalHasFocus: boolean,
 };
 
 export class Modal extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { open: !!props.open, mouseInside: true };
+    this.state = { open: !!props.open, modalHasFocus: true };
   }
 
   displayContent = (content: any) => {
@@ -83,10 +83,10 @@ export class Modal extends React.Component<Props, State> {
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
-        onMouseOver={() => this.setMouseInside(true)}
-        onMouseLeave={() => this.setMouseInside(false)}
-        onFocus={() => this.setMouseInside(true)}
-        onBlur={() => this.setMouseInside(false)}
+        onMouseOver={() => this.setModalHasFocus(true)}
+        onMouseLeave={() => this.setModalHasFocus(false)}
+        onFocus={() => this.setModalHasFocus(true)}
+        onBlur={() => this.setModalHasFocus(false)}
       >
         {this.displayModalHeader()}
         {this.displayModalBody()}
@@ -95,18 +95,18 @@ export class Modal extends React.Component<Props, State> {
   );
 
   handleClick = () => {
-    const { mouseInside } = this.state;
-    if (mouseInside) return;
+    const { modalHasFocus } = this.state;
+    if (modalHasFocus) return;
     this.toggleOpen();
   };
 
-  handleKeyPress = (e: any) => {
-    if (e.key !== 'Escape') return;
+  handleKeyPress = (event: SyntheticKeyboardEvent) => {
+    if (event.key !== 'Escape') return;
     this.toggleOpen();
   };
 
-  setMouseInside = (b: boolean) => {
-    this.setState({ mouseInside: b });
+  setModalHasFocus = (modalHasFocus: boolean) => {
+    this.setState({ modalHasFocus: modalHasFocus });
   };
 
   toggleOpen = () => {
