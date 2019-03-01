@@ -95,9 +95,9 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
-  filterList = (checkboxes: Checkbox[]) => {
+  filterList = (checkboxes: Checkbox[]): ResourceProp[] => {
     const { resources } = this.props;
-    const selectedCheckboxes = checkboxes.filter(
+    const selectedCheckboxes: Checkbox[] = checkboxes.filter(
       (checkbox: Checkbox) => !!checkbox.checked,
     );
     return resources.filter((resource: ResourceProp) => {

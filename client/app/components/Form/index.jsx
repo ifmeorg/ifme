@@ -145,7 +145,7 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayInputs = () => {
+  displayInputs = (): any => {
     const { inputs } = this.state;
     return inputs.map((input: any) => {
       if (INPUT_TYPES.includes(input.type)) {
