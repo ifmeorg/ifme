@@ -106,7 +106,7 @@ export class Modal extends React.Component<Props, State> {
   };
 
   setModalHasFocus = (modalHasFocus: boolean) => {
-    this.setState({ modalHasFocus: modalHasFocus });
+    this.setState({ modalHasFocus });
   };
 
   toggleOpen = () => {
