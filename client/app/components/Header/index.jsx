@@ -62,7 +62,7 @@ export class Header extends React.Component<Props, State> {
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  displayLinks = () => {
+  displayLinks = (): any => {
     const { links } = this.props;
     return links.map((link: Link) => (
       <div className={css.headerLink} key={link.name}>

@@ -1,6 +1,9 @@
 {
   "presets": [
-    "@babel/preset-env",
+    ["@babel/env", {
+      "useBuiltIns": "usage",
+      "modules": "commonjs"
+    }],
     "@babel/preset-flow",
     "@babel/preset-react"
   ],

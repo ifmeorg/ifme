@@ -6,6 +6,7 @@ import { Utils } from '../../utils';
 import type { Checkbox } from '../../components/Input/utils';
 import { InputTag } from '../../components/Input/InputTag';
 import { I18n } from '../../libs/i18n';
+import HistoryLib from '../../libs/history';
 
 type ResourceProp = {
   name: string,
@@ -17,6 +18,10 @@ type ResourceProp = {
 
 export type Props = {
   resources: ResourceProp[],
+  keywords: string[],
+  history: {
+    replace: (args: {}) => void,
+  },
 };
 
 export type State = {
@@ -33,13 +38,34 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   });
 
 export class Resources extends React.Component<Props, State> {
+  static defaultProps = {
+    history: HistoryLib,
+  };
+
   constructor(props: Props) {
     super(props);
     this.state = { checkboxes: this.createCheckboxes() };
   }
 
+  componentDidUpdate() {
+    const { checkboxes } = this.state;
+    const { history } = this.props;
+    const checkedCheckboxes = checkboxes.filter(checkbox => checkbox.checked);
+
+    if (checkedCheckboxes.length > 0) {
+      const tags = checkedCheckboxes.map(checkbox => checkbox.value);
+
+      history.replace({
+        pathname: '/resources',
+        search: `?filter[]=${tags.join('&filter[]=')}`,
+      });
+    } else {
+      history.replace({ pathname: '/resources', search: '' });
+    }
+  }
+
   createCheckboxes = () => {
-    const { resources } = this.props;
+    const { resources, keywords } = this.props;
     const tagsList = [
       ...new Set(
         resources
@@ -53,7 +79,9 @@ export class Resources extends React.Component<Props, State> {
         key: tag,
         value: tag,
         label: tag,
-        checked: false,
+        checked: keywords.some(
+          keyword => keyword.toLowerCase() === tag.toLowerCase(),
+        ),
       })),
     );
   };
@@ -67,9 +95,9 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
-  filterList = (checkboxes: Checkbox[]) => {
+  filterList = (checkboxes: Checkbox[]): ResourceProp[] => {
     const { resources } = this.props;
-    const selectedCheckboxes = checkboxes.filter(
+    const selectedCheckboxes: Checkbox[] = checkboxes.filter(
       (checkbox: Checkbox) => !!checkbox.checked,
     );
     return resources.filter((resource: ResourceProp) => {

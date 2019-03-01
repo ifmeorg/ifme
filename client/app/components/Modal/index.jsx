@@ -18,12 +18,13 @@ export type Props = {
 
 export type State = {
   open: boolean,
+  modalHasFocus: boolean,
 };
 
 export class Modal extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { open: !!props.open };
+    this.state = { open: !!props.open, modalHasFocus: true };
   }
 
   displayContent = (content: any) => {
@@ -70,18 +71,43 @@ export class Modal extends React.Component<Props, State> {
   };
 
   displayModalBox = () => (
-    <div className={`modalBackdrop ${css.modalBackdrop}`}>
+    <div
+      className={`modalBackdrop ${css.modalBackdrop}`}
+      onClick={this.handleClick}
+      onKeyDown={this.handleKeyPress}
+      tabIndex="0"
+      role="button"
+    >
       <div
         className={`modal ${css.modalBox}`}
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalDesc"
+        onMouseOver={() => this.setModalHasFocus(true)}
+        onMouseLeave={() => this.setModalHasFocus(false)}
+        onFocus={() => this.setModalHasFocus(true)}
+        onBlur={() => this.setModalHasFocus(false)}
       >
         {this.displayModalHeader()}
         {this.displayModalBody()}
       </div>
     </div>
   );
+
+  handleClick = () => {
+    const { modalHasFocus } = this.state;
+    if (modalHasFocus) return;
+    this.toggleOpen();
+  };
+
+  handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Escape') return;
+    this.toggleOpen();
+  };
+
+  setModalHasFocus = (modalHasFocus: boolean) => {
+    this.setState({ modalHasFocus });
+  };
 
   toggleOpen = () => {
     const { open } = this.state;
