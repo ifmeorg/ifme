@@ -57,6 +57,7 @@
     "@storybook/addon-backgrounds": "^4.0.0-alpha.21",
     "@storybook/addon-info": "^4.0.0-alpha.21",
     "@storybook/addon-links": "^4.0.0-alpha.21",
+    "@storybook/addon-notes": "^4.1.13",
     "@storybook/addons": "^4.0.0-alpha.21",
     "@storybook/react": "^4.0.0-alpha.21",
     "babel-cli": "^6.24.1",

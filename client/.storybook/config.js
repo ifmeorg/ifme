@@ -2,7 +2,9 @@
 import backgrounds from '@storybook/addon-backgrounds';
 import { setDefaults, withInfo } from '@storybook/addon-info';
 import { addDecorator, configure } from '@storybook/react';
+import { withNotes } from '@storybook/addon-notes';
 
+addDecorator(withNotes);
 import './stories.scss';
 
 // addon-info
@@ -22,19 +24,22 @@ const withInfoConfig = {
   },
 };
 
-const globalDecorator = (storyFn, context) => withInfo(withInfoConfig)(storyFn)(context);
+const globalDecorator = (storyFn, context) =>
+  withInfo(withInfoConfig)(storyFn)(context);
 addDecorator(globalDecorator);
-addDecorator(backgrounds([
-  { name: 'light-grey', value: '#D3D3D3' },
-  { name: 'grey', value: '#808080' },
-  { name: 'white', value: '#FFFFFF' },
-  { name: 'mulberry', value: '#6D0839' },
-]));
+addDecorator(
+  backgrounds([
+    { name: 'light-grey', value: '#D3D3D3' },
+    { name: 'grey', value: '#808080' },
+    { name: 'white', value: '#FFFFFF' },
+    { name: 'mulberry', value: '#6D0839' },
+  ])
+);
 
 // automatically import all files ending in *.stories.jsx
 const req = require.context('../app/stories', true, /.stories.jsx$/);
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);
