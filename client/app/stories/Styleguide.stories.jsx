@@ -263,10 +263,10 @@ storiesOf('Styleguide', module)
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <div style={{ background: '#A157E8' }}>
+          <div style={{ background: '#D3D3D3' }}>
             <h3>$light-grey</h3>
             <p>#D3D3D3</p>
-          </div> 
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
