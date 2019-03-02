@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2.2'
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.12'
 gem 'devise', '~> 4.6'
-gem 'devise_invitable', '~> 1.7.5'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'devise_uid'
 gem 'pg', '1.1.4'
 gem 'resque', '1.27.4'
@@ -48,7 +48,7 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'bundler-audit'
-  gem 'dotenv-rails', '~> 2.6.0'
+  gem 'dotenv-rails', '~> 2.7.1'
 
   gem 'spring'
 
@@ -61,7 +61,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.13.2'
+  gem 'capybara', '~> 3.14.0'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'

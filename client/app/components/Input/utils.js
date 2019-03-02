@@ -1,7 +1,7 @@
 // @flow
 import { REQUIRES_DEFAULT, DEFAULT_WITH_LABEL } from './InputDefault';
 
-export const TYPES = REQUIRES_DEFAULT.concat([
+export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'textarea',
   'submit',
   'checkbox',
@@ -12,7 +12,7 @@ export const TYPES = REQUIRES_DEFAULT.concat([
   'location',
 ]);
 
-export const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
+export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'select',
   'checkboxGroup',
@@ -20,7 +20,7 @@ export const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
   'switch',
 ]);
 
-export const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
+export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'checkboxGroup',
 ]);

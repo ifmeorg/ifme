@@ -1,19 +1,35 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import css from '../styles/_global.scss';
 
+const buttonsGroupStyle = {
+  display: 'inline',
+  right: '10px',
+  margin: '0 auto',
+  textAlign: 'center',
+  backgroundColor: 'transparent',
+  paddingBottom: '10px',
+};
+
+const marginGroupStyle = {
+  display: 'inline-block',
+  border: '1px solid',
+  padding: '10px',
+};
+
+const colorsContainer = {
+  margin: '10px',
+  height: '100px',
+  width: 'auto',
+  borderRadius: '5px',
+  backgroundColor: '#808080',
+  textAlign: 'center',
+  padding: '5px',
+};
+
 storiesOf('Styleguide', module)
   .add('Buttons', () => (
-    <div
-      style={{
-        display: 'inline',
-        Right: '10px',
-        margin: '0 auto',
-        textAlign: 'center',
-        backgroundColor: 'transparent',
-        paddingBottom: '10px',
-      }}
-    >
+    <div style={buttonsGroupStyle}>
       <div
         style={{
           width: '33%',
@@ -43,15 +59,7 @@ storiesOf('Styleguide', module)
           buttonL
         </button>
       </div>
-      <div
-        style={{
-          width: '33%',
-          float: 'left',
-          backgroundColor: '#D3D3D3',
-          paddingBottom: '20px',
-          margin: '0 auto',
-        }}
-      >
+      <div style={buttonsGroupStyle}>
         <h1>Ghost</h1>
         <button type="button" className={`${css.buttonGhostXS} buttonGhostXS`}>
           buttonGhostXS
@@ -196,36 +204,40 @@ storiesOf('Styleguide', module)
   .add('Margins', () => (
     <Fragment>
       <div style={{
-        margin:'10px'
-        }}>
-        <div className={`${css.marginRight} marginRight`} style={{ display: 'inline-block', border: '1px solid', padding:'10px' }}>
+        margin: '10px',
+      }}
+      >
+        <div className={`${css.marginRight} marginRight`} style={marginGroupStyle}>
           marginRight
         </div>
-        <div style={{ display: 'inline-block', border: '1px solid', padding:'10px' }}>
+        <div style={marginGroupStyle}>
           marginRight
         </div>
       </div>
       <div style={{
-        margin:'10px'
-        }}>
-        <div className={`${css.smallMarginRight} smallMarginRight`} style={{ display: 'inline-block', border: '1px solid', padding:'10px' }}>
+        margin: '10px',
+      }}
+      >
+        <div className={`${css.smallMarginRight} smallMarginRight`} style={marginGroupStyle}>
           smallMarginRight
         </div>
-        <div style={{ display: 'inline-block', border: '1px solid', padding:'10px'}}>
+        <div style={marginGroupStyle}>
           smallMarginRight
         </div>
       </div>
       <div style={{
-        margin:'10px'
-       }}>
-        <div className={`${css.marginLeft} marginLeft`} style={{ display: 'inline-block', border: '1px solid', padding:'10px' }}>
+        margin: '10px',
+      }}
+      >
+        <div className={`${css.marginLeft} marginLeft`} style={marginGroupStyle}>
           marginLeft
         </div>
       </div>
       <div style={{
-        margin:'10px',
-        }}>
-        <div className={`${css.smallMarginLeft} smallMarginLeft`} style={{ display: 'inline-block', border: '1px solid', padding:'10px' }}>
+        margin: '10px',
+      }}
+      >
+        <div className={`${css.smallMarginLeft} smallMarginLeft`} style={marginGroupStyle}>
           smallMarginLeft
         </div>
       </div>
@@ -239,99 +251,76 @@ storiesOf('Styleguide', module)
       >
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#808080', textAlign: 'center', padding:'5px' 
-          }}
         >
           <h3>$grey</h3>
           <p>#808080</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#D3D3D3', textAlign: 'center', padding:'5px', border: '2px solid black' 
-          }}
+          style={colorsContainer}
         >
           <h3>$light-grey</h3>
           <p>#D3D3D3</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#FFFFFF', textAlign: 'center', padding:'5px' 
-          }}
+          style={colorsContainer}
         >
           <h3>$white</h3>
           <p>#FFFFFF</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#A157E8', textAlign: 'center', padding:'5px'
-          }}
+          style={colorsContainer}
         >
           <h3>$purple-yay</h3>
           <p>#A157E8</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#175C6D', textAlign: 'center', padding:'5px', color: 'white'
-          }}
+          style={colorsContainer}
         >
           <h3>$blumine</h3>
           <p>#175C6D</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#91D7E8', textAlign: 'center', padding:'5px'
-          }}
+          style={colorsContainer}
         >
           <h3>$cornflower</h3>
           <p>#91D7E8</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#289900', textAlign: 'center', padding:'5px', color:'white'
-          }}
+          style={colorsContainer}
         >
           <h3>$limeade</h3>
           <p>#289900</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#990019', textAlign: 'center', padding:'5px', color:'white' 
-          }}
+          style={colorsContainer}
         >
           <h3>$carmine</h3>
           <p>#990019</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#704356', textAlign: 'center', padding:'5px', color:'white' 
-          }}
+          style={colorsContainer}
         >
           <h3>$eggplant</h3>
           <p>#704356</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#6d0839', textAlign: 'center', padding:'5px', color:'white' 
-          }}
+          style={colorsContainer}
         >
           <h3>$mulberry</h3>
           <p>#6d0839</p>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', backgroundColor: '#D0E799', textAlign: 'center', padding:'5px'
-          }}
+          style={colorsContainer}
         >
           <h3>$key-lime</h3>
           <p>#D0E799</p>

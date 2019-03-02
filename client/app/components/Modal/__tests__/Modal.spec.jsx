@@ -18,6 +18,22 @@ const openListener = () => {
   window.alert("Hey look it's listening");
 };
 
+const handleKeyPress = (e: any) => {
+  window.alert('Key pressed', e);
+};
+
+const handleMouseOver = () => {
+  window.alert('Mouse did enter');
+};
+
+const handleMouseLeave = () => {
+  window.alert('Mouse did enter');
+};
+
+const handleOnClick = () => {
+  window.alert('Mouse clicked');
+};
+
 describe('Modal', () => {
   beforeEach(() => {
     jest.spyOn(window, 'alert');
@@ -105,6 +121,84 @@ describe('Modal', () => {
         expect(window.alert).toHaveBeenCalled();
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
         expect(wrapper.find('.modal').exists()).toEqual(false);
+      });
+    });
+
+    describe('closes when escape key is pressed', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          openListener={openListener}
+          onKeyPress={handleKeyPress}
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modalBackdrop').simulate('keydown', { key: 'Escape' });
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+      });
+    });
+
+    describe('closes when back drop is clicked', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          openListener={openListener}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleOnClick}
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modal').simulate('mouseleave');
+        wrapper.find('.modalBackdrop').simulate('click');
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+      });
+    });
+
+    describe('does not close when back drop is clicked', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          role="button"
+          openListener={openListener}
+          onMouseOver={handleMouseOver}
+          onFocus={handleMouseOver}
+          onClick={handleOnClick}
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+        wrapper.find('.modalElement').simulate('click');
+        expect(window.alert).toHaveBeenCalled();
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modal').simulate('mouseover');
+        wrapper.find('.modalBackdrop').simulate('click');
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
       });
     });
   });
@@ -213,6 +307,77 @@ describe('Modal', () => {
         const wrapper = mount(component);
         expect(wrapper.find('.avatar').exists()).toEqual(true);
         wrapper.find('.avatar').simulate('click');
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+      });
+    });
+
+    describe('closes when escape key is pressed', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          openListener={openListener}
+          onKeyPress={handleKeyPress}
+          open
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modalBackdrop').simulate('keydown', { key: 'Escape' });
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+      });
+    });
+
+    describe('closes when back drop is clicked', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          body={bodyText}
+          title={title}
+          role="button"
+          openListener={openListener}
+          onMouseLeave={handleMouseLeave}
+          onBlur={handleMouseLeave}
+          onClick={handleOnClick}
+          open
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modal').simulate('mouseleave');
+        wrapper.find('.modalBackdrop').simulate('click');
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(false);
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+      });
+    });
+
+    describe('does not close when back drop is not clicked', () => {
+      const component = (
+        <Modal
+          element="Hello"
+          role="button"
+          body={bodyText}
+          title={title}
+          openListener={openListener}
+          onMouseOver={handleMouseLeave}
+          onFocus={handleMouseLeave}
+          onClick={handleOnClick}
+          open
+        />
+      );
+      it('toggles correctly', () => {
+        const wrapper = shallow(component);
+        expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
+        expect(wrapper.find('.modal').exists()).toEqual(true);
+        wrapper.find('.modal').simulate('mouseover');
+        wrapper.find('.modalBackdrop').simulate('click');
         expect(wrapper.find('.modalBackdrop').exists()).toEqual(true);
         expect(wrapper.find('.modal').exists()).toEqual(true);
       });
