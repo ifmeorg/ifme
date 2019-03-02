@@ -18,14 +18,15 @@ const marginGroupStyle = {
 };
 
 const colorsContainer = {
-  margin: '10px',
-  height: '100px',
+  margin: '10px 5px',
+  height: 'auto',
   width: 'auto',
   borderRadius: '5px',
-  backgroundColor: '#808080',
   textAlign: 'center',
-  padding: '5px',
+  padding: '10px 5px',
+  background: 'white',
 };
+
 
 storiesOf('Styleguide', module)
   .add('Buttons', () => (
@@ -251,16 +252,21 @@ storiesOf('Styleguide', module)
       >
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
+          style={colorsContainer}
         >
-          <h3>$grey</h3>
-          <p>#808080</p>
+          <div style={{ background: '#808080', color: 'white' }}>
+            <h3>$grey</h3>
+            <p>#808080</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$light-grey</h3>
-          <p>#D3D3D3</p>
+          <div style={{ background: '#A157E8' }}>
+            <h3>$light-grey</h3>
+            <p>#D3D3D3</p>
+          </div> 
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
@@ -273,66 +279,82 @@ storiesOf('Styleguide', module)
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$purple-yay</h3>
-          <p>#A157E8</p>
+          <div style={{ background: '#A157E8', color: 'white' }}>
+            <h3>$purple-yay</h3>
+            <p>#A157E8</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$blumine</h3>
-          <p>#175C6D</p>
+          <div style={{ background: '#175C6D', color: 'white' }}>
+            <h3>$blumine</h3>
+            <p>#175C6D</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$cornflower</h3>
-          <p>#91D7E8</p>
+          <div style={{ background: '#91D7E8' }}>
+            <h3>$cornflower</h3>
+            <p>#91D7E8</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$limeade</h3>
-          <p>#289900</p>
+          <div style={{ background: '#289900', color: 'white' }}>
+            <h3>$limeade</h3>
+            <p>#289900</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$carmine</h3>
-          <p>#990019</p>
+          <div style={{ background: '#990019', color: 'white' }}>
+            <h3>$carmine</h3>
+            <p>#990019</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$eggplant</h3>
-          <p>#704356</p>
+          <div style={{ background: '#704356', color: 'white' }}>
+            <h3>$eggplant</h3>
+            <p>#704356</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$mulberry</h3>
-          <p>#6d0839</p>
+          <div style={{ background: '#6d0839', color: 'white' }}>
+            <h3>$mulberry</h3>
+            <p>#6d0839</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
           style={colorsContainer}
         >
-          <h3>$key-lime</h3>
-          <p>#D0E799</p>
+          <div style={{ background: '#D0E799' }}>
+            <h3>$key-lime</h3>
+            <p>#D0E799</p>
+          </div>
         </div>
         <div
           className={`${css.gridThreeItemBox} gridThreeItemBox`}
-          style={{
-            margin: '10px', height: '100px', width: 'auto', borderRadius: '5px', background:'linear-gradient(104.26deg, #6d0839 0%, #D0E799 175.81%)', textAlign: 'center', padding:'5px', color:'white', margin:'10px auto' 
-          }}
+          style={colorsContainer}
         >
-          <h3>$mulberry-key-lime</h3>
-          <p>linear-gradient(104.26deg, $mulberry 0%, $key-lime 175.81%)</p>
+          <div style={{ background: 'linear-gradient(104.26deg, #6d0839 0%, #D0E799 175.81%)', color: 'white' }}>
+            <h3>$mulberry-key-lime</h3>
+            <p>linear-gradient(104.26deg, $mulberry 0%, $key-lime 175.81%)</p>
+          </div>
         </div>
       </div>
     </Fragment>
