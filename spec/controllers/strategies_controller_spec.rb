@@ -82,6 +82,11 @@ describe StrategiesController do
           post :premade
           expect(response).to redirect_to(strategies_path)
         end
+
+        it 'returns status code 204 for json format' do
+          post :premade, as: :json
+          expect(response).to have_http_status(204)
+        end
       end
     end
 
