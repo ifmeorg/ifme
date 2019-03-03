@@ -40,7 +40,7 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
 
 export class Resources extends React.Component<Props, State> {
   static propTypes = {
-    history: PropTypes.string,
+    history: PropTypes.shape({ root: PropTypes.string }),
   };
 
   static defaultProps = {
