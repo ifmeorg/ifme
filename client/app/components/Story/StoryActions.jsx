@@ -136,9 +136,9 @@ export const StoryActions = (props: Props) => {
   const { actions, hasStory, dark } = props;
   return (
     <div className={css.actions}>
-      {[JOIN, EDIT, LEAVE, DELETE, REPORT, VIEWERS].map(
-        (item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null),
-      )}
+      {/* eslint-disable max-len */}
+      {[JOIN, EDIT, LEAVE, DELETE, REPORT, VIEWERS].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
+      {/* eslint-disable max-len */}
     </div>
   );
 };

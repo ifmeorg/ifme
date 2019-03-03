@@ -52,7 +52,7 @@ describe('Resources', () => {
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
     expect(wrapper.find('.tag').findWhere(t => t.text() === id).length).toEqual(
-      1,
+      2,
     );
   });
 
