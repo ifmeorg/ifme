@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import css from './Resources.scss';
 import { Resource } from '../../components/Resource';
 import { Utils } from '../../utils';
@@ -38,6 +39,10 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   });
 
 export class Resources extends React.Component<Props, State> {
+  static propTypes = {
+    history: PropTypes.string,
+  };
+
   static defaultProps = {
     history: HistoryLib,
   };
