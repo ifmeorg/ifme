@@ -12,7 +12,8 @@
     "lint:prettier": "./node_modules/.bin/prettier \"app/**/*.{js,jsx}\" --write --single-quote  --trailing-comma all",
     "lint": "yarn lint:flow && yarn lint:prettier && yarn lint:eslint --fix",
     "storybook": "yarn build:i18n && start-storybook -p 6006",
-    "storybook:circleci": "yarn build-storybook -c .storybook -o .design",
+
+    "storybook:circleci":"build-storybook -c .storybook -o ../public/design",
     "test": "yarn build:i18n && yarn build:test && NODE_PATH=./app jest",
     "test:debug": "yarn build:i18n && yarn build:test && NODE_PATH=./app node --inspect-brk jest --runInBand",
     "test:circleci": "yarn build:test && NODE_PATH=./app jest --coverage --runInBand"

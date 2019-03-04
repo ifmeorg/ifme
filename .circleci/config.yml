@@ -22,9 +22,9 @@ jobs:
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
             chmod +x ./tmp/cc-test-reporter
-            yarn storybook:circleci
-            cd .design
-            python -m SimpleHTTPServer
+            yarn install http-server -g
+            cd design
+            http-server
       - persist_to_workspace:
           root: tmp
           paths:
@@ -55,7 +55,9 @@ jobs:
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: rm -rf ~/.yarn
       - run: npm i -g yarn
-      - run: yarn install
+      - run: yarn install http-server -g
+        cd design
+        http-server
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
