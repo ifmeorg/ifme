@@ -22,6 +22,9 @@ jobs:
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
             chmod +x ./tmp/cc-test-reporter
+            yarn storybook:circleci
+            cd .design
+            python -m SimpleHTTPServer
       - persist_to_workspace:
           root: tmp
           paths:
