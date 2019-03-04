@@ -232,5 +232,11 @@
     "link": "https://www.thinkpacifica.com/",
     "tags": ["ios", "android", "paid", "depression", "anxiety", "mindfulness", "meditation", "mood_tracking"],
     "languages": ["en"]
+  },
+  {
+    "name": "Deaf Counseling Center (US)",
+    "link": "http://www.deafcounseling.com",
+    "tags": ["deaf", "asl", "counseling", "therapy", "directory"],
+    "languages": ["en"]
   }
 ]

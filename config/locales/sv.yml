@@ -535,6 +535,8 @@ sv:
         stress: påfrestning
         fidget: fidget
         colouring: färg
+        deaf: döv
+        asl: ASL
   profile:
     index:
       title: Profil

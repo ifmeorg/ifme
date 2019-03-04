@@ -45,7 +45,7 @@
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
-    <%= react_component('Form', props: secret_share_link_props(@moment)) %>
+    <%= react_component('Form', props: secret_share_props(@moment)) %>
   </div>
 <% end %>
 

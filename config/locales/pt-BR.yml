@@ -535,6 +535,8 @@ pt-BR:
         stress: estresse
         fidget: inquietação
         colouring: coloração
+        deaf: surdo
+        asl: ASL
   profile:
     index:
       title: Perfil

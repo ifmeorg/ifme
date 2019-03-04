@@ -535,6 +535,8 @@ es:
         stress: estrés
         fidget: agitarse
         colouring: colorante
+        deaf: sordo
+        asl: ASL
   profile:
     index:
       title: Perfil

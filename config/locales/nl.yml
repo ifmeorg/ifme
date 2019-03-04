@@ -535,6 +535,8 @@ nl:
         stress: spanning
         fidget: wriemelen
         colouring: kleur
+        deaf: doof
+        asl: ASL
   profile:
     index:
       title: Profiel

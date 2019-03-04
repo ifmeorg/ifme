@@ -542,6 +542,8 @@ de:
         stress: stress
         fidget: zappeln
         colouring: färbung
+        deaf: taub
+        asl: ASL
   profile:
     index:
       title: Profil

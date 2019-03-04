@@ -535,6 +535,8 @@ vi:
         stress: 'nhấn mạnh'
         fidget: 'bồn chồn'
         colouring: 'tô màu'
+        deaf: điếc
+        asl: ASL
   profile:
     index:
       title: 'Hồ sơ'

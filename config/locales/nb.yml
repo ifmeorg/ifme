@@ -535,6 +535,8 @@ nb:
         stress: understreke
         fidget: fidget
         colouring: fargelegging
+        deaf: døv
+        asl: ASL
   profile:
     index:
       title: Profil
