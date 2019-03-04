@@ -1,8 +1,6 @@
 // @flow
-import React, { Fragment } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React from 'react';
 import css from './Input.scss';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date', 'hidden'];
 export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date'];
@@ -23,15 +21,17 @@ export type Props = {
   hasError?: Function,
   myRef?: any,
   label?: string,
-  onClick?: Function,
-  copyOnClick?: boolean,
+  copyOnClick?: string,
 };
 
-const copyToClipBoard = (e: SyntheticEvent<HTMLInputElement>) => {
+const copyToClipBoard = (
+  e: SyntheticEvent<HTMLInputElement>,
+  copyOnClick: string,
+) => {
+  const { document, alert } = window;
   e.currentTarget.select();
   document.execCommand('copy');
-  // TODO: Once i18n and react are playing nicely this can be changed
-  toast('Secret Share Link Copied!', { autoClose: 5000 });
+  alert(copyOnClick);
 };
 
 const onFocus = (required: ?boolean, hasError: ?Function) => {
@@ -72,31 +72,33 @@ export const InputDefault = (props: Props) => {
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
-    <Fragment>
-      <input
-        className={css.default}
-        id={id}
-        type={type}
-        name={name}
-        defaultValue={value}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        disabled={disabled}
-        required={required}
-        minLength={minLength}
-        maxLength={maxLength}
-        min={min}
-        max={max}
-        onFocus={() => onFocus(required, hasError)}
-        onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
-        }
-        ref={myRef}
-        aria-label={label}
-        aria-invalid={hasError}
-        onClick={copyOnClick ? (e: SyntheticEvent<HTMLInputElement>) => { copyToClipBoard(e); }
-          : () => {}}
-      />
-      <ToastContainer />
-    </Fragment>
+    <input
+      className={css.default}
+      id={id}
+      type={type}
+      name={name}
+      defaultValue={value}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      disabled={disabled}
+      required={required}
+      minLength={minLength}
+      maxLength={maxLength}
+      min={min}
+      max={max}
+      onFocus={() => onFocus(required, hasError)}
+      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
+      }
+      ref={myRef}
+      aria-label={label}
+      aria-invalid={hasError}
+      onClick={
+        copyOnClick
+          ? (e: SyntheticEvent<HTMLInputElement>) => {
+            copyToClipBoard(e, copyOnClick);
+          }
+          : () => {}
+      }
+    />
   );
 };

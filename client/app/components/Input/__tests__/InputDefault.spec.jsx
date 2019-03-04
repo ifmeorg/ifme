@@ -59,28 +59,27 @@ describe('InputDefault', () => {
     });
   });
 
-  describe('copyOnClick prop type', () => {
-    it('adds onClick prop ', () => {
+  describe('has valid copyOnClick prop', () => {
+    it('copies to clipboard when input is clicked', () => {
+      jest.spyOn(window, 'alert');
+      jest.spyOn(window.document, 'execCommand');
+      const copyOnClick = 'Some message';
       const wrapper = shallow(
         <InputDefault
           id={id}
           type="text"
           name={name}
-          copyOnClick="true"
+          copyOnClick={copyOnClick}
         />,
       );
-      expect(wrapper.find('input').prop('onClick').onClick).to.equal();
-    });
-
-    it('does not add onClick prop', () => {
-      const wrapper = shallow(
-        <InputDefault
-          id={id}
-          type="text"
-          name={name}
-        />,
-      );
-      expect(wrapper.props().onClick).to.equal(10);
+      wrapper.find('input').simulate('click', {
+        currentTarget: {
+          value: 'test',
+          select: () => {},
+        },
+      });
+      expect(window.document.execCommand).toHaveBeenCalledWith('copy');
+      expect(window.alert).toHaveBeenCalledWith(copyOnClick);
     });
   });
 });

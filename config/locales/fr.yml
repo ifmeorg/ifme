@@ -273,6 +273,7 @@ fr:
       singular: 'Partage de secret'
       expires_at: 'Expire le'
       cancel_secret_share: 'Annuler le partage de secret'
+      link_copied: 'Lien de partage secret copié dans le Presse-papiers'
     form:
       why: 'Qu''est-ce qui c''est passé et que ressentez-vous?'
       fix: 'Quelles pensées voudriez-vous avoir?'

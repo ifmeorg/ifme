@@ -86,6 +86,7 @@ export type Props = {
   accordionOpen?: boolean,
   formNoValidate?: boolean,
   googleAPIKey?: string,
+  copyOnClick?: string,
 };
 
 export type State = {

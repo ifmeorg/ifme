@@ -276,6 +276,7 @@ de:
       singular: 'Geheimnis teilen'
       expires_at: 'Läuft ab am'
       cancel_secret_share: 'Stornieren Geheimnis teilen'
+      link_copied: 'Link zur geheimen Freigabe in die Zwischenablage kopiert'
     form:
       why: 'Was ist passiert und wie fühlst du dich?'
       fix: 'Woran würdest du gerne denken?'
