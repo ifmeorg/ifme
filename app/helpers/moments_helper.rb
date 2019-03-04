@@ -32,24 +32,17 @@ module MomentsHelper
     result + '</div>'
   end
 
-  def secret_share_url_props(moment)
-    secret_share_url_input(moment)
-  end
-
-  private
-
-  def secret_share_url_input(moment)
-    { inputs: [
-      {
-        id: 'secretShareLink',
-        type: 'text',
-        name: 'secretShareInput',
-        readOnly: true,
-        value: secret_share_url(moment.secret_share_identifier) || nil,
-        dark: true,
-        copyOnClick: true
-      }
-    ], action:  moment_path(moment) }
+  def secret_share_props(moment)
+    { inputs: [{
+      id: 'secretShare',
+      type: 'text',
+      name: 'secretShare',
+      label: t('moments.secret_share.singular'),
+      readOnly: true,
+      value: secret_share_url(moment.secret_share_identifier) || nil,
+      dark: true,
+      copyOnClick: t('moments.secret_share.link_copied')
+    }], action:  moment_path(moment) }
   end
 
   private

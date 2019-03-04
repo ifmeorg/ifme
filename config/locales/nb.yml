@@ -273,6 +273,7 @@ nb:
       singular: 'Hemmelig deling'
       expires_at: Utløper
       cancel_secret_share: 'Avbryt Hemmelig deling'
+      link_copied: 'Hemmelig sharelink kopiert til utklippstavlen'
     form:
       why: 'Hva skjedde og hvordan føler du deg?'
       fix: 'Hva slags tanker vil du ha?'
