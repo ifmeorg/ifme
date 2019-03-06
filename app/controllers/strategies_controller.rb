@@ -5,14 +5,27 @@ class StrategiesController < ApplicationController
   include ReminderHelper
   include StrategiesConcern
   include Shared
+  include MomentsHelper
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
   # GET /strategies
   # GET /strategies.json
+  # rubocop:disable MethodLength
   def index
     page_collection('@strategies', 'strategy')
+    respond_to do |format|
+      format.json do
+        render json:
+          {
+            data: moments_or_strategy_props(@strategies),
+            lastPage: @strategies.last_page?
+          }
+      end
+      format.html
+    end
   end
+  # rubocop:enable MethodLength
 
   # GET /strategies/1
   # GET /strategies/1.json

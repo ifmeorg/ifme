@@ -16,7 +16,42 @@ module CategoriesHelper
     edit_form_props(category_form_inputs(category), category_path(@category))
   end
 
+  def categories_or_moods_props(elements)
+    elements.map { |element| present_category_or_mood(element) }
+  end
+
+  def present_category_or_mood(element)
+    url_helper = mood_path(element)
+    url_helper = category_path(element) if element.class.name == 'Category'
+    {
+      name: element.name,
+      link: url_helper,
+      actions: actions_setup(element, url_helper)
+    }
+  end
+
   private
+
+  def actions_setup(element, url_helper)
+    link = edit_mood_path(element)
+    link = edit_category_path(element) if element.class.name == 'Category'
+    {
+      edit: {
+        name: t('common.actions.edit'),
+        link: link
+      },
+      delete: action_delete(url_helper)
+    }
+  end
+
+  def action_delete(url_helper)
+    {
+      name: t('common.actions.delete'),
+      link: url_helper,
+      dataConfirm: t('common.actions.confirm'),
+      dataMethod: 'delete'
+    }
+  end
 
   def category_form_inputs(category)
     [

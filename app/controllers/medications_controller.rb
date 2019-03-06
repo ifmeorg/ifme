@@ -4,12 +4,22 @@ class MedicationsController < ApplicationController
   include CollectionPageSetupConcern
   include ReminderHelper
   include MedicationRefillHelper
+  include MedicationsHelper
   before_action :set_medication, only: %i[show edit update destroy]
 
   # GET /medications
   # GET /medications.json
   def index
     page_collection('@medications', 'medication')
+    respond_to do |format|
+      format.json do
+        render json: {
+          data: medications_props(@medications),
+          lastPage: @medications.last_page?
+        }
+      end
+      format.html
+    end
   end
 
   # GET /medications/1

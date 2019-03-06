@@ -56,4 +56,26 @@ describe MomentsHelper, type: :controller do
       expect(controller.secret_share_props(moment)).to eq(input)
     end
   end
+
+  describe '#present_moment_or_strategy' do
+    context 'when its moment' do
+      let(:moment) { create(:moment, user: user) }
+      subject { controller.present_moment_or_strategy(moment) }
+      it 'returns correct data' do
+        expect(subject.keys).to include(:name, :link, :actions, :storyType, :date)
+        expect(subject[:link]).to eq(moment_path(moment))
+        expect(subject[:name]).to eq(moment[:name])
+      end
+    end
+
+    context 'when its strategy' do
+      let(:strategy) { create(:strategy, user: user) }
+      subject { controller.present_moment_or_strategy(strategy) }
+      it 'returns correct data' do
+        expect(subject.keys).to include(:name, :link, :actions, :storyType, :date)
+        expect(subject[:link]).to eq(strategy_path(strategy))
+        expect(subject[:name]).to eq(strategy[:name])
+      end
+    end
+  end
 end

@@ -7,14 +7,12 @@
 <% if !user_signed_in? %>
   <%= render partial: 'not_signed_in' %>
 <% elsif @stories.any? %>
-  <div class="gridTwo">
-    <% @stories.each do |story| %>
-      <% if current_user.id == story.user_id || (story.viewers.include?(current_user.id) && current_user.mutual_allies?(User.find_by(id: story.user_id))) %>
-      <%= render partial: '/stories/moment_or_strategy', locals: { item: story } %>
-      <% end %>
-    <% end %>
-  </div>
-  <%= paginate @stories %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data:       moments_or_strategy_props(@stories),
+    fetchUrl:   home_data_path,
+    lastPage:   @stories.last_page?
+    })%>
 <% else %>
   <%= render partial: 'signed_in_empty' %>
 <% end %>

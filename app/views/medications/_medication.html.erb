@@ -1,19 +1,5 @@
 <div class="gridTwoItemBoxLight">
-  <%= react_component('Story', html_options: html_options, props: {
-    name: medication.name,
-    link: url_for(medication),
-    actions: {
-      edit: {
-        name: t('common.actions.edit'),
-        link: edit_medication_path(medication)
-      },
-      delete: {
-        name: t('common.actions.delete'),
-				link: url_for(medication),
-				dataConfirm: t('common.actions.confirm'),
-				dataMethod: 'delete'
-      }
-    },
-    body: render(partial: '/medications/story_body', locals: { medication: medication })
-  }) %>
+  <%= react_component('Story',
+    html_options: html_options,
+    props: present_medication(medication)) %>
 </div>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module MoodsHelper
   include FormHelper
+  include CategoriesHelper
 
   def new_mood_props
     new_form_props(mood_form_inputs, moods_path)
