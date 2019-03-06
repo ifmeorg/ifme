@@ -10,17 +10,15 @@ class MomentsController < ApplicationController
   # GET /moments
   # GET /moments.json
   def index
-    if current_user
-      # +1 day buffer to ensure we include today as well
-      end_date = Date.current + 1.day
-      start_date = end_date - 1.week
-      @react_moments = current_user.moments
-                                   .group_by_period('day',
-                                                    :created_at,
-                                                    range: start_date..end_date)
-                                   .count
-    end
     page_collection('@moments', 'moment')
+    respond_to do |format|
+      format.json do
+        render json: moments_data_json
+      end
+      format.html do
+        moments_data_html
+      end
+    end
   end
 
   # GET /moments/1

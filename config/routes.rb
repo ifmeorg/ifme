@@ -98,6 +98,7 @@ Rails.application.routes.draw do
   match 'toggle_locale', to: 'pages#toggle_locale', via: :post
   match 'press', to: 'pages#press', via: :get
   match 'resources', to: 'pages#resources', via: :get
+  get 'home_data', to: 'pages#home_data', defaults: { format: 'json' }
 
   devise_for :users, controllers: { registrations: :registrations,
                                        omniauth_callbacks: 'omniauth_callbacks',

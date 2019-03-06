@@ -21,6 +21,31 @@ module MomentsHelper
     )
   end
 
+  def moments_data_json
+    {
+      data: moments_or_strategy_props(@moments),
+      lastPage: @moments.last_page?
+    }
+  end
+
+  def moments_data_html
+    return unless current_user
+
+    # +1 day buffer to ensure we include today as well
+    end_date = Date.current + 1.day
+    start_date = end_date - 1.week
+    range = start_date..end_date
+    @react_moments = current_user.moments
+                                 .group_by_period('day',
+                                                  :created_at,
+                                                  range: range)
+                                 .count
+  end
+
+  def moments_or_strategy_props(elements)
+    elements.map { |element| present_moment_or_strategy(element) }
+  end
+
   def moments_stats
     return '' if moment_count[:total] < 1
 
@@ -44,6 +69,79 @@ module MomentsHelper
       copyOnClick: t('moments.secret_share.link_copied')
     }], action:  moment_path(moment) }
   end
+
+  # rubocop:disable MethodLength
+
+  def setup_moment_or_strategy(element)
+    if element.class.name == 'Moment'
+      return {
+        url_helper: moment_path(element),
+        link: edit_moment_path(element),
+        moods: element.mood_names,
+        story_type: t('moments.singular')
+      }
+    end
+    {
+      url_helper: strategy_path(element),
+      link: edit_strategy_path(element),
+      moods: nil,
+      story_type: t('strategies.singular')
+    }
+  end
+
+  def user_actions(element, variables_to_present_type)
+    if element.user_id == current_user&.id
+      return {
+        viewers: get_viewer_list(element.viewers, nil),
+        edit:
+          {
+            link: variables_to_present_type[:link],
+            name: t('common.actions.edit')
+          },
+        delete:
+          {
+            name: t('common.actions.delete'),
+            link: variables_to_present_type[:url_helper],
+            dataMethod: 'delete',
+            dataConfirm: t('common.actions.confirm')
+          }
+      }
+    end
+    {
+      viewers: nil,
+      edit: nil,
+      delete: nil
+    }
+  end
+
+  def present_moment_or_strategy(element)
+    avatar = ProfilePicture.normalize_url(User.find(element.user_id).avatar.url)
+    variables_to_present_type = setup_moment_or_strategy(element)
+    user_actions = user_actions(element, variables_to_present_type)
+    {
+      name: element.name,
+      link: variables_to_present_type[:url_helper],
+      date: TimeAgo.created_or_edited(element),
+      actions: {
+        edit: user_actions[:edit],
+        delete: user_actions[:delete],
+        viewers: user_actions[:viewers]
+      },
+      draft: !element.published? ? t('draft') : nil,
+      categories: element.category_names,
+      moods: variables_to_present_type[:moods],
+      storyBy: {
+        author: link_to(
+          User.find(element.user_id).name,
+          profile_index_path(uid: User.find_by(id: element.user_id).uid)
+        ),
+        avatar: avatar
+      },
+      storyType: variables_to_present_type[:story_type]
+    }
+  end
+
+  # rubocop:enable MethodLength
 
   private
 

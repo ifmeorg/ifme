@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 describe CategoriesHelper do
-  let(:user) { build(:user) }
-  let(:category) { build(:category, user_id: user.id) }
+  let(:user) { create(:user) }
+  let(:category) { create(:category, user: user) }
   let(:quick_create) { false }
   let(:no_form_tag) do
     { noFormTag: true }
@@ -83,6 +83,15 @@ describe CategoriesHelper do
       it 'returns correct results' do
         expect(new_category_props(category)).to eq(category_props)
       end
+    end
+  end
+
+  describe '#present_category_or_mood' do
+    subject { present_category_or_mood(category) }
+    it 'returns correct data' do
+      expect(subject.keys).to include(:name, :link, :actions)
+      expect(subject[:link]).to eq(category_path(category))
+      expect(subject[:name]).to eq(category[:name])
     end
   end
 end

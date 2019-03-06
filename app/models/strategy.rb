@@ -18,6 +18,7 @@
 
 class Strategy < ApplicationRecord
   include Viewer
+  include CommonMethods
   extend FriendlyId
 
   friendly_id :name

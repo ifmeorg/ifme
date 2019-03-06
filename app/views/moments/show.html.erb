@@ -11,10 +11,10 @@
 </div>
 <div class="smallMarginTop">
   <%= react_component('StoryCategories', props: {
-    categories: @moment.category.map{ |item| Category.find(item).name }
+    categories: @moment.category_names
   }) %>
   <%= react_component('StoryMoods', props: {
-    moods: @moment.mood.map{ |item| Mood.find(item).name }
+    moods: @moment.mood_names
   }) %>
 </div>
 

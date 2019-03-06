@@ -58,6 +58,17 @@ describe PagesController, type: :controller do
     end
   end
 
+  describe 'GET #home_data' do
+    let(:user) { create(:user) }
+    let(:moment) { create(:moment, user: user) }
+    include_context :logged_in_user
+    before { get :home_data, params: { page: 1, id: moment.id} , format: :json }
+
+    it 'returns a response with the correct path' do
+      expect(JSON.parse(response.body)["data"].first["link"]).to eq moment_path(moment)
+    end
+  end
+
   describe 'GET #partners' do
     it 'respond to request' do
       get :partners
