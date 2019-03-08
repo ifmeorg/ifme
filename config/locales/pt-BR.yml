@@ -3,7 +3,7 @@ pt-BR:
   app_description: 'Uma comunidade para o compartilhamento de experiências sobre saúde mental'
   draft: Rascunho
   email: join.ifme@gmail.com
-  created: 'Criada em%{created_at}'
+  created: 'Criada em %{created_at}'
   edited: 'Criada em %{created_at} (edited)'
   edited_updated_at: 'Data Criação %{created_at} (edited %{updated_at})'
   salutation: 'Olá %{name},'
@@ -28,7 +28,7 @@ pt-BR:
   navigation:
     about: Sobre
     blog: Blog
-    contribute: Contribuintes
+    contribute: Colaboradores
     partners: Parceiros
     privacy: 'Política de Privacidade'
     github: GitHub
@@ -61,8 +61,8 @@ pt-BR:
       edit_instance: 'Editar %{instance}'
       join: Participar
       leave: Sair
-      add: Adcionar
-      add_all: 'Adcionar tudo'
+      add: Adicionar
+      add_all: 'Adicionar tudo'
       select_all: 'Selecionar tudo'
       remove: Remover
       report: Relatório
@@ -70,7 +70,7 @@ pt-BR:
       email: Email
       location: Localização
       description: Descrição
-      error_explanation: 'Please fill out the marked fields!'
+      error_explanation: 'Por favor, preencha os campos marcados!'
       empty_error: 'Este campo não pode estar vazio!'
       search_by_keywords: 'Pesquisar por palavras-chave'
     time_ago: '%{date} atrás'
@@ -96,7 +96,7 @@ pt-BR:
     singular: Comentário
     plural: Comentário
     posting: 'Postando comentário...'
-    allow_comments: 'Permitir Comentários ?'
+    allow_comments: 'Permitir Comentários?'
     hint: 'Apenas você e seus espectadores podem podem comentar'
     control: 'Controlar quem pode ver e comentar'
   account:
@@ -108,7 +108,7 @@ pt-BR:
     one: '%{count} membro'
     other: '%{count} membros'
   allies:
-    add_ally: 'Adcionar para os aliados'
+    add_ally: 'Adicionar aos aliados'
     cancel_ally_request: 'Cancelar pedido'
     accept: Aceitar
     reject: Recusar
@@ -145,7 +145,7 @@ pt-BR:
       premade3_description: 'Relacionado ao trabalho'
       premade4_name: Meditação
       premade4_description: 'Meditação, respiração profunda, e atividades relaxantes'
-      instructions: 'Você ainda não criou nenhuma categoria personalizada.<br>Você também pode adcionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
+      instructions: 'Você ainda não criou nenhuma categoria personalizada.<br>Você também pode adicionar as seguintes categorias pré-determinadas e customizá-las quando quiser.'
   errors:
     home_page: 'Voltar a página principal'
     internal_server_error:
@@ -157,7 +157,7 @@ pt-BR:
     plural: Grupos
     form:
       leaders: Líderes
-      only_leader: 'Você é o único líder, no entanto você não pode sair.'
+      only_leader: 'Você é o único líder, portanto não pode sair.'
       cannot_delete: 'Detalhe: Você não pode deletar grupos.'
       error_save: 'Não podemos salvar esse grupo porque: '
       error_edit_permission: 'Você precisa ser um líder de algum grupo para poder modificá-lo.'
@@ -174,7 +174,7 @@ pt-BR:
       error: 'Você não pode sair deste grupo, porque você é o único líder.'
       success: 'Você saiu do grupo %{group}'
       remove_member_success: 'Você excluiu o usuário %{user} do grupo %{group}'
-      remove_member_error: 'Você não pode chutar um membro do grupo porque você não é um líder.'
+      remove_member_error: 'Você não pode remover um membro do grupo porque você não é um líder.'
     new: 'Novo Grupo'
     show:
       led_by: 'Liderado por:'
@@ -201,14 +201,14 @@ pt-BR:
     strength: 'Dosagem:'
     form:
       strength: Dosagem
-      strength_placeholder: 'e.g. 100mg'
-      total_placeholder: 'e.g. 30mg'
+      strength_placeholder: 'ex.: 100mg'
+      total_placeholder: 'ex.: 30mg'
       dosage: dosagem
-      dosage_placeholder: 'e.g. 2mg'
+      dosage_placeholder: 'ex.: 2mg'
       refill: refil
-      comments_hint: 'Adcione quasiquer comentários adcionais aqui, por exemplo: registrando os sintomas'
-      add_to_google_cal: 'Lembrete do Google Calendar'
-      google_cal_hint: ' Nós iremos adcionar um lembrete sobre esse medicamento no Google Calendar'
+      comments_hint: 'Adicione quaisquer comentários adicionais aqui, por exemplo: registrando os sintomas'
+      add_to_google_cal: 'Lembrete do Google Calendário'
+      google_cal_hint: 'Nós iremos adicionar um lembrete sobre esse medicamento no Google Calendário'
       strength_hint: 'Potência do medicamento, normalmente é encontrada pŕoximo ao nome do medicamento'
       total_hint: 'Quantidade total de comprimidos ou porções necessárias'
       weekly_dosage_hint: 'Dias da semana para tomar este medicamento'
@@ -233,7 +233,7 @@ pt-BR:
       body: 'Aqui um lembrete amigo para reabastecer o medicamento %{name} na %{refill}!'
     index:
       title: Medicamentos
-      subtitle: 'Faça o controle dos seus medicamentos , incluindo dosagem dosagem e informações de quando reabastecer.'
+      subtitle: 'Faça o controle dos seus medicamentos, incluindo dosagem dosagem e informações de quando reabastecer.'
       instructions: 'Você ainda não tem nenhum medicamento salvo.<br><br>Aqui está um examplo de um medicamento salvo! Você também pode compartilhar sobre sua experiência enquanto usuário(a).'
       example_name: Prozac
       example_strength: '10 mg'
@@ -241,7 +241,7 @@ pt-BR:
       example_dosage: '40 tablets'
       example_refill: 31/05/2016
     show:
-      comments: 'Commentários:'
+      comments: 'Comentários:'
   meetings:
     singular: Reunião
     edit_meeting: 'Editar Reunião'
@@ -275,18 +275,18 @@ pt-BR:
       cancel_secret_share: 'Cancelar Compartilhar Segredo'
       link_copied: 'Link de compartilhamento secreto copiado para a área de transferência'
     form:
-      why: 'O que aconteceu e como você se sente ?'
-      fix: 'Quais pensamentos você gostaria de ter ? '
-      what_happened: 'O que aconteceu ?'
+      why: 'O que aconteceu e como você se sente?'
+      fix: 'Quais pensamentos você gostaria de ter?'
+      what_happened: 'O que acontece?'
       viewers_hint: 'Aliados que podem ver esse momento seu:'
       draft_question: 'Você quer salvar seu momento com um rascunho?'
     index:
       subtitle: 'Mergulhe profundamente nos seus momentos - Momentos e situações que afetam sua saúde mental.'
-      instructions: 'Você ainda não escreveu sobre seus momentos.<br><br>Não sabe por onde começar ? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada ! O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:'
+      instructions: 'Você ainda não escreveu sobre seus momentos.<br><br>Não sabe por onde começar? Diga alguma coisa que aconteceu hoje que você gostaria de compartilhar e discutir com uma pessoa amada! O momento pode ser positivo ou negativo! Você não precisa compartilhar imediatamente - Apenas quando se sentir confortável para compartilhar! Aqui está um momento de um momento a ser compartilhado:'
       example_name: 'Nervosismo por causa da entrevista de trabalho de amanhã.'
       example_category: Carreira
     show:
-      strategies: 'Quais estratégias poderiam ajudar nesse momento ? '
+      strategies: 'Quais estratégias poderiam ajudar nesse momento?'
   moods:
     singular: Humor
     plural: Humor
@@ -305,11 +305,11 @@ pt-BR:
       premade4_description: 'Não aceitar certos fatos, sentir raiva, sentimento de vingança, e/ou ciúmes.'
       premade5_name: Desanimado
       premade5_description: 'Sentir-se triste e desanimado - incapaz de encontrar qualquer solução possível.'
-      instructions: 'Você ainda não personalizou nenhum tipo de humor.<br>Você também pode adcionar o seguintes humores pré-cadastrados e personalizá-los.'
+      instructions: 'Você ainda não personalizou nenhum tipo de humor.<br>Você também pode adicionar o seguintes humores pré-cadastrados e personalizá-los.'
   notifications:
     plural: Notificações
     none: 'Não existem notificações no momento'
-    clear: Limpo(Clear)
+    clear: Limpar
     created_by_html: '<strong>Criado por</strong>: %{name}'
     preview: 'Ver mais'
     members:
@@ -342,19 +342,19 @@ pt-BR:
       new_group_subject: 'if me | %{user} criou um grupo chamado "%{group}"'
       new_group_body: '<p>%{user} criou um grupo chamado "%{group}":</p><p><i>%{description}</i></p><p>Aprenda mais e faça parte, %{link}!</p><p>Por favor siga o nosso %{code_of_conduct_link}!</p>'
       new_group_member_subject: 'if me | %{user} se juntou ao seu grupo "%{group}"'
-      add_group_leader_you_subject: 'if me | Você  se tornou lider do grupo  "%{group}"'
+      add_group_leader_you_subject: 'if me | Você  se tornou lider do grupo "%{group}"'
       add_group_leader_subject: 'if me | %{user} se tornou líder do grupo " %{group}"'
       add_remove_group_leader_body: '<p>Link do grupo "%{group}", %{link}!</p>'
       remove_group_leader_you_subject: 'if me | Você não é mais líder do grupo "%{group}"'
       remove_group_leader_subject: 'if me | %{user} não é mais líder do grupo "%{group}"'
       update_meeting_subject: 'if me | %{user} atualizou a reunião "%{meeting}" for "%{group}"'
-      new_meeting_subject: 'if me | %{user} criou uma nova reunião  "%{meeting}" for "%{group}"'
+      new_meeting_subject: 'if me | %{user} criou uma nova reunião "%{meeting}" for "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>Endereço:</strong> %{location}</p><p><strong>Data:</strong> %{date}</p><p><strong>Hora:</strong> %{time}</p>'
       new_meeting_link: '<p>Clique aqui para saber mais, %{link}!</p>'
       update_meeting_link: '<p>Para saber mais, %{link}!</p>'
       remove_meeting_subject: 'if me | %{user} A reunião "%{meeting}" foi cancelada para o grupo "%{group}"'
-      join_meeting_subject: 'if me | %{user} Se juntou a reunião  "%{meeting}" para o grupo "%{group}"'
-      join_meeting_body: '<p>Para ver detalhes da reunião "%{meeting}",clique aqui %{link}!</p>'
+      join_meeting_subject: 'if me | %{user} Se juntou a reunião "%{meeting}" para o grupo "%{group}"'
+      join_meeting_body: '<p>Para ver detalhes da reunião "%{meeting}", clique aqui %{link}!</p>'
       reported_user_subject: 'if me | Você denunciou um usuário'
       reported_user_body: 'Você relatou %{reported_name}. Isso será revisado por um administrador.'
       reportee_user_subject: 'if me | Você foi denunciado'
@@ -389,24 +389,24 @@ pt-BR:
       slack: Slack
     faq:
       title: 'FAQ - Dúvidas Frequentes'
-      data_access_question: 'Quem pode acessar meus dados ?'
+      data_access_question: 'Quem pode acessar meus dados?'
       data_access_answer: 'Os dados não são distribuidos ou visualizados por grupos terceiros. Ao excluir sua conta você irá remover todos os seus dados.<br><br>Os dados de usuários são analizados pelo aplicativo para criar experiências personalizadas.'
-      moment_question: 'O que é um Momento ?'
-      moment_answer: 'Um <strong>%{moment}</strong> é um evento ou situação que afeta sua saúde mental.Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira, pode tornar seus comentários visíveis apenas para você.'
-      strategy_question: 'O que é uma Estratégia ?'
+      moment_question: 'O que é um Momento?'
+      moment_answer: 'Um <strong>%{moment}</strong> é um evento ou situação que afeta sua saúde mental. Ele pode ser positivo ou negativo. Imagine uma espécie de diário ou atualização de status.<br><br>Você pode marcar um momento com uma tag, com estratégias, categorias, and humores. Você também pode escolher quais aliados pode te visualizar e fazer comentários. E caso queira, pode tornar seus comentários visíveis apenas para você.'
+      strategy_question: 'O que é uma Estratégia?'
       strategy_answer: 'Uma <strong>%{strategy}</strong> é uma atividade, linha de pensamento, ou forma de cuidar de si mesmo que ajuda você a lidar com dificuldades ou na sua recuperação.<br><br>Você pode marcar sua estratégias com tags (etiquetas). Você também pode escolher quais aliados podem te visualizar e fazer comentários. Caso queira, você pode tornar seus comentários apenas visíveis para você. Estratégias compartilhadas serão visíveis para todos os aliados selecionados, o que significa que você pode marcar os seus Momentos com as Estratégias de seus aliados.'
-      category_question: 'O que é uma Categoria ? '
-      category_answer: 'Uma <strong>%{category}</strong> é uma tag(etiqueta) que pode representar as pessoas, lugares e coisas que são importantes para você.'
-      mood_question: 'O que é um Humor ?'
-      mood_answer: 'O <strong>%{mood}</strong> é uma tag(etiqueta) que descreve seu estado de espírito, sentimentos, e emoções.'
+      category_question: 'O que é uma Categoria?'
+      category_answer: 'Uma <strong>%{category}</strong> é uma tag (etiqueta) que pode representar as pessoas, lugares e coisas que são importantes para você.'
+      mood_question: 'O que é um Humor?'
+      mood_answer: 'O <strong>%{mood}</strong> é uma tag (etiqueta) que descreve seu estado de espírito, sentimentos e emoções.'
       group_question: 'O que é um Grupo ?'
-      group_answer: 'Um <strong>%{group}</strong> oferece suporte, mentoria, e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
+      group_answer: 'Um <strong>%{group}</strong> oferece suporte, mentoria e discussões sobre saúde mental. Você pode criar grupos e seus aliados podem se juntar aos grupos que você criou. Você só pode acessar grupos que foram criados por seus aliados.<br><br>Como Líder de Grupo, você pode criar <strong>Reuniões</strong>. Reuniões tem data e hora marcadas. O endereço pode ser físico ou em algum aplicativo de reuniões online como Skype ou Google Hangout. As Reuniões também permitem comentários. Se você for um Líder de Grupo, você não pode sair do grupo a menos que haja outro líder. Grupos só podem ser apagados apenas quando você for o único participante.'
       medications_question: 'Como eu uso o recurso de Medicamentos?'
       medications_answer: 'O recurso de <strong>%{medications}</strong> permite que você tenha um controle da receita médica sobre o medicamento que você está tomando, bem como os efeitos colaterais.'
       invite_question: 'Como posso convidar as pessoas com as quais eu me importo a se juntarem ao If-me?'
-      invite_answer: 'Visite a página de <strong>%{allies}</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adcionados a sua lista de aliados.'
+      invite_answer: 'Visite a página de <strong>%{allies}</strong> e clique em "Convidar as pessoas que ama". Você será capaz de convidá-los por email. Quando seus amados aceitarem o convite que você enviou, eles serão adicionados a sua lista de aliados.'
       email_notifications_question: 'Como eu posso modificar minhas notificações por email?'
-      email_notifications_answer: 'Vá para a página <strong>%{accounts}</strong>. Você pode modificar seu email, senha, foto de perfil, and adcionar um resumo sobre você. Você também pode excluir sua conta, caso queira.'
+      email_notifications_answer: 'Vá para a página <strong>%{accounts}</strong>. Você pode modificar seu email, senha, foto de perfil e adicionar um resumo sobre você. Você também pode excluir sua conta, caso queira.'
     home:
       update_pwd_modal:
         title: 'Atualizar senha'
@@ -426,7 +426,7 @@ pt-BR:
         main_message_one: 'Olá %{name}!'
         message_text_one: 'Veja como você pode começar a compartilhar suas histórias.'
         main_message_two: 'Conte-nos sobre você.'
-        cell_one: 'Personalize seu  %{profile} - adcione um resumo sobre você e uma foto de perfil<br>Personalize suas alterações de %{moods} para melhor descrever suas emoções<br>Adcione %{allies} - amigos, familiares, e outras pessoas com as quais você gostaria de compartilhar suas experiências.'
+        cell_one: 'Personalize seu  %{profile} - adicione um resumo sobre você e uma foto de perfil<br>Personalize suas alterações de %{moods} para melhor descrever suas emoções<br>Adicione %{allies} - amigos, familiares, e outras pessoas com as quais você gostaria de compartilhar suas experiências.'
         main_message_three: 'Escreva suas histórias'
         cell_two: 'Crie %{categories} personalizadas para te ajudar a organizar seus momentos<br>Escreva sobre seus %{moments} - os eventos e situações que afetam sua saúde mental'
         main_message_four: 'Cuide de si mesmo.'
@@ -438,7 +438,7 @@ pt-BR:
       description: 'Essas são as incríves instituições que nos inspiram e que tivemos o privilégio de trabalhar juntos. Adoraríamos trabalhar junto da sua instituição. Entre em contato conosco via email %{email}.'
     privacy:
       summary: Sumário
-      summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente.Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
+      summary_description: '<p>Esta política de privacidade serve para este sítio web e rege a privacidade de seus usuários que assim escolheram utilizar-se deste serviço.</p><p>Dado o conteúdo de natureza sensível deste sítio web, a privacidade de cada usuário é uma questão com a qual nos preocupamos constantemente. Esta política define o escopo sobre como os dados do usuário são coletados, quais dados do usuário são utilizados e como os dados do usuário são protegidos.</p>'
       user_data: 'Dados do Usuário'
       user_data_description: '<p>Usuário é a pessoa que utiliza este sítio web e tem a intenção de prover dados pessoais, incluindo trechos de suas vidas (na funcionalidade de Momentos, por exemplo) e anedotas sobre medicamentos. Dados do recurso de Momentos é compartilhado com qualquer pessoa da qual o usuário queira compartilhar seus dados. Dados de medicação são visíveis apenas para o usuário. Ambos os dados não serão utilizados para quaisquer propósitos extras e não deverão ser entregues a quaisquer entidades externas.</p><p>O aplicativo também contém dados que dizem respeito aos grupos de suporte e estratégias para gerar novos desafios para a saúde mental. Esses dados são acessíveis apenas para usuários que dão permissão de visualização para os usuários que desejam visualizar esses dados. Dados de ambos os recursos podem ser mostrados publicamente, para visualizadores atuais e futuros. No entando, a identidade dos usuarios serão mantidas privadas</p>'
       cookies: 'Uso de Cookies'
@@ -585,7 +585,7 @@ pt-BR:
     meeting_info:
       attending: 'Você irá participar.Quer mudar de idéia?'
       not_attending: 'Você não irá participar. %{join}'
-      not_attending_one_spot_left: 'Você não irá participar?.Existe apenas uma vaga disponível! %{join}'
+      not_attending_one_spot_left: 'Você não irá participar?. Existe apenas uma vaga disponível! %{join}'
       not_attending_spots_left: 'Você não irá participar? Existem apenas %{number} vagas disponível! %{join}'
       not_attending_no_spots_left: 'Você não irá participar! Não existem mais vagas disponíveis.'
     quick_create:
@@ -602,7 +602,7 @@ pt-BR:
       name_hint: 'Qualquer atividade, linha de pensamento, ou forma de cuidado próprio que ajude você'
       viewers_hint: 'Aliados que podem visualizar suas estratégias e marcar seus próprios comentários em cada estratégia'
       daily_reminder_hint: 'Iremos enviar para seu email um um lembrete diário para cumprir com sua estratégia.'
-      draft_question: 'Você quer salvar sua estratégia com um rascunho?'''
+      draft_question: 'Você quer salvar sua estratégia com um rascunho?'
     label:
       one: Estratégia
       other: Estratégias
@@ -610,7 +610,7 @@ pt-BR:
       subtitle: 'Crie uma Estratégia para cuidado-próprio para alcançar metas desejadadas e atitudes em direção aos seus momentos.'
       premade1_name: 'Meditação em Cinco Minutos:'
       premade1_description: '1) <b>Encontre uma posição confortável e relaxante.</b> Você pode se sentar em uma cadeira ou em uma almofada no chão. Mantenha suas costas retas, mas não force muito. As mãos deve estar confortáveis. A língua deve estar no céu da boca ou de uma forma que esteja confortável para você.<br><br>2) <b> Perceba e relaxe cada parte do seu corpo.</b> Tente percener o formato do seu corpo, seu peso, temperatura. Permita-se relaxar e tornar-se curioso sobre seu corpo nesta posição, as sensações, as experiências, o toque , a conexão com o chão, ou com a cadeira. Relaxe qualquer área que esteja tensionada ou rígida. Apenas respire.<br><br>3) <b>Entre em sintonia com sua respiração.</b> Sinta o fluxo natural do ar entrando, e do ar saindo. Você não precisa fazer nada com a respiração. Não respire muito rápido e nem muito devagar,apenas aja naturalmente. Perceba o fluxo do ar no seu corpo. Pode ser no seu abdomen. Pode ser no seu peito ou na sua garganta ou até mesmo nas suas narinas. Veja se você pode sentir as sensações da respiração, uma respiração de cada vez. Quando um ciclo terminar, o pŕoximo deve começar<br><br>4) <b>Seja gentil com sua mente distraída.</b> E enquanto você faz isso, você pode perceber que começa a ficar distraído. Você pode começar a pensar em qualquer outra coisa. Caso isso aconteça,não há problema algum. É algo muito natural. Caso perceba que sua mente começou a se distrair, você pode dizer mentalmente “pensando” ou “vagando” de forma bem calma. E aos poucos, redirecionar seu foco de volta a sua respiração.<br><br>5) <b>Fique nessa posição por 5 ou 7 minutos.</b> Perceba sua respiração, em silêncio. De tempos em tempos, você pode ficar perder a linha de pensamento, então foque na sua respiração.<br><br>6) <b>Verique sua respiração sempre que isso acontecer.</b> Depois de alguns minutos, novamente,começe a prestar atenção no seu corpo, em todo seu corpo, enquanto sentado. Permita-se relaxar mais profundamente e então permita-se sentir gratidão por ter realizado essa prática no dia de hoje.<br><br><i>Adaptado de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
-      instructions: 'Você ainda não criou nenhuma estratégia personalizada.<br>Você também pode adcionar as seguintes estratégias pré-definindas e customizá-las depois.'
+      instructions: 'Você ainda não criou nenhuma estratégia personalizada.<br>Você também pode adicionar as seguintes estratégias pré-definindas e customizá-las depois.'
     reminder_mailer:
       subject: 'Não se esqueça de realizar %{name}!'
       body: 'Aqui está um lembrete amigo para realizar %{name}!'
@@ -625,7 +625,7 @@ pt-BR:
   mailers:
     accepted_ally_request:
       subject: 'if me | %{ally_name} aceitou seu pedido para se torna aliado!'
-      message: '<p>Parabéns! Você pode compartilhar Momentos , Estratégias, e muito mais com seu aliado %{ally_name}.</p>'
+      message: '<p>Parabéns! Você pode compartilhar Momentos, Estratégias, e muito mais com seu aliado %{ally_name}.</p>'
     new_ally_request:
       subject: 'if me | %{ally_name} emviou um pedido para se tornar um aliado!'
       message: '<p>Por favor <a href="%{allies_url}">faça login</a> para aceitar ou rejeitar o pedido!</p>'
@@ -676,12 +676,12 @@ pt-BR:
           update: Atualização
         placeholders:
           optional: Opcional
-          about: 'Apresente-se! Por que você está aqui e o que você almeja alcançar ? Lembre-se de que essa informação será visualizada quando usuários buscarem por você'
+          about: 'Apresente-se! Por que você está aqui e o que você almeja alcançar? Lembre-se de que essa informação será visualizada quando usuários buscarem por você'
           required: 'Campo Obrigatório'
         delete:
           text: '<strong>if me</strong> não está funcionando para você?'
-          button: 'Exclior minhaconta permanentemente'
-          confirm: 'Você tem certeza ? Você perderá todos os seus dados. Mas você sempre pode se cadastrar novamente!'
+          button: 'Excluir minha conta permanentemente'
+          confirm: 'Você tem certeza? Você perderá todos os seus dados. Mas você sempre pode se cadastrar novamente!'
       new:
         subtitle: 'Começe a contar sua histórias e mantenha sua saúde em um lugar seguro e particular'
         label: 'Alguns detalhes'
