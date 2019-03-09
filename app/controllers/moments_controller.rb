@@ -2,6 +2,8 @@
 class MomentsController < ApplicationController
   include CollectionPageSetupConcern
   include MomentsHelper
+  include MomentsStatsHelper
+  include MomentsFormHelper
   include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
