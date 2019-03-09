@@ -9,7 +9,7 @@ defaults: &defaults
   docker:
     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
       command: /sbin/init
-    - image: circleci/ruby:2.3.4
+    - image: circleci/ruby:2.6.0
     - image: circleci/node:11.10.1
 jobs:
   setup-coverage:
@@ -35,7 +35,7 @@ jobs:
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
       - run:
           working_directory: ~/ifmeorg/ifme
-          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.3.4 > ifmeorg/ifme/.ruby-version; rvm use 2.3.4 --default
+          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
       - run:
           working_directory: ~/ifmeorg/ifme
           command: nvm install 11.10.1 && nvm alias default 11.10.1
