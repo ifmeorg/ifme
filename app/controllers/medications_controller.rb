@@ -5,6 +5,7 @@ class MedicationsController < ApplicationController
   include ReminderHelper
   include MedicationRefillHelper
   include MedicationsHelper
+  include MedicationsFormHelper
   before_action :set_medication, only: %i[show edit update destroy]
 
   # GET /medications
