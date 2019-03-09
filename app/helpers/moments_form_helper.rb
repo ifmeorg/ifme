@@ -29,17 +29,17 @@ module MomentsFormHelper
       label: t(label) }
   end
 
-  def moment_text_input_props(field, type, label)
+  def moment_text_input_props(field, type, label, required = false)
     moment_input_props(field, type, label)
-      .merge(value: @moment[field] || nil, required: true, dark: true)
+      .merge(value: @moment[field] || nil, required: required, dark: true)
   end
 
   def moment_name
-    moment_text_input_props('name', 'text', 'common.name')
+    moment_text_input_props('name', 'text', 'common.name', true)
   end
 
   def moment_why
-    moment_text_input_props('why', 'textarea', 'moments.form.why')
+    moment_text_input_props('why', 'textarea', 'moments.form.why', true)
   end
 
   def moment_fix

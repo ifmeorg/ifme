@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 module MomentsHelper
+  include ViewersHelper
+
   def moments_data_json
     {
       data: moments_or_strategy_props(@moments),
@@ -38,32 +40,33 @@ module MomentsHelper
     }], action:  moment_path(moment) }
   end
 
-  def user_actions(element, vars_to_present_type)
-    signed_in = element.user_id == current_user&.id
-    {
-      viewers: signed_in ? get_viewer_list(element.viewers, nil) : nil,
-      edit: signed_in ? get_user_action('edit', vars_to_present_type) : nil,
-      delete: signed_in ? get_user_action('delete', vars_to_present_type) : nil
-    }
+  def user_actions(element, present_object, signed_in)
+    return { viewers: nil, edit: nil, delete: nil } unless signed_in
+
+    { viewers: get_viewer_list(element.viewers, nil),
+      edit: get_user_action('edit', present_object),
+      delete: get_user_action('delete', present_object) }
   end
 
   def present_moment_or_strategy(element)
-    vars_to_present_type = setup_moment_or_strategy(element)
+    present_object = get_present_object(element)
     { name: element.name,
-      link: vars_to_present_type[:url_helper],
+      link: present_object[:url_helper],
       date: TimeAgo.created_or_edited(element),
-      actions: moment_or_strategy_actions(element, vars_to_present_type),
+      actions: moment_or_strategy_actions(element, present_object),
       draft: !element.published? ? t('draft') : nil,
       categories: element.category_names,
-      moods: vars_to_present_type[:moods],
+      moods: present_object[:moods],
       storyBy: story_by(element),
-      storyType: vars_to_present_type[:story_type] }
+      storyType: present_object[:story_type] }
   end
 
   private
 
-  def moment_or_strategy_actions(element, vars_to_present_type)
-    actions = user_actions(element, vars_to_present_type)
+  def moment_or_strategy_actions(element, present_object)
+    actions = user_actions(element,
+                           present_object,
+                           element.user_id == current_user&.id)
     {
       edit: actions[:edit],
       delete: actions[:delete],
@@ -83,22 +86,25 @@ module MomentsHelper
     }
   end
 
-  def get_user_action(action, vars_to_present_type)
-    {
-      link: vars_to_present_type[action == 'edit' ? :link : :url_helper],
-      name: t("common.actions.#{action}"),
-      dataMethod: action == 'edit' ? nil : 'delete',
-      dataConfirm: action == 'edit' ? nil : t('common.actions.confirm')
+  def get_user_action(action, present_object)
+    action_object = {
+      link: present_object[action == 'edit' ? :link : :url_helper],
+      name: t("common.actions.#{action}")
     }
+    return action_object if action == 'edit'
+
+    action_object.merge(dataMethod: 'delete',
+                        dataConfirm: t('common.actions.confirm'))
   end
 
-  def setup_moment_or_strategy(element)
-    is_moment = element.class.name == 'Moment'
+  def get_present_object(element)
+    model_name = element.class.name.downcase
+    is_moment = model_name == 'moment'
     {
       url_helper: is_moment ? moment_path(element) : strategy_path(element),
       link: is_moment ? edit_moment_path(element) : edit_strategy_path(element),
-      moods: is_moment ? element.mood_names : nil,
-      story_type: t("#{is_moment ? 'moments' : 'strategies'}.singular")
+      story_type: t("#{model_name.pluralize}.singular"),
+      moods: element&.mood_names
     }
   end
 end
