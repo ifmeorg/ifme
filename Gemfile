@@ -46,6 +46,8 @@ gem 'groupdate', '4.1.1'
 gem 'react_on_rails', '11.2.2'
 gem 'webpacker'
 
+gem 'selenium-webdriver', '~> 3.141.0'
+
 group :development, :test do
   gem 'bundler-audit'
   gem 'dotenv-rails', '~> 2.7.1'
@@ -82,7 +84,6 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-  gem 'selenium-webdriver', '~> 3.141.0'
   gem 'simplecov', require: false
 end
 

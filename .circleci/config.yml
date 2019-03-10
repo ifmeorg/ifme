@@ -9,7 +9,7 @@ defaults: &defaults
   docker:
     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
       command: /sbin/init
-    - image: circleci/ruby:2.6.0
+    - image: circleci/ruby:2.6
     - image: circleci/node:11.10.1
 jobs:
   setup-coverage:
