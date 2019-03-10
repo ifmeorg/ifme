@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe CategoriesHelper do
   let(:user) { create(:user) }
   let(:category) { create(:category, user: user) }
@@ -38,18 +39,22 @@ describe CategoriesHelper do
     }
   end
 
+  before do
+    @category = category
+  end
+
   describe '#new_category_props' do
     context 'category is nil' do
       let(:category) { nil }
 
       it 'returns correct results' do
-        expect(new_category_props(category)).to eq(category_props)
+        expect(new_category_props).to eq(category_props)
       end
     end
 
     context 'category exists' do
       it 'returns correct results' do
-        expect(new_category_props(category)).to eq(category_props)
+        expect(new_category_props).to eq(category_props)
       end
     end
   end
@@ -61,13 +66,13 @@ describe CategoriesHelper do
       let(:category) { nil }
 
       it 'returns correct results' do
-        expect(quick_create_category_props(category)).to eq(category_props.merge(no_form_tag))
+        expect(quick_create_category_props).to eq(category_props.merge(no_form_tag))
       end
     end
 
     context 'category exists' do
       it 'returns correct results' do
-        expect(quick_create_category_props(category)).to eq(category_props.merge(no_form_tag))
+        expect(quick_create_category_props).to eq(category_props.merge(no_form_tag))
       end
     end
   end
@@ -75,13 +80,13 @@ describe CategoriesHelper do
   describe '#new_category_props' do
     context 'category is nil' do
       it 'returns correct results' do
-        expect(new_category_props(category)).to eq(category_props)
+        expect(new_category_props).to eq(category_props)
       end
     end
 
     context 'category exists' do
       it 'returns correct results' do
-        expect(new_category_props(category)).to eq(category_props)
+        expect(new_category_props).to eq(category_props)
       end
     end
   end

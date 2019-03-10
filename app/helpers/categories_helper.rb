@@ -2,18 +2,18 @@
 module CategoriesHelper
   include FormHelper
 
-  def new_category_props(category)
-    new_form_props(category_form_inputs(category), categories_path)
+  def new_category_props
+    new_form_props(category_form_inputs, categories_path)
   end
 
-  def quick_create_category_props(category)
+  def quick_create_category_props
     quick_create_form_props(
-      category_form_inputs(category), quick_create_categories_path
+      category_form_inputs, quick_create_categories_path
     )
   end
 
-  def edit_category_props(category)
-    edit_form_props(category_form_inputs(category), category_path(@category))
+  def edit_category_props
+    edit_form_props(category_form_inputs, category_path(@category))
   end
 
   def categories_or_moods_props(elements)
@@ -53,10 +53,10 @@ module CategoriesHelper
     }
   end
 
-  def category_form_inputs(category)
+  def category_form_inputs
     [
-      category_name(category&.name),
-      category_description(category&.description)
+      category_name(@category&.name),
+      category_description(@category&.description)
     ]
   end
 
