@@ -6,17 +6,17 @@ module MomentsFormHelper
   include StrategiesHelper
   include FormHelper
 
-  def new_moment_props(moment, viewers)
+  def new_moment_props
     new_form_props(
-      moment_form_inputs(moment, viewers),
+      moment_form_inputs,
       moments_path
     )
   end
 
-  def edit_moment_props(moment, viewers)
+  def edit_moment_props
     edit_form_props(
-      moment_form_inputs(moment, viewers),
-      moment_path(moment)
+      moment_form_inputs,
+      moment_path(@moment)
     )
   end
 
@@ -57,7 +57,7 @@ module MomentsFormHelper
   end
 
   def moment_category
-    quick_create_props(@categories, quick_create_category_props(@category))
+    quick_create_props(@categories, quick_create_category_props)
   end
 
   def moment_mood
@@ -88,10 +88,10 @@ module MomentsFormHelper
       checked: !@moment.published? }
   end
 
-  def moment_form_inputs(moment, viewers)
+  def moment_form_inputs
     [
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
-      moment_strategy, get_viewers_input(viewers, 'moment', 'moments', moment),
+      moment_strategy, get_viewers_input(@viewers, 'moment', 'moments', @moment),
       moment_comment, moment_publishing
     ]
   end
