@@ -65,6 +65,7 @@ GEM
       uniform_notifier (~> 1.11.0)
     bundler-audit (0.6.1)
       bundler (>= 1.2.0, < 3)
+      thor (~> 0.18)
     byebug (11.0.0)
     capybara (3.14.0)
       addressable
