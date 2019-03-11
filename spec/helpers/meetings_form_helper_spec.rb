@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-describe MeetingFormHelper do
+describe MeetingsFormHelper do
   let(:group) { build(:group) }
   let(:meeting) { create(:meeting) }
 

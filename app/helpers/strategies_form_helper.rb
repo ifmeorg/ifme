@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module StrategyFormHelper
+module StrategiesFormHelper
   include CategoriesHelper
 
   def build_strategy_name(strategy)
