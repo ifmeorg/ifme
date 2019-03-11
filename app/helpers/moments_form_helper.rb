@@ -7,17 +7,11 @@ module MomentsFormHelper
   include FormHelper
 
   def new_moment_props
-    new_form_props(
-      moment_form_inputs,
-      moments_path
-    )
+    new_form_props(moment_form_inputs, moments_path)
   end
 
   def edit_moment_props
-    edit_form_props(
-      moment_form_inputs,
-      moment_path(@moment)
-    )
+    edit_form_props(moment_form_inputs, moment_path(@moment))
   end
 
   private
@@ -91,7 +85,9 @@ module MomentsFormHelper
   def moment_form_inputs
     [
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
-      moment_strategy, get_viewers_input(@viewers, 'moment', 'moments', @moment),
+      moment_strategy, get_viewers_input(
+        @viewers, 'moment', 'moments', @moment
+      ),
       moment_comment, moment_publishing
     ]
   end

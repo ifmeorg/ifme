@@ -2,7 +2,7 @@
 
 module StrategiesHelper
   include FormHelper
-  include StrategyFormHelper
+  include StrategiesFormHelper
   include ViewersHelper
 
   def new_strategy_props(strategy, viewers)

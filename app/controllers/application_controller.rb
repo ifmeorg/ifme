@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
   include PageRedirectConcern
   include CommentsHelper
-  include CommentFormHelper
+  include CommentsFormHelper
   include TagsHelper
   include MostFocusHelper
 
