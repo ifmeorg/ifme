@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module PasswordValidator
   extend ActiveSupport::Concern
 
@@ -47,7 +48,7 @@ module PasswordValidator
   def matches_format?
     password_regex =
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).*$/
-    return true if password =~ password_regex
+    return true if password.match?(password_regex)
 
     errors.add(:password, I18n.t('devise.registrations.password_errors.format'))
     false
