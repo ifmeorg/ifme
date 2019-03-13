@@ -1,5 +1,5 @@
 # Dockerfile
-FROM ruby:2.3-alpine
+FROM ruby:2.6-alpine
 
 ENV PORT 3000
 ENV PATH /node_modules/.bin:$PATH
