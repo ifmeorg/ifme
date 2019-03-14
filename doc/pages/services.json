@@ -2,7 +2,7 @@
   {
     "name": "National Queer & Trans Therapists of Color Network (US)",
     "link": "http://www.nqttcn.com",
-    "tags": ["lgbtqia", "people_of_colour", "therapy", "directory"],
+    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory"],
     "languages": ["en"]
   },
   {
@@ -50,7 +50,7 @@
   {
     "name": "Therapy For Black Girls (US)",
     "link": "http://www.therapyforblackgirls.com",
-    "tags": ["black_women", "therapy", "directory"],
+    "tags": ["black_women", "therapy", "counseling", "directory", "podcast"],
     "languages": ["en"]
   },
   {
@@ -92,13 +92,13 @@
   {
     "name": "Department of Veteran's Affairs | Mental Health (US)",
     "link": "https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government"],
+    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government", "therapy", "counseling"],
     "languages": ["en"]
   },
   {
     "name": "Disabled Veterans National Foundation Resources (US)",
     "link": "http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
-    "tags": ["directory", "veterans"],
+    "tags": ["therapy", "counseling", "directory", "veterans"],
     "languages": ["en"]
   },
   {
@@ -116,25 +116,25 @@
   {
     "name": "AddictionCenter (US)",
     "link": "https://www.addictioncenter.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "Addiction Helper (UK)",
     "link": "https://www.addictionhelper.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "Recovery.org (US)",
     "link": "https://www.recovery.org",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "ProjectKnow (US)",
     "link": "https://www.projectknow.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "podcast"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "podcast"],
     "languages": ["en"]
   },
   {
@@ -238,5 +238,11 @@
     "link": "http://www.deafcounseling.com",
     "tags": ["deaf", "asl", "counseling", "therapy", "directory"],
     "languages": ["en"]
+  },
+  {
+    "name": "Therapy for Latinx (US)",
+    "link": "https://therapyforlatinx.com",
+    "tags": ["latinx", "hispanic", "therapy", "counseling", "directory"],
+    "languages": ["en", "es"]
   }
 ]

@@ -470,7 +470,7 @@ de:
         therapy: Therapie
         counseling: Seelsorge
         youth: Jugend
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: Belästigung
         self_care: Selbsthilfe
         women: Frauen
@@ -544,6 +544,8 @@ de:
         colouring: färbung
         deaf: taub
         asl: ASL
+        latinx: latinx
+        hispanic: hispanisch
   profile:
     index:
       title: Profil

@@ -463,7 +463,7 @@ sv:
         therapy: terapi
         counseling: rådgivning
         youth: ungdom
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: trakasserier
         self_care: egenvård
         women: kvinnor
@@ -537,6 +537,8 @@ sv:
         colouring: färg
         deaf: döv
         asl: ASL
+        latinx: latinx
+        hispanic: latinamerikan
   profile:
     index:
       title: Profil

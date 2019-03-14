@@ -463,7 +463,7 @@ pt-BR:
         therapy: terapia
         counseling: aconselhamento
         youth: juventude
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: assédio
         self_care: 'cuidados pessoais'
         women: mulheres
@@ -537,6 +537,8 @@ pt-BR:
         colouring: coloração
         deaf: surdo
         asl: ASL
+        latinx: latinx
+        hispanic: hispânico
   profile:
     index:
       title: Perfil
