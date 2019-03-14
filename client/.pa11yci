@@ -1,0 +1,15 @@
+{
+  "defaults": {
+    "timeout": 10000
+  },
+  "urls": [
+    "http://localhost:3000",
+    "http://localhost:3000/about",
+    "http://localhost:3000/contribute",
+    "http://localhost:3000/partners",
+    "http://localhost:3000/privacy",
+    "http://localhost:3000/faq",
+    "http://localhost:3000/press",
+    "http://localhost:3000/resources"
+  ]
+}
