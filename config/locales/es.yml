@@ -463,7 +463,7 @@ es:
         therapy: terapia
         counseling: asesoría
         youth: juventud
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: acoso
         self_care: autocuidado
         women: mujeres
@@ -537,6 +537,8 @@ es:
         colouring: colorante
         deaf: sordo
         asl: ASL
+        latinx: latinx
+        hispanic: hispano
   profile:
     index:
       title: Perfil

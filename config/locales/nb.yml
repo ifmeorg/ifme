@@ -463,7 +463,7 @@ nb:
         therapy: terapi
         counseling: rådgivning
         youth: ungdom
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: trakkassering
         self_care: selvpleie
         women: kvinner
@@ -537,6 +537,8 @@ nb:
         colouring: fargelegging
         deaf: døv
         asl: ASL
+        latinx: latinx
+        hispanic: hispanic
   profile:
     index:
       title: Profil

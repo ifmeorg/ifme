@@ -463,7 +463,7 @@ vi:
         therapy: 'trị liệu'
         counseling: 'tư vấn'
         youth: 'tuổi trẻ'
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: 'quấy rối'
         self_care: 'tự chăm sóc'
         women: 'phụ nữ'
@@ -537,6 +537,8 @@ vi:
         colouring: 'tô màu'
         deaf: điếc
         asl: ASL
+        latinx: latinx
+        hispanic: 'tây ban nha'
   profile:
     index:
       title: 'Hồ sơ'

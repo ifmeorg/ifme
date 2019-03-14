@@ -463,7 +463,7 @@ nl:
         therapy: therapie
         counseling: begeleiding
         youth: jeugd
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: 'lastig vallen'
         self_care: zelfzorg
         women: vrouwen
@@ -537,6 +537,8 @@ nl:
         colouring: kleur
         deaf: doof
         asl: ASL
+        latinx: latinx
+        hispanic: hispanic
   profile:
     index:
       title: Profiel
