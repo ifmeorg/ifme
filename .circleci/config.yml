@@ -104,6 +104,14 @@ jobs:
           paths:
             - codeclimate.backend.json
       - run: bundle exec bundle-audit check --update
+      - run:
+          name: Run Accessibility Tests
+          command: |
+            docker-compose up -d
+            docker-compose exec app rake db:create db:migrate &
+            docker-compose exec app bundle exec rails assets:precompile
+            sleep 10
+            cd client && yarn run test-pa11y
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
