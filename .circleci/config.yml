@@ -78,6 +78,29 @@ jobs:
       - run: RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run: RAILS_ENV=test bundle exec rake react_on_rails:locale
       - run:
+          name: Install Docker client
+          command: |
+            set -x
+            VER="17.03.0-ce"
+            curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+            mv /tmp/docker/* /usr/bin
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
+      - run:
+          name: Run Accessibility Tests
+          command: |
+            set -e
+            docker-compose up -d
+            docker-compose exec app rake db:create db:migrate &
+            docker-compose exec app bundle exec rails assets:precompile
+            sleep 10
+            cd client && yarn run test-pa11y
+      - run:
           name: Run React Jest Tests
           command: |
             set -e
@@ -104,14 +127,6 @@ jobs:
           paths:
             - codeclimate.backend.json
       - run: bundle exec bundle-audit check --update
-      - run:
-          name: Run Accessibility Tests
-          command: |
-            docker-compose up -d
-            docker-compose exec app rake db:create db:migrate &
-            docker-compose exec app bundle exec rails assets:precompile
-            sleep 10
-            cd client && yarn run test-pa11y
       - store_test_results:
           path: /tmp/circleci-test-results
       - store_artifacts:
