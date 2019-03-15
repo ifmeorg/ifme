@@ -1,0 +1,17 @@
+fl:
+ views:
+  pagination:
+   first: '&laquo; Una'
+   last: 'Huli &raquo;'
+   previous: '&lsaquo; Nauna'
+   next: 'Susunod &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: 'Walang %{entry_name} na nakita'
+     one: 'Mayroong <b>1</b> %{entry_name}'
+     other: 'Mayroong <b>total na %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Ipinapakita ang %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> sa <b>%{total}</b> na total'
