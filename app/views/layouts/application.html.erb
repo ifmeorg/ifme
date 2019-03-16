@@ -45,13 +45,6 @@
       <%= javascript_include_tag pusher_url, async: true %>
       <%= tag :meta, name: 'pusher-key', content: ENV['PUSHER_KEY'] %>
     <% end %>
-
-    <% if join_path? || update_account_path? %>
-      <!-- Google Maps API -->
-      <% google_maps_url = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&libraries=places&callback=initAutocomplete" %>
-      <link rel="preconnect" href=<%= google_maps_url %>>
-      <%= javascript_include_tag google_maps_url, async: true %>
-    <% end %>
   </head>
 
   <body>

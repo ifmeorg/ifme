@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module StrategyFormHelper
+module StrategiesFormHelper
   include CategoriesHelper
 
   def build_strategy_name(strategy)
@@ -34,9 +34,9 @@ module StrategyFormHelper
       type: 'quickCreate',
       name: 'strategy[category][]',
       label: t('categories.plural'),
-      placeholder: t('common.form.press_enter'),
+      placeholder: t('common.form.search_by_keywords'),
       checkboxes: category_checkboxes,
-      formProps: quick_create_category_props(@category)
+      formProps: quick_create_category_props
     }
   end
 

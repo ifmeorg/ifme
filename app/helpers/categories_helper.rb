@@ -2,26 +2,61 @@
 module CategoriesHelper
   include FormHelper
 
-  def new_category_props(category)
-    new_form_props(category_form_inputs(category), categories_path)
+  def new_category_props
+    new_form_props(category_form_inputs, categories_path)
   end
 
-  def quick_create_category_props(category)
+  def quick_create_category_props
     quick_create_form_props(
-      category_form_inputs(category), quick_create_categories_path
+      category_form_inputs, quick_create_categories_path
     )
   end
 
-  def edit_category_props(category)
-    edit_form_props(category_form_inputs(category), category_path(@category))
+  def edit_category_props
+    edit_form_props(category_form_inputs, category_path(@category))
+  end
+
+  def categories_or_moods_props(elements)
+    elements.map { |element| present_category_or_mood(element) }
+  end
+
+  def present_category_or_mood(element)
+    url_helper = mood_path(element)
+    url_helper = category_path(element) if element.class.name == 'Category'
+    {
+      name: element.name,
+      link: url_helper,
+      actions: actions_setup(element, url_helper)
+    }
   end
 
   private
 
-  def category_form_inputs(category)
+  def actions_setup(element, url_helper)
+    link = edit_mood_path(element)
+    link = edit_category_path(element) if element.class.name == 'Category'
+    {
+      edit: {
+        name: t('common.actions.edit'),
+        link: link
+      },
+      delete: action_delete(url_helper)
+    }
+  end
+
+  def action_delete(url_helper)
+    {
+      name: t('common.actions.delete'),
+      link: url_helper,
+      dataConfirm: t('common.actions.confirm'),
+      dataMethod: 'delete'
+    }
+  end
+
+  def category_form_inputs
     [
-      category_name(category&.name),
-      category_description(category&.description)
+      category_name(@category&.name),
+      category_description(@category&.description)
     ]
   end
 

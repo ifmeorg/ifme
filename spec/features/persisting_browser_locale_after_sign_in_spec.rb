@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-
-RSpec.feature 'Persisting browser locale after sign in', type: :feature do
+feature 'Persisting browser locale after sign in', type: :feature do
   scenario 'When user sign in, sign out, then change local', js: true, header: true do
     user = create :user
 

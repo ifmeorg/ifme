@@ -1,11 +1,7 @@
 // @flow
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAsterisk,
-  faQuestion,
-  faExclamation,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAsterisk, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from '../Tooltip';
 import css from './Input.scss';
 import globalCss from '../../styles/_global.scss';
@@ -46,14 +42,7 @@ export const InputLabel = (props: Props) => {
   } = props;
   return (
     <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
-      <div className={css.labelInfo}>
-        {displayLabel(label, error)}
-        {error ? (
-          <div className="labelError">
-            <FontAwesomeIcon icon={faExclamation} />
-          </div>
-        ) : null}
-      </div>
+      <div className={css.labelInfo}>{displayLabel(label, error)}</div>
       {required || info ? displayTags(required, info) : null}
     </div>
   );

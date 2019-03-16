@@ -1,7 +1,7 @@
 // @flow
 import { REQUIRES_DEFAULT, DEFAULT_WITH_LABEL } from './InputDefault';
 
-export const TYPES = REQUIRES_DEFAULT.concat([
+export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'textarea',
   'submit',
   'checkbox',
@@ -9,9 +9,10 @@ export const TYPES = REQUIRES_DEFAULT.concat([
   'checkboxGroup',
   'tag',
   'switch',
+  'location',
 ]);
 
-export const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
+export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'select',
   'checkboxGroup',
@@ -19,7 +20,7 @@ export const REQUIRES_LABEL = DEFAULT_WITH_LABEL.concat([
   'switch',
 ]);
 
-export const REQUIRED_POSSIBLE = DEFAULT_WITH_LABEL.concat([
+export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'checkboxGroup',
 ]);
@@ -54,7 +55,8 @@ export type Props = {
     | 'checkboxGroup'
     | 'tag'
     | 'hidden'
-    | 'switch',
+    | 'switch'
+    | 'location',
   name?: string,
   label?: string,
   placeholder?: string,
@@ -63,6 +65,7 @@ export type Props = {
   small?: boolean,
   large?: boolean,
   value?: any,
+  ariaLabel?: string,
   readOnly?: boolean,
   disabled?: boolean,
   required?: boolean,
@@ -82,6 +85,8 @@ export type Props = {
   myRef?: any,
   accordionOpen?: boolean,
   formNoValidate?: boolean,
+  googleAPIKey?: string,
+  copyOnClick?: string,
 };
 
 export type State = {

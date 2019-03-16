@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-describe CommentFormHelper, type: :controller do
+describe CommentsFormHelper, type: :controller do
   controller(ApplicationController) do
   end
 

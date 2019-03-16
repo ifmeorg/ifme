@@ -7,7 +7,7 @@
   }
 
   &Links {
-    @include setFontSize($size-18);
+    font-size: $size-18;
     a {
       @include standardTransition();
       display: block;
@@ -19,9 +19,10 @@
     }
     &Active {
       background: $white-70 !important;
-      color: $mulberry-70 !important;
+      color: $black !important;
     }
     @media screen and (max-width: $medium) {
+      font-size: $size-16;
       text-align: center;
     }
   }

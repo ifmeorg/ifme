@@ -1,11 +1,12 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'spec/**/*'
     - 'client/node_modules/**/*'
+    - 'vendor/**/*'
 
 Documentation:
   Enabled: false

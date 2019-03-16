@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module MeetingFormHelper
+module MeetingsFormHelper
   include FormHelper
 
   def new_meeting_props(group)

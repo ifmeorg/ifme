@@ -10,6 +10,7 @@ import { StoryBy } from './StoryBy';
 import type { Props as StoryByProps } from './StoryBy';
 import { StoryCategories } from './StoryCategories';
 import { StoryMoods } from './StoryMoods';
+import { StoryMedication } from './StoryMedication';
 import css from './Story.scss';
 
 export type Props = {
@@ -23,6 +24,7 @@ export type Props = {
   storyBy?: StoryByProps,
   storyType?: string,
   body?: any,
+  medicationBody?: any,
 };
 
 const header = (
@@ -92,6 +94,7 @@ export const Story = (props: Props) => {
     name,
     link,
     body,
+    medicationBody,
   } = props;
   const condensed = !storyBy && !storyType;
   return (
@@ -99,6 +102,7 @@ export const Story = (props: Props) => {
       {header(condensed, actions, draft, name, link)}
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{renderHTML(body)}</div>}
+      {medicationBody && <StoryMedication {...medicationBody} />}
       {footer(categories, moods, storyBy, storyType, actions)}
     </div>
   );

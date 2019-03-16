@@ -10,7 +10,7 @@
     position: absolute;
     left: $size-10;
     top: 9px;
-    border: $size-1 solid #fff;
+    border: $size-1 solid $white;
     border-width: 0 $size-40 0 0;
     height: 3px;
   }
@@ -32,9 +32,9 @@
   }
 
   .author {
-    @include setFontSize($size-14);
+    @include setFontSize($size-16);
     @include setMargin($size-0, $size-0, $size-10, $size-0);
-    color: $white-50;
+    color: $white-80;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: 0.08em;

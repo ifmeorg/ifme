@@ -1,56 +1,54 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '~> 2.3.4'
+ruby '~> 2.6.0'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.12'
-gem 'devise', '~> 4.3'
-gem 'devise_invitable', '~> 1.7.5'
+gem 'devise', '~> 4.6'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'devise_uid'
-gem 'pg', '1.1.3'
+gem 'pg', '1.1.4'
 gem 'resque', '1.27.4'
 gem 'resque-scheduler', '4.3.1'
 gem 'resque_mailer', '2.4.3'
 
-gem 'compass-rails', '~> 3.1.0'
-gem 'foundation-rails', '6.4.3.0'
 gem 'jbuilder', '~> 2.8.0'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
-gem 'uglifier', '~> 4.1.19'
+gem 'uglifier', '~> 4.1.20'
 
-gem 'carrierwave', '~> 1.2.3'
+gem 'carrierwave', '~> 1.3.1'
 gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
-gem 'cloudinary', '~> 1.9.1'
+gem 'cloudinary', '~> 1.11.1'
 gem 'figaro', '1.1.1'
-gem 'google-api-client', '~> 0.25.0'
+gem 'google-api-client', '~> 0.28.4'
 gem 'kaminari', '1.1.1'
-gem 'omniauth', '~> 1.8.1'
-gem 'omniauth-google-oauth2', '~> 0.5.2'
+gem 'omniauth', '~> 1.9.0'
+gem 'omniauth-google-oauth2', '~> 0.6.1'
 gem 'pusher', '1.3.2'
-gem 'rails-i18n', '~> 5.1.2'
+gem 'rails-i18n', '~> 5.1.3'
 
-gem 'friendly_id', '~> 5.2.4'
+gem 'friendly_id', '~> 5.2.5'
 gem 'sdoc', '1.0.0', group: :doc
 
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.1.0'
+gem 'groupdate', '4.1.1'
 
-gem 'react_on_rails', '11.1.8'
+gem 'react_on_rails', '11.2.2'
 gem 'webpacker'
 
 group :development, :test do
   gem 'bundler-audit'
-  gem 'dotenv-rails', '~> 2.5.0'
+  gem 'dotenv-rails', '~> 2.7.1'
 
   gem 'spring'
 
@@ -58,27 +56,27 @@ group :development, :test do
   gem 'railroady', '1.5.3'
   gem 'rails-erd', '~> 1.4', '>= 1.4.4'
 
-  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'better_errors', '~> 2.5'
   gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.10.1'
+  gem 'capybara', '~> 3.14.0'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
-  gem 'jasmine', '~> 2.7.0'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
-  gem 'rspec-rails', '~> 3.8.1'
+  gem 'rspec-rails', '~> 3.8.2'
 
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'jshint'
   gem 'rubocop', '>= 0.49.0'
   gem 'rubocop-rspec'
 
   gem 'foreman'
+
+  gem 'bullet'
 end
 
 group :test do

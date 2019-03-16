@@ -58,4 +58,28 @@ describe('InputDefault', () => {
       expect(window.alert).toHaveBeenCalledWith('Error is true');
     });
   });
+
+  describe('has valid copyOnClick prop', () => {
+    it('copies to clipboard when input is clicked', () => {
+      jest.spyOn(window, 'alert');
+      jest.spyOn(window.document, 'execCommand');
+      const copyOnClick = 'Some message';
+      const wrapper = shallow(
+        <InputDefault
+          id={id}
+          type="text"
+          name={name}
+          copyOnClick={copyOnClick}
+        />,
+      );
+      wrapper.find('input').simulate('click', {
+        currentTarget: {
+          value: 'test',
+          select: () => {},
+        },
+      });
+      expect(window.document.execCommand).toHaveBeenCalledWith('copy');
+      expect(window.alert).toHaveBeenCalledWith(copyOnClick);
+    });
+  });
 });

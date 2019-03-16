@@ -72,7 +72,8 @@ de:
       location: Ort
       description: Beschreibung
       error_explanation: 'Bitte fülle die markierten Felder aus!'
-      press_enter: 'Drücke ENTER zum Hinzufügen'
+      empty_error: 'Dieses Feld kann nicht leer sein!'
+      search_by_keywords: 'Suche nach Schlüsselwörtern'
     time_ago: 'Vor %{date}'
     write_to_us: 'schreibe uns'
     days: Tage
@@ -275,6 +276,7 @@ de:
       singular: 'Geheimnis teilen'
       expires_at: 'Läuft ab am'
       cancel_secret_share: 'Stornieren Geheimnis teilen'
+      link_copied: 'Link zur geheimen Freigabe in die Zwischenablage kopiert'
     form:
       why: 'Was ist passiert und wie fühlst du dich?'
       fix: 'Woran würdest du gerne denken?'
@@ -385,6 +387,7 @@ de:
     blog:
       description: 'Wenn du für uns schreiben möchtest, stelle dich gerne per E-Mail bei uns vor: %{email}! Auch anonyme Einsendungen werden berücksichtigt.'
     contribute:
+      contributor_avatar_alt: 'Mitwirkende Biographie für %{name}'
       main_message_one: 'if me wird von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen entwickelt und gepflegt.'
       message_text_one: 'Wir sind immer auf der Suche nach und offen für neuen Ideen, insbesondere von <strong>Experten im Bereich geistige Gesundheit</strong>, <strong>Gesundheitsexperten</strong>, <strong>Software-Entwickler</strong>, <strong>Übersetzer</strong> und <strong>UX Designer</strong>!<p class="no_margin_bottom">Bitte %{email_link} und wir setzen uns mit dir in Verbindung! Wir laden dich in zu unserer %{slack_link} Seite, unserem wichtigsten Kommunikationstool, ein. Schau auch, ob du unser Repository auf %{github_link} forken kannst!</p>'
       more_contributors: 'Weitere außergewöhnliche Mitwirkende!'
@@ -411,6 +414,10 @@ de:
       email_notifications_question: 'Wie kann ich meine E-Mail Einstellungen ändern?'
       email_notifications_answer: 'Gehe zu deiner <strong>%{accounts}</strong>-Seite. Du kannst deine E-Mail, dein Passwort, dein Profilbild und Beschreibung ändern. Wenn du dein Konto löschst, gehe alle deine Daten verloren.'
     home:
+      update_pwd_modal:
+        title: 'Passwort erneuern'
+        body: 'Wir haben bessere Sicherheitsmaßnahmen für unsere Benutzer durchgesetzt %{update_password_link}'
+        update_link: 'Aktualisieren Sie Ihr Passwort.'
       stories: Geschichten
       welcome: Willkommen
       not_signed_in:
@@ -448,7 +455,7 @@ de:
       contact: 'Kontaktiere uns'
       contact_description: '<p>Bitte %{email_link}, wenn du irgendwelche Fragen oder Anregungen hast.</p><p class="no_margin_bottom"><em>Datenschutzrichtlinie angepasst von %{jamie_king_media}.</em></p>'
     resources:
-      description: 'Willkommem zu unserer gepflegten Sammlung zum Thema geistige Gesundheit, zusammengestellt durch %{communities}, %{education}, %{hotlines} und %{services}.'
+      description: 'Dies ist unsere kuratierte Liste von Ressourcen für psychische Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und Dienstleistungen umfasst.'
       communities: Communities
       education: Bildungsträger
       hotlines: Hotlines
@@ -463,7 +470,7 @@ de:
         therapy: Therapie
         counseling: Seelsorge
         youth: Jugend
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: Belästigung
         self_care: Selbsthilfe
         women: Frauen
@@ -531,6 +538,14 @@ de:
         sexual_assault_survivors: 'Überlebende sexueller Übergriffe'
         political_movement: 'politische Bewegung'
         reporting: Berichterstattung
+        game: spiel
+        stress: stress
+        fidget: zappeln
+        colouring: färbung
+        deaf: taub
+        asl: ASL
+        latinx: latinx
+        hispanic: hispanisch
   profile:
     index:
       title: Profil
@@ -657,14 +672,16 @@ de:
       meeting_notify_text: Meeting-Updates
       google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
       google_auth2: 'Da du mit Google angemeldet bist, brauchst du kein Passwort eingeen.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und ein Passwort ein.'
-      password_complexity_error: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen.'
+      password_errors:
+        format: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen.'
+        used: 'muss sich von den letzten drei Passwörtern unterscheiden.'
       placeholders:
         repeat_password: 'Passwort wiederholen'
       edit:
         labels:
           profile_picture: Profilbild
           remove_picture: 'Bild entfernen'
-          about: 'Über uns'
+          about: 'Über mich'
           password_for: 'Passwort für dein <strong>if me</strong> Konto'
           update: Aktualisieren
         placeholders:

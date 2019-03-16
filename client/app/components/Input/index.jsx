@@ -2,12 +2,14 @@
 import React from 'react';
 import { InputTextarea } from './InputTextarea';
 import { InputLabel } from './InputLabel';
+import { InputError } from './InputError';
 import { InputSubmit } from './InputSubmit';
 import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
 import { InputSwitch } from './InputSwitch';
+import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
@@ -36,6 +38,7 @@ export class Input extends React.Component<Props, State> {
       max,
       myRef,
       label,
+      copyOnClick,
     } = this.props;
     if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
@@ -55,6 +58,7 @@ export class Input extends React.Component<Props, State> {
         hasError={(error: boolean) => this.hasError(error)}
         myRef={myRef}
         label={label}
+        copyOnClick={copyOnClick}
       />
     );
   };
@@ -159,13 +163,14 @@ export class Input extends React.Component<Props, State> {
 
   displaySelect = () => {
     const {
-      options, name, id, value, onChange, type,
+      options, name, id, ariaLabel, value, onChange, type,
     } = this.props;
     if (type === 'select' && options) {
       return (
         <InputSelect
           name={name}
           id={id}
+          ariaLabel={ariaLabel}
           value={value}
           options={options}
           onChange={onChange}
@@ -236,6 +241,31 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
+  displayLocation = () => {
+    const {
+      type, placeholder, googleAPIKey, id, value,
+    } = this.props;
+    if (type === 'location' && placeholder && googleAPIKey) {
+      return (
+        <InputLocation
+          value={value}
+          placeholder={placeholder}
+          apiKey={googleAPIKey}
+          id={id}
+        />
+      );
+    }
+    return null;
+  };
+
+  displayError = () => {
+    const { error } = this.state;
+    if (error) {
+      return <InputError error={error} />;
+    }
+    return null;
+  };
+
   displayContent = () => {
     const {
       dark, small, accordion, large, type,
@@ -256,7 +286,9 @@ export class Input extends React.Component<Props, State> {
         {this.displayTextarea()}
         {this.displayTag()}
         {this.displaySwitch()}
+        {this.displayLocation()}
         {this.displaySubmit()}
+        {this.displayError()}
       </div>
     );
   };

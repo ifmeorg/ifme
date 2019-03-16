@@ -50,7 +50,8 @@
   @include gridItemBox();
   background: $white;
   color: $black;
-  h1, h1 > a {
+  h1,
+  h1 > a {
     @include gridH1();
     color: $mulberry;
   }
@@ -60,20 +61,22 @@
   @include gridItemBox();
   background: $mulberry;
   color: $white;
-  h1, h1 > a {
+  h1,
+  h1 > a {
     @include gridH1();
     color: $white;
-   }
+  }
 }
 
 @mixin gridItemBoxGhost() {
   @include gridItemBox();
   background: $black-20;
   color: $white;
-  h1, h1 > a {
+  h1,
+  h1 > a {
     @include gridH1();
     color: $white;
-   }
+  }
 }
 
 .grid {

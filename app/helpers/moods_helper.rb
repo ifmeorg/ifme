@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module MoodsHelper
   include FormHelper
+  include CategoriesHelper
 
   def new_mood_props
     new_form_props(mood_form_inputs, moods_path)
@@ -16,27 +17,30 @@ module MoodsHelper
 
   private
 
-  # rubocop:disable MethodLength
-  def mood_form_inputs
-    [
-      {
-        id: 'mood_name',
-        type: 'text',
-        name: 'mood[name]',
-        label: t('common.name'),
-        value: @mood.name || nil,
-        required: true,
-        dark: true
-      },
-      {
-        id: 'mood_description',
-        type: 'textarea',
-        name: 'mood[description]',
-        label: t('common.form.description'),
-        value: @mood.description || nil,
-        dark: true
-      }
-    ]
+  def mood_name
+    {
+      id: 'mood_name',
+      type: 'text',
+      name: 'mood[name]',
+      label: t('common.name'),
+      value: @mood.name || nil,
+      required: true,
+      dark: true
+    }
   end
-  # rubocop:enable MethodLength
+
+  def mood_description
+    {
+      id: 'mood_description',
+      type: 'textarea',
+      name: 'mood[description]',
+      label: t('common.form.description'),
+      value: @mood.description || nil,
+      dark: true
+    }
+  end
+
+  def mood_form_inputs
+    [mood_name, mood_description]
+  end
 end

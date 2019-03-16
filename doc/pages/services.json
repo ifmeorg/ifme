@@ -2,7 +2,7 @@
   {
     "name": "National Queer & Trans Therapists of Color Network (US)",
     "link": "http://www.nqttcn.com",
-    "tags": ["lgbtqia", "people_of_colour", "therapy", "directory"],
+    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory"],
     "languages": ["en"]
   },
   {
@@ -50,7 +50,7 @@
   {
     "name": "Therapy For Black Girls (US)",
     "link": "http://www.therapyforblackgirls.com",
-    "tags": ["black_women", "therapy", "directory"],
+    "tags": ["black_women", "therapy", "counseling", "directory", "podcast"],
     "languages": ["en"]
   },
   {
@@ -92,13 +92,13 @@
   {
     "name": "Department of Veteran's Affairs | Mental Health (US)",
     "link": "https://www.mentalhealth.va.gov/gethelp.asp",
-    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government"],
+    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government", "therapy", "counseling"],
     "languages": ["en"]
   },
   {
     "name": "Disabled Veterans National Foundation Resources (US)",
     "link": "http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
-    "tags": ["directory", "veterans"],
+    "tags": ["therapy", "counseling", "directory", "veterans"],
     "languages": ["en"]
   },
   {
@@ -110,31 +110,31 @@
   {
     "name": "Insight Timer",
     "link": "https://insighttimer.com",
-    "tags": ["free", "meditation", "teachers", "support_groups", "self_care", "android", "ios"],
+    "tags": ["free", "meditation", "teachers", "self_care", "android", "ios"],
     "languages": ["en"]
   },
   {
     "name": "AddictionCenter (US)",
     "link": "https://www.addictioncenter.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "Addiction Helper (UK)",
     "link": "https://www.addictionhelper.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "Recovery.org (US)",
     "link": "https://www.recovery.org",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
     "languages": ["en"]
   },
   {
     "name": "ProjectKnow (US)",
     "link": "https://www.projectknow.com",
-    "tags": ["addiction", "rehabilitation", "directory", "counseling", "podcast"],
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "podcast"],
     "languages": ["en"]
   },
   {
@@ -158,7 +158,7 @@
   {
     "name": "Habitica",
     "link": "https://habitica.com/",
-    "tags": ["goal_tracking", "social_network", "self_care", "android", "ios"],
+    "tags": ["game", "goal_tracking", "social_network", "self_care", "android", "ios"],
     "languages": ["en"]
   },
   {
@@ -172,5 +172,77 @@
     "link": "https://www.projectcallisto.org/",
     "tags": ["sexual_assault_survivors", "harassment", "reporting"],
     "languages": ["en"]
+  },
+  {
+    "name": "#selfcare app",
+    "link": "http://truluv.ai/selfcare/",
+    "tags": ["meditation", "game", "self_care", "android", "ios", "free"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Open Path Psychotherapy Collective (US)",
+    "link": "https://openpathcollective.org/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Orchid Mental Health Pop (US)",
+    "link": "https://www.tryorchid.com/",
+    "tags": ["counseling", "therapy"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Antistress",
+    "link": "https://play.google.com/store/apps/details?id=com.JindoBlu.Antistress&hl=en_US",
+    "tags": ["android", "ios", "free", "game", "stress", "fidget"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happify",
+    "link": "https://www.happify.com/",
+    "tags": ["android", "ios", "paid", "game", "stress", "mindfulness"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Pigment",
+    "link": "http://pixiteapps.com/pigment/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Colorfy",
+    "link": "http://www.colorfy.net/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Bloom",
+    "link": "http://www.getbloom.net/",
+    "tags": ["ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Moodpath",
+    "link": "https://mymoodpath.com/",
+    "tags": ["ios", "android", "free", "depression", "mood_tracking", "anonymous"],
+    "languages": ["en", "de"]
+  },
+  {
+    "name": "Pacifica",
+    "link": "https://www.thinkpacifica.com/",
+    "tags": ["ios", "android", "paid", "depression", "anxiety", "mindfulness", "meditation", "mood_tracking"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Deaf Counseling Center (US)",
+    "link": "http://www.deafcounseling.com",
+    "tags": ["deaf", "asl", "counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Therapy for Latinx (US)",
+    "link": "https://therapyforlatinx.com",
+    "tags": ["latinx", "hispanic", "therapy", "counseling", "directory"],
+    "languages": ["en", "es"]
   }
 ]

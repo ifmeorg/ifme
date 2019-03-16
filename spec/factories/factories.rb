@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+# Do not use FactoryBot 5 behaviour, default to, "the association strategy would not always match the strategy of the parent object" https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#associations
+FactoryBot.use_parent_strategy = false
 FactoryBot.define do
   factory :group_member do
     association :user, factory: :user1
@@ -108,5 +110,10 @@ FactoryBot.define do
 
   factory :refill_reminder do
     active { true }
+  end
+
+  factory :password_history do
+    user
+    encrypted_password { SecureRandom.hex }
   end
 end

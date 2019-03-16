@@ -11,10 +11,10 @@
 </div>
 <div class="smallMarginTop">
   <%= react_component('StoryCategories', props: {
-    categories: @moment.category.map{ |item| Category.find(item).name }
+    categories: @moment.category_names
   }) %>
   <%= react_component('StoryMoods', props: {
-    moods: @moment.mood.map{ |item| Mood.find(item).name }
+    moods: @moment.mood_names
   }) %>
 </div>
 
@@ -45,8 +45,7 @@
 
 <% if @moment.owned_by?(current_user) && @moment.shared? %>
   <div class="smallMarginTop">
-    <div class="label" id="secretShare"><%= label_tag t('moments.secret_share.singular') %></div>
-    <input type="text" class="subtle fullWidth" readonly value=<%= secret_share_url(@moment.secret_share_identifier) %> />
+    <%= react_component('Form', props: secret_share_props(@moment)) %>
   </div>
 <% end %>
 

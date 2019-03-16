@@ -28,6 +28,13 @@ describe StrategiesController do
           expect(response).to render_template('index')
         end
       end
+
+      context 'when request type is JSON' do
+        before { get :index, params: { page: 1, id: strategy.id} , format: :json }
+        it 'returns a response with the correct path' do
+          expect(JSON.parse(response.body)["data"].first["link"]).to eq strategy_path(strategy)
+        end
+      end
     end
 
     context 'when the user is not logged in' do
@@ -81,6 +88,11 @@ describe StrategiesController do
         it 'redirects to the strategies_path' do
           post :premade
           expect(response).to redirect_to(strategies_path)
+        end
+
+        it 'returns status code 204 for json format' do
+          post :premade, as: :json
+          expect(response).to have_http_status(204)
         end
       end
     end

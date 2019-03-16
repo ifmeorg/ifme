@@ -7,10 +7,12 @@
 <% if @strategies.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'strategy' } %>
   <%= render partial: '/shared/stats', locals: { data_type: 'strategy', user: current_user } %>
-  <div class="gridTwo">
-    <%= render @strategies %>
-  </div>
-  <%= paginate @strategies %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data:       moments_or_strategy_props(@strategies),
+    fetchUrl:   strategies_path,
+    lastPage:   @strategies.last_page?
+    })%>
 <% else %>
   <%= raw t('strategies.index.instructions') %>
   <%= button_to t('common.actions.add'), premade_strategies_path, class: 'smallMarginTop buttonDarkS' %>

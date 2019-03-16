@@ -99,6 +99,7 @@ export class Form extends React.Component<Props, State> {
           error={input.error}
           value={input.value}
           readOnly={input.readOnly}
+          copyOnClick={input.copyOnClick}
           disabled={input.disabled}
           required={input.required}
           info={input.info}
@@ -145,7 +146,7 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayInputs = () => {
+  displayInputs = (): any => {
     const { inputs } = this.state;
     return inputs.map((input: any) => {
       if (INPUT_TYPES.includes(input.type)) {

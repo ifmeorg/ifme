@@ -7,12 +7,12 @@
 
 <% if @medications.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'medication' } %>
-
-  <div class="gridTwo">
-    <%= render @medications %>
-  </div>
-
-  <%= paginate @medications %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data:       medications_props(@medications),
+    fetchUrl:   medications_path,
+    lastPage:   @medications.last_page?
+    })%>
 <% else %>
   <%= raw t('medications.index.instructions') %>
   <div class="gridTwo marginTop">

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 FactoryBot.define do
   factory :mood do
     name  { 'Test Mood' }

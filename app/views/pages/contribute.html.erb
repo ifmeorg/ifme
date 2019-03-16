@@ -13,16 +13,9 @@
   %>
 </div>
 
-<div class="gridThree marginTop">
+<div class="messageBody gridMany marginTop">
   <% @blurbs.each do |blurb| %>
-    <div class="gridThreeItemBoxGhost center">
-      <%= ProfilePicture.fetch(blurb["image"], name: blurb['name']) %>
-      <div class="contributor_profile smallMarginTop"><%= blurb["profile"] %></div>
-      <div class="smallMarginTop">
-        <i class="fa fa-location-arrow fa-inline"></i><%= " #{blurb["location"]}" %>
-        <br /><%= content_tag(:i, '', class: "#{get_icon_class(blurb["social"])} fa-inline") %><%= link_to(blurb["link_name"], blurb["link"], target: 'blank') %>
-      </div>
-    </div>
+    <%= render partial: 'contributor_blurb', locals: { blurb: blurb } %>
   <% end %>
 </div>
 

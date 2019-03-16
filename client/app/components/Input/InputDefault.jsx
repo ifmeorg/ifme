@@ -21,6 +21,17 @@ export type Props = {
   hasError?: Function,
   myRef?: any,
   label?: string,
+  copyOnClick?: string,
+};
+
+const copyToClipBoard = (
+  e: SyntheticEvent<HTMLInputElement>,
+  copyOnClick: string,
+) => {
+  const { document, alert } = window;
+  e.currentTarget.select();
+  document.execCommand('copy');
+  alert(copyOnClick);
 };
 
 const onFocus = (required: ?boolean, hasError: ?Function) => {
@@ -57,6 +68,7 @@ export const InputDefault = (props: Props) => {
     hasError,
     myRef,
     label,
+    copyOnClick,
   } = props;
   if (!REQUIRES_DEFAULT.includes(type)) return null;
   return (
@@ -79,6 +91,14 @@ export const InputDefault = (props: Props) => {
       }
       ref={myRef}
       aria-label={label}
+      aria-invalid={hasError}
+      onClick={
+        copyOnClick
+          ? (e: SyntheticEvent<HTMLInputElement>) => {
+            copyToClipBoard(e, copyOnClick);
+          }
+          : () => {}
+      }
     />
   );
 };

@@ -33,11 +33,10 @@
       margin-bottom: $size-0;
     }
     &Title {
-      @include setFontSize($size-14);
+      @include setFontSize($size-16);
       @include setMargin($size-0, $size-0, $size-10, $size-0);
-      color: $white;
+      color: $white-80;
       text-transform: uppercase;
-      opacity: 0.5;
       letter-spacing: 0.05em;
     }
     > div:last-of-type {
