@@ -116,4 +116,41 @@ describe Meeting do
       end
     end
   end
+
+  describe '#date_time' do
+    context 'when date is not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, time: Time.now.strftime("%H:%M"), date: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when time is not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, date: Date.today.to_s, time: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when both date and time are not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, date: nil, time: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when both time and date are available' do
+      it 'returns date_time' do
+        date = Date.new(2017, 03, 19).to_s
+        time = "03:19"
+        date_time = DateTime.new(2017, 03, 19, 03, 19)
+        meeting = build(:meeting, date: date, time: time)
+
+        expect(meeting.date_time).to eq date_time
+      end
+    end
+  end
 end

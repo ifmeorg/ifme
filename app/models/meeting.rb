@@ -40,4 +40,14 @@ class Meeting < ApplicationRecord
   def comments
     Comment.comments_from(self)
   end
+
+  def date_time
+    return if (
+      (date = self.date.to_date rescue nil).nil? ||
+      (time = self.time.to_time rescue nil).nil?
+    )
+
+    DateTime.new(date.year, date.month, date.day, time.hour, time.min)
+  end
+
 end
