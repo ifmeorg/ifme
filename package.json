@@ -12,5 +12,6 @@
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-  ]
+  ],
+  "version": "11.10.1"
 }
