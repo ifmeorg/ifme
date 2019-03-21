@@ -13,5 +13,5 @@
     "node_modules",
     "client/node_modules"
   ],
-  "version": "11.10.1"
+  "version": "1.9.4"
 }
