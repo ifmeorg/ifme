@@ -263,6 +263,15 @@ pt-BR:
       error: 'Você não pode abandonar a reunião, porque você é o único líder.'
       success: 'Você ainda tem pendente a reunião %{meeting}'
     new: 'Nova Reunião.'
+    google_cal:
+      add:
+        singular: 'Adicionar ao calendário do Google'
+        success: 'Reunião adicionada ao calendário do Google com sucesso.'
+        error: 'Algo deu errado ao adicionar reunião ao calendário do Google.'
+      remove:
+        singular: 'Remover do google calendar'
+        success: 'Reunião removida do google calendar com sucesso.'
+        error: 'Algo deu errado ao remover a reunião do calendário do Google.'
   moments:
     singular: Momento
     plural: Momentos

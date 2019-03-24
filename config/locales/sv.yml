@@ -263,6 +263,15 @@ sv:
       error: 'Du kan inte lämna mötet, du är den enda ledaren.'
       success: 'Du har lämnat %{meeting}'
     new: 'Nytt Möte'
+    google_cal:
+      add:
+        singular: 'Lägg till i Google-kalendern'
+        success: 'Möte läggs till Google kalender framgångsrikt.'
+        error: 'Något gick fel när du lade till möte i Google-kalendern.'
+      remove:
+        singular: 'Ta bort från Google Kalender'
+        success: 'Möte som tagits bort från google kalender lyckades.'
+        error: 'Något gick fel när du tog bort mötet från Google-kalendern.'
   moments:
     singular: Ögonblick
     plural: Ögonblicken

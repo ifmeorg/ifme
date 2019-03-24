@@ -263,6 +263,15 @@ it:
       error: 'Non puoi lasciare il raduno, sei l’unico leader.'
       success: 'Hai lasciato %{meeting}'
     new: 'Nuovo Raduno'
+    google_cal:
+      add:
+        singular: 'Aggiungi al calendario di google'
+        success: 'Riunione aggiunta al calendario di Google con successo.'
+        error: 'Qualcosa è andato storto durante l'aggiunta di una riunione al calendario di Google.'
+      remove:
+        singular: 'Rimuovi dal calendario di Google'
+        success: 'Riunione rimossa dal calendario di Google con successo.'
+        error: 'Qualcosa è andato storto durante la rimozione della riunione dal calendario di Google.'
   moments:
     singular: Momento
     plural: Momenti

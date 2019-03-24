@@ -263,6 +263,15 @@ es:
       error: 'No puedes abandonar la reunión, eres el único líder.'
       success: 'Has abandonado %{meeting}.'
     new: 'Nueva reunión'
+    google_cal:
+      add:
+        singular: 'Añadir a google calendar'
+        success: 'Reunión añadida a google calendar con éxito.'
+        error: 'Algo salió mal al agregar una reunión al calendario de Google.'
+      remove:
+        singular: 'Eliminar de google calendar'
+        success: 'Reunión eliminada de google calendar con éxito.'
+        error: 'Algo salió mal al eliminar la reunión del calendario de Google.'
   moments:
     singular: Momento
     plural: Momentos
