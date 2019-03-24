@@ -30,6 +30,10 @@ class CalendarUploader
       end: { date_time: parsed_date }
     }
 
-    @calendar_service.insert_event('primary', event, send_notifications: true)
+    @calendar_service.insert_event('primary', event, send_notifications: true) rescue nil
+  end
+
+  def delete_event(event_id)
+    @calendar_service.delete_event('primary', event_id) rescue nil
   end
 end

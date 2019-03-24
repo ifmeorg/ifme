@@ -33,6 +33,10 @@ class Meeting < ApplicationRecord
     members.find_by(id: user.id).present?
   end
 
+  def meeting_member(user)
+    meeting_members.find_by(user_id: user.id)
+  end
+
   def led_by?(user)
     leaders.include? user
   end

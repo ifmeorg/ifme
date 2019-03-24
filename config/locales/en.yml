@@ -263,6 +263,15 @@ en:
       error: 'You cannot leave the meeting, you are the only leader.'
       success: 'You have left %{meeting}'
     new: 'New Meeting'
+    google_cal:
+      add:
+        singular: 'Add to google calendar'
+        success: 'Meeting added to google calendar successfully.'
+        error: 'Something went wrong while adding meeting to the google calendar.'
+      remove:
+        singular: 'Remove from google calendar'
+        success: 'Meeting removed from google calendar successfully.'
+        error: 'Something went wrong while removing the meeting from the google calendar.'
   moments:
     singular: Moment
     plural: Moments

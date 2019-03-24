@@ -2,7 +2,8 @@
 class MeetingsController < ApplicationController
   include MeetingsHelper
   include MeetingsFormHelper
-  before_action :set_meeting, only: %i[show edit update destroy]
+  before_action :set_meeting, only: %i[show edit update destroy add_to_google_cal remove_from_google_cal]
+  before_action :set_meeting_member, only: %i[show add_to_google_cal remove_from_google_cal]
 
   # GET /meetings/1
   def show
@@ -33,7 +34,39 @@ class MeetingsController < ApplicationController
     redirect_unless_leader_for(@group) && return
 
     render :new unless @meeting.save
-    set_meeting_member
+    create_meeting_member
+  end
+
+  # POST /meetings/id/add_to_google_cal
+  def add_to_google_cal
+    result = CalendarUploader.new(summary: @meeting.name,
+      date: @meeting.date_time,
+      access_token: current_user.google_access_token,
+      email: current_user.email,
+    ).upload_event
+
+    if result.try(:id)
+      @meeting_member.update_column(:google_cal_event_id, result.id)
+      redirect_to(group_path(@meeting.group_id), notice: t('meetings.google_cal.add.success'))
+    else
+      redirect_to(group_path(@meeting.group_id), notice: t('meetings.google_cal.add.error'))
+    end
+  end
+
+  # DELETE /meetings/id/add_to_google_cal
+  def remove_from_google_cal
+    result = CalendarUploader.new(summary: nil,
+      date: nil,
+      access_token: current_user.google_access_token,
+      email: nil,
+    ).delete_event(@meeting_member.google_cal_event_id)
+
+    if result
+      @meeting_member.update_column(:google_cal_event_id, nil)
+      redirect_to(group_path(@meeting.group_id), notice: t('meetings.google_cal.remove.success'))
+    else
+      redirect_to(group_path(@meeting.group_id), notice: t('meetings.google_cal.remove.error'))
+    end
   end
 
   # PATCH/PUT /meetings/1
@@ -114,7 +147,7 @@ class MeetingsController < ApplicationController
     )
   end
 
-  def set_meeting_member
+  def create_meeting_member
     meeting_member = @meeting.meeting_members.new(
       user_id: current_user.id, leader: true
     )
@@ -124,5 +157,9 @@ class MeetingsController < ApplicationController
     # Notify group members that you created a new meeting
     send_notification(@meeting, @meeting.group.members, 'new_meeting')
     redirect_to group_path(@group.id)
+  end
+
+  def set_meeting_member
+    @meeting_member = @meeting.meeting_member(current_user)
   end
 end

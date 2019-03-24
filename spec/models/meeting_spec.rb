@@ -88,6 +88,31 @@ describe Meeting do
     end
   end
 
+  describe '#meeting_member' do
+    context 'when user is not a member of the meeting' do
+      it 'returns nil' do
+        user = create :user1
+        member = create :user2
+        meeting = create :meeting
+        create :meeting_member, user_id: member.id, leader: false,
+                                meeting_id: meeting.id
+
+        expect(meeting.meeting_member(user)).to be nil
+      end
+    end
+
+    context 'when user is a member of the meeting' do
+      it 'returns true' do
+        user = create :user1
+        meeting = create :meeting
+        meeting_member = create :meeting_member, user_id: user.id, leader: false,
+                                meeting_id: meeting.id
+
+        expect(meeting.meeting_member(user)).to be meeting_member
+      end
+    end
+  end
+
   describe '#member?' do
     context 'when user is not a member of the meeting' do
       it 'returns false' do
