@@ -12,6 +12,30 @@ module MeetingsHelper
     end
   end
 
+  def google_cal_actions(meeting)
+    return {} unless current_user.google_oauth2_enabled?
+
+    return {} unless (meeting_member = meeting.meeting_member(current_user))
+
+    if meeting_member.google_cal_event_id
+      {
+        remove_from_google_cal: {
+          name: t('meetings.google_cal.remove.singular'),
+          link: remove_meeting_from_google_cal_path(meeting),
+          dataMethod: 'delete'
+        }
+      }
+    else
+      {
+        add_to_google_cal: {
+          name: t('meetings.google_cal.add.singular'),
+          link: add_meeting_to_google_cal_path(meeting),
+          dataMethod: 'post'
+        }
+      }
+    end
+  end
+
   private
 
   def not_attending(id)

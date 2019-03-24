@@ -20,7 +20,7 @@
 				      dataConfirm: t('common.actions.confirm'),
 				      dataMethod: 'delete'
             } : nil
-          },
+          }.merge(google_cal_actions(meeting)),
           body: render(partial: '/meetings/story_body', locals: { meeting: meeting })
         }) %>
       </div>
