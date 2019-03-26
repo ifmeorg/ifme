@@ -50,7 +50,7 @@ gem 'selenium-webdriver', '~> 3.141.0'
 
 group :development, :test do
   gem 'bundler-audit'
-  gem 'dotenv-rails', '~> 2.7.1'
+  gem 'dotenv-rails', '~> 2.7.2'
 
   gem 'spring'
 
