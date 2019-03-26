@@ -267,7 +267,7 @@ it:
       add:
         singular: 'Aggiungi al calendario di google'
         success: 'Riunione aggiunta al calendario di Google con successo.'
-        error: 'Qualcosa è andato storto durante l'aggiunta di una riunione al calendario di Google.'
+        error: 'Qualcosa è andato storto durante l’aggiunta di una riunione al calendario di Google.'
       remove:
         singular: 'Rimuovi dal calendario di Google'
         success: 'Riunione rimossa dal calendario di Google con successo.'
