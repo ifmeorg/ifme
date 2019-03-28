@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(version: 2018_11_19_152925) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
+  create_table "food", id: false, force: :cascade do |t|
+    t.integer "id"
+    t.text "name"
+    t.text "color"
+  end
+
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false

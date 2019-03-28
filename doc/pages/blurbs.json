@@ -414,5 +414,14 @@
     "link_name": "Kell_Stack",
     "link": "https://twitter.com/kell_stack",
     "social": "twitter"
+  },
+  {
+    "name": "Ingrid García",
+    "image": "/assets/contributors/ingrid_garcia.jpg",
+    "profile": "Graphic designer who decided to take a risk and learn how to code. Now, I'm a software engineering apprentice who is excited to contribute to this awesome space.",
+    "location": "San Francisco, CA",
+    "link_name": "IngridGdesigns",
+    "link": "https://github.com/IngridGdesigns",
+    "social": "github"
   }
 ]
