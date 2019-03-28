@@ -387,5 +387,15 @@
    "link_name": "LMulvey",
    "link": "https://github.com/lmulvey",
    "social": "github"
- }
+ },
+ {
+  "name": "Dena Burd",
+  "image": "/assets/contributors/dena_burd.png",
+  "profile": "Contributing to if-me is my first open source experience. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very important to me.",
+  "location": "SF, CA",
+  "link_name": "gitburd",
+  "link": "https://github.com/gitburd",
+  "social": "github"
+}
+
 ]
