@@ -378,14 +378,50 @@
     "link_name": "alexmanzo",
     "link": "https://github.com/alexmanzo",
     "social": "github"
- },
- {
-   "name": "Lee Mulvey",
-   "image": "/assets/contributors/lee_mulvey.jpg",
-   "profile": "I spent 10+ years on a career track to being a police officer. While I have massive respect for the job that they do, I realized that I did not share the same values as most in that field. Five years ago, I decided to pursue my longtime hobby of web development as a proper career and now here I am. Mental health has been an issue close to my heart. I've had family and friends struggle with mental health–some who are no longer with us today. While we've come a long way in recent years battling the stigma (and sadly, even having to prove the existence of mental illness), we still have a long ways to go. The if-me.org platform excites me because it combines a great premise with things that I'm passionate about and I feel that I can contribute to. Proud contributor since Hacktoberfest 2018.",
-   "location": "Calgary, AB",
-   "link_name": "LMulvey",
-   "link": "https://github.com/lmulvey",
-   "social": "github"
- }
+  },
+  {
+    "name": "Lee Mulvey",
+    "image": "/assets/contributors/lee_mulvey.jpg",
+    "profile": "I spent 10+ years on a career track to being a police officer. While I have massive respect for the job that they do, I realized that I did not share the same values as most in that field. Five years ago, I decided to pursue my longtime hobby of web development as a proper career and now here I am. Mental health has been an issue close to my heart. I've had family and friends struggle with mental health–some who are no longer with us today. While we've come a long way in recent years battling the stigma (and sadly, even having to prove the existence of mental illness), we still have a long ways to go. The if-me.org platform excites me because it combines a great premise with things that I'm passionate about and I feel that I can contribute to. Proud contributor since Hacktoberfest 2018.",
+    "location": "Calgary, AB",
+    "link_name": "LMulvey",
+    "link": "https://github.com/lmulvey",
+    "social": "github"
+  },
+  {
+    "name": "Daaimah Tibrey",
+    "image": "/assets/contributors/daaimah_tibrey.png",
+    "profile": "Coming from a non-profit, social justice, and outreach background; I've developed a keen sense of interpersonal and multicultural understanding. As an African American woman, I have found that my own cultural experience related to mental health has been a silenced one. Quiet and hushed by not only my community, but by historically internalized toxins and constructs. As a woman experiencing mental health diagnosis as well as an advocate for mental health, I want to use my new career path as a Full-Stack Software Engineer to create a safe and powerful voice for mental health. Bringing social intelligence into creation of technology is a much needed endeavor within the industry. Avidly seeking ways to support the creation of accessible platforms that speak to my passions and intersectionalities ensures that change.",
+    "location": "Hayward, CA",
+    "link_name": "DTibrey",
+    "link": "https://twitter.com/DTibrey",
+    "social": "twitter"
+  },
+  {
+    "name": "Karolina Benitez",
+    "image": "/assets/contributors/karolina_benitez.jpg",
+    "profile": "I spent 5+ years working at grassroots non-profit organizations providing services to women and girls who have been impacted by domestic violence, sexual assault, and/or commercial sexual exploitation. I saw first hand how difficult, taboo, and inaccessible mental health services are for most people. I am in the process of transitioning into a career in tech and feel passionate about continuing to contribute however I can to support others in growing, healing, and building community. I am excited to find if-me and to have the opportunity to share my skills in such an important and much needed project.",
+    "location": "Oakland, CA",
+    "link_name": "@karolina2o9",
+    "link": "https://twitter.com/karolina2o9",
+    "social": "twitter"
+  },
+  {
+    "name": "Kelly Sousa",
+    "image": "/assets/contributors/kelly_sousa.png",
+    "profile": "I spent years running away from the things that were bothering me in hopes that distractions would make them disappear. As a person who would normally not accept or express the need for help, I realized by not mourning the lives and relationships of those no longer in my life, I had eventually pent up so much negative energy that my life began to quickly unravel.  Soon after, I was diagnosed with dysthymia and I started going to therapy and figuring out what medications I would need to slowly start getting my shit together. I am not over the hump and understand that this could be lifelong. I’ve had to take a break from therapy for financial reasons but I know I owe it to myself to go back and continue to grow. I’m thrilled to be able to contribute to if-me and help normalize the discussion of mental health. I really believe it’s critical to have open-source communities and share and learn from each others’ experiences",
+    "location": "San Francisco, CA",
+    "link_name": "Kell_Stack",
+    "link": "https://twitter.com/kell_stack",
+    "social": "twitter"
+  },
+  {
+    "name": "Ingrid García",
+    "image": "/assets/contributors/ingrid_garcia.jpg",
+    "profile": "Graphic designer who decided to take a risk and learn how to code. Now, I'm a software engineering apprentice who is excited to contribute to this awesome space.",
+    "location": "San Francisco, CA",
+    "link_name": "IngridGdesigns",
+    "link": "https://github.com/IngridGdesigns",
+    "social": "github"
+  }
 ]
