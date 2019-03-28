@@ -389,13 +389,22 @@
    "social": "github"
  },
  {
-  "name": "Dena Burd",
-  "image": "/assets/contributors/dena_burd.png",
-  "profile": "Contributing to if-me is my first open source experience. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very important to me.",
-  "location": "SF, CA",
-  "link_name": "gitburd",
-  "link": "https://github.com/gitburd",
-  "social": "github"
-}
-
+  "name": "Daaimah Tibrey",
+  "image": "/assets/contributors/daaimah_tibrey.png",
+  "profile": "Coming from a non-profit, social justice, and outreach background; I've developed a keen sense of interpersonal and multicultural understanding. As an African American woman, I have found that my own cultural experience related to mental health has been a silenced one. Quiet and hushed by not only my community, but by historically internalized toxins and constructs. As a woman experiencing mental health diagnosis as well as an advocate for mental health, I want to use my new career path as a Full-Stack Software Engineer to create a safe and powerful voice for mental health. Bringing social intelligence into creation of technology is a much needed endeavor within the industry. Avidly seeking ways to support the creation of accessible platforms that speak to my passions and intersectionalities ensures that change.",
+  "location": "Hayward, CA",
+  "link_name": "DTibrey",
+  "link": "https://twitter.com/DTibrey",
+  "social": "twitter"
+  }, 
+  {
+    "name": "Dena Burd",
+    "image": "/assets/contributors/dena_burd.png",
+    "profile": "Contributing to if-me is my first open source experince. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very imoprtant to me.",
+    "location": "Berkeley, CA",
+    "link_name": "gitburd",
+    "link": "https://github.com/gitburd",
+    "social": "github"
+ }
+  
 ]
