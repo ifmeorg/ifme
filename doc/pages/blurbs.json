@@ -420,5 +420,14 @@
     "link_name": "gitburd",
     "link": "https://github.com/gitburd",
     "social": "github"
+  },
+  {
+    "name": "Isabelle Yiu",
+    "image": "/assets/contributors/isabelle_yiu.png",
+    "profile": "I am a Software Engineering Apprentice at Techtonica. Tech for social good is something that I care alot about personally. As someone who had struggled with depression and anxiety in the past. I am happy that I could use my new found coding skill to contribute to the if me project!",
+    "location": "San Francisco, CA",
+    "link_name": "isabelleyiu",
+    "link": "https://github.com/isabelleyiu",
+    "social": "github"
   }
 ]
