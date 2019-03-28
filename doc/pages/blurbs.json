@@ -387,5 +387,14 @@
    "link_name": "LMulvey",
    "link": "https://github.com/lmulvey",
    "social": "github"
- }
+ },
+ {
+  "name": "Daaimah Tibrey",
+  "image": "/assets/contributors/daaimah_tibrey.png",
+  "profile": "Coming from a non-profit, social justice, and outreach background; I've developed a keen sense of interpersonal and multicultural understanding. As an African American woman, I have found that my own cultural experience related to mental health has been a silenced one. Quiet and hushed by not only my community, but by historically internalized toxins and constructs. As a woman experiencing mental health diagnosis as well as an advocate for mental health, I want to use my new career path as a Full-Stack Software Engineer to create a safe and powerful voice for mental health. Bringing social intelligence into creation of technology is a much needed endeavor within the industry. Avidly seeking ways to support the creation of accessible platforms that speak to my passions and intersectionalities ensures that change.",
+  "location": "Hayward, CA",
+  "link_name": "DTibrey",
+  "link": "https://twitter.com/DTibrey",
+  "social": "twitter"
+  }
 ]
