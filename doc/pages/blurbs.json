@@ -411,5 +411,14 @@
     "link_name": "YuridiaLarios",
     "link": "https://github.com/YuridiaLarios",
     "social": "github"
+  },
+  {
+    "name": "Dena Burd",
+    "image": "/assets/contributors/dena_burd.png",
+    "profile": "Contributing to if-me is my first open source experince. YAY! Issues related to mental health, especially helping people find resources and coping strategies is very imoprtant to me.",
+    "location": "Berkeley, CA",
+    "link_name": "gitburd",
+    "link": "https://github.com/gitburd",
+    "social": "github"
   }
 ]
