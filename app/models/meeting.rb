@@ -46,12 +46,17 @@ class Meeting < ApplicationRecord
   end
 
   def date_time
-    return if (
-      (date = self.date.to_date rescue nil).nil? ||
-      (time = self.time.to_time rescue nil).nil?
-    )
+    return if (date = self.date).blank? || (time = self.time).blank?
 
-    DateTime.new(date.year, date.month, date.day, time.hour, time.min)
+    begin
+      date = date.try(:to_date)
+      time = Time.zone.parse(time)
+    rescue ArgumentError
+      return
+    end
+
+    DateTime.new(
+      date.year, date.month, date.day, time.hour, time.min
+    ).in_time_zone
   end
-
 end

@@ -89,26 +89,20 @@ describe Meeting do
   end
 
   describe '#meeting_member' do
+    let!(:user) { create :user1 }
+    let!(:member) { create :user2 }
+    let!(:meeting) { create :meeting }
+    let!(:meeting_member) { create :meeting_member, user_id: member.id, leader: false,
+                                meeting_id: meeting.id }
     context 'when user is not a member of the meeting' do
       it 'returns nil' do
-        user = create :user1
-        member = create :user2
-        meeting = create :meeting
-        create :meeting_member, user_id: member.id, leader: false,
-                                meeting_id: meeting.id
-
         expect(meeting.meeting_member(user)).to be nil
       end
     end
 
     context 'when user is a member of the meeting' do
       it 'returns true' do
-        user = create :user1
-        meeting = create :meeting
-        meeting_member = create :meeting_member, user_id: user.id, leader: false,
-                                meeting_id: meeting.id
-
-        expect(meeting.meeting_member(user)).to be meeting_member
+        expect(meeting.meeting_member(member)).to eq meeting_member
       end
     end
   end
@@ -171,7 +165,7 @@ describe Meeting do
       it 'returns date_time' do
         date = Date.new(2017, 03, 19).to_s
         time = "03:19"
-        date_time = DateTime.new(2017, 03, 19, 03, 19)
+        date_time = DateTime.new(2017, 03, 19, 03, 19).in_time_zone
         meeting = build(:meeting, date: date, time: time)
 
         expect(meeting.date_time).to eq date_time

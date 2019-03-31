@@ -59,9 +59,8 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
     end
+    resource :google_calendar_event, :controller => 'meetings/google_calendar_event', only: [:create, :destroy]
   end
-  post '/meetings/:id/add_to_google_cal', to: 'meetings#add_to_google_cal', as: 'add_meeting_to_google_cal'
-  delete '/meetings/:id/remove_from_google_cal', to: 'meetings#remove_from_google_cal', as: 'remove_meeting_from_google_cal'
 
   resources :profile, only: :index do
     collection do

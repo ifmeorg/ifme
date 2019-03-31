@@ -264,11 +264,11 @@ nb:
       success: 'Du har forlatt %{meeting}'
     new: 'Nytt møte'
     google_cal:
-      add:
+      create:
         singular: 'Legg til i Google-kalenderen'
         success: 'Møte lagt til i google kalender vellykket.'
         error: 'Noe gikk galt mens du la til møte i Google-kalenderen.'
-      remove:
+      destroy:
         singular: 'Fjern fra Google-kalender'
         success: 'Møtet fjernet fra Google-kalenderen vellykket.'
         error: 'Noe gikk galt under fjerning av møtet fra Google-kalenderen.'

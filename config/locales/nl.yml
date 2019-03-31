@@ -264,11 +264,11 @@ nl:
       success: 'Je hebt %{meeting} verlaten.'
     new: 'Nieuwe Samenkomst'
     google_cal:
-      add:
+      create:
         singular: 'Voeg toe aan Google-kalender'
         success: 'Bijeenkomst succesvol toegevoegd aan Google Agenda.'
         error: 'Er is iets misgegaan tijdens het toevoegen van een vergadering aan de Google-kalender.'
-      remove:
+      destroy:
         singular: 'Verwijderen uit Google-kalender'
         success: 'Vergadering met succes verwijderd uit Google-agenda.'
         error: 'Er is iets misgegaan tijdens het verwijderen van de vergadering uit de Google-kalender.'

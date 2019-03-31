@@ -264,11 +264,11 @@ pt-BR:
       success: 'Você ainda tem pendente a reunião %{meeting}'
     new: 'Nova Reunião.'
     google_cal:
-      add:
+      create:
         singular: 'Adicionar ao calendário do Google'
         success: 'Reunião adicionada ao calendário do Google com sucesso.'
         error: 'Algo deu errado ao adicionar reunião ao calendário do Google.'
-      remove:
+      destroy:
         singular: 'Remover do google calendar'
         success: 'Reunião removida do google calendar com sucesso.'
         error: 'Algo deu errado ao remover a reunião do calendário do Google.'

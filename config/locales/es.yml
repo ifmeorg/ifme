@@ -264,11 +264,11 @@ es:
       success: 'Has abandonado %{meeting}.'
     new: 'Nueva reunión'
     google_cal:
-      add:
+      create:
         singular: 'Añadir a google calendar'
         success: 'Reunión añadida a google calendar con éxito.'
         error: 'Algo salió mal al agregar una reunión al calendario de Google.'
-      remove:
+      destroy:
         singular: 'Eliminar de google calendar'
         success: 'Reunión eliminada de google calendar con éxito.'
         error: 'Algo salió mal al eliminar la reunión del calendario de Google.'

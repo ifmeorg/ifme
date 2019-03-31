@@ -45,8 +45,8 @@ describe MeetingsHelper do
         expect(result).to eq(
           {
             add_to_google_cal: {
-              name: t('meetings.google_cal.add.singular'),
-              link: add_meeting_to_google_cal_path(meeting),
+              name: t('meetings.google_cal.create.singular'),
+              link: meeting_google_calendar_event_path(meeting),
               dataMethod: 'post'
             }
           }
@@ -62,8 +62,8 @@ describe MeetingsHelper do
         expect(result).to eq(
           {
             remove_from_google_cal: {
-              name: t('meetings.google_cal.remove.singular'),
-              link: remove_meeting_from_google_cal_path(meeting),
+              name: t('meetings.google_cal.destroy.singular'),
+              link: meeting_google_calendar_event_path(meeting),
               dataMethod: 'delete'
             }
           }

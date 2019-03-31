@@ -264,11 +264,11 @@ vi:
       success: 'Bạn đã rời khỏi cuộc họp %{meeting}'
     new: 'Cuộc họp mới'
     google_cal:
-      add:
+      create:
         singular: 'Thêm vào lịch google'
         success: 'Cuộc họp được thêm vào lịch google thành công.'
         error: 'Đã xảy ra lỗi trong khi thêm cuộc họp vào lịch google.'
-      remove:
+      destroy:
         singular: 'Xóa khỏi lịch google'
         success: 'Cuộc họp đã xóa khỏi lịch google thành công.'
         error: 'Đã xảy ra lỗi trong khi xóa cuộc họp khỏi lịch google.'
