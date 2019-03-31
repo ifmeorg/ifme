@@ -5,40 +5,108 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
   let(:user) { create(:user_oauth) }
   let(:meeting) { create(:meeting) }
   let(:calendar_uploader) { double }
+  let!(:calendar_event) { double(id: "someid") }
+  let!(:exception_message) { "Exception message" }
+  before {
+    expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
+  }
 
   describe '#create' do
     let!(:meeting_member) { create(:meeting_member, user_id: user.id, meeting_id: meeting.id) }
-    let!(:calendar_event) { double(id: "someid") }
 
-    it 'calls calendar_uploader#upload_event' do
-      expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
+    context "success" do
+      it 'calls calendar_uploader#upload_event' do
+        expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
+          .and_return(calendar_event)
 
-      expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time).and_return(calendar_event)
+        post(:create, params: { meeting_id: meeting.id })
 
-      post(:create, params: { meeting_id: meeting.id })
+        expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
 
-      expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
+        expect(response).to redirect_to(group_path(meeting.group_id))
+        expect(flash[:notice]).to eq(I18n.t('meetings.google_cal.create.success'))
+      end
+    end
 
-      expect(response).to redirect_to(group_path(meeting.group_id))
-      expect(flash[:notice]).to eq(I18n.t('meetings.google_cal.create.success'))
+    context "error" do
+      context "raises client_error_exception" do
+        it 'returns client_error_exception message' do
+          expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
+            .and_raise(Google::Apis::ClientError.new(exception_message))
+
+          post(:create, params: { meeting_id: meeting.id })
+
+          expect(meeting_member.reload.google_cal_event_id).to eq(nil)
+          expect(response).to redirect_to(group_path(meeting.group_id))
+
+          message = I18n.t('meetings.google_cal.create.error') +' '+ exception_message
+          expect(flash[:notice]).to eq(message)
+        end
+      end
+      context "raises server_error_exception" do
+        it 'returns server_error_exception message' do
+          expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time)
+            .and_raise(Google::Apis::ServerError.new(exception_message))
+
+          post(:create, params: { meeting_id: meeting.id })
+
+          expect(meeting_member.reload.google_cal_event_id).to eq(nil)
+          expect(response).to redirect_to(group_path(meeting.group_id))
+
+          message = I18n.t('meetings.google_cal.create.error') +' '+ exception_message
+          expect(flash[:notice]).to eq(message)
+        end
+      end
     end
   end
 
   describe '#destroy' do
-    let!(:meeting_member) { create(:meeting_member, user_id: user.id, meeting_id: meeting.id, google_cal_event_id: "id1") }
+    let!(:meeting_member) { create(:meeting_member, user_id: user.id, meeting_id: meeting.id, google_cal_event_id: calendar_event.id) }
     let!(:remove_response) { double }
 
-    it 'calls calendar_uploader#delete_event' do
-      expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
+    context "success" do
+      it 'calls calendar_uploader#delete_event' do
+        expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
+          .and_return("")
 
-      expect(calendar_uploader).to receive(:delete_event).and_return(remove_response)
+        delete(:destroy, params: { meeting_id: meeting.id })
 
-      delete(:destroy, params: { meeting_id: meeting.id })
+        expect(meeting_member.reload.google_cal_event_id).to eq(nil)
+        expect(response).to redirect_to(group_path(meeting.group_id))
 
-      expect(meeting_member.reload.google_cal_event_id).to eq(nil)
+        expect(flash[:notice]).to eq(I18n.t('meetings.google_cal.destroy.success'))
+      end
+    end
 
-      expect(response).to redirect_to(group_path(meeting.group_id))
-      expect(flash[:notice]).to eq(I18n.t('meetings.google_cal.destroy.success'))
+    context "error" do
+      context "raises client_error_exception" do
+        it 'calls returns client_error_exception message' do
+          expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
+            .and_raise(Google::Apis::ClientError.new(exception_message))
+
+          delete(:destroy, params: { meeting_id: meeting.id })
+
+          expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
+          expect(response).to redirect_to(group_path(meeting.group_id))
+
+          message = I18n.t('meetings.google_cal.destroy.error') +' '+ exception_message
+          expect(flash[:notice]).to eq(message)
+        end
+      end
+      context "raises server_error_exception" do
+        it 'calls returns server_error_exception message' do
+          expect(calendar_uploader).to receive(:delete_event).with(calendar_event.id)
+            .and_raise(Google::Apis::ServerError.new(exception_message))
+
+          delete(:destroy, params: { meeting_id: meeting.id })
+
+          expect(meeting_member.reload.google_cal_event_id).to eq(calendar_event.id)
+          expect(response).to redirect_to(group_path(meeting.group_id))
+
+          message = I18n.t('meetings.google_cal.destroy.error') +' '+ exception_message
+          expect(flash[:notice]).to eq(message)
+        end
+      end
     end
   end
 end

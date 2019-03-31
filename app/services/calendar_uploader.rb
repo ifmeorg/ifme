@@ -18,16 +18,10 @@ class CalendarUploader
               start: { date_time: parsed_date },
               end: { date_time: parsed_date } }
 
-    begin
-      @calendar_service.insert_event('primary', event, send_notifications: true)
-    rescue Google::Apis::ClientError
-      nil
-    end
+    @calendar_service.insert_event('primary', event, send_notifications: true)
   end
 
   def delete_event(event_id)
     @calendar_service.delete_event('primary', event_id)
-  rescue Google::Apis::ClientError
-    nil
   end
 end
