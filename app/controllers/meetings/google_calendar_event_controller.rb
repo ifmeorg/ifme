@@ -6,12 +6,8 @@ module Meetings
 
     # POST /meetings/:meeting_id/google_calendar_event
     def create
-      result = CalendarUploader.new(
-        summary: @meeting.name,
-        date: @meeting.date_time,
-        access_token: current_user.google_access_token,
-        email: current_user.email
-      ).upload_event
+      uploader = CalendarUploader.new(current_user.google_access_token)
+      result = uploader.upload_event(@meeting.name, @meeting.date_time)
 
       if result.try(:id)
         @meeting_member.update_column(:google_cal_event_id, result.id)
@@ -25,12 +21,8 @@ module Meetings
 
     # DELETE /meetings/:meeting_id/google_calendar_event
     def destroy
-      result = CalendarUploader.new(
-        summary: nil,
-        date: nil,
-        access_token: current_user.google_access_token,
-        email: nil
-      ).delete_event(@meeting_member.google_cal_event_id)
+      uploader = CalendarUploader.new(current_user.google_access_token)
+      result = uploader.delete_event(@meeting_member.google_cal_event_id)
 
       if result
         @meeting_member.update_column(:google_cal_event_id, nil)

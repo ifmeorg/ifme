@@ -61,25 +61,4 @@ RSpec.describe MedicationRefillHelper, type: :helper do
       it { expect(helper.save_refill_to_google_calendar(medication)).to eq(true) }
     end
   end
-
-  describe '#calendar_uploader_params' do
-    let(:user) { FactoryBot.create(:user1) }
-    let(:medication) { FactoryBot.create(:medication, user_id: user.id) }
-    let(:exception_text) { 'RESCUE INVOKED' }
-
-    before do
-      allow_any_instance_of(User).to receive(:google_access_token).and_return("token")
-      sign_in user
-    end
-
-    it 'returns a hash' do
-      result = {
-        summary: "Refill for #{medication.name}",
-        date: medication.refill,
-        access_token: user.google_access_token,
-        email: user.email
-      }
-      expect(helper.calendar_uploader_params(medication)).to eq(result)
-    end
-  end
 end

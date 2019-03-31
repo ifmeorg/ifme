@@ -11,14 +11,9 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
     let!(:calendar_event) { double(id: "someid") }
 
     it 'calls calendar_uploader#upload_event' do
-      expect(CalendarUploader).to receive(:new).with(
-        summary: meeting.name,
-        date: meeting.date_time,
-        access_token: user.google_access_token,
-        email: user.email
-      ).and_return(calendar_uploader)
+      expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
 
-      expect(calendar_uploader).to receive(:upload_event).and_return(calendar_event)
+      expect(calendar_uploader).to receive(:upload_event).with(meeting.name, meeting.date_time).and_return(calendar_event)
 
       post(:create, params: { meeting_id: meeting.id })
 
@@ -34,12 +29,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
     let!(:remove_response) { double }
 
     it 'calls calendar_uploader#delete_event' do
-      expect(CalendarUploader).to receive(:new).with(
-        summary: nil,
-        date: nil,
-        access_token: user.google_access_token,
-        email: nil,
-      ).and_return(calendar_uploader)
+      expect(CalendarUploader).to receive(:new).with(user.google_access_token).and_return(calendar_uploader)
 
       expect(calendar_uploader).to receive(:delete_event).and_return(remove_response)
 
