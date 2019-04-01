@@ -199,6 +199,7 @@ vi:
     refill: 'Bổ sung:'
     quantity: 'Tổng số:'
     strength: 'Sức khỏe:'
+    event_summary: 'Nạp lại cho %{name}'
     form:
       strength: 'Sức khỏe'
       strength_placeholder: 'e.g. 100'

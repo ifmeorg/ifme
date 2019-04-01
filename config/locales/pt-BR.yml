@@ -199,6 +199,7 @@ pt-BR:
     refill: 'Refil de medicamento:'
     quantity: 'Quantidade Total:'
     strength: 'Dosagem:'
+    event_summary: 'Recarregar por %{name}'
     form:
       strength: Dosagem
       strength_placeholder: 'ex.: 100mg'

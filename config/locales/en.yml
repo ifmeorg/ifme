@@ -199,6 +199,7 @@ en:
     refill: 'Refill:'
     quantity: 'Total Quantity:'
     strength: 'Strength:'
+    event_summary: 'Refill for %{name}'
     form:
       strength: Strength
       strength_placeholder: 'e.g. 100'

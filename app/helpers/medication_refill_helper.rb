@@ -20,7 +20,7 @@ module MedicationRefillHelper
     return unless current_user.google_oauth2_enabled? &&
                   new_cal_refill_reminder_needed?(medication)
 
-    summary = "Refill for #{medication.name}"
+    summary = t('medications.event_summary', name: medication.name)
 
     CalendarUploader
       .new(current_user.google_access_token)

@@ -199,6 +199,7 @@ it:
     refill: 'Riempimento:'
     quantity: 'Quantità totale:'
     strength: 'Peso:'
+    event_summary: 'Ricarica per %{name}'
     form:
       strength: peso
       strength_placeholder: 'es. 100'

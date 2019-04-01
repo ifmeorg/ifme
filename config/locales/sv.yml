@@ -199,6 +199,7 @@ sv:
     refill: 'Påfyllning:'
     quantity: 'Total Kvantitet:'
     strength: 'Styrka:'
+    event_summary: 'Fyll på för %{name}'
     form:
       strength: Styrka
       strength_placeholder: 't.ex. 100'

@@ -199,6 +199,7 @@ nb:
     refill: 'Påfyllelse:'
     quantity: 'Total kvantitet:'
     strength: 'Styrke:'
+    event_summary: 'Påfyll på %{name}'
     form:
       strength: Styrke
       strength_placeholder: 'f.eks. 100'

@@ -199,6 +199,7 @@ fr:
     refill: 'Renouvellement:'
     quantity: 'Quantité totale:'
     strength: 'Puissance:'
+    event_summary: 'Recharge pour %{name}'
     form:
       strength: Concentration
       strength_placeholder: 'ex. 100'
