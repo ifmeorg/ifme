@@ -6,54 +6,56 @@ module Meetings
 
     # POST /meetings/:meeting_id/google_calendar_event
     def create
-      message = create_event
+      success, response = create_event
 
-      redirect_to(group_path(@meeting.group_id), notice: message)
+      if success && (event_id = response.try(:id))
+        @meeting_member.update_column(:google_cal_event_id, event_id)
+        redirect_to(group_path(@meeting.group_id),
+                    notice: success_message(:create))
+      else
+        redirect_to(group_path(@meeting.group_id),
+                    alert: error_message(:create, response))
+      end
     end
 
     # DELETE /meetings/:meeting_id/google_calendar_event
     def destroy
-      message = destroy_event
+      success, response = destroy_event
 
-      redirect_to(group_path(@meeting.group_id), notice: message)
+      if success && response
+        @meeting_member.update_column(:google_cal_event_id, nil)
+        redirect_to(group_path(@meeting.group_id),
+                    notice: success_message(:destroy))
+      else
+        redirect_to(group_path(@meeting.group_id),
+                    alert: error_message(:destroy, response))
+      end
     end
 
     private
 
+    def set_meeting
+      @meeting = Meeting.friendly.find(params[:meeting_id])
+      @meeting_member = @meeting.meeting_member(current_user)
+    rescue ActiveRecord::RecordNotFound
+      redirect_to_path(groups_path)
+    end
+
+    def set_meeting_member
+      @meeting_member = @meeting.meeting_member(current_user)
+    end
+
     def create_event
       uploader = CalendarUploader.new(current_user.google_access_token)
-      success, response = rescue_google_calendar_ex do
+      rescue_google_calendar_ex do
         uploader.upload_event(@meeting.name, @meeting.date_time)
-      end
-
-      event_id = success ? response.try(:id) : response
-      generate_message(success, event_id, 'create') do
-        @meeting_member.update_column(:google_cal_event_id, event_id)
       end
     end
 
     def destroy_event
       uploader = CalendarUploader.new(current_user.google_access_token)
-      success, response = rescue_google_calendar_ex do
+      rescue_google_calendar_ex do
         uploader.delete_event(@meeting_member.google_cal_event_id)
-      end
-
-      generate_message(success, response, 'destroy') do
-        @meeting_member.update_column(:google_cal_event_id, nil)
-      end
-    end
-
-    def generate_message(success, response, action)
-      if success
-        if response
-          yield
-          t("meetings.google_cal.#{action}.success")
-        else
-          t("meetings.google_cal.#{action}.error")
-        end
-      else
-
-        t("meetings.google_cal.#{action}.error") + ' ' + response
       end
     end
 
@@ -66,15 +68,16 @@ module Meetings
       [false, ex.message]
     end
 
-    def set_meeting
-      @meeting = Meeting.friendly.find(params[:meeting_id])
-      @meeting_member = @meeting.meeting_member(current_user)
-    rescue ActiveRecord::RecordNotFound
-      redirect_to_path(groups_path)
+    def success_message(action)
+      t("meetings.google_cal.#{action}.success")
     end
 
-    def set_meeting_member
-      @meeting_member = @meeting.meeting_member(current_user)
+    def error_message(action, exception_message)
+      message = t("meetings.google_cal.#{action}.error")
+
+      return message if exception_message.blank?
+
+      message + ' ' + exception_message
     end
   end
 end

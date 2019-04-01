@@ -40,7 +40,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
           expect(response).to redirect_to(group_path(meeting.group_id))
 
           message = I18n.t('meetings.google_cal.create.error') +' '+ exception_message
-          expect(flash[:notice]).to eq(message)
+          expect(flash[:alert]).to eq(message)
         end
       end
       context "raises server_error_exception" do
@@ -54,7 +54,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
           expect(response).to redirect_to(group_path(meeting.group_id))
 
           message = I18n.t('meetings.google_cal.create.error') +' '+ exception_message
-          expect(flash[:notice]).to eq(message)
+          expect(flash[:alert]).to eq(message)
         end
       end
     end
@@ -90,7 +90,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
           expect(response).to redirect_to(group_path(meeting.group_id))
 
           message = I18n.t('meetings.google_cal.destroy.error') +' '+ exception_message
-          expect(flash[:notice]).to eq(message)
+          expect(flash[:alert]).to eq(message)
         end
       end
       context "raises server_error_exception" do
@@ -104,7 +104,7 @@ RSpec.describe ::Meetings::GoogleCalendarEventController, type: :controller do
           expect(response).to redirect_to(group_path(meeting.group_id))
 
           message = I18n.t('meetings.google_cal.destroy.error') +' '+ exception_message
-          expect(flash[:notice]).to eq(message)
+          expect(flash[:alert]).to eq(message)
         end
       end
     end
