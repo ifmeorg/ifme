@@ -199,7 +199,7 @@ es:
     refill: 'Resurtir:'
     quantity: 'Cantidad total:'
     strength: 'Concentración:'
-    event_summary: 'Rellenar para %{name}'
+    event_summary: 'Rellenar para %{name}.'
     form:
       strength: Concentración
       strength_placeholder: 'e.g. 100'

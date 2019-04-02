@@ -199,7 +199,7 @@ nl:
     refill: 'Bijvullen:'
     quantity: 'Totale Hoeveelheid:'
     strength: 'Sterkte:'
-    event_summary: 'Vullen voor %{name}'
+    event_summary: 'Vullen voor %{name}.'
     form:
       strength: Sterkte
       strength_placeholder: 'b.v. 100'
