@@ -202,6 +202,7 @@ de:
     refill: 'Auffüllen:'
     quantity: 'Gesamtmenge:'
     strength: 'Stärke:'
+    event_summary: 'Nachfüllen für %{name}.'
     form:
       strength: Stärke
       strength_placeholder: 'z.B. 100'
