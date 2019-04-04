@@ -59,8 +59,12 @@ const classMap = (dark: ?boolean) => {
       <FontAwesomeIcon icon={faExclamationTriangle} className={className} />
     ),
     viewers: <FontAwesomeIcon icon={faLock} className={className} />,
-    add_to_google_cal: <FontAwesomeIcon icon={faCalendarPlus} className={className} />,
-    remove_from_google_cal: <FontAwesomeIcon icon={faCalendarMinus} className={className} />,
+    add_to_google_cal: (
+      <FontAwesomeIcon icon={faCalendarPlus} className={className} />
+    ),
+    remove_from_google_cal: (
+      <FontAwesomeIcon icon={faCalendarMinus} className={className} />
+    ),
   };
 };
 
@@ -144,7 +148,16 @@ export const StoryActions = (props: Props) => {
   const { actions, hasStory, dark } = props;
   return (
     <div className={css.actions}>
-      {[JOIN, ADD_TO_G_CAL, REMOVE_FROM_G_CAL, EDIT, LEAVE, DELETE, REPORT, VIEWERS].map(
+      {[
+        JOIN,
+        ADD_TO_G_CAL,
+        REMOVE_FROM_G_CAL,
+        EDIT,
+        LEAVE,
+        DELETE,
+        REPORT,
+        VIEWERS,
+      ].map(
         (item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null),
       )}
     </div>
