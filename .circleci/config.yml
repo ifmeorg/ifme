@@ -131,6 +131,21 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
+  deploy-storybook:
+    docker:
+      - image: circleci/node:11.10.1
+    steps:
+      - checkout
+      - run: rm -rf ~/.yarn
+      - run: npm i -g yarn
+      - run: yarn install
+      - run:
+          name: Deploy Storybook
+          command: |
+            cd client
+            yarn build:storybook
+            mv .out .public
+            yarn run surge --project .public --domain storybook-ifme.surge.sh
 workflows:
   version: 2
   build-test:
