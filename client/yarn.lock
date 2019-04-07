@@ -1647,7 +1647,7 @@
   dependencies:
     "@sentry/types" "4.0.6"
 
-"@storybook/addon-actions@^4.1.16":
+"@storybook/addon-actions@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-4.1.16.tgz#ff13e893725e4782920a2fa9d950b75f7755634f"
   integrity sha512-g9CfZTe/7O0+OZxrc8sS3ldYcDes7X9KcMweFvI5XSbEVd8pHaIc3Xvk4pqKRBSPWk1+ep2Il6EMSbfMjv54JA==
@@ -1667,7 +1667,7 @@
     react-inspector "^2.3.0"
     uuid "^3.3.2"
 
-"@storybook/addon-backgrounds@^4.1.16":
+"@storybook/addon-backgrounds@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-4.1.16.tgz#69d64a147f4526c058ed74aa5a6fa3ff8c9d18e2"
   integrity sha512-u5K41XHuPaVVb29ybSFFCqiYji4Tv45njglz/BGQ3irSk4BUeslt7/z0AQEcpkVgjmvImI/cjE3GySE5U1+Ypw==
@@ -1681,7 +1681,7 @@
     prop-types "^15.6.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-info@^4.1.16":
+"@storybook/addon-info@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-4.1.16.tgz#714c85308e6f67b9cd2e075ea9b6c754db6812e1"
   integrity sha512-n+tQ2CMOWGimqOj1ubo5d+NtFwJ1JpxlMKdKcl6D+w7NdtNPPLfVzDF0rbaR1lXAB0lPYzXtsapybEmLL5iwPA==
@@ -1698,7 +1698,7 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-links@^4.1.16":
+"@storybook/addon-links@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-4.1.16.tgz#968d98d062e09ea535ac03a87840c8f84418885d"
   integrity sha512-quapvYYQbKelFLZonN/gzzdz1F5ywtSw8lxq34uZYbVm/Mi4CunbPV96qiDYN5OAyDHeYqKmUrwBPmFx7faEcQ==
@@ -1710,7 +1710,7 @@
     global "^4.3.2"
     prop-types "^15.6.2"
 
-"@storybook/addon-notes@^4.1.16":
+"@storybook/addon-notes@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-notes/-/addon-notes-4.1.16.tgz#e0f288ac2a39d0c164dc085c33ea44745942d805"
   integrity sha512-pp6cO+VUUDkm7rq6pkb1dmusUVKUp+fE5Shyh1JcLoTUm7BxGM4GjxP7FIIQZSvM08788/ySQu4OjlZU4oF9Jw==
@@ -1721,7 +1721,7 @@
     marked "^0.5.2"
     prop-types "^15.6.2"
 
-"@storybook/addons@4.1.16", "@storybook/addons@^4.1.16":
+"@storybook/addons@4.1.16", "@storybook/addons@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.1.16.tgz#f9b63d6086dd094536e39e24e8a6d7e06f7ed7a7"
   integrity sha512-RSvlE/yOpEvRaleeeucRlIZkxUK0QvQxPGtcNOy+H/sE2ZIi9DB3bjhFnhWDaeqW8AYHfxA1hzujeO7kWYV0dw==
@@ -1908,7 +1908,7 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/react@^4.1.16":
+"@storybook/react@^4.0.0-alpha.21":
   version "4.1.16"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-4.1.16.tgz#50a207b7051a1535cec4ddf8156ede796efdaed6"
   integrity sha512-tsUYa01mFIAWsCn7qSZjl3wWFsr8ybOV3ub4hstxDul0gj3r4hz0Ftyije7mCShoK2CwT3RASkdni/aRDzN3GQ==
