@@ -132,6 +132,7 @@ jobs:
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
   deploy-storybook:
+    <<: *defaults
     docker:
       - image: circleci/node:11.10.1
     steps:
