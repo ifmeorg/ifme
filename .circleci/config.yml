@@ -137,23 +137,35 @@ jobs:
       - checkout
       - setup_remote_docker:
          docker_layer_caching: true
+      - restore_cache:
+          keys:
+            - v1-dep-{{ .Branch }}-
+            - v1-dep-master-
+            - v1-dep-
       - run:
           name: Set ruby-version to 2.6.0
           working_directory: ~/ifmeorg/ifme
           command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
       - run:
-          name: Installs npm
+          name: Install node
           working_directory: ~/ifmeorg/ifme
           command: nvm install 11.10.1 && nvm alias default 11.10.1
       - run:
-          name: Install Ruby
+          name: Install bundler
           command: |
             gem install bundler
             bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run:
           name: Install yarn
           command: |
+            rm -rf ~/.yarn
             sudo npm i -g yarn
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+            - ./vendor/bundle
       - run:
           name: Deploy Storybook
           command: |
