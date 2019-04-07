@@ -53,8 +53,7 @@ jobs:
       - run: rm -rf ~/.yarn
       - run: npm i -g yarn
       - run: yarn install
-      - run: cd client && yarn build:storybook
-      - run: cd client && yarn deploy:storybook
+      - run: cd client && yarn global add @storybook/storybook-deployer && storybook-to-ghpages
 
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
