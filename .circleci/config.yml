@@ -136,7 +136,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
-      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
       - run:
           working_directory: ~/ifmeorg/ifme
           command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
