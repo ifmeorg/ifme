@@ -165,6 +165,11 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - deploy-storybook:
+          filters:
+            branches:
+              only:
+                - PR-1391
       - build:
           requires:
             - setup-coverage
@@ -189,9 +194,3 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+/
-      - deploy-storybook:
-          requires:
-            - upload-coverage
-          filters:
-            branches:
-              only: PR-1391
