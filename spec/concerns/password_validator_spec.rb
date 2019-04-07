@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe PasswordValidator, type: :model do
   let(:user) { build(:user, password: nil) }
 

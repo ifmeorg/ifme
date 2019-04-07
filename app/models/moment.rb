@@ -23,6 +23,7 @@
 
 class Moment < ApplicationRecord
   include Viewer
+  include CommonMethods
   extend FriendlyId
 
   friendly_id :name

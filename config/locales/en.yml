@@ -463,7 +463,7 @@ en:
         therapy: therapy
         counseling: counseling
         youth: youth
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: harassment
         self_care: self-care
         women: women
@@ -535,6 +535,10 @@ en:
         stress: stress
         fidget: fidget
         colouring: colouring
+        deaf: deaf
+        asl: ASL
+        latinx: latinx
+        hispanic: hispanic
   profile:
     index:
       title: Profile

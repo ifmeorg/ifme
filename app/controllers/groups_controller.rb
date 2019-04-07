@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class GroupsController < ApplicationController
+  include GroupsHelper
+  include GroupsFormHelper
+
   before_action :authenticate_user!
   before_action :set_group, only: %i[show edit update destroy]
 

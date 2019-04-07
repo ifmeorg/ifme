@@ -2,14 +2,25 @@
 
 class CategoriesController < ApplicationController
   include CollectionPageSetupConcern
+  include CategoriesHelper
   include Shared
   before_action :set_category, only: %i[show edit update destroy]
+  respond_to :json, only: [:index]
 
   # GET /categories
   # GET /categories.json
 
   def index
     page_collection('@categories', 'category')
+    respond_to do |format|
+      format.json do
+        render json: {
+          data: categories_or_moods_props(@categories),
+          lastPage: @categories.last_page?
+        }
+      end
+      format.html
+    end
   end
 
   # GET /categories/1

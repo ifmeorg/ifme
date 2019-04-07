@@ -19,6 +19,15 @@ RSpec.describe CategoriesController, type: :controller do
         expect(response).to render_template(:index)
       end
     end
+
+    context 'when request type is JSON' do
+      include_context :logged_in_user
+      before { get :index, params: { page: 1, id: category.id }, :format => :json }
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)["data"].first["link"]).to eq category_path(category)
+      end
+    end
+
     context 'when the user is not logged in' do
       before { get :index }
       it_behaves_like :with_no_logged_in_user

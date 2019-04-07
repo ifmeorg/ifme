@@ -8,12 +8,12 @@
   <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
 
   <%= render partial: '/shared/stats', locals: { data_type: 'category', user: current_user } %>
-
-  <div class="gridTwo">
-    <%= render @categories %>
-  </div>
-
-  <%= paginate @categories %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data:       categories_or_moods_props(@categories),
+    fetchUrl:   categories_path,
+    lastPage:   @categories.last_page?
+    })%>
 <% else %>
   <%= raw t('categories.index.instructions') %>
   <%= button_to t('common.actions.add_all'), premade_categories_path, class: 'smallMarginTop buttonDarkS' %>

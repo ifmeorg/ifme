@@ -1,35 +1,30 @@
 # frozen_string_literal: true
-
-# rubocop:disable ModuleLength
 module MomentsHelper
-  include MoodsHelper
-  include CategoriesHelper
-  include StrategiesHelper
-  include FormHelper
+  include ViewersHelper
 
-  def new_moment_props(moment, viewers)
-    new_form_props(
-      moment_form_inputs(moment, viewers),
-      moments_path
-    )
+  def moments_data_json
+    {
+      data: moments_or_strategy_props(@moments),
+      lastPage: @moments.last_page?
+    }
   end
 
-  def edit_moment_props(moment, viewers)
-    edit_form_props(
-      moment_form_inputs(moment, viewers),
-      moment_path(moment)
-    )
+  def moments_data_html
+    return unless current_user
+
+    # +1 day buffer to ensure we include today as well
+    end_date = Date.current + 1.day
+    start_date = end_date - 1.week
+    range = start_date..end_date
+    @react_moments = current_user.moments
+                                 .group_by_period('day',
+                                                  :created_at,
+                                                  range: range)
+                                 .count
   end
 
-  def moments_stats
-    return '' if moment_count[:total] < 1
-
-    result = '<div class="center stats">'
-    result += total_moment
-    if moment_count[:total] != moment_count[:monthly]
-      result += " #{monthly_moment}"
-    end
-    result + '</div>'
+  def moments_or_strategy_props(elements)
+    elements.map { |element| present_moment_or_strategy(element) }
   end
 
   def secret_share_props(moment)
@@ -45,157 +40,71 @@ module MomentsHelper
     }], action:  moment_path(moment) }
   end
 
+  def user_actions(element, present_object, signed_in)
+    return { viewers: nil, edit: nil, delete: nil } unless signed_in
+
+    { viewers: get_viewer_list(element.viewers, nil),
+      edit: get_user_action('edit', present_object),
+      delete: get_user_action('delete', present_object) }
+  end
+
+  def present_moment_or_strategy(element)
+    present_object = get_present_object(element)
+    { name: element.name,
+      link: present_object[:url_helper],
+      date: TimeAgo.created_or_edited(element),
+      actions: moment_or_strategy_actions(element, present_object),
+      draft: !element.published? ? t('draft') : nil,
+      categories: element.category_names,
+      moods: present_object[:moods],
+      storyBy: story_by(element),
+      storyType: present_object[:story_type] }
+  end
+
   private
 
-  def moment_name
+  def moment_or_strategy_actions(element, present_object)
+    actions = user_actions(element,
+                           present_object,
+                           element.user_id == current_user&.id)
     {
-      id: 'moment_name',
-      type: 'text',
-      name: 'moment[name]',
-      label: t('common.name'),
-      value: @moment.name || nil,
-      required: true,
-      dark: true
+      edit: actions[:edit],
+      delete: actions[:delete],
+      viewers: actions[:viewers]
     }
   end
 
-  def moment_why
+  def story_by(element)
     {
-      id: 'moment_why',
-      type: 'textarea',
-      name: 'moment[why]',
-      label: t('moments.form.why'),
-      value: @moment.why || nil,
-      required: true,
-      dark: true
-    }
-  end
-
-  def moment_fix
-    {
-      id: 'moment_fix',
-      type: 'textarea',
-      name: 'moment[fix]',
-      label: t('moments.form.fix'),
-      value: @moment.fix || nil,
-      dark: true
-    }
-  end
-
-  def moment_category
-    {
-      id: 'moment_category',
-      type: 'quickCreate',
-      name: 'moment[category][]',
-      label: t('categories.plural'),
-      placeholder: t('common.form.search_by_keywords'),
-      checkboxes: checkboxes_for(@categories),
-      formProps: quick_create_category_props(@category)
-    }
-  end
-
-  def moment_mood
-    {
-      id: 'moment_mood',
-      type: 'quickCreate',
-      name: 'moment[mood][]',
-      label: t('moods.plural'),
-      placeholder: t('common.form.search_by_keywords'),
-      checkboxes: checkboxes_for(@moods),
-      formProps: quick_create_mood_props
-    }
-  end
-
-  def moment_strategy
-    {
-      id: 'moment_strategy',
-      type: 'quickCreate',
-      name: 'moment[strategy][]',
-      label: t('strategies.plural'),
-      placeholder: t('common.form.search_by_keywords'),
-      checkboxes: checkboxes_for(@strategies),
-      formProps: quick_create_strategy_props
-    }
-  end
-
-  # rubocop:disable MethodLength
-  def moment_comment
-    {
-      id: 'moment_comment',
-      type: 'switch',
-      name: 'moment[comment]',
-      label: t('comment.allow_comments'),
-      value: true,
-      uncheckedValue: false,
-      checked: @moment.comment,
-      info: t('comment.hint'),
-      dark: true
-    }
-  end
-  # rubocop:enable MethodLength
-
-  def moment_publishing
-    {
-      id: 'moment_publishing',
-      type: 'switch',
-      label: t('moments.form.draft_question'),
-      dark: true,
-      name: 'publishing',
-      value: '0',
-      uncheckedValue: '1',
-      checked: !@moment.published?
-    }
-  end
-
-  def moment_form_inputs(moment, viewers)
-    [
-      moment_name, moment_why, moment_fix, moment_category, moment_mood,
-      moment_strategy, get_viewers_input(viewers, 'moment', 'moments', moment),
-      moment_comment, moment_publishing
-    ]
-  end
-
-  def checkboxes_for(data)
-    checkboxes = []
-    data.each do |item|
-      checkboxes.push(
-        id: item.slug,
-        label: item.name,
-        value: item.id,
-        checked: data_for(item)&.include?(item.id)
+      author: link_to(
+        User.find(element.user_id).name,
+        profile_index_path(uid: User.find_by(id: element.user_id).uid)
+      ),
+      avatar: ProfilePicture.normalize_url(
+        User.find(element.user_id).avatar.url
       )
-    end
-    checkboxes
-  end
-
-  def data_for(item)
-    case item.class.name
-    when 'Category'
-      @moment.category
-    when 'Mood'
-      @moment.mood
-    when 'Strategy'
-      @moment.strategy
-    end
-  end
-
-  def moment_count
-    {
-      total: current_user.moments.all.count,
-      monthly: current_user.moments.where(
-        created_at: Time.current.beginning_of_month..Time.current
-      ).count
     }
   end
 
-  def total_moment
-    moment_key = moment_count[:total] == 1 ? 'moment' : 'moments'
-    t("stats.total_#{moment_key}", count: moment_count[:total])
+  def get_user_action(action, present_object)
+    action_object = {
+      link: present_object[action == 'edit' ? :link : :url_helper],
+      name: t("common.actions.#{action}")
+    }
+    return action_object if action == 'edit'
+
+    action_object.merge(dataMethod: 'delete',
+                        dataConfirm: t('common.actions.confirm'))
   end
 
-  def monthly_moment
-    moment_key = moment_count[:monthly] == 1 ? 'moment' : 'moments'
-    t("stats.monthly_#{moment_key}", count: moment_count[:monthly])
+  def get_present_object(element)
+    model_name = element.class.name.downcase
+    is_moment = model_name == 'moment'
+    {
+      url_helper: is_moment ? moment_path(element) : strategy_path(element),
+      link: is_moment ? edit_moment_path(element) : edit_strategy_path(element),
+      story_type: t("#{model_name.pluralize}.singular"),
+      moods: element&.mood_names
+    }
   end
 end
-# rubocop:enable ModuleLength

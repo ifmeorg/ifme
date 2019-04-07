@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module CommentFormHelper
+module CommentsFormHelper
   include FormHelper
 
   def comment_form_props(commentable, commentable_type)

@@ -1,18 +1,5 @@
 <div class="gridTwoItemBoxLight">
-	<%= react_component('Story', html_options: html_options, props: {
-		name: local_assigns[:item].name,
-		link: url_for(local_assigns[:item]),
-		actions: {
-			edit: {
-				name: t('common.actions.edit'),
-				link: local_assigns[:item].class.name == 'Category' ? edit_category_path(local_assigns[:item]) : edit_mood_path(local_assigns[:item])
-			},
-			delete: {
-				name: t('common.actions.delete'),
-				link: url_for(local_assigns[:item]),
-				dataConfirm: t('common.actions.confirm'),
-				dataMethod: 'delete'
-			}
-		}
-	}) %>
+	<%= react_component('Story',
+		html_options: html_options,
+		props: present_category_or_mood(local_assigns[:item])) %>
 </div>

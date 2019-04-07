@@ -1,6 +1,8 @@
 <div>
   <strong><%= t('medications.strength') %></strong>
-  <%= t('medications.units.display', count: local_assigns[:medication].strength, unit: local_assigns[:medication].strength_unit) %>
+  <%= t('medications.units.display',
+    count: local_assigns[:medication].strength,
+    unit: local_assigns[:medication].strength_unit) %>
 </div>
 <div>
   <strong><%= t('medications.quantity') %></strong>

@@ -9,11 +9,12 @@
   <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
   <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: current_user } %>
 
-  <div class="gridTwo">
-    <%= render @moods %>
-  </div>
-
-  <%= paginate @moods %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data:       categories_or_moods_props(@moods),
+    fetchUrl:   moods_path,
+    lastPage:   @moods.last_page?
+    })%>
 <% else %>
   <%= raw t('moods.index.instructions') %>
   <%= button_to t('common.actions.add_all'), premade_moods_path, class: 'smallMarginTop buttonDarkS' %>
