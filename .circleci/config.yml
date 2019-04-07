@@ -137,43 +137,36 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
-      - restore_cache:
-          keys:
-            - v1-dep-{{ .Branch }}-
-            - v1-dep-master-
-            - v1-dep-
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
       - run:
-          name: Set ruby-version to 2.6.0
           working_directory: ~/ifmeorg/ifme
           command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
       - run:
-          name: Install node
           working_directory: ~/ifmeorg/ifme
           command: nvm install 11.10.1 && nvm alias default 11.10.1
-      - run:
-          name: Install bundler
-          command: |
-            gem install bundler
-            bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run:
-          name: Install yarn
-          command: |
-            rm -rf ~/.yarn
-            sudo npm i -g yarn
-      - save_cache:
-          key: v1-dep-{{ .Branch }}-{{ epoch }}
-          paths:
-            - ~/.cache/yarn
-            - ./node_modules
-            - ./vendor/bundle
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: rm -rf ~/.yarn
+      - run: npm i -g yarn
+      - run: yarn install
       - run:
           name: Deploy Storybook
           command: |
-            yarn install
             cd client
             yarn build:storybook
             mv .out .public
             yarn run surge --project .public --domain storybook-ifme.surge.sh
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+          - ~/.cache/yarn
+          - ./node_modules
+          - ./vendor/bundle
 
 workflows:
   version: 2
