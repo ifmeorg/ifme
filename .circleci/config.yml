@@ -135,24 +135,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/ifmeorg/ifme/tmp
-      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+      - setup_remote_docker:
+         docker_layer_caching: true
       - run:
           working_directory: ~/ifmeorg/ifme
           command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
-      - run:
-          working_directory: ~/ifmeorg/ifme
-          command: nvm install 11.10.1 && nvm alias default 11.10.1
-      - restore_cache:
-          keys:
-          - v1-dep-{{ .Branch }}-
-          - v1-dep-master-
-          - v1-dep-
-      - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - run: sudo dpkg -i google-chrome.deb
-      - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-      - run: rm google-chrome.deb
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: rm -rf ~/.yarn
