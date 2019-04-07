@@ -54,6 +54,7 @@ jobs:
       - run: npm i -g yarn
       - run: yarn install
       - run: cd client && yarn build:storybook
+      - run: cd client && yarn deploy:storybook
 
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
