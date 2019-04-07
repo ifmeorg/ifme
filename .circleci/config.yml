@@ -193,5 +193,5 @@ workflows:
           requires:
             - upload-coverage
           filters:
-            only:
-              - PR-1391
+            branches:
+              only: PR-1391
