@@ -53,6 +53,8 @@ jobs:
       - run: rm -rf ~/.yarn
       - run: npm i -g yarn
       - run: yarn install
+      - run: yarn build:storybook
+
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
