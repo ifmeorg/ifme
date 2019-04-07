@@ -138,7 +138,7 @@ jobs:
     steps:
       - checkout
       - run: rm -rf ~/.yarn
-      - run: npm i -g yarn
+      - run: sudo npm i -g yarn
       - run: yarn install
       - run:
           name: Deploy Storybook
