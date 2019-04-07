@@ -137,6 +137,19 @@ jobs:
       - image: circleci/node:11.10.1
     steps:
       - checkout
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: nvm install 11.10.1 && nvm alias default 11.10.1
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run: rm -rf ~/.yarn
       - run: sudo npm i -g yarn
       - run: yarn install
