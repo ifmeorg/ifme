@@ -266,13 +266,13 @@ pt-BR:
     new: 'Nova Reunião.'
     google_cal:
       create:
-        singular: 'Adicionar ao calendário do Google'
-        success: 'Reunião adicionada ao calendário do Google com sucesso.'
-        error: 'Algo deu errado ao adicionar reunião ao calendário do Google.'
+        add: 'Adicionar ao Google Agenda'
+        success: 'Reunião adicionada ao Google Agenda com sucesso.'
+        error: 'Algo deu errado ao adicionar a reunião ao Google Agenda.'
       destroy:
-        singular: 'Remover do google calendar'
+        remove: 'Remover do Google Agenda'
         success: 'Reunião removida do google calendar com sucesso.'
-        error: 'Algo deu errado ao remover a reunião do calendário do Google.'
+        error: 'Algo deu errado ao remover a reunião do Google Agenda.'
   moments:
     singular: Momento
     plural: Momentos

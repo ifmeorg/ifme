@@ -266,13 +266,13 @@ vi:
     new: 'Cuộc họp mới'
     google_cal:
       create:
-        singular: 'Thêm vào lịch google'
-        success: 'Cuộc họp được thêm vào lịch google thành công.'
-        error: 'Đã xảy ra lỗi trong khi thêm cuộc họp vào lịch google.'
+        add: 'Thêm vào Lịch Google'
+        success: 'Cuộc họp được thêm vào Lịch Google thành công.'
+        error: 'Đã xảy ra lỗi khi thêm cuộc họp vào Lịch Google.'
       destroy:
-        singular: 'Xóa khỏi lịch google'
-        success: 'Cuộc họp đã xóa khỏi lịch google thành công.'
-        error: 'Đã xảy ra lỗi trong khi xóa cuộc họp khỏi lịch google.'
+        remove: 'Xóa khỏi Lịch Google'
+        success: 'Cuộc họp đã được xóa khỏi Lịch Google thành công.'
+        error: 'Đã xảy ra lỗi khi xóa cuộc họp khỏi Lịch Google.'
   moments:
     singular: 'Khoản khắc'
     plural: 'Khoản khắc'

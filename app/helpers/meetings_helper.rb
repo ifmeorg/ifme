@@ -87,7 +87,7 @@ module MeetingsHelper
   def remove_from_google_cal_hash(meeting)
     {
       remove_from_google_cal: {
-        name: t('meetings.google_cal.destroy.singular'),
+        name: t('meetings.google_cal.destroy.remove'),
         link: meeting_google_calendar_event_path(meeting),
         dataMethod: 'delete'
       }
@@ -97,7 +97,7 @@ module MeetingsHelper
   def add_to_google_cal_hash(meeting)
     {
       add_to_google_cal: {
-        name: t('meetings.google_cal.create.singular'),
+        name: t('meetings.google_cal.create.add'),
         link: meeting_google_calendar_event_path(meeting),
         dataMethod: 'post'
       }

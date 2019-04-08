@@ -266,13 +266,13 @@ sv:
     new: 'Nytt Möte'
     google_cal:
       create:
-        singular: 'Lägg till i Google-kalendern'
-        success: 'Möte läggs till Google kalender framgångsrikt.'
-        error: 'Något gick fel när du lade till möte i Google-kalendern.'
+        add: 'Lägg till i Google Kalender'
+        success: 'Möte till Google Kalender framgångsrikt.'
+        error: 'Något gick fel när du tillade mötet i Google Kalender.'
       destroy:
-        singular: 'Ta bort från Google Kalender'
-        success: 'Möte som tagits bort från google kalender lyckades.'
-        error: 'Något gick fel när du tog bort mötet från Google-kalendern.'
+        remove: 'Ta bort från Google Kalender'
+        success: 'Möte som tagits bort från Google Kalender framgångsrikt.'
+        error: 'Något gick fel när du tog bort mötet från Google Kalender.'
   moments:
     singular: Ögonblick
     plural: Ögonblicken
