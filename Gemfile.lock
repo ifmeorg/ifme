@@ -142,7 +142,7 @@ GEM
       raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    google-api-client (0.28.6)
+    google-api-client (0.28.7)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (>= 0.5, < 0.10.0)
       httpclient (>= 2.8.1, < 3.0)
@@ -490,7 +490,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   friendly_id (~> 5.2.5)
-  google-api-client (~> 0.28.6)
+  google-api-client (~> 0.28.7)
   groupdate (= 4.1.1)
   inline_svg
   jbuilder (~> 2.8.0)
