@@ -88,6 +88,25 @@ describe Meeting do
     end
   end
 
+  describe '#meeting_member' do
+    let!(:user) { create :user1 }
+    let!(:member) { create :user2 }
+    let!(:meeting) { create :meeting }
+    let!(:meeting_member) { create :meeting_member, user_id: member.id, leader: false,
+                                meeting_id: meeting.id }
+    context 'when user is not a member of the meeting' do
+      it 'returns nil' do
+        expect(meeting.meeting_member(user)).to be nil
+      end
+    end
+
+    context 'when user is a member of the meeting' do
+      it 'returns true' do
+        expect(meeting.meeting_member(member)).to eq meeting_member
+      end
+    end
+  end
+
   describe '#member?' do
     context 'when user is not a member of the meeting' do
       it 'returns false' do
@@ -113,6 +132,43 @@ describe Meeting do
         result = meeting.member?(user)
 
         expect(result).to be true
+      end
+    end
+  end
+
+  describe '#date_time' do
+    context 'when date is not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, time: Time.now.strftime("%H:%M"), date: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when time is not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, date: Date.today.to_s, time: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when both date and time are not available' do
+      it 'returns nil' do
+        meeting = build(:meeting, date: nil, time: nil)
+
+        expect(meeting.date_time).to be nil
+      end
+    end
+
+    context 'when both time and date are available' do
+      it 'returns date_time' do
+        date = Date.new(2017, 03, 19).to_s
+        time = "03:19"
+        date_time = DateTime.new(2017, 03, 19, 03, 19).in_time_zone
+        meeting = build(:meeting, date: date, time: time)
+
+        expect(meeting.date_time).to eq date_time
       end
     end
   end

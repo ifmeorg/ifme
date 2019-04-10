@@ -199,6 +199,7 @@ vi:
     refill: 'Bổ sung:'
     quantity: 'Tổng số:'
     strength: 'Sức khỏe:'
+    event_summary: 'Nạp lại cho %{name}.'
     form:
       strength: 'Sức khỏe'
       strength_placeholder: 'e.g. 100'
@@ -263,6 +264,15 @@ vi:
       error: 'Bạn không thể bỏ qua buổi họp nhóm vì bạn là trưởng nhóm duy nhất.'
       success: 'Bạn đã rời khỏi cuộc họp %{meeting}'
     new: 'Cuộc họp mới'
+    google_cal:
+      create:
+        add: 'Thêm vào Lịch Google'
+        success: 'Cuộc họp được thêm vào Lịch Google thành công.'
+        error: 'Đã xảy ra lỗi khi thêm cuộc họp vào Lịch Google.'
+      destroy:
+        remove: 'Xóa khỏi Lịch Google'
+        success: 'Cuộc họp đã được xóa khỏi Lịch Google thành công.'
+        error: 'Đã xảy ra lỗi khi xóa cuộc họp khỏi Lịch Google.'
   moments:
     singular: 'Khoản khắc'
     plural: 'Khoản khắc'

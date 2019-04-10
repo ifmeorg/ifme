@@ -199,6 +199,7 @@ es:
     refill: 'Resurtir:'
     quantity: 'Cantidad total:'
     strength: 'Concentración:'
+    event_summary: 'Rellenar para %{name}.'
     form:
       strength: Concentración
       strength_placeholder: 'e.g. 100'
@@ -263,6 +264,15 @@ es:
       error: 'No puedes abandonar la reunión, eres el único líder.'
       success: 'Has abandonado %{meeting}.'
     new: 'Nueva reunión'
+    google_cal:
+      create:
+        add: 'Añadir a google calendar'
+        success: 'Reunión agregada a Google Calendar con éxito.'
+        error: 'Algo salió mal al agregar la reunión a Google Calendar.'
+      destroy:
+        remove: 'Eliminar de Google Calendar'
+        success: 'Reunión eliminada de Google Calendar con éxito.'
+        error: 'Algo salió mal al eliminar la reunión de Google Calendar.'
   moments:
     singular: Momento
     plural: Momentos

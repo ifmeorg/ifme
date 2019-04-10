@@ -199,6 +199,7 @@ nb:
     refill: 'Påfyllelse:'
     quantity: 'Total kvantitet:'
     strength: 'Styrke:'
+    event_summary: 'Påfyll på %{name}.'
     form:
       strength: Styrke
       strength_placeholder: 'f.eks. 100'
@@ -263,6 +264,15 @@ nb:
       error: 'Du kan ikke forlate møtet, du er den eneste lederen.'
       success: 'Du har forlatt %{meeting}'
     new: 'Nytt møte'
+    google_cal:
+      create:
+        add: 'Legg til i Google Kalender'
+        success: 'Møte lagt til i Google Kalender vellykket.'
+        error: 'Noe gikk galt mens du la til møtet i Google Kalender.'
+      destroy:
+        remove: 'Fjern fra Google Kalender'
+        success: 'Møtet fjernet fra Google Kalender vellykket.'
+        error: 'Noe gikk galt under fjerning av møtet fra Google Kalender.'
   moments:
     singular: Øyeblikk
     plural: Øyeblikk

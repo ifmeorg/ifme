@@ -199,6 +199,7 @@ nl:
     refill: 'Bijvullen:'
     quantity: 'Totale Hoeveelheid:'
     strength: 'Sterkte:'
+    event_summary: 'Vullen voor %{name}.'
     form:
       strength: Sterkte
       strength_placeholder: 'b.v. 100'
@@ -263,6 +264,15 @@ nl:
       error: 'Je kunt deze samenkomst niet verlaten, je bent de enige leider.'
       success: 'Je hebt %{meeting} verlaten.'
     new: 'Nieuwe Samenkomst'
+    google_cal:
+      create:
+        add: 'Voeg toe aan Google Agenda'
+        success: 'Bijeenkomst succesvol toegevoegd aan Google Agenda.'
+        error: 'Er is iets misgegaan tijdens het toevoegen van de vergadering aan Google Agenda.'
+      destroy:
+        remove: 'Verwijderen uit Google Agenda'
+        success: 'Vergadering verwijderd uit Google Agenda met succes.'
+        error: 'Er is iets misgegaan tijdens het verwijderen van de vergadering uit Google Agenda.'
   moments:
     singular: Moment
     plural: Momenten

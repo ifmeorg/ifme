@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
     end
+    resource :google_calendar_event, :controller => 'meetings/google_calendar_event', only: [:create, :destroy]
   end
 
   resources :profile, only: :index do

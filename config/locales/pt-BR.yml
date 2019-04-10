@@ -199,6 +199,7 @@ pt-BR:
     refill: 'Refil de medicamento:'
     quantity: 'Quantidade Total:'
     strength: 'Dosagem:'
+    event_summary: 'Recarregar por %{name}.'
     form:
       strength: Dosagem
       strength_placeholder: 'ex.: 100mg'
@@ -263,6 +264,15 @@ pt-BR:
       error: 'Você não pode abandonar a reunião, porque você é o único líder.'
       success: 'Você ainda tem pendente a reunião %{meeting}'
     new: 'Nova Reunião.'
+    google_cal:
+      create:
+        add: 'Adicionar ao Google Agenda'
+        success: 'Reunião adicionada ao Google Agenda com sucesso.'
+        error: 'Algo deu errado ao adicionar a reunião ao Google Agenda.'
+      destroy:
+        remove: 'Remover do Google Agenda'
+        success: 'Reunião removida do google calendar com sucesso.'
+        error: 'Algo deu errado ao remover a reunião do Google Agenda.'
   moments:
     singular: Momento
     plural: Momentos

@@ -33,7 +33,7 @@ class MeetingsController < ApplicationController
     redirect_unless_leader_for(@group) && return
 
     render :new unless @meeting.save
-    set_meeting_member
+    create_meeting_member
   end
 
   # PATCH/PUT /meetings/1
@@ -114,7 +114,7 @@ class MeetingsController < ApplicationController
     )
   end
 
-  def set_meeting_member
+  def create_meeting_member
     meeting_member = @meeting.meeting_members.new(
       user_id: current_user.id, leader: true
     )

@@ -199,6 +199,7 @@ sv:
     refill: 'Påfyllning:'
     quantity: 'Total Kvantitet:'
     strength: 'Styrka:'
+    event_summary: 'Fyll på för %{name}.'
     form:
       strength: Styrka
       strength_placeholder: 't.ex. 100'
@@ -263,6 +264,15 @@ sv:
       error: 'Du kan inte lämna mötet, du är den enda ledaren.'
       success: 'Du har lämnat %{meeting}'
     new: 'Nytt Möte'
+    google_cal:
+      create:
+        add: 'Lägg till i Google Kalender'
+        success: 'Möte till Google Kalender framgångsrikt.'
+        error: 'Något gick fel när du tillade mötet i Google Kalender.'
+      destroy:
+        remove: 'Ta bort från Google Kalender'
+        success: 'Möte som tagits bort från Google Kalender framgångsrikt.'
+        error: 'Något gick fel när du tog bort mötet från Google Kalender.'
   moments:
     singular: Ögonblick
     plural: Ögonblicken

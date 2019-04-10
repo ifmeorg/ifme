@@ -202,6 +202,7 @@ de:
     refill: 'Auffüllen:'
     quantity: 'Gesamtmenge:'
     strength: 'Stärke:'
+    event_summary: 'Nachfüllen für %{name}.'
     form:
       strength: Stärke
       strength_placeholder: 'z.B. 100'
@@ -266,6 +267,15 @@ de:
       error: 'Du kannst dieses Meeting nicht verlasen, du bist der einzige Administrator.'
       success: 'Du hast das Meeting %{meeting} verlassen'
     new: 'Neues Meeting'
+    google_cal:
+      create:
+        add: 'Zu Google Kalender hinzufügen'
+        success: 'Meeting erfolgreich zu Google Kalender hinzugefügt.'
+        error: 'Beim Hinzufügen des Meetings zu Google Kalender ist ein Fehler aufgetreten.'
+      destroy:
+        remove: 'Aus Google Kalender entfernen'
+        success: 'Besprechung erfolgreich aus Google Kalender entfernt.'
+        error: 'Beim Entfernen des Meetings aus Google Kalender ist ein Fehler aufgetreten.'
   moments:
     singular: Moment
     plural: Momente
