@@ -26,6 +26,8 @@ class Moment < ApplicationRecord
   include CommonMethods
   extend FriendlyId
 
+  mount_uploader :image, AvatarUploader
+
   friendly_id :name
   serialize :category, Array
   serialize :viewers, Array

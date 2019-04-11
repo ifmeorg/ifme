@@ -80,7 +80,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :comment, :published_at, :draft,
+      :name, :why, :fix, :comment, :published_at, :draft, :image,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
