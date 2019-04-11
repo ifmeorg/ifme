@@ -4,3 +4,5 @@ translations.js
 default.js
 /coverage
 /storybook-static
+/.out*/*
+/.public*/*

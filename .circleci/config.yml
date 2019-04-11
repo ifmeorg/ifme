@@ -130,6 +130,42 @@ jobs:
           name: Deploy Master to Heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/ifme.git master
+  deploy-storybook:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/ifmeorg/ifme/tmp
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
+      - run:
+          working_directory: ~/ifmeorg/ifme
+          command: nvm install 11.10.1 && nvm alias default 11.10.1
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
+      - run: gem install bundler
+      - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - run: rm -rf ~/.yarn
+      - run: npm i -g yarn
+      - run: yarn install
+      - run:
+          name: Deploy Storybook
+          command: |
+            cd client
+            yarn build:storybook
+            mv .out .public
+            yarn run surge --project .public --domain ifme.surge.sh
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+          - ~/.cache/yarn
+          - ./node_modules
+          - ./vendor/bundle
+
 workflows:
   version: 2
   build-test:
@@ -168,6 +204,12 @@ workflows:
       - deploy:
           requires:
             - upload-coverage
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+      - deploy-storybook:
           filters:
             branches:
               ignore: /.*/
