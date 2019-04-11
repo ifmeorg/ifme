@@ -33,11 +33,30 @@ class Meeting < ApplicationRecord
     members.find_by(id: user.id).present?
   end
 
+  def meeting_member(user)
+    meeting_members.find_by(user_id: user.id)
+  end
+
   def led_by?(user)
     leaders.include? user
   end
 
   def comments
     Comment.comments_from(self)
+  end
+
+  def date_time
+    return if (date = self.date).blank? || (time = self.time).blank?
+
+    begin
+      date = date.try(:to_date)
+      time = Time.zone.parse(time)
+    rescue ArgumentError
+      return
+    end
+
+    DateTime.new(
+      date.year, date.month, date.day, time.hour, time.min
+    ).in_time_zone
   end
 end

@@ -14,22 +14,16 @@ module MedicationRefillHelper
     false
   end
 
-  def calendar_uploader_params(medication)
-    {
-      summary: "Refill for #{medication.name}",
-      date: medication.refill,
-      access_token: current_user.google_access_token,
-      email: current_user.email
-    }
-  end
-
   private
 
   def upload_to_calendar(medication)
     return unless current_user.google_oauth2_enabled? &&
                   new_cal_refill_reminder_needed?(medication)
 
-    args = calendar_uploader_params(medication)
-    CalendarUploader.new(args).upload_event
+    summary = t('medications.event_summary', name: medication.name)
+
+    CalendarUploader
+      .new(current_user.google_access_token)
+      .upload_event(summary, medication.refill)
   end
 end

@@ -199,6 +199,7 @@ en:
     refill: 'Refill:'
     quantity: 'Total Quantity:'
     strength: 'Strength:'
+    event_summary: 'Refill for %{name}.'
     form:
       strength: Strength
       strength_placeholder: 'e.g. 100'
@@ -263,6 +264,15 @@ en:
       error: 'You cannot leave the meeting, you are the only leader.'
       success: 'You have left %{meeting}'
     new: 'New Meeting'
+    google_cal:
+      create:
+        add: 'Add to Google Calendar'
+        success: 'Meeting added to Google Calendar successfully.'
+        error: 'Something went wrong while adding the meeting to Google Calendar.'
+      destroy:
+        remove: 'Remove from Google Calendar'
+        success: 'Meeting removed from Google Calendar successfully.'
+        error: 'Something went wrong while removing the meeting from Google Calendar.'
   moments:
     singular: Moment
     plural: Moments

@@ -199,6 +199,7 @@ it:
     refill: 'Riempimento:'
     quantity: 'Quantità totale:'
     strength: 'Peso:'
+    event_summary: 'Ricarica per %{name}.'
     form:
       strength: peso
       strength_placeholder: 'es. 100'
@@ -263,6 +264,15 @@ it:
       error: 'Non puoi lasciare il raduno, sei l’unico leader.'
       success: 'Hai lasciato %{meeting}'
     new: 'Nuovo Raduno'
+    google_cal:
+      create:
+        add: 'Aggiungi a Google Calendar'
+        success: 'Riunione aggiunta correttamente a Google Calendar.'
+        error: 'Qualcosa è andato storto durante l''aggiunta della riunione a Google Calendar.'
+      destroy:
+        remove: 'Rimuovi da Google Calendar'
+        success: 'Riunione rimossa da Google Calendar con successo.'
+        error: 'Qualcosa è andato storto durante la rimozione della riunione da Google Calendar.'
   moments:
     singular: Momento
     plural: Momenti

@@ -199,6 +199,7 @@ fr:
     refill: 'Renouvellement:'
     quantity: 'Quantité totale:'
     strength: 'Puissance:'
+    event_summary: 'Recharge pour %{name}.'
     form:
       strength: Concentration
       strength_placeholder: 'ex. 100'
@@ -263,6 +264,15 @@ fr:
       error: 'Vous ne pouvez pas quitter la réunion, vous êtes le seul animateur.'
       success: 'Vous avez quitté %{meeting}'
     new: 'Nouvelle réunion'
+    google_cal:
+      create:
+        add: 'Ajouter à Google Agenda'
+        success: 'Réunion ajoutée à Google Agenda avec succès.'
+        error: 'Une erreur s''est produite lors de l''ajout de la réunion à Google Agenda.'
+      destroy:
+        remove: 'Supprimer de Google Agenda'
+        success: 'Réunion supprimée de Google Agenda avec succès.'
+        error: 'Une erreur s''est produite lors de la suppression de la réunion de Google Agenda.'
   moments:
     singular: Moment
     plural: Moments

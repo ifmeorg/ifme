@@ -12,6 +12,12 @@ module MeetingsHelper
     end
   end
 
+  def google_cal_actions(meeting)
+    return {} unless current_user.google_oauth2_enabled?
+
+    generate_google_cal_actions_hash(meeting)
+  end
+
   private
 
   def not_attending(id)
@@ -66,5 +72,35 @@ module MeetingsHelper
     elsif meeting_space > 1
       many_spots(meeting.id, meeting_space)
     end
+  end
+
+  def generate_google_cal_actions_hash(meeting)
+    return {} unless (meeting_member = meeting.meeting_member(current_user))
+
+    if meeting_member.google_cal_event_id
+      return remove_from_google_cal_hash(meeting)
+    end
+
+    add_to_google_cal_hash(meeting)
+  end
+
+  def remove_from_google_cal_hash(meeting)
+    {
+      remove_from_google_cal: {
+        name: t('meetings.google_cal.destroy.remove'),
+        link: meeting_google_calendar_event_path(meeting),
+        dataMethod: 'delete'
+      }
+    }
+  end
+
+  def add_to_google_cal_hash(meeting)
+    {
+      add_to_google_cal: {
+        name: t('meetings.google_cal.create.add'),
+        link: meeting_google_calendar_event_path(meeting),
+        dataMethod: 'post'
+      }
+    }
   end
 end
