@@ -158,7 +158,7 @@ jobs:
             cd client
             yarn build:storybook
             mv .out .public
-            yarn run surge --project .public --domain ifme.surge.sh
+            yarn run surge --project .public --domain design.if-me.org
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
