@@ -80,8 +80,8 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     certified (1.0.0)
-    childprocess (0.9.0)
-      ffi (~> 1.0, >= 1.0.11)
+    childprocess (1.0.1)
+      rake (< 13.0)
     choice (0.2.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
@@ -404,8 +404,8 @@ GEM
       rake
     sdoc (1.0.0)
       rdoc (>= 5.0)
-    selenium-webdriver (3.141.0)
-      childprocess (~> 0.5)
+    selenium-webdriver (3.141.5926)
+      childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.9.0)
       faraday (>= 0.7.6, < 1.0)
@@ -524,7 +524,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 1.0.0)
-  selenium-webdriver (~> 3.141.0)
+  selenium-webdriver (~> 3.141.5926)
   sentry-raven
   simplecov
   spring
