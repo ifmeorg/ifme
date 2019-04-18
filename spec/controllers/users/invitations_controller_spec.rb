@@ -2,14 +2,15 @@
 
 RSpec.describe ::Users::InvitationsController, type: :controller do
   let(:user) { create(:user, name: 'Jane') }
-  let(:invitee1) { 'invitedfriend@gmail.com' }
-  let(:invitee2) { 'otherfriend@gmail.com' }
-  let(:invalid_email) { 'invalidemail.com' }
+  let(:invitee1) { 'invited_friend@gmail.com' }
+  let(:invitee2) { 'other_friend@gmail.com' }
+  let(:invalid_email) { 'invalid_email.com' }
+  let(:invite_one_friend) { post :create, params: { user: { email: invitee1 } } }
+
+  before(:each) { @request.env['devise.mapping'] = Devise.mappings[:user] }
+  after(:each) { Devise.mailer.deliveries.clear }
 
   describe '#create' do
-    before(:all) { Devise.mailer.deliveries.clear }
-    before(:each) { @request.env['devise.mapping'] = Devise.mappings[:user] }
-
     context 'when a user is not signed in' do
       before { post :create }
       it_behaves_like :with_no_logged_in_user
@@ -19,9 +20,6 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
       include_context :logged_in_user
 
       context 'when valid params are given' do
-        let(:invite_one_friend) { post :create, params: { user: { email: invitee1.to_s } } }
-        after(:each) { Devise.mailer.deliveries.clear }
-
         it 'creates a new user if the user does not exist' do
           users_count = User.count
           invite_one_friend
@@ -85,7 +83,6 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
         before(:each) do
           post :create, params: { user: { email: "#{invitee1}, #{invalid_email}" } }
         end
-        after(:each) { Devise.mailer.deliveries.clear }
 
         it 'only creates a new User for the valid email' do
           newest_users = User.order(invitation_sent_at: :desc).last(2)
@@ -102,6 +99,23 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
           expect(emails.sort).to include(invitee1)
           expect(emails.sort).not_to include(invalid_email)
         end
+      end
+    end
+  end
+
+  describe '#update' do
+    context 'when a user is signed in' do
+      include_context :logged_in_user
+      let(:password) { 'passworD@99' }
+
+      it 'creates allyship with pending_from_ally status when a user accepts an invitation' do
+        invite_one_friend
+        User.stub(:find_by_invitation_token) do
+          User.last
+        end
+        allow_any_instance_of(::Users::InvitationsController).to receive(:update_resource_params).and_return({ invitation_token: User.last.invitation_token })
+        put :update, params: { name: 'New Person', password: password, password_confirmation: password, invitation_token: User.last.invitation_token }
+        expect(user.allies_by_status(:pending_from_ally).first).to eq(User.last)
       end
     end
   end

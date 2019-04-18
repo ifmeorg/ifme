@@ -42,5 +42,19 @@ module Users
     def get_message(has_invites)
       has_invites ? :send_instructions : :failed_send
     end
+
+    def accept_resource
+      invitation_token = update_resource_params[:invitation_token]
+      # rubocop:disable Rails/DynamicFindBy
+      # Disabling this Rubocop check because
+      # find_by_invitation_token is a custom method on Devise::Invitable
+      # and not a shortcut for find_by + invitation_token
+      invitee = User.find_by_invitation_token(invitation_token, true)
+      # rubocop:enable Rails/DynamicFindBy
+      inviter = invitee.invited_by
+      AllyshipCreator.perform(ally_id: invitee.id,
+                              current_user: inviter)
+      resource_class.accept_invitation!(update_resource_params)
+    end
   end
 end
