@@ -429,5 +429,14 @@
     "link_name": "isabelleyiu",
     "link": "https://github.com/isabelleyiu",
     "social": "github"
+  },  
+  {
+    "name": "hnarasaki",
+    "image": "/assets/contributors/hnarasaki.png",
+    "profile": "I'm working on becoming a software engineer. Open Source projects helped me get started out with learning how to code. I want to combine my love for coding with doing something good for a positive change. I think everybody goes through highs and lows at some point in their life, and I want people to know that that is normal! Thank you if me for giving us all a safe place to express our feelings!",
+    "location": "San Francisco, CA",
+    "link_name": "hnarasaki",
+    "link": "https://github.com/hnarasaki",
+    "social": "github"
   }
 ]
