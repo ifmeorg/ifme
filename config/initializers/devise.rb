@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -41,12 +43,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -117,7 +119,7 @@ Devise.setup do |config|
 
   # The key to be used to check existing users when sending an invitation
   # and the regexp used to test it when validate_on_invite is not set.
-  config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
+  config.invite_key = { email: /\A[^@]+@[^@]+\z/ }
   # config.invite_key = {:email => /\A[^@]+@[^@]+\z/, :username => nil}
 
   # Flag that force a record to be valid before being actually invited
@@ -307,14 +309,12 @@ Devise.setup do |config|
   end
 
   require 'omniauth-google-oauth2'
-    config.omniauth(
-      :google_oauth2,
-      ENV['GOOGLE_CLIENT_ID'],
-      ENV['GOOGLE_CLIENT_SECRET'],
-      {
-        access_type: 'offline',
-        approval_prompt: 'select_account consent force',
-        scope: 'userinfo.email,userinfo.profile,calendar'
-      }
-    )
+  config.omniauth(
+    :google_oauth2,
+    ENV['GOOGLE_CLIENT_ID'],
+    ENV['GOOGLE_CLIENT_SECRET'],
+    access_type: 'offline',
+    approval_prompt: 'select_account consent force',
+    scope: 'userinfo.email,userinfo.profile,calendar'
+  )
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config/initializers/pusher.rb
 require 'pusher'
 
