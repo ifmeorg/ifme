@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comment, only: [:create, :destroy] do
+  resources :comment, only: %i[create destroy] do
     collection do
       post 'create'
       delete 'delete'
@@ -37,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :moments
 
-  resources :secret_shares, only: [:create, :show, :destroy]
+  resources :secret_shares, only: %i[create show destroy]
 
   resources :strategies do
     collection do
@@ -48,7 +50,7 @@ Rails.application.routes.draw do
 
   resources :groups do
     scope module: :groups do
-      resource :membership, only: [:create, :destroy] do
+      resource :membership, only: %i[create destroy] do
         delete ':member_id', to: 'memberships#kick', as: 'kick'
       end
     end
@@ -59,7 +61,7 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
     end
-    resource :google_calendar_event, :controller => 'meetings/google_calendar_event', only: [:create, :destroy]
+    resource :google_calendar_event, controller: 'meetings/google_calendar_event', only: %i[create destroy]
   end
 
   resources :profile, only: :index do
@@ -69,7 +71,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reports, only: [:create, :new] do
+  resources :reports, only: %i[create new] do
     collection do
       get 'admin_dashboard'
     end
@@ -81,7 +83,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: [:destroy, :index] do
+  resources :notifications, only: %i[destroy index] do
     collection do
       delete 'clear'
       get 'fetch_notifications'
@@ -102,9 +104,9 @@ Rails.application.routes.draw do
   get 'home_data', to: 'pages#home_data', defaults: { format: 'json' }
 
   devise_for :users, controllers: { registrations: :registrations,
-                                       omniauth_callbacks: 'omniauth_callbacks',
-                                       invitations: 'users/invitations',
-                                       sessions: :sessions }
+                                    omniauth_callbacks: 'omniauth_callbacks',
+                                    invitations: 'users/invitations',
+                                    sessions: :sessions }
 
   post 'pusher/auth'
 
