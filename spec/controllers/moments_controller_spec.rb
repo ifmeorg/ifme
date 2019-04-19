@@ -27,9 +27,9 @@ describe MomentsController do
 
     context 'when request type is JSON' do
       let(:moment) { create(:moment, user: user) }
-      before { get :index, params: { page: 1, id: moment.id} , format: :json }
+      before { get :index, params: { page: 1, id: moment.id }, format: :json }
       it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)["data"].first["link"]).to eq moment_path(moment)
+        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
       end
     end
 

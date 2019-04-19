@@ -113,13 +113,15 @@ describe CommentController do
 
         context 'when the comment exists and belongs to the current_user' do
           let!(:commentable) { create(:moment, user_id: user.id) }
-          let!(:comment) { create(
-            :comment,
-            comment_by: user.id,
-            commentable_id: commentable.id,
-            visibility: 'all',
-            commentable_type: commentable_type
-          ) }
+          let!(:comment) do
+            create(
+              :comment,
+              comment_by: user.id,
+              commentable_id: commentable.id,
+              visibility: 'all',
+              commentable_type: commentable_type
+            )
+          end
 
           it 'destroys the comment' do
             expect { delete :delete, params: { comment_id: comment.id } }.to(
@@ -182,13 +184,15 @@ describe CommentController do
 
         context 'when the comment exists and belongs to the current_user' do
           let!(:commentable) { create(:strategy, user_id: user.id) }
-          let!(:comment) { create(
-            :comment,
-            comment_by: user.id,
-            commentable_id: commentable.id,
-            visibility: 'all',
-            commentable_type: commentable_type
-          ) }
+          let!(:comment) do
+            create(
+              :comment,
+              comment_by: user.id,
+              commentable_id: commentable.id,
+              visibility: 'all',
+              commentable_type: commentable_type
+            )
+          end
 
           it 'destroys the comment' do
             expect { delete :delete, params: { comment_id: comment.id } }.to(

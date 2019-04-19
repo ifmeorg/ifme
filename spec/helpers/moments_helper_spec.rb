@@ -9,18 +9,17 @@ describe MomentsHelper, type: :controller do
   describe '#secret_share_props' do
     it 'returns the correct input' do
       input = { inputs: [
-          {
-            id: 'secretShare',
-            type: 'text',
-            name: 'secretShare',
-            label: I18n.t('moments.secret_share.singular'),
-            readOnly: true,
-            value: secret_share_url(moment.secret_share_identifier),
-            dark: true,
-            copyOnClick: I18n.t('moments.secret_share.link_copied')
-          }
-        ], action: moment_path(moment)
-      }
+        {
+          id: 'secretShare',
+          type: 'text',
+          name: 'secretShare',
+          label: I18n.t('moments.secret_share.singular'),
+          readOnly: true,
+          value: secret_share_url(moment.secret_share_identifier),
+          dark: true,
+          copyOnClick: I18n.t('moments.secret_share.link_copied')
+        }
+      ], action: moment_path(moment) }
       expect(controller.secret_share_props(moment)).to eq(input)
     end
   end

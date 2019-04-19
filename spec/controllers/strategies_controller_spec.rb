@@ -30,9 +30,9 @@ describe StrategiesController do
       end
 
       context 'when request type is JSON' do
-        before { get :index, params: { page: 1, id: strategy.id} , format: :json }
+        before { get :index, params: { page: 1, id: strategy.id }, format: :json }
         it 'returns a response with the correct path' do
-          expect(JSON.parse(response.body)["data"].first["link"]).to eq strategy_path(strategy)
+          expect(JSON.parse(response.body)['data'].first['link']).to eq strategy_path(strategy)
         end
       end
     end

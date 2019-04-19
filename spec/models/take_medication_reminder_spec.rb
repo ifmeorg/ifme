@@ -13,9 +13,9 @@
 describe TakeMedicationReminder do
   let(:user) { FactoryBot.create(:user1) }
   let(:medication) { FactoryBot.create(:medication, user_id: user.id) }
-  let(:reminder) {
+  let(:reminder) do
     FactoryBot.create(:take_medication_reminder, medication_id: medication.id)
-  }
+  end
 
   describe '#active_reminders' do
     it 'returns only active reminders' do
@@ -24,12 +24,12 @@ describe TakeMedicationReminder do
   end
 
   describe 'scope for_day' do
-    let!(:weekly_medication) {
-      FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [0,2,4,6])
-    }
-    let!(:weekly_medication2) {
-      FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [1,2,4,6])
-    }
+    let!(:weekly_medication) do
+      FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [0, 2, 4, 6])
+    end
+    let!(:weekly_medication2) do
+      FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [1, 2, 4, 6])
+    end
 
     context 'on passing 0 (Sunday) as arg' do
       it "returns the medication's reminder which has dosage on Sunday (0)" do

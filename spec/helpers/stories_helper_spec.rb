@@ -45,7 +45,7 @@ describe StoriesHelper, type: :controller do
       let(:ally_id) { user2.id }
       let!(:allyship) { create(:allyships_accepted, user_id: user_id, ally_id: ally_id) }
       let(:viewers) { [user_id] }
-      let(:timestamp) { Time.now }
+      let(:timestamp) { Time.now.in_time_zone }
       let(:ally_moment) do
         create(:moment, user_id: ally_id, viewers: viewers, published_at: timestamp)
       end

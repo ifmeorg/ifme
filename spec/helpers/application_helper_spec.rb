@@ -2,7 +2,7 @@
 describe ApplicationHelper do
   describe '#html_options' do
     it 'returns correct hash' do
-      expect(html_options).to eq({ class: 'htmlOptions' })
+      expect(html_options).to eq(class: 'htmlOptions')
     end
   end
 
@@ -389,8 +389,8 @@ describe ApplicationHelper do
         far = %w[money-bill-alt]
         fab = %w[facebook github instagram medium twitter]
         icons = [{ fas: fas }, { far: far }, { fab: fab }]
-        for icon_set in icons
-          for icon in icon_set.values[0]
+        icons.each do |icon_set|
+          icon_set.values[0].each do |icon|
             expect(get_icon_class(icon)).to eq("#{icon_set.keys[0]} fa-#{icon}")
           end
         end

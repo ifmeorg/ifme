@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 describe AllyConcern, type: :model do
-
   describe '#ally?' do
     let(:banned) { false }
     let(:user1) { create(:user1) }

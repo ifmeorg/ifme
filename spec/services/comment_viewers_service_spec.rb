@@ -159,7 +159,7 @@ describe CommentViewersService do
           context 'logged in as owner' do
             let(:current_user) { owner }
 
-            it "returns nil" do
+            it 'returns nil' do
               expect(subject).to eq(nil)
             end
           end
@@ -167,7 +167,7 @@ describe CommentViewersService do
           context 'logged in as commenter' do
             let(:current_user) { ally_commenter }
 
-            it "returns nil" do
+            it 'returns nil' do
               expect(subject).to eq(nil)
             end
           end

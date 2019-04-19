@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ReportsController, type: :controller do
   describe '#create' do
     let(:user1) { create(:user1) }

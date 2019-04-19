@@ -22,9 +22,9 @@ RSpec.describe CategoriesController, type: :controller do
 
     context 'when request type is JSON' do
       include_context :logged_in_user
-      before { get :index, params: { page: 1, id: category.id }, :format => :json }
+      before { get :index, params: { page: 1, id: category.id }, format: :json }
       it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)["data"].first["link"]).to eq category_path(category)
+        expect(JSON.parse(response.body)['data'].first['link']).to eq category_path(category)
       end
     end
 

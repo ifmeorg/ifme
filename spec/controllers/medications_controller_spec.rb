@@ -74,12 +74,11 @@ describe MedicationsController do
       end
 
       context 'when request type is JSON' do
-        before { get :index, params: { page: 1, id: medication.id} , :format => :json }
+        before { get :index, params: { page: 1, id: medication.id }, format: :json }
         it 'returns a response with the correct path' do
-          expect(JSON.parse(response.body)["data"].first["link"]).to eq medication_path(medication)
+          expect(JSON.parse(response.body)['data'].first['link']).to eq medication_path(medication)
         end
       end
-
     end
     context 'when not signed in' do
       before { get :index }

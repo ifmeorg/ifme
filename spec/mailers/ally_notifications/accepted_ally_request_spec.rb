@@ -8,8 +8,8 @@ describe AllyNotifications::AcceptedAllyRequest do
   let(:data) do
     ActiveSupport::HashWithIndifferentAccess.new(
       'user' => ally.name,
-      'user_id' =>  ally.id,
-      'uid'  => ally.uid,
+      'user_id' => ally.id,
+      'uid' => ally.uid,
       'type' => 'accepted_ally_request',
       'uniqueid' => 'some_unique_id'
     )

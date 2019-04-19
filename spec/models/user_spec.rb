@@ -87,7 +87,7 @@ describe User do
         expect(user.token).to eq('some token')
         expect(user.refresh_token).to eq('some refresh token')
         expect(user.uid).to eq('some uid')
-        expect(user.access_expires_at).to eq(Time.at(current_time.to_i))
+        expect(user.access_expires_at).to eq(Time.at(current_time.to_i).in_time_zone)
       end
 
       it 'returns a user' do
@@ -179,10 +179,10 @@ describe User do
     end
 
     request = {
-      'refresh_token'   =>  nil,
-      'client_id'       =>  ENV['GOOGLE_CLIENT_ID'],
-      'client_secret'   =>  ENV['GOOGLE_CLIENT_SECRET'],
-      'grant_type'      =>  'refresh_token'
+      'refresh_token' => nil,
+      'client_id' => ENV['GOOGLE_CLIENT_ID'],
+      'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
+      'grant_type' => 'refresh_token'
     }
 
     context 'when request is successful' do
