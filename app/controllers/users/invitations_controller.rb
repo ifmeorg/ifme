@@ -16,6 +16,36 @@ module Users
       redirect_to new_user_invitation_path
     end
 
+    # PUT /resource/invitation
+    # rubocop:disable MethodLength
+    def update
+      raw_invitation_token = update_resource_params[:invitation_token]
+      self.resource = accept_resource
+      invitation_accepted = resource.errors.empty?
+
+      yield resource if block_given?
+
+      if invitation_accepted
+        AllyshipCreator.perform(ally_id: resource.id,
+                                current_user: resource.invited_by)
+        if resource.class.allow_insecure_sign_in_after_accept
+          # rubocop:disable LineLength
+          flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
+          # rubocop:enable LineLength
+          set_flash_message :notice, flash_message if is_flashing_format?
+          sign_in(resource_name, resource)
+          respond_with resource, location: after_accept_path_for(resource)
+        else
+          set_flash_message :notice, :updated_not_active if is_flashing_format?
+          respond_with resource, location: new_session_path(resource_name)
+        end
+      else
+        resource.invitation_token = raw_invitation_token
+        respond_with_navigational(resource) { render :edit }
+      end
+    end
+    # rubocop:enable MethodLength
+
     private
 
     def invitation_flash_messages(invites, fails)
@@ -41,20 +71,6 @@ module Users
 
     def get_message(has_invites)
       has_invites ? :send_instructions : :failed_send
-    end
-
-    def accept_resource
-      invitation_token = update_resource_params[:invitation_token]
-      # rubocop:disable Rails/DynamicFindBy
-      # Disabling this Rubocop check because
-      # find_by_invitation_token is a custom method on Devise::Invitable
-      # and not a shortcut for find_by + invitation_token
-      invitee = User.find_by_invitation_token(invitation_token, true)
-      # rubocop:enable Rails/DynamicFindBy
-      inviter = invitee.invited_by
-      AllyshipCreator.perform(ally_id: invitee.id,
-                              current_user: inviter)
-      resource_class.accept_invitation!(update_resource_params)
     end
   end
 end
