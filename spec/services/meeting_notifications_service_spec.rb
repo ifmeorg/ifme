@@ -87,7 +87,7 @@ describe MeetingNotificationsService do
 
       it 'raises the correct error' do
         expect(Notification.count).to eq(0)
-        expect{ subject }.to raise_error(ActiveRecord::RecordInvalid)
+        expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
         expect(Notification.count).to eq(0)
       end
     end

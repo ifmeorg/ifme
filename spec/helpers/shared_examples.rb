@@ -67,7 +67,7 @@ shared_examples :most_focus do |data_type|
         end
 
         context 'when published' do
-          let(:time_stamp) { Time.now }
+          let(:time_stamp) { Time.now.in_time_zone }
 
           it "shows only the #{data_type_name.pluralize} for which you have viewing permission" do
             expect(subject.length).to eq(1)

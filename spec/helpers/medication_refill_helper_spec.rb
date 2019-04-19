@@ -16,7 +16,7 @@ RSpec.describe MedicationRefillHelper, type: :helper do
     before do
       allow_any_instance_of(helper.class).to receive(:return_to_sign_in).and_return(client_error_exception_text)
       allow_any_instance_of(helper.class).to receive(:redirect_to_medication).and_return(server_error_exception_text)
-      allow_any_instance_of(User).to receive(:google_access_token).and_return("token")
+      allow_any_instance_of(User).to receive(:google_access_token).and_return('token')
       sign_in user
     end
 

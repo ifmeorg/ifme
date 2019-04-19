@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 describe StrategiesFormHelper do
-
   let(:user) { create(:user2, :with_allies) }
-  let(:strategy) { create(:strategy, user: user)}
+  let(:strategy) { create(:strategy, user: user) }
   let(:category_form_inputs_res) do
     {
       inputs: [
@@ -45,7 +44,7 @@ describe StrategiesFormHelper do
       value: strategy.name || nil,
       placeholder: t('strategies.form.name_hint'),
       required: true,
-      dark: true 
+      dark: true
     }
   end
   let(:build_strategy_description_res) do
@@ -58,7 +57,7 @@ describe StrategiesFormHelper do
       required: true,
       dark: true
     }
-  end 
+  end
   let(:build_strategy_category_res) do
     {
       id: 'strategy_category',
@@ -90,7 +89,7 @@ describe StrategiesFormHelper do
       value: strategy&.perform_strategy_reminder&.id
     }
   end
-  let(:build_strategy_comment_res) do 
+  let(:build_strategy_comment_res) do
     build_switch_input_strategy_comment_res.merge(
       id: 'strategy_comment',
       name: 'strategy[comment]',
@@ -117,8 +116,8 @@ describe StrategiesFormHelper do
   let(:build_switch_input_strategy_publishing_res) do
     {
       type: 'switch',
-      value: "0",
-      uncheckedValue: "1",
+      value: '0',
+      uncheckedValue: '1',
       checked: !strategy.published?,
       dark: true
     }
@@ -141,7 +140,7 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_name' do
     subject { build_strategy_name(strategy) }
-    
+
     it 'builds correct strategy name' do
       expect(subject).to eq(build_strategy_name_res)
     end
@@ -149,7 +148,7 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_description' do
     subject { build_strategy_description(strategy) }
-    
+
     it 'builds correct strategy description' do
       expect(subject).to eq(build_strategy_description_res)
     end
@@ -157,7 +156,7 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_category' do
     subject { build_strategy_category }
-    
+
     it 'builds correct strategy category' do
       expect(subject).to eq(build_strategy_category_res)
     end
@@ -165,7 +164,7 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_reminder' do
     subject { build_strategy_reminder(strategy) }
-    
+
     it 'builds correct strategy name' do
       expect(subject).to eq(build_strategy_reminder_res)
     end
@@ -173,7 +172,7 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_reminder_attributes' do
     subject { build_strategy_reminder_attributes(strategy) }
-  
+
     it 'builds correct strategy name' do
       expect(subject).to eq(build_strategy_reminder_attributes_res)
     end
@@ -181,19 +180,19 @@ describe StrategiesFormHelper do
 
   describe '#build_strategy_comment' do
     subject { build_strategy_comment(strategy) }
-  
-    it 'builds correct strategy name' do    
+
+    it 'builds correct strategy name' do
       expect(subject).to eq(build_strategy_comment_res)
     end
   end
 
   describe '#build_strategy_publishing' do
-  subject { build_strategy_publishing(strategy) }
+    subject { build_strategy_publishing(strategy) }
 
-  it 'builds correct strategy name' do    
-    expect(subject).to eq(build_strategy_publishing_res)
+    it 'builds correct strategy name' do
+      expect(subject).to eq(build_strategy_publishing_res)
+    end
   end
-end
 
   describe '#build_switch_input' do
     subject { build_switch_input(true, strategy.comment, false) }
@@ -204,7 +203,7 @@ end
   end
 
   describe '#category_checkboxes' do
-    subject { category_checkboxes() }
+    subject { category_checkboxes }
 
     context 'has no categories' do
       it 'returns empty array' do
@@ -214,11 +213,10 @@ end
 
     context 'does have categories' do
       before { @categories.push(@category) }
-      before { @strategy = strategy}
+      before { @strategy = strategy }
       it 'returns correct checkboxes' do
         expect(subject).to eq(category_checkboxes_res)
       end
     end
   end
-
 end

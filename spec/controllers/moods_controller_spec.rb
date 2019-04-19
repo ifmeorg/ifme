@@ -22,9 +22,9 @@ RSpec.describe MoodsController, type: :controller do
 
     context 'when request type is JSON' do
       include_context :logged_in_user
-      before { get :index, params: { page: 1, id: user_mood.id} , format: :json }
+      before { get :index, params: { page: 1, id: user_mood.id }, format: :json }
       it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)["data"].first["link"]).to eq mood_path(user_mood)
+        expect(JSON.parse(response.body)['data'].first['link']).to eq mood_path(user_mood)
       end
     end
 

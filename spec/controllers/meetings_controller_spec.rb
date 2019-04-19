@@ -190,9 +190,9 @@ RSpec.describe MeetingsController, type: :controller do
           end
 
           it 'creates a meeting' do
-            expect {
+            expect do
               post(:create, params: params)
-            }.to change { group.meetings.count }.from(0).to(1)
+            end.to change { group.meetings.count }.from(0).to(1)
           end
 
           it 'set current user as meeting leader' do
@@ -217,9 +217,9 @@ RSpec.describe MeetingsController, type: :controller do
           let(:params) { { meeting: { group_id: group.id } } }
 
           it 'does not save the meeting' do
-            expect {
+            expect do
               post(:create, params: params)
-            }.to_not change { group.meetings.count }
+            end.to_not change { group.meetings.count }
           end
 
           it 'renders #new' do
@@ -244,9 +244,9 @@ RSpec.describe MeetingsController, type: :controller do
         end
 
         it 'updates meeting' do
-          expect {
+          expect do
             patch(:update, params: params)
-          }.to change { meeting.reload.name }.to('new_name')
+          end.to change { meeting.reload.name }.to('new_name')
         end
 
         it 'notifies meeting members' do
@@ -288,9 +288,9 @@ RSpec.describe MeetingsController, type: :controller do
       let!(:meeting) { create(:meeting) }
 
       it 'adds user to meeting members' do
-        expect {
+        expect do
           get(:join, params: { meeting_id: meeting.id })
-        }.to change { meeting.members.first }.from(nil).to(user)
+        end.to change { meeting.members.first }.from(nil).to(user)
       end
 
       it 'notifies meeting members' do
@@ -325,9 +325,9 @@ RSpec.describe MeetingsController, type: :controller do
       end
 
       it 'removes user from meeting' do
-        expect {
+        expect do
           get(:leave, params: { meeting_id: meeting.id })
-        }.to change { meeting.members.count }.from(1).to(0)
+        end.to change { meeting.members.count }.from(1).to(0)
       end
 
       it 'redirects to group page' do
@@ -344,9 +344,9 @@ RSpec.describe MeetingsController, type: :controller do
         end
 
         it 'does not removes user' do
-          expect {
+          expect do
             get(:leave, params: { meeting_id: meeting.id })
-          }.not_to change { meeting.members.count }
+          end.not_to change { meeting.members.count }
         end
       end
     end
@@ -383,15 +383,15 @@ RSpec.describe MeetingsController, type: :controller do
         end
 
         it 'removes meeting members' do
-          expect {
+          expect do
             delete(:destroy, params: { id: meeting.id })
-          }.to change { meeting.members.count }.from(1).to(0)
+          end.to change { meeting.members.count }.from(1).to(0)
         end
 
         it 'destroys meeting' do
-          expect {
+          expect do
             delete(:destroy, params: { id: meeting.id })
-          }.to change { Meeting.count }.by(-1)
+          end.to change { Meeting.count }.by(-1)
         end
 
         it 'redirects to group page' do

@@ -6,7 +6,7 @@ describe ReportsHelper, type: :controller do
   describe '#new_report_props' do
     subject { controller.new_report_props(uid, comment_id) }
 
-    let(:inputs) {
+    let(:inputs) do
       [
         {
           id: 'report_reasons',
@@ -24,7 +24,7 @@ describe ReportsHelper, type: :controller do
           dark: true
         }
       ]
-    }
+    end
 
     context 'does not have comment_id' do
       let(:uid) { 'uid' }
@@ -34,7 +34,7 @@ describe ReportsHelper, type: :controller do
         expect(subject).to eq(
           inputs: inputs,
           action: '/reports?uid=uid'
-       )
+        )
       end
     end
 
@@ -46,7 +46,7 @@ describe ReportsHelper, type: :controller do
         expect(subject).to eq(
           inputs: inputs,
           action: '/reports?comment_id=comment_id&uid=uid'
-       )
+        )
       end
     end
   end

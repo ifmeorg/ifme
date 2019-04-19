@@ -24,7 +24,7 @@ describe MoodsHelper do
           value: @mood.description || nil,
           dark: true
         }
-      ],
+      ]
     }
   end
 
@@ -47,8 +47,8 @@ describe MoodsHelper do
 
   describe '#new_mood_props' do
     before(:example) do
-        mood_props[:action] = '/moods'
-        mood_props[:inputs].push(submit_field)
+      mood_props[:action] = '/moods'
+      mood_props[:inputs].push(submit_field)
     end
 
     it 'returns correct props' do
@@ -58,8 +58,8 @@ describe MoodsHelper do
 
   describe '#quick_create_mood_props' do
     before(:example) do
-        mood_props[:action] = '/moods/quick_create'
-        mood_props[:inputs].push(submit_field)
+      mood_props[:action] = '/moods/quick_create'
+      mood_props[:inputs].push(submit_field)
     end
 
     it 'returns correct props' do
@@ -69,13 +69,12 @@ describe MoodsHelper do
 
   describe '#edit_mood_props' do
     before(:example) do
-        mood_props[:action] = '/moods/test-mood'
-        mood_props[:inputs].push(update_input).push(submit_field)
+      mood_props[:action] = '/moods/test-mood'
+      mood_props[:inputs].push(update_input).push(submit_field)
     end
 
     it 'returns correct props' do
       expect(edit_mood_props).to eq(mood_props)
     end
   end
-
 end

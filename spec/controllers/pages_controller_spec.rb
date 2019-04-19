@@ -62,10 +62,10 @@ describe PagesController, type: :controller do
     let(:user) { create(:user) }
     let(:moment) { create(:moment, user: user) }
     include_context :logged_in_user
-    before { get :home_data, params: { page: 1, id: moment.id} , format: :json }
+    before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
 
     it 'returns a response with the correct path' do
-      expect(JSON.parse(response.body)["data"].first["link"]).to eq moment_path(moment)
+      expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
     end
   end
 
@@ -136,13 +136,13 @@ describe PagesController, type: :controller do
   describe 'GET #resources' do
     describe 'when sending filter params' do
       it 'filters the aforementioned resources' do
-        get :resources, params: { filter: ['ADD' , 'english'] }
+        get :resources, params: { filter: %w[ADD english] }
 
-        expect(assigns(:keywords)).to match_array(['ADD', 'English'])
+        expect(assigns(:keywords)).to match_array(%w[ADD English])
       end
 
       it 'filters only existing resources' do
-        get :resources, params: { filter: ['ADD' , 'someUnexistentTag'] }
+        get :resources, params: { filter: %w[ADD someUnexistentTag] }
 
         expect(assigns(:keywords)).to match_array(['ADD'])
       end

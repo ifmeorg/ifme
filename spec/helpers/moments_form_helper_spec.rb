@@ -238,124 +238,123 @@ describe MomentsFormHelper do
 
     it 'returns correct props' do
       expect(edit_moment_props).to eq(
-        {
-          inputs: [
-            {
-              id: 'moment_name',
-              type: 'text',
-              name: 'moment[name]',
-              label: 'Name',
-              value: 'Test Moment',
-              required: true,
-              dark: true
-            },
-            {
-              id: 'moment_why',
-              type: 'textarea',
-              name: 'moment[why]',
-              label: 'What happened and how do you feel?',
-              value: 'Test Why',
-              required: true,
-              dark: true
-            },
-            {
-              id: 'moment_fix',
-              type: 'textarea',
-              name: 'moment[fix]',
-              label: 'What thoughts would you like to have?',
-              value: 'Test fix',
-              required: false,
-              dark: true
-            },
-            {
-              id: 'moment_category',
-              type: 'quickCreate',
-              name: 'moment[category][]',
-              label: 'Categories',
-              placeholder: 'Search by keywords',
-              checkboxes: [
+        inputs: [
+          {
+            id: 'moment_name',
+            type: 'text',
+            name: 'moment[name]',
+            label: 'Name',
+            value: 'Test Moment',
+            required: true,
+            dark: true
+          },
+          {
+            id: 'moment_why',
+            type: 'textarea',
+            name: 'moment[why]',
+            label: 'What happened and how do you feel?',
+            value: 'Test Why',
+            required: true,
+            dark: true
+          },
+          {
+            id: 'moment_fix',
+            type: 'textarea',
+            name: 'moment[fix]',
+            label: 'What thoughts would you like to have?',
+            value: 'Test fix',
+            required: false,
+            dark: true
+          },
+          {
+            id: 'moment_category',
+            type: 'quickCreate',
+            name: 'moment[category][]',
+            label: 'Categories',
+            placeholder: 'Search by keywords',
+            checkboxes: [
+              {
+                id: 'test-category',
+                label: 'Test Category',
+                value: category.id,
+                checked: true
+              }
+            ],
+            formProps: {
+              inputs: [
                 {
-                  id: 'test-category',
-                  label: 'Test Category',
-                  value: category.id,
-                  checked: true
+                  id: 'category_name',
+                  type: 'text',
+                  name: 'category[name]',
+                  label: 'Name',
+                  value: 'Test Category',
+                  required: true,
+                  info: 'Categorize recurring people, places, things, activities, and more',
+                  dark: true
+                },
+                {
+                  id: 'category_description',
+                  type: 'textarea',
+                  name: 'category[description]',
+                  label: 'Description',
+                  value: 'Test description category',
+                  dark: true
+                },
+                {
+                  id: 'submit',
+                  type: 'submit',
+                  value: 'Submit',
+                  dark: true
                 }
               ],
-              formProps: {
-                inputs: [
-                  {
-                    id: 'category_name',
-                    type: 'text',
-                    name: 'category[name]',
-                    label: 'Name',
-                    value: 'Test Category',
-                    required: true,
-                    info: 'Categorize recurring people, places, things, activities, and more',
-                    dark: true
-                  },
-                  {
-                    id: 'category_description',
-                    type: 'textarea',
-                    name: 'category[description]',
-                    label: 'Description',
-                    value: 'Test description category',
-                    dark: true
-                  },
-                  {
-                    id: 'submit',
-                    type: 'submit',
-                    value: 'Submit',
-                    dark: true
-                  }
-                ],
-                action: '/categories/quick_create',
-                noFormTag: true
+              action: '/categories/quick_create',
+              noFormTag: true
+            }
+          },
+          {
+            id: 'moment_mood',
+            type: 'quickCreate',
+            name: 'moment[mood][]',
+            label: 'Moods',
+            placeholder: 'Search by keywords',
+            checkboxes: [
+              {
+                id: 'test-mood',
+                label: 'Test Mood',
+                value: mood.id,
+                checked: true
               }
-            },
-            {
-              id: 'moment_mood',
-              type: 'quickCreate',
-              name: 'moment[mood][]',
-              label: 'Moods',
-              placeholder: 'Search by keywords',
-              checkboxes: [
+            ],
+            formProps: {
+              inputs: [
                 {
-                  id: 'test-mood',
-                  label: 'Test Mood',
-                  value: mood.id,
-                  checked: true
+                  id: 'mood_name',
+                  type: 'text',
+                  name: 'mood[name]',
+                  label: 'Name',
+                  value: 'Test Mood',
+                  required: true,
+                  dark: true
+                },
+                {
+                  id: 'mood_description',
+                  type: 'textarea',
+                  name: 'mood[description]',
+                  label: 'Description',
+                  value: 'Test Mood',
+                  dark: true
+                },
+                {
+                  id: 'submit',
+                  type: 'submit',
+                  value: 'Submit',
+                  dark: true
                 }
               ],
-              formProps: {
-                inputs: [
-                  {
-                    id: 'mood_name',
-                    type: 'text',
-                    name: 'mood[name]',
-                    label: 'Name',
-                    value: 'Test Mood',
-                    required: true,
-                    dark: true
-                  },
-                  {
-                    id: 'mood_description',
-                    type: 'textarea',
-                    name: 'mood[description]',
-                    label: 'Description',
-                    value: 'Test Mood',
-                    dark: true
-                  },
-                  {
-                    id: 'submit',
-                    type: 'submit',
-                    value: 'Submit',
-                    dark: true
-                  }
-                ],
-                action: '/moods/quick_create',
-                noFormTag: true
-              }
-            },
+              action: '/moods/quick_create',
+              noFormTag: true
+            }
+          },
           {
             id: 'moment_strategy',
             type: 'quickCreate',
@@ -401,73 +400,72 @@ describe MomentsFormHelper do
               ],
               action: '/strategies/quick_create',
               noFormTag: true
-              }
-            },
-            {
-              id: 'moment_viewers',
-              name: 'moment[viewers][]',
-              type: 'tag',
-              checkboxes: [
-                {
-                  id: "moment_viewers_#{viewers[0].id}",
-                  value: viewers[0].id,
-                  checked: false,
-                  label: 'Ally 0'
-                },
-                {
-                  id: "moment_viewers_#{viewers[1].id}",
-                  value:  viewers[1].id,
-                  checked: false,
-                  label: 'Ally 1'
-                },
-                {
-                  id: "moment_viewers_#{viewers[2].id}",
-                  value:  viewers[2].id,
-                  checked: false,
-                  label: 'Ally 2'
-                }
-              ],
-              label: 'Viewers',
-              placeholder: 'Allies who can view your moment',
-              dark: true,
-              accordion: true
-            },
-            {
-              id: 'moment_comment',
-              type: 'switch',
-              name: 'moment[comment]',
-              label: 'Allow Comments?',
-              value: true,
-              uncheckedValue: false,
-              checked: true,
-              info: 'Only you and viewers can comment',
-              dark: true
-            },
-            {
-              id: 'moment_publishing',
-              type: 'switch',
-              label: 'Do you want to save your moment as draft?',
-              dark: true,
-              name: 'publishing',
-              value: '0',
-              uncheckedValue: '1',
-              checked: true
-            },
-            {
-              id: '_method',
-              name: '_method',
-              type: 'hidden',
-              value: 'patch'
-            },
-            {
-              id: 'submit',
-              type: 'submit',
-              value: 'Submit',
-              dark: true
             }
-          ],
-          action: '/moments/test-moment'
-        }
+          },
+          {
+            id: 'moment_viewers',
+            name: 'moment[viewers][]',
+            type: 'tag',
+            checkboxes: [
+              {
+                id: "moment_viewers_#{viewers[0].id}",
+                value: viewers[0].id,
+                checked: false,
+                label: 'Ally 0'
+              },
+              {
+                id: "moment_viewers_#{viewers[1].id}",
+                value: viewers[1].id,
+                checked: false,
+                label: 'Ally 1'
+              },
+              {
+                id: "moment_viewers_#{viewers[2].id}",
+                value: viewers[2].id,
+                checked: false,
+                label: 'Ally 2'
+              }
+            ],
+            label: 'Viewers',
+            placeholder: 'Allies who can view your moment',
+            dark: true,
+            accordion: true
+          },
+          {
+            id: 'moment_comment',
+            type: 'switch',
+            name: 'moment[comment]',
+            label: 'Allow Comments?',
+            value: true,
+            uncheckedValue: false,
+            checked: true,
+            info: 'Only you and viewers can comment',
+            dark: true
+          },
+          {
+            id: 'moment_publishing',
+            type: 'switch',
+            label: 'Do you want to save your moment as draft?',
+            dark: true,
+            name: 'publishing',
+            value: '0',
+            uncheckedValue: '1',
+            checked: true
+          },
+          {
+            id: '_method',
+            name: '_method',
+            type: 'hidden',
+            value: 'patch'
+          },
+          {
+            id: 'submit',
+            type: 'submit',
+            value: 'Submit',
+            dark: true
+          }
+        ],
+        action: '/moments/test-moment'
       )
     end
   end

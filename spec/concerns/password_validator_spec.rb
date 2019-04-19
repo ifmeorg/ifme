@@ -46,7 +46,7 @@ describe PasswordValidator, type: :model do
         user.password = password1
         user.save
         expect(user.password_histories.count).to eq(1),
-            'Expected to create password history when user is created'
+                                                 'Expected to create password history when user is created'
 
         expected_histories = 2
         passwords_2_3 = ['Password@2', 'Password@3']
@@ -54,31 +54,31 @@ describe PasswordValidator, type: :model do
           user.password = password
           user.save
           expect(user.reload.password_histories.count).to eq(expected_histories + index),
-            'Expected to create password history when password changes'
+                                                          'Expected to create password history when password changes'
         end
 
         password4 = 'Password@4'
         user.password = password4
         user.save
         expect(user.reload.password_histories.count).to eq(3),
-          'Expected to delete the old password history when the count reaches 3'
+                                                        'Expected to delete the old password history when the count reaches 3'
 
         (passwords_2_3 + [password4]).each do |password|
           user.password = password
           saved = user.valid?
           expect(user.valid?).to be(false),
-            'Expected user to be invalid if the password is one of the previous three password'
+                                 'Expected user to be invalid if the password is one of the previous three password'
           expect(user.errors[:password]).to include(I18n.t('devise.registrations.password_errors.used'))
         end
 
         user.password = password1
         expect(user.valid?).to be(true),
-          'Expected user to be valid if the password is previous, but not from last three'
+                               'Expected user to be valid if the password is previous, but not from last three'
 
         new_password = 'Password@5'
         user.password = new_password
         expect(user.valid?).to be(true),
-          'Expected user to be valid if the password is not previous password'
+                               'Expected user to be valid if the password is not previous password'
       end
     end
   end
@@ -94,12 +94,12 @@ describe PasswordValidator, type: :model do
 
       it 'returns true when there are no password_histories' do
         allow(user).to receive(:password_histories).and_return([])
-        expect(user.password_needs_update?).to be (true)
+        expect(user.password_needs_update?).to be true
       end
 
       it 'returns false if there are any password_histories' do
         allow(user).to receive(:password_histories).and_return([PasswordHistory.new])
-        expect(user.password_needs_update?).to be (false)
+        expect(user.password_needs_update?).to be false
       end
     end
 
@@ -107,7 +107,7 @@ describe PasswordValidator, type: :model do
       let(:user) { build(:user_oauth) }
 
       it 'returns false' do
-        expect(user.password_needs_update?).to be (false)
+        expect(user.password_needs_update?).to be false
       end
     end
 
@@ -122,17 +122,17 @@ describe PasswordValidator, type: :model do
       it 'returns true when password was updated more than 12 months ago' do
         allow_any_instance_of(PasswordHistory).to receive(:created_at)
           .and_return(
-            Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months + 10.minute)
+            Time.now.in_time_zone - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months + 10.minutes)
           )
-         expect(user.password_needs_update?).to be (true)
+        expect(user.password_needs_update?).to be true
       end
 
       it 'returns false when password updated less than 12 months ago' do
         allow_any_instance_of(PasswordHistory).to receive(:created_at)
           .and_return(
-            Time.now - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months - 10.minute)
+            Time.now.in_time_zone - (PasswordValidator::PASSWORD_VALIDITY_MONTHS.months - 10.minutes)
           )
-        expect(user.password_needs_update?).to be (false)
+        expect(user.password_needs_update?).to be false
       end
     end
   end

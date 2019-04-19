@@ -44,31 +44,31 @@ describe CommentsFormHelper, type: :controller do
           value: nil,
           required: true,
           label: 'Comment'
-        },
+        }
       ]
     end
 
     def non_owner_inputs(commentable_type)
       {
         inputs: default_inputs(user1.id, commentable.id, commentable_type).concat([
-          options: [
-            {
-              id: 'comment_visibility_all',
-              label: 'Share with everyone',
-              value: 'all'
-            },
-            {
-              id: 'comment_visibility_private',
-              label: 'Share with Plum Blossom only',
-              value: 'private'
-            }
-          ],
-          id: 'comment_visibility',
-          name: 'comment[visibility]',
-          type: 'select',
-          value: 'all',
-          dark: true
-        ]).concat([submit_input]),
+                                                                                    options: [
+                                                                                      {
+                                                                                        id: 'comment_visibility_all',
+                                                                                        label: 'Share with everyone',
+                                                                                        value: 'all'
+                                                                                      },
+                                                                                      {
+                                                                                        id: 'comment_visibility_private',
+                                                                                        label: 'Share with Plum Blossom only',
+                                                                                        value: 'private'
+                                                                                      }
+                                                                                    ],
+                                                                                    id: 'comment_visibility',
+                                                                                    name: 'comment[visibility]',
+                                                                                    type: 'select',
+                                                                                    value: 'all',
+                                                                                    dark: true
+                                                                                  ]).concat([submit_input]),
         action: comment_index_path,
         noFormTag: true
       }
@@ -86,24 +86,24 @@ describe CommentsFormHelper, type: :controller do
     def owner_has_viewers_inputs(commentable_type)
       {
         inputs: default_inputs(user1.id, commentable.id, commentable_type).concat([
-          options: [
-            {
-              id: 'comment_viewers_everyone',
-              label: 'Share with everyone',
-              value: ''
-            },
-            {
-              id: "comment_viewers_#{user2.id}",
-              label: 'Share with Plum Blossom only',
-              value: user2.id
-            }
-          ],
-          id: 'comment_viewers',
-          name: 'comment[viewers]',
-          type: 'select',
-          value: '',
-          dark: true
-        ]).concat([submit_input]),
+                                                                                    options: [
+                                                                                      {
+                                                                                        id: 'comment_viewers_everyone',
+                                                                                        label: 'Share with everyone',
+                                                                                        value: ''
+                                                                                      },
+                                                                                      {
+                                                                                        id: "comment_viewers_#{user2.id}",
+                                                                                        label: 'Share with Plum Blossom only',
+                                                                                        value: user2.id
+                                                                                      }
+                                                                                    ],
+                                                                                    id: 'comment_viewers',
+                                                                                    name: 'comment[viewers]',
+                                                                                    type: 'select',
+                                                                                    value: '',
+                                                                                    dark: true
+                                                                                  ]).concat([submit_input]),
         action: comment_index_path,
         noFormTag: true
       }
@@ -208,7 +208,7 @@ describe CommentsFormHelper, type: :controller do
 
       context 'user is a meeting leader' do
         let(:commentable) { create(:meeting) }
-        let(:meeting_members) { create(:meeting_members, user_id: user1.id, meeting_id: commentable.id, leader: true)}
+        let(:meeting_members) { create(:meeting_members, user_id: user1.id, meeting_id: commentable.id, leader: true) }
 
         it 'returns correct props' do
           expect(subject).to eq(owner_has_no_viewers_inputs('meeting'))
@@ -217,7 +217,7 @@ describe CommentsFormHelper, type: :controller do
 
       context 'user is not a meeting leader' do
         let(:commentable) { create(:meeting) }
-        let(:meeting_members) { create(:meeting_members, user_id: user1.id, meeting_id: commentable.id, leader: false)}
+        let(:meeting_members) { create(:meeting_members, user_id: user1.id, meeting_id: commentable.id, leader: false) }
 
         it 'returns correct props' do
           expect(subject).to eq(owner_has_no_viewers_inputs('meeting'))
