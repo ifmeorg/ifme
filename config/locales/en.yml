@@ -549,6 +549,8 @@ en:
         asl: ASL
         latinx: latinx
         hispanic: hispanic
+        senior_citizens: 'senior citizens'
+        black_people: 'black people'
   profile:
     index:
       title: Profile

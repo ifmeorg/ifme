@@ -549,6 +549,8 @@ es:
         asl: ASL
         latinx: latinx
         hispanic: hispano
+        senior_citizens: 'Personas mayores'
+        black_people: afrodescendente
   profile:
     index:
       title: Perfil

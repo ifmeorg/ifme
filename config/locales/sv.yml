@@ -549,6 +549,8 @@ sv:
         asl: ASL
         latinx: latinx
         hispanic: latinamerikan
+        senior_citizens: pensionärer
+        black_people: 'Mörka personer'
   profile:
     index:
       title: Profil

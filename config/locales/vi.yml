@@ -549,6 +549,8 @@ vi:
         asl: ASL
         latinx: latinx
         hispanic: 'tây ban nha'
+        senior_citizens: 'người cao tuổi'
+        black_people: 'người da đen'
   profile:
     index:
       title: 'Hồ sơ'

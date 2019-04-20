@@ -549,6 +549,8 @@ fr:
         asl: ASL
         latinx: latinx
         hispanic: hispanique
+        senior_citizens: 'personnes agées'
+        black_people: 'les noirs'
   profile:
     index:
       title: Profile

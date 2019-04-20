@@ -549,6 +549,8 @@ pt-BR:
         asl: ASL
         latinx: latinx
         hispanic: hispânico
+        senior_citizens: 'cidadãos idosos'
+        black_people: 'pessoas de cor'
   profile:
     index:
       title: Perfil

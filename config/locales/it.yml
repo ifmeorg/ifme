@@ -549,6 +549,8 @@ it:
         asl: ASL
         latinx: latinx
         hispanic: ispanico
+        senior_citizens: Anziani
+        black_people: 'persone di colore'
   profile:
     index:
       title: Profilo
