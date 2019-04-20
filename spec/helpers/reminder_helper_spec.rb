@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ReminderHelper do
   name1 = 'name1'
   name2 = 'name2'

@@ -25,12 +25,13 @@ ActiveRecord::Migration.maintain_test_schema!
 
 if ENV['SELENIUM_REMOTE_HOST']
   Capybara.javascript_driver = :selenium_remote_firefox
-  Capybara.register_driver "selenium_remote_firefox".to_sym do |app|
+  Capybara.register_driver 'selenium_remote_firefox'.to_sym do |app|
     Capybara::Selenium::Driver.new(
       app,
       browser: :remote,
       url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
-      desired_capabilities: :firefox)
+      desired_capabilities: :firefox
+    )
   end
   ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
   Capybara.server_host = ip
@@ -86,7 +87,7 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
-  config.before(:header => true) do
+  config.before(header: true) do
     config.include HiddenHeaderSupport
   end
 

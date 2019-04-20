@@ -9,7 +9,7 @@ describe MedicationsFormHelper do
   end
 
   def get_field(field_name)
-    @fields.find {|f| f[:id] == field_name}
+    @fields.find { |f| f[:id] == field_name }
   end
 
   describe '#common_fields' do

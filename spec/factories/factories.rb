@@ -22,7 +22,7 @@ FactoryBot.define do
     name { 'Test Name' }
     description { 'Test Description' }
     location { 'Test Location' }
-    time { Time.now }
+    time { Time.now.in_time_zone }
     maxmembers { 1 }
     date { Date.tomorrow }
     group
@@ -66,7 +66,7 @@ FactoryBot.define do
     name { 'Fancy Medication Name' }
     dosage { 10 }
     dosage_unit { 'tablet' }
-    refill { "01/01/2020" }
+    refill { '01/01/2020' }
     strength { 12 }
     strength_unit { 'mg' }
     total { '30' }

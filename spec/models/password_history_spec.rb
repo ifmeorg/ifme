@@ -10,9 +10,10 @@
 
 describe PasswordHistory do
   let!(:password_history1) { FactoryBot.create(:password_history) }
-  let(:password_history2) { FactoryBot.build(:password_history,
-    encrypted_password: password_history1.encrypted_password)
-  }
+  let(:password_history2) do
+    FactoryBot.build(:password_history,
+                     encrypted_password: password_history1.encrypted_password)
+  end
 
   context 'validations' do
     context 'encrypted_password' do

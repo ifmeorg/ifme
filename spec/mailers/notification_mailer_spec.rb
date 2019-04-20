@@ -4,7 +4,7 @@ describe 'NotificationMailer' do
   let(:medication) { create(:medication, :with_daily_reminder, user_id: recipient.id) }
   let(:medication_reminder) { medication.take_medication_reminder }
   let(:strategy) { create(:strategy, :with_daily_reminder, user_id: recipient.id) }
-  let(:group) {create(:group)}
+  let(:group) { create(:group) }
   let(:strategy_reminder) { strategy.perform_strategy_reminder }
   let(:meeting) { create(:meeting) }
 
@@ -74,9 +74,9 @@ describe 'NotificationMailer' do
   end
 
   describe 'notification' do
-    let(:group_link) {"<a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>"}
-    let(:meeting_link) {"<a href=\"http://localhost:3000/meetings/#{meeting.id}\">click here</a>"}
-    let(:code_of_conduct_link) {"<a href=\"https://www.contributor-covenant.org/\">Code of Conduct</a>"}
+    let(:group_link) { "<a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>" }
+    let(:meeting_link) { "<a href=\"http://localhost:3000/meetings/#{meeting.id}\">click here</a>" }
+    let(:code_of_conduct_link) { '<a href="https://www.contributor-covenant.org/">Code of Conduct</a>' }
     let(:who_triggered_event) { create(:user2) }
     let(:data) do
       {
@@ -107,14 +107,14 @@ describe 'NotificationMailer' do
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} sent an ally request!") }
       it { expect(email.body.encoded).to match('<p>Please <a href="http://localhost:3000/allies">sign in</a> to accept or reject the request!</p>') }
     end
-    
+
     context 'when type is new_group' do
       let(:type) { 'new_group' }
 
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} created a group \"#{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+      it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
       it { expect(email.body.encoded).to match("<p>#{who_triggered_event.name} created a group \"#{group.name}\":</p><p><i>#{group.description}</i></p><p>To learn more and join, #{group_link}!</p><p>Please follow our #{code_of_conduct_link}!</p>") }
     end
 
@@ -124,7 +124,7 @@ describe 'NotificationMailer' do
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} joined your group \"#{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+      it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
       it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
     end
 
@@ -134,7 +134,7 @@ describe 'NotificationMailer' do
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} became a leader of \" #{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+      it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
       it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
     end
 
@@ -144,7 +144,7 @@ describe 'NotificationMailer' do
       subject(:email) { NotificationMailer.notification_email(who_triggered_event, data) }
 
       it { expect(email.subject).to eq("if me | You became a leader of \"#{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{who_triggered_event.name},")}
+      it { expect(email.body.encoded).to match("Hi #{who_triggered_event.name},") }
       it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
     end
 
@@ -154,7 +154,7 @@ describe 'NotificationMailer' do
       subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
       it { expect(email.subject).to eq("if me | #{who_triggered_event.name} is no longer a leader of \"#{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+      it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
       it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
     end
 
@@ -164,7 +164,7 @@ describe 'NotificationMailer' do
       subject(:email) { NotificationMailer.notification_email(who_triggered_event, data) }
 
       it { expect(email.subject).to eq("if me | You are no longer a leader of \"#{group.name}\"") }
-      it {expect(email.body.encoded).to match("Hi #{who_triggered_event.name},")}
+      it { expect(email.body.encoded).to match("Hi #{who_triggered_event.name},") }
       it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
     end
 
@@ -183,63 +183,62 @@ describe 'NotificationMailer' do
       end
 
       context 'when type is new_meeting' do
-        let(:new_meeting_subject) {"if me | #{who_triggered_event.name} has created a new meeting \"#{meeting.name}\" for \"#{group.name}\""}
-        let(:type) {'new_meeting'}
+        let(:new_meeting_subject) { "if me | #{who_triggered_event.name} has created a new meeting \"#{meeting.name}\" for \"#{group.name}\"" }
+        let(:type) { 'new_meeting' }
 
         subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
-        it { expect(email.subject).to eq("#{new_meeting_subject}") }
-        it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
-        it do  expect(email.body.encoded).to match([
-              "<p>#{new_meeting_subject}</p><p><i>#{meeting.description}</i></p>",
-              "<p><strong>Location:</strong> #{meeting.location}</p>",
-              "<p><strong>Date:</strong> #{meeting.date}</p><p><strong>Time:</strong> #{meeting.time}</p>",
-              "<p>To learn more and attend, <a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>!</p>",
-            ].join("\n")
-         )
+        it { expect(email.subject).to eq(new_meeting_subject.to_s) }
+        it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
+        it do
+          expect(email.body.encoded).to match([
+            "<p>#{new_meeting_subject}</p><p><i>#{meeting.description}</i></p>",
+            "<p><strong>Location:</strong> #{meeting.location}</p>",
+            "<p><strong>Date:</strong> #{meeting.date}</p><p><strong>Time:</strong> #{meeting.time}</p>",
+            "<p>To learn more and attend, <a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>!</p>"
+          ].join("\n"))
         end
       end
 
       context 'when type is update_meeting' do
-        let(:update_meeting_subject) {"if me | #{who_triggered_event.name} has updated the meeting \"#{meeting.name}\" for \"#{group.name}\""}
-        let(:type) {'update_meeting'}
+        let(:update_meeting_subject) { "if me | #{who_triggered_event.name} has updated the meeting \"#{meeting.name}\" for \"#{group.name}\"" }
+        let(:type) { 'update_meeting' }
 
         subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
-        it { expect(email.subject).to eq("#{update_meeting_subject}") }
-        it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
-        it do  expect(email.body.encoded).to match([
-               "<p>#{update_meeting_subject}</p><p><i>#{meeting.description}</i></p>",
-               "<p><strong>Location:</strong> #{meeting.location}</p>",
-               "<p><strong>Date:</strong> #{meeting.date}</p><p><strong>Time:</strong> #{meeting.time}</p>",
-               "<p>To learn more, <a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>!</p>"
-             ].join("\n")
-         )
+        it { expect(email.subject).to eq(update_meeting_subject.to_s) }
+        it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
+        it do
+          expect(email.body.encoded).to match([
+            "<p>#{update_meeting_subject}</p><p><i>#{meeting.description}</i></p>",
+            "<p><strong>Location:</strong> #{meeting.location}</p>",
+            "<p><strong>Date:</strong> #{meeting.date}</p><p><strong>Time:</strong> #{meeting.time}</p>",
+            "<p>To learn more, <a href=\"http://localhost:3000/groups/#{group.id}\">click here</a>!</p>"
+          ].join("\n"))
         end
       end
 
       context 'when type is remove_meeting' do
-        let(:remove_meeting_subject) {"if me | #{who_triggered_event.name} has cancelled \"#{meeting.name}\" for \"#{group.name}\""}
-        let(:type) {'remove_meeting'}
+        let(:remove_meeting_subject) { "if me | #{who_triggered_event.name} has cancelled \"#{meeting.name}\" for \"#{group.name}\"" }
+        let(:type) { 'remove_meeting' }
 
         subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
-        it { expect(email.subject).to eq("#{remove_meeting_subject}") }
-        it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+        it { expect(email.subject).to eq(remove_meeting_subject.to_s) }
+        it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
         it { expect(email.body.encoded).to match("<p>To see \"#{group.name}\", #{group_link}!</p>") }
       end
 
       context 'when type is join_meeting' do
-        let(:join_meeting_subject) {"if me | #{who_triggered_event.name} has joined \"#{meeting.name}\" for \"#{group.name}\""}
-        let(:type) {'join_meeting'}
+        let(:join_meeting_subject) { "if me | #{who_triggered_event.name} has joined \"#{meeting.name}\" for \"#{group.name}\"" }
+        let(:type) { 'join_meeting' }
 
         subject(:email) { NotificationMailer.notification_email(recipient, data) }
 
-        it { expect(email.subject).to eq("#{join_meeting_subject}") }
-        it {expect(email.body.encoded).to match("Hi #{recipient.name},")}
+        it { expect(email.subject).to eq(join_meeting_subject.to_s) }
+        it { expect(email.body.encoded).to match("Hi #{recipient.name},") }
         it { expect(email.body.encoded).to match("<p>To see \"#{meeting.name}\", #{meeting_link}!</p>") }
       end
-
     end
 
     describe 'when type is comment on moment' do

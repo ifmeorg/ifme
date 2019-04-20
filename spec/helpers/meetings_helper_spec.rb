@@ -38,38 +38,33 @@ describe MeetingsHelper do
   end
 
   describe '#google_cal_actions' do
-    context "when event is not added to google calendar" do
+    context 'when event is not added to google calendar' do
       it 'returns link for adding the event to google calendar' do
         expect(current_user).to receive(:google_oauth2_enabled?).and_return(true)
         result = google_cal_actions(meeting.reload)
         expect(result).to eq(
-          {
-            add_to_google_cal: {
-              name: t('meetings.google_cal.create.add'),
-              link: meeting_google_calendar_event_path(meeting),
-              dataMethod: 'post'
-            }
+          add_to_google_cal: {
+            name: t('meetings.google_cal.create.add'),
+            link: meeting_google_calendar_event_path(meeting),
+            dataMethod: 'post'
           }
         )
       end
     end
 
-    context "when event is added to google cal" do
+    context 'when event is added to google cal' do
       it 'returns link for removing the event from google calendar' do
         meeting_member.update_column(:google_cal_event_id, 'id1')
         expect(current_user).to receive(:google_oauth2_enabled?).and_return(true)
         result = google_cal_actions(meeting.reload)
         expect(result).to eq(
-          {
-            remove_from_google_cal: {
-              name: t('meetings.google_cal.destroy.remove'),
-              link: meeting_google_calendar_event_path(meeting),
-              dataMethod: 'delete'
-            }
+          remove_from_google_cal: {
+            name: t('meetings.google_cal.destroy.remove'),
+            link: meeting_google_calendar_event_path(meeting),
+            dataMethod: 'delete'
           }
         )
       end
     end
   end
-
 end

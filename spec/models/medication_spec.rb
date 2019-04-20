@@ -75,7 +75,7 @@ describe Medication do
 
   describe 'daily?' do
     let(:user) { FactoryBot.create(:user1) }
-    let(:weekly_medication) { FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [1,2,3,4]) }
+    let(:weekly_medication) { FactoryBot.create(:medication, user_id: user.id, weekly_dosage: [1, 2, 3, 4]) }
     let(:daily_medication) { FactoryBot.create(:medication, user_id: user.id) }
 
     it 'is weekly medication' do

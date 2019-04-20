@@ -107,7 +107,7 @@ describe StrategiesHelper do
         name: 'strategy[perform_strategy_reminder_attributes][id]',
         type: 'hidden',
         value: strategy&.perform_strategy_reminder&.id
-      },
+      }
     ]
   end
 
@@ -127,7 +127,7 @@ describe StrategiesHelper do
   describe '#quick_create_strategy_props' do
     before { @strategy = strategy }
 
-    subject { quick_create_strategy_props() }
+    subject { quick_create_strategy_props }
 
     it 'returns correct props' do
       quick_strategy_form_inputs_res = [
@@ -136,9 +136,9 @@ describe StrategiesHelper do
       ]
 
       expect(subject).to eq(quick_create_form_props(
-        quick_strategy_form_inputs_res,
-        '/strategies/quick_create'
-      ))
+                              quick_strategy_form_inputs_res,
+                              '/strategies/quick_create'
+                            ))
     end
   end
 

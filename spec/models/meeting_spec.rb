@@ -92,8 +92,10 @@ describe Meeting do
     let!(:user) { create :user1 }
     let!(:member) { create :user2 }
     let!(:meeting) { create :meeting }
-    let!(:meeting_member) { create :meeting_member, user_id: member.id, leader: false,
-                                meeting_id: meeting.id }
+    let!(:meeting_member) do
+      create :meeting_member, user_id: member.id, leader: false,
+                              meeting_id: meeting.id
+    end
     context 'when user is not a member of the meeting' do
       it 'returns nil' do
         expect(meeting.meeting_member(user)).to be nil
@@ -139,7 +141,7 @@ describe Meeting do
   describe '#date_time' do
     context 'when date is not available' do
       it 'returns nil' do
-        meeting = build(:meeting, time: Time.now.strftime("%H:%M"), date: nil)
+        meeting = build(:meeting, time: Time.now.in_time_zone.strftime('%H:%M'), date: nil)
 
         expect(meeting.date_time).to be nil
       end
@@ -163,9 +165,9 @@ describe Meeting do
 
     context 'when both time and date are available' do
       it 'returns date_time' do
-        date = Date.new(2017, 03, 19).to_s
-        time = "03:19"
-        date_time = DateTime.new(2017, 03, 19, 03, 19).in_time_zone
+        date = Date.new(2017, 0o3, 19).to_s
+        time = '03:19'
+        date_time = DateTime.new(2017, 0o3, 19, 0o3, 19).in_time_zone
         meeting = build(:meeting, date: date, time: time)
 
         expect(meeting.date_time).to eq date_time
