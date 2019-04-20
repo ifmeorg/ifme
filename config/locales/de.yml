@@ -556,6 +556,8 @@ de:
         asl: ASL
         latinx: latinx
         hispanic: hispanisch
+        senior_citizens: Senioren
+        black_people: Schwarze
   profile:
     index:
       title: Profil

@@ -8,7 +8,7 @@
   {
     "name": "Brown Sisters Speak",
     "link": "https://www.facebook.com/Brownsistersspeak",
-    "tags": ["women_of_colour", "self_care", "domestic_violence", "support_groups"],
+    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups"],
     "languages": ["en", "es"]
   },
   {
@@ -26,7 +26,7 @@
   {
     "name": "Tessera Collective",
     "link": "https://www.facebook.com/tesseracollective",
-    "tags": ["women_of_colour", "self_care", "domestic_violence", "support_groups"],
+    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups"],
     "languages": ["en"]
   },
   {
@@ -105,6 +105,18 @@
     "name": "Elefriends (UK)",
     "link": "https://www.elefriends.org.uk/",
     "tags": ["support_groups", "anonymous", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Depressed While Black",
+    "link": "http://www.depressedwhileblack.com/",
+    "tags": ["black_people", "black_women", "depression", "blog", "podcast", "talks", "books"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Redefine Enough",
+    "link": "https://www.redefineenough.com",
+    "tags": ["podcast", "blog", "black_women", "women_of_colour", "support_groups"],
     "languages": ["en"]
   }
 ]

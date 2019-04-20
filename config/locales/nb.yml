@@ -549,6 +549,8 @@ nb:
         asl: ASL
         latinx: latinx
         hispanic: hispanic
+        senior_citizens: pensjonister
+        black_people: 'svarte mennesker'
   profile:
     index:
       title: Profil
