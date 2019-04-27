@@ -8,52 +8,48 @@
 
 # if me
 
-[if me](https://www.if-me.org/) is a community for mental health experiences
-that encourages people to share their personal stories with trusted allies.
-Trusted allies are the people we interact with on a daily basis, including
-friends, family members, co-workers, teachers, and mental health workers.
+[if me](https://www.if-me.org/) é uma comunidade para experiências de saúde mental
+que incentiva as pessoas a compartilhar suas histórias pessoais com aliados confiáveis.
+Aliados confiáveis são as pessoas com as quais interagimos diariamente, incluindo
+amigos, familiares, colegas de trabalho, professores e profissionais de saúde mental
 
-Dealing with mental health is what makes us human. But for a lot of us, it's a
-struggle to be open about it. Not everyone is a counsellor or therapist. The
-people who we interact with everyday shape our emotions and behavior. Getting
-them involved in mental health treatment is the key to recovery.
+Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, é uma luta se abrir sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvendo-as no tratamento da saúde mental são a chave para a recuperação.
 
-The live site can be found at [if-me.org](https://www.if-me.org/).
 
-We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
-our code of conduct. Please
-[read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
-before joining our project.
+O site pode ser encontrado em [if-me.org](https://www.if-me.org/).
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+Nós usamos o maravilhoso [Contributor Covenant](http://contributor-covenant.org) para
+nosso código de conduta. Por favor
+[leia isso](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+antes de entrar em nosso projeto.
 
-## Documentation
+**Leia sobre as metas do nosso projeto e como contribuir (não apenas como contribuidor)[aqui](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
 
-Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
+## Documentação
 
-### Installation
+Por favor, confira nossa [Wiki](https://github.com/ifmeorg/ifme/wiki) para documentação completa.
 
-Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
+### Instalação
 
-### Contributor Blurb
+Informações sobre como instalar e configurar o aplicativo [aqui](https://github.com/ifmeorg/ifme/wiki/Installation). As instâncias de teste, desenvolvimento e produção são cobertas.
 
-Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contribute page.
+### Sinopse para o Contribuidor
 
-## Donate
+Todos são altamente encorajados a [adicionar-se](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) à nossa página do Contribute.
 
-We also welcome financial contributions in full transparency on our
-[Open Collective](https://opencollective.com/ifme).
-Anyone can file an expense. If the expense makes sense for the development of
-the community, it will be "merged" in the ledger of our Open Collective by the
-core contributors and the person who filed the expense will be reimbursed.
+## Doar
 
-We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
-monthly donations.
+Nós também damos boas vindas à contribuições financeiras com total transparência na nossa
+[Coleta aberta](https://opencollective.com/ifme).
+Qualquer um pode submeter uma despesa. Se a despesa faz sentido para o desenvolvimento da comunidade, será "fundida" à razão da nossa Coleta Aberta pelos contribuidores principais e a pessoa que teve a despesa será reembolsada.
 
-### Backers
+Nós também temos uma [Patreon](https://www.patreon.com/ifme) página onde você pode dar
+doações mensais.
 
-Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
-[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
+### Apoiadores
+
+Obrigado aos nossos apoiadores do Patreon [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), e
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
 Thank you to all our Open Collective backers!
@@ -61,10 +57,10 @@ Thank you to all our Open Collective backers!
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
-### Sponsors
+### Patrocinadores
 
-Thank you to all our sponsors! (please ask your company to also support this
-open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
+Obrigado a todos os nossos patrocinadores! (por favor, pergunte a sua empresa para também apoiar
+projeto de código aberto por [tornando-se um patrocinador](https://opencollective.com/ifme#sponsor))
 
 <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
@@ -77,8 +73,8 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
 <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
 
-## License
+## Licença
 
-The source code is licensed under GNU AGPLv3. For more information see
-http://www.gnu.org/licenses/agpl-3.0.txt or
+O código fonte está licenciado sob GNU AGPLv3. Para mais informações, veja
+http://www.gnu.org/licenses/agpl-3.0.txt ou
 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
