@@ -46,7 +46,7 @@ gem 'groupdate', '4.1.1'
 gem 'react_on_rails', '11.2.2'
 gem 'webpacker'
 
-gem 'selenium-webdriver', '~> 3.141.5926'
+gem 'selenium-webdriver', '~> 3.142.0'
 
 group :development, :test do
   gem 'bundler-audit'
