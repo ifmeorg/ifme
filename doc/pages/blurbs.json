@@ -438,5 +438,14 @@
     "link_name": "hnarasaki",
     "link": "https://github.com/hnarasaki",
     "social": "github"
+  },
+  {
+    "name": "Varshini Ananta",
+    "image": "/assets/contributors/varshini_ananta.jpg",
+    "profile": "I'm an incoming Software Engineer at Amazon and interned there last summer too. I want to get more involved in the open-source community and also address issues I am passionate on solving. Mental health is extremely important when it comes to forming relationships to performing our jobs, and I say this through personal experience by overcoming many obstacles myself. I hope I can make valuable contributions as a developer to if-me that will help others who are going through tough times and just need a shoulder to lean on.",
+    "location": "Bay Area, CA",
+    "link_name": "sananta",
+    "link": "https://github.com/sananta",
+    "social": "github"
   }
 ]
