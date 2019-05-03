@@ -10,10 +10,10 @@
   <%= render partial: '/shared/stats', locals: { data_type: 'category', user: current_user } %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
-    data:       categories_or_moods_props(@categories),
-    fetchUrl:   categories_path,
-    lastPage:   @categories.last_page?
-    })%>
+    data: categories_or_moods_props(@categories),
+    fetchUrl: categories_path,
+    isLastPage: @categories.last_page?
+  }) %>
 <% else %>
   <%= raw t('categories.index.instructions') %>
   <%= button_to t('common.actions.add_all'), premade_categories_path, class: 'smallMarginTop buttonDarkS' %>

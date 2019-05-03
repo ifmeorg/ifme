@@ -13,6 +13,7 @@ fr:
   no_text: non
   expand_menu: 'dérouler le menu'
   close: fermer
+  load_more: 'Charger plus'
   languages:
     en: English
     es: Español

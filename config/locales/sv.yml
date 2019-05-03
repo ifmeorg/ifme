@@ -13,6 +13,7 @@ sv:
   no_text: nej
   expand_menu: 'expandera menyn'
   close: stänga
+  load_more: 'Ladda mer'
   languages:
     en: English
     es: Español

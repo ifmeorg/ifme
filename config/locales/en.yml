@@ -13,6 +13,7 @@ en:
   no_text: 'no'
   expand_menu: 'expand menu'
   close: close
+  load_more: 'Load more'
   languages:
     en: English
     es: Español

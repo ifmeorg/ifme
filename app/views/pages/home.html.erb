@@ -9,10 +9,10 @@
 <% elsif @stories.any? %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
-    data:       moments_or_strategy_props(@stories),
-    fetchUrl:   home_data_path,
-    lastPage:   @stories.last_page?
-    })%>
+    data: moments_or_strategy_props(@stories),
+    fetchUrl: home_data_path,
+    lastPage: @stories.last_page?
+  }) %>
 <% else %>
   <%= render partial: 'signed_in_empty' %>
 <% end %>

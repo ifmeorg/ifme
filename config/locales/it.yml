@@ -13,6 +13,7 @@ it:
   no_text: 'no'
   expand_menu: 'espandere il menu'
   close: vicino
+  load_more: 'Carica altro'
   languages:
     en: English
     es: Español

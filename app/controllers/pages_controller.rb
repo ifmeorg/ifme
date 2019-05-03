@@ -9,11 +9,11 @@ class PagesController < ApplicationController
   skip_before_action :if_not_signed_in
 
   def home
-    @blurbs = set_blurbs
     if user_signed_in?
       setup_stories
       load_dashboard_data if @stories.present? && @stories.count.positive?
     else
+      @blurbs = set_blurbs
       @posts = fetch_posts
     end
   end

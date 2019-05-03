@@ -68,6 +68,7 @@ Rails.application.routes.draw do
     collection do
       post 'add_ban'
       post 'remove_ban'
+      get 'data', defaults: { format: 'json' }
     end
   end
 
