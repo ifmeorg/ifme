@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
 class ProfileController < ApplicationController
-  include StoriesHelper
+  include ProfileHelper
 
   def index
-    user = User.find_by(uid: params[:uid])
-    @profile = user
-    return unless user == current_user || current_user.mutual_allies?(user)
+    setup_stories
+  end
 
-    @stories = Kaminari.paginate_array(get_stories(user))
-                       .page(params[:page])
+  def data
+    setup_stories
+    respond_to do |format|
+      format.json do
+        render json: data_json
+      end
+    end
   end
 
   def add_ban

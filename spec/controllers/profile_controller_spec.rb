@@ -57,6 +57,17 @@ describe ProfileController do
     end
   end
 
+  describe '#data' do
+    let(:user) { create(:user) }
+    let(:moment) { create(:moment, user: user) }
+    include_context :logged_in_user
+    before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+
+    it 'returns a response with the correct path' do
+      expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+    end
+  end
+
   describe '#add_ban' do
     let(:user2) { create(:user2) }
 

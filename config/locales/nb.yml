@@ -13,6 +13,7 @@ nb:
   no_text: nei
   expand_menu: 'utvide menyen'
   close: lukk
+  load_more: 'Last mer'
   languages:
     en: English
     es: Español

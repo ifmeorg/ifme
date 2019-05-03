@@ -13,6 +13,7 @@ nl:
   no_text: 'nee'
   expand_menu: 'vouw menu uit'
   close: sluiten
+  load_more: 'Meer laden'
   languages:
     en: English
     es: Español

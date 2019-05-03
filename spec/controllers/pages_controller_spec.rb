@@ -11,14 +11,14 @@ describe PagesController, type: :controller do
       let(:user) { create(:user) }
       include_context :logged_in_user
 
-      it 'if has no stories' do
+      it 'has no stories' do
         list = double
         expect(Kaminari).to receive(:paginate_array).and_return(list)
         expect(list).to receive(:page)
         get :home
       end
 
-      it 'if have stories' do
+      it 'has stories' do
         create(:strategy, user_id: user.id)
         categories = create_list(:category, 2, user_id: user.id)
         moods = create_list(:mood, 2, user_id: user.id)

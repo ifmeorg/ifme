@@ -13,6 +13,7 @@ vi:
   no_text: không
   expand_menu: 'mở rộng menu'
   close: gần
+  load_more: 'Tải thêm'
   languages:
     en: English
     es: Español
