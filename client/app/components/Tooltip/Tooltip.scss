@@ -12,16 +12,16 @@
   }
 
   > div:last-of-type {
-    @include setFontSize($size-18);
-    @include setPadding($size-10, $size-10, $size-10, $size-10);
+    @include setFontSize($size-14);
+    @include setPadding($size-6, $size-6, $size-6, $size-6);
     font-weight: $font-weight-400;
     text-transform: none;
     letter-spacing: normal;
-    color: $black;
+    color: $light-grey;
     box-sizing: border-box;
     box-shadow: $size-0 $size-2 $size-10 $black-10;
-    border-radius: $size-4;
-    background: $white;
+    border-radius: $size-1;
+    background: $black-70;
     width: 200px;
     display: none;
     position: absolute;
