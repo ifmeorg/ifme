@@ -1,6 +1,4 @@
 describe GroupsFormHelper do
-  let(:inputs) { nil }
-  let(:action) { nil }
   let(:valid_inputs) do
     [
       {
@@ -21,7 +19,7 @@ describe GroupsFormHelper do
         required: true,
         dark: true
       }
-    ],
+    ]
   end
 
   let(:valid_action) { '/groups' }
@@ -106,8 +104,5 @@ describe GroupsFormHelper do
           )
         end
       end
+    end
   end
-
-
-
-  
