@@ -74,6 +74,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
 
   gem 'rubocop', '>= 0.49.0'
+  gem 'rubocop-performance'
   gem 'rubocop-rspec'
 
   gem 'foreman'
