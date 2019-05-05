@@ -156,9 +156,7 @@ jobs:
           name: Deploy Storybook
           command: |
             cd client
-            yarn build:storybook
-            mv .out .public
-            yarn run surge --project .public --domain design.if-me.org
+            yarn deploy:storybook
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
