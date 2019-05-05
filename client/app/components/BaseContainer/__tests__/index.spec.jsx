@@ -4,6 +4,19 @@ import React from 'react';
 import axios from 'axios';
 import { BaseContainer } from '../index';
 
+const response = {
+  data: {
+    lastPage: true,
+    data: [
+      {
+        name: 'Some Other Story',
+        link: 'some-other-url',
+        date: 'Created 3 Days ago',
+      },
+    ],
+  },
+};
+
 const getComponent = ({ fetchUrl, lastPage } = {}) => (
   <BaseContainer
     container="StoryContainer"
@@ -28,21 +41,11 @@ describe('BaseContainer', () => {
         it('renders the "Load more" button', () => {
           const wrapper = mount(getComponent({ fetchUrl }));
           expect(wrapper.find('.loadMore').length).toEqual(1);
+          expect(wrapper.find('.story').length).toEqual(1);
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve({
-            data: {
-              lastPage: true,
-              data: [
-                {
-                  name: 'Some Other Story',
-                  link: 'some-other-url',
-                  date: 'Created 3 Days ago',
-                },
-              ],
-            },
-          }));
+          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));
           const wrapper = mount(getComponent({ fetchUrl }));
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();
@@ -59,6 +62,7 @@ describe('BaseContainer', () => {
         it('does not render the "Load more" button', () => {
           const wrapper = mount(getComponent({ fetchUrl, lastPage: true }));
           expect(wrapper.find('.loadMore').length).toEqual(0);
+          expect(wrapper.find('.story').length).toEqual(1);
         });
       });
     });
@@ -70,21 +74,11 @@ describe('BaseContainer', () => {
         it('renders the "Load more" button', () => {
           const wrapper = mount(getComponent({ fetchUrl }));
           expect(wrapper.find('.loadMore').length).toEqual(1);
+          expect(wrapper.find('.story').length).toEqual(1);
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve({
-            data: {
-              lastPage: true,
-              data: [
-                {
-                  name: 'Some Other Story',
-                  link: 'some-other-url',
-                  date: 'Created 3 Days ago',
-                },
-              ],
-            },
-          }));
+          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));
           const wrapper = mount(getComponent({ fetchUrl }));
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();
@@ -101,6 +95,7 @@ describe('BaseContainer', () => {
         it('does not render the "Load more" button', () => {
           const wrapper = mount(getComponent({ fetchUrl, lastPage: true }));
           expect(wrapper.find('.loadMore').length).toEqual(0);
+          expect(wrapper.find('.story').length).toEqual(1);
         });
       });
     });
