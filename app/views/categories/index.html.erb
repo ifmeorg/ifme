@@ -12,7 +12,7 @@
     container: 'StoryContainer',
     data: categories_or_moods_props(@categories),
     fetchUrl: categories_path,
-    isLastPage: @categories.last_page?
+    lastPage: @categories.last_page?
   }) %>
 <% else %>
   <%= raw t('categories.index.instructions') %>
