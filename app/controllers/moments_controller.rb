@@ -4,6 +4,7 @@ class MomentsController < ApplicationController
   include MomentsHelper
   include MomentsStatsHelper
   include MomentsFormHelper
+  include CloudinaryService
   include Shared
 
   before_action :set_moment, only: %i[show edit update destroy]
@@ -68,6 +69,13 @@ class MomentsController < ApplicationController
   def destroy
     @moment.destroy
     redirect_to_path(moments_path)
+  end
+
+  # POST /moments/1/picture
+  # POST /moments/1/picture.json
+  def picture
+    moment = set_moment(params[:moment_id])
+    CloudinaryService.()
   end
 
   private
