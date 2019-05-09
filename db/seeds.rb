@@ -11,6 +11,7 @@ user1 = User.create(name: 'Test1 Lastname', email: 'test1@example.com', password
 user2 = User.create(name: 'Test2 Lastname', email: 'test2@example.com', password: 'passworD@99', location: 'Toronto, ON, Canada')
 user3 = User.create(name: 'Test3 Two-Lastnames', email: 'test3@example.com', password: 'passworD@99', location: 'San Francisco, CA, United States')
 user4 = User.create(name: 'Admin User', email: 'admin@example.com', password: 'passworD@99', location: 'San Francisco, CA, United States', admin: true)
+user5 = User.create(name: 'Benjamin Wacha', email: 'ben@example.com', password: 'benjamin@99', location: 'San Francisco, CA, United States', admin: true)
 
 # Allies
 Allyship.create(user_id: user1.id, ally_id: user2.id, status: :accepted)

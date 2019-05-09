@@ -1,7 +1,7 @@
 development:
-  cloud_name: ENV['CLOUDINARY_CLOUD_NAME']
-  api_key: ENV['CLOUDINARY_API_KEY']
-  api_secret: ENV['CLOUDINARY_API_SECRET']
+  cloud_name: 'dagpodkrl'
+  api_key: 328982899867788
+  api_secret: 'hHov6_B0yRXq3wWMN3gyy9PS4EU'
   enhance_image_tag: true
   static_image_support: true
   secure: true
