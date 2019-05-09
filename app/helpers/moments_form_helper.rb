@@ -32,16 +32,6 @@ module MomentsFormHelper
     moment_text_input_props('name', 'text', 'common.name', true)
   end
 
-  def moment_image
-    { id: 'moment_image',
-      type: '',
-      label: t('moments.form.moment_image'),
-      dark: true,
-      name: 'image',
-      value: 'image'
-    }
-  end
-
   def moment_why
     moment_text_input_props('why', 'textarea', 'moments.form.why', true)
   end
