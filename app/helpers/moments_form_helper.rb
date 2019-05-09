@@ -87,7 +87,7 @@ module MomentsFormHelper
       moment_name, moment_why, moment_fix, moment_category, moment_mood,
       moment_strategy, get_viewers_input(
         @viewers, 'moment', 'moments', @moment
-      ), moment_picture,
+      ),
       moment_comment, moment_publishing
     ]
   end
