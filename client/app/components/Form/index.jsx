@@ -161,7 +161,6 @@ export class Form extends React.Component<Props, State> {
 
   render() {
     const { action, noFormTag, noFormTagRef } = this.props;
-    console.log(this.props);
     if (noFormTag) {
       return (
         <div className={css.form} ref={noFormTagRef}>
