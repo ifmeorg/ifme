@@ -2,20 +2,19 @@ describe GroupsFormHelper do
   let(:valid_inputs) do
     [
       {
-        id: 'group_name',
+        id: '1',
         type: 'text',
-        name: 'group[name]',
+        name: 'group1',
         label: t('common.name'),
-        value: @group.name || nil,
+        value: 'Hello',
         required: true,
         dark: true
       },
       {
-        id: 'group_description',
         type: 'textarea',
-        name: 'group[description]',
+        name: 'First Description',
         label: t('common.form.description'),
-        value: @group.description || nil,
+        value: 'Hi again',
         required: true,
         dark: true
       }
@@ -40,23 +39,22 @@ describe GroupsFormHelper do
         expect(subject).to eq(
           inputs: [
             {
-              id: 'group_name',
+              id: '1',
               type: 'text',
-              name: 'group[name]',
+              name: 'group1',
               label: t('common.name'),
-              value: @group.name || nil,
+              value: 'Hello',
               required: true,
               dark: true
             },
             {
-              id: 'group_description',
               type: 'textarea',
-              name: 'group[description]',
+              name: 'First Description',
               label: t('common.form.description'),
-              value: @group.description || nil,
+              value: 'Hi again',
               required: true,
               dark: true
-            },
+            }
             { id: 'submit', type: 'submit', value: 'Submit', dark: true }
           ],
           action: '/groups'
@@ -80,20 +78,19 @@ describe GroupsFormHelper do
           expect(subject).to eq(
             inputs: [
               {
-                id: 'group_name',
+                id: '2',
                 type: 'text',
-                name: 'group[name]',
+                name: 'Edited Group',
                 label: t('common.name'),
-                value: @group.name || nil,
+                value: 'I ame edited',
                 required: true,
                 dark: true
               },
               {
-                id: 'group_description',
                 type: 'textarea',
-                name: 'group[description]',
+                name: 'Edited Description',
                 label: t('common.form.description'),
-                value: @group.description || nil,
+                value: 'I am an edited description',
                 required: true,
                 dark: true
               },
