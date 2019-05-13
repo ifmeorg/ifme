@@ -404,7 +404,7 @@ GEM
       rake
     sdoc (1.0.0)
       rdoc (>= 5.0)
-    selenium-webdriver (3.142.1)
+    selenium-webdriver (3.142.2)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.9.0)
@@ -525,7 +525,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0, >= 5.0.6)
   sdoc (= 1.0.0)
-  selenium-webdriver (~> 3.142.1)
+  selenium-webdriver (~> 3.142.2)
   sentry-raven
   simplecov
   spring
