@@ -56,7 +56,7 @@ group :development, :test do
 
   gem 'annotate', '~> 2.7'
   gem 'railroady', '1.5.3'
-  gem 'rails-erd', '~> 1.4', '>= 1.4.4'
+  gem 'rails-erd', '~> 1.6'
 
   gem 'better_errors', '~> 2.5'
   gem 'byebug'
