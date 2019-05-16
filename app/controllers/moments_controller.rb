@@ -4,11 +4,10 @@ class MomentsController < ApplicationController
   include MomentsHelper
   include MomentsStatsHelper
   include MomentsFormHelper
-  include CloudinaryService
   include Shared
 
-  before_action :set_moment, only: %i[show edit update destroy]
-  before_action :load_viewers, only: %i[new edit create update]
+  before_action :set_moment, only: %i[show edit update destroy picture]
+  before_action :load_viewers, only: %i[new edit create update picture]
 
   # GET /moments
   # GET /moments.json
@@ -75,7 +74,15 @@ class MomentsController < ApplicationController
   # POST /moments/1/picture.json
   def picture
     moment = set_moment(params[:moment_id])
-    CloudinaryService.()
+    # Set picture_id
+    cloudinary_response = CloudinaryService.upload(file, 'options')
+    moment.picture_id =
+      if cloudinary_response?
+        cloudinary_response["public_id"]
+      else
+        cloudinary_response
+      end
+    moment.save!
   end
 
   private

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   resources :moments do
-    post 'picture', to: 'moment#picture', as: 'picture'
+    post 'picture', to: 'moments#picture', as: 'picture'
   end
 
   resources :secret_shares, only: %i[create show destroy]
