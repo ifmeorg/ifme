@@ -32,13 +32,12 @@ const header = (
   actions: ?Actions,
   draft: ?string,
   name: string,
-  link: string,
 ) => (
   <div className={css.header}>
     <div className={css.gridRowSpaceBetween}>
       <div className={css.headerTitle}>
         {draft && <StoryDraft draft={draft} />}
-        <StoryName name={name} link={link} />
+        <StoryName name={name} />
       </div>
       {condensed && actions && <StoryActions actions={actions} hasStory />}
     </div>
