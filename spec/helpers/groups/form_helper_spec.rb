@@ -54,7 +54,7 @@ describe GroupsFormHelper do
               value: 'Hi again',
               required: true,
               dark: true
-            }
+            },
             { id: 'submit', type: 'submit', value: 'Submit', dark: true }
           ],
           action: '/groups'
@@ -103,3 +103,4 @@ describe GroupsFormHelper do
       end
     end
   end
+end
