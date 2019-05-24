@@ -1,4 +1,6 @@
 describe GroupsFormHelper do
+  let(:inputs) { nil }
+  let(:action) { nil }
   let(:valid_inputs) do
     [
       {
