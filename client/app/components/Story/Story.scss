@@ -43,9 +43,6 @@
     @include standardTransition();
     color: $mulberry;
     word-break: break-word;
-    &:hover {
-      cursor: pointer;
-    }
   }
   .body {
     @include setMargin($size-10, $size-0, $size-0, $size-0);
