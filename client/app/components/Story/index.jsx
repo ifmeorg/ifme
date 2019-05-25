@@ -15,7 +15,7 @@ import css from './Story.scss';
 
 export type Props = {
   name: string,
-  link: string,
+  link?: string,
   date?: string,
   draft?: string,
   actions?: Actions,
@@ -32,12 +32,13 @@ const header = (
   actions: ?Actions,
   draft: ?string,
   name: string,
+  link: ?string,
 ) => (
   <div className={css.header}>
     <div className={css.gridRowSpaceBetween}>
       <div className={css.headerTitle}>
         {draft && <StoryDraft draft={draft} />}
-        <StoryName name={name} />
+        <StoryName name={name} link={link} />
       </div>
       {condensed && actions && <StoryActions actions={actions} hasStory />}
     </div>
@@ -91,13 +92,14 @@ export const Story = (props: Props) => {
     actions,
     draft,
     name,
+    link,
     body,
     medicationBody,
   } = props;
   const condensed = !storyBy && !storyType;
   return (
     <div className={`story ${css.story}`}>
-      {header(condensed, actions, draft, name)}
+      {header(condensed, actions, draft, name, link)}
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{renderHTML(body)}</div>}
       {medicationBody && <StoryMedication {...medicationBody} />}
