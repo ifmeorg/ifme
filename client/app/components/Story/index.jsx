@@ -91,14 +91,13 @@ export const Story = (props: Props) => {
     actions,
     draft,
     name,
-    link,
     body,
     medicationBody,
   } = props;
   const condensed = !storyBy && !storyType;
   return (
     <div className={`story ${css.story}`}>
-      {header(condensed, actions, draft, name, link)}
+      {header(condensed, actions, draft, name)}
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{renderHTML(body)}</div>}
       {medicationBody && <StoryMedication {...medicationBody} />}
