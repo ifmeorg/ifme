@@ -553,6 +553,7 @@ en:
         hispanic: hispanic
         senior_citizens: 'senior citizens'
         black_people: 'black people'
+        sexual_health: 'sexual health'
   profile:
     index:
       title: Profile

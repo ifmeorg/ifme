@@ -553,6 +553,7 @@ it:
         hispanic: ispanico
         senior_citizens: Anziani
         black_people: 'persone di colore'
+        sexual_health: 'salute sessuale'
   profile:
     index:
       title: Profilo

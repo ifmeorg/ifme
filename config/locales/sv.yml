@@ -553,6 +553,7 @@ sv:
         hispanic: latinamerikan
         senior_citizens: pensionärer
         black_people: 'Mörka personer'
+        sexual_health: 'sexuell hälsa'
   profile:
     index:
       title: Profil
