@@ -553,6 +553,7 @@ nl:
         hispanic: hispanic
         senior_citizens: bejaarden
         black_people: 'zwarte mensen'
+        sexual_health: 'seksuele gezondheid'
   profile:
     index:
       title: Profiel

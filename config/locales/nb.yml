@@ -553,6 +553,7 @@ nb:
         hispanic: hispanic
         senior_citizens: pensjonister
         black_people: 'svarte mennesker'
+        sexual_health: 'seksuell helse'
   profile:
     index:
       title: Profil

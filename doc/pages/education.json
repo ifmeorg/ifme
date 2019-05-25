@@ -268,5 +268,11 @@
     "link": "https://www.seniorliving.org/research/ptsd-aging-adults/",
     "tags": ["ptsd", "senior_citizens"],
     "languages": ["en"]
+  },
+  {
+    "name": "Hers Journal",
+    "link": "https://www.forhers.com/blog",
+    "tags": ["sexual_health", "women", "blog"],
+    "languages": ["en"]
   }
 ]

@@ -553,6 +553,7 @@ vi:
         hispanic: 'tây ban nha'
         senior_citizens: 'người cao tuổi'
         black_people: 'người da đen'
+        sexual_health: 'sức khỏe tình dục'
   profile:
     index:
       title: 'Hồ sơ'
