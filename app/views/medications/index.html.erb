@@ -9,10 +9,10 @@
   <%= render partial: '/search/posts', locals: { data_type: 'medication' } %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
-    data:       medications_props(@medications),
-    fetchUrl:   medications_path,
-    lastPage:   @medications.last_page?
-    })%>
+    data: medications_props(@medications),
+    fetchUrl: medications_path,
+    lastPage: @medications.last_page?
+  }) %>
 <% else %>
   <%= raw t('medications.index.instructions') %>
   <div class="gridTwo marginTop">

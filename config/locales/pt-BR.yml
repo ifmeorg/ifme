@@ -13,6 +13,7 @@ pt-BR:
   no_text: não
   expand_menu: 'expandir menu'
   close: fechar
+  load_more: 'Carregue mais'
   languages:
     en: English
     es: Español
@@ -25,6 +26,7 @@ pt-BR:
     nb: Norsk
     de: Deutsch
     fr: Français
+    hi: 'हिंदी'
   navigation:
     about: Sobre
     blog: Blog
@@ -551,6 +553,7 @@ pt-BR:
         hispanic: hispânico
         senior_citizens: 'cidadãos idosos'
         black_people: 'pessoas de cor'
+        sexual_health: 'saúde sexual'
   profile:
     index:
       title: Perfil

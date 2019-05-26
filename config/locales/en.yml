@@ -13,6 +13,7 @@ en:
   no_text: 'no'
   expand_menu: 'expand menu'
   close: close
+  load_more: 'Load more'
   languages:
     en: English
     es: Español
@@ -25,6 +26,7 @@ en:
     nb: Norsk
     de: Deutsch
     fr: Français
+    hi: 'हिंदी'
   navigation:
     about: About
     blog: Blog
@@ -551,6 +553,7 @@ en:
         hispanic: hispanic
         senior_citizens: 'senior citizens'
         black_people: 'black people'
+        sexual_health: 'sexual health'
   profile:
     index:
       title: Profile

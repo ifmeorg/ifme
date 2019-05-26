@@ -62,10 +62,10 @@
   <div class="title">
     <%= t('pages.home.stories') %>
   </div>
-  <div class="gridTwo">
-    <% @stories.each do |story| %>
-      <%= render partial: '/stories/moment_or_strategy', locals: { item: story } %>
-    <% end %>
-  </div>
-  <%= paginate @stories %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@stories),
+    fetchUrl: data_profile_index_path(uid: params[:uid]),
+    lastPage: @stories.last_page?,
+  }) %>
 <% end %>

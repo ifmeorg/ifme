@@ -17,7 +17,7 @@ gem 'resque', '2.0.0'
 gem 'resque-scheduler', '4.4.0'
 gem 'resque_mailer', '2.4.3'
 
-gem 'jbuilder', '~> 2.8.0'
+gem 'jbuilder', '~> 2.9.1'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
@@ -28,7 +28,7 @@ gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.11.1'
 gem 'figaro', '1.1.1'
-gem 'google-api-client', '~> 0.28.7'
+gem 'google-api-client', '~> 0.29.2'
 gem 'kaminari', '1.1.1'
 gem 'omniauth', '~> 1.9.0'
 gem 'omniauth-google-oauth2', '~> 0.6.1'
@@ -46,7 +46,7 @@ gem 'groupdate', '4.1.1'
 gem 'react_on_rails', '11.2.2'
 gem 'webpacker'
 
-gem 'selenium-webdriver', '~> 3.141.5926'
+gem 'selenium-webdriver', '~> 3.142.3'
 
 group :development, :test do
   gem 'bundler-audit'
@@ -56,14 +56,14 @@ group :development, :test do
 
   gem 'annotate', '~> 2.7'
   gem 'railroady', '1.5.3'
-  gem 'rails-erd', '~> 1.4', '>= 1.4.4'
+  gem 'rails-erd', '~> 1.6'
 
   gem 'better_errors', '~> 2.5'
   gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.18.0'
+  gem 'capybara', '~> 3.21.0'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
@@ -74,6 +74,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
 
   gem 'rubocop', '>= 0.49.0'
+  gem 'rubocop-performance'
   gem 'rubocop-rspec'
 
   gem 'foreman'

@@ -13,6 +13,7 @@ nl:
   no_text: 'nee'
   expand_menu: 'vouw menu uit'
   close: sluiten
+  load_more: 'Meer laden'
   languages:
     en: English
     es: Español
@@ -25,6 +26,7 @@ nl:
     nb: Norsk
     de: Deutsch
     fr: Français
+    hi: 'हिंदी'
   navigation:
     about: Over
     blog: Blog
@@ -551,6 +553,7 @@ nl:
         hispanic: hispanic
         senior_citizens: bejaarden
         black_people: 'zwarte mensen'
+        sexual_health: 'seksuele gezondheid'
   profile:
     index:
       title: Profiel

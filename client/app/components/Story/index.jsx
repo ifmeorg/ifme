@@ -15,7 +15,7 @@ import css from './Story.scss';
 
 export type Props = {
   name: string,
-  link: string,
+  link?: string,
   date?: string,
   draft?: string,
   actions?: Actions,
@@ -32,7 +32,7 @@ const header = (
   actions: ?Actions,
   draft: ?string,
   name: string,
-  link: string,
+  link: ?string,
 ) => (
   <div className={css.header}>
     <div className={css.gridRowSpaceBetween}>

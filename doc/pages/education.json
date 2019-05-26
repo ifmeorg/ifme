@@ -199,7 +199,7 @@
   },
   {
     "name": "Mental Health Knowledge Base",
-    "link": "https://mhwkb.github.io/",
+    "link": "https://mentalhealth-kb.net/",
     "tags": ["directory", "learning"],
     "languages": ["en"]
   },
@@ -267,6 +267,12 @@
     "name": "A Close Look at PTSD Among Aging Adults",
     "link": "https://www.seniorliving.org/research/ptsd-aging-adults/",
     "tags": ["ptsd", "senior_citizens"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hers Journal",
+    "link": "https://www.forhers.com/blog",
+    "tags": ["sexual_health", "women", "blog"],
     "languages": ["en"]
   }
 ]
