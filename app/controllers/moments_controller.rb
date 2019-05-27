@@ -74,14 +74,11 @@ class MomentsController < ApplicationController
   # POST /moments/1/picture.json
   def picture
     moment = set_moment(params[:moment_id])
-    # Set picture_id
     cloudinary_response = CloudinaryService.upload(file, 'options')
-    moment.picture_id =
-      if cloudinary_response?
-        cloudinary_response["public_id"]
-      else
-        cloudinary_response
-      end
+
+    return if cloudinary_response.nil?
+
+    moment.picture_id = cloudinary_response['public_id']
     moment.save!
   end
 

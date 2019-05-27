@@ -11,7 +11,6 @@ describe CloudinaryService do
       it 'returns json response from cloudinary' do
         file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
         response = subject.upload(file)
-        # byebug
 
         expect(response).to have_key("public_id")
         expect(response).to have_key("secure_url")
