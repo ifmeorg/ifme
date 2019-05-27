@@ -1,6 +1,10 @@
 describe GroupsFormHelper do
-  let(:inputs) { nil }
-  let(:action) { nil }
+  let(:group) { create(:group) }
+
+  before do
+    @group = group 
+  end
+  
   let(:valid_inputs) do
     [
       {
@@ -26,7 +30,7 @@ describe GroupsFormHelper do
   let(:valid_action) { '/groups' }
   
   describe '#new_group_props' do
-    subject { new_group_props(inputs, action) }
+    subject { new_group_props }
 
     context 'has invalid arguments' do
       it 'returns nil' do
@@ -65,7 +69,7 @@ describe GroupsFormHelper do
     end
 
     describe '#edit_group_props' do
-      subject { edit_group_props(inputs, action) }
+      subject { edit_group_props }
   
       context 'has invalid arguments' do
         it 'returns nil' do
