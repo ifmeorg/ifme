@@ -43,7 +43,7 @@ gem 'inline_svg'
 
 gem 'groupdate', '4.1.2'
 
-gem 'react_on_rails', '11.2.2'
+gem 'react_on_rails', '11.3.0'
 gem 'webpacker'
 
 gem 'selenium-webdriver', '~> 3.142.3'
