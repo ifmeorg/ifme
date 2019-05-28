@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 FILENAME = "moment.jpeg"
-FILE_PATH = "/public/uploads/tmp/moment"
+FILE_PATH = "/spec/uploads/"
 OPTIONS = {}
 
 describe CloudinaryService do

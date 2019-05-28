@@ -5,13 +5,15 @@ include ReactOnRailsHelper
 class CloudinaryService
   class << self
     def upload(file, options = {})
-      # to do: add exception handling
       Cloudinary::Uploader.upload(file, options)
+    rescue StandardError
+      nil
     end
 
     def delete(public_id, options = {})
-      # to do: add exception handling
       Cloudinary::Uploader.destroy(public_id, options)
+    rescue StandardError
+      nil
     end
   end
 end
