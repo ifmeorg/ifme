@@ -73,11 +73,12 @@ class MomentsController < ApplicationController
   # POST /moments/1/picture
   # POST /moments/1/picture.json
   def picture
-    moment = set_moment(params[:moment_id])
-    cloudinary_response = CloudinaryService.upload(file, 'options')
+    # to do: add image upload options
+    cloudinary_response = CloudinaryService.upload(file, options)
 
     return if cloudinary_response.nil?
 
+    moment = set_moment(params[:moment_id])
     moment.picture_id = cloudinary_response['public_id']
     moment.save!
   end
@@ -92,7 +93,7 @@ class MomentsController < ApplicationController
 
   def moment_params
     params.require(:moment).permit(
-      :name, :why, :fix, :comment, :published_at, :draft, :image,
+      :name, :why, :fix, :comment, :published_at, :draft,
       category: [], mood: [], viewers: [], strategy: []
     )
   end
