@@ -31,7 +31,7 @@ gem 'figaro', '1.1.1'
 gem 'google-api-client', '~> 0.30.0'
 gem 'kaminari', '1.1.1'
 gem 'omniauth', '~> 1.9.0'
-gem 'omniauth-google-oauth2', '~> 0.6.1'
+gem 'omniauth-google-oauth2', '~> 0.7.0'
 gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.3'
 
