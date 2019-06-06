@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 FILENAME = "moment.jpeg"
 FILE_PATH = "/spec/uploads/"
-OPTIONS = {}
+# OPTIONS = {}
 
 describe CloudinaryService do
   subject { described_class }
@@ -22,7 +22,7 @@ describe CloudinaryService do
     context 'has options' do
       it 'returns json response from cloudinary' do
         file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
-        response = subject.upload(file, OPTIONS)
+        response = subject.upload(file)
 
         expect(response).to have_key("public_id")
         expect(response).to have_key("secure_url")
@@ -34,7 +34,7 @@ describe CloudinaryService do
     context 'it gracefully fails' do
       it 'returns nil' do
         file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
-        response = subject.upload(nil, OPTIONS)
+        response = subject.upload(nil)
         expect(response).to be nil
       end
     end
@@ -63,7 +63,7 @@ describe CloudinaryService do
         expect(uploaded_file).to have_key("public_id")
         expect(uploaded_file).to have_key("secure_url")
 
-        response = subject.delete(uploaded_file["public_id"], OPTIONS)
+        response = subject.delete(uploaded_file["public_id"])
         expect(response).to eq({"result"=>"ok"})
       end
     end
@@ -71,12 +71,7 @@ describe CloudinaryService do
     context 'gracefully fails' do
       it 'returns not found' do
         # upload image
-        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
-        uploaded_file = subject.upload(file)
-        expect(uploaded_file).to have_key("public_id")
-        expect(uploaded_file).to have_key("secure_url")
-
-        response = subject.delete("untitled", OPTIONS)
+        response = subject.delete("untitled")
         expect(response).to eq({"result"=>"not found"})
       end
     end
