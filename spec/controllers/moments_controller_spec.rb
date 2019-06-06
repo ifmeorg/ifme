@@ -71,8 +71,8 @@ describe MomentsController do
         end
       end
 
-      context 'when the useri_d is hacked' do
-        it 'creates a new moment, ignoring the useri_d parameter' do
+      context 'when the user_id is hacked' do
+        it 'creates a new moment, ignoring the user_id parameter' do
           # passing a useri_d isn't an error, but it shouldn't
           # affect the owner of the created item
           another_user = create(:user2)
