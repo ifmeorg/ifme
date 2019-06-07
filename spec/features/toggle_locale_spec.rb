@@ -77,6 +77,8 @@ describe 'ToggleLocale', js: true do
 
         expect(find('.pageTitle')).to have_content es_signed_in_root_title
 
+        sleep(5)
+
         change_page(
           lambda {
             within '.dashboardSection' do
