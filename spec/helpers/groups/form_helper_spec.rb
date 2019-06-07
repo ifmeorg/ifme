@@ -1,6 +1,8 @@
 describe GroupsFormHelper do
   let(:group) { create(:group) }
-
+  let(:inputs) { nil }
+  let(:action) { nil }
+  
   before do
     @group = group 
   end
@@ -8,19 +10,20 @@ describe GroupsFormHelper do
   let(:valid_inputs) do
     [
       {
-        id: '1',
+        id: 'group_name',
         type: 'text',
-        name: 'group1',
+        name: 'group[name]',
         label: t('common.name'),
-        value: 'Hello',
+        value: 'Test Group',
         required: true,
         dark: true
       },
       {
+        id: 'group_description',
         type: 'textarea',
-        name: 'First Description',
+        name: 'group[description]',
         label: t('common.form.description'),
-        value: 'Hi again',
+        value: 'Group description',
         required: true,
         dark: true
       }
@@ -35,6 +38,9 @@ describe GroupsFormHelper do
     context 'has invalid arguments' do
       it 'returns nil' do
         expect(subject).to eq(nil)
+        
+        #LEFT OFF HERE (FOLLOWED PATH OF TRACKING THE NEW VIEW FOR FORMS, THEN FORM IN HELPERS, THEN SPEC FOLDER)
+        #COPIED VALID INPUTS TO TESTING INPUTS
       end
     end
 
@@ -45,19 +51,20 @@ describe GroupsFormHelper do
         expect(subject).to eq(
           inputs: [
             {
-              id: '1',
+              id: 'group_name',
               type: 'text',
-              name: 'group1',
+              name: 'group[name]',
               label: t('common.name'),
-              value: 'Hello',
+              value: 'Test Group',
               required: true,
               dark: true
             },
             {
+              id: 'group_description',
               type: 'textarea',
-              name: 'First Description',
+              name: 'group[description]',
               label: t('common.form.description'),
-              value: 'Hi again',
+              value: 'Group description',
               required: true,
               dark: true
             },
@@ -84,26 +91,27 @@ describe GroupsFormHelper do
           expect(subject).to eq(
             inputs: [
               {
-                id: '2',
+                id: 'group_name',
                 type: 'text',
-                name: 'Edited Group',
+                name: 'group[name]',
                 label: t('common.name'),
-                value: 'I ame edited',
+                value: 'Test Group',
                 required: true,
                 dark: true
               },
               {
+                id: 'group_description',
                 type: 'textarea',
-                name: 'Edited Description',
+                name: 'group[description]',
                 label: t('common.form.description'),
-                value: 'I am an edited description',
+                value: 'Group description',
                 required: true,
                 dark: true
               },
               { id: '_method', name: '_method', type: 'hidden', value: 'patch' },
               { id: 'submit', type: 'submit', value: 'Submit', dark: true }
             ],
-            action: '/groups'
+            action: '/groups/test-group'
           )
         end
       end
