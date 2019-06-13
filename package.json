@@ -12,6 +12,5 @@
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-  ],
-  "version": "1.9.4"
+  ]
 }
