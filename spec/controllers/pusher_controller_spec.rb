@@ -7,17 +7,42 @@ describe PusherController do
       before { sign_in user }
 
       it 'returns the pusher auth token in json' do
-        post :auth, params: { channel_name: 'janessa', socket_id: '123.456' }
+        post :auth, params: { channel_name: 'channel_one', socket_id: '123.456' }
         json = JSON.parse(response.body)
 
         expect(json['auth']).to_not be_nil
+      end
+
+      it 'returns an error if channel_name is not passed' do
+        post :auth, params: { socket_id: '123.456' }
+        json = JSON.parse(response.body)
+
+        expect(response.code).to eq("400")
+        expect(json['channel_name']).to eq(["can't be blank"])
+      end
+
+      it 'returns an error if socket_id is not passed' do
+        post :auth, params: { channel_name: 'channel_one' }
+        json = JSON.parse(response.body)
+
+        expect(response.code).to eq("400")
+        expect(json['socket_id']).to eq(["can't be blank"])
+      end
+
+      it 'returns an error if channel_name or socket_id is empty' do
+        post :auth, params: { channel_name: '', socket_id: '' }
+        json = JSON.parse(response.body)
+
+        expect(response.code).to eq("400")
+        expect(json['channel_name']).to eq(["can't be blank"])
+        expect(json['socket_id']).to eq(["can't be blank"])
       end
     end
 
     context 'when the user is not logged in' do
 
       it 'returns a login redirect' do
-        post :auth, params: { channel_name: 'janessa', socket_id: '123.456' }
+        post :auth, params: { channel_name: 'channel_one', socket_id: '123.456' }
 
         expect(response.status).to eq(302)
       end
