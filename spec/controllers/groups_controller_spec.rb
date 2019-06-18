@@ -77,7 +77,7 @@ RSpec.describe GroupsController, type: :controller do
     end
   end
 
-  describe 'GET #update' do
+  describe 'PUT #update' do
     it 'updates leader' do
       stub_current_user
       group = create :group
@@ -89,13 +89,26 @@ RSpec.describe GroupsController, type: :controller do
       non_leader.reload
       expect(non_leader.leader).to be true
     end
+
+    it 'returns error response if there is an empty name or description' do
+      stub_current_user
+      group = create :group
+      
+      put :update, params: { id: group.id, group: { name: nil, description: nil }, format: 'json' }
+      group.reload
+      json = JSON.parse(response.body)
+
+      expect(response.code).to eq('422')
+      expect(json['name']).to eq(["can't be blank"])
+      expect(json['description']).to eq(["can't be blank"])
+    end
   end
 
   describe 'DELETE #destroy' do
     it 'deletes the group' do
       stub_current_user
       group = create :group
-      
+
       delete :destroy, params: { id: group.id }
 
       expect(response.code).to eq('302')
