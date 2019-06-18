@@ -90,4 +90,16 @@ RSpec.describe GroupsController, type: :controller do
       expect(non_leader.leader).to be true
     end
   end
+
+  describe 'DELETE #destroy' do
+    it 'deletes the group' do
+      stub_current_user
+      group = create :group
+      
+      delete :destroy, params: { id: group.id }
+
+      expect(response.code).to eq('302')
+      expect(Group.find_by(id: group.id)).to be_nil
+    end
+  end
 end
