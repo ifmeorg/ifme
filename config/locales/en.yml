@@ -154,6 +154,7 @@ en:
       header_message: 'This page cannot be displayed'
     not_found:
       header_message: 'This page does not exist'
+    empty_params: 'Can''t be blank'
   groups:
     singular: Group
     plural: Groups
