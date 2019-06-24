@@ -18,7 +18,7 @@ describe PusherController do
         json = JSON.parse(response.body)
 
         expect(response.code).to eq("400")
-        expect(json['channel_name']).to eq(["can't be blank"])
+        expect(json['channel_name']).to eq([I18n.t('errors.empty_params')])
       end
 
       it 'returns an error if socket_id is not passed' do
@@ -26,7 +26,7 @@ describe PusherController do
         json = JSON.parse(response.body)
 
         expect(response.code).to eq("400")
-        expect(json['socket_id']).to eq(["can't be blank"])
+        expect(json['socket_id']).to eq([I18n.t('errors.empty_params')])
       end
 
       it 'returns an error if channel_name or socket_id is empty' do
@@ -34,8 +34,8 @@ describe PusherController do
         json = JSON.parse(response.body)
 
         expect(response.code).to eq("400")
-        expect(json['channel_name']).to eq(["can't be blank"])
-        expect(json['socket_id']).to eq(["can't be blank"])
+        expect(json['channel_name']).to eq([I18n.t('errors.empty_params')])
+        expect(json['socket_id']).to eq([I18n.t('errors.empty_params')])
       end
     end
 

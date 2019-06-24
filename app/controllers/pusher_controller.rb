@@ -9,15 +9,15 @@ class PusherController < ApplicationController
   # @argument socket_id [String] The id of the pusher socket.
   #
   # Returns an auth token from Pusher that looks like this
-  # {"auth": ":7944d5b3dc2915f6a9c55dbedcbe91037799bb3627fc868890c2a7fd6f5fde4b"}
+  # {"auth": "some-auth-key"}
   # 
   # If there is an error, the response will look like this
   # {"channel_name":["can't be blank"],"socket_id":["can't be blank"]}
   def auth
     if current_user
       errors = {}
-      errors[:channel_name] = ["can't be blank"] if params[:channel_name].blank?
-      errors[:socket_id] = ["can't be blank"] if params[:socket_id].blank?
+      errors[:channel_name] = [I18n.t('errors.empty_params')] if params[:channel_name].blank?
+      errors[:socket_id] = [I18n.t('errors.empty_params')] if params[:socket_id].blank?
       
       if errors.empty?
         response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
