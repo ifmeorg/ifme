@@ -10,7 +10,7 @@ class PusherController < ApplicationController
   #
   # Returns an auth token from Pusher that looks like this
   # {"auth": "some-auth-key"}
-  # 
+  #
   # If there is an error, the response will look like this
   # {"channel_name":["can't be blank"],"socket_id":["can't be blank"]}
   def auth
@@ -18,7 +18,7 @@ class PusherController < ApplicationController
       errors = {}
       errors[:channel_name] = [I18n.t('errors.empty_params')] if params[:channel_name].blank?
       errors[:socket_id] = [I18n.t('errors.empty_params')] if params[:socket_id].blank?
-      
+
       if errors.empty?
         response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
         render json: response
