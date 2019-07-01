@@ -154,6 +154,7 @@ pt-BR:
       header_message: 'Essa página não pode ser visualizada.'
     not_found:
       header_message: 'Essa página não existe'
+    empty_params: 'Não pode ficar em branco'
   groups:
     singular: Grupo
     plural: Grupos

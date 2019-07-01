@@ -154,6 +154,7 @@ nl:
       header_message: 'Deze pagina kan niet worden weergegeven'
     not_found:
       header_message: 'Deze pagina bestaat niet'
+    empty_params: 'Kan niet leeg zijn'
   groups:
     singular: Groep
     plural: Groepen
