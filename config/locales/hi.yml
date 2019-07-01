@@ -154,6 +154,7 @@ hi:
       header_message: 'यह पन्ना नहीं दिखाया जा सकता'
     not_found:
       header_message: 'यह पृष्ठ मौजूद नहीं है'
+    empty_params: 'रिक्त नहीं हो सकता'
   groups:
     singular: 'समूह'
     plural: 'समूह'

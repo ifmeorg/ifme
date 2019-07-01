@@ -154,6 +154,7 @@ sv:
       header_message: 'Sidan kan inte visas'
     not_found:
       header_message: 'Den här sidan existerar inte'
+    empty_params: 'Kan inte vara tomt'
   groups:
     singular: Grupp
     plural: Grupper
