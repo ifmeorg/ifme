@@ -14,19 +14,16 @@ class PusherController < ApplicationController
   # If there is an error, the response will look like this
   # {"channel_name":["can't be blank"],"socket_id":["can't be blank"]}
   def auth
-    if current_user
-      errors = {}
-      errors[:channel_name] = [I18n.t('errors.empty_params')] if params[:channel_name].blank?
-      errors[:socket_id] = [I18n.t('errors.empty_params')] if params[:socket_id].blank?
+    errors = {}
+    message = [I18n.t('errors.empty_params')]
+    errors[:channel_name] = message if params[:channel_name].blank?
+    errors[:socket_id] = message if params[:socket_id].blank?
 
-      if errors.empty?
-        response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
-        render json: response
-      else
-        render json: errors, status: :bad_request
-      end
+    if errors.empty?
+      response = Pusher[params[:channel_name]].authenticate(params[:socket_id])
+      render json: response
     else
-      render text: t('pusher.not_authorized'), status: '403'
+      render json: errors, status: :bad_request
     end
   end
 end
