@@ -1,5 +1,11 @@
 describe PusherController do
 
+  before do
+    Pusher.app_id = ""
+    Pusher.key =  ""
+    Pusher.secret = ""
+  end
+
   let(:user) { create(:user) }
 
   describe 'auth' do
