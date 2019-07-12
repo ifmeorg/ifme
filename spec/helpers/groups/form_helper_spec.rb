@@ -35,12 +35,37 @@ describe GroupsFormHelper do
   describe '#new_group_props' do
     subject { new_group_props }
 
-    context 'has invalid arguments' do
-      it 'returns nil' do
-        expect(subject).to eq(nil)
+    context 'has no existing group' do
+      before do
+        @group = nil 
+      end
+  
+      it 'returns correct props' do
+        expect(subject).to eq(
+          inputs: [
+            {
+              id: 'group_name',
+              type: 'text',
+              name: 'group[name]',
+              label: t('common.name'),
+              value: nil,
+              required: true,
+              dark: true
+            },
+            {
+              id: 'group_description',
+              type: 'textarea',
+              name: 'group[description]',
+              label: t('common.form.description'),
+              value: nil,
+              required: true,
+              dark: true
+            },
+            { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+          ],
+          action: '/groups'
+        )
         
-        #LEFT OFF HERE (FOLLOWED PATH OF TRACKING THE NEW VIEW FOR FORMS, THEN FORM IN HELPERS, THEN SPEC FOLDER)
-        #COPIED VALID INPUTS TO TESTING INPUTS
       end
     end
 
@@ -79,10 +104,35 @@ describe GroupsFormHelper do
       subject { edit_group_props }
   
       context 'has invalid arguments' do
-        it 'returns nil' do
-          expect(subject).to eq(nil)
+      
+          it 'returns correct props' do
+            expect(subject).to eq(
+              inputs: [
+                {
+                  id: 'group_name',
+                  type: 'text',
+                  name: 'group[name]',
+                  label: t('common.name'),
+                  value: nil,
+                  required: true,
+                  dark: true
+                },
+                {
+                  id: 'group_description',
+                  type: 'textarea',
+                  name: 'group[description]',
+                  label: t('common.form.description'),
+                  value: nil,
+                  required: true,
+                  dark: true
+                },
+                { id: 'submit', type: 'submit', value: 'Submit', dark: true }
+              ],
+              action: '/groups'
+            )
+            
+          end
         end
-      end
   
       context 'has valid arguments' do
         let(:inputs) { valid_inputs }
