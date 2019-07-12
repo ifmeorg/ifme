@@ -25,7 +25,7 @@ module GroupsFormHelper
         type: 'text',
         name: 'group[name]',
         label: t('common.name'),
-        value: @group.try(:name) || nil,
+        value: @group&.name || nil,
         required: true,
         dark: true
       },
@@ -34,7 +34,7 @@ module GroupsFormHelper
         type: 'textarea',
         name: 'group[description]',
         label: t('common.form.description'),
-        value: @group.try(:description) || nil,
+        value: @group&.description || nil,
         required: true,
         dark: true
       }
@@ -45,6 +45,7 @@ module GroupsFormHelper
   # rubocop:disable MethodLength
   def edit_inputs
     return unless action_name == 'edit' || action_name == 'update'
+
     inputs = common_inputs
     checkboxes = []
     @group.group_members.each do |member|
