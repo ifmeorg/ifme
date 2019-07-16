@@ -4,6 +4,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     if user.present?
       user.accept_invitation! if invitation_token
+      if request.env['omniauth.auth'].try(:[], 'info').try(:[], 'image')
+        AvatarUploader.fetch_avatar_from_url(user, request.env['omniauth.auth']['info']['image'])
+      end
 
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: t('omniauth.google'))

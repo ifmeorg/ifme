@@ -10,7 +10,7 @@ module StubGoogleOauth2
       info: {
         email: 'example@xyze.it',
         name: 'Test User',
-        image: '...'
+        image: 'http://example.com/image.jpg'
       },
       credentials: {
         token: 'abcdefg12345',
