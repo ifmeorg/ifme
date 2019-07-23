@@ -85,7 +85,7 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       let(:user) { oauth_user }
 
       it 'tries to upload profile image if it exists' do        
-        expect(AvatarUploader).to receive(:fetch_avatar_from_url)
+        expect(AvatarUploader).to receive(:set_avatar_from_url!)
           .with(kind_of(User), request.env['omniauth.auth']['info']['image']).and_return(nil)
         get :google_oauth2
       end

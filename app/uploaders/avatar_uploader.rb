@@ -5,10 +5,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Sets the user's avatar to the given image url if the user
   # doesn't currently have an avatar.
-  def self.fetch_avatar_from_url(user, url)
+  def self.set_avatar_from_url!(user, url)
     if !user.avatar.file || !user.avatar.file.exists?
       user.remote_avatar_url = url
-      user.save!
+      user.save
     end
   end
 

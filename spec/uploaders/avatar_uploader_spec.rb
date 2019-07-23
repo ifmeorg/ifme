@@ -7,12 +7,12 @@ describe AvatarUploader do
 
     expect(user).not_to receive(:remote_avatar_url=)
 
-    AvatarUploader.fetch_avatar_from_url(user, 'http://example.com/images/profile.jpeg')
+    AvatarUploader.set_avatar_from_url!(user, 'http://example.com/images/profile.jpeg')
   end
 
   it 'uploads when avatar is blank' do
     expect(user).to receive(:remote_avatar_url=)
 
-    AvatarUploader.fetch_avatar_from_url(user, 'http://example.com/images/profile.jpeg')
+    AvatarUploader.set_avatar_from_url!(user, 'http://example.com/images/profile.jpeg')
   end
 end
