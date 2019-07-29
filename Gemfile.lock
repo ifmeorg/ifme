@@ -235,6 +235,9 @@ GEM
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
+    omniauth-rails_csrf_protection (0.1.2)
+      actionpack (>= 4.2)
+      omniauth (>= 1.3.1)
     orm_adapter (0.5.0)
     os (1.0.1)
     parallel (1.17.0)
@@ -495,8 +498,8 @@ DEPENDENCIES
   jquery-rails (= 4.3.5)
   kaminari (= 1.1.1)
   letter_opener
-  omniauth (~> 1.9.0)
   omniauth-google-oauth2 (~> 0.7.0)
+  omniauth-rails_csrf_protection (~> 0.1.2)
   pg (= 1.1.4)
   pry-byebug
   pry-rails
