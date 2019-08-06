@@ -38,6 +38,11 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
+      it 'does not try to upload avatar' do
+        google_avatar = request.env['omniauth.auth']['info']['image']
+        expect(CloudinaryService).not_to receive(:upload).with(google_avatar)
+      end
+
       include_examples 'successful sign in with oauth details'
     end
 
@@ -82,12 +87,24 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
     end
 
     context 'user avatar image upload' do
-      let(:user) { oauth_user }
+      let(:user) { create(:user) }
 
-      it 'tries to upload profile image if it exists' do        
-        expect(AvatarUploader).to receive(:set_avatar_from_url!)
-          .with(kind_of(User), request.env['omniauth.auth']['info']['image']).and_return(nil)
-        get :google_oauth2
+      context 'first time logging in with google oauth' do
+        it 'tries to upload profile image if it exists' do
+          google_avatar = request.env['omniauth.auth']['info']['image']
+          expect(CloudinaryService).to receive(:upload).with(google_avatar)
+          
+          get :google_oauth2
+        end
+      end
+
+      context 'not the first time logging in with google oauth' do
+        before { get :google_oauth2 }
+
+        it 'does not try to upload avatar' do
+          google_avatar = request.env['omniauth.auth']['info']['image']
+          expect(CloudinaryService).not_to receive(:upload).with(google_avatar)
+        end
       end
     end
 

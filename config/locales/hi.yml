@@ -689,6 +689,7 @@ hi:
         labels:
           profile_picture: 'प्रोफ़ाइल फोटो'
           remove_picture: 'चित्र हटाओ'
+          no_third_party_avatar: 'तृतीय पक्ष अवतार का उपयोग न करें'
           about: 'बारे में'
           password_for: 'पासवर्ड <strong>if me</strong> खाते के लिए'
           update: 'अद्यतन करें'

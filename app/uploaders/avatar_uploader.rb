@@ -2,16 +2,6 @@
 
 class AvatarUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
-
-  # Sets the user's avatar to the given image url if the user
-  # doesn't currently have an avatar.
-  def self.set_avatar_from_url!(user, url)
-    if !user.avatar.file || !user.avatar.file.exists?
-      user.remote_avatar_url = url
-      user.save
-    end
-  end
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

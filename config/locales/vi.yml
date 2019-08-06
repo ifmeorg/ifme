@@ -689,6 +689,7 @@ vi:
         labels:
           profile_picture: 'Hình ảnh đại diện'
           remove_picture: 'Gỡ bỏ hình ảnh đại diện'
+          no_third_party_avatar: 'Không sử dụng hình đại diện của bên thứ ba'
           about: Về
           password_for: 'Mật khẩu cho tài khoản <strong>if me</strong>'
           update: 'Cập nhật'

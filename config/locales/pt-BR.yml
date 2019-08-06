@@ -689,6 +689,7 @@ pt-BR:
         labels:
           profile_picture: 'Foto de perfil'
           remove_picture: 'Remover foto'
+          no_third_party_avatar: 'Não use avatar de terceiros'
           about: Sobre
           password_for: 'Senha para a conta do<strong>if me</strong>'
           update: Atualização

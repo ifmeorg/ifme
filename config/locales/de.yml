@@ -697,6 +697,7 @@ de:
         labels:
           profile_picture: Profilbild
           remove_picture: 'Bild entfernen'
+          no_third_party_avatar: 'Verwenden Sie keinen Avatar von Drittanbietern'
           about: 'Über mich'
           password_for: 'Passwort für dein <strong>if me</strong> Konto'
           update: Aktualisieren

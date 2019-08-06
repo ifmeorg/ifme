@@ -39,14 +39,14 @@
   <div class="smallMarginBottom">
     <%= ProfilePicture.fetch(resource.avatar.url) %>
   </div>
-  <%= f.file_field :avatar, 'aria-label': t('devise.registrations.edit.labels.profile_picture') %>
+  <%= f.file_field :avatar, 'aria-label': t('devise.registrations.edit.labels.profile_picture'), 'class': "smallMarginBottom" %>
   <% unless resource.avatar.blank? %>
     <%= f.label :remove_avatar, class: 'checkbox' do %>
       <%= f.check_box :remove_avatar, 'aria-label': t('devise.registrations.edit.labels.remove_picture') %>
       <%= t('devise.registrations.edit.labels.remove_picture') %>
     <% end %>
   <% end %>
-
+  
   <div class="label smallMarginTop"><%= t('devise.registrations.edit.labels.about') %></div>
   <%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about'), 'aria-label': t('devise.registrations.edit.placeholders.about') %>
 

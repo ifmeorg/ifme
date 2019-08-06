@@ -689,6 +689,7 @@ nl:
         labels:
           profile_picture: 'Profielfoto'
           remove_picture: 'Verwijder afbeelding'
+          no_third_party_avatar: 'Gebruik geen avatar van derden'
           about: Over
           password_for: 'Wachtwoord voor <strong>if me</strong> account'
           update: Updaten
