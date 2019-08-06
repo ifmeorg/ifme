@@ -447,5 +447,14 @@
     "link_name": "sananta",
     "link": "https://github.com/sananta",
     "social": "github"
+  },
+  {
+    "name": "Valeria Kolisnyk",
+    "image": "/assets/contributors/valeria_kolisnyk.jpg",
+    "profile": "I’ve been struggling with attacks of aggression and periods of depression for several years now, so I understand how important it is to develop this application. This is my first pull-request to an open-source project and I glad that I contributed to ifme.",
+    "location": "Dnipro, Ukraine",
+    "link_name": "kolisnyklera",
+    "link": "https://github.com/kolisnyklera",
+    "social": "github"
   }
 ]
