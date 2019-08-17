@@ -50,4 +50,19 @@ describe CloudinaryService do
       end
     end
   end
+
+  describe 'fetch' do
+    context 'successfully' do
+      it 'returns a secure url of an uploaded image' do
+        # upload image
+        file = File.new(File.join(::Rails.root.to_s, FILE_PATH, FILENAME))
+        uploaded_file = subject.upload(file)
+
+        # delete image
+        response = subject.fetch(uploaded_file["public_id"])
+        expect(response).to include(ENV['CLOUDINARY_SECURE_URL'])
+        expect(response).to include(uploaded_file["public_id"])
+      end
+    end
+  end
 end
