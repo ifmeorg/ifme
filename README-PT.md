@@ -45,7 +45,7 @@ Agradecemos aos nossos apoiadores [Rob Drimmie](https://www.patreon.com/user?u=3
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), e
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Obrigado a todos os nossos patrocinadores Open Collective backers!
+Obrigado a todos os nossos apoiadores Open Collective backers!
 [Venha ser um apoiador!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
@@ -68,5 +68,5 @@ Obrigado a todos os nossos patrocinadores! (por favor, peça a sua empresa para 
 ## License
 
 O código fonte está licenciado por  GNU AGPLv3. Para mais informações, veja
-http://www.gnu.org/licenses/agpl-3.0.txt or
+http://www.gnu.org/licenses/agpl-3.0.txt ou
 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
