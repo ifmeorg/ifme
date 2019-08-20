@@ -4,8 +4,10 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-- [README in Inglês](https://github.com/ifmeorg/ifme/blob/master/README.md)
-- [README in Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
+[README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
+
+[README en Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+
 
 # if me
 
