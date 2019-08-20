@@ -9,38 +9,30 @@
 
 # if me
 
-[if me](https://www.if-me.org/) is a community for mental health experiences
-that encourages people to share their personal stories with trusted allies.
-Trusted allies are the people we interact with on a daily basis, including
-friends, family members, co-workers, teachers, and mental health workers.
+[if me](https://www.if-me.org/) e uma comunidade para experiências de saúde mental, que encoraja as pessoas a compartilhar suas histórias pessoais com aliados confiáveis. Aliados confiáveis são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares, colegas de trabalho, professores e profissionais de saúde mental.
 
-Dealing with mental health is what makes us human. But for a lot of us, it's a
-struggle to be open about it. Not everyone is a counsellor or therapist. The
-people who we interact with everyday shape our emotions and behavior. Getting
-them involved in mental health treatment is the key to recovery.
+Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, a uma luta a ser aberta sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvê-los no tratamento da saúde mental é a chave para a recuperação.
 
-The live site can be found at [if-me.org](https://www.if-me.org/).
+Nosso site esta ativo em [if-me.org](https://www.if-me.org/).
 
-We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
-our code of conduct. Please
-[read it](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
-before joining our project.
+Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
+antes de se juntar ao nosso projeto.
 
-**Read about our project goals and how to contribute (not just as a developer) [here](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+**Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolver) [aqui](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
 
-## Documentation
+## Documentação
 
-Please check out our [Wiki](https://github.com/ifmeorg/ifme/wiki) for full documentation.
+Por favor, confira nosso [Wiki](https://github.com/ifmeorg/ifme/wiki) para documentação completa.
 
-### Installation
+### Instalação
 
 Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
 
-### Contributor Blurb
+### Colaborador Blurb
 
 Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contribute page.
 
-## Donate
+## Doar
 
 We also welcome financial contributions in full transparency on our
 [Open Collective](https://opencollective.com/ifme).
@@ -51,7 +43,7 @@ core contributors and the person who filed the expense will be reimbursed.
 We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
 monthly donations.
 
-### Backers
+### Apoiadores
 
 Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
@@ -62,7 +54,7 @@ Thank you to all our Open Collective backers!
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
-### Sponsors
+### Patrocinadores
 
 Thank you to all our sponsors! (please ask your company to also support this
 open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
