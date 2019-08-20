@@ -4,6 +4,11 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
+[README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
+
+[README en Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+
+
 # if me
 
 [if me](https://www.if-me.org/) una comunidad para experiencias de salud mental que alienta a las personas a compartir sus historias personales con aliados de confianza. Los aliados de confianza son las personas con las que interactuamos a diario, incluidos amigos, familiares, compañeros de trabajo, maestros y trabajadores de salud mental.
