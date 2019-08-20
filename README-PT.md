@@ -26,38 +26,33 @@ Por favor, confira nosso [Wiki](https://github.com/ifmeorg/ifme/wiki) para docum
 
 ### Instalação
 
-Information about installing and configuring the app [here](https://github.com/ifmeorg/ifme/wiki/Installation). Test, development, and production instances are covered.
+Informações sobre como instalar e configurar o aplicativo [aqui](https://github.com/ifmeorg/ifme/wiki/Installation). As instâncias de teste, desenvolvimento e produção são verificadas
 
 ### Colaborador Blurb
 
-Everyone is highly encouraged to [add themselves](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) to our Contribute page.
+Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) à nossa página do Contribuinte.
 
 ## Doar
 
-We also welcome financial contributions in full transparency on our
-[Open Collective](https://opencollective.com/ifme).
-Anyone can file an expense. If the expense makes sense for the development of
-the community, it will be "merged" in the ledger of our Open Collective by the
-core contributors and the person who filed the expense will be reimbursed.
+Nos lhe encorajamos a contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
+Qualquer um pode contribuir. Se uma despesa fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no razão de nosso Open Collectivel pelos contribuintes principais e a pessoa que depositou a despesa será reembolsada.
 
-We also have a [Patreon](https://www.patreon.com/ifme) page where you can give
-monthly donations.
+Nós também temos uma página no [Patreon](https://www.patreon.com/ifme) onde você pode contribuir mensalmente.
 
 ### Apoiadores
 
-Thank you to our Patreon backers [Rob Drimmie](https://www.patreon.com/user?u=3251857),
-[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), and
+Agradecemos aos nossos apoiadores [Rob Drimmie](https://www.patreon.com/user?u=3251857),
+[Joseph D. Marhee](https://www.patreon.com/user?u=2899171), e
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Thank you to all our Open Collective backers!
-[Become a backer!](https://opencollective.com/ifme#backer)
+Obrigado a todos os nossos patrocinadores Open Collective backers!
+[Venha ser um apoiador!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
 
 ### Patrocinadores
 
-Thank you to all our sponsors! (please ask your company to also support this
-open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
+Obrigado a todos os nossos patrocinadores! (por favor, peça a sua empresa para também apoiar este projeto de código aberto [seja um patrocinador](https://opencollective.com/ifme#sponsor))
 
 <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
@@ -72,6 +67,6 @@ open source project by [becoming a sponsor](https://opencollective.com/ifme#spon
 
 ## License
 
-The source code is licensed under GNU AGPLv3. For more information see
+O código fonte está licenciado por  GNU AGPLv3. Para mais informações, veja
 http://www.gnu.org/licenses/agpl-3.0.txt or
 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
