@@ -6,7 +6,7 @@
 
 [README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
 
-[README en Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+[README en Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
 
 # if me
