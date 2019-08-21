@@ -38,11 +38,6 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
         expect(user.reload.token).to eq 'abcdefg12345'
       end
 
-      it 'does not try to upload avatar' do
-        google_avatar = request.env['omniauth.auth']['info']['image']
-        expect(CloudinaryService).not_to receive(:upload).with(google_avatar)
-      end
-
       include_examples 'successful sign in with oauth details'
     end
 
@@ -86,27 +81,38 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
       end
     end
 
-    context 'user avatar image upload' do
-      let(:user) { create(:user) }
+    context 'user avatar image uploads' do
+      before { stub_env_for_omniauth }
+      let(:oauth_email) { request.env['omniauth.auth']['info']['email'] }
+      let(:oauth_user) { User.find_by(email: oauth_email) }
+      let(:user) { oauth_user }
+      before { get :google_oauth2 }
 
-      context 'first time logging in with google oauth' do
-        it 'tries to upload profile image if it exists' do
-          google_avatar = request.env['omniauth.auth']['info']['image']
-          expect(CloudinaryService).to receive(:upload).with(google_avatar)
-          
+      context 'when third party avatar is not nil' do
+        it 'uploads avatar when third_party_avatar has changed' do
+          new_avatar = 'http://example.com/images/different_profile.jpeg'
+          request.env['omniauth.auth']['info']['image'] = new_avatar
           get :google_oauth2
+          expect(user.third_party_avatar).to eq(new_avatar)
+        end
+
+        it 'uploads avatar when google_avatar is nil' do
+          expect(user.third_party_avatar).to eq(request.env['omniauth.auth']['info']['image'])
+        end
+
+        it 'does not upload third party avatar if current avatar is the same' do
+          third_party_avatar = request.env['omniauth.auth']['info']['image']
+          expect(user).not_to receive(:third_party_avatar=)
         end
       end
 
-      context 'not the first time logging in with google oauth' do
-        before { get :google_oauth2 }
-
-        it 'does not try to upload avatar' do
-          google_avatar = request.env['omniauth.auth']['info']['image']
-          expect(CloudinaryService).not_to receive(:upload).with(google_avatar)
+      context 'when third party avatar is nil' do
+        it 'does not set third_party_avatar' do
+          request.env['omniauth.auth']['info']['image'] = nil
+          expect(user).not_to receive(:third_party_avatar=)
         end
       end
     end
-
   end
 end
+

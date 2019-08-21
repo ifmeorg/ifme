@@ -4,7 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     if user.present?
       user.accept_invitation! if invitation_token
-      upload_avatar(google_avatar) if google_avatar && user.sign_in_count.zero?
+      upload_avatar(google_avatar)
 
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
                               kind: t('omniauth.google'))
@@ -24,14 +24,22 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     request.env['omniauth.auth']&.[]('info')&.[]('image')
   end
 
+  def update_needed?(google_avatar)
+    return if google_avatar.nil?
+
+    user.third_party_avatar != google_avatar
+  end
+
   # returns the invitation token passed in with the callback url
   def invitation_token
     request.env.dig('omniauth.params', 'invitation_token')
   end
 
-  def upload_avatar(google_avatar)
-    response = CloudinaryService.upload(google_avatar)
-    user.remote_avatar_url = response['secure_url'] unless response.nil?
+  def upload_avatar(avatar)
+    return if update_needed?(google_avatar)
+
+    user.third_party_avatar = avatar
+    user.remote_avatar_url = avatar
     user.save!
   end
 end
