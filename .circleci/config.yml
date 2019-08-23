@@ -7,10 +7,18 @@ defaults: &defaults
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
   docker:
-    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-      command: /sbin/init
-    - image: circleci/ruby:2.6.0
-    - image: circleci/node:11.10.1
+    - image: circleci/ruby:2.6-node-browsers-legacy
+      environment:
+        PGHOST: 127.0.0.1
+        PGUSER: circleci
+        NODE_ENV: test
+    - image: circleci/postgres:9.5-alpine
+      environment:
+        POSTGRES_USER: circleci
+        POSTGRES_DB: ifme_test
+        POSTGRES_PASSWORD: ""
+  steps:
+    - checkout
 jobs:
   setup-coverage:
     <<: *defaults
@@ -33,43 +41,26 @@ jobs:
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-      - run:
-          working_directory: ~/ifmeorg/ifme
-          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
-      - run:
-          working_directory: ~/ifmeorg/ifme
-          command: nvm install 11.10.1 && nvm alias default 11.10.1
       - restore_cache:
           keys:
           - v1-dep-{{ .Branch }}-
           - v1-dep-master-
           - v1-dep-
-      - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - run: sudo dpkg -i google-chrome.deb
-      - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-      - run: rm google-chrome.deb
+      - run:
+          name: Update to Node v11.10.1
+          command: |
+            curl -sSL "https://nodejs.org/dist/v11.10.1/node-v11.10.1-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.1-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: rm -rf ~/.yarn
-      - run: npm i -g yarn
-      - run: yarn install
+      - run: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
           - ~/.cache/yarn
           - ./node_modules
           - ./vendor/bundle
-      - run: |-
-          mkdir -p config && echo 'test:
-            min_messages: error
-            database: circle_ruby_test
-            pool: 5
-            allow_concurrency: true
-            username: ubuntu
-            encoding: unicode
-            adapter: postgresql
-            host: localhost
-          ' > config/database.yml
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           command: bundle exec rake db:create db:schema:load --trace
           environment:
@@ -87,7 +78,9 @@ jobs:
           name: Run YAML linter
           command: |
             set -e
-            pip install yamllint
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python get-pip.py --user
+            python -m pip install --user yamllint
             cd config && yamllint locales/
       - persist_to_workspace:
           root: tmp
@@ -136,22 +129,19 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
-      - run:
-          working_directory: ~/ifmeorg/ifme
-          command: rm -f ifmeorg/ifme/.rvmrc; echo 2.6.0 > ifmeorg/ifme/.ruby-version; rvm use 2.6.0 --default
-      - run:
-          working_directory: ~/ifmeorg/ifme
-          command: nvm install 11.10.1 && nvm alias default 11.10.1
       - restore_cache:
           keys:
           - v1-dep-{{ .Branch }}-
           - v1-dep-master-
           - v1-dep-
+      - run:
+          name: Update to Node v11.10.1
+          command: |
+            curl -sSL "https://nodejs.org/dist/v11.10.1/node-v11.10.1-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.1-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - run: rm -rf ~/.yarn
-      - run: npm i -g yarn
-      - run: yarn install
+      - run: yarn install --cache-folder ~/.cache/yarn
       - run:
           name: Deploy Storybook
           command: |
