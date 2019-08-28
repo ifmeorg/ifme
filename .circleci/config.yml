@@ -41,11 +41,11 @@ jobs:
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-      # - restore_cache:
-      #     keys:
-      #     - v1-dep-{{ .Branch }}-
-      #     - v1-dep-master-
-      #     - v1-dep-
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
       - run:
           name: Update to Node v11.10.1
           command: |
@@ -129,11 +129,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/ifmeorg/ifme/tmp
-      # - restore_cache:
-      #     keys:
-      #     - v1-dep-{{ .Branch }}-
-      #     - v1-dep-master-
-      #     - v1-dep-
+      - restore_cache:
+          keys:
+          - v1-dep-{{ .Branch }}-
+          - v1-dep-master-
+          - v1-dep-
       - run:
           name: Update to Node v11.10.1
           command: |
