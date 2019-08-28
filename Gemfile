@@ -64,7 +64,6 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'capybara', '~> 3.24.0'
-  gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
@@ -80,6 +79,8 @@ group :development, :test do
   gem 'foreman'
 
   gem 'bullet'
+
+  gem 'webdrivers'
 end
 
 group :test do
