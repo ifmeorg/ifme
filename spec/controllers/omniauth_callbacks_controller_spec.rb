@@ -93,10 +93,11 @@ RSpec.describe OmniauthCallbacksController, type: :controller do
           new_avatar = 'http://example.com/images/different_profile.jpeg'
           request.env['omniauth.auth']['info']['image'] = new_avatar
           get :google_oauth2
+
           expect(user.third_party_avatar).to eq(new_avatar)
         end
 
-        it 'uploads avatar when google_avatar is nil' do
+        it 'uploads avatar when third_party_avatar is nil' do
           expect(user.third_party_avatar).to eq(request.env['omniauth.auth']['info']['image'])
         end
 

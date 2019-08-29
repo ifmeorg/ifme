@@ -35,11 +35,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     request.env.dig('omniauth.params', 'invitation_token')
   end
 
-  def upload_avatar(avatar)
-    return if update_needed?(google_avatar)
+  def upload_avatar(google_avatar)
+    return unless update_needed?(google_avatar)
 
-    user.third_party_avatar = avatar
-    user.remote_avatar_url = avatar
+    user.third_party_avatar = google_avatar
+    user.remote_avatar_url = google_avatar
     user.save!
   end
 end
