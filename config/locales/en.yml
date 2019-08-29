@@ -689,7 +689,6 @@ en:
         labels:
           profile_picture: 'Profile picture'
           remove_picture: 'Remove picture'
-          no_third_party_avatar: 'Don''t use a third-party avatar'
           about: About
           password_for: 'Password for <strong>if me</strong> account'
           update: Update
