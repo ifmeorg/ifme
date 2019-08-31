@@ -32,6 +32,7 @@ gem 'google-api-client', '~> 0.30.2'
 gem 'kaminari', '1.1.1'
 gem 'omniauth-google-oauth2', '~> 0.7.0'
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+gem 'premailer-rails'
 gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.3'
 
