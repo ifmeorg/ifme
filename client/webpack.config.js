@@ -9,7 +9,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
 
@@ -74,9 +74,6 @@ const config = Object.assign(baseConfig, {
       },
     },
     minimizer: devOrTestMode ? [] : [
-      new UglifyJsPlugin({
-        sourceMap: false,
-      }),
       new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
           discardComments: {
@@ -91,6 +88,7 @@ const config = Object.assign(baseConfig, {
         threshold: 10240,
         minRatio: 0.8,
       }),
+      new TerserPlugin(),
     ],
   },
 
