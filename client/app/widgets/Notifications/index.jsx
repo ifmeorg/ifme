@@ -26,7 +26,7 @@ export class Notifications extends React.Component<Props, State> {
     this.state = { notifications: '', alreadyMounted: false, open: false };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchNotifications();
   }
 
