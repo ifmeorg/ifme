@@ -5,9 +5,7 @@
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
 [README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
-
 [README en Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
-
 
 # if me
 
