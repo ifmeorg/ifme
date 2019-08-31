@@ -1,17 +1,29 @@
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
     <%= stylesheet_link_tag 'application/mailer' %>
   </head>
   <body>
-    <%= render 'shared/mailer_header' %>
-    <div class="grid mailer-container">
-      <div class="mailer-content">
+    <main>
+      <header>
+        <%= image_tag(attachments['logo@2x.png'].url, alt: 'if-me.org logo') %>
+        <h2><%= t('app_description') %></h2>
+      </header>
+      <hr>
+      <section>
         <%= yield %>
+      </section>
+      <hr>
+      <footer>
+        <%= t('layouts.mailer.html.app_description',
+          app_name: link_to(t('app_name'), root_url)
+        ).html_safe %>
+
         <p>
-        -----
+          <%= t('layouts.mailer.html.no_reply',
+            email: link_to(t('email'), "mailto:join.ifme@gmail.com")
+          ).html_safe %>
         </p>
-      </div>
-    </div>
-    <%= render 'shared/mailer_footer' %>
+      </footer>
+    </main>
   </body>
 </html>

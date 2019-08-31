@@ -53,5 +53,9 @@ module Ifme
 
     config.i18n.available_locales = Locale.available_locales.sort_by(&:swapcase).map &:to_sym
     config.i18n.default_locale = :en
+
+    config.to_prepare do
+      Devise::Mailer.layout 'mailer'
+    end
   end
 end
