@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+// TODO: react-autocomplete is no longer mantained, move to react-autosuggestion which is using latest version of React
 import Autocomplete from 'react-autocomplete';
 import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
