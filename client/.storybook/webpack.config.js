@@ -5,10 +5,11 @@ const baseConfig = require('../webpack.config.base');
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
-    modules: true,
-    camelCase: true,
+    modules: {
+      localIdentName: '[name]__[local]___[hash:base64:5]',
+    },
+    localsConvention: 'camelCase',
     importLoaders: 1, // Process @import inside CSS files
-    localIdentName: '[name]__[local]___[hash:base64:5]',
   },
 };
 
@@ -55,9 +56,10 @@ module.exports = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
         ],
@@ -78,9 +80,10 @@ module.exports = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
           'sass-loader',
