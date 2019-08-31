@@ -8,9 +8,7 @@ describe 'ApplicationMailer' do
 
     it 'adds logo to email attachments' do
       email = ReportMailer.reported_email(user1, user2)
-
       email.deliver
-
       expect(email.attachments[0].filename).to eq('logo@2x.png')
     end
   end
