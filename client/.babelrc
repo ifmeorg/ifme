@@ -4,7 +4,7 @@
       "@babel/env", {
         "useBuiltIns": "usage",
         "modules": "commonjs",
-        "corejs": "2"
+        "corejs": "3"
       }
     ],
     "@babel/preset-flow",

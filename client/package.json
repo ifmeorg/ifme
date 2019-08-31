@@ -33,7 +33,7 @@
     "babel-core": "7.0.0-bridge.0",
     "chart.js": "^2.8.0",
     "chartkick": "^3.1.1",
-    "core-js": "2",
+    "core-js": "3",
     "es5-shim": "^4.5.13",
     "font-awesome": "^4.7.0",
     "history": "^4.9.0",
