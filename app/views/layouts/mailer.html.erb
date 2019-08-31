@@ -24,6 +24,12 @@
             email: link_to(t('email'), 'mailto:join.ifme@gmail.com')
           ).html_safe %>
         </p>
+
+        <p>
+          <%= sanitize t('shared.footer.licence_subtitle',
+            licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt', target: 'blank'))
+          %>
+        </p>
       </footer>
     </main>
   </body>
