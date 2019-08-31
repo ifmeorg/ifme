@@ -21,10 +21,11 @@ const outputFilename = `[name]${devOrTestMode ? '-[hash]' : ''}`;
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
-    modules: true,
-    camelCase: true,
+    modules: {
+      localIdentName: '[name]__[local]___[hash:base64:5]',
+    },
+    localsConvention: 'camelCase',
     importLoaders: 1,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
   },
 };
 
@@ -129,9 +130,10 @@ const config = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
         ],
@@ -152,9 +154,10 @@ const config = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
           'sass-loader',
