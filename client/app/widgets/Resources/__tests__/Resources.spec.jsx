@@ -3,7 +3,8 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { Resources } from '../index';
 
-const getComponent = props => (
+// eslint-disable-next-line react/prop-types
+const getComponent = ({ history } = {}) => (
   <Resources
     keywords={[]}
     resources={[
@@ -30,7 +31,7 @@ const getComponent = props => (
         type: 'Communities',
       },
     ]}
-    {...props}
+    history={history}
   />
 );
 
@@ -51,9 +52,12 @@ describe('Resources', () => {
       .simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
-    expect(wrapper.find('.tag').findWhere(t => t.text() === id).exists()).toEqual(
-      true,
-    );
+    expect(
+      wrapper
+        .find('.tag')
+        .findWhere((t) => t.text() === id)
+        .exists(),
+    ).toEqual(true);
   });
 
   it('unfilters when tag unselected', () => {

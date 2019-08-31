@@ -102,7 +102,17 @@ export const Story = (props: Props) => {
       {header(condensed, actions, draft, name, link)}
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{renderHTML(body)}</div>}
-      {medicationBody && <StoryMedication {...medicationBody} />}
+      {medicationBody && (
+        <StoryMedication
+          medicationStrength={medicationBody.medicationStrength}
+          quantity={medicationBody.quantity}
+          totalUnits={medicationBody.totalUnits}
+          medicationDosages={medicationBody.medicationDosages}
+          dosageUnit={medicationBody.dosageUnit}
+          refill={medicationBody.refill}
+          medicationRefill={medicationBody.medicationRefill}
+        />
+      )}
       {footer(categories, moods, storyBy, storyType, actions)}
     </div>
   );

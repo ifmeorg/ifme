@@ -38,7 +38,9 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
   });
 
 export class Resources extends React.Component<Props, State> {
+  // eslint-disable-next-line react/static-property-placement
   static defaultProps = {
+    // eslint-disable-next-line react/default-props-match-prop-types
     history: HistoryLib,
   };
 
@@ -50,10 +52,10 @@ export class Resources extends React.Component<Props, State> {
   componentDidUpdate() {
     const { checkboxes } = this.state;
     const { history } = this.props;
-    const checkedCheckboxes = checkboxes.filter(checkbox => checkbox.checked);
+    const checkedCheckboxes = checkboxes.filter((checkbox) => checkbox.checked);
 
     if (checkedCheckboxes.length > 0) {
-      const tags = checkedCheckboxes.map(checkbox => checkbox.value);
+      const tags = checkedCheckboxes.map((checkbox) => checkbox.value);
 
       history.replace({
         pathname: '/resources',
@@ -80,7 +82,7 @@ export class Resources extends React.Component<Props, State> {
         value: tag,
         label: tag,
         checked: keywords.some(
-          keyword => keyword.toLowerCase() === tag.toLowerCase(),
+          (keyword) => keyword.toLowerCase() === tag.toLowerCase(),
         ),
       })),
     );
@@ -89,7 +91,7 @@ export class Resources extends React.Component<Props, State> {
   checkboxChange = (box: Checkbox) => {
     this.setState((prevState: State) => {
       const updatedBoxes = prevState.checkboxes
-        .filter(checkbox => checkbox.id !== box.id)
+        .filter((checkbox) => checkbox.id !== box.id)
         .concat(box);
       return { checkboxes: updatedBoxes };
     });
@@ -112,7 +114,7 @@ export class Resources extends React.Component<Props, State> {
     const { checkboxes } = this.state;
     const filteredResources = this.filterList(checkboxes);
     return (
-      <React.Fragment>
+      <>
         <center className={css.marginTop}>
           {`${filteredResources.length} ${I18n.t(
             'navigation.resources',
@@ -130,14 +132,14 @@ export class Resources extends React.Component<Props, State> {
             </div>
           ))}
         </div>
-      </React.Fragment>
+      </>
     );
   };
 
   render() {
     const { checkboxes } = this.state;
     return (
-      <React.Fragment>
+      <>
         <center className={css.marginBottom}>
           {I18n.t('pages.resources.description')}
         </center>
@@ -146,10 +148,10 @@ export class Resources extends React.Component<Props, State> {
           name="resourceTags"
           placeholder={I18n.t('common.form.search_by_keywords')}
           checkboxes={checkboxes}
-          onCheckboxChange={box => this.checkboxChange(box)}
+          onCheckboxChange={(box) => this.checkboxChange(box)}
         />
         {this.displayTags()}
-      </React.Fragment>
+      </>
     );
   }
 }

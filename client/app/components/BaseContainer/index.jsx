@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { StoryContainer } from './StoryContainer';
 import css from '../../styles/_global.scss';
@@ -66,10 +66,10 @@ export class BaseContainer extends React.Component<Props, State> {
       case 'StoryContainer':
       default:
         return (
-          <Fragment>
+          <>
             <StoryContainer data={data} />
             {!lastPage && this.displayLoadMore()}
-          </Fragment>
+          </>
         );
     }
   }

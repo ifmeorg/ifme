@@ -41,8 +41,7 @@ const displayCheckbox = (id, name, value, checked, onChange, label) => (
     type="checkbox"
     value={value}
     defaultChecked={checked}
-    onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)
-    }
+    onChange={(e: SyntheticEvent<HTMLInputElement>) => handleOnChange(e, onChange, id)}
     aria-label={label.replace(/<\/?[^>]+(>|$)/g, '')}
   />
 );
