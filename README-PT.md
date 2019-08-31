@@ -4,8 +4,7 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-[README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
-[README en Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
+README en: [Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
 # if me
 
@@ -13,7 +12,7 @@
 
 Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, a uma luta a ser aberta sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvê-los no tratamento da saúde mental é a chave para a recuperação.
 
-Nosso site esta ativo em [if-me.org](https://www.if-me.org/).
+Nosso site esta ativo em [if-me.org](https://www.if-me.org/). Os sistemas de design ao vivo podem ser encontrados [design.if-me.org](http://design.if-me.org/).
 
 Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 antes de se juntar ao nosso projeto.

@@ -4,8 +4,7 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-[README en Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md)
-[README en Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+README en: [Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md), [Portugués](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
 
 # if me
 
@@ -13,7 +12,7 @@
 
 Tratar con la salud mental es lo que nos hace humanos. Pero para muchos de nosotros, es una lucha ser abierto al respecto. No todos son consejeros o terapeutas. Las personas con las que interactuamos todos los días dan forma a nuestras emociones y comportamiento. Involucrarlos en el tratamiento de la salud mental es la clave para la recuperación.
 
-El sitio en vivo se puede encontrar en [if-me.org](https://www.if-me.org/).
+El sitio en vivo se puede encontrar en [if-me.org](https://www.if-me.org/). Los sistemas de diseño en vivo se pueden encontrar un [design.if-me.org](http://design.if-me.org/).
 
 Usamos el maravilloso [Pacto de Colaboradores](http://contributor-covenant.org) for
 opara nuestro código de conducta. Por favor
