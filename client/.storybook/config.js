@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 import { setDefaults, withInfo } from '@storybook/addon-info';
-import { addDecorator, configure } from '@storybook/react';
+import { addDecorator, configure, addParameters } from '@storybook/react';
 import { withNotes } from '@storybook/addon-notes';
 import './stories.scss';
 
@@ -10,6 +10,15 @@ setDefaults({
   inline: true,
   source: true,
   propTables: false,
+});
+
+addParameters({
+  backgrounds: [
+    { name: 'light-grey', value: '#D3D3D3', default: true },
+    { name: 'grey', value: '#808080' },
+    { name: 'white', value: '#FFFFFF' },
+    { name: 'mulberry', value: '#6D0839' },
+  ],
 });
 
 const withInfoConfig = {

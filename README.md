@@ -4,8 +4,7 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-[README in Spanish](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
-[README in Portuguese](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+README in: [Spanish](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), [Portuguese](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
 
 # if me
 
@@ -19,7 +18,7 @@ struggle to be open about it. Not everyone is a counsellor or therapist. The
 people who we interact with everyday shape our emotions and behavior. Getting
 them involved in mental health treatment is the key to recovery.
 
-The live site can be found at [if-me.org](https://www.if-me.org/).
+The live site can be found at [if-me.org](https://www.if-me.org/). The live design systems can be found at [design.if-me.org](http://design.if-me.org/).
 
 We use the wonderful [Contributor Covenant](http://contributor-covenant.org) for
 our code of conduct. Please
