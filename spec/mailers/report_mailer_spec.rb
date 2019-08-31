@@ -9,9 +9,7 @@ describe 'ReportMailer' do
     it 'sends correct email' do
       expect(email.to).to eq([user1.email])
       expect(email.subject).to eq(I18n.t('notifications.mailer.reported_user_subject'))
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(I18n.t('reported_user_body', name: user2.name))
-      end
+      expect(email.parts[0].body.raw_source).to include(I18n.t('notifications.mailer.reported_user_body', reported_name: user2.name))
     end
   end
 
@@ -21,9 +19,7 @@ describe 'ReportMailer' do
     it 'sends correct email' do
       expect(email.to).to eq([user1.email])
       expect(email.subject).to eq(I18n.t('notifications.mailer.reportee_user_subject'))
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(I18n.t('reportee_user_body'))
-      end
+      expect(email.parts[0].body.raw_source).to include(I18n.t('notifications.mailer.reportee_user_body'))
     end
   end
 end

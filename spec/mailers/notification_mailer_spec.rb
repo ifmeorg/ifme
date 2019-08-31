@@ -49,27 +49,19 @@ describe 'NotificationMailer' do
     end
 
     it 'is addressed to the correct person' do
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(member.name)
-      end
+      expect(email.parts[0].body.parts[0].body.raw_source).to include(member.name)
     end
 
     it 'includes the meeting location' do
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(meeting.location)
-      end
+      expect(email.parts[0].body.parts[0].body.raw_source).to include(meeting.location)
     end
 
     it 'includes the meeting time' do
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(meeting.time)
-      end
+      expect(email.parts[0].body.parts[0].body.raw_source).to include(meeting.time)
     end
 
     it 'includes the meeting name' do
-      email.parts.each do |part|
-        expect(part.body.raw_source).to include(meeting.name)
-      end
+      expect(email.parts[0].body.parts[0].body.raw_source).to include(meeting.name)
     end
   end
 
