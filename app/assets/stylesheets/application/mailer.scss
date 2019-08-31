@@ -1,0 +1,79 @@
+@import "../base/colors";
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.header-container {
+  padding: 10px;
+
+  &.grid {
+    grid-template-columns: 25% 50% 25%;
+  }
+}
+
+.mailer-container {
+  padding: 30px;
+
+  .mailer-content {
+    grid-column-start: 2;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+
+  &.grid {
+    grid-template-columns: 25% 50% 25%;
+  }
+}
+
+.footer-container {
+  padding: 30px;
+  text-align: center;
+
+  &.grid {
+    grid-template-columns: 40% 20% 40%;
+  }
+
+  .footer-content {
+    grid-column-start: 2;
+    color: $light-grey;
+
+    a {
+      color: $mulberry;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+.grid {
+  .header-content {
+    grid-column-start: 2;
+    grid-template-rows: 150px 70px 28px;
+    margin: 0 auto;
+
+    h2 {
+      color: $mulberry;
+      font-size: 1.25em;
+    }
+
+    img {
+      height: 80%;
+      position: relative;
+      top: 15px;
+      margin: 0 auto;
+    }
+
+    hr {
+      width: 30%;
+      border: 1px $grey solid;
+      background: $grey;
+      margin-top: 1em;
+    }
+  }
+}

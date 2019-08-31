@@ -89,6 +89,8 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
+    css_parser (1.6.0)
+      addressable
     database_cleaner (1.7.0)
     declarative (0.0.10)
     declarative-option (0.1.0)
@@ -155,6 +157,7 @@ GEM
     groupdate (4.1.2)
       activesupport (>= 4.2)
     hashie (3.6.0)
+    htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
@@ -238,6 +241,13 @@ GEM
     parser (2.6.3.0)
       ast (~> 2.4.0)
     pg (1.1.4)
+    premailer (1.11.1)
+      addressable
+      css_parser (>= 1.6.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.10.2)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -498,6 +508,7 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 0.7.0)
   omniauth-rails_csrf_protection (~> 0.1.2)
   pg (= 1.1.4)
+  premailer-rails
   pry-byebug
   pry-rails
   puma
