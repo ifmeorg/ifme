@@ -1,6 +1,7 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <%= stylesheet_link_tag 'application/mailer' %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
     <main>
@@ -20,7 +21,7 @@
 
         <p>
           <%= t('layouts.mailer.html.no_reply',
-            email: link_to(t('email'), "mailto:join.ifme@gmail.com")
+            email: link_to(t('email'), 'mailto:join.ifme@gmail.com')
           ).html_safe %>
         </p>
       </footer>
