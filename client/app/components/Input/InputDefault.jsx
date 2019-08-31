@@ -87,8 +87,7 @@ export const InputDefault = (props: Props) => {
       min={min}
       max={max}
       onFocus={() => onFocus(required, hasError)}
-      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)
-      }
+      onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)}
       ref={myRef}
       aria-label={label}
       aria-invalid={hasError}

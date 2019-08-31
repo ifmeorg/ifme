@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-// TODO: react-autocomplete is no longer mantained, move to react-autosuggestion which is using latest version of React
+// TODO: react-autocomplete is no longer mantained,
+// move to react-autosuggestion which is using latest version of React
 import Autocomplete from 'react-autocomplete';
 import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
@@ -32,7 +33,7 @@ export class InputTag extends React.Component<Props, State> {
     this.setState((prevState: State) => {
       let { checkboxes } = prevState;
       checkboxes = checkboxes.map((checkbox: Checkbox) => {
-        const newCheckbox = Object.assign({}, checkbox);
+        const newCheckbox = { ...checkbox };
         if (newCheckbox.id === id) {
           newCheckbox.checked = checked;
           const { onCheckboxChange } = this.props;

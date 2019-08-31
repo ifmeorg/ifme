@@ -41,7 +41,7 @@ export class Notifications extends React.Component<Props, State> {
     this.setState({ signedInKey });
     const metaPusherKey = Array.from(
       window.document.getElementsByTagName('meta'),
-    ).filter(item => item.getAttribute('name') === 'pusher-key')[0];
+    ).filter((item) => item.getAttribute('name') === 'pusher-key')[0];
     const pusherKey = metaPusherKey.getAttribute('content');
     const pusher = new window.Pusher(pusherKey, { encrypted: true });
     const channel = pusher.subscribe(`private-${signedInKey}`);

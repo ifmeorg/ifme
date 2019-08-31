@@ -35,10 +35,6 @@ export class ChartControl extends React.Component<
   chartControlProp,
   chartControlState,
 > {
-  props: chartControlProp;
-
-  state: chartControlState;
-
   constructor(props: chartControlProp) {
     super(props);
     this.state = {

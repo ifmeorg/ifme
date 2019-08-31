@@ -157,9 +157,7 @@ export const StoryActions = (props: Props) => {
         DELETE,
         REPORT,
         VIEWERS,
-      ].map(
-        (item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null),
-      )}
+      ].map((item: string) => (actions[item] ? displayItem(actions, item, hasStory, dark) : null))}
     </div>
   );
 };
