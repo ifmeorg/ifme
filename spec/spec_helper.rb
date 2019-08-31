@@ -87,6 +87,8 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.before { ActionMailer::Base.deliveries.clear }
+
   config.before(header: true) do
     config.include HiddenHeaderSupport
   end

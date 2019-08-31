@@ -6,6 +6,9 @@
 
 [README in Español](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
+[README in Portuguese](https://github.com/ifmeorg/ifme/blob/master/README-PT.md)
+
+
 # if me
 
 [if me](https://www.if-me.org/) is a community for mental health experiences
