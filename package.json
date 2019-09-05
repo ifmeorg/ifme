@@ -1,7 +1,9 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "react-autosuggest": "^9.4.3"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "foreman start -f Procfile.dev"
