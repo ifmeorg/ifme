@@ -456,5 +456,14 @@
     "link_name": "kolisnyklera",
     "link": "https://github.com/kolisnyklera",
     "social": "github"
-  }
+  },
+  {
+    "name": "Ellen Macpherson",
+    "image": "/assets/contributors/ellen_macpherson.jpg",
+    "profile": "I'm an Australian front end developer and customer experience expert based in the UK. I'm passionate about tech for social good, and having struggled with depression throughout my life, ifme seemed like a natural place for me to start contributing to open source.",
+    "location": "Belfast, UK",
+    "link_name": "ellen_dev",
+    "link": "https://twitter.com/ellen_dev",
+    "social": "twitter"
+  },
 ]
