@@ -41,9 +41,10 @@ const actions = [
   action('strikethrough'),
   action('olist'),
   action('ulist'),
-  Object.assign({}, action('link'), {
+  {
+    ...action('link'),
     icon: ReactDOMServer.renderToString(<FontAwesomeIcon icon={faLink} />),
-  }),
+  },
 ];
 
 const classes = {

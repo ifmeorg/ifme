@@ -7,8 +7,9 @@ RSpec.describe ::Users::InvitationsController, type: :controller do
   let(:invalid_email) { 'invalid_email.com' }
   let(:invite_one_friend) { post :create, params: { user: { email: invitee1 } } }
 
-  before(:each) { @request.env['devise.mapping'] = Devise.mappings[:user] }
-  after(:each) { Devise.mailer.deliveries.clear }
+  before(:each) {
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+  }
 
   describe '#create' do
     context 'when a user is not signed in' do

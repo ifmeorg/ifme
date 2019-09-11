@@ -16,9 +16,5 @@ export const StoryName = (props: Props) => {
       </a>
     );
   }
-  return (
-    <span className={css.name}>
-      {name}
-    </span>
-  );
+  return <span className={css.name}>{name}</span>;
 };

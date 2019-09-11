@@ -19,7 +19,7 @@ describe('CheckboxGroup', () => {
 
   describe('when there is one checkbox', () => {
     const checkboxGroup = (
-      <CheckboxGroup action={allChecked => handleCheckboxClick(allChecked)}>
+      <CheckboxGroup action={(allChecked) => handleCheckboxClick(allChecked)}>
         <Checkbox label="Option 1" id="checkbox-one" />
       </CheckboxGroup>
     );
@@ -38,7 +38,7 @@ describe('CheckboxGroup', () => {
 
   describe('when there are multiple checkboxes', () => {
     const checkboxGroup = (
-      <CheckboxGroup action={allChecked => handleCheckboxClick(allChecked)}>
+      <CheckboxGroup action={(allChecked) => handleCheckboxClick(allChecked)}>
         <Checkbox label="Option 1" id="checkbox-one" />
         <Checkbox label="Option 2" id="checkbox-two" checked />
       </CheckboxGroup>

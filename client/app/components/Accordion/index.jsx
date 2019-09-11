@@ -51,9 +51,7 @@ export class Accordion extends React.Component<Props, State> {
     return (
       <div id={`${id}_accordion`} className={this.inputClassNames()}>
         <div
-          className={`accordion ${globalCss.gridRowSpaceBetween} ${
-            css.accordion
-          }`}
+          className={`accordion ${globalCss.gridRowSpaceBetween} ${css.accordion}`}
           onClick={this.toggleOpen}
           onKeyDown={this.toggleOpen}
           role="button"

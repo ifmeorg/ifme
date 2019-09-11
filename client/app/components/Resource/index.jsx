@@ -17,7 +17,7 @@ const taggedResources = (tagged: ?boolean, tags: ?(string[])) => {
   if (tagged && tags) {
     return (
       <div className="tags">
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <Tag normal label={tag} key={Utils.randomString()} />
         ))}
       </div>

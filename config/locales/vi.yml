@@ -154,6 +154,7 @@ vi:
       header_message: 'Trang không thể hiển thị'
     not_found:
       header_message: 'Trang này không tồn tại'
+    empty_params: 'Không thể để trống'
   groups:
     singular: Nhóm
     plural: Nhóm

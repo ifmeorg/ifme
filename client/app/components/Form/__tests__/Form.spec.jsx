@@ -11,9 +11,9 @@ const component = (noFormTag: boolean) => (
     action={noFormTag ? undefined : '/post-wont-work'}
     noFormTag={noFormTag}
     inputs={[
-      Object.assign({}, InputMocks.inputTextProps, { required: true }),
+      { ...InputMocks.inputTextProps, required: true },
       InputMocks.inputSelectProps,
-      Object.assign({}, InputMocks.inputCheckboxGroupProps, { required: true }),
+      { ...InputMocks.inputCheckboxGroupProps, required: true },
       InputMocks.inputTagProps,
       InputMocks.inputSwitchProps,
       InputMocks.inputSubmitProps,

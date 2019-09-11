@@ -1,21 +1,36 @@
-<html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <%= stylesheet_link_tag 'application/mailer' %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
   <body>
-    <%= yield %>
+    <main>
+      <header>
+        <%= image_tag(attachments['logo@2x.png'].url, alt: 'if-me.org logo') %>
+        <h2><%= t('app_description') %></h2>
+      </header>
+      <hr>
+      <section>
+        <%= yield %>
+      </section>
+      <hr>
+      <footer>
+        <%= t('layouts.mailer.html.app_description',
+          app_name: link_to(t('app_name'), root_url)
+        ).html_safe %>
 
-    <p>
-    -----
-    </p>
+        <p>
+          <%= t('layouts.mailer.html.no_reply',
+            email: link_to(t('email'), 'mailto:join.ifme@gmail.com')
+          ).html_safe %>
+        </p>
 
-    <p>
-      <%= t('layouts.mailer.html.app_description',
-        app_name: link_to(t('app_name'), root_url)
-      ).html_safe %>
-    </p>
-
-    <p>
-      <%= t('layouts.mailer.html.no_reply',
-        email: link_to(t('email'), "mailto:join.ifme@gmail.com")
-      ).html_safe %>
-    </p>
+        <p>
+          <%= sanitize t('shared.footer.licence_subtitle',
+            licence: link_to(t('shared.footer.licence'), 'https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt', target: 'blank'))
+          %>
+        </p>
+      </footer>
+    </main>
   </body>
 </html>

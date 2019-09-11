@@ -155,6 +155,7 @@ de:
       header_message: 'Diese Seite kann nicht angezeigt werden'
     not_found:
       header_message: 'Diese Seite existiert nicht'
+    empty_params: 'Kann nicht leer sein'
   groups:
     singular: Gruppe
     plural: Gruppen

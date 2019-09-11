@@ -4,7 +4,9 @@ import { Modal } from '../../components/Modal';
 import { Input } from '../../components/Input';
 import type { Checkbox } from '../../components/Input/utils';
 import { Utils } from '../../utils';
+// eslint-disable-next-line import/no-cycle
 import css from './QuickCreate.scss';
+// eslint-disable-next-line import/no-cycle
 import { DynamicForm } from '../../components/Form/DynamicForm';
 
 // value - e.g. category.id

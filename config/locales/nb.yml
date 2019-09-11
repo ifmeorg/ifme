@@ -154,6 +154,7 @@ nb:
       header_message: 'Denne siden kan ikke vises'
     not_found:
       header_message: 'Denne siden finnes ikke'
+    empty_params: 'Kan ikke være tomt'
   groups:
     singular: Gruppe
     plural: Grupper

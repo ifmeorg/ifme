@@ -5,6 +5,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { Avatar } from '../Avatar';
 import type { Profile } from './index';
 import { Notifications } from '../../widgets/Notifications';
+// eslint-disable-next-line import/no-cycle
 import css from './Header.scss';
 import globalCSS from '../../styles/_global.scss';
 
@@ -12,7 +13,7 @@ export type Props = {
   profile: Profile,
 };
 
-const notificationsElement = notifications => (
+const notificationsElement = (notifications) => (
   <button type="button" className="buttonGhostXS" aria-label={notifications}>
     <FontAwesomeIcon icon={faBell} />
   </button>

@@ -25,7 +25,7 @@ module GroupsFormHelper
         type: 'text',
         name: 'group[name]',
         label: t('common.name'),
-        value: @group.name || nil,
+        value: @group&.name || nil,
         required: true,
         dark: true
       },
@@ -34,7 +34,7 @@ module GroupsFormHelper
         type: 'textarea',
         name: 'group[description]',
         label: t('common.form.description'),
-        value: @group.description || nil,
+        value: @group&.description || nil,
         required: true,
         dark: true
       }

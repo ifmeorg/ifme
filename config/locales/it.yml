@@ -154,6 +154,7 @@ it:
       header_message: 'Questa pagina non può essere visualizzata'
     not_found:
       header_message: 'Questa pagina non esiste'
+    empty_params: 'Non può essere vuoto'
   groups:
     singular: Gruppo
     plural: Gruppi

@@ -8,7 +8,7 @@ gem 'rack-rewrite'
 gem 'rails', '~> 5.2.3'
 
 gem 'activerecord-import'
-gem 'bcrypt', '3.1.12'
+gem 'bcrypt', '3.1.13'
 gem 'devise', '~> 4.6'
 gem 'devise_invitable', '~> 2.0.1'
 gem 'devise_uid'
@@ -18,7 +18,7 @@ gem 'resque-scheduler', '4.4.0'
 gem 'resque_mailer', '2.4.3'
 
 gem 'jbuilder', '~> 2.9.1'
-gem 'jquery-rails', '4.1.1'
+gem 'jquery-rails', '4.3.5'
 gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'turbolinks', '~> 5.2.0'
 gem 'uglifier', '~> 4.1.20'
@@ -28,10 +28,11 @@ gem 'certified', '1.0.0'
 gem 'chronic', '0.10.2'
 gem 'cloudinary', '~> 1.11.1'
 gem 'figaro', '1.1.1'
-gem 'google-api-client', '~> 0.29.2'
+gem 'google-api-client', '~> 0.30.2'
 gem 'kaminari', '1.1.1'
-gem 'omniauth', '~> 1.9.0'
-gem 'omniauth-google-oauth2', '~> 0.6.1'
+gem 'omniauth-google-oauth2', '~> 0.7.0'
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+gem 'premailer-rails'
 gem 'pusher', '1.3.2'
 gem 'rails-i18n', '~> 5.1.3'
 
@@ -41,9 +42,9 @@ gem 'sdoc', '1.0.0', group: :doc
 gem 'font-awesome-sass'
 gem 'inline_svg'
 
-gem 'groupdate', '4.1.1'
+gem 'groupdate', '4.1.2'
 
-gem 'react_on_rails', '11.2.2'
+gem 'react_on_rails', '11.3.0'
 gem 'webpacker'
 
 gem 'selenium-webdriver', '~> 3.142.3'
@@ -63,8 +64,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  gem 'capybara', '~> 3.21.0'
-  gem 'chromedriver-helper'
+  gem 'capybara', '~> 3.24.0'
   gem 'factory_bot_rails'
   gem 'rspec-collection_matchers', '~> 1.1.3'
   gem 'rspec-html-matchers', '~> 0.9.0'
@@ -80,6 +80,8 @@ group :development, :test do
   gem 'foreman'
 
   gem 'bullet'
+
+  gem 'webdrivers'
 end
 
 group :test do

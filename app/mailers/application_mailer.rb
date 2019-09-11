@@ -9,6 +9,8 @@ class ApplicationMailer < ActionMailer::Base
   layout 'mailer'
   ALLY_NOTIFY_TYPES = %w[new_ally_request accepted_ally_request].freeze
 
+  before_action :load_logo_inline
+
   def reminder_mailer(model, subject_text)
     @model = model
     @user = @model.user
@@ -56,6 +58,12 @@ class ApplicationMailer < ActionMailer::Base
     end
     mail(to: recipient.email, subject: @subject) if defined?(@subject) &&
                                                     !@message.nil?
+  end
+
+  protected
+
+  def load_logo_inline
+    attachments.inline['logo@2x.png'] = File.read('./public/logo@2x.png')
   end
 
   private
