@@ -456,5 +456,14 @@
     "link_name": "kolisnyklera",
     "link": "https://github.com/kolisnyklera",
     "social": "github"
+  },
+  {
+    "name": "Abe Dolinger",
+    "image": "/assets/contributors/abe_dolinger.jpg",
+    "profile": "I'm a product designer, startup vet, sound recordist, musician, & software engineer.  I'm most proficient in Ruby on Rails, JS, and Python.  I'm a strong believer in increasing resources for, and awareness of, mental health, so I was very happy to find if-me!",
+    "location": "Seattle, WA",
+    "link_name": "abedolinger",
+    "link": "https://github.com/256hz",
+    "social": "github"
   }
 ]
