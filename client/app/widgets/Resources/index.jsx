@@ -142,6 +142,11 @@ export class Resources extends React.Component<Props, State> {
       <>
         <center className={css.marginBottom}>
           {I18n.t('pages.resources.description')}
+          <p>
+            <a href="/resources?filter[]=suicide%20prevention">
+              {I18n.t('pages.resources.emergency')}
+            </a>
+          </p>
         </center>
         <InputTag
           id="resourceTags"

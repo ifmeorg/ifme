@@ -20,7 +20,7 @@ fr:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'Diverses langues'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -462,6 +462,7 @@ fr:
       contact_description: '<p>Merci d''envoyer vos questions et requêtes à %{email_link} .</p><p class="noMarginBottom"><em>Politique de confidentialité adaptée de %{jamie_king_media}.</em></p>'
     resources:
       description: 'Voici notre liste de ressources en santé mentale, comprenant des communautés, des outils éducatifs, des lignes directes et des services.'
+      emergency: 'Si vous ou une personne de votre entourage êtes confrontée à une urgence en santé mentale, demandez de l''aide dès que possible.'
       communities: Communauté
       education: Education
       hotlines: Hotlines

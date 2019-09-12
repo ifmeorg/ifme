@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid $white-20;
     a {
       @include setMargin($size-0, $size-0, $size-10, $size-0);
       display: block;
@@ -55,6 +56,12 @@
         text-align: center;
       }
     }
+  }
+
+  &Emergency {
+    @include setMargin($size-0, $size-0, $size-40, $size-0);
+    @include setPadding($size-40, $size-34, $size-0, $size-34);
+    text-align: center;
   }
 
   &Extras {

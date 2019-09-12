@@ -15,7 +15,7 @@
     "name": "Your Life Matters (International)",
     "link": "http://www.yourlifecounts.org/need-help/crisis-lines",
     "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous"],
-    "languages": ["various"]
+    "languages": ["various_languages"]
   },
   {
     "name": "Loveisrespect (US)",
@@ -63,6 +63,6 @@
     "name": "List of Suicide Crisis Lines - Wikipedia (International)",
     "link": "https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines",
     "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous"],
-    "languages": ["various"]
+    "languages": ["various_languages"]
   }
 ]
