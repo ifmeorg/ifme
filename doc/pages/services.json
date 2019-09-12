@@ -244,5 +244,11 @@
     "link": "https://therapyforlatinx.com",
     "tags": ["latinx", "hispanic", "therapy", "counseling", "directory"],
     "languages": ["en", "es"]
+  },
+  {
+    "name": "Woebot",
+    "link": "https://woebot.io",
+    "tags": ["chatbot", "self_care", "mood_tracking", "android", "ios", "free"],
+    "languages": ["en"]
   }
 ]
