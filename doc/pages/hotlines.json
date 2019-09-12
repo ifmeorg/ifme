@@ -46,5 +46,23 @@
     "link": "https://www.imalive.org/",
     "tags": ["free", "anonymous", "crisis_prevention", "suicide_prevention", "directory"],
     "languages": ["en"]
+  },
+  {
+    "name": "Suicide Prevention Lifeline (US)",
+    "link": "https://suicidepreventionlifeline.org",
+    "tags": ["free", "anonymous", "crisis_prevention", "suicide_prevention", "deaf", "twenty_four_seven"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Veterans Crisis Line (US)",
+    "link": "https://www.veteranscrisisline.net",
+    "tags": ["veterans", "free", "anonymous", "crisis_prevention", "suicide_prevention", "deaf", "twenty_four_seven"],
+    "languages": ["en"]
+  },
+  {
+    "name": "List of Suicide Crisis Lines - Wikipedia (International)",
+    "link": "https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous"],
+    "languages": ["various"]
   }
 ]
