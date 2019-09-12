@@ -20,7 +20,7 @@ vi:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'Ngôn ngữ khác nhau'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -462,6 +462,7 @@ vi:
       contact_description: '<p>Vui lòng %{email_link} nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào.</p><p class="noMarginBottom"><em>Chính sách Bảo mật được điều chỉnh từ% {jamie_king_media}.</em></p>'
     resources:
       description: 'Đây là danh sách các tài nguyên sức khỏe tâm thần của chúng tôi, bao gồm các cộng đồng, công cụ giáo dục, đường dây nóng và dịch vụ.'
+      emergency: 'Nếu bạn hoặc ai đó bạn biết đang gặp phải tình trạng khẩn cấp về sức khỏe tâm thần, hãy liên hệ để được giúp đỡ càng sớm càng tốt.'
       communities: 'Cộng đồng'
       education: 'Giáo dục'
       hotlines: 'Khẩn cấp'

@@ -20,7 +20,7 @@ de:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Verschiedene
+    various_languages: 'Verschiedene sprachen'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -470,6 +470,7 @@ de:
     resources:
       description: 'Dies ist unsere kuratierte Liste von Ressourcen für psychische Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und Dienstleistungen umfasst.'
       communities: Communities
+      emergency: 'Wenn Sie oder jemand, den Sie kennen, sich in einem psychischen Notfall befindet, wenden Sie sich so bald wie möglich an Ihren Ansprechpartner.'
       education: Bildungsträger
       hotlines: Hotlines
       services: Dienstleister

@@ -25,6 +25,9 @@
       <%= link_to(t('navigation.twitter'), 'http://twitter.com/ifmeorg', target: 'blank') %>
     </div>
   </div>
+  <div class="footerEmergency">
+    <%= link_to(t('pages.resources.emergency'), '/resources?filter[]=suicide%20prevention') %>
+  </div>
   <div class="footerExtras">
     <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>
     <div>

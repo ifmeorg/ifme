@@ -20,7 +20,7 @@ hi:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'विभिन्न भाषाएँ'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -462,6 +462,7 @@ hi:
       contact_description: '<p>कृपया %{email_link} यदि आपके कोई प्रश्न या चिंताएं हैं। </p><p class="noMarginBottom"><em> गोपनीयता नीति %{jamie_king_media}</em></p> से अनुकूलित है।'
     resources:
       description: 'यह मानसिक स्वास्थ्य संसाधनों की हमारी क्यूरेटेड सूची है, जिसमें समुदाय, शैक्षिक उपकरण, हॉटलाइन और सेवाएं शामिल हैं।'
+      emergency: 'यदि आप या आपके कोई परिचित मानसिक स्वास्थ्य आपात स्थिति का सामना कर रहे हैं, तो जल्द से जल्द मदद के लिए पहुँचें।'
       communities: 'समुदाय'
       education: 'शिक्षा'
       hotlines: 'हॉटलाइन'
