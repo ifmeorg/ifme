@@ -143,7 +143,11 @@ export class Resources extends React.Component<Props, State> {
         <center className={css.marginBottom}>
           {I18n.t('pages.resources.description')}
           <p>
-            <a href="/resources?filter[]=suicide%20prevention">
+            <a
+              href={`/resources?filter[]=${I18n.t(
+                'pages.resources.tags.suicide_prevention',
+              )}`}
+            >
               {I18n.t('pages.resources.emergency')}
             </a>
           </p>
