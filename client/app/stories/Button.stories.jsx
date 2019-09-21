@@ -4,7 +4,7 @@ import css from '../styles/_global.scss';
 
 storiesOf('Button', module)
   .add('Default', () => (
-    <div>
+    <>
       <button type="button" className={`${css.buttonXS} buttonXS`}>
         Extra Small Button
       </button>
@@ -23,10 +23,10 @@ storiesOf('Button', module)
       <button type="button" className={`${css.buttonL} buttonL`}>
         Large Button
       </button>
-    </div>
+    </>
   ))
   .add('Ghost', () => (
-    <div>
+    <>
       <button type="button" className={`${css.buttonGhostXS} buttonGhostXS`}>
         Extra Small Button
       </button>
@@ -45,10 +45,10 @@ storiesOf('Button', module)
       <button type="button" className={`${css.buttonGhostL} buttonGhostL`}>
         Large Button
       </button>
-    </div>
+    </>
   ))
   .add('Dark', () => (
-    <div>
+    <>
       <button type="button" className={`${css.buttonDarkXS} buttonDarkXS`}>
         Extra Small Button
       </button>
@@ -67,5 +67,5 @@ storiesOf('Button', module)
       <button type="button" className={`${css.buttonDarkL} buttonDarkL`}>
         Large Button
       </button>
-    </div>
+    </>
   ));

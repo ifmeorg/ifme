@@ -8,7 +8,7 @@ function handleCheckboxClick(allChecked) {
 }
 
 storiesOf("Checkbox (don't use)", module).add('Checkbox', () => (
-  <div>
+  <>
     <h2>One CheckboxGroup</h2>
     <CheckboxGroup action={(allChecked) => handleCheckboxClick(allChecked)}>
       <Checkbox label="Option 1" id="checkbox-one" />
@@ -19,5 +19,5 @@ storiesOf("Checkbox (don't use)", module).add('Checkbox', () => (
     <CheckboxGroup action={(allChecked) => handleCheckboxClick(allChecked)}>
       <Checkbox label="Option 1" id="checkbox-one" />
     </CheckboxGroup>
-  </div>
+  </>
 ));
