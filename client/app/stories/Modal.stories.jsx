@@ -10,10 +10,10 @@ const bodyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis 
 const longBodyText = `${bodyText} ${bodyText} ${bodyText}`;
 
 const bodyHTML = (
-  <div>
+  <>
     <button type="button">Here is a button</button>
     <p>{bodyText}</p>
-  </div>
+  </>
 );
 
 const openListener = () => {
