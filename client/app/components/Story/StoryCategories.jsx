@@ -11,7 +11,7 @@ export const StoryCategories = (props: Props) => {
   const { categories } = props;
   return (
     <div className={`storyCategories ${css.categories}`}>
-      {categories.map(value => (
+      {categories.map((value) => (
         <Tag secondary key={value} label={value} />
       ))}
     </div>

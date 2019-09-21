@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
+// eslint-disable-next-line import/no-cycle
 import { Form } from './index';
 
 export type Props = {
@@ -23,7 +24,7 @@ export class DynamicForm extends React.Component<Props, State> {
 
   processFormProps = () => {
     const { nameValue, formProps } = this.props;
-    const processedFormProps = Object.assign({}, formProps);
+    const processedFormProps = { ...formProps };
     if (nameValue) {
       processedFormProps.inputs[0].value = nameValue;
     }

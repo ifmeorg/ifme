@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import css from '../styles/_global.scss';
 
@@ -116,7 +116,7 @@ storiesOf('Style Guide', module)
     </div>
   ))
   .add('Grids', () => (
-    <Fragment>
+    <>
       {getGrid('gridTwo', 'ItemBoxDark')}
       {getGrid('gridTwo', 'ItemBoxGhost')}
       {getGrid('gridTwo', 'ItemBoxLight')}
@@ -124,10 +124,10 @@ storiesOf('Style Guide', module)
       {getGrid('gridThree', 'ItemBoxGhost')}
       {getGrid('gridThree', 'ItemBoxLight')}
       {getGrid('gridMany', 'Item')}
-    </Fragment>
+    </>
   ))
   .add('Margins', () => (
-    <Fragment>
+    <>
       {getMargin('marginRight')}
       {getMargin('smallMarginRight')}
       {getMargin('marginLeft')}
@@ -137,7 +137,7 @@ storiesOf('Style Guide', module)
       {getMargin('marginBottom')}
       {getMargin('smallMarginBottom')}
       {getMargin('noMarginBottom')}
-    </Fragment>
+    </>
   ))
   .add('Colors', () => (
     <div className={`${css.gridMany} gridMany`}>
@@ -160,10 +160,10 @@ storiesOf('Style Guide', module)
     </div>
   ))
   .add('Fonts', () => (
-    <Fragment>
+    <>
       <p style={{ fontWeight: '100' }}>$font-weight-100</p>
       <p style={{ fontWeight: '200' }}>$font-weight-200</p>
       <p style={{ fontWeight: '300' }}>$font-weight-300</p>
       <p style={{ fontWeight: '400' }}>$font-weight-400</p>
-    </Fragment>
+    </>
   ));

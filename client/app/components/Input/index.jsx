@@ -8,6 +8,7 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
+// eslint-disable-next-line import/no-cycle
 import { InputSwitch } from './InputSwitch';
 import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';

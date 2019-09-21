@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { Logo } from '../Logo';
+// eslint-disable-next-line import/no-cycle
 import { HeaderProfile } from './HeaderProfile';
 import css from './Header.scss';
 import { I18n } from '../../libs/i18n';

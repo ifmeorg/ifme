@@ -23,14 +23,14 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
     const { hasError, required } = this.props;
     const { checkboxes } = this.state;
     const newCheckboxes = checkboxes.map((item: Checkbox) => {
-      const newItem = Object.assign({}, item);
+      const newItem = { ...item };
       if (newItem.id === checkbox.id) {
         newItem.checked = checkbox.checked;
       }
       return newItem;
     });
     if (required && hasError) {
-      hasError(newCheckboxes.filter(item => item.checked).length === 0);
+      hasError(newCheckboxes.filter((item) => item.checked).length === 0);
     }
     this.setState({ checkboxes: newCheckboxes });
   };

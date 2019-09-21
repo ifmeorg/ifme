@@ -4,6 +4,7 @@ import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
+// eslint-disable-next-line import/no-cycle
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
 import { Utils } from '../../utils';
@@ -28,7 +29,7 @@ export type State = {
   errors: Errors,
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter(key => key).length;
+export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 export class Form extends React.Component<Props, State> {
   myRefs: Object;
@@ -42,7 +43,7 @@ export class Form extends React.Component<Props, State> {
 
   handleError = (id: string, error: boolean) => {
     const { errors } = this.state;
-    const newErrors = Object.assign({}, errors);
+    const newErrors = { ...errors };
     newErrors[id] = error;
     this.setState({ errors: newErrors });
   };
@@ -60,9 +61,9 @@ export class Form extends React.Component<Props, State> {
   onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
     const { inputs, errors } = this.state;
-    const newErrors = Object.assign({}, errors);
+    const newErrors = { ...errors };
     const newInputs = inputs.map((input: any) => {
-      const newInput = Object.assign({}, input);
+      const newInput = { ...input };
       if (this.isInputError(newInput)) {
         newInput.error = true;
         newInput.value = this.myRefs[input.id].value;

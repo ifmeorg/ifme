@@ -11,6 +11,7 @@
       <%= link_to(t('navigation.partners'), partners_path) %>
       <%= link_to(t('navigation.press'), press_path) %>
       <%= link_to(t('navigation.privacy'), privacy_path) %>
+      <%= link_to(t('navigation.resources'), resources_path) %>
     </div>
     <div>
       <div class="footerLinksTitle"><%= t('shared.footer.connect') %></div>
@@ -23,6 +24,9 @@
       <%= link_to(t('navigation.rss'), 'https://medium.com/feed/ifme', target: 'blank') %>
       <%= link_to(t('navigation.twitter'), 'http://twitter.com/ifmeorg', target: 'blank') %>
     </div>
+  </div>
+  <div class="footerEmergency">
+    <%= link_to(t('pages.resources.emergency'), "/resources?filter[]=#{t('pages.resources.tags.suicide_prevention')}") %>
   </div>
   <div class="footerExtras">
     <%= react_component('ToggleLocale', props: { locale: @locale, locales: @locales }) %>

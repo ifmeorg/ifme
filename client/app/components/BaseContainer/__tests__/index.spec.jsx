@@ -17,6 +17,7 @@ const response = {
   },
 };
 
+// eslint-disable-next-line react/prop-types
 const getComponent = ({ fetchUrl, lastPage } = {}) => (
   <BaseContainer
     container="StoryContainer"
@@ -45,7 +46,9 @@ describe('BaseContainer', () => {
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));
+          const axiosGetSpy = jest
+            .spyOn(axios, 'get')
+            .mockImplementation(() => Promise.resolve(response));
           const wrapper = mount(getComponent({ fetchUrl }));
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();
@@ -78,7 +81,9 @@ describe('BaseContainer', () => {
         });
 
         it('renders the next story when "Load more" button is clicked', async () => {
-          const axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve(response));
+          const axiosGetSpy = jest
+            .spyOn(axios, 'get')
+            .mockImplementation(() => Promise.resolve(response));
           const wrapper = mount(getComponent({ fetchUrl }));
           wrapper.find('.loadMore').simulate('click');
           await axiosGetSpy();

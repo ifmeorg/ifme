@@ -20,7 +20,7 @@ en:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'Various languages'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -462,6 +462,7 @@ en:
       contact_description: '<p>Please %{email_link} if you have any questions or concerns.</p><p class="noMarginBottom"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>'
     resources:
       description: 'This is our curated list of mental health resources, which includes communities, educational tools, hotlines, and services.'
+      emergency: 'If you or someone you know is experiencing a mental health emergency, reach out for help as soon as possible.'
       communities: Communities
       education: Education
       hotlines: Hotlines

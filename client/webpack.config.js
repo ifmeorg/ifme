@@ -9,7 +9,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
 
@@ -21,10 +21,11 @@ const outputFilename = `[name]${devOrTestMode ? '-[hash]' : ''}`;
 const cssLoaderWithModules = {
   loader: 'css-loader',
   options: {
-    modules: true,
-    camelCase: true,
+    modules: {
+      localIdentName: '[name]__[local]___[hash:base64:5]',
+    },
+    localsConvention: 'camelCase',
     importLoaders: 1,
-    localIdentName: '[name]__[local]___[hash:base64:5]',
   },
 };
 
@@ -73,9 +74,6 @@ const config = Object.assign(baseConfig, {
       },
     },
     minimizer: devOrTestMode ? [] : [
-      new UglifyJsPlugin({
-        sourceMap: false,
-      }),
       new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
           discardComments: {
@@ -90,6 +88,7 @@ const config = Object.assign(baseConfig, {
         threshold: 10240,
         minRatio: 0.8,
       }),
+      new TerserPlugin(),
     ],
   },
 
@@ -129,9 +128,10 @@ const config = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
         ],
@@ -152,9 +152,10 @@ const config = Object.assign(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: false,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              localsConvention: 'camelCase',
             },
           },
           'sass-loader',

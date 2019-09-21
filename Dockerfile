@@ -9,6 +9,7 @@ RUN apk update \
     nodejs \
     curl \
     npm \
+    bash \
     build-base \
     postgresql-dev \
     tzdata \

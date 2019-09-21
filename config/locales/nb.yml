@@ -20,7 +20,7 @@ nb:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'Ulike språk'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -462,6 +462,7 @@ nb:
       contact_description: '<p>Vennligst %{email_link} hvis du har noen spørsmål eller bekymringer.</p><p class="noMarginBottom"><em>Retningslinjer for personvern tilpasset fra %{jamie_king_media}.</em></p>'
     resources:
       description: 'Dette er vår kuraterte liste over mental helse ressurser, som inkluderer lokalsamfunn, pedagogiske verktøy, hotlines og tjenester.'
+      emergency: 'Hvis du eller noen du kjenner opplever en krise i psykisk helse, må du kontakte hjelp så snart som mulig.'
       communities: Samfunn
       education: Utdanning
       hotlines: Hjelpelinjer
