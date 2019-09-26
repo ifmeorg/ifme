@@ -142,7 +142,7 @@ export class InputTextarea extends React.Component<Props, State> {
           this.editorRef = element;
         }}
       >
-        <div className={`editor ${css.minHeight}`} />
+        <div className={`editor ${css.editor}`} />
         {this.displayHidden()}
       </div>
     );
