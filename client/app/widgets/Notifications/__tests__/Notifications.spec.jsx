@@ -7,20 +7,15 @@ import { faItalic } from '@fortawesome/free-solid-svg-icons';
 
 let axiosGetSpy;
 let axiosDeleteSpy;
+let componentDidMountSpy;
 
-const notification = [
-  "Notification 1",
-  "Notification 2"
-]
-
-const notificationsElement = (notifications) => (
-  <button type="button" className="buttonGhostXS" aria-label={notifications}>
-    "Placeholder"
-  </button>
-);
+const data = {
+    signed_in: 1,
+    fetch_notifications: ['Notification 1'],
+}
 
 const component = <Notifications
-                    element={notificationsElement("Notifications")}
+                    element={<button>"Notifications"</button>}
                     plural="Notifications"
                     none="There are none"
                     clear="Clear" 
@@ -29,11 +24,12 @@ const component = <Notifications
 describe('Notifications', () => {
   beforeEach(() => {
     axiosGetSpy = jest.spyOn(axios, 'get').mockImplementation(() => Promise.resolve({
-      data: { notification }
+      data
     }));
     axiosDeleteSpy = jest.spyOn(axios, 'delete').mockImplementation(() => Promise.resolve({
       data: {ok: true}
     }));
+    componentDidMountSpy = jest.spyOn(Notifications.prototype, 'componentDidMount').mockImplementation(() => {})
   });
 
   it('renders correctly', () => {
@@ -42,5 +38,17 @@ describe('Notifications', () => {
       wrapper = mount(component);
     }).not.toThrow();
     expect(wrapper).not.toBeNull();
-  });  
+  });
+
+  it('gets notifications', async () => {
+    const wrapper = mount(component);
+    const instance = wrapper.instance();
+    instance.setState({ signedInKey: 1 })
+    instance.fetchNotifications()
+      .then(async () => {
+        await axiosGetSpy()
+        wrapper.update();
+        expect(wrapper.state('notifications')).toBe('<div>Notification 1</div>')
+      });
+  })
 })
