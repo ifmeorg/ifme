@@ -62,7 +62,7 @@ export class Notifications extends React.Component<Props, State> {
 
   fetchNotifications = () => {
     const { alreadyMounted, signedInKey } = this.state;
-    axios
+    return axios
       .get('/notifications/signed_in')
       .then((response: any) => {
         if (response && response.data && response.data.signed_in !== -1) {
