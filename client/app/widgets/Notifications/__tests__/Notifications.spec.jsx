@@ -3,15 +3,14 @@ import React from 'react';
 import axios from 'axios';
 import { mount } from 'enzyme';
 import { Notifications } from '../index'
-import { faItalic } from '@fortawesome/free-solid-svg-icons';
 
 let axiosGetSpy;
 let axiosDeleteSpy;
 let componentDidMountSpy;
 
 const data = {
-    signed_in: 1,
-    fetch_notifications: ['Notification 1'],
+  signed_in: 1,
+  fetch_notifications: ['Notification 1'],
 }
 
 const component = <Notifications
@@ -40,15 +39,27 @@ describe('Notifications', () => {
     expect(wrapper).not.toBeNull();
   });
 
-  it('gets notifications', async () => {
+  it('gets notifications and clears them', async (done) => {
     const wrapper = mount(component);
     const instance = wrapper.instance();
-    instance.setState({ signedInKey: 1 })
+    instance.setState({ signedInKey: 1 });
     instance.fetchNotifications()
-      .then(async () => {
-        await axiosGetSpy()
+      .then(() => {
         wrapper.update();
-        expect(wrapper.state('notifications')).toBe('<div>Notification 1</div>')
-      });
+        expect(wrapper.state('notifications')).toBe('<div>Notification 1</div>');
+      })
+      .then(async () => {
+        await wrapper.find('.buttonDarkS').simulate('click');
+        wrapper.update();
+        expect(wrapper.find('.modal').exists()).toEqual(false);
+      })
+      .then(async () => {
+        data.fetch_notifications = [];
+        await instance.fetchNotifications();
+        wrapper.update();
+        expect(wrapper.state('notifications')).toBe('');
+        done();
+      })
+      .catch(done);
   })
 })
