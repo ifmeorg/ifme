@@ -130,17 +130,29 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
-  updateTagFilter = (tagLabel: String) => {
-    this.setState((prevState: State) => {
-      const updatedBoxes = prevState.checkboxes.map((box) =>
-        // eslint-disable-next-line implicit-arrow-linebreak
-        (box.label === tagLabel ? { ...box, checked: true } : box));
-      return { checkboxes: updatedBoxes };
-    });
+  onClick = () => {
+    const { resources } = this.props;
+    this.setState((prevState: State) => ({
+      resourcesDisplayed: prevState.resourcesDisplayed + RESOURCES_PER_PAGE,
+      lastPage:
+        prevState.resourcesDisplayed + RESOURCES_PER_PAGE >= resources.length,
+    }));
   };
 
+  displayLoadMoreButton = () => (
+    <center>
+      <button
+        type="button"
+        className={`loadMore ${css.buttonDarkM}`}
+        onClick={this.onClick}
+      >
+        {I18n.t('load_more')}
+      </button>
+    </center>
+  );
+
   displayTags = () => {
-    const { checkboxes, resourcesDisplayed } = this.state;
+    const { checkboxes, resourcesDisplayed, lastPage } = this.state;
     const { resources } = this.props;
     const filteredResources = this.filterList(checkboxes);
     return (
@@ -164,33 +176,13 @@ export class Resources extends React.Component<Props, State> {
               </article>
             ))}
         </section>
+        {!lastPage && this.displayLoadMoreButton()}
       </>
     );
   };
 
-  onClick = () => {
-    const { resources } = this.props;
-    this.setState((prevState: State) => ({
-      resourcesDisplayed: prevState.resourcesDisplayed + RESOURCES_PER_PAGE,
-      lastPage:
-        prevState.resourcesDisplayed + RESOURCES_PER_PAGE >= resources.length,
-    }));
-  };
-
-  displayLoadMore = () => (
-    <center>
-      <button
-        type="button"
-        className={`loadMore ${css.buttonDarkM}`}
-        onClick={this.onClick}
-      >
-        {I18n.t('load_more')}
-      </button>
-    </center>
-  );
-
   render() {
-    const { checkboxes, lastPage } = this.state;
+    const { checkboxes } = this.state;
     return (
       <>
         {infoDescription}
@@ -203,7 +195,6 @@ export class Resources extends React.Component<Props, State> {
           onCheckboxChange={(box) => this.checkboxChange(box)}
         />
         {this.displayTags()}
-        {!lastPage && this.displayLoadMore()}
       </>
     );
   }
