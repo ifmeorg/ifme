@@ -3,15 +3,15 @@ de:
   app_description: 'ist eine Community rund um das Thema psychische Gesundheit'
   email: join.ifme@gmail.com
   created: 'Erstellt %{created_at}'
-  draft: Draft
+  draft: Entwurf
   edited: 'Erstellt %{created_at} (geändert)'
   edited_updated_at: 'Erstellt %{created_at} (geändert %{updated_at})'
   salutation: 'Hallo %{name},'
   click_here: 'Klick hier'
   language: Sprache
-  yes_text: ya
+  yes_text: ja
   no_text: nein
-  expand_menu: 'erweitere meine'
+  expand_menu: 'Menü erweitern'
   close: schließen
   load_more: 'Mehr laden'
   languages:
@@ -20,7 +20,7 @@ de:
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various_languages: 'Verschiedene sprachen'
+    various_languages: 'Verschiedene Sprachen'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -45,7 +45,7 @@ de:
     medium: Medium
     press: Press
     faq: FAQ
-    resources: Resourcen
+    resources: Ressourcen
     code_of_conduct: Verhaltensregeln
   common:
     name: Name
@@ -60,7 +60,7 @@ de:
       submit_draft: Entwurf
       confirm: 'Bist du sicher?'
       delete: Löschen
-      edit: Ändern
+      edit: Bearbeiten
       edit_instance: '%{instance} ändern'
       join: Beitreten
       leave: Verlassen
@@ -82,19 +82,19 @@ de:
   reports:
     admin_dashboard: 'Admin-Dashboard'
     reported_users: 'Gemeldete Benutzer'
-    banned_users: 'Verbotene Benutzer'
-    reasons: 'Gründe Dafür'
-    new: 'Neuer Bericht für %{name}'
-    remove_ban: 'Verbot Entfernen'
-    ban_user: 'Benutzer Blocken'
-    report_sent: 'Bericht für %{name} gesendet'
-    report_error: 'Bericht für %{name} konnte nicht gesendet werden'
-    reportee: Berichterstatter
-    reporter: Reporter
-    user_banned: '%{name} wurde gebannt'
-    ban_removed: 'Verboten am entfernt %{name}'
-    user_banned_error: 'Konnte nicht verbieten %{name}'
-    ban_removed_error: 'Verbot konnte nicht aufgehoben werden %{name}'
+    banned_users: 'Blockierte Benutzer'
+    reasons: 'Gründe dafür'
+    new: 'Neuer Meldung für %{name}'
+    remove_ban: 'Blockierung entfernen'
+    ban_user: 'Benutzer blockieren'
+    report_sent: 'Meldung für %{name} gesendet'
+    report_error: 'Meldung für %{name} konnte nicht gesendet werden'
+    reportee: Gemeldeter
+    reporter: Melder
+    user_banned: '%{name} wurde blockiert'
+    ban_removed: 'Blockierung von %{name} aufgehoben'
+    user_banned_error: 'Konnte nicht %{name} nicht blockieren'
+    ban_removed_error: 'Blockierung von %{name} konnte nicht aufgehoben werden'
   comment:
     singular: Kommentar
     plural: Kommentare
@@ -119,7 +119,7 @@ de:
       title: Helfer
       outgoing: 'Ausgehende Anfragen'
       incoming: 'Eingehende Anfragen'
-      invited: 'Eingeladen per Email'
+      invited: 'Eingeladen per E-Mail'
       invited_on: 'Eingeladen am: %{date}'
       invitation_expired: 'Die Einladung ist abgelaufen'
       invite: 'Lade deine Freunde und Angehörigen ein!'
@@ -127,7 +127,7 @@ de:
       view_all_allies: 'Alle Helfer ansehen'
       cancel: Abbrechen
     form:
-      placeholder: 'Gib eine oder mehrere durch Komma getrennte E-Mail Addressen ein.'
+      placeholder: 'Gib eine oder mehrere durch Kommata getrennte E-Mail Addressen ein.'
   categories:
     singular: Kategorie
     plural: Kategorien
@@ -148,7 +148,7 @@ de:
       premade3_description: 'Über meine Arbeit'
       premade4_name: Meditation
       premade4_description: 'Meditation, Atemübungen und Entspannung'
-      instructions: 'Du hast noch keine eigenen Kategorieren erstellt.<br />Du kannst auch die folgenden Vorschläge benutzen und diese mit der Zeit anpassen.'
+      instructions: 'Du hast noch keine eigenen Kategorien erstellt.<br />Du kannst auch die folgenden Vorschläge benutzen und diese mit der Zeit anpassen.'
   errors:
     home_page: 'Zurück zur Homepage'
     internal_server_error:
@@ -178,7 +178,7 @@ de:
       error: 'Du kannst diese Gruppe nicht verlassen, da du der einzige Administrator bist.'
       success: 'Du hast die Gruppe %{group} verlassen'
       remove_member_success: 'Du hast den Benutzer %{user} aus der Gruppe %{group} entfernt'
-      remove_member_error: 'Du kannst kein Gruppenmitglied treten, weil du kein Anführer bist.'
+      remove_member_error: 'Du kannst kein Gruppenmitglied entfernen, weil du kein Administrator bist.'
     new: 'Neue Gruppe'
     show:
       led_by: 'Moderiert durch:'
@@ -200,12 +200,12 @@ de:
     singular: Arzneimittel
     edit_medication: 'Arzneimittel bearbeiten'
     refill_reminder: 'Erinnerungsmail zum Auffüllen'
-    dosage: 'Tägliche Dosis:'
+    dosage: 'Tägliche Dosierung:'
     weekly_dosage: 'Wöchentliche Dosierung:'
     refill: 'Auffüllen:'
     quantity: 'Gesamtmenge:'
     strength: 'Stärke:'
-    event_summary: 'Nachfüllen für %{name}.'
+    event_summary: 'Nachfüllen von %{name}.'
     form:
       strength: Stärke
       strength_placeholder: 'z.B. 100'
@@ -214,8 +214,8 @@ de:
       dosage_placeholder: 'z.B. 2'
       refill: Auffüllen
       comments_hint: 'Füge hier weitere Details hinzu, wie z.B. deine Symptome'
-      add_to_google_cal: 'Google Calendar Erinnerung'
-      google_cal_hint: 'Wir fügen Google calendar eine Erinnerung zur Einnahme dieses Arzneimittels hinzu.'
+      add_to_google_cal: 'Google Kalender Erinnerung'
+      google_cal_hint: 'Wir fügen deinem Google Kalender eine Erinnerung zur Einnahme dieses Arzneimittels hinzu.'
       strength_hint: 'Arzneimittelstärke, normalerweise neben dem Namen zu finden'
       total_hint: 'Gesamtmenge an Pillen oder Menge des Arzneimittels'
       dosage_hint: 'Anzahl an Pillen oder Dosis pro Tag'
@@ -255,17 +255,17 @@ de:
     form:
       location_placeholder: 'URL oder Strasse'
       maximum_members: 'Maximale Anzahl an Mitgliedern'
-      maximum_placeholder: '0 when kein Maximum'
+      maximum_placeholder: '0 wenn kein Maximum'
     join_success: 'Du bist diesem Meeting beigetreten.'
     info:
       cancel_meeting: 'Meeting absagen'
       meeting_time: Zeit
       members_of_group_html:
-        one: '%{count} Mitgield <strong>von</strong> %{group}'
+        one: '%{count} Mitglied <strong>von</strong> %{group}'
         other: '%{count} Mitglied <strong>von</strong> %{group}'
     reminder_mailer:
       subject: 'Dein Meeting "%{meeting_name}" ist morgen um %{time}!'
-      body: 'Dies ist eine Erinnering, dass dein Meeting morgen, "%{meeting_name}", um %{time} an folgendem Ort stattfinden wird %{location}!'
+      body: 'Dies ist eine Erinnerung, dass dein Meeting morgen, "%{meeting_name}", um %{time} an folgendem Ort stattfinden wird %{location}!'
     leave:
       error: 'Du kannst dieses Meeting nicht verlasen, du bist der einzige Administrator.'
       success: 'Du hast das Meeting %{meeting} verlassen'
@@ -288,7 +288,7 @@ de:
     secret_share:
       singular: 'Geheimnis teilen'
       expires_at: 'Läuft ab am'
-      cancel_secret_share: 'Stornieren Geheimnis teilen'
+      cancel_secret_share: 'Geheimnis teilen abbrechen'
       link_copied: 'Link zur geheimen Freigabe in die Zwischenablage kopiert'
     form:
       why: 'Was ist passiert und wie fühlst du dich?'
@@ -298,7 +298,7 @@ de:
       draft_question: 'Möchtest du deinen Moment als Entwurf speichern?'
     index:
       subtitle: 'Setze dich intensiv mit Ereignissen auseinander, die deinen Geist und Seele betreffen.'
-      instructions: 'Du hast noch über keine Ereignisse berichtet.<br /><br />Nicht sicher, wo du anfangen sollst? Berichte von etwas, dass heute passiert ist und du gerne mit jemandem Vertrautes teilen würdest? Es kann positiv oder negativ sein! Du musst es auch nicht sofort teilen - sondern erst, wenn du soweit bist! Hier ist ein Beispiel für einen solchen Moment.'
+      instructions: 'Du hast noch über keine Ereignisse berichtet.<br /><br />Nicht sicher, wo du anfangen sollst? Berichte von etwas, das heute passiert ist und du gerne mit jemandem Vertrauten teilen würdest? Es kann positiv oder negativ sein! Du musst es auch nicht sofort teilen - sondern erst, wenn du soweit bist! Hier ist ein Beispiel für einen solchen Moment.'
       example_name: 'Panik vor dem Bewerbungsgespräch morgen!'
       example_category: Karriere
     show:
@@ -317,9 +317,9 @@ de:
       premade1_name: Zufrieden
       premade1_description: 'Gelassen und in Einklang mit Fehlern und Makeln'
       premade2_name: Ambitioniert
-      premade2_description: 'Sehr ehrgeizig bzgl. meiner Ziele'
+      premade2_description: 'Sehr ehrgeizig bezüglich meiner Ziele'
       premade3_name: Neugierig
-      premade3_description: 'Ich bin aufgeregt aufgrund von Ungewissheit'
+      premade3_description: 'Ich bin gespannt auf Neues'
       premade4_name: Aufgebracht
       premade4_description: 'Bestimmte Dinge machen mich nervös, sauer, rachsüchtig und/oder neidisch'
       premade5_name: Hoffnungslos
@@ -353,7 +353,7 @@ de:
       comment_on_moment_subject: 'if me | %{user} hat deinen Moment "%{moment}" kommentiert'
       comment_on_strategy_subject: 'if me | %{user} hat deine Strategie "%{strategy}" kommentiert'
       comment_on_meeting_subject: 'if me | %{user} hat das Meeting "%{meeting}" in der Gruppe "%{group}" kommentiert'
-      comment_on_private_body: '<p>Dein Helfer <strong>%{user}</strong> hat einen privaten Kommentar geschickt:</p>'
+      comment_on_private_body: '<p>Dein Helfer <strong>%{user}</strong> hat dir einen privaten Kommentar geschickt:</p>'
       comment_on_body: '<p>Dein Helfer <strong>%{user}</strong> hat dir einen Kommentar geschickt:</p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
@@ -374,14 +374,14 @@ de:
       remove_meeting_subject: 'if me | %{user} hat das Meeting "%{meeting}" der Gruppe "%{group}" abgesagt'
       join_meeting_subject: 'if me | %{user} ist dem Meeting "%{meeting}" der Gruppe "%{group}" beigetreten'
       join_meeting_body: '<p>Um das Meeting "%{meeting}" zu sehen, %{link}!</p>'
-      reported_user_subject: 'if me | Sie haben einen Benutzer gemeldet'
-      reported_user_body: 'Sie haben berichtet %{reported_name}. Dies wird von einem Administrator überprüft.'
-      reportee_user_subject: 'if me | Sie wurden gemeldet'
-      reportee_user_body: 'Sie wurden gemeldet. Dies wird von einem Administrator überprüft.'
-      add_ban_subject: 'if me | Du wurdest verboten'
-      add_ban_body: 'Sie wurden wegen Verletzung unserer %{code_of_conduct_link} gesperrt.'
-      remove_ban_subject: 'if me | Sie sind nicht mehr verboten'
-      remove_ban_body: 'Sie waren zuvor wegen Verletzung unserer %{code_of_conduct_link} verboten worden. Sie sind nicht mehr verboten.'
+      reported_user_subject: 'if me | Du hast einen Benutzer gemeldet'
+      reported_user_body: 'Du hast %{reported_name} gemeldet. Dies wird von einem Administrator überprüft.'
+      reportee_user_subject: 'if me | Du wurdest gemeldet'
+      reportee_user_body: 'Du wurdest gemeldet. Dies wird von einem Administrator überprüft.'
+      add_ban_subject: 'if me | Du wurdest blockiert'
+      add_ban_body: 'Du wurdest wegen Verletzung unserer %{code_of_conduct_link} gesperrt.'
+      remove_ban_subject: 'if me | Du bist nicht mehr blockiert'
+      remove_ban_body: 'Du bist zuvor wegen Verletzung unserer %{code_of_conduct_link} blockiert worden. Du bist nicht mehr blockiert.'
   omniauth:
     google: Google
     access_denied: 'Zutritt verweigert'
@@ -392,7 +392,7 @@ de:
       main_message_one: '%{app_name} ist eine Community rund um das Thema psychische Gesundheit, die Leute dazu ermutigt, ihre persönlichen Erlebnisse mit vertrauenswürdigen Personen zu teilen.'
       message_text_one: 'Vertrauenswürdige Helfer sind Leute, mit denen wir tagtäglich unsere Zeit verbringen, wie z.B. Freunde, Familie, Arbeitskollegen, Lehrer oder Experten für mentale Gesundheit.'
       main_message_two: 'Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen.'
-      message_text_two: '<p>Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.</p><p class="subtitle">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</p><p>Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open Source-Projekt ist.</p>'
+      message_text_two: '<p>Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.</p><p class="subtitle">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</p><p>Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open-Source-Projekt ist.</p>'
       main_message_three: 'Möchtest du uns finanziell unterstützen?'
       message_text_three: 'Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>'
       linebreak: Linebreak
@@ -470,7 +470,7 @@ de:
     resources:
       description: 'Dies ist unsere kuratierte Liste von Ressourcen für psychische Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und Dienstleistungen umfasst.'
       communities: Communities
-      emergency: 'Wenn Sie oder jemand, den Sie kennen, sich in einem psychischen Notfall befindet, wenden Sie sich so bald wie möglich an Ihren Ansprechpartner.'
+      emergency: 'Wenn du oder jemand, den du kennst sich in einem psychischen Notfall befindet, wende dich so bald wie möglich an deinen Ansprechpartner.'
       education: Bildungsträger
       hotlines: Hotlines
       services: Dienstleister
@@ -500,7 +500,7 @@ de:
         publication: Veröffentlichung
         video_chat: Video-Chat
         texting: Texten
-        open_source: 'Open source'
+        open_source: 'Open-Source'
         workplace: Arbeitsplatz
         social_justice: 'soziale Gerechtigkeit'
         tech_industry: Technologiesektor
@@ -524,7 +524,7 @@ de:
         learning: Lernen
         crisis_prevention: Krisenvorsorge
         safety_planning: Sicherheitsplanung
-        suicide_prevention: Selbstmordvermeidung
+        suicide_prevention: Selbstmordprävention
         android: Android
         ios: iOS
         support_groups: Hilfegruppen
@@ -552,17 +552,17 @@ de:
         sexual_assault_survivors: 'Überlebende sexueller Übergriffe'
         political_movement: 'politische Bewegung'
         reporting: Berichterstattung
-        game: spiel
-        stress: stress
+        game: Spiel
+        stress: Stress
         fidget: zappeln
-        colouring: färbung
+        colouring: Färbung
         deaf: taub
         asl: ASL
         latinx: latinx
         hispanic: hispanisch
         senior_citizens: Senioren
         black_people: Schwarze
-        sexual_health: 'sexuelle gesundheit'
+        sexual_health: 'sexuelle Gesundheit'
   profile:
     index:
       title: Profil
@@ -571,13 +571,13 @@ de:
     not_authorized: 'Nicht autorisiert'
   search:
     label: Suche
-    search_by_name: 'Nach Name suchen'
+    search_by_name: 'Nach Namen suchen'
     form:
       search_by_location: 'Nach Ort suchen'
       search_by_email: 'Nach E-Mail suchen'
     index:
       title: 'Nach Helfern suchen'
-      user_not_found: 'Benutyer %{email} nicht gefunden'
+      user_not_found: 'Benutzer %{email} nicht gefunden'
   shared:
     footer:
       licence: AGPL-3.0
@@ -648,7 +648,7 @@ de:
     monthly_moment: 'Diesen <strong>Monat</strong> hast du <strong>%{count}</strong> Moment verfasst.'
   warnings:
     no_description: 'Du hast keine Beschreibung angegeben!'
-    yes_description: 'Eine Beschreibnung kann dir und anderen helfen, etwas im Detail nachvollziehen zu können'
+    yes_description: 'Eine Beschreibung kann dir und anderen helfen, etwas im Detail nachvollziehen zu können'
   mailers:
     accepted_ally_request:
       subject: 'if me | %{ally_name} hat deine Helferanfrage angenommen!'
@@ -687,11 +687,11 @@ de:
       ally_notify_text: 'Neue and angenommene Helfer-Anfragen'
       group_notify_text: Gruppen-Updates
       meeting_notify_text: Meeting-Updates
-      google_auth1: 'If you no longer want to be authenticated with Google, please enter a new email and password.'
-      google_auth2: 'Da du mit Google angemeldet bist, brauchst du kein Passwort eingeen.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und ein Passwort ein.'
+      google_auth1: 'Wenn du nicht mehr mit Google angemeldet sein willst, gib ein neues Passwort und eine neue E-Mail Adresse ein.'
+      google_auth2: 'Da du mit Google angemeldet bist, brauchst du kein Passwort einzugeben.<br>Wenn du dies ändern möchtest, gib bitte eine E-Mail und ein Passwort ein.'
       password_errors:
-        format: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstaben, 1 Kleinbuchstaben, 1 Ziffer und 1 Sonderzeichen.'
-        used: 'muss sich von den letzten drei Passwörtern unterscheiden.'
+        format: 'sollte 8 bis 128 Zeichen enthalten, einschließlich 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Ziffer und 1 Sonderzeichen.'
+        used: 'muss sich von deinen letzten drei Passwörtern unterscheiden.'
       placeholders:
         repeat_password: 'Passwort wiederholen'
       edit:
