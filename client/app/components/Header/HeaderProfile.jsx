@@ -34,12 +34,7 @@ const displayInfoLinks = (headerProfile: Profile) => {
         </a>
       </div>
       <div>
-        <Notifications
-          element={notificationsElement(notifications.plural)}
-          plural={notifications.plural}
-          none={notifications.none}
-          clear={notifications.clear}
-        />
+        <Notifications element={notificationsElement(notifications.plural)} />
       </div>
     </div>
   );
