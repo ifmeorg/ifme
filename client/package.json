@@ -2,7 +2,7 @@
   "name": "ifme",
   "private": true,
   "scripts": {
-    "build:i18n": "rake react_on_rails:locale",
+    "build:i18n": "bundle exec rake react_on_rails:locale",
     "build:test": "NODE_ENV=test webpack --config webpack.config.js --display-error-details",
     "build:production": "yarn build:i18n && NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "yarn build:i18n && NODE_ENV=development webpack -w --config webpack.config.js",
