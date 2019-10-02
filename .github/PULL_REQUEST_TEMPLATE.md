@@ -1,13 +1,13 @@
 <!--[
   Thank you for contributing! Please use this pull request (PR) template.
 
-  Contributor Blurb: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
-  Join Our Slack: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
-
   Need help? Post in the #dev channel on Slack
   Use the "wip" label if this PR is not ready for review
+
+  Join our organization if you haven't already: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
+  We encourage everyone to add themselves to our Contribute page: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
 ]-->
-# Description 
+# Description
 
 <!--[A few sentences describing your changes]-->
 
@@ -25,10 +25,3 @@
   Screenshots (required for user interface work), remove if not applicable
   Create a GIF: https://www.cockos.com/licecap
 ]-->
-
-# Test Coverage
-
-✅ <!--[YES, remove line if not applicable]-->
-🚫 <!--[NO, remove line if not applicable]-->
-
-<!--[Must be YES, if NO explain why]-->
