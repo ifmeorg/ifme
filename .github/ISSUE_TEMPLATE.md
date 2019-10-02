@@ -1,15 +1,17 @@
 <!--[
   Thank you for contributing! Please use this issue template.
 
-  Contributor Blurb: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
-  Join Our Slack: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
-
   Issue creation is a contribution!
-  Need help? Post in the #dev channel on Slack
-  Please use the appropriate labels to tag this issue
-]-->
+  Need help? Post in the #dev channel on Slack.
+  Please use the appropriate labels to tag this issue.
 
-# Description 
+  You don't have to work on the issue to file an issue!
+  Please assign yourself (via the Assignees dropdown), if you do want to work on it.
+
+  Can't find yourself? You need to join our organization: https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack
+  We encourage everyone to add themselves to our Contribute page: https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb
+]-->
+# Description
 
 <!--[Description of issue, this includes a feature suggestion, bug report, code cleanup, and refactoring idea]-->
 
@@ -24,13 +26,6 @@
   Create a GIF: https://www.cockos.com/licecap
 ]-->
 
-# Do you want to be the assignee to work on this?
+---
 
-✅ <!--[YES, remove line if not applicable]-->
-🚫 <!--[NO, remove line if not applicable]-->
-
-<!--[
-  You don't have to work on the issue to file an issue!
-  If you want to, assign yourself to the issue
-  If you are unable to find your username in the Assignees dropdown, let us know in #dev on Slack
-]-->
+Please assign yourself (via the Assignees dropdown), if you do want to work on this issue. Can't find yourself You need to join our [organization](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack).
