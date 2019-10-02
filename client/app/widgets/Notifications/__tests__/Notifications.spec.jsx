@@ -6,7 +6,6 @@ import { Notifications } from '../index';
 
 let axiosGetSpy;
 let axiosDeleteSpy;
-let componentDidMountSpy;
 
 const data = {
   signed_in: 1,
@@ -14,12 +13,7 @@ const data = {
 };
 
 const component = (
-  <Notifications
-    element={<button type="button">Notifications</button>}
-    plural="Notifications"
-    none="There are none"
-    clear="Clear"
-  />
+  <Notifications element={<button type="button">Notifications</button>} />
 );
 
 describe('Notifications', () => {
@@ -30,9 +24,6 @@ describe('Notifications', () => {
     axiosDeleteSpy = jest.spyOn(axios, 'delete').mockImplementation(() => Promise.resolve({
       data: { ok: true },
     }));
-    componentDidMountSpy = jest
-      .spyOn(Notifications.prototype, 'componentDidMount')
-      .mockImplementation(() => {});
   });
 
   it('renders correctly', () => {
@@ -45,7 +36,6 @@ describe('Notifications', () => {
 
   it('gets notifications and clears them', async (done) => {
     const wrapper = mount(component);
-    componentDidMountSpy();
     const instance = wrapper.instance();
     instance.setState({ signedInKey: 1 });
     instance
