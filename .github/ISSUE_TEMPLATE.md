@@ -28,4 +28,4 @@
 
 ---
 
-Please assign yourself (via the Assignees dropdown), if you do want to work on this issue. Can't find yourself You need to join our [organization](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack).
+Please assign yourself (via the Assignees dropdown), if you do want to work on this issue. Can't find yourself? You need to join our [organization](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack).
