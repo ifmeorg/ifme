@@ -47,14 +47,14 @@ export class QuickCreate extends React.Component<Props, State> {
     this.state = {
       checkboxes: sortAlpha(props.checkboxes),
       open: false,
-      accordionOpen: false,
+      accordionOpen: false
     };
   }
 
   getCheckboxes = () => {
     const { checkboxes } = this.state;
     const checkboxesProp = [];
-    checkboxes.forEach((checkbox: Checkbox) => {
+    Array.isArray(checkboxes) && checkboxes.forEach((checkbox: Checkbox) => {
       const checkboxProp = {
         id: checkbox.id,
         label: checkbox.label,
@@ -76,6 +76,9 @@ export class QuickCreate extends React.Component<Props, State> {
   addToCheckboxes = (data: { name: string, id: string, slug: string }) => {
     const { checkboxes } = this.state;
     const { name, id, slug } = data;
+    // TODO: is the preferred behavior to return early if there is no name
+    // or to set a default?
+    if (!name) return;
     const newCheckboxes = checkboxes.slice(0);
     newCheckboxes.push({
       id: slug,
