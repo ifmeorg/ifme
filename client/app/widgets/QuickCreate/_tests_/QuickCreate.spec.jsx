@@ -7,14 +7,14 @@ const checkboxes = [
 { id: 'first', value: 'value', label: 'first_label' }
 ];
 
-describe.only('QuickCreate', () => {
+describe('QuickCreate', () => {
   let tree;
   beforeEach(() => {
     tree = mount(<QuickCreate name='name' id='123' label='label' checkboxes={ checkboxes } />);
   });
 
   afterEach(() => {
-    tree.unmount && tree.unmount();
+    tree && tree.unmount();
   });
 
   it('sets correct initial values in state', () => {
@@ -33,7 +33,10 @@ describe.only('QuickCreate', () => {
   it('renders Input', () => {
     expect(tree.find('Input')).toHaveLength(1);
   });
-  //it('renders modal as closed initially');
+  
+  it('renders Modal', () => {
+    expect(tree.find('Modal')).toHaveLength(1);
+  });
   // describe('#getCheckboxes', () => {
   //   it('return checkbox array from state');
   // });
@@ -41,4 +44,29 @@ describe.only('QuickCreate', () => {
   //   it('sets state if label does not exist');
   //   it('does not change state if label exists');
   // });
+  // describe('#labelExists', () => {
+  //   it('return checkbox array from state');
+  // });
+  // describe('#addToCheckboxes', () => {
+  //   it('return checkbox array from state');
+  // });
+  describe('#onCreate', () => {
+    it('calls addToCheckboxes', () => {
+      const spy = jest.spyOn(tree.instance(), 'addToCheckboxes');
+      tree.instance().onCreate({ data: { success: true }});
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('sets state and renders Modal/Input with correct key', () => {
+      expect(tree.state('accordionOpen')).toBeFalsy();
+      tree.instance().onCreate({ data: { success: true }});
+      tree.update();
+      const modalKey = tree.find('Modal').key();
+      const inputKey = tree.find('Input').key();
+      expect(tree.state('accordionOpen')).toBeTruthy();
+      expect(tree.state('modalKey')).toBe(modalKey);
+      expect(tree.state('tagKey')).toBe(inputKey);
+    });
+  });
 });
