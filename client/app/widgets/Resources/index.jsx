@@ -8,6 +8,7 @@ import { InputTag } from '../../components/Input/InputTag';
 import { I18n } from '../../libs/i18n';
 import HistoryLib from '../../libs/history';
 
+const RESOURCES_PER_PAGE = 3;
 type ResourceProp = {
   name: string,
   link: string,
@@ -26,6 +27,8 @@ export type Props = {
 
 export type State = {
   checkboxes: Checkbox[],
+  resourcesDisplayed: any,
+  lastPage: boolean,
 };
 
 const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
@@ -46,7 +49,12 @@ export class Resources extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { checkboxes: this.createCheckboxes() };
+
+    this.state = {
+      checkboxes: this.createCheckboxes(),
+      lastPage: false,
+      resourcesDisplayed: RESOURCES_PER_PAGE,
+    };
   }
 
   componentDidUpdate() {
@@ -110,28 +118,53 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
+  onClick = () => {
+    const { resources } = this.props;
+    this.setState((prevState: State) => ({
+      resourcesDisplayed: prevState.resourcesDisplayed + RESOURCES_PER_PAGE,
+      lastPage:
+        prevState.resourcesDisplayed + RESOURCES_PER_PAGE >= resources.length,
+    }));
+  };
+
+  displayLoadMoreButton = () => (
+    <center>
+      <button
+        type="button"
+        className={`loadMore ${css.buttonDarkM}`}
+        onClick={this.onClick}
+      >
+        {I18n.t('load_more')}
+      </button>
+    </center>
+  );
+
   displayTags = () => {
-    const { checkboxes } = this.state;
+    const { checkboxes, resourcesDisplayed, lastPage } = this.state;
+    const { resources } = this.props;
     const filteredResources = this.filterList(checkboxes);
     return (
       <>
         <center className={css.marginTop}>
-          {`${filteredResources.length} ${I18n.t(
-            'navigation.resources',
-          ).toLowerCase()}`}
+          {`${Math.min(resourcesDisplayed, resources.length)} of ${
+            filteredResources.length
+          } ${I18n.t('navigation.resources').toLowerCase()}`}
         </center>
         <div className={`${css.gridThree} ${css.marginTop}`}>
-          {filteredResources.map((resource: ResourceProp) => (
-            <div className={css.gridThreeItem} key={Utils.randomString()}>
-              <Resource
-                tagged
-                tags={resource.languages.concat(resource.tags)}
-                title={resource.name}
-                link={resource.link}
-              />
-            </div>
-          ))}
+          {filteredResources
+            .slice(0, resourcesDisplayed)
+            .map((resource: ResourceProp) => (
+              <div className={css.gridThreeItem} key={Utils.randomString()}>
+                <Resource
+                  tagged
+                  tags={resource.languages.concat(resource.tags)}
+                  title={resource.name}
+                  link={resource.link}
+                />
+              </div>
+            ))}
         </div>
+        {!lastPage && this.displayLoadMoreButton()}
       </>
     );
   };
