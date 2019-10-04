@@ -1,6 +1,12 @@
 # if me
 
-  
+[![CircleCI](https://circleci.com/gh/ifmeorg/ifme/tree/master.svg?style=svg)](https://circleci.com/gh/ifmeorg/ifme/tree/master)
+[![Code Climate](https://codeclimate.com/github/ifmeorg/ifme/badges/gpa.svg)](https://codeclimate.com/github/ifmeorg/ifme)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f9444a4d4116720518fe/test_coverage)](https://codeclimate.com/github/ifmeorg/ifme/test_coverage)
+[![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
+[![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
+
+ Readme en [anglais](https://github.com/ifmeorg/ifme/blob/master/README.md), [portugais](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [espagnol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
 [if me](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance.
 les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé.
