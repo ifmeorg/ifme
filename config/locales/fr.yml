@@ -318,7 +318,7 @@ fr:
       premade4_description: 'Ne pas accepter certain faits, se sentir en colère, vindicatif(ve), et/ou jaloux(se)'
       premade5_name: Désespoir
       premade5_description: 'Sentiment de tristesse et déséspoir - incapable de trouver une solution'
-      instructions: "Vous n'avez pas encore créé d'humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois.'
+      instructions: "Vous n'avez pas encore créé d'humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois."
   notifications:
     plural: Notifications
     none: Aucune
