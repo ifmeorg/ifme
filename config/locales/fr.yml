@@ -28,7 +28,7 @@ fr:
     fr: Français
     hi: 'हिंदी'
   navigation:
-    about: 'À notre propos'
+    about: 'À propos de nous'
     blog: Blog
     contribute: Contribuer
     partners: Partenaires
@@ -84,10 +84,10 @@ fr:
     banned_users: 'Utilisateurs Bannis'
     reasons: 'Les Raisons'
     new: 'Nouveau rapport pour %{name}'
-    remove_ban: 'Supprimer l''interdiction'
+    remove_ban: "Supprimer l'interdiction"
     ban_user: 'Utilisateur Banni'
     report_sent: 'Rapport pour %{name} envoyé'
-    report_error: 'Impossible d''envoyer le rapport pour %{name}'
+    report_error: "Impossible d'envoyer le rapport pour %{name}"
     reportee: Reporter
     reporter: 'Rapporté par'
     user_banned: '%{name} a été bannie'
@@ -98,14 +98,14 @@ fr:
     singular: Commentaire
     plural: Commentaires
     posting: 'Envoi du commentaire en cours...'
-    allow_comments: 'Autoriser les commentaires?'
+    allow_comments: 'Autoriser les commentaires ?'
     hint: 'Seulement vous et les lecteurs peuvent ajouter des commentaires'
     control: 'Contrôler qui peut lire et ajouter des commentaires'
   account:
     singular: Compte
-    sign_in: 'S''identifier'
-    sign_up: 'S''enregistrer'
-    forgot_password: 'Oubliez votre mot de passe?'
+    sign_in: "S'identifier"
+    sign_up: "S'enregistrer"
+    forgot_password: 'Mot de passe oublié ?'
   members:
     one: '%{count} membre'
     other: '%{count} membres'
@@ -122,16 +122,16 @@ fr:
       invited_on: 'Invité sur: %{date}'
       invitation_expired: 'Invitation expirée'
       invite: 'Invitez vos proches!'
-      none: 'Vous n''avez actuellement pas d''alliés! Vous pouvez en rechercher ou inviter vos proches à vous rejoindre!'
+      none: "Vous n'avez actuellement pas d'alliés ! Vous pouvez en rechercher ou inviter vos proches à vous rejoindre!"
       view_all_allies: 'Voir tous les alliés'
       cancel: Annuler
     form:
-      placeholder: 'Entrez une ou plusieures addresses email séparée par des virgules.'
+      placeholder: 'Entrez une ou plusieures adresses email séparée par des virgules.'
   categories:
     singular: Catégorie
     plural: Catégories
     edit_category: 'Modifier une catégorie'
-    new: 'New Category'
+    new: 'Nouvelle catégorie'
     form:
       name_hint: 'Regrouper dans des catégories des groupes de personnes, lieux, choses, activités et autres'
     label:
@@ -147,20 +147,20 @@ fr:
       premade3_description: 'Relation professionelle'
       premade4_name: Méditation
       premade4_description: 'Méditation, respiration profonde et activités relaxantes'
-      instructions: 'Vous n''avez pas encore créé de catégories personnalisées.<br>Vous pouvez ajouter ces catégories pré-configurées et les personnaliser plus tard.'
+      instructions: "Vous n'avez pas encore créé de catégories personnalisées.<br>Vous pouvez ajouter ces catégories pré-configurées et les personnaliser plus tard."
   errors:
     home_page: 'Retour à la page d''accueil'
     internal_server_error:
       header_message: 'Cette page ne peut pas être affichée'
     not_found:
-      header_message: 'Cette page n''existe pas'
+      header_message: "Cette page n'existe pas"
     empty_params: 'Ne peut pas être vide'
   groups:
     singular: Groupe
     plural: Groupes
     form:
       leaders: Animateurs
-      only_leader: 'Vous êtes le seul animateur, pour cette raison vous ne pouvez pas quitter.'
+      only_leader: 'Vous êtes le seul animateur, pour cette raison vous ne pouvez pas le quitter.'
       cannot_delete: 'Merci de prendre note que vous ne pouvez pas supprimer un groupe.'
       error_save: 'Nous ne pouvons pas enregistrer ce groupe parce que: '
       error_edit_permission: 'Vous devez être un animateur de groupe pour le modifier'
@@ -169,15 +169,15 @@ fr:
       available_groups: 'Groupes disponibles'
       joined_groups: 'Membre des groupes'
       leader: (Animateur)
-      instructions: 'Vous n''êtes membres d''aucun groupe pour l''instant'
+      instructions: "Vous n'êtes membres d'aucun groupe pour le moment"
     join:
       success: 'Vous avez rejoint ce groupe.'
-      group_not_exists: 'Vous ne pouvez pas rejoindre un groupe qui n''existe pas.'
+      group_not_exists: "Vous ne pouvez pas rejoindre un groupe qui n'existe pas."
     leave:
       error: 'Vous ne pouvez pas quitter ce groupe. Vous êtes le seul animateur.'
       success: 'Vous avez quitté %{group}'
       remove_member_success: 'Vous avez supprimé %{user} de %{group}'
-      remove_member_error: 'Vous ne pouvez pas éjecter un membre du groupe car vous n''êtes pas animateur.'
+      remove_member_error: "Vous ne pouvez pas éjecter un membre du groupe car vous n'êtes pas un animateur."
     new: 'Nouveau groupe'
     show:
       led_by: 'Animé par:'
@@ -189,7 +189,7 @@ fr:
       update_account: 'Personnalisez votre compte'
     mailer:
       html:
-        app_description: '%{app_name} est une communauté qui encourage à partagez vos problème avec vos proches.'
+        app_description: '%{app_name} est une communauté qui encourage à partagez vos problèmes avec vos proches.'
         no_reply: 'Vous ne pouvez pas répondre à cet email. Si vous avez des questions, soucis ou des remarques merci de les envoyer à %{email}!'
     title:
       reset_password: 'Réinitialiser votre mot de passe'
@@ -238,7 +238,7 @@ fr:
     index:
       title: Médications
       subtitle: 'Gardez le contôle de vos médications, y compris les dosages et renouvellement de prescription.'
-      instructions: 'Vous n''avez pas encore enregistré de médication.<br><br>Voici un exemple d''une médication enregistrée! Vous pouvez aussi parler de vos expériences.'
+      instructions: "Vous n'avez pas encore enregistré de médication.<br><br>Voici un exemple d'une médication enregistrée ! Vous pouvez aussi parler de vos expériences."
       example_name: Prozac
       example_strength: '10 mg'
       example_total: '40 tablets'
@@ -271,11 +271,11 @@ fr:
       create:
         add: 'Ajouter à Google Agenda'
         success: 'Réunion ajoutée à Google Agenda avec succès.'
-        error: 'Une erreur s''est produite lors de l''ajout de la réunion à Google Agenda.'
+        error: "Une erreur s'est produite lors de l''ajout de la réunion à Google Agenda."
       destroy:
         remove: 'Supprimer de Google Agenda'
         success: 'Réunion supprimée de Google Agenda avec succès.'
-        error: 'Une erreur s''est produite lors de la suppression de la réunion de Google Agenda.'
+        error: "Une erreur s'est produite lors de la suppression de la réunion de Google Agenda."
   moments:
     singular: Moment
     plural: Moments
@@ -288,18 +288,18 @@ fr:
       cancel_secret_share: 'Annuler le partage de secret'
       link_copied: 'Lien de partage secret copié dans le Presse-papiers'
     form:
-      why: 'Qu''est-ce qui c''est passé et que ressentez-vous?'
-      fix: 'Quelles pensées voudriez-vous avoir?'
-      what_happened: 'Que c''est-il passé?'
+      why: "Qu''est-ce qui c'est passé et que ressentez-vous ?"
+      fix: 'Quelles pensées voudriez-vous avoir ?'
+      what_happened: "Que c'est-il passé ?"
       viewers_hint: 'Alliés qui peuvent visualiser ce moment'
-      draft_question: 'Voulez-vous conserver ce moment comme brouillon?'
+      draft_question: 'Voulez-vous conserver ce moment comme brouillon ?'
     index:
       subtitle: 'Replonger dans vos moments - événements et situations qui affectent votre bien-être mental.'
-      instructions: 'Vous n''avez pas encore décrit de moment.<br><br>Vous ne savez pas par où commencer? Que c''est-il passé aujourd''hui que vous aimeriez partager et discuter avec un proche? Que ce soit positif ou négatif! Vous n''avez pas besoin de le partager immédiatement - seulement quand vous serez prêt(e)! Voici un exemple de moment.'
-      example_name: 'Panique au sujet de l''entretien de demain!'
+      instructions: "Vous n'avez pas encore décrit de moment.<br><br>Vous ne savez pas par où commencer ? Que c'est-il passé aujourd'hui que vous aimeriez partager et discuter avec un proche? Que ce soit positif ou négatif ! Vous n'avez pas besoin de le partager immédiatement - seulement quand vous serez prêt(e) ! Voici un exemple de moment.'
+      example_name: "Panique au sujet de l'entretien de demain !"
       example_category: Carrière
     show:
-      strategies: 'Quelle stratégie aiderait?'
+      strategies: 'Quelle stratégie aiderait ?'
   moods:
     singular: Humeur
     plural: Humeurs
@@ -307,18 +307,18 @@ fr:
     new: 'Nouvelle humeur'
     example_moods: 'Nerveux, anxieuse, stressé'
     index:
-      subtitle: 'Créer des étiquettes décrivant vos états d''esprits, sentiment et émotions.'
+      subtitle: "Créer des étiquettes décrivant vos états d'esprits, sentiment et émotions."
       premade1_name: Accepation
-      premade1_description: 'Accepter et être en paix avec les différences et limitations.'
+      premade1_description: 'Accepter et être en paix avec les différences et les limitations.'
       premade2_name: Ambition
-      premade2_description: 'Sentiment optimiste d''atteidre un objectif'
+      premade2_description: "Sentiment optimiste d'atteidre un objectif"
       premade3_name: Curiosité
-      premade3_description: 'Sentiment de curiosité à propos de l''inconnu'
+      premade3_description: "Sentiment de curiosité à propos de l'inconnu"
       premade4_name: Irritation
       premade4_description: 'Ne pas accepter certain faits, se sentir en colère, vindicatif(ve), et/ou jaloux(se)'
       premade5_name: Désespoir
       premade5_description: 'Sentiment de tristesse et déséspoir - incapable de trouver une solution'
-      instructions: 'Vous n''avez pas encore créé d''humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois.'
+      instructions: "Vous n'avez pas encore créé d'humeurs personnelles.<br>Vous pouvez aussi ajouter les humeurs suivantes et les personnaliser une autre fois.'
   notifications:
     plural: Notifications
     none: Aucune
@@ -328,8 +328,8 @@ fr:
     members:
       title: 'Liste des membres'
     ally:
-      accepted: '%{name} à accépté votre demande d''alliance!'
-      sent_html: '%{link_to_user} à envoyé une demande d''alliance!'
+      accepted: "%{name} à accépté votre demande d'alliance !"
+      sent_html: "%{link_to_user} à envoyé une demande d'alliance!"
     comment:
       full: '%{name} a commenté "%{comment}" sur %{typename}'
       truncated: '%{name} a commenté "%{comment}" [...] sur %{typename}'
@@ -374,8 +374,8 @@ fr:
       reportee_user_body: 'Vous avez été signalé. Cela sera examiné par un administrateur.'
       add_ban_subject: 'if me | Vous avez été banni'
       add_ban_body: 'Vous avez été banni pour avoir violé notre %{code_of_conduct_link}.'
-      remove_ban_subject: 'if me | Vous n''êtes plus banni'
-      remove_ban_body: 'Vous avez déjà été banni pour avoir violé notre %{code_of_conduct_link}. Vous n''êtes plus banni.'
+      remove_ban_subject: "if me | Vous n'êtes plus banni"
+      remove_ban_body: 'Vous avez déjà été banni pour avoir violé notre %{code_of_conduct_link}.'
   omniauth:
     google: Google
     access_denied: 'Accès refusé'
@@ -384,46 +384,46 @@ fr:
       send_us: us
       email_us: 'Contactez-nous %{email_link}!'
       main_message_one: '%{app_name} est une communauté en bien-être et santé mentale qui encourage les gens à partager leur expériences personnelles avec des alliés de confiance.'
-      message_text_one: 'Les alliés de confiance sont les personnes avec qui on interragit régulièrement comme des amis, les membres de la famille,  family members, les proches collaborateurs, enseignats, et professionnels en santé mentale.'
-      main_message_two: 'Faire face à des soucis psychiques est ce qui nous rends humain. Pour certain d''entre-nous, il est difficile d''en parler.'
+      message_text_one: 'Les alliés de confiance sont les personnes avec qui on interragit régulièrement comme des amis, les membres de la famille, les proches collaborateurs, enseignants, et professionnels en santé mentale.'
+      main_message_two: "Faire face à des soucis psychiques est ce qui nous rends humain. Pour certain d'entre-nous, il est difficile d'en parler."
       message_text_two: '<p>Tout le monde n''est pas conseiller ou thérapiste. Les personnes avec qui on intéragit tous les jours conditionnent nos émotions et comportements. Les impliquer dans les traitement psychotérapeutique est essentiel pour un bon rétablissement.</p><p class="subtitle">"Ce n''est pas juste dans votre tête, c''est tout autour de vous. Nous pouvons nous soigner ensemble."</p><p>Le bien-être mental est une expérience personnelle et unique. Pas deux cerveaux sont identiques! Résoudre le problème demande la participation de tous, c''est pourquoi le projet est open source.</p>'
-      main_message_three: 'Vous voulez nous financer?'
+      main_message_three: 'Vous voulez nous financer ?'
       message_text_three: 'Notre app est un projet <u>complétement</u> open source. Il est construit et maintenu par des volontaires de milieux différents et des compétences diverses.</p><p>En 2016, nous avons reçu une subvention communautaire de %{linebreak_link}. En 2017, nous avons reçu un financement de %{fund_club_link}.</p>Vous pouvez nous apporter votre soutien sur  %{patreon_link}.</p>'
       linebreak: Linebreak
       fund_club: 'Fund Club'
     blog:
-      description: 'If you''re interested in writing for us, pitch us at %{email}! We welcome anonymous submissions too.'
+      description: "Si vous êtes intéressé afin d'écrire pour nous, envoyez-nous un email à %{email} ! Nous sommes aussi ouverts aux contributions anonymes."
     contribute:
       contributor_avatar_alt: 'Biographie de contributeur pour %{name}'
       main_message_one: 'if me est construit et maintenu par des volontaires de milieux différents et des compétences diverses.'
-      message_text_one: 'Nous apprécions les contributions et idées de tout le monde, y compris <strong>spécialistes en santé mentale</strong>, <strong>professionels de la santé</strong>, <strong>dévelopeurs en informatique</strong>, <strong>traducteurs</strong>, et <strong>spésialistes de l''expérience utilisateur</strong>!<p class="noMarginBottom">Merci %{email_link} et nous prendrons contacte avec vous! Vous serez invité à participer à note page %{slack_link}, notre outil de communication principal. Créez une branche de notre github %{github_link}!</p>'
+      message_text_one: 'Nous apprécions les contributions et idées de tout le monde, y compris <strong>spécialistes en santé mentale</strong>, <strong>professionels de la santé</strong>, <strong>dévelopeurs informatique</strong>, <strong>traducteurs</strong>, et <strong>spésialistes de l''expérience utilisateur</strong>!<p class="noMarginBottom">Merci %{email_link} et nous prendrons contacte avec vous! Vous serez invité à participer à note page %{slack_link}, notre outil de communication principal. Créez une branche de notre github %{github_link}!</p>'
       more_contributors: 'Plus de contributeurs fabuleux!'
       thanks: 'Un énorme merci à'
       slack: Slack
     faq:
       title: 'Foire Aux Questions'
-      data_access_question: 'Qui a accès à mes données?'
+      data_access_question: 'Qui a accès à mes données ?'
       data_access_answer: 'Aucune donnée n''est transmise ou rendue accessible à des tiers. Supprimer votre compte supprime toutes vos données.<br><br>Les données des utilisateurs sont uniquement analysées dans le cadre de l''application afin de fournir des recommendations.'
-      moment_question: 'Qu''est-ce qu''un moment?'
+      moment_question: 'Qu''est-ce qu''un moment ?'
       moment_answer: 'Un <strong>%{moment}</strong> est un évènement ou situation qui affecte votre bien-être psychique. Cela peut être positivement ou négativement. Pensez y comme une entrée dans votre journal ou la mise à jour de votre status.<br><br>Vous pouvez étiqueter vos moments avec des stratégies, catégories, et des humeurs. Vous pouvez aussi choisir quels alliés peuvent les visualiser et les commenter. Vous pouvez aussi garder vos moments privés et uniquement accessibles par vous-même.'
-      strategy_question: 'Qu''est-ce qu''une stratégie?'
+      strategy_question: 'Qu''est-ce qu''une stratégie ?'
       strategy_answer: 'Une <strong>%{strategy}</strong> est une activité, un fil de penséeis ou une forme de soin personnel qui aide à faire face ou sew concentre sur le rétablissement.<br><br>Vous pouvez étiqueter vos stratégies avec des catégories. Vous pouvez aussi choisir quels alliés peuvent les visualiser et les commenter. Vous pouvez aussi garder vos stratégies privées et uniquement accessibles par vous-même. Les stratégies partagées sont visible par tous les alliés spécifiés, ce qui signifie que vous pouvez étiqueter vos moments avec leurs stratégies!'
-      category_question: 'Qu''est-ce qu''une catégorie?'
+      category_question: 'Qu''est-ce qu''une catégorie ?'
       category_answer: 'Une <strong>%{category}</strong> est une étiquette qui peut représenter des personnes, lieux et choses qui sont importants pour vous.'
-      mood_question: 'Qu''est-ce qu''une humeur?'
+      mood_question: 'Qu''est-ce qu''une humeur ?'
       mood_answer: 'Une <strong>%{mood}</strong> est une étiquette qui correspond à votre état d''estprit, vos sentiments, et émotions.'
-      group_question: 'Qu''est-ce qu''un groupe?'
+      group_question: 'Qu''est-ce qu''un groupe ?'
       group_answer: 'Un <strong>%{group}</strong> offre soutient, mentorat, et discussion sur le bien-être psychique. Vous pouvez créer des groupe et vos alliés peuvent le rejoindre. Vous ne pouvez rejoindre que des groupes créés par vos alliés.<br><br>En tant qu''animateur de groupe, vous pouvez créer des <strong>réunions</strong>. Les réunions ont des lieux et horaires. Le lieu peut être un endroit physique ou une adresse URL pour un Hangout de Google. Les réunions permettent aussi de commenter. Si vous êtes un animateur de groupe vous ne pouvez pas quitter le groupe à moins qu''il n''y ait un autre animateur dans le groupe. Un groupe ne peut être supprimé que si vous en êtes l''unique membre.'
-      medications_question: 'Comment utiliser la fonctionnalité de médication?'
+      medications_question: 'Comment utiliser la fonctionnalité de médication ?'
       medications_answer: 'La fonction <strong>%{medications}</strong> vous permet d''enregistrer les médications que vous prenez. Vous ouvez aussi prendre note de vos symptômes.'
-      invite_question: 'Comment puis-je inviter mes proches à rejoindre l''application?'
+      invite_question: 'Comment puis-je inviter mes proches à rejoindre l''application ?'
       invite_answer: 'Rendez-vous sur la page <strong>%{allies}</strong> et cliquez sur le lien "Invitez vos proches". Vous pouvez les inviter via email. Quand vos proches acceptent votre invitation, ils sont ajoutés à votre liste d''alliés.'
-      email_notifications_question: 'Comment puis-je modifier les alertes email?'
+      email_notifications_question: 'Comment puis-je modifier les alertes email ?'
       email_notifications_answer: 'Rendez-vous sur la page <strong>%{accounts}</strong>. Vous pouvez modifier votre email, mot de passe, photo de profil, et bio ici. Vous pouvez aussi supprimer votre compte. Une fois votre compte supprimé, toutes vos données sont supprimées.'
     home:
       update_pwd_modal:
         title: 'Mettre à jour le mot de passe'
-        body: 'Nous avons mis en place de meilleures mesures de sécurité pour nos utilisateurs, s''il vous plaît %{update_password_link}'
+        body: "Nous avons mis en place de meilleures mesures de sécurité pour nos utilisateurs, s'il vous plaît cliquez sur le lien suivant %{update_password_link}"
         update_link: 'mettre à jour votre mot de passe.'
       stories: Histoire
       not_signed_in:
@@ -443,9 +443,9 @@ fr:
         main_message_three: 'Ecrivez vos histoires.'
         cell_two: 'Créez des %{categories} personnalisées pour vous aidez à organiser vos moments.<br>Ecrivez vos %{moments} - Les évènements et situations qui affectent votre bien-être psychique.'
         main_message_four: 'Prenez soin de vous.'
-        cell_three: '%{strategize} vos planning de soins!<br>Actuellement sous %{medications}? Gardez le contrôle et créez des rappels!<br>Besoin de soutien supplémentaire? Rejoingnez ou créez un %{group} pour échanger'
+        cell_three: '%{strategize} vos planning de soins !<br>Actuellement sous %{medications}? Gardez le contrôle et créez des rappels!<br>Besoin de soutien supplémentaire? Rejoingnez ou créez un %{group} pour échanger'
         main_message_five: 'Avez-vous des questions?'
-        message_text_three: 'Jetez un coup d''oeil à la %{faq} ou utilisez %{email_link}!'
+        message_text_three: 'Jetez un coup d''oeil à la %{faq} ou utilisez %{email_link} !'
         strategize: Organisez
     partners:
       description: 'Voici les fantastiques organisations qui nous ont inspiré et avec les quelles nous avons eu le privilège de collaborer. Nous serions enchanté de collaborer avec votre organisation, contactez-nous à l''adresse email %{email}.'
@@ -462,9 +462,9 @@ fr:
       contact_description: '<p>Merci d''envoyer vos questions et requêtes à %{email_link} .</p><p class="noMarginBottom"><em>Politique de confidentialité adaptée de %{jamie_king_media}.</em></p>'
     resources:
       description: 'Voici notre liste de ressources en santé mentale, comprenant des communautés, des outils éducatifs, des lignes directes et des services.'
-      emergency: 'Si vous ou une personne de votre entourage êtes confrontée à une urgence en santé mentale, demandez de l''aide dès que possible.'
+      emergency: "Si vous ou une personne de votre entourage êtes confrontée à une urgence en santé mentale, demandez de l'aide dès que possible."
       communities: Communauté
-      education: Education
+      education: Éducation
       hotlines: Hotlines
       services: Services
       tags:
@@ -481,7 +481,7 @@ fr:
         harassment: harcèlement
         self_care: bien-être
         women: femmes
-        chatbot: chatbot
+        chatbot: tchatbot
         anonymous: anonyme
         free: gratuit
         paid: payant
@@ -491,7 +491,7 @@ fr:
         podcast: podcast
         books: livres
         publication: publication
-        video_chat: 'chat vidéo'
+        video_chat: 'tchat vidéo'
         texting: textos
         open_source: 'open source'
         workplace: 'lieu de travail'
@@ -504,7 +504,7 @@ fr:
         netflix: netflix
         homeless: 'sans domicile'
         talks: discussions
-        voice_chat: 'chat vocal'
+        voice_chat: 'tchat vocal'
         training: entrainement
         directory: annuaire
         self_injury: automutilation
@@ -530,19 +530,19 @@ fr:
         ptsd: TSPT
         tbi: TCC
         news: actualités
-        government: gouvèrnement
+        government: gouvernement
         christian: chrétien
         humor: humour
         conference: conférence
-        addiction: dàpendance
+        addiction: dépendance
         rehabilitation: réhabilitation
         teachers: enseignants
         bipolar: bipolaire
-        goal_tracking: 'suivi d''objectifs'
+        goal_tracking: "suivi d'objectifs"
         social_network: 'réseau social'
         add: TDA
         adhd: TDAH
-        sexual_assault_survivors: 'survivants d''agression sexuelle'
+        sexual_assault_survivors: "survivants d'agression sexuelle"
         political_movement: 'mouvement politique'
         reporting: signaler
         game: jeu
@@ -575,7 +575,7 @@ fr:
     footer:
       licence: AGPL-3.0
       licence_subtitle: 'Sous license %{licence}'
-      connect: 'S''identifier'
+      connect: "S'identifier"
     comments:
       share_everyone: 'partager avec tout le monde'
       share_with: 'Partager seulement avec %{name}'
@@ -588,21 +588,21 @@ fr:
       disabled_comments: 'Les commentaires sont désactivés.'
       you_are_viewer_html:
         one: 'Vous êtes le seul lecteur.'
-        other: 'Vous <strong>n''êtes pas</strong> le seul lecteur.'
+        other: "Vous <strong>n'êtes pas</strong> le seul lecteur."
       viewers_html:
-        zero: 'Il n''y a <strong>pas</strong> de visiteur.'
+        zero: "Il n'y a <strong>pas</strong> de visiteur."
         one: '%{names} est un lecteur.'
         other: '%{names} sont des lecteurs.'
     stats:
-      you_are_focusing: 'Vous vous concentrer le plus sur'
-      user_is_focusing: '%{name} se concentre le plus sur'
+      you_are_focusing: 'Vous vous concentrez le plus'
+      user_is_focusing: '%{name} se concentre le plus'
     viewers:
       plural: lecteurs
       you: 'Seulment vous'
       you_link: 'Accessible seulement par vous'
       many: 'Accessible à %{viewers}'
     meeting_info:
-      attending: 'Vous participez. Vous voulez changer d''avis?'
+      attending: 'Vous participez. Vous voulez changer d''avis ?'
       not_attending: 'Vous ne participez pas. %{join}'
       not_attending_one_spot_left: 'Vous ne participez pas. Il ne reste plus qu''une place! %{join}'
       not_attending_spots_left: 'Vous ne participez pas. Il reste %{number} places de libres! %{join}'
@@ -617,11 +617,11 @@ fr:
     new: 'Nouvelle stratégie'
     form:
       describe: 'Décrire la stratégie.'
-      strategies_label: 'Quelles stratégies aideraient à atteindre cet état d''esprit?'
+      strategies_label: 'Quelles stratégies aideraient à atteindre cet état d''esprit ?'
       name_hint: 'Une activité, fil de pensées ou pratique de bien-être qui vous aide.'
       viewers_hint: 'Alliés qui peuvent accéder à votre stratégie et étiqueter leurs propres moments avec celle-ci.'
       daily_reminder_hint: 'Nous vous enverrons par email un rappel journalier de pratiquer cette stratégie.'
-      draft_question: 'Vouleuz-vous sauvegarder votre stratégie en tant que brouillon?'
+      draft_question: 'Vouleuz-vous sauvegarder votre stratégie en tant que brouillon ?'
     label:
       one: 'Stratégie:'
       other: 'Stratégies:'
@@ -631,16 +631,16 @@ fr:
       premade1_description: '1) <b>Trouvez une position confortalble et détendue.</b> Vous pouvez être assis sur une chaise ou sur un coussin à même le sol. Gardez votre dos droit, mais pas tendu. Vos mains reposent où cela vous semble confortable. Votre langue contre votre palais où comme vous vous sentez le plus confortable.<br><br>2) <b>Ressentez et détendez votre corps.</b> Prenez note de la forme de votre corps et de son poids. Détendez-vous et à l''écoute de votre corps en position assise et des sensations qu''il vous procure. le touché, le contact avec le sol ou la chaise. Détendez les zones de crispation et tension. Respirer simplement.<br><br>3) <b>Harmonisez votre respiration.</b> Reseentez le flux naturel de l''air quand vous inspirez et expirez. Vous n''avez rien besoin de changer à votre respiration. Ni longue , ni courte, simplement naturelle. Notez où vous ressentez les mouvement de l''air dans votre corps. Cela peut être votre abdomen. Cela peut être votre poitrine ou la gorge ou les narines. Essayez de ressentir la sensation de votre respiration, une respiration à la fois. Quand une respiration se termine une autre commence.<br><br>4) <b>Soyez indulgent avec vos pensées vagabondes.</b> Maintenant que vous faites ceci vous pouvez peut-être réalisez que votre esprit s''égare. Vous commencez à penser à d''autres choses. Si cela arrive, ce n''est pas un problème. C''est tout à fait naturel. Prenez simplement note que votre esprit c''est égaré. Vous pouvez dire doucement dans votre tête "pensée" ou "égarement". Et ensuite gentillement rediriger votre attention à nouveau sur votre respiration.<br><br>5) <b>Restez ainsi cinq à sept minutes.</b> Observez votre respiration, en silence. De temps à autre vous vous perdrez dans vos pensées, retournez alors simplement à votre resipration.<br><br>6) <b>Faites à nouveau un état des lieux avant de terminer.</b> Après quelques minutes, à nouveau ressentez votre corps, dans son entier, en position assise. Détendez vous encore plus profondément et félicitez-vous pour cette pratique méditative d''aujourd''hui.<br><br><i>Repris de http://www.mindful.org/a-five-minute-breathing-meditation/</i>'
       instructions: 'Vous n''avez pas encore créé de stratégies personnelles.<br>Vous pouvez ajouter les stratégies pré-configurées suivantes et les personnaliser plus tard.'
     reminder_mailer:
-      subject: 'N''oubliez pas de pratiquer %{name}!'
-      body: 'Voici un  petit rappel afin de pratiquer %{name}!'
+      subject: "N'oubliez pas de pratiquer %{name} !"
+      body: 'Voici un  petit rappel afin de pratiquer %{name} !'
   stats:
     total_moments: 'Vous avez rédigé un <strong>total</strong> de <strong>%{count}</strong> moments.'
     total_moment: 'Vous avez rédigé un <strong>total</strong> de <strong>%{count}</strong> moment.'
     monthly_moments: 'Ce <strong>mois</strong> vous avez rédigé <strong>%{count}</strong> moments.'
     monthly_moment: 'Ce <strong>mois</strong> vous avez rédigé <strong>%{count}</strong> moment.'
   warnings:
-    no_description: 'Vous n''avez pas écrit de description!'
-    yes_description: 'En écrire une peut vous aider vous et d''autres personnes à avoir une meilleures compréhension des détails.'
+    no_description: "Vous n'avez pas écrit de description !"
+    yes_description: "En écrire une peut vous aider vous et d'autres personnes à avoir une meilleures compréhension des détails."
   mailers:
     accepted_ally_request:
       subject: 'if me | %{ally_name} a accépté votre demande!'
@@ -695,21 +695,21 @@ fr:
           update: 'Mise à jour'
         placeholders:
           optional: Optionel
-          about: 'Présentez-vous! Pourquoi vous êtes ici et quel but souhaitez-vous atteindre? Merci de prendre note que ceci sera visualisez par les utilisateurs qui vous recherche.'
+          about: 'Présentez-vous! Pourquoi vous êtes ici et quel but souhaitez-vous atteindre ? Merci de prendre note que ceci sera visualisez par les utilisateurs qui vous recherche.'
           required: Requis
         delete:
-          text: 'Est-ce que <strong>if me</strong> ne vous convient pas?'
+          text: 'Est-ce que <strong>if me</strong> ne vous convient pas ?'
           button: 'Supprimé mon compte de manière permanente'
-          confirm: 'Êtes-vous sûr? Vous allez perdre tous vos données. Mais vous pourrez toujours vous réenregistrer!'
+          confirm: 'Êtes-vous sûr ? Vous allez perdre tous vos données. Mais vous pourrez toujours vous réenregistrer !'
       new:
         subtitle: 'Commencez à raconter vos histoires et maintenez votre santé dans un espace privé et sécurisé'
         label: 'Quelques détails'
     sessions:
       subtitle: 'Bon retour parmi nous, nous nous réjouissons de pouvoir vous aider à attaquer cette journée'
     shared:
-      sign_in_google: 'S''identifier avec Google'
-      sign_up_google: 'S''enregistrer avec Google'
-      confirmation: 'Vous n''avez pas reçu vous informations de confirmation?'
-      unlock: 'Vous n''avez pas reçu vos informations pour débloquer votre compte?'
+      sign_in_google: "S'identifier avec Google"
+      sign_up_google: "S'enregistrer avec Google"
+      confirmation: "Vous n'avez pas reçu vous informations de confirmation ?"
+      unlock: "Vous n'avez pas reçu vos informations pour débloquer votre compte ?"
     unlock:
       resend: 'Renvoyer les informations pour débloquer le compte'
