@@ -25,6 +25,7 @@
 
 # Ignore all IDE, TextEditor configuration files
 .vs/
+.vscode/
 .idea/
 .tags
 *.swp
