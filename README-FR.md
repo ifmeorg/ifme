@@ -52,7 +52,7 @@ Nous vous encourageons [a vous mettre](https://github.com/ifmeorg/ifme/wiki/Cont
 
   
 
-## Donations
+## Donation
 
   
 
