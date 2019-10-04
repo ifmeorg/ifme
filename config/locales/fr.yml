@@ -295,7 +295,7 @@ fr:
       draft_question: 'Voulez-vous conserver ce moment comme brouillon ?'
     index:
       subtitle: 'Replonger dans vos moments - événements et situations qui affectent votre bien-être mental.'
-      instructions: "Vous n'avez pas encore décrit de moment.<br><br>Vous ne savez pas par où commencer ? Que c'est-il passé aujourd'hui que vous aimeriez partager et discuter avec un proche? Que ce soit positif ou négatif ! Vous n'avez pas besoin de le partager immédiatement - seulement quand vous serez prêt(e) ! Voici un exemple de moment.'
+      instructions: "Vous n'avez pas encore décrit de moment.<br><br>Vous ne savez pas par où commencer ? Que c'est-il passé aujourd'hui que vous aimeriez partager et discuter avec un proche? Que ce soit positif ou négatif ! Vous n'avez pas besoin de le partager immédiatement - seulement quand vous serez prêt(e) ! Voici un exemple de moment."
       example_name: "Panique au sujet de l'entretien de demain !"
       example_category: Carrière
     show:
