@@ -3,7 +3,7 @@
   
 
 [if me](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance.
-les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs, , et ceux qui travaille pour les expériences sur la santé.
+les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé.
 
  
 Traiter avec la santé mentale c'est ce qui fait de nous des humains. Mais pour beaucoup de nous, c'est un combat d'être ouvert à ce sujet. Pas tout le monde est un
@@ -40,7 +40,7 @@ Regarder notre [Wiki](https://github.com/ifmeorg/ifme/wiki) pour avoir la docume
 
   
 
-les informations pour installer et configurer l'application [ici](https://github.com/ifmeorg/ifme/wiki/Installation). Les instances de test, de développement et de production sont couvertes.
+Les informations pour installer et configurer l'application [ici](https://github.com/ifmeorg/ifme/wiki/Installation). Les instances de test, de développement et de production sont couvertes.
 
   
 
@@ -56,15 +56,12 @@ Nous vous encourageons [a vous mettre](https://github.com/ifmeorg/ifme/wiki/Cont
 
   
 
-We also welcome financial contributions in full transparency on our
 On accepte aussi les contributions financières en toute transparence sur notre page
 [Open Collective](https://opencollective.com/ifme).
 
 Tout le modèle peut participer aux frais. Si la dépense a un sens pour le développement de  
   
-la communauté, il sera "fusionné" dans le livre de notre Open Collective par le  
-  
-Les contributeurs principaux et les personnes qui ont effectué des dons seront remboursés.
+la communauté, il sera "fusionné" dans le livre de notre Open Collective  par les contributeurs principaux et les personnes qui ont effectué des dons seront remboursés
 
   
 
@@ -126,7 +123,7 @@ Merci de demander a votre societé de supporter ce projet open source en
 
   
 
-Le Code source est sous licence GNU AGPLv3. Pour plus d'informations allez voir 
+Le code source est sous licence GNU AGPLv3. Pour plus d'informations allez voir 
 
 http://www.gnu.org/licenses/agpl-3.0.txt ou
 
