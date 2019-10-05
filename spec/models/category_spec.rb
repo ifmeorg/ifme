@@ -13,28 +13,14 @@
 #
 
 describe Category do
-  context 'creation' do
-    it 'is valid' do
-      category = create(:category, :with_user)
-      expect(category).to be_valid
-      expect(Category.count).to eq(1)
-    end
+  it { is_expected.to respond_to :friendly_id }
 
-    it 'is invalid without a user_id' do
-      category = build(:category, user_id: nil)
-      expect(category).to be_invalid
-    end
-
-    it 'is invalid without a name' do
-      category = build(:category, name: nil)
-      expect(category).to have(1).error_on(:name)
-    end
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :name }
   end
 
-  context 'relation' do
-    it 'belongs to a user' do
-      assc = described_class.reflect_on_association(:user)
-      expect(assc.macro).to eq :belongs_to
-    end
+  context 'with relations' do
+    it { is_expected.to belong_to :user }
   end
 end

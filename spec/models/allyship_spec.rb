@@ -12,43 +12,74 @@
 #
 
 describe Allyship do
-  it 'creates a valid ally relationship with accepted status' do
-    new_user1 = create(:user1)
-    new_user2 = create(:user2)
-    new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
-    expect(Allyship.count).to eq(2)
+  context 'with relations' do
+    it { is_expected.to belong_to :user }
+    it { is_expected.to belong_to :ally }
   end
 
-  it 'creates a valid ally relationship with pending_from_user_id1 status' do
-    new_user1 = create(:user1)
-    new_user2 = create(:user2)
-    new_allies = create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
-    expect(Allyship.count).to eq(2)
+  context 'with enums' do
+    it { is_expected.to define_enum_for :status }
   end
 
-  it 'creates a valid ally relationship with pending_from_user_id2 status' do
-    new_user1 = create(:user1)
-    new_user2 = create(:user2)
-    new_allies = create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
-    expect(Allyship.count).to eq(2)
-  end
+  context 'when creating allies relationship' do
+    context 'with accepted status' do
+      it 'creates a valid ally relationship' do
+        new_user1 = create(:user1)
+        new_user2 = create(:user2)
+        new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
 
-  it 'creates an invalid ally relationship where users are identical' do
-    new_user1 = create(:user1)
-    new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: new_user1.id)
-    expect(new_allies).to have(1).error_on(:user_id)
-  end
+        expect(Allyship.count).to eq 2
+      end
+    end
 
-  it 'creates an invalid ally relationship where user1 is nil' do
-    new_user2 = create(:user2)
-    new_allies = build(:allyships_accepted, user_id: nil, ally_id: new_user2.id)
-    expect(new_allies).to have(1).error_on(:user_id)
-  end
+    context 'with pending_from_user_id1 status' do
+      it 'creates a valid ally relationship' do
+        new_user1 = create(:user1)
+        new_user2 = create(:user2)
+        new_allies = create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
 
-  it 'creates an invalid ally relationship where user2 is nil' do
-    new_user1 = create(:user1)
-    new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: nil)
-    expect(new_allies).to have(1).error_on(:ally_id)
+        expect(Allyship.count).to eq 2
+      end
+    end
+
+    context 'with pending_from_user_id2 status' do
+      it 'creates a valid ally relationship' do
+        new_user1 = create(:user1)
+        new_user2 = create(:user2)
+        new_allies = create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
+
+        expect(Allyship.count).to eq 2
+      end
+    end
+
+    context 'with invalid ally relationship' do
+      context 'when users are identical' do
+        it 'creates an invalid ally relationship' do
+          new_user1 = create(:user1)
+          new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: new_user1.id)
+
+          expect(new_allies).to have(1).error_on(:user_id)
+        end
+      end
+
+      context 'when user1 is nil' do
+        it 'creates an invalid ally relationship' do
+          new_user2 = create(:user2)
+          new_allies = build(:allyships_accepted, user_id: nil, ally_id: new_user2.id)
+
+          expect(new_allies).to have(1).error_on(:user_id)
+        end
+      end
+
+      context 'when user2 is nil' do
+        it 'creates an invalid ally relationship' do
+          new_user1 = create(:user1)
+          new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: nil)
+
+          expect(new_allies).to have(1).error_on(:ally_id)
+        end
+      end
+    end
   end
 
   context 'when destroying' do
@@ -75,7 +106,7 @@ describe Allyship do
   end
 
   context 'when destroying' do
-    describe 'deletes pertinent viewer' do
+    context 'with viewer' do
       let!(:user) { create(:user1) }
       let!(:ally) { create(:user2) }
 
@@ -133,10 +164,8 @@ describe Allyship do
                                                          .and change { user.strategies.first.viewers.count }.from(1).to(0)
       end
     end
-  end
 
-  context 'when destroying' do
-    describe 'deletes pertinent allyship request notifications' do
+    context 'with allyship request notifications' do
       let!(:user) { create(:user1) }
       let!(:ally) { create(:user2) }
 

@@ -17,6 +17,34 @@
 #
 
 describe Strategy do
+  it { is_expected.to respond_to :friendly_id }
+
+  context 'when includign modules' do
+    it { expect(described_class).to include Viewer }
+    it { expect(described_class).to include CommonMethods }
+  end
+
+  context 'with serialize' do
+    it { is_expected.to serialize(:category) }
+    it { is_expected.to serialize(:viewers) }
+  end
+
+  context 'with relations' do
+    it { is_expected.to belong_to :user }
+    it { is_expected.to have_many(:comments) }
+    it { is_expected.to have_one :perform_strategy_reminder }
+  end
+
+  context 'with nested attributes' do
+    it { is_expected.to accept_nested_attributes_for(:perform_strategy_reminder) }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of(:user_id) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:description) }
+  end
+
   let(:category) { [1] }
   let(:viewers) { [1] }
   let(:strategy) { build(:strategy, category: category, viewers: viewers) }

@@ -12,6 +12,19 @@
 #
 
 describe Support do
+  context 'with validations' do
+    let(:inclusion_array) { %w[category mood moment strategy] }
+
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :support_type }
+    it { is_expected.to validate_presence_of :support_ids }
+    it { is_expected.to validate_inclusion_of(:support_type).in_array(inclusion_array) }
+  end
+
+  context 'with serialize' do
+    it { is_expected.to serialize(:support_ids) }
+  end
+
   it 'gives valid support to one moment' do
     new_user = create(:user1)
     new_category = create(:category, user_id: new_user.id)

@@ -13,6 +13,16 @@
 #
 
 describe Notification do
+  context 'with relations' do
+    it { is_expected.to belong_to :user }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :uniqueid }
+    it { is_expected.to validate_presence_of :data }
+  end
+
   it 'is valid with valid attributes' do
     notification = build(:notification)
 
