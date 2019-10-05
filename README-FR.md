@@ -6,15 +6,12 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
- Readme en [anglais](https://github.com/ifmeorg/ifme/blob/master/README.md), [portugais](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [espagnol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
+ Readme en [ANGLAIS](https://github.com/ifmeorg/ifme/blob/master/README.md), [PORTUGAIS](https://github.com/ifmeorg/ifme/blob/master/README-PT.md), [ESPAGNOL](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
-[if me](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance.
-les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé.
+[if me](https://www.if-me.org/) est une communautée  sur les expériences sur la santé mentale qui encourage les gens a partager leur histoire personnel avec des personnes de confiance les gens de confiance sont ceux avec qui on parle toues les jours , les membres de la famille, les amis, les professeurs,et ceux qui travaille pour les expériences sur la santé
 
  
-Traiter avec la santé mentale c'est ce qui fait de nous des humains. Mais pour beaucoup de nous, c'est un combat d'être ouvert à ce sujet. Pas tout le monde est un
- conseiller ou un thérapeute
-les personnes avec lesquelles nous interagissons quotidiennement façonnent nos émotions et notre comportement.
+Traiter avec la santé mentale c'est ce qui fait de nous des humains. Mais pour beaucoup de nous, c'est un combat d'être ouvert à ce sujet. Pas tout le monde est un  conseiller ou un thérapeute les personnes avec lesquelles nous interagissons quotidiennement façonnent nos émotions et notre comportement.
 Les impliquer dans des traitements de santé mentale est la clé du rétablissement.
   
 
@@ -22,11 +19,8 @@ Le site  peut être trouvé à [if-me.org](https://www.if-me.org/).Les systèmes
 
   
 
-On utilise le merveilleux[Contributor Covenant](http://contributor-covenant.org) pour notre code de conduite .  s'il vous plait
-
-[Lisez le](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
-
-avant de rejoindre notre projet.
+On utilise le merveilleux[Contributor Covenant](http://contributor-covenant.org) pour notre code de conduite. s'il vous plait
+[Lisez le](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md) avant de rejoindre notre projet.
 
   
 
@@ -64,10 +58,7 @@ Nous vous encourageons [a vous mettre](https://github.com/ifmeorg/ifme/wiki/Cont
 
 On accepte aussi les contributions financières en toute transparence sur notre page
 [Open Collective](https://opencollective.com/ifme).
-
-Tout le modèle peut participer aux frais. Si la dépense a un sens pour le développement de  
-  
-la communauté, il sera "fusionné" dans le livre de notre Open Collective  par les contributeurs principaux et les personnes qui ont effectué des dons seront remboursés
+Tout le modèle peut participer aux frais. Si la dépense a un sens pour le développement de  la communauté, il sera "fusionné" dans le livre de notre Open Collective  par les contributeurs principaux et les personnes qui ont effectué des dons seront remboursés
 
   
 
