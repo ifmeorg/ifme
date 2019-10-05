@@ -11,6 +11,17 @@
 #
 
 describe TakeMedicationReminder do
+  context 'with relations' do
+    it { is_expected.to belong_to :medication }
+  end
+
+  context '#name' do
+    let(:medication_reminder_name) { I18n.t('common.daily_reminder') }
+    let(:medication_reminder) { TakeMedicationReminder.new }
+
+    it { expect(medication_reminder.name).to eq medication_reminder_name }
+  end
+
   let(:user) { FactoryBot.create(:user1) }
   let(:medication) { FactoryBot.create(:medication, user_id: user.id) }
   let(:reminder) do

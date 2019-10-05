@@ -15,6 +15,29 @@
 #
 
 describe Comment do
+  context 'with relations' do
+    it { is_expected.to belong_to :commentable }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :comment }
+    it { is_expected.to validate_presence_of :commentable_id }
+    it { is_expected.to validate_presence_of :comment_by }
+    it do
+      is_expected.to validate_length_of(:comment).is_at_least(0).is_at_most(1000)
+    end
+    it do
+      is_expected.to validate_inclusion_of(:commentable_type).in_array(%w[moment strategy meeting])
+    end
+    it do
+      is_expected.to validate_inclusion_of(:visibility).in_array(%w[all private])
+    end
+  end
+
+  context 'with serialize' do
+    it { is_expected.to serialize(:viewers) }
+  end
+
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
   let(:user3) { create(:user3) }

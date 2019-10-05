@@ -45,6 +45,49 @@
 #
 
 describe User do
+  context 'with relations' do
+    it { is_expected.to have_many :allyships }
+    it { is_expected.to have_many(:allies).through(:allyships) }
+    it { is_expected.to have_many(:group_members) }
+    it { is_expected.to have_many(:groups).through(:group_members) }
+    it { is_expected.to have_many :meeting_members }
+    it { is_expected.to have_many :medications }
+    it { is_expected.to have_many :strategies }
+    it { is_expected.to have_many :notifications }
+    it { is_expected.to have_many :moods }
+    it { is_expected.to have_many :moments }
+    it { is_expected.to have_many :categories }
+    it { is_expected.to have_many(:password_histories).dependent(:destroy) }
+    it { is_expected.to belong_to :invited_by }
+  end
+
+  context 'with validations' do
+    let(:inclusion_array) do
+      Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
+    end
+
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_inclusion_of(:locale).in_array(inclusion_array) }
+
+    context '#password_complexity' do
+      context 'with a complex password' do
+        let(:user) do
+          User.create(name: 'some name', email: 'some@user.com', password: '!14Ma5tR0nGPwD?')
+        end
+
+        it { expect(user).to be_valid }
+      end
+
+      context 'with a easy password' do
+        let(:user) do
+          User.create(name: 'some name', email: 'some@user.com', password: 'abc123')
+        end
+
+        it { expect(user).to be_invalid }
+      end
+    end
+  end
+
   let(:current_time) { Time.zone.now }
 
   describe '#active_for_authentication?' do

@@ -17,6 +17,25 @@
 #
 
 describe Meeting do
+  it { is_expected.to respond_to :friendly_id }
+
+  context 'with relations' do
+    it { is_expected.to belong_to :group }
+    it { is_expected.to have_many(:members).through(:meeting_members) }
+    it { is_expected.to have_many(:meeting_members).dependent(:destroy) }
+    it { is_expected.to have_many(:leaders).through(:meeting_members) }
+    it { is_expected.to have_many(:comments) }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :location }
+    it { is_expected.to validate_presence_of :time }
+    it { is_expected.to validate_presence_of :group_id }
+    it { is_expected.to validate_presence_of :date }
+  end
+
   it 'has a valid factory' do
     result = build :meeting
 

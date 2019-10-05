@@ -13,6 +13,18 @@
 #
 
 describe Report do
+  context 'with relations' do
+    it { is_expected.to belong_to :reporter }
+    it { is_expected.to belong_to :reportee }
+    it { is_expected.to belong_to :comment }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :reportee_id }
+    it { is_expected.to validate_presence_of :reporter_id }
+    it { is_expected.to validate_presence_of :reasons }
+  end
+
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
   let(:report_params) do

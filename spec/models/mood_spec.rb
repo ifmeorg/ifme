@@ -13,6 +13,17 @@
 #
 
 describe Mood do
+  it { is_expected.to respond_to :friendly_id }
+
+  context 'with relations' do
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :name }
+  end
+
+  context 'with validations' do
+    it { is_expected.to belong_to :user }
+  end
+
   context 'creation' do
     it 'is valid' do
       mood = create(:mood, :with_user)

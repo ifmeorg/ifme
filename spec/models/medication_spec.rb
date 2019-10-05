@@ -22,6 +22,34 @@
 #
 
 describe Medication do
+  it { is_expected.to respond_to :friendly_id }
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :dosage }
+    it { is_expected.to validate_presence_of :refill }
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :total }
+    it { is_expected.to validate_presence_of :strength }
+    it { is_expected.to validate_presence_of :dosage_unit }
+    it { is_expected.to validate_presence_of :total_unit }
+    it { is_expected.to validate_presence_of :strength_unit }
+    it { is_expected.to validate_numericality_of(:dosage).is_greater_than_or_equal_to 0 }
+    it { is_expected.to validate_numericality_of(:total).is_greater_than_or_equal_to 0 }
+    it { is_expected.to validate_numericality_of(:strength).is_greater_than_or_equal_to 0 }
+  end
+
+  context 'with relations' do
+    it { is_expected.to belong_to :user }
+    it { is_expected.to have_one :take_medication_reminder }
+    it { is_expected.to have_one :refill_reminder }
+  end
+
+  context 'with nested attributes' do
+    it { is_expected.to accept_nested_attributes_for :take_medication_reminder }
+    it { is_expected.to accept_nested_attributes_for :refill_reminder }
+  end
+
   describe '#active_reminders' do
     let(:user) { FactoryBot.create(:user1) }
 

@@ -12,6 +12,20 @@
 #
 
 describe Group do
+  it { is_expected.to respond_to :friendly_id }
+
+  context 'with relations' do
+    it { is_expected.to have_many :group_members }
+    it { is_expected.to have_many(:members).through(:group_members) }
+    it { is_expected.to have_many :meetings }
+    it { is_expected.to have_many(:leaders).through(:group_members) }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :description }
+  end
+
   it 'creates a group' do
     new_group = create(:group, description: 'Test Description')
     expect(Group.count).to eq(1)
