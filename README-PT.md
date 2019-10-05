@@ -4,24 +4,24 @@
 [![Backers on Open Collective](https://opencollective.com/ifme/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/ifme/sponsors/badge.svg)](#sponsors)
 
-README en: [Ingles](https://github.com/ifmeorg/ifme/blob/master/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
+README en: [Inglês](https://github.com/ifmeorg/ifme/blob/master/README.md), [Espanhol](https://github.com/ifmeorg/ifme/blob/master/README-ES.md)
 
 # if me
 
-[if me](https://www.if-me.org/) e uma comunidade para experiências de saúde mental, que encoraja as pessoas a compartilhar suas histórias pessoais com aliados confiáveis. Aliados confiáveis são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares, colegas de trabalho, professores e profissionais de saúde mental.
+[if me](https://www.if-me.org/) é uma comunidade para experiências de saúde mental, que encoraja as pessoas a compartilhar suas histórias pessoais com aliados confiáveis. Aliados confiáveis são as pessoas com as quais interagimos diariamente, incluindo amigos, familiares, colegas de trabalho, professores e profissionais de saúde mental.
 
-Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, a uma luta a ser aberta sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvê-los no tratamento da saúde mental é a chave para a recuperação.
+Lidar com a saúde mental é o que nos torna humanos. Mas para muitos de nós, é complicado ser aberto sobre isso. Nem todo mundo é conselheiro ou terapeuta. As pessoas com as quais interagimos todos os dias moldam nossas emoções e comportamento. Envolvê-los no tratamento da saúde mental é a chave para a recuperação.
 
-Nosso site esta ativo em [if-me.org](https://www.if-me.org/). Os sistemas de design ao vivo podem ser encontrados [design.if-me.org](http://design.if-me.org/).
+Nosso site está ativo em [if-me.org](https://www.if-me.org/). Os sistemas de design ao vivo podem ser encontrados [design.if-me.org](http://design.if-me.org/).
 
 Nos usamos o maravilhoso [Contrato de Contribuinte](http://contributor-covenant.org) para nosso código de conduta. Por favor, [leia-o](https://github.com/ifmeorg/ifme/blob/master/code_of_conduct.md)
 antes de se juntar ao nosso projeto.
 
-**Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolver) [aqui](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
+**Leia sobre os objetivos do nosso projeto e como contribuir (não apenas como desenvolvedor(a)) [aqui](https://github.com/ifmeorg/ifme/blob/master/CONTRIBUTING.md).**
 
 ## Documentação
 
-Por favor, confira nosso [Wiki](https://github.com/ifmeorg/ifme/wiki) para documentação completa.
+Por favor, confira nossa [Wiki](https://github.com/ifmeorg/ifme/wiki) para documentação completa.
 
 ### Instalação
 
@@ -29,12 +29,12 @@ Informações sobre como instalar e configurar o aplicativo [aqui](https://githu
 
 ### Colaborador Blurb
 
-Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) à nossa página do Contribuinte.
+Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/ifme/wiki/Contributor-Blurb) à nossa página de Colaboradores.
 
 ## Doar
 
-Nos lhe encorajamos a contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
-Qualquer um pode contribuir. Se uma despesa fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no razão de nosso Open Collectivel pelos contribuintes principais e a pessoa que depositou a despesa será reembolsada.
+Nós também aceitamos contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
+Qualquer um pode registrar uma despesa. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no razão de nosso Open Collectivel pelos colaboradores principais e a pessoa que registrou a despesa será reembolsada.
 
 Nós também temos uma página no [Patreon](https://www.patreon.com/ifme) onde você pode contribuir mensalmente.
 
@@ -44,7 +44,7 @@ Agradecemos aos nossos apoiadores [Rob Drimmie](https://www.patreon.com/user?u=3
 [Joseph D. Marhee](https://www.patreon.com/user?u=2899171), e
 [Carol Willing](https://www.patreon.com/user?u=202458)!
 
-Obrigado a todos os nossos apoiadores Open Collective backers!
+Obrigado a todos os nossos apoiadores do Open Collective!
 [Venha ser um apoiador!](https://opencollective.com/ifme#backer)
 
 <a href="https://opencollective.com/ifme#backers" target="_blank"><img src="https://opencollective.com/ifme/backers.svg?width=890"></a>
@@ -66,6 +66,6 @@ Obrigado a todos os nossos patrocinadores! (por favor, peça a sua empresa para 
 
 ## License
 
-O código fonte está licenciado por  GNU AGPLv3. Para mais informações, veja
+O código fonte está licenciado por GNU AGPLv3. Para mais informações, veja
 http://www.gnu.org/licenses/agpl-3.0.txt ou
 [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
