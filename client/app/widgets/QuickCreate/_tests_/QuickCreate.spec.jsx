@@ -55,18 +55,17 @@ describe('QuickCreate', () => {
         checkboxes,
         label,
       });
+      wrapper.update();
     }
 
     it('opens modal and displays quick create form if label does not exist', () => {
       changeInput('new_label');
-      wrapper.update();
       expect(wrapper.find('Modal').prop('open')).toBeTruthy();
       expect(wrapper.find('DynamicForm')).toHaveLength(1);
     });
 
     it('does nothing if label exists', () => {
       changeInput('alpha_label');
-      wrapper.update();
       expect(wrapper.find('Modal').prop('open')).toBeFalsy();
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
     });
