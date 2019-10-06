@@ -35,7 +35,7 @@ const globalDecorator = (storyFn, context) =>
   addDecorator(globalDecorator);
   addDecorator(withNotes);
 
-// automatically import all files ending in *.stories.jsx
+// Automatically import all files ending in *.stories.jsx
 const req = require.context('../app/stories', true, /.stories.jsx$/);
 function loadStories() {
   req.keys().forEach(filename => req(filename));
