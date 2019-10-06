@@ -1,18 +1,19 @@
 #!/bin/bash
 
-if [[ "$PWD" != */client ]]; then
-  cd client || exit
-fi
+CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
 
-CHANGES_IN_STORYBOOK=$(git diff .storybook/)
-CHANGES_IN_APP_COMPONENTS=$(git diff app/components/)
-CHANGES_IN_APP_STORIES=$(git diff app/stories/)
-CHANGES_IN_APP_STYLES=$(git diff app/styles/)
-CHANGES_IN_PACKAGE_JSON=$(git diff package.json)
-CHANGES_IN_RAILS_ASSETS=$(git diff ../app/assets/)
-CHANGES_IN_RAILS_LOCALES=$(git diff ../config/locales/)
+CHANGES_IN_STORYBOOK="client/.storybook/"
+CHANGES_IN_APP_COMPONENTS="client/app/components/"
+CHANGES_IN_APP_STORIES="client/app/stories/"
+CHANGES_IN_APP_STYLES="client/app/styles/"
+CHANGES_IN_PACKAGE_JSON="client/package.json"
+CHANGES_IN_RAILS_ASSETS="app/assets/"
+CHANGES_IN_RAILS_ASSETS="config/locales/"
 
-if [[ "$CHANGES_IN_STORYBOOK" || "$CHANGES_IN_APP_COMPONENTS" || "$CHANGES_IN_APP_STORIES" || "$CHANGES_IN_APP_STYLES" || "$CHANGES_IN_PACKAGE_JSON" || "$CHANGES_IN_RAILS_ASSETS" || "$CHANGES_IN_RAILS_LOCALES" ]]; then
+if [[ "$CHANGED_FILES" =~ "$CHANGES_IN_STORYBOOK" || "$CHANGED_FILES" =~ "$CHANGES_IN_APP_COMPONENTS" || "$CHANGED_FILES" =~ "$CHANGES_IN_APP_STORIES" || "$CHANGED_FILES" =~ "$CHANGES_IN_APP_STYLES" || "$CHANGED_FILES" =~ "$CHANGES_IN_PACKAGE_JSON" || "$CHANGED_FILES" =~ "$CHANGES_IN_RAILS_ASSETS" || "$CHANGED_FILES" =~ "$CHANGES_IN_RAILS_LOCALES" ]]; then
+  if [[ "$PWD" != */client ]]; then
+    cd client || exit
+  fi
   echo "Deploy changes to design.if-me.org"
   yarn build:storybook
   mv .out .public

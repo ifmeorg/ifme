@@ -483,5 +483,14 @@
     "link_name": "meanmachin3",
     "link": "https://github.com/meanmachin3",
     "social": "github"
+  },
+  {
+    "name": "Alline Marjorie",
+    "image": "/assets/contributors/alline_marjorie.jpg",
+    "profile": "I am a Software Engineer from Rio de Janeiro, Brazil. Mental health is really important and I feel happy contributing to a project that can help people improve and learn about themselves.",
+    "location": "Rio de Janeiro, Brazil",
+    "link_name": "alcoelho",
+    "link": "http://github.com/alcoelho",
+    "social": "github"
   }
 ]
