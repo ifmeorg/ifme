@@ -25,7 +25,7 @@ describe('QuickCreate', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
-    wrapper && wrapper.unmount(); // eslint-disable-line no-unused-expressions
+    wrapper.unmount();
   });
 
   it('sets correct initial values in state', () => {
