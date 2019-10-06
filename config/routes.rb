@@ -114,6 +114,9 @@ Rails.application.routes.draw do
                                     invitations: 'users/invitations',
                                     sessions: :sessions }
 
+  post 'profile/request_download'
+  post 'profile/sent_data'
+
   post 'pusher/auth'
 
   Rails.configuration.i18n.available_locales.each do |locale|

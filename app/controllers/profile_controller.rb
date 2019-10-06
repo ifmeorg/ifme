@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class ProfileController < ApplicationController
   include ProfileHelper
 
@@ -24,6 +23,23 @@ class ProfileController < ApplicationController
 
   def remove_ban
     ban(false)
+  end
+
+  def request_download
+    current_user.update(export_request: true)
+  end
+
+  def sent_data
+    file = "app/assets/export/user_#{current_user.id}_data"
+    folder_name = "app/assets/export/user_#{current_user.id}_data"
+
+    # Dir.chdir("app/assets/export/user_#{current_user.id}_data") do
+    #
+    # end
+    send_file folder_name
+
+    # send_data filename: folder_name, disposition: 'inline', stream: 'true', buffer_size: '4096'
+
   end
 
   private

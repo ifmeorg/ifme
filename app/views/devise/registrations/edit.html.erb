@@ -178,6 +178,16 @@
 
   <%= f.submit t('devise.registrations.edit.labels.update'), class: 'buttonDarkM marginTop' %>
 <% end %>
+<% unless current_user.export_request %>
+  <div class="label smallMarginTop">Request your data</div>
+  <%= button_to "Request Download",profile_request_download_path,class: 'buttonDarkM' %>
+<% else %>
+  <div class="label smallMarginTop">Data download requested</div>
+<% end %>
 
-<div class="label marginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
+<% if current_user.export_available %>
+  <div class="label smallMarginTop">Download your data</div>
+  <%= button_to "Download data",profile_sent_data_path,class: 'buttonDarkM' %>
+<% end %>
+<div class="label smallMarginTop"><%= raw t('devise.registrations.edit.delete.text') %></div>
 <%= button_to t('devise.registrations.edit.delete.button'), registration_path(resource_name), data: { confirm: t('devise.registrations.edit.delete.confirm') }, method: :delete, class: 'buttonDarkM' %>
