@@ -13,13 +13,14 @@ ja:
   no_text: 'いいえ'
   expand_menu: 'メニューを開く'
   close: 閉じる
+  load_more: 'Load more'
   languages:
     en: English
     es: Español
     nl: Nederlands
     pt-BR: Português
     sv: Svenska
-    various: Various
+    various_languages: 'Various languages'
     vi: 'Tiếng Việt'
     it: Italiano
     nb: Norsk
@@ -73,6 +74,7 @@ ja:
       location: 場所
       description: ディスクリプション
       error_explanation: 'マークされたフィールドに記入してください！'
+      empty_error: 'This field cannot be empty!'
       search_by_keywords: 'キーワードで検索する'
     time_ago: '%{date}前に'
     write_to_us: 'コンタクトする'
@@ -153,6 +155,7 @@ ja:
       header_message: 'このページを表示できません。'
     not_found:
       header_message: 'お探しのページは見つかりませんでした。'
+    empty_params: 'Can''t be blank'
   groups:
     singular: グループ
     plural: グループ
@@ -200,6 +203,7 @@ ja:
     refill: '補充：'
     quantity: '量：'
     strength: '強さ：'
+    event_summary: 'Refill for %{name}.'
     form:
       strength: 強さ
       strength_placeholder: 'e.g. 100'
@@ -264,6 +268,15 @@ ja:
       error: 'リーダーはあなたしかいませんので、会議を立ち去ることができません。'
       success: '%{meeting}を立ち去りました。'
     new: '新しい会議'
+    google_cal:
+      create:
+        add: 'Add to Google Calendar'
+        success: 'Meeting added to Google Calendar successfully.'
+        error: 'Something went wrong while adding the meeting to Google Calendar.'
+      destroy:
+        remove: 'Remove from Google Calendar'
+        success: 'Meeting removed from Google Calendar successfully.'
+        error: 'Something went wrong while removing the meeting from Google Calendar.'
   moments:
     singular: モーメント
     plural: モーメント
@@ -274,6 +287,7 @@ ja:
       singular: '秘密シェア'
       expires_at: '表示期限'
       cancel_secret_share: '秘密シェアをキャンセルする'
+      link_copied: 'Secret Share link copied to clipboard'
     form:
       why: '何が起こりましたか？気分はどうですか？'
       fix: 'どうしたらいいと思いますか？'
@@ -449,6 +463,7 @@ ja:
       contact_description: '<p>Please %{email_link} if you have any questions or concerns.</p><p class="noMarginBottom"><em>Privacy Policy adapted from %{jamie_king_media}.</em></p>'
     resources:
       description: 'This is our curated list of mental health resources, which includes communities, educational tools, hotlines, and services.'
+      emergency: 'If you or someone you know is experiencing a mental health emergency, reach out for help as soon as possible.'
       communities: Communities
       education: Education
       hotlines: Hotlines
@@ -463,7 +478,7 @@ ja:
         therapy: therapy
         counseling: counseling
         youth: youth
-        lgbtqia: LGBTQIA
+        lgbt: LGBT
         harassment: harassment
         self_care: self-care
         women: women
@@ -532,6 +547,16 @@ ja:
         political_movement: 'political movement'
         reporting: reporting
         game: game
+        stress: stress
+        fidget: fidget
+        colouring: colouring
+        deaf: deaf
+        asl: ASL
+        latinx: latinx
+        hispanic: hispanic
+        senior_citizens: 'senior citizens'
+        black_people: 'black people'
+        sexual_health: 'sexual health'
   profile:
     index:
       title: Profile
