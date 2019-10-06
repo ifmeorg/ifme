@@ -3,29 +3,29 @@ import { mount } from 'enzyme';
 import { QuickCreate } from '../index';
 
 const checkboxes = [
-{ id: 'second', value: 'second_value', label: 'second_label' },
-{ id: 'first', value: 'first_value', label: 'first_label' }
+  { id: 'last', value: 'a_value', label: 'zoo_label' },
+  { id: 'middle', value: 'middle_value', label: 'middle_label' },
+  { id: 'first', value: 'z_value', label: 'alpha_label' },
+  { id: 'dm', value: 'duplicate_middle_value', label: 'middle_label' },
 ];
-
-const formProps = {
-  inputs: [ {} ]
-};
 
 describe('QuickCreate', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<QuickCreate 
-      name='name' 
-      id='123' 
-      label='label' 
-      checkboxes={ checkboxes } 
-      formProps={ formProps } />
+    wrapper = mount(
+      <QuickCreate
+        name="name"
+        id="123"
+        label="label"
+        checkboxes={checkboxes}
+        formProps={{ inputs: [{}] }}
+      />,
     );
   });
 
   afterEach(() => {
     jest.restoreAllMocks();
-    wrapper && wrapper.unmount();
+    wrapper && wrapper.unmount(); // eslint-disable-line no-unused-expressions
   });
 
   it('sets correct initial values in state', () => {
@@ -35,12 +35,12 @@ describe('QuickCreate', () => {
     expect(state).toHaveProperty('accordionOpen', false);
   });
 
-  it('sorts checkboxes', () => {
-    const checkboxes = wrapper.state('checkboxes');
-    expect(checkboxes[0].id).toBe('first');
-    expect(checkboxes[1].id).toBe('second');
+  it('sorts checkboxes by label', () => {
+    const checkboxesFromState = wrapper.state('checkboxes');
+    expect(checkboxesFromState[0].id).toBe('first');
+    expect(checkboxesFromState[3].id).toBe('last');
   });
-  
+
   it('renders Modal initially closed', () => {
     const modal = wrapper.find('Modal');
     expect(modal).toHaveLength(1);
@@ -51,7 +51,10 @@ describe('QuickCreate', () => {
     it('opens modal and displays quick create form if label does not exist', () => {
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
       expect(wrapper.find('Modal').prop('open')).toBeFalsy();
-      wrapper.find('Input').prop('onChange')({ checkboxes, label: 'new_label' });
+      wrapper.find('Input').prop('onChange')({
+        checkboxes,
+        label: 'new_label',
+      });
       wrapper.update();
       expect(wrapper.find('Modal').prop('open')).toBeTruthy();
       expect(wrapper.find('DynamicForm')).toHaveLength(1);
@@ -60,7 +63,10 @@ describe('QuickCreate', () => {
     it('does nothing if label exists', () => {
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
       expect(wrapper.find('Modal').prop('open')).toBeFalsy();
-      wrapper.find('Input').prop('onChange')({ checkboxes, label: 'first_label' });
+      wrapper.find('Input').prop('onChange')({
+        checkboxes,
+        label: 'alpha_label',
+      });
       wrapper.update();
       expect(wrapper.find('Modal').prop('open')).toBeFalsy();
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
@@ -70,21 +76,26 @@ describe('QuickCreate', () => {
   describe('when dynamic form is submit', () => {
     beforeEach(() => {
       // render DynamicForm
-      wrapper.find('Input').prop('onChange')({ checkboxes, label: 'new_label' });
+      wrapper.find('Input').prop('onChange')({
+        checkboxes,
+        label: 'new_label',
+      });
       wrapper.update();
     });
 
     it('adds checkboxes from data', () => {
       const spy = jest.spyOn(wrapper.instance(), 'addToCheckboxes');
-      expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(2);
-      wrapper.find('DynamicForm').prop('onCreate')({ data: { 
-        success: true,
-        name: 'third_label',
-        id: 'third_value',
-        slug: 'third'
-      }});
+      expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(4);
+      wrapper.find('DynamicForm').prop('onCreate')({
+        data: {
+          success: true,
+          name: 'third_label',
+          id: 'third_value',
+          slug: 'third',
+        },
+      });
       wrapper.update();
-      expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(3);
+      expect(wrapper.find('Input').prop('checkboxes')).toHaveLength(5);
       expect(spy).toHaveBeenCalledTimes(1);
     });
 
@@ -93,12 +104,14 @@ describe('QuickCreate', () => {
       let modal = wrapper.find('Modal');
       expect(input.prop('accordionOpen')).toBeFalsy();
       expect(modal.prop('open')).toBeTruthy();
-      wrapper.find('DynamicForm').prop('onCreate')({ data: { 
-        success: true,
-        name: 'third_label',
-        id: 'third_value',
-        slug: 'third'
-      }});
+      wrapper.find('DynamicForm').prop('onCreate')({
+        data: {
+          success: true,
+          name: 'third_label',
+          id: 'third_value',
+          slug: 'third',
+        },
+      });
       wrapper.update();
       input = wrapper.find('Input');
       modal = wrapper.find('Modal');
@@ -114,7 +127,9 @@ describe('QuickCreate', () => {
       let modal = wrapper.find('Modal');
       expect(input.prop('accordionOpen')).toBeFalsy();
       expect(modal.prop('open')).toBeTruthy();
-      wrapper.find('DynamicForm').prop('onCreate')({ data: { success: false }});
+      wrapper.find('DynamicForm').prop('onCreate')({
+        data: { success: false },
+      });
       wrapper.update();
       input = wrapper.find('Input');
       modal = wrapper.find('Modal');
