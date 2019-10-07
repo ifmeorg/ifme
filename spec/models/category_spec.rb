@@ -18,6 +18,11 @@ describe Category do
   context 'with validations' do
     it { is_expected.to validate_presence_of :user_id }
     it { is_expected.to validate_presence_of :name }
+
+    it 'is invalid without a name' do
+      category = build(:category, name: nil)
+      expect(category).to have(1).error_on(:name)
+    end
   end
 
   context 'with relations' do
