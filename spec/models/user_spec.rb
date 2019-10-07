@@ -45,6 +45,17 @@
 #
 
 describe User do
+  context 'with included modules' do
+    it { expect(described_class).to include PasswordValidator }
+    it { expect(described_class).to include AllyConcern }
+  end
+
+  context 'with constants' do
+    let(:user_token_url) { 'https://accounts.google.com/o/oauth2/token' }
+
+    it { expect(User::OAUTH_TOKEN_URL).to eq user_token_url }
+  end
+
   context 'with relations' do
     it { is_expected.to have_many :allyships }
     it { is_expected.to have_many(:allies).through(:allyships) }

@@ -60,7 +60,6 @@ class User < ApplicationRecord
 
   has_many :allyships
   has_many :allies, through: :allyships
-  has_many :alerts
   has_many :group_members, foreign_key: :user_id
   has_many :groups, through: :group_members
   has_many :meeting_members, foreign_key: :user_id
