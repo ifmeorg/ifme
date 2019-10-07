@@ -44,13 +44,13 @@ describe('QuickCreate', () => {
   it('renders Modal initially closed', () => {
     const modal = wrapper.find('Modal');
     expect(modal).toHaveLength(1);
-    expect(modal.prop('open')).toBeFalsy();
+    expect(modal.prop('open')).toBe(false);
   });
 
   describe('when input is changed', () => {
     function changeInput(label) {
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
-      expect(wrapper.find('Modal').prop('open')).toBeFalsy();
+      expect(wrapper.find('Modal').prop('open')).toBe(false);
       wrapper.find('Input').prop('onChange')({
         checkboxes,
         label,
@@ -60,18 +60,18 @@ describe('QuickCreate', () => {
 
     it('opens modal and displays quick create form if label does not exist', () => {
       changeInput('new_label');
-      expect(wrapper.find('Modal').prop('open')).toBeTruthy();
+      expect(wrapper.find('Modal').prop('open')).toBe(true);
       expect(wrapper.find('DynamicForm')).toHaveLength(1);
     });
 
-    it('does nothing if label exists', () => {
+    it('does not open the modal if the label already exists', () => {
       changeInput('alpha_label');
-      expect(wrapper.find('Modal').prop('open')).toBeFalsy();
+      expect(wrapper.find('Modal').prop('open')).toBe(false);
       expect(wrapper.find('DynamicForm')).toHaveLength(0);
     });
   });
 
-  describe('when dynamic form is submit', () => {
+  describe('when the form is submitted', () => {
     function submitForm(data) {
       wrapper.find('DynamicForm').prop('onCreate')({
         data: data || {
@@ -85,7 +85,7 @@ describe('QuickCreate', () => {
     }
 
     beforeEach(() => {
-      // render DynamicForm
+      // make the DynamicForm render
       wrapper.find('Input').prop('onChange')({
         checkboxes,
         label: 'new_label',
@@ -101,31 +101,31 @@ describe('QuickCreate', () => {
       expect(spy).toHaveBeenCalledTimes(1);
     });
 
-    it('opens accordion and closes modal; renders Modal/Input with correct key', () => {
+    it('opens the accordion, closes the modal, and assigns the correct key to the modal and input field', () => {
       let input = wrapper.find('Input');
       let modal = wrapper.find('Modal');
-      expect(input.prop('accordionOpen')).toBeFalsy();
-      expect(modal.prop('open')).toBeTruthy();
+      expect(input.prop('accordionOpen')).toBe(false);
+      expect(modal.prop('open')).toBe(true);
       submitForm();
       input = wrapper.find('Input');
       modal = wrapper.find('Modal');
-      expect(modal.prop('open')).toBeFalsy();
-      expect(input.prop('accordionOpen')).toBeTruthy();
+      expect(modal.prop('open')).toBe(false);
+      expect(input.prop('accordionOpen')).toBe(true);
       expect(modal.key()).toBe(wrapper.state('modalKey'));
       expect(input.key()).toBe(wrapper.state('tagKey'));
     });
 
-    it('does not do anything if response data is not a success', () => {
+    it('does not submit the form when response data is invalid', () => {
       const spy = jest.spyOn(wrapper.instance(), 'addToCheckboxes');
       let input = wrapper.find('Input');
       let modal = wrapper.find('Modal');
-      expect(input.prop('accordionOpen')).toBeFalsy();
-      expect(modal.prop('open')).toBeTruthy();
+      expect(input.prop('accordionOpen')).toBe(false);
+      expect(modal.prop('open')).toBe(true);
       submitForm({ success: false });
       input = wrapper.find('Input');
       modal = wrapper.find('Modal');
-      expect(modal.prop('open')).toBeTruthy();
-      expect(input.prop('accordionOpen')).toBeFalsy();
+      expect(modal.prop('open')).toBe(true);
+      expect(input.prop('accordionOpen')).toBe(false);
       expect(spy).toHaveBeenCalledTimes(0);
     });
   });
