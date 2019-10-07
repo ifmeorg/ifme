@@ -26,7 +26,7 @@ export type Props = {
 
 export type State = {
   checkboxes: Checkbox[],
-  resourcesDisplayed: any,
+  resourcesDisplayed: number,
   lastPage: boolean,
 };
 
