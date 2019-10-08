@@ -83,42 +83,6 @@
       }
     }
   }
-
-  &Profile {
-    width: 100%;
-    box-sizing: border-box;
-    padding: $size-22 $size-26;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: $white;
-    &Info {
-      @include setFontSize($size-18);
-      color: $white;
-      &Links {
-        @include setFontSize($size-0);
-        margin-top: $size-4;
-        line-height: 3.5;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        > div {
-          margin: $size-8 $size-8 $size-0 $size-0;
-          &:last-of-type {
-            margin: $size-8 $size-0 $size-0 $size-0;
-          }
-        }
-      }
-    }
-    @media screen and (max-width: $medium) {
-      text-align: center;
-      justify-content: center;
-    }
-  }
-
   &Desktop {
     width: 100%;
     padding: 25px $size-34;

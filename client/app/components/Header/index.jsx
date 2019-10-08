@@ -4,30 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { Logo } from '../Logo';
-// eslint-disable-next-line import/no-cycle
 import { HeaderProfile } from './HeaderProfile';
+import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { I18n } from '../../libs/i18n';
-
-export type Link = {
-  name: string,
-  url: string,
-  active?: boolean,
-  dataMethod?: string,
-  hideInMobile?: boolean,
-};
-
-export type Profile = {
-  avatar?: string,
-  name: string,
-  profile: Link,
-  account: Link,
-  notifications: {
-    plural: string,
-    none: string,
-    clear: string,
-  },
-};
 
 export type Props = {
   home: Link,
