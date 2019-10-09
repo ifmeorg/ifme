@@ -30,15 +30,8 @@ class ProfileController < ApplicationController
   end
 
   def sent_data
-    file = "app/assets/export/user_#{current_user.id}_data"
-    folder_name = "app/assets/export/user_#{current_user.id}_data"
-
-    # Dir.chdir("app/assets/export/user_#{current_user.id}_data") do
-    #
-    # end
-    send_file folder_name
-
-    # send_data filename: folder_name, disposition: 'inline', stream: 'true', buffer_size: '4096'
+    file = "app/assets/export/user_#{current_user.id}_data.zip"
+    send_file file
 
   end
 

@@ -77,6 +77,8 @@ class User < ApplicationRecord
   before_save :remove_leading_trailing_whitespace
   after_save :create_password_history
 
+  after_save :download_request
+
   validates :name, presence: true
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
@@ -153,5 +155,13 @@ class User < ApplicationRecord
 
   def access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
+  end
+
+  def download_request
+    if export_request_changed?
+      puts "run"
+      Rails.application.load_tasks
+      Rake::Task['data_export:Add'].invoke
+    end
   end
 end

@@ -1,7 +1,13 @@
+# frozen_string_literal: true
+
+require 'csv'
+require 'zip'
+require 'zip_file'
+
 namespace :data_export do
-  desc 'TODO'
+  desc 'Function exports the data'
   task Add: :environment do
-    require 'csv'
+
     User.where(export_request: true).each do |user|
 
       folder_name = "app/assets/export/user_#{user.id}_data"
@@ -26,9 +32,10 @@ namespace :data_export do
           csv << attributes
           group.meetings.each do |meeting|
             csv << attributes.map { |attr| meeting.send(attr) }
-            CSV.open("#{folder_name}/group_#{group.name}_meeting_#{meeting.name}_comments_data", 'wb') do |csv|
+            CSV.open("#{folder_name}/group_#{group.name}_meeting_#{meeting.name}_comments_data.csv", 'wb') do |csv|
 
               attributes = %w[comment created_at]
+              csv<<attributes
               meeting.comments.where(visibility: "all").each do |comment|
                 csv << attributes.map { |attr| comment.send(attr) }
               end
@@ -67,24 +74,22 @@ namespace :data_export do
         end
       end
 
-      # input_directory = "app/assets/export/user_#{user.id}_data" # directory to be zipped
-      # zipfile_name = "app/assets/export/user_#{user.id}_data.zip" # zip-file name
-      #
-      # puts input_directory
-      # puts zipfile_name
-      # # zip a folder with only files (NO SUB FOLDERS)
-      # Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
-      #   Dir[File.join(input_directory, '*')].each do |file|
-      #     zipfile.add(file.sub(input_directory, ''), file)
-      #   end
-      # end
 
-      # user.update(export_request: false, export_available: true)
+      directory_to_zip = folder_name
+      output_file = folder_name + ".zip"
+      zf = ZipFileGenerator.new(directory_to_zip, output_file)
+      zf.write
+      FileUtils.rm_rf("app/assets/export/user_#{user.id}_data")
+      user.update(export_request: false, export_available: true,data_requested_on: Time.now)
     end
   end
 
-  desc 'TODO'
+  desc 'Remove all users data after 30 days'
   task Remove: :environment do
+    User.where(export_available: true,data_requested_on: self<Time.now+30.days).each do |user|
+
+      FileUtils.rm_rf("app/assets/export/user_#{user.id}_data")
+    end
   end
 
 end
