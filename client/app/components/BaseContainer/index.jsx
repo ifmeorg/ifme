@@ -2,8 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { StoryContainer } from './StoryContainer';
-import css from '../../styles/_global.scss';
-import { I18n } from '../../libs/i18n';
+import { LoadMoreButton } from '../LoadMoreButton';
 
 export type Props = {
   container: string,
@@ -47,18 +46,6 @@ export class BaseContainer extends React.Component<Props, State> {
     });
   };
 
-  displayLoadMore = () => (
-    <center>
-      <button
-        type="button"
-        className={`loadMore ${css.buttonDarkM}`}
-        onClick={this.onClick}
-      >
-        {I18n.t('load_more')}
-      </button>
-    </center>
-  );
-
   render() {
     const { data, lastPage } = this.state;
     const { container } = this.props;
@@ -68,7 +55,8 @@ export class BaseContainer extends React.Component<Props, State> {
         return (
           <>
             <StoryContainer data={data} />
-            {!lastPage && this.displayLoadMore()}
+            {/* {!lastPage && this.displayLoadMore()} */}
+            {!lastPage && <LoadMoreButton onClick={this.onClick} />}
           </>
         );
     }

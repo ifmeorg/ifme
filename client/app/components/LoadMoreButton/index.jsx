@@ -1,12 +1,12 @@
+// @flow
 import React from 'react';
 import css from './LoadMoreButton.scss';
 import { I18n } from '../../libs/i18n';
 
-export class LoadMoreButton extends React.Component {
-  constructor(props: Props) {
-    super(props);
-  }
-
+export type Props = {
+  onClick?: () => void,
+};
+export class LoadMoreButton extends React.Component<Props> {
   render() {
     const { onClick } = this.props;
     return (

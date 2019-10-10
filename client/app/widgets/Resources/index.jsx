@@ -7,6 +7,7 @@ import type { Checkbox } from '../../components/Input/utils';
 import { InputTag } from '../../components/Input/InputTag';
 import { I18n } from '../../libs/i18n';
 import HistoryLib from '../../libs/history';
+import { LoadMoreButton } from '../../components/LoadMoreButton';
 
 const RESOURCES_PER_PAGE = 3;
 type ResourceProp = {
@@ -139,18 +140,6 @@ export class Resources extends React.Component<Props, State> {
     }));
   };
 
-  displayLoadMoreButton = () => (
-    <center>
-      <button
-        type="button"
-        className={`loadMore ${css.buttonDarkM}`}
-        onClick={this.onClick}
-      >
-        {I18n.t('load_more')}
-      </button>
-    </center>
-  );
-
   displayTags = () => {
     const { checkboxes, resourcesDisplayed, lastPage } = this.state;
     const { resources } = this.props;
@@ -176,7 +165,7 @@ export class Resources extends React.Component<Props, State> {
               </article>
             ))}
         </section>
-        {!lastPage && this.displayLoadMoreButton()}
+        {!lastPage && <LoadMoreButton onClick={this.onClick} />}
       </>
     );
   };
