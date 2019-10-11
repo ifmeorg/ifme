@@ -7,14 +7,15 @@ type Props = {
   normal?: boolean,
   label?: string,
   secondary?: boolean,
+  onClick?: Function
 };
 
 export const Tag = (props: Props) => {
   const {
-    dark, normal, label, secondary,
+    dark, normal, label, secondary, onClick
   } = props;
   const labelClassNames = `tag ${css.tag} ${dark ? css.dark : ''} ${
     normal ? css.normal : ''
   } ${secondary ? css.secondary : ''}`;
-  return <div className={labelClassNames}>{label}</div>;
+  return <div onClick={() => onClick(label)} className={labelClassNames}>{label}</div>;
 };
