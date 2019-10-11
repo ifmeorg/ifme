@@ -110,6 +110,13 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
+  updateTagFilter = (tagLabel: String) => {
+    this.setState((prevState: State) => {
+      const updatedBoxes = prevState.checkboxes.map((checkbox) => checkbox.label === tagLabel ? {...checkbox, checked: true } : checkbox)
+      return { checkboxes: updatedBoxes };
+    });
+  };
+
   displayTags = () => {
     const { checkboxes } = this.state;
     const filteredResources = this.filterList(checkboxes);
@@ -128,6 +135,7 @@ export class Resources extends React.Component<Props, State> {
                 tags={resource.languages.concat(resource.tags)}
                 title={resource.name}
                 link={resource.link}
+                updateTagFilter={ (tagLabel) => { this.updateTagFilter(tagLabel) }}
               />
             </article>
           ))}
