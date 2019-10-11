@@ -3,10 +3,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../../utils';
-// eslint-disable-next-line import/no-cycle
-import { Input } from './index';
 import css from './InputSwitch.scss';
 import { I18n } from '../../libs/i18n';
+import { InputCheckbox } from './InputCheckbox';
 
 export type Props = {
   id: string,
@@ -48,7 +47,7 @@ export class InputSwitch extends React.Component<Props, State> {
     const { checked, key } = this.state;
     return (
       <div className={css.switchHidden}>
-        <Input
+        <InputCheckbox
           id={id}
           key={key}
           type="checkbox"
