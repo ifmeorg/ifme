@@ -36,7 +36,7 @@ namespace :data_export do
 
               attributes = %w[comment created_at]
               csv<<attributes
-              meeting.comments.where(visibility: "all").each do |comment|
+              meeting.comments.where(visibility: 'all').each do |comment|
                 csv << attributes.map { |attr| comment.send(attr) }
               end
 
@@ -76,7 +76,7 @@ namespace :data_export do
 
 
       directory_to_zip = folder_name
-      output_file = folder_name + ".zip"
+      output_file = folder_name + '.zip'
       zf = ZipFileGenerator.new(directory_to_zip, output_file)
       zf.write
       FileUtils.rm_rf("app/assets/export/user_#{user.id}_data")
@@ -86,9 +86,9 @@ namespace :data_export do
 
   desc 'Remove all users data after 30 days'
   task Remove: :environment do
-    User.where(export_available: true,data_requested_on: self<Time.now+30.days).each do |user|
-
-      FileUtils.rm_rf("app/assets/export/user_#{user.id}_data")
+    User.where(export_available: true).where('users.data_requested_on > ?', 30.days.ago).each do |user|
+      puts "User#{user.name}"
+      # FileUtils.rm_rf("app/assets/export/user_#{user.id}_data")
     end
   end
 

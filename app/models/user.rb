@@ -158,10 +158,11 @@ class User < ApplicationRecord
   end
 
   def download_request
-    if export_request_changed?
-      puts "run"
-      Rails.application.load_tasks
-      Rake::Task['data_export:Add'].invoke
-    end
+
+    #TODO make decision on how this should be run
+    require 'rake'
+    Rails.application.load_tasks
+    Rake::Task['data_export:Add'].invoke
+
   end
 end
