@@ -10,11 +10,11 @@ README in: [Spanish](https://github.com/ifmeorg/ifme/blob/master/README-ES.md), 
 
 [if me](https://www.if-me.org/) is a community for mental health experiences
 that encourages people to share their personal stories with trusted allies.
-Trusted allies are the people we interact with on a daily basis, including
+Trusted allies are the people we interact daily, including
 friends, family members, co-workers, teachers, and mental health workers.
 
 Dealing with mental health is what makes us human. But for a lot of us, it's a
-struggle to be open about it. Not everyone is a counsellor or therapist. The
+struggle to be open about it. Not everyone is a counselor or therapist. The
 people who we interact with everyday shape our emotions and behavior. Getting
 them involved in mental health treatment is the key to recovery.
 
@@ -63,7 +63,7 @@ Thank you to all our Open Collective backers!
 
 ### Sponsors
 
-Thank you to all our sponsors! (please ask your company to also support this
+Thank you to all our sponsors! (please ask your company to also support our
 open source project by [becoming a sponsor](https://opencollective.com/ifme#sponsor))
 
 <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
