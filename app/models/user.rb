@@ -162,7 +162,7 @@ class User < ApplicationRecord
     #TODO make decision on how this should be run
     require 'rake'
     Rails.application.load_tasks
-    Rake::Task['data_export:Add'].invoke
+    # Rake::Task["data_export:Add[#{self.user.id}]"].invoke
 
   end
 end
