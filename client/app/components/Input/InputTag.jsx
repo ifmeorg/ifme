@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
-// TODO: react-autocomplete is no longer mantained,
-// move to react-autosuggestion which is using latest version of React
-import Autocomplete from 'react-autocomplete';
+
+
+// CSumm's PR 
+import Autosuggest from 'react-autosuggest';
 import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
 import inputCss from './Input.scss';
@@ -21,12 +22,14 @@ export type State = {
   checkboxes: Checkbox[],
   autocompleteLabel?: string,
   autoHighlight: boolean,
+  suggestions: string[]
 };
+
 
 export class InputTag extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { checkboxes: props.checkboxes, autoHighlight: false };
+    this.state = { checkboxes: props.checkboxes, autoHighlight: false, suggestions: [], autocompleteLabel: '' };
   }
 
   check = (id: string, checked: boolean) => {
@@ -60,13 +63,41 @@ export class InputTag extends React.Component<Props, State> {
       this.check(id, false);
     }
   };
-
-  shouldItemRender = (checkbox: Checkbox, label: string) => {
-    const checkboxLabel = checkbox.label.toLowerCase();
-    return checkboxLabel.indexOf(label.toLowerCase()) > -1;
+  
+  getSuggestions = autocompleteLabel => {
+    const inputValue = autocompleteLabel.trim().toLowerCase();
+    const inputLength = inputValue.length;
+  
+    return inputLength === 0 ? [] : this.state.checkboxes.filter(checkbox =>
+      checkbox.label.toLowerCase().slice(0, inputLength) === inputValue
+      );
   };
 
+  getSuggestionValue = (checkbox: Checkbox, label: string) => {
+    return checkbox.label === this.state.autocompleteLabel ? checkbox.label : '';
+  }
+
+  renderSuggestion = (checkbox: Checkbox, label: string) => (
+    <div>
+      {checkbox.label}
+    </div>
+  );
+
+  onSuggestionsFetchRequested = ({ value }) => {
+    this.setState({
+      suggestions: this.getSuggestions(value)
+    });
+  };
+  
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  };
+
+
   labelExistsUnchecked = (label: string) => {
+    console.log(label)
     if (!label.length) return null;
     const { checkboxes } = this.state;
     const checkboxWithLabel = checkboxes.filter(
@@ -76,22 +107,22 @@ export class InputTag extends React.Component<Props, State> {
     return checkboxWithLabel.length && checkboxWithLabel[0].id;
   };
 
-  onAutocompleteChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
+  onAutocompleteChange = (e: SyntheticEvent<HTMLInputElement>, { newValue }) => {
     this.setState({
-      autocompleteLabel: value,
-      autoHighlight: !!this.labelExistsUnchecked(value),
+      autocompleteLabel: newValue,
+      autoHighlight: !!this.labelExistsUnchecked(newValue),
     });
   };
 
-  onSelect = (label: string) => {
-    const id = this.labelExistsUnchecked(label);
+  onSelect = (checkbox: Checkbox, label: string) => {
+    console.log(checkbox.label)
+    const id = this.labelExistsUnchecked(checkbox.label);
     if (id) {
       this.check(id, true);
     }
   };
 
-  getLabel = (checkbox: Checkbox) => checkbox.label;
+  // getLabel = (checkbox: Checkbox) => checkbox.label;
 
   displayCheckbox = (checkbox: Checkbox) => {
     const { name } = this.props;
@@ -120,43 +151,28 @@ export class InputTag extends React.Component<Props, State> {
 
   displayAutocomplete = () => {
     const { placeholder } = this.props;
-    const { autocompleteLabel, checkboxes, autoHighlight } = this.state;
+    const { autocompleteLabel, checkboxes, autoHighlight, suggestions } = this.state;
     return (
-      <Autocomplete
-        getItemValue={this.getLabel}
-        items={checkboxes}
-        renderItem={this.renderItem}
-        shouldItemRender={this.shouldItemRender}
-        value={autocompleteLabel}
-        onChange={this.onAutocompleteChange}
-        onSelect={this.onSelect}
-        inputProps={{
-          className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
-          onKeyPress: this.onKeyPress,
-          placeholder,
-        }}
-        wrapperStyle={{}}
-        renderMenu={this.renderMenu}
-        autoHighlight={autoHighlight}
+      <Autosuggest
+      id={`autosuggest-${this.props.id}`}
+      suggestions={suggestions}
+      onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+      onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+      onSuggestionSelected={this.onSelect}
+      renderSuggestion={this.renderSuggestion}
+      getSuggestionValue={this.getSuggestionValue}
+      theme={css}
+      inputProps={{
+            // added onChange and value 
+            onChange: this.onAutocompleteChange,
+            value : autocompleteLabel,
+            className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
+            onKeyPress: this.onKeyPress,
+            placeholder,
+          }}
       />
     );
   };
-
-  renderMenu = (items: any) => (
-    <div className={`tagMenu ${items.length ? css.tagMenu : ''}`}>{items}</div>
-  );
-
-  renderItem = (checkbox: Checkbox, highlighted: boolean) => (
-    <div
-      key={checkbox.id}
-      className={`tagLabel ${highlighted ? css.tagHighlighted : ''} ${
-        css.tagLabel
-      }`}
-    >
-      {checkbox.label}
-    </div>
-  );
-
   render() {
     const { id } = this.props;
     const { checkboxes } = this.state;
