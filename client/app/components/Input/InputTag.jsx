@@ -1,8 +1,5 @@
 // @flow
 import React from 'react';
-
-
-// CSumm's PR 
 import Autosuggest from 'react-autosuggest';
 import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
@@ -110,19 +107,15 @@ export class InputTag extends React.Component<Props, State> {
   onAutocompleteChange = (e: SyntheticEvent<HTMLInputElement>, { newValue }) => {
     this.setState({
       autocompleteLabel: newValue,
-      autoHighlight: !!this.labelExistsUnchecked(newValue),
     });
   };
 
-  onSelect = (checkbox: Checkbox, label: string) => {
-    console.log(checkbox.label)
-    const id = this.labelExistsUnchecked(checkbox.label);
+  onSelect = (event,  { suggestion, suggestionValue } ) => {
+    const id = this.labelExistsUnchecked(suggestion.label);
     if (id) {
       this.check(id, true);
     }
   };
-
-  // getLabel = (checkbox: Checkbox) => checkbox.label;
 
   displayCheckbox = (checkbox: Checkbox) => {
     const { name } = this.props;
@@ -163,9 +156,8 @@ export class InputTag extends React.Component<Props, State> {
       getSuggestionValue={this.getSuggestionValue}
       theme={css}
       inputProps={{
-            // added onChange and value 
             onChange: this.onAutocompleteChange,
-            value : autocompleteLabel,
+            value : autocompleteLabel ? autocompleteLabel : "",
             className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
             onKeyPress: this.onKeyPress,
             placeholder,
