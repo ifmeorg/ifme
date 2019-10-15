@@ -94,7 +94,6 @@ export class InputTag extends React.Component<Props, State> {
 
 
   labelExistsUnchecked = (label: string) => {
-    console.log(label)
     if (!label.length) return null;
     const { checkboxes } = this.state;
     const checkboxWithLabel = checkboxes.filter(
