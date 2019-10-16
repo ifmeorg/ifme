@@ -112,7 +112,9 @@ export class Resources extends React.Component<Props, State> {
 
   updateTagFilter = (tagLabel: String) => {
     this.setState((prevState: State) => {
-      const updatedBoxes = prevState.checkboxes.map((checkbox) => checkbox.label === tagLabel ? {...checkbox, checked: true } : checkbox)
+      const updatedBoxes = prevState.checkboxes.map((box) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        (box.label === tagLabel ? { ...box, checked: true } : box));
       return { checkboxes: updatedBoxes };
     });
   };
@@ -135,7 +137,9 @@ export class Resources extends React.Component<Props, State> {
                 tags={resource.languages.concat(resource.tags)}
                 title={resource.name}
                 link={resource.link}
-                updateTagFilter={ (tagLabel) => { this.updateTagFilter(tagLabel) }}
+                updateTagFilter={(tagLabel) => {
+                  this.updateTagFilter(tagLabel);
+                }}
               />
             </article>
           ))}
