@@ -61,7 +61,7 @@ export class InputTag extends React.Component<Props, State> {
     }
   };
   
-  getSuggestions = autocompleteLabel => {
+  getSuggestions = (autocompleteLabel: string) => {
     const inputValue = autocompleteLabel.trim().toLowerCase();
     const inputLength = inputValue.length;
   
@@ -109,7 +109,7 @@ export class InputTag extends React.Component<Props, State> {
     });
   };
 
-  onSelect = (event,  { suggestion, suggestionValue } ) => {
+  onSelect = (event: SyntheticEvent<HTMLInputElement>, { suggestion, suggestionValue } ) => {
     const id = this.labelExistsUnchecked(suggestion.label);
     if (id) {
       this.check(id, true);
