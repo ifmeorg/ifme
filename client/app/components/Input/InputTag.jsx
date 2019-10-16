@@ -30,8 +30,11 @@ export class InputTag extends React.Component<Props, State> {
   }
 
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
-    return nextProps.checkboxes === prevState.checkboxes ? {} : { checkboxes: nextProps.checkboxes };
-  };
+    if (nextProps.checkboxes !== prevState.checkboxes) {
+      return { checkboxes: nextProps.checkboxes };
+    }
+    return null;
+  }
 
   check = (id: string, checked: boolean) => {
     this.setState((prevState: State) => {
