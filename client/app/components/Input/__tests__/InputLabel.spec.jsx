@@ -9,13 +9,7 @@ const info = 'Some Info';
 describe('InputLabel', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <InputLabel
-        label={label}
-        required
-        info={info}
-        error
-        htmlFor="id"
-      />,
+      <InputLabel label={label} required info={info} error htmlFor="id" />,
     );
     expect(wrapper.find('.labelText').exists()).toEqual(true);
   });
