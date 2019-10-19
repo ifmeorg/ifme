@@ -28,6 +28,8 @@ sv:
     fr: Français
     hi: 'हिंदी'
   navigation:
+    main_menu: 'Huvudsidan meny'
+    user_menu: 'Användarmeny'
     about: Om
     blog: Blogg
     contribute: Medverkande

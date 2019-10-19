@@ -120,18 +120,18 @@ export class Resources extends React.Component<Props, State> {
             'navigation.resources',
           ).toLowerCase()}`}
         </center>
-        <div className={`${css.gridThree} ${css.marginTop}`}>
+        <section className={`${css.gridThree} ${css.marginTop}`}>
           {filteredResources.map((resource: ResourceProp) => (
-            <div className={css.gridThreeItem} key={Utils.randomString()}>
+            <article className={css.gridThreeItem} key={Utils.randomString()}>
               <Resource
                 tagged
                 tags={resource.languages.concat(resource.tags)}
                 title={resource.name}
                 link={resource.link}
               />
-            </div>
+            </article>
           ))}
-        </div>
+        </section>
       </>
     );
   };

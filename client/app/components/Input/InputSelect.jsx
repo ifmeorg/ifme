@@ -41,7 +41,7 @@ export class InputSelect extends React.Component<Props, State> {
     const { value } = this.state;
     return (
       <div className={css.select}>
-        <div className={css.selectIcon}>
+        <div className={css.selectIcon} role="presentation">
           <FontAwesomeIcon icon={faCaretDown} />
         </div>
         <select

@@ -65,7 +65,7 @@ export class Header extends React.Component<Props, State> {
     const { home } = this.props;
     const { mobileNavOpen } = this.state;
     return (
-      <div className={css.headerDesktop}>
+      <div className={css.headerDesktop} role="navigation" aria-label={I18n.t('navigation.main_menu')}>
         <div className={css.headerDesktopHome}>
           <Logo sm link={home.url} />
         </div>
@@ -90,7 +90,10 @@ export class Header extends React.Component<Props, State> {
   displayMobile = () => {
     const { mobileOnly, profile } = this.props;
     return (
-      <div id="headerMobile" className={css.headerMobileNav}>
+      <div
+        id="headerMobile"
+        className={css.headerMobileNav}
+      >
         <div>
           {profile ? <HeaderProfile profile={profile} /> : null}
           {mobileOnly ? ReactHtmlParser(mobileOnly) : null}
@@ -104,6 +107,7 @@ export class Header extends React.Component<Props, State> {
     const { mobileNavOpen } = this.state;
     return (
       <div
+        role="header"
         id="header"
         className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
       >

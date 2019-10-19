@@ -28,6 +28,8 @@ nl:
     fr: Français
     hi: 'हिंदी'
   navigation:
+    main_menu: Hoofdsitemenu
+    user_menu: Gebruikersmenu
     about: Over
     blog: Blog
     contribute: 'Draag bij'

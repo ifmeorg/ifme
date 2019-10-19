@@ -28,6 +28,8 @@ fr:
     fr: Français
     hi: 'हिंदी'
   navigation:
+    main_menu: 'Menu du site principal'
+    user_menu: 'Menu utilisateur'
     about: 'À propos'
     blog: Blog
     contribute: Contribuer

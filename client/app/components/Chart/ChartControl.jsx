@@ -53,7 +53,7 @@ export class ChartControl extends React.Component<
     const { types } = this.props;
     const { data, type } = this.state;
     return (
-      <div className={css.chartControl}>
+      <div className={css.chartControl} role="presentation">
         <div>
           {types.map((value: string) => (
             <ChartControlButton

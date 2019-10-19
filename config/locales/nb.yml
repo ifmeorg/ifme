@@ -28,6 +28,8 @@ nb:
     fr: Français
     hi: 'हिंदी'
   navigation:
+    main_menu: Hovedstedmeny
+    user_menu: Brukermeny
     about: Om
     blog: Blogg
     contribute: Bidra

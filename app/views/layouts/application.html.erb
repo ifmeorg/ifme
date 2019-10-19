@@ -53,7 +53,7 @@
       <%= render partial: 'shared/alerts' %>
       <% if user_signed_in? && !static_page? %>
         <div class="dashboardContent">
-          <div class="dashboardNav">
+          <div class="dashboardNav" role="navigation" aria-label="<%= t('navigation.user_menu') %>">
             <%= react_component('HeaderProfile', props: { profile: header_props[:profile] }) %>
             <%= render partial: "shared/dashboard_nav_links" %>
             <%= render partial: "shared/dashboard_nav_actions" %>
