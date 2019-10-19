@@ -28,6 +28,8 @@ hi:
     fr: Français
     hi: 'हिंदी'
   navigation:
+    main_menu: 'मुख्य साइट मेनू'
+    user_menu: 'उपयोगकर्ता विकल्प सूची'
     about: 'बारे में'
     blog: 'ब्लॉग'
     contribute: 'योगदान'

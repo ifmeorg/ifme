@@ -98,7 +98,7 @@ export class Comments extends React.Component<Props, State> {
     } = myComment;
     const author = <a href={`/profile?uid=${commentByUid}`}>{commentByName}</a>;
     return (
-      <div key={id} className={`comment ${css.comment}`}>
+      <article key={id} className={`comment ${css.comment}`}>
         <div className={css.commentContent}>{renderHTML(comment)}</div>
         <StoryDate date={createdAt} />
         <div className={css.commentInfo}>
@@ -114,7 +114,7 @@ export class Comments extends React.Component<Props, State> {
             hasStory
           />
         </div>
-      </div>
+      </article>
     );
   };
 
@@ -135,9 +135,9 @@ export class Comments extends React.Component<Props, State> {
     const { comments } = this.state;
     if (comments.length === 0) return null;
     return (
-      <div className={css.comments}>
+      <section className={css.comments} aria-label={I18n.t('comment.plural')}>
         {comments.map((comment: Comment) => this.displayComment(comment))}
-      </div>
+      </section>
     );
   };
 
