@@ -165,6 +165,7 @@ export class Resources extends React.Component<Props, State> {
           </p>
         </center>
         <InputTag
+          key={Utils.randomString()}
           id="resourceTags"
           name="resourceTags"
           placeholder={I18n.t('common.form.search_by_keywords')}
