@@ -225,7 +225,7 @@ export class Input extends React.Component<Props, State> {
 
   displayLabel = () => {
     const {
-      label, info, required, type, id
+      label, info, required, type, id,
     } = this.props;
     const { error } = this.state;
     if (REQUIRES_LABEL.includes(type) && label) {
@@ -235,7 +235,7 @@ export class Input extends React.Component<Props, State> {
           required={REQUIRED_POSSIBLE.includes(type) && required}
           info={info}
           error={error}
-          id={id}
+          htmlFor={id}
         />
       );
     }

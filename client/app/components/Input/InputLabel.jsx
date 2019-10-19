@@ -39,7 +39,7 @@ const displayLabel = (label: string, error: ?boolean) => (
 
 export const InputLabel = (props: Props) => {
   const {
-    error, label, required, info, htmlFor
+    error, label, required, info, htmlFor,
   } = props;
   return (
     <label
