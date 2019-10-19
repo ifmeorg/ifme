@@ -37,6 +37,21 @@ const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
     return aLabel > bLabel ? 1 : 0;
   });
 
+const infoDescription = (
+  <center className={css.marginBottom}>
+    {I18n.t('pages.resources.description')}
+    <p>
+      <a
+        href={`/resources?filter[]=${I18n.t(
+          'pages.resources.tags.suicide_prevention',
+        )}`}
+      >
+        {I18n.t('pages.resources.emergency')}
+      </a>
+    </p>
+  </center>
+);
+
 export class Resources extends React.Component<Props, State> {
   // eslint-disable-next-line react/static-property-placement
   static defaultProps = {
@@ -152,18 +167,7 @@ export class Resources extends React.Component<Props, State> {
     const { checkboxes } = this.state;
     return (
       <>
-        <center className={css.marginBottom}>
-          {I18n.t('pages.resources.description')}
-          <p>
-            <a
-              href={`/resources?filter[]=${I18n.t(
-                'pages.resources.tags.suicide_prevention',
-              )}`}
-            >
-              {I18n.t('pages.resources.emergency')}
-            </a>
-          </p>
-        </center>
+        {infoDescription}
         <InputTag
           key={Utils.randomString()}
           id="resourceTags"
