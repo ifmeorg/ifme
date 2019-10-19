@@ -122,9 +122,9 @@ describe('Resources', () => {
 
         wrapper.setState({
           checkboxes: [
-            { checked: true, value: 'alfredo' },
-            { checked: true, value: 'batman' },
-            { checked: false, value: 'vitor' },
+            { checked: true, value: 'alfredo', label: 'Alfredo' },
+            { checked: true, value: 'batman', label: 'Batman' },
+            { checked: false, value: 'vitor', label: 'Vitor' },
           ],
         });
 
