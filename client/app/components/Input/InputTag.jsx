@@ -19,7 +19,7 @@ export type State = {
   checkboxes: Checkbox[],
   autocompleteLabel?: string,
   autoHighlight: boolean,
-  suggestions: string[]
+  suggestions: Checkbox[]
 };
 
 
@@ -64,9 +64,10 @@ export class InputTag extends React.Component<Props, State> {
   getSuggestions = (autocompleteLabel: string) => {
     const inputValue = autocompleteLabel.trim().toLowerCase();
     const inputLength = inputValue.length;
-  
-    return inputLength === 0 ? [] : this.state.checkboxes.filter(
-    (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue);
+    const { checkboxes } = this.state;
+    
+    return inputLength === 0 ? [] : checkboxes.filter(
+      (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue);
   };
 
   getSuggestionValue = (checkbox: Checkbox, label: string) => {
@@ -80,8 +81,9 @@ export class InputTag extends React.Component<Props, State> {
   );
 
   onSuggestionsFetchRequested = ({ value }: {value: string}) => {
+    const newSuggestions = this.getSuggestions(value)
     this.setState({
-      suggestions: this.getSuggestions(value)
+      suggestions: newSuggestions
     });
   };
   
@@ -108,7 +110,7 @@ export class InputTag extends React.Component<Props, State> {
     });
   };
 
-  onSelect = (event: SyntheticEvent<HTMLInputElement>, { suggestion, suggestionValue }: {suggestion: string, suggestionValue: string} ) => {
+  onSelect = (event: SyntheticEvent<HTMLInputElement>,  { suggestion }: {suggestion: Checkbox}) => {
     const id = this.labelExistsUnchecked(suggestion.label);
     if (id) {
       this.check(id, true);
