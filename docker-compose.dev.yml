@@ -15,6 +15,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - .:/app
+      - node_cache:/app/client/node_modules
       - bundle_cache:/bundle
     ports:
       - "3000:3000"
@@ -35,3 +36,4 @@ services:
 volumes:
   bundle_cache:
   psql_data:
+  node_cache:
