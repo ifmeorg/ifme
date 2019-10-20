@@ -12,7 +12,7 @@ We've formalized processes for contributing as a designer, developer, writer, an
 
 You must [join our Slack workspace](https://github.com/ifmeorg/ifme/wiki/Join-Our-Slack) first before contributing.
 
-### [Designer](https://github.com/ifmeorg/ifme/wiki/Designers)
+## [Designer](https://github.com/ifmeorg/ifme/wiki/Designers)
 
 ### [Developer](https://github.com/ifmeorg/ifme/wiki/Developers)
 
@@ -20,5 +20,5 @@ You must [join our Slack workspace](https://github.com/ifmeorg/ifme/wiki/Join-Ou
 
 ### [Translations](https://github.com/ifmeorg/ifme/wiki/Translations)
 
-### [Writer](https://github.com/ifmeorg/ifme/wiki/Writers)
+## [Writer](https://github.com/ifmeorg/ifme/wiki/Writers)
 
