@@ -55,7 +55,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :uid,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
-         omniauth_providers: [:google_oauth2, :github_oauth2]
+         omniauth_providers: [:google_oauth2, :github]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -93,6 +93,17 @@ class User < ApplicationRecord
     user.password ||= Devise.friendly_token[0, 20]
     update_access_token_fields(user: user, access_token: access_token)
     user
+  end
+
+  # to refactor, could be single oauth method to begin with
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.name     = auth.info.name
+      user.uid      = auth.uid
+      user.email    = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
   end
 
   def google_access_token
