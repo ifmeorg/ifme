@@ -81,7 +81,9 @@ class User < ApplicationRecord
   validates :locale, inclusion: {
     in: Rails.application.config.i18n.available_locales.map(&:to_s).push(nil)
   }
-  validate :password_complexity
+
+  # add unless statement here instead of the concern, to make it more readable and composable
+  validate :password_complexity, unless: :oauth_provided?
 
   def active_for_authentication?
     super && !banned
@@ -102,7 +104,7 @@ class User < ApplicationRecord
       user.name     = auth.info.name
       user.uid      = auth.uid
       user.email    = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
+      user.password ||= Devise.friendly_token[0, 20]
     end
   end
 
@@ -110,6 +112,7 @@ class User < ApplicationRecord
     google_access_token_expired? ? update_access_token : token
   end
 
+  # TODO: refactor this and use one checker
   def google_oauth2_enabled?
     token.present?
   end
@@ -150,6 +153,11 @@ class User < ApplicationRecord
   end
 
   private
+
+  # checks if user is created from oauth
+  def oauth_provided?
+    provider.present? || token.present?
+  end
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
