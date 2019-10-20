@@ -28,8 +28,8 @@ services:
       - PSQL_HOST=db
       - RAILS_ENV=development
       - NODE_ENV=development
-      - GITHUB_CLIENT_ID="42351d3ae70e40dc15eb"
-      - GITHUB_CLIENT_SECRET="907d515976630fd84437d0ba13beae69b4609406"
+      - GITHUB_CLIENT_ID=
+      - GITHUB_CLIENT_SECRET=
     tty: true
     command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
 
