@@ -19,7 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.valid?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',
-                              kind: t('omniauth.google'))
+                              kind: t('omniauth.github'))
 
       sign_in_and_redirect @user, event: :authentication
     else

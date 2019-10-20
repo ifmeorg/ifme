@@ -483,6 +483,7 @@ en:
                     %{code_of_conduct_link}. You are no longer banned.
   omniauth:
     google: Google
+    github: Github
     access_denied: 'Access Denied'
   pages:
     about:
