@@ -317,4 +317,6 @@ Devise.setup do |config|
     approval_prompt: 'select_account consent force',
     scope: 'userinfo.email,userinfo.profile,calendar'
   )
+
+  config.omniauth :github, ENV['GITHUB_CLIENT_ID'],  ENV['GITHUB_CLIENT_SECRET'], scope: 'user:email'
 end
