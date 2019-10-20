@@ -952,6 +952,8 @@ sv:
     shared:
       sign_in_google: 'Logga in med Google'
       sign_up_google: 'Registrera dig hos Google'
+      sign_in_github: 'Logga in med Github'
+      sign_up_github: 'Registrera dig hos Github'
       confirmation: 'Fick du inte bekräftelsesinstruktioner?'
       unlock: 'Fick du inte upplåsningsinstruktioner?'
     unlock:
