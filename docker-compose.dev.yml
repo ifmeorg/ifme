@@ -1,0 +1,37 @@
+version: "3"
+services:
+  db:
+    image: postgres:10.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - psql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - bundle_cache:/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db 
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
+      - PSQL_USERNAME=postgres
+      - PSQL_PASSWORD=password
+      - PSQL_HOST=db
+      - RAILS_ENV=development
+      - NODE_ENV=development
+      - GITHUB_CLIENT_ID="42351d3ae70e40dc15eb"
+      - GITHUB_CLIENT_SECRET="907d515976630fd84437d0ba13beae69b4609406"
+    tty: true
+    command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+volumes:
+  bundle_cache:
+  psql_data:
