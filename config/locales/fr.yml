@@ -14,6 +14,7 @@ fr:
   expand_menu: 'dérouler le menu'
   close: fermer
   load_more: 'Charger plus'
+  of: 'de'
   languages:
     en: English
     es: Español

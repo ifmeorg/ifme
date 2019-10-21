@@ -14,6 +14,7 @@ nb:
   expand_menu: 'utvide menyen'
   close: lukk
   load_more: 'Last mer'
+  of: 'av'
   languages:
     en: English
     es: Español
