@@ -18,15 +18,17 @@ export type Props = {
 export type State = {
   checkboxes: Checkbox[],
   autocompleteLabel?: string,
-  autoHighlight: boolean,
-  suggestions: Checkbox[]
+  suggestions: Checkbox[],
 };
-
 
 export class InputTag extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { checkboxes: props.checkboxes, autoHighlight: false, suggestions: [], autocompleteLabel: '' };
+    this.state = {
+      checkboxes: props.checkboxes,
+      suggestions: [],
+      autocompleteLabel: '',
+    };
   }
 
   check = (id: string, checked: boolean) => {
@@ -60,39 +62,36 @@ export class InputTag extends React.Component<Props, State> {
       this.check(id, false);
     }
   };
-  
+
   getSuggestions = (autocompleteLabel: string) => {
     const inputValue = autocompleteLabel.trim().toLowerCase();
     const inputLength = inputValue.length;
     const { checkboxes } = this.state;
-    const suggestions: Checkbox[] =  inputLength === 0 ? [] : checkboxes.filter(
-      (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue);
-    return suggestions
+    const suggestions: Checkbox[] = inputLength === 0
+      ? []
+      : checkboxes.filter(
+        (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue,
+      );
+    return suggestions;
   };
 
-  getSuggestionValue = (checkbox: Checkbox, label: string) => {
-    return checkbox.label === this.state.autocompleteLabel ? checkbox.label : '';
-  }
+  getSuggestionValue = (checkbox: Checkbox) => {
+    const { autocompleteLabel } = this.state;
+    return checkbox.label === autocompleteLabel ? checkbox.label : '';
+  };
 
-  renderSuggestion = (checkbox: Checkbox, label: string) => (
-    <div>
-      {checkbox.label}
-    </div>
-  );
-
-  onSuggestionsFetchRequested = ({ value }: {value: string}) => {
-    const newSuggestions = this.getSuggestions(value)
+  onSuggestionsFetchRequested = ({ value }: { value: string }) => {
+    const newSuggestions = this.getSuggestions(value);
     this.setState({
-      suggestions: newSuggestions
+      suggestions: newSuggestions,
     });
   };
-  
+
   onSuggestionsClearRequested = () => {
     this.setState({
-      suggestions: []
+      suggestions: [],
     });
   };
-
 
   labelExistsUnchecked = (label: string) => {
     if (!label.length) return null;
@@ -104,13 +103,19 @@ export class InputTag extends React.Component<Props, State> {
     return checkboxWithLabel.length && checkboxWithLabel[0].id;
   };
 
-  onAutocompleteChange = (e: SyntheticEvent<HTMLInputElement>, { newValue }: {newValue: string}) => {
+  onAutocompleteChange = (
+    e: SyntheticEvent<HTMLInputElement>,
+    { newValue }: { newValue: string },
+  ) => {
     this.setState({
       autocompleteLabel: newValue,
     });
   };
 
-  onSelect = (event: SyntheticEvent<HTMLInputElement>,  { suggestion }: {suggestion: Checkbox}) => {
+  onSelect = (
+    event: SyntheticEvent<HTMLInputElement>,
+    { suggestion }: { suggestion: Checkbox },
+  ) => {
     const id = this.labelExistsUnchecked(suggestion.label);
     if (id) {
       this.check(id, true);
@@ -143,28 +148,31 @@ export class InputTag extends React.Component<Props, State> {
   };
 
   displayAutocomplete = () => {
-    const { placeholder } = this.props;
-    const { autocompleteLabel, checkboxes, autoHighlight, suggestions } = this.state;
+    const { id, placeholder } = this.props;
+    const { autocompleteLabel, suggestions } = this.state;
     return (
       <Autosuggest
-      id={`autosuggest-${this.props.id}`}
-      suggestions={suggestions}
-      onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-      onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-      onSuggestionSelected={this.onSelect}
-      renderSuggestion={this.renderSuggestion}
-      getSuggestionValue={this.getSuggestionValue}
-      theme={css}
-      inputProps={{
-            onChange: this.onAutocompleteChange,
-            value : autocompleteLabel ? autocompleteLabel : "",
-            className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
-            onKeyPress: this.onKeyPress,
-            placeholder,
-          }}
+        id={`autosuggest-${id}`}
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        onSuggestionSelected={this.onSelect}
+        renderSuggestion={this.renderSuggestion}
+        getSuggestionValue={this.getSuggestionValue}
+        theme={css}
+        inputProps={{
+          onChange: this.onAutocompleteChange,
+          value: autocompleteLabel || '',
+          className: `tagAutocomplete ${inputCss.tagAutocomplete}`,
+          onKeyPress: this.onKeyPress,
+          placeholder,
+        }}
       />
     );
   };
+
+  renderSuggestion = (checkbox: Checkbox) => <div>{checkbox.label}</div>;
+
   render() {
     const { id } = this.props;
     const { checkboxes } = this.state;
