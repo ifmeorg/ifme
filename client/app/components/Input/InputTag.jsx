@@ -65,9 +65,9 @@ export class InputTag extends React.Component<Props, State> {
     const inputValue = autocompleteLabel.trim().toLowerCase();
     const inputLength = inputValue.length;
     const { checkboxes } = this.state;
-    
-    return inputLength === 0 ? [] : checkboxes.filter(
+    const suggestions: Checkbox[] =  inputLength === 0 ? [] : checkboxes.filter(
       (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue);
+    return suggestions
   };
 
   getSuggestionValue = (checkbox: Checkbox, label: string) => {
