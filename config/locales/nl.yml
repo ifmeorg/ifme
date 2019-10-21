@@ -14,6 +14,7 @@ nl:
   expand_menu: 'vouw menu uit'
   close: sluiten
   load_more: 'Meer laden'
+  of: 'van'
   languages:
     en: English
     es: Español

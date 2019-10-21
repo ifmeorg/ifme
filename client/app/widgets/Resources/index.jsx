@@ -147,7 +147,7 @@ export class Resources extends React.Component<Props, State> {
     return (
       <>
         <center className={css.marginTop}>
-          {`${Math.min(resourcesDisplayed, resources.length)} of ${
+          {`${Math.min(resourcesDisplayed, resources.length)} ${I18n.t('of')} ${
             filteredResources.length
           } ${I18n.t('navigation.resources').toLowerCase()}`}
         </center>
