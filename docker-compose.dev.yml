@@ -28,7 +28,7 @@ services:
     command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
 
   db:
-    image: postgres:10.6-alpine
+    image: postgres:9.6-alpine
     ports:
       - "4399:4399"
     volumes:
