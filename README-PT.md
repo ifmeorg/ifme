@@ -34,7 +34,7 @@ Todos são altamente encorajados a [se adicionarem](https://github.com/ifmeorg/i
 ## Doar
 
 Nós também aceitamos contribuições financeiras, com total transparência na nossa [Open Collective](https://opencollective.com/ifme).
-Qualquer um pode registrar uma quantia. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no regristro de nosso registro pelos colaboradores principais e a pessoa que depositou a quantia será reembolsada.
+Qualquer um pode registrar uma quantia. Se ela fizer sentido para o desenvolvimento da comunidade, esta será "mesclada" no regristro pelos colaboradores principais e a pessoa que depositou a quantia será reembolsada.
 
 Nós também temos uma página no [Patreon](https://www.patreon.com/ifme) onde você pode contribuir mensalmente.
 
