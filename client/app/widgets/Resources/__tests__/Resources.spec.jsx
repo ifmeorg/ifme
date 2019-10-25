@@ -63,7 +63,7 @@ describe('Resources', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
     wrapper.find('.tagAutocomplete').simulate('focus');
-    expect(wrapper.find('.tagMenu').exists()).toEqual(true);
+    expect(wrapper.find('.suggestionsContainerOpen').exists()).toEqual(true);
     const id = wrapper
       .find('.tagLabel')
       .at(0)
