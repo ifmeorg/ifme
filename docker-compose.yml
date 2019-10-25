@@ -1,19 +1,41 @@
-version: '2'
+version: "3"
 services:
-  psql:
-    image: postgres:9.6
-    container_name: ifme_pg
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=
   app:
-    build: .
-    container_name: ifme_app
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - node_cache:/app/client/node_modules
+      - bundle_cache:/bundle
     ports:
       - "3000:3000"
     depends_on:
-      - psql
+      - db
     environment:
+      - BUNDLE_PATH=/bundle/vendor
       - PSQL_USERNAME=postgres
-      - PSQL_HOST=psql
+      - PSQL_PASSWORD=password
+      - PSQL_HOST=db
+      - RAILS_ENV=development
+      - NODE_ENV=development
+      - GITHUB_CLIENT_ID=
+      - GITHUB_CLIENT_SECRET=
+      - GOOGLE_CLIENT_ID=
+      - GOOGLE_CLIENT_SECRET=
+    tty: true
+    stdin_open: true
+    command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+  db:
+    image: postgres:9.6-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  bundle_cache:
+  postgres_volume:
+  node_cache:
