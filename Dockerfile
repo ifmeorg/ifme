@@ -20,4 +20,5 @@ WORKDIR /app
 
 RUN gem install bundler -v 2.0.1
 
+ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["bash"]
