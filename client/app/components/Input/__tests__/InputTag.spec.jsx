@@ -15,7 +15,7 @@ describe('InputTag', () => {
       currentTarget: value,
     });
     wrapper.find('.tagAutocomplete').simulate('focus');
-    expect(wrapper.find('.suggestionsContainerOpen').exists()).toEqual(true);
+    expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
       .find('.tagLabel')
@@ -38,7 +38,7 @@ describe('InputTag', () => {
       currentTarget: value,
     });
     wrapper.find('.tagAutocomplete').simulate('focus');
-    expect(wrapper.find('.suggestionsContainerOpen').exists()).toEqual(true);
+    expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
       .find('.tagLabel')

@@ -155,6 +155,7 @@ export class InputTag extends React.Component<Props, State> {
     const { autocompleteLabel, suggestions } = this.state;
     return (
       <Autosuggest
+        className="tagMenu"
         id={`autosuggest-${id}`}
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
