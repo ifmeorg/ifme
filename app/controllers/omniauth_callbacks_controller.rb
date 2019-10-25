@@ -15,7 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def github
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    @user = User.from_omniauth request.env["omniauth.auth"]
 
     if @user.valid?
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success',

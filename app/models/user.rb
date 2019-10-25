@@ -89,11 +89,11 @@ class User < ApplicationRecord
     super && !banned
   end
 
-  def self.find_for_google_oauth2(access_token)
-    user = find_or_initialize_by(email: access_token.info.email)
-    user.name ||= access_token.info.name
+  def self.find_for_google_oauth2(auth)
+    user = find_or_initialize_by(email: auth.info.email)
+    user.name ||= auth.info.name
     user.password ||= Devise.friendly_token[0, 20]
-    update_access_token_fields(user: user, access_token: access_token)
+    update_access_token_fields(user: user, access_token: auth)
     user
   end
 
@@ -102,9 +102,9 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.name     = auth.info.name
-      user.uid      = auth.uid
+      user.uid      = auth.provider + auth.uid
       user.email    = auth.info.email
-      user.password ||= Devise.friendly_token[0, 20]
+      user.password = Devise.friendly_token[0, 20]
     end
   end
 
