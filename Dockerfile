@@ -18,7 +18,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir /app
 WORKDIR /app
 
-RUN gem install bundler -v 2.0.1
+RUN gem install bundler -v 1.17.3
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["bash"]
