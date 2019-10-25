@@ -26,7 +26,7 @@ export class InputTag extends React.Component<Props, State> {
     super(props);
     this.state = {
       checkboxes: props.checkboxes,
-      suggestions: [],
+      suggestions: props.checkboxes,
       autocompleteLabel: '',
     };
   }
@@ -68,7 +68,7 @@ export class InputTag extends React.Component<Props, State> {
     const inputLength = inputValue.length;
     const { checkboxes } = this.state;
     const suggestions: Checkbox[] = inputLength === 0
-      ? []
+      ? checkboxes
       : checkboxes.filter(
         (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue,
       );
@@ -88,8 +88,9 @@ export class InputTag extends React.Component<Props, State> {
   };
 
   onSuggestionsClearRequested = () => {
+    const { checkboxes } = this.props;
     this.setState({
-      suggestions: [],
+      suggestions: checkboxes,
     });
   };
 
@@ -138,6 +139,8 @@ export class InputTag extends React.Component<Props, State> {
     );
   };
 
+  shouldRenderSuggestions = () => true;
+
   onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     const { onChange } = this.props;
     const { autocompleteLabel, checkboxes } = this.state;
@@ -157,6 +160,7 @@ export class InputTag extends React.Component<Props, State> {
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         onSuggestionSelected={this.onSelect}
+        shouldRenderSuggestions={this.shouldRenderSuggestions}
         renderSuggestion={this.renderSuggestion}
         getSuggestionValue={this.getSuggestionValue}
         theme={css}
@@ -171,7 +175,9 @@ export class InputTag extends React.Component<Props, State> {
     );
   };
 
-  renderSuggestion = (checkbox: Checkbox) => <div>{checkbox.label}</div>;
+  renderSuggestion = (checkbox: Checkbox) => (
+    <div className="tagLabel">{checkbox.label}</div>
+  );
 
   render() {
     const { id } = this.props;
