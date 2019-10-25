@@ -492,5 +492,14 @@
     "link_name": "alcoelho",
     "link": "http://github.com/alcoelho",
     "social": "github"
+  },
+  {
+    "name": "Julian Macmang",
+    "image": "/assets/contributors/julian_macmang.png",
+    "profile": "I'm an open source enthusiast. I have love ones who battle depression. I'm believe in promoting mental health awareness through education.",
+    "location": "Manila, Philippines",
+    "link_name": "julianmacmang",
+    "link": "https://www.linkedin.com/in/julianmacmang",
+    "social": "linkedin"
   }
 ]
