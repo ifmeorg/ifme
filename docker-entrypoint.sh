@@ -3,6 +3,7 @@ set -e
 
 bundle check || bundle install
 
-bundle exec rake assets:precompile
+# run only when needed
+# bundle exec rake assets:precompile
 
 exec "$@"
