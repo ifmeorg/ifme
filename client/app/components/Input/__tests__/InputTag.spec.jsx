@@ -18,7 +18,7 @@ describe('InputTag', () => {
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
-      .find('.tagLabel')
+      .find('.InputTag__suggestion___2-uwT')
       .at(0)
       .simulate('click');
     expect(wrapper.find(id).exists()).toEqual(true);
@@ -41,7 +41,7 @@ describe('InputTag', () => {
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
-      .find('.tagLabel')
+      .find('.InputTag__suggestion___2-uwT')
       .at(0)
       .simulate('click');
     expect(wrapper.find(id).exists()).toEqual(true);
