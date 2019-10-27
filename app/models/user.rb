@@ -89,23 +89,14 @@ class User < ApplicationRecord
     super && !banned
   end
 
+  # TODO: to refactor and to move to builder pattern
+  # UserBuilder::GoogleOauth2
   def self.find_for_google_oauth2(auth)
     user = find_or_initialize_by(email: auth.info.email)
     user.name ||= auth.info.name
     user.password ||= Devise.friendly_token[0, 20]
     update_access_token_fields(user: user, access_token: auth)
     user
-  end
-
-  # to refactor, could be single oauth method to begin with
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.name     = auth.info.name
-      user.uid      = auth.provider + auth.uid
-      user.email    = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-    end
   end
 
   def google_access_token
@@ -161,5 +152,10 @@ class User < ApplicationRecord
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
+  end
+
+  # this ensures that uids are unique across providers
+  def provider_uid(auth)
+    auth.provider + auth.uid
   end
 end
