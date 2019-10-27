@@ -9,6 +9,10 @@
     text-transform: capitalize;
   }
 }
+.suggestion {
+  @include setPadding($size-4, $size-4, $size-4, $size-4);
+  text-transform: capitalize;
+}
 
 .suggestionsContainerOpen{
   @include setPadding($size-6, $size-6, $size-6, $size-6);
