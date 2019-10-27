@@ -99,6 +99,13 @@ class User < ApplicationRecord
     user
   end
 
+  # to refactor, could be single oauth method to begin with
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.provider + auth.uid).first_or_create do |user|
+      UserBuilder::Builder.build(user: user, auth: auth)
+    end
+  end
+
   def google_access_token
     google_access_token_expired? ? update_access_token : token
   end
@@ -152,10 +159,5 @@ class User < ApplicationRecord
 
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
-  end
-
-  # this ensures that uids are unique across providers
-  def provider_uid(auth)
-    auth.provider + auth.uid
   end
 end

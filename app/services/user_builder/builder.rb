@@ -1,5 +1,6 @@
 module UserBuilder
   class Builder
+    # Adds new omni auth providers here
     SERVICE = {
       # 'google_oauth' => GoogleOauth2
     }
