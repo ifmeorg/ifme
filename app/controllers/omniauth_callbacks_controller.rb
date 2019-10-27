@@ -10,7 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
                               kind: t('omniauth.google'))
       sign_in_and_redirect @user, event: :authentication
     else
-      redirect_to new_user_session_path, notice: t('omniauth.access_denied')
+      redirect_to new_user_session_path, alert: t('omniauth.access_denied')
     end
   end
 
@@ -23,7 +23,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       sign_in_and_redirect @user, event: :authentication
     else
-      redirect_to new_user_session_path, notice: t('omniauth.access_denied')
+      redirect_to new_user_session_path, alert: t('omniauth.access_denied')
     end
   end
 
