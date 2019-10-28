@@ -17,9 +17,7 @@ describe('InputTag', () => {
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
-    wrapper
-      .find(`li[role='option']`)
-      .simulate('click');
+    wrapper.find('li[role=\'option\']').simulate('click');
     expect(wrapper.find(id).exists()).toEqual(true);
   });
 
@@ -40,7 +38,7 @@ describe('InputTag', () => {
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
-      .find(`[role='option']`)
+      .find('[role=\'option\']')
       .at(0)
       .simulate('click');
     expect(wrapper.find(id).exists()).toEqual(true);
