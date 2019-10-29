@@ -4,10 +4,6 @@
   &Checkboxes {
     @include setMargin($size-10, $size-0, $size-0, $size-0);
   }
-  &Label {
-    @include setPadding($size-4, $size-4, $size-4, $size-4);
-    text-transform: capitalize;
-  }
 }
 .suggestion {
   @include setPadding($size-4, $size-4, $size-4, $size-4);
