@@ -22,11 +22,12 @@ describe Allyship do
   end
 
   context 'when creating allies relationship' do
+    let(:new_user1) { create(:user1) }
+    let(:new_user2) { create(:user2) }
+
     context 'with accepted status' do
       it 'creates a valid ally relationship' do
-        new_user1 = create(:user1)
-        new_user2 = create(:user2)
-        new_allies = create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
+        create(:allyships_accepted, user_id: new_user1.id, ally_id: new_user2.id)
 
         expect(Allyship.count).to eq 2
       end
@@ -34,9 +35,7 @@ describe Allyship do
 
     context 'with pending_from_user_id1 status' do
       it 'creates a valid ally relationship' do
-        new_user1 = create(:user1)
-        new_user2 = create(:user2)
-        new_allies = create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
+        create(:allyships_pending_from_user_id1, user_id: new_user1.id, ally_id: new_user2.id)
 
         expect(Allyship.count).to eq 2
       end
@@ -44,9 +43,7 @@ describe Allyship do
 
     context 'with pending_from_user_id2 status' do
       it 'creates a valid ally relationship' do
-        new_user1 = create(:user1)
-        new_user2 = create(:user2)
-        new_allies = create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
+        create(:allyships_pending_from_user_id2, user_id: new_user1.id, ally_id: new_user2.id)
 
         expect(Allyship.count).to eq 2
       end
@@ -55,7 +52,6 @@ describe Allyship do
     context 'with invalid ally relationship' do
       context 'when users are identical' do
         it 'creates an invalid ally relationship' do
-          new_user1 = create(:user1)
           new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: new_user1.id)
 
           expect(new_allies).to have(1).error_on(:user_id)
@@ -64,7 +60,6 @@ describe Allyship do
 
       context 'when user1 is nil' do
         it 'creates an invalid ally relationship' do
-          new_user2 = create(:user2)
           new_allies = build(:allyships_accepted, user_id: nil, ally_id: new_user2.id)
 
           expect(new_allies).to have(1).error_on(:user_id)
@@ -73,7 +68,6 @@ describe Allyship do
 
       context 'when user2 is nil' do
         it 'creates an invalid ally relationship' do
-          new_user1 = create(:user1)
           new_allies = build(:allyships_accepted, user_id: new_user1.id, ally_id: nil)
 
           expect(new_allies).to have(1).error_on(:ally_id)
@@ -83,41 +77,21 @@ describe Allyship do
   end
 
   context 'when destroying' do
-    describe 'deletes pertinent allyship' do
-      let!(:user) { create(:user1) }
-      let!(:ally) { create(:user2) }
+    let!(:user) { create(:user1) }
+    let!(:ally) { create(:user2) }
+    let(:allyship) { Allyship.where(user_id: user.id, ally_id: ally.id)[0] }
 
-      before do
-        Allyship.create(user_id: user.id,
-                        ally_id: ally.id,
-                        status: 'accepted')
-        Allyship.create(user_id: ally.id,
-                        ally_id: user.id,
-                        status: 'accepted')
-      end
-
-      it 'deletes the allyship' do
-        allyship_expected = Allyship.where(user_id: user.id,
-                                           ally_id: ally.id)[0]
-        expect { allyship_expected.destroy }
-          .to change { Allyship.count }
-      end
+    before do
+      Allyship.create(user_id: user.id, ally_id: ally.id, status: 'accepted')
+      Allyship.create(user_id: ally.id, ally_id: user.id, status: 'accepted')
     end
-  end
 
-  context 'when destroying' do
+    it 'deletes the allyship' do
+      expect { allyship.destroy }.to change { Allyship.count }
+    end
+
     context 'with viewer' do
-      let!(:user) { create(:user1) }
-      let!(:ally) { create(:user2) }
-
       before do
-        Allyship.create(user_id: user.id,
-                        ally_id: ally.id,
-                        status: 'accepted')
-        Allyship.create(user_id: ally.id,
-                        ally_id: user.id,
-                        status: 'accepted')
-
         Moment.create(category: [1],
                       name: 'Presentation for ENGL 101',
                       mood: [1, 2],
@@ -154,29 +128,14 @@ describe Allyship do
       end
 
       it 'deletes viewer' do
-        allyship_expected = Allyship.where(user_id: user.id,
-                                           ally_id: ally.id)[0]
-        moment_expected = user.moments.first
-        strategy_expected = user.strategies.first
-
-        expect { allyship_expected.destroy }
+        expect { allyship.destroy }
           .to change { user.moments.first.viewers.count }.from(1).to(0)
-                                                         .and change { user.strategies.first.viewers.count }.from(1).to(0)
+          .and change { user.strategies.first.viewers.count }.from(1).to(0)
       end
     end
 
     context 'with allyship request notifications' do
-      let!(:user) { create(:user1) }
-      let!(:ally) { create(:user2) }
-
       before do
-        Allyship.create(user_id: user.id,
-                        ally_id: ally.id,
-                        status: 'accepted')
-        Allyship.create(user_id: ally.id,
-                        ally_id: user.id,
-                        status: 'accepted')
-
         Notification.import([
                               build(
                                 :notification,
@@ -212,10 +171,7 @@ describe Allyship do
       end
 
       it 'deletes the ally notifications' do
-        allyship_expected = Allyship.find_by(user_id: user.id)
-        expect { allyship_expected.destroy }
-          .to change { Notification.count }
-          .from(6).to(2)
+        expect { allyship.destroy }.to change { Notification.count }.from(6).to(2)
       end
     end
   end
