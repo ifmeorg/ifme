@@ -37,7 +37,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       within('#strategy_category_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Category')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.tagAutocomplete').set('Some New Category')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -49,7 +49,7 @@ describe 'UserCreatesADraftStrategy', js: true do
       within('#strategy_viewers_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Ally 1')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.accordion').click
       end
 

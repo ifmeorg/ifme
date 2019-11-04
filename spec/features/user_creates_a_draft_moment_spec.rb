@@ -35,7 +35,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_category_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Category')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.tagAutocomplete').set('Some New Category')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -51,7 +51,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_mood_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Mood')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.tagAutocomplete').set('Some New Mood')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -67,7 +67,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_strategy_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Strategy')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.tagAutocomplete').set('Some New Strategy')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -77,10 +77,14 @@ describe 'UserCreatesADraftMoment', js: true do
         find('#submit').click
       end
 
+      within('#moment_strategy_accordion') do
+        find('.accordion').click
+      end
+      
       within('#moment_viewers_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Ally 1')
-        page.find('.tagAutocomplete').native.send_keys(:return)
+        page.find('.tagLabel').click
         find('.accordion').click
       end
 
@@ -98,7 +102,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
       expect(page).to have_content 'Some New Strategy'
-      find('.storyActionsViewers').hover
+      find('.storyActionsViewers').hover 
       expect(page).to have_content 'Ally 1'
       expect(page).not_to have_css('#comments')
       expect(page).to have_selector '.storyDraft'

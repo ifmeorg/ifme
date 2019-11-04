@@ -161,6 +161,7 @@ export class InputTag extends React.Component<Props, State> {
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         onSuggestionSelected={this.onSelect}
+        highlightFirstSuggestion
         shouldRenderSuggestions={this.shouldRenderSuggestions}
         renderSuggestion={this.renderSuggestion}
         getSuggestionValue={this.getSuggestionValue}
