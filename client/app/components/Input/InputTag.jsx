@@ -70,7 +70,7 @@ export class InputTag extends React.Component<Props, State> {
     const suggestions: Checkbox[] = inputLength === 0
       ? checkboxes
       : checkboxes.filter(
-        (checkbox: Checkbox) => checkbox.label.toLowerCase().slice(0, inputLength) === inputValue,
+        (checkbox: Checkbox) => checkbox.label.toLowerCase().indexOf(inputValue) > -1,
       );
     return suggestions;
   };
@@ -115,8 +115,11 @@ export class InputTag extends React.Component<Props, State> {
 
   onSelect = (
     event: SyntheticEvent<HTMLInputElement>,
-    { suggestion }: { suggestion: Checkbox },
+    { suggestion, method }: { suggestion: Checkbox, method: string },
   ) => {
+    if (method === 'enter') {
+      event.preventDefault();
+    }
     const id = this.labelExistsUnchecked(suggestion.label);
     if (id) {
       this.check(id, true);
