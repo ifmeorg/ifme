@@ -35,7 +35,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_category_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Category')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.tagAutocomplete').set('Some New Category')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -51,7 +51,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_mood_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Mood')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.tagAutocomplete').set('Some New Mood')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
@@ -84,7 +84,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_viewers_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Ally 1')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.accordion').click
       end
 
