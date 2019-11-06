@@ -81,11 +81,11 @@ describe 'UserCreatesAPublishedMoment', js: true do
       within('#moment_viewers_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Ally 0')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.tagAutocomplete').set('Ally 1')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.tagAutocomplete').set('Ally 2')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.accordion').click
       end
 
