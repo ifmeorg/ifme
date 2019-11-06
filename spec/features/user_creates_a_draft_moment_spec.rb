@@ -67,7 +67,7 @@ describe 'UserCreatesADraftMoment', js: true do
       within('#moment_strategy_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Test Strategy')
-        page.find('.tagLabel').click
+        page.find('.tagAutocomplete').native.send_keys(:return)
         find('.tagAutocomplete').set('Some New Strategy')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
