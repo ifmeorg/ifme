@@ -71,14 +71,10 @@ describe 'UserCreatesADraftMoment', js: true do
         find('.tagAutocomplete').set('Some New Strategy')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
-
+      
       within '.modal' do
         fill_in_textarea('A Strategy Description', '#strategy_description')
         find('#submit').click
-      end
-
-      within('#moment_strategy_accordion') do
-        find('.accordion').click
       end
       
       within('#moment_viewers_accordion') do
