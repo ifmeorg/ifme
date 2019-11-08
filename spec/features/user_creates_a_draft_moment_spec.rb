@@ -71,12 +71,12 @@ describe 'UserCreatesADraftMoment', js: true do
         find('.tagAutocomplete').set('Some New Strategy')
         page.find('.tagAutocomplete').native.send_keys(:return)
       end
-      
+
       within '.modal' do
         fill_in_textarea('A Strategy Description', '#strategy_description')
         find('#submit').click
       end
-      
+
       within('#moment_viewers_accordion') do
         find('.accordion').click
         find('.tagAutocomplete').set('Ally 1')
@@ -98,7 +98,7 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'What strategies would help?'.upcase
       expect(page).to have_content 'Test Strategy'
       expect(page).to have_content 'Some New Strategy'
-      find('.storyActionsViewers').hover 
+      find('.storyActionsViewers').hover
       expect(page).to have_content 'Ally 1'
       expect(page).not_to have_css('#comments')
       expect(page).to have_selector '.storyDraft'
