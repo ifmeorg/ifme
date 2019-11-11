@@ -10,17 +10,15 @@ export class LoadMoreButton extends React.Component<Props> {
   render() {
     const { onClick } = this.props;
     return (
-      <>
-        <center>
-          <button
-            type="button"
-            className={`loadMore ${css.buttonDarkM}`}
-            onClick={onClick}
-          >
-            {I18n.t('load_more')}
-          </button>
-        </center>
-      </>
+      <center>
+        <button
+          type="button"
+          className={`loadMore ${css.buttonDarkM}`}
+          onClick={onClick}
+        >
+          {I18n.t('load_more')}
+        </button>
+      </center>
     );
   }
 }
