@@ -155,7 +155,7 @@ export class Resources extends React.Component<Props, State> {
           {filteredResources
             .slice(0, resourcesDisplayed)
             .map((resource: ResourceProp) => (
-              <article className={css.gridThreeItem} key={Utils.randomString()}>
+              <article className={`Resource ${css.gridThreeItem}`} key={Utils.randomString()}>
                 <Resource
                   tagged
                   tags={resource.languages.concat(resource.tags)}
