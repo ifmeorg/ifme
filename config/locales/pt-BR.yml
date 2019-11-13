@@ -28,6 +28,8 @@ pt-BR:
     fr: Français
     hi: हिंदी
   navigation:
+    main_menu: 'Menu do site principal'
+    user_menu: 'Menu do usuário'
     about: Sobre
     blog: Blog
     contribute: Colaboradores

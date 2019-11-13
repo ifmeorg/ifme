@@ -4,30 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
 import { Logo } from '../Logo';
-// eslint-disable-next-line import/no-cycle
 import { HeaderProfile } from './HeaderProfile';
+import type { Profile, Link } from './types';
 import css from './Header.scss';
 import { I18n } from '../../libs/i18n';
-
-export type Link = {
-  name: string,
-  url: string,
-  active?: boolean,
-  dataMethod?: string,
-  hideInMobile?: boolean,
-};
-
-export type Profile = {
-  avatar?: string,
-  name: string,
-  profile: Link,
-  account: Link,
-  notifications: {
-    plural: string,
-    none: string,
-    clear: string,
-  },
-};
 
 export type Props = {
   home: Link,
@@ -85,7 +65,11 @@ export class Header extends React.Component<Props, State> {
     const { home } = this.props;
     const { mobileNavOpen } = this.state;
     return (
-      <div className={css.headerDesktop}>
+      <div
+        className={css.headerDesktop}
+        role="navigation"
+        aria-label={I18n.t('navigation.main_menu')}
+      >
         <div className={css.headerDesktopHome}>
           <Logo sm link={home.url} />
         </div>
@@ -123,7 +107,7 @@ export class Header extends React.Component<Props, State> {
   render() {
     const { mobileNavOpen } = this.state;
     return (
-      <div
+      <header
         id="header"
         className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
       >
@@ -131,7 +115,7 @@ export class Header extends React.Component<Props, State> {
           {this.displayDesktop()}
           {mobileNavOpen ? this.displayMobile() : null}
         </div>
-      </div>
+      </header>
     );
   }
 }

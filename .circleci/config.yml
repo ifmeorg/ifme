@@ -47,9 +47,9 @@ jobs:
           - v1-dep-master-
           - v1-dep-
       - run:
-          name: Update to Node v11.10.1
+          name: Update to Node v12.13.0
           command: |
-            curl -sSL "https://nodejs.org/dist/v11.10.1/node-v11.10.1-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.1-linux-x64/bin/node
+            curl -sSL "https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.13.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3
@@ -135,9 +135,9 @@ jobs:
           - v1-dep-master-
           - v1-dep-
       - run:
-          name: Update to Node v11.10.1
+          name: Update to Node v12.13.0
           command: |
-            curl -sSL "https://nodejs.org/dist/v11.10.1/node-v11.10.1-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.1-linux-x64/bin/node
+            curl -sSL "https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.13.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
       - run: gem install bundler
       - run: bundle install --path=vendor/bundle --jobs=4 --retry=3

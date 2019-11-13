@@ -8,7 +8,6 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
-// eslint-disable-next-line import/no-cycle
 import { InputSwitch } from './InputSwitch';
 import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
@@ -226,7 +225,7 @@ export class Input extends React.Component<Props, State> {
 
   displayLabel = () => {
     const {
-      label, info, required, type,
+      label, info, required, type, id,
     } = this.props;
     const { error } = this.state;
     if (REQUIRES_LABEL.includes(type) && label) {
@@ -236,6 +235,7 @@ export class Input extends React.Component<Props, State> {
           required={REQUIRED_POSSIBLE.includes(type) && required}
           info={info}
           error={error}
+          htmlFor={id}
         />
       );
     }

@@ -1,43 +1,43 @@
 @import "../base/*";
 @import "../core/*";
 
-body {
+#mailer {
   @include setFontSize($size-18);
   font-family: $font-family;
   font-weight: $font-weight-400;
   line-height: 1.4;
   width: 100%;
-}
 
-main {
-  @include dashboardSectionLink();
-  @include setPadding($size-20, $size-20, $size-20, $size-20);
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-}
+  main {
+    @include dashboardSectionLink();
+    @include setPadding($size-20, $size-20, $size-20, $size-20);
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
 
-header {
-  @include setPadding($size-0, $size-0, $size-40, $size-0);
-  h2 {
-    @include setMargin($size-20, $size-0, $size-0, $size-0);
-    @include setFontSize($size-24);
-    color: $mulberry;
+    header {
+      @include setPadding($size-0, $size-0, $size-40, $size-0);
+      h2 {
+        @include setMargin($size-20, $size-0, $size-0, $size-0);
+        @include setFontSize($size-24);
+        color: $mulberry;
+      }
+    }
+
+    section {
+      @include setPadding($size-20, $size-0, $size-20, $size-0);
+    }
+
+    footer {
+      @include setFontSize($size-16);
+      @include setPadding($size-40, $size-0, $size-0, $size-0);
+      color: $black;
+    }
+
+    hr {
+      width: 30%;
+      background-color: $grey;
+    }
   }
-}
-
-section {
-  @include setPadding($size-20, $size-0, $size-20, $size-0);
-}
-
-footer {
-  @include setFontSize($size-16);
-  @include setPadding($size-40, $size-0, $size-0, $size-0);
-  color: $black;
-}
-
-hr {
-  width: 30%;
-  background-color: $grey;
 }

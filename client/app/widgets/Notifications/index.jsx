@@ -99,7 +99,7 @@ export class Notifications extends React.Component<Props, State> {
   displayNotifications = () => {
     const { notifications } = this.state;
     return (
-      <div>
+      <div aria-live="polite">
         {renderHTML(notifications)}
         <button
           type="button"

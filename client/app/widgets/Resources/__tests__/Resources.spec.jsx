@@ -36,6 +36,29 @@ const getComponent = ({ history } = {}) => (
 );
 
 describe('Resources', () => {
+  it('adds tag to filter when tag label clicked', () => {
+    const wrapper = mount(getComponent());
+    expect(wrapper.find('.resource').length).toEqual(2);
+    expect(wrapper.find('.tags').exists()).toEqual(true);
+    const id = wrapper
+      .find('.tag')
+      .at(2)
+      .text();
+    expect(id).toEqual('therapy');
+    wrapper
+      .find('.tag')
+      .at(2)
+      .simulate('click');
+    expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
+    expect(wrapper.find('.resource').length).toEqual(1);
+    expect(
+      wrapper
+        .find('.tag')
+        .findWhere((t) => t.text() === id)
+        .exists(),
+    ).toEqual(true);
+  });
+
   it('filters when tag selected', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
@@ -99,9 +122,9 @@ describe('Resources', () => {
 
         wrapper.setState({
           checkboxes: [
-            { checked: true, value: 'alfredo' },
-            { checked: true, value: 'batman' },
-            { checked: false, value: 'vitor' },
+            { checked: true, value: 'alfredo', label: 'Alfredo' },
+            { checked: true, value: 'batman', label: 'Batman' },
+            { checked: false, value: 'vitor', label: 'Vitor' },
           ],
         });
 

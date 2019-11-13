@@ -1,13 +1,14 @@
 {
   "name": "ifme",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+  },
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "foreman start -f Procfile.dev"
   },
   "engines": {
-    "node": "11.10.1"
+    "node": "12.13.0"
   },
   "cacheDirectories": [
     "node_modules",

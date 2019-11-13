@@ -9,13 +9,9 @@ describe('InputTag', () => {
     const wrapper = mount(component);
     const id = `#${InputMocks.inputTagProps.checkboxes[1].id}`;
     const value = { value: 'Two' };
-    // Hack: Looks like react-autocomplete is looking for target, but we should use currentTarget
-    wrapper.find('.tagAutocomplete').prop('onChange')({
-      target: value,
-      currentTarget: value,
-    });
-    wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
+    wrapper.find('.tagAutocomplete').simulate('change', { target: value });
+    wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
       .find('.tagLabel')
@@ -32,11 +28,7 @@ describe('InputTag', () => {
     wrapper.find(id).prop('onChange')({ currentTarget: { checked: false } });
     wrapper.update();
     expect(wrapper.find(id).exists()).toEqual(false);
-    // Hack: Looks like react-autocomplete is looking for target, but we should use currentTarget
-    wrapper.find('.tagAutocomplete').prop('onChange')({
-      target: value,
-      currentTarget: value,
-    });
+    wrapper.find('.tagAutocomplete').simulate('change', { target: value });
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);

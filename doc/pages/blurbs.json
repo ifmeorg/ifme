@@ -208,7 +208,7 @@
   {
     "name": "Maribel Duran",
     "image": "/assets/contributors/maribel_duran.jpg",
-    "profile": "My mission is to inspire others to be healthy, kind, adventurous, and to celebrate life which is why I am contributing to applications that empower and motivate lives. I am so grateful to be part of this open source project that empowers people struggling with mental health to talk about their experiences.<br><br>To me, mental health means being able to cultivate energy, inner peace, and wellbeing. This the most important gift we can give to ourselves. However, in the pressured societies we live in, we are constantly surrounded by stress, threat, and other difficulties. It is easier to give into these negative feelings, but we can overcome this by fighting to think positive and promote mental health awareness. It’s not an easy battle, but it’s worth the fight :)",
+    "profile": "My mission is to inspire others to be healthy, kind, adventurous, and to celebrate life which is why I am contributing to applications that empower and motivate lives. I am so grateful to be part of this open source project that empowers people struggling with mental health to talk about their experiences.<br><br>To me, mental health means being able to cultivate energy, inner peace, and wellbeing. This the most important gift we can give to ourselves. However, in the pressured societies we live in, we are constantly surrounded by stress, threat, and other difficulties. It is easier to give into these negative feelings, but we can overcome this by fighting to think positive and promote mental health awareness. It’s not an easy battle, but it’s worth the fight :)",
     "location": "Danville, USA",
     "link_name": "maribelduran",
     "link": "http://github.com/maribelduran",
@@ -491,6 +491,24 @@
     "location": "Rio de Janeiro, Brazil",
     "link_name": "alcoelho",
     "link": "http://github.com/alcoelho",
+    "social": "github"
+  },
+  {
+    "name": "Julian Macmang",
+    "image": "/assets/contributors/julian_macmang.png",
+    "profile": "I'm a developer and a coffee enthusiast. I believe in spreading mental health awareness and empathy towards people battling mental health issues.",
+    "location": "Manila, Philippines",
+    "link_name": "julianmacmang",
+    "link": "https://github.com/sbpipb",
+    "social": "github"
+  },
+  {
+    "name": "Jeremiah Tabb",
+    "image": "/assets/contributers/jeremiah_tabb.jpg",
+    "profile": "I am a full stack engineer and composer. I contribute because mental health awareness is one of the most significant issues in our modern society, causing a lot of pain to a lot of people.",
+    "location": "Boulder, CO",
+    "link_name": "jollyjerr",
+    "link": "https://github.com/jollyjerr",
     "social": "github"
   }
 ]

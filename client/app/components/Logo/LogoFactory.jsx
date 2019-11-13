@@ -1,5 +1,6 @@
 // @flow
 import React, { type StatelessFunctionalComponent } from 'react';
+import { I18n } from '../../libs/i18n';
 import css from './Logo.scss';
 
 export type Props = {
@@ -27,7 +28,11 @@ export function LogoFactory(
     )}`;
     if (link) {
       return (
-        <a href={link} className={containerClass}>
+        <a
+          href={link}
+          className={containerClass}
+          aria-label={I18n.t('shared.header.home')}
+        >
           {ifDisplay}
           {meDisplay}
         </a>

@@ -12,11 +12,11 @@ export const Blockquote = (props: Props) => {
   const textClassNames = `${css.text}`;
   const authorClassNames = `${css.author}`;
   return (
-    <div className={textClassNames}>
+    <blockquote className={textClassNames}>
       <p>
         <q>{text}</q>
       </p>
       <div className={authorClassNames}>{author}</div>
-    </div>
+    </blockquote>
   );
 };

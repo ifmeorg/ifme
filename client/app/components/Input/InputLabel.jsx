@@ -11,6 +11,7 @@ export type Props = {
   required?: boolean,
   info?: string,
   error?: boolean,
+  htmlFor: string,
 };
 
 const displayTags = (required: ?boolean, info: ?string) => (
@@ -38,12 +39,15 @@ const displayLabel = (label: string, error: ?boolean) => (
 
 export const InputLabel = (props: Props) => {
   const {
-    error, label, required, info,
+    error, label, required, info, htmlFor,
   } = props;
   return (
-    <div className={`${globalCss.gridRowSpaceBetween} ${css.label}`}>
+    <label
+      htmlFor={htmlFor}
+      className={`${globalCss.gridRowSpaceBetween} ${css.label}`}
+    >
       <div className={css.labelInfo}>{displayLabel(label, error)}</div>
       {required || info ? displayTags(required, info) : null}
-    </div>
+    </label>
   );
 };

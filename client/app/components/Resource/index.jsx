@@ -11,14 +11,30 @@ type Props = {
   tags?: string[],
   tagged?: boolean,
   title: string,
+  updateTagFilter?: Function,
 };
 
-const taggedResources = (tagged: ?boolean, tags: ?(string[])) => {
+const taggedResources = (
+  tagged: ?boolean,
+  tags: ?(string[]),
+  updateTagFilter,
+) => {
   if (tagged && tags) {
     return (
       <div className="tags">
         {tags.map((tag) => (
-          <Tag normal label={tag} key={Utils.randomString()} />
+          <Tag
+            normal
+            label={tag}
+            key={Utils.randomString()}
+            onClick={
+              updateTagFilter
+                ? (tagLabel) => {
+                  updateTagFilter(tagLabel);
+                }
+                : null
+            }
+          />
         ))}
       </div>
     );
@@ -33,7 +49,13 @@ const authorRes = (external: ?boolean, author: ?string) => {
 
 export const Resource = (props: Props) => {
   const {
-    author, external, link, tagged, tags = [], title,
+    author,
+    external,
+    link,
+    tagged,
+    tags = [],
+    title,
+    updateTagFilter,
   } = props;
   return (
     <div className={`resource ${css.resource}`}>
@@ -46,7 +68,7 @@ export const Resource = (props: Props) => {
         {title}
       </a>
       {authorRes(external, author)}
-      {taggedResources(tagged, tags)}
+      {taggedResources(tagged, tags, updateTagFilter)}
     </div>
   );
 };
