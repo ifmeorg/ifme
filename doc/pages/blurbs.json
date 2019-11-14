@@ -504,11 +504,20 @@
   },
   {
     "name": "Jeremiah Tabb",
-    "image": "/assets/contributers/jeremiah_tabb.jpg",
+    "image": "/assets/contributors/jeremiah_tabb.jpg",
     "profile": "I am a full stack engineer and composer. I contribute because mental health awareness is one of the most significant issues in our modern society, causing a lot of pain to a lot of people.",
     "location": "Boulder, CO",
     "link_name": "jollyjerr",
     "link": "https://github.com/jollyjerr",
+    "social": "github"
+  }, 
+  {
+    "name": "Sonu Toor",
+    "image": "/assets/contributors/sonu_toor.jpg",
+    "profile": "I'm a web developer based in Toronto. I contributed to this project because life can be tough, we all go through rough patches, some worse than others. If if-me helps even one person dealing with their tough times, the hours I (that all the contributors) spent working on it for me are completely vindicated. Life can be hard, let's all help one another when we can.",
+    "location": "Toronto, Canada",
+    "link_name": "SonuToor",
+    "link": "https://github.com/SonuToor",
     "social": "github"
   }
 ]
