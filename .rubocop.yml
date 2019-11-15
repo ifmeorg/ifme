@@ -37,6 +37,9 @@ Rails/InverseOf:
 Rails/HasManyOrHasOneDependent:
   Enabled: false
 
+Rails/HelperInstanceVariable:
+  Enabled: false
+
 Style/MixinUsage:
   Enabled: false
 
