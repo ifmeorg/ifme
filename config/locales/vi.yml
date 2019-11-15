@@ -558,6 +558,10 @@ vi:
         senior_citizens: 'người cao tuổi'
         black_people: 'người da đen'
         sexual_health: 'sức khỏe tình dục'
+        hackathon: hackathon
+        stories: 'câu chuyện'
+        teen: 'thiếu niên'
+        coaching: 'huấn luyện'
   profile:
     index:
       title: 'Hồ sơ'

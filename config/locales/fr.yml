@@ -427,7 +427,7 @@ fr:
         title: 'Mettre à jour le mot de passe'
         body: "Nous avons mis en place de meilleures mesures de sécurité pour nos utilisateurs, s'il vous plaît cliquez sur le lien suivant %{update_password_link}"
         update_link: 'mettre à jour votre mot de passe.'
-      stories: Histoire
+      stories: Histoires
       not_signed_in:
         main_message_one: 'Une meilleure communication avec vos proches conduit à un meilleur bien-être psychique.'
         message_text_one: 'Nous avons besoin de soutien mutuel pour briser les stigmates.'
@@ -558,6 +558,10 @@ fr:
         senior_citizens: 'personnes agées'
         black_people: 'les noirs'
         sexual_health: 'santé sexuelle'
+        hackathon: hackathon
+        stories: histoires
+        teen: adolescent
+        coaching: encadrement
   profile:
     index:
       title: Profile

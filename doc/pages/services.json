@@ -250,5 +250,11 @@
     "link": "https://woebot.io",
     "tags": ["chatbot", "self_care", "mood_tracking", "android", "ios", "free"],
     "languages": ["en"]
+  },
+  {
+    "name": "Ayana Therapy",
+    "link": "https://www.ayanatherapy.com/",
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt"],
+    "languages": ["en"]
   }
 ]

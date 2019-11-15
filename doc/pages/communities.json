@@ -124,5 +124,29 @@
     "link": "https://www.genuineu.org",
     "tags": ["blog", "videos", "anonymous"],
     "languages": ["en"]
+  },
+  {
+    "name": "The Better Because Project",
+    "link": "https://www.thebetterbecauseproject.org/",
+    "tags": ["stories", "blog", "learning"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hack Mental Health",
+    "link": "https://www.hackmentalhealth.care/",
+    "tags": ["hackathon", "tech_industry", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Give Us the Floor",
+    "link": "https://giveusthefloor.org/",
+    "tags": ["teen", "support_groups", "blog", "videos"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Lyftly",
+    "link": "https://lyftly.com/",
+    "tags": ["anonymous", "support_groups", "goal_tracking", "mood_tracking", "coaching", "ios", "android", "free", "paid"],
+    "languages": ["en"]
   }
 ]
