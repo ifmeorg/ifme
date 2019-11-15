@@ -77,6 +77,7 @@ group :development, :test do
 
   gem 'rubocop', '>= 0.49.0'
   gem 'rubocop-performance'
+  gem 'rubocop-rails'
   gem 'rubocop-rspec'
 
   gem 'foreman'
