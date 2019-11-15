@@ -558,6 +558,10 @@ sv:
         senior_citizens: pensionärer
         black_people: 'Mörka personer'
         sexual_health: 'sexuell hälsa'
+        hackathon: hackathon
+        stories: berättelser
+        teen: tonåring
+        coaching: coaching
   profile:
     index:
       title: Profil

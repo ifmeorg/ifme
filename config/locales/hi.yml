@@ -558,6 +558,10 @@ hi:
         senior_citizens: 'वरिष्ठ नागरिक'
         black_people: 'अफ्रीकी पूर्वज वाले लोग'
         sexual_health: 'यौन स्वास्थ्य'
+        hackathon: 'आयोजित हैकथॉन'
+        stories: 'कहानियों'
+        teen: 'किशोर'
+        coaching: 'कोचिंग'
   profile:
     index:
       title: 'प्रोफाइल'

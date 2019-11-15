@@ -558,6 +558,10 @@ nl:
         senior_citizens: bejaarden
         black_people: 'zwarte mensen'
         sexual_health: 'seksuele gezondheid'
+        hackathon: hackathon
+        stories: verhalen
+        teen: tiener
+        coaching: coaching
   profile:
     index:
       title: Profiel

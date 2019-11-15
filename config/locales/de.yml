@@ -565,6 +565,10 @@ de:
         senior_citizens: Senioren
         black_people: Schwarze
         sexual_health: 'sexuelle Gesundheit'
+        hackathon: hackathon
+        stories: geschichten
+        teen: jugendlich
+        coaching: coaching
   profile:
     index:
       title: Profil
