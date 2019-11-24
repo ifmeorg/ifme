@@ -4,9 +4,7 @@ import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
-// eslint-disable-next-line import/no-cycle
-import { QuickCreate } from '../../widgets/QuickCreate';
-import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
+import { Checkbox } from '../Checkbox/index';
 import { Utils } from '../../utils';
 import css from './Form.scss';
 
@@ -128,14 +126,14 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayQuickCreate = (input: QuickCreateProps) => {
+  displayQuickCreate = (input: any) => {
     const {
       id, name, label, placeholder, checkboxes, formProps,
     } = input;
     if (!checkboxes || !name || !label) return null;
     return (
       <div key={id}>
-        <QuickCreate
+        <Checkbox
           id={id}
           name={name}
           label={label}
