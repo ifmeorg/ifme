@@ -3,9 +3,9 @@ import React from 'react';
 import { Modal } from '../../components/Modal';
 import { Input } from '../../components/Input';
 import type { Checkbox } from '../../components/Input/utils';
+import { DynamicForm } from '../../components/Form/DynamicForm';
 import { Utils } from '../../utils';
 import css from './QuickCreate.scss';
-import { DynamicForm } from '../../components/Form/DynamicForm';
 
 // value - e.g. category.id
 // label - e.g. category.name
