@@ -558,6 +558,10 @@ pt-BR:
         senior_citizens: 'cidadãos idosos'
         black_people: 'pessoas de cor'
         sexual_health: 'saúde sexual'
+        hackathon: hackathon
+        stories: histórias
+        teen: adolescente
+        coaching: treinamento
   profile:
     index:
       title: Perfil

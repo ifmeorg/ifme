@@ -1,4 +1,6 @@
-require: rubocop-performance
+require:
+  - rubocop-rails
+  - rubocop-performance
 
 AllCops:
   TargetRubyVersion: 2.6
@@ -33,6 +35,9 @@ Rails/InverseOf:
   Enabled: false
 
 Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
   Enabled: false
 
 Style/MixinUsage:

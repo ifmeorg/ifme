@@ -512,13 +512,22 @@
     "link": "https://github.com/jollyjerr",
     "social": "github"
   },
-  {
+    {
     "name": "Jasmine Logan",
     "image": "/assets/contributors/jasmine_logan.png",
     "profile": "I am a former music teacher turned developer attending Lambda School. I love podcasts and painting my nails in elaborate designs. I'm excited to contribute to a project that does so much good! ",
     "location": "Kansas City, KS",
     "link_name": "claridiva2000",
     "link": "https://github.com/claridiva2000",
+    "social": "github"
+  },
+  {
+    "name": "Sonu Toor",
+    "image": "/assets/contributors/sonu_toor.jpg",
+    "profile": "I'm a web developer based in Toronto. I contributed to this project because life can be tough, we all go through rough patches, some worse than others. If if-me helps even one person dealing with their tough times, the hours I (that all the contributors) spent working on it for me are completely vindicated. Life can be hard, let's all help one another when we can.",
+    "location": "Toronto, Canada",
+    "link_name": "SonuToor",
+    "link": "https://github.com/SonuToor",
     "social": "github"
   }
 ]
