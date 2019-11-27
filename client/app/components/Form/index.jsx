@@ -4,7 +4,7 @@ import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
-import { Checkbox } from '../Checkbox/index';
+import { displayQuickCreate } from './QuickCreate';
 import { Utils } from '../../utils';
 import css from './Form.scss';
 
@@ -126,25 +126,6 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayQuickCreate = (input: any) => {
-    const {
-      id, name, label, placeholder, checkboxes, formProps,
-    } = input;
-    if (!checkboxes || !name || !label) return null;
-    return (
-      <div key={id}>
-        <Checkbox
-          id={id}
-          name={name}
-          label={label}
-          placeholder={placeholder}
-          checkboxes={checkboxes}
-          formProps={formProps}
-        />
-      </div>
-    );
-  };
-
   displayInputs = (): any => {
     const { inputs } = this.state;
     return inputs.map((input: any) => {
@@ -152,7 +133,7 @@ export class Form extends React.Component<Props, State> {
         return this.displayInput(input);
       }
       if (input.type === 'quickCreate') {
-        return this.displayQuickCreate(input);
+        return displayQuickCreate(input);
       }
       return null;
     });
