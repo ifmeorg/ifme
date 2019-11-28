@@ -1,4 +1,5 @@
-[{
+[
+  {
     "name": "Julia Nguyen",
     "image": "/assets/contributors/julia_nguyen.jpg",
     "profile": "Being open and honest about my journey with obsessive-compulsive disorder, anxiety, and depression helps me to accept myself and reach out for support. My hope is to encourage others to feel more comfortable about sharing their experiences. Growing up as a daughter of Vietnamese refugee parents, it was difficult to talk about mental illness openly. I created if me as a tool to engage loved ones in mental health conversations. Working on the project openly has helped me to further explore my own mental health.",
@@ -509,6 +510,15 @@
     "location": "Boulder, CO",
     "link_name": "jollyjerr",
     "link": "https://github.com/jollyjerr",
+    "social": "github"
+  },
+    {
+    "name": "Jasmine Logan",
+    "image": "/assets/contributors/jasmine_logan.png",
+    "profile": "I am a former music teacher turned developer attending Lambda School. I love podcasts and painting my nails in elaborate designs. I'm excited to contribute to a project that does so much good! ",
+    "location": "Kansas City, KS",
+    "link_name": "claridiva2000",
+    "link": "https://github.com/claridiva2000",
     "social": "github"
   },
   {
