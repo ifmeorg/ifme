@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import axios from 'axios';
+// eslint-disable-next-line import/no-cycle
 import { Form } from './index';
 
 export type Props = {
