@@ -4,7 +4,6 @@ import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import type { Props as InputProps } from '../Input/utils';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
-// eslint-disable-next-line import/no-cycle
 import { displayQuickCreate } from './QuickCreate';
 import { Utils } from '../../utils';
 import css from './Form.scss';
