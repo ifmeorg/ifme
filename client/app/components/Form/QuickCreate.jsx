@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-// eslint-disable-next-line import/no-cycle
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
 
