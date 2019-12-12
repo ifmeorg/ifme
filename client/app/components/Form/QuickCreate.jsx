@@ -3,7 +3,6 @@ import React from 'react';
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
 
-
 export const displayQuickCreate = (input: QuickCreateProps) => {
   const {
     id, name, label, placeholder, checkboxes, formProps,
