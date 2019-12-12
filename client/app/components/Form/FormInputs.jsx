@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
-import { Input } from '../../components/Input';
-import { TYPES as INPUT_TYPES } from '../../components/Input/utils';
-import type { State as InputState } from '../../components/Form/index';
-import type { Props as InputProps } from '../../components/Form/index';
+import { Input } from '../Input';
+import { TYPES as INPUT_TYPES } from '../Input/utils';
+import type { Props as InputProps } from '../Input/utils';
 import { displayQuickCreate } from '../../components/Form/quickCreate';
+import { Utils } from '../../utils';
 
+type Errors = { [string]: boolean } | {};
 type KeyProps = { myKey?: any };
 type MyInputProps = InputProps & KeyProps;
 
@@ -16,13 +17,19 @@ type DisplayInputType = {
 type InputState = {inputs: any[]};
 
 export type Props = {
+    action?: string,
     inputs: any[],
+    noFormTagSubmit?: Function,
+    noFormTag?: boolean, // Can't have nested forms i.e. quick create
+    noFormTagRef?: any,
 }
 
 export type State = {
     inputs: any[],
     errors: Errors,
 }
+
+export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 export class FormInputs extends React.Component<Props, State>{
     myRefs: Object;
@@ -78,7 +85,7 @@ export class FormInputs extends React.Component<Props, State>{
       };
     
       displayInputs = () : any=> {
-        const { inputs } = state;
+        const { inputs } = this.state;
         console.log(inputs)
         return inputs.map((input: any) => {
           if (INPUT_TYPES.includes(input.type)) {
@@ -92,7 +99,7 @@ export class FormInputs extends React.Component<Props, State>{
       };
 
       render(){
-          const { inputs } = state;
+          const { inputs } = this.state;
           return this.displayInputs()
       }
     
