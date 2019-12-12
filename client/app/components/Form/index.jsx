@@ -2,8 +2,8 @@
 import React from 'react';
 import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 import { displayQuickCreate } from './quickCreate';
-import { displayInputs } from '../../widgets/Inputs';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
+import { FormInputs } from './FormInputs';
 import { Utils } from '../../utils';
 import css from './Form.scss';
 
@@ -35,12 +35,13 @@ export class Form extends React.Component<Props, State> {
     this.myRefs = {};
   }
 
-  handleError = (id: string, error: boolean) => {
-    const { errors } = this.state;
-    const newErrors = { ...errors };
-    newErrors[id] = error;
-    this.setState({ errors: newErrors });
-  };
+
+handleError = (id: string, error: boolean) => {
+  const { errors } = this.state;
+  const newErrors = { ...errors };
+  newErrors[id] = error;
+  this.setState({ errors: newErrors });
+};
 
   isInputError = (input: any) => {
     const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
@@ -85,9 +86,10 @@ export class Form extends React.Component<Props, State> {
   render() {
     const { action, noFormTag, noFormTagRef } = this.props;
     if (noFormTag) {
+      // This will go into Dynamic Form
       return (
         <div className={css.form} ref={noFormTagRef}>
-          {displayInputs()}
+         <FormInputs />
         </div>
       );
     }
@@ -100,7 +102,7 @@ export class Form extends React.Component<Props, State> {
         method="post"
         action={action}
       >
-        {displayInputs()}
+       <FormInputs />
       </form>
     );
   }
