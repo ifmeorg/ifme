@@ -274,5 +274,11 @@
     "link": "https://www.forhers.com/blog",
     "tags": ["sexual_health", "women", "blog"],
     "languages": ["en"]
+  },
+  {
+    "name": "Benzodiazepine Information Coalition (Resources)",
+    "link": "https://www.benzoinfo.com/resources/",
+    "tags": ["books", "videos", "podcast", "blog", "learning", "physical_dependence"],
+    "languages": ["en"]
   }
 ]
