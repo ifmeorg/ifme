@@ -562,6 +562,7 @@ en:
         stories: stories
         teen: teen
         coaching: coaching
+        physical_dependence: 'physical dependence'
   profile:
     index:
       title: Profile
