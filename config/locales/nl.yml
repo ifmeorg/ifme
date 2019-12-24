@@ -562,6 +562,7 @@ nl:
         stories: verhalen
         teen: tiener
         coaching: coaching
+        physical_dependence: 'lichamelijke afhankelijkheid'
   profile:
     index:
       title: Profiel
