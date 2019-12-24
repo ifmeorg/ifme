@@ -562,6 +562,7 @@ pt-BR:
         stories: histórias
         teen: adolescente
         coaching: treinamento
+        physical_dependence: 'dependência física'
   profile:
     index:
       title: Perfil
