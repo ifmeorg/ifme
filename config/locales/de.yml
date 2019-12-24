@@ -569,6 +569,7 @@ de:
         stories: geschichten
         teen: jugendlich
         coaching: coaching
+        physical_dependence: 'körperliche Abhängigkeit'
   profile:
     index:
       title: Profil
