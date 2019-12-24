@@ -562,6 +562,7 @@ vi:
         stories: 'câu chuyện'
         teen: 'thiếu niên'
         coaching: 'huấn luyện'
+        physical_dependence: 'lệ thuộc vật lý'
   profile:
     index:
       title: 'Hồ sơ'

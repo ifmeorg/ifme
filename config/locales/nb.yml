@@ -562,6 +562,7 @@ nb:
         stories: historier
         teen: tenåring
         coaching: coaching
+        physical_dependence: 'fysisk avhengighet'
   profile:
     index:
       title: Profil

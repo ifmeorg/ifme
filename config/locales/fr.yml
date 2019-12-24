@@ -562,6 +562,7 @@ fr:
         stories: histoires
         teen: adolescent
         coaching: encadrement
+        physical_dependence: 'dépendance physique'
   profile:
     index:
       title: Profile

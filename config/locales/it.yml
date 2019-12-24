@@ -562,6 +562,7 @@ it:
         stories: storie
         teen: adolescente
         coaching: istruire
+        physical_dependence: 'dipendenza fisica'
   profile:
     index:
       title: Profilo

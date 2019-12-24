@@ -562,6 +562,7 @@ sv:
         stories: berättelser
         teen: tonåring
         coaching: coaching
+        physical_dependence: 'fysiskt beroende'
   profile:
     index:
       title: Profil

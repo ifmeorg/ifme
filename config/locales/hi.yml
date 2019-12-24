@@ -562,6 +562,7 @@ hi:
         stories: 'कहानियों'
         teen: 'किशोर'
         coaching: 'कोचिंग'
+        physical_dependence: 'शारीरिक निर्भरता'
   profile:
     index:
       title: 'प्रोफाइल'
