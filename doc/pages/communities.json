@@ -60,6 +60,12 @@
     "languages": ["en"]
   },
   {
+    "name": "Peerly Human",
+    "link": "https://peerlyhuman.blogspot.com/",
+    "tags": ["support_groups", "blog", "learning"],
+    "languages": ["en"]
+  },
+  {
     "name": "Project Toe",
     "link": "http://www.projecttoe.com/",
     "tags": ["support_groups", "android", "ios"],
