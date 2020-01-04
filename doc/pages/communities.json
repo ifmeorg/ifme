@@ -12,6 +12,12 @@
     "languages": ["en", "es"]
   },
   {
+    "name": "if me",
+    "link": "https://www.if-me.org/",
+    "tags": ["blog", "tech_industry", "directory", "goal_tracking", "mood_tracking"],
+    "languages": ["en", "es", "de", "fr", "it", "hi", "nb", "nl", "pt_BR", "sv", "vi"]
+  },
+  {
     "name": "Koko",
     "link": "https://itskoko.com",
     "tags": ["chatbot", "anonymous"],
