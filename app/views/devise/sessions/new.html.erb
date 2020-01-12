@@ -27,13 +27,13 @@
 <script>
 
   function show(){
-    console.log("hi");
+
     var x=document.getElementById("pw");
   var c = document.getElementById("button");
   if (x.getAttribute('type') == "password") {
   c.removeAttribute("class");
   c.setAttribute("class","fas fa-eye-slash");
-  console.log("done");
+ 
   x.removeAttribute("type");
     x.setAttribute("type","text");
   }
@@ -41,7 +41,7 @@
      x.removeAttribute("type");
      x.setAttribute('type','password');
      c.removeAttribute("class");
-     console.log("imp");
+   
  c.setAttribute("class","fas fa-eye");
   }
   }
