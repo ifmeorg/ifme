@@ -1,4 +1,6 @@
-<div class="subtitle"><%= t('devise.sessions.subtitle') %></div>
+<div class="subtitle">
+ <%= t('devise.sessions.subtitle') %>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="center">
@@ -6,18 +8,44 @@
     <%= f.email_field :email, 'aria-label': t('common.form.email') %>
 
     <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.password') %>
+    <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.password'), id: "pw"%>
 
     <% if devise_mapping.rememberable? -%>
       <div class="label smallMarginTop">
-        <%= f.check_box :remember_me, 'aria-label': t('devise.remember_me') %>
+         <%= f.check_box :remember_me, 'aria-label': t('devise.remember_me') %>
         <%= t('devise.remember_me') %>
       </div>
     <% end -%>
-
     <%= f.submit t('account.sign_in'), class: 'buttonGhostM smallMarginTop' %>
   </div>
+
+  <div class = "label smallMarginTop">
+    <i onclick="show()" id = "button" class="fas fa-eye" id="display" style="position: relative; top: -195px; left: 190px; font-size: 30px; color: darkgrey;"></i>
+  </div>
 <% end %>
+
+<script>
+
+  function show(){
+    console.log("hi");
+    var x=document.getElementById("pw");
+  var c = document.getElementById("button");
+  if (x.getAttribute('type') == "password") {
+  c.removeAttribute("class");
+  c.setAttribute("class","fas fa-eye-slash");
+  console.log("done");
+  x.removeAttribute("type");
+    x.setAttribute("type","text");
+  }
+  else {
+     x.removeAttribute("type");
+     x.setAttribute('type','password');
+     c.removeAttribute("class");
+     console.log("imp");
+ c.setAttribute("class","fas fa-eye");
+  }
+  }
+</script>
 
 <div class="center">
   <%= render 'devise/shared/links' %>
