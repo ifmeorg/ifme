@@ -563,6 +563,8 @@ nl:
         teen: tiener
         coaching: coaching
         physical_dependence: 'lichamelijke afhankelijkheid'
+        codependency: codependency
+        relationships: verhoudingen
   profile:
     index:
       title: Profiel

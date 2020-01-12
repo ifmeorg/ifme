@@ -563,6 +563,8 @@ nb:
         teen: tenåring
         coaching: coaching
         physical_dependence: 'fysisk avhengighet'
+        codependency: codependency
+        relationships: forhold
   profile:
     index:
       title: Profil

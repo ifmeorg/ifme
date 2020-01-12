@@ -563,6 +563,8 @@ en:
         teen: teen
         coaching: coaching
         physical_dependence: 'physical dependence'
+        codependency: codependency
+        relationships: relationships
   profile:
     index:
       title: Profile

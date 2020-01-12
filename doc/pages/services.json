@@ -256,5 +256,23 @@
     "link": "https://www.ayanatherapy.com/",
     "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt"],
     "languages": ["en"]
+  },
+  {
+    "name": "Stoic",
+    "link": "https://www.stoicroutine.com/",
+    "tags": ["ios", "free", "mood_tracking", "journaling", "meditation"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happy Not Perfect",
+    "link": "https://happynotperfect.com/",
+    "tags": ["ios", "android", "free", "paid", "mood_tracking", "meditation", "mindfulness"],
+    "languages": ["en"]
+  },
+  {
+    "name": "T2 Mood Tracker",
+    "link": "https://psyberguide.org/apps/t2-mood-tracker/",
+    "tags": ["ios", "android", "free", "mood_tracking", "anxiety", "depression", "ptsd", "stress"],
+    "languages": ["en"]
   }
 ]
