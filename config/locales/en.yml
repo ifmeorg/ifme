@@ -565,6 +565,8 @@ en:
         physical_dependence: 'physical dependence'
         codependency: codependency
         relationships: relationships
+        alcoholism: alcoholism
+        cbt: CBT
   profile:
     index:
       title: Profile

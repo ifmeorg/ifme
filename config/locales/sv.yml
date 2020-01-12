@@ -565,6 +565,8 @@ sv:
         physical_dependence: 'fysiskt beroende'
         codependency: medberoende
         relationships: relationer
+        alcoholism: alkoholism
+        cbt: CBT
   profile:
     index:
       title: Profil

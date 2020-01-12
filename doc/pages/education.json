@@ -274,5 +274,11 @@
     "link": "https://www.benzoinfo.com/resources/",
     "tags": ["books", "videos", "podcast", "blog", "learning", "physical_dependence"],
     "languages": ["en"]
+  },
+  {
+    "name": "Neurotic Neurons: An Interactive Explanation",
+    "link": "https://ncase.me/neurons/",
+    "tags": ["videos", "cbt", "learning", "open_source"],
+    "languages": ["en", "es", "de", "fr", "it", "nb", "nl", "pt-BR", "sv", "vi"]
   }
 ]

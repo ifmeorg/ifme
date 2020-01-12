@@ -274,5 +274,11 @@
     "link": "https://psyberguide.org/apps/t2-mood-tracker/",
     "tags": ["ios", "android", "free", "mood_tracking", "anxiety", "depression", "ptsd", "stress"],
     "languages": ["en"]
+  },
+  {
+    "name": "Adventures With Anxiety!",
+    "link": "https://ncase.me/anxiety/",
+    "tags": ["game", "free", "open_source", "anxiety"],
+    "languages": ["en", "de", "es", "pt-BR"]
   }
 ]
