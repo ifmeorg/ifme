@@ -570,6 +570,8 @@ de:
         teen: jugendlich
         coaching: coaching
         physical_dependence: 'körperliche Abhängigkeit'
+        codependency: mitabhängigkeit
+        relationships: beziehungen
   profile:
     index:
       title: Profil

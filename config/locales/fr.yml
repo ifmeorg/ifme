@@ -563,6 +563,8 @@ fr:
         teen: adolescent
         coaching: encadrement
         physical_dependence: 'dépendance physique'
+        codependency: codépendance
+        relationships: 'des relations'
   profile:
     index:
       title: Profile

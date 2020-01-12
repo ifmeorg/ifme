@@ -563,6 +563,8 @@ hi:
         teen: 'किशोर'
         coaching: 'कोचिंग'
         physical_dependence: 'शारीरिक निर्भरता'
+        codependency: codependency
+        relationships: रिश्तों
   profile:
     index:
       title: 'प्रोफाइल'

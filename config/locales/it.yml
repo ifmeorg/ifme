@@ -563,6 +563,8 @@ it:
         teen: adolescente
         coaching: istruire
         physical_dependence: 'dipendenza fisica'
+        codependency: codipendenza
+        relationships: relazioni
   profile:
     index:
       title: Profilo

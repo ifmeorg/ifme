@@ -164,7 +164,13 @@
   {
     "name": "Surviving Antidepressants",
     "link": "https://www.survivingantidepressants.org/",
-    "tags": ["forum", "peer_support", "physical_dependence", "advice"],
+    "tags": ["forum", "support_groups", "physical_dependence", "advice"],
     "languages": ["en"]
+  },
+  {
+    "name": "Co-Dependents Anonymous International",
+    "link": "http://coda.org/",
+    "tags": ["anonymous", "support_groups", "directory", "codependency", "relationships"],
+    "languages": ["en", "es"]
   }
 ]
