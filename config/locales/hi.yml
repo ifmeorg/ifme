@@ -565,6 +565,8 @@ hi:
         physical_dependence: 'शारीरिक निर्भरता'
         codependency: codependency
         relationships: रिश्तों
+        alcoholism: शराब
+        cbt: CBT
   profile:
     index:
       title: 'प्रोफाइल'

@@ -12,10 +12,10 @@
     "languages": ["en", "es"]
   },
   {
-    "name": "if me",
+    "name": "if-me.og",
     "link": "https://www.if-me.org/",
     "tags": ["blog", "open_source", "directory", "goal_tracking", "mood_tracking", "journaling"],
-    "languages": ["en", "es", "de", "fr", "it", "hi", "nb", "nl", "pt_BR", "sv", "vi"]
+    "languages": ["en", "es", "de", "fr", "it", "hi", "nb", "nl", "pt-BR", "sv", "vi"]
   },
   {
     "name": "Koko",
@@ -171,6 +171,12 @@
     "name": "Co-Dependents Anonymous International",
     "link": "http://coda.org/",
     "tags": ["anonymous", "support_groups", "directory", "codependency", "relationships"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Alcoholics Anonymous (US and Canada)",
+    "link": "https://www.aa.org/",
+    "tags": ["anonymous", "support_groups", "directory", "addiction", "alcoholism"],
     "languages": ["en", "es"]
   }
 ]

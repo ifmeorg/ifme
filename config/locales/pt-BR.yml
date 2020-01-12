@@ -565,6 +565,8 @@ pt-BR:
         physical_dependence: 'dependência física'
         codependency: codependência
         relationships: relacionamentos
+        alcoholism: alcoolismo
+        cbt: CBT
   profile:
     index:
       title: Perfil

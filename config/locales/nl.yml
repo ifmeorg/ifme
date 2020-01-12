@@ -565,6 +565,8 @@ nl:
         physical_dependence: 'lichamelijke afhankelijkheid'
         codependency: codependency
         relationships: verhoudingen
+        alcoholism: alcoholisme
+        cbt: CBT
   profile:
     index:
       title: Profiel

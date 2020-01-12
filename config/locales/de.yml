@@ -572,6 +572,8 @@ de:
         physical_dependence: 'körperliche Abhängigkeit'
         codependency: mitabhängigkeit
         relationships: beziehungen
+        alcoholism: alcoholismo
+        cbt: CBT
   profile:
     index:
       title: Profil
