@@ -5,6 +5,7 @@
     @include setMargin($size-10, $size-0, $size-0, $size-0);
   }
 }
+
 .suggestion {
   @include setPadding($size-4, $size-4, $size-4, $size-4);
   text-transform: capitalize;
@@ -31,6 +32,7 @@
   padding: 0;
   list-style-type: none;
 }
+
 .suggestionHighlighted {
   background: $light-grey;
   border-radius: $size-4;

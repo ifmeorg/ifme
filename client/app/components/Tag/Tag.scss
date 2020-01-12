@@ -13,7 +13,6 @@
   border: $size-1 solid $mulberry;
   mix-blend-mode: normal;
   color: $mulberry;
-  cursor: pointer;
 
   &:last-child{
     @include setMargin($size-0, $size-0, $size-0, $size-0);
@@ -35,5 +34,9 @@
     color: $black;
     border: $size-1;
     background-color: $key-lime;
+  }
+
+  &.clickable {
+    cursor: pointer;
   }
 }
