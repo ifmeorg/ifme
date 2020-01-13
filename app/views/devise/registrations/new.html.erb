@@ -2,7 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <!-- <div class="center"> -->
+  <div class="center">
     <div class="label"><%= t('common.name') %></div>
     <%= f.text_field :name, 'aria-label': t('common.name') %>
 
@@ -20,7 +20,7 @@
     <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': ('devise.registrations.placeholders.repeat_password'), id:'pw' %>
     <i onclick="show('pw')" class="fas fa-eye" id="display" style="position: relative; top: -45px; left: 190px; font-size: 30px; color: grey;"></i>
     <%= f.submit t('account.sign_up'), class: 'buttonGhostM smallMarginTop' %>
-  <!-- </div> -->
+ </div>
 <% end %>
 <script>
 
@@ -30,7 +30,7 @@
   var c=x.nextElementSibling
   if (x.getAttribute('type') == "password") {
   c.removeAttribute("class");
-  // c.setAttribute("class","fas fa-eye");
+  
   c.setAttribute("class","fas fa-eye-slash");
   x.removeAttribute("type");
     x.setAttribute("type","text");
@@ -39,11 +39,11 @@
     x.setAttribute('type','password');
  c.removeAttribute("class");
  c.setAttribute("class","fas fa-eye");
-  // c.setAttribute("class","fas fa-eye-slash");
+  
   }
   }
 </script>
 
-<!-- <div class="center"> -->
+<div class="center">
   <%= render 'devise/shared/links' %>
-<!-- </div> -->
+</div>
