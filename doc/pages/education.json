@@ -280,5 +280,11 @@
     "link": "https://ncase.me/neurons/",
     "tags": ["videos", "cbt", "learning", "open_source"],
     "languages": ["en", "es", "de", "fr", "it", "nb", "nl", "pt-BR", "sv", "vi"]
+  },
+  {
+    "name": "Warfighter Advance",
+    "link": "http://www.warfighteradvance.org/",
+    "tags": ["veterans", "learning", "ptsd", "treatment"],
+    "languages": ["en"]
   }
 ]
