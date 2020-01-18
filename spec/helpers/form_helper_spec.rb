@@ -81,8 +81,7 @@ describe FormHelper do
             { id: 'some-other-id', type: 'number', value: 1 },
             { id: 'submit', type: 'submit', value: 'Submit', dark: true }
           ],
-          action: '/categories',
-          noFormTag: true
+          action: '/categories'
         )
       end
     end

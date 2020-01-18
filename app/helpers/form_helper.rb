@@ -21,7 +21,6 @@ module FormHelper
     return nil unless inputs.class == Array && action
 
     props = new_form_props(inputs, action)
-    props[:noFormTag] = true
     props
   end
 

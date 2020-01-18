@@ -82,8 +82,7 @@ describe MomentsFormHelper do
                   type: 'submit',
                   value: 'Submit'
                 }
-              ],
-              noFormTag: true
+              ]
             },
             id: 'moment_category',
             label: 'Categories',
@@ -119,8 +118,7 @@ describe MomentsFormHelper do
                   type: 'submit',
                   value: 'Submit'
                 }
-              ],
-              noFormTag: true
+              ]
             },
             id: 'moment_mood',
             label: 'Moods',
@@ -158,8 +156,7 @@ describe MomentsFormHelper do
                   type: 'submit',
                   value: 'Submit'
                 }
-              ],
-              noFormTag: true
+              ]
             },
             id: 'moment_strategy',
             label: 'Strategies',
@@ -307,8 +304,7 @@ describe MomentsFormHelper do
                   dark: true
                 }
               ],
-              action: '/categories/quick_create',
-              noFormTag: true
+              action: '/categories/quick_create'
             }
           },
           {
@@ -351,8 +347,7 @@ describe MomentsFormHelper do
                   dark: true
                 }
               ],
-              action: '/moods/quick_create',
-              noFormTag: true
+              action: '/moods/quick_create'
             }
           },
           {
@@ -398,8 +393,7 @@ describe MomentsFormHelper do
                   dark: true
                 }
               ],
-              action: '/strategies/quick_create',
-              noFormTag: true
+              action: '/strategies/quick_create'
             }
           },
           {

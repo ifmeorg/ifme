@@ -35,8 +35,7 @@ describe StrategiesHelper do
           dark: true
         }
       ],
-      action: '/categories/quick_create',
-      noFormTag: true
+      action: '/categories/quick_create'
     }
   end
   let(:strategy_form_inputs_res) do
