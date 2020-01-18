@@ -3,7 +3,6 @@
 describe MoodsHelper do
   let(:user) { create(:user) }
   let(:mood) { create(:mood, user_id: user.id) }
-  let(:no_form_tag) { { noFormTag: true } }
   let(:mood_props) do
     {
       inputs: [
@@ -63,7 +62,7 @@ describe MoodsHelper do
     end
 
     it 'returns correct props' do
-      expect(quick_create_mood_props).to eq(mood_props.merge(no_form_tag))
+      expect(quick_create_mood_props).to eq(mood_props)
     end
   end
 

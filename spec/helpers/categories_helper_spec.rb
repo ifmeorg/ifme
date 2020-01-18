@@ -4,9 +4,6 @@ describe CategoriesHelper do
   let(:user) { create(:user) }
   let(:category) { create(:category, user: user) }
   let(:quick_create) { false }
-  let(:no_form_tag) do
-    { noFormTag: true }
-  end
   let(:category_props) do
     {
       inputs: [
@@ -66,13 +63,13 @@ describe CategoriesHelper do
       let(:category) { nil }
 
       it 'returns correct results' do
-        expect(quick_create_category_props).to eq(category_props.merge(no_form_tag))
+        expect(quick_create_category_props).to eq(category_props)
       end
     end
 
     context 'category exists' do
       it 'returns correct results' do
-        expect(quick_create_category_props).to eq(category_props.merge(no_form_tag))
+        expect(quick_create_category_props).to eq(category_props)
       end
     end
   end

@@ -60,7 +60,6 @@ const formProps = {
     },
   ],
   action: '/comment/create',
-  noFormTag: true,
 };
 
 const value = 'Hey';
