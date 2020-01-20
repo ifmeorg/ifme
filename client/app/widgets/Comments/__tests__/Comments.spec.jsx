@@ -101,11 +101,9 @@ describe('Comments', () => {
   it('add and delete a comment', async () => {
     const wrapper = mount(component);
     expect(wrapper.find('.comment').exists()).toEqual(false);
-
-    const checking = wrapper.find('input[name="comment[comment]"]').simulate('change', {
+    wrapper.find('input[name="comment[comment]"]').simulate('change', {
       currentTarget: { value },
     });
-    console.log(checking);
     wrapper.find('select#comment_visibility').prop('onChange')({
       currentTarget: { value: 'private' },
     });
