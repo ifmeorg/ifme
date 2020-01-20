@@ -11,10 +11,10 @@
 </div>
 <div class="smallMarginTop">
   <%= react_component('StoryCategories', props: {
-    categories: @moment.category_names
+    categories: @moment.category_names_and_slugs
   }) %>
   <%= react_component('StoryMoods', props: {
-    moods: @moment.mood_names
+    moods: @moment.mood_names_and_slugs
   }) %>
 </div>
 

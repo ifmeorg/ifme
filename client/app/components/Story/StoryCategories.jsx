@@ -3,8 +3,13 @@ import React from 'react';
 import { Tag } from '../Tag';
 import css from './Story.scss';
 
+export type Category = {
+  name: string,
+  slug: string,
+};
+
 export type Props = {
-  categories: string[],
+  categories: Category[],
 };
 
 export const StoryCategories = (props: Props) => {
@@ -12,7 +17,7 @@ export const StoryCategories = (props: Props) => {
   return (
     <div className={`storyCategories ${css.categories}`}>
       {categories.map((value) => (
-        <Tag secondary key={value} label={value} />
+        <Tag secondary key={value.name} label={value.name} href={value.slug} />
       ))}
     </div>
   );

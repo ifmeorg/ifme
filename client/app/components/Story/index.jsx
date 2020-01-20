@@ -9,7 +9,9 @@ import type { Actions } from './StoryActions';
 import { StoryBy } from './StoryBy';
 import type { Props as StoryByProps } from './StoryBy';
 import { StoryCategories } from './StoryCategories';
+import type { Category } from './StoryCategories';
 import { StoryMoods } from './StoryMoods';
+import type { Mood } from './StoryMoods';
 import { StoryMedication } from './StoryMedication';
 import css from './Story.scss';
 
@@ -19,8 +21,8 @@ export type Props = {
   date?: string,
   draft?: string,
   actions?: Actions,
-  categories?: string[],
-  moods?: string[],
+  categories?: Category[],
+  moods?: Mood[],
   storyBy?: StoryByProps,
   storyType?: string,
   body?: any,
@@ -45,7 +47,7 @@ const header = (
   </div>
 );
 
-const tags = (categories: ?(string[]), moods: ?(string[])) => (
+const tags = (categories: ?(Category[]), moods: ?(Mood[])) => (
   <div>
     {categories && <StoryCategories categories={categories} />}
     {moods && <StoryMoods moods={moods} />}
@@ -70,8 +72,8 @@ const info = (
 };
 
 const footer = (
-  categories: ?(string[]),
-  moods: ?(string[]),
+  categories: ?(Category[]),
+  moods: ?(Mood[]),
   storyBy: ?StoryByProps,
   storyType: ?string,
   actions: ?Actions,
