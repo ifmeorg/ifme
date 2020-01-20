@@ -10,10 +10,9 @@ module PagesConcern
     @moods = Mood.where(params).order(created_at: :desc)
   end
 
-  def modify_resources(resource_type)
-    resources = JSON.parse(File.read("doc/pages/#{resource_type}.json"))
+  def modify_resources
+    resources = JSON.parse(File.read('doc/pages/resources.json'))
     resources.each do |item|
-      item['type'] = t("pages.resources.#{resource_type}")
       item['tags'].map! { |tag| t("pages.resources.tags.#{tag}") }
       item['languages'].map! { |language| t("languages.#{language}") }
     end
@@ -21,11 +20,6 @@ module PagesConcern
   end
 
   def fetch_resources
-    new_resources = []
-    resource_types = %w[communities education hotlines services]
-    resource_types.each do |resource_type|
-      new_resources += modify_resources(resource_type)
-    end
-    new_resources.sort_by! { |r| r['name'].downcase }
+    modify_resources.sort_by! { |r| r['name'].downcase }
   end
 end

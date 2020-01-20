@@ -466,11 +466,11 @@ nb:
     resources:
       description: 'Dette er vår kuraterte liste over mental helse ressurser, som inkluderer lokalsamfunn, pedagogiske verktøy, hotlines og tjenester.'
       emergency: 'Hvis du eller noen du kjenner opplever en krise i psykisk helse, må du kontakte hjelp så snart som mulig.'
-      communities: Samfunn
-      education: Utdanning
-      hotlines: Hjelpelinjer
-      services: Tjenester
       tags:
+        communities: samfunn
+        education: utdanning
+        hotlines: hjelpelinjer
+        services: tjenester
         people_of_colour: 'fargede folk'
         women_of_colour: 'fargede kvinner'
         black_women: 'svarte kvinner'
@@ -568,6 +568,11 @@ nb:
         relationships: forhold
         alcoholism: alkoholisme
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'sosiale mediebrudd'
+        quiz: quiz
+        attachment: feste
   profile:
     index:
       title: Profil

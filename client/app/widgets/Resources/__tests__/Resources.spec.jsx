@@ -21,14 +21,12 @@ const getComponent = ({ history } = {}) => (
           'iOS',
         ],
         languages: ['English', 'Español'],
-        type: 'Services',
       },
       {
         name: 'A Canvas of the Minds',
         link: 'https://acanvasoftheminds.com/',
         tags: ['free', 'blog'],
         languages: ['English'],
-        type: 'Communities',
       },
     ]}
     history={history}

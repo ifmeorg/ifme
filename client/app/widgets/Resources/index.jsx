@@ -13,7 +13,6 @@ type ResourceProp = {
   link: string,
   tags: string[],
   languages: string[],
-  type: string,
 };
 
 export type Props = {
@@ -43,7 +42,7 @@ const infoDescription = (
     <p>
       <a
         href={`/resources?filter[]=${I18n.t(
-          'pages.resources.tags.suicide_prevention',
+          'pages.resources.tags.hotlines',
         )}`}
       >
         {I18n.t('pages.resources.emergency')}

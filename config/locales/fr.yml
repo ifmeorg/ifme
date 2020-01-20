@@ -466,11 +466,11 @@ fr:
     resources:
       description: 'Voici notre liste de ressources en santé mentale, comprenant des communautés, des outils éducatifs, des lignes directes et des services.'
       emergency: "Si vous ou une personne de votre entourage êtes confrontée à une urgence en santé mentale, demandez de l'aide dès que possible."
-      communities: Communauté
-      education: Éducation
-      hotlines: Hotlines
-      services: Services
       tags:
+        communities: communauté
+        education: éducation
+        hotlines: hotlines
+        services: services
         people_of_colour: 'personne de couleur'
         women_of_colour: 'femme de coleur'
         black_women: 'femme noire'
@@ -568,6 +568,11 @@ fr:
         relationships: 'des relations'
         alcoholism: alcoolisme
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'pause sur les réseaux sociaux'
+        quiz: quiz
+        attachment: attachement
   profile:
     index:
       title: Profile

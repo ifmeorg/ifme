@@ -466,11 +466,11 @@ vi:
     resources:
       description: 'Đây là danh sách các tài nguyên sức khỏe tâm thần của chúng tôi, bao gồm các cộng đồng, công cụ giáo dục, đường dây nóng và dịch vụ.'
       emergency: 'Nếu bạn hoặc ai đó bạn biết đang gặp phải tình trạng khẩn cấp về sức khỏe tâm thần, hãy liên hệ để được giúp đỡ càng sớm càng tốt.'
-      communities: 'Cộng đồng'
-      education: 'Giáo dục'
-      hotlines: 'Khẩn cấp'
-      services: 'Dịch vụ'
       tags:
+        communities: 'cộng đồng'
+        education: 'giáo dục'
+        hotlines: 'khẩn cấp'
+        services: 'dịch vụ'
         people_of_colour: 'người da màu'
         women_of_colour: 'phụ nữ da màu'
         black_women: 'phụ nữ da đen'
@@ -568,6 +568,11 @@ vi:
         relationships: 'các mối quan hệ'
         alcoholism: 'nghiện rượu'
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'phá vỡ phương tiện truyền thông xã hội'
+        quiz: đố
+        attachment: 'tập tin đính kèm'
   profile:
     index:
       title: 'Hồ sơ'
