@@ -74,8 +74,10 @@ export class DynamicForm extends React.Component<Props, State> {
         if (!params[model]) {
           params[model] = {};
         }
-        params[model][column] = this.myRefs[id].value;
+        params[model][column] = this.myRefs[id] && this.myRefs[id].value;
+
       }
+
     });
     return params;
   };
