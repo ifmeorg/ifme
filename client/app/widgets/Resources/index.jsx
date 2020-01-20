@@ -41,9 +41,7 @@ const infoDescription = (
     {I18n.t('pages.resources.description')}
     <p>
       <a
-        href={`/resources?filter[]=${I18n.t(
-          'pages.resources.tags.hotlines',
-        )}`}
+        href={`/resources?filter[]=${I18n.t('pages.resources.tags.hotlines')}`}
       >
         {I18n.t('pages.resources.emergency')}
       </a>

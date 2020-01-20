@@ -55,7 +55,7 @@ module MomentsHelper
       date: TimeAgo.created_or_edited(element),
       actions: moment_or_strategy_actions(element, present_object),
       draft: !element.published? ? t('draft') : nil,
-      categories: element.category_names,
+      categories: element.category_names_and_slugs,
       moods: present_object[:moods],
       storyBy: story_by(element),
       storyType: present_object[:story_type] }
@@ -104,7 +104,7 @@ module MomentsHelper
       url_helper: is_moment ? moment_path(element) : strategy_path(element),
       link: is_moment ? edit_moment_path(element) : edit_strategy_path(element),
       story_type: t("#{model_name.pluralize}.singular"),
-      moods: element&.mood_names
+      moods: element&.mood_names_and_slugs
     }
   end
 end

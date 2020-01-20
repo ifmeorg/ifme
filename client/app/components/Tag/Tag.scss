@@ -13,6 +13,9 @@
   border: $size-1 solid $mulberry;
   mix-blend-mode: normal;
   color: $mulberry;
+  &:link, &:visited, &:hover {
+    color: $mulberry;
+  }
 
   &:last-child{
     @include setMargin($size-0, $size-0, $size-0, $size-0);
@@ -22,18 +25,27 @@
     color: $white;
     border: $size-1;
     background-color: $mulberry;
+    &:link, &:visited, &:hover {
+      color: $white;
+    }
   }
 
   &.normal {
     color: $white;
     border: $size-1;
     background-color: $white-10;
+    &:link, &:visited, &:hover {
+      color: $white;
+    }
   }
 
   &.secondary {
     color: $black;
     border: $size-1;
     background-color: $key-lime;
+    &:link, &:visited, &:hover {
+      color: $black;
+    }
   }
 
   &.clickable {
