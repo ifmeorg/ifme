@@ -466,11 +466,11 @@ nl:
     resources:
       description: 'Dit is onze samengestelde lijst met bronnen voor geestelijke gezondheidszorg, waaronder communities, educatieve tools, hotlines en services.'
       emergency: 'Als u of iemand die u kent een psychische noodsituatie heeft, neem dan zo snel mogelijk contact op met hulp.'
-      communities: Gemeenschappen
-      education: Educatie
-      hotlines: Meldpunten
-      services: Diensten
       tags:
+        communities: gemeenschappen
+        education: educatie
+        hotlines: meldpunten
+        services: diensten
         people_of_colour: 'mensen van kleur'
         women_of_colour: 'vrouwen van kleur'
         black_women: 'donkere vrouwen'
@@ -568,6 +568,11 @@ nl:
         relationships: verhoudingen
         alcoholism: alcoholisme
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'sociale media breken'
+        quiz: quiz
+        attachment: hechting
   profile:
     index:
       title: Profiel

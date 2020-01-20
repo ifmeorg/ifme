@@ -472,12 +472,12 @@ de:
       contact_description: '<p>Bitte %{email_link}, wenn du irgendwelche Fragen oder Anregungen hast.</p><p class="no_margin_bottom"><em>Datenschutzrichtlinie angepasst von %{jamie_king_media}.</em></p>'
     resources:
       description: 'Dies ist unsere kuratierte Liste von Ressourcen für psychische Gesundheit, die Gemeinschaften, Bildungsinstrumente, Hotlines und Dienstleistungen umfasst.'
-      communities: Communities
       emergency: 'Wenn du oder jemand, den du kennst sich in einem psychischen Notfall befindet, wende dich so bald wie möglich an deinen Ansprechpartner.'
-      education: Bildungsträger
-      hotlines: Hotlines
-      services: Dienstleister
       tags:
+        communities: communities
+        education: bildungsträger
+        hotlines: hotlines
+        services: dienstleister
         people_of_colour: 'farbige Menschen'
         women_of_colour: 'farbige Frauen'
         black_women: 'schwarze Frauen'
@@ -575,6 +575,11 @@ de:
         relationships: beziehungen
         alcoholism: alcoholismo
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'social media pause'
+        quiz: quiz
+        attachment: anhang
   profile:
     index:
       title: Profil

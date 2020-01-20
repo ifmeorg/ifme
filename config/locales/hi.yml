@@ -466,11 +466,11 @@ hi:
     resources:
       description: 'यह मानसिक स्वास्थ्य संसाधनों की हमारी क्यूरेटेड सूची है, जिसमें समुदाय, शैक्षिक उपकरण, हॉटलाइन और सेवाएं शामिल हैं।'
       emergency: 'यदि आप या आपके कोई परिचित मानसिक स्वास्थ्य आपात स्थिति का सामना कर रहे हैं, तो जल्द से जल्द मदद के लिए पहुँचें।'
-      communities: 'समुदाय'
-      education: 'शिक्षा'
-      hotlines: 'हॉटलाइन'
-      services: 'सेवाएं'
       tags:
+        communities: 'समुदाय'
+        education: 'शिक्षा'
+        hotlines: 'हॉटलाइन'
+        services: 'सेवाएं'
         people_of_colour: 'रंग के लोग'
         women_of_colour: 'रंग की महिलाएं'
         black_women: 'अफ्रीकी पूर्वज वाली महिलाएँ'
@@ -568,6 +568,11 @@ hi:
         relationships: रिश्तों
         alcoholism: शराब
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'सोशल मीडिया ब्रेक'
+        quiz: प्रश्नोत्तरी
+        attachment: आसक्ति
   profile:
     index:
       title: 'प्रोफाइल'

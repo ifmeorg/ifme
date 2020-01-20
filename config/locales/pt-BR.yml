@@ -466,11 +466,11 @@ pt-BR:
     resources:
       description: 'Esta é a nossa lista de recursos de saúde mental, que inclui comunidades, ferramentas educacionais, linhas diretas e serviços.'
       emergency: 'Se você ou alguém que você conhece estiver passando por uma emergência de saúde mental, procure ajuda o mais rápido possível.'
-      communities: 'Grupos comunitários'
-      education: Escolas
-      hotlines: 'Denúncia anônima'
-      services: Serviços
       tags:
+        communities: 'grupos comunitários'
+        education: escolas
+        hotlines: 'denúncia anônima'
+        services: serviços
         people_of_colour: 'pessoas de cor'
         women_of_colour: 'mulheres de cor'
         black_women: 'mulheres de cor'
@@ -568,6 +568,11 @@ pt-BR:
         relationships: relacionamentos
         alcoholism: alcoolismo
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: 'quebra de mídia social'
+        quiz: questionário
+        attachment: anexo
   profile:
     index:
       title: Perfil
