@@ -1,40 +1,51 @@
 # frozen_string_literal: true
 module TagsHelper
-  def tag_usage(data_id, data_type, user_id)
-    result = []
-    moments = User.find_by(id: user_id).moments
-    if data_type == 'category'
-      result = get_moments(data_id, data_type, user_id, moments)
-    elsif data_type.in?(%w[mood strategy])
-      result = get_moods(data_id, data_type, moments)
-    end
-    result
+  include ApplicationHelper
+  include MomentsHelper
+
+  def tagged_moments_data_json
+    {
+      data: moments_or_strategy_props(@moments),
+      lastPage: @moments.last_page?
+    }
+  end
+
+  def tagged_strategies_data_json
+    {
+      data: moments_or_strategy_props(@strategies),
+      lastPage: @strategies.last_page?
+    }
+  end
+
+  def setup_stories
+    return unless viewable?(@category) ||
+                  viewable?(@mood) ||
+                  viewable?(@strategy)
+
+    @moments = get_data(
+      @category || @mood || @strategy,
+      User.find_by(id: current_user.id).moments
+    )
+    @strategies = get_data(
+      @category,
+      User.find_by(id: current_user.id).strategies
+    )
   end
 
   private
 
-  def get_moods(data_id, data_type, moments)
-    result = []
-    moments.find_each do |m|
-      result << m if data_included?(data_type, data_id, m)
-    end
-    result.reverse
+  def viewable?(data)
+    data.user_id == current_user.id || (data.viewers.include?(current_user.id) && data.published?)
   end
 
-  def get_moments(data_id, data_type, user_id, moments)
+  def get_data(tag, data)
     result = []
-    strategies = User.find_by(id: user_id).strategies
-    [moments, strategies].each do |records|
-      objs = []
-      records.find_each do |r|
-        objs.push(r) if data_included?(data_type, data_id, r)
+    data.for_each do |d|
+      if (d[tag.class.name].include?(tag.id))
+        result << d
       end
-      result << objs.reverse
     end
-    result
-  end
-
-  def data_included?(data_type, data_id, data)
-    data_type.in?(%w[category mood strategy]) && data_id.in?(data[data_type])
+    Kaminari.paginate_array(result)
+            .page(params[:page])
   end
 end

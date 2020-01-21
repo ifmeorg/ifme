@@ -1,7 +1,6 @@
-<div class="gridTwo">
-  <% local_assigns[:data].each do |item| %>
-    <% if item.user_id == current_user.id || (item.viewers.include?(current_user.id) && item.published?) %>
-      <%= render partial: '/stories/moment_or_strategy', locals: { item: item } %>
-    <% end %>
-  <% end %>
-</div>
+<%= react_component('BaseContainer', props: {
+  container: 'StoryContainer',
+  data: moments_or_strategy_props(local_assigns[:data]),
+  fetchUrl: local_assigns[:data_type] == 'moment' ? moments_path : strategy_path,
+  lastPage: local_assigns[:data].last_page?
+}) %>

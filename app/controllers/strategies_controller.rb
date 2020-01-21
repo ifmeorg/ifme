@@ -6,6 +6,7 @@ class StrategiesController < ApplicationController
   include StrategiesConcern
   include Shared
   include MomentsHelper
+  include TagsHelper
 
   before_action :set_strategy, only: %i[show edit update destroy]
 
@@ -30,7 +31,17 @@ class StrategiesController < ApplicationController
   # GET /strategies/1
   # GET /strategies/1.json
   def show
+    setup_stories
     show_with_comments(@strategy)
+  end
+
+  def tagged_moments_data
+    setup_stories
+    respond_to do |format|
+      format.json do
+        render json: tagged_moments_data_json
+      end
+    end
   end
 
   #  POST /strategies/quick_create
