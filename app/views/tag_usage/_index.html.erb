@@ -1,23 +1,10 @@
-<% if local_assigns[:data_type] == 'category' || local_assigns[:data_type] == 'mood' || local_assigns[:data_type] == 'strategy' %>
-  <div class="smallMarginTop">
-    <% usage = tag_usage(local_assigns[:data], local_assigns[:data_type], local_assigns[:user_id]) %>
-    <% if local_assigns[:data_type] == 'category' %>
-      <% moments = usage[0] %>
-      <% strategies = usage[1] %>
-      <% if moments.length > 0 %>
-        <h2 class="title"><%= t('moments.tagged_moments') %> (<%= moments.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: moments, data_type: 'moment' } %>
-      <% end %>
-      <% if strategies.any? %>
-        <h2 class="title"><%= t('strategies.tagged_strategies') %> (<%= strategies.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: strategies, data_type: 'strategy' } %>
-      <% end %>
-    <% else %>
-      <% moments = usage %>
-      <% if moments.any? %>
-        <h2 class="title"><%= t('moments.tagged_moments') %> (<%= moments.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: moments, data_type: 'moment' } %>
-    <% end %>
+<div class="smallMarginTop">
+  <% if !@moments.nil? && @moments.any? %>
+    <h2 class="title"><%= t('moments.tagged_moments') %> (<%= @moments.count %>)</h2>
+    <%= render partial: '/tag_usage/stories', locals: { data: @moments, data_type: 'moment' } %>
   <% end %>
-  </div>
-<% end %>
+  <% if !@strategies.nil? && @strategies.any? %>
+    <h2 class="title"><%= t('strategies.tagged_strategies') %> (<%= @strategies.count %>)</h2>
+    <%= render partial: '/tag_usage/stories', locals: { data: @strategies, data_type: 'strategy' } %>
+  <% end %>
+</div>
