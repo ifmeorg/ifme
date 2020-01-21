@@ -1,51 +1,61 @@
 # frozen_string_literal: true
 
-describe TagsHelper, type: :controller do
+describe TagsHelper do
   let(:user1) { create(:user1) }
-  let(:user2) { create(:user2) }
 
-  controller(ApplicationController) do
-  end
+  before { allow_to_receive(:current_user, user1) }
 
-  describe 'tag_usage' do
+  describe 'setup_stories' do
     it 'is looking for categories tagged nowhere' do
-      new_category = create(:category, user_id: user1.id)
-      result = controller.tag_usage(new_category.id, 'category', user1.id)
-      expect(result[0].length + result[1].length).to eq(0)
+      @category = create(:category, user_id: user1.id)
+      setup_stories
+      expect(@moments.length).to eq(0)
+      expect(@strategies.length).to eq(0)
     end
 
     it 'is looking for categories tagged in moments and strategies' do
-      new_category = create(:category, user_id: user1.id)
-      new_moment = create(:moment, user_id: user1.id, category: Array.new(1, new_category.id))
-      new_strategy = create(:strategy, user_id: user1.id, category: Array.new(1, new_category.id))
-      result = controller.tag_usage(new_category.id, 'category', user1.id)
-      expect(result[0].length + result[1].length).to eq(2)
+      @category = create(:category, user_id: user1.id)
+      create(:moment, user_id: user1.id, category: Array.new(1, @category.id))
+      create(:strategy, user_id: user1.id, category: Array.new(1, @category.id))
+      setup_stories
+      expect(@moments.length).to eq(1)
+      expect(@strategies.length).to eq(1)
     end
 
     it 'is looking for moods tagged nowhere' do
-      new_mood = create(:mood, user_id: user1.id)
-      result = controller.tag_usage(new_mood.id, 'mood', user1.id)
-      expect(result.length).to eq(0)
+      @mood = create(:mood, user_id: user1.id)
+      result = setup_stories
+      expect(@moments.length).to eq(0)
+      expect(@strategies).to eq(nil)
     end
 
     it 'is looking for moods tagged in moments' do
-      new_mood = create(:mood, user_id: user1.id)
-      new_moment = create(:moment, user_id: user1.id, mood: Array.new(1, new_mood.id))
-      result = controller.tag_usage(new_mood.id, 'mood', user1.id)
-      expect(result.length).to eq(1)
+      @mood = create(:mood, user_id: user1.id)
+      create(:moment, user_id: user1.id, mood: Array.new(1, @mood.id))
+      setup_stories
+      expect(@moments.length).to eq(1)
+      expect(@strategies).to eq(nil)
     end
 
     it 'is looking for strategies tagged nowhere' do
-      new_strategy = create(:strategy, user_id: user1.id)
-      result = controller.tag_usage(new_strategy.id, 'strategy', user1.id)
-      expect(result.length).to eq(0)
+      @strategy = create(:strategy, user_id: user1.id)
+      setup_stories
+      expect(@moments.length).to eq(0)
+      expect(@strategies).to eq(nil)
     end
 
     it 'is looking for strategies tagged in moments' do
-      new_strategy = create(:strategy, user_id: user1.id)
-      new_moment = create(:moment, user_id: user1.id, strategy: Array.new(1, new_strategy.id))
-      result = controller.tag_usage(new_strategy.id, 'strategy', user1.id)
-      expect(result.length).to eq(1)
+      @strategy = create(:strategy, user_id: user1.id)
+      create(:moment, user_id: user1.id, strategy: Array.new(1, @strategy.id))
+      setup_stories
+      expect(@moments.length).to eq(1)
+      expect(@strategies).to eq(nil)
     end
+  end
+
+  private
+
+  def allow_to_receive(method, result)
+    allow_any_instance_of(TagsHelper).to receive(method).and_return(result)
   end
 end
