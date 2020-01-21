@@ -8,7 +8,7 @@ describe('StoryMoods', () => {
     let wrapper = null;
     expect(() => {
       wrapper = render(
-        <StoryMoods moods={['NERVOUS', 'ANXIOUS', 'HELPFUL']} />,
+        <StoryMoods moods={[{ name: 'Nervous', slug: '/nervous' }]} />,
       );
     }).not.toThrow();
     expect(wrapper).not.toBeNull();
