@@ -697,10 +697,8 @@ errors:
       password_errors:
         format: '应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。'
         used: '必须与最后三个密码不同'。
-
       placeholders:
         repeat_password: '重复密码'
-        test: '你好'
       edit:
         labels:
           profile_picture: '个人资料图片'
