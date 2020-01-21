@@ -93,7 +93,7 @@ RSpec.describe GroupsController, type: :controller do
     it 'returns error response if there is an empty name or description' do
       stub_current_user
       group = create :group
-      
+
       put :update, params: { id: group.id, group: { name: nil, description: nil }, format: 'json' }
       group.reload
       json = JSON.parse(response.body)
@@ -113,7 +113,7 @@ RSpec.describe GroupsController, type: :controller do
       test_name = 'Test Name'
       test_description = 'This is a test description.'
       post :create, params: { group: { name: test_name, description: test_description } }
-  
+
       expect(response.code).to eq('302')
 
       created_group = Group.last

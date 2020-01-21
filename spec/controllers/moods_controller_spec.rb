@@ -7,7 +7,7 @@ RSpec.describe MoodsController, type: :controller do
   let(:valid_mood_params) { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
 
-  describe 'GET #index' do
+  describe '#index' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       before { get :index }
@@ -34,7 +34,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
+  describe '#show' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when the user created the mood' do
@@ -56,7 +56,31 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'GET #new' do
+  describe '#tagged_moments_data' do
+    let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      before do
+        get :tagged_moments_data, params: { page: 1, id: user_mood.id }, format: :json
+      end
+
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before do
+        get :tagged_moments_data, params: { page: 1, id: user_mood.id }, format: :json
+      end
+
+      it 'returns a no_content status' do
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+  end
+
+  describe '#new' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       it 'renders the page' do
@@ -70,7 +94,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
+  describe '#edit' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'user is trying to edit a mood they created' do
@@ -92,7 +116,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
+  describe '#create' do
     context 'when the user is logged in' do
       include_context :logged_in_user
 
@@ -137,7 +161,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #premade' do
+  describe '#premade' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       it 'creates 5 premade moods' do
@@ -154,7 +178,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'PATCH/PUT #update' do
+  describe '#update' do
     let(:valid_update_params) { { name: 'updated name' } }
     let(:invalid_update_params) { { name: nil } }
 
@@ -185,7 +209,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do
+  describe '#destroy' do
     let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
 
     context 'when the user is logged in' do
@@ -209,7 +233,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #quick_create' do
+  describe '#quick_create' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do

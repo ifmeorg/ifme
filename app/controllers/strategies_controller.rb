@@ -8,7 +8,8 @@ class StrategiesController < ApplicationController
   include MomentsHelper
   include TagsHelper
 
-  before_action :set_strategy, only: %i[show edit update destroy]
+  before_action :set_strategy, only: %i[show edit update destroy
+                                        tagged_moments_data]
 
   # GET /strategies
   # GET /strategies.json
@@ -34,7 +35,7 @@ class StrategiesController < ApplicationController
   def tagged_moments_data
     setup_stories
     respond_to do |format|
-      format.json { render json: tagged_moments_data_json }
+      format.json { render json: tagged_moments_data_json } if @moments
     end
   end
 

@@ -5,7 +5,8 @@ class MoodsController < ApplicationController
   include CategoriesHelper
   include Shared
   include TagsHelper
-  before_action :set_mood, only: %i[show edit update destroy]
+  before_action :set_mood, only: %i[show edit update destroy
+                                    tagged_moments_data]
 
   # GET /moods
   # GET /moods.json
@@ -32,8 +33,10 @@ class MoodsController < ApplicationController
   def tagged_moments_data
     setup_stories
     respond_to do |format|
-      format.json do
-        render json: tagged_moments_data_json
+      if @moments
+        format.json do
+          render json: tagged_moments_data_json
+        end
       end
     end
   end

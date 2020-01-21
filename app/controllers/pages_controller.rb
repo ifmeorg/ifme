@@ -6,7 +6,8 @@ class PagesController < ApplicationController
   include PagesHelper
   include PagesConcern
 
-  skip_before_action :if_not_signed_in
+  skip_before_action :if_not_signed_in, except: %i[home_data]
+  before_action :if_not_signed_in, only: %i[home_data]
 
   def home
     if user_signed_in?
@@ -26,8 +27,10 @@ class PagesController < ApplicationController
   def home_data
     setup_stories
     respond_to do |format|
-      format.json do
-        render json: home_data_json
+      if @stories
+        format.json do
+          render json: home_data_json
+        end
       end
     end
   end

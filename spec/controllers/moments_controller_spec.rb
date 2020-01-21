@@ -1,39 +1,45 @@
 # frozen_string_literal: true
 
 describe MomentsController do
-  context 'when signed in' do
+  context 'when the user is signed in' do
     let(:user) { create(:user) }
     let(:moment) { build(:moment, user: user) }
 
     before { sign_in user }
 
-    it 'GET index' do
-      get :index
-      expect(response).to render_template(:index)
-    end
+    describe '#index' do
+      it 'renders template' do
+        get :index
+        expect(response).to render_template(:index)
+      end
 
-    it 'POST new' do
-      get :new
-      expect(response).to render_template(:new)
-      expect { post :create, params: { moment: moment.attributes } }
-        .to(change(Moment, :count).by(1))
-    end
-
-    it 'GET show' do
-      moment.save!
-      get :show, params: { id: moment.id }
-      expect(response).to render_template(:show)
-    end
-
-    context 'when request type is JSON' do
-      let(:moment) { create(:moment, user: user) }
-      before { get :index, params: { page: 1, id: moment.id }, format: :json }
-      it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+      context 'when request type is JSON' do
+        let(:moment) { create(:moment, user: user) }
+        before { get :index, params: { page: 1, id: moment.id }, format: :json }
+        it 'returns a response with the correct path' do
+          expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+        end
       end
     end
 
-    describe 'POST create' do
+    describe '#new' do
+      it 'creates a new moment' do
+        get :new
+        expect(response).to render_template(:new)
+        expect { post :create, params: { moment: moment.attributes } }
+          .to(change(Moment, :count).by(1))
+      end
+    end
+
+    describe '#show' do
+      it 'renders template' do
+        moment.save!
+        get :show, params: { id: moment.id }
+        expect(response).to render_template(:show)
+      end
+    end
+
+    describe '#create' do
       let(:valid_moment_params) { attributes_for(:moment) }
 
       def post_create(moment_params)
