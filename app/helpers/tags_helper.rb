@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module TagsHelper
-  include ApplicationHelper
   include MomentsHelper
 
   def tagged_moments_data_json
@@ -18,15 +17,15 @@ module TagsHelper
   end
 
   def setup_stories
-    return unless viewable?(@category) ||
-                  viewable?(@mood) ||
-                  viewable?(@strategy)
+    return unless viewable_tag?(@category) ||
+                  viewable_tag?(@mood) ||
+                  viewable_tag?(@strategy)
 
-    @moments = get_data(
+    @moments = get_tagged_data(
       @category || @mood || @strategy,
       User.find_by(id: current_user.id).moments
     )
-    @strategies = get_data(
+    @strategies = get_tagged_data(
       @category,
       User.find_by(id: current_user.id).strategies
     )
@@ -34,14 +33,18 @@ module TagsHelper
 
   private
 
-  def viewable?(data)
+  def viewable_tag?(data)
+    return unless data
+
     data.user_id == current_user.id || (data.viewers.include?(current_user.id) && data.published?)
   end
 
-  def get_data(tag, data)
+  def get_tagged_data(tag, data)
+    return unless tag
+
     result = []
-    data.for_each do |d|
-      if (d[tag.class.name].include?(tag.id))
+    data.each do |d|
+      if (d[tag.class.name.downcase].include?(tag.id))
         result << d
       end
     end
