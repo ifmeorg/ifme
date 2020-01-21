@@ -397,8 +397,7 @@ de:
       main_message_two: 'Uns mit unserer Psyche auseinanderzusetzen ist Teil unseres Lebens. Für viele von uns ist es jedoch ein Problem, offen darüber zu sprechen.'
       message_text_two: '<p>Nicht jeder ist ein professioneller Ratgeber oder Therapeut. Die Menschen, mit denen wir interagieren, beeinflussen unser Verhalten und unsere Emotionen. Gemeinsam mit diesen Menschen zu arbeiten ist der beste Weg zur erfolgreichen psychischen Genesung.</p><p class="subtitle">"Es spielt sich nicht nur in deinem Kopf ab, sondern betrifft auch das Umfeld um dich herum. Gemeinsam können wir diesen Heilungsprozess angehen."</p><p>Psychische Gesundheit ist individuell und von Person zu Person unterschiedlich. Jeder Mensch tickt anders! Daher braucht es die Hilfe jedes einzelnen. Das ist auch der Grund, warum dieses ein Open-Source-Projekt ist.</p>'
       main_message_three: 'Möchtest du uns finanziell unterstützen?'
-      message_text_three: 'Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von %{linebreak_link} einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>'
-      linebreak: Linebreak
+      message_text_three: 'Unsere App ist <u>komplett</u> Open-Source, entwickelt und gepflegt von Freiwilligen mit unterschiedlichen Kenntnissen und Werdegängen.</p><p>Im Jahr 2016 haben wir von Linebreak einen Zuschuss für gemeinschaftliche Zwecke erhalten. Im Jahr 2017 gab uns der %{fund_club_link} finanzielle Unterstützung.</p>Du kannst uns ebenfalls mit einer Spende unterstützen: %{patreon_link}.</p>'
       fund_club: 'Fund Club'
     blog:
       description: 'Wenn du für uns schreiben möchtest, stelle dich gerne per E-Mail bei uns vor: %{email}! Auch anonyme Einsendungen werden berücksichtigt.'
