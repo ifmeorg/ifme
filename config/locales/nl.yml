@@ -391,8 +391,7 @@ nl:
       main_message_two: 'Omgaan met geestelijke gezondheid is wat ons menselijk maakt. Maar voor velen van ons is het moeilijk om er open over te zijn.'
       message_text_two: '<p>Niet iedereen is een mentor of een therapeut. De mensen met wie we dagelijks omgaan geven vorm aan onze emoties en ons gedrag. Hun betrokkenheid is de sleutel tot herstel.</p><p class="subtitle">"Het zit niet allemaal tussen je oren, het is overal om je heen. Samen kunnen we herstellen."</p><p>Geestelijke gezondheid is een individueel en unieke beleving. Er zijn niet twee hersenen hetzelfde! Het probleem tackelen behoeft ideeën van iedereen, dat is waarom dit project open source is.</p>'
       main_message_three: 'Wil je ons financieel helpen?'
-      message_text_three: 'Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van %{linebreak_link}. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>'
-      linebreak: Linebreak
+      message_text_three: 'Onze applicatie is een <u>compleet</u> open source project. Het wordt ontwikkeld en onderhouden door vrijwilligers uit verschillende achtergronden en met verschillende vaardigheden.</p><p>In 2016, hebben wij een community grant ontvangen van Linebreak. In 2017, ontvingen wij geld van %{fund_club_link}.</p>Jij kunt ons ondersteunen door te doneren via onze %{patreon_link}.</p>'
       fund_club: 'Fund Club'
     blog:
       description: 'Als je voor ons wil schrijven, stuur ons een e-mail op %{email}! We staan open voor anonieme bijdragen.'
