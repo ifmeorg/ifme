@@ -6,17 +6,17 @@
       <% strategies = usage[1] %>
       <% if moments.length > 0 %>
         <h2 class="title"><%= t('moments.tagged_moments') %> (<%= moments.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: moments } %>
+        <%= render partial: '/tag_usage/stories', locals: { data: moments, data_type: 'moment' } %>
       <% end %>
       <% if strategies.any? %>
         <h2 class="title"><%= t('strategies.tagged_strategies') %> (<%= strategies.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: strategies } %>
+        <%= render partial: '/tag_usage/stories', locals: { data: strategies, data_type: 'strategy' } %>
       <% end %>
     <% else %>
       <% moments = usage %>
       <% if moments.any? %>
         <h2 class="title"><%= t('moments.tagged_moments') %> (<%= moments.count %>)</h2>
-        <%= render partial: '/tag_usage/stories', locals: { data: moments } %>
+        <%= render partial: '/tag_usage/stories', locals: { data: moments, data_type: 'moment' } %>
     <% end %>
   <% end %>
   </div>

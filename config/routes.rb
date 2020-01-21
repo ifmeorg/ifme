@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
+      get 'tagged_moments_data', defaults: { format: 'json' }
     end
   end
 
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
+      get 'tagged_moments_data', defaults: { format: 'json' }
+      get 'tagged_strategies_data', defaults: { format: 'json' }
     end
   end
 
@@ -47,6 +50,7 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
+      get 'tagged_moments_data', defaults: { format: 'json' }
     end
   end
 
