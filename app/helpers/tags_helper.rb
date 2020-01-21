@@ -23,11 +23,11 @@ module TagsHelper
 
     @moments = get_tagged_data(
       @category || @mood || @strategy,
-      User.find_by(id: current_user.id).moments
+      User.find_by(id: current_user.id).moments.recent
     )
     @strategies = get_tagged_data(
       @category,
-      User.find_by(id: current_user.id).strategies
+      User.find_by(id: current_user.id).strategies.recent
     )
   end
 
