@@ -31,7 +31,7 @@ module TagsHelper
     return unless data
 
     data.user_id == current_user.id ||
-      (data.viewers.include?(current_user.id) &&
+      (data.try(:viewers)&.include?(current_user.id) &&
         data.published?)
   end
 
