@@ -26,8 +26,14 @@ storiesOf('Story', module)
         }}
         name="Real Moment"
         link="some-url"
-        categories={['FRIENDS', 'FAMILY']}
-        moods={['ANXIOUS', 'HELPFUL']}
+        categories={[
+          { name: 'Family', slug: '/family' },
+          { name: 'Friends', slug: '/friends' },
+        ]}
+        moods={[
+          { name: 'Nervous', slug: '/nervous' },
+          { name: 'Excited', slug: '/excited' },
+        ]}
         date="Created 2 Days ago"
         draft="Draft"
         storyType="Some Type"
