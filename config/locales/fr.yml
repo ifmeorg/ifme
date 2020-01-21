@@ -391,8 +391,7 @@ fr:
       main_message_two: "Faire face à des soucis psychiques est ce qui nous rends humain. Pour certain d'entre-nous, il est difficile d'en parler."
       message_text_two: '<p>Tout le monde n''est pas conseiller ou thérapiste. Les personnes avec qui on intéragit tous les jours conditionnent nos émotions et comportements. Les impliquer dans les traitement psychotérapeutique est essentiel pour un bon rétablissement.</p><p class="subtitle">"Ce n''est pas juste dans votre tête, c''est tout autour de vous. Nous pouvons nous soigner ensemble."</p><p>Le bien-être mental est une expérience personnelle et unique. Pas deux cerveaux sont identiques! Résoudre le problème demande la participation de tous, c''est pourquoi le projet est open source.</p>'
       main_message_three: 'Vous voulez nous financer ?'
-      message_text_three: 'Notre app est un projet <u>complétement</u> open source. Il est construit et maintenu par des volontaires de milieux différents et des compétences diverses.</p><p>En 2016, nous avons reçu une subvention communautaire de %{linebreak_link}. En 2017, nous avons reçu un financement de %{fund_club_link}.</p>Vous pouvez nous apporter votre soutien sur  %{patreon_link}.</p>'
-      linebreak: Linebreak
+      message_text_three: 'Notre app est un projet <u>complétement</u> open source. Il est construit et maintenu par des volontaires de milieux différents et des compétences diverses.</p><p>En 2016, nous avons reçu une subvention communautaire de Linebreak. En 2017, nous avons reçu un financement de %{fund_club_link}.</p>Vous pouvez nous apporter votre soutien sur  %{patreon_link}.</p>'
       fund_club: 'Fund Club'
     blog:
       description: "Si vous êtes intéressé afin d'écrire pour nous, envoyez-nous un email à %{email} ! Nous sommes aussi ouverts aux contributions anonymes."
