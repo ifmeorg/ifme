@@ -3,22 +3,17 @@ module TagsHelper
   include MomentsHelper
 
   def tagged_moments_data_json
-    {
-      data: moments_or_strategy_props(@moments),
-      lastPage: @moments.last_page?
-    }
+    { data: moments_or_strategy_props(@moments),
+      lastPage: @moments.last_page? }
   end
 
   def tagged_strategies_data_json
-    {
-      data: moments_or_strategy_props(@strategies),
-      lastPage: @strategies.last_page?
-    }
+    { data: moments_or_strategy_props(@strategies),
+      lastPage: @strategies.last_page? }
   end
 
   def setup_stories
-    return unless viewable_tag?(@category) ||
-                  viewable_tag?(@mood) ||
+    return unless viewable_tag?(@category) || viewable_tag?(@mood) ||
                   viewable_tag?(@strategy)
 
     @moments = get_tagged_data(
@@ -26,8 +21,7 @@ module TagsHelper
       User.find_by(id: current_user.id).moments.recent
     )
     @strategies = get_tagged_data(
-      @category,
-      User.find_by(id: current_user.id).strategies.recent
+      @category, User.find_by(id: current_user.id).strategies.recent
     )
   end
 
@@ -36,7 +30,9 @@ module TagsHelper
   def viewable_tag?(data)
     return unless data
 
-    data.user_id == current_user.id || (data.viewers.include?(current_user.id) && data.published?)
+    data.user_id == current_user.id ||
+      (data.viewers.include?(current_user.id) &&
+        data.published?)
   end
 
   def get_tagged_data(tag, data)
@@ -44,11 +40,8 @@ module TagsHelper
 
     result = []
     data.each do |d|
-      if (d[tag.class.name.downcase].include?(tag.id))
-        result << d
-      end
+      result << d if d[tag.class.name.downcase].include?(tag.id)
     end
-    Kaminari.paginate_array(result)
-            .page(params[:page])
+    Kaminari.paginate_array(result).page(params[:page])
   end
 end
