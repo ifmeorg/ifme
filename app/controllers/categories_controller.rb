@@ -5,7 +5,9 @@ class CategoriesController < ApplicationController
   include CategoriesHelper
   include Shared
   include TagsHelper
-  before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_category, only: %i[show edit update destroy
+                                        tagged_moments_data
+                                        tagged_strategies_data]
   respond_to :json, only: [:index]
 
   # GET /categories
@@ -33,8 +35,10 @@ class CategoriesController < ApplicationController
   def tagged_moments_data
     setup_stories
     respond_to do |format|
-      format.json do
-        render json: tagged_moments_data_json
+      if @moments
+        format.json do
+          render json: tagged_moments_data_json
+        end
       end
     end
   end
@@ -42,8 +46,10 @@ class CategoriesController < ApplicationController
   def tagged_strategies_data
     setup_stories
     respond_to do |format|
-      format.json do
-        render json: tagged_strategies_data_json
+      if @strategies
+        format.json do
+          render json: tagged_strategies_data_json
+        end
       end
     end
   end

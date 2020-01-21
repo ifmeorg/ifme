@@ -10,8 +10,10 @@ class ProfileController < ApplicationController
   def data
     setup_stories
     respond_to do |format|
-      format.json do
-        render json: data_json
+      if @stories
+        format.json do
+          render json: data_json
+        end
       end
     end
   end

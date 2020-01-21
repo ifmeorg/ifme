@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 describe PagesController, type: :controller do
-  describe 'GET #home' do
+  let(:user) { create(:user) }
+
+  describe '#home' do
     it 'respond to request' do
       get :home
       expect(response).to be_successful
     end
 
     context 'logged in' do
-      let(:user) { create(:user) }
       include_context :logged_in_user
 
       it 'has no stories' do
@@ -41,7 +42,7 @@ describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #contribute' do
+  describe '#contribute' do
     it 'respond to request' do
       get :contribute
       expect(response).to be_successful
@@ -58,18 +59,27 @@ describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #home_data' do
-    let(:user) { create(:user) }
-    let(:moment) { create(:moment, user: user) }
-    include_context :logged_in_user
-    before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
+  describe '#home_data' do
+    let!(:moment) { create(:moment, user: user) }
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
 
-    it 'returns a response with the correct path' do
-      expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
+
+      it 'returns a no_content status' do
+        expect(response).to have_http_status(:no_content)
+      end
     end
   end
 
-  describe 'GET #partners' do
+  describe '#partners' do
     it 'respond to request' do
       get :partners
       expect(response).to be_successful
@@ -84,28 +94,28 @@ describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #about' do
+  describe '#about' do
     it 'respond to request' do
       get :about
       expect(response).to be_successful
     end
   end
 
-  describe 'GET #faq' do
+  describe '#faq' do
     it 'respond to request' do
       get :faq
       expect(response).to be_successful
     end
   end
 
-  describe 'GET #privacy' do
+  describe '#privacy' do
     it 'respond to request' do
       get :privacy
       expect(response).to be_successful
     end
   end
 
-  describe 'POST #toggle_locale' do
+  describe '#toggle_locale' do
     context 'When user is signed in' do
       let(:user) { build(:user) }
       include_context :logged_in_user
@@ -133,7 +143,7 @@ describe PagesController, type: :controller do
     end
   end
 
-  describe 'GET #resources' do
+  describe '#resources' do
     describe 'when sending filter params' do
       it 'filters the aforementioned resources' do
         get :resources, params: { filter: %w[ADD english] }

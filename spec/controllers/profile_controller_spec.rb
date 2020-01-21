@@ -58,13 +58,24 @@ describe ProfileController do
   end
 
   describe '#data' do
-    let(:user) { create(:user) }
-    let(:moment) { create(:moment, user: user) }
-    include_context :logged_in_user
-    before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+    let!(:user) { create(:user) }
+    let!(:moment) { create(:moment, user: user) }
 
-    it 'returns a response with the correct path' do
-      expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+    context 'when the user is signed in' do
+      include_context :logged_in_user
+      before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
+      end
+    end
+
+    context 'when the user is not signed in' do
+      before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+
+      it 'returns a no_content status' do
+        expect(response).to have_http_status(:no_content)
+      end
     end
   end
 
