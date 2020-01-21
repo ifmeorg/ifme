@@ -47,13 +47,6 @@ const header = (
   </div>
 );
 
-const tags = (categories: ?(Category[]), moods: ?(Mood[])) => (
-  <div>
-    {categories && <StoryCategories categories={categories} />}
-    {moods && <StoryMoods moods={moods} />}
-  </div>
-);
-
 const info = (
   storyBy: ?StoryByProps,
   storyType: ?string,
@@ -65,7 +58,7 @@ const info = (
       <StoryBy author={storyBy.author} avatar={storyBy.avatar} />
       <div className={css.infoRight}>
         <div className={css.storyType}>{storyType}</div>
-        {actions ? <StoryActions actions={actions} hasStory /> : null}
+        {actions && <StoryActions actions={actions} hasStory />}
       </div>
     </div>
   );
@@ -79,7 +72,8 @@ const footer = (
   actions: ?Actions,
 ) => (
   <div className={css.footer}>
-    {categories || moods ? tags(categories, moods) : null}
+    {categories && <StoryCategories categories={categories} />}
+    {moods && <StoryMoods moods={moods} />}
     {info(storyBy, storyType, actions)}
   </div>
 );
