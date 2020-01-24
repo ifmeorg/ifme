@@ -585,7 +585,7 @@ zh:
   pusher:
     not_authorized: '未授权'
   search:
-    label: 搜索
+    label: 搜索
     search_by_name: '按名称搜索'
     form:
       search_by_location: '按位置搜索'
@@ -612,7 +612,7 @@ zh:
         one: '你是唯一的观众。'
         other: ' <strong>不是</ strong>您是唯一的观看者。'
       viewers_html:
-        zero: '没有<strong>没有</strong>个观看者。'
+        zero: '没有<strong>没有</strong>个观看者。'
         one: '％{names}是查看者。'
         other: '％{names}是查看者。'
     stats:
@@ -632,7 +632,7 @@ zh:
     quick_create:
       new: '新％{name}'
   strategies:
-    singular: 策略
+    singular: 策略
     plural: 策略
     edit_strategy: '修改策略'
     tagged_strategies: '标记策略'
@@ -664,7 +664,7 @@ zh:
     no_description: '您没有写说明！'
     yes_description: '写一个可以帮助您和其他人更好地理解'
   mailers:
-    accepted_ally_request:
+    accepted_ally_request:
       subject: '如果我| ％{ally_name}接受了您的盟友请求！'
       message: ' <p>恭喜！您现在可以与％{ally_name}共享时刻，策略等。</ p>'
     new_ally_request:
@@ -679,7 +679,7 @@ zh:
     confirmations:
       resend_confirmation: '重新发送确认说明'
     mailer:
-      confirmation:
+      confirmation:
         link_instructions: '您可以通过以下链接确认您的帐户电子邮件'
         link_text: '确认我的帐户'
       reset_password:
@@ -707,9 +707,9 @@ zh:
         format: '应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。'
         used: '必须与最后三个密码不同。'
       placeholders:
-        repeat_password: '重复密码'
+        repeat_password: '重复密码'
       edit:
-        labels:
+        labels:
           profile_picture: '个人资料图片'
           remove_picture: '删除图片'
           about: 关于
@@ -734,4 +734,4 @@ zh:
       confirmation: '没有收到确认指示吗？'
       unlock: '没有收到解锁指令吗？'
     unlock:
-      resend: '重新发送解锁说明'
+      resend:  '重新发送解锁说明'
