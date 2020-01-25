@@ -1,0 +1,83 @@
+zh:
+app_name: '如果我'
+  app_description: '精神健康体验社区'
+  email: join.ifme@gmail.com
+  created: '已创建％{created_at}'
+  draft: 草案
+  edited: '已创建％{created_at}（已编辑）'
+  edited_updated_at: '已创建％{created_at}（已编辑％{updated_at}）'
+  salutation: '％{name}，您好！,'
+  click_here: '点击这里'
+  language: 语言
+  yes_text: '是'
+  no_text: '没有'
+  expand_menu: '展开菜单'
+  close: 关
+  load_more: '装载更多'
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: 'Various languages'
+    vi: 'Tiếng Việt'
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: 'हिंदी'
+    zh: 中文
+  navigation:
+    main_menu: '主菜单'
+    user_menu: '用户菜单'
+    about: 关于
+    blog: 博客
+    contribute: 有助于
+    partners: 伙伴
+    privacy: '隐私政策'
+    github: 的GitHub
+    patreon: Patreon
+    opencollective: 'Open Collective'
+    instagram: Instagram
+    rss: RSS
+    twitter: Twitter
+    facebook: Facebook
+    feedback: feedback
+    give_feedback: '给予反馈'
+    press: Press
+    faq: FAQ
+    resources: Resources
+    code_of_conduct: 'Code of Conduct'
+  common:
+    name: 名称
+    you: 您
+    title: 标题
+    date: 日期
+    daily_reminder: '每日提醒电子邮件'
+    actions:
+      plural: 行动
+      submit: 提交
+      submit_publish: 发布
+      submit_draft: 草案
+      confirm: '你确定吗？'
+      delete: 删除
+      edit: 编辑
+      edit_instance: '修改％{instance}'
+      join: 加入
+      leave: 离开
+      add: 加
+      add_all: '全部添加'
+      select_all: '全选'
+      remove: 去掉
+      report: 报告
+    form:
+      email: 电子邮件
+      location: 位置
+      description: 描述
+      error_explanation: '请填写标记的字段！'
+      empty_error: '该字段不能为空！'
+      search_by_keywords: '按关键词搜索'
+    time_ago: '％{date}前'
+    write_to_us: '写信给我们'
+    days: 天
