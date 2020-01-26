@@ -392,7 +392,7 @@ zh:
       message_text_two: '<p>并非每个人都是辅导员或治疗师。我们每天与之互动的人塑造了我们的情感和行为。让他们参与心理健康治疗是康复的关键。</p><p class="subtitle">这不仅在您的脑海中，还在您的周围。我们可以一起治愈。</p><p>心理健康是一种独特而独特的经历。没有两个大脑是一样的！解决该问题需要所有人的想法，这就是该项目是开源的原因。</p>'
       main_message_three: '想资助我们吗？'
       message_text_three: '我们的应用是 <u>完全地</u> 开源项目。它是由具有不同背景和技能的志愿者构建和维护的。</p><p>2016年，我们获得了来自 %{linebreak_link}。 2017年，我们获得了来自 %{fund_club_link}。</p>您可以通过向我们捐款来支持我们 %{patreon_link}</p>。'
-      linebreak: 越线
+      # linebreak: 越线
       fund_club: '基金俱乐部'
     blog:
       description: '如果您有兴趣为我们写信，请向我们推荐 %{email}！我们也欢迎匿名提交。'
@@ -466,11 +466,11 @@ zh:
     resources:
       description: '这是我们精选的精神健康资源清单，其中包括社区，教育工具，热线和服务。'
       emergency: '如果您或您认识的某个人遇到精神健康紧急情况，请尽快寻求帮助。'
-      communities: 社区
-      education: 教育
-      hotlines: 热线电话
-      services: 服务
       tags:
+        communities: 社区
+        education: 教育
+        hotlines: 热线电话
+        services: 服务
         people_of_colour: '有色人种'
         women_of_colour: '有色女人'
         black_women: '黑人妇女'
@@ -568,6 +568,11 @@ zh:
         relationships: 关系
         alcoholism: 酗酒
         cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: '社交媒体中断'
+        quiz: 测验
+        attachment: 附件
   profile:
     index:
       title: 个人资料
