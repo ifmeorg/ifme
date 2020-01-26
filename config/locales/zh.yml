@@ -151,7 +151,7 @@ zh:
       premade4_name: 冥想
       premade4_description: '冥想, 深呼吸, 和休闲活动'
       instructions: '您尚未创建任何自定义类别。<br>您还可以添加以下预制类别，然后再次自定义它们。'
-errors:
+  errors:
     home_page: '回家'
     internal_server_error:
       header_message: '该页面无法显示'
@@ -264,8 +264,8 @@ errors:
         one: '%{count} 成员 %{group}'
         other: '%{count} 的成员 %{group}'
     reminder_mailer:
-      subject: '你的会议 '%{meeting_name}' 明天在 %{time}!'
-      body: '谨在此提醒您，明天的会议 '%{meeting_name}', 将在 %{time} 在 %{location}!'
+      subject: '你的会议 "%{meeting_name}" 明天在 %{time}!'
+      body: '谨在此提醒您，明天的会议 "%{meeting_name}", 将在 %{time} 在 %{location}!'
     leave:
       error: '您不能离开会议，您是唯一的领导者。'
       success: '你走了 %{meeting}'
@@ -334,43 +334,43 @@ errors:
       accepted: '%{name} 接受了您的盟友请求！'
       sent_html: '%{link_to_user} 发送了一个盟友请求！'
     comment:
-      full: '%{name} 已评论 '%{comment}' 上 %{typename}'
-      truncated: '%{name} 已评论 '%{comment}' [...] 上 %{typename}'
+      full: '%{name} 已评论 "%{comment}" 上 %{typename}'
+      truncated: '%{name} 已评论 "%{comment}" [...] 上 %{typename}'
     group:
-      new_group: '%{name} 建立了一个小组 '%{group_name}''
-      new_group_member: '%{name} 加入了你的小组 '%{group_name}''
-      add_group_leader: '%{name} 成为 '%{group_name}''
-      remove_group_leader: '%{name} 不再是 '%{group_name}''
+      new_group: '%{name} 建立了一个小组 "%{group_name}"'
+      new_group_member: '%{name} 加入了你的小组 "%{group_name}"'
+      add_group_leader: '%{name} 成为 "%{group_name}"'
+      remove_group_leader: '%{name} 不再是 "%{group_name}"'
     meeting:
-      new_meeting: '%{name} 创建了一个新会议 '%{meeting_name}' 对于 '%{group_name}''
-      remove_meeting: '%{name} 已取消 '%{meeting_name}' 对于 '%{group_name}''
-      update_meeting: '%{name} 更新了 '%{meeting_name}' 对于 '%{group_name}''
-      join_meeting: '%{name} 已经加入 '%{meeting_name}' 对于 '%{group_name}''
+      new_meeting: '%{name} 创建了一个新会议 "%{meeting_name}" 对于 "%{group_name}"'
+      remove_meeting: '%{name} 已取消 "%{meeting_name}" 对于 "%{group_name}"'
+      update_meeting: '%{name} 更新了 "%{meeting_name}" 对于 "%{group_name}"'
+      join_meeting: '%{name} 已经加入 "%{meeting_name}" 对于 "%{group_name}"'
     mailer:
-      comment_on_moment_subject: '如果我 %{user} 评论了你的一刻 '%{moment}''
-      comment_on_strategy_subject: '如果我 %{user} 评论了您的策略 '%{strategy}''
-      comment_on_meeting_subject: '如果我 %{user} 在会议上发表了评论 '%{meeting}' 在组中 '%{group}''
+      comment_on_moment_subject: '如果我 %{user} 评论了你的一刻 "%{moment}"'
+      comment_on_strategy_subject: '如果我 %{user} 评论了您的策略 "%{strategy}"'
+      comment_on_meeting_subject: '如果我 %{user} 在会议上发表了评论 "%{meeting}" 在组中 "%{group}"'
       comment_on_private_body: '<p>你的盟友 <strong>%{user}</strong> 私下评论: </p>'
       comment_on_body: '<p>你的盟友 <strong>%{user}</strong> 评论: </p>'
       comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
       comment_text: '<p><i>%{comment}</i></p>'
       comment_link: '<p>阅读它, %{link}!</p>'
-      new_group_subject: '如果我 %{user} 建立了一个小组 '%{group}''
-      new_group_body: '<p>%{user} 建立了一个小组 '%{group}':</p><p><i>%{description}</i></p><p>要了解更多信息并加入, %{link}!</p><p>请按照我们的 %{code_of_conduct_link}!</p>'
-      new_group_member_subject: '如果我 %{user} 加入了你的小组 '%{group}''
-      add_group_leader_you_subject: '如果我  '%{group}''
-      add_group_leader_subject: '如果我 %{user} 成为 ' %{group}''
-      add_remove_group_leader_body: '<p>查看 '%{group}', %{link}!</p>'
-      remove_group_leader_you_subject: '如果我您不再是...的领导者 '%{group}''
-      remove_group_leader_subject: '如果我 %{user} 不再是 '%{group}''
-      update_meeting_subject: '如果我 %{user} 更新了会议 '%{meeting}' 对于 '%{group}''
-      new_meeting_subject: '如果我 %{user} 创建了一个新会议 '%{meeting}' 对于 '%{group}''
+      new_group_subject: '如果我 %{user} 建立了一个小组 "%{group}"'
+      new_group_body: '<p>%{user} 建立了一个小组 "%{group}":</p><p><i>%{description}</i></p><p>要了解更多信息并加入, %{link}!</p><p>请按照我们的 %{code_of_conduct_link}!</p>'
+      new_group_member_subject: '如果我 %{user} 加入了你的小组 "%{group}"'
+      add_group_leader_you_subject: '如果我  "%{group}"'
+      add_group_leader_subject: '如果我 %{user} 成为 " %{group}"'
+      add_remove_group_leader_body: '<p>查看 "%{group}", %{link}!</p>'
+      remove_group_leader_you_subject: '如果我您不再是...的领导者 "%{group}"'
+      remove_group_leader_subject: '如果我 %{user} 不再是 "%{group}"'
+      update_meeting_subject: '如果我 %{user} 更新了会议 "%{meeting}" 对于 "%{group}"'
+      new_meeting_subject: '如果我 %{user} 创建了一个新会议 "%{meeting}" 对于 "%{group}"'
       meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>位置: </strong> %{location}</p><p><strong>日期: </strong> %{date}</p><p><strong>时间: </strong> %{time}</p>'
       new_meeting_link: '<p>要了解更多信息并参加， %{link}!</p>'
       update_meeting_link: '<p>了解更多， %{link}!</p>'
-      remove_meeting_subject: '如果我 %{user} 已取消 '%{meeting}' 对于 '%{group}''
-      join_meeting_subject: '如果我 %{user} 已经加入 '%{meeting}' 对于 '%{group}''
-      join_meeting_body: '<p>查看 '%{meeting}', %{link}!</p>'
+      remove_meeting_subject: '如果我 %{user} 已取消 "%{meeting}" 对于 "%{group}"'
+      join_meeting_subject: '如果我 %{user} 已经加入 "%{meeting}" 对于 "%{group}"'
+      join_meeting_body: '<p>查看 "%{meeting}", %{link}!</p>'
       reported_user_subject: '如果我您已举报用户'
       reported_user_body: '您已举报 %{reported_name}。这将由管理员进行审查。'
       reportee_user_subject: '如果我据报您'
@@ -389,7 +389,7 @@ errors:
       main_message_one: '%{app_name} 是一个提供心理健康体验的社区，鼓励人们与可信赖的盟友分享他们的个人故事。'
       message_text_one: '受信任的盟友是我们每天与之互动的人，包括朋友，家人，同事，老师和精神卫生工作者。'
       main_message_two: '处理心理健康是使我们成为人类的原因。但是对于我们许多人来说，对此保持开放是很困难的。'
-      message_text_two: '<p>并非每个人都是辅导员或治疗师。我们每天与之互动的人塑造了我们的情感和行为。让他们参与心理健康治疗是康复的关键。</p><p class='subtitle'>'这不仅在您的脑海中，还在您的周围。我们可以一起治愈。'</p><p>心理健康是一种独特而独特的经历。没有两个大脑是一样的！解决该问题需要所有人的想法，这就是该项目是开源的原因。</p>'
+      message_text_two: '<p>并非每个人都是辅导员或治疗师。我们每天与之互动的人塑造了我们的情感和行为。让他们参与心理健康治疗是康复的关键。</p><p class="subtitle">这不仅在您的脑海中，还在您的周围。我们可以一起治愈。</p><p>心理健康是一种独特而独特的经历。没有两个大脑是一样的！解决该问题需要所有人的想法，这就是该项目是开源的原因。</p>'
       main_message_three: '想资助我们吗？'
       message_text_three: '我们的应用是 <u>完全地</u> 开源项目。它是由具有不同背景和技能的志愿者构建和维护的。</p><p>2016年，我们获得了来自 %{linebreak_link}。 2017年，我们获得了来自 %{fund_club_link}。</p>您可以通过向我们捐款来支持我们 %{patreon_link}</p>。'
       linebreak: 越线
@@ -399,8 +399,7 @@ errors:
     contribute:
       contributor_avatar_alt: '的贡献者传记 %{name}'
       main_message_one: '如果我是由具有不同背景和技能的志愿者构建和维护的。'
-      message_text_one: '我们一直在寻找每个人的想法, 包含 <strong>精神卫生倡导者</strong>, <strong>卫生专业人员</strong>, <strong>软件开发人员
-      </strong>, <strong>译者</strong>, 和 <strong>用户体验设计师</strong>!<p class='noMarginBottom'>请 %{email_link} 我们会和你联系! 您将被邀请参加我们的 %{slack_link} 页, 我们的主要沟通工具. 确保将我们的存储库分叉到 %{github_link}!</p>'
+      message_text_one: '我们一直在寻找每个人的想法, 包含<strong>精神卫生倡导者</strong>,<strong>卫生专业人员</strong>,<strong>软件开发人员</strong>,<strong>译者</strong>, 和<strong>用户体验设计师</strong>!<p class="noMarginBottom">请 %{email_link} 我们会和你联系! 您将被邀请参加我们的%{slack_link} 页, 我们的主要沟通工具. 确保将我们的存储库分叉到 %{github_link}!</p>'
       more_contributors: '更多精彩的贡献者!'
       thanks: '非常感谢'
       slack: 松弛
@@ -409,7 +408,7 @@ errors:
       data_access_question: '谁有权访问我的数据?'
       data_access_answer: '数据未提供给任何第三方或任何第三方都无法访问. 删除帐户将删除所有数据.<br><br>在应用程序内分析用户数据以提供定制建议.'
       moment_question: '什么是片刻?'
-      moment_answer: '一 <strong>%{moment}</strong> 是影响您心理健康的事件和情况. 可以是正数或负数. 将其视为日记条目或状态更新.<br><br>您可以使用策略，类别和心情标记时刻. 您还可以选择可以查看和评论的盟友。 您还可以使'时刻'仅对您可见。'
+      moment_answer: '一 <strong>%{moment}</strong> 是影响您心理健康的事件和情况. 可以是正数或负数. 将其视为日记条目或状态更新.<br><br>您可以使用策略，类别和心情标记时刻. 您还可以选择可以查看和评论的盟友。 您还可以使时刻仅对您可见。'
       strategy_question: '什么是策略?'
       strategy_answer: '一 <strong>%{strategy}</strong> 是一项有助于您应对或专注于康复的活动，思路或自我保健形式.<br><br>您可以使用类别标记策略。 您还可以选择可以查看和评论的盟友。 您还可以使策略仅对您可见。 共享策略将对所有指定的盟友可见，这意味着您可以使用自己的策略标记自己的时刻!'
       category_question: '什么是类别?'
@@ -570,43 +569,43 @@ errors:
         alcoholism: 酗酒
         cbt: CBT
   profile:
-    index:
-      title: 个人资料
-      edit_user: '自定义个人资料'
-  pusher:
-    not_authorized: '未授权'
-  search:
-    label: 搜索
-    search_by_name: '按名称搜索'
-    form:
-      search_by_location: '按位置搜索'
-      search_by_email: '通过电子邮件搜索'
-    index:
-      title: '搜索盟友'
-      user_not_found: '找不到用户％{email}'
+    index:
+      title: 个人资料
+      edit_user: '自定义个人资料'
+  pusher:
+    not_authorized: '未授权'
+  search:
+    label: 搜索
+    search_by_name: '按名称搜索'
+    form:
+      search_by_location: '按位置搜索'
+      search_by_email: '通过电子邮件搜索'
+    index:
+      title: '搜索盟友'
+      user_not_found: '找不到用户％{email}'
   shared:
-    footer:
-      licence: AGPL-3.0
-      licence_subtitle: '在％{licence}下获得许可'
-      connect: 连接
-    comments:
-      share_everyone: '与所有人共享'
-      share_with: '仅与％{name}共享'
-      visible_only_between_you_and: '仅在您和％{name}之间可见'
-      not_allies: '（非盟友）'
-    header:
-      signout: '退出'
-      home: 主页
-    viewers_indicator:
-      disabled_comments: '评论已被禁用。'
-      you_are_viewer_html:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: '在％{licence}下获得许可'
+      connect: 连接
+    comments:
+      share_everyone: '与所有人共享'
+      share_with: '仅与％{name}共享'
+      visible_only_between_you_and: '仅在您和％{name}之间可见'
+      not_allies: '（非盟友）'
+    header:
+      signout: '退出'
+      home: 主页
+    viewers_indicator:
+      disabled_comments: '评论已被禁用。'
+      you_are_viewer_html:
         one: '你是唯一的观众。'
         other: ' <strong>不是</ strong>您是唯一的观看者。'
-      viewers_html:
-        zero: '没有<strong>没有</ strong>个观看者'。
+      viewers_html:
+        zero: '没有<strong>没有</strong>个观看者。'
         one: '％{names}是查看者。'
         other: '％{names}是查看者。'
-    stats:
+    stats:
       you_are_focusing: '您最关注的是'
       user_is_focusing: '％{name}最关注'
     viewers:
@@ -629,63 +628,63 @@ errors:
     tagged_strategies: '标记策略'
     new: '新策略'
     form:
-      describe: '描述策略'。
-      strategy_label: '哪些策略可以帮助实现这些想法？'
-      name_hint: '可以帮助您的任何活动，思路，形式或自我保健'
-      viewers_hint: '可以查看您的策略并标记自己的时刻的盟友'
-      daily_reminder_hint: '我们会通过电子邮件每天提醒您执行此策略'
-      draft_question: '您要将策略另存为草稿吗？'
+      describe: '描述策略。'
+      strategies_label: '哪些策略可以帮助实现这些想法？'
+      name_hint: '可以帮助您的任何活动，思路，形式或自我保健'
+      viewers_hint: '可以查看您的策略并标记自己的时刻的盟友'
+      daily_reminder_hint: '我们会通过电子邮件每天提醒您执行此策略'
+      draft_question: '您要将策略另存为草稿吗？'
     label:
-      one: '策略: '
-      other: '策略: '
-    index:
-      subtitle: '制定自我护理策略，以实现对自己时刻的理想想法和态度。'
-      premade1_name: '五分钟冥想'
-      premade1_description: '1）<b>找到一个放松，舒适的姿势。</ b>您可以坐在椅子上或坐在垫子上的地板上。保持背部挺直，但不要太紧。双手放在舒适的地方休息。 <br> <br> 2）<b>注意并放松身体。</ b>尝试注意身体的形状，体重。让自己放松并对坐在这里的身体感到好奇-它所经历的感觉，触感，与地板或椅子的连接。放松任何紧绷或绷紧的区域。只是呼吸。<br> <br> 3）<b>调整呼吸。</ b>感觉自然的呼吸流-进，出。您无需做任何呼吸。不长，不短，自然。注意您感到身体呼吸的位置。可能在您的腹部。它可能在您的胸部，喉咙或鼻孔中。看看您是否能感觉到呼吸的感觉，一次呼吸一次。 <br> <br> 4）<b>对流浪的头脑保持友善。</ b>现在，当您这样做时，您可能会注意到您的思想可能开始漂移。您可能会开始考虑其他事情。如果发生这种情况，那不是问题。非常自然请注意，您的思想已经漂移。您可以轻声说'思考'或'徘徊'。然后将注意力重新吸引到呼吸上。<br> <br> 5）<b>在这里待五到七分钟。</ b>静静地注意呼吸。 <br> <br> 6）<b>在结帐前先检查一下。</ b>几分钟后，再次注意您的身体，整个身体，坐在这里。让自己更加放松，然后对今天的练习表示赞赏。<br> <br> <i>摘录自http://www.mindful.org/a-five-minute-breathing-meditation/ < / i>'
-      instructions: '您尚未创建任何自定义策略。<br>您还可以添加以下预制策略，然后再次对其进行自定义。'
+      one: '策略: '
+      other: '策略: '
+    index:
+      subtitle: '制定自我护理策略，以实现对自己时刻的理想想法和态度。'
+      premade1_name: '五分钟冥想'
+      premade1_description: '1）<b>找到一个放松，舒适的姿势。</ b>您可以坐在椅子上或坐在垫子上的地板上。保持背部挺直，但不要太紧。双手放在舒适的地方休息。<br><br>2）<b>注意并放松身体。</ b>尝试注意身体的形状，体重。让自己放松并对坐在这里的身体感到好奇-它所经历的感觉，触感，与地板或椅子的连接。放松任何紧绷或绷紧的区域。只是呼吸。<br><br>3）<b>调整呼吸。</ b>感觉自然的呼吸流-进，出。您无需做任何呼吸。不长，不短，自然。注意您感到身体呼吸的位置。可能在您的腹部。它可能在您的胸部，喉咙或鼻孔中。看看您是否能感觉到呼吸的感觉，一次呼吸一次。<br><br>4）<b>对流浪的头脑保持友善。</ b>现当您这样做时，您可能会注意到您的思想可能开始漂移。您可能会开始考虑其他事情。如果发生这种情况，那不是问题。非常自然请注意，您的思想已经漂移。您可以轻声说思考或徘徊。然后将注意力重新吸引到呼吸上。<br><br>5）<b>在这里待五到七分钟。</ b>静静地注意呼吸。<br><br>6）<b>在结帐前先检查一下。</ b>几分钟后，再次注意您的身体，整个身体，坐在这里。让自己更加放松，然后对今天的练习表示赞赏。<br><br><i>摘录自http://www.mindful.org/a-five-minute-breathing-meditation/ < / i>'
+      instructions: '您尚未创建任何自定义策略。<br>您还可以添加以下预制策略，然后再次对其进行自定义。'
     reminder_mailer:
-      subject: '别忘了表演％{name}！'
-      body: '这是执行％{name}的友好提示！'
+      subject: '别忘了表演％{name}！'
+      body: '这是执行％{name}的友好提示！'
   stats:
     total_moments: '您写了<strong>总计</ strong>个<strong>％{count} </ strong>个时刻。'
     total_moment: '您写了<strong>总计</ strong>个<strong>％{count} </ strong>个时刻。'
     monthly_moments: '您在<strong> month </ strong>里写了<strong>％{count} </ strong>个时刻。'
-    month_moment: '您在此<strong>月</ strong>写下了<strong>％{count} </ strong>时刻'。
+    month_moment: '您在此<strong>月</ strong>写下了<strong>％{count} </ strong>时刻。'
   warnings:
     no_description: '您没有写说明！'
     yes_description: '写一个可以帮助您和其他人更好地理解'
   mailers:
-    accept_ally_request:
-      subject: '如果我| ％{ally_name}接受了您的盟友请求！'
-      message: ' <p>恭喜！您现在可以与％{ally_name}共享时刻，策略等。</ p>'
+    accepted_ally_request:
+      subject: '如果我| ％{ally_name}接受了您的盟友请求！'
+      message: ' <p>恭喜！您现在可以与％{ally_name}共享时刻，策略等。</ p>'
     new_ally_request:
-      subject: '如果我| ％{ally_name}发送了一个盟友请求！'
-      message: ' <p>请<a href='%{allies_url}'>登录</a>以接受或拒绝该请求！</ p>'
-  devise:
+      subject: '如果我| ％{ally_name}发送了一个盟友请求！'
+      message: ' <p>请<a href="%{allies_url}">登录</a>以接受或拒绝该请求！</ p>'
+  devise:
     password: 密码
     new_password: '新密码'
     current_password: '当前密码'
     password_change: '更改我的密码'
     remember_me: '记住我'
     confirmations:
-      resend_confirmation: '重新发送确认说明'
+      resend_confirmation: '重新发送确认说明'
     mailer:
-      confirmation:
-        link_instructions: '您可以通过以下链接确认您的帐户电子邮件'
-        link_text: '确认我的帐户'
-      reset_password:
-        link_instructions: '有人请求链接来更改您的密码。您可以通过下面的链接进行操作。'
-        ignore: '如果您没有要求，请忽略此电子邮件。'
-        info: '直到您访问上面的链接并创建一个新密码，您的密码才会更改。'
-      unlock:
-        info: '由于尝试登录失败的次数过多，您的帐户已被锁定。'
-        link_instructions: '点击下面的链接以解锁您的帐户'
-        link_text: '解锁我的帐户'
+      confirmation:
+        link_instructions: '您可以通过以下链接确认您的帐户电子邮件'
+        link_text: '确认我的帐户'
+      reset_password:
+        link_instructions: '有人请求链接来更改您的密码。您可以通过下面的链接进行操作。'
+        ignore: '如果您没有要求，请忽略此电子邮件。'
+        info: '直到您访问上面的链接并创建一个新密码，您的密码才会更改。'
+      unlock:
+        info: '由于尝试登录失败的次数过多，您的帐户已被锁定。'
+        link_instructions: '点击下面的链接以解锁您的帐户'
+        link_text: '解锁我的帐户'
     passwords:
-      edit:
-        confirmation: '确认新密码'
-      new:
-        send_instructions: '向我发送重置密码说明'
+      edit:
+        confirmation: '确认新密码'
+      new:
+        send_instructions: '向我发送重置密码说明'
     registrations:
       email_notifications: '电子邮件通知'
       comment_notify_text: '关于时刻，策略和会议的评论'
@@ -694,35 +693,35 @@ errors:
       meeting_notify_text: '会议更新'
       google_auth1: '如果您不想再通过Google进行身份验证，请输入新的电子邮件和密码。'
       google_auth2: '由于您已通过Google身份验证，因此无需输入密码。<br>如果要更改此密码，请输入新的电子邮件和密码。'
-      password_errors:
+      password_errors:
         format: '应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。'
-        used: '必须与最后三个密码不同'。
-      placeholders:
+        used: '必须与最后三个密码不同。'
+      placeolders:
         repeat_password: '重复密码'
-      edit:
-        labels:
-          profile_picture: '个人资料图片'
-          remove_picture: '删除图片'
-          about: 关于
-          password_for: ' <strong>如果我</ strong>帐户的密码'
-          update: 更新
-        placeholders:
-          optional: 可选
-          about: 自我介绍！您为什么在这里，您希望实现什么？请注意，当用户搜索您的'
-          required: 必填
-        delete:
+      edit:
+        labels:
+          profile_picture: '个人资料图片'
+          remove_picture: '删除图片'
+          about: 关于
+          password_for: ' <strong>如果我</ strong>帐户的密码'
+          update: 更新
+        placeholders:
+          optional: 可选
+          about: '自我介绍！您为什么在这里，您希望实现什么？请注意，当用户搜索您的'
+          required: 必填
+        delete:
           text: ' <strong>如果我</ strong>对您不利吗？'
           button: '永久删除我的帐户'
           confirm: '您确定吗？您将丢失所有数据。但是您可以随时再次注册！'
-      sessions:
+      sessions:
         subtitle: '在安全，私密的地方开始讲故事并保持健康'
         label: '一些细节'
     sessions:
-      subtitle: '欢迎回来，我们期待您帮助您度过美好的一天'
+      subtitle: '欢迎回来，我们期待您帮助您度过美好的一天'
     shared:
-      sign_in_google: '使用Google登录'
-      sign_up_google: '使用Google注册'
-      confirmation: '没有收到确认指示吗？'
-      unlock: '没有收到解锁指令吗？'
+      sign_in_google: '使用Google登录'
+      sign_up_google: '使用Google注册'
+      confirmation: '没有收到确认指示吗？'
+      unlock: '没有收到解锁指令吗？'
     unlock:
-      resend: '重新发送解锁说明'
+      resend:  '重新发送解锁说明'
