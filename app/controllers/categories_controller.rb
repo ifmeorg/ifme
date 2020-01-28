@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @strategies
         format.json do
-          render json: tagged_strategies_data_json
+          render json: tagged_strategies_data_json if @strategies
         end
       end
     end
