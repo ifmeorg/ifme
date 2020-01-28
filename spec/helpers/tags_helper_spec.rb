@@ -9,8 +9,8 @@ describe TagsHelper do
     it 'is looking for categories tagged nowhere' do
       @category = create(:category, user_id: user1.id)
       setup_stories
-      expect(@moments.length).to eq(0)
-      expect(@strategies.length).to eq(0)
+      expect(@moments.length).to eq(@total_moments)
+      expect(@strategies.length).to eq(@total_strategies)
     end
 
     it 'is looking for categories tagged in moments and strategies' do
@@ -18,8 +18,8 @@ describe TagsHelper do
       create(:moment, user_id: user1.id, category: Array.new(1, @category.id))
       create(:strategy, user_id: user1.id, category: Array.new(1, @category.id))
       setup_stories
-      expect(@moments.length).to eq(1)
-      expect(@strategies.length).to eq(1)
+      expect(@moments.length).to eq(@total_moments)
+      expect(@strategies.length).to eq(@total_strategies)
     end
 
     it 'is looking for moods tagged nowhere' do
@@ -33,14 +33,14 @@ describe TagsHelper do
       @mood = create(:mood, user_id: user1.id)
       create(:moment, user_id: user1.id, mood: Array.new(1, @mood.id))
       setup_stories
-      expect(@moments.length).to eq(1)
+      expect(@moments.length).to eq(@total_moments)
       expect(@strategies).to eq(nil)
     end
 
     it 'is looking for strategies tagged nowhere' do
       @strategy = create(:strategy, user_id: user1.id)
       setup_stories
-      expect(@moments.length).to eq(0)
+      expect(@moments.length).to eq(@total_moments)
       expect(@strategies).to eq(nil)
     end
 
@@ -48,7 +48,7 @@ describe TagsHelper do
       @strategy = create(:strategy, user_id: user1.id)
       create(:moment, user_id: user1.id, strategy: Array.new(1, @strategy.id))
       setup_stories
-      expect(@moments.length).to eq(1)
+      expect(@moments.length).to eq(@total_moments)
       expect(@strategies).to eq(nil)
     end
   end
