@@ -35,7 +35,7 @@ class MoodsController < ApplicationController
     respond_to do |format|
       if @moments
         format.json do
-          render json: tagged_moments_data_json
+          render json: tagged_moments_data_json if @moments
         end
       end
     end
