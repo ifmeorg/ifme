@@ -35,10 +35,8 @@ class CategoriesController < ApplicationController
   def tagged_moments_data
     setup_stories
     respond_to do |format|
-      if @moments
-        format.json do
-          render json: tagged_moments_data_json if @moments
-        end
+      format.json do
+        render json: tagged_moments_data_json if @moments
       end
     end
   end
@@ -46,10 +44,8 @@ class CategoriesController < ApplicationController
   def tagged_strategies_data
     setup_stories
     respond_to do |format|
-      if @strategies
-        format.json do
-          render json: tagged_strategies_data_json if @strategies
-        end
+      format.json do
+        render json: tagged_strategies_data_json if @strategies
       end
     end
   end
