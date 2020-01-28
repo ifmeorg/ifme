@@ -326,7 +326,7 @@ zh:
     plural: 通知事项
     none: '没有了'
     clear: 明确
-    created_by_html: '<strong>Created by</strong>: %{name}'
+    created_by_html: '<strong>创建于</strong>: %{name}'
     preview: '查看更多'
     members:
       title: '成员名单'
