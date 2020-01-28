@@ -13,6 +13,7 @@ module TagsHelper
   end
 
   def setup_stories
+    set_tags
     return unless viewable_tag?(@category) || viewable_tag?(@mood) ||
                   viewable_tag?(@strategy)
 
@@ -21,6 +22,12 @@ module TagsHelper
   end
 
   private
+
+  def set_tags
+    @category = Category.find(params[:category_id]) if params[:category_id]
+    @mood = Mood.find(params[:mood_id]) if params[:mood_id]
+    @strategy = Strategy.find(params[:strategy_id]) if params[:strategy_id]
+  end
 
   def fetch_moments
     data = get_tagged_data(

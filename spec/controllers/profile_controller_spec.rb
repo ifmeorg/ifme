@@ -63,7 +63,7 @@ describe ProfileController do
 
     context 'when the user is signed in' do
       include_context :logged_in_user
-      before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+      before { get :data, params: { page: 1, uid: user.uid }, format: :json }
 
       it 'returns a response with the correct path' do
         expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
@@ -71,7 +71,7 @@ describe ProfileController do
     end
 
     context 'when the user is not signed in' do
-      before { get :data, params: { page: 1, id: moment.id, uid: user.uid }, format: :json }
+      before { get :data, params: { page: 1, uid: user.uid }, format: :json }
 
       it 'returns a no_content status' do
         expect(response).to have_http_status(:no_content)

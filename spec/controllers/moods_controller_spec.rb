@@ -56,30 +56,6 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe '#tagged_moments_data' do
-    let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-      before do
-        get :tagged_moments_data, params: { page: 1, id: user_mood.id }, format: :json
-      end
-
-      it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before do
-        get :tagged_moments_data, params: { page: 1, id: user_mood.id }, format: :json
-      end
-
-      it 'returns a no_content status' do
-        expect(response).to have_http_status(:no_content)
-      end
-    end
-  end
-
   describe '#new' do
     context 'when the user is logged in' do
       include_context :logged_in_user

@@ -1,6 +1,6 @@
 <%= react_component('BaseContainer', props: {
   container: 'StoryContainer',
   data: moments_or_strategy_props(local_assigns[:data]),
-  fetchUrl: local_assigns[:data_type] == 'moment' ? moments_path : strategy_path,
+  fetchUrl: local_assigns[:data_type] == 'moment' ? tagged_moments_path(category_id: @category&.id, mood_id: @mood&.id, strategy_id: @strategy&.id) : tagged_strategies_path(category_id: @category&.id),
   lastPage: local_assigns[:data].last_page?
 }) %>
