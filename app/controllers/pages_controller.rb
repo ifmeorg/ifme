@@ -27,10 +27,8 @@ class PagesController < ApplicationController
   def home_data
     setup_stories
     respond_to do |format|
-      if @stories
-        format.json do
-          render json: home_data_json if @stories
-        end
+      format.json do
+        render json: home_data_json if @stories
       end
     end
   end
