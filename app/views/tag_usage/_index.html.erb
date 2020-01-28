@@ -1,10 +1,10 @@
 <div class="smallMarginTop">
   <% if @moments&.any? %>
-    <h2 class="title"><%= t('moments.tagged_moments') %> (<%= @moments.count %>)</h2>
+    <h2 class="title"><%= t('moments.tagged_moments') %> (<%= @total_moments %>)</h2>
     <%= render partial: '/tag_usage/stories', locals: { data: @moments, data_type: 'moment' } %>
   <% end %>
   <% if !@strategies.nil? && @strategies.any? %>
-    <h2 class="title"><%= t('strategies.tagged_strategies') %> (<%= @strategies.count %>)</h2>
+    <h2 class="title"><%= t('strategies.tagged_strategies') %> (<%= @total_strategies %>)</h2>
     <%= render partial: '/tag_usage/stories', locals: { data: @strategies, data_type: 'strategy' } %>
   <% end %>
 </div>
