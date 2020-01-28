@@ -36,7 +36,7 @@ module TagsHelper
   end
 
   def get_tagged_data(tag, data)
-    return unless tag
+    return unless tag && data
 
     result = []
     data.each do |d|
