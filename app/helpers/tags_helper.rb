@@ -28,7 +28,7 @@ module TagsHelper
   private
 
   def viewable_tag?(data)
-    return unless data
+    return false unless data&.respond_to?(:user_id)
 
     data.user_id == current_user.id ||
       (data.try(:viewers)&.include?(current_user.id) &&
