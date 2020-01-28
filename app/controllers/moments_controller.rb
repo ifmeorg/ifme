@@ -5,6 +5,7 @@ class MomentsController < ApplicationController
   include MomentsStatsHelper
   include MomentsFormHelper
   include Shared
+  include TagsHelper
 
   before_action :set_moment, only: %i[show edit update destroy picture]
   before_action :load_viewers, only: %i[new edit create update picture]
@@ -14,12 +15,8 @@ class MomentsController < ApplicationController
   def index
     page_collection('@moments', 'moment')
     respond_to do |format|
-      format.json do
-        render json: moments_data_json
-      end
-      format.html do
-        moments_data_html
-      end
+      format.json { render json: moments_data_json }
+      format.html { moments_data_html }
     end
   end
 
@@ -54,10 +51,8 @@ class MomentsController < ApplicationController
   # PATCH/PUT /moments/1
   # PATCH/PUT /moments/1.json
   def update
-    if publishing? && !@moment.published?
-      @moment.published_at = Time.zone.now
-    elsif saving_as_draft?
-      @moment.published_at = nil
+    if (publishing? && !@moment.published?) || saving_as_draft?
+      @moment.published_at = !saving_as_draft? && Time.zone.now
     end
     empty_array_for :viewers, :mood, :strategy, :category
     shared_update(@moment, moment_params)
@@ -73,14 +68,22 @@ class MomentsController < ApplicationController
   # POST /moments/1/picture
   # POST /moments/1/picture.json
   def picture
-    # to do: add image upload options
+    # TODO: add image upload options
     cloudinary_response = CloudinaryService.upload(file, options)
-
     return if cloudinary_response.nil?
 
     moment = set_moment(params[:moment_id])
     moment.picture_id = cloudinary_response['public_id']
     moment.save!
+  end
+
+  def tagged
+    setup_stories
+    respond_to do |format|
+      format.json do
+        render json: tagged_moments_data_json if @moments
+      end
+    end
   end
 
   private
@@ -92,10 +95,9 @@ class MomentsController < ApplicationController
   end
 
   def moment_params
-    params.require(:moment).permit(
-      :name, :why, :fix, :comment, :published_at, :draft,
-      category: [], mood: [], viewers: [], strategy: []
-    )
+    params.require(:moment).permit(:name, :why, :fix, :comment, :draft,
+                                   category: [], mood: [], viewers: [],
+                                   strategy: [])
   end
 
   def set_association_variables!

@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
-      get 'tagged_moments_data', defaults: { format: 'json' }
     end
   end
 
@@ -35,13 +34,14 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
-      get 'tagged_moments_data', defaults: { format: 'json' }
-      get 'tagged_strategies_data', defaults: { format: 'json' }
     end
   end
 
   resources :moments do
-    post 'picture', to: 'moments#picture', as: 'picture'
+    collection do
+      post 'picture', to: 'moments#picture', as: 'picture'
+      get 'tagged', defaults: { format: 'json' }
+    end
   end
 
   resources :secret_shares, only: %i[create show destroy]
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     collection do
       post 'premade'
       post 'quick_create'
-      get 'tagged_moments_data', defaults: { format: 'json' }
+      get 'tagged', defaults: { format: 'json' }
     end
   end
 

@@ -80,30 +80,6 @@ describe StrategiesController do
     end
   end
 
-  describe '#tagged_moments_data' do
-    let!(:moment) { create(:moment, user_id: user.id, strategy: [strategy.id]) }
-    context 'when the user is logged in' do
-      include_context :logged_in_user
-      before do
-        get :tagged_moments_data, params: { page: 1, id: strategy.id }, format: :json
-      end
-
-      it 'returns a response with the correct path' do
-        expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
-      end
-    end
-
-    context 'when the user is not logged in' do
-      before do
-        get :tagged_moments_data, params: { page: 1, id: strategy.id }, format: :json
-      end
-
-      it 'returns a no_content status' do
-        expect(response).to have_http_status(:no_content)
-      end
-    end
-  end
-
   describe '#premade' do
     context 'when the user is logged in' do
       include_context :logged_in_user
@@ -345,6 +321,32 @@ describe StrategiesController do
             'Daily reminder email</div>'
           )
         )
+      end
+    end
+  end
+
+  describe '#tagged' do
+    let!(:category) { create(:category, user_id: user.id) }
+    let!(:strategy) { create(:strategy, user_id: user.id, category: [category.id]) }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+      before do
+        get :tagged, params: { page: 1, category_id: category.id }, format: :json
+      end
+
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)['data'].first['link']).to eq strategy_path(strategy)
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before do
+        get :tagged, params: { page: 1, category_id: category.id }, format: :json
+      end
+
+      it 'returns a no_content status' do
+        expect(response).to have_http_status(:no_content)
       end
     end
   end

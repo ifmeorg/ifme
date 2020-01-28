@@ -8,8 +8,7 @@ class StrategiesController < ApplicationController
   include MomentsHelper
   include TagsHelper
 
-  before_action :set_strategy, only: %i[show edit update destroy
-                                        tagged_moments_data]
+  before_action :set_strategy, only: %i[show edit update destroy]
 
   # GET /strategies
   # GET /strategies.json
@@ -17,9 +16,8 @@ class StrategiesController < ApplicationController
     page_collection('@strategies', 'strategy')
     respond_to do |format|
       format.json do
-        render json:
-          { data: moments_or_strategy_props(@strategies),
-            lastPage: @strategies.last_page? }
+        render json: { data: moments_or_strategy_props(@strategies),
+                       lastPage: @strategies.last_page? }
       end
       format.html
     end
@@ -30,13 +28,6 @@ class StrategiesController < ApplicationController
   def show
     setup_stories
     show_with_comments(@strategy)
-  end
-
-  def tagged_moments_data
-    setup_stories
-    respond_to do |format|
-      format.json { render json: tagged_moments_data_json } if @moments
-    end
   end
 
   #  POST /strategies/quick_create
@@ -110,6 +101,15 @@ class StrategiesController < ApplicationController
   # DELETE /strategies/1.json
   def destroy
     shared_destroy(@strategy)
+  end
+
+  def tagged
+    setup_stories
+    respond_to do |format|
+      format.json do
+        render json: tagged_strategies_data_json if @strategies
+      end
+    end
   end
 
   private

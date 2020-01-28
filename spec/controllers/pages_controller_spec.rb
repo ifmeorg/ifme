@@ -63,7 +63,7 @@ describe PagesController, type: :controller do
     let!(:moment) { create(:moment, user: user) }
     context 'when the user is logged in' do
       include_context :logged_in_user
-      before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
+      before { get :home_data, params: { page: 1 }, format: :json }
 
       it 'returns a response with the correct path' do
         expect(JSON.parse(response.body)['data'].first['link']).to eq moment_path(moment)
@@ -71,7 +71,7 @@ describe PagesController, type: :controller do
     end
 
     context 'when the user is not logged in' do
-      before { get :home_data, params: { page: 1, id: moment.id }, format: :json }
+      before { get :home_data, params: { page: 1 }, format: :json }
 
       it 'returns a no_content status' do
         expect(response).to have_http_status(:no_content)
