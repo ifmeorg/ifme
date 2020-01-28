@@ -29,7 +29,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @stories
         format.json do
-          render json: home_data_json
+          render json: home_data_json if @stories
         end
       end
     end
