@@ -139,14 +139,14 @@ module MedicationsFormHelper
       required: true
     }.merge(medication_basic_props('name'))
   end
-  
+
   def medication_refill
     {
       type: 'date',
       label: t('medications.form.refill'),
       value: @medication.refill&.to_date || nil,
       info: t('medications.form.refill_hint'),
-      required: false
+      required: true
     }.merge(medication_basic_props('refill'))
   end
 
@@ -221,6 +221,5 @@ module MedicationsFormHelper
       required: true
     }.merge(medication_basic_props(type))
   end
-
 end
 # rubocop:enable ModuleLength
