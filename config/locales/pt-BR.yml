@@ -825,6 +825,7 @@ pt-BR:
     stats:
       you_are_focusing: 'Você está focando demais em'
       user_is_focusing: '%{name} está focando demais em'
+      visible_in_stats: 'Visível nas estatísticas?'
     viewers:
       plural: Visualizadores
       you: 'Apenas você'

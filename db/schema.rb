@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_010346) do
     t.datetime "updated_at"
     t.integer "user_id"
     t.string "slug"
+    t.boolean "visible", default: true
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
@@ -172,6 +173,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_010346) do
     t.datetime "updated_at"
     t.integer "user_id"
     t.string "slug"
+    t.boolean "visible", default: true
     t.index ["slug"], name: "index_moods_on_slug", unique: true
   end
 
@@ -222,6 +224,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_010346) do
     t.string "name"
     t.string "slug"
     t.datetime "published_at"
+    t.boolean "visible", default: true
     t.index ["slug"], name: "index_strategies_on_slug", unique: true
   end
 

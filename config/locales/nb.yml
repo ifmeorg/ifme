@@ -788,6 +788,7 @@ nb:
     stats:
       you_are_focusing: 'Du fokuserer mest på'
       user_is_focusing: '%{name} fokuserer mest på'
+      visible_in_stats: 'Synlig i statistikk?'
     viewers:
       plural: Seere
       you: 'Kun deg'

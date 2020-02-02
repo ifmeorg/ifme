@@ -803,6 +803,7 @@ nl:
     stats:
       you_are_focusing: 'Je focust het meest op'
       user_is_focusing: '%{name} is het meest gefocust op'
+      visible_in_stats: 'Zichtbaar in statistieken?'
     viewers:
       plural: Kijkers
       you: 'Alleen jij'

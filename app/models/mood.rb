@@ -10,6 +10,7 @@
 #  updated_at  :datetime
 #  user_id     :integer
 #  slug        :string
+#  visible     :boolean
 #
 
 class Mood < ApplicationRecord
@@ -19,4 +20,5 @@ class Mood < ApplicationRecord
   belongs_to :user
 
   has_many :moments_moods, dependent: :destroy
+  validates :visible, inclusion: [true, false]
 end

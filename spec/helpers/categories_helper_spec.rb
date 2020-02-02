@@ -25,6 +25,15 @@ describe CategoriesHelper do
           value: category&.description || nil,
           dark: true
         },
+        { id: 'category_visible',
+          type: 'switch',
+          label: t('shared.stats.visible_in_stats'),
+          dark: true,
+          name: 'category[visible]',
+          value: true,
+          uncheckedValue: false,
+          checked: category&.visible || nil,
+        },
         {
           dark: true,
           id: 'submit',

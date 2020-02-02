@@ -3,7 +3,7 @@
 class MoodsController < ApplicationController
   include CollectionPageSetupConcern
   include CategoriesHelper
-  include Shared
+  include SharedBasicConcern
   include TagsHelper
   before_action :set_mood, only: %i[show edit update destroy]
 
@@ -32,6 +32,7 @@ class MoodsController < ApplicationController
   # GET /moods/new
   def new
     @mood = Mood.new
+    @mood.visible = true
   end
 
   # GET /moods/1/edit
@@ -68,12 +69,7 @@ class MoodsController < ApplicationController
   end
 
   def quick_create
-    mood = Mood.new(
-      user_id: current_user.id,
-      name: params[:mood][:name],
-      description: params[:mood][:description]
-    )
-    shared_quick_create(mood)
+    shared_quick_create_basic(Mood, params)
   end
 
   private
@@ -86,6 +82,6 @@ class MoodsController < ApplicationController
   end
 
   def mood_params
-    params.require(:mood).permit(:name, :description)
+    params.require(:mood).permit(:name, :description, :visible)
   end
 end
