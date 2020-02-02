@@ -737,6 +737,7 @@ hi:
     stats:
       you_are_focusing: 'आप सबसे अधिक ध्यान केंद्रित कर रहे हैं'
       user_is_focusing: '%{name} सबसे अधिक ध्यान केंद्रित कर रहा है'
+      visible_in_stats: 'आँकड़ों में दृश्यमान?'
     viewers:
       plural: 'दर्शक'
       you: 'केवल आप'

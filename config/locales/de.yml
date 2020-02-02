@@ -966,6 +966,7 @@ de:
     stats:
       you_are_focusing: 'Du konzentrierst dich am meisten auf'
       user_is_focusing: '%{name} konzentriert sich am meisten auf'
+      visible_in_stats: 'In Statistiken sichtbar?'
     viewers:
       plural: Betrachter
       you: 'Nur du'

@@ -694,6 +694,7 @@ zh-CN:
     stats:
       you_are_focusing: '您最关注的是'
       user_is_focusing: '%{name}最关注'
+      visible_in_stats: '统计资料中显示？'
     viewers:
       plural: 观看者
       you: '只有您'

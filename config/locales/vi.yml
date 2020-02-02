@@ -797,6 +797,7 @@ vi:
     stats:
       you_are_focusing: 'Bạn tập trung vào nhất'
       user_is_focusing: '%{name} đang tập trung nhiều nhất vào'
+      visible_in_stats: 'Hiển thị trong số liệu thống kê?'
     viewers:
       plural: 'Người xem'
       you: 'Duy nhất có bạn'

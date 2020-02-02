@@ -63,22 +63,28 @@ module StrategiesFormHelper
   end
 
   def build_strategy_comment(strategy)
-    build_switch_input(true, strategy.comment, false)
-      .merge(
-        id: 'strategy_comment',
-        name: 'strategy[comment]',
-        label: t('comment.allow_comments'),
-        info: t('comment.hint')
-      )
+    build_switch_input(true, strategy.comment, false).merge(
+      id: 'strategy_comment',
+      name: 'strategy[comment]',
+      label: t('comment.allow_comments'),
+      info: t('comment.hint')
+    )
   end
 
   def build_strategy_publishing(strategy)
-    build_switch_input('0', !strategy.published?, '1')
-      .merge(
-        id: 'strategy_publishing',
-        name: 'publishing',
-        label: t('strategies.form.draft_question')
-      )
+    build_switch_input('0', !strategy.published?, '1').merge(
+      id: 'strategy_publishing',
+      name: 'publishing',
+      label: t('strategies.form.draft_question')
+    )
+  end
+
+  def build_strategy_visible(strategy)
+    build_switch_input(true, strategy.visible, false).merge(
+      id: 'strategy_visible',
+      name: 'strategy[visible]',
+      label: t('shared.stats.visible_in_stats')
+    )
   end
 
   private

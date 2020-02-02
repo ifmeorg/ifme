@@ -76,6 +76,16 @@ describe MomentsFormHelper do
                   type: 'textarea',
                   value: nil
                 },
+                { 
+                  id: 'category_visible',
+                  type: 'switch',
+                  label: t('shared.stats.visible_in_stats'),
+                  dark: true,
+                  name: 'category[visible]',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true,
+                },
                 {
                   dark: true,
                   id: 'submit',
@@ -111,6 +121,16 @@ describe MomentsFormHelper do
                   name: 'mood[description]',
                   type: 'textarea',
                   value: nil
+                },
+                { 
+                  dark: true,
+                  id: 'mood_visible',
+                  label: t('shared.stats.visible_in_stats'),
+                  name: 'mood[visible]',
+                  type: 'switch',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true 
                 },
                 {
                   dark: true,
@@ -297,6 +317,16 @@ describe MomentsFormHelper do
                   value: 'Test description category',
                   dark: true
                 },
+                { 
+                  id: 'category_visible',
+                  type: 'switch',
+                  label: t('shared.stats.visible_in_stats'),
+                  dark: true,
+                  name: 'category[visible]',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true,
+                },
                 {
                   id: 'submit',
                   type: 'submit',
@@ -339,6 +369,16 @@ describe MomentsFormHelper do
                   label: 'Description',
                   value: 'Test Mood',
                   dark: true
+                },
+                { 
+                  dark: true,
+                  id: 'mood_visible',
+                  label: t('shared.stats.visible_in_stats'),
+                  name: 'mood[visible]',
+                  type: 'switch',
+                  value: true,
+                  uncheckedValue: false,
+                  checked: true 
                 },
                 {
                   id: 'submit',

@@ -22,6 +22,16 @@ describe MoodsHelper do
           label: t('common.form.description'),
           value: @mood.description || nil,
           dark: true
+        },
+        { 
+          id: 'mood_visible',
+          type: 'switch',
+          label: t('shared.stats.visible_in_stats'),
+          dark: true,
+          name: 'mood[visible]',
+          value: true,
+          uncheckedValue: false,
+          checked: @mood.visible 
         }
       ]
     }
