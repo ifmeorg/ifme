@@ -48,22 +48,8 @@ class MedicationsController < ApplicationController
   # POST /medications
   # POST /medications.json
   def create
-    @medication =
-      Medication.new(medication_params.merge(user_id: current_user.id))
-    b = @medication.refill.nil?
-    if b
-      time = Time.now.strftime('%d/%m/%Y')
-      total = @medication.total
-      dosage = @medication.dosage
-      days_of_week = @medication.weekly_dosage
-      no_of_days = total / dosage
-      no_of_weeks = no_of_days / days_of_week.length
-      rem = no_of_days % days_of_week.length
-      days = 7 * no_of_weeks
-      days += rem
-      date = time.to_date + days - 1
-      @medication.refill = date
-    end
+    @medication = Medication.new(medication_params.merge(user_id: current_user.id))
+    @medication.refill = @medication.refill.nil? ? Time.zone.now.strftime("%d/%m/%Y").to_date + 7 * ((@medication.total / @medication.dosage) / @medication.weekly_dosage.length) + ((@medication.total / @medication.dosage) % @medication.weekly_dosage.length) - 1 : @medication.refill
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
