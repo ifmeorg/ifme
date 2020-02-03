@@ -146,7 +146,7 @@ module MedicationsFormHelper
       label: t('medications.form.refill'),
       value: @medication.refill&.to_date || nil,
       info: t('medications.form.refill_hint'),
-      required: true
+      required: false
     }.merge(medication_basic_props('refill'))
   end
 
