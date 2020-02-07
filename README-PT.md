@@ -53,16 +53,18 @@ Obrigado a todos os nossos apoiadores do Open Collective!
 
 Obrigado a todos os nossos patrocinadores! (por favor, peça a sua empresa para também apoiar este projeto de código aberto [seja um patrocinador](https://opencollective.com/ifme#sponsor))
 
-<a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/2/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/3/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/4/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/5/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/6/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/7/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
+<section role="presentation">
+  <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/2/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/2/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/3/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/3/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/4/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/4/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/5/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/5/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/6/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/6/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/7/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/7/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
+  <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
+</section>
 
 ## License
 
