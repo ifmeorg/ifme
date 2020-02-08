@@ -165,7 +165,7 @@ export class Resources extends React.Component<Props, State> {
     const { resources } = this.props;
     return (
       <>
-        <center className={css.marginTop}>
+        <center className={css.marginTop} aria-live="polite">
           {`${Math.min(resourcesDisplayed, resources.length)} ${I18n.t('of')} ${
             filteredResources.length
           } ${I18n.t('navigation.resources').toLowerCase()}`}
