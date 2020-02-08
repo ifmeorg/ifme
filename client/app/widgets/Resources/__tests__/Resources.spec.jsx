@@ -38,6 +38,7 @@ describe('Resources', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
     expect(wrapper.find('.tags').exists()).toEqual(true);
+    expect(wrapper.text()).toContain('2 of 2');
     const id = wrapper
       .find('.tag')
       .at(2)
@@ -49,6 +50,7 @@ describe('Resources', () => {
       .simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
+    expect(wrapper.text()).toContain('1 of 1');
     expect(
       wrapper
         .find('.tag')
@@ -60,6 +62,7 @@ describe('Resources', () => {
   it('filters when tag selected', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
+    expect(wrapper.text()).toContain('2 of 2');
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     const id = wrapper
@@ -73,6 +76,7 @@ describe('Resources', () => {
       .simulate('click');
     expect(wrapper.find('.checkboxLabel').text()).toEqual(id);
     expect(wrapper.find('.resource').length).toEqual(1);
+    expect(wrapper.text()).toContain('1 of 1');
     expect(
       wrapper
         .find('.tag')
@@ -84,6 +88,7 @@ describe('Resources', () => {
   it('unfilters when tag unselected', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.resource').length).toEqual(2);
+    expect(wrapper.text()).toContain('2 of 2');
     wrapper.find('.tagAutocomplete').simulate('focus');
     const id = wrapper
       .find('.tagLabel')
@@ -95,11 +100,13 @@ describe('Resources', () => {
       .at(0)
       .simulate('click');
     expect(wrapper.find('.resource').length).toEqual(1);
+    expect(wrapper.text()).toContain('1 of 1');
     wrapper.find(`input#${id}`).prop('onChange')({
       currentTarget: { checked: false },
     });
     wrapper.update();
     expect(wrapper.find('.resource').length).toEqual(2);
+    expect(wrapper.text()).toContain('2 of 2');
   });
 
   describe('when the component updates', () => {
