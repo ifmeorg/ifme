@@ -1,4 +1,4 @@
-describe "Load more resources", js: true do
+describe 'Load more resources', js: true do
   let(:user) { create :user }
   feature 'load more feature' do
     context 'clicking the load more button' do
@@ -6,7 +6,7 @@ describe "Load more resources", js: true do
         visit('/resources')
       end
 
-      it "loads 3 resources" do
+      it 'loads 3 resources' do
         expect(page).to have_text '3 of 120 resources'
         expect(page).to have_selector('.Resource', count: 3)
         expect(page).to have_button('Load more')
