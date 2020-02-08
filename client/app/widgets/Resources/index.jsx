@@ -9,7 +9,8 @@ import { I18n } from '../../libs/i18n';
 import HistoryLib from '../../libs/history';
 import { LoadMoreButton } from '../../components/LoadMoreButton';
 
-const RESOURCES_PER_PAGE = 3;
+const RESOURCES_PER_PAGE = 12;
+
 type ResourceProp = {
   name: string,
   link: string,
@@ -29,6 +30,7 @@ export type State = {
   checkboxes: Checkbox[],
   resourcesDisplayed: number,
   lastPage: boolean,
+  filteredResources: ResourceProp[],
 };
 
 const sortAlpha = (checkboxes: Checkbox[]): Checkbox[] =>
@@ -62,12 +64,7 @@ export class Resources extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      checkboxes: this.createCheckboxes(),
-      lastPage: false,
-      resourcesDisplayed: RESOURCES_PER_PAGE,
-    };
+    this.state = this.stateWhenFiltered(this.createCheckboxes());
   }
 
   componentDidUpdate() {
@@ -86,6 +83,19 @@ export class Resources extends React.Component<Props, State> {
       history.replace({ pathname: '/resources', search: '' });
     }
   }
+
+  stateWhenFiltered = (checkboxes: Checkbox[]) => {
+    const filteredResources = this.filterList(checkboxes);
+    return {
+      checkboxes,
+      filteredResources,
+      lastPage: filteredResources.length <= RESOURCES_PER_PAGE,
+      resourcesDisplayed: Math.min(
+        RESOURCES_PER_PAGE,
+        filteredResources.length,
+      ),
+    };
+  };
 
   createCheckboxes = () => {
     const { resources, keywords } = this.props;
@@ -110,12 +120,9 @@ export class Resources extends React.Component<Props, State> {
   };
 
   checkboxChange = (box: Checkbox) => {
-    this.setState((prevState: State) => {
-      const updatedBoxes = prevState.checkboxes
-        .filter((checkbox) => checkbox.id !== box.id)
-        .concat(box);
-      return { checkboxes: updatedBoxes };
-    });
+    this.setState(({ checkboxes }: State) => this.stateWhenFiltered(
+      checkboxes.filter((checkbox) => checkbox.id !== box.id).concat(box),
+    ));
   };
 
   filterList = (checkboxes: Checkbox[]): ResourceProp[] => {
@@ -131,19 +138,31 @@ export class Resources extends React.Component<Props, State> {
     });
   };
 
+  updateTagFilter = (tagLabel: String) => {
+    this.setState(({ checkboxes }: State) => {
+      const updatedBoxes = checkboxes.map((box) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
+        (box.label === tagLabel ? { ...box, checked: true } : box));
+      return this.stateWhenFiltered(updatedBoxes);
+    });
+  };
+
   onClick = () => {
-    const { resources } = this.props;
-    this.setState((prevState: State) => ({
-      resourcesDisplayed: prevState.resourcesDisplayed + RESOURCES_PER_PAGE,
-      lastPage:
-        prevState.resourcesDisplayed + RESOURCES_PER_PAGE >= resources.length,
-    }));
+    this.setState(({ resourcesDisplayed, filteredResources }: State) => {
+      const updatedResourcesDisplayed = Math.min(
+        filteredResources.length - resourcesDisplayed,
+        RESOURCES_PER_PAGE,
+      ) + resourcesDisplayed;
+      return {
+        resourcesDisplayed: updatedResourcesDisplayed,
+        lastPage: filteredResources.length === updatedResourcesDisplayed,
+      };
+    });
   };
 
   displayTags = () => {
-    const { checkboxes, resourcesDisplayed, lastPage } = this.state;
+    const { resourcesDisplayed, lastPage, filteredResources } = this.state;
     const { resources } = this.props;
-    const filteredResources = this.filterList(checkboxes);
     return (
       <>
         <center className={css.marginTop}>
@@ -155,12 +174,18 @@ export class Resources extends React.Component<Props, State> {
           {filteredResources
             .slice(0, resourcesDisplayed)
             .map((resource: ResourceProp) => (
-              <article className={`Resource ${css.gridThreeItem}`} key={Utils.randomString()}>
+              <article
+                className={`Resource ${css.gridThreeItem}`}
+                key={Utils.randomString()}
+              >
                 <Resource
                   tagged
                   tags={resource.languages.concat(resource.tags)}
                   title={resource.name}
                   link={resource.link}
+                  updateTagFilter={(tagLabel) => {
+                    this.updateTagFilter(tagLabel);
+                  }}
                 />
               </article>
             ))}

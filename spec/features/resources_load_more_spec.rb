@@ -6,29 +6,20 @@ describe 'Load more resources', js: true do
         visit('/resources')
       end
 
-      it 'loads 3 resources' do
-        expect(page).to have_text '3 of 120 resources'
-        expect(page).to have_selector('.Resource', count: 3)
+      it 'loads 12 resources on page load' do
+        expect(page).to have_text '12 of'
+        expect(page).to have_selector('.Resource', count: 12)
         expect(page).to have_button('Load more')
       end
 
-      it 'loads more resources' do
+      it 'loads 36 resources after clicking load more button twice' do
         2.times do
           click_button('Load more')
         end
 
-        expect(page).to have_text '9 of 120 resources'
-        expect(page).to have_selector('.Resource', count: 9)
+        expect(page).to have_text '36 of'
+        expect(page).to have_selector('.Resource', count: 36)
       end
-
-      it 'loads all resources and the load more button vanishes' do
-        39.times do
-          click_button('Load more')
-        end
-        expect(page).to have_text '120 of 120 resources'
-        expect(page).to have_selector('.Resource', count: 120)
-        expect(page).not_to have_button('Load more')
-      end
-        end
     end
+  end
 end

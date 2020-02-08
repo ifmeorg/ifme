@@ -55,7 +55,6 @@ export class BaseContainer extends React.Component<Props, State> {
         return (
           <>
             <StoryContainer data={data} />
-            {/* {!lastPage && this.displayLoadMore()} */}
             {!lastPage && <LoadMoreButton onClick={this.onClick} />}
           </>
         );
