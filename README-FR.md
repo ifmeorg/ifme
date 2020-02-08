@@ -50,7 +50,7 @@ Merci a tous nos donateurs Open Collective! [Deviens un donateurs!](https://open
 
 Merci de demander a votre societé de supporter ce projet open source en [devenant un sponsor](https://opencollective.com/ifme#sponsor)).
 
-<section role="presentation">
+<section role="presentation>
   <a href="https://opencollective.com/ifme/sponsor/0/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/0/avatar.svg"></a>
   <a href="https://opencollective.com/ifme/sponsor/1/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/1/avatar.svg"></a>
   <a href="https://opencollective.com/ifme/sponsor/2/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/2/avatar.svg"></a>
@@ -62,7 +62,7 @@ Merci de demander a votre societé de supporter ce projet open source en [devena
   <a href="https://opencollective.com/ifme/sponsor/8/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/8/avatar.svg"></a>
   <a href="https://opencollective.com/ifme/sponsor/9/website" target="_blank"><img src="https://opencollective.com/ifme/sponsor/9/avatar.svg"></a>
 </section>
-
+                                                                                                                                           
 ## License
 
 Le code source est sous licence GNU AGPLv3. Pour plus d'informations allez voir http://www.gnu.org/licenses/agpl-3.0.txt ou [LICENSE.txt](https://github.com/ifmeorg/ifme/blob/master/LICENSE.txt).
