@@ -12,13 +12,12 @@
     body: <<~HEREDOC
       <div class="contributorModalBody">
         <div class="contributorModalBodyPhoto hideOnSmall">
-          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
+          <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}" alt="">
         </div>
-
         <div class="contributorModalBodyCopy">
           <div class="contributorModalHeader">
             <div class="contributorModalBodyPhoto showOnSmall">
-                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}">
+                <img class="contributorAvatar" src="#{ProfilePicture.normalize_url(blurb["image"])}" alt="">
             </div>
             <div>
               <div role="heading" class="contributorModalName">
