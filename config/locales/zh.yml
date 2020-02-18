@@ -6,7 +6,7 @@ zh:
   draft: 草案
   edited: '已创建％{created_at}（已编辑）'
   edited_updated_at: '已创建％{created_at}（已编辑％{updated_at}）'
-  salutation: '％{name}，您好！,'
+  salutation: '%{name}，您好！,'
   click_here: '点击这里'
   language: 语言
   yes_text: '是'
