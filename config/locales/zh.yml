@@ -2,7 +2,7 @@ zh:
   app_name: '如果我'
   app_description: '精神健康体验社区'
   email: join.ifme@gmail.com
-  created: '已创建％{created_at}'
+  created: '已创建%{created_at}'
   draft: 草案
   edited: '已创建％{created_at}（已编辑）'
   edited_updated_at: '已创建％{created_at}（已编辑％{updated_at}）'
