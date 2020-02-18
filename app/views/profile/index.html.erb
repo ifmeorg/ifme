@@ -57,7 +57,7 @@
   <div class="marginTop">
     <%= render partial: '/shared/stats', locals: { data_type: 'category', user: @profile } %>
     <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: @profile } %>
-    <%= render partial: '/shared/stats', locals: { data_type: 'strategy', user: @profile } %>
+    <%= render partial: '/shared/strategy_stats', locals: { user: @profile } %>
   </div>
   <div class="title">
     <%= t('pages.home.stories') %>
