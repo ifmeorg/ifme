@@ -11,7 +11,7 @@
         <% if local_assigns[:user] == current_user %>
           <%= t('shared.stats.you_are_focusing') %>
         <% elsif local_assigns[:user] %>
-          <%= t('shared.stats.user_is_focusing', name: User.where(id: local_assigns[:user]).first.name) %>
+          <%= t('shared.stats.user_is_focusing', name: local_assigns[:user].name) %>
         <% end %>
       </div>
       <div class="mostFocus">
@@ -31,10 +31,10 @@
                   <%= Mood.find_by(id: key).name %>
                 </div>
               <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] == current_user %>
-                <%= viewers_hover(get_viewers_for(Strategy.where(id: key).first, 'strategy'), Strategy.where(id: key).first) %>
+                <%= viewers_hover(get_viewers_for(Strategy.find(key), 'strategy'), Strategy.find(key)) %>
               <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] %>
                 <div class="someFocusTextName">
-                  <%= Strategy.find_by(id: key).name %>
+                  <%= Strategy.find(key).name %>
                 </div>
               <% end %>
             </div>

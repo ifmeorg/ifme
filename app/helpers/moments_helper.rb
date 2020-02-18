@@ -77,11 +77,11 @@ module MomentsHelper
   def story_by(element)
     {
       author: link_to(
-        User.find(element.user_id).name,
-        profile_index_path(uid: User.find_by(id: element.user_id).uid)
+        element.user.name,
+        profile_index_path(uid: element.user.uid)
       ),
       avatar: ProfilePicture.normalize_url(
-        User.find(element.user_id).avatar.url
+        element.user.avatar.url
       )
     }
   end
