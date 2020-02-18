@@ -1,0 +1,32 @@
+<% most_focus_data = most_focus('category', local_assigns[:user]) %>
+<% if most_focus_data.present? %>
+  <div class="stats">
+    <% if local_assigns[:user] %>
+      <div class="title">
+        Categories
+      </div>
+    <% end %>
+    <div class="subtitle">
+      <% if local_assigns[:user] == current_user %>
+        <%= t('shared.stats.you_are_focusing') %>
+      <% elsif local_assigns[:user] %>
+        <%= t('shared.stats.user_is_focusing', name: local_assigns[:user].name) %>
+      <% end %>
+    </div>
+    <div class="mostFocus">
+      <% most_focus_data.each do |key, value| %>
+        <div class="someFocus">
+          <div class="someFocusText">
+            <% if local_assigns[:user] == current_user %>
+              <%= viewers_hover(get_viewers_for(Category.find(key), 'category'), Category.find(key)) %>
+            <% elsif local_assigns[:user] %>
+              <div class="someFocusTextName">
+                <%= Category.find_by(id: key).name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

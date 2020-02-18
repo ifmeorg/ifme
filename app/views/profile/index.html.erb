@@ -55,8 +55,8 @@
 
 <% if !@stories.nil? && @stories.any? %>
   <div class="marginTop">
-    <%= render partial: '/shared/stats', locals: { data_type: 'category', user: @profile } %>
-    <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: @profile } %>
+    <%= render partial: '/shared/category_stats', locals: { user: @profile } %>
+    <%= render partial: '/shared/mood_stats', locals: { user: @profile } %>
     <%= render partial: '/shared/strategy_stats', locals: { user: @profile } %>
   </div>
   <div class="title">

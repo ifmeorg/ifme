@@ -19,7 +19,7 @@
     })%>
  </div>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'moment', user: current_user } %>
+  <%= render partial: '/shared/moment_stats', locals: { user: current_user } %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
     data: moments_or_strategy_props(@moments),
