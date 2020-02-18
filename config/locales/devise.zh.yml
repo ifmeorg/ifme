@@ -51,10 +51,10 @@ zh:
   errors:
     messages:
       already_confirmed: '已被确认，请尝试登录'
-      confirmation_period_expired: '需要在%{period}内确认，请重新申请'
+      confirmation_period_expired: '需要在％{period}内确认，请重新申请'
       expired: '已过期，请重新申请'
       not_found: '未找到'
       not_locked: '没有锁定'
       not_saved:
-        one: '1个错误禁止保存此%{resource}：'
-        other: '%{count}个错误禁止保存此%{resource}：'
+        one: '1个错误禁止保存此％{resource}：'
+        other: '％{count}个错误禁止保存此％{resource}：'
