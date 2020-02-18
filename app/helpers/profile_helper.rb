@@ -13,7 +13,8 @@ module ProfileHelper
   end
 
   def setup_stories
-    @profile = User.find_by(uid: params[:uid])
+    @profile = current_user.uid == params[:uid] ? current_user : User.find_by(uid: params[:uid])
+
     return unless @profile == current_user ||
                   current_user.mutual_allies?(@profile)
 
