@@ -1,6 +1,6 @@
 <% if %w[category mood strategy].include?(local_assigns[:data_type]) %>
   <% most_focus_data = most_focus(local_assigns[:data_type], local_assigns[:user]) %>
-	<% if most_focus_data.present? %>
+  <% if most_focus_data.present? %>
     <div class="stats">
       <% if local_assigns[:user] %>
         <div class="title">
@@ -19,7 +19,7 @@
           <div class="someFocus">
             <div class="someFocusText">
               <% if local_assigns[:data_type] == 'category' && local_assigns[:user] == current_user %>
-                <%= viewers_hover(get_viewers_for(Category.where(id: key).first, 'category'), Category.where(id: key).first) %>
+                <%= viewers_hover(get_viewers_for(Category.find(key), 'category'), Category.find(key)) %>
               <% elsif local_assigns[:data_type] == 'category' && local_assigns[:user] %>
                 <div class="someFocusTextName">
                   <%= Category.find_by(id: key).name %>
@@ -42,7 +42,7 @@
         <% end %>
       </div>
     </div>
-	<% end %>
+  <% end %>
 <% elsif local_assigns[:data_type] == 'moment' %>
-	<%= sanitize(moments_stats) %>
+  <%= sanitize(moments_stats) %>
 <% end %>
