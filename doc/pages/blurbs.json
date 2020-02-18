@@ -538,5 +538,14 @@
     "link_name": "SonuToor",
     "link": "https://github.com/SonuToor",
     "social": "github"
+  },
+  {
+    "name": "Tyler Walker",
+    "image": "/assets/contributors/tyler_walker.jpg",
+    "profile": "Full Stack web developer and IT nerd based in Tulsa, Oklahoma. I'm contributing to this project because I believe that mental health is extremely overlooked and stigmatized in today's society. I hope my work can help remove that stigma and provide an outlet for others to deal with their problems.",
+    "location": "Tulsa, Oklahoma",
+    "link_name": "twalker1998",
+    "link": "https://github.com/twalker1998",
+    "social": "github"
   }
 ]
