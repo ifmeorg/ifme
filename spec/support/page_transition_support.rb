@@ -12,7 +12,12 @@ module PageTransitionSupport
 
   def change_page(trigger, check_for_element, condition = be_present)
     trigger.call
-    expect(find(check_for_element, wait: 10)).to condition
+    begin
+      expect(find(check_for_element, wait: 10)).to condition
+    rescue Capybara::ElementNotFound => e
+      print page.html
+      raise e
+    end
   end
 end
 
