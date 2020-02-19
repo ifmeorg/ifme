@@ -28,7 +28,7 @@ it:
     de: Deutsch
     fr: Français
     hi: 'हिंदी'
-    zh: 中文
+    zh-CN: 中文
   navigation:
     main_menu: 'Menu del sito principale'
     user_menu: 'Menu utente'

@@ -28,7 +28,7 @@ nb:
     de: Deutsch
     fr: Français
     hi: 'हिंदी'
-    zh: 中文
+    zh-CN: 中文
   navigation:
     main_menu: Hovedstedmeny
     user_menu: Brukermeny

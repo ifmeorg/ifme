@@ -1,4 +1,4 @@
-zh:
+zh-CN:
   devise:
     failure:
       invited: '您有待处理的邀请，请接受邀请以完成创建帐户'
