@@ -7,10 +7,10 @@ zh-CN:
     failure:
       already_authenticated: '您已经登录'
       inactive: '您的帐户尚未激活'
-      invalid: '无效的％{authentication_keys}或密码'
+      invalid: '无效的%{authentication_keys}或密码'
       locked: '您的帐户已被锁定'
       last_attempt: '您需要再尝试一次才能锁定帐户'
-      not_found_in_database: '无效的％{authentication_keys}或密码'
+      not_found_in_database: '无效的%{authentication_keys}或密码'
       timeout: '您的会话已过期。请再次登录以继续'
       unauthenticated: '您需要先登录或注册，然后再继续'
       unconfirmed: '您必须先确认您的电子邮件地址，然后才能继续'
@@ -24,8 +24,8 @@ zh-CN:
       password_change:
         subject: '密码已更改'
     omniauth_callbacks:
-      failure: '无法通过％{kind}对您进行身份验证，因为“％{reason}”'
-      success: '已成功通过％{kind}帐户进行身份验证'
+      failure: '无法通过%{kind}对您进行身份验证，因为“%{reason}”'
+      success: '已成功通过%{kind}帐户进行身份验证'
     passwords:
       no_token: '没有密码重置电子邮件，您将无法访问此页面。如果您确实来自密码重置电子邮件，请确保您使用提供的完整URL'
       send_instructions: '您将在几分钟内收到一封电子邮件，其中包含有关如何重设密码的说明'
@@ -51,10 +51,10 @@ zh-CN:
   errors:
     messages:
       already_confirmed: '已被确认，请尝试登录'
-      confirmation_period_expired: '需要在％{period}内确认，请重新申请'
+      confirmation_period_expired: '需要在%{period}内确认，请重新申请'
       expired: '已过期，请重新申请'
       not_found: '未找到'
       not_locked: '没有锁定'
       not_saved:
-        one: '1个错误禁止保存此％{resource}：'
-        other: '％{count}个错误禁止保存此％{resource}：'
+        one: '1个错误禁止保存此%{resource}：'
+        other: '%{count}个错误禁止保存此%{resource}：'
