@@ -112,4 +112,42 @@ describe Moment do
       it { is_expected.to be false }
     end
   end
+
+  describe '.populate_moments_moods' do
+      let(:user) { create(:user) }
+      let(:user_two) { create(:user) }
+
+      let(:mood) { create(:mood, user: user) }
+      let(:mood_two) { create(:mood, user: user) }
+      let(:mood_three) { create(:mood, user: user_two) }
+
+      let!(:moment) { create(:moment, user: user, mood: [mood.id]) }
+      let!(:moment_two) {
+        create(:moment, user: user, mood: [mood.id, mood_two.id]) }
+      let!(:moment_three) {
+        create(:moment, user: user_two, mood: [mood_three.id]) }
+      let!(:moment_four) { create(:moment, user: user_two) }
+
+      it 'creates join table records' do
+        expect(moment.moods.count).to eq(0)
+        expect(moment_two.moods.count).to eq(0)
+        expect(moment_three.moods.count).to eq(0)
+        expect(moment_four.moods.count).to eq(0)
+
+        Moment.populate_moments_moods
+
+        expect(moment.moods.count).to eq(1)
+        expect(moment.moods).to include mood
+
+        expect(moment_two.moods.count).to eq(2)
+        expect(moment_two.moods).to include mood
+        expect(moment_two.moods).to include mood_two
+
+        expect(moment_three.moods.count).to eq(1)
+        expect(moment_three.moods).to include mood_three
+
+        expect(moment_four.moods.count).to eq(0)
+      end
+
+  end
 end

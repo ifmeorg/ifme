@@ -40,6 +40,8 @@ class Moment < ApplicationRecord
   belongs_to :user
 
   has_many :comments, as: :commentable
+  has_many :moments_moods
+  has_many :moods, through: :moments_moods
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
@@ -55,6 +57,21 @@ class Moment < ApplicationRecord
       # 'secret_share_expires_at > NOW()', TODO: Turn off temporarily
       secret_share_identifier: identifier
     )
+  end
+
+  def self.populate_moments_moods
+    sql = 'INSERT INTO moments_moods (moment_id, mood_id) VALUES '
+    insertions = []
+    Moment.all.find_each do |moment|
+      moment.mood.each do |mood_id|
+        insertions << "(#{moment.id}, #{mood_id})"
+      end
+    end
+
+    sql += insertions.join(', ')
+    sql += ' ON CONFLICT DO NOTHING;'
+
+    Moment.connection.execute(sql)
   end
 
   def category_array_data
