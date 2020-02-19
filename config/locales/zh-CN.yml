@@ -1,4 +1,4 @@
-zh:
+zh-CN:
   app_name: '如果我'
   app_description: '精神健康体验社区'
   email: join.ifme@gmail.com
@@ -28,7 +28,7 @@ zh:
     de: Deutsch
     fr: Français
     hi: 'हिंदी'
-    zh: 中文
+    zh-CN: 中文
   navigation:
     main_menu: '主菜单'
     user_menu: '用户菜单'
