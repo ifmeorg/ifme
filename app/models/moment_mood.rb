@@ -8,7 +8,7 @@
 #  mood_id           :bigint
 #
 
-class MomentMood < ActiveRecord::Base
+class MomentMood < ApplicationRecord
   belongs_to :moment
   belongs_to :mood
 end

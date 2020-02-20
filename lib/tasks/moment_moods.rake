@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 namespace :moment_moods do
-  desc "Migrates moods from moments to moment_moods table"
+  desc 'Migrates moods from moments to moment_moods table'
 
   task normalize: :environment do
     Moment.all.each do |moment|
