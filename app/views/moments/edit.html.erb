@@ -1,4 +1,2 @@
 <% title "#{t('common.actions.edit_instance', instance: @moment.name)}" %>
-
-<%= render 'validation_errors' %>
-<%= render 'form' %>
+<%= react_component('Form', props: edit_moment_props) %>

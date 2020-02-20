@@ -1,0 +1,165 @@
+.staticContent {
+  color: $white;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: $size-40 34px;
+  @media screen and (max-width: $medium) {
+    padding: $size-20;
+  }
+  @media screen and (max-width: $small) {
+    @include buttonFull();
+  }
+  @include staticContentLink();
+
+  .pageTitle {
+    @include setFontSize($size-36);
+    @include setMargin($size-0, $size-0, $size-50, $size-0);
+    text-align: center;
+    font-weight: $font-weight-300;
+  }
+
+  .subtitle {
+    @include setFontSize($size-24);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    text-align: center;
+  }
+
+  h1 {
+    @include setFontSize($size-26);
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    font-weight: $font-weight-300;
+  }
+
+  .message {
+    &Hero {
+      @include setMargin(75px, $size-0, $size-50 * 2, $size-0);
+    }
+    &Main {
+      @include setFontSize($size-32);
+      @include setMargin(auto, auto, $size-40, auto);
+      font-weight: $font-weight-300;
+      width: 70%;
+      text-align: center;
+      @media screen and (max-width: $medium) {
+        width: 100%;
+      }
+      &:last-of-type {
+        margin-bottom: $size-0;
+      }
+      &Logo > div > div {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto $size-30 auto;
+      }
+    }
+    &Body {
+      @include setMargin(auto, auto, $size-40, auto);
+      width: 70%;
+      text-align: center;
+      @media screen and (max-width: $medium) {
+        width: 100%;
+      }
+      &:last-of-type {
+        margin-bottom: $size-0;
+      }
+      &Links {
+        font-size: $size-0;
+        line-height: 3;
+        @media screen and (max-width: $small) {
+          line-height: normal;
+        }
+        > a:first-of-type {
+          margin-right: $size-28;
+          @media screen and (max-width: $small) {
+            margin: $size-0 $size-0 $size-10 $size-0;
+          }
+        }
+      }
+    }
+  }
+
+  .article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: $size-20 0;
+    @media screen and (min-width: $medium) {
+      flex-direction: row;
+    }
+    &Heading {
+      width: 100%;
+      @media screen and (min-width: $medium) {
+        min-width: 320px;
+        max-width: 320px;
+        text-align: right;
+      }
+    }
+    &Content {
+      flex-grow: 1;
+      p:first-of-type {
+        margin-top: 0;
+      }
+      @media screen and (min-width: $medium) {
+        margin-top: 7px;
+        margin-left: $size-40;
+      }
+    }
+  }
+
+  .purpleYay {
+    @include setFontSize($size-30);
+    color: $purple-yay;
+    text-shadow: $size-0 $size-0 $size-4 $purple-yay;
+  }
+
+  form {
+    max-width: 446px;
+    margin: 0 auto;
+    text-align: center;
+
+    .label,
+    label {
+      color: $white;
+    }
+
+    [type='text'],
+    [type='email'],
+    [type='password'],
+    [type='submit'] {
+      width: 100%;
+    }
+
+    [type='checkbox'] {
+      float: left;
+      width: 20px;
+      height: 20px;
+    }
+
+    .actions {
+      margin-bottom: 100px;
+    }
+  }
+
+  .partner {
+    @include setMargin($size-0, $size-0, $size-40, $size-0);
+    text-align: center;
+    img {
+      border-radius: $size-4;
+      width: 500px;
+      height: auto;
+      @media screen and (max-width: $small) {
+        width: 100%;
+      }
+    }
+    &:last-of-type {
+      @include setMargin($size-0, $size-0, $size-0, $size-0);
+    }
+  }
+
+  .errorField {
+    color: $white;
+    font-weight: bold;
+  }
+}

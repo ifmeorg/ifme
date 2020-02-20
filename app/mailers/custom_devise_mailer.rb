@@ -1,17 +1,20 @@
 # frozen_string_literal: true
-# inviter_name method from InvitationsHelper
-include InvitationsHelper
-
 class CustomDeviseMailer < Devise::Mailer
+  before_action :load_logo_inline
+
   protected
+
+  def load_logo_inline
+    attachments.inline['logo@2x.png'] = File.read('./public/logo@2x.png')
+  end
 
   def subject_for(key)
     return super unless key.to_s == 'invitation_instructions'
 
-    if inviter_name(@resource)
+    if @resource.invited_by&.name
       I18n.t(
         'devise.mailer.invitation_instructions.subject',
-        name: inviter_name(@resource)
+        name: @resource.invited_by&.name
       )
     else
       I18n.t('devise.mailer.invitation_instructions.subject_nameless')

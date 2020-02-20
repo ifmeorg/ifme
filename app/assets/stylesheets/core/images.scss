@@ -1,0 +1,39 @@
+/* Images */
+
+.signedInEmptyIcon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: $mulberry;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $size-20;
+  svg {
+    width: auto;
+    height: 100px;
+  }
+  @media screen and (max-width: $medium) {
+    width: 130px;
+    height: 130px;
+    svg {
+      width: auto;
+      height: 80px;
+    }
+  }
+  @media screen and (max-width: $small) {
+    margin-right: $size-0;
+    margin-bottom: $size-20;
+  }
+}
+
+.notSignedInIcon {
+  height: 180px;
+  width: auto;
+  @media screen and (max-width: $medium) {
+    height: 160px;
+  }
+  @media screen and (max-width: $small) {
+    height: 130px;
+  }
+}

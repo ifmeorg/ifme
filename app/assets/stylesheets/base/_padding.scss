@@ -1,0 +1,10 @@
+@mixin setPadding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+  @media screen and (max-width: $medium) {
+    $newTop: if($top == 'auto', $top, $top / 2);
+    $newRight: if($right == 'auto', $right, $right / 2);
+    $newBottom: if($bottom == 'auto', $bottom, $bottom / 2);
+    $newLeft: if($left == 'auto', $left, $left / 2);
+    padding: $newTop $newRight $newBottom $newLeft;
+  }
+}

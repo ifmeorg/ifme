@@ -5,14 +5,9 @@
   <%= t('moments.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @moments.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'moment' } %>
-
-  <div class="stats_divider"></div>
-
-  <div class="hide_on_mobile">
+  <div class="hideOnMobile marginTop marginBottom">
     <%= react_component("ChartControl", props: {
       types: [],
       initialParams: {
@@ -22,37 +17,28 @@
         }
       }
     })%>
-
-    <div class="spacer"></div>
  </div>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'moment' } %>
-
-  <div id="pages">
-    <div class="page">
-      <%= render @moments %>
-    </div>
-  </div>
-
-  <%= paginate @moments %>
-<% else %>
-  <%= raw t('moments.index.instructions', {
-    icon: '<i class="fa fa-plus-circle"></i>'
+  <%= render partial: '/shared/stats', locals: { data_type: 'moment', user: current_user } %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@moments),
+    fetchUrl: moments_path,
+    lastPage: @moments.last_page?
   }) %>
-
-  <div class="spacer"></div>
-
-  <div id="pages">
-    <div class="page">
-      <div class="moment no_margin_bottom">
-        <h1 class="moment_name">
-            <%= content_tag(:span, '<i class="fa fa-lock"></i>'.html_safe, class: 'yes_title small_margin_right', title: t('comment.control')) %>
-            <%= t('moments.index.example_name') %>
-          </h1>
-
-          <strong><%= t('categories.label', count: 1) %></strong> <%= t('moments.index.example_category') %>
-          <br><strong><%= t('moods.label', count: 3) %></strong> <%= t('moods.example_moods') %>
-      </div>
+<% else %>
+  <%= raw t('moments.index.instructions') %>
+  <div class="gridTwo marginTop">
+    <div class="gridTwoItemBoxLight">
+      <%= react_component('Story', html_options: html_options, props: {
+        name: t('moments.index.example_name'),
+        link: moments_path,
+        actions: {
+          viewers: t('comment.control')
+        },
+        categories: [t('moments.index.example_category')],
+        moods: t('moods.example_moods').split(',')
+      }) %>
     </div>
   </div>
 <% end %>

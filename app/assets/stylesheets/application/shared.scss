@@ -1,432 +1,97 @@
-.ally,
-.group {
-  border: 1px solid $container-color;
-  padding: 20px;
-  box-shadow: 0 0 2px $container-color inset;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: $medium) {
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-}
-
-.category,
-.medication,
-.meeting,
-.moment,
-.mood,
-.story,
-.strategy,
-.contributor,
-.ally {
-  @include box-sizing(border-box);
-  width: calc(50% - 10px);
-  padding: 20px;
-  margin-bottom: 20px;
-
-  background: $background-color;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-
-  @media screen and (max-width: $medium) {
+.stats {
+  @include setFontSize($size-22);
+  @include setMargin($size-0, $size-0, $size-40, $size-0);
+  font-weight: $font-weight-400;
+  .mostFocus {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-}
-
-.story {
-  position: relative;
-  padding-bottom: 50px;
-
-  .class_name {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-  }
-}
-
-.ally_name,
-.category_name,
-.group_name,
-.meeting_name,
-.medication_name,
-.moment_name,
-.story_name,
-.mood_name,
-.profile_name,
-.strategy_name,
-.contributor_name {
-  font-weight: 400;
-  font-size: $font18;
-  padding: 0;
-  margin: 0px 0px 20px 0px;
-  color: $secondary-text-color;
-
-  @media screen and (max-width: $medium) {
-    font-size: $font16;
-    margin: 0px 0px 10px 0px;
-  }
-}
-
-.ally_name a:link,
-.ally_name a:visited,
-.category_name a:link,
-.category_name a:visited,
-.group_name a:link,
-.group_name a:visited,
-.meeting_name a:link,
-.meeting_name a:visited,
-.medication_name a:link,
-.medication_name a:visited,
-.moment_name a:link,
-.moment_name a:visited,
-.story_name a:link,
-.story_name a:visited,
-.mood_name a:link,
-.mood_name a:visited,
-.blog_name a:link,
-.blog_name a:visited,
-.profile_name a:link,
-.profile_name a:visited,
-.strategy_name a:link,
-.strategy_name a:visited {
-  color: $secondary-text-color;
-  text-decoration: none;
-  border: none;
-}
-
-.moment_date {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: $date-text-color;
-}
-
-.moment_settings {
-  display: flex;
-  flex-direction: row;
-}
-
-.moment_header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#page_title_content,
-.sidebar_label,
-.label,
-.tip_notifications_text,
-#notifications_text,
-.quick_create_text,
-#categories_moods_text,
-.meeting,
-.group_info,
-.moment,
-.story {
-  .align_left {
-    float: left;
-    display: inline-block;
-
-    @media screen and (max-width: $small) {
-        width: 80%;
-    }
-  }
-
-  .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-.contributor {
-  .align_left {
-    float: left;
-    display: inline-block;
-  }
-
-  .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-
-#other_user,
-.story {
-  .align_left {
-    float: left;
-    display: inline-block;
-
-    @media screen and (max-width: $small) {
-      width: 100%;
-      float: none;
-      display: block;
-    }
-  }
-
-  .align_right:not(.table_cell) {
-    float: right;
-    display: inline-block;
-
-    @media screen and (max-width: $small) {
-      float: none;
-      display: block;
-    }
-  }
-
-  @media screen and (max-width: $small) {
-    .story_name {
-      font-size: $font20;
-      margin: 0px 0px 5px 0px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid $subtle-secondary-text-color;
-    }
-
-    .ally_name {
-      font-size: $font18;
-      margin: 0px 0px 10px 0px;
-    }
-  }
-}
-
-#page_author {
-  font-size: $font24;
-  vertical-align: middle;
-
-  @media screen and (max-width: $medium) {
-    font-size: $font20;
-  }
-}
-
-
-#leave.align_left,
-#join.align_left {
-  float: left;
-  display: inline-block;
-
-  @media screen and (max-width: $small) {
-    width: 60%;
-  }
-}
-
-@media screen and (min-width: $small + 1) {
-  .ally .align_left {
-    float: left;
-    display: inline-block;
-  }
-
-  .ally .align_right {
-    float: right;
-    display: inline-block;
-  }
-}
-
-#leave.align_right,
-#join.align_right {
-  float: right;
-  display: inline-block;
-}
-
-#stats {
-  font: $font22 $font-family;
-  font-weight: 300;
-  margin-bottom: 40px;
-
-  #most_focus {
-    width: 100%;
-    font-size: $font-zero;
-  }
-
-  // Align .small_focus children linearly only
-  // when min-width is at least 1025px i.e. $medium
-
-  @media screen and (min-width: $medium + 1) {
-    #most_focus {
+    font-size: $size-0;
+    @media screen and (min-width: $medium + 1) {
       display: flex;
     }
   }
-
-  .some_focus {
+  .someFocus {
     flex: 1;
+    min-width: 0;
     text-align: center;
-    color: $highlight-text-color;
-    background-color: $secondary-text-color;
-    font-size: $font-zero;
-
-    // The first .some_focus child of #most_focus
-    // has opacity 1, 2nd has 0.8 and 3rd has 0.6
-
+    color: $key-lime;
+    font-size: $size-0;
     &:nth-child(1) {
-      opacity: 1;
+      background-color: $mulberry;
     }
     &:nth-child(2) {
-      opacity: 0.8;
+      background-color: $mulberry-80;
     }
     &:nth-child(3) {
-      opacity: 0.6;
+      background-color: $mulberry-70;
+    }
+    &Text {
+      @include setFontSize($size-22);
+      @include setPadding($size-20, $size-20, $size-20, $size-20);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      a, .link_style {
+        text-decoration: none;
+        color: $key-lime;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      &Name {
+        word-break: break-word;
+      }
     }
   }
-
-  .some_focus_text {
-    padding: 20px;
-    font: $font22 $font-family;
-    font-weight: 300;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    a:link, a:visited, .link_style {
-      text-decoration: none;
-      color: $highlight-text-color;
-      border-bottom: none;
-    }
-
-    a:hover, .link_style:hover {
-      text-decoration: none;
-      color: $highlight-text-color;
-      border-bottom: none;
-      opacity: 0.5;
+  .tooltip {
+    width: 100%;
+    &Element {
+      width: inherit;
+      word-break: break-word;
     }
   }
-
-  @media screen and (max-width: $medium) {
-    font: $font20 $font-family;
-    font-weight: 300;
-    margin-bottom: 20px;
-
-    .some_focus_text {
-      padding: 20px;
-      font: $font20 $font-family;
-      font-weight: 300;
-    }
-  }
-
-  @media screen and (max-width: $small) {
-    font: $font18 $font-family;
-    font-weight: 300;
-    margin-bottom: 20px;
-
-    .some_focus {
-      display: block;
-      text-align: center;
-      color: $highlight-text-color;
-      background-color: $secondary-text-color;
-      font-size: $font-zero;
-      width: 100% !important;
-    }
-
-    .some_focus_text {
-      padding: 10px;
-      font: $font18 $font-family;
-      font-weight: 300;
-    }
-  }
-}
-
-#tag_usage.margin_bottom {
-  margin-bottom: 20px !important;
-}
-
-.tag_type.margin_top {
-  margin-top: 20px !important;
-}
-
-@media screen and (max-width: $small) {
-  #tag_usage.margin_bottom {
-    margin-bottom: 10px !important;
-  }
-
-  .tag_type.margin_top {
-    margin-top: 10px !important;
-  }
-}
-
-.group_type,
-.tag_type {
-  font-weight: $md;
-  font-size: $font30;
-  padding: 0;
-  margin: 0px 0px 20px 0px;
-
-  @media screen and (max-width: $medium) {
-    font-size: $font26;
-    margin: 0px 0px 10px 0px;
-  }
-}
-
-.class_name,
-#showTaggedMoments.align_right,
-#hideTaggedMoments.align_right  {
-  float: right !important;
 }
 
 .pagination {
-  color: $subtle-secondary-text-color;
-  margin-top: 40px;
+  @include setMargin($size-40, $size-0, $size-0, $size-0);
+  color: $eggplant;
   text-align: center;
-
   span.prev,
   span.first {
-    margin-right: 10px;
+    @include setMargin($size-0, $size-10, $size-0, $size-0);
   }
-
   span.next,
   span.last {
-    margin-left: 10px;
+    @include setMargin($size-0, $size-0, $size-0, $size-10);
   }
-
   a:link, a:visited {
     text-decoration: none;
-    color: $secondary-text-color;
-    border: none;
-  }
-
-  a:hover {
-    text-decoration: none;
-    color: $secondary-text-color;
-    border-bottom: none;
-    opacity: 0.5;
-  }
-
-  @media screen and (max-width: $medium) {
-    margin-top: 20px;
-  }
-
-  @media screen and (max-width: $small) {
-    margin-top: 10px;
+    color: $mulberry;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
 
-#categories_list,
-#moods_list,
-#strategies_list,
-#viewers_list {
-  width: 100%;
-
-  label {
-    display: block;
-    font: inherit;
-  }
-}
-
-#pages .page,
-.tag_usage,
-.contributors,
-.allies_list {
+.search {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
-}
-
-#search_email,
-#search_name {
-  width: 600px;
-
+  align-items: center;
   @media screen and (max-width: $medium) {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
+    flex-direction: column;
+  }
+  &Submit {
+    margin-left: $size-8;
+    @media screen and (max-width: $medium) {
+      margin-left: $size-0;
+    }
+  }
+  input[type="text"] {
+    flex-grow: 1;
+    @media screen and (max-width: $medium) {
+      margin: $size-0 $size-0 $size-10 $size-0;
+    }
   }
 }

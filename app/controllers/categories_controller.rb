@@ -1,28 +1,33 @@
 # frozen_string_literal: true
 
-# rubocop:disable ClassLength
 class CategoriesController < ApplicationController
-  include CollectionPageSetup
-  include QuickCreate
+  include CollectionPageSetupConcern
+  include CategoriesHelper
   include Shared
+  include TagsHelper
   before_action :set_category, only: %i[show edit update destroy]
+  respond_to :json, only: [:index]
 
   # GET /categories
   # GET /categories.json
-
   def index
     page_collection('@categories', 'category')
+    respond_to do |format|
+      format.json do
+        render json: {
+          data: categories_or_moods_props(@categories),
+          lastPage: @categories.last_page?
+        }
+      end
+      format.html
+    end
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if @category.user_id == current_user.id
-      @page_edit = edit_category_path(@category)
-      @page_tooltip = t('categories.edit_category')
-    else
-      redirect_to_path(categories_path)
-    end
+    setup_stories
+    redirect_to_path(categories_path) if @category.user_id != current_user.id
   end
 
   # GET /categories/new
@@ -39,86 +44,49 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   # POST /categories.json
-  # rubocop:disable MethodLength
   def create
     @category = Category.new(category_params.merge(user_id: current_user.id))
-    shared_create(@category, 'category')
+    shared_create(@category)
   end
-  # rubocop:enable MethodLength
 
   # POST /categories
   # POST /categories.json
-  # rubocop:disable MethodLength
   def premade
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade1_name'),
-      description: t('categories.index.premade1_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade2_name'),
-      description: t('categories.index.premade2_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade3_name'),
-      description: t('categories.index.premade3_description')
-    )
-    Category.create(
-      user_id: current_user.id,
-      name: t('categories.index.premade4_name'),
-      description: t('categories.index.premade4_description')
-    )
-
+    shared_add_premade(Category, 4)
     redirect_to_path(categories_path)
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    shared_update(@category, 'category', category_params)
+    shared_update(@category, category_params)
   end
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    shared_destroy(@category, 'category')
+    shared_destroy(@category)
   end
 
-  # rubocop:disable MethodLength
   def quick_create
     category = Category.new(
       user_id: current_user.id,
       name: params[:category][:name],
       description: params[:category][:description]
     )
-
-    if category.save
-      tag = params[:category][:tag].to_s
-      result = render_checkbox(category, 'category', tag)
-    else
-      result = { error: 'error' }
-    end
-
-    respond_with_json(result)
+    shared_quick_create(category)
   end
-  # rubocop:enable MethodLength
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_category
     @category = Category.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(categories_path)
   end
-  # rubocop:enable RescueStandardError
 
   def category_params
     params.require(:category).permit(:name, :description)
   end
 end
-# rubocop:enable ClassLength

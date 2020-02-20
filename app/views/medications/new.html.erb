@@ -1,4 +1,2 @@
 <% title "#{t('medications.new')}" %>
-
-<%= render 'validation_errors' %>
-<%= render 'form' %>
+<%= react_component('Form', props: new_medication_props) %>

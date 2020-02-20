@@ -1,5 +1,6 @@
-describe TimeAgo do
+# frozen_string_literal: true
 
+describe TimeAgo do
   describe '#formatted_ago' do
     subject { TimeAgo.formatted_ago(time) }
 
@@ -48,7 +49,7 @@ describe TimeAgo do
     end
   end
 
-  describe "#created_or_edited" do
+  describe '#created_or_edited' do
     let(:new_user1) { create(:user1) }
     let(:new_moment) { create(:moment, user_id: new_user1.id) }
     let(:new_category) { create(:category, user_id: new_user1.id) }
@@ -56,29 +57,29 @@ describe TimeAgo do
     subject { TimeAgo.created_or_edited(new_moment) }
 
     context 'updated_at does not exist' do
-      it "returns created_at" do
+      it 'returns created_at' do
         expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)}")
       end
     end
 
-    context "creating and editing happened on the same day (but not the exact same time)" do
+    context 'creating and editing happened on the same day (but not the exact same time)' do
       before do
         new_moment.update(category: Array.new(1, new_category.id))
       end
 
-      it "returns created_at with (edited)" do
+      it 'returns created_at with (edited)' do
         expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)} (edited)")
       end
     end
 
-    context "editing happened on a different day than it was created" do
+    context 'editing happened on a different day than it was created' do
       let(:new_moment) { create(:moment, user_id: new_user1.id, created_at: '2014-01-01 00:00:00') }
 
       before do
         new_moment.update(category: Array.new(1, new_category.id))
       end
 
-      it "returns created_at with updated_at" do
+      it 'returns created_at with updated_at' do
         expect(subject).to eq("Created #{TimeAgo.formatted_ago(new_moment.created_at)} (edited #{TimeAgo.formatted_ago(new_moment.updated_at)})")
       end
     end

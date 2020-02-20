@@ -1,0 +1,40 @@
+@import "../../styles/_global.scss";
+
+.switch {
+  @include setFontSize($size-16);
+  display: inline-block;
+  width: 114px;
+
+  &Wrapper {
+    display: flex;
+    flex-direction: row;
+    border-radius: $size-4;
+    padding: $size-4;
+  }
+
+  &On {
+    @include linearTransition(0.5s);
+    background: $key-lime;
+    justify-content: flex-end;
+  }
+
+  &Off {
+    @include linearTransition(0.5s);
+    background: $mulberry-70;
+  }
+
+  &Toggle {
+    background: $white-70;
+    padding: $size-8 $size-16;
+    border-radius: $size-4;
+    color: $mulberry-90;
+    cursor: pointer;
+    width: $size-50;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &Hidden {
+    display: none;
+  }
+}

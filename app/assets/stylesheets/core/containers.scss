@@ -1,0 +1,12 @@
+.center {
+  text-align: center;
+  &Margin {
+    margin: 0 auto;
+  }
+}
+
+.fullWidth {
+  display: block;
+  width: 100%;
+  margin: 0;
+}

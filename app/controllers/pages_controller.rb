@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  skip_before_action :if_not_signed_in
+  include StoriesHelper
+  include MomentsHelper
+  include PagesHelper
+  include PagesConcern
+
+  skip_before_action :if_not_signed_in, except: %i[home_data]
+  before_action :if_not_signed_in, only: %i[home_data]
 
   def home
-    @blurbs = set_blurbs
     if user_signed_in?
-      @stories = Kaminari.paginate_array(get_stories(current_user, true))
-                         .page(params[:page])
-
+      setup_stories
       load_dashboard_data if @stories.present? && @stories.count.positive?
     else
-      @posts = set_posts
+      @blurbs = set_blurbs
+      @posts = fetch_posts
     end
-  end
-
-  def blog
-    @posts = set_posts
   end
 
   def contribute
@@ -24,14 +24,27 @@ class PagesController < ApplicationController
     @contributors = set_contributors
   end
 
+  def home_data
+    setup_stories
+    respond_to do |format|
+      format.json do
+        render json: home_data_json if @stories
+      end
+    end
+  end
+
   def partners
     @organizations = set_organizations
   end
 
   def toggle_locale
-    return render json: { signed_out: true } unless user_signed_in?
-
-    change_locale!(params[:locale])
+    if !user_signed_in? ||
+       (user_signed_in? && current_user.locale != params[:locale] &&
+        current_user.update(locale: params[:locale]))
+      render json: {}, status: :ok
+    else
+      render json: {}, status: :bad_request
+    end
   end
 
   def press
@@ -39,10 +52,8 @@ class PagesController < ApplicationController
   end
 
   def resources
-    @communities = fetch_resources_for('communities')
-    @education = fetch_resources_for('education')
-    @hotlines = fetch_resources_for('hotlines')
-    @services = fetch_resources_for('services')
+    @resources = fetch_resources
+    @keywords = filter_keywords
   end
 
   def about; end
@@ -53,24 +64,16 @@ class PagesController < ApplicationController
 
   private
 
-  def change_locale!(locale)
-    response_key =
-      if locale == current_user.locale
-        :signed_in_no_reload
-      else
-        :signed_in_reload
-      end
+  def filter_keywords
+    return [] if params[:filter].nil?
 
-    current_user.update!(locale: locale)
-    render json: { response_key => locale }
+    word_tags.select { |r| params[:filter].map(&:downcase).include? r.downcase }
   end
 
-  def load_dashboard_data
-    params = { user_id: current_user.id }
-
-    @moment = Moment.new
-    @categories = Category.where(params).order(created_at: :desc)
-    @moods = Mood.where(params).order(created_at: :desc)
+  def word_tags
+    @resources.reduce([]) do |arr, resource|
+      arr + resource['tags'] + resource['languages']
+    end.uniq
   end
 
   def set_organizations
@@ -96,25 +99,15 @@ class PagesController < ApplicationController
     posts = []
     medium.posts.each do |post|
       posts.push(
-        'link_name' => post[1]['title'],
-        'link' => "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
-        'author' => parse_author(post)
+        link_name: post[1]['title'],
+        link: "https://medium.com/ifme/#{post[1]['uniqueSlug']}",
+        author: parse_author(post)
       )
     end
     posts
   end
 
-  def set_posts
-    non_medium_posts = JSON.parse(File.read('doc/pages/posts.json'))
-    fetch_posts.concat(non_medium_posts.reverse)
-  end
-
   def set_press
     JSON.parse(File.read('doc/pages/press.json')).reverse
-  end
-
-  def fetch_resources_for(resource_type)
-    resources = JSON.parse(File.read("doc/pages/#{resource_type}.json"))
-    resources.sort_by! { |r| r['name'].downcase }
   end
 end

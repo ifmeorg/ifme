@@ -1,4 +1,2 @@
 <% title "#{t('moments.new')}" %>
-
-<%= render 'validation_errors' %>
-<%= render 'form' %>
+<%= react_component('Form', props: new_moment_props) %>

@@ -9,7 +9,6 @@ import { ChartControl } from '../ChartControl';
 describe('ChartControl', () => {
   it('renders', () => {
     let wrapper = null;
-
     expect(() => {
       // shallow render only lists the first level of components
       wrapper = shallow(
@@ -29,9 +28,7 @@ describe('ChartControl', () => {
     }).not.toThrow();
 
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find('div').length).toBe(1);
-    // one button factoried for each element in types
-    expect(wrapper.find('ChartControlButton').length).toBe(1);
-    expect(wrapper.find('Chart').length).toBe(1);
+    expect(wrapper.find('ChartControlButton').length).toEqual(1);
+    expect(wrapper.find('Chart').length).toEqual(1);
   });
 });

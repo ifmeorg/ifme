@@ -1,0 +1,27 @@
+en:
+  devise:
+    failure:
+      invited: 'Sie haben eine ausstehende Einladung, akzeptieren Sie sie, um die Erstellung Ihres Kontos abzuschließen.'
+    invitations:
+      send_instructions: 'Eine Einladungs-E-Mail wurde an %{email} gesendet.'
+      failed_send: 'Ein Fehler ist aufgetreten. %{email} konnte nicht eingeladen werden.'
+      invitation_token_invalid: 'Das angegebene Einladungstoken ist nicht gültig!'
+      updated: 'Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.'
+      updated_not_active: 'Ihr Passwort wurde erfolgreich vergeben.'
+      no_invitations_remaining: 'Keine Einladungen übrig'
+      invitation_removed: 'Ihre Einladung wurde entfernt.'
+      new:
+        header: 'Schicke eine Verbündeteneinladung'
+        submit_button: 'Eine Einladung schicken'
+      edit:
+        header: 'Lege ein Passwort fest'
+        submit_button: 'Setze mein Passwort'
+    mailer:
+      invitation_instructions:
+        subject: '%{name} hat dich eingeladen mitzumachen if me!'
+        subject_nameless: 'Jemand hat dich eingeladen, beizutreten if me!'
+        hello: 'Hallo %{email}!'
+        someone_invited_you: '%{name} hat dich eingeladen mitzumachen http://www.if-me.org, eine Gemeinschaft, um Erfahrungen mit Ihren Angehörigen zu teilen und Ihre Stimmungen, Medikamente und Selbstversorgung zu verfolgen. Sie können die Einladung über den folgenden Link annehmen.'
+        accept: 'Die Einladung annehmen!'
+        accept_until: 'Diese Einladung läuft am ab %{due_date}.'
+        ignore: 'Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.'

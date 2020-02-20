@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 import { Chart } from './index';
+import globalCss from '../../styles/_global.scss';
+import css from './ChartControl.scss';
 
 type chartControlState = {
   type: string,
@@ -21,7 +23,7 @@ type ChartControlButtonProps = {
 };
 
 const ChartControlButton = ({ type, onClick }: ChartControlButtonProps) => (
-  <button className={'ui-button ui-widget ui-corner-all'} onClick={onClick}>
+  <button type="button" className={globalCss.buttonDarkXS} onClick={onClick}>
     {type}
   </button>
 );
@@ -33,17 +35,11 @@ export class ChartControl extends React.Component<
   chartControlProp,
   chartControlState,
 > {
-  props: chartControlProp;
-  state: chartControlState;
-
   constructor(props: chartControlProp) {
     super(props);
-
-    const { initialParams } = this.props;
-
     this.state = {
-      type: initialParams.type,
-      data: initialParams.data,
+      type: props.initialParams.type,
+      data: props.initialParams.data,
     };
   }
 
@@ -57,14 +53,16 @@ export class ChartControl extends React.Component<
     const { types } = this.props;
     const { data, type } = this.state;
     return (
-      <div>
-        {types.map((value: string) => (
-          <ChartControlButton
-            key={value}
-            type={value}
-            onClick={this.onSelectType(value)}
-          />
-        ))}
+      <div className={css.chartControl} role="presentation">
+        <div>
+          {types.map((value: string) => (
+            <ChartControlButton
+              key={value}
+              type={value}
+              onClick={this.onSelectType(value)}
+            />
+          ))}
+        </div>
         <Chart
           ytitle={`${type}`}
           xtitle="Date"

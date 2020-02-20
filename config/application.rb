@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+require_relative 'locale'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -31,21 +32,30 @@ module Ifme
 
     config.action_view.field_error_proc = proc { |html_tag|
       if html_tag.to_s.include?('label')
-        %(<div class="field_with_errors">#{html_tag}</div>).html_safe
+        %(<div class="errorField">#{html_tag}</div>).html_safe
       else
         html_tag.to_s.html_safe
       end
     }
 
-    # gzip the html/json responses
-    config.middleware.use Rack::Deflater, include: %w[text/html application/json image/svg+xml]
-    # export translations for use in javascript
-    config.middleware.use I18n::JS::Middleware
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'SAMEORIGIN',
+      'X-XSS-Protection' => '1; mode=block',
+      'X-Content-Type-Options' => 'nosniff',
+      'X-Download-Options' => 'noopen',
+      'X-Permitted-Cross-Domain-Policies' => 'none',
+      'Referrer-Policy' => 'strict-origin-when-cross-origin',
+      'Strict-Transport-Security' => 'max-age=31536000'
+    }
 
-    config.i18n.available_locales = ['pt-BR'].concat %i[en es sv nl it nb vi]
+    config.middleware.use Rack::Deflater,
+                          include: %w[text/html application/json image/svg+xml]
 
+    config.i18n.available_locales = Locale.available_locales.sort_by(&:swapcase).map &:to_sym
     config.i18n.default_locale = :en
 
-    config.secret_share_enabled = false
+    config.to_prepare do
+      Devise::Mailer.layout 'mailer'
+    end
   end
 end

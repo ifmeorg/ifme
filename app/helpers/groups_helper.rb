@@ -20,7 +20,7 @@ module GroupsHelper
 
   def edit_group_link(group)
     link_to t('common.actions.edit'), edit_group_path(group),
-            class: 'small_margin_right'
+            class: 'smallMarginRight'
   end
 
   def leader_link(leader)
@@ -68,16 +68,9 @@ module GroupsHelper
 
   def edit_meeting_link(meeting, html_options = {})
     return unless user_is_leader_of? meeting
+
     link_to edit_meeting_path(meeting), html_options do
       raw '<i class="fa fa-pencil-alt"></i>'
     end
-  end
-
-  def render_group_member_partial(group)
-    render partial: '/notifications/members', locals: { group: group }
-  end
-
-  def render_meeting_partial(meeting)
-    render partial: '/shared/meeting_info', locals: { meeting: meeting }
   end
 end

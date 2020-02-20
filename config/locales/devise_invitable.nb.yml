@@ -1,27 +1,27 @@
 nb:
   devise:
     failure:
-      invited: "Du har en ventende invitasjon, aksepter den ved å fullføre registrering av kontoen din."
+      invited: 'Du har en ventende invitasjon, aksepter den ved å fullføre registrering av kontoen din.'
     invitations:
-      send_instructions: "En invitasjons e-post har blitt sendt til %{email}."
-      failed_send: "En feil oppstod. '%{email}' kunne ikke bli invitert."
-      invitation_token_invalid: "Invitasjonspolletten tilført er ikke gyldig!"
-      updated: "Settelsen av passordet ditt var velykket. Du er nå logget inn."
-      updated_not_active: "Settelsen av passordet ditt var velykket."
-      no_invitations_remaining: "Ingen gjenværende invitasjoner"
-      invitation_removed: "Inivtasjonen din er fjernet."
+      send_instructions: 'En invitasjons e-post har blitt sendt til %{email}.'
+      failed_send: 'En feil oppstod. %{email} kunne ikke bli invitert.'
+      invitation_token_invalid: 'Invitasjonspolletten tilført er ikke gyldig!'
+      updated: 'Settelsen av passordet ditt var velykket. Du er nå logget inn.'
+      updated_not_active: 'Settelsen av passordet ditt var velykket.'
+      no_invitations_remaining: 'Ingen gjenværende invitasjoner'
+      invitation_removed: 'Inivtasjonen din er fjernet.'
       new:
-        header: "Send allianse invitasjon"
-        submit_button: "Send en invitasjon"
+        header: 'Send allianse invitasjon'
+        submit_button: 'Send en invitasjon'
       edit:
-        header: "Sett passordet ditt"
-        submit_button: "Sett passordet mitt"
+        header: 'Sett passordet ditt'
+        submit_button: 'Sett passordet mitt'
     mailer:
       invitation_instructions:
-        subject: "%{name} inviterte deg til å bli med i if me!"
-        subject_nameless: "Noen inviterte deg til å bli med i if me!"
-        hello: "Hei %{email}!"
-        someone_invited_you: "%{name} har invitert deg til å bli med i http://www.if-me.org, et felleskap for å dele mental helse opplevelser med dine kjente og holde styr på humøret ditt, medisiner, og selvpleie. Du kan akseptere invitasjonen igjennom linken nedenfor."
-        accept: "Aksepter invitasjonen!"
-        accept_until: "Denne invitasjonen utløper om %{due_date}."
-        ignore: "Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne e-posten.<br />\nKontoen din opprettes ikke før du klikker på linken ovenfor og setter passordet ditt."
+        subject: '%{name} inviterte deg til å bli med i if me!'
+        subject_nameless: 'Noen inviterte deg til å bli med i if me!'
+        hello: 'Hei %{email}!'
+        someone_invited_you: '%{name} har invitert deg til å bli med i http://www.if-me.org, et felleskap for å dele mental helse opplevelser med dine kjente og holde styr på humøret ditt, medisiner, og selvpleie. Du kan akseptere invitasjonen igjennom linken nedenfor.'
+        accept: 'Aksepter invitasjonen!'
+        accept_until: 'Denne invitasjonen utløper om %{due_date}.'
+        ignore: 'Hvis du ikke ønsker å akseptere invitasjonen, ignorer denne e-posten.<br />Kontoen din opprettes ikke før du klikker på linken ovenfor og setter passordet ditt.'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe MeetingReminders do
@@ -32,7 +34,7 @@ describe MeetingReminders do
     end
 
     context 'when there is a meeting occurring tomorrow' do
-      let(:date) { 1.days.from_now.strftime('%m/%d/%Y') }
+      let(:date) { 1.day.from_now.strftime('%m/%d/%Y') }
 
       before do
         allow(mail).to receive(:deliver_now)

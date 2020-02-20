@@ -1,0 +1,56 @@
+<% title t('reports.admin_dashboard') %>
+<% if Report.count > 0 %>
+  <div class="title"><%= t('reports.reported_users') %></div>
+  <div class="gridTwo">
+    <% Report.order('created_at DESC').all.each do |report| %>
+      <div class="gridTwoItemBoxLight">
+        <div>
+          <strong><%= t('reports.reportee')%>:</strong> <%= link_to report.reportee.name, profile_index_path(uid: report.reportee.uid) %> (<%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: report.reportee.id), method: :post %>)
+        </div>
+        <div>
+          <strong><%= t('reports.reporter')%>:</strong> <%= link_to report.reporter.name, profile_index_path(uid: report.reporter.uid) %> (<%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: report.reporter.id), method: :post %>)
+        </div>
+        <div class="gridRowSpaceBetween smallMarginTop">
+          <%= react_component('Modal', props: {
+            element: "<button class=\"buttonDarkXS\">#{t('reports.reasons')}</button>",
+            title: t('reports.reasons'),
+            body: sanitize(report.reasons)
+          }) %>
+          <% if report.comment_id.present? %>
+            <%= react_component('Modal', props: {
+              element: "<button class=\"buttonDarkXS\">#{t('comment.singular')}</button>",
+              title: t('comment.singular'),
+              body: sanitize(report.comment.comment)
+            }) %>
+          <% end %>
+        </div>
+        <%= react_component('StoryDate', props: {
+          date: TimeAgo.created_or_edited(report)
+        }) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="title">
+    <%= "#{t('no_text')} #{t('reports.reported_users')}".titleize %>
+  </div>
+<% end %>
+
+<% banned_users = User.where(banned: true) %>
+<% if banned_users.exists? %>
+  <div class="title"><%= t('reports.banned_users') %></div>
+  <div class="gridTwo">
+    <% banned_users.each do |user| %>
+      <div class="gridTwoItemBoxLight">
+        <%= link_to user.name, profile_index_path(uid: user.uid) %>
+        <div class="smallMarginTop">
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: user.id), method: :post %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="title">
+    <%= "#{t('no_text')} #{t('reports.banned_users')}".titleize %>
+  </div>
+<% end %>

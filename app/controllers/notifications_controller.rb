@@ -1,17 +1,13 @@
 # frozen_string_literal: true
 
 class NotificationsController < ApplicationController
+  include NotificationsHelper
   before_action :set_notification, only: [:destroy]
 
   # DELETE /notifications/1
   # DELETE /notifications/1.json
   def destroy
-    notification = Notification.find_by(
-      id: params[:id],
-      user_id: current_user.id
-    )
-
-    notification.destroy if notification.present?
+    @notification.destroy if @notification.present?
 
     respond_to do |format|
       format.html { redirect_back(fallback_location: notifications_path) }
@@ -25,28 +21,45 @@ class NotificationsController < ApplicationController
   end
 
   def fetch_notifications
-    result = {
-      fetch_notifications: Notification.where(user_id: current_user.id)
-                                       .order(:created_at)
+    result = Notification.where(user_id: current_user.id)
+                         .order(:created_at)
+    response = {
+      fetch_notifications: result.map { |item| render_notification(item) }
     }
-    respond_with_json(result)
+    render json: response
   end
 
   def signed_in
-    respond_with_json(signed_in: current_user.id)
+    render json: { signed_in: current_user.id }
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
-  def set_notification
-    @notification = Notification.find(params[:id])
-  rescue
-    respond_to do |format|
-      format.html { redirect_back(fallback_location: notifications_path) }
-      format.json { head :no_content }
+  def convert_to_hash(string_obj)
+    hash = {}
+    JSON.parse(string_obj).each do |item|
+      hash[item.first.to_sym] = item.second
+    end
+    hash
+  end
+
+  def render_notification(notification)
+    uniqueid = notification[:uniqueid]
+    data = convert_to_hash(notification[:data])
+    case data[:type]
+    when /comment/ then comment_link(uniqueid, data)
+    when /accepted_ally_request/ then accepted_ally_link(uniqueid, data)
+    when /new_ally_request/ then new_ally_request_link(uniqueid, data)
+    when /group/ then group_link(uniqueid, data)
+    when /meeting/ then meeting_link(uniqueid, data)
     end
   end
-  # rubocop:enable RescueStandardError
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notification
+    @notification = Notification.find_by(
+      id: params[:id],
+      user_id: current_user.id
+    )
+  end
 end

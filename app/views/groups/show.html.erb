@@ -1,50 +1,29 @@
 <% title @group.name %>
 <% page_new new_meeting_path(group_id: @group.id) %>
-
-<div class="group_info">
-  <div class="small_margin_bottom">
-    <%= sanitize(@group.description) %>
-  </div>
-
-  <div class="notification_wrapper">
-    <strong class="tip_notifications_button">
-      <i class="fa fa-list small_margin_right"></i>
-      <%= t('members', count: @group.group_members.count) %>
-    </strong>
-    <%= render_group_member_partial(@group) %>
-  </div>
-
-  <strong>
-    <i class="fa fa-key small_margin_right"></i>
-    <%= t('groups.show.led_by') %>
-  </strong>
-
-  <%= @group.leaders.map { |leader| leader_link(leader) }.to_sentence.html_safe %>
-
-  <% if user_can_delete? @group %>
-    <%= delete_group_link(@group, class: 'align_right') %>
-  <% elsif @group.members.include? current_user %>
-    <%= leave_group_link(@group, class: 'align_right') %>
-  <% else %>
-    <%= join_group_link(@group, class: 'align_right') %>
-  <% end %>
-
-  <div class="clear"></div>
-</div>
+<%= render partial: '/groups/info', locals: { group: @group } %>
 
 <% if @meetings.present? %>
-  <div class="spacer"></div>
-  <div id="pages">
-    <div class="page">
+  <div class="gridTwo smallMarginTop">
     <% @meetings.each do |meeting| %>
-      <div class="meeting">
-        <h1 class="meeting_name">
-          <%= link_to meeting.name, meeting_path(meeting) %>
-          <%= edit_meeting_link(meeting, class: 'align_right display_inline_block') %>
-        </h1>
-        <%= render_meeting_partial(meeting) %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: meeting.name,
+          link: url_for(meeting),
+          actions: {
+            edit: user_is_leader_of?(meeting) ? {
+              name: t('common.actions.edit'),
+              link: edit_meeting_path(meeting)
+            } : nil,
+            delete: meeting.leaders.include?(current_user) ? {
+              name: t('common.actions.delete'),
+				      link: url_for(meeting),
+				      dataConfirm: t('common.actions.confirm'),
+				      dataMethod: 'delete'
+            } : nil
+          }.merge(google_cal_actions(meeting)),
+          body: render(partial: '/meetings/story_body', locals: { meeting: meeting })
+        }) %>
       </div>
     <% end %>
-    </div>
   </div>
 <% end %>

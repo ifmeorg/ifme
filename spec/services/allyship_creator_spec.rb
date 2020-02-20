@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe AllyshipCreator do
   describe '#perform' do
     subject { described_class.perform }

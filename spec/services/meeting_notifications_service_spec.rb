@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe MeetingNotificationsService do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
@@ -8,7 +10,7 @@ describe MeetingNotificationsService do
     let!(:meeting) { create :meeting, group_id: group.id }
     let!(:member1) { create :meeting_member, user_id: user.id, leader: true, meeting_id: meeting.id }
     let!(:member2) { create :meeting_member, user_id: ally.id, leader: false, meeting_id: meeting.id }
-    let!(:members) {  MeetingMember.where(meeting_id: meeting.id).all }
+    let!(:members) { meeting.members }
     let!(:uniqueid) { "#{type}_#{user.id}" }
     let!(:params) do
       {
@@ -28,14 +30,14 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'group_id' => group.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'group_id' => group.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
       end
     end
 
@@ -49,14 +51,14 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'typeid' => meeting.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'typeid' => meeting.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
       end
     end
 
@@ -69,14 +71,24 @@ describe MeetingNotificationsService do
         expect(Notification.count).to eq(1)
         expect(Notification.first.user_id).to eq(ally.id)
         expect(Notification.first.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.first.data)).to eq({
-            'user' => user.name,
-            'typeid' => meeting.id,
-            'group' => group.name,
-            'typename' => meeting.name,
-            'type' => type,
-            'uniqueid' => uniqueid,
-        })
+        expect(JSON.parse(Notification.first.data)).to eq(
+          'user' => user.name,
+          'typeid' => meeting.id,
+          'group' => group.name,
+          'typename' => meeting.name,
+          'type' => type,
+          'uniqueid' => uniqueid
+        )
+      end
+    end
+
+    context 'when type is invalid' do
+      let!(:type) { 'fake_type' }
+
+      it 'raises the correct error' do
+        expect(Notification.count).to eq(0)
+        expect { subject }.to raise_error(ActiveRecord::RecordInvalid)
+        expect(Notification.count).to eq(0)
       end
     end
   end

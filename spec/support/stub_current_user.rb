@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StubCurrentUserHelper
   def stub_current_user_with(user)
     allow(request.env['warden']).to receive(:authenticate!).and_return(user)

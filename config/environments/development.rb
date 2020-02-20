@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 primary_domain = 'localhost:3000'
 
 Rails.application.configure do
@@ -64,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: ENV['SMTP_ADDRESS'],
     port: ENV['SMTP_PORT'],
-    authentication: "plain",
+    authentication: 'plain',
     user_name: ENV['SMTP_USER_NAME'],
     password: ENV['SMTP_PASSWORD'],
     domain: ENV['SMTP_DOMAIN'],
@@ -77,10 +79,6 @@ Rails.application.configure do
 
   config.force_ssl = false
 
-
-  config.secret_share_enabled = true
-
   config.action_controller.default_url_options = { host: primary_domain }
   config.action_controller.asset_host = primary_domain
-
 end

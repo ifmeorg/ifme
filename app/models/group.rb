@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: groups
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  name        :string
 #  created_at  :datetime
 #  updated_at  :datetime
@@ -26,6 +25,10 @@ class Group < ApplicationRecord
 
   def led_by?(user)
     leaders.include? user
+  end
+
+  def member?(user)
+    members.find_by(id: user.id).present?
   end
 
   def notifications

@@ -1,17 +1,17 @@
 it:
-  views:
-    pagination:
-      first: "&laquo; Primo"
-      last: "Ultimo &raquo;"
-      previous: "&lsaquo; Precedente"
-      next: "Prossimo &rsaquo;"
-      truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "%{entry_name} non trovato"
-          one: "Mostrando <b>1</b> %{entry_name}"
-          other: "Mostrando <b>tutti i %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> di <b>%{total}</b> in totale"
+ views:
+  pagination:
+   first: '&laquo; Primo'
+   last: 'Ultimo &raquo;'
+   previous: '&lsaquo; Precedente'
+   next: 'Prossimo &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: '%{entry_name} non trovato'
+     one: 'Mostrando <b>1</b> %{entry_name}'
+     other: 'Mostrando <b>tutti i %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> di <b>%{total}</b> in totale'

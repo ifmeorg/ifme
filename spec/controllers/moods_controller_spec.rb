@@ -7,33 +7,38 @@ RSpec.describe MoodsController, type: :controller do
   let(:valid_mood_params) { attributes_for(:mood) }
   let(:invalid_mood_params) { { name: nil, description: nil } }
 
-  describe 'GET #index' do
+  describe '#index' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       before { get :index }
       it 'sets the categories and page tooltip ivar' do
         expect(assigns(:moods)).to eq [user_mood]
-        expect(assigns(:page_tooltip)).to eq I18n.t('moods.new')
+        expect(assigns(:page_new)).to eq I18n.t('moods.new')
       end
       it 'renders the page' do
         expect(response).to render_template(:index)
       end
     end
+
+    context 'when request type is JSON' do
+      include_context :logged_in_user
+      before { get :index, params: { page: 1, id: user_mood.id }, format: :json }
+      it 'returns a response with the correct path' do
+        expect(JSON.parse(response.body)['data'].first['link']).to eq mood_path(user_mood)
+      end
+    end
+
     context 'when the user is not logged in' do
       before { get :index }
       it_behaves_like :with_no_logged_in_user
     end
   end
 
-  describe 'GET #show' do
+  describe '#show' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when the user created the mood' do
         before { get :show, params: { id: user_mood.id } }
-        it 'passes the edit link and tooltip text to the template' do
-          expect(assigns(:page_edit)).to eq edit_mood_path(user_mood)
-          expect(assigns(:page_tooltip)).to eq I18n.t('moods.edit_mood')
-        end
         it 'renders the page' do
           expect(response).to render_template(:show)
         end
@@ -51,7 +56,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'GET #new' do
+  describe '#new' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       it 'renders the page' do
@@ -65,7 +70,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
+  describe '#edit' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'user is trying to edit a mood they created' do
@@ -87,7 +92,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
+  describe '#create' do
     context 'when the user is logged in' do
       include_context :logged_in_user
 
@@ -132,7 +137,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #premade' do
+  describe '#premade' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       it 'creates 5 premade moods' do
@@ -149,7 +154,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'PATCH/PUT #update' do
+  describe '#update' do
     let(:valid_update_params) { { name: 'updated name' } }
     let(:invalid_update_params) { { name: nil } }
 
@@ -180,7 +185,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do
+  describe '#destroy' do
     let!(:moment) { create(:moment, user_id: user.id, mood: [user_mood.id]) }
 
     context 'when the user is logged in' do
@@ -204,7 +209,7 @@ RSpec.describe MoodsController, type: :controller do
     end
   end
 
-  describe 'POST #quick_create' do
+  describe '#quick_create' do
     context 'when the user is logged in' do
       include_context :logged_in_user
       context 'when valid params are supplied' do
@@ -214,19 +219,18 @@ RSpec.describe MoodsController, type: :controller do
         end
         it 'responds with a checkbox in json format' do
           post :quick_create, params: { mood: valid_mood_params }
-          response_keys = JSON.parse(response.body).keys
-          expect(response_keys).to contain_exactly('checkbox',
-                                                   'label',
-                                                   'wrapper_id',
-                                                   'autocomplete_id',
-                                                   'name',
-                                                   'id')
+          expect(response.body).to eq({
+            success: true,
+            id: Mood.last.id,
+            name: Mood.last.name,
+            slug: Mood.last.slug
+          }.to_json)
         end
       end
       context 'when invalid params are supplied' do
         it 'responds with an error in json format' do
           post :quick_create, params: { mood: invalid_mood_params }
-          expect(response.body).to eq({ error: 'error' }.to_json)
+          expect(response.body).to eq({ success: false }.to_json)
         end
       end
     end

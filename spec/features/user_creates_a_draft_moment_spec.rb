@@ -1,34 +1,25 @@
+# frozen_string_literal: true
+
 describe 'UserCreatesADraftMoment', js: true do
   let(:user) { create :user2, :with_allies }
-  let(:ally) { user.allies.first }
+  let(:ally) { user.allies.second }
   let!(:category) { create :category, user_id: user.id }
   let!(:mood) { create :mood, user_id: user.id }
   let!(:strategy) { create :strategy, user_id: user.id }
-
-  def hit_down_arrow
-    page.driver.execute_script(<<~JS)
-      var e = $.Event("keydown", { keyCode: 40 });
-      $("body").trigger(e);
-    JS
-  end
 
   feature 'Creating, viewing, and editing a draft moment' do
     it 'is not successful' do
       login_as user
       visit new_moment_path
-      click_on 'Submit'
+      find('#submit').click
       expect(page).to have_content('New Moment')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('.labelError')
     end
 
     it 'is successful' do
       login_as user
       visit moments_path
-
-      within '#page_title_content' do
-        expect(page).to have_content 'Moments'
-      end
-
+      expect(find('.pageTitle')).to have_content 'Moments'
       expect(page).to have_content 'Delve deep into your moments - events ' \
                                    'and situations that affect your mental ' \
                                    'health.'
@@ -36,151 +27,139 @@ describe 'UserCreatesADraftMoment', js: true do
       expect(page).to have_content 'Panicking over interview tomorrow!'
 
       # CREATING
-      page.find('a[title="New Moment"]').click
+      click_link('New Moment')
+      expect(find('.pageTitle')).to have_content 'New Moment'
+      find('#moment_name').set('My New Moment')
+      fill_in_textarea('A moment why', '#moment_why')
 
-      within '#page_title_content' do
-        expect(page).to have_content 'New Moment'
+      within('#moment_category_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Test Category')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Some New Category')
+        page.find('.tagAutocomplete').native.send_keys(:return)
       end
 
-      page.fill_in 'moment[name]', with: 'My new moment'
-
-      page.find('[data-toggle="#categories"]').click
-
-      within '#categories' do
-        page.fill_in 'moment[category_name]', with: 'Test Category'
-        hit_down_arrow
-        page.find('#moment_category_name').native.send_keys(:return)
-        page.fill_in 'moment[category_name]', with: 'Some New Category'
-        page.find('#moment_category_name').native.send_keys(:return)
+      within '.modal' do
+        find('#submit').click
       end
 
-      within '#category_quick_create' do
-        page.find('#new_category input[type="submit"]').click
+      within('#moment_category_accordion') do
+        find('.accordion').click
       end
 
-      within '#categories' do
-        page.fill_in 'moment[category_name]', with: 'Another New Category'
-        page.find('#moment_category_name').native.send_keys(:return)
+      within('#moment_mood_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Test Mood')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Some New Mood')
+        page.find('.tagAutocomplete').native.send_keys(:return)
       end
 
-      within '#category_quick_create' do
-        page.find('#new_category input[type="submit"]').click
+      within '.modal' do
+        find('#submit').click
       end
 
-      within '#categories_list' do
-        page.all('input[name="moment[category][]"]')[2].click
+      within('#moment_mood_accordion') do
+        find('.accordion').click
       end
 
-      page.find('[data-toggle="#categories"]').click
-
-      page.find('[data-toggle="#moods"]').click
-
-      within '#moods' do
-        page.fill_in 'moment[mood_name]', with: 'Test Mood'
-        hit_down_arrow
-        page.find('#moment_mood_name').native.send_keys(:return)
-        page.fill_in 'moment[mood_name]', with: 'Some New Mood'
-        page.find('#moment_mood_name').native.send_keys(:return)
+      within('#moment_strategy_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Test Strategy')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Some New Strategy')
+        page.find('.tagAutocomplete').native.send_keys(:return)
       end
 
-      within '#mood_quick_create' do
-        page.find('#new_mood input[type="submit"]').click
+      within '.modal' do
+        fill_in_textarea('A Strategy Description', '#strategy_description')
+        find('#submit').click
       end
 
-      within '#moods_list' do
-        page.all('input[name="moment[mood][]"]')[0].click
+      within('#moment_viewers_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Ally 1')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.accordion').click
       end
 
-      within '#moods' do
-        page.fill_in 'moment[mood_name]', with: 'Another New Mood'
-        page.find('#moment_mood_name').native.send_keys(:return)
-      end
-
-      within '#mood_quick_create' do
-        page.find('#new_mood input[type="submit"]').click
-      end
-
-      page.find('[data-toggle="#moods"]').click
-
-      scroll_to_and_click('[data-toggle="#strategies"]')
-
-      within '#strategies' do
-        page.fill_in 'moment[strategy_name]', with: 'Test Strategy'
-        hit_down_arrow
-        page.find('#moment_strategy_name').native.send_keys(:return)
-        page.fill_in 'moment[strategy_name]', with: 'Some New Strategy'
-        page.find('#moment_strategy_name').native.send_keys(:return)
-      end
-
-      within '#strategy_quick_create' do
-        page.fill_in 'strategy[description]', with: 'Hello some description'
-        scroll_to_and_click('#new_strategy input[type="submit"]')
-      end
-
-      scroll_to_and_click('[data-toggle="#strategies"]')
-      scroll_to_and_click('[data-toggle="#viewers"]')
-
-      within '#viewers_list' do
-        scroll_to_and_click('#viewers_all')
-      end
-
-      scroll_to_and_click('[data-toggle="#viewers"]')
-
-      # ALLOW COMMENTS
-      scroll_to_and_click('input#moment_comment')
-
-      fill_in_ckeditor('moment_why', with: 'my moment why description')
-      fill_in_ckeditor('moment_fix', with: 'my moment fix description')
-
-      # SAVE AS DRAFT
-
-
-      page.find('input[value="Submit"]').click
+      find('#moment_comment_switch').click
+      find('#submit').click
 
       # VIEWING AS OWNER
-      within '#page_title_content' do
-        expect(page).to have_content 'My new moment'
-      end
-      expect(page).to have_selector 'span.draft-badge'
+      expect(find('.pageTitle')).to have_content 'My New Moment'
+      expect(page).to have_content 'Test Category'.upcase
+      expect(page).to have_content 'Some New Category'.upcase
+      expect(page).to have_content 'Test Mood'.upcase
+      expect(page).to have_content 'Some New Mood'.upcase
+      expect(page).to have_content 'What happened and how do you feel?'.upcase
+      expect(page).to have_content 'A moment why'
+      expect(page).to have_content 'What strategies would help?'.upcase
+      expect(page).to have_content 'Test Strategy'
+      expect(page).to have_content 'Some New Strategy'
+      find('.storyActionsViewers').hover
+      expect(page).to have_content 'Ally 1'
+      expect(page).not_to have_css('#comments')
+      expect(page).to have_selector '.storyDraft'
       back = current_url
 
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
-        expect(page).not_to have_content 'My new moment'
-      end
-
+      expect(find('.pageTitle')).not_to have_content 'My New Moment'
       login_as user
       visit back
 
       # EDITING
-      page.find('a[title="Edit Moment"]').click
+      find('.storyActionsEdit').click
+      expect(find('.pageTitle')).to have_content 'Edit My New Moment'
 
-      within '#page_title_content' do
-        expect(page).to have_content 'Edit My new moment'
+      within('#moment_category_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Category'
+        expect(page).to have_content 'Some New Category'
+        find('.accordion').click
       end
 
-      moment_why_text = 'I am changing my moment why description'
-      fill_in_ckeditor('moment_why', with: moment_why_text)
+      within('#moment_mood_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Mood'
+        expect(page).to have_content 'Some New Mood'
+        find('.accordion').click
+      end
+
+      within('#moment_strategy_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Strategy'
+        expect(page).to have_content 'Some New Strategy'
+        find('.accordion').click
+      end
+
+      within('#moment_viewers_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Ally 1'
+        find('.accordion').click
+      end
+
+      moment_why_text = 'I am changing my moment why'
+      fill_in_textarea(moment_why_text, '#moment_why')
 
       # PUBLISH
-      scroll_to_and_click('input#togBtn')
-
-      page.find('input[value="Submit"]').click
+      find('#moment_publishing_switch').click
+      find('#submit').click
 
       # VIEWING AFTER EDITING
-      within '#page_title_content' do
-        expect(page).to have_content 'My new moment'
-      end
-      expect(page).not_to have_selector 'span.draft-badge'
+      expect(find('.pageTitle')).to have_content 'My New Moment'
+      expect(page).to have_content moment_why_text
+      expect(page).not_to have_selector '.storyDraft'
+      expect(page).to have_css('#comments')
 
       # TRYING TO VIEW AS ALLY
       login_as ally
       visit back
-      within '#page_title_content' do
-        expect(page).to have_content 'My new moment'
-      end
+      expect(find('.pageTitle')).to have_content 'My New Moment'
+      expect(page).to have_content moment_why_text
     end
   end
 end

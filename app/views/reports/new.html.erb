@@ -1,0 +1,2 @@
+<% title "#{t('reports.new', name: User.find_by(uid: params[:uid]).name)}" %>
+<%= react_component('Form', props: new_report_props(params[:uid], params[:comment_id])) %>

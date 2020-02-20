@@ -3,29 +3,30 @@
   <%= f.hidden_field :invitation_token %>
 
   <% if f.object.class.require_password_on_accepting %>
-    <div class="field">
-      <div class="label">
-        <%= f.label t('common.name') %>
-      </div>
-      <%= f.text_field :name %>
+    <div class="label">
+      <%= t('common.name') %>
     </div>
+    <%= f.text_field :name, 'aria-label': t('common.name') %>
 
-    <div class="field">
-      <div class="label">
-        <%= f.label t('devise.password') %>
-      </div>
-      <%= f.password_field :password %>
+    <div class="label smallMarginTop">
+      <%= t('devise.password') %>
     </div>
+    <%= f.password_field :password, 'aria-label': t('devise.password') %>
 
-    <div class="field">
-      <div class="label">
-        <%= f.label t('devise.registrations.placeholders.repeat_password') %>
-      </div>
-      <%= f.password_field :password_confirmation %>
+    <div class="label smallMarginTop">
+      <%= t('devise.registrations.placeholders.repeat_password') %>
     </div>
+    <%= f.password_field :password_confirmation, 'aria-label': t('devise.registrations.placeholders.repeat_password') %>
   <% end %>
 
-  <div class="actions no_margin_bottom">
-  	<%= f.submit t("devise.invitations.edit.submit_button") %>
-  </div>
+  <%= f.submit t("devise.invitations.edit.submit_button"), class: 'buttonGhostM smallMarginTop' %>
 <% end %>
+<div class="center">
+  <div class="smallMarginTop">
+    <%= button_to t('devise.shared.sign_up_google'),
+      omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
+      method: :post,
+      class: 'buttonGhostM'
+    %>
+  </div>
+</div>

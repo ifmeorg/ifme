@@ -1,0 +1,733 @@
+zh-CN:
+  app_name: '如果我'
+  app_description: '精神健康体验社区'
+  email: join.ifme@gmail.com
+  created: '已创建%{created_at}'
+  draft: 草案
+  edited: '已创建%{created_at}（已编辑）'
+  edited_updated_at: '已创建%{created_at}（已编辑%{updated_at}）'
+  salutation: '%{name}，您好！,'
+  click_here: '点击这里'
+  language: 语言
+  yes_text: '是'
+  no_text: '没有'
+  expand_menu: '展开菜单'
+  close: 关
+  load_more: '装载更多'
+  of: 的
+  languages:
+    en: English
+    es: Español
+    nl: Nederlands
+    pt-BR: Português
+    sv: Svenska
+    various_languages: 'Various languages'
+    vi: 'Tiếng Việt'
+    it: Italiano
+    nb: Norsk
+    de: Deutsch
+    fr: Français
+    hi: 'हिंदी'
+    zh-CN: 中文
+  navigation:
+    main_menu: '主菜单'
+    user_menu: '用户菜单'
+    about: 关于
+    blog: 博客
+    contribute: 有助于
+    partners: 伙伴
+    privacy: '隐私政策'
+    github: 的GitHub
+    patreon: Patreon
+    opencollective: 'Open Collective'
+    instagram: Instagram
+    rss: RSS
+    twitter: Twitter
+    facebook: Facebook
+    feedback: feedback
+    give_feedback: '给予反馈'
+    press: Press
+    faq: FAQ
+    resources: Resources
+    code_of_conduct: 'Code of Conduct'
+  common:
+    name: 名称
+    you: 您
+    title: 标题
+    date: 日期
+    daily_reminder: '每日提醒电子邮件'
+    actions:
+      plural: 行动
+      submit: 提交
+      submit_publish: 发布
+      submit_draft: 草案
+      confirm: '你确定吗？'
+      delete: 删除
+      edit: 编辑
+      edit_instance: '修改%{instance}'
+      join: 加入
+      leave: 离开
+      add: 加
+      add_all: '全部添加'
+      select_all: '全选'
+      remove: 去掉
+      report: 报告
+    form:
+      email: 电子邮件
+      location: 位置
+      description: 描述
+      error_explanation: '请填写标记的字段！'
+      empty_error: '该字段不能为空！'
+      search_by_keywords: '按关键词搜索'
+    time_ago: '%{date}前'
+    write_to_us: '写信给我们'
+    days: 天
+  reports:
+    admin_dashboard: '管理员控制台'
+    reported_users: '报告的用户'
+    banned_users: '禁止的用户'
+    reasons: 原因
+    new: '的新报告 %{name}'
+    remove_ban: '删除禁令'
+    ban_user: '禁止用户'
+    report_sent: '报告 %{name} 已发送'
+    report_error: '无法发送有关的报告 %{name}'
+    reportee: 被告人
+    reporter: 记者
+    user_banned: '%{name} 已经被禁止'
+    ban_removed: '禁止删除 %{name}'
+    user_banned_error: '无法禁止 %{name}'
+    ban_removed_error: '无法取消禁止 %{name}'
+  comment:
+    singular: 评论
+    plural: 注释
+    posting: '发表评论...'
+    allow_comments: '允许评论？'
+    hint: '只有您和观众可以发表评论'
+    control: '控制哪些人可以查看和评论'
+  account:
+    singular: 帐户
+    sign_in: '登入'
+    sign_up: '注册'
+    forgot_password: '忘记密码了吗？'
+  members:
+    one: '%{count} 会员'
+    other: '%{count} 成员'
+  allies:
+    add_ally: '添加到盟友'
+    cancel_ally_request: '取消请求'
+    accept: 接受
+    reject: 拒绝
+    index:
+      title: 盟国
+      outgoing: '寄出要求'
+      incoming: '传入请求'
+      invited: '通过电子邮件邀请'
+      invited_on: '邀请参加: %{date}'
+      invitation_expired: '邀请已过期'
+      invite: '邀请您的亲人！'
+      none: '您目前没有盟友！您可以搜索他们或邀请亲人加入！'
+      view_all_allies: '查看所有盟友'
+      cancel: 取消
+    form:
+      placeholder: '输入一个或多个逗号分隔的电子邮件'
+  categories:
+    singular: 类别
+    plural: 分类目录
+    edit_category: '编辑类别'
+    new: '新类别'
+    form:
+      name_hint: '分类经常性的人员，地点，事物，活动等'
+    label:
+      one: '类别:'
+      other: '分类目录:'
+    index:
+      subtitle: '生活是凌乱的，对不同的人，地方和事物进行分类。'
+      premade1_name: 家庭
+      premade1_description: '家庭相关'
+      premade2_name: 友人
+      premade2_description: '相关的朋友'
+      premade3_name: 工作
+      premade3_description: '工作相关'
+      premade4_name: 冥想
+      premade4_description: '冥想, 深呼吸, 和休闲活动'
+      instructions: '您尚未创建任何自定义类别。<br>您还可以添加以下预制类别，然后再次自定义它们。'
+  errors:
+    home_page: '回家'
+    internal_server_error:
+      header_message: '该页面无法显示'
+    not_found:
+      header_message: '本页面不存在'
+    empty_params: '不能空白'
+  groups:
+    singular: 组
+    plural: 团体
+    form:
+      leaders: 领导者
+      only_leader: '你是唯一的领导者, 所以你不能离开.'
+      cannot_delete: '请注意，您不能删除组.'
+      error_save: 'We can''t save this group because: '
+      error_edit_permission: '您必须是组长才能对其进行编辑'
+    index:
+      subtitle: '创建并加入提供支持，指导和讨论的小组.'
+      available_groups: '可用组'
+      joined_groups: '参加团体'
+      leader: (Leader)
+      instructions: '您尚未加入任何群组.'
+    join:
+      success: '您已加入该组.'
+      group_not_exists: '您无法加入不存在的群组.'
+    leave:
+      error: '你不能离开小组, 你是唯一的领导者。'
+      success: '你走了 %{group}'
+      remove_member_success: '您已删除 %{user} 从 %{group}'
+      remove_member_error: '您不是领导者，因此无法踢小组成员。'
+    new: '新组'
+    show:
+      led_by: '由...领着: '
+      delete: '删除群组'
+  layouts:
+    application:
+      signin: '现在讲你的故事'
+      create_account: '立即加入社区'
+      update_account: '自定义您的帐户'
+    mailer:
+      html:
+        app_description: '%{app_name} 是一个鼓励人们与亲人分享心理健康故事的社区。'
+        no_reply: '您无法回复此电子邮件。如果您有任何疑问，疑虑或反馈，请发送电子邮件 %{email}!'
+    title:
+      reset_password: '重置你的密码'
+  medications:
+    singular: 用药
+    edit_medication: '编辑药物'
+    refill_reminder: '补充提醒电子邮件'
+    dosage: '每日剂量: '
+    weekly_dosage: '每周剂量: '
+    refill: '笔芯: '
+    quantity: '总数（量: '
+    strength: '强度: '
+    event_summary: '补充 %{name}。'
+    form:
+      strength: 强度
+      strength_placeholder: '岁月100'
+      total_placeholder: '岁月30'
+      dosage: 剂量
+      dosage_placeholder: '岁月2'
+      refill: 笔芯
+      comments_hint: '在此处添加任何其他评论， 例如记录您的症状'
+      add_to_google_cal: 'Google日历提醒'
+      google_cal_hint: '我们会将这种药物的提醒添加到您的 Google 日历中。'
+      strength_hint: '用药强度，通常在名字旁边'
+      total_hint: '药丸总数或用药量'
+      dosage_hint: '每日服药次数'
+      weekly_dosage_hint: '一周中的几天服用这种药物'
+      refill_hint: '何时补充此处方'
+      refill_reminder_hint: '我们将在需要补充药物的一周前通过电子邮件提醒您。'
+      daily_reminder_hint: '我们会每天通过电子邮件提醒您服用这种药物'
+      total: 总
+    new: '新药'
+    units:
+      display: '%{count} %{unit}'
+      mg: 毫克
+      ml: 毫升
+      tablets:
+        one: 片剂
+        other: 平板电脑
+    reminder_mailer:
+      subject: '别忘了服用 %{name}!'
+      body: '这是一个友好的提醒您服药 %{name}!'
+    refill_mailer:
+      subject: '您的笔芯 %{name} 即将来临！'
+      body: '这是一个友好的提醒，以补充您的药物 %{name} 上 %{refill}!'
+    index:
+      title: 药物治疗
+      subtitle: '跟踪您的药物，包括剂量和补充信息。'
+      instructions: '您尚未保存任何药物。<br><br>这是保存药物的示例！您也可以写您的经历。'
+      example_name: 百忧解
+      example_strength: '10毫克'
+      example_total: '40片'
+      example_dosage: '2片'
+      example_refill: 2016/05/31
+    show:
+      comments: '注释: '
+  meetings:
+    singular: 会议
+    edit_meeting: '编辑会议'
+    form:
+      location_placeholder: '网址或街道地址'
+      maximum_members: '会员人数上限'
+      maximum_placeholder: '如果没有最大值，则为0'
+    join_success: '您已加入此会议。'
+    info:
+      cancel_meeting: '取消会议'
+      meeting_time: 时间
+      members_of_group_html:
+        one: '%{count} 成员 %{group}'
+        other: '%{count} 的成员 %{group}'
+    reminder_mailer:
+      subject: '你的会议 "%{meeting_name}" 明天在 %{time}!'
+      body: '谨在此提醒您，明天的会议 "%{meeting_name}", 将在 %{time} 在 %{location}!'
+    leave:
+      error: '您不能离开会议，您是唯一的领导者。'
+      success: '你走了 %{meeting}'
+    new: '新会议'
+    google_cal:
+      create:
+        add: '添加到Google日历'
+        success: '会议已成功添加到Google日历。'
+        error: '将会议添加到Google日历时出了点问题。'
+      destroy:
+        remove: '从Google日历中删除'
+        success: '会议已成功从Google日历中删除。'
+        error: '从Google日历删除会议时出了点问题。'
+  moments:
+    singular: 时刻
+    plural: 片刻
+    edit_moment: '编辑片刻'
+    tagged_moments: '标记的时刻'
+    new: '新时刻'
+    secret_share:
+      singular: '秘密分享'
+      expires_at: '于到期'
+      cancel_secret_share: '取消秘密分享'
+      link_copied: '秘密共享链接已复制到剪贴板'
+    form:
+      why: '发生了什么，您感觉如何？'
+      fix: '您想有什么想法？'
+      what_happened: '发生了什么？'
+      viewers_hint: '可以看到你的时刻的盟友'
+      draft_question: '您想将自己的时间保存为草稿吗？'
+    index:
+      subtitle: '深入了解您的时刻-影响您心理健康的事件和情况。'
+      instructions: '您尚未写任何片刻。<br><br>不知道从哪里开始？您想与亲人分享和讨论今天发生的事情？它可以是正数或负数！您不必立即共享它-仅当您准备好共享时！这是片刻的例子.'
+      example_name: '明天恐慌面试！'
+      example_category: 事业
+    show:
+      strategies: '哪些策略会有所帮助？心情'
+  moods:
+    singular: 心情
+    plural: 心情
+    edit_mood: '编辑心情'
+    new: '新心情'
+    example_moods: '紧张，焦虑，充满希望'
+    index:
+      subtitle: '创建描述您的心理状态的标签，感觉和情感的标签。'
+      premade1_name: 接受
+      premade1_description: '接受差异与局限并保持和平'
+      premade2_name: 雄心勃勃
+      premade2_description: '对实现目标感到乐观'
+      premade3_name: 好奇
+      premade3_description: '对不确定性感到好奇'
+      premade4_name: 不满
+      premade4_description: '不接受某些事实，生气，报仇和/或嫉妒'
+      premade5_name: 绝望
+      premade5_description: '感到悲伤和绝望-无法找到任何可能的解决方案'
+      instructions: '您尚未创建任何自定义心情。<br>您还可以添加以下预制的情绪，然后再次自定义它们。'
+  notifications:
+    plural: 通知事项
+    none: '没有了'
+    clear: 明确
+    created_by_html: '<strong>创建于</strong>: %{name}'
+    preview: '查看更多'
+    members:
+      title: '成员名单'
+    ally:
+      accepted: '%{name} 接受了您的盟友请求！'
+      sent_html: '%{link_to_user} 发送了一个盟友请求！'
+    comment:
+      full: '%{name} 已评论 "%{comment}" 上 %{typename}'
+      truncated: '%{name} 已评论 "%{comment}" [...] 上 %{typename}'
+    group:
+      new_group: '%{name} 建立了一个小组 "%{group_name}"'
+      new_group_member: '%{name} 加入了你的小组 "%{group_name}"'
+      add_group_leader: '%{name} 成为 "%{group_name}"'
+      remove_group_leader: '%{name} 不再是 "%{group_name}"'
+    meeting:
+      new_meeting: '%{name} 创建了一个新会议 "%{meeting_name}" 对于 "%{group_name}"'
+      remove_meeting: '%{name} 已取消 "%{meeting_name}" 对于 "%{group_name}"'
+      update_meeting: '%{name} 更新了 "%{meeting_name}" 对于 "%{group_name}"'
+      join_meeting: '%{name} 已经加入 "%{meeting_name}" 对于 "%{group_name}"'
+    mailer:
+      comment_on_moment_subject: '如果我 %{user} 评论了你的一刻 "%{moment}"'
+      comment_on_strategy_subject: '如果我 %{user} 评论了您的策略 "%{strategy}"'
+      comment_on_meeting_subject: '如果我 %{user} 在会议上发表了评论 "%{meeting}" 在组中 "%{group}"'
+      comment_on_private_body: '<p>你的盟友 <strong>%{user}</strong> 私下评论: </p>'
+      comment_on_body: '<p>你的盟友 <strong>%{user}</strong> 评论: </p>'
+      comment_text_cutoff: '<p><i>%{comment} [...]</i></p>'
+      comment_text: '<p><i>%{comment}</i></p>'
+      comment_link: '<p>阅读它, %{link}!</p>'
+      new_group_subject: '如果我 %{user} 建立了一个小组 "%{group}"'
+      new_group_body: '<p>%{user} 建立了一个小组 "%{group}":</p><p><i>%{description}</i></p><p>要了解更多信息并加入, %{link}!</p><p>请按照我们的 %{code_of_conduct_link}!</p>'
+      new_group_member_subject: '如果我 %{user} 加入了你的小组 "%{group}"'
+      add_group_leader_you_subject: '如果我  "%{group}"'
+      add_group_leader_subject: '如果我 %{user} 成为 " %{group}"'
+      add_remove_group_leader_body: '<p>查看 "%{group}", %{link}!</p>'
+      remove_group_leader_you_subject: '如果我您不再是...的领导者 "%{group}"'
+      remove_group_leader_subject: '如果我 %{user} 不再是 "%{group}"'
+      update_meeting_subject: '如果我 %{user} 更新了会议 "%{meeting}" 对于 "%{group}"'
+      new_meeting_subject: '如果我 %{user} 创建了一个新会议 "%{meeting}" 对于 "%{group}"'
+      meeting_body: '<p>%{subject}</p><p><i>%{description}</i></p><p><strong>位置: </strong> %{location}</p><p><strong>日期: </strong> %{date}</p><p><strong>时间: </strong> %{time}</p>'
+      new_meeting_link: '<p>要了解更多信息并参加， %{link}!</p>'
+      update_meeting_link: '<p>了解更多， %{link}!</p>'
+      remove_meeting_subject: '如果我 %{user} 已取消 "%{meeting}" 对于 "%{group}"'
+      join_meeting_subject: '如果我 %{user} 已经加入 "%{meeting}" 对于 "%{group}"'
+      join_meeting_body: '<p>查看 "%{meeting}", %{link}!</p>'
+      reported_user_subject: '如果我您已举报用户'
+      reported_user_body: '您已举报 %{reported_name}。这将由管理员进行审查。'
+      reportee_user_subject: '如果我据报您'
+      reportee_user_body: '您被举报了。这将由管理员进行审查。'
+      add_ban_subject: '如果我您已经被禁止'
+      add_ban_body: '您因违反我们的规定而被禁止 %{code_of_conduct_link}。'
+      remove_ban_subject: '如果我您不再被禁止'
+      remove_ban_body: '您先前因违反我们的规定而被禁止 %{code_of_conduct_link}。您不再被禁止。'
+  omniauth:
+    google: 谷歌
+    access_denied: '拒绝访问'
+  pages:
+    about:
+      send_us: 我们
+      email_us: '随时发送电子邮件 %{email_link}!'
+      main_message_one: '%{app_name} 是一个提供心理健康体验的社区，鼓励人们与可信赖的盟友分享他们的个人故事。'
+      message_text_one: '受信任的盟友是我们每天与之互动的人，包括朋友，家人，同事，老师和精神卫生工作者。'
+      main_message_two: '处理心理健康是使我们成为人类的原因。但是对于我们许多人来说，对此保持开放是很困难的。'
+      message_text_two: '<p>并非每个人都是辅导员或治疗师。我们每天与之互动的人塑造了我们的情感和行为。让他们参与心理健康治疗是康复的关键。</p><p class="subtitle">这不仅在您的脑海中，还在您的周围。我们可以一起治愈。</p><p>心理健康是一种独特而独特的经历。没有两个大脑是一样的！解决该问题需要所有人的想法，这就是该项目是开源的原因。</p>'
+      main_message_three: '想资助我们吗？'
+      message_text_three: '我们的应用是 <u>完全地</u> 开源项目。它是由具有不同背景和技能的志愿者构建和维护的。</p><p>2016年，我们获得了来自 Linebreak。 2017年，我们获得了来自 %{fund_club_link}。</p>您可以通过向我们捐款来支持我们 %{patreon_link}</p>。'
+      # linebreak: 越线
+      fund_club: '基金俱乐部'
+    blog:
+      description: '如果您有兴趣为我们写信，请向我们推荐 %{email}！我们也欢迎匿名提交。'
+    contribute:
+      contributor_avatar_alt: '的贡献者传记 %{name}'
+      main_message_one: '如果我是由具有不同背景和技能的志愿者构建和维护的。'
+      message_text_one: '我们一直在寻找每个人的想法, 包含<strong>精神卫生倡导者</strong>,<strong>卫生专业人员</strong>,<strong>软件开发人员</strong>,<strong>译者</strong>, 和<strong>用户体验设计师</strong>!<p class="noMarginBottom">请 %{email_link} 我们会和你联系! 您将被邀请参加我们的%{slack_link} 页, 我们的主要沟通工具. 确保将我们的存储库分叉到 %{github_link}!</p>'
+      more_contributors: '更多精彩的贡献者!'
+      thanks: '非常感谢'
+      slack: 松弛
+    faq:
+      title: '经常问的问题'
+      data_access_question: '谁有权访问我的数据?'
+      data_access_answer: '数据未提供给任何第三方或任何第三方都无法访问. 删除帐户将删除所有数据.<br><br>在应用程序内分析用户数据以提供定制建议.'
+      moment_question: '什么是片刻?'
+      moment_answer: '一 <strong>%{moment}</strong> 是影响您心理健康的事件和情况. 可以是正数或负数. 将其视为日记条目或状态更新.<br><br>您可以使用策略，类别和心情标记时刻. 您还可以选择可以查看和评论的盟友。 您还可以使时刻仅对您可见。'
+      strategy_question: '什么是策略?'
+      strategy_answer: '一 <strong>%{strategy}</strong> 是一项有助于您应对或专注于康复的活动，思路或自我保健形式.<br><br>您可以使用类别标记策略。 您还可以选择可以查看和评论的盟友。 您还可以使策略仅对您可见。 共享策略将对所有指定的盟友可见，这意味着您可以使用自己的策略标记自己的时刻!'
+      category_question: '什么是类别?'
+      category_answer: '一 <strong>%{category}</strong> 是可以代表对您重要的人物，地点和事物的标签.'
+      mood_question: '什么是心情?'
+      mood_answer: '一 <strong>%{mood}</strong> 是描述您的心境，感觉和情感状态的标签.'
+      group_question: '什么是团体?'
+      group_answer: '一 <strong>%{group}</strong>提供有关心理健康的支持，指导和讨论. 您可以创建组，而您的盟友可以选择加入. 您只能加入由您的盟友创建的组.<br><br>作为小组组长，您可以创建 <strong>Meetings</strong>. 会议有地点和时间.该位置可以是实际地点，也可以是Google Hangouts网址.会议还允许发表评论. 如果您是小组组长，那么除非有其他组长，否则您不能离开小组. 仅当您是唯一成员时才能删除组.'
+      medications_question: '我如何使用药物功能?'
+      medications_answer: '<strong>%{medications} </strong>功能使您可以记录所服用的处方药。您还可以记录您的症状。'
+      invite_question: '如何邀请亲人加入应用程序？'
+      invite_answer: '转到<strong>%{allies} </strong>页面，然后单击“邀请您的亲人”链接。您将可以通过电子邮件邀请他们。当您所爱的人接受邀请时，他们将被添加到您的盟友列表中。'
+      email_notifications_question: '如何修改电子邮件通知？'
+      email_notifications_answer: '转到<strong>%{帐户} </strong>页面。您可以在此处修改电子邮件，密码，个人资料图片和个人简介。您也可以删除您的帐户。删除帐户后，所有数据都会被删除。'
+    home:
+      update_pwd_modal:
+        title: '更新密码'
+        body: '我们已为用户实施了更好的安全措施，请%{update_password_link}'
+        update_link: '更新您的密码。'
+      stories: 故事
+      not_signed_in:
+        main_message_one: '与亲人更好的沟通可以改善心理健康。'
+        message_text_one: '我们需要彼此的支持来消除污名。'
+        message_one: '与亲人分享您的故事并获得应有的支持'
+        message_two: '是您，没有附带条件，并具有安全性和隐私性'
+        message_three: '记录您的情绪，药物和自我保健'
+        main_message_two: '我们是开源的，因为心理健康应该是开放的。'
+        message_text_two: '我们<strong>始终</strong>一直在寻找您的%{help}和%{feedback}！'
+        help: 救命
+      signed_in_empty:
+        main_message_one: '%{name}，您好！'
+        message_text_one: '这里是您如何开始分享故事的方法。'
+        main_message_two: '向我们介绍你自己。'
+        cell_one: '自定义您的%{profile}-添加个人简介和个人资料图片<br>添加自定义%{moods}以最好地描述您的情绪<br>添加%{allies}-您想与之分享的朋友，家人和其他人'
+        main_message_three: '写你的故事。'
+        cell_two: '创建自定义%{categories}以帮助组织您的时刻<br>写出%{moments}-影响您心理健康的事件和情况'
+        main_message_four: '好好照顾自己。'
+        cell_three: '%{strategize}您的自我保健计划！<br>目前正在服用%{medications}？跟踪它并创建提醒！<br>需要额外的支持吗？加入或创建%{group}以打开'
+        main_message_five: '有任何疑问或疑虑吗？'
+        message_text_three: '请查看我们的%{faq}页面或%{email_link}！'
+        strategize: 制定策略
+    partners:
+      description: '这些是令人难以置信的组织，我们受到启发并有幸与之合作。我们很乐意与您的组织合作，通过%{email}向我们发送电子邮件。'
+    privacy:
+      summary: 摘要
+      summary_description: '<p>本隐私政策适用于本网站，并控制选择使用本网站的用户的隐私。</p> <p>鉴于网站的敏感内容，隐私是我们极为关注的重要问题。该政策旨在概述用户数据的收集方式，用途以及保护方式。</p>'
+      user_data: '用户数据'
+      user_data_description: '<p>用户旨在为我们提供他们一生的个人摘录（在“瞬间”功能中）和药物轶事。来自Moments功能的数据将与用户选择与之共享的任何人共享。药物功能的数据仅对用户可见。这两个数据都不会用于任何其他目的，也不会交还给外部各方。</p> <p>该应用程序还包含有关支持团体和应对心理健康挑战的策略的数据。只有拥有查看权限的用户才能访问此数据。来自两个功能部件的数据可以公开显示，以向当前和将来的用户展示。但是，用户身份将被保密。</p>'
+      cookies: 'Cookies的使用'
+      cookies_description: '<p>该网站使用cookie来改善用户访问网站时的体验。在适用的情况下，本网站使用cookie控制系统，允许用户首次访问该网站时允许或禁止在其计算机/设备上使用cookie。</p> <p> Cookie是保存给用户的小文件''的计算机硬盘驱动器，用于跟踪，保存和存储有关用户互动和网站使用情况的信息。这使网站可以通过其服务器为用户提供该网站内的量身定制的体验。</p> <p>建议用户，如果他们希望拒绝使用和保存该网站上的cookie并将其保存到计算机硬盘上他们应在其网络浏览器的安全设置中采取必要的步骤，以阻止该网站及其外部服务供应商的所有cookie。</p> <p>该网站使用跟踪软件来监视访问者，以更好地了解他们的使用方式。该软件由Google Analytics（分析）提供，它使用Cookie来跟踪访问者的使用情况。该软件会将Cookie保存到您计算机的硬盘中，以跟踪和监视您对网站的参与和使用情况，但不会存储，保存或收集个人信息。您可以阅读Google的%{google_privacy_policy}以了解更多信息。</p>'
+      social_media: '社交媒体平台'
+      social_media_description: '<p>通过本网站参与的外部社交媒体平台进行的沟通，参与和采取的措施分别根据条款和条件以及每个社交媒体平台所持有的隐私政策而定制。</p> <p>建议用户明智地使用社交媒体平台，并就其自身的隐私和个人详细信息谨慎/谨慎地与他们进行交流/互动。该网站绝不会通过社交媒体平台询问个人或敏感信息，并鼓励希望讨论敏感细节的用户通过电话或电子邮件等主要交流渠道与他们联系。</p> <p>该网站可能会使用社交共享按钮这有助于直接从网页到相关的社交媒体平台共享Web内容。建议用户在使用此类社交共享按钮之前自行决定这样做，并请注意，社交媒体平台可以分别通过您的社交媒体平台帐户跟踪和保存您共享网页的请求。</p>'
+      contact: '联系我们'
+      contact_description: '<p>如果有任何疑问或疑问，请%{email_link}。</p> <p class =“ noMarginBottom”> <em>根据%{jamie_king_media}改编的隐私权政策。</em> </p>'
+    resources:
+      description: '这是我们精选的精神健康资源清单，其中包括社区，教育工具，热线和服务。'
+      emergency: '如果您或您认识的某个人遇到精神健康紧急情况，请尽快寻求帮助。'
+      tags:
+        communities: 社区
+        education: 教育
+        hotlines: 热线电话
+        services: 服务
+        people_of_colour: '有色人种'
+        women_of_colour: '有色女人'
+        black_women: '黑人妇女'
+        domestic_violence: '家庭暴力'
+        dating_violence: '约会暴力'
+        cyberbullying: 网络欺凌
+        therapy: 治疗
+        counseling: 辅导
+        youth: 青年
+        lgbt: LGBT
+        harassment: 骚扰
+        self_care: 自我护理
+        women: 女人
+        chatbot: 聊天机器人
+        anonymous: 匿名
+        free: 自由
+        paid: 已付
+        twenty_four_seven: 24/7
+        videos: 影片
+        blog: 博客
+        podcast: 播客
+        books: 图书
+        publication: 出版物
+        video_chat: '视讯通讯'
+        texting: 发短信
+        open_source: '开源'
+        workplace: 工作场所
+        social_justice: '社会正义'
+        tech_industry: '科技产业'
+        meditation: 冥想
+        anxiety: 焦虑
+        social_anxiety: '社交焦虑'
+        trigger_warnings: '触发警告'
+        netflix: netflix
+        homeless: 无家可归
+        talks: 会谈
+        voice_chat: '语音聊天'
+        training: 训练
+        directory: 目录
+        self_injury: 自我伤害
+        treatment: 治疗
+        care_planning: '护理计划'
+        depression: 萧条
+        ocd: OCD
+        advice: 忠告
+        forum: 论坛
+        learning: 学习
+        crisis_prevention: '危机预防'
+        safety_planning: '安全计划'
+        suicide_prevention: '预防自杀'
+        android: android
+        ios: iOS
+        support_groups: '支持团体'
+        mindfulness: 正念
+        journaling: 日记
+        mood_tracking: '情绪追踪'
+        veterans: 退伍军人
+        music: 音乐
+        integrative: 综合的
+        ptsd: PTSD
+        tbi: TBI
+        news: 新闻
+        government: 政府
+        christian: 基督教
+        humor: 幽默
+        conference: 会议
+        addiction: 瘾
+        rehabilitation: 复原
+        teachers: 老师
+        bipolar: 双极
+        goal_tracking: '目标跟踪'
+        social_network: '社交网络'
+        add: ADD
+        adhd: ADHD
+        sexual_assault_survivors: '性侵犯幸存者'
+        political_movement: '政治运动'
+        reporting: 报告
+        game: 游戏
+        stress: 强调
+        fidget: 坐立不安
+        colouring: 染色
+        deaf: 阿斯达夫
+        asl: ASL
+        latinx: 乳胶
+        hispanic: 西班牙裔
+        senior_citizens: '老年人'
+        black_people: '黑人'
+        sexual_health: '性健康'
+        hackathon: 黑客马拉松
+        stories: 故事
+        teen: 青少年
+        coaching: 教练
+        physical_dependence: '身体依赖'
+        codependency: 相互依赖
+        relationships: 关系
+        alcoholism: 酗酒
+        cbt: CBT
+        chrome: chrome
+        firefox: firefox
+        social_media_break: '社交媒体中断'
+        quiz: 测验
+        attachment: 附件
+  profile:
+    index:
+      title: 个人资料
+      edit_user: '自定义个人资料'
+  pusher:
+    not_authorized: '未授权'
+  search:
+    label: 搜索
+    search_by_name: '按名称搜索'
+    form:
+      search_by_location: '按位置搜索'
+      search_by_email: '通过电子邮件搜索'
+    index:
+      title: '搜索盟友'
+      user_not_found: '找不到用户%{email}'
+  shared:
+    footer:
+      licence: AGPL-3.0
+      licence_subtitle: '在%{licence}下获得许可'
+      connect: 连接
+    comments:
+      share_everyone: '与所有人共享'
+      share_with: '仅与%{name}共享'
+      visible_only_between_you_and: '仅在您和%{name}之间可见'
+      not_allies: '（非盟友）'
+    header:
+      signout: '退出'
+      home: 主页
+    viewers_indicator:
+      disabled_comments: '评论已被禁用。'
+      you_are_viewer_html:
+        one: '你是唯一的观众。'
+        other: ' <strong>不是</strong>您是唯一的观看者。'
+      viewers_html:
+        zero: '没有<strong>没有</strong>个观看者。'
+        one: '%{names}是查看者。'
+        other: '%{names}是查看者。'
+    stats:
+      you_are_focusing: '您最关注的是'
+      user_is_focusing: '%{name}最关注'
+    viewers:
+      plural: 观看者
+      you: '只有您'
+      you_link: '仅对您可见'
+      many: '对%{viewers}可见'
+    meeting_info:
+      attending: '您正在参加。改变你的想法？'
+      not_attending: '您没有参加。 %{加入}'
+      not_attending_one_spot_left: '您没有参加。还剩一个景点！ %{加入}'
+      not_attending_spots_left: '您没有参加。还剩%{number}个景点！ %{加入}'
+      not_attending_no_spots_left: '您没有参加。没有加入的空间。'
+    quick_create:
+      new: '新%{name}'
+  strategies:
+    singular: 策略
+    plural: 策略
+    edit_strategy: '修改策略'
+    tagged_strategies: '标记策略'
+    new: '新策略'
+    form:
+      describe: '描述策略。'
+      strategies_label: '哪些策略可以帮助实现这些想法？'
+      name_hint: '可以帮助您的任何活动，思路，形式或自我保健'
+      viewers_hint: '可以查看您的策略并标记自己的时刻的盟友'
+      daily_reminder_hint: '我们会通过电子邮件每天提醒您执行此策略'
+      draft_question: '您要将策略另存为草稿吗？'
+    label:
+      one: '策略: '
+      other: '策略: '
+    index:
+      subtitle: '制定自我护理策略，以实现对自己时刻的理想想法和态度。'
+      premade1_name: '五分钟冥想'
+      premade1_description: '1）<b>找到一个放松，舒适的姿势。</b>您可以坐在椅子上或坐在垫子上的地板上。保持背部挺直，但不要太紧。双手放在舒适的地方休息。<br><br>2）<b>注意并放松身体。</b>尝试注意身体的形状，体重。让自己放松并对坐在这里的身体感到好奇-它所经历的感觉，触感，与地板或椅子的连接。放松任何紧绷或绷紧的区域。只是呼吸。<br><br>3）<b>调整呼吸。</b>感觉自然的呼吸流-进，出。您无需做任何呼吸。不长，不短，自然。注意您感到身体呼吸的位置。可能在您的腹部。它可能在您的胸部，喉咙或鼻孔中。看看您是否能感觉到呼吸的感觉，一次呼吸一次。<br><br>4）<b>对流浪的头脑保持友善。</b>现当您这样做时，您可能会注意到您的思想可能开始漂移。您可能会开始考虑其他事情。如果发生这种情况，那不是问题。非常自然请注意，您的思想已经漂移。您可以轻声说思考或徘徊。然后将注意力重新吸引到呼吸上。<br><br>5）<b>在这里待五到七分钟。</b>静静地注意呼吸。<br><br>6）<b>在结帐前先检查一下。</b>几分钟后，再次注意您的身体，整个身体，坐在这里。让自己更加放松，然后对今天的练习表示赞赏。<br><br><i>摘录自http://www.mindful.org/a-five-minute-breathing-meditation/ < / i>'
+      instructions: '您尚未创建任何自定义策略。<br>您还可以添加以下预制策略，然后再次对其进行自定义。'
+    reminder_mailer:
+      subject: '别忘了表演%{name}！'
+      body: '这是执行%{name}的友好提示！'
+  stats:
+    total_moments: '您写了<strong>总计</strong>个<strong>%{count} </strong>个时刻。'
+    total_moment: '您写了<strong>总计</strong>个<strong>%{count} </strong>个时刻。'
+    monthly_moments: '您在<strong> month </strong>里写了<strong>%{count} </strong>个时刻。'
+    monthly_moment: '您在此<strong>月</strong>写下了<strong>%{count} </strong>时刻。'
+  warnings:
+    no_description: '您没有写说明！'
+    yes_description: '写一个可以帮助您和其他人更好地理解'
+  mailers:
+    accepted_ally_request:
+      subject: '如果我| %{ally_name}接受了您的盟友请求！'
+      message: ' <p>恭喜！您现在可以与%{ally_name}共享时刻，策略等。</p>'
+    new_ally_request:
+      subject: '如果我| %{ally_name}发送了一个盟友请求！'
+      message: ' <p>请<a href="%{allies_url}">登录</a>以接受或拒绝该请求！</p>'
+  devise:
+    password: 密码
+    new_password: '新密码'
+    current_password: '当前密码'
+    password_change: '更改我的密码'
+    remember_me: '记住我'
+    confirmations:
+      resend_confirmation: '重新发送确认说明'
+    mailer:
+      confirmation:
+        link_instructions: '您可以通过以下链接确认您的帐户电子邮件'
+        link_text: '确认我的帐户'
+      reset_password:
+        link_instructions: '有人请求链接来更改您的密码。您可以通过下面的链接进行操作。'
+        ignore: '如果您没有要求，请忽略此电子邮件。'
+        info: '直到您访问上面的链接并创建一个新密码，您的密码才会更改。'
+      unlock:
+        info: '由于尝试登录失败的次数过多，您的帐户已被锁定。'
+        link_instructions: '点击下面的链接以解锁您的帐户'
+        link_text: '解锁我的帐户'
+    passwords:
+      edit:
+        confirmation: '确认新密码'
+      new:
+        send_instructions: '向我发送重置密码说明'
+    registrations:
+      email_notifications: '电子邮件通知'
+      comment_notify_text: '关于时刻，策略和会议的评论'
+      ally_notify_text: '新的和接受的盟友请求'
+      group_notify_text: '群组更新'
+      meeting_notify_text: '会议更新'
+      google_auth1: '如果您不想再通过Google进行身份验证，请输入新的电子邮件和密码。'
+      google_auth2: '由于您已通过Google身份验证，因此无需输入密码。<br>如果要更改此密码，请输入新的电子邮件和密码。'
+      password_errors:
+        format: '应包含8到128个字符，包括1个大写字母，1个小写字母，1个数字和1个特殊字符。'
+        used: '必须与最后三个密码不同。'
+      placeholders:
+        repeat_password: '重复密码'
+      edit:
+        labels:
+          profile_picture: '个人资料图片'
+          remove_picture: '删除图片'
+          about: 关于
+          password_for: ' <strong>如果我</strong>帐户的密码'
+          update: 更新
+        placeholders:
+          optional: 可选
+          about: '自我介绍！您为什么在这里，您希望实现什么？请注意，当用户搜索您的'
+          required: 必填
+        delete:
+          text: ' <strong>如果我</strong>对您不利吗？'
+          button: '永久删除我的帐户'
+          confirm: '您确定吗？您将丢失所有数据。但是您可以随时再次注册！'
+      new:
+        subtitle: '在安全，私密的地方开始讲故事并保持健康'
+        label: '一些细节'
+    sessions:
+      subtitle: '欢迎回来，我们期待您帮助您度过美好的一天'
+    shared:
+      sign_in_google: '使用Google登录'
+      sign_up_google: '使用Google注册'
+      confirmation: '没有收到确认指示吗？'
+      unlock: '没有收到解锁指令吗？'
+    unlock:
+      resend: '重新发送解锁说明'

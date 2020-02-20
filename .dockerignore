@@ -1,0 +1,44 @@
+# git files
+.git
+.gitignore
+.gitkeep
+.keep
+git-hooks
+
+# logfiles and tempfiles
+coverage
+tmp
+log
+**/*.log
+**/npm-debug.log*
+
+# OS files
+**/*.DS_Store
+**/Thumbs.db
+
+# IDE & editor configuration
+.vs*
+.idea
+.tags
+**/*.swp
+
+# managed dependencies
+**/node_modules
+**/v8-compile-cache-*/
+
+# generated JavaScript
+public/javascripts
+public/webpack
+public/webpack-test
+
+# documentation for project contributors
+*.md
+
+# configuration that doesn't need to be in the image
+.circleci
+.codeclimate.yml
+.dockerignore
+.github
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml

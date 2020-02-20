@@ -1,15 +1,16 @@
 {
-  "plugins": ["jasmine", "flowtype"],
+  "plugins": ["flowtype", "jest", "react"],
   "extends": ["airbnb", "plugin:flowtype/recommended"],
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "jasmine": true
+    "jest/globals": true
   },
   "root": true,
   "rules": {
     "import/prefer-default-export": ["off"],
     "react/require-default-props": ["off"],
+    "jsx-a11y/label-has-for": ["off"],
     "no-alert": ["off"],
     "react/sort-comp": [2, {
       "order": [

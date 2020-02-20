@@ -1,4 +1,5 @@
 // @flow
+/* eslint react/jsx-props-no-spreading: 0 */
 import { Chart as ChartJS } from 'chart.js';
 import React from 'react';
 import { AreaChart, LineChart } from 'react-chartkick';
@@ -21,5 +22,3 @@ export function Chart({ chartType, ...props }: chartShape) {
     <AreaChart {...props} colors={colorSchemes} />
   );
 }
-
-Chart.displayname = 'Chart';

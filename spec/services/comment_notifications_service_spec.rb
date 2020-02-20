@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe CommentNotificationsService do
   let(:user) { create :user2, :with_allies }
   let(:ally) { user.allies.first }
@@ -7,7 +9,7 @@ describe CommentNotificationsService do
     let!(:params) do
       {
         comment_id: comment.id,
-        model_name: model_name,
+        model_name: model_name
       }
     end
 

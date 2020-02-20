@@ -1,5 +1,6 @@
-module ScrollSpecSupport
+# frozen_string_literal: true
 
+module ScrollSpecSupport
   # sometimes the sticky header gets in the way
   # of clicking on elements. it's not ideal to
   # use javascript to click the element
@@ -13,12 +14,16 @@ module ScrollSpecSupport
   # .click(), but it's closer to real-life interactions
   # if we scroll the page first.
   def scroll_to_and_click(selector)
+    scroll_to(selector)
+    page.execute_script "#{element}.click()"
+  end
+
+  def scroll_to(selector)
     element = "$('#{selector}')"
     page.execute_script "#{element}[0].scrollIntoView(false)"
-    page.execute_script "#{element}.click()"
   end
 end
 
 RSpec.configure do |config|
-  config.include ScrollSpecSupport, :type => :feature
+  config.include ScrollSpecSupport, type: :feature
 end

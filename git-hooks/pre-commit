@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e  # Stop script if any command returns an error
+echo "Running pre-commit hook"
+
+rubocop
+cd client
+yarn lint
+
+cd ../config
+yamllint locales/

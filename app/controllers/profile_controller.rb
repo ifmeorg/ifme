@@ -1,20 +1,60 @@
 # frozen_string_literal: true
 
 class ProfileController < ApplicationController
+  include ProfileHelper
+
   def index
-    # If the specified profile doesn't exist, view the current user's profile
-    user = User.find_by(uid: params[:uid])
-    user = current_user if user.nil?
+    setup_stories
+  end
 
-    # Determine how the profile should be displayed based on the user_id
-    if user == current_user
-      @stories = Kaminari.paginate_array(get_stories(current_user, false))
-                         .page(params[:page])
-    elsif current_user.allies_by_status(:accepted).include? user
-      @stories = Kaminari.paginate_array(get_stories(user, false))
-                         .page(params[:page])
+  def data
+    setup_stories
+    respond_to do |format|
+      if @stories
+        format.json do
+          render json: data_json
+        end
+      end
     end
+  end
 
-    @profile = user
+  def add_ban
+    ban(true)
+  end
+
+  def remove_ban
+    ban(false)
+  end
+
+  private
+
+  def update_and_email(user, banned)
+    user.update(banned: banned)
+    if banned
+      BannedMailer.add_ban_email(user).deliver_now
+    else
+      BannedMailer.remove_ban_email(user).deliver_now
+    end
+  end
+
+  def ban(banned)
+    return unless current_user.admin
+
+    user = User.find_by(id: params[:user_id])
+    update_and_email(user, banned) if user.present?
+    redirect_to(
+      admin_dashboard_path,
+      notice_or_alert(
+        user,
+        banned ? 'user_banned' : 'ban_removed'
+      )
+    )
+  end
+
+  def notice_or_alert(user, notice)
+    name = user&.name || params[:user_id]
+    return { notice: t("reports.#{notice}", name: name) } if user.present?
+
+    { alert: t("reports.#{notice}_error", name: name) }
   end
 end

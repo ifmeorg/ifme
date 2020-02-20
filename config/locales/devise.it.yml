@@ -1,63 +1,60 @@
-# if me: DO NOT modify this file. if you need to add translations, add them to en.yml
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 it:
   devise:
     confirmations:
-      confirmed: "Il tuo indirizzo EMail è stato confermato con successo."
-      send_instructions: "Riceverai una EMail contenente le istruzioni necessarie a confermare il tuo indirizzo E-Mail in alcuni minuti."
-      send_paranoid_instructions: "Se il tuo indirizzo EMail esiste nel nostro database, riceverai una EMail contenente le istruzioni per confermarlo in alcuni minuti."
+      confirmed: 'Il tuo indirizzo EMail è stato confermato con successo.'
+      send_instructions: 'Riceverai una EMail contenente le istruzioni necessarie a confermare il tuo indirizzo E-Mail in alcuni minuti.'
+      send_paranoid_instructions: 'Se il tuo indirizzo EMail esiste nel nostro database, riceverai una EMail contenente le istruzioni per confermarlo in alcuni minuti.'
     failure:
-      already_authenticated: "Sei già loggato."
-      inactive: "Il tuo account non è ancora stato attivato."
-      invalid: "%{authentication_keys} o password non validi."
-      locked: "Il tuo account è bloccato."
-      last_attempt: "Ti rimane solo un altro tentativo prima che il tuo account venga bloccato."
-      not_found_in_database: "%{authentication_keys} o password invalidi."
-      timeout: "La tua sessione è scaduta. Per favore, effettua nuovamente il login per continuare."
-      unauthenticated: "È necessario effettuare l’accesso o la registrazione prima di continuare."
-      unconfirmed: "È necessario confermare il tuo indirizzo EMail prima di continuare."
+      already_authenticated: 'Sei già loggato.'
+      inactive: 'Il tuo account non è ancora stato attivato.'
+      invalid: '%{authentication_keys} o password non validi.'
+      locked: 'Il tuo account è bloccato.'
+      last_attempt: 'Ti rimane solo un altro tentativo prima che il tuo account venga bloccato.'
+      not_found_in_database: '%{authentication_keys} o password invalidi.'
+      timeout: 'La tua sessione è scaduta. Per favore, effettua nuovamente il login per continuare.'
+      unauthenticated: 'È necessario effettuare l’accesso o la registrazione prima di continuare.'
+      unconfirmed: 'È necessario confermare il tuo indirizzo EMail prima di continuare.'
     mailer:
       confirmation_instructions:
-        subject: "Istruzioni per la Conferma"
+        subject: 'Istruzioni per la Conferma'
       reset_password_instructions:
-        subject: "Istruzioni per il Reset della Password"
+        subject: 'Istruzioni per il Reset della Password'
       unlock_instructions:
-        subject: "Istruzioni per lo sblocco dell’account"
+        subject: 'Istruzioni per lo sblocco dell’account'
       password_change:
-        subject: "Password modificata"
+        subject: 'Password modificata'
     omniauth_callbacks:
-      failure: "Non è stato possibile autenticarti da %{kind} perché \"%{reason}\"."
-      success: "Autenticazione effettuata con successo da %{kind}."
+      failure: 'Non è stato possibile autenticarti da %{kind} perché "%{reason}".'
+      success: 'Autenticazione effettuata con successo da %{kind}.'
     passwords:
-      no_token: "Puoi solo accedere a questa pagina tramite una EMail di reset password. Se l’hai effettivamente aperta da una EMail di reset, assicurati di aver copiato l’url completo."
-      send_instructions: "Riceverai una EMail con istruzioni su come resettare la password in alcuni minuti."
-      send_paranoid_instructions: "Se il tuo indirizzo EMail esiste, riceverai una EMail contenente le istruzioni necessarie a resettare la tua password in alcuni minuti."
-      updated: "La tua password è stata modificata con successo. Sei ora loggato."
-      updated_not_active: "La tua password è stata modificata con successo."
+      no_token: 'Puoi solo accedere a questa pagina tramite una EMail di reset password. Se l’hai effettivamente aperta da una EMail di reset, assicurati di aver copiato l’url completo.'
+      send_instructions: 'Riceverai una EMail con istruzioni su come resettare la password in alcuni minuti.'
+      send_paranoid_instructions: 'Se il tuo indirizzo EMail esiste, riceverai una EMail contenente le istruzioni necessarie a resettare la tua password in alcuni minuti.'
+      updated: 'La tua password è stata modificata con successo. Sei ora loggato.'
+      updated_not_active: 'La tua password è stata modificata con successo.'
     registrations:
-      destroyed: "Arrivederci! Il tuo account è stato eliminato con successo. Speriamo di rivederti presto."
-      signed_up: "Benvenuto! Registrazione effettuata con successo."
-      signed_up_but_inactive: "Ti sei registrato con successo. Non siamo però riusciti a loggarti perché il tuo indirizzo EMail non è ancora stato confermato."
-      signed_up_but_locked: "Ti sei registrato con successo. Non siamo però riusciti a loggarti perché il tuo account è bloccato."
-      signed_up_but_unconfirmed: "Ti è stata inviata una EMail contenente il link per completare la registrazione. Per favore, clicca sul link per completare la tua registrazione."
-      update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma dobbiamo verificare il tuo indirizzo EMail. Per favore, controlla la tua casella e clicca sul link per confermare il nuovo indirizzo."
-      updated: "Le tue informazioni sono state aggiornate con successo."
+      destroyed: 'Arrivederci! Il tuo account è stato eliminato con successo. Speriamo di rivederti presto.'
+      signed_up: 'Benvenuto! Registrazione effettuata con successo.'
+      signed_up_but_inactive: 'Ti sei registrato con successo. Non siamo però riusciti a loggarti perché il tuo indirizzo EMail non è ancora stato confermato.'
+      signed_up_but_locked: 'Ti sei registrato con successo. Non siamo però riusciti a loggarti perché il tuo account è bloccato.'
+      signed_up_but_unconfirmed: 'Ti è stata inviata una EMail contenente il link per completare la registrazione. Per favore, clicca sul link per completare la tua registrazione.'
+      update_needs_confirmation: 'Hai aggiornato il tuo account con successo, ma dobbiamo verificare il tuo indirizzo EMail. Per favore, controlla la tua casella e clicca sul link per confermare il nuovo indirizzo.'
+      updated: 'Le tue informazioni sono state aggiornate con successo.'
     sessions:
-      signed_in: "Login effettuato."
-      signed_out: "Logout effettuato con successo."
-      already_signed_out: "Logout effettuato con successo."
+      signed_in: 'Login effettuato.'
+      signed_out: 'Logout effettuato con successo.'
+      already_signed_out: 'Logout effettuato con successo.'
     unlocks:
-      send_instructions: "Riceverai una EMail contenente le informazioni necessarie a sbloccare il tuo account in alcuni minuti."
-      send_paranoid_instructions: "Se il tuo account esiste, riceverai una EMail contenente le informazioni necessarie a sbloccare il tuo account in alcuni minuti."
-      unlocked: "Il tuo account è stato sbloccato con successo. Per favore, effettua il login per continuare."
+      send_instructions: 'Riceverai una EMail contenente le informazioni necessarie a sbloccare il tuo account in alcuni minuti.'
+      send_paranoid_instructions: 'Se il tuo account esiste, riceverai una EMail contenente le informazioni necessarie a sbloccare il tuo account in alcuni minuti.'
+      unlocked: 'Il tuo account è stato sbloccato con successo. Per favore, effettua il login per continuare.'
   errors:
     messages:
-      already_confirmed: "è già stato confermato, per favore effettua il login"
-      confirmation_period_expired: "deve essere confermato in %{period}, per favore richiedine uno nuovo"
-      expired: "è scaduto, per favore richiedine uno nuovo"
-      not_found: "non trovato"
-      not_locked: "non era bloccato"
+      already_confirmed: 'è già stato confermato, per favore effettua il login'
+      confirmation_period_expired: 'deve essere confermato in %{period}, per favore richiedine uno nuovo'
+      expired: 'è scaduto, per favore richiedine uno nuovo'
+      not_found: 'non trovato'
+      not_locked: 'non era bloccato'
       not_saved:
-        one: "1 errore ha impedito che questa %{resource} venisse salvata:"
-        other: "%{count} errori hanno impedito che questa %{resource} venisse salvata:"
+        one: '1 errore ha impedito che questa %{resource} venisse salvata:'
+        other: '%{count} errori hanno impedito che questa %{resource} venisse salvata:'

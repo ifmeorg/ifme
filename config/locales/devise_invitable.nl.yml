@@ -1,27 +1,27 @@
 nl:
   devise:
     failure:
-      invited: "Je hebt een openstaande uitnodiging, accepteer deze om je account te voltooien."
+      invited: 'Je hebt een openstaande uitnodiging, accepteer deze om je account te voltooien.'
     invitations:
-      send_instructions: "Een uitnodiging via e-mail is verstuurd naar %{e-mail}."
-      failed_send: "Er is een fout opgetreden. '%{email}' kon niet worden uitgenodigd."
-      invitation_token_invalid: "De token in je uitnodiging is niet valide!"
-      updated: "Je wachtwoord is succesvol ingesteld. Je bent nu ook ingelogd."
-      updated_not_active: "Je wachtwoord is ingesteld."
-      no_invitations_remaining: "Geen uitnodigingen meer."
-      invitation_removed: "Je uitnodiging is verwijderd"
+      send_instructions: 'Een uitnodiging via e-mail is verstuurd naar %{e-mail}.'
+      failed_send: 'Er is een fout opgetreden. %{email} kon niet worden uitgenodigd.'
+      invitation_token_invalid: 'De token in je uitnodiging is niet valide!'
+      updated: 'Je wachtwoord is succesvol ingesteld. Je bent nu ook ingelogd.'
+      updated_not_active: 'Je wachtwoord is ingesteld.'
+      no_invitations_remaining: 'Geen uitnodigingen meer.'
+      invitation_removed: 'Je uitnodiging is verwijderd'
       new:
-        header: "Nodig een bondgenoot uit"
-        submit_button: "Verstuur uitnodiging"
+        header: 'Nodig een bondgenoot uit'
+        submit_button: 'Verstuur uitnodiging'
       edit:
-        header: "Stel je wachtwoord in"
-        submit_button: "Stel mijn wachtwoord in"
+        header: 'Stel je wachtwoord in'
+        submit_button: 'Stel mijn wachtwoord in'
     mailer:
       invitation_instructions:
-        subject: "%{name} heeft je uitgenodigd om lid te worden van if me!"
-        subject_nameless: "Iemand heeft je uitgenodigd om lid te worden van if me!"
-        hello: "Hallo %{e-mail}!"
-        someone_invited_you: "%{name} heeft je uitgenodigd om lid te worden van http://www.if-me.org, een gemeenschap om ervaringsverhalen te delen over je geestelijke gezondheid met je naasten en om je stemmingen, medicatie en self-care te volgen. Je kunt de uitnodiging accepteren via onderstaande link."
-        accept: "Accepteer uitnodiging!"
-        accept_until: "Deze uitnodiging vervalt op %{due_date}."
-        ignore: "Als je de uitnodiging niet wilt accepteren, dan kun je deze e-mail negeren.<br />\nJe account zal niet worden geactiveerd totdat je bovenstaande link volgt en een wachtwoord aanmaakt."
+        subject: '%{name} heeft je uitgenodigd om lid te worden van if me!'
+        subject_nameless: 'Iemand heeft je uitgenodigd om lid te worden van if me!'
+        hello: 'Hallo %{e-mail}!'
+        someone_invited_you: '%{name} heeft je uitgenodigd om lid te worden van http://www.if-me.org, een gemeenschap om ervaringsverhalen te delen over je geestelijke gezondheid met je naasten en om je stemmingen, medicatie en self-care te volgen. Je kunt de uitnodiging accepteren via onderstaande link.'
+        accept: 'Accepteer uitnodiging!'
+        accept_until: 'Deze uitnodiging vervalt op %{due_date}.'
+        ignore: 'Als je de uitnodiging niet wilt accepteren, dan kun je deze e-mail negeren.<br />Je account zal niet worden geactiveerd totdat je bovenstaande link volgt en een wachtwoord aanmaakt.'

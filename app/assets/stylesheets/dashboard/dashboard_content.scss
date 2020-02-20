@@ -1,0 +1,11 @@
+.dashboardContent {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $size-0 25px 50px 25px;
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: $medium) {
+    flex-direction: column;
+    padding: 0;
+  }
+}

@@ -20,13 +20,12 @@ engines:
     exclude_paths:
     - public/javascripts/
     - vendor/assets/javascripts
-    - client/karma.conf.js
     - client/flow/
   fixme:
     enabled: false
   rubocop:
     enabled: true
-    channel: rubocop-0-48
+    channel: rubocop-0-71
 ratings:
   paths:
   - Gemfile.lock

@@ -4,17 +4,15 @@
 
 /* Allies */
 
-.location {
-  color: $secondary-text-color;
-  opacity: 0.5;
-}
-
-#allies_search {
+.ally {
   text-align: center;
-}
-
-#invitations {
-  #user_email {
-    width: 100%;
+  a {
+    @include standardTransition();
+  }
+  > a:first-of-type {
+    @include setMargin($size-0, $size-0, $size-20, $size-0);
+    display: block;
+    color: $mulberry;
+    font-weight: bold;
   }
 }

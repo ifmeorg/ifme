@@ -3,7 +3,7 @@
 #
 # Table name: moods
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  name        :string
 #  description :text
 #  created_at  :datetime
@@ -15,22 +15,6 @@
 class Mood < ApplicationRecord
   extend FriendlyId
   friendly_id :name
-  validates :description, length: { maximum: 2000 }
   validates :user_id, :name, presence: true
-
   belongs_to :user
-
-  def self.link
-    'moods'
-  end
-
-  def self.add_premade(user_id)
-    (1..5).each do |num|
-      Mood.create(
-        user_id: user_id,
-        name: I18n.t("moods.index.premade#{num}_name"),
-        description: I18n.t("moods.index.premade#{num}_description")
-      )
-    end
-  end
 end

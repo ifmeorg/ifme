@@ -1,0 +1,29 @@
+<div>
+  <strong>
+    <%= t('common.form.location') %>:
+  </strong>
+
+  <% if meeting.location.match(/^https?:\/\/|www\./) %>
+    <%= link_to meeting.location, meeting.location %>
+  <% else %>
+    <%= link_to meeting.location,
+      "https://www.google.com/maps/place/" + meeting.location %>
+  <% end %>
+</div>
+<div>
+  <strong>
+    <%= t('common.date') %>:
+  </strong>
+  <%= format_date(meeting.date) %>
+</div>
+<div>
+  <strong>
+    <%= t('meetings.info.meeting_time') %>:
+  </strong>
+  <%= format_time(meeting.time) %>
+</div>
+<div class="smallMarginTop">
+  <strong>
+    <%= get_meeting_members(meeting) %>
+  </strong>
+</div>

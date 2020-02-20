@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: comments
 #
-#  id               :integer          not null, primary key
+#  id               :bigint(8)        not null, primary key
 #  commentable_type :string
 #  commentable_id   :integer
 #  comment_by       :integer
@@ -14,6 +15,29 @@
 #
 
 describe Comment do
+  context 'with relations' do
+    it { is_expected.to belong_to :commentable }
+  end
+
+  context 'with validations' do
+    it { is_expected.to validate_presence_of :comment }
+    it { is_expected.to validate_presence_of :commentable_id }
+    it { is_expected.to validate_presence_of :comment_by }
+    it do
+      is_expected.to validate_length_of(:comment).is_at_least(0).is_at_most(1000)
+    end
+    it do
+      is_expected.to validate_inclusion_of(:commentable_type).in_array(%w[moment strategy meeting])
+    end
+    it do
+      is_expected.to validate_inclusion_of(:visibility).in_array(%w[all private])
+    end
+  end
+
+  context 'with serialize' do
+    it { is_expected.to serialize(:viewers) }
+  end
+
   let(:user1) { create(:user1) }
   let(:user2) { create(:user2) }
   let(:user3) { create(:user3) }
@@ -83,6 +107,58 @@ describe Comment do
     end
   end
 
+  describe 'comments' do
+    before do
+      create(
+        :comment,
+        commentable_id: 0,
+        commentable_type: commentable_type,
+        comment_by: user2.id,
+        comment: short_comment,
+        visibility: 'all'
+      )
+      create(
+        :comment,
+        commentable_id: commentable.id,
+        commentable_type: commentable_type,
+        comment_by: user2.id,
+        comment: short_comment,
+        visibility: 'all'
+      )
+    end
+
+    context 'when commentable type is a moment' do
+      let(:commentable) { create(:moment, comment: true, user_id: user1.id, viewers: [user2.id]) }
+      let(:commentable_type) { 'moment' }
+
+      it 'returns correct number of comments' do
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+
+    context 'when commentable type is a strategy' do
+      let(:commentable) { create(:strategy, comment: true, user_id: user1.id, viewers: [user2.id]) }
+      let(:commentable_type) { 'strategy' }
+
+      it 'returns correct number of comments' do
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+
+    context 'when commentable type is a meeting' do
+      let(:commentable) { create(:meeting) }
+      let(:commentable_type) { 'meeting' }
+
+      it 'returns correct number of comments' do
+        create :meeting_member, user_id: user1.id, leader: true, meeting_id: commentable.id
+        expect(Comment.comments_from(commentable).count).to eq(1)
+        expect(Comment.count).to eq(2)
+      end
+    end
+  end
+
   describe 'notify_of_creation!' do
     context 'Moments' do
       it 'does not send a notification when the user created both the Moment and comment' do
@@ -100,7 +176,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -109,7 +185,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_moment.id,
           'typename' => new_moment.name
-        })
+        )
       end
 
       it 'sends a notification when a viewer comments on a Moment and visibility is private' do
@@ -120,7 +196,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -129,7 +205,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_moment.id,
           'typename' => new_moment.name
-        })
+        )
       end
     end
 
@@ -149,7 +225,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -158,7 +234,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_strategy.id,
           'typename' => new_strategy.name
-        })
+        )
       end
 
       it 'sends a notification when a viewer comments on a Strategy and visibility is private' do
@@ -169,7 +245,7 @@ describe Comment do
         expect(Notification.count).to eq(1)
         expect(Notification.last.user_id).to eq(user1.id)
         expect(Notification.last.uniqueid).to eq(uniqueid)
-        expect(JSON.parse(Notification.last.data)).to eq({
+        expect(JSON.parse(Notification.last.data)).to eq(
           'user' => user2.name,
           'commentid' => new_comment.id,
           'comment' => long_comment[0..80],
@@ -178,7 +254,7 @@ describe Comment do
           'uniqueid' => uniqueid,
           'typeid' => new_strategy.id,
           'typename' => new_strategy.name
-        })
+        )
       end
     end
 

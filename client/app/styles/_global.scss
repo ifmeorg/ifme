@@ -1,7 +1,17 @@
-@import "./_typography.scss";
+@import "./_legacy.scss";
 @import "./_global_font.scss";
 
-body {
+body, html {
+  @include setFontSize($size-20);
+  margin: 0 auto;
   font-family: $font-family;
-  font-size: $text-size;
+  font-weight: $font-weight-400;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+  }
 }

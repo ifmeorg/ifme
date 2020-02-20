@@ -4,100 +4,101 @@ describe 'UserCreatesAPublishedStrategy', js: true do
   let(:user) { create :user2, :with_allies }
   let!(:category) { create :category, user_id: user.id }
 
-  def hit_down_arrow
-    keypress = 'var e = $.Event("keydown", { keyCode: 40 }); $("body").trigger(e);'
-    page.driver.execute_script(keypress)
-  end
-
   feature 'Creating, viewing, and editing a strategy' do
     it 'is not successful' do
       login_as user
       visit new_strategy_path
-      click_on 'Submit'
+      find('#strategy_publishing_switch').click
+      find('#submit').click
       expect(page).to have_content('New Strategy')
-      expect(page).to have_css('label.alert_text')
+      expect(page).to have_css('.labelError')
     end
 
     it 'is successful' do
       login_as user
       visit strategies_path
 
-      expect(find('#page_title_content')).to have_content 'Strategies'
+      expect(find('.pageTitle')).to have_content 'Strategies'
       expect(page).to have_content(
         'Strategize self-care to achieve desired thoughts and attitudes ' \
-        'towards your moments.')
+        'towards your moments.'
+      )
       expect(page).to have_content(
-        "You haven't created any custom strategies yet.")
+        'You haven\'t created any custom strategies yet.'
+      )
       expect(page).to have_content 'Five Minute Meditation'
 
       # CREATING
-      page.find('a[title="New Strategy"]').click
-      expect(find('#page_title_content')).to have_content 'New Strategy'
+      click_link('New Strategy')
+      expect(find('.pageTitle')).to have_content 'New Strategy'
+      find('#strategy_name').set('My New Strategy')
+      fill_in_textarea('A strategy description', '#strategy_description')
 
-      page.fill_in 'strategy[name]', with: 'My new strategy'
+      within('#strategy_category_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Test Category')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Some New Category')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+      end
 
-      page.find('[data-toggle="#categories"]').click
-      within '#categories' do
-        page.fill_in 'strategy[category_name]', with: 'Test Category'
-        hit_down_arrow
-        page.find('#strategy_category_name').native.send_keys(:return)
-        page.fill_in 'strategy[category_name]', with: 'Some New Category'
-        page.find('#strategy_category_name').native.send_keys(:return)
+      within '.modal' do
+        find('#submit').click
       end
-      within '#category_quick_create' do
-        page.find('#new_category input[type="submit"]').click
-      end
-      within '#categories' do
-        page.fill_in 'strategy[category_name]', with: 'Another New Category'
-        page.find('#strategy_category_name').native.send_keys(:return)
-      end
-      within '#category_quick_create' do
-        page.find('#new_category input[type="submit"]').click
-      end
-      within '#categories_list' do
-        page.all('input[name="strategy[category][]"]').last.click
-      end
-      page.find('[data-toggle="#categories"]').click
 
-      page.find('[data-toggle="#viewers"]').click
-      within '#viewers_list' do
-        page.find('input#viewers_all').click
+      within('#strategy_viewers_accordion') do
+        find('.accordion').click
+        find('.tagAutocomplete').set('Ally 0')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Ally 1')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.tagAutocomplete').set('Ally 2')
+        page.find('.tagAutocomplete').native.send_keys(:return)
+        find('.accordion').click
       end
-      page.find('[data-toggle="#viewers"] .toggle_button').click
 
-      # ALLOW COMMENTS
-      page.find('input#strategy_comment').click
-
-      fill_in_ckeditor('strategy_description', with: 'my strategy description')
-
-      change_page(
-        ->{ page.find('input[value="Submit"]').click },
-        '#page_title_content', have_content('My new strategy')
-      )
+      find('#strategy_comment_switch').click
+      find('#strategy_perform_strategy_reminder').click
+      find('#strategy_publishing_switch').click
+      find('#submit').click
 
       # VIEWING
-      expect(page).to have_content 'Created'
-      expect(page).to have_content 'Categories: Another New Category, Some New Category'
-      expect(page).to have_content 'my strategy description'
-      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2 are viewers. '
-      expect(page).to have_css('#new_comment')
+      expect(find('.pageTitle')).to have_content 'My New Strategy'
+      expect(page).to have_content 'Test Category'.upcase
+      expect(page).to have_content 'Some New Category'.upcase
+      expect(page).to have_content 'A strategy description'
+      find('.storyActionsViewers').hover
+      expect(page).to have_content 'Ally 0, Ally 1, and Ally 2'
+      expect(page).to have_content 'Daily reminder email'
+      expect(page).to have_css('#comments')
+      expect(page).not_to have_selector '.storyDraft'
 
       # EDITING
-      change_page(
-        ->{ page.find('a[title="Edit Strategy"]').click },
-        '#page_title_content',
-        have_content('Edit My new strategy')
-      )
+      find('.storyActionsEdit').click
+      expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
 
-      fill_in_ckeditor(
-        'strategy_description', with: 'I am changing my strategy description'
-      )
+      within('#strategy_category_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Test Category'
+        expect(page).to have_content 'Some New Category'
+        find('.accordion').click
+      end
 
-      page.find('input[value="Submit"]').click
+      within('#strategy_viewers_accordion') do
+        find('.accordion').click
+        expect(page).to have_content 'Ally 0'
+        expect(page).to have_content 'Ally 1'
+        expect(page).to have_content 'Ally 2'
+        find('.accordion').click
+      end
+
+      strategy_description_text = 'I am changing my strategy description'
+      fill_in_textarea(strategy_description_text, '#strategy_description')
+      find('#submit').click
 
       # VIEWING AFTER EDITING
-      expect(find('#page_title_content')).to have_content 'My new strategy'
-      expect(page).to have_content 'I am changing my strategy description'
+      expect(find('.pageTitle')).to have_content 'My New Strategy'
+      expect(page).to have_content strategy_description_text
     end
   end
 end

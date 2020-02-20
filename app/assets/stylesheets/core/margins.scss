@@ -1,0 +1,87 @@
+.marginRight {
+  margin-right: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-20;
+  }
+}
+
+.smallMarginRight {
+  margin-right: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-10;
+  }
+}
+
+.largeMarginRight {
+  margin-right: $size-60;
+  @media screen and (max-width: $medium) {
+    margin-right: $size-40;
+  }
+}
+
+.marginLeft {
+  margin-left: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-20;
+  }
+}
+
+.smallMarginLeft {
+  margin-left: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-10;
+  }
+}
+
+.largeMarginLeft {
+  margin-left: $size-60;
+  @media screen and (max-width: $medium) {
+    margin-left: $size-40;
+  }
+}
+
+.marginTop {
+  margin-top: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-20;
+  }
+}
+
+.smallMarginTop {
+  margin-top: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-10;
+  }
+}
+
+.largeMarginTop {
+  margin-top: $size-60;
+  @media screen and (max-width: $medium) {
+    margin-top: $size-40;
+  }
+}
+
+.marginBottom {
+  margin-bottom: $size-40;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-20;
+  }
+}
+
+.smallMarginBottom {
+  margin-bottom: $size-20;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-10;
+  }
+}
+
+.largeMarginBottom {
+  margin-bottom: $size-60;
+  @media screen and (max-width: $medium) {
+    margin-bottom: $size-40;
+  }
+}
+
+.noMarginBottom {
+  margin-bottom: $size-0;
+}

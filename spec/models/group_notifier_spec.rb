@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe GroupNotifier, '#send_notifications_to' do
@@ -60,12 +62,12 @@ describe GroupNotifier, '#send_notifications_to' do
   end
 
   def expected_data
-    JSON.generate(
+    {
       user: user.name,
       group_id: group.id,
       group: group.name,
       type: type,
       uniqueid: "#{type}_#{user.id}"
-    )
+    }.to_json
   end
 end

@@ -29,7 +29,7 @@ class NotificationMailer < ApplicationMailer
   end
 
   def notification_email(recipientid, data)
-    data = HashWithIndifferentAccess.new(JSON.parse(data))
+    data = ActiveSupport::HashWithIndifferentAccess.new(JSON.parse(data))
     recipient = User.where(id: recipientid).first
 
     if can_comment_notify(data, recipient)

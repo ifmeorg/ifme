@@ -1,322 +1,103 @@
 # frozen_string_literal: true
-
-# rubocop:disable ClassLength
 class MeetingsController < ApplicationController
+  include MeetingsHelper
+  include MeetingsFormHelper
   before_action :set_meeting, only: %i[show edit update destroy]
 
   # GET /meetings/1
-  # GET /meetings/1.json
-  # rubocop:disable MethodLength
   def show
-    @meeting = Meeting.friendly.find(params[:id])
-    @is_member = MeetingMember.where(
-      meeting_id: @meeting.id,
-      user_id: current_user.id
-    ).exists?
-
-    @is_leader = MeetingMember.where(
-      meeting_id: @meeting.id,
-      user_id: current_user.id,
-      leader: true
-    ).exists?
-
-    if @is_leader
-      @page_edit = edit_meeting_path(@meeting)
-      @page_tooltip = t('meetings.edit_meeting')
-    end
-
-    @no_hide_page = false
-    if hide_page(@meeting)
-      redirect_to_path(group_path(@meeting.group_id))
-    else
-      @comment = Comment.new
-      @comments = Comment.where(
-        commentable_id: @meeting.id,
-        commentable_type: 'meeting'
-      ).all.order('created_at DESC')
-
-      @no_hide_page = true
+    if @meeting.member?(current_user)
+      @comments = generate_comments(@meeting.comments.order(created_at: :desc))
+    elsif !@meeting.group.member?(current_user)
+      redirect_to_path(groups_path)
     end
   end
-  # rubocop:enable MethodLength
-
-  def comment
-    params[:visibility] = 'all'
-    comment_for('meeting')
-  end
-
-  # rubocop:disable MethodLength
-  def delete_comment
-    comment_exists = Comment.where(id: params[:commentid]).exists?
-    is_my_comment = Comment.where(
-      id: params[:commentid],
-      comment_by: current_user.id
-    ).exists?
-
-    if comment_exists
-      meeting_id = Comment.where(id: params[:commentid]).first.commentable_id
-      is_my_meeting = MeetingMember.where(
-        meeting_id: meeting_id,
-        user_id: current_user.id,
-        leader: true
-      ).exists?
-      is_member = MeetingMember.where(
-        meeting_id: meeting_id,
-        user_id: current_user.id
-      ).exists?
-    else
-      is_my_meeting = false
-      is_member = false
-    end
-
-    if comment_exists && ((is_my_comment && is_member) || is_my_meeting)
-      CommentNotificationsService.remove(comment_id: params[:commentid],
-                                         model_name: 'meeting')
-    end
-
-    head :ok
-  end
-  # rubocop:enable MethodLength
 
   # GET /meetings/new
   def new
-    @group_id = params[:group_id]
-    not_a_leader(@group_id)
-
+    @group = Group.find_by(id: params[:group_id])
+    redirect_unless_leader_for(@group) && return
     @meeting = Meeting.new
   end
 
   # GET /meetings/1/edit
   def edit
-    @group_id = @meeting.group_id
-    not_a_leader(@group_id)
-
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
+    redirect_unless_leader_for(@meeting.group) && return
+    @meeting_members = @meeting.members
   end
 
   # POST /meetings
-  # POST /meetings.json
-  # rubocop:disable MethodLength
   def create
     @meeting = Meeting.new(meeting_params)
-    group_id = meeting_params[:group_id]
-    not_a_leader(group_id)
-    # rubocop:disable BlockLength
-    respond_to do |format|
-      if @meeting.save
-        meeting_member = MeetingMember.new(
-          meeting_id: @meeting.id,
-          user_id: current_user.id,
-          leader: true
-        )
+    @group = Group.find_by(id: meeting_params[:group_id])
+    redirect_unless_leader_for(@group) && return
 
-        if meeting_member.save
-          # Notify group members that you created a new meeting
-          group_members = GroupMember.where(group_id: @meeting.group_id).all
-          MeetingNotificationsService.handle_members(current_user: current_user,
-                                                     meeting: @meeting,
-                                                     type: 'new_meeting',
-                                                     members: group_members)
-          format.html { redirect_to group_path(group_id) }
-          format.json { render :show, status: :created, location: group_id }
-        end
-      end
-      # rubocop:enable BlockLength
-
-      format.html { render :new }
-      format.json do
-        render json: @meeting.errors, status: :unprocessable_entity
-      end
-    end
+    render :new unless @meeting.save
+    create_meeting_member
   end
-  # rubocop:enable MethodLength
 
   # PATCH/PUT /meetings/1
-  # PATCH/PUT /meetings/1.json
-  # rubocop:disable MethodLength
   def update
     if @meeting.update(meeting_params)
-      error = false
-      meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-      meeting_members.each do |member|
-        meeting_member_id = MeetingMember.where(
-          meeting_id: @meeting.id,
-          user_id: member.user_id
-        ).first.id
-        if params[:meeting][:leader].nil?
-          error = true
-          format.html { redirect_to group_path(@meeting.group_id) }
-          format.json { render :show, status: :ok, location: @meeting }
-        elsif params[:meeting][:leader].include? member.user_id.to_s
-          MeetingMember.update(
-            meeting_member_id,
-            meeting_id: @meeting.id,
-            user_id: member.user_id,
-            leader: true
-          )
-        else
-          MeetingMember.update(
-            meeting_member_id,
-            meeting_id: @meeting.id,
-            user_id: member.user_id,
-            leader: false
-          )
-        end
-      end
-
-      @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-      MeetingNotificationsService.handle_members(current_user: current_user,
-                                                 meeting: @meeting,
-                                                 type: 'update_meeting',
-                                                 members: @meeting_members)
-      respond_to do |format|
-        format.html { redirect_to meeting_path(@meeting.id) }
-        format.json do
-          render json: @meeting.errors, status: :unprocessable_entity
-        end
-      end
+      send_notification(@meeting, @meeting.members, 'update_meeting')
+      redirect_to meeting_path(@meeting.slug)
     else
-      respond_to do |format|
-        format.html { render :edit }
-        format.json do
-          render json: @meeting.errors, status: :unprocessable_entity
-        end
-      end
+      render :edit
     end
   end
-  # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
   def join
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
-    meeting_member = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      user_id: current_user.id
-    )
-
-    if meeting_member.exists?
-      respond_to do |format|
-        format.html { redirect_to group_path(group_id) }
-        format.json { render :show, location: group_path(group_id) }
-      end
+    meeting = Meeting.find(params[:meeting_id])
+    if meeting.member?(current_user)
+      redirect_to group_path(meeting.group_id)
     else
-      @meeting_member = MeetingMember.create!(
-        meeting_id: params[:meeting_id],
-        user_id: current_user.id,
-        leader: false
+      @meeting_member = meeting.meeting_members.create!(
+        user_id: current_user.id, leader: false
       )
+      send_notification(meeting, meeting.leaders, 'join_meeting')
 
-      # Notify meeting leaders
-      meeting_leaders = MeetingMember.where(
-        meeting_id: params[:meeting_id],
-        leader: true
-      ).all
-      meeting_id = Meeting.where(id: params[:meeting_id]).first.id
-      meeting = Meeting.where(id: params[:meeting_id]).first.name
-
-      MeetingNotificationsService.handle_members(current_user: current_user,
-                                                 meeting: meeting,
-                                                 type: 'join_meeting',
-                                                 members: meeting_leaders)
-
-      respond_to do |format|
-        format.html do
-          redirect_to(meeting_path(meeting_id),
-                      notice: t('meetings.join_success'))
-        end
-        format.json do
-          render :show, status: :created, location: group_path(group_id)
-        end
-      end
+      redirect_to(meeting_path(meeting.id), notice: t('meetings.join_success'))
     end
   end
-  # rubocop:enable MethodLength
 
-  # rubocop:disable MethodLength
   def leave
-    meeting_name = Meeting.where(id: params[:meeting_id]).first.name
-    group_id = Meeting.where(id: params[:meeting_id]).first.group_id
+    meeting = Meeting.find(params[:meeting_id])
 
     # Cannot leave When you are the only leader
-    is_leader = MeetingMember.where(
-      user_id: current_user.id,
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    are_leaders = MeetingMember.where(
-      meeting_id: params[:meeting_id],
-      leader: true
-    ).count
-    if is_leader == 1 && are_leaders == is_leader
-      respond_to do |format|
-        format.html do
-          redirect_to(group_path(group_id), alert: t('meetings.leave.error'))
-        end
-        format.json { head :no_content }
-      end
+    if meeting.led_by?(current_user) && meeting.leaders.count == 1
+      redirect_to(group_path(meeting.group_id),
+                  alert: t('meetings.leave.error'))
     else
       # Remove user from meeting
-      meeting_member = MeetingMember.find_by(
-        user_id: current_user.id,
-        meeting_id: params[:meeting_id]
-      )
-      meeting_member.destroy
-
-      respond_to do |format|
-        format.html do
-          redirect_to(
-            group_path(group_id),
-            notice: t(
-              'meetings.leave.success',
-              meeting: meeting_name
-            )
-          )
-        end
-        format.json { head :no_content }
-      end
+      meeting.meeting_members.find_by(user_id: current_user.id).destroy
+      redirect_to(group_path(meeting.group_id),
+                  notice: t('meetings.leave.success', meeting: meeting.name))
     end
   end
-  # rubocop:enable MethodLength
 
   # DELETE /meetings/1
-  # DELETE /meetings/1.json
-  # rubocop:disable MethodLength
   def destroy
-    not_a_leader(@meeting.group_id)
+    redirect_unless_leader_for(@meeting.group) && return
     # Notify group members that the meeting has been deleted
-    group_members = GroupMember.where(group_id: @meeting.group_id).all
-    notifications_for_meeting_members(@meeting, group_members, 'remove_meeting')
-
+    send_notification(@meeting, @meeting.group.members, 'remove_meeting')
     # Remove corresponding meeting members
-    @meeting_members = MeetingMember.where(meeting_id: @meeting.id).all
-    @meeting_members.each(&:destroy)
-    group_id = @meeting.group_id
+    @meeting.meeting_members.destroy_all
     @meeting.destroy
-    redirect_to_path(group_path(group_id))
+    redirect_to_path(group_path(@meeting.group_id))
   end
-  # rubocop:enable MethodLength
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # rubocop:disable RescueStandardError
   def set_meeting
     @meeting = Meeting.friendly.find(params[:id])
-  rescue
+  rescue ActiveRecord::RecordNotFound
     redirect_to_path(groups_path)
   end
-  # rubocop:enable RescueStandardError
 
   # Checks if user is a meeting leader, if not redirect to group_path
-  def not_a_leader(group_id)
-    group_member = GroupMember.where(
-      group_id: group_id,
-      user_id: current_user.id,
-      leader: true
-    )
-    return if group_member.exists?
-
-    redirect_to_path(group_path(group_id))
+  def redirect_unless_leader_for(group)
+    redirect_to_path(group_path(group.id)) unless group.led_by?(current_user)
   end
 
   def meeting_params
@@ -324,13 +105,24 @@ class MeetingsController < ApplicationController
                                     :time, :maxmembers, :group_id)
   end
 
-  def hide_page(meeting)
-    meeting_obj = Meeting.where(id: meeting.id)
-    meeting_member = MeetingMember.where(
-      meeting_id: meeting.id,
-      user_id: current_user.id
+  def send_notification(meeting, members, type)
+    MeetingNotificationsService.handle_members(
+      current_user: current_user,
+      meeting: meeting,
+      type: type,
+      members: members
     )
-    !(meeting_obj.exists? && meeting_member.exists?)
+  end
+
+  def create_meeting_member
+    meeting_member = @meeting.meeting_members.new(
+      user_id: current_user.id, leader: true
+    )
+
+    return unless meeting_member.save
+
+    # Notify group members that you created a new meeting
+    send_notification(@meeting, @meeting.group.members, 'new_meeting')
+    redirect_to group_path(@group.id)
   end
 end
-# rubocop:enable ClassLength

@@ -8,14 +8,16 @@ class ProfilePicture
 
   class << self
     def fetch(path, options = {})
+      alt = options[:alt] ||
+            I18n.t('devise.registrations.edit.labels.profile_picture')
       react_component 'Avatar', props: {
-        className: options[:className],
-        name: options[:name],
-        src: normalize_url(path)
+        name: options[:name] || nil,
+        src: normalize_url(path),
+        small: options[:small] || nil,
+        large: options[:large] || nil,
+        alt: alt
       }
     end
-
-    private
 
     def normalize_url(path)
       # prod, uploaded to cloudinary
@@ -30,6 +32,8 @@ class ProfilePicture
       end
     end
 
+    private
+
     def cloudinary_src(path)
       path&.include?('.cloudinary.com')
     end
@@ -38,13 +42,14 @@ class ProfilePicture
       path.split('/').last.split('.').first
     end
 
-    # rubocop:disable MethodLength
     def get_cloudinary_url(path, type)
       id_or_url = get_cloudinary_image_id(path)
       type == 'fetch' && id_or_url = get_local_url(path)
-      cl_image_path(
-        id_or_url,
-        type: type,
+      cl_image_path(id_or_url, claudinary_params(type))
+    end
+
+    def claudinary_params(type)
+      { type: type,
         format: 'jpg',
         quality: 'auto:good',
         width: DEFAULT_SIZE,
@@ -52,10 +57,8 @@ class ProfilePicture
         crop: 'fill',
         dpr: 'auto',
         client_hints: true,
-        sign_url: true
-      )
+        sign_url: true }
     end
-    # rubocop:enable MethodLength
 
     def get_local_url(path)
       "#{Rails.application.config.force_ssl ? 'https' : 'http'}://"\

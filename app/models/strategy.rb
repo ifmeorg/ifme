@@ -3,7 +3,7 @@
 #
 # Table name: strategies
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  user_id      :integer
 #  category     :text
 #  description  :text
@@ -18,6 +18,7 @@
 
 class Strategy < ApplicationRecord
   include Viewer
+  include CommonMethods
   extend FriendlyId
 
   friendly_id :name
@@ -34,7 +35,7 @@ class Strategy < ApplicationRecord
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :description, presence: true
-  validates :description, length: { minimum: 1, maximum: 2000 }
+  validates :description, length: { minimum: 1 }
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
@@ -48,15 +49,11 @@ class Strategy < ApplicationRecord
     viewers.map!(&:to_i)
   end
 
-  def category_name
-    category.try(:name)
-  end
-
   def published?
-    !published_at.nil?
+    published_at.present?
   end
 
-  def self.link
-    '/strategies'
+  def comments
+    Comment.comments_from(self)
   end
 end

@@ -1,61 +1,71 @@
 <% title @profile.name %>
-<div class="table" id="profile_info">
-  <div class="table_cell profile_picture_div vertical_align_top padding_right">
-    <%= ProfilePicture.fetch(@profile.avatar.url, className: 'profile_picture') %>
-  </div>
-  <div class="table_cell vertical_align_middle">
+<div class="profile">
+  <%= ProfilePicture.fetch(@profile.avatar.url) %>
+  <div class="profileInfo">
     <% if @profile.about %>
-      <%= @profile.about %>
-      <div class="spacer"></div>
+      <div>
+        <%= @profile.about %>
+      </div>
     <% end %>
     <% if @profile == current_user %>
-      <%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
-      <div class="spacer"></div>
+      <div>
+        <%= link_to t('profile.index.edit_user'), edit_user_registration_path %>
+      </div>
     <% end %>
-    <% if User.where(id: @profile.id).first.location.present? %>
-      <i class="fa fa-location-arrow fa-inline"></i><%= User.where(id: @profile.id).first.location %>
-      <br>
+    <% if @profile.location.present? %>
+      <div>
+        <i class="fa fa-location-arrow fa-inline smallMarginRight"></i><%= @profile.location %>
+      </div>
     <% end %>
     <% if @profile.id != current_user.id %>
       <% if current_user.allies_by_status(:pending_from_ally).include? @profile %>
-        <br><%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        <div>
+          <%= link_to t('allies.cancel_ally_request'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
       <% elsif current_user.allies_by_status(:accepted).include? @profile %>
-        <br><%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        <div>
+          <%= link_to t('common.actions.remove'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
+        <div>
+          <%= link_to t('common.actions.report'), new_report_path(uid: @profile.uid) %>
+        </div>
       <% elsif current_user.allies_by_status(:pending_from_user).include? @profile %>
-        <br><%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        <div>
+          <%= link_to t('allies.accept'), add_allies_path(ally_id: @profile.id), method: :post %> | <%= link_to t('allies.reject'), remove_allies_path(ally_id: @profile.id), method: :post, data: { confirm: t('common.actions.confirm') } %>
+        </div>
       <% else %>
-        <br><%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
+        <div>
+          <%= link_to t('allies.add_ally'), add_allies_path(ally_id: @profile.id), method: :post %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if current_user.admin? %>
+      <% if @profile.banned? %>
+        <div>
+          <%= link_to t('reports.remove_ban'), remove_ban_profile_index_path(user_id: @profile.id), method: :post %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to t('reports.ban_user'), add_ban_profile_index_path(user_id: @profile.id), method: :post %>
+        </div>
       <% end %>
     <% end %>
   </div>
 </div>
 
 <% if !@stories.nil? && @stories.any? %>
-  <div class="horizonal_divider"></div>
-<% end %>
-
-<%= render partial: '/shared/stats', locals: { data_type: 'category', profile: @profile.id } %>
-<%= render partial: '/shared/stats', locals: { data_type: 'mood', profile: @profile.id } %>
-<%= render partial: '/shared/stats', locals: { data_type: 'strategy', profile: @profile.id } %>
-
-<% if !@stories.nil? && @stories.any? %>
-  <div class="main_message">
-    Stories
+  <div class="marginTop">
+    <%= render partial: '/shared/stats', locals: { data_type: 'category', user: @profile } %>
+    <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: @profile } %>
+    <%= render partial: '/shared/stats', locals: { data_type: 'strategy', user: @profile } %>
   </div>
-
-  <div id="pages">
-    <div class="page">
-    <% @stories.each do |story| %>
-      <div class="story">
-        <h1 class="story_name">
-          <%= render partial: '/shared/viewers_hover', locals: { data: story } %>
-          <%= link_to story.name, story %>
-        </h1>
-        <%= render partial: '/moments/info', locals: { data: story, show_strategies: true, home: true, class_name: true } %>
-      </div>
-    <% end %>
-    </div>
+  <div class="title">
+    <%= t('pages.home.stories') %>
   </div>
-
-  <%= paginate @stories %>
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: moments_or_strategy_props(@stories),
+    fetchUrl: data_profile_index_path(uid: params[:uid]),
+    lastPage: @stories.last_page?,
+  }) %>
 <% end %>

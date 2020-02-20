@@ -5,67 +5,26 @@
   <%= t('moods.index.subtitle') %>
 </div>
 
-<div class="spacer"></div>
-
 <% if @moods.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
-  <%= render partial: '/shared/stats', locals: { data_type: 'mood' } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: current_user } %>
 
-  <div id="pages">
-    <div class="page">
-    <%= render @moods %>
-    </div>
-  </div>
-
-  <%= paginate @moods %>
-<% else %>
-  <%= raw t('moods.index.instructions', {
-    icon: '<i class="fa fa-plus-circle"></i>'
+  <%= react_component('BaseContainer', props: {
+    container: 'StoryContainer',
+    data: categories_or_moods_props(@moods),
+    fetchUrl: moods_path,
+    lastPage: @moods.last_page?
   }) %>
-
-  <div class="actions align_right">
-    <%= button_to t('common.actions.add_all'), premade_moods_path %>
-  </div>
-
-  <div class="clear"></div>
-
-  <div id="pages">
-    <div class="page">
-      <div class="mood">
-        <h1 class="mood_name"><%= t('moods.index.premade1_name') %></h1>
-
-        <%= strip_tags(t('moods.index.premade1_description')[0..80]) %>
-        <% if t('moods.index.premade1_description').length >= 80 %>
-          <%= t('ellipsis') %>
-        <% end %>
+<% else %>
+  <%= raw t('moods.index.instructions') %>
+  <%= button_to t('common.actions.add_all'), premade_moods_path, class: 'smallMarginTop buttonDarkS' %>
+  <div class="gridTwo marginTop">
+    <% (1..4).each do |n| %>
+      <div class="gridTwoItemBoxLight">
+        <%= react_component('Story', html_options: html_options, props: {
+          name: t("moods.index.premade#{n}_name")
+        }) %>
       </div>
-
-      <div class="mood">
-        <h1 class="mood_name"><%= t('moods.index.premade2_name') %></h1>
-
-        <%= strip_tags(t('moods.index.premade2_description')[0..80]) %>
-        <% if t('moods.index.premade2_description').length >= 80 %>
-          <%= t('ellipsis') %>
-        <% end %>
-      </div>
-
-      <div class="mood">
-        <h1 class="mood_name"><%= t('moods.index.premade3_name') %></h1>
-
-        <%= strip_tags(t('moods.index.premade3_description')[0..80]) %>
-        <% if t('moods.index.premade3_description').length >= 80 %>
-          <%= t('ellipsis') %>
-        <% end %>
-      </div>
-
-      <div class="mood no_margin_bottom">
-        <h1 class="mood_name"><%= t('moods.index.premade4_name') %></h1>
-
-        <%= strip_tags(t('moods.index.premade4_description')[0..80]) %>
-        <% if t('moods.index.premade4_description').length >= 80 %>
-          <%= t('ellipsis') %>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
 <% end %>

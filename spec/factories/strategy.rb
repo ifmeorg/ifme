@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-
 FactoryBot.define do
   factory :strategy do
-    name "Test Strategy"
-    description "Test Description"
-    comment true
-    user_id 1
+    name { 'Test Strategy' }
+    description { 'Test Description' }
+    comment { true }
+    user_id { 1 }
 
     after(:create) do |strategy|
       create :perform_strategy_reminder, strategy: strategy, active: false
@@ -23,6 +22,6 @@ FactoryBot.define do
   end
 
   factory :perform_strategy_reminder do
-    active true
+    active { true }
   end
 end

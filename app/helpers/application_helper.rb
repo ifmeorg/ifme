@@ -1,45 +1,74 @@
 # frozen_string_literal: true
-
 module ApplicationHelper
   include ViewersHelper
 
-  def nav_link_to(body, url, html_options = {})
-    environment = html_options[:method] ? { method: html_options[:method] } : {}
-    active_class = active?(url, environment) ? 'active' : nil
-
-    content_tag :li, class: active_class do
-      link_to body, url, html_options
-    end
+  def html_options
+    { class: 'htmlOptions' }
   end
 
-  # rubocop:disable MethodLength
   def active?(link_path, environment = {})
-    current_controller = params[:controller]
-    link_controller = Rails.application.routes
-                           .recognize_path(link_path, environment)[:controller]
-
-    nested_controllers = {
-      'moments' => %w[categories moods]
-    }
-
-    # Current page.
     current_page?(link_path) ||
-      # Current controller.
-      (
-        current_controller != 'profile' &&
-        current_controller != 'pages' &&
-        current_controller == link_controller
-      ) ||
-      # Parent of the active controller.
-      (nested_controllers[link_controller]&.include?(current_controller)) ||
-      # New user session with devise.
-      (link_path == new_user_session_path &&
-       current_controller == 'devise/sessions' && action_name == 'new') ||
-      # New user registration with devise.
-      (link_path == new_user_registration_path &&
-       current_controller == 'devise/registrations' && action_name == 'create')
+      current_controller?(link_path, environment) ||
+      (link_path == new_user_session_path && sign_in_path?) ||
+      (link_path == new_user_registration_path && join_path?)
   end
-  # rubocop:enable MethodLength
+
+  def sign_in_path?
+    devise_page?(new_user_session_path, 'sessions', 'new')
+  end
+
+  def join_path?
+    path = new_user_registration_path
+    devise_page?(path, 'registrations', 'create') ||
+      devise_page?(path, 'registrations', 'new')
+  end
+
+  def forgot_password_path?
+    path = new_user_password_path
+    devise_page?(path, 'devise/passwords', 'new') ||
+      devise_page?(path, 'devise/passwords', 'create')
+  end
+
+  def update_account_path?
+    path = edit_user_registration_path
+    devise_page?(path, 'registrations', 'update') ||
+      devise_page?(path, 'registrations', 'edit')
+  end
+
+  def not_signed_in_root_path?
+    current_page?(root_path) && !user_signed_in?
+  end
+
+  def send_ally_invitation_path?
+    path = new_user_invitation_path
+    devise_page?(path, 'devise/invitations', 'new') ||
+      devise_page?(path, 'users/invitations', 'create')
+  end
+
+  def ally_accept_invitation_path?
+    path = accept_user_invitation_path
+    devise_page?(path, 'users/invitations', 'edit') ||
+      devise_page?(path, 'users/invitations', 'update')
+  end
+
+  def reset_password_path?
+    path = edit_user_password_path
+    devise_page?(path, 'devise/passwords', 'edit') ||
+      devise_page?(path, 'devise/passwords', 'update')
+  end
+
+  def secret_share_path?
+    params[:controller] == 'secret_shares' && action_name == 'show'
+  end
+
+  def static_page?
+    non_devise_paths = [
+      about_path, resources_path, faq_path,
+      contribute_path, partners_path, press_path, privacy_path
+    ].select { |path| active?(path) }
+    devise = ally_accept_invitation_path? || reset_password_path?
+    devise || non_devise_paths.count == 1
+  end
 
   def title(page_title)
     content_for(:title) { page_title }
@@ -49,32 +78,29 @@ module ApplicationHelper
     content_for(:page_new) { page_new_path }
   end
 
-  # rubocop:disable RescueStandardError
-  def i18n_set?(key)
-    I18n.t key, raise: true
-  rescue
-    false
-  end
-  # rubocop:enable RescueStandardError
-
   def get_icon_class(icon)
-    if %w[envelope gift rss].include?(icon)
-      "fas fa-#{icon}"
-    elsif icon == 'money-bill-alt'
-      'far fa-money-bill-alt'
-    elsif %w[facebook github instagram medium twitter].include?(icon)
-      "fab fa-#{icon}"
-    else
-      'fa fa-globe'
-    end
+    return 'far fa-money-bill-alt' if icon == 'money-bill-alt'
+    return "fas fa-#{icon}" if %w[envelope gift rss].include?(icon)
+    return "fab fa-#{icon}" if %w[
+      facebook github instagram medium twitter
+    ].include?(icon)
+
+    'fa fa-globe'
   end
 
-  def get_icon_text(icon, text)
-    html = ''
-    if icon && text
-      html += "<i class=\"#{get_icon_class(icon)} smaller_margin_right\"></i>"
-      html += text
-    end
-    html.html_safe
+  private
+
+  def current_controller?(link_path, environment = {})
+    link_controller = Rails.application.routes
+                           .recognize_path(link_path, environment)[:controller]
+    params[:controller] != 'profile' &&
+      params[:controller] != 'pages' &&
+      params[:controller] == link_controller
+  end
+
+  def devise_page?(path, current_controller, current_action)
+    current_page?(path) ||
+      (params[:controller] == current_controller &&
+        action_name == current_action)
   end
 end

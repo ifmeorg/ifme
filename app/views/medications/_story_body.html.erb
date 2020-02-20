@@ -1,0 +1,23 @@
+<div>
+  <strong><%= t('medications.strength') %></strong>
+  <%= t('medications.units.display',
+    count: local_assigns[:medication].strength,
+    unit: local_assigns[:medication].strength_unit) %>
+</div>
+<div>
+  <strong><%= t('medications.quantity') %></strong>
+  <%= t('medications.units.display', count: local_assigns[:medication].total, unit: local_assigns[:medication].total_unit) %>
+</div>
+<div>
+  <% if local_assigns[:medication].daily? %>
+    <strong><%= t('medications.dosage') %></strong>
+  <% else %>
+    <strong><%= t('medications.weekly_dosage') %></strong>
+    <%= local_assigns[:medication].weekly_dosage.map{|i| t(:'date.abbr_day_names')[i] }.join(', ') %>;
+  <% end %>
+  <%= t('medications.units.display', count: local_assigns[:medication].dosage, unit: local_assigns[:medication].dosage_unit) %>
+</div>
+<div>
+  <strong><%= t('medications.refill') %></strong>
+  <%= format_date(local_assigns[:medication].refill) %>
+</div>

@@ -1,0 +1,830 @@
+[
+  {
+    "name": "Aloe Bud",
+    "link": "https://aloebud.com",
+    "tags": ["self_care", "anonymous", "ios", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Brown Sisters Speak",
+    "link": "https://www.facebook.com/Brownsistersspeak",
+    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups", "communities"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "if-me.org",
+    "link": "https://www.if-me.org/",
+    "tags": ["blog", "open_source", "directory", "goal_tracking", "mood_tracking", "journaling", "communities"],
+    "languages": ["en", "es", "de", "fr", "it", "hi", "nb", "nl", "pt-BR", "sv", "vi"]
+  },
+  {
+    "name": "Koko",
+    "link": "https://itskoko.com",
+    "tags": ["chatbot", "anonymous", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Lemonaid",
+    "link": "http://lemonaid.io",
+    "tags": ["women", "self_care", "domestic_violence", "anonymous", "support_groups", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Tessera Collective",
+    "link": "https://www.facebook.com/tesseracollective",
+    "tags": ["women_of_colour", "black_women", "self_care", "domestic_violence", "support_groups", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "MHPrompt",
+    "link": "http://mhprompt.org",
+    "tags": ["tech_industry", "talks", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "LifeSIGNS: Self Injury Guidance & Network Support (UK)",
+    "link": "http://www.lifesigns.org.uk/",
+    "tags": ["self_injury", "blog", "books", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Blue Hackers",
+    "link": "http://bluehackers.org/",
+    "tags": ["tech_industry", "depression", "blog", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The Mental Illness Happy Hour",
+    "link": "https://mentalpodforum.com/",
+    "tags": ["podcast", "blog", "forum", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Kinions",
+    "link": "http://www.katimorton.com",
+    "tags": ["forum", "videos", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Peerly Human",
+    "link": "https://peerlyhuman.blogspot.com/",
+    "tags": ["support_groups", "blog", "learning", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Project Toe",
+    "link": "http://www.projecttoe.com/",
+    "tags": ["support_groups", "android", "ios", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hadit.com Veteran to Veteran LLC (US)",
+    "link": "https://hadit.com/",
+    "tags": ["veterans", "free", "forum", "advice", "podcast", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "A Canvas of the Minds",
+    "link": "https://acanvasoftheminds.wordpress.com/",
+    "tags": ["free", "blog", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Emotions Anonymous",
+    "link": "http://emotionsanonymous.org/",
+    "tags": ["free", "support_groups", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Viet-C.A.R.E (US)",
+    "link": "https://www.viet-care.org/",
+    "tags": ["free", "support_groups", "conference", "communities"],
+    "languages": ["en", "vi"]
+  },
+  {
+    "name": "National Alliance on Mental Illness (NAMI)",
+    "link": "https://www.nami.org/",
+    "tags": ["free", "support_groups", "directory", "communities"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Buddy Project",
+    "link": "http://www.buddy-project.org/",
+    "tags": ["support_groups", "suicide_prevention", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Elefriends (UK)",
+    "link": "https://www.elefriends.org.uk/",
+    "tags": ["support_groups", "anonymous", "android", "ios", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Depressed While Black",
+    "link": "http://www.depressedwhileblack.com/",
+    "tags": ["black_people", "black_women", "depression", "blog", "podcast", "talks", "books", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Redefine Enough",
+    "link": "https://www.redefineenough.com",
+    "tags": ["podcast", "blog", "black_women", "women_of_colour", "support_groups", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "GenuineU",
+    "link": "https://www.genuineu.org",
+    "tags": ["blog", "videos", "anonymous", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The Better Because Project",
+    "link": "https://www.thebetterbecauseproject.org/",
+    "tags": ["stories", "blog", "learning", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hack Mental Health",
+    "link": "https://www.hackmentalhealth.care/",
+    "tags": ["hackathon", "tech_industry", "blog", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Give Us the Floor",
+    "link": "https://giveusthefloor.org/",
+    "tags": ["teen", "support_groups", "blog", "videos", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Lyftly",
+    "link": "https://lyftly.com/",
+    "tags": ["anonymous", "support_groups", "goal_tracking", "mood_tracking", "coaching", "ios", "android", "free", "paid", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Surviving Antidepressants",
+    "link": "https://www.survivingantidepressants.org/",
+    "tags": ["forum", "support_groups", "physical_dependence", "advice", "communities"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Co-Dependents Anonymous International",
+    "link": "http://coda.org/",
+    "tags": ["anonymous", "support_groups", "directory", "codependency", "relationships", "communities"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Alcoholics Anonymous (US and Canada)",
+    "link": "https://www.aa.org/",
+    "tags": ["anonymous", "support_groups", "directory", "addiction", "alcoholism", "communities"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Open Sourcing Mental Illness (OSMI)",
+    "link": "https://osmihelp.org",
+    "tags": ["open_source", "tech_industry", "workplace", "podcast", "books", "free", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Everybody Has A Brain",
+    "link": "http://everybodyhasabrain.com",
+    "tags": ["blog", "videos", "podcast", "books", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The Icarus Project",
+    "link": "http://theicarusproject.net",
+    "tags": ["social_justice", "books", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "What is Dialectical Behavior Therapy (DBT)?",
+    "link": "https://behavioraltech.org/resources/faqs/what-is-dbt/",
+    "tags": ["anonymous", "free", "mindfulness", "therapy", "treatment", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Doll Hospital",
+    "link": "http://www.dollhospitaljournal.com",
+    "tags": ["paid", "publication", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "HelpGuide.org",
+    "link": "https://www.helpguide.org/",
+    "tags": ["free", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health First Aid (US)",
+    "link": "https://www.mentalhealthfirstaid.org",
+    "tags": ["training", "paid", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health First Aid (International)",
+    "link": "http://www.mhfainternational.org/",
+    "tags": ["training", "paid", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "MHFA - Första hjälpen till psykisk hälsa",
+    "link": "http://ki.se/nasp/mhfa-forsta-hjalpen-till-psykisk-halsa",
+    "tags": ["training", "paid", "directory", "education"],
+    "languages": ["sv"]
+  },
+  {
+    "name": "Music Therapy - University of New Hampshire",
+    "link": "https://www.unh.edu/health/well/complementaryalternative-health-practices/music-therapy",
+    "tags": ["music", "therapy", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Partnership for Workplace Mental Health (US)",
+    "link": "http://www.workplacementalhealth.org/",
+    "tags": ["workplace", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Psych Central",
+    "link": "https://psychcentral.com/",
+    "tags": ["forum", "blog", "directory", "free", "advice", "news", "books", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Self-Injury Outreach and Support (Canada)",
+    "link": "http://sioutreach.org/",
+    "tags": ["self_injury", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Informed Choices about Depression (Canada)",
+    "link": "http://depression.informedchoices.ca/",
+    "tags": ["depression", "treatment", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "National Resource Center on Psychiatric Advance Directives (US)",
+    "link": "http://www.nrc-pad.org/",
+    "tags": ["treatment", "care_planning", "videos", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The OCD Stories",
+    "link": "http://theocdstories.com",
+    "tags": ["ocd", "blog", "podcast", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Anxy Magazine",
+    "link": "http://www.anxymag.com",
+    "tags": ["paid", "publication", "blog", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health - Khan Academy",
+    "link": "https://www.khanacademy.org/science/health-and-medicine/mental-health",
+    "tags": ["videos", "free", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Psychological Disorders - Crash Course Psychology",
+    "link": "https://www.youtube.com/watch?v=wuhJ-GkRRQc&index=28&list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
+    "tags": ["videos", "free", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Safe Harbor - Alternative Mental Health",
+    "link": "https://www.alternativementalhealth.com/",
+    "tags": ["videos", "free", "learning", "integrative", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "About Face - National Center for PTSD (US)",
+    "link": "https://www.ptsd.va.gov/apps/AboutFace/",
+    "tags": ["veterans", "ptsd", "videos", "learning", "government", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Understanding Traumatic Brain Injury (US)",
+    "link": "https://www.polytrauma.va.gov/understanding-tbi/",
+    "tags": ["veterans", "tbi", "learning", "government", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "RxISK",
+    "link": "https://rxisk.org/",
+    "tags": ["free", "learning", "blog", "treatment", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Unified Therapy",
+    "link": "http://www.uthsc.edu/psych/faculty/unifiedtherapypg.php",
+    "tags": ["free", "learning", "integrative", "treatment", "therapy", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The Carlat Psychiatry Blog",
+    "link": "http://carlatpsychiatry.blogspot.com/",
+    "tags": ["free", "learning", "blog", "books", "news", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "In the Wake of Suicide...Trying to Understand",
+    "link": "https://lensgirl53.wordpress.com/",
+    "tags": ["blog", "trigger_warnings", "suicide_prevention", "christian", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health Humor & Cartoons - Chato B. Stewart",
+    "link": "https://blogs.psychcentral.com/humor/",
+    "tags": ["blog", "free", "depression", "humor", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "DrugRehab (US)",
+    "link": "https://www.drugrehab.com/",
+    "tags": ["addiction", "podcast", "youth", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Madness Radio",
+    "link": "http://www.madnessradio.net/",
+    "tags": ["free", "podcast", "talks", "learning", "books", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "bi[polar] curious",
+    "link": "https://thebipolarcuriousblog.com/",
+    "tags": ["free", "blog", "learning", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Center for the Study of Empathic Therapy, Education & Living",
+    "link": "http://www.empathictherapy.org/",
+    "tags": ["conference", "directory", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Teen Addiction - The Recovery Village",
+    "link": "https://www.therecoveryvillage.com/teen-addiction/",
+    "tags": ["youth", "addiction", "rehabilitation", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health Knowledge Base",
+    "link": "https://mentalhealth-kb.net/",
+    "tags": ["directory", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Mental Health First Aid International",
+    "link": "http://www.mhfainternational.org/",
+    "tags": ["crisis_prevention", "safety_planning", "suicide_prevention", "education"],
+    "languages": ["various_languages"]
+  },
+  {
+    "name": "International OCD Foundation",
+    "link": "https://iocdf.org/",
+    "tags": ["ocd", "learning", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "International Bipolar Foundation",
+    "link": "http://ibpf.org/",
+    "tags": ["bipolar", "learning", "directory", "education"],
+    "languages": ["various_languages"]
+  },
+  {
+    "name": "Psychology Today",
+    "link": "https://www.psychologytoday.com",
+    "tags": ["learning", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Tech Disability Project",
+    "link": "https://medium.com/tech-disability-project",
+    "tags": ["blog", "tech_industry", "workplace", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Attention Deficit Disorder Association (US)",
+    "link": "https://add.org/",
+    "tags": ["add", "adhd", "learning", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Rise",
+    "link": "http://www.risenow.us/",
+    "tags": ["sexual_assault_survivors", "political_movement", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Center on Addiction (US)",
+    "link": "https://www.centeronaddiction.org/addiction",
+    "tags": ["addiction", "learning", "directory", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Anxiety and Depression Association of America",
+    "link": "https://adaa.org/",
+    "tags": ["anxiety", "depression", "learning", "directory", "education"],
+    "languages": ["various_languages"]
+  },
+  {
+    "name": "The School of Life",
+    "link": "https://www.theschooloflife.com/",
+    "tags": ["videos", "blog", "learning", "ios", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "A Close Look at PTSD Among Aging Adults",
+    "link": "https://www.seniorliving.org/research/ptsd-aging-adults/",
+    "tags": ["ptsd", "senior_citizens", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Hers Blog",
+    "link": "https://www.forhers.com/blog",
+    "tags": ["sexual_health", "women", "blog", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Benzodiazepine Information Coalition (Resources)",
+    "link": "https://www.benzoinfo.com/resources/",
+    "tags": ["books", "videos", "podcast", "blog", "learning", "physical_dependence", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Neurotic Neurons: An Interactive Explanation",
+    "link": "https://ncase.me/neurons/",
+    "tags": ["videos", "cbt", "learning", "open_source", "education"],
+    "languages": ["en", "es", "de", "fr", "it", "nb", "nl", "pt-BR", "sv", "vi"]
+  },
+  {
+    "name": "Warfighter Advance",
+    "link": "http://www.warfighteradvance.org/",
+    "tags": ["veterans", "learning", "ptsd", "treatment", "education"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Crisis Text Line (US)",
+    "link": "http://www.crisistextline.org",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en"]
+  },
+  {
+    "name": "The National Domestic Violence Hotline (US)",
+    "link": "http://www.thehotline.org",
+    "tags": ["domestic_violence", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Your Life Matters (International)",
+    "link": "http://www.yourlifecounts.org/need-help/crisis-lines",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["various_languages"]
+  },
+  {
+    "name": "Loveisrespect (US)",
+    "link": "http://www.loveisrespect.org",
+    "tags": ["youth", "dating_violence", "domestic_violence", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "The Trevor Project (US)",
+    "link": "http://www.thetrevorproject.org",
+    "tags": ["crisis_prevention", "suicide_prevention", "lgbt", "youth", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Directory of peer-run warmlines (US)",
+    "link": "http://www.warmline.org/",
+    "tags": ["free", "anonymous", "crisis_prevention", "suicide_prevention", "directory", "hotlines"],
+    "languages": ["en"]
+  },
+  {
+    "name": "IMAlive",
+    "link": "https://www.imalive.org/",
+    "tags": ["free", "anonymous", "crisis_prevention", "suicide_prevention", "directory", "hotlines"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Suicide Prevention Lifeline (US)",
+    "link": "https://suicidepreventionlifeline.org",
+    "tags": ["free", "anonymous", "crisis_prevention", "suicide_prevention", "deaf", "twenty_four_seven", "hotlines"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Veterans Crisis Line (US)",
+    "link": "https://www.veteranscrisisline.net",
+    "tags": ["veterans", "free", "anonymous", "crisis_prevention", "suicide_prevention", "deaf", "twenty_four_seven", "hotlines"],
+    "languages": ["en"]
+  },
+  {
+    "name": "List of Suicide Crisis Lines - Wikipedia (International)",
+    "link": "https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines",
+    "tags": ["crisis_prevention", "suicide_prevention", "twenty_four_seven", "free", "anonymous", "hotlines"],
+    "languages": ["various_languages"]
+  },
+  {
+    "name": "National Queer & Trans Therapists of Color Network (US)",
+    "link": "http://www.nqttcn.com",
+    "tags": ["lgbt", "people_of_colour", "therapy", "counseling", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Online SOS",
+    "link": "https://www.onlinesosnetwork.org",
+    "tags": ["cyberbullying", "harassment", "free", "counseling"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Talkspace",
+    "link": "https://www.talkspace.com",
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "7 Cups",
+    "link": "https://www.7cups.com",
+    "tags": ["therapy", "counseling", "paid", "free", "texting", "android", "ios"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Headspace",
+    "link": "https://www.headspace.com",
+    "tags": ["meditation", "paid", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Joyable",
+    "link": "https://joyable.com",
+    "tags": ["social_anxiety", "therapy", "paid", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "BetterHelp",
+    "link": "https://www.betterhelp.com",
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Doc Ready (UK)",
+    "link": "http://www.docready.org",
+    "tags": ["free", "care_planning"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Therapy For Black Girls (US)",
+    "link": "http://www.therapyforblackgirls.com",
+    "tags": ["black_women", "therapy", "counseling", "directory", "podcast"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Unstuck",
+    "link": "https://www.unstuck.com",
+    "tags": ["advice", "blog"],
+    "languages": ["en"]
+  },
+  {
+    "name": "nOCD",
+    "link": "https://www.treatmyocd.com/",
+    "tags": ["free", "ocd", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Be Safe",
+    "link": "https://play.google.com/store/apps/details?id=com.mindyourmind.besafe",
+    "tags": ["free", "crisis_prevention", "safety_planning", "android"],
+    "languages": ["en"]
+  },
+  {
+    "name": "MY3",
+    "link": "http://my3app.org",
+    "tags": ["free", "suicide_prevention", "safety_planning", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happier",
+    "link": "http://www.happier.com",
+    "tags": ["free", "mindfulness", "journaling", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Stigma",
+    "link": "http://www.getstigma.com",
+    "tags": ["free", "journaling", "mood_tracking", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Department of Veteran's Affairs | Mental Health (US)",
+    "link": "https://www.mentalhealth.va.gov/gethelp.asp",
+    "tags": ["free", "suicide_prevention", "homeless", "directory", "veterans", "government", "therapy", "counseling"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Disabled Veterans National Foundation Resources (US)",
+    "link": "http://dvnf.org/our-work/mental-physical-wellness/resource-links/",
+    "tags": ["therapy", "counseling", "directory", "veterans"],
+    "languages": ["en"]
+  },
+  {
+    "name": "MedWatch: The FDA Safety Information and Adverse Event Reporting Program (US)",
+    "link": "https://www.fda.gov/Safety/MedWatch/default.htm",
+    "tags": ["news", "free", "government"],
+    "languages": ["en", "es", "pt-BR", "vi"]
+  },
+  {
+    "name": "Insight Timer",
+    "link": "https://insighttimer.com",
+    "tags": ["free", "meditation", "teachers", "self_care", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "AddictionCenter (US)",
+    "link": "https://www.addictioncenter.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Addiction Helper (UK)",
+    "link": "https://www.addictionhelper.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Recovery.org (US)",
+    "link": "https://www.recovery.org",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy"],
+    "languages": ["en"]
+  },
+  {
+    "name": "ProjectKnow (US)",
+    "link": "https://www.projectknow.com",
+    "tags": ["addiction", "rehabilitation", "directory", "counseling", "therapy", "podcast"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Calm",
+    "link": "https://www.calm.com",
+    "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Simple Habit",
+    "link": "https://www.simplehabit.com/",
+    "tags": ["meditation", "android", "ios", "paid"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Daylio",
+    "link": "https://daylio.webflow.io/",
+    "tags": ["mood_tracking", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Habitica",
+    "link": "https://habitica.com/",
+    "tags": ["game", "goal_tracking", "social_network", "self_care", "android", "ios"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Low Cost Help (US)",
+    "link": "http://lowcosthelp.com/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Callisto (US)",
+    "link": "https://www.projectcallisto.org/",
+    "tags": ["sexual_assault_survivors", "harassment", "reporting"],
+    "languages": ["en"]
+  },
+  {
+    "name": "#selfcare app",
+    "link": "http://truluv.ai/selfcare/",
+    "tags": ["meditation", "game", "self_care", "android", "ios", "free"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Open Path Psychotherapy Collective (US)",
+    "link": "https://openpathcollective.org/",
+    "tags": ["counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Orchid Mental Health Pop (US)",
+    "link": "https://www.tryorchid.com/",
+    "tags": ["counseling", "therapy"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Antistress",
+    "link": "https://play.google.com/store/apps/details?id=com.JindoBlu.Antistress&hl=en_US",
+    "tags": ["android", "ios", "free", "game", "stress", "fidget"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happify",
+    "link": "https://www.happify.com/",
+    "tags": ["android", "ios", "paid", "game", "stress", "mindfulness"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Pigment",
+    "link": "http://pixiteapps.com/pigment/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Colorfy",
+    "link": "http://www.colorfy.net/",
+    "tags": ["android", "ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Bloom",
+    "link": "http://www.getbloom.net/",
+    "tags": ["ios", "paid", "game", "colouring", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Moodpath",
+    "link": "https://mymoodpath.com/",
+    "tags": ["ios", "android", "free", "depression", "mood_tracking", "anonymous"],
+    "languages": ["en", "de"]
+  },
+  {
+    "name": "Pacifica",
+    "link": "https://www.thinkpacifica.com/",
+    "tags": ["ios", "android", "paid", "depression", "anxiety", "mindfulness", "meditation", "mood_tracking"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Deaf Counseling Center (US)",
+    "link": "http://www.deafcounseling.com",
+    "tags": ["deaf", "asl", "counseling", "therapy", "directory"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Therapy for Latinx (US)",
+    "link": "https://therapyforlatinx.com",
+    "tags": ["latinx", "hispanic", "therapy", "counseling", "directory"],
+    "languages": ["en", "es"]
+  },
+  {
+    "name": "Woebot",
+    "link": "https://woebot.io",
+    "tags": ["chatbot", "self_care", "mood_tracking", "android", "ios", "free"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Ayana Therapy",
+    "link": "https://www.ayanatherapy.com/",
+    "tags": ["therapy", "counseling", "paid", "texting", "video_chat", "voice_chat", "android", "ios", "people_of_colour", "lgbt"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Stoic",
+    "link": "https://www.stoicroutine.com/",
+    "tags": ["ios", "free", "mood_tracking", "journaling", "meditation"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Happy Not Perfect",
+    "link": "https://happynotperfect.com/",
+    "tags": ["ios", "android", "free", "paid", "mood_tracking", "meditation", "mindfulness"],
+    "languages": ["en"]
+  },
+  {
+    "name": "T2 Mood Tracker",
+    "link": "https://psyberguide.org/apps/t2-mood-tracker/",
+    "tags": ["ios", "android", "free", "mood_tracking", "anxiety", "depression", "ptsd", "stress"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Adventures With Anxiety!",
+    "link": "https://ncase.me/anxiety/",
+    "tags": ["game", "free", "open_source", "anxiety"],
+    "languages": ["en", "de", "es", "pt-BR"]
+  },
+  {
+    "name": "BlockSite",
+    "link": "https://blocksite.co/",
+    "tags": ["social_media_break", "free", "chrome", "firefox", "ios", "android"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Twitter Demetricator",
+    "link": "https://bengrosser.com/projects/twitter-demetricator/",
+    "tags": ["social_media_break", "free", "chrome", "firefox"],
+    "languages": ["en"]
+  },
+  {
+    "name": "Your Personality",
+    "link": "https://yourpersonality.net/attachment/",
+    "tags": ["attachment", "relationships", "quiz", "free", "mood_tracking"],
+    "languages": ["en"]
+  }
+]

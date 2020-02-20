@@ -1,14 +1,24 @@
 {
   "presets": [
-    "env",
-    "flow",
-    "react",
-    "stage-2"
+    [
+      "@babel/env", {
+        "useBuiltIns": "usage",
+        "modules": "commonjs",
+        "corejs": "3"
+      }
+    ],
+    "@babel/preset-flow",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-modules-commonjs"
   ],
   "env": {
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs"
+        "babel-plugin-transform-es2015-modules-commonjs"
       ]
     },
     "development": {
@@ -16,14 +26,5 @@
         "flow-react-proptypes"
       ]
     }
-  },
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": "css"
-      }
-    ]
-  ]
+  }
 }

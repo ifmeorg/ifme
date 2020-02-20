@@ -4,15 +4,17 @@
 
 /* Profiles */
 
-@media screen and (max-width: $medium) {
-  #profile_info {
-    text-align: center;
-
-    .profile_picture_div {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 0px;
-      margin-bottom: 10px;
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &Info {
+    margin-left: $size-20;
+    > div {
+      @include setMargin($size-0, $size-0, $size-10, $size-0);
+    }
+    > div:last-of-type {
+      margin: $size-0;
     }
   }
 }

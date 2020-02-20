@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Groups::MembershipsController, type: :controller do
   include StubCurrentUserHelper
 

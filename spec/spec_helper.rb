@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
 SimpleCov.start 'rails'
 
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'rspec/collection_matchers'
 require 'capybara/rails'
@@ -15,13 +17,27 @@ Warden.test_mode!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.javascript_driver = :selenium_chrome
+if ENV['SELENIUM_REMOTE_HOST']
+  Capybara.javascript_driver = :selenium_remote_firefox
+  Capybara.register_driver 'selenium_remote_firefox'.to_sym do |app|
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: :remote,
+      url: "http://#{ENV['SELENIUM_REMOTE_HOST']}:4444/wd/hub",
+      desired_capabilities: :firefox
+    )
+  end
+  ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.delete("\n")
+  Capybara.server_host = ip
+else
+  Capybara.javascript_driver = :selenium_chrome
+end
 
 RSpec.configure do |config|
   # Ensure that if we are running js tests, we are using latest webpack assets
@@ -38,8 +54,9 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include RSpecHtmlMatchers
   config.include StubCurrentUserHelper
+  config.include StubGoogleOauth2
   config.mock_with :rspec do |mock_config|
-    mock_config.syntax = [:expect, :should]
+    mock_config.syntax = %i[expect should]
   end
   # ## Mock Framework
   #
@@ -70,19 +87,22 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
-  config.before(:each) do
-    if /selenium_remote/.match Capybara.current_driver.to_s
-      ip = `/sbin/ip route|awk '/scope/ { print $9 }'`.gsub("\n", '')
-      server = Capybara.current_session.server
-      Capybara.server_port = '3000'
-      Capybara.server_host = ip
-      Capybara.app_host = "http://#{server.host}:#{server.port}"
-    end
+  config.before { ActionMailer::Base.deliveries.clear }
+
+  config.before(header: true) do
+    config.include HiddenHeaderSupport
   end
 
   config.after(:each) do
     Capybara.reset_sessions!
     Capybara.use_default_driver
     Capybara.app_host = nil
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end

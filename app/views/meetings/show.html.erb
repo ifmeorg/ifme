@@ -1,4 +1,39 @@
 <% title @meeting.name %>
-<%= render partial: '/shared/meeting_info', locals: { meeting: @meeting, is_leader: @is_leader, show_group: true } %>
-
-<%= render partial: '/shared/comments', locals: { data: @meeting, comments: @comments, comment: @comment, no_hide_page: @no_hide_page, commentable_type: 'meeting', is_member: @is_member, is_leader: @is_leader } %>
+<div class="smallMarginBottom">
+  <%= sanitize(@meeting.description) %>
+</div>
+<%= render partial: '/meetings/story_body', locals: { meeting: @meeting } %>
+<div class="smallMarginTop">
+  <%= react_component('Modal', props: {
+    element: "<button class=\"buttonDarkXS meetingMembersButton\">#{t('members', count: @meeting.members.count)}</button>",
+    title: t('notifications.members.title'),
+    body: render(partial: '/groups/members', locals: { group: @meeting })
+  }) %>
+</div>
+<% if user_is_leader_of?(@meeting) %>
+  <div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
+    <div class="gridRowSpaceBetween">
+      <div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+      <%= react_component('StoryActions', props: {
+        dark: true,
+        actions: {
+          edit: {
+            name: t('common.actions.edit'),
+            link: edit_meeting_path(@meeting)
+          },
+          delete: {
+            name: t('common.actions.delete'),
+            link: url_for(@meeting),
+            dataConfirm: t('common.actions.confirm'),
+            dataMethod: 'delete'
+          }
+        }.merge(google_cal_actions(@meeting))
+      }) %>
+    </div>
+  </div>
+<% end %>
+<% if @meeting.member?(current_user) %>
+  <div class="smallMarginTop">
+    <%= render partial: '/shared/comments', locals: { commentable: @meeting } %>
+  </div>
+<% end %>

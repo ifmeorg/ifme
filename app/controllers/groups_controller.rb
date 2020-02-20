@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class GroupsController < ApplicationController
+  include GroupsHelper
+  include GroupsFormHelper
+
   before_action :authenticate_user!
   before_action :set_group, only: %i[show edit update destroy]
 
@@ -10,7 +13,7 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
                           .includes(:group_members)
                           .order('groups.created_at DESC')
-    @page_tooltip = t('groups.new')
+    @page_new = t('groups.new')
     @available_groups = current_user.available_groups('groups.created_at DESC')
   end
 
@@ -21,7 +24,7 @@ class GroupsController < ApplicationController
       @meetings = @group.meetings.includes(:leaders)
     end
 
-    @page_tooltip = t('meetings.new') if @group.led_by?(current_user)
+    @page_new = t('meetings.new') if @group.led_by?(current_user)
   end
 
   # GET /groups/new
@@ -32,8 +35,9 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     return if @group.leaders.include?(current_user)
+
     flash[:error] = t('groups.form.error_edit_permission')
-    redirect_to_index
+    redirect_to_path(groups_path)
   end
 
   # POST /groups
@@ -55,13 +59,11 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   # rubocop:disable MethodLength
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        update_leaders
-
-        format.html { redirect_to groups_path }
-        format.json { head :no_content }
-      else
+    if @group.update(group_params)
+      update_leaders
+      redirect_to_path(groups_path)
+    else
+      respond_to do |format|
         format.html { render :edit }
         format.json do
           render json: @group.errors, status: :unprocessable_entity
@@ -69,15 +71,13 @@ class GroupsController < ApplicationController
       end
     end
   end
-
   # rubocop:enable MethodLength
 
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
     @group.destroy
-
-    redirect_to_index
+    redirect_to_path(groups_path)
   end
 
   private
@@ -115,10 +115,6 @@ class GroupsController < ApplicationController
       format.html { redirect_to group_path(@group) }
       format.json { render :show, status: :created, location: @group }
     end
-  end
-
-  def redirect_to_index
-    redirect_to_path(groups_path)
   end
 
   def render_new(errors)

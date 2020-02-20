@@ -1,0 +1,17 @@
+@mixin overflowText() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subtle {
+  color: $eggplant;
+}
+
+.moment p {
+  margin : 0;
+}
+
+p {
+  word-wrap: break-word;
+}

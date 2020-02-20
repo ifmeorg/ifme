@@ -1,14 +1,32 @@
 <% title @category.name %>
-
 <% if !@category.description.blank? && @category.description.length > 0 %>
   <%= sanitize(@category.description) %>
 <% else %>
-  <div class="main_message">
+  <div class="messageMain">
     <%= t('warnings.no_description') %>
   </div>
-  <div class="message_text no_margin_bottom">
+  <div class="messageBody noMarginBottom">
     <%= t('warnings.yes_description') %>
   </div>
 <% end %>
-
-<%= render partial: '/shared/tag_usage', locals: { data: @category.id, data_type: 'category', user_id: @category.user_id } %>
+<div class="gridItemBoxDark gridRowSpaceBetween smallMarginTop">
+	<div class="gridRowSpaceBetween">
+		<div class="smallMarginRight"><%= t('common.actions.plural') %>:</div>
+		<%= react_component('StoryActions', props: {
+			dark: true,
+			actions: {
+				delete: {
+					name: t('common.actions.delete'),
+					link: url_for(@category),
+					dataConfirm: t('common.actions.confirm'),
+					dataMethod: 'delete'
+				},
+				edit: {
+					name: t('common.actions.edit'),
+					link: edit_category_path(@category)
+				}
+			}
+		}) %>
+	</div>
+</div>
+<%= render partial: '/tag_usage/index' %>

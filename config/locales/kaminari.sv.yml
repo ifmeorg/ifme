@@ -1,17 +1,17 @@
 sv:
-  views:
-    pagination:
-      first: "&laquo; Första"
-      last: "Sista &raquo;"
-      previous: "&lsaquo; Föregående"
-      next: "Nästa &rsaquo;"
-      truncate: "&hellip;"
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "Ingen %{entry_name} hittades"
-          one: "Visar <b>1</b> %{entry_name}"
-          other: "Visar <b>alla %{count}</b> %{entry_name}"
-      more_pages:
-        display_entries: "Visar %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> av <b>%{total}</b> totalt"
+ views:
+  pagination:
+   first: '&laquo; Första'
+   last: 'Sista &raquo;'
+   previous: '&lsaquo; Föregående'
+   next: 'Nästa &rsaquo;'
+   truncate: '&hellip;'
+ helpers:
+  page_entries_info:
+   one_page:
+    display_entries:
+     zero: 'Ingen %{entry_name} hittades'
+     one: 'Visar <b>1</b> %{entry_name}'
+     other: 'Visar <b>alla %{count}</b> %{entry_name}'
+   more_pages:
+    display_entries: 'Visar %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> av <b>%{total}</b> totalt'

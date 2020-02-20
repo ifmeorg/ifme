@@ -3,10 +3,10 @@
 #
 # Table name: medications
 #
-#  id                :integer          not null, primary key
+#  id                :bigint(8)        not null, primary key
 #  name              :string
 #  dosage            :integer
-#  refill            :string
+#  refill            :datetime
 #  created_at        :datetime
 #  updated_at        :datetime
 #  user_id           :integer
@@ -18,6 +18,9 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
+# rubocop:disable LineLength
+#  weekly_dosage     :integer          default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
+# rubocop:enable LineLength
 #
 
 class Medication < ApplicationRecord
@@ -40,6 +43,11 @@ class Medication < ApplicationRecord
 
   def active_reminders
     return unless refill_reminder && take_medication_reminder
+
     [refill_reminder, take_medication_reminder].select(&:active?)
+  end
+
+  def daily?
+    weekly_dosage.count == 7
   end
 end

@@ -3,7 +3,7 @@
 #
 # Table name: categories
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  name        :string
 #  description :text
 #  created_at  :datetime
@@ -14,13 +14,8 @@
 
 class Category < ApplicationRecord
   extend FriendlyId
+
   friendly_id :name
-  validates :description, length: { maximum: 2000 }
   validates :user_id, :name, presence: true
-
   belongs_to :user
-
-  def self.link
-    '/categories/'
-  end
 end

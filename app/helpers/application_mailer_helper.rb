@@ -11,6 +11,7 @@ module ApplicationMailerHelper
     return user.ally_notify.nil? if notify_type == 'ally_notify'
     return user.group_notify.nil? if notify_type == 'group_notify'
     return user.meeting_notify.nil? if notify_type == 'meeting_notify'
+
     false
   end
 
@@ -20,7 +21,7 @@ module ApplicationMailerHelper
 
   def notification_dictionary
     {
-      'new_ally_request'      => AllyNotifications::NewAllyRequest,
+      'new_ally_request' => AllyNotifications::NewAllyRequest,
       'accepted_ally_request' => AllyNotifications::AcceptedAllyRequest
     }
   end
@@ -63,5 +64,31 @@ module ApplicationMailerHelper
 
   def you?(recipient, data)
     recipient.name == data['user']
+  end
+
+  def commented_model(data)
+    data['type'].match(/comment_on_([^_]+)/)[1]
+  end
+
+  def extract_comment_notify_key(data)
+    # TODO: all these methods in ApplicationMailerHelper use data['type'],
+    # so just pass the type
+    if comment_on_moment_private(data) || comment_on_strategy_private(data)
+      val('comment_on_private_body')
+    else
+      val('comment_on_body')
+    end
+  end
+
+  def extract_comment_notify_subject(data)
+    # TODO: all these methods in ApplicationMailerHelper use data['type'],
+    # so just pass the type
+    if comment_on_moment(data) || comment_on_moment_private(data)
+      comment_on_moment_subject(data)
+    elsif comment_on_strategy(data) || comment_on_strategy_private(data)
+      comment_on_strategy_subject(data)
+    else
+      comment_on_meeting_subject(data)
+    end
   end
 end

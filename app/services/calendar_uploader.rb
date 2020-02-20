@@ -4,33 +4,24 @@ class CalendarUploader
   require 'google/apis/calendar_v3'
   require 'access_token'
 
-  attr_reader :summary, :date, :access_token, :email
+  attr_accessor :calendar_service # For using in tests
 
-  def initialize(summary:,
-                 date:,
-                 access_token:,
-                 email:,
-                 service: Google::Apis::CalendarV3::CalendarService.new)
-
-    @summary = summary
-    @date = date
-    @access_token = access_token
-    @email = email
-
-    @calendar_service = service
-    @calendar_service.authorization = AccessToken.new(@access_token)
+  def initialize(access_token)
+    @calendar_service = Google::Apis::CalendarV3::CalendarService.new
+    @calendar_service.authorization = AccessToken.new(access_token)
   end
 
-  def upload_event
-    parsed_date = Chronic.parse(date, endian_precedence: %i[little median])
-                         .to_time.iso8601
+  def upload_event(summary, date)
+    parsed_date = date.to_time.iso8601
 
-    event = {
-      summary: summary,
-      start: { date_time: parsed_date },
-      end: { date_time: parsed_date }
-    }
+    event = { summary: summary,
+              start: { date_time: parsed_date },
+              end: { date_time: parsed_date } }
 
     @calendar_service.insert_event('primary', event, send_notifications: true)
+  end
+
+  def delete_event(event_id)
+    @calendar_service.delete_event('primary', event_id)
   end
 end

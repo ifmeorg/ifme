@@ -1,38 +1,44 @@
-import { Col, Row } from 'antd';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import photoJulia from '../../../app/assets/images/contributors/julia_nguyen.jpg';
 import photoTara from '../../../app/assets/images/contributors/tara_swenson.jpg';
 import { Avatar } from '../components/Avatar';
 
+const name = 'Tara';
+
 storiesOf('Avatar', module)
-  .add('With name', () => (
-    <Row>
-      <Col span={8}>
-        <Avatar src={photoJulia} name="Julia Nguyen" displayName />
-      </Col>
-      <Col span={8}>
-        <Avatar src={photoTara} name="Tara Swenson" displayName />
-      </Col>
-      <Col span={8}>
-        <Avatar
-          src="NonExistentFile.jpg"
-          name="Default On Loading Error"
-          displayName
-        />
-      </Col>
-    </Row>
+  .add('With image', () => (
+    <>
+      <Avatar src={photoTara} small />
+      <br />
+      <Avatar src={photoTara} />
+      <br />
+      <Avatar src={photoTara} large />
+    </>
   ))
-  .add('Without name', () => (
-    <Row>
-      <Col span={8}>
-        <Avatar src={photoJulia} name="Julia Nguyen" />
-      </Col>
-      <Col span={8}>
-        <Avatar src={photoTara} name="Tara Swenson" />
-      </Col>
-      <Col span={8}>
-        <Avatar src="NonExistentFile.jpg" name="Default On Loading Error" />
-      </Col>
-    </Row>
+  .add('Without image', () => (
+    <>
+      <Avatar small />
+      <br />
+      <Avatar />
+      <br />
+      <Avatar large />
+    </>
+  ))
+  .add('With image and name', () => (
+    <>
+      <Avatar src={photoTara} name={name} small />
+      <br />
+      <Avatar src={photoTara} name={name} />
+      <br />
+      <Avatar src={photoTara} name={name} large />
+    </>
+  ))
+  .add('Without image and with name', () => (
+    <>
+      <Avatar small name={name} />
+      <br />
+      <Avatar name={name} />
+      <br />
+      <Avatar name={name} large />
+    </>
   ));
