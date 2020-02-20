@@ -45,7 +45,7 @@ export class QuickCreate extends React.Component<Props, State> {
     this.state = {
       checkboxes: sortAlpha(props.checkboxes),
       open: false,
-      accordionOpen: false,
+      accordionOpen: props.checkboxes.some((cb) => cb.checked),
     };
   }
 

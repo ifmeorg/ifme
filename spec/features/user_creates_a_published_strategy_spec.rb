@@ -78,7 +78,6 @@ describe 'UserCreatesAPublishedStrategy', js: true do
       expect(find('.pageTitle')).to have_content 'Edit My New Strategy'
 
       within('#strategy_category_accordion') do
-        find('.accordion').click
         expect(page).to have_content 'Test Category'
         expect(page).to have_content 'Some New Category'
         find('.accordion').click
