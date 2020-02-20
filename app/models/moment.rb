@@ -60,18 +60,10 @@ class Moment < ApplicationRecord
   end
 
   def self.populate_moments_moods
-    sql = 'INSERT INTO moments_moods (moment_id, mood_id) VALUES '
-    insertions = []
     Moment.all.find_each do |moment|
-      moment.mood.each do |mood_id|
-        insertions << "(#{moment.id}, #{mood_id})"
-      end
+      moment.mood = Mood.where(id: moment.mood).pluck(:id)
+      moment.save
     end
-
-    sql += insertions.join(', ')
-    sql += ' ON CONFLICT DO NOTHING;'
-
-    Moment.connection.execute(sql)
   end
 
   def category_array_data
@@ -83,11 +75,9 @@ class Moment < ApplicationRecord
   end
 
   def mood_array_data
-    if mood.is_a?(Array)
-      mood_ids = mood.collect(&:to_i)
-      self.mood = mood_ids
-      self.moods = Mood.where(user_id: user_id, id: mood_ids)
-    end
+    mood_ids = mood.collect(&:to_i)
+    self.mood = mood_ids if mood.is_a?(Array)
+    self.moods = Mood.where(user_id: user_id, id: mood_ids) if mood.is_a?(Array)
   end
 
   def strategy_array_data
