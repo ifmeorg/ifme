@@ -91,7 +91,7 @@ describe 'UserCreatesAPublishedMoment', js: true do
 
       find('#moment_comment_switch').click
       find('#moment_publishing_switch').click
-      find('#submit').click
+      find('#submit', wait: 10).click
 
       # VIEWING
       expect(find('.pageTitle')).to have_content 'My New Moment'
