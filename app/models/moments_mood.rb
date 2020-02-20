@@ -10,4 +10,6 @@
 class MomentsMood < ApplicationRecord
   belongs_to :moment
   belongs_to :mood
+
+  validates_uniqueness_of :moment_id, scope: [:mood_id]
 end
