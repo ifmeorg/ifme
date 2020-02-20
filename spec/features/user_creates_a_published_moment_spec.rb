@@ -116,21 +116,18 @@ describe 'UserCreatesAPublishedMoment', js: true do
       expect(find('.pageTitle')).to have_content 'Edit My New Moment'
 
       within('#moment_category_accordion') do
-        find('.accordion').click
         expect(page).to have_content 'Test Category'
         expect(page).to have_content 'Some New Category'
         find('.accordion').click
       end
 
       within('#moment_mood_accordion') do
-        find('.accordion').click
         expect(page).to have_content 'Test Mood'
         expect(page).to have_content 'Some New Mood'
         find('.accordion').click
       end
 
       within('#moment_strategy_accordion') do
-        find('.accordion').click
         expect(page).to have_content 'Test Strategy'
         expect(page).to have_content 'Some New Strategy'
         find('.accordion').click
