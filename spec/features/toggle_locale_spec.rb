@@ -32,9 +32,7 @@ describe 'ToggleLocale', js: true do
 
         change_page(
           lambda {
-            within '.footer' do
-              click_link('Acerca de')
-            end
+            visit about_path
           },
           '.pageTitle',
           have_content('Acerca de')
