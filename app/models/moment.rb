@@ -40,6 +40,8 @@ class Moment < ApplicationRecord
   belongs_to :user
 
   has_many :comments, as: :commentable
+  has_many :moment_moods
+  has_many :moods, through: :moment_moods
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
