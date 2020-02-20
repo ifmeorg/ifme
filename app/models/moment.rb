@@ -83,7 +83,11 @@ class Moment < ApplicationRecord
   end
 
   def mood_array_data
-    self.mood = mood.collect(&:to_i) if mood.is_a?(Array)
+    if mood.is_a?(Array)
+      mood_ids = mood.collect(&:to_i)
+      self.mood = mood_ids
+      self.moods = Mood.where(user_id: user_id, id: mood_ids)
+    end
   end
 
   def strategy_array_data
