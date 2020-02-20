@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_013432) do
+ActiveRecord::Schema.define(version: 2020_02_20_020348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,13 @@ ActiveRecord::Schema.define(version: 2019_08_21_013432) do
     t.string "date"
     t.string "slug"
     t.index ["slug"], name: "index_meetings_on_slug", unique: true
+  end
+
+  create_table "moment_moods", force: :cascade do |t|
+    t.bigint "moment_id"
+    t.bigint "mood_id"
+    t.index ["moment_id"], name: "index_moment_moods_on_moment_id"
+    t.index ["mood_id"], name: "index_moment_moods_on_mood_id"
   end
 
   create_table "moments", force: :cascade do |t|
@@ -274,4 +281,6 @@ ActiveRecord::Schema.define(version: 2019_08_21_013432) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
+  add_foreign_key "moment_moods", "moments"
+  add_foreign_key "moment_moods", "moods"
 end
