@@ -22,7 +22,6 @@ describe Mood do
 
   context 'with validations' do
     it { is_expected.to belong_to :user }
-    it { is_expected.to belong_to :moment }
   end
 
   context 'creation' do
