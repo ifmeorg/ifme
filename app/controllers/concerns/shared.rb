@@ -38,9 +38,7 @@ module Shared
     # This block can be removed when all model objects managed
     # via join table
     if model_object.class != Mood
-      current_user.moments.each do |m|
-        update_object(model_object, m)
-      end
+      current_user.moments.each { |m| update_object(model_object, m) }
     end
     if model_object.class == Category
       current_user.strategies.each do |s|

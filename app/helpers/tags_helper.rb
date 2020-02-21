@@ -71,7 +71,7 @@ module TagsHelper
     return unless tag && data
 
     result = []
-    attribute = tag.kind_of?(Mood) ? 'moods' : tag.class.name.downcase
+    attribute = tag.is_a?(Mood) ? 'moods' : tag.class.name.downcase
     data.each do |d|
       result << d if d.send(attribute).include?(tag.id)
     end
