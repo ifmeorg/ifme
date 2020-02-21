@@ -7,7 +7,7 @@
 
 <% if @moods.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'mood' } %>
-  <%= render partial: '/shared/stats', locals: { data_type: 'mood', user: current_user } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'moods', user: current_user } %>
 
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',

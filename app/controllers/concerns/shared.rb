@@ -34,8 +34,13 @@ module Shared
   end
 
   def shared_destroy(model_object)
-    current_user.moments.each do |m|
-      update_object(model_object, m)
+    # Moods are managed via join table, not attr on Moment
+    # This block can be removed when all model objects managed
+    # via join table
+    if model_object.class != Mood
+      current_user.moments.each do |m|
+        update_object(model_object, m)
+      end
     end
     if model_object.class == Category
       current_user.strategies.each do |s|

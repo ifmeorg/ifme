@@ -3,10 +3,10 @@ module CommonMethods
   extend ActiveSupport::Concern
 
   def mood_names_and_slugs
-    return unless attribute(:mood)
+    return unless self.class.reflect_on_association(:moods)
 
     names_and_slugs_hash(
-      Mood.where(id: mood).pluck(:name, :slug),
+      moods.pluck(:name, :slug),
       'moods'
     )
   end
