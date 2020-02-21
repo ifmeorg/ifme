@@ -70,12 +70,21 @@ module TagsHelper
   def get_tagged_data(tag, data)
     return unless tag && data
 
-    result = []
-    attribute = tag.is_a?(Mood) ? 'moods' : tag.class.name.downcase
-    data.each do |d|
-      result << d if d.send(attribute).include?(tag.id)
-    end
+    result = if tag.is_a?(Mood)
+               get_moods_from_data(data, mood_id)
+             else
+               get_attribute_from_data(data, tag)
+             end
     { total: get_total(result),
       posts: Kaminari.paginate_array(result).page(params[:page]) }
+  end
+
+  def get_moods_from_data(data, mood_id)
+    data.select { |d| d.moods.include?(mood_id) }
+  end
+
+  def get_attribute_from_data(data, tag)
+    attribute = tag.class.name.downcase
+    data.select { |d| d if d.send(attribute).include?(tag.id) }
   end
 end
