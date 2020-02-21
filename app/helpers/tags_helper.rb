@@ -71,7 +71,7 @@ module TagsHelper
     return unless tag && data
 
     result = if tag.is_a?(Mood)
-               get_moods_from_data(data, mood_id)
+               get_moods_from_data(data, tag.id)
              else
                get_attribute_from_data(data, tag)
              end
