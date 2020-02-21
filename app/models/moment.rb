@@ -40,6 +40,8 @@ class Moment < ApplicationRecord
   belongs_to :user
 
   has_many :comments, as: :commentable
+  has_many :moments_moods
+  has_many :moods, through: :moments_moods
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
@@ -57,6 +59,13 @@ class Moment < ApplicationRecord
     )
   end
 
+  def self.populate_moments_moods
+    Moment.all.find_each do |moment|
+      moment.mood = Mood.where(id: moment.mood).pluck(:id)
+      moment.save
+    end
+  end
+
   def category_array_data
     self.category = category.collect(&:to_i) if category.is_a?(Array)
   end
@@ -66,7 +75,9 @@ class Moment < ApplicationRecord
   end
 
   def mood_array_data
-    self.mood = mood.collect(&:to_i) if mood.is_a?(Array)
+    mood_ids = mood.collect(&:to_i)
+    self.mood = mood_ids if mood.is_a?(Array)
+    self.moods = Mood.where(user_id: user_id, id: mood_ids) if mood.is_a?(Array)
   end
 
   def strategy_array_data

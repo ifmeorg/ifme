@@ -112,4 +112,82 @@ describe Moment do
       it { is_expected.to be false }
     end
   end
+
+  describe '.populate_moments_moods' do
+      let(:user) { create(:user) }
+      let(:user_two) { create(:user) }
+
+      let(:mood) { create(:mood, user: user) }
+      let(:mood_two) { create(:mood, user: user) }
+      let(:mood_three) { create(:mood, user: user_two) }
+
+      let!(:moment) { create(:moment, user: user, mood: [mood.id]) }
+      let!(:moment_two) {
+        create(:moment, user: user, mood: [mood.id, mood_two.id]) }
+      let!(:moment_three) {
+        create(:moment, user: user_two, mood: [mood_three.id]) }
+      let!(:moment_four) { create(:moment, user: user_two) }
+
+      it 'creates join table records' do
+        # Must delete join table records because they're automatically saved
+        ActiveRecord::Base.connection.execute("DELETE from moments_moods")
+        expect(moment.moods.count).to eq(0)
+        expect(moment_two.moods.count).to eq(0)
+        expect(moment_three.moods.count).to eq(0)
+        expect(moment_four.moods.count).to eq(0)
+
+        Moment.populate_moments_moods
+
+        expect(moment.moods.count).to eq(1)
+        expect(moment.moods).to include mood
+
+        expect(moment_two.moods.count).to eq(2)
+        expect(moment_two.moods).to include mood
+        expect(moment_two.moods).to include mood_two
+
+        expect(moment_three.moods.count).to eq(1)
+        expect(moment_three.moods).to include mood_three
+
+        expect(moment_four.moods.count).to eq(0)
+      end
+  end
+
+  describe '#mood_array_data' do
+    let!(:moment) { create(:moment, :with_user) }
+    let!(:mood) { create(:mood, user: moment.user) }
+
+    context 'saving moods as IDs' do
+      it 'sets moods on field upon save' do
+        expect(moment.mood).to eq([])
+        moment.mood = [mood.id.to_s]
+        expect {
+          moment.save
+        }.to change{ moment.mood }.to([mood.id])
+      end
+    end
+
+    context 'saving moods via relation' do
+      let!(:mood_two) { create(:mood, user: moment.user) }
+
+      it 'creates relations between moment and mood models' do
+        expect(moment.moods.count).to eq(0)
+        moment.mood = [mood.id.to_s, mood_two.id.to_s]
+        moment.save
+
+        expect(moment.moods.count).to eq(2)
+        expect(moment.moods).to include(mood)
+        expect(moment.moods).to include(mood_two)
+      end
+
+      it 'removes old moods when updating' do
+        moment.mood = [mood.id.to_s]
+        moment.save
+        expect(moment.moods).to eq [mood]
+
+        moment.mood = [mood_two.id.to_s]
+        moment.save
+        expect(moment.moods).to eq [mood_two]
+      end
+    end
+  end
 end
