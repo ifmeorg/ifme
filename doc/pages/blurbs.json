@@ -547,5 +547,14 @@
     "link_name": "twalker1998",
     "link": "https://github.com/twalker1998",
     "social": "github"
+  },
+  {
+    "name": "Nicholas Lee",
+    "image": "/assets/contributors/nicholas_lee.jpg",
+    "profile": "Web Developer out of Chicago, Illinois. I enjoy learning new things and helping out others. If Me caught my attention as a great application to work with mental health and a sound principle/Code of Conduct.",
+    "location": "Chicago, Illinois",
+    "link_name": "leeacto",
+    "link": "https://github.com/leeacto",
+    "social": "github"
   }
 ]
