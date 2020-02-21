@@ -196,7 +196,7 @@ RSpec.describe MoodsController, type: :controller do
       end
       it 'removes moods from existing moments' do
         delete :destroy, params: { id: user_mood.id }
-        expect(moment.reload.mood).not_to include(user_mood.id)
+        expect(moment.reload.moods).not_to include(user_mood)
       end
       it 'redirects to the mood index page' do
         delete :destroy, params: { id: user_mood.id }

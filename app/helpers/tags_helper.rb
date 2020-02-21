@@ -71,8 +71,9 @@ module TagsHelper
     return unless tag && data
 
     result = []
+    attribute = tag.kind_of?(Mood) ? 'moods' : tag.class.name.downcase
     data.each do |d|
-      result << d if d[tag.class.name.downcase].include?(tag.id)
+      result << d if d.send(attribute).include?(tag.id)
     end
     { total: get_total(result),
       posts: Kaminari.paginate_array(result).page(params[:page]) }

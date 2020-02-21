@@ -26,7 +26,7 @@ module MostFocusHelper
   def get_data_type(model_object, data_type)
     data = []
     model_object.select do |item|
-      related_objects = data_type == 'moods' ? item.moods : item[data_type]
+      related_objects = data_type == 'moods' ? item.moods.pluck(:id) : item[data_type]
       next unless related_objects.any? && viewable?(item)
 
       data.concat(related_objects)
