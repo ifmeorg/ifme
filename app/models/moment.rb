@@ -40,7 +40,7 @@ class Moment < ApplicationRecord
   belongs_to :user
 
   has_many :comments, as: :commentable
-  has_many :moments_moods
+  has_many :moments_moods, dependent: :destroy
   has_many :moods, through: :moments_moods
 
   validates :comment, inclusion: [true, false]
@@ -75,9 +75,11 @@ class Moment < ApplicationRecord
   end
 
   def mood_array_data
+    return unless mood.is_a?(Array)
+
     mood_ids = mood.collect(&:to_i)
-    self.mood = mood_ids if mood.is_a?(Array)
-    self.moods = Mood.where(user_id: user_id, id: mood_ids) if mood.is_a?(Array)
+    self.mood = mood_ids
+    self.moods = Mood.where(user_id: user_id, id: mood_ids)
   end
 
   def strategy_array_data

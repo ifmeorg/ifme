@@ -44,11 +44,6 @@ task :setup_workspace do
   end
 end
 
-desc 'Convert existing Moment mood IDs to join table records'
-task :populate_moments_moods do
-  Moment.populate_moments_moods
-end
-
 # Run the secret task, grab the output, strip the new lines
 def generate_secret
   s = StringIO.new
