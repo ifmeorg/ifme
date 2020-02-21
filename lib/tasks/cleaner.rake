@@ -13,4 +13,9 @@ namespace :cleaner do
       end
     end
   end
+
+  desc 'Convert existing Moment mood IDs to join table records'
+  task populate_moments_moods: :environment do
+    Moment.populate_moments_moods
+  end
 end
