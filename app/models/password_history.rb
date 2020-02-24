@@ -4,9 +4,11 @@
 #
 # Table name: password_histories
 #
-#  id                     :integer          not null, primary key
-#  user_id                :integer           default(''), not null
-#  encrypted_password     :string           default(''), not null
+#  id                 :bigint           not null, primary key
+#  user_id            :integer          not null
+#  encrypted_password :string
+#  created_at         :datetime         not null
+#
 
 class PasswordHistory < ApplicationRecord
   belongs_to :user

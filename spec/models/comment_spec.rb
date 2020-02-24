@@ -3,7 +3,7 @@
 #
 # Table name: comments
 #
-#  id               :bigint(8)        not null, primary key
+#  id               :bigint           not null, primary key
 #  commentable_type :string
 #  commentable_id   :integer
 #  comment_by       :integer

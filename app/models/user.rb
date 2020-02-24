@@ -3,7 +3,7 @@
 #
 # Table name: users
 #
-#  id                     :bigint(8)        not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -42,6 +42,7 @@
 #  refresh_token          :string
 #  banned                 :boolean          default(FALSE)
 #  admin                  :boolean          default(FALSE)
+#  third_party_avatar     :text
 #
 
 class User < ApplicationRecord

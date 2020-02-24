@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_205313) do
+ActiveRecord::Schema.define(version: 2020_02_24_231844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,12 @@ ActiveRecord::Schema.define(version: 2020_02_24_205313) do
     t.index ["moment_id", "mood_id"], name: "index_moments_moods_on_moment_id_and_mood_id", unique: true
   end
 
+  create_table "moments_strategies", force: :cascade do |t|
+    t.integer "moment_id"
+    t.integer "strategy_id"
+    t.index ["moment_id", "strategy_id"], name: "index_moments_strategies_on_moment_id_and_strategy_id", unique: true
+  end
+
   create_table "moods", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -288,4 +294,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_205313) do
   add_foreign_key "moments_categories", "moments"
   add_foreign_key "moments_moods", "moments"
   add_foreign_key "moments_moods", "moods"
+  add_foreign_key "moments_strategies", "moments"
+  add_foreign_key "moments_strategies", "strategies"
 end

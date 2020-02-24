@@ -2,13 +2,13 @@
 
 # == Schema Information
 #
-# Table name: perform_strategy_reminders
+# Table name: refill_reminders
 #
-#  id          :integer          not null, primary key
-#  strategy_id :integer          not null
-#  active      :boolean          not null
-#  created_at  :datetime
-#  updated_at  :datetime
+#  id            :integer          not null, primary key
+#  medication_id :integer          not null
+#  active        :boolean          not null
+#  created_at    :datetime
+#  updated_at    :datetime
 #
 describe RefillReminder do
   context 'with relations' do
