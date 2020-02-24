@@ -18,7 +18,8 @@
 #  comments          :text
 #  slug              :string
 #  add_to_google_cal :boolean          default(FALSE)
-#  weekly_dosage     :integer          default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
+#  weekly_dosage     :integer
+#   default(["0", "1", "2", "3", "4", "5", "6"]), is an Array
 #
 
 class Medication < ApplicationRecord
