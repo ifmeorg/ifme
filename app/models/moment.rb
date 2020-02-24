@@ -3,8 +3,7 @@
 #
 # Table name: moments
 #
-#  id                      :bigint(8)        not null, primary key
-#  category                :text
+#  id                      :bigint           not null, primary key
 #  name                    :string
 #  why                     :text
 #  fix                     :text
@@ -41,6 +40,8 @@ class Moment < ApplicationRecord
   has_many :moods, through: :moments_moods
   has_many :moments_categories, dependent: :destroy
   has_many :categories, through: :moments_categories
+  has_many :moments_strategies, dependent: :destroy
+  has_many :strategies, through: :moments_strategies
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
@@ -59,6 +60,13 @@ class Moment < ApplicationRecord
       # 'secret_share_expires_at > NOW()', TODO: Turn off temporarily
       secret_share_identifier: identifier
     )
+  end
+
+  def self.populate_moments_strategies
+    Moment.all.find_each do |moment|
+      moment.strategy = Strategy.where(id: moment.strategy).pluck(:id)
+      moment.save
+    end
   end
 
   def category_array_data
@@ -80,7 +88,11 @@ class Moment < ApplicationRecord
   end
 
   def strategy_array_data
-    self.strategy = strategy.collect(&:to_i) if strategy.is_a?(Array)
+    return unless strategy.is_a?(Array)
+
+    strategy_ids = strategy.collect(&:to_i)
+    self.strategy = strategy_ids
+    self.strategies = Strategy.where(user_id: user_id, id: strategy_ids)
   end
 
   def owned_by?(user)

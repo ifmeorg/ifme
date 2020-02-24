@@ -13,4 +13,9 @@ namespace :cleaner do
       end
     end
   end
+
+  desc 'Convert existing Moment strategy IDs to join table records'
+  task populate_moments_strategies: :environment do
+    Moment.populate_moments_strategies
+  end
 end

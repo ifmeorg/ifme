@@ -3,7 +3,7 @@
 #
 # Table name: strategies
 #
-#  id           :bigint(8)        not null, primary key
+#  id           :bigint           not null, primary key
 #  user_id      :integer
 #  category     :text
 #  description  :text
@@ -39,6 +39,8 @@ class Strategy < ApplicationRecord
 
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
+
+  has_many :moments_strategies, dependent: :destroy
 
   def active_reminders
     [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder

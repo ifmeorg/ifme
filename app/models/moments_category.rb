@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 # == Schema Information
 #
-# Table name: moments_moods
+# Table name: moments_categories
 #
-#  id         :int        not null, primary key
-#  mood_id    :int
-#  moment_id  :int
+#  id          :bigint           not null, primary key
+#  moment_id   :integer
+#  category_id :integer
+#
 
 class MomentsCategory < ApplicationRecord
   belongs_to :moment

@@ -3,9 +3,10 @@
 #
 # Table name: moments_moods
 #
-#  id         :int        not null, primary key
-#  mood_id    :int
-#  moment_id  :int
+#  id        :bigint           not null, primary key
+#  moment_id :integer
+#  mood_id   :integer
+#
 
 class MomentsMood < ApplicationRecord
   belongs_to :moment

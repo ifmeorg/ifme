@@ -3,7 +3,7 @@
 #
 # Table name: moments
 #
-#  id                      :bigint(8)        not null, primary key
+#  id                      :bigint           not null, primary key
 #  name                    :string
 #  why                     :text
 #  fix                     :text
@@ -167,6 +167,84 @@ describe Moment do
         moment.category = [category_two.id.to_s]
         moment.save
         expect(moment.categories).to eq [category_two]
+      end
+    end
+  end
+
+  describe '.populate_moments_strategies' do
+    let(:user) { create(:user) }
+    let(:user_two) { create(:user) }
+
+    let(:strategy) { create(:strategy, user: user) }
+    let(:strategy_two) { create(:strategy, user: user) }
+    let(:strategy_three) { create(:strategy, user: user_two) }
+
+    let!(:moment) { create(:moment, user: user, strategy: [strategy.id]) }
+    let!(:moment_two) {
+      create(:moment, user: user, strategy: [strategy.id, strategy_two.id]) }
+    let!(:moment_three) {
+      create(:moment, user: user_two, strategy: [strategy_three.id]) }
+    let!(:moment_four) { create(:moment, user: user_two) }
+
+    it 'creates join table records' do
+      # Must delete join table records because they're automatically saved
+      ActiveRecord::Base.connection.execute("DELETE from moments_strategies")
+      expect(moment.strategies.count).to eq(0)
+      expect(moment_two.strategies.count).to eq(0)
+      expect(moment_three.strategies.count).to eq(0)
+      expect(moment_four.strategies.count).to eq(0)
+
+      Moment.populate_moments_strategies
+
+      expect(moment.strategies.count).to eq(1)
+      expect(moment.strategies).to include strategy
+
+      expect(moment_two.strategies.count).to eq(2)
+      expect(moment_two.strategies).to include strategy
+      expect(moment_two.strategies).to include strategy_two
+
+      expect(moment_three.strategies.count).to eq(1)
+      expect(moment_three.strategies).to include strategy_three
+
+      expect(moment_four.strategies.count).to eq(0)
+    end
+  end
+
+  describe '#strategy_array_data' do
+    let!(:moment) { create(:moment, :with_user) }
+    let!(:strategy) { create(:strategy, user: moment.user) }
+
+    context 'saving strategies as IDs' do
+      it 'sets strategies on field upon save' do
+        expect(moment.strategy).to eq([])
+        moment.strategy = [strategy.id.to_s]
+        expect {
+          moment.save
+        }.to change{ moment.strategy }.to([strategy.id])
+      end
+    end
+
+    context 'saving strategies via relation' do
+      let!(:strategy_two) { create(:strategy, user: moment.user) }
+
+      it 'creates relations between moment and strategy models' do
+        expect(moment.strategies.count).to eq(0)
+        moment.strategy = [strategy.id.to_s, strategy_two.id.to_s]
+        moment.save
+
+        expect(moment.strategies.count).to eq(2)
+        expect(moment.strategies).to include(strategy)
+        expect(moment.strategies).to include(strategy_two)
+      end
+
+      it 'removes old strategies when updating' do
+        moment.strategy = [strategy.id.to_s]
+        moment.save
+        expect(moment.strategies).to eq [strategy]
+
+        moment.strategy = [strategy_two.id.to_s]
+        moment.save
+        expect(moment.strategies).to eq [strategy_two]
       end
     end
   end
