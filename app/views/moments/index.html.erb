@@ -30,14 +30,21 @@
   <%= raw t('moments.index.instructions') %>
   <div class="gridTwo marginTop">
     <div class="gridTwoItemBoxLight">
+      <%
+        example_mood_names = t('moods.example_moods')
+        example_moods = []
+        example_mood_names.split(',').each do |m|
+          example_moods.push({ name: m, slug: '' })
+        end
+      %>
       <%= react_component('Story', html_options: html_options, props: {
         name: t('moments.index.example_name'),
         link: moments_path,
         actions: {
           viewers: t('comment.control')
         },
-        categories: [t('moments.index.example_category')],
-        moods: t('moods.example_moods').split(',')
+        categories: [{ name: t('moments.index.example_category'), slug: '' }],
+        moods: example_moods
       }) %>
     </div>
   </div>
