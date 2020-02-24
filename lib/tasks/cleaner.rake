@@ -13,4 +13,9 @@ namespace :cleaner do
       end
     end
   end
+
+  desc 'Convert existing Moment category IDs to join table records'
+  task populate_moments_categories: :environment do
+    Moment.populate_moments_categories
+  end
 end
