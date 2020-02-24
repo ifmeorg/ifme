@@ -12,7 +12,6 @@
 #  user_id                 :integer
 #  viewers                 :text
 #  comment                 :boolean
-#  strategy                :text
 #  slug                    :string
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
@@ -53,11 +52,12 @@ describe Moment do
     it { is_expected.to have_many(:moods).through(:moments_moods) }
     it { is_expected.to have_many :moments_categories }
     it { is_expected.to have_many(:categories).through(:moments_categories) }
+    it { is_expected.to have_many :moments_strategies }
+    it { is_expected.to have_many(:strategies).through(:moments_strategies) }
   end
 
   context 'with serialize' do
     it { is_expected.to serialize :viewers }
-    it { is_expected.to serialize :strategy }
   end
 
   describe '.find_secret_share!' do
@@ -171,58 +171,9 @@ describe Moment do
     end
   end
 
-  describe '.populate_moments_strategies' do
-    let(:user) { create(:user) }
-    let(:user_two) { create(:user) }
-
-    let(:strategy) { create(:strategy, user: user) }
-    let(:strategy_two) { create(:strategy, user: user) }
-    let(:strategy_three) { create(:strategy, user: user_two) }
-
-    let!(:moment) { create(:moment, user: user, strategy: [strategy.id]) }
-    let!(:moment_two) {
-      create(:moment, user: user, strategy: [strategy.id, strategy_two.id]) }
-    let!(:moment_three) {
-      create(:moment, user: user_two, strategy: [strategy_three.id]) }
-    let!(:moment_four) { create(:moment, user: user_two) }
-
-    it 'creates join table records' do
-      # Must delete join table records because they're automatically saved
-      ActiveRecord::Base.connection.execute("DELETE from moments_strategies")
-      expect(moment.strategies.count).to eq(0)
-      expect(moment_two.strategies.count).to eq(0)
-      expect(moment_three.strategies.count).to eq(0)
-      expect(moment_four.strategies.count).to eq(0)
-
-      Moment.populate_moments_strategies
-
-      expect(moment.strategies.count).to eq(1)
-      expect(moment.strategies).to include strategy
-
-      expect(moment_two.strategies.count).to eq(2)
-      expect(moment_two.strategies).to include strategy
-      expect(moment_two.strategies).to include strategy_two
-
-      expect(moment_three.strategies.count).to eq(1)
-      expect(moment_three.strategies).to include strategy_three
-
-      expect(moment_four.strategies.count).to eq(0)
-    end
-  end
-
   describe '#strategy_array_data' do
     let!(:moment) { create(:moment, :with_user) }
     let!(:strategy) { create(:strategy, user: moment.user) }
-
-    context 'saving strategies as IDs' do
-      it 'sets strategies on field upon save' do
-        expect(moment.strategy).to eq([])
-        moment.strategy = [strategy.id.to_s]
-        expect {
-          moment.save
-        }.to change{ moment.strategy }.to([strategy.id])
-      end
-    end
 
     context 'saving strategies via relation' do
       let!(:strategy_two) { create(:strategy, user: moment.user) }

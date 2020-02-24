@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module MostFocusHelper
   def most_focus(data_type, user)
-    return unless user && %w[moods strategy categories].include?(data_type)
+    return unless user && %w[moods strategies categories].include?(data_type)
 
     data = get_data(data_type, user)
     return unless data.any?
@@ -28,6 +28,8 @@ module MostFocusHelper
       item.moods.pluck(:id)
     elsif data_type == 'categories' && item.is_a?(Moment)
       item.categories.pluck(:id)
+    elsif data_type == 'strategies'
+      item.strategies.pluck(:id)
     else
       item[data_type]
     end

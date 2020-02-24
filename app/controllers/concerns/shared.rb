@@ -47,7 +47,7 @@ module Shared
   private
 
   def temp_remove_model_objects(model_object)
-    return if [Mood, Category].include?(model_object.class)
+    return if [Mood, Category, Strategy].include?(model_object.class)
 
     current_user.moments.each { |m| update_object(model_object, m) }
   end

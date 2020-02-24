@@ -32,12 +32,12 @@
   </div>
 <% end %>
 
-<% if @moment.strategy.count > 0 %>
+<% if @moment.strategies.count > 0 %>
   <div class="smallMarginTop">
     <div class="label"><%= label_tag t('moments.show.strategies') %></div>
     <ul>
-      <% @moment.strategy.each do |item| %>
-          <li><%= link_to Strategy.find(item).name, Strategy.find(item) %></li>
+      <% @moment.strategies.each do |item| %>
+          <li><%= link_to item.name, item %></li>
       <% end %>
     </ul>
   </div>

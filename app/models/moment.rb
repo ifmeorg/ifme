@@ -12,7 +12,6 @@
 #  user_id                 :integer
 #  viewers                 :text
 #  comment                 :boolean
-#  strategy                :text
 #  slug                    :string
 #  secret_share_identifier :uuid
 #  secret_share_expires_at :datetime
@@ -26,7 +25,6 @@ class Moment < ApplicationRecord
 
   friendly_id :name
   serialize :viewers, Array
-  serialize :strategy, Array
 
   before_save :category_array_data
   before_save :viewers_array_data
@@ -54,19 +52,13 @@ class Moment < ApplicationRecord
 
   attr_accessor :mood
   attr_accessor :category
+  attr_accessor :strategy
 
   def self.find_secret_share!(identifier)
     find_by!(
       # 'secret_share_expires_at > NOW()', TODO: Turn off temporarily
       secret_share_identifier: identifier
     )
-  end
-
-  def self.populate_moments_strategies
-    Moment.all.find_each do |moment|
-      moment.strategy = Strategy.where(id: moment.strategy).pluck(:id)
-      moment.save
-    end
   end
 
   def category_array_data
@@ -91,7 +83,6 @@ class Moment < ApplicationRecord
     return unless strategy.is_a?(Array)
 
     strategy_ids = strategy.collect(&:to_i)
-    self.strategy = strategy_ids
     self.strategies = Strategy.where(user_id: user_id, id: strategy_ids)
   end
 
