@@ -67,16 +67,20 @@ module TagsHelper
     total
   end
 
+  def tagged_data_result(tag, data)
+    if tag.is_a?(Mood)
+      get_moods_from_data(data, tag.id)
+    elsif tag.is_a?(Category) && data.first.is_a?(Moment)
+      get_categories_from_data(data, tag.id)
+    else
+      get_attribute_from_data(data, tag)
+    end
+  end
+
   def get_tagged_data(tag, data)
     return unless tag && data
 
-    result = if tag.is_a?(Mood)
-               get_moods_from_data(data, tag.id)
-             elsif tag.is_a?(Category)
-               get_categories_from_data(data, tag.id)
-             else
-               get_attribute_from_data(data, tag)
-             end
+    result = tagged_data_result(tag, data)
     { total: get_total(result),
       posts: Kaminari.paginate_array(result).page(params[:page]) }
   end
