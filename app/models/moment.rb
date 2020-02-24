@@ -26,7 +26,6 @@ class Moment < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name
-  serialize :category, Array
   serialize :viewers, Array
   serialize :strategy, Array
 
@@ -53,6 +52,7 @@ class Moment < ApplicationRecord
   scope :recent, -> { order('created_at DESC') }
 
   attr_accessor :mood
+  attr_accessor :category
 
   def self.find_secret_share!(identifier)
     find_by!(
@@ -61,18 +61,10 @@ class Moment < ApplicationRecord
     )
   end
 
-  def self.populate_moments_categories
-    Moment.all.find_each do |moment|
-      moment.category = Category.where(id: moment.category).pluck(:id)
-      moment.save
-    end
-  end
-
   def category_array_data
     return unless category.is_a?(Array)
 
     category_ids = category.collect(&:to_i)
-    self.category = category_ids
     self.categories = Category.where(user_id: user_id, id: category_ids)
   end
 

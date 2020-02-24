@@ -12,10 +12,10 @@ module CommonMethods
   end
 
   def category_names_and_slugs
-    return unless attribute(:category)
+    return unless self.class.reflect_on_association(:categories)
 
     names_and_slugs_hash(
-      Category.where(id: category).pluck(:name, :slug),
+      categories.pluck(:name, :slug),
       'categories'
     )
   end

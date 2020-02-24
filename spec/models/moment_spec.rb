@@ -4,7 +4,6 @@
 # Table name: moments
 #
 #  id                      :bigint(8)        not null, primary key
-#  category                :text
 #  name                    :string
 #  why                     :text
 #  fix                     :text
@@ -52,10 +51,11 @@ describe Moment do
     it { is_expected.to have_many :comments }
     it { is_expected.to have_many :moments_moods }
     it { is_expected.to have_many(:moods).through(:moments_moods) }
+    it { is_expected.to have_many :moments_categories }
+    it { is_expected.to have_many(:categories).through(:moments_categories) }
   end
 
   context 'with serialize' do
-    it { is_expected.to serialize :category }
     it { is_expected.to serialize :viewers }
     it { is_expected.to serialize :strategy }
   end
@@ -142,81 +142,32 @@ describe Moment do
     end
   end
 
-  describe '.populate_moments_categories' do
-    let(:user) { create(:user) }
-    let(:user_two) { create(:user) }
+  describe '#category_array_data' do
+    let!(:moment) { create(:moment, :with_user) }
+    let!(:category) { create(:category, user: moment.user) }
 
-    let(:category) { create(:category, user: user) }
-    let(:category_two) { create(:category, user: user) }
-    let(:category_three) { create(:category, user: user_two) }
+    context 'saving categories via relation' do
+      let!(:category_two) { create(:category, user: moment.user) }
 
-    let!(:moment) { create(:moment, user: user, category: [category.id]) }
-    let!(:moment_two) {
-      create(:moment, user: user, category: [category.id, category_two.id]) }
-    let!(:moment_three) {
-      create(:moment, user: user_two, category: [category_three.id]) }
-    let!(:moment_four) { create(:moment, user: user_two) }
-
-    it 'creates join table records' do
-      # Must delete join table records because they're automatically saved
-      ActiveRecord::Base.connection.execute("DELETE from moments_categories")
-      expect(moment.categories.count).to eq(0)
-      expect(moment_two.categories.count).to eq(0)
-      expect(moment_three.categories.count).to eq(0)
-      expect(moment_four.categories.count).to eq(0)
-
-      Moment.populate_moments_categories
-
-      expect(moment.categories.count).to eq(1)
-      expect(moment.categories).to include category
-
-      expect(moment_two.categories.count).to eq(2)
-      expect(moment_two.categories).to include category
-      expect(moment_two.categories).to include category_two
-
-      expect(moment_three.categories.count).to eq(1)
-      expect(moment_three.categories).to include category_three
-
-      expect(moment_four.categories.count).to eq(0)
-    end
-end
-
-describe '#category_array_data' do
-  let!(:moment) { create(:moment, :with_user) }
-  let!(:category) { create(:category, user: moment.user) }
-
-  context 'saving categories as IDs' do
-    it 'sets categories on field upon save' do
-      expect(moment.category).to eq([])
-      moment.category = [category.id.to_s]
-      expect {
+      it 'creates relations between moment and category models' do
+        expect(moment.categories.count).to eq(0)
+        moment.category = [category.id.to_s, category_two.id.to_s]
         moment.save
-      }.to change{ moment.category }.to([category.id])
+
+        expect(moment.categories.count).to eq(2)
+        expect(moment.categories).to include(category)
+        expect(moment.categories).to include(category_two)
+      end
+
+      it 'removes old categories when updating' do
+        moment.category = [category.id.to_s]
+        moment.save
+        expect(moment.categories).to eq [category]
+
+        moment.category = [category_two.id.to_s]
+        moment.save
+        expect(moment.categories).to eq [category_two]
+      end
     end
   end
-
-  context 'saving categories via relation' do
-    let!(:category_two) { create(:category, user: moment.user) }
-
-    it 'creates relations between moment and category models' do
-      expect(moment.categories.count).to eq(0)
-      moment.category = [category.id.to_s, category_two.id.to_s]
-      moment.save
-
-      expect(moment.categories.count).to eq(2)
-      expect(moment.categories).to include(category)
-      expect(moment.categories).to include(category_two)
-    end
-
-    it 'removes old categories when updating' do
-      moment.category = [category.id.to_s]
-      moment.save
-      expect(moment.categories).to eq [category]
-
-      moment.category = [category_two.id.to_s]
-      moment.save
-      expect(moment.categories).to eq [category_two]
-    end
-  end
-end
 end

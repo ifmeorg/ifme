@@ -72,6 +72,8 @@ module TagsHelper
 
     result = if tag.is_a?(Mood)
                get_moods_from_data(data, tag.id)
+             elsif tag.is_a?(Category)
+               get_categories_from_data(data, tag.id)
              else
                get_attribute_from_data(data, tag)
              end
@@ -81,6 +83,10 @@ module TagsHelper
 
   def get_moods_from_data(data, mood_id)
     data.select { |d| d.moods.include?(mood_id) }
+  end
+
+  def get_categories_from_data(data, category_id)
+    data.select { |d| d.categories.include?(category_id) }
   end
 
   def get_attribute_from_data(data, tag)
