@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module MostFocusHelper
   def most_focus(data_type, user)
-    return unless user && %w[moods strategy category].include?(data_type)
+    return unless user && %w[moods strategy categories].include?(data_type)
 
     data = get_data(data_type, user)
     return unless data.any?
@@ -23,10 +23,21 @@ module MostFocusHelper
     current_user.id == item.user_id || item.viewer?(current_user)
   end
 
+  def get_data_objs(item, data_type)
+    case data_type
+    when 'moods'
+      item.moods.pluck(:id)
+    when 'categories'
+      item.categories.pluck(:id)
+    else
+      item[data_type]
+    end
+  end
+
   def get_data_type(model_object, data_type)
     data = []
     model_object.select do |item|
-      objs = data_type == 'moods' ? item.moods.pluck(:id) : item[data_type]
+      objs = get_data_objs(item, data_type)
       next unless objs.any? && viewable?(item)
 
       data.concat(objs)

@@ -53,7 +53,7 @@ describe ViewersHelper do
       new_category = create(:category, user_id: new_user1.id)
       new_moment = create(:moment, user_id: new_user1.id, category: Array.new(1, new_category.id), viewers: Array.new(1, new_user2.id))
       new_strategy = create(:strategy, user_id: new_user1.id, category: Array.new(1, new_category.id), viewers: Array.new(1, new_user2.id))
-      result = get_viewers_for(new_category, 'category')
+      result = get_viewers_for(new_category, 'categories')
       expect(result.length).to eq(1)
       expect(result[0]).to eq(new_user2.id)
     end
@@ -65,7 +65,7 @@ describe ViewersHelper do
       new_category = create(:category, user_id: new_user1.id)
       new_moment = create(:moment, user_id: new_user1.id, category: Array.new(1, new_category.id), viewers: [new_user2.id, new_user3.id])
       new_strategy = create(:strategy, user_id: new_user1.id, category: Array.new(1, new_category.id), viewers: Array.new(1, new_user2.id))
-      result = get_viewers_for(new_category, 'category')
+      result = get_viewers_for(new_category, 'categories')
       expect(result.length).to eq(2)
       expect(result[0]).to eq(new_user2.id)
       expect(result[1]).to eq(new_user3.id)

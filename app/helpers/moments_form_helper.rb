@@ -106,7 +106,7 @@ module MomentsFormHelper
   def data_for(item)
     case item.class.name
     when 'Category'
-      @moment.category
+      @moment.categories.pluck(:id)
     when 'Mood'
       @moment.moods.pluck(:id)
     when 'Strategy'

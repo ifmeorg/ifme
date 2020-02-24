@@ -34,12 +34,7 @@ module Shared
   end
 
   def shared_destroy(model_object)
-    # Moods are managed via join table, not attr on Moment
-    # This block can be removed when all model objects managed
-    # via join table
-    if model_object.class != Mood
-      current_user.moments.each { |m| update_object(model_object, m) }
-    end
+    temp_remove_model_objects(model_object)
     if model_object.class == Category
       current_user.strategies.each do |s|
         update_object(model_object, s)
@@ -50,6 +45,12 @@ module Shared
   end
 
   private
+
+  def temp_remove_model_objects(model_object)
+    return unless model_object.class != Mood && model_object.class != Category
+
+    current_user.moments.each { |m| update_object(model_object, m) }
+  end
 
   def index_path(model_object)
     case model_object.class.name
@@ -94,7 +95,8 @@ module Shared
   def format_failure(format, model_object, is_update)
     format.html { render is_update ? :edit : :new }
     format.json do
-      render json: model_object.errors, status: :unprocessable_entity
+      render json: model_object.errors,
+             status: :unprocessable_entity
     end
   end
 
@@ -111,11 +113,7 @@ module Shared
   def shared_quick_create_result(model_object)
     return { success: false } unless model_object.save
 
-    {
-      success: true,
-      id: model_object.id,
-      name: model_object.name,
-      slug: model_object.slug
-    }
+    { success: true, id: model_object.id,
+      name: model_object.name, slug: model_object.slug }
   end
 end

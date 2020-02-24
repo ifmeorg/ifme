@@ -7,7 +7,7 @@
 <% if @categories.length > 0 %>
   <%= render partial: '/search/posts', locals: { data_type: 'category' } %>
 
-  <%= render partial: '/shared/stats', locals: { data_type: 'category', user: current_user } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'categories', user: current_user } %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
     data: categories_or_moods_props(@categories),

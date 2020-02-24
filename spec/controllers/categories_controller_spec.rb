@@ -194,7 +194,7 @@ RSpec.describe CategoriesController, type: :controller do
       end
       it 'removes categories from existing moments' do
         delete :destroy, params: { id: category.id }
-        expect(moment.reload.category).not_to include(category.id)
+        expect(moment.reload.categories).not_to include(category)
       end
       it 'removes categories from existing strategies' do
         delete :destroy, params: { id: category.id }
