@@ -18,4 +18,6 @@ class Category < ApplicationRecord
   friendly_id :name
   validates :user_id, :name, presence: true
   belongs_to :user
+
+  has_many :moments_categories, dependent: :destroy
 end

@@ -40,6 +40,8 @@ class Moment < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :moments_moods, dependent: :destroy
   has_many :moods, through: :moments_moods
+  has_many :moments_categories, dependent: :destroy
+  has_many :categories, through: :moments_categories
 
   validates :comment, inclusion: [true, false]
   validates :user_id, :name, :why, presence: true
@@ -59,8 +61,19 @@ class Moment < ApplicationRecord
     )
   end
 
+  def self.populate_moments_categories
+    Moment.all.find_each do |moment|
+      moment.category = Category.where(id: moment.category).pluck(:id)
+      moment.save
+    end
+  end
+
   def category_array_data
-    self.category = category.collect(&:to_i) if category.is_a?(Array)
+    return unless category.is_a?(Array)
+
+    category_ids = category.collect(&:to_i)
+    self.category = category_ids
+    self.categories = Category.where(user_id: user_id, id: category_ids)
   end
 
   def viewers_array_data
