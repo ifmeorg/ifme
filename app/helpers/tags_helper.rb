@@ -69,9 +69,9 @@ module TagsHelper
 
   def tagged_data_result(tag, data)
     if tag.is_a?(Mood)
-      get_moods_from_data(data, tag.id)
+      get_moods_from_data(data, tag)
     elsif tag.is_a?(Category) && data.first.is_a?(Moment)
-      get_categories_from_data(data, tag.id)
+      get_categories_from_data(data, tag)
     else
       get_attribute_from_data(data, tag)
     end
@@ -85,12 +85,12 @@ module TagsHelper
       posts: Kaminari.paginate_array(result).page(params[:page]) }
   end
 
-  def get_moods_from_data(data, mood_id)
-    data.select { |d| d.moods.include?(mood_id) }
+  def get_moods_from_data(data, mood)
+    data.select { |d| d.moods.include?(mood) }
   end
 
-  def get_categories_from_data(data, category_id)
-    data.select { |d| d.categories.include?(category_id) }
+  def get_categories_from_data(data, category)
+    data.select { |d| d.categories.include?(category) }
   end
 
   def get_attribute_from_data(data, tag)
