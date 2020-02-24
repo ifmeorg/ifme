@@ -7,7 +7,7 @@ shared_examples :most_focus do |data_type|
   let(:datum) { create(data_type, user_id: profile.id) }
   let(:data) { create_list(data_type, data_length, user_id: profile.id) }
   let(:data_ids) { data.map(&:id) }
-  data_type_name = data_type.to_s
+  data_type_name = data_type == :mood ? 'moods' : data_type.to_s
 
   before do
     sign_in user1

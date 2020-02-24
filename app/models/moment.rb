@@ -6,7 +6,6 @@
 #  id                      :bigint(8)        not null, primary key
 #  category                :text
 #  name                    :string
-#  mood                    :text
 #  why                     :text
 #  fix                     :text
 #  created_at              :datetime
@@ -29,7 +28,6 @@ class Moment < ApplicationRecord
   friendly_id :name
   serialize :category, Array
   serialize :viewers, Array
-  serialize :mood, Array
   serialize :strategy, Array
 
   before_save :category_array_data
@@ -52,18 +50,13 @@ class Moment < ApplicationRecord
   scope :published, -> { where.not(published_at: nil) }
   scope :recent, -> { order('created_at DESC') }
 
+  attr_accessor :mood
+
   def self.find_secret_share!(identifier)
     find_by!(
       # 'secret_share_expires_at > NOW()', TODO: Turn off temporarily
       secret_share_identifier: identifier
     )
-  end
-
-  def self.populate_moments_moods
-    Moment.all.find_each do |moment|
-      moment.mood = Mood.where(id: moment.mood).pluck(:id)
-      moment.save
-    end
   end
 
   def category_array_data
@@ -78,7 +71,6 @@ class Moment < ApplicationRecord
     return unless mood.is_a?(Array)
 
     mood_ids = mood.collect(&:to_i)
-    self.mood = mood_ids
     self.moods = Mood.where(user_id: user_id, id: mood_ids)
   end
 
