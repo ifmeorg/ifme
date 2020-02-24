@@ -64,7 +64,7 @@ describe TimeAgo do
 
     context 'creating and editing happened on the same day (but not the exact same time)' do
       before do
-        new_moment.update(category: Array.new(1, new_category.id))
+        new_moment.update(category: [new_category.id], updated_at: Time.now + 1)
       end
 
       it 'returns created_at with (edited)' do
@@ -76,7 +76,7 @@ describe TimeAgo do
       let(:new_moment) { create(:moment, user_id: new_user1.id, created_at: '2014-01-01 00:00:00') }
 
       before do
-        new_moment.update(category: Array.new(1, new_category.id))
+        new_moment.update(category: [new_category.id])
       end
 
       it 'returns created_at with updated_at' do

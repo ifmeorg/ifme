@@ -24,10 +24,9 @@ module MostFocusHelper
   end
 
   def get_data_objs(item, data_type)
-    case data_type
-    when 'moods'
+    if data_type == 'moods'
       item.moods.pluck(:id)
-    when 'categories'
+    elsif data_type == 'categories' && item.is_a?(Moment)
       item.categories.pluck(:id)
     else
       item[data_type]
