@@ -6,7 +6,7 @@
 
 <% if @strategies.any? %>
   <%= render partial: '/search/posts', locals: { data_type: 'strategy' } %>
-  <%= render partial: '/shared/stats', locals: { data_type: 'strategy', user: current_user } %>
+  <%= render partial: '/shared/stats', locals: { data_type: 'strategies', user: current_user } %>
   <%= react_component('BaseContainer', props: {
     container: 'StoryContainer',
     data: moments_or_strategy_props(@strategies),

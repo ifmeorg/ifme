@@ -72,6 +72,8 @@ module TagsHelper
       get_moods_from_data(data, tag)
     elsif tag.is_a?(Category) && data.first.is_a?(Moment)
       get_categories_from_data(data, tag)
+    elsif tag.is_a?(Strategy)
+      get_strategies_from_data(data, tag)
     else
       get_attribute_from_data(data, tag)
     end
@@ -91,6 +93,10 @@ module TagsHelper
 
   def get_categories_from_data(data, category)
     data.select { |d| d.categories.include?(category) }
+  end
+
+  def get_strategies_from_data(data, strategy)
+    data.select { |d| d.strategies.include?(strategy) }
   end
 
   def get_attribute_from_data(data, tag)

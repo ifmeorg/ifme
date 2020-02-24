@@ -110,7 +110,7 @@ module MomentsFormHelper
     when 'Mood'
       @moment.moods.pluck(:id)
     when 'Strategy'
-      @moment.strategy
+      @moment.strategies.pluck(:id)
     end
   end
 end

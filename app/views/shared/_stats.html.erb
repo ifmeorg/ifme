@@ -1,4 +1,4 @@
-<% if %w[categories moods strategy].include?(local_assigns[:data_type]) %>
+<% if %w[categories moods strategies].include?(local_assigns[:data_type]) %>
   <% most_focus_data = most_focus(local_assigns[:data_type], local_assigns[:user]) %>
   <% if most_focus_data.present? %>
     <div class="stats">
@@ -19,20 +19,20 @@
           <div class="someFocus">
             <div class="someFocusText">
               <% if local_assigns[:data_type] == 'categories' && local_assigns[:user] == current_user %>
-                <%= viewers_hover(get_viewers_for(Category.find(key), 'category'), Category.find(key)) %>
+                <%= viewers_hover(get_viewers_for(Category.find(key), 'categories'), Category.find(key)) %>
               <% elsif local_assigns[:data_type] == 'categories' && local_assigns[:user] %>
                 <div class="someFocusTextName">
                   <%= Category.find_by(id: key).name %>
                 </div>
               <% elsif local_assigns[:data_type] == 'moods' && local_assigns[:user] == current_user %>
-                <%= viewers_hover(get_viewers_for(Mood.where(id: key).first, 'mood'), Mood.where(id: key).first) %>
+                <%= viewers_hover(get_viewers_for(Mood.where(id: key).first, 'moods'), Mood.where(id: key).first) %>
               <% elsif local_assigns[:data_type] == 'moods' && local_assigns[:user] %>
                 <div class="someFocusTextName">
                   <%= Mood.find_by(id: key).name %>
                 </div>
-              <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] == current_user %>
-                <%= viewers_hover(get_viewers_for(Strategy.find(key), 'strategy'), Strategy.find(key)) %>
-              <% elsif local_assigns[:data_type] == 'strategy' && local_assigns[:user] %>
+              <% elsif local_assigns[:data_type] == 'strategies' && local_assigns[:user] == current_user %>
+                <%= viewers_hover(get_viewers_for(Strategy.find(key), 'strategies'), Strategy.find(key)) %>
+              <% elsif local_assigns[:data_type] == 'strategies' && local_assigns[:user] %>
                 <div class="someFocusTextName">
                   <%= Strategy.find(key).name %>
                 </div>
