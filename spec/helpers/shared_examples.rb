@@ -14,8 +14,6 @@ shared_examples :most_focus do |data_type|
     data_type_name = 'categories'
   elsif data_type == :strategy
     data_type_name = 'strategies'
-  else
-    data_type_name = data_type.to_s
   end
 
   before do

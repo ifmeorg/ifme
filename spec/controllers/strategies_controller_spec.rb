@@ -233,25 +233,29 @@ describe StrategiesController do
       include_context :logged_in_user
 
       context 'when the params are valid' do
-        it 'updates the strategy record' do
+        before(:each) do
           patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
+        end
+
+        it 'updates the strategy record' do
           expect(strategy.reload.description).to eq('updated description')
         end
 
         it 'redirects to the show page' do
-          patch :update, params: { id: strategy.id, strategy: valid_strategy_params }
           expect(response).to redirect_to(strategy_path(strategy))
         end
       end
 
       context 'when the params are invalid' do
-        it 'does not update the record' do
+        before(:each) do
           patch :update, params: { id: strategy.id, strategy: invalid_strategy_params }
+        end
+
+        it 'does not update the record' do
           expect(strategy.reload.description).to eq('Test Description')
         end
 
         it 'renders the edit view' do
-          patch :update, params: { id: strategy.id, strategy: invalid_strategy_params }
           expect(response).to render_template('edit')
         end
       end
