@@ -32,6 +32,40 @@ describe MomentsController do
     end
   end
 
+  describe '#edit' do
+    let(:another_user) { create(:user) }
+    let!(:moment1)   { create(:moment, user: user) }
+    let!(:moment2)   { create(:moment, user: another_user) }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      context 'when the moment belongs to the current user' do
+        it 'renders the edit template' do
+          get :edit, params: { id: moment1.id }
+          expect(response).to render_template('edit')
+        end
+      end
+
+      context 'when the moment does not belong to the current user' do
+        it 'redirects html requests to the strategy_path' do
+          get :edit, params: { id: moment2.id }
+          expect(response).to redirect_to(moment_path(moment2))
+        end
+
+        it 'renders nothing for json requests' do
+          get :edit, format: 'json', params: { id: moment2.id }
+          expect(response.body).to be_empty
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { get :edit, params: { id: moment2.id } }
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
   describe '#show' do
     before { sign_in user }
 
@@ -93,6 +127,82 @@ describe MomentsController do
           .to change(Moment, :count).by(1)
         expect(Moment.last.user_id).to eq(user.id)
       end
+    end
+  end
+
+  describe '#update' do
+    let!(:moment) { create(:moment, user: user) }
+    let(:valid_moment_params)   { { why: 'updated why' } }
+    let(:invalid_moment_params) { { why: nil } }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      context 'when the params are valid' do
+        before(:each) do
+          patch :update, params: { id: moment.id, moment: valid_moment_params }
+        end
+
+        it 'updates the moment record' do
+          expect(moment.reload.why).to eq('updated why')
+        end
+
+        it 'redirects to the show page' do
+          expect(response).to redirect_to(moment_path(moment))
+        end
+      end
+
+      context 'when the params are invalid' do
+        before(:each) do
+          patch :update, params: { id: moment.id, moment: invalid_moment_params }
+        end
+
+        it 'does not update the record' do
+          expect(moment.reload.why).to eq('Test Why')
+        end
+
+        it 'renders the edit view' do
+          expect(response).to render_template('edit')
+        end
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before do
+        patch :update, params: { id: moment.id }
+      end
+
+      it_behaves_like :with_no_logged_in_user
+    end
+  end
+
+  describe '#destroy' do
+    let!(:moment) { create(:moment, user: user) }
+
+    context 'when the user is logged in' do
+      include_context :logged_in_user
+
+      it 'destroys the moment' do
+        expect { delete :destroy, params: { id: moment.id } }.to(
+          change(Moment, :count).by(-1)
+        )
+      end
+
+      it 'redirects to the moments path for html requests' do
+        delete :destroy, params: { id: moment.id }
+        expect(response).to redirect_to(moments_path)
+      end
+
+      it 'responds with no content to json requests' do
+        delete :destroy, format: 'json', params: { id: moment.id }
+        expect(response.body).to be_empty
+      end
+    end
+
+    context 'when the user is not logged in' do
+      before { delete :destroy, params: { id: moment.id } }
+
+      it_behaves_like :with_no_logged_in_user
     end
   end
 

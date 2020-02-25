@@ -2,6 +2,7 @@
 class MomentsController < ApplicationController
   include CollectionPageSetupConcern
   include MomentsHelper
+  include MomentsConcern
   include MomentsStatsHelper
   include MomentsFormHelper
   include Shared
@@ -120,19 +121,5 @@ class MomentsController < ApplicationController
       strategy_ids << strategy.id if strategy.viewer?(current_user)
     end
     Strategy.where(id: strategy_ids).order(created_at: :desc)
-  end
-
-  def publishing?
-    params[:publishing] == '1'
-  end
-
-  def saving_as_draft?
-    !publishing?
-  end
-
-  def empty_array_for(*symbols)
-    symbols.each do |symbol|
-      @moment[symbol] = [] if moment_params[symbol].nil?
-    end
   end
 end
