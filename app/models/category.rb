@@ -20,4 +20,5 @@ class Category < ApplicationRecord
   belongs_to :user
 
   has_many :moments_categories, dependent: :destroy
+  has_many :strategies_categories, dependent: :destroy
 end

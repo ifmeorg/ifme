@@ -19,7 +19,7 @@
 describe Strategy do
   it { is_expected.to respond_to :friendly_id }
 
-  context 'when includign modules' do
+  context 'when including modules' do
     it { expect(described_class).to include Viewer }
     it { expect(described_class).to include CommonMethods }
   end
@@ -61,10 +61,9 @@ describe Strategy do
     end
   end
 
-  describe '#array_data_to_i!' do
+  describe '#viewers_array_data' do
     specify do
-      strategy.array_data_to_i!
-      expect(strategy.category).to eq([1])
+      strategy.viewers_array_data
       expect(strategy.viewers).to eq([1])
     end
   end
@@ -98,6 +97,84 @@ describe Strategy do
       let(:strategy) { create(:strategy) }
       let(:subject) { strategy.published? }
       it { is_expected.to be false }
+    end
+  end
+
+  describe '.populate_strategies_categories' do
+    let(:user) { create(:user) }
+    let(:user_two) { create(:user) }
+
+    let(:category) { create(:category, user: user) }
+    let(:category_two) { create(:category, user: user) }
+    let(:category_three) { create(:category, user: user_two) }
+
+    let!(:strategy) { create(:strategy, user: user, category: [category.id]) }
+    let!(:strategy_two) {
+      create(:strategy, user: user, category: [category.id, category_two.id]) }
+    let!(:strategy_three) {
+      create(:strategy, user: user_two, category: [category_three.id]) }
+    let!(:strategy_four) { create(:strategy, user: user_two) }
+
+    it 'creates join table records' do
+      # Must delete join table records because they're automatically saved
+      ActiveRecord::Base.connection.execute("DELETE from strategies_categories")
+      expect(strategy.categories.count).to eq(0)
+      expect(strategy_two.categories.count).to eq(0)
+      expect(strategy_three.categories.count).to eq(0)
+      expect(strategy_four.categories.count).to eq(0)
+
+      Strategy.populate_strategies_categories
+
+      expect(strategy.categories.count).to eq(1)
+      expect(strategy.categories).to include category
+
+      expect(strategy_two.categories.count).to eq(2)
+      expect(strategy_two.categories).to include category
+      expect(strategy_two.categories).to include category_two
+
+      expect(strategy_three.categories.count).to eq(1)
+      expect(strategy_three.categories).to include category_three
+
+      expect(strategy_four.categories.count).to eq(0)
+    end
+  end
+
+  describe '#category_array_data' do
+    let!(:strategy) { create(:strategy) }
+    let!(:category) { create(:category, user: strategy.user) }
+
+    context 'saving categories as IDs' do
+      it 'sets categories on field upon save' do
+        expect(strategy.category).to eq([])
+        strategy.category = [category.id.to_s]
+        expect {
+          strategy.save
+        }.to change{ strategy.category }.to([category.id])
+      end
+    end
+
+    context 'saving categories via relation' do
+      let!(:category_two) { create(:category, user: strategy.user) }
+
+      it 'creates relations between strategy and category models' do
+        expect(strategy.categories.count).to eq(0)
+        strategy.category = [category.id.to_s, category_two.id.to_s]
+        strategy.save
+
+        expect(strategy.categories.count).to eq(2)
+        expect(strategy.categories).to include(category)
+        expect(strategy.categories).to include(category_two)
+      end
+
+      it 'removes old categories when updating' do
+        strategy.category = [category.id.to_s]
+        strategy.save
+        expect(strategy.categories).to eq [category]
+
+        strategy.category = [category_two.id.to_s]
+        strategy.save
+        expect(strategy.categories).to eq [category_two]
+      end
     end
   end
 end

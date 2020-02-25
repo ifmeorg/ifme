@@ -13,4 +13,9 @@ namespace :cleaner do
       end
     end
   end
+
+  desc 'Convert existing Straregy category IDs to join table records'
+  task populate_strategies_categories: :environment do
+    Strategy.populate_strategies_categories
+  end
 end

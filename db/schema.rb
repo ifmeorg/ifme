@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_234822) do
+ActiveRecord::Schema.define(version: 2020_02_25_003308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,6 +226,12 @@ ActiveRecord::Schema.define(version: 2020_02_24_234822) do
     t.index ["slug"], name: "index_strategies_on_slug", unique: true
   end
 
+  create_table "strategies_categories", force: :cascade do |t|
+    t.integer "strategy_id"
+    t.integer "category_id"
+    t.index ["strategy_id", "category_id"], name: "index_strategies_categories_on_strategy_id_and_category_id", unique: true
+  end
+
   create_table "supports", force: :cascade do |t|
     t.integer "user_id"
     t.string "support_type"
@@ -295,4 +301,6 @@ ActiveRecord::Schema.define(version: 2020_02_24_234822) do
   add_foreign_key "moments_moods", "moods"
   add_foreign_key "moments_strategies", "moments"
   add_foreign_key "moments_strategies", "strategies"
+  add_foreign_key "strategies_categories", "categories"
+  add_foreign_key "strategies_categories", "strategies"
 end
