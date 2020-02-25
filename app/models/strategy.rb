@@ -25,10 +25,13 @@ class Strategy < ApplicationRecord
   serialize :category, Array
   serialize :viewers, Array
 
-  before_save :array_data_to_i!
+  before_save :category_array_data
+  before_save :viewers_array_data
 
   belongs_to :user
   has_many :comments, as: :commentable
+  has_many :strategies_categories, dependent: :destroy
+  has_many :categories, through: :strategies_categories
 
   has_one :perform_strategy_reminder
   accepts_nested_attributes_for :perform_strategy_reminder
@@ -46,9 +49,16 @@ class Strategy < ApplicationRecord
     [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
-  def array_data_to_i!
-    category.map!(&:to_i)
+  def viewers_array_data
     viewers.map!(&:to_i)
+  end
+
+  def category_array_data
+    return unless category.is_a?(Array)
+
+    category_ids = category.collect(&:to_i)
+    self.category = category_ids
+    self.categories = Category.where(user_id: user_id, id: category_ids)
   end
 
   def published?
@@ -57,5 +67,12 @@ class Strategy < ApplicationRecord
 
   def comments
     Comment.comments_from(self)
+  end
+
+  def self.populate_strategies_categories
+    Strategy.all.find_each do |strategy|
+      strategy.category = Category.where(id: strategy.category).pluck(:id)
+      strategy.save
+    end
   end
 end
