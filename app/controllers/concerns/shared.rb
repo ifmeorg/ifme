@@ -34,22 +34,20 @@ module Shared
   end
 
   def shared_destroy(model_object)
-    temp_remove_model_objects(model_object)
-    if model_object.class == Category
-      current_user.strategies.each do |s|
-        update_object(model_object, s)
-      end
-    end
+    remove_model_objects(model_object)
     model_object.destroy
     redirect_to_path(index_path(model_object))
   end
 
   private
 
-  def temp_remove_model_objects(model_object)
+  def remove_model_objects(model_object)
     return if [Mood, Category, Strategy].include?(model_object.class)
 
     current_user.moments.each { |m| update_object(model_object, m) }
+    current_user.strategies.each do |s|
+      update_object(model_object, s) if model_object.class == Category
+    end
   end
 
   def index_path(model_object)

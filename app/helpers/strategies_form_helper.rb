@@ -100,7 +100,7 @@ module StrategiesFormHelper
         id: item.slug,
         label: item.name,
         value: item.id,
-        checked: @strategy.category.include?(item.id)
+        checked: @strategy.categories.include?(item)
       )
     end
     checkboxes

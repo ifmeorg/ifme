@@ -123,8 +123,8 @@ class StrategiesController < ApplicationController
 
   def strategy_params
     params.require(:strategy).permit(
-      :name, :description, :published_at, :draft, :comment, { category: [] },
-      { viewers: [] }, perform_strategy_reminder_attributes: %i[active id]
+      :name, :description, :published_at, :draft, :comment, category: [],
+      viewers: [], perform_strategy_reminder_attributes: %i[active id]
     )
   end
 

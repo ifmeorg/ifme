@@ -5,7 +5,6 @@
 #
 #  id           :bigint           not null, primary key
 #  user_id      :integer
-#  category     :text
 #  description  :text
 #  viewers      :text
 #  comment      :boolean
@@ -22,7 +21,6 @@ class Strategy < ApplicationRecord
   extend FriendlyId
 
   friendly_id :name
-  serialize :category, Array
   serialize :viewers, Array
 
   before_save :category_array_data
@@ -45,19 +43,20 @@ class Strategy < ApplicationRecord
 
   has_many :moments_strategies, dependent: :destroy
 
+  attr_accessor :category
+
   def active_reminders
     [perform_strategy_reminder].select(&:active?) if perform_strategy_reminder
   end
 
   def viewers_array_data
-    viewers.map!(&:to_i)
+    self.viewers = viewers.collect(&:to_i) if viewers.is_a?(Array)
   end
 
   def category_array_data
     return unless category.is_a?(Array)
 
     category_ids = category.collect(&:to_i)
-    self.category = category_ids
     self.categories = Category.where(user_id: user_id, id: category_ids)
   end
 
@@ -67,12 +66,5 @@ class Strategy < ApplicationRecord
 
   def comments
     Comment.comments_from(self)
-  end
-
-  def self.populate_strategies_categories
-    Strategy.all.find_each do |strategy|
-      strategy.category = Category.where(id: strategy.category).pluck(:id)
-      strategy.save
-    end
   end
 end
