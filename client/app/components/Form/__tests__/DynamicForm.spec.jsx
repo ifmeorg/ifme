@@ -46,21 +46,21 @@ describe('Form', () => {
       wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
       });
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
       wrapper.find('input[type="submit"]').prop('onClick');
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
     });
 
     it('has errors when submit is clicked', () => {
       const wrapper = mount(getComponent());
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
       wrapper
         .find('input[type="checkbox"][name="some-checkbox-one-name"]')
         .prop('onChange')({
           currentTarget: { checked: false },
         });
       wrapper.find('input[type="submit"]').simulate('click');
-      expect(hasErrors(wrapper.state().errors)).toEqual(2);
+      expect(wrapper.find('.error').length).toBe(2)
     });
   });
 
@@ -70,21 +70,21 @@ describe('Form', () => {
       wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
       });
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
       wrapper.find('input[type="submit"]').prop('onClick');
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
     });
 
     it('has errors when submit is clicked', () => {
       const wrapper = mount(getComponent({ nameValue: 'Name' }));
-      expect(hasErrors(wrapper.state().errors)).toEqual(0);
+      expect(wrapper.find('.error').length).toBe(0)
       wrapper
         .find('input[type="checkbox"][name="some-checkbox-one-name"]')
         .prop('onChange')({
           currentTarget: { checked: false },
         });
       wrapper.find('input[type="submit"]').simulate('click');
-      expect(hasErrors(wrapper.state().errors)).toEqual(2);
+      expect(wrapper.find('.error').length).toBe(2)
     });
   });
 });
