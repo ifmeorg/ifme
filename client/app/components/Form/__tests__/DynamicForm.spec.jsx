@@ -1,6 +1,7 @@
 // @flow
 import { mount } from 'enzyme';
 import React from 'react';
+import { act } from 'react-dom/test-utils'
 import { DynamicForm, hasErrors } from '../DynamicForm';
 import { InputMocks } from '../../../mocks/InputMocks';
 
@@ -43,9 +44,9 @@ describe('Form', () => {
   describe('when nameValue does not exist', () => {
     it('has no errors when submit is clicked', () => {
       const wrapper = mount(getComponent());
-      wrapper.find('input[name="some-text-name"]').prop('onBlur')({
+      act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
-      });
+      }))
       expect(wrapper.find('.error').length).toBe(0)
       wrapper.find('input[type="submit"]').prop('onClick');
       expect(wrapper.find('.error').length).toBe(0)
@@ -54,11 +55,11 @@ describe('Form', () => {
     it('has errors when submit is clicked', () => {
       const wrapper = mount(getComponent());
       expect(wrapper.find('.error').length).toBe(0)
-      wrapper
+      act(() => wrapper
         .find('input[type="checkbox"][name="some-checkbox-one-name"]')
         .prop('onChange')({
           currentTarget: { checked: false },
-        });
+        }));
       wrapper.find('input[type="submit"]').simulate('click');
       expect(wrapper.find('.error').length).toBe(2)
     });
@@ -67,9 +68,9 @@ describe('Form', () => {
   describe('when nameValue exists', () => {
     it('has no errors when submit is clicked', () => {
       const wrapper = mount(getComponent({ nameValue: 'Name' }));
-      wrapper.find('input[name="some-text-name"]').prop('onBlur')({
+      act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
         currentTarget: { value: 'Hello' },
-      });
+      }))
       expect(wrapper.find('.error').length).toBe(0)
       wrapper.find('input[type="submit"]').prop('onClick');
       expect(wrapper.find('.error').length).toBe(0)
@@ -78,11 +79,11 @@ describe('Form', () => {
     it('has errors when submit is clicked', () => {
       const wrapper = mount(getComponent({ nameValue: 'Name' }));
       expect(wrapper.find('.error').length).toBe(0)
-      wrapper
+      act(() => wrapper
         .find('input[type="checkbox"][name="some-checkbox-one-name"]')
         .prop('onChange')({
           currentTarget: { checked: false },
-        });
+        }));
       wrapper.find('input[type="submit"]').simulate('click');
       expect(wrapper.find('.error').length).toBe(2)
     });
