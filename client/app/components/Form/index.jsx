@@ -142,7 +142,7 @@ export function Form(props: Props) {
     const { action } = props;
     const { form } = css;
 
-    if (action) {
+    if (!action) {
       return null;
     }
     return (
