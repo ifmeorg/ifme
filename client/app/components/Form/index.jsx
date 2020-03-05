@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import type { Props as InputProps } from '../Input/utils';
@@ -9,7 +10,7 @@ import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
 import { Utils } from '../../utils';
 import css from './Form.scss';
 
-type KeyProps = { myKey?: any };
+type KeyProps = { myKey?: string };
 
 type MyInputProps = InputProps & KeyProps;
 
@@ -17,52 +18,52 @@ type Errors = { [string]: boolean } | {};
 
 export type Props = {
   action?: string,
-  inputs: any[],
+  inputs: MyInputProps[],
 };
 
 export type State = {
-  inputs: any[],
+  inputs: MyInputProps[],
   errors: Errors,
 };
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-export class Form extends React.Component<Props, State> {
-  myRefs: Object;
+function getInputsInitialState(props: Props): MyInputProps[] {
+  return props.inputs.filter((input: MyInputProps) => input !== {});
+}
 
-  constructor(props: Props) {
-    super(props);
-    const inputs = props.inputs.filter((input: any) => input !== {});
-    this.state = { inputs, errors: {} };
-    this.myRefs = {};
-  }
+export function Form(props: Props) {
+  const [inputs, setInputs] = React.useState<MyInputProps[]>(
+    getInputsInitialState(props),
+  );
+  const [errors, setErrors] = React.useState<Errors>({});
 
-  handleError = (id: string, error: boolean) => {
-    const { errors } = this.state;
+  const myRefs: Object = {};
+
+  const handleError = (id: string, error: boolean): void => {
     const newErrors = { ...errors };
     newErrors[id] = error;
-    this.setState({ errors: newErrors });
+    setErrors(newErrors);
   };
 
-  isInputError = (input: any) => {
+  const isInputError = (input: MyInputProps): boolean => {
     const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
       validType
       && input.required
-      && this.myRefs[input.id]
-      && !this.myRefs[input.id].value
+      && myRefs[input.id]
+      && !myRefs[input.id].value
     );
   };
 
-  onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+  const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
-    const { inputs, errors } = this.state;
     const newErrors = { ...errors };
-    const newInputs = inputs.map((input: any) => {
-      const newInput = { ...input };
-      if (this.isInputError(newInput)) {
+    const newInputs = inputs.map((input: MyInputProps) => {
+      const newInput: MyInputProps = { ...input };
+      if (isInputError(newInput)) {
         newInput.error = true;
-        newInput.value = this.myRefs[input.id].value;
+        newInput.value = myRefs[input.id].value;
         newInput.myKey = Utils.randomString(); // Triggers state change in child component
         newErrors[newInput.id] = true;
       }
@@ -70,11 +71,12 @@ export class Form extends React.Component<Props, State> {
     });
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
-      this.setState({ inputs: newInputs, errors: newErrors });
+      setInputs(newInputs);
+      setErrors(newErrors);
     }
   };
 
-  displayInput = (input: MyInputProps) => (
+  const displayInput = (input: MyInputProps): Node => (
     <div key={input.id}>
       <Input
         id={input.id}
@@ -99,16 +101,16 @@ export class Form extends React.Component<Props, State> {
         options={input.options}
         checkboxes={input.checkboxes}
         accordion={input.accordion}
-        onError={input.type !== 'submit' ? this.handleError : undefined}
+        onError={input.type !== 'submit' ? handleError : undefined}
         myRef={(element) => {
-          this.myRefs[input.id] = element;
+          myRefs[input.id] = element;
         }}
         formNoValidate={input.type === 'submit'}
       />
     </div>
   );
 
-  displayQuickCreate = (input: QuickCreateProps) => {
+  const displayQuickCreate = (input: QuickCreateProps): Node => {
     const {
       id, name, label, placeholder, checkboxes, formProps,
     } = input;
@@ -127,32 +129,29 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayInputs = (): any => {
-    const { inputs } = this.state;
+  const displayInputs = (): Array<Node | null> => {
+    // TODO: replacy any with a type
     return inputs.map((input: any) => {
       if (INPUT_TYPES.includes(input.type)) {
-        return this.displayInput(input);
+        return displayInput(input);
       }
       if (input.type === 'quickCreate') {
-        return this.displayQuickCreate(input);
+        return displayQuickCreate(input);
       }
       return null;
     });
   };
 
-  render() {
-    const { action } = this.props;
-    if (!action) return null;
-    return (
-      <form
-        onSubmit={this.onSubmit}
-        acceptCharset="UTF-8"
-        className={css.form}
-        method="post"
-        action={action}
-      >
-        {this.displayInputs()}
-      </form>
-    );
-  }
+  
+    return !props.action ? 
+    null :
+    <form
+      onSubmit={onSubmit}
+      acceptCharset="UTF-8"
+      className={css.form}
+      method="post"
+      action={props.action}
+    >
+      {displayInputs()}
+    </form>;
 }

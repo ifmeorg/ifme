@@ -44,7 +44,7 @@ export type Checkbox = {
 
 export type Props = {
   id: string,
-  type: | 'text'
+  type: 'text'
     | 'textarea'
     | 'submit'
     | 'checkbox'
@@ -68,7 +68,7 @@ export type Props = {
   ariaLabel?: string,
   readOnly?: boolean,
   disabled?: boolean,
-  required?: boolean,
+  required: boolean,
   info?: string,
   minLength?: number,
   maxLength?: number,

@@ -67,7 +67,6 @@ export function DynamicForm(props: Props) {
   // so that we don't have to do this.
   const getParams = () => {
     const params = {};
-    // TODO: replace any with actual type
     inputs.forEach((input: MyInputProps) => {
       const { name, id } = input;
       if (id !== 'submit') {
