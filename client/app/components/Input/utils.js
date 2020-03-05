@@ -68,7 +68,7 @@ export type Props = {
   ariaLabel?: string,
   readOnly?: boolean,
   disabled?: boolean,
-  required: boolean,
+  required?: boolean,
   info?: string,
   minLength?: number,
   maxLength?: number,

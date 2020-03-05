@@ -46,7 +46,7 @@ export function Form(props: Props) {
     setErrors(newErrors);
   };
 
-  const isInputError = (input: MyInputProps): boolean => {
+  const isInputError = (input: any): boolean => {
     const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
       validType
