@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
@@ -8,28 +9,31 @@ import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 import { Utils } from '../../utils';
 import css from './Form.scss';
 
-type KeyProps = { myKey?: any };
+type KeyProps = { myKey?: string };
 
 type MyInputProps = InputProps & KeyProps;
+
+type FormProps = {
+    action: string,
+    inputs: MyInputProps[]
+  }
 
 type Errors = { [string]: boolean } | {};
 
 export type Props = {
-  // Somehow Flow does not detect nameValue being used in a function outside the component
-  // eslint-disable-next-line react/no-unused-prop-types
   nameValue?: string, // This is just for QuickCreate
-  formProps: any,
+  formProps: FormProps,
   onCreate: Function,
 };
 
 export type State = {
-  inputs: any[],
+  inputs: MyInputProps[],
   errors: Errors,
 };
 
-function getInputsInitialState(props: Props): any[] {
+function getInputsInitialState(props: Props): MyInputProps[] {
   const { formProps, nameValue } = props;
-  const formInputs = formProps.inputs.filter((input: any) => input !== {});
+  const formInputs = formProps.inputs.filter((input: MyInputProps) => input !== {});
   if (nameValue) {
     formInputs[0].value = nameValue;
   }
@@ -39,7 +43,7 @@ function getInputsInitialState(props: Props): any[] {
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 export function DynamicForm(props: Props) {
-  const [inputs, setInputs] = React.useState<any[]>(
+  const [inputs, setInputs] = React.useState<MyInputProps[]>(
     getInputsInitialState(props),
   );
   const [errors, setErrors] = React.useState<Errors>({});
@@ -52,7 +56,7 @@ export function DynamicForm(props: Props) {
     setErrors(newErrors);
   };
 
-  const isInputError = (input: any) => {
+  const isInputError = (input: MyInputProps) => {
     const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
       validType && input.required && myRefs[input.id] && !myRefs[input.id].value
@@ -64,7 +68,7 @@ export function DynamicForm(props: Props) {
   const getParams = () => {
     const params = {};
     // TODO: replace any with actual type
-    inputs.forEach((input: any) => {
+    inputs.forEach((input: MyInputProps) => {
       const { name, id } = input;
       if (id !== 'submit') {
         // Assumes name is in model[column] format
@@ -84,8 +88,8 @@ export function DynamicForm(props: Props) {
     e.preventDefault();
     // Get errors from inputs that were never focused
     const newErrors = { ...errors };
-    const newInputs = inputs.map((input: any) => {
-      const newInput = { ...input };
+    const newInputs = inputs.map((input: MyInputProps) => {
+      const newInput: MyInputProps = { ...input };
       if (isInputError(newInput)) {
         newInput.error = true;
         newInput.value = myRefs[input.id].value;
@@ -143,7 +147,7 @@ export function DynamicForm(props: Props) {
     </div>
   );
 
-  const displayInputs = (): any => inputs.map((input: any) => {
+  const displayInputs = (): Array<Node | null> => inputs.map((input: MyInputProps) => {
     if (INPUT_TYPES.includes(input.type)) {
       return displayInput(input);
     }
