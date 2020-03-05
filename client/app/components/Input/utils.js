@@ -44,7 +44,7 @@ export type Checkbox = {
 
 export type Props = {
   id: string,
-  type: 'text'
+  type: | 'text'
     | 'textarea'
     | 'submit'
     | 'checkbox'

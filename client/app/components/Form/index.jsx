@@ -18,6 +18,8 @@ type Errors = { [string]: boolean } | {};
 
 export type Props = {
   action?: string,
+  // Somehow Flow does not detect inputs being used in a function outside the component
+  // eslint-disable-next-line react/no-unused-prop-types
   inputs: MyInputProps[],
 };
 
@@ -49,10 +51,7 @@ export function Form(props: Props) {
   const isInputError = (input: any): boolean => {
     const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
-      validType
-      && input.required
-      && myRefs[input.id]
-      && !myRefs[input.id].value
+      validType && input.required && myRefs[input.id] && !myRefs[input.id].value
     );
   };
 
@@ -129,29 +128,35 @@ export function Form(props: Props) {
     );
   };
 
-  const displayInputs = (): Array<Node | null> => {
-    // TODO: replacy any with a type
-    return inputs.map((input: any) => {
-      if (INPUT_TYPES.includes(input.type)) {
-        return displayInput(input);
-      }
-      if (input.type === 'quickCreate') {
-        return displayQuickCreate(input);
-      }
+  const displayInputs = (): Array<Node | null> => inputs.map((input: any) => {
+    if (INPUT_TYPES.includes(input.type)) {
+      return displayInput(input);
+    }
+    if (input.type === 'quickCreate') {
+      return displayQuickCreate(input);
+    }
+    return null;
+  });
+
+  const renderForm = (): Node => {
+    const { action } = props;
+    const { form } = css;
+
+    if (action) {
       return null;
-    });
+    }
+    return (
+      <form
+        onSubmit={onSubmit}
+        acceptCharset="UTF-8"
+        className={form}
+        method="post"
+        action={action}
+      >
+        {displayInputs()}
+      </form>
+    );
   };
 
-  
-    return !props.action ? 
-    null :
-    <form
-      onSubmit={onSubmit}
-      acceptCharset="UTF-8"
-      className={css.form}
-      method="post"
-      action={props.action}
-    >
-      {displayInputs()}
-    </form>;
+  return renderForm();
 }

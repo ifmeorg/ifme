@@ -14,13 +14,15 @@ type KeyProps = { myKey?: string };
 type MyInputProps = InputProps & KeyProps;
 
 type FormProps = {
-    action: string,
-    inputs: MyInputProps[]
-  }
+  action: string,
+  inputs: MyInputProps[],
+};
 
 type Errors = { [string]: boolean } | {};
 
 export type Props = {
+  // Somehow Flow does not detect nameValue being used in a function outside the component
+  // eslint-disable-next-line react/no-unused-prop-types
   nameValue?: string, // This is just for QuickCreate
   formProps: FormProps,
   onCreate: Function,
@@ -33,7 +35,9 @@ export type State = {
 
 function getInputsInitialState(props: Props): MyInputProps[] {
   const { formProps, nameValue } = props;
-  const formInputs = formProps.inputs.filter((input: MyInputProps) => input !== {});
+  const formInputs = formProps.inputs.filter(
+    (input: MyInputProps) => input !== {},
+  );
   if (nameValue) {
     formInputs[0].value = nameValue;
   }
