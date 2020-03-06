@@ -24,7 +24,7 @@ export type State = {
 function getInputsInitialState(props: Props): MyInputProps[] {
   const { formProps, nameValue } = props;
   const formInputs = formProps.inputs.filter(
-    (input: MyInputProps) => input !== {}
+    (input: MyInputProps) => input !== {},
   );
   if (nameValue) {
     formInputs[0].value = nameValue;
@@ -32,12 +32,11 @@ function getInputsInitialState(props: Props): MyInputProps[] {
   return formInputs;
 }
 
-export const hasErrors = (errors: Errors) =>
-  Object.values(errors).filter(key => key).length;
+export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 export function DynamicForm(props: Props) {
   const [inputs, setInputs] = useState<MyInputProps[]>(
-    getInputsInitialState(props)
+    getInputsInitialState(props),
   );
   const [errors, setErrors] = useState<Errors>({});
 
@@ -50,8 +49,7 @@ export function DynamicForm(props: Props) {
   };
 
   const isInputError = (input: MyInputProps) => {
-    const validType =
-      REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
+    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
     return (
       validType && input.required && myRefs[input.id] && !myRefs[input.id].value
     );
@@ -132,7 +130,7 @@ export function DynamicForm(props: Props) {
         accordion={input.accordion}
         onClick={input.type === 'submit' ? onSubmit : undefined}
         onError={input.type !== 'submit' ? handleError : undefined}
-        myRef={element => {
+        myRef={(element) => {
           myRefs[input.id] = element;
         }}
         formNoValidate={input.type === 'submit'}
@@ -140,13 +138,12 @@ export function DynamicForm(props: Props) {
     </div>
   );
 
-  const displayInputs = (): Array<Node | null> =>
-    inputs.map((input: MyInputProps) => {
-      if (INPUT_TYPES.includes(input.type)) {
-        return displayInput(input);
-      }
-      return null;
-    });
+  const displayInputs = (): Array<Node | null> => inputs.map((input: MyInputProps) => {
+    if (INPUT_TYPES.includes(input.type)) {
+      return displayInput(input);
+    }
+    return null;
+  });
 
   return <div className={css.form}>{displayInputs()}</div>;
 }
