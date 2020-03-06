@@ -125,6 +125,8 @@ export function Form(props: Props) {
   });
 
   const renderForm = (): Node => {
+    // action prop destructuring fails due to unresolved eslint-plugin-react issue
+    // eslint-disable-next-line
     const { action } = props;
     const { form } = css;
 
