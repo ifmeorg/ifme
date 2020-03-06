@@ -1,5 +1,6 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
+import type { Node } from 'react';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import { QuickCreate } from '../../widgets/QuickCreate';
@@ -13,40 +14,56 @@ export type State = {
   errors: Errors,
 };
 
-export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
+export const hasErrors = (errors: Errors) =>
+  Object.values(errors).filter(key => key).length;
 
-export class Form extends React.Component<Props, State> {
-  myRefs: Object;
+function getInputsInitialState(props: Props): MyInputProps[] {
+  return props.inputs.filter((input: MyInputProps) => input !== {});
+}
 
-  constructor(props: Props) {
-    super(props);
-    const inputs = props.inputs.filter((input: MyInputProps) => input !== {});
-    this.state = { inputs, errors: {} };
-    this.myRefs = {};
-  }
+export function Form(props: Props) {
+  const [inputs, setInputs] = useState<MyInputProps[]>(
+    getInputsInitialState(props)
+  );
+  const [errors, setErrors] = useState<Errors>({});
 
-  handleError = (id: string, error: boolean) => {
-    const { errors } = this.state;
+  const myRefs: Object = {};
+
+  const handleError = (id: string, error: boolean): void => {
     const newErrors = { ...errors };
     newErrors[id] = error;
-    this.setState({ errors: newErrors });
+    setErrors(newErrors);
   };
 
-  onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+  const isInputError = (input: any): boolean => {
+    const validType =
+      REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
+    return (
+      validType && input.required && myRefs[input.id] && !myRefs[input.id].value
+    );
+  };
+
+  const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
-    const { inputs, errors } = this.state;
-    const { inputs: newInputs, errors: newErrors } = getNewInputs({
-      inputs,
-      errors,
-      refs: this.myRefs,
+    const newErrors = { ...errors };
+    const newInputs = inputs.map((input: MyInputProps) => {
+      const newInput: MyInputProps = { ...input };
+      if (isInputError(newInput)) {
+        newInput.error = true;
+        newInput.value = myRefs[input.id].value;
+        newInput.myKey = Utils.randomString(); // Triggers state change in child component
+        newErrors[newInput.id] = true;
+      }
+      return newInput;
     });
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
-      this.setState({ inputs: newInputs, errors: newErrors });
+      setInputs(newInputs);
+      setErrors(newErrors);
     }
   };
 
-  displayInput = (input: MyInputProps) => (
+  const displayInput = (input: MyInputProps): Node => (
     <div key={input.id}>
       <Input
         id={input.id}
@@ -71,19 +88,17 @@ export class Form extends React.Component<Props, State> {
         options={input.options}
         checkboxes={input.checkboxes}
         accordion={input.accordion}
-        onError={input.type !== 'submit' ? this.handleError : undefined}
-        myRef={(element) => {
-          this.myRefs[input.id] = element;
+        onError={input.type !== 'submit' ? handleError : undefined}
+        myRef={element => {
+          myRefs[input.id] = element;
         }}
         formNoValidate={input.type === 'submit'}
       />
     </div>
   );
 
-  displayQuickCreate = (input: QuickCreateProps) => {
-    const {
-      id, name, label, placeholder, checkboxes, formProps,
-    } = input;
+  const displayQuickCreate = (input: QuickCreateProps): Node => {
+    const { id, name, label, placeholder, checkboxes, formProps } = input;
     if (!checkboxes || !name || !label) return null;
     return (
       <div key={id}>
@@ -99,33 +114,36 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayInputs = (): any => {
-    const { inputs } = this.state;
-    // TODO: replace any with actual type
-    return inputs.map((input: any) => {
+  const displayInputs = (): Array<Node | null> =>
+    inputs.map((input: any) => {
       if (INPUT_TYPES.includes(input.type)) {
-        return this.displayInput(input);
+        return displayInput(input);
       }
       if (input.type === 'quickCreate') {
-        return this.displayQuickCreate(input);
+        return displayQuickCreate(input);
       }
       return null;
     });
-  };
 
-  render() {
-    const { action } = this.props;
-    if (!action) return null;
+  const renderForm = (): Node => {
+    const { action } = props;
+    const { form } = css;
+
+    if (!action) {
+      return null;
+    }
     return (
       <form
-        onSubmit={this.onSubmit}
+        onSubmit={onSubmit}
         acceptCharset="UTF-8"
-        className={css.form}
+        className={form}
         method="post"
         action={action}
       >
-        {this.displayInputs()}
+        {displayInputs()}
       </form>
     );
-  }
+  };
+
+  return renderForm();
 }

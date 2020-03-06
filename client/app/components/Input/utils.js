@@ -45,19 +45,19 @@ export type Checkbox = {
 export type Props = {
   id: string,
   type: | 'text'
-    | 'textarea'
-    | 'submit'
-    | 'checkbox'
-    | 'number'
-    | 'time'
-    | 'date'
-    | 'select'
-    | 'checkboxGroup'
-    | 'tag'
-    | 'hidden'
-    | 'switch'
-    | 'location',
-  name?: string,
+  | 'textarea'
+  | 'submit'
+  | 'checkbox'
+  | 'number'
+  | 'time'
+  | 'date'
+  | 'select'
+  | 'checkboxGroup'
+  | 'tag'
+  | 'hidden'
+  | 'switch'
+  | 'location',
+  name: string,
   label?: string,
   placeholder?: string,
   error?: boolean,
