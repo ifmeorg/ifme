@@ -1,6 +1,5 @@
 // @flow
-import React, { useState } from 'react';
-import type { Node } from 'react';
+import React, { useState, type Node } from 'react';
 import axios from 'axios';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
