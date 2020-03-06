@@ -8,6 +8,7 @@ import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
+import { InputPassword } from './InputPassword';
 import { InputSwitch } from './InputSwitch';
 import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
@@ -143,6 +144,13 @@ const Input = ({
           hasError={(errorPresent: boolean) => hasError(errorPresent)}
         />
       );
+    }
+    return null;
+  };
+
+  const displayPassword = () => {
+    if (type === 'password') {
+      return <InputPassword />;
     }
     return null;
   };
