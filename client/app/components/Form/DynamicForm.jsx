@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, {useState } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
 import { Input } from '../Input';
@@ -47,10 +47,10 @@ function getInputsInitialState(props: Props): MyInputProps[] {
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 export function DynamicForm(props: Props) {
-  const [inputs, setInputs] = React.useState<MyInputProps[]>(
+  const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(props),
   );
-  const [errors, setErrors] = React.useState<Errors>({});
+  const [errors, setErrors] = useState<Errors>({});
 
   const myRefs: Object = {};
 

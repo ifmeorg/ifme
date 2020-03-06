@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import type { Node } from 'react';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
@@ -35,10 +35,10 @@ function getInputsInitialState(props: Props): MyInputProps[] {
 }
 
 export function Form(props: Props) {
-  const [inputs, setInputs] = React.useState<MyInputProps[]>(
+  const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(props),
   );
-  const [errors, setErrors] = React.useState<Errors>({});
+  const [errors, setErrors] = useState<Errors>({});
 
   const myRefs: Object = {};
 
