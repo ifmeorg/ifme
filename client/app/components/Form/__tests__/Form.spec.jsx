@@ -24,11 +24,9 @@ const getComponent = () => (
 describe('Form', () => {
   it('has no errors when submit is clicked', () => {
     const wrapper = mount(getComponent());
-    act(() =>
-      wrapper.find('input[name="some-text-name"]').prop('onBlur')({
-        currentTarget: { value: 'Hello' },
-      })
-    );
+    act(() => wrapper.find('input[name="some-text-name"]').prop('onBlur')({
+      currentTarget: { value: 'Hello' },
+    }));
     expect(wrapper.find('.error').length).toBe(0);
     wrapper.find('input[type="submit"]').simulate('click');
     expect(wrapper.find('.error').length).toBe(0);
@@ -37,13 +35,11 @@ describe('Form', () => {
   it('has errors when submit is clicked', () => {
     const wrapper = mount(getComponent());
     expect(wrapper.find('.error').length).toBe(0);
-    act(() =>
-      wrapper
-        .find('input[type="checkbox"][name="some-checkbox-one-name"]')
-        .prop('onChange')({
+    act(() => wrapper
+      .find('input[type="checkbox"][name="some-checkbox-one-name"]')
+      .prop('onChange')({
         currentTarget: { checked: false },
-      })
-    );
+      }));
     wrapper.find('input[type="submit"]').simulate('submit');
     expect(wrapper.find('.error').length).toBe(2);
   });
