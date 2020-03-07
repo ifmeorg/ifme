@@ -139,11 +139,21 @@ describe MedicationsController do
             .to change(Medication, :count).by(1)
         end
 
-        it 'has no validation errors' do
-          post_create valid_medication_params
-          expect(assigns(:medication).errors).to be_empty
-          expect(assigns(:medication)[:refill]).to be_between(assigns(:medication)[:created_at].to_date,
-            ((7 * assigns(:medication)[:total]) / (assigns(:medication)[:dosage] * assigns(:medication)[:weekly_dosage].count)).days.from_now)
+        context 'when refill exists' do
+          it 'has no validation errors and has correct refill' do
+            post_create valid_medication_params
+            expect(assigns(:medication).errors).to be_empty
+            expect(assigns(:medication)[:refill]).to be(assigns(:medication).refill)
+          end
+        end
+
+        context 'when refill does not exist' do
+          it 'has no validation errors and uses auto-generated refill' do
+            post_create valid_medication_params.merge(refill: nil)
+            expect(assigns(:medication).errors).to be_empty
+            expect(assigns(:medication)[:refill]).to be_between(assigns(:medication)[:created_at].to_date,
+              ((7 * assigns(:medication)[:total]) / (assigns(:medication)[:dosage] * assigns(:medication)[:weekly_dosage].count)).days.from_now)
+          end
         end
 
         it 'redirects to the medication page' do
