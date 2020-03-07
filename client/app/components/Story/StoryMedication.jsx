@@ -11,13 +11,12 @@ export type Props = {
   medicationRefill?: string,
 };
 
-const medicDosage = (medicationDosages: Object) => {
-  const {
-    isDaily,
-    dosageDaily,
-    dosageWeekly,
-    weeklyDosageMap,
-  } = medicationDosages;
+const medicDosage = ({
+  isDaily,
+  dosageDaily,
+  dosageWeekly,
+  weeklyDosageMap,
+}: Object) => {
   if (isDaily) {
     return <strong>{dosageDaily}</strong>;
   }
@@ -30,44 +29,37 @@ const medicDosage = (medicationDosages: Object) => {
   );
 };
 
-const displayStrength = (medicationStrength: Object) => {
-  const { strength, strengthUnits } = medicationStrength;
-  return (
-    <div>
-      <strong>{strength}</strong>
-      {' '}
-      {strengthUnits}
-    </div>
-  );
-};
+const displayStrength = ({ strength, strengthUnits }: Object) => (
+  <div>
+    <strong>{strength}</strong>
+    {' '}
+    {strengthUnits}
+  </div>
+);
 
-export const StoryMedication = (props: Props) => {
-  const {
-    medicationStrength,
-    quantity,
-    totalUnits,
-    medicationDosages,
-    dosageUnit,
-    refill,
-    medicationRefill,
-  } = props;
-
-  return (
+export const StoryMedication = ({
+  medicationStrength,
+  quantity,
+  totalUnits,
+  medicationDosages,
+  dosageUnit,
+  refill,
+  medicationRefill,
+}: Props) => (
+  <div>
+    {displayStrength(medicationStrength)}
     <div>
-      {displayStrength(medicationStrength)}
-      <div>
-        <strong>{quantity}</strong>
-        {' '}
-        {totalUnits}
-      </div>
-      {medicDosage(medicationDosages)}
+      <strong>{quantity}</strong>
       {' '}
-      {dosageUnit}
-      <div>
-        <strong>{refill}</strong>
-        {' '}
-        {medicationRefill}
-      </div>
+      {totalUnits}
     </div>
-  );
-};
+    {medicDosage(medicationDosages)}
+    {' '}
+    {dosageUnit}
+    <div>
+      <strong>{refill}</strong>
+      {' '}
+      {medicationRefill}
+    </div>
+  </div>
+);
