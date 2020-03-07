@@ -45,24 +45,25 @@ class MedicationsController < ApplicationController
     redirect_to_medication(@medication)
   end
 
-  def add_refill(medicine)
-    if medicine.refill.nil?
-      time = Time.zone.now.strftime('%d/%m/%Y')
-      no_of_days = medicine.total / medicine.dosage
-      no_of_weeks = no_of_days / medicine.weekly_dosage.length
-      rem = no_of_days % medicine.weekly_dosage.length
-      days = 7 * no_of_weeks + rem
-      return time.to_date + days - 1
-    end
-    medicine.refill
+  def add_refill(medication)
+    return medication[:refill] unless medication[:refill].empty?
+
+    time = Time.zone.now.strftime('%d/%m/%Y')
+    weekly_dosage = medication[:weekly_dosage] || [0, 1, 2, 3, 4, 5, 6]
+    no_of_days = medication[:total].to_i / medication[:dosage].to_i
+    no_of_weeks = no_of_days.to_i / weekly_dosage.length
+    rem = no_of_days % weekly_dosage.length
+    days = 7 * no_of_weeks + rem
+    time.to_date + days - 1
   end
 
   # POST /medications
   # POST /medications.json
   def create
-    @medication =
-      Medication.new(medication_params.merge(user_id: current_user.id))
-    @medication.refill = add_refill(@medication)
+    @medication = Medication.new(medication_params.merge(
+                                   user_id: current_user.id,
+                                   refill: add_refill(medication_params)
+                                 ))
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
