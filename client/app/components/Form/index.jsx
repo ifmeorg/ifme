@@ -2,26 +2,14 @@
 import React from 'react';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
-import type { Props as InputProps } from '../Input/utils';
-import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
-import { Utils } from '../../utils';
 import css from './Form.scss';
-
-type KeyProps = { myKey?: any };
-
-type MyInputProps = InputProps & KeyProps;
-
-type Errors = { [string]: boolean } | {};
-
-export type Props = {
-  action?: string,
-  inputs: any[],
-};
+import { getNewInputs } from './utils';
+import type { Errors, MyInputProps, FormProps as Props } from './utils';
 
 export type State = {
-  inputs: any[],
+  inputs: MyInputProps[],
   errors: Errors,
 };
 
@@ -32,7 +20,7 @@ export class Form extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const inputs = props.inputs.filter((input: any) => input !== {});
+    const inputs = props.inputs.filter((input: MyInputProps) => input !== {});
     this.state = { inputs, errors: {} };
     this.myRefs = {};
   }
@@ -44,29 +32,13 @@ export class Form extends React.Component<Props, State> {
     this.setState({ errors: newErrors });
   };
 
-  isInputError = (input: any) => {
-    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
-    return (
-      validType
-      && input.required
-      && this.myRefs[input.id]
-      && !this.myRefs[input.id].value
-    );
-  };
-
   onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
     const { inputs, errors } = this.state;
-    const newErrors = { ...errors };
-    const newInputs = inputs.map((input: any) => {
-      const newInput = { ...input };
-      if (this.isInputError(newInput)) {
-        newInput.error = true;
-        newInput.value = this.myRefs[input.id].value;
-        newInput.myKey = Utils.randomString(); // Triggers state change in child component
-        newErrors[newInput.id] = true;
-      }
-      return newInput;
+    const { inputs: newInputs, errors: newErrors } = getNewInputs({
+      inputs,
+      errors,
+      refs: this.myRefs,
     });
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
@@ -129,6 +101,7 @@ export class Form extends React.Component<Props, State> {
 
   displayInputs = (): any => {
     const { inputs } = this.state;
+    // TODO: replace any with actual type
     return inputs.map((input: any) => {
       if (INPUT_TYPES.includes(input.type)) {
         return this.displayInput(input);
