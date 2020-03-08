@@ -1,12 +1,11 @@
 // @flow
-import React, { useState, type Node } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps } from './utils';
-import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 
 export type Props = {
   // Somehow Flow does not detect nameValue being used in a function outside the component
@@ -46,13 +45,6 @@ export function DynamicForm(props: Props) {
     const newErrors = { ...errors };
     newErrors[id] = error;
     setErrors(newErrors);
-  };
-
-  const isInputError = (input: MyInputProps) => {
-    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
-    return (
-      validType && input.required && myRefs[input.id] && !myRefs[input.id].value
-    );
   };
 
   // TODO: Long-term, we should have React (instead of Rails) handle form submissions
