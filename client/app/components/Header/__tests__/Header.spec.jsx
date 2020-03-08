@@ -7,7 +7,7 @@ const component = (
   <Header
     home={{ name: 'Home', url: '/some-path' }}
     links={[
-      { name: 'Link 1', url: '/some-path-one' },
+      { name: 'Link 1', url: '/some-path-one', active: true },
       { name: 'Link 2', url: '/some-path-two', dataMethod: 'delete' },
     ]}
   />
@@ -25,5 +25,10 @@ describe('Header', () => {
     expect(wrapper.find('#headerMobile').length).toEqual(1);
     wrapper.find('#headerHamburger').simulate('click');
     expect(wrapper.find('#headerMobile').length).toEqual(0);
+  });
+
+  it('displays links correctly', () => {
+    expect(wrapper.find('.headerLink').length).toEqual(2);
+    expect(wrapper.find('.headerActiveLink').length).toEqual(1);
   });
 });
