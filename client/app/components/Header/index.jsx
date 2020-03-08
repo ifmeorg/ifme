@@ -109,7 +109,14 @@ function HeaderComponent({
 /*
   ReactOnRails raised an error of invalid Hooks usage
   if the export was just exporting the HeaderComponent not as below.
-  Eslint also complains about prop spreading so it was disabled.
 */
-// eslint-disable-next-line react/jsx-props-no-spreading
-export const Header = (props: Props) => <HeaderComponent {...props} />;
+export const Header = ({
+  home, links, mobileOnly, profile,
+}: Props) => (
+  <HeaderComponent
+    home={home}
+    links={links}
+    mobileOnly={mobileOnly}
+    profile={profile}
+  />
+);
