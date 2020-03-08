@@ -33,25 +33,12 @@ export function Form(props: Props) {
     setErrors(newErrors);
   };
 
-  const isInputError = (input: any): boolean => {
-    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
-    return (
-      validType && input.required && myRefs[input.id] && !myRefs[input.id].value
-    );
-  };
-
   const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
-    const newErrors = { ...errors };
-    const newInputs = inputs.map((input: MyInputProps) => {
-      const newInput: MyInputProps = { ...input };
-      if (isInputError(newInput)) {
-        newInput.error = true;
-        newInput.value = myRefs[input.id].value;
-        newInput.myKey = Utils.randomString(); // Triggers state change in child component
-        newErrors[newInput.id] = true;
-      }
-      return newInput;
+    const { inputs: newInputs, errors: newErrors } = getNewInputs({
+      inputs,
+      errors,
+      refs: myRefs,
     });
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();

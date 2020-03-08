@@ -6,6 +6,7 @@ import { TYPES as INPUT_TYPES } from '../Input/utils';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps } from './utils';
+import { REQUIRES_DEFAULT } from '../Input/InputDefault';
 
 export type Props = {
   // Somehow Flow does not detect nameValue being used in a function outside the component
