@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, type Node } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ReactHtmlParser from 'react-html-parser';
@@ -21,19 +21,18 @@ export type State = {
   toggled: boolean,
 };
 
-export class Header extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { mobileNavOpen: false, toggled: false };
-  }
+function HeaderComponent({
+  home, links, mobileOnly, profile,
+}: Props) {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [toggled, setToggled] = useState(true);
 
-  toggle = () => {
-    const { mobileNavOpen } = this.state;
-    this.setState({ mobileNavOpen: !mobileNavOpen, toggled: true });
+  const toggle = (): void => {
+    setMobileNavOpen(!mobileNavOpen);
+    setToggled(true);
   };
 
-  displayToggle = () => {
-    const { mobileNavOpen, toggled } = this.state;
+  const displayToggle = (): Node => {
     const body = ((document.body: any): HTMLBodyElement);
     if (toggled && mobileNavOpen) {
       body.classList.add('bodyHeaderOpen');
@@ -43,79 +42,74 @@ export class Header extends React.Component<Props, State> {
     return <FontAwesomeIcon icon={faBars} />;
   };
 
-  displayLinks = (): any => {
-    const { links } = this.props;
-    return links.map((link: Link) => (
-      <div className={css.headerLink} key={link.name}>
-        <a
-          href={link.url}
-          className={`${link.active ? css.headerActiveLink : ''} ${
-            link.hideInMobile ? css.headerHideInMobile : ''
-          }`}
-          data-method={`${link.dataMethod || ''}`}
-          rel={`${link.dataMethod ? 'nofollow' : ''}`}
+  const displayLinks = (): Node[] => links.map((link: Link) => (
+    <div className={css.headerLink} key={link.name}>
+      <a
+        href={link.url}
+        className={`${link.active ? css.headerActiveLink : ''} ${
+          link.hideInMobile ? css.headerHideInMobile : ''
+        }`}
+        data-method={`${link.dataMethod || ''}`}
+        rel={`${link.dataMethod ? 'nofollow' : ''}`}
+      >
+        {link.name}
+      </a>
+    </div>
+  ));
+
+  const displayDesktop = (): Node => (
+    <div
+      className={css.headerDesktop}
+      role="navigation"
+      aria-label={I18n.t('navigation.main_menu')}
+    >
+      <div className={css.headerDesktopHome}>
+        <Logo sm link={home.url} />
+      </div>
+      <div className={css.headerDesktopNav}>
+        <div
+          id="headerHamburger"
+          className={css.headerHamburger}
+          onClick={toggle}
+          onKeyDown={toggle}
+          role="button"
+          tabIndex="0"
+          aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
         >
-          {link.name}
-        </a>
+          {displayToggle()}
+        </div>
+        <div className={css.headerDesktopNavLinks}>{displayLinks()}</div>
       </div>
-    ));
-  };
+    </div>
+  );
 
-  displayDesktop = () => {
-    const { home } = this.props;
-    const { mobileNavOpen } = this.state;
-    return (
-      <div
-        className={css.headerDesktop}
-        role="navigation"
-        aria-label={I18n.t('navigation.main_menu')}
-      >
-        <div className={css.headerDesktopHome}>
-          <Logo sm link={home.url} />
-        </div>
-        <div className={css.headerDesktopNav}>
-          <div
-            id="headerHamburger"
-            className={css.headerHamburger}
-            onClick={this.toggle}
-            onKeyDown={this.toggle}
-            role="button"
-            tabIndex="0"
-            aria-label={mobileNavOpen ? I18n.t('close') : I18n.t('expand_menu')}
-          >
-            {this.displayToggle()}
-          </div>
-          <div className={css.headerDesktopNavLinks}>{this.displayLinks()}</div>
-        </div>
+  const displayMobile = (): Node => (
+    <div id="headerMobile" className={css.headerMobileNav}>
+      <div>
+        {profile ? <HeaderProfile profile={profile} /> : null}
+        {mobileOnly ? ReactHtmlParser(mobileOnly) : null}
+        {displayLinks()}
       </div>
-    );
-  };
+    </div>
+  );
 
-  displayMobile = () => {
-    const { mobileOnly, profile } = this.props;
-    return (
-      <div id="headerMobile" className={css.headerMobileNav}>
-        <div>
-          {profile ? <HeaderProfile profile={profile} /> : null}
-          {mobileOnly ? ReactHtmlParser(mobileOnly) : null}
-          {this.displayLinks()}
-        </div>
+  return (
+    <header
+      id="header"
+      className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
+    >
+      <div className={`${mobileNavOpen ? css.headerMobileBg : ''}`}>
+        {displayDesktop()}
+        {mobileNavOpen ? displayMobile() : null}
       </div>
-    );
-  };
-
-  render() {
-    const { mobileNavOpen } = this.state;
-    return (
-      <header
-        id="header"
-        className={`${css.header} ${mobileNavOpen ? css.headerMobile : ''}`}
-      >
-        <div className={`${mobileNavOpen ? css.headerMobileBg : ''}`}>
-          {this.displayDesktop()}
-          {mobileNavOpen ? this.displayMobile() : null}
-        </div>
-      </header>
-    );
-  }
+    </header>
+  );
 }
+
+/*
+  ReactOnRails raised an error of invalid Hooks usage
+  if the export was just exporting the HeaderComponent not as below.
+  Eslint also complains about prop spreading so it was disabled.
+*/
+// eslint-disable-next-line react/jsx-props-no-spreading
+export const Header = (props: Props) => <HeaderComponent {...props} />;
