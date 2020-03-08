@@ -3,25 +3,18 @@ import React from 'react';
 import axios from 'axios';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
-import type { Props as InputProps } from '../Input/utils';
-import { REQUIRES_DEFAULT } from '../Input/InputDefault';
-import { Utils } from '../../utils';
 import css from './Form.scss';
-
-type KeyProps = { myKey?: any };
-
-type MyInputProps = InputProps & KeyProps;
-
-type Errors = { [string]: boolean } | {};
+import { getNewInputs } from './utils';
+import type { Errors, MyInputProps, FormProps } from './utils';
 
 export type Props = {
   nameValue?: string, // This is just for QuickCreate
-  formProps: any,
+  formProps: FormProps,
   onCreate: Function,
 };
 
 export type State = {
-  inputs: any[],
+  inputs: MyInputProps[],
   errors: Errors,
 };
 
@@ -33,7 +26,9 @@ export class DynamicForm extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     const { formProps, nameValue } = props;
-    const inputs = formProps.inputs.filter((input: any) => input !== {});
+    const inputs = formProps.inputs.filter(
+      (input: MyInputProps) => input !== {},
+    );
     if (nameValue) {
       inputs[0].value = nameValue;
     }
@@ -46,16 +41,6 @@ export class DynamicForm extends React.Component<Props, State> {
     const newErrors = { ...errors };
     newErrors[id] = error;
     this.setState({ errors: newErrors });
-  };
-
-  isInputError = (input: any) => {
-    const validType = REQUIRES_DEFAULT.includes(input.type) || input.type === 'textarea';
-    return (
-      validType
-      && input.required
-      && this.myRefs[input.id]
-      && !this.myRefs[input.id].value
-    );
   };
 
   // TODO: Long-term, we should have React (instead of Rails) handle form submissions
@@ -84,16 +69,10 @@ export class DynamicForm extends React.Component<Props, State> {
     e.preventDefault();
     // Get errors from inputs that were never focused
     const { inputs, errors } = this.state;
-    const newErrors = { ...errors };
-    const newInputs = inputs.map((input: any) => {
-      const newInput = { ...input };
-      if (this.isInputError(newInput)) {
-        newInput.error = true;
-        newInput.value = this.myRefs[input.id].value;
-        newInput.myKey = Utils.randomString(); // Triggers state change in child component
-        newErrors[newInput.id] = true;
-      }
-      return newInput;
+    const { inputs: newInputs, errors: newErrors } = getNewInputs({
+      inputs,
+      errors,
+      refs: this.myRefs,
     });
     if (hasErrors(newErrors) > 0) {
       this.setState({ inputs: newInputs, errors: newErrors });
@@ -145,7 +124,7 @@ export class DynamicForm extends React.Component<Props, State> {
 
   displayInputs = (): any => {
     const { inputs } = this.state;
-    return inputs.map((input: any) => {
+    return inputs.map((input: MyInputProps) => {
       if (INPUT_TYPES.includes(input.type)) {
         return this.displayInput(input);
       }

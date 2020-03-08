@@ -45,11 +45,26 @@ class MedicationsController < ApplicationController
     redirect_to_medication(@medication)
   end
 
+  def add_refill(medication)
+    return medication[:refill] if medication[:refill].present?
+
+    weekly_dosage = @medication&.weekly_dosage ||
+                    medication[:weekly_dosage] || [0, 1, 2, 3, 4, 5, 6]
+    total = @medication&.total || medication[:total]
+    dosage = @medication&.dosage || medication[:dosage]
+    no_of_days = total.to_i / dosage.to_i
+    no_of_weeks = no_of_days.to_i / weekly_dosage.length
+    days = 7 * no_of_weeks + (no_of_days % weekly_dosage.length)
+    Time.zone.now.strftime('%d/%m/%Y').to_date + days - 1
+  end
+
   # POST /medications
   # POST /medications.json
   def create
-    @medication =
-      Medication.new(medication_params.merge(user_id: current_user.id))
+    @medication = Medication.new(medication_params.merge(
+                                   user_id: current_user.id,
+                                   refill: add_refill(medication_params)
+                                 ))
     return unless save_refill_to_google_calendar(@medication)
 
     if @medication.save
@@ -64,7 +79,9 @@ class MedicationsController < ApplicationController
   def update
     return unless save_refill_to_google_calendar(@medication)
 
-    if @medication.update(medication_params)
+    if @medication.update(medication_params.merge(
+                            refill: add_refill(medication_params)
+                          ))
       redirect_to_medication(@medication)
     else
       render_unprocessable_medication
@@ -93,8 +110,7 @@ class MedicationsController < ApplicationController
     respond_to do |format|
       format.html { render :new }
       format.json do
-        render(json: @medication.errors,
-               status: :unprocessable_entity)
+        render(json: @medication.errors, status: :unprocessable_entity)
       end
     end
   end
@@ -108,8 +124,7 @@ class MedicationsController < ApplicationController
 
   def medication_params
     params.require(:medication).permit(
-      :name, :dosage, :refill,
-      :total, :strength,
+      :name, :dosage, :refill, :total, :strength,
       :dosage_unit, :total_unit, :strength_unit,
       :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],

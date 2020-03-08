@@ -13,6 +13,7 @@ import type { Category } from './StoryCategories';
 import { StoryMoods } from './StoryMoods';
 import type { Mood } from './StoryMoods';
 import { StoryMedication } from './StoryMedication';
+import type { Props as Medication } from './StoryMedication';
 import css from './Story.scss';
 
 export type Props = {
@@ -25,11 +26,11 @@ export type Props = {
   moods?: Mood[],
   storyBy?: StoryByProps,
   storyType?: string,
-  body?: any,
-  medicationBody?: any,
+  body?: string,
+  medicationBody?: Medication,
 };
 
-const header = (
+const renderHeader = (
   condensed: boolean,
   actions: ?Actions,
   draft: ?string,
@@ -47,7 +48,7 @@ const header = (
   </div>
 );
 
-const info = (
+const renderInfo = (
   storyBy: ?StoryByProps,
   storyType: ?string,
   actions: ?Actions,
@@ -64,7 +65,27 @@ const info = (
   );
 };
 
-const footer = (
+const renderMedicationBody = ({
+  medicationStrength,
+  quantity,
+  totalUnits,
+  medicationDosages,
+  dosageUnit,
+  refill,
+  medicationRefill,
+}: Medication) => (
+  <StoryMedication
+    medicationStrength={medicationStrength}
+    quantity={quantity}
+    totalUnits={totalUnits}
+    medicationDosages={medicationDosages}
+    dosageUnit={dosageUnit}
+    refill={refill}
+    medicationRefill={medicationRefill}
+  />
+);
+
+const renderFooter = (
   categories: ?(Category[]),
   moods: ?(Mood[]),
   storyBy: ?StoryByProps,
@@ -74,42 +95,31 @@ const footer = (
   <div className={css.footer}>
     {categories && <StoryCategories categories={categories} />}
     {moods && <StoryMoods moods={moods} />}
-    {info(storyBy, storyType, actions)}
+    {renderInfo(storyBy, storyType, actions)}
   </div>
 );
 
-export const Story = (props: Props) => {
-  const {
-    date,
-    categories,
-    moods,
-    storyType,
-    storyBy,
-    actions,
-    draft,
-    name,
-    link,
-    body,
-    medicationBody,
-  } = props;
+export const Story = ({
+  date,
+  categories,
+  moods,
+  storyType,
+  storyBy,
+  actions,
+  draft,
+  name,
+  link,
+  body,
+  medicationBody,
+}: Props) => {
   const condensed = !storyBy && !storyType;
   return (
     <div className={`story ${css.story}`}>
-      {header(condensed, actions, draft, name, link)}
+      {renderHeader(condensed, actions, draft, name, link)}
       {date && <StoryDate date={date} />}
       {body && <div className={css.body}>{renderHTML(body)}</div>}
-      {medicationBody && (
-        <StoryMedication
-          medicationStrength={medicationBody.medicationStrength}
-          quantity={medicationBody.quantity}
-          totalUnits={medicationBody.totalUnits}
-          medicationDosages={medicationBody.medicationDosages}
-          dosageUnit={medicationBody.dosageUnit}
-          refill={medicationBody.refill}
-          medicationRefill={medicationBody.medicationRefill}
-        />
-      )}
-      {footer(categories, moods, storyBy, storyType, actions)}
+      {medicationBody && renderMedicationBody(medicationBody)}
+      {renderFooter(categories, moods, storyBy, storyType, actions)}
     </div>
   );
 };
