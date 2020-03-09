@@ -3,14 +3,14 @@ import React from 'react';
 import css from './Input.scss';
 import type { Password as Props } from './utils';
 
-const ShowPassword = (show, text) => (
+const ShowPassword = (show, text, onChange, onClick) => (
   <div>
     <input
-      type = {show) ? "text" : "password"
+      type = {show ? "text" : "password"}
       value = {text}
       onChange = {(event: SyntheticEvent<HTMLInputElement>) => handleOnChange(event, onChange, text)}
     />
-    <button onClick = {(event: SyntheticEvent<HTMLInputElement>) => toggleShow(event, onChange, show)}>Show/Hide</button>
+    <button onClick = {(event: SyntheticEvent<HTMLButtonElement>) => toggleShow(event, onClick, show)}>Show/Hide</button>
   </div>
 );
 
@@ -19,21 +19,22 @@ const handleOnChange = (
   onChange?: Function,
   text: string,
 ) => {
-  const { text } = event.currentTarget;
+  text = event.currentTarget.value;
   if (onChange) {
     onChange({ text });
   }
 };
 
 const toggleShow = (
-  event: SyntheticEvent<HTMLInputElement>,
-  onChange?: Function,
+  event: SyntheticEvent<HTMLButtonElement>,
+  onClick?: Function,
   show: boolean,
 ) => {
-  const { show } = !{ show };
-  if (onChange) {
-    onChange({ show });
-  }
+  (event.currentTarget: HTMLButtonElement);
+  show = !(show);
+  // if (onClick) {
+  //   onClick({ show });
+//   }
 };
 
 export const InputPassword = (props: Props) => {
@@ -41,8 +42,11 @@ export const InputPassword = (props: Props) => {
     show,
     text,
     onChange,
+    onClick,
   } = props;
   return (
-    {ShowPassword(show, text, onChange)}
+    <div>
+    { ShowPassword(show, text, onChange, onClick) }
+    </div>
   );
 }

@@ -149,8 +149,15 @@ const Input = ({
   };
 
   const displayPassword = () => {
-    if (type === 'password') {
-      return <InputPassword />;
+    if (type === 'password' && typeof text !== 'undefined') {
+      return (
+        <InputPassword
+          text={text}
+          show={show}
+          onChange={onChange}
+          onClick={onClick}
+        />
+      );
     }
     return null;
   };

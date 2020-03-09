@@ -46,9 +46,10 @@ export type Checkbox = {
 };
 
 export type Password = {
-  text?: string,
-  show?: boolean,
+  text: string,
+  show: boolean,
   onChange?: Function,
+  onClick?: Function,
 };
 
 export type Props = {
@@ -65,11 +66,11 @@ export type Props = {
     | 'tag'
     | 'hidden'
     | 'switch'
-    | 'location',
+    | 'location'
     | 'password',
   name?: string,
-  text?: string,
-  show?: boolean,
+  text: string,
+  show: boolean,
   label?: string,
   placeholder?: string,
   error?: boolean,
