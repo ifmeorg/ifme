@@ -1,49 +1,48 @@
 // @flow
 import React from 'react';
 import css from './Input.scss';
+import type { Password as Props } from './utils';
 
-export type State = {
-  hidden: true,
-  password: "",
+const ShowPassword = (show, text) => (
+  <div>
+    <input
+      type = {show) ? "text" : "password"
+      value = {text}
+      onChange = {(event: SyntheticEvent<HTMLInputElement>) => handleOnChange(event, onChange, text)}
+    />
+    <button onClick = {(event: SyntheticEvent<HTMLInputElement>) => toggleShow(event, onChange, show)}>Show/Hide</button>
+  </div>
+);
+
+const handleOnChange = (
+  event: SyntheticEvent<HTMLInputElement>,
+  onChange?: Function,
+  text: string,
+) => {
+  const { text } = event.currentTarget;
+  if (onChange) {
+    onChange({ text });
+  }
 };
 
-export class InputPassword extends React.Component<State> {
-  constructor() {
-    super();
-
-    this.state = {
-      hidden: true,
-      password: ""
-    };
-
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.toggleShow = this.toggleShow.bind(this);
+const toggleShow = (
+  event: SyntheticEvent<HTMLInputElement>,
+  onChange?: Function,
+  show: boolean,
+) => {
+  const { show } = !{ show };
+  if (onChange) {
+    onChange({ show });
   }
+};
 
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value });
-  }
-
-  toggleShow() {
-    this.setState({ hidden: !this.state.hidden });
-  }
-
-  componentDidMount() {
-    if (this.props.password) {
-      this.setState({ password: this.props.password });
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <input
-          type={this.state.hidden ? "password" : "text"}
-          value={this.state.password}
-          onChange={this.handlePasswordChange}
-        />
-        <button className="show" onClick={this.toggleShow}>Show/Hide</button>
-      </div>
-    );
-  }
+export const InputPassword = (props: Props) => {
+  const {
+    show,
+    text,
+    onChange,
+  } = props;
+  return (
+    {ShowPassword(show, text, onChange)}
+  );
 }
