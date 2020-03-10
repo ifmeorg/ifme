@@ -31,6 +31,26 @@ const getInputsInitialState = (
   return formInputs;
 };
 
+// TODO: Long-term, we should have React (instead of Rails) handle form submissions
+// so that we don't have to do this.
+const getParams = (inputs: MyInputProps[], myRefs: Object) => {
+  const params = {};
+  inputs.forEach((input: MyInputProps) => {
+    const { name, id } = input;
+    if (id !== 'submit') {
+      // Assumes name is in model[column] format
+      const indexOfFirstBracket = name.indexOf('[');
+      const model = name.substring(0, indexOfFirstBracket);
+      const column = name.substring(indexOfFirstBracket + 1, name.length - 1);
+      if (!params[model]) {
+        params[model] = {};
+      }
+      params[model][column] = myRefs[id] && myRefs[id].value;
+    }
+  });
+  return params;
+};
+
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
 const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
@@ -47,49 +67,25 @@ const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
     setErrors(newErrors);
   };
 
-  // TODO: Long-term, we should have React (instead of Rails) handle form submissions
-  // so that we don't have to do this.
-  const getParams = () => {
-    const params = {};
-    inputs.forEach((input: MyInputProps) => {
-      const { name, id } = input;
-      if (id !== 'submit') {
-        // Assumes name is in model[column] format
-        const indexOfFirstBracket = name.indexOf('[');
-        const model = name.substring(0, indexOfFirstBracket);
-        const column = name.substring(indexOfFirstBracket + 1, name.length - 1);
-        if (!params[model]) {
-          params[model] = {};
-        }
-        params[model][column] = myRefs[id] && myRefs[id].value;
-      }
-    });
-    return params;
-  };
-
   const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     e.preventDefault();
     // Get errors from inputs that were never focused
-    const newErrors = { ...errors };
-    const newInputs = inputs.map((input: MyInputProps) => {
-      const newInput: MyInputProps = { ...input };
-      if (isInputError(newInput)) {
-        newInput.error = true;
-        newInput.value = myRefs[input.id].value;
-        newInput.myKey = Utils.randomString(); // Triggers state change in child component
-        newErrors[newInput.id] = true;
-      }
-      return newInput;
+    const { inputs: newInputs, errors: newErrors } = getNewInputs({
+      inputs,
+      errors,
+      refs: myRefs,
     });
     if (hasErrors(newErrors) > 0) {
       setInputs(newInputs);
       setErrors(newErrors);
     } else {
-      axios.post(formProps.action, getParams()).then((response: any) => {
-        if (onCreate) {
-          onCreate(response);
-        }
-      });
+      axios
+        .post(formProps.action, getParams(inputs, myRefs))
+        .then((response: Object) => {
+          if (onCreate) {
+            onCreate(response);
+          }
+        });
       // TODO: Actually handle errors through catch()
     }
   };
@@ -129,7 +125,7 @@ const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
     </div>
   );
 
-  const displayInputs = (): Array<Node | null> => inputs.map((input: MyInputProps) => {
+  const displayInputs = () => inputs.map((input: MyInputProps) => {
     if (INPUT_TYPES.includes(input.type)) {
       return displayInput(input);
     }
@@ -139,7 +135,8 @@ const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
   return <div className={css.form}>{displayInputs()}</div>;
 };
 
-// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails, so will need to do this in order to render multiple components with hooks on the same page.
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
 export default ({ nameValue, formProps, onCreate }: Props) => (
   <DynamicForm
     nameValue={nameValue}
