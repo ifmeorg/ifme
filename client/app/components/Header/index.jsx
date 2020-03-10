@@ -21,9 +21,9 @@ export type State = {
   toggled: boolean,
 };
 
-function HeaderComponent({
+const Header = ({
   home, links, mobileOnly, profile,
-}: Props) {
+}: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [toggled, setToggled] = useState(true);
 
@@ -104,19 +104,12 @@ function HeaderComponent({
       </div>
     </header>
   );
-}
+};
 
-/*
-  ReactOnRails raised an error of invalid Hooks usage
-  if the export was just exporting the HeaderComponent not as below.
-*/
-export const Header = ({
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({
   home, links, mobileOnly, profile,
 }: Props) => (
-  <HeaderComponent
-    home={home}
-    links={links}
-    mobileOnly={mobileOnly}
-    profile={profile}
-  />
+  <Header home={home} links={links} mobileOnly={mobileOnly} profile={profile} />
 );
