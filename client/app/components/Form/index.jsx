@@ -15,13 +15,13 @@ export type State = {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-function getInputsInitialState(props: Props): MyInputProps[] {
-  return props.inputs.filter((input: MyInputProps) => input !== {});
+function getInputsInitialState(inputs: MyInputProps[]): MyInputProps[] {
+  return inputs.filter((input: MyInputProps) => input !== {});
 }
 
-export function Form(props: Props) {
+export function Form({ action, inputs: inputsProps }: Props) {
   const [inputs, setInputs] = useState<MyInputProps[]>(
-    getInputsInitialState(props),
+    getInputsInitialState(inputsProps),
   );
   const [errors, setErrors] = useState<Errors>({});
 
@@ -111,7 +111,6 @@ export function Form(props: Props) {
   });
 
   const renderForm = (): Node => {
-    const { action } = props;
     const { form } = css;
 
     if (!action) {
