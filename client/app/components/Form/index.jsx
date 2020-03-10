@@ -15,11 +15,9 @@ export type State = {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-function getInputsInitialState(inputs: MyInputProps[]): MyInputProps[] {
-  return inputs.filter((input: MyInputProps) => input !== {});
-}
+const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
-export function Form({ action, inputs: inputsProps }: Props) {
+const Form = ({ action, inputs: inputsProps }: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(inputsProps),
   );
@@ -110,24 +108,25 @@ export function Form({ action, inputs: inputsProps }: Props) {
     return null;
   });
 
-  const renderForm = (): Node => {
-    const { form } = css;
+  if (!action) {
+    return null;
+  }
 
-    if (!action) {
-      return null;
-    }
-    return (
-      <form
-        onSubmit={onSubmit}
-        acceptCharset="UTF-8"
-        className={form}
-        method="post"
-        action={action}
-      >
-        {displayInputs()}
-      </form>
-    );
-  };
+  const { form } = css;
+  return (
+    <form
+      onSubmit={onSubmit}
+      acceptCharset="UTF-8"
+      className={form}
+      method="post"
+      action={action}
+    >
+      {displayInputs()}
+    </form>
+  );
+};
 
-  return renderForm();
-}
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails, so will need to do this in order to render multiple components with hooks on the same page.
+export default ({ action, inputs }: Props) => (
+  <Form action={action} inputs={inputs} />
+);

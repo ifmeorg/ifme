@@ -18,10 +18,10 @@ export type State = {
   errors: Errors,
 };
 
-function getInputsInitialState(
+const getInputsInitialState = (
   formProps: FormProps,
   nameValue?: string,
-): MyInputProps[] {
+): MyInputProps[] => {
   const formInputs = formProps.inputs.filter(
     (input: MyInputProps) => input !== {},
   );
@@ -29,11 +29,11 @@ function getInputsInitialState(
     formInputs[0].value = nameValue;
   }
   return formInputs;
-}
+};
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-export function DynamicForm({ nameValue, formProps, onCreate }: Props) {
+const DynamicForm = ({ nameValue, formProps, onCreate }: Props) => {
   const [inputs, setInputs] = useState<MyInputProps[]>(
     getInputsInitialState(formProps, nameValue),
   );
@@ -137,4 +137,13 @@ export function DynamicForm({ nameValue, formProps, onCreate }: Props) {
   });
 
   return <div className={css.form}>{displayInputs()}</div>;
-}
+};
+
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails, so will need to do this in order to render multiple components with hooks on the same page.
+export default ({ nameValue, formProps, onCreate }: Props) => (
+  <DynamicForm
+    nameValue={nameValue}
+    formProps={formProps}
+    onCreate={onCreate}
+  />
+);
