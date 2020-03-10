@@ -21,11 +21,9 @@ export type State = {
   toggled: boolean,
 };
 
-const Header = (props: Props) => {
-  const {
-    home, links, mobileOnly, profile,
-  } = props;
-
+const Header = ({
+  home, links, mobileOnly, profile,
+}: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [toggled, setToggled] = useState(true);
 
