@@ -1,9 +1,9 @@
 // @flow
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
-import { Header } from '../index';
+import Header from '../index';
 
-const component = (
+const getComponent = () => (
   <Header
     home={{ name: 'Home', url: '/some-path' }}
     links={[
@@ -13,7 +13,7 @@ const component = (
   />
 );
 
-const wrapper = shallow(component);
+const wrapper = mount(getComponent());
 
 describe('Header', () => {
   it('renders correctly', () => {

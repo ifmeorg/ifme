@@ -12,7 +12,7 @@ import { BaseContainer } from '../components/BaseContainer';
 import { Chart } from '../components/Chart';
 import { ChartControl } from '../components/Chart/ChartControl';
 import { Form } from '../components/Form';
-import { Header } from '../components/Header';
+import Header from '../components/Header';
 import { HeaderProfile } from '../components/Header/HeaderProfile';
 import { Logo } from '../components/Logo';
 import { Modal } from '../components/Modal';
