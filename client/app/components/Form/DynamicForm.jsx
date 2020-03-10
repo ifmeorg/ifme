@@ -8,8 +8,6 @@ import { getNewInputs } from './utils';
 import type { Errors, MyInputProps, FormProps } from './utils';
 
 export type Props = {
-  // Somehow Flow does not detect nameValue being used in a function outside the component
-  // eslint-disable-next-line react/no-unused-prop-types
   nameValue?: string, // This is just for QuickCreate
   formProps: FormProps,
   onCreate: Function,
@@ -20,8 +18,10 @@ export type State = {
   errors: Errors,
 };
 
-function getInputsInitialState(props: Props): MyInputProps[] {
-  const { formProps, nameValue } = props;
+function getInputsInitialState(
+  formProps: FormProps,
+  nameValue?: string,
+): MyInputProps[] {
   const formInputs = formProps.inputs.filter(
     (input: MyInputProps) => input !== {},
   );
@@ -33,9 +33,9 @@ function getInputsInitialState(props: Props): MyInputProps[] {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-export function DynamicForm(props: Props) {
+export function DynamicForm({ nameValue, formProps, onCreate }: Props) {
   const [inputs, setInputs] = useState<MyInputProps[]>(
-    getInputsInitialState(props),
+    getInputsInitialState(formProps, nameValue),
   );
   const [errors, setErrors] = useState<Errors>({});
 
@@ -85,7 +85,6 @@ export function DynamicForm(props: Props) {
       setInputs(newInputs);
       setErrors(newErrors);
     } else {
-      const { formProps, onCreate } = props;
       axios.post(formProps.action, getParams()).then((response: any) => {
         if (onCreate) {
           onCreate(response);
