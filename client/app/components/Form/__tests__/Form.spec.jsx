@@ -2,7 +2,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { Form } from '../index';
+import Form from '../index';
 import { InputMocks } from '../../../mocks/InputMocks';
 
 // TODO (julianguyen): Include InputTextarea after writing stubs for pell editor
