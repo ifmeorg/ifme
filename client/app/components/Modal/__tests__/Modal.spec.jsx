@@ -1,7 +1,7 @@
 // @flow
 import { shallow, mount } from 'enzyme';
 import React from 'react';
-import { Modal } from '../index';
+import Modal from '../index';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
 
