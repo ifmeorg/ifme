@@ -19,13 +19,11 @@ export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'checkboxGroup',
   'tag',
   'switch',
-  'password',
 ]);
 
 export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'checkboxGroup',
-  'password',
 ]);
 
 export type Option = {
@@ -61,10 +59,10 @@ export type Props = {
     | 'switch'
     | 'location'
     | 'password',
-  name?: string,
+  name: string,
+  label?: string,
   text?: string,
   show?: boolean,
-  label?: string,
   placeholder?: string,
   error?: boolean,
   dark?: boolean,

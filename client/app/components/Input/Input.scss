@@ -223,33 +223,3 @@
 .hidden {
   display: none;
 }
-
-.show {
-  margin-top: $size-60;
-  @media screen and (max-width: 1035px) and (min-width: 449px)
-   {
-    margin-top: $size-40;
-    position: relative;
-    left: 180px;
-    top: -80px;
-    color: grey;
-  }
-
-  @media screen and (min-width: 1035px)
-   {
-    margin-top: $size-40;
-    position: relative;
-    left: 180px;
-    top: -82px;
-    color: grey;
-  }
-
-  @media screen and (max-width: 449px)
-   {
-    margin-top: $size-40;
-    position: relative;
-    left: 130px;
-    top: -80px;
-    color: grey;
-  }
-}
