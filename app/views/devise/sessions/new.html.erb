@@ -6,7 +6,7 @@
     <%= f.email_field :email, 'aria-label': t('common.form.email') %>
 
     <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.password') %>
+    <%= react_component 'Input', props: {type: 'password'} %>
 
     <% if devise_mapping.rememberable? -%>
       <div class="label smallMarginTop">

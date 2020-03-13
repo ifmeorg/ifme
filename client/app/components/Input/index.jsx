@@ -6,9 +6,9 @@ import { InputError } from './InputError';
 import { InputSubmit } from './InputSubmit';
 import { InputCheckbox } from './InputCheckbox';
 import { InputCheckboxGroup } from './InputCheckboxGroup';
+import { InputPassword } from './InputPassword';
 import { InputSelect } from './InputSelect';
 import { InputTag } from './InputTag';
-import { InputPassword } from './InputPassword';
 import { InputSwitch } from './InputSwitch';
 import { InputLocation } from './InputLocation';
 import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
@@ -148,20 +148,6 @@ const Input = ({
     return null;
   };
 
-  const displayPassword = () => {
-    if (type === 'password' && typeof text !== 'undefined') {
-      return (
-        <InputPassword
-          text={text}
-          show={show}
-          onChange={onChange}
-          onClick={onClick}
-        />
-      );
-    }
-    return null;
-  };
-
   const displaySelect = () => {
     if (type === 'select' && options) {
       return (
@@ -238,6 +224,20 @@ const Input = ({
     return null;
   };
 
+  const displayPassword = () => {
+    if (type === 'password') {
+      return (
+        <InputPassword
+          text={text}
+          show={show}
+          onChange={onChange}
+          onClick={onClick}
+        />
+      );
+    }
+    return null;
+  };
+
   const displayError = () => {
     if (error) {
       return <InputError error={error} />;
@@ -257,6 +257,7 @@ const Input = ({
       {displayDefault()}
       {displayCheckbox()}
       {displayCheckboxGroup()}
+      {displayPassword()}
       {displaySelect()}
       {displayTextarea()}
       {displayTag()}
@@ -291,6 +292,8 @@ export default ({
   info,
   value,
   label,
+  show,
+  text,
   ariaLabel,
   placeholder,
   readOnly,
@@ -325,6 +328,8 @@ export default ({
     info={info}
     value={value}
     label={label}
+    show={show}
+    text={text}
     ariaLabel={ariaLabel}
     placeholder={placeholder}
     readOnly={readOnly}
