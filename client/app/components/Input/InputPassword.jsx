@@ -3,50 +3,59 @@ import React from 'react';
 import css from './Input.scss';
 import type { Password as Props } from './utils';
 
-const ShowPassword = (show, text, onChange, onClick) => (
-  <div>
-    <input
-      type = {show ? "text" : "password"}
-      value = {text}
-      onChange = {(event: SyntheticEvent<HTMLInputElement>) => handleOnChange(event, onChange, text)}
-    />
-    <button onClick = {(event: SyntheticEvent<HTMLButtonElement>) => toggleShow(event, onClick, show)}>Show/Hide</button>
-  </div>
-);
-
-const handleOnChange = (
-  event: SyntheticEvent<HTMLInputElement>,
-  onChange?: Function,
-  text: string,
-) => {
-  text = event.currentTarget.value;
-  if (onChange) {
-    onChange({ text });
-  }
-};
-
-const toggleShow = (
-  event: SyntheticEvent<HTMLButtonElement>,
-  onClick?: Function,
+export type State = {
   show: boolean,
-) => {
-  (event.currentTarget: HTMLButtonElement);
-  show = !(show);
-  // if (onClick) {
-  //   onClick({ show });
-//   }
 };
 
-export const InputPassword = (props: Props) => {
-  const {
-    show,
-    text,
-    onChange,
-    onClick,
-  } = props;
-  return (
+export class InputPassword extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { show: props.show };
+  }
+
+  ShowPassword = (show, text, onChange, onClick) => (
     <div>
-    { ShowPassword(show, text, onChange, onClick) }
+      <input
+        type = {show ? "password" : "text"}
+        value = {text}
+        onChange = {(event: SyntheticEvent<HTMLInputElement>) => this.handleOnChange(event, onChange, text)}
+      />
+      <div className={css.show}>
+        <i className = { show ? "fa fa-eye" : "fa fa-eye-slash" } onClick = {(event: SyntheticEvent<HTMLButtonElement>) => this.toggleShow(event, onClick, show)} />
+      </div>
     </div>
   );
-}
+
+  handleOnChange = (
+    event: SyntheticEvent<HTMLInputElement>,
+    onChange?: Function,
+    text?: string,
+  ) => {
+    text = event.currentTarget.value;
+    if (onChange) {
+      onChange({ text });
+    }
+  };
+
+  toggleShow = (
+    event: SyntheticEvent<HTMLButtonElement>,
+    onClick?: Function,
+    show?: boolean,
+  ) => {
+    (event.currentTarget: HTMLButtonElement);
+    console.log("SHow before ",this.state.show);
+    this.setState({ show: !show });
+    console.log("SHow",this.state.show);
+  };
+
+  render() {
+    const {
+      id, show, text, onChange, onClick
+    } = this.props;
+    return (
+      <div>
+      { this.ShowPassword(this.state.show, text, onChange, onClick) }
+      </div>
+    );
+  }
+};
