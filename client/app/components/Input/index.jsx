@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import { InputTextarea } from './InputTextarea';
 import { InputLabel } from './InputLabel';
 import { InputError } from './InputError';
@@ -14,32 +14,52 @@ import { InputDefault, REQUIRES_DEFAULT } from './InputDefault';
 import { Accordion } from '../Accordion';
 import css from './Input.scss';
 import { TYPES, REQUIRES_LABEL, REQUIRED_POSSIBLE } from './utils';
-import type { Props, State } from './utils';
+import type { Props } from './utils';
 
-export class Input extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { error: !!props.error };
-  }
+export function Input({
+  id,
+  type,
+  name,
+  info,
+  value,
+  label,
+  ariaLabel,
+  placeholder,
+  readOnly,
+  disabled,
+  required,
+  minLength,
+  maxLength,
+  options,
+  min,
+  max,
+  myRef,
+  dark,
+  large,
+  small,
+  checked,
+  checkboxes,
+  uncheckedValue,
+  formNoValidate,
+  accordion,
+  accordionOpen,
+  googleAPIKey,
+  onClick,
+  onChange,
+  onError,
+  copyOnClick,
+  error: defaultError,
+}: Props) {
+  const [error, setError] = useState<boolean>(!!defaultError);
 
-  displayDefault = () => {
-    const {
-      id,
-      type,
-      name,
-      value,
-      placeholder,
-      readOnly,
-      disabled,
-      required,
-      minLength,
-      maxLength,
-      min,
-      max,
-      myRef,
-      label,
-      copyOnClick,
-    } = this.props;
+  const hasError = (errorPresent: boolean) => {
+    if (onError) {
+      onError(id, errorPresent);
+    }
+    setError(errorPresent);
+  };
+
+  const displayDefault = () => {
     if (!REQUIRES_DEFAULT.includes(type)) return null;
     return (
       <InputDefault
@@ -55,7 +75,7 @@ export class Input extends React.Component<Props, State> {
         maxLength={maxLength}
         min={min}
         max={max}
-        hasError={(error: boolean) => this.hasError(error)}
+        hasError={(errorPresent: boolean) => hasError(errorPresent)}
         myRef={myRef}
         label={label}
         copyOnClick={copyOnClick}
@@ -63,18 +83,7 @@ export class Input extends React.Component<Props, State> {
     );
   };
 
-  displaySubmit = () => {
-    const {
-      id,
-      onClick,
-      value,
-      large,
-      small,
-      dark,
-      type,
-      disabled,
-      formNoValidate,
-    } = this.props;
+  const displaySubmit = () => {
     if (type === 'submit' && value) {
       return (
         <InputSubmit
@@ -92,10 +101,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displayTextarea = () => {
-    const {
-      value, id, name, required, type, myRef, dark,
-    } = this.props;
+  const displayTextarea = () => {
     if (type !== 'textarea') return null;
     return (
       <InputTextarea
@@ -103,25 +109,14 @@ export class Input extends React.Component<Props, State> {
         id={id}
         name={name}
         required={required}
-        hasError={(error: boolean) => this.hasError(error)}
+        hasError={(errorPresent: boolean) => hasError(errorPresent)}
         myRef={myRef}
         dark={dark}
       />
     );
   };
 
-  displayCheckbox = () => {
-    const {
-      id,
-      name,
-      value,
-      checked,
-      uncheckedValue,
-      label,
-      info,
-      onChange,
-      type,
-    } = this.props;
+  const displayCheckbox = () => {
     if (type === 'checkbox' && typeof value !== 'undefined' && label) {
       return (
         <InputCheckbox
@@ -139,32 +134,20 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  hasError = (error: boolean) => {
-    const { onError, id } = this.props;
-    if (onError) {
-      onError(id, error);
-    }
-    this.setState({ error });
-  };
-
-  displayCheckboxGroup = () => {
-    const { checkboxes, required, type } = this.props;
+  const displayCheckboxGroup = () => {
     if (type === 'checkboxGroup' && checkboxes) {
       return (
         <InputCheckboxGroup
           checkboxes={checkboxes}
           required={required}
-          hasError={(error: boolean) => this.hasError(error)}
+          hasError={(errorPresent: boolean) => hasError(errorPresent)}
         />
       );
     }
     return null;
   };
 
-  displaySelect = () => {
-    const {
-      options, name, id, ariaLabel, value, onChange, type,
-    } = this.props;
+  const displaySelect = () => {
     if (type === 'select' && options) {
       return (
         <InputSelect
@@ -180,10 +163,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displayTag = () => {
-    const {
-      type, checkboxes, name, id, placeholder, onChange,
-    } = this.props;
+  const displayTag = () => {
     if (type === 'tag' && checkboxes && name) {
       return (
         <InputTag
@@ -198,16 +178,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displaySwitch = () => {
-    const {
-      type,
-      id,
-      name,
-      label,
-      value,
-      checked,
-      uncheckedValue,
-    } = this.props;
+  const displaySwitch = () => {
     if (type === 'switch' && label && name) {
       return (
         <InputSwitch
@@ -223,11 +194,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displayLabel = () => {
-    const {
-      label, info, required, type, id,
-    } = this.props;
-    const { error } = this.state;
+  const displayLabel = () => {
     if (REQUIRES_LABEL.includes(type) && label) {
       return (
         <InputLabel
@@ -242,10 +209,7 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displayLocation = () => {
-    const {
-      type, placeholder, googleAPIKey, id, value,
-    } = this.props;
+  const displayLocation = () => {
     if (type === 'location' && placeholder && googleAPIKey) {
       return (
         <InputLocation
@@ -259,64 +223,48 @@ export class Input extends React.Component<Props, State> {
     return null;
   };
 
-  displayError = () => {
-    const { error } = this.state;
+  const displayError = () => {
     if (error) {
       return <InputError error={error} />;
     }
     return null;
   };
 
-  displayContent = () => {
-    const {
-      dark, small, accordion, large, type,
-    } = this.props;
-    return (
-      <div
-        className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
-          small ? css.small : ''
-        } ${type === 'hidden' ? css.hidden : ''}`}
-      >
-        {!accordion && (
-          <div className={css.labelNoAccordion}>{this.displayLabel()}</div>
-        )}
-        {this.displayDefault()}
-        {this.displayCheckbox()}
-        {this.displayCheckboxGroup()}
-        {this.displaySelect()}
-        {this.displayTextarea()}
-        {this.displayTag()}
-        {this.displaySwitch()}
-        {this.displayLocation()}
-        {this.displaySubmit()}
-        {this.displayError()}
-      </div>
-    );
-  };
+  const displayContent = () => (
+    <div
+      className={`${dark ? css.dark : ''} ${large ? css.large : ''} ${
+        small ? css.small : ''
+      } ${type === 'hidden' ? css.hidden : ''}`}
+    >
+      {!accordion && (
+        <div className={css.labelNoAccordion}>{displayLabel()}</div>
+      )}
+      {displayDefault()}
+      {displayCheckbox()}
+      {displayCheckboxGroup()}
+      {displaySelect()}
+      {displayTextarea()}
+      {displayTag()}
+      {displaySwitch()}
+      {displayLocation()}
+      {displaySubmit()}
+      {displayError()}
+    </div>
+  );
 
-  render() {
-    const {
-      type,
-      dark,
-      large,
-      accordion,
-      label,
-      accordionOpen,
-      id,
-    } = this.props;
-    if (!TYPES.includes(type)) return null;
-    return accordion && label ? (
-      <Accordion
-        id={id}
-        title={this.displayLabel()}
-        open={accordionOpen}
-        dark={dark}
-        large={large}
-      >
-        {this.displayContent()}
-      </Accordion>
-    ) : (
-      this.displayContent()
-    );
-  }
+  if (!TYPES.includes(type)) return null;
+
+  return accordion && label ? (
+    <Accordion
+      id={id}
+      title={displayLabel()}
+      open={accordionOpen}
+      dark={dark}
+      large={large}
+    >
+      {displayContent()}
+    </Accordion>
+  ) : (
+    displayContent()
+  );
 }

@@ -1,6 +1,7 @@
 // @flow
 import { mount } from 'enzyme';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { Resources } from '../index';
 
 // eslint-disable-next-line react/prop-types
@@ -101,8 +102,10 @@ describe('Resources', () => {
       .simulate('click');
     expect(wrapper.find('.resource').length).toEqual(1);
     expect(wrapper.text()).toContain('1 of 1');
-    wrapper.find(`input#${id}`).prop('onChange')({
-      currentTarget: { checked: false },
+    act(() => {
+      wrapper.find(`input#${id}`).prop('onChange')({
+        currentTarget: { checked: false },
+      });
     });
     wrapper.update();
     expect(wrapper.find('.resource').length).toEqual(2);
