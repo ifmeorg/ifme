@@ -1,5 +1,6 @@
 // @flow
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { InputMocks } from '../../../mocks/InputMocks';
 
 const component = InputMocks.createInput(InputMocks.inputTagProps);
@@ -10,7 +11,9 @@ describe('InputTag', () => {
     const id = `#${InputMocks.inputTagProps.checkboxes[1].id}`;
     const value = { value: 'Two' };
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
-    wrapper.find('.tagAutocomplete').simulate('change', { target: value });
+    act(() => {
+      wrapper.find('.tagAutocomplete').simulate('change', { target: value });
+    });
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find(id).exists()).toEqual(false);
     wrapper
@@ -25,10 +28,14 @@ describe('InputTag', () => {
     const id = `input#${InputMocks.inputTagProps.checkboxes[0].id}`;
     const value = { value: 'One' };
     expect(wrapper.find(id).exists()).toEqual(true);
-    wrapper.find(id).prop('onChange')({ currentTarget: { checked: false } });
+    act(() => {
+      wrapper.find(id).prop('onChange')({ currentTarget: { checked: false } });
+    });
     wrapper.update();
     expect(wrapper.find(id).exists()).toEqual(false);
-    wrapper.find('.tagAutocomplete').simulate('change', { target: value });
+    act(() => {
+      wrapper.find('.tagAutocomplete').simulate('change', { target: value });
+    });
     wrapper.find('.tagAutocomplete').simulate('focus');
     expect(wrapper.find('.tagMenu').exists()).toEqual(true);
     expect(wrapper.find(id).exists()).toEqual(false);

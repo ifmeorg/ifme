@@ -88,7 +88,3 @@ export type Props = {
   googleAPIKey?: string,
   copyOnClick?: string,
 };
-
-export type State = {
-  error: boolean,
-};
