@@ -27,7 +27,6 @@ export const Accordion = ({
   large,
   open: openProp,
 }: Props) => {
-  
   const [open, setOpen] = useState(!!openProp);
 
   const displayContent = () => (
@@ -63,4 +62,3 @@ export const Accordion = ({
     </div>
   );
 };
-
