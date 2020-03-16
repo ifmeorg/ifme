@@ -17,7 +17,7 @@ storiesOf('Accordion', module).add('Accordion', () => (
       {children}
     </Accordion>
     <Accordion id="some_id" title={title} dark large>
-      {<strong>Hello</strong>}
+      <strong>Hello</strong>
     </Accordion>
   </div>
 ));
