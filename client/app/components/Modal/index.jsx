@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import React, { useState, type Element } from 'react';
 import renderHTML from 'react-render-html';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -7,10 +7,15 @@ import css from './Modal.scss';
 import { I18n } from '../../libs/i18n';
 import { Avatar } from '../Avatar';
 
+type CustomElement = {
+  component: string,
+  props: Object,
+};
+
 export type Props = {
-  element?: any,
+  element?: CustomElement | Element<any>,
   elementId?: string,
-  body: any,
+  body: string | Element<any> | any,
   title?: string,
   openListener?: Function,
   open?: boolean,
@@ -34,7 +39,7 @@ const Modal = (props: Props) => {
   const [open, setOpen] = useState(!!openProps);
   const [modalHasFocus, setModalHasFocus] = useState(true);
 
-  const displayContent = (content: any) => {
+  const displayContent = (content: string | any) => {
     if (typeof content === 'string') {
       return renderHTML(content);
     }
