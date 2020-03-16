@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Form } from '../components/Form';
+import Form from '../components/Form';
 import { InputMocks } from '../mocks/InputMocks';
 
 storiesOf('Form', module).add('Form', () => (

@@ -1,19 +1,19 @@
 // @flow
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
-import { Header } from '../index';
+import Header from '../index';
 
-const component = (
+const getComponent = () => (
   <Header
     home={{ name: 'Home', url: '/some-path' }}
     links={[
-      { name: 'Link 1', url: '/some-path-one' },
+      { name: 'Link 1', url: '/some-path-one', active: true },
       { name: 'Link 2', url: '/some-path-two', dataMethod: 'delete' },
     ]}
   />
 );
 
-const wrapper = shallow(component);
+const wrapper = mount(getComponent());
 
 describe('Header', () => {
   it('renders correctly', () => {
@@ -25,5 +25,10 @@ describe('Header', () => {
     expect(wrapper.find('#headerMobile').length).toEqual(1);
     wrapper.find('#headerHamburger').simulate('click');
     expect(wrapper.find('#headerMobile').length).toEqual(0);
+  });
+
+  it('displays links correctly', () => {
+    expect(wrapper.find('.headerLink').length).toEqual(2);
+    expect(wrapper.find('.headerActiveLink').length).toEqual(1);
   });
 });

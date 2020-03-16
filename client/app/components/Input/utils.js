@@ -57,7 +57,7 @@ export type Props = {
     | 'hidden'
     | 'switch'
     | 'location',
-  name?: string,
+  name: string,
   label?: string,
   placeholder?: string,
   error?: boolean,

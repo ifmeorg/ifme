@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState, type Node } from 'react';
 import { Input } from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import { QuickCreate } from '../../widgets/QuickCreate';
@@ -15,38 +15,37 @@ export type State = {
 
 export const hasErrors = (errors: Errors) => Object.values(errors).filter((key) => key).length;
 
-export class Form extends React.Component<Props, State> {
-  myRefs: Object;
+const getInputsInitialState = (inputs: MyInputProps[]) => inputs.filter((input) => input !== {});
 
-  constructor(props: Props) {
-    super(props);
-    const inputs = props.inputs.filter((input: MyInputProps) => input !== {});
-    this.state = { inputs, errors: {} };
-    this.myRefs = {};
-  }
+const Form = ({ action, inputs: inputsProps }: Props) => {
+  const [inputs, setInputs] = useState<MyInputProps[]>(
+    getInputsInitialState(inputsProps),
+  );
+  const [errors, setErrors] = useState<Errors>({});
 
-  handleError = (id: string, error: boolean) => {
-    const { errors } = this.state;
+  const myRefs: Object = {};
+
+  const handleError = (id: string, error: boolean): void => {
     const newErrors = { ...errors };
     newErrors[id] = error;
-    this.setState({ errors: newErrors });
+    setErrors(newErrors);
   };
 
-  onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
+  const onSubmit = (e: SyntheticEvent<HTMLInputElement>) => {
     // Get errors from inputs that were never focused
-    const { inputs, errors } = this.state;
     const { inputs: newInputs, errors: newErrors } = getNewInputs({
       inputs,
       errors,
-      refs: this.myRefs,
+      refs: myRefs,
     });
     if (hasErrors(newErrors) > 0) {
       e.preventDefault();
-      this.setState({ inputs: newInputs, errors: newErrors });
+      setInputs(newInputs);
+      setErrors(newErrors);
     }
   };
 
-  displayInput = (input: MyInputProps) => (
+  const displayInput = (input: MyInputProps): Node => (
     <div key={input.id}>
       <Input
         id={input.id}
@@ -71,16 +70,16 @@ export class Form extends React.Component<Props, State> {
         options={input.options}
         checkboxes={input.checkboxes}
         accordion={input.accordion}
-        onError={input.type !== 'submit' ? this.handleError : undefined}
+        onError={input.type !== 'submit' ? handleError : undefined}
         myRef={(element) => {
-          this.myRefs[input.id] = element;
+          myRefs[input.id] = element;
         }}
         formNoValidate={input.type === 'submit'}
       />
     </div>
   );
 
-  displayQuickCreate = (input: QuickCreateProps) => {
+  const displayQuickCreate = (input: QuickCreateProps): Node => {
     const {
       id, name, label, placeholder, checkboxes, formProps,
     } = input;
@@ -99,33 +98,36 @@ export class Form extends React.Component<Props, State> {
     );
   };
 
-  displayInputs = (): any => {
-    const { inputs } = this.state;
-    // TODO: replace any with actual type
-    return inputs.map((input: any) => {
-      if (INPUT_TYPES.includes(input.type)) {
-        return this.displayInput(input);
-      }
-      if (input.type === 'quickCreate') {
-        return this.displayQuickCreate(input);
-      }
-      return null;
-    });
-  };
+  const displayInputs = (): Array<Node | null> => inputs.map((input: any) => {
+    if (INPUT_TYPES.includes(input.type)) {
+      return displayInput(input);
+    }
+    if (input.type === 'quickCreate') {
+      return displayQuickCreate(input);
+    }
+    return null;
+  });
 
-  render() {
-    const { action } = this.props;
-    if (!action) return null;
-    return (
-      <form
-        onSubmit={this.onSubmit}
-        acceptCharset="UTF-8"
-        className={css.form}
-        method="post"
-        action={action}
-      >
-        {this.displayInputs()}
-      </form>
-    );
+  if (!action) {
+    return null;
   }
-}
+
+  const { form } = css;
+  return (
+    <form
+      onSubmit={onSubmit}
+      acceptCharset="UTF-8"
+      className={form}
+      method="post"
+      action={action}
+    >
+      {displayInputs()}
+    </form>
+  );
+};
+
+// There's a [bug](https://github.com/shakacode/react_on_rails/issues/1198) with React on Rails,
+// so we'll need to do this in order to render multiple components with hooks on the same page.
+export default ({ action, inputs }: Props) => (
+  <Form action={action} inputs={inputs} />
+);

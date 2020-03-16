@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Header } from '../components/Header';
+import Header from '../components/Header';
 
 storiesOf('Header', module)
   .add('With no active link', () => (
