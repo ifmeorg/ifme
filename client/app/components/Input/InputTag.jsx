@@ -72,8 +72,8 @@ export function InputTag({
 
   const getSuggestionValue = (checkbox: Checkbox) => (checkbox.label === autocompleteLabel ? checkbox.label : '');
 
-  // eslint-disable-next-line react/no-unused-prop-types
-  const onSuggestionsFetchRequested = ({ value }: { value: string }) => {
+  const onSuggestionsFetchRequested = (valueProp: { value: string }) => {
+    const { value } = valueProp;
     const newSuggestions = getSuggestions(value);
     setSuggestions(newSuggestions);
   };
