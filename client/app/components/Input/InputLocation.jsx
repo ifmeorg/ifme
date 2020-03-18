@@ -28,8 +28,6 @@ export function InputLocation({
     setAddress(newAdress);
   };
 
-  const ariaLabel = I18n.t('common.form.location');
-
   return (
     <LocationAutocomplete
       name="user[location]"
@@ -39,7 +37,7 @@ export function InputLocation({
       onDropdownSelect={handleDropdownSelect}
       className="smallerMarginBottom"
       id={id}
-      aria-label={ariaLabel}
+      aria-label={I18n.t('common.form.location')}
       value={address}
     />
   );

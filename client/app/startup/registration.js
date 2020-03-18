@@ -29,7 +29,7 @@ import { Tag } from '../components/Tag';
 import { Tooltip } from '../components/Tooltip';
 import { ToggleLocale } from '../widgets/ToggleLocale';
 import { Comments } from '../widgets/Comments';
-import { Input } from '../components/Input';
+import Input from '../components/Input';
 
 scrollToTop();
 

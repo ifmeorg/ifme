@@ -16,7 +16,7 @@ import css from './Input.scss';
 import { TYPES, REQUIRES_LABEL, REQUIRED_POSSIBLE } from './utils';
 import type { Props } from './utils';
 
-export function Input({
+const Input = ({
   id,
   type,
   name,
@@ -49,7 +49,7 @@ export function Input({
   onError,
   copyOnClick,
   error: defaultError,
-}: Props) {
+}: Props) => {
   const [error, setError] = useState<boolean>(!!defaultError);
 
   const hasError = (errorPresent: boolean) => {
@@ -267,4 +267,74 @@ export function Input({
   ) : (
     displayContent()
   );
-}
+};
+
+export default ({
+  id,
+  type,
+  name,
+  info,
+  value,
+  label,
+  ariaLabel,
+  placeholder,
+  readOnly,
+  disabled,
+  required,
+  minLength,
+  maxLength,
+  options,
+  min,
+  max,
+  myRef,
+  dark,
+  large,
+  small,
+  checked,
+  checkboxes,
+  uncheckedValue,
+  formNoValidate,
+  accordion,
+  accordionOpen,
+  googleAPIKey,
+  onClick,
+  onChange,
+  onError,
+  copyOnClick,
+  error,
+}: Props) => (
+  <Input
+    id={id}
+    type={type}
+    name={name}
+    info={info}
+    value={value}
+    label={label}
+    ariaLabel={ariaLabel}
+    placeholder={placeholder}
+    readOnly={readOnly}
+    disabled={disabled}
+    required={required}
+    minLength={minLength}
+    maxLength={maxLength}
+    options={options}
+    min={min}
+    max={max}
+    myRef={myRef}
+    dark={dark}
+    large={large}
+    small={small}
+    checked={checked}
+    checkboxes={checkboxes}
+    uncheckedValue={uncheckedValue}
+    formNoValidate={formNoValidate}
+    accordion={accordion}
+    accordionOpen={accordionOpen}
+    googleAPIKey={googleAPIKey}
+    onClick={onClick}
+    onChange={onChange}
+    onError={onError}
+    copyOnClick={copyOnClick}
+    error={error}
+  />
+);

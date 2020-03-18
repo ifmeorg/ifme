@@ -1,6 +1,6 @@
 // @flow
 import React, { useState, type Node } from 'react';
-import { Input } from '../Input';
+import Input from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import { QuickCreate } from '../../widgets/QuickCreate';
 import type { Props as QuickCreateProps } from '../../widgets/QuickCreate';
