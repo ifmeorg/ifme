@@ -155,9 +155,8 @@ en:
       premade4_name: Meditation
       premade4_description: 'Meditation, deep breathing, and relaxing
       activities'
-      instructions: 'You haven't created any custom categories yet.<br>You can
-      also add the following premade categories and customize them another
-      time.'
+      instructions: 'You haven''t created any custom categories yet.<br>You can
+      also add the following premade categories and customize them another time.'
   errors:
     home_page: 'Return home'
     internal_server_error:
