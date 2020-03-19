@@ -434,10 +434,7 @@ en:
       comment_link: '<p>To read it, %{link}!</p>'
       new_group_subject: 'if me | %{user} created a group "%{group}"'
       new_group_body: >-
-                   <p>%{user} created a group "%{group}":</p><p>
-                   <i>%{description}</i></p><p>To learn more and join,
-                   %{link}!</p><p>Please follow our %{code_of_conduct_link}!
-                   </p>
+                   <p>%{user} created a group "%{group}":</p><p><i>%{description}</i></p><p>To learn more and join, %{link}!</p><p>Please follow our %{code_of_conduct_link}!</p>
       new_group_member_subject: 'if me | %{user} joined your group "%{group}"'
       add_group_leader_you_subject: 'if me | You became a leader of "%{group}"'
       add_group_leader_subject: 'if me | %{user} became a leader of " %{group}"'
