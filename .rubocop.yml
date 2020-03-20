@@ -12,7 +12,7 @@ AllCops:
     - 'client/node_modules/**/*'
     - 'vendor/**/*'
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
 Rails:
@@ -54,3 +54,12 @@ Metrics/CyclomaticComplexity:
 
 Metrics/AbcSize:
   Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
