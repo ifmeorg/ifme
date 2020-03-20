@@ -45,7 +45,7 @@ gem 'inline_svg'
 gem 'groupdate', '4.1.2'
 
 gem 'react_on_rails', '11.3.0'
-gem 'webpacker'
+gem 'webpacker', '3.5.5'
 
 gem 'selenium-webdriver', '~> 3.142.3'
 
