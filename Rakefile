@@ -10,7 +10,7 @@ require 'fileutils'
 require 'yaml'
 
 desc 'Quick command to execute the dockerized terminal for running commands'
-task :app_cli do
+task app_cli: :environment do
   # Run the command ignoring the results
   sh('docker-compose', '-f', 'docker-compose.yml',
      '-f', 'docker-compose.test.yml',
@@ -18,13 +18,13 @@ task :app_cli do
 end
 
 desc 'Quick command to launch the compose stack'
-task :app_run do
+task app_run: :environment do
   # Run the command ignoring the results
   sh('docker-compose', '-f', 'docker-compose.yml', 'up') || true
 end
 
 desc 'Automate the Config Setup for New Environments'
-task :setup_workspace do
+task setup_workspace: :environment do
   SECRETS = {
     SECRET_KEY_BASE: generate_secret,
     DEVISE_SECRET_KEY: generate_secret
