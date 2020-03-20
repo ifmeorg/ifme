@@ -41,9 +41,9 @@ describe('InputCheckboxGroup', () => {
         <InputCheckboxGroup checkboxes={checkboxes} hasError={someEvent} />,
       );
       act(() => {
-        wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')(
-          { currentTarget: { checked: false } },
-        );
+        wrapper
+          .find(`input[name="${name}"][type="checkbox"]`)
+          .prop('onChange')({ currentTarget: { checked: false } });
       });
       act(() => {
         wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
@@ -64,9 +64,9 @@ describe('InputCheckboxGroup', () => {
         />,
       );
       act(() => {
-        wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')(
-          { currentTarget: { checked: false } },
-        );
+        wrapper
+          .find(`input[name="${name}"][type="checkbox"]`)
+          .prop('onChange')({ currentTarget: { checked: false } });
       });
       act(() => {
         wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
