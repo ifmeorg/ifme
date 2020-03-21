@@ -4,10 +4,14 @@ class NotificationMailer < ApplicationMailer
   default from: ENV['SMTP_ADDRESS']
 
   def take_medication(reminder)
+    return if reminder.medication.blank?
+
     reminder_mailer(reminder.medication, 'medications.reminder_mailer.subject')
   end
 
   def refill_medication(reminder)
+    return if reminder.medication.blank?
+
     reminder_mailer(reminder.medication, 'medications.refill_mailer.subject')
   end
 
