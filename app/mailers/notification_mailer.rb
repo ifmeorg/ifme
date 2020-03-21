@@ -12,6 +12,8 @@ class NotificationMailer < ApplicationMailer
   end
 
   def perform_strategy(reminder)
+    return if reminder.strategy.blank?
+
     reminder_mailer(reminder.strategy, 'strategies.reminder_mailer.subject')
   end
 
