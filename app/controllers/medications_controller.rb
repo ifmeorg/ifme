@@ -92,6 +92,8 @@ class MedicationsController < ApplicationController
   # DELETE /medications/1.json
   def destroy
     @medication.destroy
+    TakeMedicationReminder.where(medication_id: @medication.id).destroy_all
+    RefillReminder.where(medication_id: @medication.id).destroy_all
     redirect_to_path(medications_path)
   end
 
@@ -124,12 +126,10 @@ class MedicationsController < ApplicationController
 
   def medication_params
     params.require(:medication).permit(
-      :name, :dosage, :refill, :total, :strength,
-      :dosage_unit, :total_unit, :strength_unit,
-      :comments, :add_to_google_cal,
+      :name, :dosage, :refill, :total, :strength, :dosage_unit,
+      :total_unit, :strength_unit, :comments, :add_to_google_cal,
       take_medication_reminder_attributes: %i[active id],
-      refill_reminder_attributes: %i[active id],
-      weekly_dosage: []
+      refill_reminder_attributes: %i[active id], weekly_dosage: []
     )
   end
 end
