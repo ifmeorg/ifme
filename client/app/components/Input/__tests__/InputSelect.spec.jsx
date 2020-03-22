@@ -5,11 +5,9 @@ import { act } from 'react-dom/test-utils';
 import { InputSelect } from '../InputSelect';
 import { InputMocks } from '../../../mocks/InputMocks';
 
-const { id } = InputMocks.inputSelectProps;
-const { name } = InputMocks.inputSelectProps;
-const { ariaLabel } = InputMocks.inputSelectProps;
-const { value } = InputMocks.inputSelectProps;
-const { options } = InputMocks.inputSelectProps;
+const {
+  id, name, ariaLabel, value, options,
+} = InputMocks.inputSelectProps;
 const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {
