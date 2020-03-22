@@ -158,10 +158,10 @@ const Modal = (props: Props) => {
   };
 
   return (
-    <div>
+    <>
       {resolveElement()}
       {open ? displayModalBox() : null}
-    </div>
+    </>
   );
 };
 
