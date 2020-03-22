@@ -3,42 +3,48 @@ import React, { useState } from 'react';
 import css from './InputPassword.scss';
 
 export type Props = {
-  text?: string,
-  show?: boolean,
-  onChange?: Function,
+  id: string,
+  name?: string,
+  value?: string,
+  placeholder?: string,
+  required?: boolean,
 };
 
 export type State = {
-  show: boolean,
+  showText: boolean,
 };
 
 export function InputPassword({
-  text,
-  onChange,
-  show: propShow,
+  id,
+  name,
+  value,
+  placeholder,
+  required,
 }: Props) {
-  const [show, setShow] = useState<boolean>(propShow || false);
-
-  const handleOnChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(e.currentTarget.value);
-    }
-  };
+  const [showText, setShowText] = useState<boolean>(false);
 
   const toggleShow = () => {
-    setShow(!show);
+    setShowText(!showText);
   };
 
   return (
-    <>
+    <div className={css.password}>
       <input
-        type={show ? 'text' : 'password'}
-        value={text}
-        onChange={handleOnChange}
+        type={showText ? 'text' : 'password'}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        required={required}
+        defaultValue={value}
+        autoComplete="off"
       />
-      <button type="button" className={`${css.show}`} onClick={toggleShow} aria-label={show ? 'Hide password' : 'Show password'}>
-        <i className={show ? 'fa fa-eye' : 'fa fa-eye-slash'} />
+      <button
+        type="button"
+        onClick={toggleShow}
+        aria-label={showText ? 'Hide password' : 'Show password'}
+      >
+        <i className={showText ? 'fa fa-eye' : 'fa fa-eye-slash'} />
       </button>
-    </>
+    </div>
   );
 }

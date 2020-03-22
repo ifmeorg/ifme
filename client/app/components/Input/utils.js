@@ -61,8 +61,6 @@ export type Props = {
     | 'password',
   name: string,
   label?: string,
-  text?: string,
-  show?: boolean,
   placeholder?: string,
   error?: boolean,
   dark?: boolean,

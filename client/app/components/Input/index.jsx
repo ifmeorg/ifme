@@ -228,10 +228,11 @@ const Input = ({
     if (type === 'password') {
       return (
         <InputPassword
-          text={text}
-          show={show}
-          onChange={onChange}
-          onClick={onClick}
+          id={id}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          required={required}
         />
       );
     }
@@ -292,8 +293,6 @@ export default ({
   info,
   value,
   label,
-  show,
-  text,
   ariaLabel,
   placeholder,
   readOnly,
@@ -328,8 +327,6 @@ export default ({
     info={info}
     value={value}
     label={label}
-    show={show}
-    text={text}
     ariaLabel={ariaLabel}
     placeholder={placeholder}
     readOnly={readOnly}
