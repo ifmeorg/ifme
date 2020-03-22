@@ -53,12 +53,12 @@
 }
 
 @mixin buttonGhost() {
-  background: $white-10;
+  background: $white-10 !important;
   color: $white !important;
 }
 
 @mixin buttonDark() {
-  background: $mulberry;
+  background: $mulberry !important;
   color: $white !important;
 }
 
