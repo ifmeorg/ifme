@@ -21,7 +21,8 @@
         name: 'user[password]',
         id: 'user_password',
         label: t('devise.password'),
-        placeholder: t('devise.password')
+        placeholder: t('devise.password'),
+        light: true
       } %>
     </div>
 
@@ -30,7 +31,8 @@
       name: 'user[password_confirmation]',
       id: 'user_password_confirmation',
       label: t('devise.registrations.placeholders.repeat_password'),
-      placeholder: t('devise.registrations.placeholders.repeat_password')
+      placeholder: t('devise.registrations.placeholders.repeat_password'),
+      light: true
     } %>
 
     <%= f.submit t('account.sign_up'), class: 'buttonGhostM smallMarginTop' %>

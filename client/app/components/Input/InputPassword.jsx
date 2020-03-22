@@ -1,7 +1,13 @@
 // @flow
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-solid-svg-icons';
 import { I18n } from '../../libs/i18n';
 import css from './InputPassword.scss';
+import inputCss from './Input.scss';
 
 export type Props = {
   id: string,
@@ -38,6 +44,7 @@ export function InputPassword({
         required={required}
         aria-label={label}
         autoComplete="off"
+        className={inputCss.password}
       />
       <button
         type="button"
@@ -48,7 +55,7 @@ export function InputPassword({
             : I18n.t('devise.show_password')
         }
       >
-        <i className={showText ? 'fa fa-eye-slash' : 'fa fa-eye'} />
+        <FontAwesomeIcon icon={showText ? faEyeSlash : faEye} />
       </button>
     </div>
   );
