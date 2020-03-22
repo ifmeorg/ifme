@@ -671,6 +671,8 @@ sv:
     current_password: 'Nuvarande lösenord'
     password_change: 'Ändra mitt lösenord'
     remember_me: 'Kom ihåg mig'
+    show_password: 'Visa lösenord'
+    hide_password: 'Dölj lösenord'
     confirmations:
       resend_confirmation: 'Skicka om bekräftelsesinstruktionerna igen'
     mailer:

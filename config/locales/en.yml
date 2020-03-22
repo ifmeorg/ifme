@@ -1025,6 +1025,8 @@ en:
     current_password: 'Current password'
     password_change: 'Change my password'
     remember_me: 'Remember me'
+    show_password: 'Show password'
+    hide_password: 'Hide password'
     confirmations:
       resend_confirmation: 'Resend confirmation instructions'
     mailer:

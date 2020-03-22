@@ -671,6 +671,8 @@ nl:
     current_password: 'Huidig wachtwoord'
     password_change: 'Verander wachtwoord'
     remember_me: 'Onthoud mij'
+    show_password: 'Laat wachtwoord zien'
+    hide_password: 'Verberg wachtwoord'
     confirmations:
       resend_confirmation: 'Verstuur bevestigingsinstructies opnieuw'
     mailer:
