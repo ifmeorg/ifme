@@ -671,6 +671,8 @@ fr:
     current_password: 'Mot de passe actuel'
     password_change: 'Changer mon mot de passe'
     remember_me: 'Se souvenir de moi'
+    show_password: 'Montrer le mot de passe'
+    hide_password: 'Masquer le mot de passe'
     confirmations:
       resend_confirmation: 'Renvoyer les insctruction de confirmations'
     mailer:
