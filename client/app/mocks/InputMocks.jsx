@@ -56,8 +56,6 @@ const inputSelectProps = {
 const inputPasswordProps = {
   id: 'some-password-id',
   type: 'password',
-  show: true,
-  text: 'some-password-text',
 };
 
 const inputCheckboxProps = {

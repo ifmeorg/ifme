@@ -6,7 +6,11 @@
     <%= f.email_field :email, 'aria-label': t('common.form.email') %>
 
     <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= react_component 'Input', props: {type: 'password'} %>
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password]',
+      id: 'user_password'
+    } %>
 
     <% if devise_mapping.rememberable? -%>
       <div class="label smallMarginTop">
