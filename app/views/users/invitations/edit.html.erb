@@ -3,30 +3,57 @@
   <%= f.hidden_field :invitation_token %>
 
   <% if f.object.class.require_password_on_accepting %>
-    <div class="label">
-      <%= t('common.name') %>
-    </div>
-    <%= f.text_field :name, 'aria-label': t('common.name') %>
+    <%= react_component 'Input', props: {
+      type: 'text',
+      name: 'user[name]',
+      id: 'user_name',
+      label: t('common.name'),
+      autoComplete: 'off',
+      light: true,
+      required: true
+    } %>
 
-    <div class="label smallMarginTop">
-      <%= t('devise.password') %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'location',
+        googleAPIKey: ENV['GOOGLE_API_KEY'],
+        id: 'user_location',
+        name: 'user[location]',
+        label: t('common.form.location'),
+        light: true
+      } %>
     </div>
-    <%= f.password_field :password, 'aria-label': t('devise.password') %>
 
-    <div class="label smallMarginTop">
-      <%= t('devise.registrations.placeholders.repeat_password') %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password]',
+        id: 'user_password',
+        label: t('devise.password'),
+        light: true,
+        required: true
+      } %>
     </div>
-    <%= f.password_field :password_confirmation, 'aria-label': t('devise.registrations.placeholders.repeat_password') %>
+
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password_confirmation]',
+        id: 'user_password_confirmation',
+        label: t('devise.registrations.placeholders.repeat_password'),
+        light: true,
+        required: true
+      } %>
+    </div>
   <% end %>
 
-  <%= f.submit t("devise.invitations.edit.submit_button"), class: 'buttonGhostM smallMarginTop' %>
+  <%= f.submit t("devise.invitations.edit.submit_button"), class: 'buttonGhostM marginTop' %>
 <% end %>
-<div class="center">
-  <div class="smallMarginTop">
-    <%= button_to t('devise.shared.sign_up_google'),
-      omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
-      method: :post,
-      class: 'buttonGhostM'
-    %>
-  </div>
+
+<div class="smallMarginTop">
+  <%= button_to t('devise.shared.sign_up_google'),
+    omniauth_authorize_path(resource_name, :google_oauth2, invitation_token: resource.invitation_token),
+    method: :post,
+    class: 'buttonGhostM'
+  %>
 </div>
