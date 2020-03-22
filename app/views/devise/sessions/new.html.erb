@@ -9,7 +9,8 @@
     <%= react_component 'Input', props: {
       type: 'password',
       name: 'user[password]',
-      id: 'user_password'
+      id: 'user_password',
+      label: t('devise.password')
     } %>
 
     <% if devise_mapping.rememberable? -%>

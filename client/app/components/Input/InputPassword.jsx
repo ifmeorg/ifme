@@ -6,9 +6,9 @@ import css from './InputPassword.scss';
 export type Props = {
   id: string,
   name?: string,
-  value?: string,
   placeholder?: string,
   required?: boolean,
+  label?: string,
 };
 
 export type State = {
@@ -18,9 +18,9 @@ export type State = {
 export function InputPassword({
   id,
   name,
-  value,
   placeholder,
   required,
+  label,
 }: Props) {
   const [showText, setShowText] = useState<boolean>(false);
 
@@ -36,13 +36,17 @@ export function InputPassword({
         name={name}
         placeholder={placeholder}
         required={required}
-        defaultValue={value}
+        aria-label={label}
         autoComplete="off"
       />
       <button
         type="button"
         onClick={toggleShow}
-        aria-label={showText ? I18n.t('devise.hide_password') : I18n.t('devise.show_password')}
+        aria-label={
+          showText
+            ? I18n.t('devise.hide_password')
+            : I18n.t('devise.show_password')
+        }
       >
         <i className={showText ? 'fa fa-eye-slash' : 'fa fa-eye'} />
       </button>
