@@ -671,6 +671,8 @@ pt-BR:
     current_password: 'Senha atual'
     password_change: 'Mudar minha senha'
     remember_me: 'Lembrar minha senha'
+    show_password: 'Mostrar senha'
+    hide_password: 'Esconder a senha'
     confirmations:
       resend_confirmation: 'Reenviar instruções de confirmação'
     mailer:

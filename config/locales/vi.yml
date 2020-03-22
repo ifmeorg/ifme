@@ -671,6 +671,8 @@ vi:
     current_password: 'Mật khẩu hiện giờ'
     password_change: 'Thay đổi mật khẩu'
     remember_me: 'Ghi nhớ tôi'
+    show_password: 'Hiển thị mật khẩu'
+    hide_password: 'Ẩn mật khẩu'
     confirmations:
       resend_confirmation: 'Gửi lại hướng dẫn xác nhận'
     mailer:

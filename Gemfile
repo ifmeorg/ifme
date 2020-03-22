@@ -5,7 +5,7 @@ ruby '~> 2.6.0'
 
 gem 'puma'
 gem 'rack-rewrite'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4'
 
 gem 'activerecord-import'
 gem 'bcrypt', '3.1.13'
@@ -45,7 +45,7 @@ gem 'inline_svg'
 gem 'groupdate', '4.1.2'
 
 gem 'react_on_rails', '11.3.0'
-gem 'webpacker'
+gem 'webpacker', '3.5.5'
 
 gem 'selenium-webdriver', '~> 3.142.3'
 
@@ -75,7 +75,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'rspec_junit_formatter'
 
-  gem 'rubocop', '>= 0.49.0'
+  gem 'rubocop', '~> 0.80.1'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
@@ -91,7 +91,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
-  gem 'simplecov', require: false
+  gem 'simplecov', '0.16.1'
 end
 
 group :production do

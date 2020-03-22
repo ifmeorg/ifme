@@ -57,7 +57,7 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   def update
     if @group.update(group_params)
       update_leaders
@@ -71,7 +71,7 @@ class GroupsController < ApplicationController
       end
     end
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/MethodLength
 
   # DELETE /groups/1
   # DELETE /groups/1.json

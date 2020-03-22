@@ -2,17 +2,27 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="label">
-    <%= t('devise.new_password') %>
-  </div>
-  <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.new_password') %>
+  <%= react_component 'Input', props: {
+    type: 'password',
+    name: 'user[password]',
+    id: 'user_password',
+    label: t('devise.new_password'),
+    light: true,
+    required: true
+  } %>
 
-  <div class="label smallMarginTop">
-    <%= t('devise.passwords.edit.confirmation') %>
+  <div class="smallMarginTop">
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password_confirmation]',
+      id: 'user_password_confirmation',
+      label: t('devise.passwords.edit.confirmation'),
+      light: true,
+      required: true
+    } %>
   </div>
-  <%= f.password_field :password_confirmation, autocomplete: 'off', 'aria-label': t('devise.passwords.edit.confirmation') %>
 
-  <%= f.submit t('devise.password_change'), class: 'buttonGhostM smallMarginTop' %>
+  <%= f.submit t('devise.password_change'), class: 'buttonGhostM marginTop' %>
 <% end %>
 
 <%= render "devise/shared/links" %>

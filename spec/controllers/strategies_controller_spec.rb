@@ -271,32 +271,68 @@ describe StrategiesController do
   end
 
   describe '#destroy' do
-    let!(:strategy) { create(:strategy, user: user) }
+    context 'when strategy has no reminders' do
+      let!(:strategy) { create(:strategy, user: user) }
 
-    context 'when the user is logged in' do
-      include_context :logged_in_user
+      context 'when the user is logged in' do
+        include_context :logged_in_user
 
-      it 'destroys the strategy' do
-        expect { delete :destroy, params: { id: strategy.id } }.to(
-          change(Strategy, :count).by(-1)
-        )
+        it 'destroys the strategy' do
+          expect { delete :destroy, params: { id: strategy.id } }.to(
+            change(Strategy, :count).by(-1)
+          )
+        end
+
+        it 'redirects to the strategies path for html requests' do
+          delete :destroy, params: { id: strategy.id }
+          expect(response).to redirect_to(strategies_path)
+        end
+
+        it 'responds with no content to json requests' do
+          delete :destroy, format: 'json', params: { id: strategy.id }
+          expect(response.body).to be_empty
+        end
       end
 
-      it 'redirects to the strategies path for html requests' do
-        delete :destroy, params: { id: strategy.id }
-        expect(response).to redirect_to(strategies_path)
-      end
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: strategy.id } }
 
-      it 'responds with no content to json requests' do
-        delete :destroy, format: 'json', params: { id: strategy.id }
-        expect(response.body).to be_empty
+        it_behaves_like :with_no_logged_in_user
       end
     end
 
-    context 'when the user is not logged in' do
-      before { delete :destroy, params: { id: strategy.id } }
+    context 'when strategy has reminders' do
+      let!(:strategy) do
+        create(:strategy, :with_daily_reminder, user: user)
+      end
 
-      it_behaves_like :with_no_logged_in_user
+      context 'when the user is logged in' do
+        include_context :logged_in_user
+
+        it 'destroys the strategy' do
+          expect(PerformStrategyReminder.active.count).to eq(1)
+          expect { delete :destroy, params: { id: strategy.id } }.to(
+            change(Strategy, :count).by(-1)
+          )
+          expect(PerformStrategyReminder.active.count).to eq(0)
+        end
+
+        it 'redirects to the strategies path for html requests' do
+          delete :destroy, params: { id: strategy.id }
+          expect(response).to redirect_to(strategies_path)
+        end
+
+        it 'responds with no content to json requests' do
+          delete :destroy, format: 'json', params: { id: strategy.id }
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: strategy.id } }
+
+        it_behaves_like :with_no_logged_in_user
+      end
     end
   end
 

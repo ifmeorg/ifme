@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Input } from '../components/Input';
+import Input from '../components/Input';
 import type { Props } from '../components/Input/utils';
 
 const options = [
@@ -51,6 +51,13 @@ const inputSelectProps = {
   label: 'Some Select Label',
   value: 2,
   options,
+};
+
+const inputPasswordProps = {
+  id: 'some-password-id',
+  type: 'password',
+  name: 'some-password-name',
+  label: 'Some Password Label',
 };
 
 const inputCheckboxProps = {
@@ -114,6 +121,7 @@ export const InputMocks = {
   inputSubmitProps,
   inputTagProps,
   inputSwitchProps,
+  inputPasswordProps,
   event,
   createInput,
 };

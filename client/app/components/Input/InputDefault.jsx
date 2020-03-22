@@ -2,8 +2,16 @@
 import React from 'react';
 import css from './Input.scss';
 
-export const REQUIRES_DEFAULT = ['text', 'number', 'time', 'date', 'hidden'];
-export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date'];
+export const REQUIRES_DEFAULT = [
+  'text',
+  'number',
+  'time',
+  'date',
+  'hidden',
+  'email',
+  'search',
+];
+export const DEFAULT_WITH_LABEL = ['text', 'number', 'time', 'date', 'email'];
 
 export type Props = {
   id: string,
@@ -18,6 +26,7 @@ export type Props = {
   maxLength?: number,
   min?: number,
   max?: number,
+  autoComplete?: 'on' | 'off',
   hasError?: Function,
   myRef?: any,
   label?: string,
@@ -64,6 +73,7 @@ export const InputDefault = (props: Props) => {
     maxLength,
     min,
     max,
+    autoComplete,
     value,
     hasError,
     myRef,
@@ -86,6 +96,7 @@ export const InputDefault = (props: Props) => {
       maxLength={maxLength}
       min={min}
       max={max}
+      autoComplete={autoComplete}
       onFocus={() => onFocus(required, hasError)}
       onBlur={(e: SyntheticEvent<HTMLInputElement>) => onBlur(e, required, hasError)}
       ref={myRef}

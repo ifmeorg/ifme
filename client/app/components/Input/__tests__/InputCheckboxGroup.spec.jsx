@@ -1,6 +1,7 @@
 // @flow
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { InputCheckboxGroup } from '../InputCheckboxGroup';
 
 const id = 'some-id';
@@ -39,22 +40,16 @@ describe('InputCheckboxGroup', () => {
       const wrapper = mount(
         <InputCheckboxGroup checkboxes={checkboxes} hasError={someEvent} />,
       );
-      expect(
-        typeof wrapper.state('checkboxes')[1].checked === 'undefined',
-      ).toEqual(true);
-      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-        currentTarget: { checked: true },
+      act(() => {
+        wrapper
+          .find(`input[name="${name}"][type="checkbox"]`)
+          .prop('onChange')({ currentTarget: { checked: false } });
       });
-      expect(wrapper.state('checkboxes')[1].checked).toEqual(true);
-      expect(wrapper.state('checkboxes')[0].checked).toEqual(true);
-      wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')({
-        currentTarget: { checked: false },
+      act(() => {
+        wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+          currentTarget: { checked: false },
+        });
       });
-      expect(wrapper.state('checkboxes')[0].checked).toEqual(false);
-      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-        currentTarget: { checked: false },
-      });
-      expect(wrapper.state('checkboxes')[1].checked).toEqual(false);
       expect(window.alert).not.toHaveBeenCalled();
     });
   });
@@ -68,22 +63,16 @@ describe('InputCheckboxGroup', () => {
           required
         />,
       );
-      expect(
-        typeof wrapper.state('checkboxes')[1].checked === 'undefined',
-      ).toEqual(true);
-      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-        currentTarget: { checked: true },
+      act(() => {
+        wrapper
+          .find(`input[name="${name}"][type="checkbox"]`)
+          .prop('onChange')({ currentTarget: { checked: false } });
       });
-      expect(wrapper.state('checkboxes')[1].checked).toEqual(true);
-      expect(wrapper.state('checkboxes')[0].checked).toEqual(true);
-      wrapper.find(`input[name="${name}"][type="checkbox"]`).prop('onChange')({
-        currentTarget: { checked: false },
+      act(() => {
+        wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
+          currentTarget: { checked: false },
+        });
       });
-      expect(wrapper.state('checkboxes')[0].checked).toEqual(false);
-      wrapper.find(`input[name="${nameTwo}"]`).prop('onChange')({
-        currentTarget: { checked: false },
-      });
-      expect(wrapper.state('checkboxes')[1].checked).toEqual(false);
       expect(window.alert).toHaveBeenCalledWith('Error');
     });
   });

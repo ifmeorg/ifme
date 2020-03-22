@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# rubocop:disable ModuleLength
+# rubocop:disable Metrics/ModuleLength
 module MedicationsFormHelper
   include FormHelper
 
@@ -222,4 +222,4 @@ module MedicationsFormHelper
     }.merge(medication_basic_props(type))
   end
 end
-# rubocop:enable ModuleLength
+# rubocop:enable Metrics/ModuleLength

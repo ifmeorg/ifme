@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import type { Checkbox } from './utils';
 import { InputCheckbox } from './InputCheckbox';
 
@@ -9,19 +9,14 @@ export type Props = {
   hasError?: Function,
 };
 
-export type State = {
-  checkboxes: Checkbox[],
-};
+export function InputCheckboxGroup({
+  hasError,
+  required,
+  checkboxes: defaultCheckboxes,
+}: Props) {
+  const [checkboxes, setCheckboxes] = useState<Checkbox[]>(defaultCheckboxes);
 
-export class InputCheckboxGroup extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { checkboxes: props.checkboxes };
-  }
-
-  handleOnChange = (checkbox: { checked: boolean, id: string }) => {
-    const { hasError, required } = this.props;
-    const { checkboxes } = this.state;
+  const handleOnChange = (checkbox: { checked: boolean, id: string }) => {
     const newCheckboxes = checkboxes.map((item: Checkbox) => {
       const newItem = { ...item };
       if (newItem.id === checkbox.id) {
@@ -32,26 +27,23 @@ export class InputCheckboxGroup extends React.Component<Props, State> {
     if (required && hasError) {
       hasError(newCheckboxes.filter((item) => item.checked).length === 0);
     }
-    this.setState({ checkboxes: newCheckboxes });
+    setCheckboxes(newCheckboxes);
   };
 
-  render() {
-    const { checkboxes } = this.state;
-    return (
-      <div>
-        {checkboxes.map((checkbox: Checkbox) => (
-          <InputCheckbox
-            id={checkbox.id}
-            name={checkbox.name}
-            key={checkbox.id}
-            value={checkbox.value}
-            checked={checkbox.checked}
-            uncheckedValue={checkbox.uncheckedValue}
-            label={checkbox.label}
-            onChange={this.handleOnChange}
-          />
-        ))}
-      </div>
-    );
-  }
+  return (
+    <div>
+      {checkboxes.map((checkbox: Checkbox) => (
+        <InputCheckbox
+          id={checkbox.id}
+          name={checkbox.name}
+          key={checkbox.id}
+          value={checkbox.value}
+          checked={checkbox.checked}
+          uncheckedValue={checkbox.uncheckedValue}
+          label={checkbox.label}
+          onChange={handleOnChange}
+        />
+      ))}
+    </div>
+  );
 }

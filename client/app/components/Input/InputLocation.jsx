@@ -1,53 +1,45 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import LocationAutocomplete from 'location-autocomplete';
-import { I18n } from '../../libs/i18n';
+import css from './Input.scss';
 
 export type Props = {
-  placeholder: string,
+  label: string,
   apiKey: string,
   id: string,
+  name: string,
   value?: any,
 };
 
-export type State = {
-  address: string,
-};
+export function InputLocation({
+  label,
+  apiKey,
+  id,
+  name,
+  value: defaultAddress,
+}: Props) {
+  const [address, setAddress] = useState<string>(defaultAddress || '');
 
-export class InputLocation extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { address: props.value || '' };
-  }
-
-  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    const address: string = event.target.value;
-    this.setState({ address });
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    const newAdress: string = event.target.value;
+    setAddress(newAdress);
   };
 
-  handleDropdownSelect = (event: any) => {
-    const address: string = event.input.value;
-    this.setState({ address });
+  const handleDropdownSelect = (event: any) => {
+    const newAdress: string = event.input.value;
+    setAddress(newAdress);
   };
 
-  render() {
-    const ariaLabel = I18n.t('common.form.location');
-    const { placeholder } = this.props;
-    const { apiKey } = this.props;
-    const { id } = this.props;
-    const { address } = this.state;
-    return (
-      <LocationAutocomplete
-        name="user[location]"
-        placeholder={placeholder}
-        googleAPIKey={apiKey}
-        onChange={this.handleChange}
-        onDropdownSelect={this.handleDropdownSelect}
-        className="smallerMarginBottom"
-        id={id}
-        aria-label={ariaLabel}
-        value={address}
-      />
-    );
-  }
+  return (
+    <LocationAutocomplete
+      name={name}
+      googleAPIKey={apiKey}
+      onChange={handleChange}
+      onDropdownSelect={handleDropdownSelect}
+      id={id}
+      className={css.location}
+      aria-label={label}
+      value={address}
+    />
+  );
 }

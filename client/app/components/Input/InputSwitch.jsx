@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Utils } from '../../utils';
@@ -21,86 +21,75 @@ export type State = {
   key?: string,
 };
 
-export class InputSwitch extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { checked: !!props.checked };
-  }
+export function InputSwitch({
+  id,
+  name,
+  label,
+  value,
+  uncheckedValue,
+  checked: propChecked,
+}: Props) {
+  const [checked, setChecked] = useState<boolean>(!!propChecked);
+  const [key, setKey] = useState<string>('');
 
-  toggleChecked = () => {
-    this.setState((prevState: State) => ({
-      checked: !prevState.checked,
-      key: Utils.randomString(),
-    }));
+  const toggleChecked = () => {
+    setChecked(!checked);
+    setKey(Utils.randomString());
   };
 
-  onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+  const onKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      this.toggleChecked();
+      toggleChecked();
     }
   };
 
-  displaySwitchHidden = () => {
-    const {
-      id, name, label, value, uncheckedValue,
-    } = this.props;
-    const { checked, key } = this.state;
-    return (
-      <div className={css.switchHidden}>
-        <InputCheckbox
-          id={id}
-          key={key}
-          type="checkbox"
-          name={name}
-          label={label}
-          value={value}
-          uncheckedValue={uncheckedValue}
-          checked={checked}
-        />
-      </div>
-    );
-  };
+  const displaySwitchHidden = () => (
+    <div className={css.switchHidden}>
+      <InputCheckbox
+        id={id}
+        key={key}
+        type="checkbox"
+        name={name}
+        label={label}
+        value={value}
+        uncheckedValue={uncheckedValue}
+        checked={checked}
+      />
+    </div>
+  );
 
-  displaySwitchIcon = () => {
-    const { checked } = this.state;
+  const displaySwitchIcon = () => {
     if (checked) {
       return <FontAwesomeIcon icon={faCheck} />;
     }
     return <FontAwesomeIcon icon={faTimes} />;
   };
 
-  displaySwitch = () => {
-    const { id } = this.props;
-    const { checked } = this.state;
-    return (
-      <div
-        id={`${id}_switch`}
-        className={`switchToggle ${css.switchToggle}`}
-        onClick={this.toggleChecked}
-        onKeyPress={this.onKeyPress}
-        role="switch"
-        aria-checked={checked}
-        tabIndex={0}
-        aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
-      >
-        {this.displaySwitchIcon()}
-      </div>
-    );
-  };
+  const displaySwitch = () => (
+    <div
+      id={`${id}_switch`}
+      className={`switchToggle ${css.switchToggle}`}
+      onClick={toggleChecked}
+      onKeyPress={onKeyPress}
+      role="switch"
+      aria-checked={checked}
+      tabIndex={0}
+      aria-label={checked ? I18n.t('yes_text') : I18n.t('no_text')}
+    >
+      {displaySwitchIcon()}
+    </div>
+  );
 
-  render() {
-    const { checked } = this.state;
-    return (
-      <div className={css.switch}>
-        <div
-          className={`${css.switchWrapper} ${
-            checked ? css.switchOn : css.switchOff
-          }`}
-        >
-          {this.displaySwitch()}
-        </div>
-        {this.displaySwitchHidden()}
+  return (
+    <div className={css.switch}>
+      <div
+        className={`${css.switchWrapper} ${
+          checked ? css.switchOn : css.switchOff
+        }`}
+      >
+        {displaySwitch()}
       </div>
-    );
-  }
+      {displaySwitchHidden()}
+    </div>
+  );
 }

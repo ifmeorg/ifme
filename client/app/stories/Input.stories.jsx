@@ -347,4 +347,39 @@ storiesOf('Input', module)
         accordion: true,
       })}
     </>
+  ))
+  .add('Password', () => (
+    <>
+      {InputMocks.createInput(InputMocks.inputPasswordProps)}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        large: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        dark: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        dark: true,
+        large: true,
+      })}
+    </>
+  ))
+  .add('Password with accordion', () => (
+    <>
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        large: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        dark: true,
+        accordion: true,
+      })}
+      {InputMocks.createInput(InputMocks.inputPasswordProps, {
+        dark: true,
+        large: true,
+        accordion: true,
+      })}
+    </>
   ));

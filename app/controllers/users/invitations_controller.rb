@@ -17,7 +17,7 @@ module Users
     end
 
     # PUT /resource/invitation
-    # rubocop:disable MethodLength
+    # rubocop:disable Metrics/MethodLength
     def update
       raw_invitation_token = update_resource_params[:invitation_token]
       self.resource = accept_resource
@@ -29,9 +29,9 @@ module Users
         AllyshipCreator.perform(ally_id: resource.id,
                                 current_user: resource.invited_by)
         if resource.class.allow_insecure_sign_in_after_accept
-          # rubocop:disable LineLength
+          # rubocop:disable Layout/LineLength
           flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
-          # rubocop:enable LineLength
+          # rubocop:enable Layout/LineLength
           set_flash_message :notice, flash_message if is_flashing_format?
           sign_in(resource_name, resource)
           respond_with resource, location: after_accept_path_for(resource)
@@ -44,7 +44,7 @@ module Users
         respond_with_navigational(resource) { render :edit }
       end
     end
-    # rubocop:enable MethodLength
+    # rubocop:enable Metrics/MethodLength
 
     private
 

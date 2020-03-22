@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { Comments } from '../index';
 
 let axiosPostSpy;
@@ -101,11 +102,14 @@ describe('Comments', () => {
   it('add and delete a comment', async () => {
     const wrapper = mount(component);
     expect(wrapper.find('.comment').exists()).toEqual(false);
-    wrapper.find('input[name="comment[comment]"]').simulate('change', {
-      currentTarget: { value },
-    });
-    wrapper.find('select#comment_visibility').prop('onChange')({
-      currentTarget: { value: 'private' },
+    act(() => {
+      wrapper
+        .find('input[name="comment[comment]"]')
+        .simulate('change', { currentTarget: { value } });
+
+      wrapper.find('select#comment_visibility').prop('onChange')({
+        currentTarget: { value: 'private' },
+      });
     });
     wrapper.find('input[type="submit"]').simulate('click');
     await axiosPostSpy();

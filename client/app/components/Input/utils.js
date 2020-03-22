@@ -9,6 +9,7 @@ export const TYPES: string[] = REQUIRES_DEFAULT.concat([
   'checkboxGroup',
   'tag',
   'switch',
+  'password',
   'location',
 ]);
 
@@ -18,11 +19,15 @@ export const REQUIRES_LABEL: string[] = DEFAULT_WITH_LABEL.concat([
   'checkboxGroup',
   'tag',
   'switch',
+  'password',
+  'location',
 ]);
 
 export const REQUIRED_POSSIBLE: string[] = DEFAULT_WITH_LABEL.concat([
   'textarea',
   'checkboxGroup',
+  'password',
+  'location',
 ]);
 
 export type Option = {
@@ -56,7 +61,10 @@ export type Props = {
     | 'tag'
     | 'hidden'
     | 'switch'
-    | 'location',
+    | 'location'
+    | 'password'
+    | 'email'
+    | 'search',
   name: string,
   label?: string,
   placeholder?: string,
@@ -78,6 +86,7 @@ export type Props = {
   uncheckedValue?: any,
   min?: number,
   max?: number,
+  autoComplete?: 'on' | 'off',
   options?: Option[],
   checkboxes?: Checkbox[],
   onError?: Function,
@@ -87,8 +96,4 @@ export type Props = {
   formNoValidate?: boolean,
   googleAPIKey?: string,
   copyOnClick?: string,
-};
-
-export type State = {
-  error: boolean,
 };
