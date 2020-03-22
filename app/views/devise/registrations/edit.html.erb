@@ -46,7 +46,7 @@
       <%= t('devise.registrations.edit.labels.remove_picture') %>
     <% end %>
   <% end %>
-  
+
   <div class="label smallMarginTop"><%= t('devise.registrations.edit.labels.about') %></div>
   <%= f.text_area :about, placeholder: t('devise.registrations.edit.placeholders.about'), 'aria-label': t('devise.registrations.edit.placeholders.about') %>
 
@@ -60,14 +60,34 @@
   <% end %>
 
   <div class="label smallMarginTop"><%= t('devise.new_password') %></div>
-  <%= f.password_field :password, autocomplete: 'off', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
+
+  <%= react_component 'Input', props: {
+    type: 'password',
+    name: 'user[password]',
+    id: 'user_password',
+    label: t('devise.password'),
+    placeholder: t('devise.password')
+  } %>
+
   <div class="smallMarginTop">
-    <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': t('devise.registrations.placeholders.repeat_password') %>
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password_confirmation]',
+      id: 'user_password_confirmation',
+      label: t('devise.registrations.placeholders.repeat_password'),
+      placeholder: t('devise.registrations.placeholders.repeat_password')
+    } %>
   </div>
 
 	<% if current_user.provider != 'google_oauth2' %>
     <div class="label smallMarginTop"><%= t('devise.current_password') %></div>
-    <%= f.password_field :current_password, autocomplete: 'off', placeholder: t('devise.registrations.edit.placeholders.required'), 'aria-label': t('devise.registrations.edit.placeholders.required') %>
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[current_password]',
+      id: 'user_current_password',
+      label: t('devise.registrations.edit.placeholders.required'),
+      placeholder: t('devise.registrations.edit.placeholders.required')
+    } %>
   <% end %>
 
   <div class="smallMarginTop">

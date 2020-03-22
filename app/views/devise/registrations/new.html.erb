@@ -14,8 +14,24 @@
     </div>
 
     <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', class: 'smallMarginBottom', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
-    <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': ('devise.registrations.placeholders.repeat_password') %>
+
+    <div class="smallMarginBottom">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password]',
+        id: 'user_password',
+        label: t('devise.password'),
+        placeholder: t('devise.password')
+      } %>
+    </div>
+
+    <%= react_component 'Input', props: {
+      type: 'password',
+      name: 'user[password_confirmation]',
+      id: 'user_password_confirmation',
+      label: t('devise.registrations.placeholders.repeat_password'),
+      placeholder: t('devise.registrations.placeholders.repeat_password')
+    } %>
 
     <%= f.submit t('account.sign_up'), class: 'buttonGhostM smallMarginTop' %>
   </div>
