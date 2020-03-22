@@ -42,9 +42,9 @@ export function InputPassword({
       <button
         type="button"
         onClick={toggleShow}
-        aria-label={showText ? I18n.t('devise.show_password') : I18n.t('devise.hide_password')}
+        aria-label={showText ? I18n.t('devise.hide_password') : I18n.t('devise.show_password')}
       >
-        <i className={showText ? 'fa fa-eye' : 'fa fa-eye-slash'} />
+        <i className={showText ? 'fa fa-eye-slash' : 'fa fa-eye'} />
       </button>
     </div>
   );
