@@ -671,6 +671,8 @@ hi:
     current_password: 'वर्तमान पासवर्ड'
     password_change: 'मेरा पासवर्ड बदलो'
     remember_me: 'मुझे याद रखना'
+    show_password: 'शो पासवर्ड'
+    hide_password: 'पासवर्ड छिपाएं'
     confirmations:
       resend_confirmation: 'पुष्टिकरण निर्देशों को पुनः भेजें'
     mailer:

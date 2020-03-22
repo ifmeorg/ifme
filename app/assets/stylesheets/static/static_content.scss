@@ -114,28 +114,10 @@
     text-shadow: $size-0 $size-0 $size-4 $purple-yay;
   }
 
-  form {
+  form,
+  .links {
     max-width: 446px;
     margin: 0 auto;
-    text-align: center;
-
-    .label,
-    label {
-      color: $white;
-    }
-
-    [type='text'],
-    [type='email'],
-    [type='password'],
-    [type='submit'] {
-      width: 100%;
-    }
-
-    [type='checkbox'] {
-      float: left;
-      width: 20px;
-      height: 20px;
-    }
 
     .actions {
       margin-bottom: 100px;

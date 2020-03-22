@@ -17,7 +17,7 @@ module GroupsFormHelper
     edit_inputs || common_inputs
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   def common_inputs
     [
       {
@@ -40,9 +40,9 @@ module GroupsFormHelper
       }
     ]
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/MethodLength
 
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   def edit_inputs
     return unless action_name == 'edit' || action_name == 'update'
 
@@ -68,5 +68,5 @@ module GroupsFormHelper
       required: true
     )
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/MethodLength
 end

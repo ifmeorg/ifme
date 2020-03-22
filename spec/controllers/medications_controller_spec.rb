@@ -266,4 +266,106 @@ describe MedicationsController do
       it_behaves_like :with_no_logged_in_user
     end
   end
+
+  describe '#destroy' do
+    let(:user) { create(:user) }
+
+    context 'when medication has no reminders' do
+      let!(:medication) { create(:medication, user: user) }
+
+      context 'when the user is logged in' do
+        include_context :logged_in_user
+
+        it 'destroys the medication' do
+          expect { delete :destroy, params: { id: medication.id } }.to(
+            change(Medication, :count).by(-1)
+          )
+        end
+
+        it 'redirects to the medications path for html requests' do
+          delete :destroy, params: { id: medication.id }
+          expect(response).to redirect_to(medications_path)
+        end
+
+        it 'responds with no content to json requests' do
+          delete :destroy, format: 'json', params: { id: medication.id }
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: medication.id } }
+
+        it_behaves_like :with_no_logged_in_user
+      end
+    end
+
+    context 'when medication has a daily reminder' do
+      let!(:medication) do
+        create(:medication, :with_daily_reminder, user: user)
+      end
+
+      context 'when the user is logged in' do
+        include_context :logged_in_user
+
+        it 'destroys the medication' do
+          expect(TakeMedicationReminder.active.count).to eq(1)
+          expect { delete :destroy, params: { id: medication.id } }.to(
+            change(Medication, :count).by(-1)
+          )
+          expect(TakeMedicationReminder.active.count).to eq(0)
+        end
+
+        it 'redirects to the medications path for html requests' do
+          delete :destroy, params: { id: medication.id }
+          expect(response).to redirect_to(medications_path)
+        end
+
+        it 'responds with no content to json requests' do
+          delete :destroy, format: 'json', params: { id: medication.id }
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: medication.id } }
+
+        it_behaves_like :with_no_logged_in_user
+      end
+    end
+
+    context 'when medication has a refill reminder' do
+      let!(:medication) do
+        create(:medication, :with_refill_reminder, user: user)
+      end
+
+      context 'when the user is logged in' do
+        include_context :logged_in_user
+
+        it 'destroys the medication' do
+          expect(RefillReminder.active.count).to eq(1)
+          expect { delete :destroy, params: { id: medication.id } }.to(
+            change(Medication, :count).by(-1)
+          )
+          expect(RefillReminder.active.count).to eq(0)
+        end
+
+        it 'redirects to the medications path for html requests' do
+          delete :destroy, params: { id: medication.id }
+          expect(response).to redirect_to(medications_path)
+        end
+
+        it 'responds with no content to json requests' do
+          delete :destroy, format: 'json', params: { id: medication.id }
+          expect(response.body).to be_empty
+        end
+      end
+
+      context 'when the user is not logged in' do
+        before { delete :destroy, params: { id: medication.id } }
+
+        it_behaves_like :with_no_logged_in_user
+      end
+    end
+  end
 end

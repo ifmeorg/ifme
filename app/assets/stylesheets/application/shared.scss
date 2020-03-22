@@ -88,10 +88,11 @@
       margin-left: $size-0;
     }
   }
-  input[type="text"] {
+  div:first-of-type {
     flex-grow: 1;
     @media screen and (max-width: $medium) {
-      margin: $size-0 $size-0 $size-10 $size-0;
+      margin: $size-0 $size-0 $size-4 $size-0;
+      width: 100%;
     }
   }
 }

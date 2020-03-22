@@ -671,6 +671,8 @@ nb:
     current_password: 'Nåværende passord'
     password_change: 'Rediger passordet mitt'
     remember_me: 'Husk meg'
+    show_password: 'Vis passord'
+    hide_password: 'Skjul passord'
     confirmations:
       resend_confirmation: 'Send bekreftelsesinstruksjoner på nytt'
     mailer:

@@ -1,23 +1,41 @@
 <div class="subtitle"><%= t('devise.sessions.subtitle') %></div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="center">
-    <div class="label smallMarginTop"><%= t('common.form.email') %></div>
-    <%= f.email_field :email, 'aria-label': t('common.form.email') %>
+  <div class="marginTop">
+    <%= react_component 'Input', props: {
+      type: 'email',
+      name: 'user[email]',
+      id: 'user_email',
+      label: t('common.form.email'),
+      light: true,
+      required: true
+    } %>
 
-    <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', 'aria-label': t('devise.password') %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password]',
+        id: 'user_password',
+        label: t('devise.password'),
+        light: true,
+        required: true
+      } %>
+    </div>
 
     <% if devise_mapping.rememberable? -%>
       <div class="label smallMarginTop">
-        <%= f.check_box :remember_me, 'aria-label': t('devise.remember_me') %>
-        <%= t('devise.remember_me') %>
+        <%= react_component 'Input', props: {
+          type: 'checkbox',
+          name: 'user[remember_me]',
+          id: 'user_remember_me',
+          label: t('devise.remember_me'),
+          value: 1,
+          light: true
+        } %>
       </div>
     <% end -%>
-    <%= f.submit t('account.sign_in'), class: 'buttonGhostM smallMarginTop' %>
+    <%= f.submit t('account.sign_in'), class: 'buttonGhostM marginTop' %>
   </div>
 <% end %>
 
-<div class="center">
-  <%= render 'devise/shared/links' %>
-</div>
+<%= render 'devise/shared/links' %>

@@ -1,14 +1,13 @@
 // @flow
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { InputSelect } from '../InputSelect';
 import { InputMocks } from '../../../mocks/InputMocks';
 
-const { id } = InputMocks.inputSelectProps;
-const { name } = InputMocks.inputSelectProps;
-const { ariaLabel } = InputMocks.inputSelectProps;
-const { value } = InputMocks.inputSelectProps;
-const { options } = InputMocks.inputSelectProps;
+const {
+  id, name, ariaLabel, value, options,
+} = InputMocks.inputSelectProps;
 const someEvent = InputMocks.event;
 
 describe('InputSelect', () => {
@@ -27,15 +26,17 @@ describe('InputSelect', () => {
         onChange={someEvent}
       />,
     );
-    wrapper
-      .find('select')
-      .simulate('change', { currentTarget: { value: options[1].value } });
+    act(() => {
+      wrapper
+        .find('select')
+        .simulate('change', { currentTarget: { value: options[1].value } });
+    });
     expect(window.alert).toHaveBeenCalled();
-    expect(wrapper.state('value')).toEqual(options[1].value);
-    wrapper
-      .find('select')
-      .simulate('change', { currentTarget: { value: options[0].value } });
+    act(() => {
+      wrapper
+        .find('select')
+        .simulate('change', { currentTarget: { value: options[0].value } });
+    });
     expect(window.alert).toHaveBeenCalled();
-    expect(wrapper.state('value')).toEqual(options[0].value);
   });
 });

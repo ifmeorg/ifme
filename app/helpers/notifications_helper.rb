@@ -25,9 +25,9 @@ module NotificationsHelper
   def new_ally_request_link(uniqueid, data)
     link = "/profile?uid=#{data[:uid]}"
     link_html = "<a href=\"#{link}\">#{data[:user]}</a>"
-    # rubocop:disable LineLength
+    # rubocop:disable Layout/LineLength
     "<div id=\"#{uniqueid}\"><div>#{t('notifications.ally.sent_html', link_to_user: link_html)}</div>#{request_actions(data[:user_id])}</div>"
-    # rubocop:enable LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   def group_link(uniqueid, data)
@@ -61,16 +61,16 @@ module NotificationsHelper
 
   def request_accept(user_id)
     add = "/allies/add?ally_id=#{user_id}"
-    # rubocop:disable LineLength
+    # rubocop:disable Layout/LineLength
     "<a rel=\"nofollow\" data-method=\"post\" href=\"#{add}\">#{t('allies.accept')}</a>"
-    # rubocop:enable LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   def request_reject(user_id)
     remove = "/allies/remove?ally_id=#{user_id}"
-    # rubocop:disable LineLength
+    # rubocop:disable Layout/LineLength
     "<a data-confirm=\"#{t('common.actions.confirm')}\" rel=\"nofollow\" data-method=\"post\" href=\"#{remove}\">#{t('allies.reject')}</a>"
-    # rubocop:enable LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   def request_actions(user_id)

@@ -672,6 +672,8 @@ zh-CN:
     current_password: '当前密码'
     password_change: '更改我的密码'
     remember_me: '记住我'
+    show_password: '顯示密碼'
+    hide_password: '隱藏密碼'
     confirmations:
       resend_confirmation: '重新发送确认说明'
     mailer:

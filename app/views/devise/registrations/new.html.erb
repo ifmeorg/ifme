@@ -2,25 +2,63 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="center">
-    <div class="label"><%= t('common.name') %></div>
-    <%= f.text_field :name, 'aria-label': t('common.name') %>
-
-    <div class="label smallMarginTop"><%= t('devise.registrations.new.label') %></div>
-    <%= react_component 'Input', props: { type: 'location', placeholder: t('common.form.location'), googleAPIKey: ENV['GOOGLE_API_KEY'], id: 'user_input'} %>
+  <div class="marginTop">
+    <%= react_component 'Input', props: {
+      type: 'text',
+      name: 'user[name]',
+      id: 'user_name',
+      label: t('common.name'),
+      autoComplete: 'off',
+      light: true,
+      required: true
+    } %>
 
     <div class="smallMarginTop">
-      <%= f.email_field :email, placeholder: t('common.form.email'), 'aria-label': t('common.form.email') %>
+      <%= react_component 'Input', props: {
+        type: 'location',
+        googleAPIKey: ENV['GOOGLE_API_KEY'],
+        id: 'user_location',
+        name: 'user[location]',
+        label: t('common.form.location'),
+        light: true
+      } %>
     </div>
 
-    <div class="label smallMarginTop"><%= t('devise.password') %></div>
-    <%= f.password_field :password, autocomplete: 'off', class: 'smallMarginBottom', placeholder: t('devise.password'), 'aria-label': t('devise.password') %>
-    <%= f.password_field :password_confirmation, autocomplete: 'off', placeholder: t('devise.registrations.placeholders.repeat_password'), 'aria-label': ('devise.registrations.placeholders.repeat_password') %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'email',
+        name: 'user[email]',
+        id: 'user_email',
+        label: t('common.form.email'),
+        light: true,
+        required: true
+      } %>
+    </div>
 
-    <%= f.submit t('account.sign_up'), class: 'buttonGhostM smallMarginTop' %>
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password]',
+        id: 'user_password',
+        label: t('devise.password'),
+        light: true,
+        required: true
+      } %>
+    </div>
+
+    <div class="smallMarginTop">
+      <%= react_component 'Input', props: {
+        type: 'password',
+        name: 'user[password_confirmation]',
+        id: 'user_password_confirmation',
+        label: t('devise.registrations.placeholders.repeat_password'),
+        light: true,
+        required: true
+      } %>
+    </div>
+
+    <%= f.submit t('account.sign_up'), class: 'buttonGhostM marginTop' %>
   </div>
 <% end %>
 
-<div class="center">
-  <%= render 'devise/shared/links' %>
-</div>
+<%= render 'devise/shared/links' %>

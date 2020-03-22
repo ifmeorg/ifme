@@ -112,7 +112,6 @@ describe('QuickCreate', () => {
       expect(modal.prop('open')).toBe(false);
       expect(input.prop('accordionOpen')).toBe(true);
       expect(modal.key()).toBe(wrapper.state('modalKey'));
-      expect(input.key()).toBe(wrapper.state('tagKey'));
     });
 
     it('does not submit the form when response data is invalid', () => {

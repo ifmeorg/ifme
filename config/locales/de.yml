@@ -679,6 +679,8 @@ de:
     current_password: 'Aktuelles Passwort'
     password_change: 'Mein Passwort ändern'
     remember_me: 'Angemeldet bleiben'
+    show_password: 'Passwort anzeigen'
+    hide_password: 'Passwort verbergen'
     confirmations:
       resend_confirmation: 'Anweisungen zur Bestätigung erneut senden'
     mailer:

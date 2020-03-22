@@ -1,7 +1,7 @@
 // @flow
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Input } from '../Input';
+import Input from '../Input';
 import { TYPES as INPUT_TYPES } from '../Input/utils';
 import css from './Form.scss';
 import { getNewInputs } from './utils';
